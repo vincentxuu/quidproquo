@@ -56,6 +56,8 @@ title: Lecture 18 錄影：Neural Networks, Backpropagation
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 17 影片（bMJ9igfvn1M，約 76 分鐘）開場說期中考後進入神經網路，內容有 XOR 手算、64×64 影像與 data manifold、萬能近似定理、深度與邏輯電路的類比、激活函數與 ReLU，結束在課後春假前；字幕找不到 PyTorch 四個概念、leaky ReLU、softplus，這些只見於講義。Lecture 18 影片（XlaV_z2knjA，約 79 分鐘）確為反向傳播：chain rule、計算圖、多個子節點的梯度相加、bar 記號；字幕找不到有限差分的成本比較、符號微分與 dead units（講者結尾說非線性的導數留到下堂），有限差分與初始化相關內容在 Lec 19 影片出現。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## 場景：線性模型連 XOR 都學不會
 
 Lec 17 後半有一個完整的手算例子，改編自 Goodfellow 等人《[Deep Learning](https://www.deeplearningbook.org/contents/mlp.html)》第 6 章。資料只有四筆：
@@ -120,7 +122,7 @@ Lec 17 的記號之後整學期都會用到：
 
 ### PyTorch 四個核心概念
 
-Lec 17 收尾用幾張投影片介紹 PyTorch：`torch.tensor` 類似 `numpy.ndarray`，但能放上 GPU，也能記錄自己是怎麼算出來的（`grad_fn`）；模型繼承 `nn.Module`，在 `__init__` 宣告參數、在 `forward` 寫計算；`loss.backward()` 用自動微分算出所有參數的梯度；訓練迴圈（某種梯度下降）要自己寫。講義附了一個 `MLPModel` 範例，並把自動微分標註為「下一講的主題」。
+Lec 17 收尾用幾張投影片介紹 PyTorch（錄影沒有講到這幾張）：`torch.tensor` 類似 `numpy.ndarray`，但能放上 GPU，也能記錄自己是怎麼算出來的（`grad_fn`）；模型繼承 `nn.Module`，在 `__init__` 宣告參數、在 `forward` 寫計算；`loss.backward()` 用自動微分算出所有參數的梯度；訓練迴圈（某種梯度下降）要自己寫。講義附了一個 `MLPModel` 範例，並把自動微分標註為「下一講的主題」。
 
 ## 機制二：反向傳播是整理過的 chain rule
 
@@ -163,7 +165,7 @@ v̄ = Σ_k  c̄_k · ∂c_k/∂v
 
 ### 成本：為什麼一定要用反向傳播
 
-Lec 18 比較了三種算梯度的方法：
+Lec 18 講義比較了三種算梯度的方法（Lec 18 錄影沒有這段，有限差分的成本在 Lec 19 錄影中才講）：
 
 | 方法 | 講義的評語 |
 |---|---|
@@ -175,7 +177,7 @@ Lec 18 比較了三種算梯度的方法：
 
 ### 回到激活函數
 
-有了反向傳播，Lec 18 回頭解釋 sigmoid 和 tanh 的問題：兩端的漸近線讓梯度變成 0，單元容易卡住，變成「dead units」。ReLU 解決了一半（x > 0 那側）；負的那側仍會死掉。講義列出的補救方法有：較小的學習率、batch normalization、改用 leaky ReLU。batch norm 在 Lec 19 才正式介紹，見[下一篇 order 13](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)。
+有了反向傳播，Lec 18 講義回頭解釋 sigmoid 和 tanh 的問題（錄影沒有這段，講者結尾說留到下堂）：兩端的漸近線讓梯度變成 0，單元容易卡住，變成「dead units」。ReLU 解決了一半（x > 0 那側）；負的那側仍會死掉。講義列出的補救方法有：較小的學習率、batch normalization、改用 leaky ReLU。batch norm 在 Lec 19 才正式介紹，見[下一篇 order 13](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)。
 
 講義最後一張投影片很誠實：多項式特徵的線性回歸也是萬能近似器，那為什麼深度網路在實務上常贏？講義說目前**還沒完全搞懂**，可能和巨大架構造成的優化地形有關，仍是理論界活躍的研究方向，並附上 David Donoho 在 Stanford Stats385 的[講義](https://stats385.github.io/assets/lectures/StanfordStats385-20170927-Lecture01-Donoho.pdf)。
 
@@ -202,6 +204,7 @@ Discussion 8 只有兩題，都是證明題：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；PyTorch 投影片、有限差分成本比較與 dead units 不在這兩支錄影裡，文中已標註。
 
 ## 參考資料
 

@@ -54,6 +54,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 2 video (IzfaWKuxThw, about 80 minutes) is indeed Data Tools: it opens by recapping Lec 1's three-way split (engineering, ML, and human problems) and generalization, then spends most of its time on pandas (selection, joins, group by, and so on); visualization gets only a brief mention of Matplotlib and Plotly, and Weights & Biases does not appear. The Lecture 3 video (oVo_RajZ3aE, about 76 minutes) is indeed ML Mechanics: the FashionHub example, train/validation/test, one-hot encoding and log transforms, standardization, the COVID accuracy example, no free lunch, underfitting and overfitting, and an announcement that HW1 is released on Friday. The instructor stops with a few slides left, so the homework pages, grid search, predict_proba, and ImageNetV2 appear only on the slides, not in the transcript. Statements in this post that are attributed to "the slides" were not compared page by page, and the transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Lec 1: which problems belong to ML
 
 Lecture 1's definition is short: machine learning is software systems that improve (learn) through data. Two classic examples show why we need it. Spam is hard to define but easy to demonstrate. Face detection is hard to program but easy to demonstrate.
@@ -178,6 +180,7 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their lecture topics; the Lec 2 video says little about visualization and the Lec 3 video ends before the homework pages, which is now noted in the video sources section.
 
 ## References
 

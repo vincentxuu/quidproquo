@@ -54,6 +54,8 @@ title: Lecture 3 錄影：Machine Learning Mechanics - Terminology and Technique
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 2 影片（IzfaWKuxThw，約 80 分鐘）確為 Data Tools：開頭回顧 Lec 1 的三分法（工程問題、ML 問題、人的問題）與泛化問題，後面大半是 pandas（選取、join、group by 等）；視覺化只簡短帶過 Matplotlib 與 Plotly，字幕沒有 Weights & Biases。Lecture 3 影片（oVo_RajZ3aE，約 76 分鐘）確為 ML Mechanics：FashionHub 例子、train/validation/test、one-hot 與取 log、標準化、COVID 準確率例子、no free lunch、欠擬合與過擬合，並預告 HW1 週五發布；講者說還有幾頁投影片沒講就收尾，所以作業說明、grid search、predict_proba、ImageNetV2 等細節只見於投影片，字幕沒有。文中以「投影片」為主詞的敘述未逐頁對照；字幕未自報講者姓名，講者歸屬未驗證。
+
 ## Lec 1：什麼問題該交給 ML
 
 Lecture 1 給的定義很短：機器學習是透過資料改進（學習）的軟體系統。它用兩個經典例子說明為什麼需要這件事：垃圾郵件很難定義，卻很容易舉例；人臉偵測很難寫成程式，卻很容易示範。
@@ -178,6 +180,7 @@ Lecture 3 最後幾頁在講作業：Part 1 是講課內容的應用（書面題
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；Lec 2 影片對視覺化著墨很少，Lec 3 影片在作業說明之前結束，已在影片來源段註明。
 
 ## 參考資料
 

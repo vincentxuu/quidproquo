@@ -61,6 +61,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 19 video (-4PpBUsB_S4, about 80 minutes) starts from vanishing gradients and covers the O(N·L²) cost of finite differences, initialization and the symmetry problem of all-zero weights, batch normalization with its moving averages at inference, and the input-scale problem (meters versus millimeters); the later part starts CNNs (templates and edge detection) and ends with an edge-detection demo, before pooling. The Lecture 20 video (4LrCyN7URuY, about 71 minutes) covers pooling and local invariance, receptive fields, weight sharing, VGG and ResNet, a single held-out validation set replacing cross-validation, transfer learning with frozen layers, early stopping, dropout, and double descent. The exact He-initialization coefficient, the Nakkiran paper name, and Discussion 9 rely on the slides only and were not checked item by item against the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Lec 19, first part: finishing backprop
 
 Lec 19 opens by repeating Lec 18's cost comparison: finite differences cost O(NL²) per step, quadratic in the number of parameters L, and symbolic differentiation suffers from "expression swell" (Bishop 8.1.4). Then it describes the shift from backprop to automatic differentiation:
@@ -177,6 +179,7 @@ Both problems in Discussion 9 are reused from Fall 2025 discussions (labeled F25
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their lecture topics; the Lec 19 video ends before pooling, which is covered in the Lec 20 video.
 
 ## References
 

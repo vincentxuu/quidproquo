@@ -47,6 +47,8 @@ title: Lecture 15 錄影：Learning with Gradient Descent
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 13 影片（1EAoNdjsOZw，約 77 分鐘；標題的「Conv.」是 Convergence 的縮寫）以房價回歸為例從頭講梯度下降（導數到梯度、Kaggle 測試集、凸函數、一維二次函數上的學習率與收斂條件、mini-batch），但字幕沒有 Hessian 特徵分解推導、momentum、Adam，文中這些段落來自 lec13.pdf 投影片與手寫稿，不是這支影片。Lecture 15 影片（6zV_GGgUa0Y，約 77 分鐘）確為 Learning with Gradient Descent：用 w1、w2、b 三個參數的線性模型與小資料表算損失與梯度，並講 momentum、AdaGrad、Adam 與 mini-batch SGD，講者開場說補了額外內容幫大家串起教材。字幕未自報講者姓名，講者歸屬（含「Dimakis 的手算練習」）未驗證。
+
 ## 教材在哪、能拿到什麼
 
 | 講次 | 官方標題 | 教材 | Bishop 指定閱讀 |
@@ -157,6 +159,7 @@ batch size 怎麼選，講義的取捨表是：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 13 影片只涵蓋梯度下降基礎、凸函數、學習率與 mini-batch，Hessian、momentum、Adam 在 Lec 15 影片才出現；文中相關段落已標明來源。
 
 ## 參考資料
 

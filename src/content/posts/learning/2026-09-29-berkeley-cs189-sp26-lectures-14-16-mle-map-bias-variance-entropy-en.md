@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 14 video (Z1KuNG9HyiQ, about 69 minutes) contrasts MLE and MAP using coin-bias estimation, connects it to ridge and least squares, then covers bias-variance and tuning on a validation set, matching the first two sections of this post; the transcript has no Chatbot Arena, Bradley–Terry, or five-question paper-reading checklist, so that part appears only in lec14.pdf. The Lecture 16 video (ArSadC8hY-Q, about 70 minutes) is indeed Entropy, Information, and Logistic Regression: entropy through compression (about 73 bits for the 100-day rain data, the horse race), cross-entropy and KL, then the logistic regression loss; the MNIST and CIFAR-10 dataset figures are not mentioned in the transcript, and the video ends with midterm logistics. The midterm section and the problem walkthrough videos are outside this check. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Where the materials are
 
 | Item | Official title / content | Materials | Assigned Bishop reading |
@@ -94,7 +96,7 @@ Apply this to ridge. As λ grows, the weights shrink and the model becomes less 
 
 ## End of Lec 14: Chatbot Arena and how to read a paper
 
-The last part of the deck introduces [Chatbot Arena](https://arxiv.org/abs/2403.04132), a public platform where a user enters a prompt, two anonymous models answer side by side, the user votes for the better one, and many such battles are aggregated into a leaderboard. The slides tie it back to this lecture: leaderboard scores come from a Bradley–Terry model, which is essentially logistic regression (Y = which model won), and a model's Arena Score is its coefficient β.
+This part appears only in `lec14.pdf`; it is not in the recording's transcript. The last part of the deck introduces [Chatbot Arena](https://arxiv.org/abs/2403.04132), a public platform where a user enters a prompt, two anonymous models answer side by side, the user votes for the better one, and many such battles are aggregated into a leaderboard. The slides tie it back to this lecture: leaderboard scores come from a Bradley–Terry model, which is essentially logistic regression (Y = which model won), and a model's Arena Score is its coefficient β.
 
 Then comes a checklist of five questions for reading a paper:
 
@@ -170,6 +172,7 @@ Previous: [Lec 13 & 15: convergence, momentum, Adam, SGD](/en/posts/learning/202
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The Lec 14 and Lec 16 videos match their topics; Chatbot Arena and the paper-reading checklist are not in the Lec 14 recording, and the post now marks them as slides-only.
 
 ## References
 

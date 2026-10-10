@@ -51,6 +51,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 7 video (0YLmbbERr0g, about 80 minutes) first finishes GMM (comparing the K-means and mixture-of-Gaussians losses, EM) and briefly introduces gradient descent, then starts linear regression and the discriminative versus generative distinction; it ends just before differentiating the MLE with respect to the weight vector w (the instructor says next week starts with a vector-calculus refresher). The Lecture 8 video (202aSB1p8do, about 78 minutes) covers linear regression, the column-space and projection geometry, the Moore-Penrose pseudoinverse, and overfitting, and ends just before regularization (the instructor says it comes next class). So the ridge, MAP, lasso, choosing λ, and winner's-curse sections in this post come from the Lec 9–10 slides and are not covered by these two videos; the Plotly interactive figure, the Cauchy comparison figure, and the Wall Street Journal example could not be found in the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Official materials and scope
 
 | Lecture | Date | Title (from the schedule) | Materials |
@@ -247,6 +249,7 @@ On this site:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The Lec 7 and Lec 8 videos match their topics but end before regularization is introduced; the ridge, MAP, and lasso sections are now marked as coming from the Lec 9–10 slides.
 
 ## References
 

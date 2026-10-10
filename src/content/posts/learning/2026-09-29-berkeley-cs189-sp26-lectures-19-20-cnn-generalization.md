@@ -61,6 +61,8 @@ title: Lecture 20 錄影：Convolutional Neural Networks (ctnd.)
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 19 影片（-4PpBUsB_S4，約 80 分鐘）從梯度消失談起，涵蓋有限差分的成本 O(N·L²)、初始化與全零造成的對稱問題、batch normalization 與推論時的移動平均、輸入單位尺度（公尺對公釐）的問題，後段開始 CNN（模板與邊緣偵測），結束在邊緣偵測示範，還沒講 pooling。Lecture 20 影片（4LrCyN7URuY，約 71 分鐘）涵蓋 pooling 與局部不變性、receptive field、權重共享、VGG／ResNet、用單一 hold-out 驗證集取代交叉驗證、凍結層的遷移學習、early stopping、dropout 與 double descent。He 初始化的具體係數、Nakkiran 論文名與 Discussion 9 內容只依講義，字幕未逐項核對。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## Lec 19 前段：收尾反向傳播
 
 Lec 19 開頭把 Lec 18 的成本比較再講一次：有限差分每一步要 O(NL²)，和參數量 L 成平方；符號微分會出現「expression swell」（Bishop 8.1.4）。接著講從反向傳播到自動微分的轉變：
@@ -177,6 +179,7 @@ Discussion 9 兩題都沿用 Fall 2025 的 discussion（講義標注 F25 Dis8 Q1
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；Lec 19 影片在 pooling 之前結束，pooling 與 receptive field 在 Lec 20 影片。
 
 ## 參考資料
 

@@ -58,6 +58,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 4 video (STdR9OyulZE, about 80 minutes) is indeed Clustering, Probability Review. The instructor opens by saying Alex had been lecturing before and this is their first class; the video covers clustering examples such as geysers, K-means and centroids, local minima, a question about clusters of different sizes, and the asymmetry of KL. The probability review stops at joint distributions and marginalization (the instructor says the rest is left for next time), so the remaining items under the probability review (product rule, independence, IID, the wake-word Bayes example) appear only on the slides, and the name "Lloyd" is never spoken. The Lecture 5 video (kU7a1K3PX10, about 72 minutes) recaps K-means' weaknesses, reviews random variables, and works through simple MLE examples and the 1-D Gaussian MLE; it ends partway through the die example (the instructor says it will be finished next class), so the Lagrange-multiplier derivation, multivariate Gaussians, and GMM are not in this video. The Lec 6 and Lec 7 videos are not embedded in this post and were not checked.
+
 ## Lec 4, first half: K-means clustering
 
 Lecture 4 sets unsupervised learning next to supervised learning. Supervised data comes as (xᵢ, yᵢ) pairs, while unsupervised data has only xᵢ. The slides list five unsupervised tasks: clustering, dimensionality reduction, representation learning, generative modeling and density estimation. The clustering examples include geyser eruption patterns, customer segments, disease subtypes, cell types in single-cell data and ancestry groups in genetic data.
@@ -77,7 +79,7 @@ The weaknesses of K-means are the turning point of these four lectures. The slid
 
 ## Lec 4, second half: probability review
 
-This part matches Bishop 2.1–2.2. The slides cover, in order:
+This part matches Bishop 2.1–2.2. The recording stops after the joint distribution and marginalization, so the remaining items below appear only on the slides. The slides cover, in order:
 
 - **Frequentist and Bayesian views**: the first treats probability as the long-run frequency of repeatable events; the second treats it as a degree of belief about uncertainty. The slides conclude that both are useful.
 - **Joint distributions**: non-negative and summing to 1.
@@ -101,7 +103,7 @@ The MLE setup assumes the data are IID samples from one member of a family of di
 Two examples follow:
 
 1. **A univariate Gaussian**: write the likelihood, take the log to turn the product into a sum, set the partial derivatives with respect to μ and σ² to zero, then check that it's a maximum.
-2. **A six-sided die (multinomial)**: the face probabilities must sum to 1, so this is a constrained optimization that needs Lagrange multipliers. The answer is intuitive: each face's probability estimate is its count divided by the total number of rolls.
+2. **A six-sided die (multinomial)**: the face probabilities must sum to 1, so this is a constrained optimization that needs Lagrange multipliers. The answer is intuitive: each face's probability estimate is its count divided by the total number of rolls. (The recording ends partway through this example; the derivation and conclusion below come from the slides only.)
 
 <details>
 <summary>Deriving the dice MLE with a Lagrange multiplier (Bishop Appendix C)</summary>
@@ -197,6 +199,7 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The Lec 4 video stops at joint distributions and marginalization and the Lec 5 video ends mid-way through the die example; details beyond those points are now marked as slides-only.
 
 ## References
 

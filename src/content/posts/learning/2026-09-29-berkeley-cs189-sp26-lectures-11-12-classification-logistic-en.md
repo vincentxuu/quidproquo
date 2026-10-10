@@ -51,6 +51,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 11 video (oid6SvXy8Kw, about 81 minutes) is indeed classification: it recaps train/validation/test, uses lions and elephants to explain generative versus discriminative models, covers LDA/QDA decision boundaries and the COVID prior example leading into logistic regression, and ends at Naive Bayes (the instructor says it continues next class); ROC and ImageNetV2 do not appear in its transcript. The Lecture 12 video (xBCpwQt8A5w, about 80 minutes) covers sigmoid, softmax, the 5-spam-in-100-emails accuracy example, the confusion matrix, ROC, partial AUC, calibration, and PR curves; cost-sensitive classification and the discussion of why not to train directly on these metrics could not be found in the transcript and appear only on the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Official materials and scope
 
 | Lecture | Date | Title | Materials | Bishop reading on the schedule |
@@ -195,7 +197,7 @@ A few properties of ROC are worth remembering:
 
 Two closing questions. First, if we care about these metrics, why not train on them directly as the loss? The slides' answer: most have hard thresholds and are not differentiable everywhere, and ranking needs the whole dataset, so mini-batch SGD does not apply. Second, if different errors have different costs (a missed diagnosis is worse than a false alarm), use **cost-sensitive classification**: define a cost matrix and reweight the training data with it. Unlike ROC analysis, the cost matrix changes the objective during training.
 
-Lec 11 also opens with a callback to ImageNetV2 from Lec 3: a test set collected the same way as ImageNet, on which models scored lower than expected. However cleanly you split your test set, a change in the data source moves the numbers. HW1.2's rotated test set is a small-scale version of the same thing.
+Lec 11's slides also open with a callback to ImageNetV2 from Lec 3 (the recording's transcript does not include this part): a test set collected the same way as ImageNet, on which models scored lower than expected. However cleanly you split your test set, a change in the data source moves the numbers. HW1.2's rotated test set is a small-scale version of the same thing.
 
 ## Discussion 5: actually wrapping up regression
 
@@ -233,6 +235,7 @@ On this site:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their lecture topics; the Lec 11 video has no ImageNetV2 recap, so the post now marks it as slides-only.
 
 ## References
 

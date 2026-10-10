@@ -56,6 +56,8 @@ title: Lecture 27 錄影：LLMs, Agents, Environments
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 25 影片（V-SJk4AJ-xc，約 78 分鐘）確為蛋白質工程：講者以自己團隊的工作為例，涵蓋 AlphaFold 與諾貝爾獎、「香蕉」比喻（最佳化者就是對手）、ESM 等生成模型、條件生成模型與 ChatGPT 的類比、基因治療載體，結尾提到 base editor；Rosetta 時間線、epistemic 不確定性、Bayes rule 三條路、CTMC guidance 與 AAV 五步流程在字幕中找不到，可能只在講義。Lecture 27 影片（yRgSQCXr8M0，約 74 分鐘）確為 LLMs, Agents, Environments：agent 與 workflow 的區分、LangChain／AutoGen、Terminal-Bench 與 Docker／Harbor、SFT／RLVR／GRPO、GEPA（字幕誤拼成 JEPA）、Slack 檔案匯出對比 MCP、Dimitris 的 guest lecture 例子，開場與結尾有課程評鑑與期末考提醒；METR 任務時長翻倍與 2029 的外推在字幕中找不到。第 26 講沒有嵌入影片，未核對。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## Lec 25：蛋白質工程的 AI
 
 ### 蛋白質是一串字母
@@ -237,6 +239,7 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 25、Lec 27 影片主題與講次相符；講義中部分細節（Rosetta 時間線、Bayes rule 三條路、METR 外推等）在字幕找不到，已在影片來源段註明。
 
 ## 參考資料
 

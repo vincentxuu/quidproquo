@@ -56,9 +56,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 21 video (mqaFEvi5rWE, about 76 minutes) is indeed the first Transformers lecture: receptive fields, TF-IDF (the football example), RNNs and image captioning (COCO), soft and hard attention, and location-based versus content-based addressing; the Bahdanau paper and the REINFORCE remark could not be found in the transcript and appear only in the slides. The Lecture 22 video (syp1pSf_DYY, about 70 minutes) builds self-attention from content-based attention, covers the PyTorch implementation, the soft-dictionary view, and the bank/river example, and ends as it begins on what a good positional embedding should provide (a unique representation); multi-head, LayerNorm, and residuals get only a brief mention, and GQA, the class token, KV cache, and the learned-versus-sinusoidal positional encoding comparison could not be found in the transcript and appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## What I read, and the limits
 
-What I actually opened and read: the text layer of the slide PDF (119 pages), the Discussion 10 problems and solutions, and the titles of the two recordings. Many figures in the slides (CNN receptive fields, the attention heat maps from image captioning, the sinusoidal positional encoding curves) have no text layer, so I only relay what is written on the slides. I did not watch the recordings minute by minute, so this post does not claim what the instructors said in class.
+What I actually opened and read: the text layer of the slide PDF (119 pages), the Discussion 10 problems and solutions, and the titles of the two recordings. Many figures in the slides (CNN receptive fields, the attention heat maps from image captioning, the sinusoidal positional encoding curves) have no text layer, so I only relay what is written on the slides. The auto-generated transcripts of both recordings were spot-checked on 2026-10-10 (see the content check above), but this post still follows the slides and does not claim what the instructors said in class.
 
 Around page 58 the deck has a "Stopped Here" slide noting that content-based attention moves to Lec 22. The sections below follow that split.
 
@@ -223,6 +225,7 @@ When you use PyTorch's `nn.MultiheadAttention` or any LLM library, each layer do
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their topics; the Lec 22 video ends at the start of positional encodings, so multi-head, GQA, and KV cache appear only in the slides, and the reading-scope note was updated accordingly.
 
 ## References
 

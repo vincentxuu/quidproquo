@@ -54,9 +54,11 @@ title: Lecture 24 錄影：Self-Supervised Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 23 影片（m13yELgj02c，約 74 分鐘）涵蓋用最後一個 token 做分類、GPT-3 規模、「加州首都」的 next-token 例子、masked attention、Llama 架構與 15.6T token 的預訓練；後訓練（SFT、LoRA、RLHF、DPO）只在開場與中段點到名稱，沒有展開，Vicuna、RAG、chain-of-thought、agent 與 H100 GPU 時數在字幕中找不到，只見於講義。Lecture 24 影片（iGcer6b6mp8，約 76 分鐘）確為自監督學習：旋轉預測、上色、超解析度、聚類、凍結特徵抽取器與微調的遷移學習、CLIP 與 zero-shot；自編碼器、補洞、拼圖、相對位置與 SimCLR 的內容在字幕中找不到，那些表格列只見於講義。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## 讀取範圍與限制
 
-我實際打開並讀過的：兩份講義 PDF 的文字層、Discussion 11 題目與解答、兩支錄影的標題。講義很多圖（架構圖、生成結果、熱圖）沒有文字層，我只轉述投影片上有字的部分；錄影沒有逐分鐘看完。
+我實際打開並讀過的：兩份講義 PDF 的文字層、Discussion 11 題目與解答、兩支錄影的標題。講義很多圖（架構圖、生成結果、熱圖）沒有文字層，我只轉述投影片上有字的部分；兩支錄影的自動字幕已於 2026-10-10 抽樣比對（見上方「內容核對」），但本文仍以講義為準。
 
 **指定閱讀的一個疑點**：排程頁和 `lec23.pdf` 最後一頁都寫 Lec 23 讀 Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》第 10 章。但依 Springer 的目錄，第 10 章是 [Convolutional Networks](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_10)，Transformers 是[第 12 章](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_12)。我照官方寫法列出，不替課程改章號；想找 LLM 相關的內容，建議直接翻第 12 章。Lec 24 的講義寫「部分內容見第 11 章」，第 11 章的標題是 [Structured Distributions](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_11)，我沒有讀到章內小節，無法確認哪些段落對應。
 
@@ -105,6 +107,8 @@ flowchart LR
 
 ### 後訓練：GPT 本身不會聊天
 
+（錄影字幕只提到這些方法的名稱，沒有展開；以下整理自講義。）
+
 講義把 ChatGPT 拆成 Chat + Generative + Pretrained + Transformer，然後點出「還差一件事」：只做預訓練的模型會接話，不會照指令做事。問它「What is attorney client privilege?」，它可能接著寫「Provide a concise answer using an example from class.」，因為那看起來像作業題目的下一行。
 
 | 方法 | 講義的重點 |
@@ -119,6 +123,8 @@ flowchart LR
 DPO 那一列值得停一下：講義註明 Bradley-Terry 模型在 HW2 出現過。HW2 的論文題讀的是 Chatbot Arena，前半學期的 MLE 在這裡又用上了一次。
 
 ### 推論時：提示、檢索、推理、工具
+
+（錄影字幕沒有這一段；以下整理自講義。）
 
 最後一段講不改權重也能提升能力的做法：zero-shot 與 in-context learning、RAG（先檢索相關文件再拼進提示）、chain-of-thought。講義用一題「1 到 50 中有幾個數有 1 以外的完全平方因數」展示推理模型的長思考：模型中途發現重複計算、改用排容原理、自我檢查，最後給出答案。最後是 agent：LLM 決定要不要呼叫搜尋、計算機、email 這類工具，把工具輸出放回歷史，再決定下一步，講義稱之為 ReAct。
 
@@ -140,6 +146,8 @@ DPO 那一列值得停一下：講義註明 Bradley-Terry 模型在 HW2 出現�
 這就是 HW4.2 的 5f 和 5g。講義也列出自監督的三個難處：怎麼挑適合應用的 pretext task、學到的表徵沒有黃金標準可比、沒有像測試準確率那樣單一的目標函數。
 
 ### 生成式 pretext task：預測輸入的一部分
+
+（錄影字幕中能確認的只有上色與超解析度；其餘各列，以及下面判別式任務中除旋轉與聚類以外的部分，只見於講義。）
 
 | 做法 | 假任務 | 講義的重點 |
 |---|---|---|
@@ -196,6 +204,7 @@ Discussion 11 的三題都標著「F25 Dis11」，題目沿用 Fall 2025。它�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；後訓練與推論段落、多數 pretext task 只見於講義，並更新「讀取範圍與限制」的說明。
 
 ## 參考資料
 

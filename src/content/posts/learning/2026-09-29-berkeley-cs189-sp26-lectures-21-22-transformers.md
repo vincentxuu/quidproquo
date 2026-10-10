@@ -56,9 +56,11 @@ title: Lecture 22 錄影：Transformers (ctnd.)
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 21 影片（mqaFEvi5rWE，約 76 分鐘）確為 Transformers 第一講：感受野、TF-IDF（football 的例子）、RNN 與看圖說話（COCO）、soft 與 hard attention、location-based 與 content-based addressing；字幕找不到 Bahdanau 論文與 REINFORCE 的說法，這些只見於講義。Lecture 22 影片（syp1pSf_DYY，約 70 分鐘）從 content-based attention 起講 self-attention、PyTorch 實作、軟性字典與 bank／river 的例子，講到「好的位置編碼要提供唯一表示」就結束；多頭、LayerNorm、殘差只簡短帶過，GQA、class token、KV cache 與可學習對正弦位置編碼的比較在字幕中找不到，只見於講義。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## 讀取範圍與限制
 
-我實際打開並讀過的：講義 PDF 的文字層（119 頁）、Discussion 10 題目與解答、兩支錄影的標題。講義裡很多圖（CNN 感受野、看圖說話的注意力熱圖、正弦位置編碼的曲線）沒有文字層，我只轉述投影片上有字的部分。錄影我沒有逐分鐘看完，所以不寫「老師在課堂上說了什麼」。
+我實際打開並讀過的：講義 PDF 的文字層（119 頁）、Discussion 10 題目與解答、兩支錄影的標題。講義裡很多圖（CNN 感受野、看圖說話的注意力熱圖、正弦位置編碼的曲線）沒有文字層，我只轉述投影片上有字的部分。兩支錄影的自動字幕已於 2026-10-10 抽樣比對（見上方「內容核對」），但本文仍以講義為準，不寫「老師在課堂上說了什麼」。
 
 講義在第 58 頁附近有一張「Stopped Here」，註明 content-based attention 移到 Lec 22 講。下面依這個切點分兩段。
 
@@ -223,6 +225,7 @@ Discussion 10 只有兩題，題號旁標著「F25 Dis10」，代表題目沿用
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；Lec 22 影片在位置編碼開頭結束，多頭／GQA／KV cache 等僅見於講義，並更新「讀取範圍與限制」的說明。
 
 ## 參考資料
 

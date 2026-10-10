@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 17 video (bMJ9igfvn1M, about 76 minutes) opens by moving on to neural networks after the exam and covers the XOR hand calculation, 64×64 images and the data manifold, the universal approximation theorem, the logic-circuit analogy for depth, and activation functions and ReLU; it ends before spring break. The PyTorch core concepts, leaky ReLU, and softplus could not be found in its transcript and appear only in the slides. The Lecture 18 video (XlaV_z2knjA, about 79 minutes) is indeed backpropagation: the chain rule, computation graphs, gradients adding over multiple children, and the bar notation; the finite-difference cost comparison, symbolic differentiation, and dead units could not be found (the instructor ends by saying derivatives through nonlinearities come next class), and finite differences and initialization appear in the Lec 19 video instead. The transcripts do not name the speakers, so speaker attribution is not verified.
+
 ## Scene: a linear model cannot even learn XOR
 
 The second half of Lec 17 works through a full example adapted from Chapter 6 of Goodfellow et al.'s [Deep Learning](https://www.deeplearningbook.org/contents/mlp.html). There are only four data points:
@@ -120,7 +122,7 @@ The slides end the section with open questions tied to weight-space symmetries (
 
 ### Four core PyTorch ideas
 
-Lec 17 closes with a few slides on PyTorch. `torch.tensor` resembles `numpy.ndarray` but can move to a GPU and records how it was computed (`grad_fn`). Models extend `nn.Module`, declaring parameters in `__init__` and computation in `forward`. `loss.backward()` uses automatic differentiation to compute every parameter's gradient. The training loop (some variant of gradient descent) is yours to write. The slides include an `MLPModel` example and flag automatic differentiation as the next lecture's topic.
+Lec 17 closes with a few slides on PyTorch (the recording does not reach them). `torch.tensor` resembles `numpy.ndarray` but can move to a GPU and records how it was computed (`grad_fn`). Models extend `nn.Module`, declaring parameters in `__init__` and computation in `forward`. `loss.backward()` uses automatic differentiation to compute every parameter's gradient. The training loop (some variant of gradient descent) is yours to write. The slides include an `MLPModel` example and flag automatic differentiation as the next lecture's topic.
 
 ## Mechanism 2: backprop is the chain rule, organized
 
@@ -163,7 +165,7 @@ This one line is the core of Discussion 9 and HW3. With a single child it collap
 
 ### Cost: why backprop is the only practical option
 
-Lec 18 compares three ways to get a gradient:
+The Lec 18 slides compare three ways to get a gradient (the Lec 18 recording does not include this; the finite-difference cost is covered in the Lec 19 recording):
 
 | Method | The slides' verdict |
 |---|---|
@@ -175,7 +177,7 @@ What modern frameworks call automatic differentiation is backprop run automatica
 
 ### Back to activation functions
 
-With backprop in hand, Lec 18 returns to what is wrong with sigmoid and tanh: their asymptotes give zero gradient at both ends, so units get stuck and become "dead units". ReLU fixes half the problem (the x > 0 side); the negative side can still die. The remedies listed are a smaller learning rate, batch normalization, and leaky ReLU. Batch norm is formally introduced in Lec 19; see [the next post, order 13](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en).
+With backprop in hand, the Lec 18 slides return to what is wrong with sigmoid and tanh (the recording does not include this; the instructor ends by saying it comes next class): their asymptotes give zero gradient at both ends, so units get stuck and become "dead units". ReLU fixes half the problem (the x > 0 side); the negative side can still die. The remedies listed are a smaller learning rate, batch normalization, and leaky ReLU. Batch norm is formally introduced in Lec 19; see [the next post, order 13](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en).
 
 The last slide is refreshingly honest. Linear regression with polynomial features is also a universal approximator, so why do deep networks often win in practice? The slides say this is **not fully understood**, probably related to the optimization landscape of massive architectures, and still an active area of theory research. They link David Donoho's [Stanford Stats385 lecture](https://stats385.github.io/assets/lectures/StanfordStats385-20170927-Lecture01-Donoho.pdf).
 
@@ -202,6 +204,7 @@ When you train in PyTorch, every addition, matrix multiply, or ReLU in the forwa
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their topics; the PyTorch slides, the finite-difference cost comparison, and dead units are not in these two recordings, and the post now marks them.
 
 ## References
 

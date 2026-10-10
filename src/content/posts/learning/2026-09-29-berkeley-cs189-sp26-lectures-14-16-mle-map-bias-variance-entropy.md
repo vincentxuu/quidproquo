@@ -50,6 +50,8 @@ title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 14 影片（Z1KuNG9HyiQ，約 69 分鐘）以擲硬幣偏差對照 MLE 與 MAP、連到 ridge 與最小平方，再講 bias-variance 並以驗證集調整，與文中前兩節相符；字幕沒有 Chatbot Arena、Bradley–Terry 與讀論文五問題，這一段只見於 lec14.pdf。Lecture 16 影片（ArSadC8hY-Q，約 70 分鐘）確為 Entropy, Information, and Logistic Regression：從壓縮講熵（100 天下雨資料約 73 位元、賽馬）、cross-entropy 與 KL，再接到 logistic regression 的損失；MNIST、CIFAR-10 的資料集數字字幕沒有提到，影片結尾是期中考後勤。期中考段落與逐題講解影片不在本次核對範圍。字幕未自報講者姓名，講者歸屬未驗證。
+
 ## 教材在哪、能拿到什麼
 
 | 項目 | 官方標題／內容 | 教材 | Bishop 指定閱讀 |
@@ -94,7 +96,7 @@ title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
 
 ## Lec 14 的後段：Chatbot Arena 與怎麼讀論文
 
-講義最後一段介紹 [Chatbot Arena](https://arxiv.org/abs/2403.04132)。它是一個公開平台，使用者輸入 prompt，兩個匿名模型並排回答，由使用者投票哪個比較好，再把大量對戰結果彙整成排行榜。講義點出它和本講的關聯：排行榜分數來自 Bradley–Terry 模型，而這個模型本質上就是 logistic regression（Y = 誰贏），模型的 Arena Score 就是迴歸係數 β。
+這一段只見於 `lec14.pdf`，錄影字幕沒有。講義最後一段介紹 [Chatbot Arena](https://arxiv.org/abs/2403.04132)。它是一個公開平台，使用者輸入 prompt，兩個匿名模型並排回答，由使用者投票哪個比較好，再把大量對戰結果彙整成排行榜。講義點出它和本講的關聯：排行榜分數來自 Bradley–Terry 模型，而這個模型本質上就是 logistic regression（Y = 誰贏），模型的 Arena Score 就是迴歸係數 β。
 
 接著是一份讀論文的清單，共五個問題：
 
@@ -170,6 +172,7 @@ title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 14、Lec 16 影片主題相符；Chatbot Arena 與讀論文清單不在 Lec 14 錄影中，文中已標註只見於講義。
 
 ## 參考資料
 
