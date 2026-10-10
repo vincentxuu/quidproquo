@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 07 transcript (Jeremy Bernstein, 1:20:55): the video does cover how the best learning rate drifts with width and depth, and uses steepest descent, norms and spectral norms (about 64%–76%) to make it width-independent; μP, lazy training, feature learning and critical batch size do not appear in the transcript, so those passages are now marked as this site's supplement.
+
 ## Why devote a whole lecture to "scaling rules for optimization"
 
 L03 covered SGD / Adam, L04 covered regularization, L06 covered CNN architectures. All of them implicitly assume one thing: **the network is small enough and the hyperparameters are easy enough to tune**. The moment you push width from 256 to 8192 or depth from 12 to 100 layers, a learning rate that worked perfectly suddenly explodes or dies.
@@ -63,7 +65,7 @@ Flip this to optimization: an SGD update `ΔW = -η · g` is a step in parameter
 
 ## Feature learning vs lazy training
 
-This lecture surfaces a divide that is often overlooked:
+(The lazy-training vs feature-learning divide below is this site's supplement; the Lec 07 transcript does not cover it.) An often-overlooked divide:
 
 - **Lazy training**: after initialization the network function barely moves; weights only微调 near their starting point. Infinite-width NTK-limit networks are exactly this. The upside is clean theory; the downside is that no "features" are learned — it is essentially just linearly recombining a fixed basis.
 - **Feature learning**: the magnitude of each update is large enough that the network genuinely rewires its internal representations into something useful for the task. This is where deep learning's real power lives.
@@ -72,7 +74,7 @@ The decisive variable is the **per-update magnitude (update scale)**. If `η` is
 
 ## Hyperparameter transfer: Maximal Update Parameterization (μP)
 
-This is the most practically useful takeaway of the lecture. Yang et al. (2022), **Maximal Update Parameterization**, prove that there exists a parameterization under which **in the infinite-width limit, the update magnitude of every layer stays finite and independent of width**.
+This is an extension added by this article, not Lec 07 content (μP does not appear in the transcript; the video instead uses norms to derive a best learning rate that does not depend on width). Yang et al. (2022), **Maximal Update Parameterization**, prove that there exists a parameterization under which **in the infinite-width limit, the update magnitude of every layer stays finite and independent of width**.
 
 The intuition:
 
@@ -113,7 +115,7 @@ The practical implication is blunt: do not blindly max out the batch size. Estim
 
 ## Why this matters in practice
 
-This lecture ties three scattered ideas into one story:
+This article ties three scattered ideas into one story (μP and critical batch size are this site's supplement and are not in the Lec 07 transcript):
 
 1. **Initialization / learning rate are not isolated hyperparameters** — they couple with width and depth.
 2. **Feature learning needs sufficient update magnitude**; too little and you fall into the lazy regime, especially in large models.
@@ -125,6 +127,7 @@ The most direct engineering lesson: the next time you scale from 100M to 10B par
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Marked the μP, lazy-training and critical-batch-size passages, which are not in the transcript, as this site's supplement.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

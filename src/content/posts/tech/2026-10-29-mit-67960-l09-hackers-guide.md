@@ -46,6 +46,8 @@ title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 09 字幕（Phillip Isola，1:15:50）：影片確實是實作心法（先看資料與統計量、先過擬合小批次、資料增強、基本 recipe「Adam＋Transformer＋cross entropy」、「Always tune your learning rate」）；但對正則化只有結尾一句，還建議不要用 Batch Norm，已在第 4 節加註說明該節清單為本站補充。
+
 ## 這一講在補什麼缺口
 
 前面幾講講了架構、優化、正則化，都是「對的知識」，但沒告訴你**當 loss 三天不動時該怎麼辦**。第 9 講就是這堂「實作生存術」。
@@ -78,6 +80,8 @@ title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
 - **batch 變大時 LR 通常也要變大**（linear scaling rule：batch ×k，LR 約 ×k，直到 critical batch size）。
 
 ## 4. 正則化是「把泛化補回來」
+
+> 影片對照：Lec 09 字幕對正則化只在結尾（約 99%）提到「每加一個 regularizer 都有各自效果、需要有一些正則化」，沒有逐項講 Dropout、weight decay；字幕還明確建議不要用 Batch Norm（約 85%）。本節的清單是本站補充。
 
 過擬合小批次證明容量夠之後，用正則化把泛化補回來：
 
@@ -118,6 +122,7 @@ loss 不降時，按這個順序查：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。第 4 節加註：影片對正則化只有結尾一句且建議不要用 Batch Norm，清單為本站補充。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

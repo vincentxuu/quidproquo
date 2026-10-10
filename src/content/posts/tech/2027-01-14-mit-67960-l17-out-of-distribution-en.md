@@ -49,13 +49,15 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 17 transcript (Sara Beery, 1:04:41): the topic is indeed OOD generalization, but the video covers adversarial examples, spurious correlations, performance drops under shifts such as new cameras, distributionally robust optimization and counterfactual diagnosis; the transcript has no covariate/label/concept-shift taxonomy, IRM, domain randomization or test-time adaptation, so the claim that "the lecture breaks shift into three types" did not hold and was changed to "the general literature", and the three remedies now carry a note marking them as this site's supplement.
+
 ## The gap between the i.i.d. assumption and the real world
 
 Almost every ML textbook assumes training and test data are i.i.d. samples from the same distribution. But real deployment is never like that: the camera model changes, the hospital changes city, the corpus moves from English to legal text. A model hits 95% accuracy in-distribution, then 60% in production — not a bug, the **assumption broke**.
 
 ## Three types of shift
 
-The lecture breaks shift into three types, each needing a different response:
+The common literature splits shift into three types, each needing a different response (this taxonomy comes from the general literature, not from the structure of the Lec 17 video):
 
 | Type | What changes | Typical example |
 |---|---|---|
@@ -72,6 +74,8 @@ The most common — and sneakiest — cause of OOD failure: **the model latches 
 This is not a training-not-converged issue, nor an insufficient-capacity issue. **ERM (empirical risk minimization) with limited capacity**, given enough i.i.d. training data, picks the most predictive shortcut it can find. Avoiding it requires **changing the structure of the training distribution**, not a bigger model.
 
 ## Three remedies
+
+> Video note: IRM, domain randomization and test-time adaptation are not in the Lec 17 transcript. The video covers adversarial examples (about 13%–36%), spurious correlations (about 49%), F1 drops under shifts such as new cameras (about 72%), worst-case / distributionally robust optimization (about 77%–85%) and diagnosing failures with generated counterfactual data (about 90%). The three remedies below are this site's supplement from the general literature.
 
 ### 1. Invariant Risk Minimization (IRM, Arjovsky 2019)
 
@@ -120,6 +124,7 @@ Run for 1–2 epochs and the model "moves toward the test distribution's feature
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Corrected the "lecture splits shift into three types" claim and added a note to the three remedies: they are not in the video.
 
 ## References
 

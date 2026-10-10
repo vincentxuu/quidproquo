@@ -32,6 +32,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): this post embeds no video, so only its statements about the videos were checked: I read the transcripts and descriptions of the 18 lecture videos Lec 01–18 (Lec 19 onward not read) and confirmed that the Fall 2024 lecturers were Isola, Bernstein and Beery (Beery did not only join in 2025); the old "taught by Isola and Bernstein" omitted Beery and was corrected.
+
 ## First, decide if this is your course
 
 The official description promises "fundamentals of deep learning, including both theory and applications," covering neural net architectures (MLPs, CNNs, RNNs, graph nets, transformers), backpropagation and automatic differentiation, learning theory and generalization in high dimensions, plus applications to computer vision, NLP, and robotics. The prerequisites are stiff: 18.05 (probability and statistics) plus one of 6.3720, 6.3900, or 6.C01 — meaning you should already have taken a machine learning or algorithms subject before walking in. It carries 3-0-9 units, and due to heavy enrollment Fall 2025 accepted no cross-registrations at all.
@@ -52,7 +54,7 @@ The 21 lectures split evenly among the three instructors, and the division is no
 
 Beery owns "how you train models and ship them into the real world": the opening training fundamentals, CNNs, Transformers, OOD generalization, transfer learning, and a closing lecture on evaluation. He handles "what happens inside the model": sequence modeling, three flavors of representation learning, four lectures of generative modeling, and the finale on applying deep learning to your own problems. Khattab carries theory and the LLM side: approximation theory, generalization theory, similarity-based retrieval (his own neural information retrieval specialty), plus pre-training, scaling laws, post-training as three foundation-model lectures, and inference-time algorithms.
 
-The lineup itself tells a story. Kaiming He is the author of ResNet; Omar Khattab created [ColBERT](https://arxiv.org/abs/2004.12832) and DSPy. In Fall 2024 the course was still taught by Phillip Isola and Jeremy Bernstein; after the 2025 handover the syllabus visibly shifted toward LLMs and retrieval — the foundation-model block and inference-time algorithms are new.
+The lineup itself tells a story. Kaiming He is the author of ResNet; Omar Khattab created [ColBERT](https://arxiv.org/abs/2004.12832) and DSPy. In Fall 2024 the course was taught by Phillip Isola, Jeremy Bernstein and Sara Beery (per the OCW video descriptions: Beery gave Lec 01, 02, 04, 10, 12, 17 and 18; Isola gave Lec 05, 06, 08, 09, 11, 14, 15 and 16; Bernstein gave Lec 03, 07 and 13); after the 2025 handover the syllabus visibly shifted toward LLMs and retrieval — the foundation-model block and inference-time algorithms are new.
 
 ## A topic map of the 21 lectures
 
@@ -132,6 +134,7 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
+- 2026-10-10: Checked the video content against its transcript. Corrected the Fall 2024 lecturers (added Sara Beery) and noted who gave which lecture.
 
 ## References
 

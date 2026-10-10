@@ -20,10 +20,10 @@ draft: false
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 9 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) is taught by Sara Beery. This lecture treats regularization as an "engineering toolbox" rather than pure theory: what concrete problem each technique solves, how to use it correctly, and how to combine it with others. This article restructures the lecture highlights into a practical regularization decision table with runnable PyTorch code.
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) This site's L04 post treats regularization as an "engineering toolbox": what concrete problem each technique solves, how to use it correctly, and how to combine it with others, with a practical decision table and runnable PyTorch code. The content is this site's synthesis of the general literature, not a segment-by-segment summary of any one lecture; OCW has no lecture dedicated to weight decay, dropout or batch norm (see "Course video sources" below).
 
 ## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: the “L04” in this article’s title is this site’s series numbering (OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content or the “video timestamps” section below.
+Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: the “L04” in this article’s title is this site’s series numbering (OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EiO8BBa-xdc
@@ -39,6 +39,10 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
+
+Content check: verified against the video transcript (2026-10-10): read the transcripts of the embedded Lec 06 (Phillip Isola) and the related Lec 09 (Phillip Isola); the old "video timestamps" section (fixed minute ranges for weight decay / dropout / batch norm / label smoothing) matched no video and was removed and replaced with an approximate transcript-based mapping; the claim that Lec 09 is taught by Sara Beery was wrong (the lecturer is Isola) and was corrected; Lec 09 explicitly advises against batch norm, which is now stated.
+
 ## Four Pillars of Regularization: Mechanism, Effect, Use Cases
 
 | Technique | Core Mechanism | Problem Solved | Modern Default |
@@ -48,7 +52,7 @@ Checked: 2026-10-10.
 | **Batch Norm** | Batch statistics standardization + learnable scale/shift | Internal covariate shift, grad vanish/explode, implicit regularization | momentum=0.1, eps=1e-5 |
 | **Label Smoothing** | Hard labels → soft dist (1-ε, ε/(K-1)) | Overconfidence, calibration error, KD foundation | ε=0.1 (classification), 0.0 (distillation teacher) |
 
-**Key concept**: Beery emphasizes regularization isn't "stronger = better" — **the goal is to reserve effective capacity for patterns the data needs to learn, while suppressing noise capacity**. Over-regularization causes underfitting, especially with large models and large datasets.
+**Key concept**: regularization isn't "stronger = better" (this is the article's own takeaway, not a quote from a lecturer in the video) — **the goal is to reserve effective capacity for patterns the data needs to learn, while suppressing noise capacity**. Over-regularization causes underfitting, especially with large models and large datasets.
 
 ## Weight Decay: The Critical Adam vs AdamW Difference
 
@@ -164,13 +168,14 @@ def drop_path(x, drop_prob=0.1, training=True):
     return x.div(keep_prob) * random_tensor
 ```
 
-## Video Timestamps
+## How This Maps to the Videos (from the transcripts, not a segment-by-segment summary)
 
-- 0:00–15:00 Weight Decay theory & AdamW decoupling derivation
-- 15:00–30:00 Dropout mechanism, inverted scaling, inference mode
-- 30:00–45:00 Batch Norm train/eval statistics, SyncBN, small-batch alternatives
-- 45:00–58:00 Label Smoothing, Mixup, CutMix, knowledge distillation links
-- 58:00–1:10:00 Practical checklist: new project regularization config audit
+The four pillars here (weight decay, dropout, batch norm, label smoothing) are this site's synthesis of the general literature and have no single matching video, so no timecodes are given. Positions below are approximate, estimated from where topics fall in each transcript, not exact timestamps:
+
+- Embedded Lec 06 Generalization Theory (taught by Phillip Isola, about 1 h 20 min): roughly 43%–57% is double descent, with a remark that whether it shows up depends on optimization details such as momentum and weight decay; roughly 67%–81% is the limits of VC theory; at roughly 92% weight decay is explained as an explicit regularizer that makes the optimizer prefer low-norm solutions. Only that short passage overlaps this article directly; dropout, batch norm and label smoothing do not appear in the transcript.
+- Related but not embedded [Lec 09 Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) (taught by Phillip Isola, about 1 h 16 min): roughly 29%–31% and 85% discuss normalization layers, and at roughly 85% he explicitly advises "don't use batch norm" (performance depends strongly on batch size and train/test behavior differs); roughly 40%–50% is data augmentation; the ending (about 99%) only says every regularizer has its own effect and you need some regularization. The transcript does not go through weight decay, dropout or label smoothing one by one.
+
+So this article's listing of batch norm as one of four pillars differs from Lec 09's advice; read the table as general practice, not as a conclusion of the MIT course.
 
 ## Complete Runnable PyTorch Example: Regularization Ablation Experiment
 
@@ -272,11 +277,12 @@ for name, cfg in configs.items():
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded Lec 06 Generalization Theory is not the lecture for this topic (weight decay, dropout, batch norm), so the status is now “Related supplementary video included; the original lecture recording has not been verified”, and the video-timestamps section is noted as not tied to any official video.
+- 2026-10-10: Checked the video content against its transcript. Removed the "video timestamps" section that matched no video and replaced it with a transcript-based mapping; corrected the Lec 09 lecturer to Phillip Isola (was wrongly Sara Beery) and noted that Lec 09 advises against batch norm.
 
 ## References
 
-- [MIT 6.7960 Fall 2024 Lec 09: Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) — Official video (YouTube: `DC2Hw9DiLCg`)
-- [Lecture 9 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec9_pdf/) — Beery lecture slides
+- [MIT 6.7960 Fall 2024 Lec 09: Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) — Official video (YouTube: `DC2Hw9DiLCg`, taught by Phillip Isola; relevant here only in the normalization and closing passages)
+- [Lecture 9 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec9_pdf/) — Lec 09 lecture slides
 - [Fixing Weight Decay Regularization in Adam (AdamW, arXiv:1711.05101)](https://arxiv.org/abs/1711.05101) — Loshchilov & Hutter
 - [Dropout: A Simple Way to Prevent Neural Networks from Overfitting (Srivastava et al., 2014)](https://jmlr.org/papers/v15/srivastava14a.html) — Dropout original paper
 - [Batch Normalization (Ioffe & Szegedy, 2015)](https://arxiv.org/abs/1502.03167) — BN original paper

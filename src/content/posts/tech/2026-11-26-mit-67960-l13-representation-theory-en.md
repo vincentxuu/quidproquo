@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 13 transcript (Jeremy Bernstein, 1:15:20): the body of the video is Gaussian processes and the NN–GP correspondence of infinitely wide networks (about 23%–90%); the NTK is mentioned in a single passage at about 93% where it is said not to be covered, so the article's NTK section and its inductive-bias framing are this site's supplement, and a note was added.
+
 ## Inductive bias: the architecture "makes assumptions for you"
 
 We have talked a lot about "how to learn representations", but this lecture steps back and asks: **what a representation looks like is largely decided by the architecture itself**. That is **inductive bias** — before seeing any data, the structure already prefers a certain class of functions.
@@ -94,6 +96,8 @@ The five resulting function curves look like samples drawn from a smooth GP — 
 
 ## Training dynamics → the Neural Tangent Kernel (NTK)
 
+> Video note: the Lec 13 transcript mentions the NTK only briefly at about 93%, as an analogous characterization of trained networks that people have moved away from, and says the lecturer did not cover it. This section is this site's supplement, not video content.
+
 NN–GP describes the **randomly initialized** network. What about after training? The **Neural Tangent Kernel (NTK, Jacot et al. 2018)** answers: in the infinite-width limit, the network's "function-space gradient" is governed by a **fixed, stationary kernel** `Θ`, and the entire training trajectory has a closed-form kernel-regression solution.
 
 In other words: an infinite-width network's training **is equivalent to a fixed kernel method**. Two implications:
@@ -119,6 +123,7 @@ Next lecture (L14) turns to generative models: from density / energy models to G
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to the NTK section: the video only mentions it in passing; the section is this site's supplement.
 
 ## References
 

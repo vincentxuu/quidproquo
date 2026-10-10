@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 11 transcript (Phillip Isola, 1:21:04): the video covers representation learning, brain representations (about 24%–32%), autoencoders and reconstruction (about 41%–66%), vector quantization (about 79%–81%) and self-supervision with masking (about 82%–93%), matching the article; nothing needed correcting.
+
 ## What is a "representation" and why it matters
 
 The real product of deep learning is not the final classifier layer but **the vector representation the network compresses the input into**. After a good representation, cats cluster near cats and far from cars in vector space — and every downstream task (classification, retrieval, generation) becomes easier.
@@ -129,6 +131,7 @@ Next lecture (L12) shifts from "reconstruction" to "similarity" — contrastive 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 

@@ -20,10 +20,10 @@ draft: false
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 9 講 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) 由 Sara Beery 授課。這講把正則化視為「工程工具箱」而非純理論：每種技巧解決什麼具體問題、怎麼正確用、怎麼跟其他技巧組合。這篇文章把講義重點整理成可直接套用的正則化決策表，並附上可跑的 PyTorch 程式碼。
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 本站 L04 這篇把正則化當成「工程工具箱」來整理：每種技巧解決什麼具體問題、怎麼正確用、怎麼跟其他技巧組合，附可直接套用的決策表與可跑的 PyTorch 程式碼。內容是本站依一般文獻整理的，不是某一講的逐段摘要；OCW 沒有專講 weight decay、dropout、Batch Norm 的講次，詳見下方「課程影片來源」。
 
 ## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文標題的 L04 是本站系列編號（OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容或下方「影片時間戳」章節來自該影片。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文標題的 L04 是本站系列編號（OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容來自該影片。
 
 ```youtube
 url: https://www.youtube.com/watch?v=EiO8BBa-xdc
@@ -39,6 +39,10 @@ title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
 
 查核日期：2026-10-10。
 
+編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
+
+內容核對：已依字幕核對（2026-10-10）：讀了嵌入的 Lec 06（Phillip Isola）與相關的 Lec 09（Phillip Isola）兩支字幕；原「影片時間戳」章節（Weight Decay／Dropout／Batch Norm／Label Smoothing 各佔固定分鐘）對不上任何影片，已刪除並改寫為依字幕相對位置的對應說明；原稱 Lec 09 由 Sara Beery 授課也不成立（講者是 Isola），已更正；Lec 09 明確建議不要用 Batch Norm，已如實註明。
+
 ## 正則化四大支柱：機制、效果、適用場景
 
 | 技巧 | 核心機制 | 解決的問題 | 現代預設值 |
@@ -48,7 +52,7 @@ title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
 | **Batch Norm** | 批次統計量標準化 + 可學習縮放平移 | 內部協變量偏移、梯度消失/爆炸、隱性正則化 | momentum=0.1, eps=1e-5 |
 | **Label Smoothing** | 硬標籤 → 軟分布 (1-ε, ε/(K-1)) | 過度自信、校準誤差、知識蒸餾基礎 | ε=0.1 (分類), 0.0 (蒸餾教師) |
 
-**關鍵觀念**：Beery 強調正則化不是「越強越好」——**目標是把有效容量留給資料要學的模式，把雜訊容量壓掉**。過度正則化會導致 underfitting，特別是在大模型、大資料下。
+**關鍵觀念**：正則化不是「越強越好」（這是本文的整理判斷，不是影片中某位講者的原話）——**目標是把有效容量留給資料要學的模式，把雜訊容量壓掉**。過度正則化會導致 underfitting，特別是在大模型、大資料下。
 
 ## Weight Decay：Adam vs AdamW 的關鍵差異
 
@@ -164,13 +168,14 @@ def drop_path(x, drop_prob=0.1, training=True):
     return x.div(keep_prob) * random_tensor
 ```
 
-## 影片時間戳
+## 與影片的對應（依字幕，非逐段摘要）
 
-- 0:00–15:00 Weight Decay 理論與 AdamW 解耦推導
-- 15:00–30:00 Dropout 機制、inverted scaling、推論模式
-- 30:00–45:00 Batch Norm 訓練/推論統計量、SyncBN、小批次替代方案
-- 45:00–58:00 Label Smoothing、Mixup、CutMix、知識蒸餾連結
-- 58:00–1:10:00 實戰清單：新專案正則化配置檢查表
+本文的四大支柱（Weight Decay、Dropout、Batch Norm、Label Smoothing）是本站依一般文獻整理的，沒有對應的單一影片，所以不提供時間碼。以下位置都是依字幕主題出現的相對位置估算的「約」，不是精確時間點：
+
+- 嵌入的 Lec 06 Generalization Theory（Phillip Isola 主講，約 1 小時 20 分）：約 43%–57% 談 double descent，並提到它是否出現取決於動量、weight decay 等優化細節；約 67%–81% 談 VC 理論的限制；約 92% 把 weight decay 說明為優化器偏好低範數解的顯式正則化，只有這一小段與本文直接重疊，Dropout、Batch Norm、Label Smoothing 在字幕中都沒有出現。
+- 相關但未嵌入的 [Lec 09 Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)（Phillip Isola 主講，約 1 小時 16 分）：約 29%–31% 與約 85% 談正規化層，約 85% 處明確建議「不要用 Batch Norm」（理由是效能對批次大小敏感、訓練與測試行為不一致）；約 40%–50% 談資料增強；結尾（約 99%）只說「每加一個 regularizer 都有各自效果、需要有一些正則化」。字幕沒有逐項講 weight decay、Dropout、Label Smoothing。
+
+這代表本文把 Batch Norm 列為四大支柱之一，與 Lec 09 的建議不同；表格請當作一般實務整理來讀，不要當成 MIT 課程的結論。
 
 ## PyTorch 完整可跑範例：正則化消融實驗
 
@@ -271,11 +276,12 @@ for name, cfg in configs.items():
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。原嵌入的 Lec 06 Generalization Theory 與本文主題（weight decay、dropout、Batch Norm）不是同一講，狀態改為「僅附相關補充影片；原講次錄影未確認」，並註明「影片時間戳」章節未對應任何官方影片。
+- 2026-10-10：依字幕核對影片內容。刪除對不上任何影片的「影片時間戳」章節，改寫為依字幕的對應說明；更正 Lec 09 講者為 Phillip Isola（原誤寫 Sara Beery），並註明 Lec 09 建議不要用 Batch Norm。
 
 ## 參考資料
 
-- [MIT 6.7960 Fall 2024 Lec 09: Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) — 官方影片（YouTube: `DC2Hw9DiLCg`）
-- [Lecture 9 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec9_pdf/) — Beery 講義投影片
+- [MIT 6.7960 Fall 2024 Lec 09: Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) — 官方影片（YouTube: `DC2Hw9DiLCg`，Phillip Isola 主講，僅在結尾與正規化層處與本文相關）
+- [Lecture 9 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec9_pdf/) — Lec 09 講義投影片
 - [Fixing Weight Decay Regularization in Adam (AdamW, arXiv:1711.05101)](https://arxiv.org/abs/1711.05101) — Loshchilov & Hutter
 - [Dropout: A Simple Way to Prevent Neural Networks from Overfitting (Srivastava et al., 2014)](https://jmlr.org/papers/v15/srivastava14a.html) — Dropout 原論文
 - [Batch Normalization (Ioffe & Szegedy, 2015)](https://arxiv.org/abs/1502.03167) — BN 原論文

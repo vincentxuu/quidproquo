@@ -26,7 +26,7 @@ additionalSeries:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 01）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講為課程總覽，由授課教師群輪流介紹。
+> **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 01）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講為課程導論，依 OCW 影片說明由 Sara Beery 主講。
 
 ---
 
@@ -46,6 +46,8 @@ title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01 字幕（Sara Beery，1:00:51）：影片是課程導論，內容為深度學習的興起與歷史（AlexNet 與 GPU 約 30%）、課程規則與作業政策（約 15%–25%）、神經網路／MLP 基礎與優化（約 40%–80%）、tensor 與 PyTorch 概念（約 13%–15%、90%）；字幕沒有逐行示範 training loop，原文「第 1 講是唯一一講不講數學、不講架構」與「教師群輪流介紹」的說法不成立，已改寫。
 
 ## 一、deep learning 為什麼在 2010 年代後爆發
 
@@ -69,7 +71,7 @@ LeCun、Bengio、Hinton 2015 在 *Nature* 的綜述把這件事講得很清楚�
 - **規模**：scaling laws（L20）→ LLM（L21）。
 - **部署**：幾何深度學習（L23）、推論優化（L24）。
 
-第 1 講是唯一一講「不講數學、不講架構」，就告訴你這條主線是什麼。
+本講是課程導論，影片實際內容是開場動機與歷史、課程規則與作業政策，以及神經網路／MLP 與訓練的基本概念；上面的課程地圖與下面的 training loop 是本站補充，不是影片逐段內容。
 
 ## 三、為什麼「深」
 
@@ -120,6 +122,7 @@ print("env OK, params:", sum(p.numel() for p in model.parameters()))
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。改寫「唯一一講不講數學、不講架構」與「教師群輪流介紹」兩處不成立的說法，並註明課程地圖與 training loop 為本站補充。
 
 ## 參考資料
 

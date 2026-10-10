@@ -20,7 +20,7 @@ draft: false
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 7 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) is taught by Jeremy Bernstein. This lecture doesn't just list optimizers — it derives from **gradient descent dynamics** why large batches need large learning rates, why Adam fails in certain regimes, and how to use "scaling rules" to transfer hyperparameters from small-batch experiments to large-scale training. This article restructures the lecture highlights into a practical decision framework with runnable PyTorch code.
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) This site's L03 post covers the topic of "optimization", which has no single matching OCW lecture; the related videos are spread over two lectures: Lec 02 How to Train a Neural Net (taught by Sara Beery: SGD, momentum, backpropagation) and [Lec 07 Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) (taught by Jeremy Bernstein: using steepest descent and norms to derive why the best learning rate drifts with network width, and how to make it width-independent). The rest of this article (Adam/AdamW, learning-rate schedules, batch-size scaling rules, the decision tree) is this site's own synthesis from the general literature, not a segment-by-segment summary of these two videos.
 
 ## Course video sources
 Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the “L03” in this article’s title is this site’s series numbering; OCW Lec 03 is actually Approximation Theory, and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
@@ -44,6 +44,10 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
+
+Content check: verified against the video transcript (2026-10-10): read the transcripts of Lec 02 (Sara Beery) and Lec 07 (Jeremy Bernstein); neither covers AdamW, LR schedules or batch-size scaling rules, so the old "video timestamps" section and the "lecture derives the Linear Scaling Rule" claim did not hold and were rewritten as an approximate topic order marked as this site's supplement; also corrected the Lec 07 YouTube ID in the references (it wrongly gave Lec 08's Q1HOKrNeh2M).
+
 ## Optimizer Genealogy: From SGD to Adam
 
 The main thread of deep learning optimizer evolution: **how to stably converge to good solutions in high-dimensional non-convex landscapes with minimal hyperparameter tuning**.
@@ -56,11 +60,11 @@ The main thread of deep learning optimizer evolution: **how to stably converge t
 | **AdamW** | Adam + decoupled weight decay | Modern LLM/ViT training default | Same as Adam, but regularization is correct |
 | **Lion / Sophia** | Sign gradient / 2nd-order approximation | Large model pre-training experiments | Newer ecosystem, hyperparameter-sensitive |
 
-**Key insight**: Bernstein emphasizes in the lecture that **optimizer choice matters less than "scaling rules"** — the same optimizer fails if learning rate, batch size, and weight decay aren't scaled by the rules.
+**Key insight**: **optimizer choice matters less than "scaling rules"** (this is the article's own takeaway, not a quote from Lec 07, which is about how the best learning rate drifts with width and depth) — the same optimizer fails if learning rate, batch size, and weight decay aren't scaled by the rules.
 
 ## Scaling Rules: How to Adjust LR for Large Batches
 
-The core formula derived in the lecture (**Linear Scaling Rule**):
+A common rule of thumb (**Linear Scaling Rule**, from the general literature; neither the Lec 02 nor the Lec 07 transcript discusses batch-size scaling):
 
 ```
 lr_new = lr_base × (batch_size_new / batch_size_base)
@@ -109,12 +113,10 @@ for step in range(100_000):
     optimizer.zero_grad()
 ```
 
-**Video timestamps**:
-- 0:00–12:00 SGD momentum & Nesterov acceleration derivation
-- 12:00–28:00 Adam/AdamW internals & weight decay decoupling
-- 28:00–42:00 Scaling rules derivation & critical batch size
-- 42:00–55:00 LR schedules in practice (warmup, cosine, constant, reduce-on-plateau)
-- 55:00–1:10:00 Experiments: convergence curves across batch sizes
+**Topic order of the related videos** (estimated from where topics fall in the transcript, not exact timecodes; both videos run about 1 h 20 min):
+- Lec 02: roughly the first 25% is gradient descent, learning rate and momentum (Adam is mentioned only briefly at about 14%); roughly 40%–70% is backpropagation and the chain rule; the end connects non-differentiable modules and data preprocessing to training.
+- Lec 07: roughly 20%–35% is the second-order expansion and Newton / Gauss-Newton; roughly 35%–60% is steepest descent and norms; roughly 64%–76% is spectral and RMS norms; roughly 77%–98% is initialization and width/depth scaling, aiming for a best learning rate that does not depend on width.
+- Neither transcript mentions: AdamW's decoupled weight decay, warmup/cosine schedules, critical batch size, or batch-size scaling rules.
 
 ## Practical Decision Tree: Choosing Optimizer & Hyperparameters for a New Project
 
@@ -229,10 +231,11 @@ print("Saved plot to optimizer_comparison.png")
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. OCW has no single lecture matching this optimization overview, so Lec 02 and Lec 07 are embedded as related supplementary videos and the status is now “Related supplementary video included; the original lecture recording has not been verified.”
+- 2026-10-10: Checked the video content against its transcript. The old "video timestamps" did not match the Lec 07 transcript (no Adam/AdamW/schedules/critical batch size); replaced with an approximate topic order from the transcripts, and corrected the reference video ID and lecturer attributions.
 
 ## References
 
-- [MIT 6.7960 Fall 2024 Lec 07: Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) — Official video (YouTube: `Q1HOKrNeh2M`)
+- [MIT 6.7960 Fall 2024 Lec 07: Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) — Official video (YouTube: `VcGPE4s_oNw`)
 - [Lecture 7 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec7_pdf/) — Bernstein lecture slides
 - [Training Compute-Optimal LLMs (Chinchilla, arXiv:2203.15556)](https://arxiv.org/abs/2203.15556) — Scaling rules empirical evidence
 - [Fixing Weight Decay Regularization in Adam (AdamW, arXiv:1711.05101)](https://arxiv.org/abs/1711.05101) — Loshchilov & Hutter original paper

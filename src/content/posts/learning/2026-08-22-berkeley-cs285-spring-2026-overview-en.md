@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [Berkeley CS185/285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) is Sergey Levine's deep reinforcement learning course. Its public page lists slides for 25 lectures, nine discussion units, five assignments, and two default final projects. The [starter-code repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) is public too. That makes it an A3 material-based course, but not a fully open course.
 
@@ -26,6 +26,13 @@ This series therefore treats the 2026 slides, sections, and assignments as canon
 ## Course video sources
 
 This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos, public since 2026-08-15). The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist. Pick recordings by lecture number from the playlist.
+
+The overview embeds Lecture 1 as an introductory supplement (the opening lecture, 44 minutes; only the channel, playlist title and lecture number were checked, not the transcript):
+
+```youtube
+url: https://www.youtube.com/watch?v=DD8APgTEix4
+title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
+```
 
 Course and recording entries:
 
@@ -66,6 +73,7 @@ A better completion criterion is an artifact: one derivation note, one implement
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Fixed an outdated recording statement. Lecture recordings are public on the RAIL YouTube channel; what remains in bCourses is Ed, Gradescope, in-class interaction, and office hours. The tldr, description, and body were rewritten to match.
 - 2026-10-10: Rechecked video status. Found the public Spring 2026 playlist on the RAIL channel and linked it; this post has no single lecture, so the status stays official entry only.
+- 2026-10-10: The overview now embeds the Spring 2026 Lecture 1 recording and its status is a related supplementary video, matching the other course overviews.
 
 ## References
 

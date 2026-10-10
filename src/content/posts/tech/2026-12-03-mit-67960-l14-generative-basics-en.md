@@ -48,6 +48,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 14 transcript (Phillip Isola, 1:21:18): the video previews autoregressive, diffusion and GAN models, and its body covers probability densities and maximum likelihood (about 16%–50%), energy models (about 52%–70%), autoregressive models (about 70%–77%), diffusion (about 85%–95%) and GANs (about 96%), matching the article; nothing needed correcting.
+
 ## The ultimate goal of generative models
 
 Every generative model does the same thing: **learn the data distribution `p(x)`** so that sampling from it produces samples "of the same kind but brand new". They differ only in *how they represent it, how they train it, how they sample from it*.
@@ -117,6 +119,7 @@ The next batch (L15, L16) goes deep on VAEs and conditional generation (text-to-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 

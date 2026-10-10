@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 16 transcript (Phillip Isola, 1:21:31): the video is about conditional generation (it opens by previewing "conditional models"), covering conditional distributions and prediction problems (about 10%–36%), conditional GANs and cVAEs (about 50%–58% and 73%–77%), text-to-image and U-Net denoisers (about 71%–84%) and paired/unpaired image translation (about 89%–99%); classifier and classifier-free guidance do not appear in the transcript, so that section now carries a note marking it as this site's supplement.
+
 ## From "generate" to "conditional generate"
 
 L14–L15 were about generating `x`, but in practice we more often need **a condition `y`, and generate the matching `x`**: `y` might be a class label, a sentence, or another image. Conditional generative models answer: how do we estimate and sample from `p(x | y)`?
@@ -88,6 +90,8 @@ q(z | x, y),   p(x | z, y),   p(z)
 The ELBO becomes `E_q[log p(x|z,y)] − KL(q(z|x,y) ‖ p(z))`. In practice `y` can be a class one-hot, a text embedding, or coordinates. This is the foundation for later text-to-image VAEs and inpainting variants.
 
 ## Conditional control in the diffusion era
+
+> Video note: classifier guidance and classifier-free guidance do not appear in the Lec 16 transcript; the video presents the general recipe of feeding the condition (e.g. text) into the denoiser, generator or discriminator. The guidance details below are this site's supplement.
 
 Diffusion models split generation into "iterative denoising" (covered in L14); conditional generation has two main routes:
 
@@ -132,6 +136,7 @@ In other words, **VAE latent + conditional diffusion + CFG** is the basic recipe
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to the diffusion conditioning section: classifier / classifier-free guidance are not in the video.
 
 ## References
 

@@ -49,13 +49,15 @@ title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 17 字幕（Sara Beery，1:04:41）：主題確實是 OOD 泛化，但影片內容是對抗樣本、虛假相關、相機等 shift 造成的效能下降、分佈穩健最佳化與反事實診斷；字幕沒有 covariate／label／concept shift 三分法、IRM、domain randomization、test-time adaptation，原「講次把 shift 拆成三類」的說法不成立，已改為「一般文獻」並在三條對策加註為本站補充。
+
 ## i.i.d. 假設與真實世界的落差
 
 幾乎所有 ML 教科書都假設訓練與測試是 i.i.d.（independent and identically distributed）抽自同一個分布。但真實部署從來不是這樣：相機換了型號、醫院換了城市、語料從英文變成法律條文。模型在 in-distribution 拿到 95% 準確率，一上線掉到 60% — 這不是 bug，是**假設破掉**。
 
 ## 三類 shift
 
-講次把 shift 拆成三類，對應不同的應對方式：
+常見文獻把 shift 拆成三類，對應不同的應對方式（這個分類來自一般文獻，不是 Lec 17 影片的結構）：
 
 | 類型 | 什麼變了 | 典型例子 |
 |---|---|---|
@@ -72,6 +74,8 @@ OOD 失敗最常見、也最狡猾的原因：**模型抓了虛假相關（spuri
 這不是訓練沒收斂、也不是容量不夠。**ERM（empirical risk minimization）+ 有限容量**在訓練資料夠 i.i.d. 的前提下，最有效率的解就是把「最會浮上來的捷徑」學起來。要避免，必須**改變訓練分布結構**，而不是換更大的模型。
 
 ## 三條對策
+
+> 影片對照：IRM、domain randomization、test-time adaptation 這三條對策不在 Lec 17 字幕中；影片談的是對抗樣本（約 13%–36%）、虛假相關（約 49%）、相機等 shift 造成 F1 下降（約 72%）、最壞情況／分佈穩健最佳化（約 77%–85%）與用生成模型產生反事實資料來診斷（約 90%）。以下三條是本站依一般文獻補充。
 
 ### 1. Invariant Risk Minimization（IRM, Arjovsky 2019）
 
@@ -120,6 +124,7 @@ for x_unlabeled, _ in test_loader:
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。更正「講次把 shift 拆成三類」的說法並在三條對策加註：這些不在影片中。
 
 ## 參考資料
 

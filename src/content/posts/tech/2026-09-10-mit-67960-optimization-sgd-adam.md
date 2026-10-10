@@ -20,7 +20,7 @@ draft: false
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 7 講 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（縮放規則與優化）由 Jeremy Bernstein 授課。這講不只是列優化器清單，而是從**梯度下降的動力學**出發，推導為什麼大批次需要大學習率、為什麼 Adam 在某些情況下會失效、以及怎麼用「縮放規則」把小批次實驗的超參數轉移到大規模訓練。這篇文章把講義重點重組成可直接套用的決策框架，並附上可跑的 PyTorch 程式碼。
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 本站 L03 這篇整理的是「優化」這個主題，OCW 沒有對應的單一講次，相關影片分散在兩講：Lec 02 How to Train a Neural Net（Sara Beery 主講：SGD、動量、反向傳播）與 [Lec 07 Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（Jeremy Bernstein 主講：用最陡下降與範數推導學習率為什麼隨網路寬度漂移，以及怎麼讓最佳學習率與寬度無關）。本文其餘內容（Adam／AdamW、學習率排程、批次大小的縮放規則、決策樹）是本站依一般文獻整理的補充，不是這兩支影片的逐段摘要。
 
 ## 課程影片來源
 2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：本文標題的 L03 是本站系列編號，OCW 的 Lec 03 其實是 Approximation Theory，且 OCW 沒有一講專門講 Adam 與學習率排程。下方兩支是相關講次：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 Lec 07 Scaling Rules for Optimization（優化縮放規則）。它們是主題補充，不能證明本文全部內容來自這兩講。
@@ -44,6 +44,10 @@ title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
 
 查核日期：2026-10-10。
 
+編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 02（Sara Beery）與 Lec 07（Jeremy Bernstein）兩支字幕；兩支影片都不含 AdamW、學習率排程、批次大小縮放規則，原「影片時間戳」章節與「講義推導 Linear Scaling Rule」的說法不成立，已改寫為相對位置的主題順序並標明為本站補充，另更正參考資料中 Lec 07 的 YouTube ID（原誤寫成 Lec 08 的 Q1HOKrNeh2M）。
+
 ## 優化器的譜系：從 SGD 到 Adam
 
 深度學習優化器演進的主線是：**怎麼在高維非凸地形裡，用最少的超參數調整，穩定收斂到好解**。
@@ -56,11 +60,11 @@ title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
 | **AdamW** | Adam + 解耦 weight decay | 現代 LLM/ViT 訓練預設 | 同 Adam，但正則化更正確 |
 | **Lion / Sophia** | 符號梯度 / 二階近似 | 大模型預訓練嘗試 | 生態較新、超參數敏感 |
 
-**關鍵洞見**：Bernstein 在講義中強調，**優化器選擇不如「縮放規則」重要**——同樣的優化器，學習率、批次大小、權重衰減若不按規則縮放，大模型照樣訓不動。
+**關鍵洞見**：**優化器選擇不如「縮放規則」重要**（這是本文的整理判斷，不是 Lec 07 的原話；Lec 07 談的是最佳學習率如何隨寬度與深度漂移）——同樣的優化器，學習率、批次大小、權重衰減若不按規則縮放，大模型照樣訓不動。
 
 ## 縮放規則：大批次怎麼調學習率
 
-講義推導的核心公式（**Linear Scaling Rule**）：
+常見的經驗法則（**Linear Scaling Rule**，來自一般文獻；Lec 02、Lec 07 的字幕都沒有講批次大小的縮放）：
 
 ```
 lr_new = lr_base × (batch_size_new / batch_size_base)
@@ -109,12 +113,10 @@ for step in range(100_000):
     optimizer.zero_grad()
 ```
 
-**影片時間戳**：
-- 0:00–12:00 SGD 動量與 Nesterov 加速推導
-- 12:00–28:00 Adam/AdamW 內部機制與 weight decay 解耦
-- 28:00–42:00 縮放規則推導與 critical batch size
-- 42:00–55:00 學習率排程實務（warmup、cosine、constant、reduce-on-plateau）
-- 55:00–1:10:00 實驗展示：不同批次大小下的收斂曲線對比
+**相關影片的主題順序**（依字幕各主題出現的相對位置估算，不是精確時間碼；兩支影片都約 1 小時 20 分）：
+- Lec 02：約前 25% 是梯度下降、學習率與動量（Adam 只在約 14% 處被簡短帶過）；約 40%–70% 是反向傳播與鏈式法則；後段是把不可微的模組、資料預處理接進訓練。
+- Lec 07：約 20%–35% 是二階展開與 Newton／Gauss-Newton；約 35%–60% 是最陡下降（steepest descent）與範數；約 64%–76% 是譜範數與 RMS 範數；約 77%–98% 是初始化與寬度、深度縮放，目標是讓最佳學習率與寬度無關。
+- 兩支影片的字幕都沒有出現：AdamW 的 weight decay 解耦、warmup／cosine 等學習率排程、critical batch size、批次大小的縮放規則。
 
 ## 實戰決策樹：新專案怎麼選優化器與超參數
 
@@ -229,10 +231,11 @@ print("Saved plot to optimizer_comparison.png")
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。OCW 沒有對應「優化總覽」的單一講次，改附 Lec 02 與 Lec 07 兩支相關補充影片，狀態改為「僅附相關補充影片；原講次錄影未確認」。
+- 2026-10-10：依字幕核對影片內容。原「影片時間戳」章節對不上 Lec 07 字幕（沒有 Adam／AdamW／排程／critical batch size），已改為依字幕相對位置的主題順序，並更正參考資料的影片 ID 與講者歸屬說法。
 
 ## 參考資料
 
-- [MIT 6.7960 Fall 2024 Lec 07: Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) — 官方影片（YouTube: `Q1HOKrNeh2M`）
+- [MIT 6.7960 Fall 2024 Lec 07: Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) — 官方影片（YouTube: `VcGPE4s_oNw`）
 - [Lecture 7 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec7_pdf/) — Bernstein 講義投影片
 - [Training Compute-Optimal LLMs (Chinchilla, arXiv:2203.15556)](https://arxiv.org/abs/2203.15556) — 縮放規則實驗證據
 - [Fixing Weight Decay Regularization in Adam (AdamW, arXiv:1711.05101)](https://arxiv.org/abs/1711.05101) — Loshchilov & Hutter 原論文

@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 08 transcript (Phillip Isola, 1:14:35): the video covers tokens, attention (query/key/softmax), positional codes, and compares Transformers side by side with MLPs, CNNs and GNNs, matching the article; nothing needed correcting.
+
 ## The three core ideas
 
 Lecture 8 breaks the Transformer into three independent but interlocking ideas:
@@ -117,6 +119,7 @@ So the Transformer does not "overturn" earlier architectures — it expands the 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

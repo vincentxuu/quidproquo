@@ -20,10 +20,10 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 4 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) (YouTube: `bxVkZ4M-hIE`) is taught by Phillip Isola. This lecture starts from "why MLPs fail on images" and derives CNN's three design principles: **local connectivity**, **weight sharing**, and **translation equivariance**. Paired with [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) as required reading, this article restructures the lecture highlights into a practical CNN design framework with runnable PyTorch code.
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 4 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) (YouTube: `bxVkZ4M-hIE`) is taught by Sara Beery. This lecture first asks why structural assumptions (inductive bias) should be built into the architecture, then derives convolution from locality and weight sharing, leading to CNN's three design principles: **local connectivity**, **weight sharing**, and **translation equivariance**. Paired with [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) as required reading, this article restructures the lecture highlights into a practical CNN design framework with runnable PyTorch code.
 
 ## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW. The “L05” in this article’s title is this site’s series numbering; the matching OCW lecture is Lec 04 Architectures: Grids (CNNs and grid data). The “video timestamps” section below has not been checked segment by segment against the video.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW. The “L05” in this article’s title is this site’s series numbering; the matching OCW lecture is Lec 04 Architectures: Grids (CNNs and grid data). The video's actual order of topics is given in "How This Maps to the Video" below.
 
 ```youtube
 url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
@@ -39,6 +39,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the transcript of Lec 04 Architectures: Grids (video length 1:23:56); the lecturer is Sara Beery, not Phillip Isola as the article said, and was corrected; the old "video timestamps" table (including the LeNet→AlexNet→VGG→GoogLeNet segment) did not match the transcript and was replaced with an approximate topic order estimated from relative transcript positions, with the classic-architecture history and group-representation theory marked as this site's supplement.
+
 ## Why MLPs Fail on Images
 
 | Problem | MLP Behavior | CNN Solution |
@@ -47,7 +49,7 @@ Checked: 2026-10-10.
 | **Spatial structure lost** | `flatten()` turns 2D to 1D, neighborhood relations destroyed | Convolution preserves 2D topology, neighboring pixels jointly determine output |
 | **Translation non-equivariance** | Shift image by few pixels → completely different MLP output | **Translation equivariance**: input shift → feature map shifts synchronously |
 
-**Key insight**: Isola emphasizes in the lecture that CNN is not an invented trick but a **mathematical necessity for grid data** — when data has translation symmetry, weight sharing is the only linear operator satisfying equivariance (per group representation theory).
+**Key insight**: CNN is not an invented trick but a **mathematical necessity for grid data** — when data has translation symmetry, weight sharing is the only linear operator satisfying equivariance (per group representation theory). (This is the article's own addition; the video says each patch is processed with the same function, so the model is equivariant to translations of the input, and does not go into group representation theory.)
 
 ## Convolution Operation: Core Mathematical Mechanism
 
@@ -265,23 +267,28 @@ print(f"Empirical RF pixels: {compute_rf(model)}")
 | Val accuracy plateaus | Insufficient capacity, over-regularization | Widen channels, reduce dropout, check data augmentation |
 | Slow inference | Large kernels, no grouped conv | Use depthwise separable conv, `torch.compile()`, ONNX export |
 
-## Video Timestamps
+## How This Maps to the Video (from the transcript, not exact timecodes)
 
-- 0:00–12:00 MLP failure modes on images, parameter explosion
-- 12:00–28:00 Convolution derivation, weight sharing, translation equivariance proof
-- 28:00–40:00 Pooling layers, receptive field calculation, dilated convolution
-- 40:00–55:00 Classic architecture evolution: LeNet → AlexNet → VGG → GoogLeNet
-- 55:00–1:10:00 Modern CNN design principles, implementation details
+The video runs 1 h 23 min 56 s. The transcript has no timecodes, so the "about" positions below are estimated from where each topic falls in the transcript and are only a guide to order and rough location:
+
+- About 0–20 min: why structural assumptions should be built into the architecture (inductive bias), and the limits of unstructured MLPs
+- About 20–45 min: deriving convolution from locality and weight sharing, translation equivariance, receptive field, channels and filters
+- About 45–60 min: pooling, stride, and receptive-field trade-offs
+- About 60–70 min: visualizing features by layer (AlexNet, VGG16, ResNet-18 are mentioned), U-Net and skip connections, ResNet residual connections
+- About 70–84 min: back to MLPs, positional encodings, the idea of applying one function to every patch, and Q&A
+
+The "LeNet → AlexNet → VGG → GoogLeNet architecture evolution", the detailed dilated-convolution derivation and the "translation equivariance proof" that this section used to list have no matching passage in the transcript (AlexNet is mentioned once when comparing filter sizes; LeNet, VGG and GoogLeNet are not covered); those parts of the article are this site's supplement.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Corrected the lecturer to Sara Beery (was wrongly Phillip Isola); replaced the "video timestamps" table that did not match the transcript with an approximate topic order from transcript positions, and marked the parts that are this site's supplement.
 
 ## References
 
 - [MIT 6.7960 Fall 2024 Lec 04: Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) — Official video (YouTube: `bxVkZ4M-hIE`)
-- [Lecture 4 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec4_pdf/) — Isola lecture slides
+- [Lecture 4 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec4_pdf/) — Lec 04 lecture slides
 - [Foundations of Computer Vision, Ch.24: Convolutional Neural Nets](https://visionbook.mit.edu/convolutional_neural_nets.html) — Required textbook chapter
 - [Understanding the Effective Receptive Field in Deep CNNs (Luo et al., 2016)](https://arxiv.org/abs/1701.04128) — Effective receptive field analysis
 - [Very Deep Convolutional Networks (VGG, arXiv:1409.1556)](https://arxiv.org/abs/1409.1556) — Simonyan & Zisserman

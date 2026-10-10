@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 10 transcript (Sara Beery, 1:13:28): the video covers RNN memory and recurrence (about 15%–40%), vanishing/exploding gradients (about 42%–48%), LSTM and gating (about 43%–56%) and attention in the later part (about 78%–86%), matching the article; GRU does not appear in the transcript, so the GRU material is this site's supplement.
+
 ## Why sequences need "memory"
 
 Earlier architectures (MLP, CNN) process each input independently, with no notion of "time". But speech, text, and sensor streams are data whose meaning at step t heavily depends on prior context. To model such dependency the network needs a **state that persists across time**.
@@ -115,6 +117,7 @@ But the RNN family did not vanish: in **online / streaming, low-latency, memory-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; noted that GRU is not in the transcript.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

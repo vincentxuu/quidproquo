@@ -20,10 +20,10 @@ draft: false
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 4 講 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)（YouTube: `bxVkZ4M-hIE`）由 Phillip Isola 授課。這講從「為什麼 MLP 不適合影像」切入，推導出 CNN 的三大設計原則：**局部連接**、**權重共享**、**平移等變性**。配合 [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) 必讀，這篇文章把講義重點重組成可直接套用的 CNN 設計框架，並附上可跑的 PyTorch 程式碼。
+[MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 4 講 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)（YouTube: `bxVkZ4M-hIE`）由 Sara Beery 授課。這講先談為什麼要把結構假設（歸納偏置）寫進架構，再從局部性與權重共享推出卷積，帶出 CNN 的三大設計原則：**局部連接**、**權重共享**、**平移等變性**。配合 [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) 必讀，這篇文章把講義重點重組成可直接套用的 CNN 設計框架，並附上可跑的 PyTorch 程式碼。
 
 ## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。 本文標題的 L05 是本站系列編號；OCW 對應的是 Lec 04 Architectures: Grids（CNN 與格狀資料）。下方「影片時間戳」章節未逐段對照影片。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。 本文標題的 L05 是本站系列編號；OCW 對應的是 Lec 04 Architectures: Grids（CNN 與格狀資料）。影片的實際內容順序見下方「與影片的對應」。
 
 ```youtube
 url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
@@ -39,6 +39,8 @@ title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 04 Architectures: Grids 的字幕（影片全長 1:23:56）；講者是 Sara Beery 而非文章原寫的 Phillip Isola，已更正；原「影片時間戳」表（含 LeNet→AlexNet→VGG→GoogLeNet 一段）對不上字幕，已改為依字幕相對位置估算的「約」主題順序，並註明經典架構演進、群表示論等是本站補充。
+
 ## 為什麼 MLP 處理不好影像
 
 | 問題 | MLP 表現 | CNN 解法 |
@@ -47,7 +49,7 @@ title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
 | **空間結構丟失** | `flatten()` 把 2D 變 1D，鄰域關係被打散 | 卷積保留 2D 拓樸，鄰域像素共同決定輸出 |
 | **平移不等變** | 圖片平移幾像素，MLP 輸出完全不同 | **平移等變性**：輸入平移 → 特徵圖同步平移 |
 
-**關鍵洞見**：Isola 在講義中強調，CNN 不是「發明」出來的技巧，而是**針對網格資料的數學必然**——當資料具備平移對稱性時，權重共享是唯一滿足等變性的線性算子（參考群表示論）。
+**關鍵洞見**：CNN 不是「發明」出來的技巧，而是**針對網格資料的數學必然**——當資料具備平移對稱性時，權重共享是唯一滿足等變性的線性算子（參考群表示論）。（這是本文的補充說明；影片的說法是：每個 patch 都用同一個函數處理，所以模型對輸入平移是等變的，沒有講群表示論。）
 
 ## 卷積運算：核心數學機制
 
@@ -265,23 +267,28 @@ print(f"經驗感受野像素數: {compute_rf(model)}")
 | 驗證集準確率卡住 | 模型容量不足、正則化太強 | 加寬通道數、減少 dropout、檢查 data augmentation |
 | 推論速度慢 | 卷積核大、分組卷積未用 | 改 depthwise separable conv、用 `torch.compile()`、ONNX 導出 |
 
-## 影片時間戳
+## 與影片的對應（依字幕，非精確時間碼）
 
-- 0:00–12:00 MLP 對影像的失敗模式、參數爆炸問題
-- 12:00–28:00 卷積運算推導、權重共享、平移等變性證明
-- 28:00–40:00 池化層、感受野計算、空洞卷積
-- 40:00–55:00 經典架構演進：LeNet → AlexNet → VGG → GoogLeNet
-- 55:00–1:10:00 現代 CNN 設計原則、實作細節
+影片全長 1 小時 23 分 56 秒。字幕沒有時間碼，以下「約」的位置是依各主題在字幕中出現的相對位置估算的，只能當順序與大致位置參考：
+
+- 約 0–20 分：為什麼要把結構假設寫進架構（歸納偏置）、MLP 缺乏結構的限制
+- 約 20–45 分：從局部性與權重共享推出卷積、平移等變、感受野、通道與濾波器
+- 約 45–60 分：池化、步幅與感受野的取捨
+- 約 60–70 分：各層特徵視覺化（提到 AlexNet、VGG16、ResNet-18）、U-Net 與跳接、ResNet 殘差連接
+- 約 70–84 分：回頭比較 MLP、位置編碼、對每個 patch 套用同一函數的概念，以及問答
+
+原文章列出的「LeNet → AlexNet → VGG → GoogLeNet 經典架構演進」、空洞卷積的詳細推導、「平移等變性證明」，在字幕中沒有對應段落（AlexNet 只在比較濾波器大小時被提到一次，LeNet、VGG、GoogLeNet 沒有被講解），文中這些內容是本站補充。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。更正講者為 Sara Beery（原誤寫 Phillip Isola）；原「影片時間戳」表對不上字幕，改為依字幕相對位置的「約」主題順序，並標明本站補充的部分。
 
 ## 參考資料
 
 - [MIT 6.7960 Fall 2024 Lec 04: Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) — 官方影片（YouTube: `bxVkZ4M-hIE`）
-- [Lecture 4 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec4_pdf/) — Isola 講義投影片
+- [Lecture 4 Slides (PDF)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_lec4_pdf/) — Lec 04 講義投影片
 - [Foundations of Computer Vision, Ch.24: Convolutional Neural Nets](https://visionbook.mit.edu/convolutional_neural_nets.html) — 必讀教科書章節
 - [Understanding the Effective Receptive Field in Deep CNNs (Luo et al., 2016)](https://arxiv.org/abs/1701.04128) — 有效感受野分析
 - [Very Deep Convolutional Networks (VGG, arXiv:1409.1556)](https://arxiv.org/abs/1409.1556) — Simonyan & Zisserman

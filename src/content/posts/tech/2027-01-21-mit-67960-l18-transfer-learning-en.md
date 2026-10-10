@@ -50,6 +50,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 18 transcript (Sara Beery, 1:25:41): the topic is indeed transfer learning, but the transcript covers pretraining/fine-tuning trade-offs, domain adaptation, distillation, and foundation models with adapters/prompting; LoRA, SimCLR, MAE and the "feature extraction / full fine-tuning / parameter-efficient fine-tuning" split do not appear, so the "Three fine-tuning strategies" section now carries a note marking it as this site's supplement.
+
 ## Why transfer works
 
 Empirical observation: a network trained on a big dataset (ImageNet 1.2M, LAION 400M, web-crawl text) learns **generic visual features** (edges, textures, color gradients) in its early layers, and only the last few layers bind to the specific task. Moving those mid-level representations to a small-data task (say a few hundred medical images) usually beats training from scratch.
@@ -57,6 +59,8 @@ Empirical observation: a network trained on a big dataset (ImageNet 1.2M, LAION 
 The intuition: across many data sources, the structure of "good features" is shared — low-level edges/textures early, semantics late. The bigger the pretraining data and the deeper the model, the stronger that sharing.
 
 ## Three fine-tuning strategies
+
+> Video note: the Lec 18 transcript covers the trade-offs of pretraining and fine-tuning (about 2%–33%), domain adaptation (about 38%–49%), knowledge distillation (about 42%–62%) and foundation models with adapters / prompting (about 62%–99%); LoRA, SimCLR, MAE and the concrete form of the three strategies below are not in the transcript and are this site's supplement.
 
 ### 1. Feature extraction (freeze the backbone)
 
@@ -117,6 +121,7 @@ L19 goes deeper into the PEFT that L18 left as a preview (LoRA math derivation, 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to "Three fine-tuning strategies": LoRA, SimCLR, MAE and that three-way split are not in the video.
 
 ## References
 

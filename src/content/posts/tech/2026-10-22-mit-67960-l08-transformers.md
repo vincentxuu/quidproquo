@@ -47,6 +47,8 @@ title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 08 字幕（Phillip Isola，1:14:35）：影片講 token、attention（query／key／softmax）、位置編碼，並把 Transformer 與 MLP、CNN、GNN 並排比較，與文章主題一致，未發現需修正之處。
+
 ## 三個核心想法
 
 第 8 講把 Transformer 拆成三個獨立、但彼此配合的想法：
@@ -117,6 +119,7 @@ def scaled_dot_product_attention(q, k, v):
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。影片主題與文章一致，無需修正。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

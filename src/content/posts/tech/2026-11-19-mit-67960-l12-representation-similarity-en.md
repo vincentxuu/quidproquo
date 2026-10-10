@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 12 transcript (Sara Beery, 1:16:20): the video covers metric learning, contrastive learning and InfoNCE, alignment and uniformity (about 59%–68%) and hard negatives, matching the article; SimCLR does not appear in the transcript and is only a reference in this article.
+
 ## When reconstruction is not enough: define "similarity" directly
 
 L11's reconstruction learning indirectly squeezes a good representation by "compressing the input back". But often what we care about is simply **how alike two samples are** — search engines, recommendation, face verification are all this need. The more direct route is **similarity-based representation learning**: instead of reconstructing, **sculpt the geometry of the latent space**.
@@ -124,6 +126,7 @@ Next lecture (L13) takes the theoretical view: why the architecture's inductive 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 

@@ -26,7 +26,7 @@ additionalSeries:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 01). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is the course overview, delivered by the instructor team.
+> **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 01). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is the course introduction, taught by Sara Beery according to the OCW video description.
 
 ---
 
@@ -46,6 +46,8 @@ Course and recording entries:
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 01 transcript (Sara Beery, 1:00:51): the video is a course introduction covering the rise and history of deep learning (AlexNet and GPUs at about 30%), course rules and assignment policy (about 15%–25%), neural-network / MLP basics and optimization (about 40%–80%), and tensor and PyTorch concepts (about 13%–15% and 90%); the transcript has no line-by-line training-loop demo, and the old claims that "Lecture 1 is the only one with no math, no architecture" and that the "instructor team takes turns" did not hold and were rewritten.
 
 ## 1. Why deep learning exploded after the 2010s
 
@@ -69,7 +71,7 @@ Any one alone is not enough. All three at once is what took deep learning from t
 - **Scale**: scaling laws (L20) → LLMs (L21).
 - **Deployment**: geometric deep learning (L23), inference optimization (L24).
 
-Lecture 1 is the only one with "no math, no architecture" — it tells you what this main line is.
+This lecture is the course introduction: the video itself covers opening motivation and history, course rules and assignment policy, and basic ideas of neural networks / MLPs and training; the course map above and the training loop below are this site's supplement, not segment-by-segment video content.
 
 ## 3. Why "deep"
 
@@ -120,6 +122,7 @@ If you're just auditing:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Rewrote the unsupported claims "the only lecture with no math or architecture" and "instructor team takes turns", and noted that the course map and training loop are this site's supplement.
 
 ## References
 

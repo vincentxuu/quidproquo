@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): read the Lec 03 Approximation Theory transcript (Jeremy Bernstein, 1:22:42): the video opens with "scale width or depth?", and its body builds universal approximation from ReLU units (rectangles and triangle functions, about 28%–60%), the role of dimension and width, and the role of depth (about 61%–80%); Barron's theorem is mentioned only once, so that section now carries a note that its details are this site's supplement.
+
 ## The most fundamental question
 
 Earlier lectures covered *how to train*; later ones cover *architectures*. This one steps back and asks a theory question: **how well can a neural network approximate the function we actually want?** This is not mathematical navel-gazing — it directly decides "is the network big enough, and should we go wider or deeper."
@@ -66,6 +68,8 @@ such that `‖f − f̂‖` is arbitrarily small. This theorem (Cybenko 1989; Ho
 The catch is in **"provided it is wide enough"** — how wide exactly? That is the next point.
 
 ## Barron's Theorem: Escaping the Curse of Dimensionality
+
+> Video note: the Lec 03 transcript only mentions Barron's theorem at about 55%, as one of many approximation results (it uses the Fourier representation of the function) and does not derive it; the details in this section are this site's supplement.
 
 The universal approximation proof is *existential*; it does not tell you the required width `K`. Pessimistically, for general functions `K` can grow **exponentially with input dimension `d`** — the curse of dimensionality.
 
@@ -114,6 +118,7 @@ Sweep the hidden width from 8 to 1024 and you will see the fit go from underfitt
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to the Barron section: the video mentions it only once; the details are this site's supplement.
 
 ## References
 
