@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 11 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). It covers Lecture 5, Kernel Logistic Regression, and Lecture 6, Support Vector Regression, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they close the first part of Techniques, "Embedding Numerous Features: Kernel Models".
 
@@ -35,23 +35,25 @@ This is part 11 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Te
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Bc8bg5ZkRdk
-title: T5-1
+title: Soft-Margin SVM as Regularized Model
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=5K44AgZvcDk
-title: T5-2
+title: SVM versus Logistic Regression
 ```
 
-Original videos: [T5-1](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[T5-2](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
+Original videos: [Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## First: these two lectures are barely taught in the NTU classroom
 
@@ -224,8 +226,8 @@ Available kernels include polynomial, Gaussian, or your own design (subject to M
 
 | Section | Video | Slides |
 |---|---|---|
-| Soft-Margin SVM as Regularized Model | [T5-1](https://www.youtube.com/watch?v=Bc8bg5ZkRdk) | 205 |
-| SVM versus Logistic Regression | [T5-2](https://www.youtube.com/watch?v=5K44AgZvcDk) | 205 |
+| Soft-Margin SVM as Regularized Model | [Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk) | 205 |
+| SVM versus Logistic Regression | [SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk) | 205 |
 | SVM for Soft Binary Classification | [T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg) | 205 |
 | Kernel Logistic Regression | [T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo) | 205 |
 | Kernel Ridge Regression | [T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y) | 206 |
@@ -251,6 +253,7 @@ Series navigation: previous, [Kernel trick and soft-margin SVM](/posts/ai/2026-0
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

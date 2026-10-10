@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 9 篇，從這篇開始進入[機器學習技法](https://www.csie.ntu.edu.tw/~htlin/mooc/)。範圍是技法第 1 講 Linear Support Vector Machine 與第 2 講 Dual Support Vector Machine。
 
@@ -38,23 +38,25 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=A-GxGCCAIrg
-title: T1-1
+title: Course Introduction
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=8hak0XngnV0
-title: T1-2
+title: Large-Margin Separating Hyperplane
 ```
 
-原始影片：[T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[T1-2](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+原始影片：[Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 從基石接過來：轉換的代價還沒付清
 
@@ -214,8 +216,8 @@ T2 最後一張投影片問：Are We Done Yet? 對偶 QP 的變數數量確實�
 
 | 小節 | 影片 | 投影片 |
 |---|---|---|
-| Course Introduction | [T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg) | 201 |
-| Large-Margin Separating Hyperplane | [T1-2](https://www.youtube.com/watch?v=8hak0XngnV0) | 201 |
+| Course Introduction | [Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg) | 201 |
+| Large-Margin Separating Hyperplane | [Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0) | 201 |
 | Standard Large-Margin Problem | [T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs) | 201 |
 | Support Vector Machine | [T1-4](https://www.youtube.com/watch?v=FAm70y081o4) | 201 |
 | Reasons behind Large-Margin Hyperplane | [T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA) | 201 |
@@ -250,6 +252,7 @@ T2-2 的影片標題在 YouTube 上拼成「Largange Dual SVM」，投影片是�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
 
 ## 參考資料
 

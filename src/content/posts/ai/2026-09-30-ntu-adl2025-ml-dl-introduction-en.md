@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 1 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15) lists this lecture under "self-study / prerequisite." [Course Logistics](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) p. 17 requires students to watch it before enrolling, as part of HW0.
 
@@ -25,7 +25,7 @@ There is no math in this lecture. It wants you to leave with two ideas: learning
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Nls5bHxW6i0
@@ -42,6 +42,8 @@ Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## When you can't write the rules, let the machine find the function
 
@@ -126,6 +128,7 @@ Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

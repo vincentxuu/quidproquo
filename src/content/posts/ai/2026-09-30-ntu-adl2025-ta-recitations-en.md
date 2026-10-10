@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide is based on ADL Fall 2025 (114-1, 2025/09/01–12/15).** It is post 18, the last one, in the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The lecture posts only link to the recitations; the recitation content lives here.
 
@@ -39,7 +39,7 @@ This post answers one question: **the lectures teach the principles, so what han
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=zuiACAhRUzA
@@ -56,6 +56,8 @@ Original videos: [ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)](ht
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## The big picture
 
@@ -251,6 +253,7 @@ Series overview: [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/po
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

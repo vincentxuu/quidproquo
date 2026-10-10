@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 5 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series, following [VC Dimension, Noise and Error Measures](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en). It covers Lecture 9, Linear Regression, and Lecture 10, Logistic Regression, from [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/). This is where the course reaches its third big question: "How Can Machines Learn?"
 
@@ -49,7 +49,7 @@ Official materials used:
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=qGzjYrLV-4Y
@@ -66,6 +66,8 @@ Original videos: [Linear Regression Problem](https://www.youtube.com/watch?v=qGz
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Part 1: Linear regression
 
@@ -232,6 +234,7 @@ Further reading: the Stanford CS229 chapter guides on [linear regression](/posts
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

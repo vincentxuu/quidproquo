@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 2 in the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. It covers Lecture 4 of [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/), "feasibility of learning," the last lecture under the first question, "When Can Machines Learn?"
 
@@ -34,23 +34,25 @@ The PLA from [post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-percept
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=tOgbh5_747w
-title: YouTube
+title: Learning is Impossible?
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=MgAihqFPkZc
-title: YouTube
+title: Probability to the Rescue
 ```
 
-Original videos: [YouTube](https://www.youtube.com/watch?v=tOgbh5_747w)、[YouTube](https://www.youtube.com/watch?v=MgAihqFPkZc)、[YouTube](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[YouTube](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+Original videos: [Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Materials for this post
 
@@ -194,6 +196,7 @@ The simulated value comes out far below 0.33, matching the slides' point that Ho
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

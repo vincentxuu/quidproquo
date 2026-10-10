@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This guide is based on two decks from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**: [Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf) (28 pages) and [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf) (58 pages), plus videos [4.1](https://youtu.be/FLNSD3zykgE) (23:41) and [4.2](https://youtu.be/c0O9s6MCFys) (25:01), both in Mandarin. All facts were checked against the official materials on 2026-09-30. The course is rated **A2**: the lectures are fully public, and the gaps are on the homework side. See the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). This lecture has no gaps of its own.
 
@@ -35,7 +35,7 @@ The two decks are separate rows on the [ADL Fall 2025 course page](https://www.c
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=FLNSD3zykgE
@@ -52,6 +52,8 @@ Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## Step one: why translation needs attention
 
@@ -211,6 +213,7 @@ One thing to try tonight: write a self-attention in under 20 lines of NumPy, wit
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

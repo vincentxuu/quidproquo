@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)播放清單上的 L13 影片，投影片則用 Fall 2024 版補位。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 16 篇。前兩篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 與 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning) 講模型怎麼想、怎麼規劃；這一篇退回「和人對話」這個老問題：**從模組化的任務型對話系統，到會自己用工具的 LLM，中間發生了什麼？**
 
@@ -48,7 +48,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
@@ -65,6 +65,8 @@ title: 13.2 LaMDA
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
 
 ## 對話系統的兩支
 
@@ -172,6 +174,7 @@ title: 13.2 LaMDA
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
 
 ## 參考資料
 

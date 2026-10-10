@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 14 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) taught this lecture on 11/10, and the [course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) marks the week as Virtual. It is the last row on the course page with slides attached; the next three rows (Knowledge / Multimodality, Personalization, Reasoning) have titles only.
 
@@ -39,7 +39,7 @@ There is no homework for this lecture. Slides and videos are public, with no ext
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=R0YBJve0NoI
@@ -56,6 +56,8 @@ Original videos: [ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)]
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## What an agent is, and what language agents add
 
@@ -163,6 +165,7 @@ Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

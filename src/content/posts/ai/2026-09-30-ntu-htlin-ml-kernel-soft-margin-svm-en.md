@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 10 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). It covers Lecture 3, Kernel Support Vector Machine, and Lecture 4, Soft-Margin Support Vector Machine, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/).
 
@@ -36,23 +36,25 @@ Access level: the MOOC materials are **A2**. Adding the public Fall 2024 HW6 PDF
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=oOi7kqUTqxw
-title: T3-1
+title: Kernel Trick
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Fb-WSBvsPak
-title: T3-2
+title: Polynomial Kernel
 ```
 
-Original videos: [T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+Original videos: [Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Where the last post stopped
 
@@ -180,8 +182,8 @@ A Gaussian soft-margin SVM has at least two parameters, (C, γ), and the three p
 
 | Section | Video | Slides |
 |---|---|---|
-| Kernel Trick | [T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw) | 203 |
-| Polynomial Kernel | [T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak) | 203 |
+| Kernel Trick | [Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw) | 203 |
+| Polynomial Kernel | [Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak) | 203 |
 | Gaussian Kernel | [T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8) | 203 |
 | Comparison of Kernels | [T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE) | 203 |
 | Motivation and Primal | [T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A) | 204 |
@@ -224,6 +226,7 @@ Series navigation: previous, [Linear SVM and dual SVM](/posts/ai/2026-09-30-ntu-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

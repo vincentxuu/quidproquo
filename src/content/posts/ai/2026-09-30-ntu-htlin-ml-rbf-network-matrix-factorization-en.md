@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-rbf-network-matrix-factorization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 15 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series, following [Neural Networks and Deep Learning](/posts/ai/2026-09-30-ntu-htlin-ml-neural-network-deep-learning-en). It covers Lecture 14, Radial Basis Function Network, and Lecture 15, Matrix Factorization, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they finish the third part of the course, "Distilling Implicit Features: Extraction Models." The lectures are taught in Mandarin; the slides are in English.
 
@@ -43,7 +43,7 @@ Official material used:
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=7lHhnpdPVr0
@@ -60,6 +60,8 @@ Original videos: [RBF Network Hypothesis](https://www.youtube.com/watch?v=7lHhnp
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Where these lectures sit
 
@@ -251,6 +253,7 @@ Further reading: the [Stanford CS224W guide](/posts/ai/2026-08-21-stanford-cs224
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the L13 videos in the playlist of [NTU Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), with the Fall 2024 slides filling in.** It is post 16 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous two posts, [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en) and [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en), were about how a model thinks and plans. This one goes back to an older problem, talking with people: **what happened between modular task-oriented dialogue systems and LLMs that use tools on their own?**
 
@@ -48,7 +48,7 @@ The "matching pages" column is my own topic match. Public information cannot con
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
@@ -65,6 +65,8 @@ Original videos: [13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaM
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## Two branches of dialogue systems
 
@@ -172,6 +174,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

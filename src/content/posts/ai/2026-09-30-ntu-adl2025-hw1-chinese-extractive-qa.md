@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的 HW1。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 7 篇。上一篇 [BERT 與它的家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 怎麼預訓練、怎麼在最上層加分類器微調；這一篇把它用在一個具體任務上：**給一個問題和四段中文，怎麼找出答案在哪一段、從第幾個字到第幾個字？**
 
@@ -37,7 +37,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=DVjBNRHUWc0
@@ -49,6 +49,8 @@ title: 影片：ADL 2025 Fall Homework 1
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
 
 ## 任務：兩段式抽取式問答
 
@@ -191,6 +193,7 @@ Q1 直接連回[第 5 篇 Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokeniz
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
 
 ## 參考資料
 

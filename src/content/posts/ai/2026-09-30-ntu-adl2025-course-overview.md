@@ -32,6 +32,10 @@ draft: false
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 - [ADL Fall 2025 官方播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
 
+2026-10-10 已即時對照官方課程頁與官方播放清單（77 支）；本文是總覽，沒有單一對應講次，因此不嵌入影片。
+
+查核日期：2026-10-10。
+
 ## 這門課的硬事實
 
 依 Course Logistics 投影片：
@@ -155,6 +159,7 @@ adl.miulab.tw 現在轉到 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~mi
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方課程頁與播放清單都在；總覽文不嵌入單支影片。
 
 ## 參考資料
 

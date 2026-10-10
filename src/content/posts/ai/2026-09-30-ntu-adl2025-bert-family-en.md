@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-bert-family)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This guide covers the 9/08 week of [NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/).** It is part 6 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous post, [Tokenization and BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en), explained where BERT's subword inputs come from, and [Attention and Transformer](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en) covered its backbone. This one answers: **the same word means different things in different sentences, so how does a model produce a representation that reads the context?**
 
@@ -37,7 +37,7 @@ Access level follows the series rating of **A2**. The slides and videos for this
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=pSQM-HNHA64
@@ -54,6 +54,8 @@ Original videos: [5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## The starting point: word vectors ignore polysemy
 
@@ -189,6 +191,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 
 ## References
 

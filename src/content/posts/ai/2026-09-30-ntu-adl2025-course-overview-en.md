@@ -32,6 +32,10 @@ Course and recording entries:
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 - [Official ADL Fall 2025 playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
 
+On 2026-10-10 this was checked live against the official course page and the official playlist (77 videos). This post is an overview with no single matching lecture, so no video is embedded.
+
+Checked: 2026-10-10.
+
 ## The hard facts
 
 From the Course Logistics slides:
@@ -155,6 +159,7 @@ Next: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official course page and playlist are live; this overview embeds no single video.
 
 ## References
 

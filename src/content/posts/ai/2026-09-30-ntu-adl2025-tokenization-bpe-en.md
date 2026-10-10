@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This guide is based on the [Tokenization slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Tokenization.pdf) (22 pages) from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**. The video linked on that row of the course page is [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://youtu.be/NrT5kmnTFCk) (33:37, in Mandarin). It was uploaded on 2023-10-12, so it is a reused recording from an earlier year, not a 2025 re-record, and it may not match the 2025 slides exactly. It has no captions, so this post relies on the slides alone. All facts were checked against the official materials on 2026-09-30. The course is rated **A2**, with the gaps on the homework side; see the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en).
 
@@ -35,23 +35,20 @@ The deck is only 22 pages, and 14 of them walk through a single example. Work th
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=NrT5kmnTFCk
 title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization
 ```
 
-```youtube
-url: https://www.youtube.com/watch?v=HEikzVL-lZU
-title: Byte Pair Encoding Tokenization
-```
-
-Original videos: [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU)
+Original videos: [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU) (a Hugging Face demo video linked from the slides; not an ADL lecture recording, so it is not embedded)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
 
 ## The problem: out-of-vocabulary words
 
@@ -164,6 +161,7 @@ One thing to try tonight: open the [OpenAI tokenizer](https://platform.openai.co
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Kept the ADL 5.1 lecture embed; removed the embed of the Hugging Face demo video, which is not a course recording (text link kept).
 
 ## References
 

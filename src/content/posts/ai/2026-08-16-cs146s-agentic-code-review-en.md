@@ -33,6 +33,10 @@ That shift is telling. A year ago the talk worth booking was about how to write.
 
 This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
 
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://themodernsoftware.dev/)
@@ -125,6 +129,7 @@ That single sentence answers both accountability and process design.
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official site and GitHub repo still list no lecture recording; the unofficial "Wk0X" YouTube summaries were not used.
 
 ## References
 

@@ -50,6 +50,12 @@ glossary:
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+2026-10-10 已即時查過官方 MOOC 頁與兩份播放清單：播放清單只有講課影片，沒有這篇談的作業說明影片（題目是 NTU 課程頁上的 PDF）。
+
+查核日期：2026-10-10。
 
 ## 作業長什麼樣
 
@@ -207,6 +213,7 @@ hw2 以後依課程計畫在 10/07 起陸續公布，截至 2026-09-30 都還沒
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方播放清單只有講課影片，沒有作業說明影片，狀態不變。
 
 ## 參考資料
 
