@@ -12,6 +12,8 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs25-v6)
 
+**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+
 [CS25: Transformers United](https://web.stanford.edu/class/cs25/) is a Stanford seminar, now in its sixth season as of Spring 2026. It does not teach you how Transformers work — that's what CS224N and CS336 are for. What it does is put someone who is currently building this stuff on stage every week and let students raise their hands. This post breaks down what each of the nine V6 talks actually covered, which ones are worth your time, and three threads the speakers connected to each other that the official schedule never mentions.
 
 # What the course is
@@ -142,6 +144,31 @@ Seasons so far: V1 (Fall 2021), V2 (Winter 2023), V3 (Fall 2023), V4 (Spring 202
 - Session content: full transcripts read for all nine sessions (Apr 23, May 7 and May 14 completed on 26 August 2026 via YouTube auto-generated captions; occasional transcription errors restored from context).
 - Numbers speakers stated on stage (hybrid layer ratios, RLP's 35%, the planning-time gap) come from a single source each; I did not cross-check them against the underlying papers or technical reports.
 - View counts are a single snapshot from 21 August 2026.
+
+## Course video sources
+
+Checked the public CS25 Transformers United V6 recordings on the Stanford Online channel (viewed live on 2026-10-10). Two are embedded: the opening Overview (Apr 2) and the Albert Gu session (Apr 16) that this article marks as the most technically dense; links to the other sessions are in the references.
+
+```youtube
+url: https://www.youtube.com/watch?v=bHSDPgZYie0
+title: Stanford CS25: Transformers United V6 I Overview of Transformers
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=OyimE74UMF8
+title: Stanford CS25: Transformers United V6 I On the Tradeoffs of State Space Models and Transformers
+```
+
+Official source:
+
+- [CS25 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM)
+
+Checked: 2026-10-10.
+
+## Changelog
+
+- 2026-10-10: Added video status and embedded the Overview and Albert Gu recordings.
+
 
 ## References
 

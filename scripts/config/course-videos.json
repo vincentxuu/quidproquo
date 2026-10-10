@@ -2,28 +2,82 @@
   "_readme": "【通用規則】所有帶「影片狀態」行的文章都會檢查（已附影片必須有嵌入、嵌入必須標已附影片、中英一致、自帶查核日期的否定類說法 genericStaleAfterDays 天內有效）。【嚴格登錄】下方 entries 是已逐講查證的系列，video 與文章逐一對照。課程系列的影片登錄表。video 填 YouTube 11 碼 ID；填 null 代表「已即時查過來源、確認還沒有」，必須同時更新 checkedAt。pnpm check:course-videos 會比對文章與這張表。更新流程見 .agents/skills/post-update/SKILL.md「課程影片狀態」。",
   "staleAfterDays": 7,
   "genericStaleAfterDays": 30,
-  "noStatusAllowlist": [
-    "src/content/posts/ai/2026-08-21-stanford-cs25-v6.md",
-    "src/content/posts/ai/2026-08-21-stanford-cs25-v6-en.md",
-    "src/content/posts/learning/2026-10-03-ai-engineering-from-scratch-review.md",
-    "src/content/posts/learning/2026-10-03-ai-engineering-from-scratch-review-en.md"
-  ],
-  "_noStatusAllowlistNote": "2026-10-10 全站掃描發現這 4 檔是課程文章卻沒有影片狀態行（2026-10-10 的批次回填漏掉）。待逐篇即時查證影片後補上狀態行，再從這份清單移除。",
+  "noStatusAllowlist": [],
   "entries": {
-    "2026-09-29-cmu-11768-course-overview": { "video": "UwfjzyLnvMg", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-01-what-is-an-agent": { "video": "UwfjzyLnvMg", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-02-tool-use": { "video": "jXChFB4JSyw", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-03-context-management": { "video": "AiwCCvFW1uE", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-04-skills-memory": { "video": "6zigF2a-2Pw", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-05-planning": { "video": "S8v-dR4s29M", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-06-coding-agents": { "video": "1BWeH1oOM7k", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-07-computer-use-agents": { "video": "jwGluLrrqjQ", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-08-sft": { "video": "O3HSU0AoILc", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-09-rl-basics": { "video": "paAcPaaYZGM", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-10-deep-research-agents": { "video": "nKUBrXFQBUM", "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-09-29-cmu-11768-lecture-11-advanced-rl": { "video": null, "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-10-10-cmu-11768-lecture-12-rl-systems": { "video": null, "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-10-10-cmu-11768-lecture-13-agent-safety": { "video": null, "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" },
-    "2026-10-10-cmu-11768-lecture-14-openhands": { "video": null, "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM", "checkedAt": "2026-10-10" }
+    "2026-09-29-cmu-11768-course-overview": {
+      "video": "UwfjzyLnvMg",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-01-what-is-an-agent": {
+      "video": "UwfjzyLnvMg",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-02-tool-use": {
+      "video": "jXChFB4JSyw",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-03-context-management": {
+      "video": "AiwCCvFW1uE",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-04-skills-memory": {
+      "video": "6zigF2a-2Pw",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-05-planning": {
+      "video": "S8v-dR4s29M",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-06-coding-agents": {
+      "video": "1BWeH1oOM7k",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-07-computer-use-agents": {
+      "video": "jwGluLrrqjQ",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-08-sft": {
+      "video": "O3HSU0AoILc",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-09-rl-basics": {
+      "video": "paAcPaaYZGM",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-10-deep-research-agents": {
+      "video": "nKUBrXFQBUM",
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-09-29-cmu-11768-lecture-11-advanced-rl": {
+      "video": null,
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-10-10-cmu-11768-lecture-12-rl-systems": {
+      "video": null,
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-10-10-cmu-11768-lecture-13-agent-safety": {
+      "video": null,
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    },
+    "2026-10-10-cmu-11768-lecture-14-openhands": {
+      "video": null,
+      "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
+      "checkedAt": "2026-10-10"
+    }
   }
 }
