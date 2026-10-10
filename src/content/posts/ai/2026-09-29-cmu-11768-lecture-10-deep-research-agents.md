@@ -28,9 +28,9 @@ glossary:
 
 > 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en)
 
-**影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **本篇依投影片撰寫，影片上架後補充。** 截至 2026-09-29，[CMU 11-768](https://www.cmu-agents.com/) 第 10 講只公開了 [124 頁投影片](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf)，沒有錄影。下文所有數字與例子都出自投影片或投影片引用的論文。被引用來支撐內容的論文，我都打開全文對過相關段落：投影片與論文說法不同時兩者都寫出來，只在投影片出現、論文裡找不到的標為「投影片所述」。講者課堂上怎麼口頭補充，要等影片出來才知道，這裡不代為揣測。
+> **本篇依投影片撰寫；官方錄影已於 2026-10-10 上架（72 分鐘），內文尚未依影片補充。** 下文的說明只根據[投影片](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf)，沒有講者口述，口述內容會在看完影片後補上。下文所有數字與例子都出自投影片或投影片引用的論文；被引用來支撐內容的論文，我都打開全文對過相關段落：投影片與論文說法不同時兩者都寫出來，只在投影片出現、論文裡找不到的標為「投影片所述」。
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Daniel Fried 與 Graham Neubig 在 2026 秋季開的 agent 課，Domains 模組依序講 coding agent、computer use agent，第三個領域就是 deep research。第 10 講（9/24）由 [Akari Asai](https://akariasai.github.io/) 客座主講，她是 [OpenScholar](https://arxiv.org/abs/2411.14199)（arXiv:2411.14199，Nature 2026）的第一作者、[DR Tulu](https://arxiv.org/abs/2511.19399)（arXiv:2511.19399，ICML 2026）的共同第一作者，所以這一講有一半是在講她自己怎麼做這件事。
 
@@ -38,7 +38,14 @@ Deep research agent 指的是：接到一個需要多次搜尋、跨多份文件
 
 ## 課程影片來源
 
-本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
+已核對 CMU 11-768 Fall 2026 第 10 講的公開錄影（Akari Asai 主講）；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=nKUBrXFQBUM
+title: CMU AI Agents 2026: 10. Deep Research
+```
+
+原始影片：[CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
 
 官方來源：
 
@@ -277,6 +284,7 @@ L10 是 Domains 模組的第三講，也是 Training 模組中間插進來的一
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：更正影片狀態。第 10 講錄影已上架，原標示「待確認」不符，已嵌入影片；內文仍依投影片，待依影片補充。
 
 ## 參考資料
 

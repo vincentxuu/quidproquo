@@ -27,9 +27,9 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents)
 
-**Video status: Pending: no corresponding recording has been verified.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
-> **This post is written from the slides; I will add to it once the video is posted.** As of 2026-09-29, [CMU 11-768](https://www.cmu-agents.com/) has released only the [124-page slide deck](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf) for Lecture 10, with no recording. Every number and example below comes from the slides or the papers they cite. For each paper used to support a point, I opened the full text and checked the relevant passage: where the slides and the paper differ, both are given, and anything found only on the slides is marked as such. What the lecturer said out loud in class is unknown until the video is out, and I do not guess at it here.
+> **This post is written from the slides; the official recording went up on 2026-10-10 (72 min), and the text has not yet been revised against it.** Everything below comes from the [slides](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf), not from what the lecturer said; spoken content will be added after I watch the video. Every number and example below comes from the slides or the papers they cite. For each paper used to support a point, I opened the full text and checked the relevant passage: where the slides and the paper differ, both are given, and anything found only on the slides is marked as such.
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is Daniel Fried and Graham Neubig's Fall 2026 course on agents. Its Domains module covers coding agents, then computer use agents, and the third domain is deep research. Lecture 10 (Sep 24) is a guest lecture by [Akari Asai](https://akariasai.github.io/), first author of [OpenScholar](https://arxiv.org/abs/2411.14199) (arXiv:2411.14199, Nature 2026) and joint first author of [DR Tulu](https://arxiv.org/abs/2511.19399) (arXiv:2511.19399, ICML 2026), so half of this lecture is her explaining how she built these systems.
 
@@ -37,7 +37,14 @@ A deep research agent takes a research question that needs many searches and syn
 
 ## Course video sources
 
-This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 10 (speaker: Akari Asai); it is published on instructor Graham Neubig's channel, and the title and description match this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=nKUBrXFQBUM
+title: CMU AI Agents 2026: 10. Deep Research
+```
+
+Original video: [CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
 
 Official sources:
 
@@ -276,6 +283,7 @@ Related posts on this site to read alongside the lecture:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Corrected the video status. The Lecture 10 recording is now published, so the "pending" label no longer applied; the video is embedded, and the text is still based on the slides pending a video-based revision.
 
 ## References
 
