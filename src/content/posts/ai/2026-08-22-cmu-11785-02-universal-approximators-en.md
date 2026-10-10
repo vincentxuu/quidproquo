@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 22 focuses on latent variables, the ELBO, the KL term, and the reparameterization trick. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 2 focuses on Boolean functions, how network depth and width affect representational capacity (including a multi-input XOR example), and the hand-off at the end to the next lecture's training problem. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 2: Neural Nets as Universal Approximators."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for Boolean functions, depth, width, XOR and activations. The transcript confirms a lecture on representational capacity and depth/width, but it does not argue that representation power is not trainability (it only says at the end that training comes next), so the description of the video's topic was rewritten. The English article had been written as Lecture 22 (VAE: latent variables, ELBO) and was corrected to this lecture.
+
 ## What this lecture addresses
 
-The lecture centers on latent variables, the ELBO, the KL term, and the reparameterization trick. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on Boolean functions, how network depth and width affect representational capacity (including a multi-input XOR example), and the hand-off at the end to the next lecture's training problem. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 2, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -51,7 +53,7 @@ Place each local operation back inside the overall objective. A deep-learning sy
 
 ## Reproduce one small example
 
-Tonight's minimum exercise is: **calculate a one-dimensional Gaussian KL term and one reparameterized sample**. Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
+Tonight's minimum exercise is: **build a one-dimensional piecewise-linear function from ReLUs and mark its breakpoints**. Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
 
 “Runs without an exception” is not a sufficient check. Record at least one invariant: probabilities sum to one, a loss should decline, an output shape remains fixed, or numerical and analytic gradients agree. This restores a feedback loop without the course's hidden grader.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the description of the video's topic (the video does not argue that representation power is not trainability) and fixed the English version, whose tldr, summary and exercise had been written for Lecture 22 (VAE).
 
 ## References
 

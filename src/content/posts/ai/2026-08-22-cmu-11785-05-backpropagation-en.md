@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 5 focuses on computational graphs, the chain rule, local derivatives, and gradient reuse. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 5 focuses on layered-network notation, the forward pass, the chain rule and Jacobians (including vector activations), and how the backward pass computes weight and bias derivatives layer by layer. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 5: Training III: Backpropagation."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for the chain rule, Jacobians and the forward and backward passes. The transcript confirms backpropagation, but it is taught through layered-network notation and vector/Jacobian derivations, with no computational graph or gradient reuse framing, so the topic description was rewritten.
+
 ## What this lecture addresses
 
-The lecture centers on computational graphs, the chain rule, local derivatives, and gradient reuse. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on layered-network notation, the forward pass, the chain rule and Jacobians (including vector activations), and how the backward pass computes weight and bias derivatives layer by layer. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 5, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the topic description (the video teaches backpropagation through layered notation and Jacobians, not computational graphs or gradient reuse).
 
 ## References
 

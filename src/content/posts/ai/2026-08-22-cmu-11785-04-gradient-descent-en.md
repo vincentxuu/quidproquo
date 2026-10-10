@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 4 focuses on gradients, learning rates, parameter updates, and the training of a linear neuron. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 4 focuses on the definitions of derivative and gradient, extrema and second derivatives, gradient descent as repeated steps against the gradient, and the network, input/output representations, and divergence that must be defined before training. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 4: Training II: Gradient Descent."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for derivative, gradient, step size, second derivative and softmax. The transcript confirms derivatives, gradients and gradient descent, but the lecturer never says "learning rate" (he says step size) and the lecture is not about training a linear neuron, so the topic description was rewritten.
+
 ## What this lecture addresses
 
-The lecture centers on gradients, learning rates, parameter updates, and the training of a linear neuron. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on the definitions of derivative and gradient, extrema and second derivatives, gradient descent as repeated steps against the gradient, and the network, input/output representations, and divergence that must be defined before training. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 4, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the topic description (the video is not about training a linear neuron and does not use the term learning rate).
 
 ## References
 

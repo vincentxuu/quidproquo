@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 6 focuses on non-convex loss surfaces, curvature, saddle points, and momentum's accumulated direction. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 6 focuses on convergence of gradient descent (step-size choice on convex and quadratic functions, differences between dimensions), local minima and saddle points, decaying or adaptive learning rates, R-prop, and momentum with Nesterov accelerated gradient. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 6: Training IV: Convergence, Loss Surfaces, and Momentum."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 82 minutes); sampled the start, middle and end and searched for saddle points, momentum, convexity, quadratics, step size and R-prop. The transcript confirms saddle points, local minima and momentum, but never says curvature and mostly discusses step sizes on convex and quadratic functions rather than non-convex loss surfaces, so the topic description was rewritten. The lecturer also says second-order methods are only in the slides.
+
 ## What this lecture addresses
 
-The lecture centers on non-convex loss surfaces, curvature, saddle points, and momentum's accumulated direction. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on convergence of gradient descent (step-size choice on convex and quadratic functions, differences between dimensions), local minima and saddle points, decaying or adaptive learning rates, R-prop, and momentum with Nesterov accelerated gradient. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 6, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the topic description (the video never says curvature and mainly discusses step sizes, R-prop and momentum on convex/quadratic functions).
 
 ## References
 

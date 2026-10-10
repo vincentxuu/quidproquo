@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 3 focuses on data distributions, hypotheses, losses, empirical risk, and their roles in generalization. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 3 focuses on how the learning problem is set up (representing inputs and outputs as numbers), the perceptron learning rule and why it does not carry over to multi-layer networks, differentiable divergences, and empirical risk minimization (the loss). This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 3: Training I: Learning and Empirical Risk Minimization."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 83 minutes); sampled the start, middle and end and searched for perceptron, divergence, empirical risk, expected value and generalization. The transcript confirms empirical risk minimization and the perceptron learning rule, but it barely discusses data distributions, hypotheses or generalization (generalization is mentioned once), so the topic description was rewritten. The lecturer also says the greedy solutions are only in the slides and not covered in class.
+
 ## What this lecture addresses
 
-The lecture centers on data distributions, hypotheses, losses, empirical risk, and their roles in generalization. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on how the learning problem is set up (representing inputs and outputs as numbers), the perceptron learning rule and why it does not carry over to multi-layer networks, differentiable divergences, and empirical risk minimization (the loss). Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 3, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the topic description (the video covers problem setup, the perceptron rule and empirical risk minimization, not data distributions, hypotheses or generalization).
 
 ## References
 

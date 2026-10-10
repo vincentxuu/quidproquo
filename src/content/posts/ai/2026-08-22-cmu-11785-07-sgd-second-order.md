@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: zh-TW
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 7 聚焦full batch、mini-batch、隨機梯度與二階資訊的成本取捨；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
+tldr: "Spring 2026 Lecture 7 聚焦SGD 與 mini-batch 的增量更新，以及 RMSprop、momentum 等趨勢式更新（二階方法只在投影片，錄影未講）；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
 description: "CMU 11-785 Spring 2026 Lecture 7 雙語導讀：訓練五：SGD、batch size 與二階方法。"
 draft: false
 series:
@@ -37,9 +37,11 @@ title: Lecture 7 official YouTube recording
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片自動字幕全程約 84 分鐘；抽查開頭、中段、結尾並搜尋 SGD、mini-batch、RMS、momentum、second order。字幕確認增量更新與趨勢式更新；「二階方法」講者開場就說課堂上沒有講（只在投影片），原文把它列為本講中心不成立，已改寫。
+
 ## 這一講處理什麼
 
-這講的中心是full batch、mini-batch、隨機梯度與二階資訊的成本取捨。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
+這講的中心是SGD 與 mini-batch 的增量更新、learning rate 須隨時間縮小，以及 RMSprop、momentum 等趨勢式更新；二階方法在投影片上，但講者在開場回顧時說明課堂上沒有講解，本文不以影片為據。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
 
 課程把這個主題放在完整序列的第 7 講，因此它既承接前面的表示與訓練語言，也替後續模型建立共同元件。不要只抄名詞；每遇到一個公式，就標出輸入、輸出、可學參數與沿哪條路徑傳遞梯度。
 
@@ -69,6 +71,7 @@ title: Lecture 7 official YouTube recording
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。改寫主題描述（二階方法講者明說課堂未講，只在投影片）。
 
 ## 參考資料
 

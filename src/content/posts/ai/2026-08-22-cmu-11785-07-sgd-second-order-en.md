@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 7 focuses on the tradeoffs among full-batch, mini-batch, stochastic gradients, and second-order information. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 7 focuses on incremental SGD and mini-batch updates and trend-based updates such as RMSprop and momentum (second-order methods are only in the slides, not in the recording). This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 7: Training V: SGD and Second-order Methods."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for SGD, mini-batch, RMS, momentum and second-order. The transcript confirms incremental and trend-based updates; the lecturer says at the start that second-order methods were not presented in class (slides only), so listing them as a focus of the video was wrong and was rewritten.
+
 ## What this lecture addresses
 
-The lecture centers on the tradeoffs among full-batch, mini-batch, stochastic gradients, and second-order information. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on incremental updates with SGD and mini-batches, learning rates that must shrink over time, and trend-based updates such as RMSprop and momentum; second-order methods are on the slides, but the lecturer says in the opening recap that he did not present them in class, so this article does not rely on the video for them. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 7, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. Rewrote the topic description (the lecturer says second-order methods were not presented in class, only in the slides).
 
 ## References
 
