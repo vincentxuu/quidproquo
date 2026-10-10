@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 Lecture 26 adds no new mechanism. It asks what we can now explain that we initially only knew how to use. From integer bits and the terminating byte of a C string through pointers, lifetimes, generic memory operations, assembly execution, and heap allocation, CS107 turns “the program runs” into an account of representation, location, and responsibility for a contract.
 
@@ -23,18 +23,20 @@ The public lecture is a wrap-up outline, and no transcript of the classroom Q&A 
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The embedded video is the Sebastian C item this article discusses (its YouTube page is actually titled "Program in C — The Memory Unsafety Anthem", uploaded by fasterthanlime). It is not a recording of the Winter 2026 Lecture 26 session; the original lecture recording has not been verified. An earlier version of this article labeled it as an included course video, which has been corrected.
 
 ```youtube
 url: https://www.youtube.com/watch?v=G7LJC9vJluU
-title: Sebastian C
+title: Program in C — The Memory Unsafety Anthem
 ```
 
-Original videos: [Sebastian C](https://www.youtube.com/watch?v=G7LJC9vJluU)
+Original videos: [Program in C — The Memory Unsafety Anthem](https://www.youtube.com/watch?v=G7LJC9vJluU)
+
+Rechecked live on 2026-10-10: the official Winter 2026 calendar says recordings are on Canvas / Panopto for enrolled students only, and opening the Canvas entry redirects to the Stanford sign-in page; no public YouTube, Stanford Online or OCW recording of the same term's lectures was found. The public slide text also does not let us confirm the video link, so the earlier description is kept as is. Checked: 2026-10-10.
 
 Course and recording entries:
 
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture materials and complete agenda
 
@@ -110,6 +112,7 @@ Lecture 26 does not say systems is finished. It leaves six stable questions for 
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded Sebastian C video is not a lecture recording, so it is now labeled supplementary; the sign-in wall is confirmed and no public same-term recording was found.
 - 2026-08-22: Linked the wrap-up's absolute-value example explicitly to Lecture 5's `INT_MIN` signed-overflow caveat.
 
 ## References

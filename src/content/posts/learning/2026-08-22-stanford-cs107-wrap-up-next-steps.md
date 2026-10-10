@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 Lecture 26 不再加入一套新機制，而是回頭問：十週之後，我們現在能解釋哪些一開始只會使用的東西？從 `int` 的 bits、C string 的終止 byte、pointer 與 lifetime，到 generic memory operation、assembly execution 與 heap allocator，CS107 把「程式能跑」逐步改造成「能說明它如何表示、在哪裡存在、由誰維護契約」。
 
@@ -23,18 +23,20 @@ Lecture 26 不再加入一套新機制，而是回頭問：十週之後，我們
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列嵌入的是本文提到的 Sebastian C 相關影片（YouTube 頁面實際標題為《Program in C — The Memory Unsafety Anthem》，上傳者 fasterthanlime），它不是 Winter 2026 Lecture 26 的課堂錄影；原講次錄影未確認。本文先前把它標成已附影片，已更正。
 
 ```youtube
 url: https://www.youtube.com/watch?v=G7LJC9vJluU
-title: Sebastian C
+title: Program in C — The Memory Unsafety Anthem
 ```
 
-原始影片：[Sebastian C](https://www.youtube.com/watch?v=G7LJC9vJluU)
+原始影片：[Program in C — The Memory Unsafety Anthem](https://www.youtube.com/watch?v=G7LJC9vJluU)
+
+2026-10-10 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-10-10。
 
 課程與錄影入口：
 
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -110,6 +112,7 @@ Lecture 26 的結論不是「所有 systems topics 都學完了」。更準確�
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的 Sebastian C 影片不是課堂錄影，改標為補充影片；登入牆屬實，同學期無公開錄影。
 - 2026-08-22：把 wrap-up 的 absolute-value 回顧明確連回 Lecture 5 的 `INT_MIN` signed-overflow caveat。
 
 ## 參考資料
