@@ -57,7 +57,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 未核實原音文字時，練習區標待補，不能從中文反譯冒充英文原話；未確認全文轉載授權時，連回官方全文，不重新散布整集逐字稿或完整翻譯。只有文字的來源提供閱讀／表達練習，不標為原音 shadowing。
 
-**課程影片狀態**：課程導讀文章開頭一律有「影片狀態」行。判定「已附影片」或「沒有錄影」都要即時查原始來源（播放清單、講師頻道），並在 `scripts/config/course-videos.json` 登錄 video ID 或 `null` 加 `checkedAt`；`pnpm verify` 的 `check:course-videos` 會強制一致。細節見 `post-update` skill「課程影片狀態」。
+**課程影片狀態**：課程導讀文章開頭一律有「影片狀態」行。判定「已附影片」或「沒有錄影」都要即時查原始來源（播放清單、講師頻道），並在 `scripts/config/course-videos.json` 登錄 video ID 或 `null` 加 `checkedAt`；`pnpm verify` 的 `check:course-videos` 對所有課程系列強制一致（嵌入、狀態、中英、查核日期）。細節見 `post-update` skill「課程影片狀態」。
 
 ### 2. 體裁閘門（1500 字以上必過）
 
