@@ -612,3 +612,8 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-11 封存：daily-digest-weekly 2026-10-09 條目（progress.txt 行數上限）
 
 - **daily-digest-weekly 2026-10-09**：週回顧（series order 9，距上次 10-02 order 8 連號，週一 Monday-diff 公式驗證）。讀本週（10-05~10-09）56 篇 zh-TW daily posts frontmatter/tldr＋5 個 signals JSON（公司頻率統計：OpenAI/Anthropic/Google/NVIDIA/Microsoft/Amazon/Meta 皆已在 296 筆 watchlist 內且無任何候選公司獨立出現 ≥3 次，無新增候選）＋watchlist 比對 13 間本週融資公司皆非既有名單（Manus 除外，本已在 watchlist）。五件事：Google Gemini agent 通用工作 agent（讀 10-09 signals JSON，當日 ai-agent-daily 尚未產出）、ARTEX 入侵南韓銀行、Wikimedia／澳洲 Medicare 的 OpenAI rogue agent 事件、分層防護研究＋現實雙重印證（Evaluate the Stack 1.2-1.4x／GHOST 11.5%／Protocol Pivoting 六週未修）、DeepSeek/Moonshot/Kuaishou 中國資本市場三連發。企業落地觀察用交易成本框架分析 OneByZero／Valon／Ampersand 三種降低 agent 信任驗證成本的做法，落回台灣金融/醫療監管門檻對比。中英雙版已建立並互相連結（`type: digest` 補齊，比對 10-02 條目才發現本檔初版漏寫）。`check:references` 新檔僅既有「標題/參考資料關鍵詞重疊」WARN（確認為週回顧格式系統性誤報，與過去數篇同構，不追加處理）；`check:lang-parity`（2608 組全過）、`check:tw`（0 blocking，全站僅既有 WARN）、`check:series-order`（order 9 無撞號，僅既有缺號 warning）皆 0 blocking；`pnpm install --frozen-lockfile` 全新 container 乾淨跑完。
+
+## 2026-10-11 封存：CS329Z／課程系列標題排序 2026-10-10 條目（progress.txt 行數上限）
+
+- **CS329Z 2026-10-10（已提交 151b1176）**：更新中英總導讀與 Week 1–3 官方投影片入口；前五堂 PDF、HW1 starter／資料／測試已公開，系列描述同步更新。Groundlane 已核對官方課表、Logistics、GitHub README 與作業 PDF。
+- **課程系列標題排序 2026-10-10（已提交 a70865ff）**：SeriesDirectory 中英文以 Intl.Collator 自然排序課程標題，其他分類保留日期順序；課號數值排序與輸入保留檢查通過。
