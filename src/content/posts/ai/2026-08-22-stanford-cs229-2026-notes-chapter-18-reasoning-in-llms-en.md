@@ -21,12 +21,15 @@ This article reads Chapter 18, printed pages 220–225, of the [2026 CS229 main 
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. Both public playlists were checked live (Spring 2026: 17 videos; Autumn 2018: 21 videos), and no single lecture could be matched to this chapter's topic, so nothing is embedded. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Chain of thought turns one prediction into a computation
 
@@ -87,6 +90,7 @@ Define an RLVR setup for generating a function that passes unit tests: state, ac
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked the Spring 2026 and Autumn 2018 public playlists live; no lecture matches this chapter, so status unchanged.
 
 ## References
 

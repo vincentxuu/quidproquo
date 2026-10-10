@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-reward-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：依據 Spring 2026 的 [08_cs224r_reward_learning_2026 投影片](https://cs224r.stanford.edu/slides/08_cs224r_reward_learning_2026.pdf)（課表日期 2026-04-24）。配套影片是 [Spring 2025 L8 錄影（補充）](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)，標題相同，但開頭的 offline RL 複習不同：[2025 的 L8 投影片](https://cs224r.stanford.edu/spring_2025/slides/08_cs224r_reward_learning_2025.pdf)標題是「Conservative Offline RL and Reward Learning」，複習段講的是保守式方法；2026 版改成複習 L7 的兩個關鍵想法，再加一個 π*0.6 的例子。reward learning 部分的三個小節兩年相同。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 10 篇。
 
@@ -55,6 +55,8 @@ title: Spring 2025 Lecture 8: Reward Learning（YouTube，補充）
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 先收尾 offline RL
 
@@ -214,6 +216,7 @@ LLM 的版本是：給 prompt x，取樣兩個回答 y 和 y′，請人判斷�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

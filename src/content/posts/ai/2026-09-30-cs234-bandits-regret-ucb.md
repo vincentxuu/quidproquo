@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 的投影片；公開錄影是 [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)，本篇對應第 11 支「Exploration 1」（依 YouTube 章節，內容是 multi-armed bandit、regret、ε-greedy 與 UCB1）。所有事實都在 2026-09-30 打開 [Lecture 9 投影片](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf)（post 版，53 頁）與 [Lecture 10 投影片](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf)（post 版，41 頁，本篇用 p.1–17）核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片與補充讀物都公開；2026 錄影只在 Canvas 給修課生。
 
@@ -55,6 +55,8 @@ title: Stanford CS234 Spring 2024 播放清單第 11 支「Exploration 1」
 
 - [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
 
 ## 設定：只做一個決定的 RL
 
@@ -225,6 +227,7 @@ L10 p.5–6 放了一個真實案例：[Bastani et al. 在 Nature 發表的 COVI
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

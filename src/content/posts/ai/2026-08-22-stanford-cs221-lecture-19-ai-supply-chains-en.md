@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-19-ai-supply-chains)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 19**, dated 2025-12-01. The official schedule calls it **AI Supply Chains**, while the executable lecture repository links to a deck titled **Economics of AI**. I downloaded and read the complete 70-page Google Slides PDF. Its cover lists **Rishi Bommasani** as deck author / credited presenter. That credit does not establish who presented the class, so this article does not call him the in-room speaker or extend Percy Liang’s course-instructor role into a Lecture 19 speaking attribution. The primary written artifact is [Economics of AI Google Slides (deck snapshot checked 2026-08-22; the slides do not print a market date for every valuation)](https://docs.google.com/presentation/d/1jCn1OV4H1HKzQ0PWzRn2_bfOWKw43eS33wyramBt2z8/edit), with the offering and schedule fixed by the [official course site](https://stanford-cs221.github.io/autumn2025/).
 
@@ -23,12 +23,21 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 19**, dated 2025-12-0
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 19, the same term and lecture number this article follows. It matches item 19 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=lPx5PF1ttkc
+title: Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains](https://www.youtube.com/watch?v=lPx5PF1ttkc)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## The lecture's problem
 
@@ -127,6 +136,7 @@ Open gaps include compute cost/capacity decomposition, contract context for the 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 19 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

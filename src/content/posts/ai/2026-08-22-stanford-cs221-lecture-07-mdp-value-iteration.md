@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 7**，2025-10-13 由 Percy Liang 主講。課程版本、作業與講次脈絡以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本文逐段對照可執行的[官方 `mdp` 講義 artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp)，並把程式中的資料結構與更新順序翻成可讀的推導。課程錄影可由 [Stanford Online 官方 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN) 交叉觀看，講義原始碼則在[官方 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures)。
 
@@ -23,12 +23,21 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 7 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 7 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
+title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
 
 課程與錄影入口：
 
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 1. 從 search 開始：為什麼需要 MDP
 
@@ -169,6 +178,7 @@ memory 方面，`values`、`new_values`、`pi` 與 visited set 都隨可達 stat
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 7 講公開錄影，已嵌入。
 
 ## 參考資料
 

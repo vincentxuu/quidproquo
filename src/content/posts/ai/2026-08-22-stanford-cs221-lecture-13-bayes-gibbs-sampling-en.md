@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-13-bayes-gibbs-sampling)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article follows **Stanford CS221, Autumn 2025, Lecture 13**. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering; the executable lecture artifact is [gibbs_sampling](https://stanford-cs221.github.io/autumn2025-lectures/?trace=gibbs_sampling). The discussion below follows the execution order in `source/gibbs_sampling.py`. Rather than hiding the mathematics behind a finished sampler, the source exposes `ProbTable`, `Bernoulli`, `sample_dict`, and `normalize_dict` so that distributions, updates, and counts remain visible.
 
@@ -23,12 +23,21 @@ This article follows **Stanford CS221, Autumn 2025, Lecture 13**. The [official 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 13, the same term and lecture number this article follows. It matches item 13 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=Dk7Kqqehzjk
+title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling](https://www.youtube.com/watch?v=Dk7Kqqehzjk)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## TL;DR
 
@@ -199,6 +208,7 @@ When reading or implementing this source, three calculations should be reproduci
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 13 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-15-logic-propositional-sat-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 15**，2025-11-10 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是官方可執行講義裡的 [`propositional_logic.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=propositional_logic)。以下不是把「logic」濃縮成幾個名詞，而是沿著程式的執行順序，把每一個定義、例子與轉換接起來。
 
@@ -23,12 +23,21 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 15 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 15 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q7V13XriJEc
+title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 15: Logic I](https://www.youtube.com/watch?v=Q7V13XriJEc)
 
 課程與錄影入口：
 
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 這一講的問題：為什麼需要邏輯
 
@@ -146,6 +155,7 @@ Forward inference 的輸入是 inference rules 的集合 `Rules` 與初始 KB。
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 15 講公開錄影，已嵌入。
 
 ## 參考資料
 

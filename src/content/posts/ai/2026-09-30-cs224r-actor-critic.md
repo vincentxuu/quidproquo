@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-actor-critic-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 第 4 講投影片 [04_cs224r_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/04_cs224r_actor_critic_2026.pdf)（37 頁，2026-04-10 上課）。2026 錄影只放在 Canvas；配套影片是 [Spring 2025 L4 錄影](https://www.youtube.com/watch?v=oejFZShW9hU)（補充）。2025 與 2026 版投影片的講次大綱相同，2026 版在開頭的複習多補了幾行 policy gradient 的特性，其餘差在日期。影片內容本文沒有逐段引用。
 
@@ -54,6 +54,8 @@ title: Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online�
 
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：policy gradient 在浪費資料
 
@@ -236,6 +238,7 @@ V 只吃狀態、不吃動作，比 Q 好學。
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

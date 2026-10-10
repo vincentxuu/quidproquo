@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-imitation-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source year**: based on the Spring 2026 [02_cs224r_imitation_2026 slides](https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf) (2026-04-03). The companion video is the [Spring 2025 L2 recording (supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M). The title matches, but the slides were revised for 2026, so details may differ. This is post 2 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -61,6 +61,8 @@ Original videos: [Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Problem one: the mean is not the answer
 
@@ -224,6 +226,7 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

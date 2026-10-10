@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-17-language-models)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post is rewritten only from the official slides for **Stanford CS221 Autumn 2025 Lecture 17**, `language_models.pdf`. The PDF dates the lecture to 2025-11-17 and credits Ken Liu; it begins by noting that language models will not be on that week's exam, then introduces the definition, motivation, architectures and systems, and finally places the topic in its industrial and research context.
 
@@ -23,12 +23,21 @@ This post is rewritten only from the official slides for **Stanford CS221 Autumn
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 17, the same term and lecture number this article follows. It matches item 17 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=3orP3u2-jcg
+title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 17: Language Models](https://www.youtube.com/watch?v=3orP3u2-jcg)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## The lecture map
 
@@ -150,6 +159,7 @@ The reliable takeaway is therefore not that next-token prediction explains intel
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 17 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

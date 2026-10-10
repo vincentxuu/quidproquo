@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-02-learning-backprop-regression-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這篇只依兩份可執行 artifact 整理：[`backpropagation.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=backpropagation) 和 [`linear_regression.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=linear_regression)。主線很集中：先用 tensor 與 `einsum` 熟悉「軸怎麼被保留或消去」，再把一個 scalar loss 拆成計算圖，最後把同一套微分與更新步驟接到線性迴歸。文章中的數值、名稱、形狀與演算法流程，都以這兩個檔案實際寫出的內容為準。
 
@@ -23,12 +23,21 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 2 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 2 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=ypZJaTqrNdk
+title: Stanford CS221 | Autumn 2025 | Lecture 2: Learning I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 2: Learning I](https://www.youtube.com/watch?v=ypZJaTqrNdk)
 
 課程與錄影入口：
 
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 議程：從張量操作到學習迴圈
 
@@ -126,6 +135,7 @@ bias   = bias   - learning_rate * grad[1]
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 2 講公開錄影，已嵌入。
 
 ## 參考資料
 

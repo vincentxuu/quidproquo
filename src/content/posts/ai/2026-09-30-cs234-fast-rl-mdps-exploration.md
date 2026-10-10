@@ -35,7 +35,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-fast-rl-mdps-exploration-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 15 篇。
 
@@ -60,6 +60,8 @@ title: Stanford CS234 Spring 2024 影片 13〈Exploration 3〉
 
 - [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
 
 ## 這一講要解決什麼
 
@@ -246,6 +248,7 @@ DPT 那兩頁的核心只有一句：訓練模型去預測最佳動作 $a^*$，�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

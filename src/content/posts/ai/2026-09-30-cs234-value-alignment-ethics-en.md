@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-value-alignment-ethics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 version.** It is part 17 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
@@ -68,6 +68,8 @@ Original videos: [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Web
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
 ## Why an RL course covers this
 
@@ -197,6 +199,7 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

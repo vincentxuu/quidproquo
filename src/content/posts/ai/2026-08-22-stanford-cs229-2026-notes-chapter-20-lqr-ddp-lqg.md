@@ -15,18 +15,33 @@ series:
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 20 章（印刷頁 244–257）。這是 2026 notes 的逐章導讀，不是某學期錄影重建；以下說明結構化控制問題如何被求解與近似，不逐行重現 Riccati 與高斯條件分布的全部證明。
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=0rt2CsEQv6U
+title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+原始影片：[Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U)、[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 有限期動態規劃先從終點往回看
 
@@ -99,6 +114,7 @@ s_{t+1|t+1}=s_{t+1|t}+K_t(y_{t+1}-Cs_{t+1|t}),
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
 
 ## 參考資料
 

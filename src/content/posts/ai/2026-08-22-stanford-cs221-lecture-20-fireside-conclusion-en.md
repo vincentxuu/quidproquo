@@ -15,25 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-20-fireside-conclusion)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 20**, dated 2025-12-03. It is not a lecture that derives a new algorithm from slides. It is a fireside chat led by the course moderator, Ken, with Percy Liang answering student questions, followed by Percy’s closing thanks to the class. The [official course site](https://stanford-cs221.github.io/autumn2025/) and this series’ official schedule establish the offering and lecture order; the primary artifact is the [official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k). [video](https://youtu.be/5u5I5jvWR5k?t=43)
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 20, the same term and lecture number this article follows. It matches item 20 of the official playlist (title checked against the live playlist page).
 
 ```youtube
 url: https://www.youtube.com/watch?v=5u5I5jvWR5k
-title: Official lecture artifact: official Stanford Online video
+title: Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion
 ```
 
-Original videos: [Official lecture artifact: official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k)
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion](https://www.youtube.com/watch?v=5u5I5jvWR5k)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## Materials and Reading Method
 
@@ -150,6 +152,7 @@ This is an editorial synthesis of the recording, not a closing list Percy reads 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 20 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

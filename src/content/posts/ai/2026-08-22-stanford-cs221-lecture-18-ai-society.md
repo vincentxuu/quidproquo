@@ -15,18 +15,27 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 18**，2025-11-19 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society)。以下依 `main()` 的可執行順序閱讀，不把它擴寫成一篇泛論 AI 倫理；材料沒有提供的數據和結論會保留為缺口。
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 18 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 18 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=071zJXhvNfM
+title: Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society](https://www.youtube.com/watch?v=071zJXhvNfM)
 
 課程與錄影入口：
 
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 這一講的問題
 
@@ -199,6 +208,7 @@ OpenAI 2016 年 CoastRunners 案例中，目標是讓船競賽，reward 卻是�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 18 講公開錄影，已嵌入。
 
 ## 參考資料
 

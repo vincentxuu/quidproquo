@@ -44,12 +44,14 @@ This post covers only the question structure, points, what the starter code look
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
 
 Course and recording entries:
 
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+Checked: 2026-10-10.
 
 ## Schedule, submission, and points
 
@@ -229,6 +231,7 @@ One thing you can do tonight: download the Drive zip, set up the environment, an
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
 
 ## References
 

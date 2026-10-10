@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 21, and the final part, of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L17 RL for VLAs](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en) and covers Lecture 18, "Frontiers," on May 29, 2026 (Friday of week 9). The schedule lists no assigned reading for this lecture.
 
@@ -50,6 +50,8 @@ Original videos: [Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)](ht
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: what is still unsolved after the full toolkit
 
@@ -317,6 +319,7 @@ Series navigation: previous [L17 RL for VLAs](/posts/ai/2026-09-30-cs224r-rl-for
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

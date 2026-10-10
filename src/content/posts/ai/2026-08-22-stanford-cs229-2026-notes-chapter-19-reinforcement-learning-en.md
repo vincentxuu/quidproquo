@@ -15,18 +15,33 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 19, printed pages 227–243, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It organizes the mathematical spine and approximation methods without copying every proof.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from public recordings from CS229 Spring 2026 and from the older Autumn 2018 course (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=hHC-SF3utxg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d5gaWTo6kDM
+title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg); [Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## MDPs model delayed consequences
 
@@ -83,6 +98,7 @@ Write \(S,A,P,R,\gamma\) for a simplified balancing cart with position and veloc
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
 
 ## References
 

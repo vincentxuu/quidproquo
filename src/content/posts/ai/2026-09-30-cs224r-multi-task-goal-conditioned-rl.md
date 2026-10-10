@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 16 篇，接續 [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)，對應 2026 年 5 月 8 日的第 12 講「Multi-Task and Goal-Conditioned RL」。HW3 也在同一天晚上 9 點截止。
 
@@ -56,6 +56,8 @@ title: Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 為什麼要一次學很多任務
 
@@ -216,6 +218,7 @@ goal-conditioned 的優缺點：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

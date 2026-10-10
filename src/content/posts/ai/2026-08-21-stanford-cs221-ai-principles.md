@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS221: Artificial Intelligence: Principles and Techniques](https://stanford-cs221.github.io/) 是 Stanford 電腦科學系的 AI 入門課，一年開兩次，掛在 200 系列卻是整條 AI 路線的起點。它教搜尋、馬可夫決策過程、賽局、貝氏網路與邏輯，深度學習只是其中一節。
 
@@ -28,11 +28,21 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+本文是整門課的導讀，不對應單一講次。下方附 Autumn 2025 第 1 講（課程總覽）作為相關補充；各講另有對應的導讀文章。官方播放清單是公開的，共 20 講。
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
 
 課程與錄影入口：
 
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -188,6 +198,7 @@ Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方播放清單公開且有 20 講；本文是課程層級導讀，故嵌入第 1 講作為相關補充。
 
 ## 參考資料
 

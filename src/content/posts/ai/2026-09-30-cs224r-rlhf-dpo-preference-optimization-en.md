@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source term**: Based on the Spring 2026 [09_cs224r_rlhf_2026 slides](https://cs224r.stanford.edu/slides/09_cs224r_rlhf_2026.pdf) (scheduled 2026-04-29). The companion video is the [Spring 2025 L9 recording (supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI). The [2025 archive page](https://cs224r.stanford.edu/spring_2025/) lists the same speaker, Archit Sharma, but the slides are the 2025 version and details may differ. This is post 12 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -50,6 +50,8 @@ Original videos: [Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)](h
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Mapping LLMs onto RL vocabulary
 
@@ -224,6 +226,7 @@ Compute them with any small model and plug them into the DPO formula. Before tra
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

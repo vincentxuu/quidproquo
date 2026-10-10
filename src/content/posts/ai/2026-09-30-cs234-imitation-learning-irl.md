@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-imitation-learning-irl-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片：[Lecture 7](https://web.stanford.edu/class/cs234/slides/lecture7post.pdf) p.25–62 與 [Lecture 8](https://web.stanford.edu/class/cs234/slides/lecture8post.pdf) p.6–17（頁碼是 PDF 頁碼）。2026 錄影只給修課生；公開錄影是 [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) 的第 7、8 支，本文只當聽講補充，時間點依 YouTube 章節標記。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。所有事實都在 2026-09-30 打開上述 PDF 與影片頁核對。
 
@@ -62,6 +62,8 @@ title: 4:28 起
 
 - [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
 
 ## 投影片範圍與 2024 影片對照
 
@@ -207,6 +209,7 @@ L8 開頭把這段收成一頁「Imitation Learning Summary」：非常強大、
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

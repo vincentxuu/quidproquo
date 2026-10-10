@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 14**, listed on the official schedule as Bayesian Networks III on November 5, 2025. The [official course site](https://stanford-cs221.github.io/autumn2025/) identifies the offering; the article follows the executable [bayes_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes_learning) source in sequence. The useful thread is not “EM as a black box,” but the change from counting complete assignments to counting weighted assignments when a variable is hidden.
 
@@ -23,12 +23,21 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 14**, listed on the o
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 14, the same term and lecture number this article follows. It matches item 14 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=4d9V6Sxa6gU
+title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning](https://www.youtube.com/watch?v=4d9V6Sxa6gU)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## Put the Bayesian network back in context
 
@@ -136,6 +145,7 @@ The same checklist also marks the limits supported by this material. Fully obser
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 14 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

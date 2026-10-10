@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 7**, taught by Percy Liang on 2025-10-13. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering, assignments, and lecture context. The article follows the executable [official `mdp` lecture artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp), with the data structures and update order translated into a readable derivation. The recording can be cross-checked through the [official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN), and the lecture source is in the [official lecture repository](https://github.com/stanford-cs221/autumn2025-lectures).
 
@@ -23,12 +23,21 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 7**, taught by Percy 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 7, the same term and lecture number this article follows. It matches item 7 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
+title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## 1. Start with search: why an MDP is needed
 
@@ -169,6 +178,7 @@ Do not just memorize “take the max”; audit the contract. Does the state reta
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 7 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

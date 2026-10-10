@@ -15,18 +15,33 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 20, printed pages 244–257, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains how structured control problems are solved and approximated without reproducing every Riccati or Gaussian-conditioning proof.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=0rt2CsEQv6U
+title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+Original videos: [Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U); [Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Finite-horizon dynamic programming works backward
 
@@ -99,6 +114,7 @@ Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the o
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
 
 ## References
 

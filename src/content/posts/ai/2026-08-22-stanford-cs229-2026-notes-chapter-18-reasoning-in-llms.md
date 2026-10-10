@@ -21,12 +21,15 @@ series:
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。兩份公開播放清單（Spring 2026 共 17 支、Autumn 2018 共 21 支）都已即時查看，找不到能對應本章主題的單支講次，所以不嵌入影片。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 思維鏈把一次預測拆成一段計算
 
@@ -87,6 +90,7 @@ GRPO 對同一 prompt 採樣一組回答，用組內平均與標準差形成相�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時查看 Spring 2026 與 Autumn 2018 公開播放清單，沒有對應本章的講次，狀態維持不變。
 
 ## 參考資料
 

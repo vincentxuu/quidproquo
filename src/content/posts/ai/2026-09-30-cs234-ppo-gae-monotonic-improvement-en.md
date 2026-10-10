@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Winter 2026 slides and assignments of [CS234](https://web.stanford.edu/class/cs234/); the recordings are the public Spring 2024 videos.** It is Part 8 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series and follows [policy gradient basics](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en).
 
@@ -66,6 +66,8 @@ Course and recording entries:
 
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
 ## The scenario: one step too far and performance collapses
 
@@ -255,6 +257,7 @@ The full assignment walkthrough is in the [A2 post](/posts/ai/2026-09-30-cs234-a
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

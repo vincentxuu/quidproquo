@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Edition note**: This guide follows the Winter 2026 [Lecture 3 slides](https://web.stanford.edu/class/cs234/slides/lecture3post.pdf) (post-class version, 57 pages) and [Lecture 4 slides](https://web.stanford.edu/class/cs234/slides/lecture4post.pdf) pp. 5–15 of [CS234](https://web.stanford.edu/class/cs234/). The public recording is Spring 2024's [video 3, "Policy Evaluation"](https://www.youtube.com/watch?v=jjq51TRNVvk); I haven't compared it page by page against the 2026 slides. Facts were checked against the official slides on 2026-09-30. Access level **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are public; live Poll Everywhere responses and the 2026 recordings are not.
 
@@ -55,6 +55,8 @@ Course and recording entries:
 
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
 ## Back to dynamic programming: it already borrows its own estimate
 
@@ -222,6 +224,7 @@ One thing to do tonight: just the AB example. Before looking at the answer, writ
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

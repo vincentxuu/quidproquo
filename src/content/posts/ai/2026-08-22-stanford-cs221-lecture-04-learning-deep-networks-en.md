@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 4**, taught by Percy Liang on 2025-10-01. The [course site](https://stanford-cs221.github.io/autumn2025/) provides the schedule and assignments; the primary artifact is [deep_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=deep_learning).
 
@@ -23,12 +23,21 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 4**, taught by Percy 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 4, the same term and lecture number this article follows. It matches item 4 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=89NND-Ca0yY
+title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 4: Learning III](https://www.youtube.com/watch?v=89NND-Ca0yY)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## The route through the lecture
 
@@ -85,6 +94,7 @@ The fourth method is a stochastic optimizer. A full-data gradient sums contribut
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 4 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

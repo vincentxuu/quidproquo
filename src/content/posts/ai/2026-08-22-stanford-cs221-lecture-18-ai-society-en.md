@@ -15,18 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-18-ai-society)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 18**, taught by Percy Liang on 2025-11-19. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society). It follows the executable order of `main()` rather than turning the lecture into a generic essay. Claims not supplied by the artifact remain gaps.
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 18, the same term and lecture number this article follows. It matches item 18 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=071zJXhvNfM
+title: Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society](https://www.youtube.com/watch?v=071zJXhvNfM)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## The lecture's problem
 
@@ -199,6 +208,7 @@ This article uses `society.py` and the existing official links as its base, addi
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 18 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 

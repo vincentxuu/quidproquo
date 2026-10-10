@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-offline-rl)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source term**: Based on the Spring 2026 [07_cs224r_offline_rl_2026 slides](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf) (scheduled 2026-04-22). The companion video is the [Spring 2025 Lecture 7 recording (supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks). The title matches, but the split differs: the [2025 Lecture 7 slides](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf) presented "implicit policy constraint" and "conservative methods" ([CQL](https://arxiv.org/abs/2006.04779)) as the two families, and the 2025 schedule listed CQL as a reading. In 2026 the second family became IQL's expectile approach, and the only listed reading is [IQL](https://arxiv.org/abs/2110.06169). Any CQL segment in the video is material the 2026 slides don't cover. This is post 9 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -60,6 +60,8 @@ Original videos: [Spring 2025 Lecture 7: Offline RL (YouTube, supplement)](https
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Recap: four model-free online RL algorithms
 
@@ -216,6 +218,7 @@ Draw the nine-state graph on paper. Suppose the data holds only two trajectories
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

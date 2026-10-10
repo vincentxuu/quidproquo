@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-policy-gradients-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 第 3 講投影片 [03_cs224r_policy_gradients_2026.pdf](https://cs224r.stanford.edu/slides/03_cs224r_policy_gradients_2026.pdf)（29 頁，2026-04-08 上課）。2026 錄影只放在 Canvas，校外看不到；配套影片是 [Spring 2025 L3 錄影](https://www.youtube.com/watch?v=KCAOXd4IO9o)（補充）。我比對過 2025 與 2026 版投影片：講次大綱相同，2026 版多了一張第 8 頁的「梯度搶先看」，其餘差在日期與小改動。影片內容本文沒有逐段引用。
 
@@ -49,6 +49,8 @@ title: Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）
 
 - [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：模仿學習的天花板
 
@@ -202,6 +204,7 @@ L4 投影片第 27 頁會再提到這個 KL 限制，並說它會在 LLM 偏好�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

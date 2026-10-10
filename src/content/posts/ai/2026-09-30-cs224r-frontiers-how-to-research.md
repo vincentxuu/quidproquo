@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 21 篇，也是最後一篇，接續 [L17 VLA 的 RL](/posts/ai/2026-09-30-cs224r-rl-for-vlas)，對應 2026 年 5 月 29 日（第 9 週週五）的第 18 講「Frontiers」。課表上這一講沒有列指定閱讀。
 
@@ -52,6 +52,8 @@ title: Spring 2025 Lecture 18: Frontiers（YouTube，補充）
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：學完整套工具之後，還剩什麼沒解決
 
@@ -319,6 +321,7 @@ Default 類的題目都建立在 [Default Project](/posts/ai/2026-09-30-cs224r-d
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

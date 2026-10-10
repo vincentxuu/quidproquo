@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 10 章（印刷頁 147–149）的逐章導讀，依官方主講義整理，**不是任何一季課堂錄影的重建**。這章只有三頁，核心任務很集中：看懂 k-means 為何是交替最佳化，以及「收斂」到底保證了什麼。
 
@@ -23,12 +23,22 @@ draft: false
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=bSmIGBCoffA
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)](https://www.youtube.com/watch?v=bSmIGBCoffA)
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 演算法交替做硬指派與取平均
 
@@ -79,6 +89,7 @@ $k$ 必須事先指定，而 distortion 會隨 $k$ 增加自然下降，不能�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
 
 ## 參考資料
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source term**: Based on the Spring 2026 [10_cs224r_rl_for_llms_reasoning_2026 slides](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf) (scheduled 2026-05-01). The speaker for the [Spring 2025 L10 recording](https://www.youtube.com/watch?v=O2VpNnwB4lM) was Aviral Kumar (per the [2025 archive page](https://cs224r.stanford.edu/spring_2025/)). That's a **different speaker** from 2026, so the video can't stand in for this lecture and serves only as background. This is post 13 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -50,6 +50,8 @@ Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, differe
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The main argument: scaling gets a new dimension
 
@@ -159,6 +161,7 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

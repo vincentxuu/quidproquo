@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-03-learning-linear-classification-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇只沿著官方可執行 artifact 的程式流程讀 Learning II：linear classification。source 的 main() 先回顧線性迴歸，再依序進入 prediction task、machine-learning problem、hypothesis class、zero-one loss、zero-one loss optimization、logistic loss、logistic-loss optimization、multiclass classification，以及 representing text。這個順序不是名詞清單：每一次改變表示法或 loss，都是在回應前一步暴露出的問題。
 
@@ -23,12 +23,21 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 3 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 3 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=Mbe5ICIUw5Q
+title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 3: Learning II](https://www.youtube.com/watch?v=Mbe5ICIUw5Q)
 
 課程與錄影入口：
 
 - [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
 
 ## 從線性迴歸換成線性分類
 
@@ -120,6 +129,7 @@ bag-of-words 把每個 token 看成 one-hot，再取所有 token vectors 的平�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Stanford Online 播放清單有對應的 Autumn 2025 第 3 講公開錄影，已嵌入。
 
 ## 參考資料
 

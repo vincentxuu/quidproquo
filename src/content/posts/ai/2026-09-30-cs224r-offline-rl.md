@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-offline-rl-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：依據 Spring 2026 的 [07_cs224r_offline_rl_2026 投影片](https://cs224r.stanford.edu/slides/07_cs224r_offline_rl_2026.pdf)（課表日期 2026-04-22）。配套影片是 [Spring 2025 L7 錄影（補充）](https://www.youtube.com/watch?v=lRDaXnPIzks)，標題相同，但切分不同：[2025 的 L7 投影片](https://cs224r.stanford.edu/spring_2025/slides/07_cs224r_offline_rl_2025.pdf)把「implicit policy constraint」和「conservative methods」（[CQL](https://arxiv.org/abs/2006.04779)）並列為兩類方法，課表也把 CQL 列為指定閱讀；2026 版的第二類改成 IQL 的 expectile 做法，指定閱讀只剩 [IQL](https://arxiv.org/abs/2110.06169)。看影片時遇到 CQL 的段落，是 2026 投影片沒有的內容。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 9 篇。
 
@@ -60,6 +60,8 @@ title: Spring 2025 Lecture 7: Offline RL（YouTube，補充）
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 先回顧：線上 RL 的四種 model-free 演算法
 
@@ -216,6 +218,7 @@ SAC 這類 off-policy actor-critic 本來就能用 replay buffer 裡的舊資料
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 
 ## 參考資料
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Winter 2026 slides of [CS234](https://web.stanford.edu/class/cs234/). The public recordings are the [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX); this post corresponds to video 11, "Exploration 1" (per its YouTube chapters: multi-armed bandits, regret, ε-greedy, and UCB1). Every fact was checked on 2026-09-30 against the [Lecture 9 slides](https://web.stanford.edu/class/cs234/slides/lecture9post.pdf) (post-class, 53 pages) and the [Lecture 10 slides](https://web.stanford.edu/class/cs234/slides/lecture10post.pdf) (post-class, 41 pages; this post uses pp. 1–17). Access grade **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides and supplementary reading are public; the 2026 recordings are on Canvas for enrolled students only.
 
@@ -55,6 +55,8 @@ Course and recording entries:
 
 - [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
 
 ## The setting: RL with a single decision
 
@@ -225,6 +227,7 @@ One thing you can do tonight: simulate the broken toes in 30 lines of Python, ru
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 
 ## References
 

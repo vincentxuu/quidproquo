@@ -15,18 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-01-overview-intelligence-tensors)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 1**, taught by Percy Liang and dated 2025-09-22. It reads only the three public executable artifacts: `welcome.py`, `history.py`, and `tensors.py`. The course entry point is the [official course site](https://stanford-cs221.github.io/autumn2025/), and the lecture trace is [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome). Canvas-only classroom interaction is not treated as evidence, and claims absent from these sources are not added.
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 1, the same term and lecture number this article follows. It matches item 1 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
 
 Course and recording entries:
 
 - [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
 
 ## The lecture agenda
 
@@ -141,6 +150,7 @@ Together, the artifacts suggest listing abilities and goals, marking computation
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found the matching public Autumn 2025 Lecture 1 recording on the official Stanford Online playlist and embedded it.
 
 ## References
 
