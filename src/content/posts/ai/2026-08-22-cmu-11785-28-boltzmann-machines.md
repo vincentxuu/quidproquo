@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: zh-TW
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 28 聚焦能量式機率模型、隨機單元、partition function 與學習困難；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
+tldr: "Spring 2026 Lecture 28 聚焦能量式機率模型（Gibbs 分布與歸一化常數 Z）、隨機（機率式）神經元，以及如何訓練這類機率網路；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
 description: "CMU 11-785 Spring 2026 Lecture 28 雙語導讀：Boltzmann machine。"
 draft: false
 series:
@@ -37,9 +37,11 @@ title: Lecture 28 official YouTube recording
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 28 影片（約 81 分鐘，YouTube 標題為「Boltzmann Machines」，為本學期最後一講）的字幕涵蓋由 Hopfield 網路延伸、Gibbs 分布與歸一化常數 1/Z、隨機神經元（sigmoid 機率）、溫度項、隱藏單元與如何訓練機率網路；字幕只提到歸一化常數，沒有 partition function 這個詞，也沒有專門討論學習困難，原文已改。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
+
 ## 這一講處理什麼
 
-這講的中心是能量式機率模型、隨機單元、partition function 與學習困難。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
+這講的中心是能量式機率模型（Gibbs 分布與歸一化常數 Z）、隨機（機率式）神經元，以及如何訓練這類機率網路。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
 
 課程把這個主題放在完整序列的第 28 講，因此它既承接前面的表示與訓練語言，也替後續模型建立共同元件。不要只抄名詞；每遇到一個公式，就標出輸入、輸出、可學參數與沿哪條路徑傳遞梯度。
 
@@ -69,6 +71,7 @@ title: Lecture 28 official YouTube recording
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。字幕只提歸一化常數、無專門的學習困難討論；已修正主題說法。
 
 ## 參考資料
 

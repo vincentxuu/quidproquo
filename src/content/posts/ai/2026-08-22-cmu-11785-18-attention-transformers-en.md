@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 18 focuses on queries, keys, values, scaled dot-product attention, and the Transformer block. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 18 focuses on sequence-to-sequence attention (queries, keys, values, and softmax-weighted averaging), a mention of multi-head attention, and a brief introduction to the Transformer. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 18: Attention and Transformers."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The Lecture 18 video (about 81 minutes, YouTube title "Sequence to Sequence Models: Attention Models") is mainly about sequence-to-sequence attention (softmax weights, query/key/value, self-attention, positional information), with the Transformer (Vaswani et al., 2017) introduced only briefly later on. The transcript does not mention scaled dot-product attention, so that wording was replaced. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
+
 ## What this lecture addresses
 
-The lecture centers on queries, keys, values, scaled dot-product attention, and the Transformer block. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on sequence-to-sequence attention (queries, keys, values, and softmax-weighted averaging), a mention of multi-head attention, and a brief introduction to the Transformer. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 18, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. The transcript does not mention scaled dot-product and the Transformer is only briefly introduced; corrected the topic wording.
 
 ## References
 

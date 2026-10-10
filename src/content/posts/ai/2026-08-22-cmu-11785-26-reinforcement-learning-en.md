@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The Lecture 26 video (about 86 minutes, YouTube title "Reinforcement Learning", taught by a guest lecturer) covers states, actions, rewards, value, policy, the Bellman equation, Q-learning, and deep Q networks, which matches the topics in this article. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
+
 ## What this lecture addresses
 
 The lecture centers on states, actions, rewards, returns, values, and policy learning. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. No mismatch between the video and the article's topics was found.
 
 ## References
 

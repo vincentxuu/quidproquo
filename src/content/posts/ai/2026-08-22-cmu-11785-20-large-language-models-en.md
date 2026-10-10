@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 20 focuses on scaled autoregressive models, training stages, inference, and capability boundaries. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 20 focuses on scaled autoregressive models, pre-training and scaling laws, and post-training (including improving the model from its own sampled answers and feedback). This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 20: Large Language Models."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The Lecture 20 video (about 85 minutes, YouTube title "Large Language Models", taught by guest lecturer Omar Khattab) covers pre-training, scaling laws, and post-training (SFT and improving the model from its own sampled answers with scalar feedback). The transcript has no dedicated section on capability boundaries and no comparison of greedy, temperature, and top-k sampling, so the wording was changed and the generation-sampling exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
+
 ## What this lecture addresses
 
-The lecture centers on scaled autoregressive models, training stages, inference, and capability boundaries. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on scaled autoregressive models, pre-training and scaling laws, and post-training (including improving the model from its own sampled answers and feedback). Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 20, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -51,7 +53,7 @@ Place each local operation back inside the overall objective. A deep-learning sy
 
 ## Reproduce one small example
 
-Tonight's minimum exercise is: **compare greedy, temperature-controlled, and top-k generation with a small model**. Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
+Tonight's minimum exercise is: **compare greedy, temperature-controlled, and top-k generation with a small model** (site supplement; the video does not cover this exercise). Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
 
 “Runs without an exception” is not a sufficient check. Record at least one invariant: probabilities sum to one, a loss should decline, an output shape remains fixed, or numerical and analytic gradients agree. This restores a feedback loop without the course's hidden grader.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. The transcript has no capability-boundaries section or sampling-strategy comparison; corrected the topic wording and marked the exercise as site supplement.
 
 ## References
 

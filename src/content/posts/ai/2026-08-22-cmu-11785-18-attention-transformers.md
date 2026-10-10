@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: zh-TW
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 18 聚焦query、key、value、scaled dot-product attention 與 Transformer block；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
+tldr: "Spring 2026 Lecture 18 聚焦seq2seq 的 attention 機制（query、key、value 與 softmax 加權平均）、multi-head 的提及，以及對 Transformer 的簡述；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
 description: "CMU 11-785 Spring 2026 Lecture 18 雙語導讀：Attention 與 Transformer。"
 draft: false
 series:
@@ -37,9 +37,11 @@ title: Lecture 18 official YouTube recording
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 18 影片（約 81 分鐘，YouTube 標題為「Sequence to Sequence Models: Attention Models」）的字幕以 seq2seq 的 attention 為主（softmax 權重、query／key／value、self-attention、positional），Transformer（Vaswani et al. 2017）只在後段簡述；字幕中沒有「scaled dot-product」的說法，原文已改。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
+
 ## 這一講處理什麼
 
-這講的中心是query、key、value、scaled dot-product attention 與 Transformer block。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
+這講的中心是seq2seq 的 attention 機制（query、key、value 與 softmax 加權平均）、multi-head 的提及，以及對 Transformer 的簡述。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
 
 課程把這個主題放在完整序列的第 18 講，因此它既承接前面的表示與訓練語言，也替後續模型建立共同元件。不要只抄名詞；每遇到一個公式，就標出輸入、輸出、可學參數與沿哪條路徑傳遞梯度。
 
@@ -69,6 +71,7 @@ title: Lecture 18 official YouTube recording
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。字幕未提 scaled dot-product，Transformer 僅簡述；已修正主題說法。
 
 ## 參考資料
 

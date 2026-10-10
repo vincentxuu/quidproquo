@@ -37,6 +37,8 @@ title: Lecture 26 official YouTube recording
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 26 影片（約 86 分鐘，YouTube 標題為「Reinforcement Learning」，由客座講者授課）的字幕涵蓋 state、action、reward、value、policy、Bellman 方程式，以及 Q-learning 與 deep Q network；與本文所述主題相符。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
+
 ## 這一講處理什麼
 
 這講的中心是state、action、reward、return、value 與 policy learning。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
@@ -69,6 +71,7 @@ title: Lecture 26 official YouTube recording
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。未發現影片與本文主題不符之處。
 
 ## 參考資料
 

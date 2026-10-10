@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: zh-TW
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 20 聚焦規模化自回歸模型、訓練階段、推論與能力邊界；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
+tldr: "Spring 2026 Lecture 20 聚焦規模化自回歸模型、預訓練與 scaling law，以及後訓練（包含讓模型取樣自己的答案並依回饋改進）；本文依官方 slides 與錄影重建主線，並提供不依賴課內 grader 的小型自我檢查。"
 description: "CMU 11-785 Spring 2026 Lecture 20 雙語導讀：大型語言模型。"
 draft: false
 series:
@@ -37,9 +37,11 @@ title: Lecture 20 official YouTube recording
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：Lecture 20 影片（約 85 分鐘，YouTube 標題為「Large Language Models」，由客座講者 Omar Khattab 授課）的字幕涵蓋預訓練、scaling law、後訓練（SFT 與以取樣答案加純量回饋改進）；字幕沒有「能力邊界」的專章，也沒有 greedy／temperature／top-k 的比較，原文已改，生成取樣練習標為本站補充。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
+
 ## 這一講處理什麼
 
-這講的中心是規模化自回歸模型、訓練階段、推論與能力邊界。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
+這講的中心是規模化自回歸模型、預訓練與 scaling law，以及後訓練（包含讓模型取樣自己的答案並依回饋改進）。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
 
 課程把這個主題放在完整序列的第 20 講，因此它既承接前面的表示與訓練語言，也替後續模型建立共同元件。不要只抄名詞；每遇到一個公式，就標出輸入、輸出、可學參數與沿哪條路徑傳遞梯度。
 
@@ -51,7 +53,7 @@ title: Lecture 20 official YouTube recording
 
 ## 自己重做一次
 
-今晚的最小練習是：**用小模型比較 greedy、temperature 與 top-k 生成**。先用極小輸入手算一輪，再以 NumPy 或 PyTorch 重做，最後比較兩者。若結果不同，先檢查 shape、索引與 reduction，之後才懷疑理論。
+今晚的最小練習是：**用小模型比較 greedy、temperature 與 top-k 生成**（本站補充，影片未涵蓋此練習）。先用極小輸入手算一輪，再以 NumPy 或 PyTorch 重做，最後比較兩者。若結果不同，先檢查 shape、索引與 reduction，之後才懷疑理論。
 
 自我檢查不以「程式能跑」為標準。至少記錄一個預期不變量，例如機率和為一、loss 應下降、輸出 shape 固定，或數值梯度與解析梯度接近。這是沒有課內 hidden grader 時仍能保留的回饋迴路。
 
@@ -69,6 +71,7 @@ title: Lecture 20 official YouTube recording
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。字幕無「能力邊界」專章與取樣策略比較；已修正主題說法並標註練習為本站補充。
 
 ## 參考資料
 

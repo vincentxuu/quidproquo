@@ -6,7 +6,7 @@ tags: [cmu, deep-learning, neural-networks, course-guide]
 lang: en
 type: guide
 difficulty: 進階
-tldr: "Spring 2026 Lecture 21 focuses on bottleneck representations, reconstruction objectives, dimensionality reduction, and representation quality. This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
+tldr: "Spring 2026 Lecture 21 focuses on what neural networks actually represent, the reconstruction objective (autoencoders), and the link to PCA (dimensionality reduction). This guide follows the official slides and recording and adds a small self-check that does not depend on the enrolled-course grader."
 description: "A bilingual guide to CMU 11-785 Spring 2026 Lecture 21: Representations and Autoencoders."
 draft: false
 series:
@@ -37,9 +37,11 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The Lecture 21 video (about 83 minutes, YouTube title "Neural Networks: Representation") covers what neural networks represent (how a tanh hidden layer transforms the data), autoencoders that learn to reconstruct their input, and the equivalence between a linear autoencoder and PCA. The transcript has no discussion of evaluating representation quality, so the wording was changed and the latent scatter exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
+
 ## What this lecture addresses
 
-The lecture centers on bottleneck representations, reconstruction objectives, dimensionality reduction, and representation quality. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
+The lecture centers on what neural networks actually represent, the reconstruction objective (autoencoders), and the link to PCA (dimensionality reduction). Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
 
 As Lecture 21, this topic inherits the course's earlier language of representation and training while establishing components used later. Do not merely copy terminology. For each equation, label its input, output, learnable parameters, and gradient path.
 
@@ -51,7 +53,7 @@ Place each local operation back inside the overall objective. A deep-learning sy
 
 ## Reproduce one small example
 
-Tonight's minimum exercise is: **train a small autoencoder and inspect both reconstruction and latent scatter plots**. Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
+Tonight's minimum exercise is: **train a small autoencoder and inspect both reconstruction and latent scatter plots** (site supplement; the video does not cover this exercise). Work through a tiny input by hand, reproduce it in NumPy or PyTorch, and compare the results. If they differ, inspect shapes, indexing, and reductions before questioning the theory.
 
 “Runs without an exception” is not a sufficient check. Record at least one invariant: probabilities sum to one, a loss should decline, an output shape remains fixed, or numerical and analytic gradients agree. This restores a feedback loop without the course's hidden grader.
 
@@ -69,6 +71,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
+- 2026-10-10: Checked the video content against its transcript. The transcript does not discuss representation-quality evaluation; corrected the topic wording and marked the exercise as site supplement.
 
 ## References
 
