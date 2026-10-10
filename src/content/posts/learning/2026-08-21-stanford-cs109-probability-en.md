@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs109-probability)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 [CS109: Probability for Computer Scientists](https://web.stanford.edu/class/cs109/) is one of the five courses that form the spine of Stanford's undergraduate CS degree. The material sounds conventional enough: counting, conditional probability, random variables, the normal distribution, the central limit theorem, with the last third turning into machine learning. The official description is blunt about the shape of it — the course "starts by providing a fundamental grounding in combinatorics, and then quickly moves into the basics of probability theory."
 
@@ -28,15 +28,16 @@ This piece was written after downloading those PDFs and reading them page by pag
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so the official recording entry is linked and there is no public Summer 2026 player. A public Stanford Online playlist of the 2022 offering (29 videos, a different term) also exists; only the playlist link is given and nothing is embedded or treated as a Summer 2026 recording.
 
 Official sources:
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -174,6 +175,7 @@ To keep going, treat the `worksheets/` directory as your main line: for each lec
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed Summer 2026 recordings need Canvas sign-in and a public 2022 playlist also exists; status changed to official entry / recording index only.
 
 ## References
 

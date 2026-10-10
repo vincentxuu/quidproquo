@@ -23,15 +23,16 @@ The worksheet and answer key are both complete two-page P1–P6 plus challenge a
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
 
 Official sources:
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
 
 ## P1: Review inference with a two-node network
 
@@ -163,6 +164,7 @@ The six guide concepts are the Multinomial coefficient, joint PMF, applicability
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed Summer 2026 recordings need Canvas sign-in and the 2022 public playlist has no matching lecture; status unchanged and check date added.
 
 ## References
 

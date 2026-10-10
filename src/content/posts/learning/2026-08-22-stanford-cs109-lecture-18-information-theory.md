@@ -23,13 +23,14 @@ draft: false
 
 ## 課程影片來源
 
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
 
 官方來源：
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 查核日期：2026-10-10。
 
@@ -172,6 +173,7 @@ Weather forecast、Poisson fit 或 language-model next-token prediction 常自�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時確認 Summer 2026 錄影需 Canvas 登入，2022 年版公開播放清單無對應講次，維持原狀態並補上查核日期。
 
 ## 參考資料
 

@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 [CS224N: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/) is the NLP course in Stanford's CS department, and the hub of the whole NLP branch — CS224U, CS224V and CS329A all point their official prerequisite fields back at it. It teaches how to process language with neural networks, from word vectors and backpropagation through pre-training, post-training, reasoning and evaluation.
 
@@ -30,13 +30,15 @@ The course site lists syllabi and assignments and nothing else. **It has never e
 
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The public recordings the official page points to are the 2024 playlist, and a Winter 2019 playlist is linked as well. None of these is a Winter 2026 lecture recording, so only the playlist links are given and nothing is embedded.
 
 Course and recording entries:
 
 - [CS224N Winter 2019 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
 - [CS224N Spring 2024 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -168,6 +170,7 @@ If you would rather watch lectures first, the order to use is: watch lectures 1,
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed Winter 2026 recordings need sign-in and the public playlists are the 2024 and 2019 offerings; status changed to official entry / recording index only.
 
 ## References
 

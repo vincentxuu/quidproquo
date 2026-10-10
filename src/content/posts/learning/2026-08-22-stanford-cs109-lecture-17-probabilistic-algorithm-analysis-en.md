@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-17-probabilistic-algorithm-analysis)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is article 18 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 17: Algorithmic Analysis** on July 21 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture17-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture17-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture17-LLMPrompts.pdf), and the reader's [algorithmic analysis](https://probabilitycoders.stanford.edu/spr26/algorithmic_analysis) chapter. Current slides are unavailable and Canvas video is gated, preserving the L2 boundary.
 
@@ -23,15 +23,23 @@ All three artifacts have three pages. The formal agenda is complete P1–P7 plus
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ht9yUPtppwY
+title: Stanford CS109 I Algorithmic Analysis I 2022 I Lecture 20
+```
+
+Original videos: [Stanford CS109 I Algorithmic Analysis I 2022 I Lecture 20](https://www.youtube.com/watch?v=Ht9yUPtppwY)
 
 Official sources:
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
 
 ## P1: Read a bootstrap p-value
 
@@ -166,6 +174,7 @@ The six concepts are conditional expectation, total expectation, expected runtim
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
 
 ## References
 

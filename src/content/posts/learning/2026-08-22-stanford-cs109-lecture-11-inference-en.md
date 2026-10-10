@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-11-inference)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is article 12 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 11: Inference** on July 8 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture11-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture11-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture11-LLMPrompts.pdf), and the shared Spring-dated reader's [inference](https://probabilitycoders.stanford.edu/spr26/inference) chapter. The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
@@ -28,15 +28,30 @@ normalize(posterior)
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=fvgQBAsg5Zo
+title: Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d0ImA7m4BEg
+title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13
+```
+
+Original videos:
+- [Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12](https://www.youtube.com/watch?v=fvgQBAsg5Zo)
+- [Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13](https://www.youtube.com/watch?v=d0ImA7m4BEg)
 
 Official sources:
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
 
 ## P1: One Bayes update
 
@@ -169,6 +184,7 @@ The guide's six concepts are belief updating, the belief-table loop, normalizati
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
 
 ## References
 

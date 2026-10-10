@@ -25,11 +25,13 @@ Lecture 2 computed MergeSort's entire recursion tree. Lecture 3 turns that calcu
 
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
+
+Checked: 2026-10-10.
 
 ## A recurrence includes more than its right-hand side
 
@@ -240,6 +242,7 @@ The Master Theorem is not the endpoint of recurrence analysis. Tools such as Akr
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed that the official lecture page links recordings to a Panopto sign-in page and found no public recording of the same term; status unchanged.
 
 ## References
 

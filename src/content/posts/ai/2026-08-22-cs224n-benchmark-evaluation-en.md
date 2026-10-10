@@ -15,25 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 11 on February 10, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture11-evaluation.pdf) has four agenda parts: the recent saga of LLM benchmarks, benchmark design, evaluation metrics, and cautions and open questions. The task is not to memorize another leaderboard but to decide whether a score still supports a decision.
 
 ## Course video sources
 
-This article uses Winter 2026 materials. The Spring 2024 recording below is supplementary material on the same topic, not a Winter 2026 lecture recording.
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
 
 ```youtube
 url: https://www.youtube.com/watch?v=TO0CqzqiArM
-title: CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois
 ```
 
-Original videos: [CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
+Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
 
 Course and recording entries:
 
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Benchmark shelf lives are shrinking
 
@@ -112,6 +114,7 @@ Winter 2026 recordings are not public. This article covers the deck's four agend
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
 
 ## References
 

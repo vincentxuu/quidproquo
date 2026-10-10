@@ -15,18 +15,27 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-post-training-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 8 講排在 2026 年 1 月 29 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf)題為 **Post-training (RLHF, SFT, DPO)**。agenda 依序是 instruction fine-tuning、RLHF、InstructGPT/ChatGPT、RL 與 reward modeling 的限制、DPO，以及人類偏好資料與 AI feedback。
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=35X6zlhoCy4
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma
+```
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma](https://www.youtube.com/watch?v=35X6zlhoCy4)
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 預測下一詞不等於協助使用者
 
@@ -128,6 +137,7 @@ Winter 2026 錄影不公開。投影片封面保留「Lecture 7: Post-training�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
 
 ## 參考資料
 

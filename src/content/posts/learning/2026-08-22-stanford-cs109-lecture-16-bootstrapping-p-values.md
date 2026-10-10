@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-16-bootstrapping-p-values-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 17 篇，對應 **Summer 2026 Lecture 16: Bootstrapping**，日期為 7 月 20 日，講者是 Chris Gregg。本文依當期 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture16-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture16-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture16-LLMPrompts.pdf)與官方讀本的 [bootstrapping](https://probabilitycoders.stanford.edu/spr26/bootstrapping) 及 [samples](https://probabilitycoders.stanford.edu/spr26/samples) 章節整理。當期投影片 unavailable、Canvas 錄影 gated，因此維持 L2 邊界。
 
@@ -23,13 +23,21 @@ Worksheet、answer key、guide 都是三頁；正式 agenda 是 P1–P6 加 chal
 
 ## 課程影片來源
 
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=NXJwyPT1vsc
+title: Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19](https://www.youtube.com/watch?v=NXJwyPT1vsc)
 
 官方來源：
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 查核日期：2026-10-10。
 
@@ -166,6 +174,7 @@ Frequentist bootstrap 則把五個 ones、十個 zeros 當 empirical sample，�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Stanford Online 公開的 2022 年版同主題錄影，Summer 2026 原講次錄影需登入、未能取得。
 
 ## 參考資料
 

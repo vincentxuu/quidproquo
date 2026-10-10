@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-21-stanford-cs109-probability-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 [CS109: Probability for Computer Scientists](https://web.stanford.edu/class/cs109/) 是 Stanford 電腦科學系大學部五門骨架課之一。教的東西聽起來很傳統：計數、條件機率、隨機變數、常態分布、中央極限定理，最後三分之一收在機器學習。課程官方描述講得很白——這門課「從組合數學的基礎開始，然後很快進入機率論的基本功」。
 
@@ -28,13 +28,14 @@ draft: false
 
 ## 課程影片來源
 
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供公開播放器。
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。因此附官方錄影入口，不提供 Summer 2026 的公開播放器。另有 Stanford Online 公開的 2022 年版播放清單（29 支，不同學期），僅附清單連結、不嵌入，也不當成 Summer 2026 錄影。
 
 官方來源：
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
 查核日期：2026-10-10。
 
@@ -174,6 +175,7 @@ score = sophistication × (1 + creativity + impact)
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時確認 Summer 2026 錄影需 Canvas 登入，另有 2022 年版公開播放清單；狀態改為僅附官方入口或錄影清單。
 
 ## 參考資料
 
