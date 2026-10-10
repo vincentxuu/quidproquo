@@ -178,6 +178,7 @@ Submission per the assignment: the writeup PDF goes to Gradescope `HW2` with pag
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 
 ## References
 

@@ -30,6 +30,8 @@ series:
 
 - [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
 
+查核日期：2026-10-10。
+
 ## 版本判決：Spring 2026 是 latest-complete
 
 Spring 2026 是目前最新完成、而且 28 講 slides 與官方錄影能逐一對上的版本。[官方 lecture table](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)的相對網址偶爾省略 `./` 或含空白，因此系列保存實測後的完整路徑，不靠文章端猜網址。
@@ -85,6 +87,7 @@ Fall 2025 仍可作歷史備援；Fall 2026 在本文查證時是新學期入口
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時查官方講課表，28 講皆列有 YouTube 錄影；本篇涵蓋多講，維持只附錄影清單。
 
 ## 參考資料
 

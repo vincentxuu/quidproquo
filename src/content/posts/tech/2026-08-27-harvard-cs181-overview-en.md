@@ -122,4 +122,5 @@ Suggested path: read this overview to decide whether to follow the 2026 main lin
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 - **2026-09-29**: Expanded the series to orders 0–15, added "Posts in this series" and a limits list; filled in HW1–HW6 due dates, problems, and exam dates from the 2026 schedule and each `.tex`; corrected the old claims that the Google Sheet schedule was deleted and that 2026 sections were not public.

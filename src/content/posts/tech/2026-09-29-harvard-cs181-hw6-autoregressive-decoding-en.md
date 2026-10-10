@@ -144,6 +144,7 @@ This series covers only what the assignment needs. For how these techniques work
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 
 ## References
 

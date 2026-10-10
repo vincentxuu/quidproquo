@@ -35,6 +35,8 @@ Course and recording entries:
 
 - [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
 
+Checked: 2026-10-10.
+
 ## What this lecture addresses
 
 The lecture centers on blanks, collapse rules, prefix probabilities, and approximate decoding. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
@@ -66,6 +68,7 @@ Close the slides and write the lecture's input, output, objective, and one failu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched the embedded video against the live official lecture table for the same lecture; playback was not checked individually.
 
 ## References
 

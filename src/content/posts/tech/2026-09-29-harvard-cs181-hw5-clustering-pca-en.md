@@ -147,6 +147,7 @@ One detail: the K-means objective is computed on `large_dataset` (5000 images), 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 
 ## References
 
