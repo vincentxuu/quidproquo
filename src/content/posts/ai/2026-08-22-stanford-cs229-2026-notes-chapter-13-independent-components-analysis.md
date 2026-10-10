@@ -91,3 +91,5 @@ $$
 - [CS229 Lecture Notes（2026）第 13 章：ICA 與 cocktail party problem](https://cs229.stanford.edu/main_notes.pdf#page=174)
 - [CS229 Lecture Notes（2026）第 13.1–13.2 節：不識別性與 density transformation](https://cs229.stanford.edu/main_notes.pdf#page=175)
 - [CS229 Lecture Notes（2026）第 13.3 節：maximum-likelihood ICA 演算法](https://cs229.stanford.edu/main_notes.pdf#page=177)
+- [Wikipedia: Independent component analysis](https://en.wikipedia.org/wiki/Independent_component_analysis)
+- [Wikipedia: Cocktail party problem](https://en.wikipedia.org/wiki/Cocktail_party_problem)

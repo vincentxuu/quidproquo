@@ -85,3 +85,5 @@ $$
 - [CS229 Lecture Notes（2026）第 9.1 節：L1、L2 與 weight decay](https://cs229.stanford.edu/main_notes.pdf#page=138)
 - [CS229 Lecture Notes（2026）第 9.2 節：隱式正規化](https://cs229.stanford.edu/main_notes.pdf#page=140)
 - [CS229 Lecture Notes（2026）第 9.3–9.4 節：交叉驗證與 Bayesian MAP](https://cs229.stanford.edu/main_notes.pdf#page=142)
+- [Wikipedia: Regularization (mathematics)](https://en.wikipedia.org/wiki/Regularization_(mathematics))
+- [Wikipedia: Cross-validation (statistics)](https://en.wikipedia.org/wiki/Cross-validation_(statistics))

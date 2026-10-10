@@ -88,3 +88,5 @@ Write \(S,A,P,R,\gamma\) for a simplified balancing cart with position and veloc
 
 - [CS229 Lecture Notes Chapter 19: Reinforcement Learning, MDPs, and Value Iteration (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=228)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Markov decision process](https://en.wikipedia.org/wiki/Markov_decision_process)
+- [Wikipedia: Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation)

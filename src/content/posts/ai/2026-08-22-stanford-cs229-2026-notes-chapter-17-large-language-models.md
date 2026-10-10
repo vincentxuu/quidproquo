@@ -92,3 +92,5 @@ Mixture of Experts 用 router 為每個 token 選少數 expert。它能增加總
 
 - [CS229 Lecture Notes 第 17 章：大型語言模型、Transformer、MoE 與 SFT（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=203)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Transformer (deep learning architecture)](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture))
+- [Wikipedia: Mixture of experts](https://en.wikipedia.org/wiki/Mixture_of_experts)

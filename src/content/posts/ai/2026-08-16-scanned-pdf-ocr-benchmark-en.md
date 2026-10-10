@@ -187,3 +187,5 @@ If you remember one thing, remember this: **choose the strategy before the tool*
 - [The Parsing Layer: When Structure Must Be Inferred—and Licensing Becomes the Real Selection Axis](/posts/ai/2026-08-06-document-parsing-layout-ocr-en)
 - [The Three-layer Ladder of Document Parsing: Conversion, Extraction, and Parsing](/posts/ai/2026-08-06-document-parsing-three-layers-en)
 - [The Deterministic Extraction Layer: Solve 80% of PDFs Without a Model](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en)
+- [A Survey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges](https://arxiv.org/abs/2501.02189)
+- [ParseBench: A Document Parsing Benchmark for AI Agents](https://arxiv.org/abs/2604.08538)

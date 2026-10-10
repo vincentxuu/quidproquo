@@ -80,3 +80,6 @@ For three two-dimensional points, explicitly construct second-degree polynomial 
 
 - [CS229 Lecture Notes (2026-08-18), Chapter 5: Kernel methods](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 course site](https://cs229.stanford.edu/)
+- [Wikipedia: Kernel method](https://en.wikipedia.org/wiki/Kernel_method)
+- [Wikipedia: Mercer's theorem](https://en.wikipedia.org/wiki/Mercer%27s_theorem)
+- [Wikipedia: Support vector machine](https://en.wikipedia.org/wiki/Support_vector_machine)

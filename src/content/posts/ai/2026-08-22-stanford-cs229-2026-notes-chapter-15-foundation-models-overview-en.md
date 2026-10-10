@@ -85,3 +85,5 @@ For a \(4096\times4096\) weight matrix and LoRA rank \(r=16\), calculate the tra
 
 - [CS229 Lecture Notes Chapter 15: Foundation Models, Linear Probes, Fine-Tuning, and LoRA (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=192)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Foundation model](https://en.wikipedia.org/wiki/Foundation_model)
+- [Wikipedia: Low-rank adaptation](https://en.wikipedia.org/wiki/Low-rank_adaptation)

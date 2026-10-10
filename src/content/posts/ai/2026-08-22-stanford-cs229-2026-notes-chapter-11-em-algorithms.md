@@ -107,3 +107,5 @@ $$
 - [CS229 Lecture Notes（2026）第 11.1 節：高斯混合模型與 EM](https://cs229.stanford.edu/main_notes.pdf#page=151)
 - [CS229 Lecture Notes（2026）第 11.2–11.4 節：Jensen inequality、ELBO 與一般 EM](https://cs229.stanford.edu/main_notes.pdf#page=154)
 - [CS229 Lecture Notes（2026）第 11.5 節：變分推論、VAE 與 reparameterization](https://cs229.stanford.edu/main_notes.pdf#page=163)
+- [Wikipedia: Expectation–maximization algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+- [Wikipedia: Variational autoencoder](https://en.wikipedia.org/wiki/Variational_autoencoder)

@@ -92,3 +92,5 @@ Choose a small pretrained vision model and a two-class dataset. First freeze the
 - [CMU 07-280 Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf)
 - [HW8: AlexNet, MobileNet, and transfer-learning experiments](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf)
 - [CMU 07-280 Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf)
+- [CMU 07-280 Official Course Homepage](https://www.cs.cmu.edu/~07280/)
+- [A Survey on Deep Transfer Learning](https://arxiv.org/abs/1808.01974)

@@ -85,3 +85,5 @@ Create two two-dimensional datasets: three similarly sized circular clusters and
 - [CS229 Lecture Notes (2026), Chapter 10: k-means assignments and centroid updates](https://cs229.stanford.edu/main_notes.pdf#page=148)
 - [CS229 Lecture Notes (2026), Chapter 10: Distortion and coordinate descent](https://cs229.stanford.edu/main_notes.pdf#page=149)
 - [CS229 Lecture Notes (2026), Chapter 10: Local optima and random restarts](https://cs229.stanford.edu/main_notes.pdf#page=150)
+- [Wikipedia: K-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
+- [Wikipedia: Cluster analysis](https://en.wikipedia.org/wiki/Cluster_analysis)

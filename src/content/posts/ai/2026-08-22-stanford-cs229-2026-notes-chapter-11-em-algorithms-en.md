@@ -107,3 +107,5 @@ Work through one EM iteration for a one-dimensional, two-component Gaussian mixt
 - [CS229 Lecture Notes (2026), Chapter 11.1: Gaussian mixtures and EM](https://cs229.stanford.edu/main_notes.pdf#page=151)
 - [CS229 Lecture Notes (2026), Chapters 11.2–11.4: Jensen's inequality, the ELBO, and general EM](https://cs229.stanford.edu/main_notes.pdf#page=154)
 - [CS229 Lecture Notes (2026), Chapter 11.5: Variational inference, VAEs, and reparameterization](https://cs229.stanford.edu/main_notes.pdf#page=163)
+- [Wikipedia: Expectation–maximization algorithm](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+- [Wikipedia: Variational autoencoder](https://en.wikipedia.org/wiki/Variational_autoencoder)

@@ -105,3 +105,5 @@ Take two length-three trajectories with per-step rewards \((2,3,5)\) and \((1,1,
 
 - [CS229 Lecture Notes Chapter 21: Policy Gradient, REINFORCE, and PPO (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=259)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Policy gradient methods](https://en.wikipedia.org/wiki/Policy_gradient_methods)
+- [Wikipedia: Proximal Policy Optimization](https://en.wikipedia.org/wiki/Proximal_Policy_Optimization)

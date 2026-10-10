@@ -104,3 +104,5 @@ s_{t+1|t+1}=s_{t+1|t}+K_t(y_{t+1}-Cs_{t+1|t}),
 
 - [CS229 Lecture Notes 第 20 章：LQR、DDP、LQG 與 Kalman filter（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=245)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Linear–quadratic regulator](https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator)
+- [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)

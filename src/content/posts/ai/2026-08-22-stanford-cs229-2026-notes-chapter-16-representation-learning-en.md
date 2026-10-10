@@ -87,3 +87,5 @@ Design a 100-query retrieval evaluation set. Define Recall@5 and NDCG@5, then pl
 
 - [CS229 Lecture Notes Chapter 16: Representation Learning, Retrieval, and RAG (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=197)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Contrastive learning](https://en.wikipedia.org/wiki/Contrastive_learning)
+- [Wikipedia: Retrieval-augmented generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)

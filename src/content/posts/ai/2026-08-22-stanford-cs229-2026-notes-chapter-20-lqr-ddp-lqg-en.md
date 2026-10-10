@@ -104,3 +104,5 @@ Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the o
 
 - [CS229 Lecture Notes Chapter 20: LQR, DDP, LQG, and Kalman Filtering (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=245)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Linear–quadratic regulator](https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator)
+- [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)

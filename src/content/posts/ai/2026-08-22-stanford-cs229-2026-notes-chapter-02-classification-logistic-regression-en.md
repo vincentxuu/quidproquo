@@ -88,3 +88,5 @@ Create a two-dimensional binary dataset and train both logistic regression and a
 
 - [CS229 Lecture Notes (2026-08-18), Chapter 2: Classification and logistic regression](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 course site](https://cs229.stanford.edu/)
+- [CS229 Supplemental Notes on Loss Functions](https://cs229.stanford.edu/extra-notes/loss-functions.pdf)
+- [CS229 Lecture Notes (2022 archive)](https://cs229.stanford.edu/notes2022fall/main_notes.pdf)

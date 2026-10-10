@@ -80,3 +80,5 @@ Using only matrix operations, implement a two-layer MLP with a ReLU hidden layer
 
 - [CS229 Lecture Notes (2026-08-18), Chapter 7: Deep learning](https://cs229.stanford.edu/main_notes.pdf)
 - [PyTorch Autograd mechanics](https://docs.pytorch.org/docs/stable/notes/autograd.html)
+- [Wikipedia: Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)
+- [Wikipedia: Deep learning](https://en.wikipedia.org/wiki/Deep_learning)

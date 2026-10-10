@@ -87,3 +87,5 @@ Generate several noisy datasets from the same quadratic function. Fit linear, qu
 - [CS229 Lecture Notes (2026), Chapter 8.1: Bias–variance tradeoff](https://cs229.stanford.edu/main_notes.pdf#page=118)
 - [CS229 Lecture Notes (2026), Chapter 8.2: Double descent](https://cs229.stanford.edu/main_notes.pdf#page=124)
 - [CS229 Lecture Notes (2026), Chapter 8.3: Sample complexity and VC dimension](https://cs229.stanford.edu/main_notes.pdf#page=129)
+- [Wikipedia: Bias–variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
+- [Wikipedia: Vapnik–Chervonenkis dimension](https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension)

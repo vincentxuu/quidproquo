@@ -94,3 +94,4 @@ On one one-dimensional dataset, implement batch gradient descent, SGD, the norma
 
 - [CS229 Lecture Notes (2026-08-18), Chapter 1: Linear regression](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 course site](https://cs229.stanford.edu/)
+- [CS229 Lecture Notes (2022 archive)](https://cs229.stanford.edu/notes2022fall/main_notes.pdf)

@@ -94,3 +94,4 @@ w^{(i)}=\exp\left(-\frac{\|x^{(i)}-x\|_2^2}{2\tau^2}\right),
 
 - [CS229 Lecture Notes（2026-08-18），Chapter 1：線性迴歸、LMS 與局部加權迴歸](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 課程網站](https://cs229.stanford.edu/)
+- [CS229 Lecture Notes（2022 歷史版本）](https://cs229.stanford.edu/notes2022fall/main_notes.pdf)

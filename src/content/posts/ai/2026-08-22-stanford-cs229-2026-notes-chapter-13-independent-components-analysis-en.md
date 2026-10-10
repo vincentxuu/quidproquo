@@ -91,3 +91,5 @@ Generate a sine wave and a square wave, standardize them, and mix them with an i
 - [CS229 Lecture Notes (2026), Chapter 13: ICA and the cocktail-party problem](https://cs229.stanford.edu/main_notes.pdf#page=174)
 - [CS229 Lecture Notes (2026), Chapters 13.1–13.2: Ambiguities and density transformations](https://cs229.stanford.edu/main_notes.pdf#page=175)
 - [CS229 Lecture Notes (2026), Chapter 13.3: Maximum-likelihood ICA](https://cs229.stanford.edu/main_notes.pdf#page=177)
+- [Wikipedia: Independent component analysis](https://en.wikipedia.org/wiki/Independent_component_analysis)
+- [Wikipedia: Cocktail party problem](https://en.wikipedia.org/wiki/Cocktail_party_problem)

@@ -92,3 +92,5 @@ Sequential minimal optimization（SMO）在對偶問題中一次挑兩個 \(\alp
 
 - [CS229 Lecture Notes（2026-08-18），Chapter 6：支援向量機（SVM）、kernel、soft margin 與 SMO](https://cs229.stanford.edu/main_notes.pdf)
 - [John Platt, Sequential Minimal Optimization: A Fast Algorithm for Training Support Vector Machines](https://www.microsoft.com/en-us/research/publication/sequential-minimal-optimization-a-fast-algorithm-for-training-support-vector-machines/)
+- [Wikipedia: Support vector machine](https://en.wikipedia.org/wiki/Support_vector_machine)
+- [Wikipedia: Lagrange multiplier](https://en.wikipedia.org/wiki/Lagrange_multiplier)

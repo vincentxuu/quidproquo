@@ -85,3 +85,5 @@ h=W_0x+\frac{\alpha}{r}BAx,
 
 - [CS229 Lecture Notes 第 15 章：基礎模型、線性探測、微調與 LoRA（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=192)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Foundation model](https://en.wikipedia.org/wiki/Foundation_model)
+- [Wikipedia: Low-rank adaptation](https://en.wikipedia.org/wiki/Low-rank_adaptation)

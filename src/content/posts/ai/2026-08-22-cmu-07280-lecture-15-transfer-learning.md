@@ -92,3 +92,5 @@ Frozen head training 也常叫 linear probing，可先測 representation 本身�
 - [CMU 07-280 Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf)
 - [HW8：AlexNet、MobileNet 與 transfer-learning experiments](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf)
 - [CMU 07-280 Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf)
+- [CMU 07-280 官方課程首頁](https://www.cs.cmu.edu/~07280/)
+- [A Survey on Deep Transfer Learning](https://arxiv.org/abs/1808.01974)

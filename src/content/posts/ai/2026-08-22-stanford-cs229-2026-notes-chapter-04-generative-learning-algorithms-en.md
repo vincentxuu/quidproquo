@@ -83,3 +83,5 @@ Train logistic regression and GDA on the same binary dataset, first with approxi
 
 - [CS229 Lecture Notes (2026-08-18), Chapter 4: Generative learning algorithms](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 course site](https://cs229.stanford.edu/)
+- [Wikipedia: Gaussian discriminant analysis](https://en.wikipedia.org/wiki/Gaussian_discriminant_analysis)
+- [Wikipedia: Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)

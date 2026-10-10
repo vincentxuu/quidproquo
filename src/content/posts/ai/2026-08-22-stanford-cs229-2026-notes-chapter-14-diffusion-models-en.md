@@ -106,3 +106,5 @@ Choose one normalized small image and three values of $\bar\alpha_t$. Sample noi
 - [CS229 Lecture Notes (2026), Chapter 14.1: Forward diffusion and closed-form noising](https://cs229.stanford.edu/main_notes.pdf#page=181)
 - [CS229 Lecture Notes (2026), Chapter 14.2: Reverse generative kernels](https://cs229.stanford.edu/main_notes.pdf#page=184)
 - [CS229 Lecture Notes (2026), Chapters 14.3–14.4: The ELBO, noise prediction, and reverse-time SDEs](https://cs229.stanford.edu/main_notes.pdf#page=185)
+- [Wikipedia: Diffusion model](https://en.wikipedia.org/wiki/Diffusion_model)
+- [Wikipedia: Score-based generative modeling](https://en.wikipedia.org/wiki/Score-based_generative_modeling)

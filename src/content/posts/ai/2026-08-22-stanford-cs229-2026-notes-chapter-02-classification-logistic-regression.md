@@ -88,3 +88,5 @@ P(y=j\mid x)=\frac{e^{\theta_j^Tx}}{\sum_{s=1}^k e^{\theta_s^Tx}}.
 
 - [CS229 Lecture Notes（2026-08-18），Chapter 2：分類、邏輯斯迴歸與 Newton 法](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 課程網站](https://cs229.stanford.edu/)
+- [CS229 補充講義：Loss Functions](https://cs229.stanford.edu/extra-notes/loss-functions.pdf)
+- [CS229 Lecture Notes（2022 歷史版本）](https://cs229.stanford.edu/notes2022fall/main_notes.pdf)

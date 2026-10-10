@@ -85,3 +85,5 @@ $k$ 必須事先指定，而 distortion 會隨 $k$ 增加自然下降，不能�
 - [CS229 Lecture Notes（2026）第 10 章：k-means 指派與中心更新](https://cs229.stanford.edu/main_notes.pdf#page=148)
 - [CS229 Lecture Notes（2026）第 10 章：distortion 與 coordinate descent](https://cs229.stanford.edu/main_notes.pdf#page=149)
 - [CS229 Lecture Notes（2026）第 10 章：局部最佳與多次初始化](https://cs229.stanford.edu/main_notes.pdf#page=150)
+- [Wikipedia: K-means clustering](https://en.wikipedia.org/wiki/K-means_clustering)
+- [Wikipedia: Cluster analysis](https://en.wikipedia.org/wiki/Cluster_analysis)

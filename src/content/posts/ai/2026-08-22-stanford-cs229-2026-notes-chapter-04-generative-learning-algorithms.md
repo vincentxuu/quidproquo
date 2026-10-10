@@ -84,3 +84,5 @@ GDA 對高斯形狀與共享協方差敏感；Naive Bayes 對特徵相依關係�
 
 - [CS229 Lecture Notes（2026-08-18），Chapter 4：生成式學習、GDA 與 Naive Bayes](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 課程網站](https://cs229.stanford.edu/)
+- [Wikipedia: Gaussian discriminant analysis](https://en.wikipedia.org/wiki/Gaussian_discriminant_analysis)
+- [Wikipedia: Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)

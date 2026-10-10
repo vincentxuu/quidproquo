@@ -92,3 +92,5 @@ Define an RLVR setup for generating a function that passes unit tests: state, ac
 
 - [CS229 Lecture Notes Chapter 18: LLM Reasoning, Chain of Thought, and RLVR (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=221)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Chain-of-thought prompting](https://en.wikipedia.org/wiki/Chain-of-thought_prompting)
+- [Wikipedia: Reinforcement learning from human feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)

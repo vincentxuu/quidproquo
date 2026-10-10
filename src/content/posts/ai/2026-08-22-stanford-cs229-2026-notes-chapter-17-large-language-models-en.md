@@ -92,3 +92,5 @@ For the same 2,048-token prompt, compare what must be recomputed during token-by
 
 - [CS229 Lecture Notes Chapter 17: Large Language Models, Transformers, MoE, and SFT (2026-08-18)](https://cs229.stanford.edu/main_notes.pdf#page=203)
 - [Official Stanford CS229 course page](https://cs229.stanford.edu/)
+- [Wikipedia: Transformer (deep learning architecture)](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture))
+- [Wikipedia: Mixture of experts](https://en.wikipedia.org/wiki/Mixture_of_experts)

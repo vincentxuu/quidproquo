@@ -105,3 +105,5 @@ r_t(\theta)=\frac{\pi_\theta(a_t\mid s_t)}{\pi_{old}(a_t\mid s_t)}.
 
 - [CS229 Lecture Notes 第 21 章：策略梯度、REINFORCE 與 PPO（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=259)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Policy gradient methods](https://en.wikipedia.org/wiki/Policy_gradient_methods)
+- [Wikipedia: Proximal Policy Optimization](https://en.wikipedia.org/wiki/Proximal_Policy_Optimization)

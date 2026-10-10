@@ -92,3 +92,5 @@ GRPO 對同一 prompt 採樣一組回答，用組內平均與標準差形成相�
 
 - [CS229 Lecture Notes 第 18 章：LLM 推理、思維鏈與 RLVR（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=221)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Chain-of-thought prompting](https://en.wikipedia.org/wiki/Chain-of-thought_prompting)
+- [Wikipedia: Reinforcement learning from human feedback](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)

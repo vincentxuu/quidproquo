@@ -88,3 +88,5 @@ s_{t+1}=As_t+Ba_t+\epsilon_t,
 
 - [CS229 Lecture Notes 第 19 章：強化學習、MDP 與價值迭代（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=228)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Markov decision process](https://en.wikipedia.org/wiki/Markov_decision_process)
+- [Wikipedia: Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation)

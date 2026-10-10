@@ -80,3 +80,5 @@ kernel trick 省掉顯式高維特徵，卻沒有讓資料規模消失。通常�
 
 - [CS229 Lecture Notes（2026-08-18），Chapter 5: Kernel methods](https://cs229.stanford.edu/main_notes.pdf)
 - [Stanford CS229 課程網站](https://cs229.stanford.edu/)
+- [Wikipedia: Kernel method](https://en.wikipedia.org/wiki/Kernel_method)
+- [Wikipedia: Mercer's theorem](https://en.wikipedia.org/wiki/Mercer%27s_theorem)

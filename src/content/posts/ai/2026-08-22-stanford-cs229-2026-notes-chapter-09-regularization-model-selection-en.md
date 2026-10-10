@@ -85,3 +85,5 @@ Fit polynomial regressions across a grid of $L_2$ strengths. Train on one split,
 - [CS229 Lecture Notes (2026), Chapter 9.1: L1, L2, and weight decay](https://cs229.stanford.edu/main_notes.pdf#page=138)
 - [CS229 Lecture Notes (2026), Chapter 9.2: Implicit regularization](https://cs229.stanford.edu/main_notes.pdf#page=140)
 - [CS229 Lecture Notes (2026), Chapters 9.3–9.4: Cross-validation and Bayesian MAP](https://cs229.stanford.edu/main_notes.pdf#page=142)
+- [Wikipedia: Regularization (mathematics)](https://en.wikipedia.org/wiki/Regularization_(mathematics))
+- [Wikipedia: Cross-validation (statistics)](https://en.wikipedia.org/wiki/Cross-validation_(statistics))

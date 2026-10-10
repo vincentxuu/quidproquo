@@ -228,6 +228,11 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 - [Microsoft Foundry 官方文件](https://learn.microsoft.com/en-us/azure/foundry/)
 - [Claude Agent SDK 文件](https://platform.claude.com/docs/en/agent-sdk/overview)
 
+- [Multi-Agent Collaboration Mechanisms: A Survey of LLMs](https://arxiv.org/abs/2501.06322)
+- [A Survey on Agent Workflow — Status and Future](https://arxiv.org/abs/2508.01186)
+- [LLM-Based Multi-Agent Orchestration: A Survey of Frameworks, Communication Protocols, and Emerging Patterns](https://www.preprints.org/manuscript/202604.2147)
+- [AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation](https://arxiv.org/abs/2308.08155)
+
 **站內相關**
 
 - [2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)

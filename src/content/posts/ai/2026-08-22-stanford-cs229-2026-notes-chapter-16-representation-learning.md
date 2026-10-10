@@ -87,3 +87,5 @@ y\sim p_\psi\bigl(y\mid q,\hat R(q)\bigr).
 
 - [CS229 Lecture Notes 第 16 章：表徵學習、語意檢索與 RAG（2026-08-18）](https://cs229.stanford.edu/main_notes.pdf#page=197)
 - [Stanford CS229 官方課程頁](https://cs229.stanford.edu/)
+- [Wikipedia: Contrastive learning](https://en.wikipedia.org/wiki/Contrastive_learning)
+- [Wikipedia: Retrieval-augmented generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)

@@ -87,3 +87,5 @@ $$
 - [CS229 Lecture Notes（2026）第 8 章：偏差—變異分解](https://cs229.stanford.edu/main_notes.pdf#page=118)
 - [CS229 Lecture Notes（2026）第 8.2 節：雙降](https://cs229.stanford.edu/main_notes.pdf#page=124)
 - [CS229 Lecture Notes（2026）第 8.3 節：樣本複雜度與 VC dimension](https://cs229.stanford.edu/main_notes.pdf#page=129)
+- [Wikipedia: Bias–variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
+- [Wikipedia: Vapnik–Chervonenkis dimension](https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension)

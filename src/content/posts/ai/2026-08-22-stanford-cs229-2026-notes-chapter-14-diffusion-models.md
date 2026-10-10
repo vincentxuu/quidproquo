@@ -107,3 +107,5 @@ $$
 - [CS229 Lecture Notes（2026）第 14.1 節：正向 diffusion 與 closed-form noising](https://cs229.stanford.edu/main_notes.pdf#page=181)
 - [CS229 Lecture Notes（2026）第 14.2 節：反向生成 kernel](https://cs229.stanford.edu/main_notes.pdf#page=184)
 - [CS229 Lecture Notes（2026）第 14.3–14.4 節：ELBO、雜訊預測與 reverse-time SDE](https://cs229.stanford.edu/main_notes.pdf#page=185)
+- [Wikipedia: Diffusion model](https://en.wikipedia.org/wiki/Diffusion_model)
+- [Wikipedia: Score-based generative modeling](https://en.wikipedia.org/wiki/Score-based_generative_modeling)
