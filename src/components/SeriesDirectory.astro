@@ -16,6 +16,15 @@ interface Props {
 
 const { lang, seriesList } = Astro.props;
 const isEn = lang === 'en';
+const titleCollator = new Intl.Collator(lang, { numeric: true, sensitivity: 'base' });
+const sortedCourses = seriesList
+  .filter(series => series.category === 'courses')
+  .sort((a, b) => titleCollator.compare(a.name, b.name));
+let courseIndex = 0;
+// 只重排課程卡片所在的位置，其他分類保留最新文章日期的順序。
+const directorySeries = seriesList.map(series =>
+  series.category === 'courses' ? sortedCourses[courseIndex++] : series,
+);
 const counts = new Map<SeriesCategoryId, number>();
 const schoolCounts = new Map<SeriesSchoolId, number>();
 for (const series of seriesList) {
@@ -82,7 +91,7 @@ const visibleSchools = SERIES_SCHOOLS.filter(school => (schoolCounts.get(school.
       </p>
 
       <div class="series-grid">
-        {seriesList.map(series => {
+        {directorySeries.map(series => {
           const category = SERIES_CATEGORIES.find(item => item.id === series.category)!;
           const school = SERIES_SCHOOLS.find(item => item.id === series.school);
           return (
