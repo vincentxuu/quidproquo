@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post follows the 5/22 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 18 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series, and it covers the last regular lecture. The previous post is [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en). It picks up from [Can AI Improve Itself? (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) two weeks earlier. Part 1 covered AI-generated answers, rewards, and losses, which is to say how to update **parameters**. This part covers the **harness**, and whether the update rule itself can be updated.
 
@@ -36,7 +36,7 @@ Official materials used: the slide deck [self-evolving-agent.pdf](https://speech
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=cQLKVzbwN7I
@@ -53,6 +53,8 @@ Original videos: [Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## Part 1 in one formula
 
@@ -221,6 +223,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

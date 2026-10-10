@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/13 那一週的教材後半。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 4 篇。[上一篇](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)講一個 agent 怎麼管自己的 context；這一篇把鏡頭拉遠，看**很多個 agent 放在一起會發生什麼，以及它們怎麼改變人的工作**。
 
@@ -25,7 +25,7 @@ draft: false
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=mmPmNezjCi0
@@ -42,6 +42,8 @@ title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學�
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
 
 ## 一、多個 agent 怎麼協作比較有效
 
@@ -123,6 +125,7 @@ title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

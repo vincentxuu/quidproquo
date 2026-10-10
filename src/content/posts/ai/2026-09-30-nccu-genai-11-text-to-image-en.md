@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 11 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L10, the adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en). Last week ended on the Stable Diffusion diagram. This week takes apart its CLIP and scheduler boxes, adds LoRA, the most common fine-tuning technique, and then writes code.
 
@@ -35,7 +35,7 @@ It draws on four official sources: [video 11](https://www.youtube.com/watch?v=8V
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8VS6Dcxmp34
@@ -47,6 +47,8 @@ Original videos: [【生成式 AI】11. 文字生圖AI的原理及實作（YouTu
 Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -205,6 +207,7 @@ Previous: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

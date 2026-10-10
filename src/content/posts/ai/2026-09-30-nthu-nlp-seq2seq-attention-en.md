@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 4 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. [Post 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) introduced RNN language models, which read one token at a time and predict the next. [HW1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en) tested word vectors. This post takes on a problem RNN language models never faced: **how do you design a model when the input and output have different lengths?**
 
@@ -31,7 +31,7 @@ The source is the 33-slide deck [W3_Sequence-to-sequence Models and Attention Me
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=LFeFc0VtKRI
@@ -48,6 +48,8 @@ Original videos: [Fall 2025 W3 Tue recording](https://www.youtube.com/watch?v=LF
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## The problem: translation lengths do not line up
 
@@ -156,6 +158,7 @@ Attention without RNNs is the heart of the Transformer, which this series covers
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

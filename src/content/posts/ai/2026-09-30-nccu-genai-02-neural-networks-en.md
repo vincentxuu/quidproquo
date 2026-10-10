@@ -38,7 +38,7 @@ The slides come in five parts: building the dopey AI robot, neural networks, our
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but embedded playback has not been verified for each video; if a video does not play inline, use the original video link below. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=s1QqujRMEUk
@@ -50,6 +50,8 @@ Original videos: [recording](https://www.youtube.com/watch?v=s1QqujRMEUk)
 Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Part 1: inputs and outputs have to be numbers
 
@@ -263,6 +265,7 @@ The Fall 2026 syllabus describes week 2 as core neural network concepts (percept
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
 
 ## References
 

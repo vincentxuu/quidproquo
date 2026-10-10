@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) is this year's machine learning course from Hung-yi Lee in NTU's Department of Electrical Engineering. It does not start with gradient descent. The first lecture dissects a "little lobster": the open-source AI agent [OpenClaw](/posts/ai/2026-03-28-openclaw-overview-en). The syllabus puts it plainly: this year AI "doesn't just talk, it has started to act," so the whole semester takes the AI-agent point of view and focuses on "how to influence and adjust model behavior."
 
@@ -25,11 +25,20 @@ This post is the series entry point. It covers the course structure, what outsid
 
 ## Course video sources
 
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+This is a course overview with no single corresponding lecture. The official course page publicly lists the course introduction video (checked live on 2026-10-10); find the other lecture videos through the official entry.
 
-Course and recording entries:
+```youtube
+url: https://www.youtube.com/watch?v=gl-BdDjNPVI
+title: 機器學習 2026 課程簡介
+```
+
+Original video: [機器學習 2026 課程簡介](https://www.youtube.com/watch?v=gl-BdDjNPVI)
+
+Course and recording entry:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -127,6 +136,7 @@ Next: [Dissecting the Lobster: How AI Agents Work, Using OpenClaw](/posts/ai/202
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official course page publicly lists a "Machine Learning 2026 course introduction" video; embedded it and set status to Videos included.
 
 ## References
 

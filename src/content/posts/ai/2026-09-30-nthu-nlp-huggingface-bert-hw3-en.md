@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 9 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [ELMo, BERT, T5, BART, GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family-en).
 
@@ -31,27 +31,29 @@ The previous part covered how the BERT family is pretrained. This one is hands-o
 - Tutorial slides [huggingface_tutorial_bert.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/huggingface_tutorial_bert.pdf) (43 pages, cover dated 2024/10/22)
 - The matching notebook [bert-huggingface.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/bert-huggingface.ipynb)
 - The assignment handout [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf) (24 pages) and starter code [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
-- Recordings: the tutorial [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)
+- Recordings: the tutorial [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=VErSpYgZGiw
-title: VErSpYgZGiw
+title: NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Fe1roWMVdUI
-title: Fe1roWMVdUI
+title: NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025
 ```
 
-Original videos: [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw)、[Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+Original videos: [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw)、[NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Recordings and weeks: sorting out what goes where
 
@@ -59,9 +61,9 @@ The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/b
 
 | Recording | YouTube title and page info | Content |
 |---|---|---|
-| [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 |
+| [NLP (Prof. Hung-Yu Kao) Week 8 Tue. TA session, Fall 2025](https://www.youtube.com/watch?v=VErSpYgZGiw) | "Week 8 Tue. [助教課]" (TA session), no [Fall 2025] tag, uploaded 2024-10-21, about 89 minutes, description reads "Hugging Face BERT講解" | The TA session recorded in 2024 |
 | [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | "[Fall 2025] … Week 7 Thu.", about 56 minutes | I grabbed frames at minutes 5, 25, and 50; all three show this tutorial deck (pages 2, 16, 30) |
-| [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI) | "[Fall 2025] … Week 8 Thu. - Assignment 3", about 15 minutes | HW3 walkthrough |
+| [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI) | "[Fall 2025] … Week 8 Thu. - Assignment 3", about 15 minutes | HW3 walkthrough |
 
 At the end of [W7 Tue.](https://www.youtube.com/live/NtPrXea8qSE), the professor says the TA sessions will be played from pre-recorded video "because the content hasn't changed," with TAs online to answer questions. That matches the 2024 cover date and the 2024 upload date. So for the tutorial, either VErSpYgZGiw or W7 Thu. will do. I did not check minute by minute whether all of W7 Thu. is the same recording.
 
@@ -195,6 +197,7 @@ What I noticed reading [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Langu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

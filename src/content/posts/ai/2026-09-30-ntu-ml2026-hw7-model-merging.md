@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW7。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 16 篇。官方材料有：作業投影片 [hw7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw7.pdf)、[作業 Colab](https://colab.research.google.com/drive/1B9692EHFAZFh5-8Q5LsVhzk9nTH1MEyD)（50 個 cell）、[Kaggle 版](https://www.kaggle.com/code/sylora1101/ml2026hw7)，以及助教的[說明影片](https://youtu.be/YQtwk_L686I)。課程頁寫 5/8 公告、截止 2026/05/28 23:59，助教是黃郁涵、陳思齊、董家愷、吳岳霖（投影片封面列前三位）。投影片註明參考 ML2025 HW9 Model Merging。
 
@@ -32,7 +32,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=YQtwk_L686I
@@ -44,6 +44,8 @@ title: HW7 說明影片（YouTube）
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
 
 ## 先備：hw7.pdf 沒有指定，但有一講正好對得上
 
@@ -143,6 +145,7 @@ notebook 分三段：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on HW1 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 2 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are three official sources: the assignment slides [hw1.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw1.pdf) (in English), the [assignment Colab](https://colab.research.google.com/drive/1kgy1Nas2uu7RoWTn-pZfyF1Sj3WpuJdy?usp=sharing) (just 2 cells, for counting tokens), and the TA [walkthrough video](https://youtu.be/qVTehGJQHys). The TAs were 董家愷, 陳思齊, and 許筠曼. It was released 3/06 and due 2026/03/26 23:59:59 (UTC+8), with no late submissions. The slides credit GenAI 2025 HW4 (by 標彥廷) as their source.
 
@@ -23,7 +23,7 @@ Access is **A3 minus grading**: the task, attack text, and rules are public, but
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=qVTehGJQHys
@@ -35,6 +35,8 @@ Original videos: [HW1 walkthrough video (YouTube)](https://www.youtube.com/watch
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## Why the first assignment is prompt injection defense
 
@@ -131,6 +133,7 @@ Series navigation: previous, [Dissecting the Lobster](/posts/ai/2026-09-30-ntu-m
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

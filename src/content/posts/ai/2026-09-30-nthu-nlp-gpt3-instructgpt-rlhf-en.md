@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [W8_GPT3_InstructGPT_RLHF.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W8_GPT3_InstructGPT_RLHF.pdf) (68 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The deck sits in the W8 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), with recordings [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc) and [Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s) (lectures in Mandarin, slides mostly in English). The "W8" in the filename happens to match the README week, but that row's Topics column says "Python for text tutorial (2/2)". That column is a syllabus template that doesn't match the attached slides, so this post goes by the slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
@@ -45,7 +45,7 @@ The outline has five items: a recap from GPT-1 to GPT-3, the Sparse Transformer,
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=w-M9plRRVQc
@@ -62,6 +62,8 @@ Original videos: [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[W
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## From GPT-1 to GPT-3: only a few architecture changes
 
@@ -223,6 +225,7 @@ One thing to do tonight: ask your usual chat model one factual question and one 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

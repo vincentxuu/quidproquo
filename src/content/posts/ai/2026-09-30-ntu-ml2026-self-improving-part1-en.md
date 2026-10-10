@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers the May 8 lecture "模型的自我成長 - 1" (Self-Improving, part 1) of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 15 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). The previous post is [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en). The lecture before that, [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en), asked whether a model can fix its own mistakes. This one goes a level deeper: **can a model get better without humans?**
 
@@ -36,7 +36,7 @@ Official materials: the slides [Self-Improving.pdf](https://speech.ee.ntu.edu.tw
 
 ## Course video sources
 
-Video sources were checked against the official course page. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=s06mSAGN4gM
@@ -48,6 +48,8 @@ Original videos: [Video: Is AI about to cross the Rubicon? How far away is self-
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## Prerequisite: the three steps of machine learning
 
@@ -222,6 +224,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

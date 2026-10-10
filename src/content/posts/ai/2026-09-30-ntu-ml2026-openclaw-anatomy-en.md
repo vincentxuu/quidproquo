@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the 3/6 lecture of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 1 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slide deck [Dissecting the Lobster: How AI Agents Work, Using OpenClaw as an Example](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pdf) (60 slides, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pptx)) and the [lecture recording](https://youtu.be/2rcJdFuNbZQ). Both are in Mandarin. Access is A3: slides and video are public, and this lecture has no assignment or quiz attached.
 
@@ -23,7 +23,7 @@ Slide 16 carries a one-line disclaimer: OpenClaw is an open-source project that 
 
 ## Course video sources
 
-Video sources were checked against the official course page. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
@@ -35,6 +35,8 @@ Original videos: [Lecture recording: Dissecting the Lobster (YouTube)](https://w
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## What the lobster can do
 
@@ -173,6 +175,7 @@ Series navigation: previous, [series overview](/posts/ai/2026-09-30-ntu-ml2026-c
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

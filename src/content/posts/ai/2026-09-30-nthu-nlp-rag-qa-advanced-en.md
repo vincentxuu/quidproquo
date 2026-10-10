@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on slides 60–125 of [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, plus the Chinese caption tracks of the [W11 Tuesday](https://www.youtube.com/live/chIewpk4-q0) and [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) recordings. The lectures are in Mandarin. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and recordings are public. This unit has no assignment of its own; the hands-on part is in [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
@@ -35,7 +35,7 @@ glossary:
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=chIewpk4-q0
@@ -52,6 +52,8 @@ Original videos: [W11 Tuesday recording (Fall 2025, in Mandarin)](https://www.yo
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Where this picks up, and what the recordings cover
 
@@ -171,6 +173,7 @@ One thing to try tonight: take a RAG system or ChatGPT conversation you already 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

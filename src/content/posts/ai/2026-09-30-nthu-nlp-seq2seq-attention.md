@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 4 篇。[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)已經介紹過 RNN 語言模型：一次讀一個字，預測下一個字。[HW1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy) 則考了詞向量。這一篇要處理一個 RNN 語言模型沒碰過的問題：**輸入和輸出的長度不一樣時，模型要怎麼設計？**
 
@@ -32,7 +32,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=LFeFc0VtKRI
@@ -49,6 +49,8 @@ title: Fall 2025 W3 Thu 錄影
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 問題：翻譯的長度對不上
 
@@ -157,6 +159,7 @@ Attention 的核心想法是：**生成每個輸出時，讓模型聚焦在輸�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post follows the second half of the 3/13 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 4 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. [The previous post](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) covered how one agent manages its own context. This one zooms out: **what happens when many agents share a space, and how they change human work**.
 
@@ -25,7 +25,7 @@ This lecture is mostly case studies rather than methods, so I follow the slide o
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mmPmNezjCi0
@@ -42,6 +42,8 @@ Original videos: [Video: AI Agent (2/3): interactions between AI agents](https:/
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## 1. How should multiple agents collaborate?
 
@@ -123,6 +125,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

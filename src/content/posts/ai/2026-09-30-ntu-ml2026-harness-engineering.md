@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)4/10 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 11 篇。前面兩講鑽進模型內部：[KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache) 與 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)，上一篇 [HW4](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer) 讓你親手訓練一個 Transformer。從這一講開始是新單元，課表上叫「如何教育模型」：**模型已經訓練好了，人類還能做什麼讓它表現更好？**
 
@@ -32,7 +32,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=R6fZR_9kmIw
@@ -44,6 +44,8 @@ title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
 
 ## 場景：一個會自己捏造檔案的小模型
 
@@ -159,6 +161,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

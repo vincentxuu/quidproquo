@@ -38,6 +38,9 @@ This is a course overview or resource map with no single corresponding lecture. 
 Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [YouTube course playlist (Iveai - I've AI)](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
+
+Checked: 2026-10-10.
 
 ## Whose course is it: NCCU teaches it, the Chang Gung page is a satellite section
 
@@ -203,6 +206,7 @@ Each lecture here stands on its own. These series on the site are only for when 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed the official entry opens; a per-lecture recording link does not apply to an overview post, so status is unchanged.
 
 ## References
 

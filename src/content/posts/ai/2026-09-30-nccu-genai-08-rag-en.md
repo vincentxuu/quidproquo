@@ -32,7 +32,7 @@ The notebook drift is especially visible this week, and I flag each case below: 
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but embedded playback has not been verified for each video; if a video does not play inline, use the original video link below. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=JClJEmZub-A
@@ -44,6 +44,8 @@ Original videos: [Generative AI 08: Retrieval-Augmented Generation (RAG), princi
 Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Where this week sits
 
@@ -168,6 +170,7 @@ Previous: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-bui
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
 
 ## References
 

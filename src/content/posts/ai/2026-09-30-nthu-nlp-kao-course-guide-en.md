@@ -42,6 +42,8 @@ Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
+Checked: 2026-10-10.
+
 ## The hard facts
 
 - **Standing**: the 2025 syllabus cover calls it "Flagship Course 5: Natural Language Processing" and notes that of the 1,200 seats, 100 are reserved for NTHU and partner schools get about 50 each on average. TAICA's list files it under the Artificial Intelligence for Natural Language Technology Program, rates its difficulty at eight stars, and marks it as a graduate course.
@@ -167,6 +169,7 @@ Where topics overlap, this series still covers them in full. These links are for
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Confirmed the official entry opens; a per-lecture recording link does not apply to an overview post, so status is unchanged.
 
 ## References
 

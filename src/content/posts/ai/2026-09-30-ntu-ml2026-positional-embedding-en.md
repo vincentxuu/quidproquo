@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This guide follows the 3/27 materials of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 9 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The two previous lectures asked why generation is slow: [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) deals with memory traffic, [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) deals with repeated computation, and [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en) measured both on a GPU. This lecture asks a different question. **Agents routinely feed models hundreds of thousands of tokens. How does the model know where each token sits? And why does it break on inputs longer than anything it saw in training?**
 
@@ -32,7 +32,7 @@ The course schedule titles this row "inside the model: how models handle very lo
 
 ## Course video sources
 
-Video sources were checked against the official course page. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
@@ -44,6 +44,8 @@ Original videos: [Video: How does a Transformer know the order of input tokens? 
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## The problem: "you hit me" vs. "I hit you"
 
@@ -151,6 +153,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on materials from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025: [rag_tutorial_1.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_1.pdf) (cover dated 2024/11/28), [rag_tutorial_2.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_2.pdf) (cover dated 2024/12/05), [RAG_tutorial_1.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/RAG_tutorial_1.ipynb), [RAG_lab_2](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/RAG_lab_2), and the handout PDF, `main.ipynb`, `cat-facts.txt`, and `questions_answers.txt` in [Assignment4](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment4). Both TA slide decks are reused from 2024. The recordings are W13's [RAG1](https://youtube.com/live/anCghHOjzV0) and [RAG2](https://youtube.com/live/RpLqfqR2OZI) plus the [HW4 walkthrough](https://youtu.be/JvThEbeOZbs), all in Mandarin. None has a caption track, so I did not check them section by section. I checked every fact against the official materials on 2026-09-30. Access level **A3**: the handout, starter code, and data are public. What's missing is NTU COOL for submission, the grading script, and solutions.
 
@@ -31,7 +31,7 @@ glossary:
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=JvThEbeOZbs
@@ -48,6 +48,8 @@ Original videos: [HW4 walkthrough (in Mandarin)](https://www.youtube.com/watch?v
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Timeline: the assignment came before the labs
 
@@ -173,6 +175,7 @@ One thing to try tonight: download `cat-facts.txt` and `questions_answers.txt` a
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

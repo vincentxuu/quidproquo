@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 5 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The [previous post](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en) covered RNNs, LSTMs, and vanishing gradients. This one is hands-on: **show an LSTM a few million arithmetic expressions. Can it learn arithmetic?**
 
@@ -36,7 +36,7 @@ Access level is **A3**: the handout, starter code, and full data are public. Sol
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=INIrdjLVMEU
@@ -53,6 +53,8 @@ Original videos: [Fall 2025 W4 Tue TA session recording](https://www.youtube.com
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## The TA session: a toolbox for the assignment
 
@@ -155,6 +157,7 @@ The handout asks for results as text rather than only images, to make grading ea
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

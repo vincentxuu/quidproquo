@@ -20,7 +20,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-llm-api)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [llm_api_tutorial.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/llm_api_tutorial.pdf), listed in the W12 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) for Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, and on `llm_api.ipynb` and `utils.py` in [LLM_API_lab](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/LLM_API_lab). The slide cover is dated **2024/11/21**, so this is the 2024 session reused. The recording is [the W12 Thursday one](https://www.youtube.com/live/xGwQYvya_Ag) (labeled "Video2(LLM_API)" in the schedule, 2025-11-19, 56:35, in Mandarin). It has no caption track, so I did not check it section by section. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and notebook are public, but the `prompts.yaml` the notebook loads is not in the repo (see below).
 
@@ -28,7 +28,7 @@ glossary:
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=xGwQYvya_Ag
@@ -40,6 +40,8 @@ Original videos: [W12 Thursday recording (Fall 2025, in Mandarin)](https://www.y
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Why use an API
 
@@ -139,6 +141,7 @@ One thing to try tonight: move your most-used prompt out of your code into a YAM
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

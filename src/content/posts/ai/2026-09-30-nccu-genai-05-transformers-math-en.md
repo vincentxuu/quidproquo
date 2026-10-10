@@ -34,7 +34,7 @@ Two official sources back this post: the [Lecture 5 recording](https://www.youtu
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but embedded playback has not been verified for each video; if a video does not play inline, use the original video link below. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=mhjegVhqb_M
@@ -46,6 +46,8 @@ Original videos: [Lecture 05: The complete guide to Transformers (YouTube record
 Course and recording entries:
 
 - [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Where this week fits
 
@@ -252,6 +254,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official schedule maps this lecture to the linked video, but embedded playback could not be verified, so status is unchanged.
 
 ## References
 

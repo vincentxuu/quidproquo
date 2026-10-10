@@ -38,6 +38,9 @@ glossary:
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [YouTube 課程播放清單（Iveai - I've AI）](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
+
+查核日期：2026-10-10。
 
 ## 這門課是誰的：政大主講，長庚那頁是衛星班
 
@@ -205,6 +208,7 @@ TAICA 讓各校獨立評分，所以同一份作業在不同學校的份量不�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時確認官方入口可開啟，單一講次錄影連結不適用於總覽文，狀態維持不變。
 
 ## 參考資料
 

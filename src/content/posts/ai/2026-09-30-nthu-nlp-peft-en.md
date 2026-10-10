@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-peft)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf) (61 pages) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The W9 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) attaches both this deck and the GPT-2 / T5 TA-session deck, with recordings [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) and [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA) (in Mandarin). **I did not watch them to confirm which recording covers PEFT and which is the TA session**, so skim both when you study. The W9 Topics column says "ELMo, BERT, GPT, and T5"; it's a syllabus template that doesn't match the attached slides. Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
@@ -43,7 +43,7 @@ This post answers one question: **how do you fine-tune a large model without an 
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=zgjO_t5eu_E
@@ -60,6 +60,8 @@ Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[W
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Opening: what's left for NLP in the LLM era
 
@@ -236,6 +238,7 @@ One thing to do tonight: open the training script you're using, compute the rati
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the official materials for NTHU Prof. Hung-Yu Kao's Natural Language Processing course, Fall 2025 (114-1).** It is part 18 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series and follows [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
@@ -25,7 +25,7 @@ Two limits up front. First, the recording has no captions, and I did not watch i
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=_hzMv789JQ8
@@ -37,6 +37,8 @@ Original videos: [Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8)
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## One timeline: where the course started and where it ended
 
@@ -168,6 +170,7 @@ Series navigation: previous, [RAG labs + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

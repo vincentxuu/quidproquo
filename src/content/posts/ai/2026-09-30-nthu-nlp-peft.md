@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-peft-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W9_PEFT.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W9_PEFT.pdf)（61 頁）。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 的 W9 列同時掛了這份投影片和 GPT-2／T5 助教課投影片，錄影是 [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E) 與 [Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)；**哪一支錄影講 PEFT、哪一支是助教課，本文沒有看片確認**，自學時請自己快轉對照。W9 列的 Topics 欄寫的是「ELMo, BERT, GPT, and T5」，那是課綱模板，和實際掛的投影片對不起來。事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
 
@@ -43,7 +43,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=zgjO_t5eu_E
@@ -60,6 +60,8 @@ title: Week 9 Thu.
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 開場：LLM 時代的 NLP 還能做什麼
 
@@ -236,6 +238,7 @@ LoRA 在投影片比較表上的優勢是**推論時沒有額外開銷**：訓�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

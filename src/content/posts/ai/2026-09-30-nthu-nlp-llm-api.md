@@ -20,7 +20,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-llm-api-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) W12 列掛的 [llm_api_tutorial.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/llm_api_tutorial.pdf)，以及 [LLM_API_lab](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/LLM_API_lab) 裡的 `llm_api.ipynb` 與 `utils.py`。投影片封面日期是 **2024/11/21**，代表沿用 2024 年的助教課。錄影是 [W12 週四那支](https://www.youtube.com/live/xGwQYvya_Ag)（課表標為「Video2(LLM_API)」，2025-11-19，56:35），它沒有字幕軌，本文沒有逐段核對錄影內容。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與 notebook 公開，但 notebook 讀取的 `prompts.yaml` 沒有放在 repo 裡（見下文）。
 
@@ -28,7 +28,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=xGwQYvya_Ag
@@ -40,6 +40,8 @@ title: W12 週四錄影（Fall 2025）
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 為什麼要用 API
 
@@ -139,6 +141,7 @@ Gemini 那段示範得最完整：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 

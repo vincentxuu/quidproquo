@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers HW2 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 5 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two posts covered [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) and [how agents change research work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en). This assignment has you build a small version yourself: **let an agent be your AI engineer for once**.
 
@@ -32,7 +32,7 @@ Official materials used: the homework slides [hw2.pdf](https://speech.ee.ntu.edu
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=3xhwSsuNTM0
@@ -44,6 +44,8 @@ Original videos: [Video: ML 2026 Spring hw2 AI Agent as an AI Engineer](https://
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## What outside readers can do
 
@@ -155,6 +157,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

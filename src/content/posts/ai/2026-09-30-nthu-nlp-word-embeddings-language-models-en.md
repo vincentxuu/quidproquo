@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: this post is based on the Fall 2025 run of [NTHU Hung-Yu Kao's Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing), specifically [W2_Word embeddings and Language Modeling (RNN).pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W2_Word%20embeddings%20and%20Language%20Modeling%20%28RNN%29.pdf) (62 pages). The matching recordings are [Week 2 Tue.](https://www.youtube.com/live/6Z0A4JMptT8) and [Week 2 Thu.](https://www.youtube.com/live/cqp5a39eyJQ) (in Mandarin). Facts were checked against the slides on 2026-09-30. The post follows the slides only; I did not transcribe the recordings. Access rating **A3** (see the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) for why).
 
@@ -39,7 +39,7 @@ The [previous post](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en) turn
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=6Z0A4JMptT8
@@ -56,6 +56,8 @@ Original videos: [Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Statistical language models: counting n-grams
 
@@ -188,6 +190,7 @@ The 2026 main README links the [v2 of this deck](https://github.com/IKMLab/NTHU_
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

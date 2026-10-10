@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers HW8 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 17 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). Official materials: the slides [hw8.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw8.pdf), the [assignment Colab](https://colab.research.google.com/drive/1_z4JryPWnITLAwtytVwu75FZMx9giT3R?usp=sharing) (34 cells), and the TA's [walkthrough video](https://youtu.be/KAbM5gM6Isw). The course page lists it as released 5/15 and due 2026/06/04 23:59 (UTC+8), with TAs 江履方, 陳品睿, 尹廷安, and 林育正. Grades were due by 2026/06/07.
 
@@ -36,7 +36,7 @@ Access rating: **A3 minus grading**. The slides print all 20 questions in both C
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=KAbM5gM6Isw
@@ -48,6 +48,8 @@ Original videos: [HW8 walkthrough video (YouTube)](https://www.youtube.com/watch
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
 
 ## Prerequisite: 2025 Lecture 7 on Reasoning
 
@@ -152,6 +154,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 
 ## References
 

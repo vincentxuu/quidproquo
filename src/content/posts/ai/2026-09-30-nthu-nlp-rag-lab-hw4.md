@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）的 [rag_tutorial_1.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_1.pdf)（封面 2024/11/28）、[rag_tutorial_2.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_2.pdf)（封面 2024/12/05）、[RAG_tutorial_1.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/RAG_tutorial_1.ipynb)、[RAG_lab_2](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/RAG_lab_2)，以及 [Assignment4](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment4) 的說明 PDF、`main.ipynb`、`cat-facts.txt`、`questions_answers.txt`。兩份助教課投影片沿用 2024 年版。錄影是 W13 的 [RAG1](https://youtube.com/live/anCghHOjzV0)、[RAG2](https://youtube.com/live/RpLqfqR2OZI) 和 [HW4 說明影片](https://youtu.be/JvThEbeOZbs)，三支都沒有字幕軌，本文沒有逐段核對錄影內容。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：題目、starter code 與資料都公開；拿不到的是繳交用的 NTU COOL、評分腳本與解答。
 
@@ -31,7 +31,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=JvThEbeOZbs
@@ -48,6 +48,8 @@ title: W13 週二錄影：RAG1
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 時間線：作業比助教課先發
 
@@ -173,6 +175,7 @@ MMR 在站上有[專文](/posts/ai/2026-03-12-mmr-diversity-reranking)可以補�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 
 ## 參考資料
 
