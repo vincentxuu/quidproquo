@@ -28,6 +28,14 @@ glossary:
 
 本文只寫題目在練什麼、該觀察什麼、往哪個方向想。**不附解答。** 這兩份作業的價值就在自己量、自己解釋。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
+
 ## 先看清楚作業要什麼
 
 [README](https://github.com/stanford-cs149/asst1/blob/master/README.md) 開宗明義：這份作業要你理解現代多核 CPU 的兩種主要平行——**單一核心內的 SIMD**，和**多核心平行**（順便看到 Hyper-Threading 的效果）。它說程式只寫一點點，**分析很多**。總分 100 分，另有 6 分加分題。
@@ -155,6 +163,10 @@ Problem 3 就是上一篇洗衣服比喻的考題版，Problem 4 則是上一篇
 延伸閱讀：README 最後的「For the Curious」強烈推薦 Matt Pharr 的 [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all)，它談到為什麼「編譯器不能自己平行化」這類常見問題。
 
 系列導覽：上一篇 [L3 延遲 vs 頻寬與 ISPC](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)｜下一篇 [L4 平行化程式的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

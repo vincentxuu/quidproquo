@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 7: Linear Regression**. Lecture 5's ERM is solved end to end: choose linear hypotheses, choose squared loss, stack the data into a matrix, and derive a closed-form optimum.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [Linear Regression lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Linear_Regression.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
@@ -104,6 +112,10 @@ Both routes optimize the same `J(θ)`. A closed form solves one equation; gradie
 1. Compute `Σxy/Σx²` for three one-dimensional points and verify it by differentiation.
 2. Write a design matrix with an intercept column and label the shapes of `X`, `θ`, and `y`.
 3. Construct a matrix with two identical feature columns and explain why `XᵀX` is singular.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

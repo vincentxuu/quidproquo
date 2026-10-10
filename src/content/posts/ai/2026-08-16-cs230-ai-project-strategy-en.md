@@ -23,6 +23,22 @@ This post covers **[Lecture 6: AI Project Strategy](https://www.youtube.com/watc
 
 The lecture uses two examples: the first half is **trigger-word detection for a voice-controlled lamp** (a single end-to-end model), the second is an **AI deep researcher** (a multi-component pipeline). That second half is the most directly portable content in the whole series for LLM applications.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=s6JVGzABKho
+title: Lecture 6: AI Project Strategy
+```
+
+Original videos: [Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Why teach this
 
 > "Understanding algorithms matters … but what really drives performance is a team's **ability to run an efficient development process.** How do you tune hyperparameters? How do you collect data? You tried once and it didn't work — and it usually doesn't — **what do you do next?** The skill of making those decisions often produces a literal **10x** productivity difference."
@@ -243,6 +259,10 @@ Ng's example is already an LLM pipeline, so almost no translation is needed. Wha
 The site's [common RAG failure modes](/posts/ai/2026-03-12-rag-failure-modes-en) post lists ten problems and their fixes; what this lecture adds is **how you know which one you have.** All ten fixes are good, but if your actual problem is at the page-selection step, no amount of retrieval-strategy switching will move anything.
 
 As for the trigger-word half, one insight holds up perfectly today: **"you'll get a voice activity detector."** When you build an eval set with synthetic data and every positive shares some surface feature, the model (or your judge) learns to detect that feature rather than the thing you meant to test. That's the same mechanism as the gap described in the site's [shipping is where the work starts](/posts/ai/2026-08-10-enterprise-agent-case-studies-en) post, seen from the other end.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

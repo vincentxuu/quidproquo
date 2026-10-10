@@ -17,6 +17,21 @@ draft: false
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 3 講是 **電腦視覺：卷積如何保留空間結構**。從影像張量、卷積與 pooling 走到辨識系統，替 Lab 2 的 MNIST 與臉部偵測打底。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=pqIcoskUuWs
+title: Lecture 3 官方影片
+```
+
+原始影片：[Lecture 3 官方影片](https://www.youtube.com/watch?v=pqIcoskUuWs)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## 這一講要帶走什麼
 
 - 算出 kernel、stride 與 padding 改變後的 feature-map 尺寸
@@ -41,6 +56,10 @@ draft: false
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

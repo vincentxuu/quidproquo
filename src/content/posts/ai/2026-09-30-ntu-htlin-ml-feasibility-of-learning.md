@@ -30,6 +30,26 @@ glossary:
 
 **本文依據**：MOOC 投影片 [04_handout](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/04_handout.pdf)、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) W3 的課前必看清單、extended slides [04e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/04e_handout.pdf)、[Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf) 與 [Fall 2024 HW2](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw2/hw2_red.pdf)，全部在 2026-09-30 打開核對。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=tOgbh5_747w
+title: YouTube
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=MgAihqFPkZc
+title: YouTube
+```
+
+原始影片：[YouTube](https://www.youtube.com/watch?v=tOgbh5_747w)、[YouTube](https://www.youtube.com/watch?v=MgAihqFPkZc)、[YouTube](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[YouTube](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 這篇對應的教材
 
 | 小節 | 影片 | 投影片摘要（04 handout 最後一頁） |
@@ -168,6 +188,10 @@ print("Hoeffding bound:", 2 * np.exp(-2 * 0.3**2 * N))
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：學習理論的另一種講法。
 
 **系列導覽**：上一篇 [學習問題、PLA 與學習的種類](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)｜[總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)｜下一篇 [訓練與測試：有效假說數、成長函數與 break point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 4, “Generative learning algorithms,” on printed pages 35–48 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of one quarter's recordings. The notes label Naive Bayes as optional reading, which is the appropriate weight to give that section.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Discriminative and generative routes
 
 Logistic regression learns \(p(y\mid x)\) directly. A generative classifier instead learns a class prior \(p(y)\) and class-conditional input model \(p(x\mid y)\), then applies Bayes' rule:
@@ -63,6 +72,10 @@ This chapter contrasts with Chapter 3's conditional modeling. Chapter 5 takes a 
 ## Self-study exercise
 
 Train logistic regression and GDA on the same binary dataset, first with approximately Gaussian classes and then with skew or outliers. Separately, calculate Bernoulli Naive Bayes by hand for ten short documents and observe how one unseen word collapses a class probability without smoothing.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

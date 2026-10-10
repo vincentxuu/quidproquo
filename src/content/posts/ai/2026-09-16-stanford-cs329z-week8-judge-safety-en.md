@@ -27,6 +27,14 @@ Human grading is the gold standard, at gold-standard prices and speed. Every pro
 
 Of the three anchor readings, this guide reads the Anthropic eval guide and MT-Bench closely. The safety thread centers on [PrivacyLens](https://arxiv.org/abs/2409.00138), plus deployment-time guardrail practice.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## Three grader types: pick the right tool before automating
 
 Anthropic sorts graders into three kinds. Code-based graders check deterministic evidence: string matching, unit tests, static analysis, tool-call records. Model-based graders check open-ended quality: rubric scoring, natural-language assertions, pairwise comparison, reference-based grading, multi-judge consensus. Humans serve as the gold standard: expert review, crowdsourcing, spot-check sampling.
@@ -115,6 +123,8 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-12: Added substantive guides to AutoLibra, CDI, prompt injection, and RSP, including the historical-version boundary for RSP.
 
 ## References

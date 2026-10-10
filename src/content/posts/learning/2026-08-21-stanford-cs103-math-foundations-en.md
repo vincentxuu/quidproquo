@@ -24,6 +24,14 @@ The syllabus frames it as a course about whether computing has laws of physics. 
 
 This piece was written after going page by page through the current course site, eight problem sets, twenty-odd homegrown handouts, the Honor Code page and two archived offerings. The question it answers is what actually happens once you're inside: what the course is really about, what the assignments look like, where the difficulty turns, and what someone not enrolled can get. Where the course sits on the prerequisite ladder is already covered in [Reading Stanford's CS Courses](/posts/learning/2026-08-20-stanford-cs-course-map-en), so I won't repeat it. What this does **not** include is worked solutions — the solutions aren't public either, and the reason is below.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/)
+
 ## The hard facts
 
 The prerequisite is CS106B (or CS106X, or equivalent), and **you can take it concurrently**. ExploreCourses puts it bluntly: `Prerequisite: CS106B or equivalent. CS106B may be taken concurrently with CS103.`
@@ -166,6 +174,10 @@ Don't worry yet about whether you can finish the proof. That two-column move is 
 - **Handout lengths**: the web version of the Proofwriting Checklist runs roughly 14,000 words with exercises attached to each of the eight guidelines; Guide to Proofs on Sets, Guide to Induction and Guide to the Myhill-Nerode Theorem are each around 10,000. These are my own word counts from the scraped pages, not official figures.
 - **Archive URL encoding**: `cs103.1268` → academic year ending 2026, quarter code 8 (summer). Quarter codes are 2 = autumn, 4 = winter, 6 = spring, 8 = summer. I derived this rule by testing codes `1212` through `1268` one at a time and comparing against the quarter each page states about itself; Stanford publishes no explanation page.
 - **Three things I could not confirm**: (1) I found no officially public lecture recordings for any CS103 offering, but "couldn't find" isn't "doesn't exist," and unofficial reuploads aren't ruled out. (2) Stanford's course archive has no browsable index (`web.stanford.edu/class/archive/cs/cs103/` returns 404), so "which is the earliest archived offering" could only be probed code by code; I stopped once autumn 2020 still resolved and didn't exhaust anything earlier. (3) The ExploreCourses description for CS 103 tells readers to enroll in CS103A, but searching for CS103A only returns CS 103 itself; the companion course that actually exists in the catalog is CS 103ACE (one unit, Satisfactory/No Credit, taken alongside CS103). I found no official statement on how those two codes relate.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

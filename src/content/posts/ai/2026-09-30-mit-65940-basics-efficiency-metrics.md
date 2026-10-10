@@ -38,6 +38,26 @@ glossary:
 
 以下頁碼都是 PDF 的頁數，投影片角落印的頁碼有時差一兩頁。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
+title: Lecture 1 錄影（Fall 2024）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=I0nKjPpZmMU
+title: Lecture 2 錄影（Fall 2024）
+```
+
+原始影片：[Lecture 1 錄影（Fall 2024）](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[Lecture 2 錄影（Fall 2024）](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 問題：模型長得比硬體快
 
 第一講開頭（第 3 頁）是一張雙線圖。一條線是語言模型的參數量：Transformer 0.05B、BERT 0.34B、GPT-2 1.5B、GPT-3 175B、MT-NLG 530B。另一條是 GPU 記憶體：從 V100 的 32GB 到 A100 的 80GB。兩條線越拉越開，圖上的註解是「Model compression bridges the gap」。第二講第 3 頁把這個落差講成一句話：摩爾定律大約每兩年 2 倍，深度學習模型每兩年 4 倍。
@@ -206,6 +226,10 @@ Fall 2026 的 [L1 投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3
 - [Stanford CS336 導讀：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)：從記憶體頻寬看 latency
 
 **系列導覽**：上一篇 [系列入口](/posts/ai/2026-09-30-mit-65940-course-overview)｜下一篇 [Pruning I：剪枝的粒度與準則](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

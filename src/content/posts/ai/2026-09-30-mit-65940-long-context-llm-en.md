@@ -36,6 +36,21 @@ glossary:
 
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "Long Context LLM" (Lecture 15, November 3). As of 2026-09-30 its slides and video are not up yet.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=kgTWKjbnrBA
+title: Lecture 15 recording (YouTube)
+```
+
+Original videos: [Lecture 15 recording (YouTube)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## What this lecture is about
 
 If you want an LLM to read a whole book, watch an hour of video, or chat with you for hundreds of turns, you hit three walls at once. The model breaks beyond its training length. It may not actually use the long context. And the KV cache gets too big to fit. The Lecture Plan on page 2 maps onto these three walls, plus one section on alternatives to the Transformer:
@@ -175,6 +190,10 @@ Page 68 splits an LLM's work into two kinds: communication between tokens (atten
 - KV cache: [CMU 11-868: serving at scale and the KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en), [NTU Hung-yi Lee ML 2026: the KV cache and how to slim it](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
 - Long context and SSMs: [CMU 10-423 L19 + L21: long context and state space/hybrid models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en)
 - Inference systems: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

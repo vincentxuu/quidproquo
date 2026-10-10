@@ -17,6 +17,22 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 11 on February 10, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture11-evaluation.pdf) has four agenda parts: the recent saga of LLM benchmarks, benchmark design, evaluation metrics, and cautions and open questions. The task is not to memorize another leaderboard but to decide whether a score still supports a decision.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The Spring 2024 recording below is supplementary material on the same topic, not a Winter 2026 lecture recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=TO0CqzqiArM
+title: CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois
+```
+
+Original videos: [CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Benchmark shelf lives are shrinking
 
 The [NLP benchmarking survey](https://aclanthology.org/2022.naacl-main.395/) explains how benchmarks and leaderboards turn research questions into shared targets. When models approach saturation, scores lose discriminative power. Test data may also enter pretraining corpora, turning generalization into recall. Human performance is not always a meaningful ceiling when a task rewards broad retrieval, strict formatting, or speed rather than human expertise.
@@ -90,6 +106,10 @@ Document construct through cost, classify twenty errors, rerun prompt paraphrase
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the deck's four agenda sections and subtopics but does not reconstruct the lecturer's spoken judgments about particular leaderboards.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

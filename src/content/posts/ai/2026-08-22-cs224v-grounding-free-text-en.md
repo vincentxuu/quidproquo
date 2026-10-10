@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 5 returns to free text. Without a database schema or fixed Worksheet fields, how can an assistant avoid fluent invention? WikiChat expands RAG into repeated retrieval, filtering, and claim verification instead of assuming that context eliminates hallucination.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: break the baseline, then build the pipeline
 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
@@ -105,6 +113,10 @@ Take ten failures from an existing RAG system and label each as retrieval miss, 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck does not include full code, prompts, or a recording. Some slides expand the seven conceptual stages into finer prompt operations. This article describes the visible algorithmic roles and does not claim the production system can be reconstructed verbatim.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -21,6 +21,14 @@ CMU 在 Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Le
 
 本系列以 **Spring 2026 首次完成班次**為 canonical edition。官方首頁目前已切換到 Fall 2026，Spring links 退到 HTML comments；多數帶有 `S26` 的 slides、notes、recitation、written homework 和 notebooks 仍可匿名直連，但少數舊直連已失效。現存材料足以重建完整課程主線，卻沒有逐講公開錄影；本文不會虛構講者口述或課堂問答。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 這次改制到底改了什麼
 
 [07-280 官方 FAQ](https://www.cs.cmu.edu/~07280/)說得很直接：舊的 15-281 與 10-315 退休，改成 07-280 → 07-380 兩門連續核心。第一門要同時服務 BSAI 學生，以及只打算修一門技術型 AI 課的其他 SCS 學生；第二門再增加進階主題與研究方法。
@@ -105,6 +113,10 @@ Fall 2026 完課後可以另寫版本差異，但不會把已發布文章的 can
 第一次讀建議從 [Lecture 1：Introduction](/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction)開始，依序完成逐講練習；每十二講、八講與四講後，分別停在三篇階段複習重組知識。開始前先下載 [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf)、[Math Background](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf)，再打開 [Recitation 1 Search worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)。如果 worksheet 的 state space、frontier、heuristic 與 graph search 無法自行定義，先補這段，不要急著跳到 GPT-2 notebook。讀完 24 講後，再用[全課結業路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)驗收自己是否真的留下可執行成果。
 
 07-280 最值得導讀的地方，正是它拒絕把現代 AI 縮成「訓練一個神經網路」。它從問題表示開始，經過搜尋、估計、表示學習與序列決策，最後才讓學生組裝 landmark systems。完整讀完，才看得出 AlexNet、GPT-2 與 AlphaZero 在同一門課裡不是宣傳詞，而是三次不同形式的整合考試。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

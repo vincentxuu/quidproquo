@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 7 on January 27, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf), **Pretraining (Scaling, Systems, Data)**, has six agenda parts: motivation, subwords, the move from word embeddings to model pretraining, three architectures, what pretraining teaches, and large models with in-context learning.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Why pretraining scales
 
 Supervised tasks depend on human labels, limiting both volume and task coverage. Pretraining creates prediction targets from text itself, allowing a model to use large, diverse, unlabelled corpora. Smaller labelled sets, instructions, or prompts can then specify downstream use.
@@ -78,6 +87,10 @@ Add a length-matched no-demonstration control and preserve every prompt and raw 
 ## Material gap and numbering note
 
 Winter 2026 recordings are not public. The deck cover retains a stale “Lecture 6: Pretraining” label, while the official schedule, date, filename, and sequence establish it as regular lecture 7. This article follows the schedule and does not speculate about the stale label.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

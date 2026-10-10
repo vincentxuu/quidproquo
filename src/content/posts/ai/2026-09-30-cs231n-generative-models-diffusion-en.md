@@ -32,6 +32,21 @@ For the [CS231N](https://cs231n.stanford.edu/) lecture on May 19, 2026, the [sch
 
 The first 35 slides are actually about GANs, which [the previous post](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en) already covers. This post starts at slide 36, where diffusion begins.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=Edr4uZFh4EE
+title: YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2
+```
+
+Original videos: [YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Scene: a field where "the notation is a mess"
 
 Slide 36 lists five foundational diffusion papers: [Sohl-Dickstein et al. 2015](https://arxiv.org/abs/1503.03585), Song & Ermon 2019, [Ho et al. 2020 (DDPM)](https://arxiv.org/abs/2006.11239), [Song et al. 2021 (SDE)](https://arxiv.org/abs/2011.13456), and Song et al. 2021 (DDIM).
@@ -203,6 +218,10 @@ Taken together, the two lectures show that none of the four paradigms wiped out 
 ## Access limits
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this course is **A3**: the 2026 slides, assignments, and starter code are public, plus full 2025 recordings. The gaps for this lecture: 2026 recordings are on Canvas for enrolled students only, and Gradescope autograding is not public.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

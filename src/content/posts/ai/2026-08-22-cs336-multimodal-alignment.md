@@ -19,6 +19,22 @@ draft: false
 
 Transformer 接收 token。文字需要 tokenizer，影像與影片也必須轉成一串可處理的 units。理解任務偏好保存高階語意，生成任務卻需要顏色、紋理與空間細節；同一套 representation 很難同時最佳。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=26FtD08ZpOU
+title: CS336 Spring 2026 Lecture 17: Alignment - Multimodality
+```
+
+原始影片：[CS336 Spring 2026 Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## CLIP 用對比學習取得語意
 
 CLIP 收集 image-text pairs，分別以 image encoder 與 text encoder 產生 embeddings。在一個 batch 內，每張影像應接近自己的 caption，遠離其他 captions；文字到影像方向也同樣計算。大量 noisy pairs 因此能提供 supervision，不需逐張人工分類。
@@ -58,6 +74,10 @@ Image tokens 通常比 text tokens entropy 高，也可能造成 norm growth 與
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依 CLIP、SigLIP、LLaVA、Qwen-VL 與 Chameleon 的當期章節整理，沒有納入後續 guest sessions。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

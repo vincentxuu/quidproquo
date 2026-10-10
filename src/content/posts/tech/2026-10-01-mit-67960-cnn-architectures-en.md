@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 4 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) (YouTube: `bxVkZ4M-hIE`) is taught by Phillip Isola. This lecture starts from "why MLPs fail on images" and derives CNN's three design principles: **local connectivity**, **weight sharing**, and **translation equivariance**. Paired with [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) as required reading, this article restructures the lecture highlights into a practical CNN design framework with runnable PyTorch code.
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
+title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids](https://www.youtube.com/watch?v=bxVkZ4M-hIE)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Why MLPs Fail on Images
 
 | Problem | MLP Behavior | CNN Solution |
@@ -253,6 +269,10 @@ print(f"Empirical RF pixels: {compute_rf(model)}")
 - 28:00–40:00 Pooling layers, receptive field calculation, dilated convolution
 - 40:00–55:00 Classic architecture evolution: LeNet → AlexNet → VGG → GoogLeNet
 - 55:00–1:10:00 Modern CNN design principles, implementation details
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

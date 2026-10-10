@@ -17,6 +17,14 @@ series:
 
 Lectures 5–10 form the algorithmic core. The [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) covers Policy Gradients, Actor Critic, Value-Based RL, Q-learning in Practice, and two Advanced Policy Gradients lectures. Read them by asking what is estimated, where data comes from, and how bias trades against variance.
 
+## Course video sources
+
+The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## Policy-based methods
 
 L5 derives policy gradients from a trajectory objective. Reward-to-go, baselines, and advantages reduce variance without changing the desired objective. L6 introduces actor-critic: a critic supplies the actor's update signal, potentially adding function-approximation bias. Sections 3 and 5 connect and extend these ideas.
@@ -32,6 +40,10 @@ L7–8 move from Bellman backups to DQN and its stability machinery. L9–10 ret
 ## Completion check
 
 Explain why policy gradients have high variance, how a critic trades variance for bias, why DQN uses replay and target networks, and what entropy contributes to SAC. If any answer is vague, return to the derivation and smallest experiment before spending more compute.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

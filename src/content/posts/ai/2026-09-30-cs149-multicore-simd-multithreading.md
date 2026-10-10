@@ -40,6 +40,21 @@ glossary:
 
 投影片後段有幾頁用 GPU 當例子。本系列把 GPU 全部留到[第 9 篇 L7 GPU 架構與 CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)，這一篇只談 CPU。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=CKmNpAO5rS4
+title: CS149 2023 Lecture 2 錄影（YouTube）
+```
+
+原始影片：[CS149 2023 Lecture 2 錄影（YouTube）](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
 ## 開場複習
 
 2025 版的 L2 先花了一段複習 L1：程式是一串指令、superscalar 處理器自動找出互不相依的指令平行執行、記憶體延遲、stall、cache 與 LRU。這些在[上一篇](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)已經整理過。
@@ -224,6 +239,10 @@ int y = A[x];
 ---
 
 **系列導覽**：[← 上一篇 L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency) ｜ [系列總覽](/posts/ai/2026-09-30-cs149-course-overview) ｜ 下一篇 [L3 延遲 vs 頻寬 + ISPC →](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

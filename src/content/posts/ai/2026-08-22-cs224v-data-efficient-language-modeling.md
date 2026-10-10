@@ -18,6 +18,14 @@ description: "CS224V Training LLMs／Data-Efficient Language Modeling：資料�
 
 Schedule 把最後一講簡寫成 Training LLMs，但 deck 的精確標題是 Data-Efficient Language Modeling。它不是從 tokenizer 教到 RLHF 的完整配方，而是問：當 compute 成長比高品質資料快，固定資料能不能被用得更好，又能否合成真正增加泛化能力的新資料？
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：用好既有資料，再製造新資料
 
 講義先把模型進步拆成 algorithms、data 與 compute，說明 pretraining、instruction tuning 和 continued pretraining 的資料瓶頸。Part 1 研究有限資料、近乎無限 compute 下的 epochs、batch size、ensemble distillation 與 self-training；Part 2 轉向 synthetic continued pretraining、資料多樣性、neighbor supervision 與 scaling。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf))
@@ -163,6 +171,10 @@ Synthetic continued pretraining 的方向是學習「一份文件的 neighbor」
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開 deck 是研究演講，不是完整訓練 recipe；多項結果標為 preprint 或特定 experimental regime。沒有課堂錄影、完整程式碼與所有超參數，因此本文不把結果泛化到任意模型規模。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

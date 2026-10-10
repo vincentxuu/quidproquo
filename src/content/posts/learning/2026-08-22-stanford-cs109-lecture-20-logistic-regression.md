@@ -19,6 +19,14 @@ draft: false
 
 本講維持 **L2**。Worksheet 是三頁 P1–P6 加 optional MAP challenge；answer key 是四頁，只有 P5 的 pset7 code solution 省略，challenge 有完整解答。Guide 是三頁六 concepts。當期投影片不可用、錄影限 Canvas，本文不重建未公開內容。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：Poisson MLE warm-up
 
 五秒 counts `[3,1,4,2,5]` 的總和是 15。忽略與 `λ` 無關的常數後：
@@ -141,6 +149,10 @@ Machine learning 常把負的這個 objective 稱為 binary cross-entropy loss�
 - Worksheet 三頁 P1–P6 加 challenge；四頁 key 只有 P5 code 題省略，challenge 完整。
 - Guide 三頁六 concepts，無額外題號。
 - 當期投影片不可用、錄影限 Canvas；本文只使用公開 artifacts。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

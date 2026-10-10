@@ -20,6 +20,14 @@ draft: false
 
 以下依 2026-09-29 抓取的課站與材料。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 本文讀過的材料：
@@ -174,6 +182,10 @@ Schedule 把這講的副標寫成「Search + GenAI: Alpha Geometry」。投影�
 3. 自己寫一個 20 行以內的 DPLL，先只做提早終止和分支，再加 unit clause，比較兩版在同一組 CNF 上的遞迴次數。
 
 上一篇：[Lecture 1 導讀：Introduction](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction)。下一篇：[HW1 導讀：Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -20,6 +20,14 @@ draft: false
 
 > ⚠️ **版本**：本文以 [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0)（`hw0.tex` due 2026-02-02）為主，`Spring 2025` 同題（`cs181-s25-homeworks/hw0`）作對照。`syllabus` 先修與計分見 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [CS181 2025 課程站](https://harvard-ml-courses.github.io/cs181-web-2025/)。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 HW0 不計難度、只計完整度（`Homework zero (4%)`，[2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)），但它是整門課唯一的「先修體檢」。四題分別對應 [CS181 textbook](https://github.com/harvard-ml-courses/cs181-textbook) 的前置章：線代、微積分、機率、Python 實作。做完後你會得到一張缺口地圖——哪一題卡最久，開學後就先補哪一塊，而不是等到 HW1 的冰芯溫度迴歸才發現矩陣乘法不熟。
@@ -79,6 +87,10 @@ HW0 不計難度、只計完整度（`Homework zero (4%)`，[2026 syllabus](http
 ## 與後續週的銜接
 
 HW0 通過後，[HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)（冰芯溫度）、[HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)、[HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)、[HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)、[HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)、[HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman) 才會是「新知」而非「補洞」。2025 的 `practical`（Kaggle 型）可視為 HW0-6 後的綜合實作，2026 未提供則可用 2025 版自練。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

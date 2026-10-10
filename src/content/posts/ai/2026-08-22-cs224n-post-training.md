@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 8 講排在 2026 年 1 月 29 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf)題為 **Post-training (RLHF, SFT, DPO)**。agenda 依序是 instruction fine-tuning、RLHF、InstructGPT/ChatGPT、RL 與 reward modeling 的限制、DPO，以及人類偏好資料與 AI feedback。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 預測下一詞不等於協助使用者
 
 預訓練目標學的是延續文字。使用者卻期待模型理解指令、選擇有用格式、拒絕不當要求。Instruction fine-tuning 以「指令—理想回答」資料做監督式微調，把基礎模型的行為分布推向助理互動。
@@ -113,6 +122,10 @@ Capability regression：新行為學會了，舊任務退化。Over-refusal：�
 ## 材料缺口與編號註記
 
 Winter 2026 錄影不公開。投影片封面保留「Lecture 7: Post-training」舊標籤，但官方課表、日期與檔名確認它是 regular Lecture 8。本文覆蓋六段 agenda，不補寫口頭案例。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

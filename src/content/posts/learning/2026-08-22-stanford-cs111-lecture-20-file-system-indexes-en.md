@@ -19,6 +19,14 @@ This is part 21 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 This article therefore owns [The deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)'s opening multilevel-inode/index-walk material and its closing disk-scheduling material. Block cache, write policy, free bitmaps, fragments, and delayed allocation are concentrated in [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache). This is an editorial partition of a byte-identical artifact, not a claim that the public material reveals the exact classroom split.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## A 4.3BSD inode is an on-demand tree
 
 Disk and file use 4 KiB blocks. The inode roots a page-table-like pointer tree with fourteen pointers; zero means absent. The first twelve point directly to file blocks 0–11, so small files need no index I/O ([official slides](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)).
@@ -54,6 +62,10 @@ The last diagrams compare one pending set: FIFO has long seeks, SPTF minimal see
 ## Update history
 
 - 2026-08-22: Partitioned the byte-identical Lecture 20/21 deck; this article now focuses on inode index walks and disk scheduling, while Lecture 21 owns cache, free-space, and allocation policy.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

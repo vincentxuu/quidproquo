@@ -19,6 +19,14 @@ The first twelve lectures of 07-280 can look like two courses bolted together. L
 
 This stage review does not replace the lecture guides. It places the Spring 2026 Search Fundamentals and ML Fundamentals modules on one map so that you can test whether you understand the computational structure rather than merely remember algorithm names. Because no complete public lecture recording set exists, the reconstruction is limited to the syllabus, public notes, recitations, and assignments.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## One pipeline: represent, score, move
 
 A search problem defines states, actions, transitions, a goal test, and path cost. Supervised learning changes the vocabulary: features represent inputs, parameters identify candidate functions, a loss scores them, and an optimizer moves between candidates. A CSP's variables, domains, and constraints provide another representation-and-scoring interface.
@@ -74,6 +82,10 @@ Independent learners lack the complete Gradescope feedback loop, but can preserv
 You should be able to translate a natural-language problem into a representation, objective, and update rule; explain what a heuristic, feature, loss, and regularizer preserve or prefer; and calculate one backpropagation example by hand. If one of those remains a memorized definition, return to the corresponding lecture guide and recitation before moving to AlexNet.
 
 The next stage assembles these parts into concrete systems: CNNs add spatial structure to image representations, GPT-2 lets sequence representations interact through attention, and a training framework executes the resulting computation graphs on hardware.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

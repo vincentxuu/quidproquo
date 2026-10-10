@@ -18,6 +18,22 @@ draft: false
 
 [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)最後三講分別處理 AI for Global Nuclear Monitoring、AI Safety 與 Further Thoughts。它們不是突然插入的新聞單元，而是在問：前面學到的 search、decision、uncertainty 與 learning，放進真實制度後還缺什麼？
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
+title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
+```
+
+原始影片：[CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## 校外結業的標準
 
 沒有 Berkeley 成績單時，可以用一份可稽核的作品集取代模糊的「修完」。P1–P5 每個 project 留下四樣東西：問題模型、核心演算法、測試證據、一個失敗案例。P0 只負責確認環境，不必硬包成作品。
@@ -39,6 +55,10 @@ draft: false
 完成後再選下一門課：偏數學型 ML 可接 CS189，偏深度 RL 可接 CS285，偏 NLP 可先補入門 NLP 再讀 CS288。CS188 的角色不是涵蓋所有 AI，而是提供一套可重複使用的問題表示語言。
 
 系列導航：[上一篇：決策與機器學習](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)｜[回到課程總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

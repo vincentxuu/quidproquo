@@ -36,6 +36,21 @@ glossary:
 
 第 6 頁的 Lecture Plan 有四段：Transformer 基礎、設計變體、LLM、進階主題（多模態 LLM）。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=EV6xb4xY708
+title: EfficientML.ai Lecture 12 - Transformer and LLM（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 12 - Transformer and LLM（YouTube）](https://www.youtube.com/watch?v=EV6xb4xY708)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Transformer 基礎：成本藏在哪
 
 ### 為什麼離開 RNN 與 CNN
@@ -162,6 +177,10 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 - 推論成本的另一種講法：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - KV cache 與 serving 系統：[CMU 11-868 大規模服務：prefill／decode 拆分與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
 - MoE 與模型平行：[CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

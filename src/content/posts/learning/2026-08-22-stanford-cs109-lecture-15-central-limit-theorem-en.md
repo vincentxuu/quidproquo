@@ -19,6 +19,14 @@ This is article 16 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The worksheet and key contain complete two-page P1–P7 plus challenge material. The guide's six concepts occupy two substantive pages; page three only continues the wrap-up. This is the first **L2** unit: the public problem set and reader support a complete artifact guide, but not a claim to reproduce the full slides or lecture.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Open with a Beta-belief review
 
 A Subscribe button receives nine clicks from 12 visitors. Starting from `Beta(1,1)`,
@@ -164,6 +172,10 @@ The six concepts are IID variables, convolution, closed-form sums, Normal differ
 - P7 and the challenge are pset5 items omitted from the public answer key and are derived only from public prompts.
 - Current slides are unavailable and video is gated; L2 does not mean a full lecture reconstruction.
 - The worksheet/key are two pages each, and guide page three only continues closing text. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

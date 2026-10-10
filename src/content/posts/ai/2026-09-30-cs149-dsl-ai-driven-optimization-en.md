@@ -31,6 +31,22 @@ glossary:
 
 About video: Fall 2025 recordings are Canvas-only. The DSL half of this lecture has a counterpart in the 2023 public recordings that the course home page points to, [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ). **The LLM-agent half has no public video at all and is covered from the slides only.** Everything here follows the 2025 slides; the 2023 video is only a listening supplement for the first half, and this post has not compared the two section by section.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
+title: 2023 Lecture 15 video: Domain Specific Programming Languages (covers only the DSL half)
+```
+
+Original videos: [2023 Lecture 15 video: Domain Specific Programming Languages (covers only the DSL half)](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
+
+Course and recording entries:
+
+- [CS149 2023 public lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
+
 ## The starting point: too few people can write fast code
 
 Page 2 sets the goal: mechanisms and techniques that make performance optimization more productive, both by making expert programmers more productive and through automation. Three key ideas:
@@ -183,6 +199,10 @@ The slide predicts that the best CS149 students of the future will likely work i
 - General methods for self-improving agents: [Stanford CS329A Self-Improving Agents](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
 Series navigation: previous [L12 Mapping AI Applications to the Datacenter](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en) | next [PA5: Writing the Fastest Kernels](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

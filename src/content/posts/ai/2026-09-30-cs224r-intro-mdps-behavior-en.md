@@ -33,6 +33,21 @@ On the [CS224R](https://cs224r.stanford.edu/) schedule, lecture 1 is called "Cou
 
 The logistics (grading, late days, the AI tools policy) are covered in the [series overview](/posts/ai/2026-09-30-cs224r-course-overview-en). This post covers only the content.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=EvHRQhMX7_w
+title: Spring 2025 Lecture 1: Class Intro (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 1: Class Intro (YouTube, supplement)](https://www.youtube.com/watch?v=EvHRQhMX7_w)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## First, what an MDP is
 
 The official prerequisites assume some familiarity with RL, and the slides say MDPs will get a quick pass. If you have never seen one, this intuition is enough to start:
@@ -192,6 +207,10 @@ Then ask two questions. Is your observation Markov? If not, how much history doe
 - [Reading CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en): the RL prerequisite the course recommends
 
 **Series navigation**: Previous: [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en) | Next: [L2: Imitation learning and policies that can represent multimodal distributions](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

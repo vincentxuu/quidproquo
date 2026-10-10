@@ -19,6 +19,14 @@ draft: false
 
 本講官方題目是 **Set Theory Revisited**，實際主線是先把 injection 與 surjection 合成 bijection，再用雙射定義「兩個集合有相同基數」，最後正式證明第一講預告的 Cantor 定理。重點不是把有限計數硬套到無限集合，而是重新定義「一樣多」所需的證據。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)
+
 ## 今日路線：從雙射走到 Cantor 定理
 
 投影片列出 bijections、cardinality 的正式定義、Cantor 定理的正式證明。三段是一條依賴鏈：雙射提供逐一配對；逐一配對讓等勢不必依賴整數；等勢定義再把 Cantor 定理轉成「不存在某種雙射」的函數命題。
@@ -150,6 +158,8 @@ y ∈ D  iff  y ∉ f(y).
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依官方完整投影片重建雙射、區間等勢、基數性質與 Cantor 對角論證，並同步英文版與研究 checklist。
 
 ## 參考資料

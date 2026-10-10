@@ -36,6 +36,14 @@ What makes the assignment interesting is its structure: one `Agent` base class a
 
 This post covers only the requirements, architecture, grading, and design trade-offs, and maps each TODO back to concepts from L1–L6. **It gives no solutions** and shows no TODO implementations.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## How the three parts connect
 
 ```text
@@ -212,6 +220,10 @@ The assignment depends on Modal and course-provided model credits; outside the c
 - On this site: [Context compaction in coding agents](/en/posts/ai/2026-08-25-coding-agent-context-compaction-en)
 - On this site: [Code mode in coding agents](/en/posts/ai/2026-08-25-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
 - On this site: [Hooks, skills, and plugins in coding agents](/en/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

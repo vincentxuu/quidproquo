@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 2 章〈Classification and logistic regression〉，講義頁碼 21–29。這是 **2026 notes 的逐章導讀**，不是某一學期錄影內容的重建。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 從線性預測改成機率分類
 
 若直接用 \(\theta^Tx\) 預測 0 或 1，輸出既不受範圍限制，也沒有機率意義。邏輯斯迴歸先計算線性 logit，再用 sigmoid 壓到 \([0,1]\)：
@@ -68,6 +77,10 @@ P(y=j\mid x)=\frac{e^{\theta_j^Tx}}{\sum_{s=1}^k e^{\theta_s^Tx}}.
 ## 自學練習
 
 建立一個二維二元分類資料集，同時訓練邏輯斯迴歸與感知器。畫出決策邊界，檢查邏輯斯機率在邊界附近如何變化，再比較梯度下降與 Newton 法每次迭代的損失及實際計算時間。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

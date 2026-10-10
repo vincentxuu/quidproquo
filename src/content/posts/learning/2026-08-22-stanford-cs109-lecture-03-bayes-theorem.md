@@ -19,6 +19,14 @@ draft: false
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda：這一講其實是 independence
 
 Schedule 把 Lecture 3 寫成 Bayes Theorem，但當期 worksheet 與 navbar 都把核心放在 independence 與 inclusion-exclusion。這個來源落差不能抹平：本文以 worksheet 的實際 agenda 為準，同時把它接在前一講 Bayes 之後。
@@ -39,6 +47,10 @@ Cloud City 題目把 independence 變成可從資料檢查的假設。先用 his
 - Spring-dated 共用 independence 頁可協助解釋 schedule／worksheet 題名落差，但不是 Summer-specific 證據。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

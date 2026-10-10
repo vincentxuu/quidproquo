@@ -36,6 +36,21 @@ This is part 9 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course
 
 Using the access grades from the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2024 is **A3, enough for self-study**. **Fall 2026 comparison**: as of 2026-09-30, the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) has released only L1–L6, and the Lecture 8 slide and video links are still empty. This post uses Fall 2024 only.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=5ty12mNV4Sg
+title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 8 - Neural Architecture Search Part II (YouTube)](https://www.youtube.com/watch?v=5ty12mNV4Sg)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Where the last lecture left off: how do you score a candidate?
 
 The [previous post](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en) covered two parts of NAS: the search space (the set of candidate architectures) and the search strategy (how to move through it). Slide 5 adds the third part, the **accuracy estimation strategy**: given an architecture, how do you estimate its accuracy? The spine of this lecture is that estimation keeps getting cheaper:
@@ -174,6 +189,10 @@ Slide 102 summarizes five items: performance estimation in NAS, hardware-aware N
 These ideas land immediately in **[Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en)**. You get an OFA-trained MCUNetV2 super network, implement an efficiency predictor (MACs and peak memory) and an accuracy predictor, and write random and evolutionary search. The next lecture, **[L9 Knowledge Distillation](/posts/ai/2026-09-30-mit-65940-knowledge-distillation-en)**, turns to a different question: once the architecture is fixed, how do you train a small model better?
 
 If you have one hour: watch the ProxylessNAS-to-OFA stretch of the video (slides 16–73), which is what Lab 3 uses directly. Zero-shot NAS and NAAS can wait.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -42,6 +42,15 @@ Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses
 
 All three lectures share one question: **how do the tokenizers, Transformers, and latent diffusion you learned on text and images extend to sound, to the time axis, and to worlds that respond to a user's actions?** The answer keeps the same shape. First find a good representation (a spectrogram, discrete tokens, a latent space), then apply a generative model you already know.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## L24: understanding and synthesizing audio
 
 ### Turning sound into something a model can eat
@@ -231,6 +240,10 @@ Confirmed: schedule dates and titles, the text and figure captions of the three 
 Further reading: for the math of diffusion and flow matching, see [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); for the role of world models in reinforcement learning, see [CS234 guest lecture: World of World Modeling](/posts/ai/2026-09-30-cs234-guest-world-models-en).
 
 Series navigation: previous [L23: code generation and autonomous agents](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) | next [Wrap-up: practice exam, HW623, and the final project](/posts/ai/2026-09-30-cmu10423-exam-hw623-project-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

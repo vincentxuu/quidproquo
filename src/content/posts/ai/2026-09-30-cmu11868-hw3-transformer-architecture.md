@@ -30,6 +30,14 @@ glossary:
 
 作業頁的開場白只有兩句：在 MiniTorch 上實作 decoder-only 的 GPT-2 架構，拿 IWSLT14 德英翻譯訓練並量測效能。第二句是警告：**Problem 4 的訓練至少要花 10 小時**。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 時程與依賴
 
 依 [2026 春季 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)：
@@ -127,6 +135,10 @@ glossary:
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)：Recitation 3 的教材，形狀與 mask 的寫法可以對照
 - [CS336 系列總覽](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)：CS336 的作業一也要你從零寫 Transformer LM，但用 PyTorch；11-868 的差別是底下的框架和 kernel 都是你自己寫的
 - [CMU 11-785 Lecture 18：Attention 與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

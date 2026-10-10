@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
+title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 一個最根本的問題
 
 前面的講次在講「怎麼訓練」、後面講「架構」。但這一講先退一步問一個理論問題：**一個神經網路，到底能多好地逼近我們想要的函數？** 這不是數學清談——它直接決定了「網路夠不夠大、該加寬還是加深」。
@@ -90,6 +106,10 @@ print("final MSE:", loss.item())
 - **寬度不是唯一槓桿**：低維、平滑的問題淺網就夠；高維、組合結構的問題，優先加深。
 - **不要盲目堆寬度**：超寬淺網在理論上能逼近，但訓練與泛化都差，深網的歸納偏置更適合真實資料。
 - **理論給了「為什麼深」的答案**：不是潮流，是表達效率（這也回扣 L13 的歸納偏置與 NTK 視角——極寬極限反而退化成線性核方法）。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ A framework first, for newcomers. The course defines an agent evaluation as a 4-
 
 Take bug-fixing as the running example. The request is "fix this issue," the environment is the repo plus a terminal, the stopping criterion is submitting a patch, and the scorer runs the tests. The three anchor readings divide the labor: [Zhu et al.'s best practices](https://arxiv.org/abs/2507.02825) show how easily scorers go wrong, [Shankar et al.'s validators study](https://arxiv.org/abs/2404.12272) shows how to align LLM-assisted grading with humans, and [Yang et al.'s SWE-smith](https://arxiv.org/abs/2504.21798) shows how to scale up task data.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## Scoring is more fragile than it looks
 
 The Zhu et al. paper is blunt: many agentic benchmarks carry flaws in task setup or reward design. Two named cases: [SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified/) ships too few test cases, and [TAU-bench](https://arxiv.org/abs/2406.12045) counts empty responses as successes — a trivial no-op agent scores 38% on the airline subset. Flaws like these can under- or over-estimate agents by up to a factor of two.
@@ -59,6 +67,8 @@ After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: the midpoint demo became a recorded video (due Wed Nov 4 at 11:59 p.m., no in-class presentation); rewrote the opening and course-position passages to match
 
 ## References

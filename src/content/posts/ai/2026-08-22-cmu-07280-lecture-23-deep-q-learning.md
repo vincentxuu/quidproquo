@@ -17,6 +17,14 @@ series:
 
 Tabular Q-learning 要為每個 `(state, action)` 保存一個數字。**CMU 07-280 Spring 2026 Lecture 23** 的 Deep Reinforcement Learning 段落處理 state explosion：用 features 與 neural network 近似 `Q(s,a)`，讓一筆 experience 同時影響許多相似 states。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 這篇有一個必須先說清楚的缺口。課程首頁列出的 Spring 2026 Lecture 23 `Deep_RL` slides 與 pptx 直鏈，在 2026-08-22 都回傳 404。本文因此**不宣稱讀過 Lecture 23 slides**，也不補寫投影片順序。
@@ -105,6 +113,10 @@ Tabular Q-learning 的一格更新不會直接破壞別格；function approximat
 ## 今晚可做動作
 
 先不要上 Atari。用上面兩維線性 features，手算三筆 transitions 的 `y`、TD error 與 weight update，再寫 unit tests 比對。之後實作兩個版本：每一步用目前 network 算 target，以及每十步才同步一次 target network。畫出的不是只有 reward，還要包含 TD loss、Q-value magnitude 與 target／online prediction 差距。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

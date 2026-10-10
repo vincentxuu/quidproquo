@@ -32,6 +32,14 @@ glossary:
 
 In [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en), every feature was a hand-picked basis. HW3 follows one line: hand-built feature maps → kernels that let feature dimension go to infinity → neural networks that learn their own features → how far to scale the model and the data. This post covers each problem's requirements and matching handouts. **No solutions.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **Problem 1 (30 points)**: expand the polynomial kernel into 6 features, see concentric circles become separable in `(x₁, x₂, x₁²+x₂²)`, rewrite ridge in terms of dual coefficients `α`, then take the two limits of the RBF kernel.
@@ -142,6 +150,10 @@ The last question in (b) cites Chinchilla ([Hoffmann et al., 2022](https://arxiv
 - Previous: [HW2 Classification and bias-variance](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 - Next: [Midterm checkpoint: auditing HW0–HW3 with the official checklist](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

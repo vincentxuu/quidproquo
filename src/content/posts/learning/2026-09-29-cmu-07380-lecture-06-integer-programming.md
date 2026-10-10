@@ -24,6 +24,14 @@ draft: false
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 - [Lec6 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf)，共 18 頁：LP → IP、圖解、relaxation、argmin 與 min 的記號、三個 poll、branch and bound 演算法與範例。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx)
@@ -137,6 +145,10 @@ queue：1. (17, 6), 20.6   2. (18, 4.85), 20.91
 - 上一篇：[Lecture 5 導讀：Linear Programming，為什麼最優解落在可行域的頂點](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)
 - 下一篇：[Lecture 7 導讀：Low Rank Optimization，PCA 的重建誤差、投影變異數與 LoRA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

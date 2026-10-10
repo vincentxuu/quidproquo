@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講先把 MDP 的問題改寫成 games
 
 前一週的起點是 MDP 與 reinforcement learning：agent 想最大化 utility，而環境是隨機且已知的。本講把情境換成 games：agent 仍想最大化 utility，但對手的策略未知。這個改動改變了遞迴在每個節點要做的事：面對隨機環境取期望，面對對手則要說明其策略假設。
@@ -141,6 +150,10 @@ Minimax 的 recurrence 要遞迴所有分支，通常是指數時間。Alpha-bet
 ## 執行順序總覽
 
 本講依序從 game 介面、simulation、expectimax、minimax 與 face-off，走到 expectiminimax、alpha-beta 和深度受限 evaluation；每一步都把假設寫在 recurrence 裡。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料有三份：[第 3 講錄影](https://www.youtube.com/watch?v=akt4A3OJ9h4)（2025-03-04，2 小時 45 分）、投影片 [GenAI03 GAN 生成對抗網路](https://drive.google.com/file/d/1UqnoeRSgHfNC0o6X5ENeWmLKqZNagskI/view)（91 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第三週作業說明。存取等級是 **A3**：錄影、投影片、作業題目與評分標準都公開，但作業繳交與批改走各校平台，校外讀者只能自評。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=akt4A3OJ9h4
+title: 【生成式 AI】03. 紅極一時的生成對抗網路 GAN（YouTube 錄影，2025-03-04）
+```
+
+原始影片：[【生成式 AI】03. 紅極一時的生成對抗網路 GAN（YouTube 錄影，2025-03-04）](https://www.youtube.com/watch?v=akt4A3OJ9h4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 L02 把神經網路講成一台「函數學習機」：你想清楚輸入是什麼、輸出是什麼，剩下交給它學。L03 一開頭就丟出這台機器的死穴：**創作型的 AI，輸入跟輸出根本不是函數關係。**
@@ -207,6 +222,10 @@ for q in ([0.75, 0.15, 0.1], [0.6, 0.3, 0.1]):
 - cross entropy 與最大概似的關係：[CMU 07-280 Lecture 16：Maximum Likelihood](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L02 神經網路的概念](/posts/ai/2026-09-30-nccu-genai-02-neural-networks)｜下一篇 [L04 大型語言模型原來這麼簡單](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

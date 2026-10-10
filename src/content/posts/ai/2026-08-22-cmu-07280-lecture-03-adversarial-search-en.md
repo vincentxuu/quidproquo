@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 3: Adversarial Search**. The previous lecture found a route through a fixed world. Here, an opponent or random event changes the next state. The answer is no longer one action sequence but a contingent plan: what to do after each possible response.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf), [Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf), [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and checked [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No recording is public. This article does not turn slide games or demos into unrecorded spoken commentary.
@@ -71,6 +79,10 @@ This returns to Lecture 1's representation problem. An evaluation function compr
 1. Compute the full minimax value of Recitation 2's first tree before pruning anything.
 2. Trace `α` and `β` in the same order, writing why each pruned branch cannot change an ancestor's decision.
 3. Build a three-action example in which minimax and expectimax choose different actions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

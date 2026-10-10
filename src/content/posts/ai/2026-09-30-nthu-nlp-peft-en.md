@@ -39,6 +39,26 @@ Every step of InstructGPT and Llama-2 in the last post touches every parameter i
 
 This post answers one question: **how do you fine-tune a large model without an A100 cluster?**
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Opening: what's left for NLP in the LLM era
 
 The deck opens with Eduard Hovy (CMU) from his ROCLING 2024 talk. The first slide is self-mockery repeated three times: "Look what an LLM can do! Why can it do that? I have no idea / that's future work / I've never thought about it." The second gives three directions: make LLMs usable (NLP engineering), make them useful (NLP applications), and make them understandable (NLP research). The first item under the first direction is tuning LLMs to domains and building smaller, cheaper models.
@@ -210,6 +230,10 @@ One thing to do tonight: open the training script you're using, compute the rati
 - Efficient adaptation from prompting to LoRA: [CS224N Lecture 8: Efficient Adaptation](/posts/ai/2026-08-22-cs224n-efficient-adaptation-en)
 - Memory and parameter budgets in training: [Reading CME295: LLM Training](/posts/ai/2026-09-29-cme295-llm-training-en)
 - Fine-tuning without losing old abilities: [Reading NTU Hung-yi Lee ML 2026: HW5 Fine-tuning Without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

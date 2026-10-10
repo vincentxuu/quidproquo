@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 11 is a formal-methods research case study, not medical advice. It asks how patient records and natural-language eligibility criteria can be matched at scale. Rather than asking an LLM for the eligibility decision, the pipeline translates language into a representation a solver can check.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: from matching systems to an SMT pipeline
 
 The deck motivates clinical-trial matching and reviews retrieval-plus-LLM work, then introduces SMT, datasets, and representations. It proceeds through NL-to-SMT, SMT-to-propositional-logic projection, large-scale retrieval, candidate-level SMT matching, errors, and limitations. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-semantics.pdf))
@@ -99,6 +107,10 @@ NL-to-SMT can drop negation, confuse hard and soft constraints, or force clinica
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck provides no validated clinical deployment protocol, complete parser code, or recording. Its scale and result summaries are research context, not evidence for a clinical-performance claim here.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

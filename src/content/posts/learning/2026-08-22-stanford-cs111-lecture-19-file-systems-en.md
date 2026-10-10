@@ -17,6 +17,14 @@ draft: false
 
 This is part 20 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 19**. Mendel Rosenblum taught it on 2026-05-11; the official title is [File Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/19/Lecture19.pdf). This article follows the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not public and is not treated as reviewed.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Four problems on a high-latency disk
 
 Disks have high latency but relatively fast sequential transfer. A file system handles disk-space management for capacity, seeks, and efficiency; naming from names to blocks; reliability across OS and hardware failure; and protection with isolation and controlled sharing.
@@ -78,6 +86,10 @@ Test three workloads: fixed-size sequential files favor contiguity; unpredictabl
 ## Update history
 
 - 2026-08-22: Rewritten against the official Lecture 19 PDF, noting the 4 KiB question mark, simplified capacity model, and IBM PC date anomaly.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

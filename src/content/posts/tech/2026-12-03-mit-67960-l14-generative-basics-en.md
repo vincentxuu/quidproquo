@@ -29,6 +29,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=hJlrAHqGOS8
+title: MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics](https://www.youtube.com/watch?v=hJlrAHqGOS8)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 14. Generative Models: Basics](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec14_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## The ultimate goal of generative models
 
 Every generative model does the same thing: **learn the data distribution `p(x)`** so that sampling from it produces samples "of the same kind but brand new". They differ only in *how they represent it, how they train it, how they sample from it*.
@@ -93,6 +109,10 @@ def diffusion_loss(net, x0, t, sqrt_alphas_cumprod, sqrt_1_m_alphas):
 - **Discrete sequences like text**: autoregressive (today's LLMs are exactly this).
 
 The next batch (L15, L16) goes deep on VAEs and conditional generation (text-to-image, image-to-text), connecting generative models back to the need for *control*.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

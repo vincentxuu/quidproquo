@@ -19,6 +19,14 @@ This is part 15 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 Official `Lecture13.pdf` and `Lecture14.pdf` are byte-identical 25-page files with SHA-256 `f0aa78c7...e315`, although the calendar calls April 29 **Virtual Memory, Continued**. Canvas video is unavailable. This article does not pretend there is another deck; it focuses on segmentation in the repeated artifact's latter section.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Why one base/bound pair is insufficient
 
 Base/bound lets every process start at virtual zero and performs `physical = base + virtual` with `virtual < bound`, meeting multitasking, transparency, isolation, and efficiency. But code, data, and stack are forced into one contiguous region.
@@ -71,6 +79,9 @@ Virtual space is rigidly divided too. Code/data/stack ranges follow the encoding
 
 Multiple descriptors repair protection, growth, and sharing for one-region base/bound, but retain fixed-count and variable-size placement limits. Paging next uses fixed-size pages and a larger map for noncontiguous frames; this article does not write paging back into the duplicated PDF.
 
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

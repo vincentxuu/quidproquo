@@ -28,6 +28,21 @@ glossary:
 
 The official materials are the slides [harness.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pdf) (63 pages, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pptx)) and the video [Harness Engineering: sometimes the language model isn't dumb, it just wasn't guided well](https://youtu.be/R6fZR_9kmIw) (in Mandarin). Access level is **A3**: slides and recording are public, and this lecture has no quiz or leaderboard.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=R6fZR_9kmIw
+title: Video: Harness Engineering: sometimes the language model isn't dumb, it just wasn't guided well
+```
+
+Original videos: [Video: Harness Engineering: sometimes the language model isn't dumb, it just wasn't guided well](https://www.youtube.com/watch?v=R6fZR_9kmIw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The demo: a small model that fakes its own files
 
 Slides 2–4 set up a concrete task. Fix `extract_emails` in `parser.py` so it catches addresses with `-` or `_`, such as `test-user@domain.com`, and make the tests in `verify.py` pass. The system prompt only says: you may write bash or python code blocks, the system will run them and return the output, and you should print DONE when finished.
@@ -138,6 +153,10 @@ Not confirmed: I did not transcribe the video, so anything the lecturer only sai
 - The CMU 11-768 guide on [Assignment 1: Harness](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW4: Training a Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en) | Next: [HW5: Fine-tuning Without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

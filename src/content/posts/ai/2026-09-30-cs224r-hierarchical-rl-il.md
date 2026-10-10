@@ -35,6 +35,21 @@ glossary:
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 15: Hierarchical RL and IL](https://www.youtube.com/watch?v=iKWYLSVAtfM)（約 70 分鐘）。2025 版在 5 月 21 日上，標題和指定閱讀都和 2026 相同，但這是去年的錄影，細節可能和 2026 投影片有出入。以下以 2026 投影片為準。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=iKWYLSVAtfM
+title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）](https://www.youtube.com/watch?v=iKWYLSVAtfM)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：把好幾個行為串起來
 
 投影片第 3 頁先回顧前兩講：[多任務與 goal-conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl) 讓 policy 吃一個任務描述 z 或目標狀態 s_g；[Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl) 讓 policy 吃一小段新任務的經驗。今天的問題是：**能不能把多個（子）任務的行為串在一起？**
@@ -195,6 +210,10 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 可以確認：2026 投影片的文字、演算法步驟與圖表標題；課表的日期與指定閱讀；2025 影片的標題與長度；各篇論文的標題（逐一開過 arXiv 頁面）。不能確認：第 13 頁課堂討論的內容、第 34–36 頁長條圖的具體數值與指標、第 23 頁四個業界系統在課堂上被怎麼介紹。2026 投影片的 SuSIE 標題寫作「SuSIE: Subgoal Synthesis via Image Editing」，arXiv 上的標題是「Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models」，兩者是同一篇。
 
 系列導覽：上一篇 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)｜下一篇 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

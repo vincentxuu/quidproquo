@@ -39,6 +39,26 @@ Official material used:
 
 **Access level: A2, with no practice material.** The videos and slides are free. The [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) schedules both skip T14–T15: each goes straight from NN and deep learning (212u, 213u) to modern deep learning (302u, 303u). So these two lectures have no updated `u` slides and no textbook chapters marked on a course page. I went through Fall 2024 HW0–HW7 and the final project handout; none of them asks about RBF networks, k-means, or matrix factorization. The only self-checks are the Fun Time quizzes in the slides. The access levels are defined in the [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=7lHhnpdPVr0
+title: RBF Network Hypothesis
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=dEYdx2rS66c
+title: RBF Network Learning
+```
+
+Original videos: [RBF Network Hypothesis](https://www.youtube.com/watch?v=7lHhnpdPVr0)、[RBF Network Learning](https://www.youtube.com/watch?v=dEYdx2rS66c)、[k-Means Algorithm](https://www.youtube.com/watch?v=ker9RF2TDUU)、[k-Means and RBFNet in Action](https://www.youtube.com/watch?v=D5elADTz1vk)、[Linear Network Hypothesis](https://www.youtube.com/watch?v=2pX76iH_irw)、[Basic Matrix Factorization](https://www.youtube.com/watch?v=3l5kaWkcR6s)、[Stochastic Gradient Descent](https://www.youtube.com/watch?v=br3IzOz-xMs)、[Summary of Extraction Models](https://www.youtube.com/watch?v=xKZMB4T2a2s)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Where these lectures sit
 
 Techniques organizes the course around three ways to handle features. Kernel models embed many features inside a kernel (T1–T6). Aggregation models treat hypotheses as features and combine them (T7–T11). Extraction models learn the features as hidden variables (T12–T15). T12–T13 cover neural networks and autoencoders. This post adds two more extraction models:
@@ -225,6 +245,10 @@ T14–T15 have no Fall 2024 or Fall 2026 homework and no official solutions. Wha
 The next post, [Finale: Three Families of Techniques, Plus Fall 2024's Modern Deep Learning Slides](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en), uses T16 to sort the whole course into feature, optimization, and overfitting techniques, then adds the Fall 2024 material on ReLU, He initialization, momentum, and Adam.
 
 Further reading: the [Stanford CS224W guide](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en) treats recommendation from a graph perspective, a useful contrast with matrix factorization.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ This is article 20 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The lecture remains **L2**. Its three-page worksheet has P1–P6 plus an optional challenge. The two-page public key deliberately omits P5 and the challenge because they are pset6 problems. The three-page guide has six concepts; its last page only continues Concept 6 and the wrap-up. Current slides are unavailable and video is Canvas-gated, so this article stays within public artifacts.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Connect entropy to parameter learning
 
 For a uniform distribution over four values:
@@ -135,6 +143,10 @@ For the wrap-up, request one problem chaining model and `θ` identification, lik
 - The worksheet has three pages with P1–P6 plus an optional challenge; the two-page key omits both pset6 solutions.
 - The guide has six concepts across three pages; page three adds no seventh concept.
 - Current slides are unavailable and video is Canvas-gated; this article does not reconstruct inaccessible content.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

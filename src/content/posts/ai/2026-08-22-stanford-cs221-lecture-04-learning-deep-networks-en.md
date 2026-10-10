@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 4**, taught by Percy 
 
 > Material gap: Executable PyTorch examples are public; the recording is available separately in the official playlist.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The route through the lecture
 
 The executable artifact follows `main()`: it reviews NumPy and a hand-built computation graph, moves to PyTorch, then proceeds through the motivation for nonlinearity, a linear MLP, an MLP with an activation, and deeper networks. It finishes with residual connections, layer normalization, initialization, and optimizers. The order matters: first make explicit how one value is computed from another; then address why increasing depth makes training difficult and how the artifact keeps it stable.
@@ -70,6 +79,10 @@ The second method is layer normalization: avoid activations whose magnitude beco
 The third method is proper initialization. The artifact sets `input_dim=16384` and `output_dim=32`, draws normal weights and inputs, and computes `y=x@w`; each element of `y` scales with `sqrt(input_dim)`, and large values can blow up gradients and destabilize training. Dividing the weights by `sqrt(input_dim)` aims to make the scale invariant to input dimension. The source connects this idea, up to a constant, to Xavier initialization and uses a normal distribution truncated to `[-3,3]` to avoid outliers. It cites Glorot and Bengio 2010; this article does not present the simplified construction as a complete rule for every initialization method.
 
 The fourth method is a stochastic optimizer. A full-data gradient sums contributions from all training examples; on a large dataset, that is too much work for one update. Each step can instead sample a subset and use an unbiased gradient estimate. The artifact uses four gradients `[1,2]`, `[3,4]`, `[5,6]`, and `[7,8]`, computes their full mean, then fixes seed 1, samples a batch of size 2, and computes the sampled mean. In practice it does not independently sample forever: it permutes examples each epoch and takes consecutive chunks, then compares the mean of the batch gradients with the full gradient. The source ends by pointing to Adam as a more sophisticated alternative to SGD.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

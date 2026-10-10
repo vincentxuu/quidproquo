@@ -35,6 +35,26 @@ Type "taxi" into a search box and you probably also want pages that say "cab." T
 
 Week 1 is about that gap. It answers one question: **before large language models, how did a computer turn a pile of text into something it could compute on and rank?** The answer is a pipeline that grew out of information retrieval, plus two patches applied after that pipeline hit a wall: LSA and word vectors.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=X7XJcm9wfFA
+title: Fall 2025 Week 1 Tue. recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=0hTqSpoNp4o
+title: Fall 2025 Week 1 Thu. recording
+```
+
+Original videos: [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. recording](https://www.youtube.com/watch?v=0hTqSpoNp4o)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Why language is hard for computers
 
 The slides open with a short definition: NLP is the use of human languages by a computer, viewed as a branch of machine learning, with applications such as translation, information retrieval, chatbots, and information verification. Then comes a run of examples that are "easy for humans, hard for computers":
@@ -153,6 +173,10 @@ The 2026 main README links [W1_NLP_brief_v2.pdf](https://github.com/IKMLab/NTHU_
 - [CS224N word vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en): Stanford's take on word2vec and distributional semantics.
 - [CS224U information retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en): the BM25 formula, IR metrics, and neural IR.
 - [Hybrid search: BM25 + vectors + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en): BM25 inside a real RAG retrieval system.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

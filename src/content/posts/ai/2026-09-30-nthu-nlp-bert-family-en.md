@@ -30,6 +30,26 @@ The official material for this lecture is [W4_bert_and_its_family.pdf](https://g
 
 The outline: recap of word embeddings and RNNs, then from word embeddings to pretrained language models (ELMo), then pretraining with Transformers (encoder BERT, encoder-decoder T5, decoder GPT), then GPT-3's in-context learning and large language models.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=U5HypcXrIgY
+title: Week 6 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RNlcZjzbhDo
+title: Week 6 Thu.
+```
+
+Original videos: [Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Starting point: one "record", two meanings
 
 Slide 6 uses "I record the record": the first record is a verb, the second a noun. Word2Vec and GloVe give both the same vector, because static embeddings **ignore context**. That is the problem this lecture solves, and it picks up the contextualized embeddings that already appeared in the [part 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) slides.
@@ -223,6 +243,10 @@ Slide 58's takeaways close the three roads in three lines: the BERT family pretr
 - Solutions, quizzes and class discussion live on NTU COOL and are not available to outside readers. The Fall 2026 version of this lecture is not yet public.
 
 **Series navigation**: previous [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en) | next [HF BERT Tutorial and HW3: Multi-output Learning](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

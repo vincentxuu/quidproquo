@@ -25,6 +25,26 @@ The [previous post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-1
 
 The midterm (3/17) comes the week after these lectures, so the end of this post lays out a self-check using the official exam.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
+title: Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ArSadC8hY-Q
+title: Lecture 16 recording: Entropy, Information, and Logistic Regression
+```
+
+Original videos: [Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 recording: Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Where the materials are
 
 | Item | Official title / content | Materials | Assigned Bishop reading |
@@ -140,6 +160,10 @@ Previous: [Lec 13 & 15: convergence, momentum, Adam, SGD](/en/posts/learning/202
 1. Derive the ridge objective yourself from the negative log posterior, and write down which two variances λ is the ratio of.
 2. Compute the entropy H(0.8) for the Seattle example and confirm that 100 days come to roughly 73 bits.
 3. Pick an evening and sit the sp26 midterm under time, following the steps above.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ This is article 25 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Unsolvable Problems, Part I**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/23/)
+
 ## Returning from R, RE, and UTM
 
 A recognizer satisfies “M accepts w iff \(w\in L\).” Members must be accepted; a nonmember may be rejected or may cause a loop. Recognizability is therefore the weak form of solving a problem, and RE contains all recognizable languages. A decider must additionally halt on every input, so it rejects every nonmember. R contains the decidable languages.
@@ -146,6 +154,8 @@ The public deck explicitly supports the sections on returning from r, re, and ut
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked returning from r, re, and utm against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

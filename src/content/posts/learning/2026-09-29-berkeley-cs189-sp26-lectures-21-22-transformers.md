@@ -31,6 +31,26 @@ glossary:
 
 上一篇 [Lec 19–20](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization) 講完 CNN 和泛化。這兩講要回答：CNN 已經很省參數了，為什麼還要一個新架構？本篇只講 attention 的主幹。位置編碼、encoder／decoder 的完整實作，留給下一篇 [HW4 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)，那份作業會帶你從 softmax 一路寫到能生成故事的 transformer。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mqaFEvi5rWE
+title: Lecture 21 錄影：Transformers
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=syp1pSf_DYY
+title: Lecture 22 錄影：Transformers (ctnd.)
+```
+
+原始影片：[Lecture 21 錄影：Transformers](https://www.youtube.com/watch?v=mqaFEvi5rWE)、[Lecture 22 錄影：Transformers (ctnd.)](https://www.youtube.com/watch?v=syp1pSf_DYY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 讀取範圍與限制
 
 我實際打開並讀過的：講義 PDF 的文字層（119 頁）、Discussion 10 題目與解答、兩支錄影的標題。講義裡很多圖（CNN 感受野、看圖說話的注意力熱圖、正弦位置編碼的曲線）沒有文字層，我只轉述投影片上有字的部分。錄影我沒有逐分鐘看完，所以不寫「老師在課堂上說了什麼」。
@@ -193,6 +213,10 @@ Discussion 10 只有兩題，題號旁標著「F25 Dis10」，代表題目沿用
 - 系列導覽：上一篇 [Lec 19–20：CNN 與泛化](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)；下一篇 [HW4 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：拿 Discussion 10 第 1 題的三個 token 和三個權重矩陣，先手算 q、k、v，再用 NumPy 寫一行 `softmax(Q @ K.T / np.sqrt(d)) @ V`，對一下你手算的 x₃ 那一列。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

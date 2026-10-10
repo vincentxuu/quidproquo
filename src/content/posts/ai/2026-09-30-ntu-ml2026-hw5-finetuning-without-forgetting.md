@@ -19,6 +19,21 @@ draft: false
 
 存取分級是 **A3 減評分**：題目、起始碼、資料下載連結都公開；分數要上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home) 才拿得到，而它在 2026-09-30 回傳 502。程式碼則繳到 NTU COOL，需要台大帳號。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=HlSGih7bnrs
+title: HW5 說明影片（YouTube）
+```
+
+原始影片：[HW5 說明影片（YouTube）](https://www.youtube.com/watch?v=HlSGih7bnrs)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 這份作業在問什麼
 
 投影片開頭用兩張圖把問題講完。第一張「finetuning is powerful」：同一題減重應用題，原本的模型算錯，在數學資料集上微調之後算對了。第二張「finetuning leads to forgetting」：一段假裝是「道德駭客」的有害提示，原本的模型會拒絕並改給防護建議，在數學資料集上微調之後，它開始一條條列出入侵步驟。
@@ -132,6 +147,10 @@ Colab 裡的 TODO 幾乎就是投影片的提示清單。把兩邊對起來：
 - 同一堂課的前一講，不改參數讓模型變強：[Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
 
 系列導覽：上一篇 [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)｜下一篇 [Self-Correction：模型能改自己的錯嗎](/posts/ai/2026-09-30-ntu-ml2026-self-correction)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

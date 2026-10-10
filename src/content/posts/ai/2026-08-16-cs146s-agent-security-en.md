@@ -27,6 +27,14 @@ Three topics: SAST / SCA, dependency and secret-leak vulnerabilities; prompt inj
 
 Security is the **only topic that survives in both versions**. But this week has to handle two opposite things at once: agents as defensive tooling, and agents as a new attack surface.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## The three acronyms the course teaches first
 
 Fall 2026's first topic this week names SAST / SCA directly. The matching Fall 2025 session, Week 6 "AI QA, SAST, DAST, and Beyond" ([slides](https://docs.google.com/presentation/d/1C05bCLasMDigBbkwdWbiz4WrXibzi6ua4hQQbTod_8c/edit)), defines all three:
@@ -149,6 +157,10 @@ The last one is not a technical question. **The course puts it on the same list 
 - The o3 experiment is from May 2025 and models have turned over since; those numbers describe **the shape of the method**, not today's hit rate
 - OWASP revises its lists annually; the latest at time of writing is the GenAI / LLM Top 10 2026, published 2026-08-03
 - Sandbox and permission defaults across agent products change often — check current docs before implementing
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

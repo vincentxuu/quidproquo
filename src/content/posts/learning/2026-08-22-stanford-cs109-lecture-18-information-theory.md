@@ -19,6 +19,14 @@ draft: false
 
 這講的 artifacts 有刻意的 agenda 差異。worksheet／key 是兩頁、正式 P1–P5，沒有 P6 或 challenge。guide 則是三頁六 concepts，另含 entropy code、KL divergence 與 distribution comparisons。本文依各自材料涵蓋，不把 guide topics 虛構成 worksheet 題號。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：Recursive Expectation 複習
 
 `retry()` 以 `.5` probability 成功並回傳四秒，否則先花兩秒再 recursive retry。令 `μ=E[T]`：
@@ -154,6 +162,10 @@ Weather forecast、Poisson fit 或 language-model next-token prediction 常自�
 - P5 是 pset5 題，公開 answer key 省略；本文只依 prompt 計算。
 - 當期投影片 unavailable、錄影 gated；L2 不重建缺失 lecture content。
 - 材料規模有限，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

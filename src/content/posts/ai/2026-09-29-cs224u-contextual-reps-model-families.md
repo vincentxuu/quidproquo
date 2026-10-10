@@ -33,6 +33,15 @@ glossary:
 
 讀這七節最好的方式，是一直問同一個問題：**這個家族改了預訓練的哪一環？**
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單（影片 07–13）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 先看全貌
 
 | 家族 | 改了哪一環 | 課程引用的證據 |
@@ -221,6 +230,10 @@ notebook 的流程：
 - 這個單元沒有專屬作業；第一份作業才會實際微調這些模型。
 
 **系列導覽**：上一篇 [上下文表徵 I：guiding ideas、Transformer 與位置編碼](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)｜下一篇 [HW1：多領域情感分析與 bake-off](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

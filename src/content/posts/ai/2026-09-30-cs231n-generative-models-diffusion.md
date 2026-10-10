@@ -32,6 +32,21 @@ glossary:
 
 投影片前 35 頁其實是 GAN，[上一篇](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)已經整理過，這裡從第 36 頁的 diffusion 開始。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=Edr4uZFh4EE
+title: YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2
+```
+
+原始影片：[YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 場景：一個「符號一團亂」的領域
 
 第 36 頁列出 diffusion 的五篇奠基論文：[Sohl-Dickstein et al. 2015](https://arxiv.org/abs/1503.03585)、Song & Ermon 2019、[Ho et al. 2020（DDPM）](https://arxiv.org/abs/2006.11239)、[Song et al. 2021（SDE）](https://arxiv.org/abs/2011.13456)、Song et al. 2021（DDIM）。
@@ -203,6 +218,10 @@ $$x_t = a(t)\,x + b(t)\,z,\qquad y_{gt} = c(t)\,x + d(t)\,z,\qquad \mathcal{L} =
 ## 存取限制
 
 依[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這門課是 **A3**：2026 投影片、作業與起始碼公開，另有 2025 完整錄影。本講的缺口是 2026 錄影只放在 Canvas、限修課生觀看，Gradescope 的自動評分也不公開。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

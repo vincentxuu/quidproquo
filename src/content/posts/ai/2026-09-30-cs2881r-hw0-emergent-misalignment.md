@@ -40,6 +40,14 @@ glossary:
 
 它同時是選課門檻。README 寫明只有打算修學分、能每週四下午到課的 Harvard 或 MIT 學生該交，截止時間是 2025-08-04 美東時間晚上 11:59。head TA 的[回顧文](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic)說，篩選看的是 HW0 分數、興趣表單和背景，興趣表單收到 274 份。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 它要重現的論文
 
 README 說這份作業緊貼 [Model Organisms for Emergent Misalignment](https://arxiv.org/abs/2506.11613)（Turner、Soligo、Taylor、Rajamanoharan、Nanda）的實驗設定，並強烈建議先讀論文。
@@ -183,6 +191,10 @@ README 的「Variants」段落給了兩個選做方向：
 - LoRA 原理與實作：[CMU 11-868：PEFT 與 LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora)
 - LLM-as-judge 的限制：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 - 系列入口與材料缺口：[Harvard CS2881R 導讀（系列總覽）](/posts/ai/2026-09-30-cs2881r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

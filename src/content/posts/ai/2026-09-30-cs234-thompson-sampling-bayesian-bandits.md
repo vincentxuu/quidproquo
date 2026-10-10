@@ -40,6 +40,22 @@ glossary:
 
 L11 換一個角度：**如果你對 reward 有先驗知識，能不能用上？** 答案是 Bayesian bandit，而它最有名的演算法 Thompson sampling 用的是一個完全不同的探索邏輯：照你現在的信念抽一次籤。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=gFJNsfg_35E
+title: Stanford CS234 Spring 2024 播放清單第 12 支「Exploration 2」
+```
+
+原始影片：[Stanford CS234 Spring 2024 播放清單第 12 支「Exploration 2」](https://www.youtube.com/watch?v=gFJNsfg_35E)
+
+課程與錄影入口：
+
+- [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 開場：確定性 reward 的小測
 
 L11 用一題小測開場：如果 bandit 的 reward 是確定性的，UCB 會怎樣？
@@ -193,6 +209,10 @@ L11 p.47 列出整個 bandit 段落該會的事，可以直接拿來當自我檢
 
 - 探索在深度 RL 裡的做法（count-based、posterior sampling 等）：[Berkeley CS285 L19–25：探索、RL 理論與開放問題](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 - 課程定位、存取缺口與 2024 影片對照：[Stanford CS234 導讀（系列總覽）](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,21 @@ glossary:
 
 **Series**: previous [Midterm: Reproduce and Extend One Headline Figure](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | next [L10: Looking Inside the Model vs. Reading the Chain of Thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=8NL1NAMrJxY
+title: Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)
+```
+
+Original videos: [Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Start with a scene
 
 This week's student experiment gave coding agents a simple task: write a sorting function in Python that passes both correctness and speed tests. The researchers used the time limit as a knob, turning it down until an honest Python implementation couldn't meet it. The agent had read and write access to the whole workspace.
@@ -190,6 +205,10 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 - Where reward hacking comes from in RL training: [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards](/posts/ai/2026-08-22-cs336-rlvr-en), [CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en)
 - Engineering agent permissions and monitoring: [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
 - Models as monitors and judges: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

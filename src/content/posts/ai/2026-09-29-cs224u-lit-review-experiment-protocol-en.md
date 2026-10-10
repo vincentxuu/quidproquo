@@ -19,6 +19,15 @@ draft: false
 
 The CS224U final project is half the grade, in three deliverables: a literature review, an experiment protocol, and a final paper. The series overview's [final-project section](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already covers the grading axes: results don't count, but metric choice, methodological strength, and honesty about limits do. This post doesn't repeat them. It does one thing: **it breaks the first two deliverables into steps you can follow.** The final paper gets the [next part](/posts/ai/2026-09-29-cs224u-presenting-research-en).
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Official materials and access
 
 | Material | Content | Status |
@@ -169,6 +178,10 @@ Once those two are filled in, Data and Metrics usually follow.
 - Next in the series: [CS224U: Writing NLP Papers, Submitting, and Giving Talks](/posts/ai/2026-09-29-cs224u-presenting-research-en)
 - Grading axes and grade breakdown: [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - The final-project part of the site's CS224N series: [CS224N Lecture 6: Turn a Final Project into a Testable Question](/posts/ai/2026-08-22-cs224n-final-projects-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

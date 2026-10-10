@@ -33,6 +33,21 @@ Access level is **A3**: the slides download anonymously, and the 2026 recordings
 
 **A caveat about the companion video.** 2025 split this material differently. The 2025 L16 was "RL for Robots: Autonomous Learning," and sim-to-real moved to 2025 L17, a guest lecture the archive credits to Ashish Kumar. On YouTube it is titled [Lecture 17: Advancing Robot Intelligence](https://www.youtube.com/watch?v=Hp1WBWghrak) (about 50 minutes). With a different speaker, it cannot stand in for the 2026 lecture and is background at most. This post relies only on the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=Hp1WBWghrak
+title: Spring 2025 Lecture 17: Advancing Robot Intelligence (YouTube; different speaker, background only)
+```
+
+Original videos: [Spring 2025 Lecture 17: Advancing Robot Intelligence (YouTube; different speaker, background only)](https://www.youtube.com/watch?v=Hp1WBWghrak)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Setting: why learn in simulation
 
 The previous lecture ended by promising two lectures on robot-specific considerations. The first question: real robots are expensive, slow, and break. Can we learn in simulation and then move the behavior out?
@@ -193,6 +208,10 @@ Further reading on this site:
 Confirmed: the text, equations, and paper labels in the 2026 slides; the schedule's date, speaker, and reading; the 2025 archive's lecture split and the 2025 video's title and length; and that every project URL on the slides loads. Not confirmed: the content of the many videos and figures, including what task the 18-second training run on slide 9 solved and any real-robot numbers; the details of SAPG, FastTD3/FastSAC, FPO/FPO++, and BFM-Zero; and the content of the 2025 L17 recording, which this post does not rely on.
 
 Series navigation: previous [L15 Hierarchical RL and Imitation Learning](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en) | next [L17 RL for Robot Foundation Models (VLAs)](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

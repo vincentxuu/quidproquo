@@ -20,6 +20,21 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 1 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=HWQLez87vqM
+title: CS50 AI Week 1 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 1 — official lecture recording](https://www.youtube.com/watch?v=HWQLez87vqM)
+
+課程與錄影入口：
+
+- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
+
 ## TL;DR
 
 Week 1 從搜尋轉向知識表示：用命題邏輯編碼世界、用模型檢查驗證推論、用 Resolution 做高效推理。兩專案分別對應邏輯謎題求解與掃雷機率推斷。
@@ -384,6 +399,10 @@ style50 minesweeper.py
 - [ ] 理解 Knights 專案中「身分約束」與「發言約束」的邏輯編碼差異
 - [ ] 理解 Minesweeper 中 `Sentence` 的 `mark_mine`/`mark_safe` 為何要調整 `count`
 - [ ] 兩專案 `check50` 全綠
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

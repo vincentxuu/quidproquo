@@ -40,6 +40,14 @@ HW5 exercises each of three threads from [the previous post on Lec 25–27](/en/
 
 The Deliverables line in `hw5.pdf` mentions only the written PDF. The notebook says test-set details are "provided in the accompanying PDF", but `hw5.pdf` contains no such section; treat the last cells of the notebook as the actual rules.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Written 1: self-supervised learning on biological data
 
 The setting is single-cell RNA sequencing (scRNA-seq): each cell is a d-dimensional gene expression vector xᵢ, where d is the number of measured genes. Cell-type labels are expensive, so the model has to build its own supervision signal. The problem uses a contrastive objective inspired by CPC, SimCLR, and CLIP.
@@ -148,6 +156,10 @@ The metric is accuracy. The leaderboard is split into public (50% of the test da
 - Series navigation: previous, [Lec 25–27: proteins, agents, and closing](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en); this is the last post in the series; series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: don't train yet. Run the notebook through Part 3 and note the baseline accuracy; then pull a few dozen general questions from MMLU outside machine learning and make your own "forgetting monitor" set. After every config change, check both numbers, and you'll quickly see what catastrophic forgetting looks like.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

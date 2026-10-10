@@ -38,6 +38,26 @@ The earlier lectures taught a model to learn a distribution over the next word. 
 
 There is no homework attached to this lecture. The series-wide [access grade](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) is A2, and this lecture has no gaps of its own: slides and videos are all public. The TA session from the same week, LLM Inference & Evaluation, is covered in the series' [TA sessions post](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=1d9WhPS6gv8
+title: ADL 9.1: Natural Language Generation (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=agHrC93u7w8
+title: ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 9.1: Natural Language Generation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Ly67whCaS4M)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## From language models to conditional LMs
 
 Slide 3 lists tasks that involve generation: machine translation, abstractive summarization, dialogue, image captioning, and creative writing. Slides 4–7 fold them into one problem.
@@ -174,6 +194,10 @@ One thing you can do tonight: pick a generation feature you use often, write dow
 
 Previous: [RAG + HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 Next: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

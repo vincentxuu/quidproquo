@@ -30,6 +30,14 @@ The first two assignments built the foundation: [HW1](/posts/ai/2026-09-30-cmu11
 
 The assignment page opens with two sentences. The first: implement a decoder-only GPT-2 architecture in MiniTorch, train it on IWSLT14 German-English translation, and benchmark it. The second is a warning: **training for Problem 4 takes at least 10 hours**.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Timeline and dependencies
 
 From the [Spring 2026 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus):
@@ -127,6 +135,10 @@ To match the spring version, the last commit before the Feb 18 deadline is `376b
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/): the Recitation 3 material, useful for comparing shapes and masking
 - [CS336 series overview](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en): CS336's first assignment also has you write a Transformer LM from scratch, but in PyTorch; in 11-868 the framework and kernels underneath are yours too
 - [CMU 11-785 Lecture 18: attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

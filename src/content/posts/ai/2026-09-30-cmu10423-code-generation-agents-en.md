@@ -36,6 +36,15 @@ Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses
 
 The lecture asks a practical question: **when a model writes code, or operates a computer on its own, how do you tell whether it did the right thing, and how do you wrap it in a system that can keep trying?** The deck has seven parts: applications, evaluation, code models, code-specific techniques, tool calling, coding agents, and autonomous agents. The first four are about the model. The last three are about the system around it.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## What code generation is for
 
 The deck opens by contrasting two people pair programming with a person coding alongside an LLM, then lists applications of code models:
@@ -183,6 +192,10 @@ Confirmed: schedule dates and titles, the text of the slides and the inked versi
 Further reading: on this site, [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en) goes from RAG and function calling to the agent loop, and [CME295 2026 Lecture 6: AI Agents](/posts/ai/2026-09-29-cme295-ai-agents-en) covers context management and harnesses. To read agents as a whole course, see [Reading CMU 11-768](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
 Series navigation: previous [L22 + L26: practical risks and the science of alignment](/posts/ai/2026-09-30-cmu10423-risks-alignment-en) | next [L24–L26: audio, video generation, and interactive world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

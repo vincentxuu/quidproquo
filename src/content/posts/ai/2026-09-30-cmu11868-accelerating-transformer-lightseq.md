@@ -35,6 +35,14 @@ glossary:
 
 **系列位置**：上一篇 [HW3：在 MiniTorch 實作 decoder-only Transformer](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)｜下一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 這一講在回答什麼
 
 到 HW3 為止，你已經用自己的 MiniTorch 框架拼出一個能訓練的 Transformer。它能跑，但慢。第 10 講問的是：**模型大小還塞得進一張 GPU 時，單卡訓練與推論能再快多少、從哪裡快？**
@@ -171,6 +179,10 @@ bert_model.layer[0] = ls_layer
 - 同一件事在 Triton 裡怎麼做、怎麼先量再優化：[CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)
 - GPU 記憶體階層與「少搬資料」的直覺：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 本課前面的 GPU 程式模型：[L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

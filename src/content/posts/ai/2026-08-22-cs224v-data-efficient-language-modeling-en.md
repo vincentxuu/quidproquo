@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 The schedule abbreviates the final session as “Training LLMs,” but the deck's precise title is “Data-Efficient Language Modeling.” It is not a tokenizer-to-RLHF recipe. It asks how fixed high-quality data can be used better as compute grows, and whether synthetic data can add genuine generalization value.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: use existing data, then make new data
 
 The deck separates progress into algorithms, data, and compute, then motivates bottlenecks in pretraining, instruction tuning, and continued pretraining. Part 1 studies epochs, batch size, ensemble distillation, and self-training under finite data and abundant compute. Part 2 covers synthetic continued pretraining, diversity, neighbor supervision, and scaling. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf))
@@ -111,6 +119,10 @@ Fix a real-token budget for a small continued-pretraining study. Compare repeate
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck is a research talk, not a complete training recipe. Several results belong to preprints or specific experimental regimes. Without a recording, full code, and all hyperparameters, this article does not generalize them to arbitrary model scales.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -38,6 +38,14 @@ glossary:
 
 本文只寫題目在練什麼、該觀察什麼現象，**不貼解答**。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
+
 ## 從 CUDA 換到 Trainium：少了 cache 這個保母
 
 前一份作業 [PA3](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer) 在 NVIDIA GPU 上寫 CUDA。PA4 的 README 一開頭就拿 PA3 對照：CUDA 的記憶體階層是 host memory、device global memory、每個 thread block 的 shared memory、每條 CUDA thread 的私有記憶體；Trainium 則是四層：
@@ -213,6 +221,10 @@ Written 3 的標題頁寫著 **Improving locality on Specialized Hardware**。�
 - 想看 GPU 上的對應版本（Triton kernel），可以讀 [CS336 Kernels 與 Triton 導讀](/posts/ai/2026-08-22-cs336-kernels-triton)。
 
 系列導覽：上一篇 [L11 專用硬體的程式系統](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)｜下一篇 [L12 把 AI 應用映射到資料中心](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

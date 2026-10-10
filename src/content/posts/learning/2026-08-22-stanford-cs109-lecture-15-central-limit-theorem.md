@@ -19,6 +19,14 @@ draft: false
 
 Worksheet／answer key 是完整兩頁、P1–P7 加 challenge。Guide 六個 concepts 的主要內容在前兩頁，第三頁只是 wrap-up 延續。這是系列從 L3 進入 **L2** 的第一講：公開題組與讀本足以支持逐題導讀，但不能聲稱重現完整投影片或課堂口述。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：以 Beta belief 複習開場
 
 Subscribe button 給 12 位 visitors 看，九人 click；uniform prior 是 `Beta(1,1)`，所以
@@ -164,6 +172,10 @@ P(19<X<20)
 - P7、challenge 是 pset5 題，公開 answer key 省略；本文只依公開 prompt 推導。
 - 當期投影片 unavailable、錄影 gated；L2 不等於完整 lecture reconstruction。
 - Worksheet／answer key 各兩頁，guide 第三頁僅延續收尾。採短材料例外，維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,26 @@ These three lectures answer two things: what components make up a machine learni
 
 **Sources**: MOOC handouts [01](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf), [02](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/02_handout.pdf), and [03](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/03_handout.pdf); the W2–W3 watch lists on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) and extended slides [01e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/01e_handout.pdf), [02e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/02e_handout.pdf), and [03e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/03e_handout.pdf); [Fall 2024 HW1](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw1/hw1_red.pdf) and [Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf). All checked on 2026-09-30.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=nQvpFSMPhr0
+title: Course Introduction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sS4523miLnw
+title: What is Machine Learning
+```
+
+Original videos: [Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)、[What is Machine Learning](https://www.youtube.com/watch?v=sS4523miLnw)、[Applications of Machine Learning](https://www.youtube.com/watch?v=PveL3-fO_Qk)、[Components of Machine Learning](https://www.youtube.com/watch?v=pR1xsocj_Pw)、[Machine Learning and Other Fields](https://www.youtube.com/watch?v=vc2BimJ3XJA)、[Perceptron Hypothesis Set](https://www.youtube.com/watch?v=WlpF1Phkv28)、[Perceptron Learning Algorithm](https://www.youtube.com/watch?v=1xnUlrgJJGo)、[Guarantee of PLA](https://www.youtube.com/watch?v=Okrrz0IYoSE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Materials for this post
 
 | Lecture | Videos (YouTube, in Mandarin, by MOOC section) | LFD sections (per the Fall 2026 course page) |
@@ -192,6 +212,10 @@ Without official solutions, you can check programming problems yourself. Run sci
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook; its Lecture 1, "The Learning Problem," matches the start of this post.
 
 **Series navigation**: [Overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) | Next: [Is Learning Feasible? Hoeffding and "Outside the Data"](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

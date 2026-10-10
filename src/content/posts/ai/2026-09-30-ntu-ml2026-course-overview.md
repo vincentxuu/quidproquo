@@ -21,6 +21,14 @@ draft: false
 
 **本文依據**：[課程頁](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)、[規則說明投影片 policy.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/policy.pdf)（22 頁）、[台大課程網 114-2 課程大綱](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)、[Bonus 作業投影片 bonus.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/bonus.pdf)，全部在 2026-09-30 打開核對。對應的影片是[機器學習 2026 課程簡介](https://youtu.be/gl-BdDjNPVI)。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 這門課的硬事實
 
 - **課號與學分**：EE5184，4 學分，選修，週五 14:20–18:20，博理 112。課程網備註「與吳沛遠合授」。
@@ -113,6 +121,10 @@ bonus.pdf 的計分是每隊：參加 +2 分、前 30% +10 分、前三名 +20 �
 站內相關入口：[台大 AI／ML 課程導讀](/posts/learning/2026-09-30-ntu-ai-ml-course-map)把這門課放在台大課程版圖裡比較；[2026 AI 課程總覽](/posts/ai/2026-07-10-ai-courses-2026-guide)的「李宏毅：繁中讀者的入口」一段說明它和其他課的相對位置。
 
 下一篇：[解剖小龍蝦：以 OpenClaw 看 AI Agent 的運作原理](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

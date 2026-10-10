@@ -27,6 +27,14 @@ Three topics: what belongs in `CLAUDE.md` versus `AGENTS.md`, hooks for lint gat
 
 The course actually lists **four** techniques for directing agents: instruction files, hooks, commands, and subagents. They look like four features. They are really **four answers to one question**: how do you get an agent to work your team's way every time, without repeating yourself every time.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## The course's division-of-labor table
 
 The matching Fall 2025 session was Week 4, "How to be an agent manager," with [public slides](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit) and Boris Cherny as that week's guest too. It opens by drawing an evolution: a single developer managing their own output → a lead managing many developers → a lead managing many developers with AI assistance → **a single developer managing many agents' worth of work**. The course describes the endpoint as "every developer operates as a tech lead controlling their own army of agents."
@@ -168,6 +176,10 @@ Doing it in reverse — starting with three hundred lines of instructions — is
 - Claude Code currently reads `CLAUDE.md` rather than `AGENTS.md`; that can change between releases, so check current docs
 - The 60k project count is agents.md's own figure (linked to a GitHub search), not a third-party census
 - This site's hook configuration is a 2026-08-16 snapshot
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

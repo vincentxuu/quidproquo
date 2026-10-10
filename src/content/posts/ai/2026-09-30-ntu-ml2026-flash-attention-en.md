@@ -32,6 +32,21 @@ glossary:
 
 Official materials used: the slides [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf), pages 1–28 (55 pages total; the second half is the [next post on KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)), the lecture video [加快語言模型生成速度 (1/2)：Flash Attention](https://youtu.be/vXb2QYOUzl4) (in Mandarin), and the [demo Colab](https://colab.research.google.com/drive/1KoeKKIXSXI9b-pYg0kun3-uLQkP6p_hC?usp=sharing) linked on slide 28. Access level is **A3**: slides (pdf/pptx), recording, and demo code are all public. There is no quiz for this lecture; the matching exercises are in [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=vXb2QYOUzl4
+title: Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)
+```
+
+Original videos: [Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)](https://www.youtube.com/watch?v=vXb2QYOUzl4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Prerequisite: you are expected to know Transformers
 
 Slide 2 has one prerequisite link: [Lecture 3 of Intro to Generative AI & ML 2025: Dissecting LLMs](https://youtu.be/8iFvM7WUUs8) (in Mandarin). Lee opens by saying the lecture assumes you already understand how a Transformer works inside, and that it is about **inference**, not training.
@@ -155,6 +170,10 @@ Verified: the structure and text of slides 1–28, the video transcript (from th
 Not verified: the captions name a different demo model; this post follows the Colab code, which uses `google/gemma-3-4b-it`. The timings in the lecture do not match the saved Colab output (the longest saved run did not hit OOM), so the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content is paraphrased from the transcript.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW2: An AI Agent as an AI Engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en) | Next: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

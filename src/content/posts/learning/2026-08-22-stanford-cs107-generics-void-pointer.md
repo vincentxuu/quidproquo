@@ -19,6 +19,14 @@ draft: false
 
 這不是「C 也有 Java generics」的輕巧語法糖。型別資訊一旦被擦掉，compiler 能替你做的檢查就變少；錯誤的寬度、錯誤的 cast 或錯誤的 lifetime 都可能順利編譯。本講因此先把上一講的 heap 收尾，再進入 generics：兩部分其實在問同一件事——當語言不替你記住資源與型別，程式設計者要如何把遺失的資訊寫回契約。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -179,6 +187,10 @@ Lecture 11 最重要的不是背五個 library functions，而是看見同一條
 ## 延伸練習
 
 為可成長的 `int` buffer 寫 `append`，以 temporary 接 `realloc` 並列出每條失敗路徑的 owner。再把 typed swap 改成 generic core，記錄 compiler 不再能檢查什麼。最後思考：generic bubble sort 收到 base、元素數量和寬度後，還缺哪項資訊才能決定相鄰元素是否逆序？
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

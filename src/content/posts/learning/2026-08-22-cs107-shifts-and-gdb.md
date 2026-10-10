@@ -19,6 +19,14 @@ Bitmask 能選位置，shift 則能把位置搬到需要的地方。兩者合起
 
 CS107 第五講也第一次正式把 GDB 納入日常工具。重點不是記住一串縮寫，而是建立可重複的觀察循環：停在 breakpoint、控制下一步、用不同格式看值、檢查記憶體與 call stack，再回到原始碼修正。本文依 [Winter 2026 Lecture 5 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf) 完整展開。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 講次資料與材料邊界
 
 - 課程：Stanford CS107: Computer Organization and Systems
@@ -280,6 +288,8 @@ quit
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：更正 branchless absolute-value 範例的 `INT_MIN` 判定；原式有 signed overflow，不能稱為完整可用實作。
 
 ## 參考資料

@@ -36,6 +36,15 @@ glossary:
 
 這一講的問題很實際：**讓模型寫程式、甚至自己動手操作電腦時，要怎麼判斷它做對了，又要怎麼把它組成一個能反覆嘗試的系統？** 投影片分成七段：程式生成的應用、評估、程式模型、程式專屬技巧、tool calling、coding agent、自主 agent。前四段講「模型本身」，後三段講「模型外面那一圈系統」。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 程式生成能做什麼
 
 投影片開頭用一張圖對照「兩個人結對寫程式」和「跟 LLM 一起寫程式」，接著列出程式模型的應用：
@@ -183,6 +192,10 @@ FIM 是這一段最值得弄懂的技巧。InCoder（2022 年 4 月）的做法�
 延伸閱讀：站上 [CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms) 從 RAG、function calling 講到 agent 迴圈，[CME295 2026 第 6 講：AI Agents](/posts/ai/2026-09-29-cme295-ai-agents) 則談 context 管理與 harness；想把 agent 當成一整門課讀，可以看 [CMU 11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)。
 
 系列導覽：上一篇 [L22 + L26：實務風險與對齊科學](/posts/ai/2026-09-30-cmu10423-risks-alignment)｜下一篇 [L24–L26：語音、影片生成與互動式世界模型](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

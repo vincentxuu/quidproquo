@@ -24,6 +24,14 @@ draft: false
 
 **範圍先講清楚**：這篇讀的是公開網頁。包括 Spring 2026 的課程官網、九份作業說明、全部講義 PDF、公開的考古題與解答、榮譽準則頁、ExploreCourses 條目，以及 2021 年由 David Mazières 維護、至今還活著的另一個 CS111 網站。**沒有讀到的是講堂錄影**（在 Canvas 後面）、**每週的 section 講義**（在 Stanford 登入後面），以及**起始碼**（在校內的 myth 主機上）。所以下面談的難度是從作業規格、依賴關係與計分規則推出來的，不是修課心得。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 這門課的硬事實
 
 授課者是 [Mendel Rosenblum](https://stanford.edu/~mendel)。他的自我介紹裡有一行值得先記住：VMware 共同創辦人，公司前十年的首席科學家。這件事到第二十七堂會發生作用。
@@ -173,6 +181,10 @@ g++ -std=c++17 -o tvp thread-v-process.cc -lpthread
 - **封存網址格式**：`web.stanford.edu/class/archive/cs/cs111/cs111.1266/`（1266 = Spring 2026）。CS110 的封存版是 `cs110.1204`（Winter 2020），本文寫作時可正常存取。
 - **假日標示有誤**：Spring 2026 行事曆把 5 月 25 日標成 Presidents' Day，該日實際上是 Memorial Day（Presidents' Day 在二月）。停課本身沒錯，標籤錯了。
 - **未能確認的三項**：（一）旁聽者用 `guest` 取代 `$USER` 的 clone 路徑是否仍然可用——我沒有 SUNet ID，無法實測；（二）寄信索取錄影權限的實際核准率；（三）Winter 2026 那一版（`cs111.1264`）的作業編號與 Spring 2026 不同（V6 檔案系統排在 assign1、日誌式檔案系統排在 assign2），我只讀到那兩份的封存頁，沒有完整的該學期行事曆，所以無法判斷整學期的順序是否重排過。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

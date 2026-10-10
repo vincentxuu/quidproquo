@@ -17,6 +17,14 @@ draft: false
 
 This is part 19 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 18**. Mendel Rosenblum taught it on 2026-05-08; the official title is [Magnetic Disks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf). This article follows the public PDF page by page and uses the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not publicly accessible and is not treated as reviewed.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## An HDD is storage with moving parts
 
 A drive contains one to ten platters, spinning at 5,000–15,000 RPM in [The deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf), commonly in 2.5- and 3.5-inch sizes. An actuator moves an arm so read-write heads travel radially. Reading data is therefore not a simple array lookup: mechanical components must first reach the right position.
@@ -78,6 +86,10 @@ Trace one request to test the lecture: a user requests a block; the OS builds a 
 ## Update history
 
 - 2026-08-22: Rewritten against the official Lecture 18 PDF, with hardware figures explicitly scoped as slide snapshots.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

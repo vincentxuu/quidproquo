@@ -47,6 +47,21 @@ L10 的答案分成兩條路。一條是讀模型寫出來的推理過程，也�
 
 課站把這一講的四個子題列成 Activations、Sparse Auto Encoders（SAE）、Black box models、Chain of thought。本篇沿著這四個子題走，但順序照講者的實際安排：Bowen 開場時說，他們要「由上往下」講，先講像內心獨白的 CoT，再講像腦內訊號的 activation。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=79otWC2FQlE
+title: L10 講課錄影（YouTube）
+```
+
+原始影片：[L10 講課錄影（YouTube）](https://www.youtube.com/watch?v=79otWC2FQlE)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 用到的官方材料與存取狀態
 
 | 材料 | 狀態 |
@@ -248,6 +263,10 @@ Boaz 要每位講者選邊：機制可解釋性對 AI 安全是不是關鍵瓶�
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L8：Scheming、reward hacking 與欺騙](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 - 下一篇：[L6：AI 做 AI 研發會不會觸發智慧爆炸](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Complexity Theory**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/26/)
+
 ## decidable 不等於 feasible
 
 投影片 先給一個警告：判斷兩個 regular expressions 是否描述同一 語言 是 decidable，課程 autograder 也能百分之百正確判定；但投影片同時陳述，不存在 runtime \(O(2^{m+n})\) 的解法，其中 m、n 是兩個 regex 長度。即使保證終會停，等待時間仍可能不可接受。
@@ -119,6 +127,8 @@ R 與 RE separation 使用 universality 與 self-reference。自然會問能否�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「decidable 不等於 feasible」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

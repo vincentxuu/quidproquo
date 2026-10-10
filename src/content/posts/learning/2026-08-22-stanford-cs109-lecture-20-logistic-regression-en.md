@@ -19,6 +19,14 @@ This is article 21 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The lecture remains **L2**. The three-page worksheet has P1–P6 plus an optional MAP challenge. The four-page key omits only the P5 pset7 code solution and fully answers the challenge. The guide has six concepts across three pages. Current slides are unavailable and video is Canvas-gated.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Poisson MLE warm-up
 
 The counts `[3,1,4,2,5]` sum to 15:
@@ -124,6 +132,10 @@ Work through its six concepts: classification setup, sigmoid, logistic assumptio
 - The worksheet has P1–P6 plus a challenge; the four-page key omits only P5 and answers the challenge.
 - The three-page guide contains six concepts and no extra numbered unit.
 - Current slides are unavailable and video is Canvas-gated; only public artifacts are used.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

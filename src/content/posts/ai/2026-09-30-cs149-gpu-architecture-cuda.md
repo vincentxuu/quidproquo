@@ -35,6 +35,22 @@ glossary:
 
 所以這一講要回答的問題很具體：**CUDA 裡的 grid、block、thread 這些抽象，到底怎麼落到 GPU 硬體上？** 把 DNN 映射到 GPU 的部分留到 [第 9 講那一篇](/posts/ai/2026-09-30-cs149-dnn-on-gpus)，這裡只談執行模型。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=qQTDF0CBoxE
+title: Stanford CS149 2023 Lecture 7 錄影
+```
+
+原始影片：[Stanford CS149 2023 Lecture 7 錄影](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
+
 ## 從畫三角形到跑任意程式
 
 投影片先花一段講歷史，理由是 GPU 的設計取捨都來自原本的工作：即時 3D 繪圖。
@@ -178,6 +194,10 @@ warp 裡的 thread 在執行同一條指令時，以 SIMD 方式一起跑，NVID
 - 同一套 GPU 執行模型從 LLM 訓練角度的講法：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 另一門課對 thread、block、記憶體階層與 tiling 的整理：[CMU 11-868 L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 - 課程定位、五個作業的環境需求與 2023 錄影對照：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

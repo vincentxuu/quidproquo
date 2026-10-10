@@ -21,6 +21,14 @@ This article uses the public [lecture notes](https://stanford-cs161.github.io/wi
 
 The preceding dynamic-programming lecture retained several subproblems because it did not yet know which decision would extend to an optimum. This lecture asks a more aggressive question: if one can prove that following a single branch always suffices, can the whole table be discarded? Yes—but the cost moves from code to proof. A greedy algorithm is often short. The difficult part is proving that no local decision ever eliminates every globally optimal solution.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-14-greedy-algorithms)
+
 ## Greedy is a proved structure, not an intuition
 
 The slides deliberately give a rough description: make choices one at a time, never look back, and hope for the best. The notes immediately supply the formal version. Suppose a problem has optimal substructure and could be expressed as a dynamic program comparing several subproblems. If one can prove that a particular subproblem always extends to an optimum, the algorithm needs to follow only that one.
@@ -190,6 +198,10 @@ The following points are implementation guidance, not formal Winter 2026 Lecture
 If activity input is already finish-time sorted, do not sort it again; this keeps the distinction between `O(n)` and `O(n log n)` explicit. For ratio scheduling, cross multiplication avoids floating-point error but integer overflow must be considered. A standard Huffman implementation uses a min-priority queue for `current`; any runtime claim must include the queue operations rather than merely counting loop iterations.
 
 More generally, when a “pick the best next item” idea appears, take two actions. Search small instances for a counterexample to reject bad ordering rules quickly. Then try to exchange the first different choice in an arbitrary optimum with the greedy choice. The first action cannot prove correctness but can stop a false conjecture. The second is the threshold between intuition and an algorithm.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

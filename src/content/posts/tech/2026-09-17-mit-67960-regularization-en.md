@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 9 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) is taught by Sara Beery. This lecture treats regularization as an "engineering toolbox" rather than pure theory: what concrete problem each technique solves, how to use it correctly, and how to combine it with others. This article restructures the lecture highlights into a practical regularization decision table with runnable PyTorch code.
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=EiO8BBa-xdc
+title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Four Pillars of Regularization: Mechanism, Effect, Use Cases
 
 | Technique | Core Mechanism | Problem Solved | Modern Default |
@@ -248,6 +264,10 @@ for name, cfg in configs.items():
 | AdamW weight decay ineffective | Used `optim.Adam(weight_decay=...)` | Switch to `optim.AdamW(weight_decay=...)` |
 | Mixup loss calculation wrong | Direct CE on mixed labels | Use `mixup_loss` linear combo of two CEs |
 | Small batch BN statistics unstable | Batch size < 16 | Switch to GroupNorm(32) or LayerNorm |
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

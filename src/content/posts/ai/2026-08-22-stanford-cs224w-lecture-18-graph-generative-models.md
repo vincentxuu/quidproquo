@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 18 講**，官方日期 2025-12-02。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[第 18 講官方投影片](https://web.stanford.edu/class/cs224w/slides/18-deep-generation.pdf)整理；講者以投影片署名為準。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含官方投影片與 schedule 的 optional readings。Canvas 錄影、現場 Q&A、板書與 Ed 討論不公開，本文不推測；2021 公開影片不作為 2025 講次證據。
@@ -130,6 +138,10 @@ Generation報告必須附raw samples或可重建seed，不能只附經人工挑�
 對molecule generator另列hard constraint rejection、post-hoc repair與independent property evaluation。Repair後有效率不能混成raw validity；property optimizer也要報scaffold diversity與nearest training molecule。這能辨認generator是在創造新候選，還是微調/複製已知高分structure。
 
 把 pipeline 拆成 graph construction、retrieval 或 sampling、encoder、prediction head 與 evaluation。每次只替換一個部件，保留成本與失敗 trace，才知道改動是否真的有效。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

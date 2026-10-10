@@ -30,6 +30,21 @@ glossary:
 
 Boaz Barak 開場只講了一句定位：AI 安全課關心 AI 對世界的影響是好是壞，經濟面是其中最重要的一塊，少了這一講課程就不完整。接著把時間交給兩位客座，一位從 OpenAI 內部看，一位拿行政資料看。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=4vQSMijp_M8
+title: Lecture 9: Economic Impacts of AI（錄影）
+```
+
+原始影片：[Lecture 9: Economic Impacts of AI（錄影）](https://www.youtube.com/watch?v=4vQSMijp_M8)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 這一講的材料
 
 | 材料 | 內容 | 狀態 |
@@ -158,6 +173,10 @@ Chatterji 回饋時問了一個好問題：messiness 是任務本身的屬性，
 - 能力怎麼量、GDPval 的設計：[L7：能力與安全](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)、[L12：AI 2035 與 GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035)
 - AI 做 AI 研發的時間軸：[L6：遞迴自我改進](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 - 課程地圖與 A0–A3 分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

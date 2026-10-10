@@ -36,6 +36,27 @@ glossary:
 
 存取等級是 **A3（足以自學）**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：兩份投影片公開。缺口是 2026 錄影只在 Canvas；另外兩份投影片的 Class Structure 頁顯示 MCTS 在 2026 是跟客座課共用時段講的（第 13 講配 Shane Gu 的世界模型客座，第 14 講配倫理與社會客座第二部分），所以 PDF 頁數比一般講次少。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=UgANzoWc0nc
+title: Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: 影片 15 的前 15 分鐘
+```
+
+原始影片：[Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉](https://www.youtube.com/watch?v=UgANzoWc0nc)、[影片 15 的前 15 分鐘](https://www.youtube.com/watch?v=FOlPpjNbHjE)
+
+課程與錄影入口：
+
+- [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 換一個問題：只為現在這一步規劃
 
 第 13 講第 5 頁一句話交代轉折：到目前為止，這門課都在替**整個狀態空間**算一個策略。關鍵想法是：用額外的**本地運算**，替**現在**做出更好的決定。
@@ -175,6 +196,10 @@ $$
 - 另一門課從 MDP、Q-learning 一路講到 AlphaZero：[CMU 07-280 階段複習三：從 MDP、Q-learning 到 AlphaZero](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero)
 - 規劃與模型在深度 RL 裡的其他用法：[CS224R L11：Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)
 - 本系列下一段會碰到的世界模型客座：[客座：Shane Gu〈World of World Modeling〉](/posts/ai/2026-09-30-cs234-guest-world-models)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

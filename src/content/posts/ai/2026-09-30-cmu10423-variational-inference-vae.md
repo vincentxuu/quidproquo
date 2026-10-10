@@ -32,6 +32,15 @@ glossary:
 
 如果機率與高斯的基礎還不熟，可以先讀 [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)的前置知識段落，再回來。所有推導都收在可展開的區塊裡，第一次讀可以先跳過。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## L8 前半：把擴散模型收尾
 
 L8 開頭複習 L7 的 U-Net、前向與反向過程、三個性質和三種參數化，接著補完兩件事。
@@ -198,6 +207,10 @@ L_simple = E_{t, x_0, ε}[ ‖ε − ε_θ(√ᾱ_t x_0 + √(1 − ᾱ_t) ε, t
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)與 [Lab 3：DiT、VAE 與 latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)——擴散與 VAE 的另一套數學語言
 - [CMU 11-785 導讀：變分自編碼器](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders)
 - [Stanford CS231n 導讀：生成模型（VAE 與 GAN）](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

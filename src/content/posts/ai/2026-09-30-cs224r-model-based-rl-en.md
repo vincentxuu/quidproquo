@@ -36,6 +36,21 @@ Access level is **A3**: the slides download anonymously, and the 2026 recordings
 
 Companion video (**supplementary**): [Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA) (about 73 minutes). The two years split the material differently. [The 2025 L11 slides](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf) cover planning first, then data generation, and end with a dexterous-manipulation case study. [The 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) open by continuing with synthetic data generation and when to use model-based RL. So the MBPO part of the 2025 recordings may fall at the start of L12. This post follows the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=PvqyGnOirgA
+title: Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)](https://www.youtube.com/watch?v=PvqyGnOirgA)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: ten lectures, and nobody learned the environment
 
 Page 4 draws a map of every algorithm so far. On the offline side sit behavior cloning and the offline RL methods AWR, AWAC and IQL. On the online side sit DAgger, off-policy methods such as DQN and SAC, and on-policy methods such as PPO. Every method on this map learns a policy, a value function or both. **None of them learns how the environment responds.**
@@ -213,6 +228,10 @@ The next lecture moves from learning the environment to learning many tasks at o
 Confirmed: the text, algorithm steps and captions of the 2026 slides, the schedule date and assigned reading, how the 2025 slides split the lectures, and the title and length of the 2025 L11 video. Not confirmed: the detailed conclusion of the MBPO figure on page 16 (the slide shows only the figure), the in-class answer to "how does this compare to PPO and SAC" on page 18, and anything said aloud in the 2026 lecture.
 
 Series navigation: previous [Default Project: RL fine-tuning for LLMs](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en) | next [L12 Multi-Task and Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

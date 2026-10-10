@@ -27,6 +27,14 @@ draft: false
 
 這個位移本身有意思。一年前值得請人來講的是「怎麼寫」，現在是「誰來檢查」。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 先看課程為什麼把 code review 當高槓桿
 
 Fall 2025 的對應課堂是 Week 7「AI code review」（[投影片](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit)，客座是 Graphite 的 CPO Tomas Reimers）。它開場先擺三組數字，來源標的是 [Coding Horror](https://blog.codinghorror.com/code-reviews-just-do-it/)——那也是這門課的指定讀物之一：
@@ -111,6 +119,10 @@ Fall 2025 的對應課堂是 Week 7「AI code review」（[投影片](https://do
 - AutoCommenter 的數字是 2023–2024 年的部署，模型已經換過好幾代；那些數字說明的是**問題結構**，不是今天的絕對水準
 - Fall 2026 這週的教材與作業尚未公布
 - 各家 AI review 工具的能力邊界變動很快，表格裡的分界要定期重驗
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -42,6 +42,21 @@ Two things to note first:
 1. The footer of this deck reads "April 21, 2025," yet the page 2 announcement says A2 comes out "this Thursday (4/23)" and the project proposal is due the same day, which matches the 2026 schedule. I call it "the deck linked from the 2026 schedule" and don't infer how much changed. Compared with the [2025 lecture_7.pdf](https://cs231n.stanford.edu/slides/2025/lecture_7.pdf), the main sections are nearly the same. The 2025 deck opens with a few "Clarifications from Last Time" slides (how to scale dropout at test time, and how normalization relates to initialization) and later adds a Visual Language Navigation slide.
 2. **The schedule lists GRU and sequence-to-sequence, but neither appears in the text of the 2026 slides**, and the 2025 slides don't have them either. I don't fill them in here. For GRU, Olah's suggested article covers it.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=kG2lAPBF7zA
+title: Stanford CS231N Spring 2025 Lecture 7: Recurrent Neural Networks (YouTube)
+```
+
+Original videos: [Stanford CS231N Spring 2025 Lecture 7: Recurrent Neural Networks (YouTube)](https://www.youtube.com/watch?v=kG2lAPBF7zA)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Opening: closing out L6, then turning to sequences
 
 Pages 3–10 wrap up the previous lecture: the three phases of training feedforward networks (one-time setup, training dynamics, evaluation), the ILSVRC winners chart, and a model complexity comparison (from Canziani et al. 2017). VGG has the most parameters and operations. AlexNet has less compute but is still memory heavy, with lower accuracy. ResNet has moderate efficiency and the highest accuracy.
@@ -216,6 +231,10 @@ Not confirmed: how much of GRU and sequence-to-sequence, both listed on the sche
 Further reading on this site: [CS224N on RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en) covers the same models from the NLP side. [CMU 11-785's first RNN lecture](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en) and its [seq2seq lecture](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc-en) cover the sequence-to-sequence material these slides don't expand on.
 
 Series navigation: previous [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | next [A2 guide: BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

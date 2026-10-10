@@ -19,6 +19,14 @@ draft: false
 
 Functions Part I 定義了 domain、codomain、involution 與 injection；Part II 真正要練的，不只是再多背一個函數類型，而是把一階邏輯式讀成證明動作。相同的 `∀` 或 `→`，放在「已知」與「待證」的位置，會要求完全不同的下一步。這個差異串起本講所有例題。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/)
+
 ## 1. 前講回顧：函數的型別是證明契約
 
 寫作 `f : A → B` 同時宣告：每個 `a ∈ A` 都必須有定義，而且 `f(a)` 必須落在 `B`。它沒有承諾 `B` 的每個元素都被命中。domain 決定合法輸入；codomain 是輸出允許落入的集合，不是實際值域。
@@ -125,6 +133,8 @@ extra slides 給出對偶結果：若 `f:A→B` 與 `g:B→C` 都是 surjection�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依官方 Functions Part II 完整投影片重建全文，恢復滿射、假設與證明、involution 關係及函數合成的 deck-specific 證明。
 
 ## 參考資料

@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：以下以這份 PDF 的靜態投影片為準。投影片沒有完整 Transformer 推導、可重現訓練程式、系統 benchmark 表、課堂互動紀錄或 Canvas 內容；這些地方不以一般教科書內容補寫。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 本講的地圖
 
 PDF 的 agenda 有四站：
@@ -135,6 +144,10 @@ PDF 把 agents 定義成能產生 tool token 使用 web search 或 command line�
 - 沒有公開本講 Canvas 互動、作業解答、隱藏測資或課堂討論。
 
 因此最可靠的收穫不是「next-token prediction 已解釋智慧」，而是一份可檢查的契約：語言被表示成 token sequence，joint probability 由 chain rule 分解，模型在每個位置做 vocabulary classification，training 與 post-training 改變不同行為，inference 逐 token 生成，而 architecture、data、systems、evaluation 共同決定這份契約能走多遠。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

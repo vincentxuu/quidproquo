@@ -21,6 +21,15 @@ This series reads **ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15)**, the mo
 
 **Sources**: the [Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), the [Course Logistics slides](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) (18 pages), the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o), the [HW1 spec slides](https://docs.google.com/presentation/d/1PzKXFOZc9mMhw8NewNZQDDerTpjK9U1Ot1hrALpKSTA/edit?usp=sharing), and, for comparison, the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~miulab/f115-adl/). All were opened and checked on 2026-09-30. The matching video is [ADL 0: Course Introduction](https://youtu.be/RwRZVd9rLxE) (29:36). Lectures are delivered in Mandarin; the slides are in English.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+- [Official ADL Fall 2025 playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
+
 ## The hard facts
 
 From the Course Logistics slides:
@@ -140,6 +149,10 @@ Posts 15 through 17 have thinner official material: 15 has no slides, and 16 and
 Related entry points on this site: the [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) compares ADL with the courses of Hung-yi Lee and Hsuan-Tien Lin. From the same university, the [Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) starts from AI agents, which complements ADL's bottom-up order. For an English-taught NLP storyline, compare with the [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en).
 
 Next: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

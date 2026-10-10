@@ -19,6 +19,15 @@ This article follows **Stanford CS221, Autumn 2025, Lecture 13**. The [official 
 
 > Material gap: the official executable lecture and course site are public. This article does not treat Canvas-only interactions, assignment solutions, or hidden tests as known material. The public lecture repository is the lecture artifact, not a complete record of every classroom activity.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 The lecture begins by treating a Bayesian network as a factorized representation of a joint distribution. It then returns to the basic inference operations: condition on evidence, marginalize variables that are not queried, and normalize into a conditional distribution. Building the full joint can be exponentially expensive, so the lecture reviews rejection sampling and asks whether the next sample can continue from the previous one.
@@ -184,6 +193,10 @@ The medical-diagnosis example names Cold (C), Allergies (A), Cough (H), and Itch
 The main line of Lecture 13 is not that Gibbs sampling universally replaces rejection sampling. It progressively narrows the work of one inference update: represent the joint with Bayesian-network factors; condition on evidence; marginalize and normalize; observe that rejection regenerates and wastes rare evidence; keep an evidence-satisfying state and resample one variable; exploit the Markov blanket to keep only local factors; then use graph structure to reason about independence.
 
 When reading or implementing this source, three calculations should be reproducible by hand: how candidate joint products become a conditional distribution; why a Markov blanket permits particular factors to cancel; and why rare evidence versus strong correlation harms the two samplers in different ways. Burn-in, multi-chain diagnostics, error bounds, and a fuller convergence theory are not developed here. The artifact only points to inaccurate finite estimates, mixing times, and the possibility that the simple method is slow. Those limits should remain visible rather than being filled in with guarantees the source does not provide.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

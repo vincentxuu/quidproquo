@@ -30,6 +30,26 @@ glossary:
 
 投影片大綱：回顧詞向量與 RNN → 從詞向量走到預訓練語言模型（ELMo）→ 用 Transformer 預訓練（encoder 的 BERT、encoder-decoder 的 T5、decoder 的 GPT）→ GPT-3 的 in-context learning 與大型語言模型。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=U5HypcXrIgY
+title: Week 6 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RNlcZjzbhDo
+title: Week 6 Thu.
+```
+
+原始影片：[Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 起點：同一個 record，兩種意思
 
 第 6 頁的例子是「I record the record」：第一個 record 是動詞（錄），第二個是名詞（紀錄）。Word2Vec 或 GloVe 給兩者同一個向量，因為靜態詞向量**不看上下文**。這一講要解的就是這件事，也接回[第 2 篇](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)投影片裡出現過的 contextualized embedding。
@@ -223,6 +243,10 @@ GPT-4 那一列的參數量要保留看待：[GPT-4 技術報告](https://arxiv.
 - 解答、測驗與課堂討論在 NTU COOL，校外讀者拿不到。Fall 2026 的這一講還沒公開。
 
 **系列導覽**：上一篇 [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)｜下一篇 [HF BERT 助教課與 HW3：多輸出學習](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

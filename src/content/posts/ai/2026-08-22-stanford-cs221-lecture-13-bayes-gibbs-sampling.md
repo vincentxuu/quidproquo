@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方可執行講義與課程網站公開；本篇不把 Canvas 內的錄影互動、作業解答或隱藏測資當成已知內容。可執行講義 repository 也只代表公開的 lecture artifact，不代表完整課堂活動。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 本講從 rejection sampling 的浪費走到 Gibbs 的局部更新，再用 Markov blanket 與 conditional independence 解釋何時能省計算、何時會 mixing 困難。
@@ -177,6 +186,10 @@ P(A=a,B=b \mid C=c)=P(A=a \mid C=c)P(B=b \mid C=c).
 ## 這一講留下的檢查
 
 這份 artifact 展示 sampler 的 mechanics 與限制，不提供完整 convergence proof、診斷標準或隱藏課堂材料。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

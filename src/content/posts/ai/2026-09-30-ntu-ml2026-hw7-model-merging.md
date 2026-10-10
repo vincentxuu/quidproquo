@@ -28,6 +28,21 @@ glossary:
 
 存取分級是 **A3 減評分**：題目規格、兩個模型、Colab 與評估程式都公開；排行榜要上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home)（2026-09-30 回傳 502），論文題在需要台大帳號的 NTU COOL 上。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=YQtwk_L686I
+title: HW7 說明影片（YouTube）
+```
+
+原始影片：[HW7 說明影片（YouTube）](https://www.youtube.com/watch?v=YQtwk_L686I)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先備：hw7.pdf 沒有指定，但有一講正好對得上
 
 HW7 投影片沒有列先備影片，本學期也沒有講 model merging 的正課。李宏毅 2025 年的[生成式人工智慧與機器學習導論 第 8 講](https://www.youtube.com/watch?v=EnWz5XuOnIQ)標題就是「通用模型的終身學習（Fine-tuning, Model Editing, Model Merging, Test-Time Training）」，[上一篇 AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)也用這支影片當 TTT 的延伸。要補概念，看這一講最省事。
@@ -122,6 +137,10 @@ notebook 分三段：
 - **工具**：[mergekit](https://github.com/arcee-ai/mergekit) 的 README 列了所有合併方法與參數；Hugging Face PEFT 也有 [model merging 指南](https://huggingface.co/docs/peft/developer_guides/model_merging)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)｜下一篇 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

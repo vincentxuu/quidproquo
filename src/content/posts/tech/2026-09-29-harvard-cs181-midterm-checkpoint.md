@@ -25,6 +25,14 @@ draft: false
 
 > "For emphasis: the midterm is not about memorization but will be designed to test your conceptual and analytical understanding."
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **範圍**：[midterm checklist](https://harvard-ml-courses.github.io/cs181-web/static/midterm_checklist/midterm_checklist.pdf) 分四塊：Regression、Classification、Neural Networks & Model Selection、SVMs。每塊再分「要知道」「給公式後能推」，部分主題另列「不考」。
@@ -113,6 +121,10 @@ checklist 的「要知道」包括 bias trick、least squares、`w*` 的推導�
 - 下一篇：[HW4（上）Transformer 從手算到多頭注意力](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 - 回顧：[HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)、[HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)、[HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

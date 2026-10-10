@@ -43,6 +43,21 @@ glossary:
 1. 這份投影片頁尾印的日期是「April 21, 2025」，但第 2 頁的公告寫 A2 在「this Thursday (4/23)」發佈、專題 proposal 同一天截止，跟 2026 課表一致。本文只稱它為「2026 課表連結的投影片」，不推論內容改了多少。和 [2025 年的 lecture_7.pdf](https://cs231n.stanford.edu/slides/2025/lecture_7.pdf) 對照，主體章節幾乎一樣；2025 版開頭多了幾頁「上次的釐清」（Dropout 測試時怎麼縮放、正規化與初始化的關係），後面多了一頁 Visual Language Navigation。
 2. **課表列了 GRU 和 sequence-to-sequence，但 2026 投影片的文字裡找不到這兩個主題**，2025 版投影片也沒有。本文不替這兩個主題補內容；要讀的話，課表建議的 Olah 文章裡有 GRU 的介紹。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=kG2lAPBF7zA
+title: Stanford CS231N Spring 2025 Lecture 7: Recurrent Neural Networks（YouTube）
+```
+
+原始影片：[Stanford CS231N Spring 2025 Lecture 7: Recurrent Neural Networks（YouTube）](https://www.youtube.com/watch?v=kG2lAPBF7zA)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 開場：回顧 L6，然後轉向序列
 
 第 3–10 頁先收尾上一講：訓練前饋網路的三個階段（一次性設定、訓練動態、評估），再放 ILSVRC 冠軍圖，以及一組模型複雜度比較（引用 Canziani et al. 2017）：VGG 參數與運算量最多；AlexNet 運算少但仍吃記憶體、準確率較低；ResNet 效率中等、準確率最高。
@@ -217,6 +232,10 @@ LSTM 真的解決了梯度消失嗎？第 115 頁的回答很節制：
 延伸閱讀：站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
 
 系列導覽：上一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜下一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

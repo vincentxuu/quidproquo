@@ -47,6 +47,26 @@ Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS cour
 - Several slides are images or discussion questions with no speaker's answer; I report the questions as asked and don't supply conclusions for the speaker
 - The matching video in the public 2024 playlist is [video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE). Per its YouTube chapters, the first 15 minutes wrap up AlphaZero, and [from 15:24](https://www.youtube.com/watch?v=FOlPpjNbHjE&t=924s) Dan Webber covers value alignment: misalignment, defining AI goals, aligning to preferences (28:28), aligning to interests (36:13), an LLM personalization study (40:57), and social and moral alignment (58:34). That broadly tracks the 2026 slides; the chapters don't show whether sycophancy or agentic AI come up. [Video 16](https://www.youtube.com/watch?v=eenJzay5aLo), despite its "Value Alignment" title, is chaptered as a quiz review, a course recap, and RL case studies, not this post's material
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eenJzay5aLo
+title: video 16, "Value Alignment"
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[video 16, "Value Alignment"](https://www.youtube.com/watch?v=eenJzay5aLo)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Why an RL course covers this
 
 From [part 1](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en), CS234 treats the reward as given: an MDP is $(S, A, P, R, \gamma)$, and the algorithm's job is to maximize expected return. This lecture asks about the step before you write down $R$: is what you wrote what you really want?
@@ -171,6 +191,10 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 - A whole course built around alignment: [Reading Harvard CS2881R: What Outsiders Can Get from the First Graduate AI Safety Course](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - How an intro course covers AI alignment: [CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en)
 - Where RLHF sits in LLM post-training: [CS224N Lecture 8: From Instruction Tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

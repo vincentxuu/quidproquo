@@ -32,6 +32,21 @@ glossary:
 
 Lecture 4 covers those three. Page 2 splits the pruning unit into five questions. Lecture 3 took the first three; this lecture takes "Determine the Pruning Ratio" and "Fine-tune/Train Pruned Neural Network", then adds a long section on system and hardware support.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=upaZrpXkELc
+title: EfficientML.ai Lecture 4 recording (Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 4 recording (Fall 2024)](https://www.youtube.com/watch?v=upaZrpXkELc)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Pruning as an optimization problem
 
 Page 4 writes pruning down formally:
@@ -166,6 +181,10 @@ The lab is what changed. Fall 2024 released Lab 1 (Pruning) with Lecture 4. Fall
 - The first half of pruning (granularity and criteria): [Lecture 3 guide](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
 - The same ideas applied to LLMs: [Reading CMU 11-868: model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en) (why W4A16 came back)
 - Background on GPUs and Tensor Cores: [CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

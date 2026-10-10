@@ -34,6 +34,21 @@ The course page lists HW4 as released on 3/27 and due 04/16/2026 23:59, with TAs
 
 Access level: the spec, sample code and dataset are all public, which makes this **A3**. What is missing is the grading chain, covered below.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=QrqdoGf35Iw
+title: Video: ML 2026 Spring HW4 -- Training Transformers
+```
+
+Original videos: [Video: ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The task: an image as a sequence of tokens
 
 Slide 3 of hw4.pdf states the goal: use a transformer decoder-only model for next-token prediction on Pokémon images, and learn how current LM architectures predict the next token.
@@ -109,6 +124,10 @@ The default GPT-2 config in the Colab matches this table (`n_embd` 64, `n_head` 
 - For background on decoder-only architectures, see the Stanford CME295 guide on [Transformer tricks](/posts/ai/2026-09-29-cme295-transformer-tricks-en) and the CMU 11-785 guide on [Transformer architectures](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en) | Next: [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

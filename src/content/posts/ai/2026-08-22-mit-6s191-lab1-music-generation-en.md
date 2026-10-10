@@ -17,6 +17,14 @@ draft: false
 
 Lab 1 in the [official MIT 6.S191 2026 repository](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) is **Lab 1: Generate Music with PyTorch and an LSTM**. It covers tensors, autograd, and modules before turning ABC notation into character sequences for LSTM music generation. This article pins the 2026 branch so later changes to master do not silently alter the exercise.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## Before you begin
 
 The [official 2026 README](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/README.md) specifies Google Colab, Python 3, and a GPU runtime. Copy the notebook to your Drive and run it from the beginning. Put API keys in the notebook's secret manager—never in a shareable cell or Git commit.
@@ -39,6 +47,10 @@ Keep a notebook copy, one reproducible end-to-end run, and a short conclusion: w
 ## Limits
 
 The [official notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part2_Music_Generation.ipynb) uses a Google Colab GPU and asks for a Comet API key. Outside learners can complete the core TODOs but should not expect competition access or MIT feedback.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

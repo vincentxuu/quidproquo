@@ -34,6 +34,14 @@ The lecture had two guest speakers, [Nicholas Carlini](https://nicholas.carlini.
 
 The course site lists no slides for this lecture. Access here is a bit narrower than for other lectures: Barak and Carlini are on video, while the security-engineering guest talk exists only as a secondhand summary.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Pre-reading: four sources, four jobs
 
 The course site marks four items as pre-reading, and the LessWrong summary goes through each:
@@ -180,6 +188,10 @@ Confirmed: the lecture topic, guest list, and reading list on the course site; B
 Further reading on this site: [the harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en) and [the OpenClaw threat model](/posts/ai/2026-03-28-openclaw-threat-model-en) look at prompt-injection defenses from an implementation angle, a useful contrast with the CaMeL approach.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L2: Where safety training sits in the LLM training pipeline](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) | Next: [L4: Should a model spec state principles or detailed rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

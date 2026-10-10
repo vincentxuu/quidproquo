@@ -19,6 +19,15 @@ This post is rewritten only from the official slides for **Stanford CS221 Autumn
 
 > Material gap: The scope below is limited to what the static PDF supports. The slides do not provide a complete Transformer derivation, reproducible training code, systems benchmark table, classroom interaction record, or Canvas material; those gaps are not filled with generic textbook content.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The lecture map
 
 The PDF's agenda has four stops:
@@ -135,6 +144,10 @@ This 119-page slide deck is a map, not a complete textbook or reproducible bench
 - No public Canvas interactions, assignment solutions, hidden tests, or classroom discussion for this lecture.
 
 The reliable takeaway is therefore not that next-token prediction explains intelligence. It is a checkable contract: language is represented as a token sequence, the joint probability is factored by the chain rule, each position is a vocabulary classification, training and post-training change different behaviors, inference generates one token at a time, and architecture, data, systems, and evaluation determine how far the contract can be taken.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -28,6 +28,14 @@ glossary:
 
 The previous lecture asked what we want a model to do, and wrote the answer down as a model spec. This one goes a step further: once the rules exist, who enforces them, how, and what happens when enforcement goes wrong? Social platforms have stumbled through this for more than twenty years. [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) invited [Ziad Reslan](https://jackson.yale.edu/person/ziad-reslan/) from OpenAI Product Policy to connect that history to generative AI.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## What you can get for this lecture
 
 Under October 2, the course site lists three topics:
@@ -119,6 +127,10 @@ One thing you can do tonight: following the class exercise, list five image scen
 - Where policies get written and how they're interpreted: [CS2881R L4: Should a Model Spec Be Principles or Rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 - The engineering side of models as judges and guardrails: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 - The same theme in another course: [NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

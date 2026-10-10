@@ -21,6 +21,14 @@ I used the [official Lecture 11 anchor](https://stanford-cs161.github.io/winter2
 
 Lecture 9's BFS solves unweighted shortest paths because every edge increases distance by one. Weighted graphs disrupt that order: a path with fewer edges may cost more. Dijkstra and Bellman-Ford share one core operation—relaxation—but schedule it differently and therefore require different assumptions.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
+
 ## Problem, notation, and relaxation
 
 Given a weighted directed graph `G=(V,E)`, source `s`, and edge weight `w(u,v)`, single-source shortest paths asks for `dist(s,v)` for every v. A path's cost is the sum of edge weights. Every subpath of a shortest path must also be shortest; otherwise replacing a cheaper prefix would improve the whole path.
@@ -176,6 +184,10 @@ Lecture 12 will reinterpret `d^(k)[v]` as a table of subproblem solutions. That 
 Trace both algorithms on the same five-vertex graph. After each Dijkstra finalization, write why the value can no longer change. After each Bellman-Ford round, write the maximum number of edges whose paths are now covered. Add a negative edge and then a negative cycle to distinguish a failed premise from an undefined distance.
 
 An implementation can retain predecessors as well as distances. After detecting a negative cycle, following predecessors n steps and then around the loop can produce a cycle certificate. This is a practice extension, not an additional Winter 2026 requirement.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

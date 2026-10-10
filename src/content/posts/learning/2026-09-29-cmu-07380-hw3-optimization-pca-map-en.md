@@ -20,6 +20,14 @@ HW3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) closes the course
 
 The assignment is not yet due, and the course's AI Tools and Collaboration Policy forbids viewing or sharing any artifact that will be submitted (code, pseudocode, diagrams, text). So this guide does only three things: explain what each problem tests, point to the material to review, and flag where people get stuck. **It contains no answers.** Enrolled students should not treat it as a solution source.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 The site lists three parts for HW3:
@@ -138,6 +146,10 @@ The previous post is [Lecture 8 on MAP](/en/posts/learning/2026-09-29-cmu-07380-
 1. Download [optimization.zip](https://www.cs.cmu.edu/~07380/assignments/optimization/optimization.zip), write only the 2-D version of Q1, and get `-t test_cases/q1/test2D_1` passing.
 2. Read the branch and bound example in the course notes and draw its search tree yourself before writing Q5.
 3. Before starting written problem 4, write out the Gaussian-prior-to-L2 derivation and make sure you can split the negative log posterior into "loss + penalty."
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：Canvas 課堂互動、作業解答與隱藏測資不公開。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 FOL 涵蓋 term、formula、量詞、model、substitution、unification。
@@ -246,6 +255,10 @@ definite-clause modus ponens 是 sound：`KB ⊢ f` 保證 `KB ⊧ f`；但不 c
 ## 10. 閱讀 executable lecture 的檢查表
 
 檢查型別、scope、model、propositionalization 假設與推理邊界。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

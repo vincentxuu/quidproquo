@@ -33,6 +33,21 @@ glossary:
 
 一個小提醒：post-class 版 PDF 有 60 頁，頁碼卻標到「/ 70」，最後一頁是當天的總結。後面沒放上來的部分，下一講的投影片開頭會接著講。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=WsvFL-LjA6U
+title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）](https://www.youtube.com/watch?v=WsvFL-LjA6U)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## RL 是什麼
 
 投影片的定義只有一句：**從經驗或資料學習，在不確定之下做出好的決策。**
@@ -216,6 +231,10 @@ reward：
 - [CS221 L7：MDPs 與 value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)：先修課裡的 MDP
 
 **系列導覽**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs234-course-overview)｜下一篇 [有模型時怎麼規劃：policy evaluation、PI、VI](/posts/ai/2026-09-30-cs234-mdp-planning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

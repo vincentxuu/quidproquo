@@ -28,6 +28,15 @@ glossary:
 
 上一篇 [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) 還在處理純文字的 LLM。這一篇回到 [L7](/posts/ai/2026-09-30-cmu10423-diffusion-models)、[L8](/posts/ai/2026-09-30-cmu10423-variational-inference-vae) 的 diffusion，然後加上一個新問題：**文字要怎麼控制圖片生成，圖片又怎麼被語言模型讀懂？**
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## L12 後半：條件式影像生成
 
 投影片先列出五種「給條件生成圖片」的任務：
@@ -192,6 +201,10 @@ CLIP 的 embedding 是連續的，VLM 沒辦法自然地對它定義「生成圖
 - 存取等級 A0–A3 的定義：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 系列導覽：上一篇 [HW3：用 LoRA 微調 GPT-2](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2)｜下一篇 [L14–L15：Cross-attention、DiT、Prompt-to-Prompt 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

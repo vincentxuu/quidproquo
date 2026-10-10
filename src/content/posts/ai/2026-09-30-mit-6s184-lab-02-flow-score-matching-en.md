@@ -30,6 +30,14 @@ The notebook introduces itself as an intuitive, hands-on walk-through of flow ma
 
 This post doesn't reproduce the solutions. It explains what each problem tests, where it maps to the notes, and how to check yourself against the official answers.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Before you start: three things
 
 **1. Get the notebook.** The course site links Lab 2 through Google Drive, and its instructions say to download the `.ipynb` from GitHub and open it in Jupyter or Colab. This post uses the GitHub version because the solutions live in the same repo.
@@ -203,6 +211,10 @@ Some self-checks:
 - A flow matching assignment from another course: [Berkeley CS189 HW2: regression, GMMs, and flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
 
 Series navigation: previous, [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) | next, [L3B: Guidance and Classifier-Free Guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

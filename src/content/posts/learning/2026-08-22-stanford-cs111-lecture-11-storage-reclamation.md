@@ -19,6 +19,14 @@ draft: false
 
 先說材料異常：官方 `Lecture10.pdf` 與 `Lecture11.pdf` 的 SHA-256 都是 `368092c0...e67cb`，22 頁內容逐位元組相同；calendar 卻把 4 月 22 日列為 **Dynamic Storage Management, Continued**。錄影受 Canvas 限制，無法判斷現場從哪一頁接續。因此本文不捏造 boundary tags 等 PDF 沒有的內容，而把重點放在重複 deck 後半明示的 storage reclamation。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Placement 與 reclamation 是兩個問題
 
 `allocate(size) -> ptr` 要找一塊可用空間，`free(ptr)` 要歸還它。Stack 以 LIFO 限制換得單一 pointer；heap 允許任意順序，使用 free list、first/best fit、slabs 或 bitmaps 管理 holes。這些回答「空間放哪裡」。Reclamation 問得更根本：**何時確定 object 再也不會被使用？**
@@ -63,6 +71,9 @@ PDF 給出的成本量級是：GC 可能占系統 10–20% CPU time，需要 2�
 
 這講的核心不是「GC 一定優於 manual free」。Reference count 用便宜的 local count 換來 cycle 缺口；tracing GC 用 global reachability 換來 scan、space 與 pause；manual reclamation 把判斷交給 programmer，則暴露 dangling pointer 與 leak。官方 artifact 重複使本篇短於系列常規，但上述七節已覆蓋 PDF 後半全部 reclamation agenda，沒有重複 Lecture 10 的 allocator placement 內容灌水。
 
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

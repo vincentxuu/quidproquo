@@ -22,6 +22,14 @@ The previous lecture's world was made of finitely many facts; it could be huge, 
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule); the site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and scope
 
 - The second half of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): the Among Us and Robot Cook motivation, configuration space, RRT, collision handling, completeness and optimality, RRT\*
@@ -140,6 +148,10 @@ The summary slide: RRT is not optimal; RRT\* considers minimal path cost as samp
 - Previous: [Lecture 3 guide: Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)
 - Next: [HW2 guide: Classical and Motion Planning, from robot-cook PDDL to RRT* to graphing LPs](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
 - Series overview: [CMU 07-380 Fall 2026 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

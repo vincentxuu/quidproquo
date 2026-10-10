@@ -19,6 +19,21 @@ draft: false
 
 Slide 16 carries a one-line disclaimer: OpenClaw is an open-source project that changes constantly, and the course focuses on concepts. So does this post. It only takes apart the agent mechanisms the way the lecture presents them. For OpenClaw's installation, channels, gateway, and configuration, see the site's [Reading the OpenClaw Docs](/posts/ai/2026-03-28-openclaw-overview-en) series.
 
+## Course video sources
+
+Video sources were checked against the official course page. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
+title: Lecture recording: Dissecting the Lobster (YouTube)
+```
+
+Original videos: [Lecture recording: Dissecting the Lobster (YouTube)](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## What the lobster can do
 
 The lecture opens with a live demo. Lee has OpenClaw (he calls it 小金, "Little Gold") start its own YouTube channel and make a video introducing AI agents. It writes the channel description, draws its own avatar with a tool, researches online, builds slides, writes a script, records narration with speech synthesis, renders the video, and uploads it. The human only chimes in a few times: "Sure, go ahead," "Looks good, upload it to your channel."
@@ -152,6 +167,10 @@ The last two slides (59–60) return to safety. Lee cites an incident where an A
 - The language-model prerequisite: [Introduction to Generative AI and Machine Learning 2025, Lecture 1](https://youtu.be/TigfpYPJk1s) (in Mandarin)
 
 Series navigation: previous, [series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | next, [HW1: LLM malicious instruction defense](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

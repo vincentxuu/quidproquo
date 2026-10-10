@@ -36,6 +36,14 @@ glossary:
 
 它剛好把前兩講接起來：[L9](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization) 的偏好最佳化，加上 [L10](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning) 提到的可驗證獎勵 RL，在同一個任務上各做一次。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 任務：Countdown
 
 每一題給一組數字和一個目標值，模型要寫出一串四則運算，把這些數字變成目標值。起始碼 README 的例子：目標 24、可用數字 [3, 4, 6, 8]，模型要輸出：
@@ -176,6 +184,10 @@ Survey 的日期來自 custom project 規格和首頁課表；其他日期和配
 - [CME295：偏好調整](/posts/ai/2026-09-29-cme295-preference-tuning)：DPO 家族的整理
 
 **系列導覽**：上一篇 [L10：LLM 推理的 RL 與 test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)｜下一篇 [L11：Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 11**, taught by Percy
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article keeps that boundary explicit rather than inventing evidence.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The lecture's route
 
 `main()` first reviews two-player zero-sum games, then asks whether a machine can learn an evaluation function from play. TD learning answers that question first. The learned value is then placed back into game policies. The final transition is from turn-based to simultaneous games, and from zero-sum to non-zero-sum games.
@@ -195,6 +204,10 @@ The final distinction is essential. Simultaneous zero-sum games have von Neumann
 ## The source boundary
 
 Together, the two files demonstrate a recurrence, a tabular TD update, self-play policies that maximize or minimize, expected payoff computation from a matrix, and theorem-level conclusions about minimax and Nash. They do not provide a complete deep-network training system, a general Nash solver implementation, or hidden assignment criteria. Those remain outside what this Lecture 11 artifact establishes.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

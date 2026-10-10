@@ -19,6 +19,14 @@ This is article 23 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 This remains **L2**. The four-page worksheet has P1–P7 plus an optional multi-class challenge; the five-page key answers every problem with no pset omission. The three-page guide has six concepts. Current slides are unavailable and video is Canvas-gated.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Calibration and baselines
 
 Among 60 predictions near 0.8, only 36 are positive, an observed fraction of 0.60. The bucket is uncalibrated and overconfident. Since 70% of the dataset is label 1, the always-positive baseline scores 0.70. Calibration constrains what a probability means, not whether thresholded decisions beat a baseline.
@@ -82,6 +90,10 @@ Finally compare logistic regression and networks by expressive power, parameter 
 - The worksheet has P1–P7 plus a challenge; the five-page key answers all of them.
 - The three-page guide has six concepts and no extra numbered unit.
 - Current slides are unavailable and video is Canvas-gated; only public artifacts are used.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

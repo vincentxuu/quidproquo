@@ -34,6 +34,21 @@ glossary:
 
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
+title: 第 3B 講錄影：Classifier-free Guidance (2026)
+```
+
+原始影片：[第 3B 講錄影：Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 先統一用詞：guided 不是 conditional
 
 **Remark 25** 先處理一個撞名問題。前幾講的「conditional」一直指「以單一資料點 z 為條件」，例如條件機率路徑 `p_t(x|z)`、條件向量場 `u_t^target(x|z)`。現在又多了一種條件：prompt y。為了不混淆，講義把「以 y 為條件」一律叫 **guided**。
@@ -220,6 +235,10 @@ w>1 時，`X_1` 的分佈**不再**是 `p_data(·|y)`。講義說 CFG 主要是�
 - DDPM 視角的條件生成與 guidance（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - CFG 原始論文：[Ho & Salimans, Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598)（講義參考文獻 [18]，也是 slides 的圖源）
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

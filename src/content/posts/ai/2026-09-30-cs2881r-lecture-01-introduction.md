@@ -34,6 +34,14 @@ glossary:
 
 [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 第一講（2025-09-04）的處理方式，是讓學生課前先讀立場相反的兩篇文章，再讀一篇量測方法，然後在課堂上把定義一個個拆開。這篇依序整理這三塊：課前讀什麼、Boaz 講了什麼、學生實驗做了什麼。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 這一講的材料
 
 | 材料 | 狀態 |
@@ -156,6 +164,10 @@ glossary:
 
 - 系列入口與材料缺口：[Harvard CS2881R 導讀（系列總覽）](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 本站的課程公開程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

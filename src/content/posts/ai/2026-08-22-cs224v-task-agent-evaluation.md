@@ -18,6 +18,14 @@ description: "CS224V Evaluation of Task-Oriented Agents：架構比較、Workshe
 
 第四講不是第三講的結果頁，而是在問「可靠」要怎麼量。回答自然、意圖分類正確，都不等於 agent 完成了任務；同樣地，一次成功也看不出系統是在遵守知識查詢結果，還是剛好猜對。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：先釐清架構，再設計測試
 
 講義先重訪三種架構：把整段流程寫死的 dialogue state machine、用 intents／dialogue acts 控制轉移的系統，以及 Genie Worksheets。接著逐項比較 Worksheet 的彈性、資料相依欄位與形式狀態，最後進入兩段式評估、STARv2、真人互動，以及 Homework 2。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-Worksheet2.pdf))
@@ -123,6 +131,10 @@ Semantic parsing metrics 對準第一箭頭；state consistency 看跨 turn 累�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片提供評估摘要，沒有公開完整真人對話、標註規範與統計細節；本文因此不重算或擴大解讀表格數字。沒有 Fall 2025 課堂錄影。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

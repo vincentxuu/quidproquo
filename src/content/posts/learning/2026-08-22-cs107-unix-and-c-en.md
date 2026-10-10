@@ -19,6 +19,14 @@ CS107 Lecture 2 joins two lines that may initially look separate: writing a firs
 
 This article follows the [official Winter 2026 Lecture 2 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/02/Lecture02.pdf) in full. It does not treat C as a smaller C++, nor binary conversion as an isolated arithmetic puzzle. The organizing question is consistent: when a language removes some high-level protection, which layers must the programmer manage directly?
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture metadata and source limits
 
 - Course: Stanford CS107: Computer Organization and Systems
@@ -293,6 +301,10 @@ The next lecture continues through integer representations, unsigned and signed 
 1. Use `man printf` to verify the argument types for `%d`, `%s`, and `%zu` against your code.
 2. Test unquoted text, double quotes, an empty string, and a wildcard as shell arguments; record what happens before program launch.
 3. Draw a source → preprocessing/compilation/linking → executable → process troubleshooting map, marking details not supplied by this lecture for later verification.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

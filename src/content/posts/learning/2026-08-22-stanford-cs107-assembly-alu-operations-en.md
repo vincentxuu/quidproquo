@@ -19,6 +19,14 @@ The same `%rax` storage can be named `%eax`, `%ax`, or `%al`. The same short bit
 
 For every instruction, ask four questions in order: what is the operand width, where is the source, where is the destination, and does a parenthesized expression merely calculate an address or actually dereference it? That procedure explains `movzbl`, `leaq`, `addq`, and `sar` without treating the names of subregisters as independent storage.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, gaps, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -221,6 +229,10 @@ The shift reads `%cl` and masks the count for destination width. In the slides' 
 6. For a binary ALU form, calculate `D op S` and write it back to the second operand.
 7. For a shift, distinguish `sar` from `shr` and check whether the count is immediate or `%cl`.
 8. Only then use the ABI and neighboring instructions to name semantics.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

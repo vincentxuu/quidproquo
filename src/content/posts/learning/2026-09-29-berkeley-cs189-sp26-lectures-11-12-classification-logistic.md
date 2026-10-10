@@ -26,6 +26,26 @@ draft: false
 2. 為什麼 logistic regression 比 LDA「更一般」，卻不一定比較好。
 3. 為什麼 95% 準確率可能代表一個完全沒用的分類器。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=oid6SvXy8Kw
+title: 影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=xBCpwQt8A5w
+title: 影片
+```
+
+原始影片：[影片](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[影片](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 官方材料與讀取範圍
 
 | 講次 | 日期 | 講題 | 材料 | 排程頁的 Bishop 閱讀 |
@@ -203,6 +223,10 @@ Discussion 5 雖然排在 Lec 11 那週，三題的內容都是回歸與估計�
 
 - 上一篇：[HW1 導讀：線代／微積分／機率熱身 + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
 - 下一篇：[Lec 13、15：收斂、Momentum、Adam、SGD，用 GD 學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

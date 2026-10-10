@@ -34,6 +34,26 @@ Access level: **A3**. Slides and handout download anonymously. The 2026 recordin
 
 There are two companion videos, both **supplements**: [Spring 2025 Lecture 6: Q-Learning](https://www.youtube.com/watch?v=-7kv6jf0isQ) (about 62 minutes) and [Spring 2025 Tutorial Session: Review of Q-Learning](https://www.youtube.com/watch?v=07MQNMcxhZU) (about 51 minutes). Both are 2025 recordings and may differ from the 2026 slides and handout. This post follows the 2026 materials.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=-7kv6jf0isQ
+title: Spring 2025 Lecture 6: Q-Learning (YouTube, supplement)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=07MQNMcxhZU
+title: Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 6: Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=07MQNMcxhZU)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: can we skip learning a policy?
 
 The last post ended at SAC-style off-policy actor-critic: the critic learns Q and the actor climbs toward higher Q. Slide 6 asks the next question: **if Q already tells you the best action, do you need a separate policy at all?**
@@ -208,6 +228,10 @@ Related reading on this site:
 Confirmed: the text, equations, and figure titles in the 2026 slides and TA handout; the schedule's dates, room, and readings; and the titles and lengths of the two 2025 videos. Not confirmed: the in-class answer to the slide 7 exercise, anything said in the TA section, and the details of the handout's DQN and SAC walkthroughs. Slide 2's course reminders mention sharing "written notes from last year's head CA." Those notes do not appear on the public site.
 
 Series navigation: previous [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) | next [HW2: Gridworld Q-learning, PPO, and the Sawyer Hammer Task](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

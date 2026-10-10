@@ -19,6 +19,15 @@ This is a chapter-by-chapter reading of Chapter 10, printed pages 147–149, in 
 
 Chapters 8 and 9 studied generalization and model selection with labeled data. Chapter 10 begins unsupervised learning. Given only $x^{(1)},\ldots,x^{(n)}$ and no targets $y$, the task is to organize the observations into $k$ internally cohesive groups.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## The algorithm alternates hard assignments and means
 
 k-means initializes centers $\mu_1,\ldots,\mu_k$ and repeatedly performs two updates:
@@ -64,6 +73,10 @@ Chapter 9 selected among candidate models using validation data. Chapter 10 assu
 ## Self-study exercise
 
 Create two two-dimensional datasets: three similarly sized circular clusters and two elongated, overlapping crescent shapes. Run k-means from ten random initializations on each dataset. Record final distortion and inspect the assignments. Ask whether the lowest-distortion result always matches the grouping you intended.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

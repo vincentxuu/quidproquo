@@ -21,6 +21,26 @@ This is post 1 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 
 There is no math in this lecture. It wants you to leave with two ideas: learning means finding a function, and you only know which model to pick after you write the task as "input domain → output domain."
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Nls5bHxW6i0
+title: ADL 1.1: What is ML? (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=asuLb0lLmJY
+title: ADL 1.2: What is DL? (YouTube)
+```
+
+Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? (YouTube)](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? (YouTube)](https://www.youtube.com/watch?v=oT4UQj_PXYo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## When you can't write the rules, let the machine find the function
 
 Page 5 opens with sentiment classification of product reviews. "I love this product!" is easy to handle with a rule: if the text contains "love" or "like," output positive. "It claims too much." works too: "too much" or "bad" means negative. But what about "It's a little expensive."? The Chinese examples, written in the style of Taiwanese forum comments, push the point further. "First wave of launches in Taiwan!" is an upvote, "The specs are pretty useless…" is a downvote, but what do you do with "I'll consider it once the guy downstairs buys one"?
@@ -100,6 +120,10 @@ Pages 40–41 define "applied deep learning" as framing a task into a learning p
 
 Previous: [Reading NTU Yun-Nung Chen's Applied Deep Learning 2025 Fall: Course Map, A2 Rating, and How to Read It](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,22 @@ draft: false
 
 第五講說明資料搬運、tiling 與 fusion；第六講要求你實際量測並寫 kernel。順序不能顛倒：沒有可靠 benchmark 與 profiler，手寫 kernel 只是在替猜測最佳化。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=xnDHaNUvHBg
+title: CS336 Spring 2026 Lecture 6: Kernels, Triton, XLA
+```
+
+原始影片：[CS336 Spring 2026 Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 正確性、效能與診斷是三層工作
 
 PyTorch 提供 tensor semantics 與成熟 kernels，先建立正確基線。Triton 讓程式設計者以 thread blocks 和 tiles 思考，控制資料如何從 HBM 載入、在較快的記憶體計算、再寫回。更底層的 PTX 能揭露 load/store 與 registers，但通常不是第一個起點。
@@ -59,6 +75,10 @@ Triton 降低了 CUDA 的語法負擔，沒有移除硬體限制。第六講真�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義，包含可執行 benchmark、profiler 與四組 Triton 範例。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

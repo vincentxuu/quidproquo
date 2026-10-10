@@ -25,6 +25,14 @@ The checklist says so directly:
 
 > "For emphasis: the midterm is not about memorization but will be designed to test your conceptual and analytical understanding."
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **Scope**: the [midterm checklist](https://harvard-ml-courses.github.io/cs181-web/static/midterm_checklist/midterm_checklist.pdf) has four blocks: Regression, Classification, Neural Networks & Model Selection, and SVMs. Each splits into "items to know" and "things to work through when given formulas," and some list "out of scope" items.
@@ -113,6 +121,10 @@ One honest caveat: the checklist carries no year, and its SVM and Bayesian items
 - Next: [HW4 (Part 1): Transformers, from hand-computed attention to multi-head](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 - Look back: [HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en), [HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en), [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

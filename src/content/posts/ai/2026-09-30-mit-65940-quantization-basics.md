@@ -32,6 +32,21 @@ glossary:
 
 實際上第 5 講只講完前兩種。第 69 頁的總結只列 K-means 與線性量化，第 68 頁的比較表在二值／三值那一欄打了問號；[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)的 Lecture Plan 才把二值與三值量化列為正式項目。本篇照投影片實際內容走，二值／三值留到下一篇。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=ymAzUz3qlIA
+title: EfficientML.ai Lecture 5 錄影（Fall 2024）
+```
+
+原始影片：[EfficientML.ai Lecture 5 錄影（Fall 2024）](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 為什麼位元數這麼重要
 
 第 3 頁引用 [Horowitz 在 ISSCC 2014 的演講論文](https://doi.org/10.1109/ISSCC.2014.6757323)，列出 45nm 製程下各種運算的能量。最醒目的一組對比：8-bit 整數加法 0.03 pJ，32-bit 浮點加法 0.9 pJ，差 30 倍。乘法也是同樣方向，8-bit 整數乘法 0.2 pJ、32-bit 浮點乘法 3.7 pJ。
@@ -200,6 +215,10 @@ Fall 2026 的 Lab 2 標為 Quantization，截至 2026-09-30 尚未放出；Fall 
 - 從使用者角度看量化格式（GGUF、Q4/Q8）：[理解 AI 模型：量化](/posts/ai/2026-08-26-understanding-ai-models-quantization)
 - LLM 系統課的量化講法：[CMU 11-868 導讀：模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 同一套思路的上一站：[第 4 講：剪枝比例與系統支援](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -45,6 +45,26 @@ glossary:
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)保留「Vision Transformer」（11 月 5 日，第 16 講），但 **GAN、Video、Point Cloud 這一講被拿掉**，第 17、18 講改成 Diffusion Model Part I／II。截至 2026-09-30 這幾講都還沒上線。想學第 17 講的內容，目前只能用 Fall 2024 的材料。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=v0jYDgaVzlk
+title: 第 16 講錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o_60Yhb79W8
+title: 第 17 講錄影
+```
+
+原始影片：[第 16 講錄影](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[第 17 講錄影](https://www.youtube.com/watch?v=o_60Yhb79W8)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 為什麼這兩講放在一起
 
 前面十五講的主角是 CNN 分類器和 LLM。這兩講換成「視覺任務的特殊結構」：高解析度影像、生成模型、影片、3D 點雲。L17 第 2 頁把思路講得很清楚：每種資料都有自己的冗餘，GAN 有 2D 空間冗餘，影片有時間冗餘，點雲有 3D 空間冗餘（而且極度稀疏）。找到冗餘，就知道從哪裡省。
@@ -188,6 +208,10 @@ return out
 - ViT 與自監督：[CS231N L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)、[CS231N L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 - GAN：[CS231N L13：自迴歸、VAE 與 GAN](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
 - 影片與 3D：[CS231N L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)、[CS231N L15：3D 視覺](/posts/ai/2026-09-30-cs231n-3d-vision)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

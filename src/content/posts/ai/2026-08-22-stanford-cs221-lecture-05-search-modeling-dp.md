@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：source 只提供這份可執行講義的內容；本文沒有補寫 source 未展示的 route 作業解答、其他課堂投影片或未公開實驗結果。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 動機：為什麼現在還要談 search
 
 上一講是 machine learning：學習演算法從訓練資料 `{(input, output)}` 得到 predictor，predictor 再把輸入映射成數值或類別。但真實問題常常不能只靠一次反射式映射完成，還需要 reasoning：思考、解題與規劃。這一講把焦點轉到 deterministic world 裡的一種 reasoning：search。
@@ -106,6 +115,10 @@ beam width=1 時等同 greedy search；beam width 趨近無限時，會走向 ex
 讀到一個新問題時，依序問：start state 是什麼？每個 state 的 successors、actions 與 costs 是什麼？什麼叫 end？solution 是哪一串 actions？cost 如何加總？state 是否保留了 ticket、上一動作或其他會改變未來的資訊？如果 state 數放得進 memory，且存在大量重複子問題，可以用 DP；否則 exact search 可能不可行，再考慮 best-of-n 或 beam search。
 
 本講的核心不是「DP 永遠優於 recursion」，而是建模決定了哪些歷史能被壓縮，壓縮後才有機會 cache。exhaustive search 給 exact baseline，但可能 exponential；DP 在 state 小且路徑重合時把重複工作消掉；best-of-n 與 beam search 則用有限計算換近似答案。learning 可以提供 costs，search 再在這些 costs 上找 solution。下一講才處理 cycles：A → B → C → A。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

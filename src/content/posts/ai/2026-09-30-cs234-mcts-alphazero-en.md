@@ -34,6 +34,27 @@ Official materials used: the [Lecture 13 slides (post-class)](https://web.stanfo
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): both decks are public. The gap is that 2026 recordings are on Canvas only. The decks' Class Structure slides also show that in 2026 MCTS shared its sessions with guest lectures (Lecture 13 with Shane Gu's world-models talk, Lecture 14 with part 2 of the ethics and society guest lecture), which is why both PDFs are shorter than usual.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=UgANzoWc0nc
+title: Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: the first 15 minutes of video 15
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc)、[the first 15 minutes of video 15](https://www.youtube.com/watch?v=FOlPpjNbHjE)
+
+Course and recording entries:
+
+- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## A different question: plan only for this move
 
 Slide 5 of Lecture 13 states the turn in one line. So far the course has computed a policy for the **whole state space**. The key idea now: use extra **local computation** to make a better decision **right now**.
@@ -173,6 +194,10 @@ One thing to try tonight: write MCTS for tic-tac-toe, with UCT for selection and
 - Another course that goes from MDPs and Q-learning to AlphaZero: [CMU 07-280 Stage Review III: From MDPs and Q-learning to AlphaZero](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero-en)
 - Other uses of planning and models in deep RL: [CS224R L11: Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en)
 - The world-models guest lecture later in this series: [Guest lecture: Shane Gu, "World of World Modeling"](/posts/ai/2026-09-30-cs234-guest-world-models-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

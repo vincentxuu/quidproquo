@@ -34,6 +34,21 @@ The star is **classifier-free guidance (CFG)**. Its derivation needs only two th
 
 The time convention matches the rest of the series: t=0 is noise, t=1 is data.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
+title: Lecture 3B recording: Classifier-free Guidance (2026)
+```
+
+Original videos: [Lecture 3B recording: Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## First, vocabulary: guided is not conditional
 
 **Remark 25** fixes a naming clash. In earlier lectures, "conditional" meant conditioning on a single data point z, as in the conditional probability path `p_t(x|z)` and the conditional vector field `u_t^target(x|z)`. Now there's a second kind of condition: the prompt y. To keep them apart, the notes call conditioning on y **guided**.
@@ -220,6 +235,10 @@ Both the notes and slides use Stable Diffusion 3 as an example. Slides 3 gives S
 - Conditional generation and guidance from the DDPM perspective (time runs the opposite way): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - A general introduction to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - The original CFG paper: [Ho & Salimans, Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) (reference [18] in the notes and the image source for the slides)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

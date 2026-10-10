@@ -40,6 +40,15 @@ glossary:
 
 本文只講每題在練什麼、需要哪些前一講的工具、做的時候容易卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 繳交方式與配分
 
 作業分三份交到 Gradescope：
@@ -197,6 +206,10 @@ glossary:
 
 - 同一套 MDP、value iteration 與 Q-learning 在另一門課的講法：[CS221 第 7 講：MDP 與 value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)
 - 深度 RL 的完整課程路線與作業：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

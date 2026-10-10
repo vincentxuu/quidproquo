@@ -24,6 +24,14 @@ The site's [map of Stanford's CS courses](/posts/learning/2026-08-20-stanford-cs
 
 **Scope first.** Everything here comes from public web pages: the Spring 2026 course site, the nine assignment handouts, all the lecture PDFs, the public exam archive with solutions, the Honor Code page, the ExploreCourses entry, and a second CS111 site that David Mazières put up in 2021 and that is still live. **Not read: the lecture recordings** (behind Canvas), **the weekly section handouts** (behind Stanford login), and **the starter code** (on the campus myth cluster). So the difficulty claims below are inferred from assignment specs, dependency chains, and grading rules — they are not a student's account of taking the course.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## The hard facts
 
 The instructor is [Mendel Rosenblum](https://stanford.edu/~mendel). One line from his bio is worth holding onto: co-founder of VMware, and its chief scientist for the company's first decade. That fact pays off in lecture 27.
@@ -178,6 +186,10 @@ When you're done, the next step isn't hunting for starter code. Go to the exams 
 - **Archive URL format**: `web.stanford.edu/class/archive/cs/cs111/cs111.1266/` (1266 = Spring 2026). The CS110 archive is `cs110.1204` (Winter 2020), reachable at the time of writing.
 - **A mislabeled holiday**: the Spring 2026 calendar marks May 25 as Presidents' Day; that date is actually Memorial Day (Presidents' Day is in February). The cancellation is right, the label isn't.
 - **Three things I could not confirm**: (1) whether the auditor clone path with `guest` in place of `$USER` still works — I have no SUNet ID and couldn't test it; (2) how often the email request for recording access is actually granted; (3) the Winter 2026 offering (`cs111.1264`) numbers its assignments differently from Spring 2026 (V6 file systems is assign1, the journaling file system is assign2). I could only reach those two archived handouts, not that quarter's full calendar, so I can't tell whether the whole sequence was reordered.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

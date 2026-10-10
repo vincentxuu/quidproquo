@@ -40,6 +40,27 @@ glossary:
 
 課程最後兩講不再教新演算法，而是把前面的東西往外推：視覺模型要怎麼跟行動接起來，又要為誰服務。同一段時間，修課生手上最重的是期末專題，占總成績 35%。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=XSfmOH_xVSU
+title: CS231N Spring 2025 Lecture 17 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
+title: CS231N Spring 2025 Lecture 18 錄影：Human-Centered AI（Fei-Fei Li）
+```
+
+原始影片：[CS231N Spring 2025 Lecture 17 錄影](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[CS231N Spring 2025 Lecture 18 錄影：Human-Centered AI（Fei-Fei Li）](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+
+課程與錄影入口：
+
+- [CS231N Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 2026 L17：World Modeling，只有一行課表
 
 2026 年 5 月 28 日這堂，課表只寫兩行：「Lecture 17: World Modeling」、「Guest Lecturer: Prof. Gordon Wetzstein」。沒有子題、沒有投影片、沒有建議閱讀。同一天 A3 截止。
@@ -153,6 +174,10 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 
 - 強化學習與機器人學習的完整課程：[Berkeley CS285 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - 一般深度學習與研究專案的另一種寫法：[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

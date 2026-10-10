@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 10 on February 5, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture10-rag-agents.pdf) is titled **RAG and Language Agents**. Its agenda closes adapters, then covers question answering and RAG, language agents, reasoning and planning, memory, tool use, and agent data and evaluation.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## RAG moves the knowledge source outside the model
 
 Answering only from parameters is limited by training time and capacity and makes specific evidence difficult to identify. [RAG](https://arxiv.org/abs/2005.11401) retrieves documents for a question and places results into the generation context. A typical pipeline contains an index, retriever, context construction, and generator.
@@ -88,6 +97,10 @@ Answer from three local documents using only `search` and `open`, a five-step bu
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the adapter recap and all six formal agenda topics without reconstructing live demos or spoken cases. The safety-boundary discussion is an engineering implication of the architecture, not presented as an experimental result from the slides.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

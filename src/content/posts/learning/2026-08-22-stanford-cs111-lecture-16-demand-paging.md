@@ -17,6 +17,14 @@ draft: false
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 17 篇，對應 **Stanford CS111, Spring 2026, Lecture 16**。2026-05-04 由 Mendel Rosenblum 主講，官方題目是 [Demand Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/16/Lecture16.pdf)。官方 Lecture 16/17 PDFs 逐位元組相同；錄影又不公開，因此無法證明實際口述分界。為避免重複，本文聚焦 fault/fetching mechanism，[Lecture 17](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement)承擔 replacement policy。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 從位址空間到真正的虛擬記憶體
 
 前幾講把每個行程看到的虛擬位址，透過頁表映射到實體頁框。若要求行程的所有頁面都常駐 DRAM，這仍主要是隔離與重新定位技術。Demand paging 再往前一步：行程可以在資訊尚未全部進入記憶體時開始執行。近期用到的頁面留在 DRAM，閒置頁面的內容則位於可執行檔或 backing store；投影片也把後者稱為 swap space。
@@ -66,6 +74,8 @@ Demand paging 的 fetching path 可濃縮成一條迴路：present bit 讓硬體
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 duplicate-deck review 收斂為 page-fault、fetching 與 prefetch mechanism；replacement 轉交 Lecture 17。
 
 ## 參考資料

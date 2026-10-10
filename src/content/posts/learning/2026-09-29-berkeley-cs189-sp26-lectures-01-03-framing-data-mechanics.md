@@ -29,6 +29,26 @@ draft: false
 
 課本是 Bishop 與 Bishop 的《Deep Learning: Foundations and Concepts》，[bishopbook.com](https://www.bishopbook.com) 有免費的線上閱讀版。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=IzfaWKuxThw
+title: 影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=oVo_RajZ3aE
+title: 影片
+```
+
+原始影片：[影片](https://www.youtube.com/watch?v=IzfaWKuxThw)、[影片](https://www.youtube.com/watch?v=oVo_RajZ3aE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## Lec 1：什麼問題該交給 ML
 
 Lecture 1 給的定義很短：機器學習是透過資料改進（學習）的軟體系統。它用兩個經典例子說明為什麼需要這件事：垃圾郵件很難定義，卻很容易舉例；人臉偵測很難寫成程式，卻很容易示範。
@@ -148,6 +168,10 @@ Lecture 3 最後幾頁在講作業：Part 1 是講課內容的應用（書面題
 - [Stanford CS109 L3：貝氏定理](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem)：Discussion 1 機率題的前置
 - [Stanford CS229 講義 Ch.1：線性回歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)：另一門課怎麼從線性模型起步
 - [CMU 11-785 L1：導論](/posts/ai/2026-08-22-cmu-11785-01-introduction)：從深度學習角度看同一批基本概念
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

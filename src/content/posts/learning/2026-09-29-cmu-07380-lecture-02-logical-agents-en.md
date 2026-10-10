@@ -20,6 +20,14 @@ This is Lecture 2 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fa
 
 Everything below follows the course site and materials as fetched on 2026-09-29.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 - [Lec2 slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents.pdf) and the [inked version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents_inked.pdf) (pptx is also on the site)
@@ -172,6 +180,10 @@ One thing to watch in the [Recitation 1 solutions](https://www.cs.cmu.edu/~07380
 3. Write a DPLL in under 20 lines. Start with early termination and branching only, then add unit clauses, and compare recursion counts on the same CNF.
 
 Previous: [Lecture 1 guide: Introduction](/en/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en). Next: [HW1 guide: Logic and the Hybrid Wumpus Agent](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

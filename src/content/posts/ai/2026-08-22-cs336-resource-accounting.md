@@ -19,6 +19,22 @@ draft: false
 
 第一講把 efficiency 放到課程中央；第二講立刻要求你把它算出來。問題不再是籠統的「這個模型很大」。你要問訓練 70B 模型需要多少運算、八張 H100 裝得下多大的 AdamW 模型，以及操作受算力或記憶體頻寬限制。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=kuYAsz7zspQ
+title: CS336 Spring 2026 Lecture 2: PyTorch (einops), Resource Accounting
+```
+
+原始影片：[CS336 Spring 2026 Lecture 2: PyTorch (einops), Resource Accounting](https://www.youtube.com/watch?v=kuYAsz7zspQ)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 所有東西最後都是 tensor
 
 資料、參數、梯度、activation 與 optimizer state 都存在 tensor 裡。估算記憶體只需要兩個量：元素數量與每個元素的 bytes。fp32 每個值 4 bytes；fp16 和 bf16 是 2 bytes。bf16 保留接近 fp32 的動態範圍，解析度則較低，因此深度學習常用 bf16 儲存參數、activation 與梯度，optimizer state 留在 fp32。
@@ -76,6 +92,10 @@ Optimizer 的算術成本通常不像矩陣乘法那麼大，卻可能受 memory
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依講義的 PyTorch 範例與總結整理，未混用其他學期版本。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

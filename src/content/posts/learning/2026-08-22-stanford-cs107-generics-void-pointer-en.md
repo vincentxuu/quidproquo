@@ -19,6 +19,14 @@ Separate `swap` functions for `int`, `double`, and string pointers are safe but 
 
 This is not lightweight syntax comparable to Java generics. Once type information is erased, the compiler can check less. A wrong width, cast, or lifetime may compile. The lecture therefore closes the previous heap discussion before introducing generics. Both halves ask the same systems question: when the language does not remember a resource or type for you, how must the program restore that missing information in its contract?
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -177,6 +185,10 @@ Lecture 11 is therefore not primarily a list of five library functions. Abstract
 ## Further exercises
 
 Write `append` for a growing `int` buffer, receive `realloc` through a temporary, and identify the owner on every failure path. Then replace typed swaps with a generic core and record what the compiler can no longer check. Finally ask what information a generic bubble sort still lacks after receiving a base, element count, and width.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

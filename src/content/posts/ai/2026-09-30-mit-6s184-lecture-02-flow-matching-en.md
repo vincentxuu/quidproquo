@@ -36,6 +36,21 @@ This lecture answers one question: **how do we tune θ so that the ODE endpoint 
 
 Keep the time direction in mind: in this course **t=0 is noise and t=1 is data**. Much of the diffusion literature uses the reverse, so be careful when you compare with other material.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=PNkMKWW8Khw
+title: Lecture 2 recording: Flow Matching (2026)
+```
+
+Original videos: [Lecture 2 recording: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## One table for the whole lecture
 
 Slides 2 organizes the lecture as a 2×3 "Flow Matching Matrix". The top row is "conditional", meaning a **single data point**. The bottom row is "marginal", meaning **the whole data distribution**.
@@ -255,6 +270,10 @@ The three Gaussian-path formulas (eq. 35–37):
 - A broad introduction to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 
 Series navigation: previous, [Lab 1: Simulating ODEs and SDEs](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en) | next, [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

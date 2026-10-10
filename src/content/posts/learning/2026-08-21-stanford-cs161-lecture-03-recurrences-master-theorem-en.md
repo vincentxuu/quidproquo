@@ -21,6 +21,14 @@ One source discrepancy belongs up front. The component and slides identify the l
 
 Lecture 2 computed MergeSort's entire recursion tree. Lecture 3 turns that calculation into a reusable method: translate code into a recurrence, then identify which levels dominate the total work. The Master Theorem is the shortcut. Substitution is the proof route that remains when the shortcut does not fit.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
+
 ## A recurrence includes more than its right-hand side
 
 Suppose a divide-and-conquer algorithm creates `k` smaller problems of sizes `n₁,...,n_k` and performs `O(f(n))` additional work at the current level. Its worst-case time can be written as:
@@ -226,6 +234,10 @@ Do not begin your self-test by memorizing the three cases. Draw trees for `T(n)=
 For an irregular recurrence, two first moves are useful. Expand the first few levels and ask whether total level costs form a geometric pattern. Then make an upper-bound guess with an adjustable constant and, if necessary, a lower-order correction. Neither step guarantees an immediate solution, but both prevent the common mistake of searching for a formula before modeling the algorithm correctly.
 
 The Master Theorem is not the endpoint of recurrence analysis. Tools such as Akra–Bazzi handle more general unequal-size recurrences, but they are outside Winter 2026 Lecture 3. Treat such a tool as a different theorem with different conditions, not as an informal extension of these three cases.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

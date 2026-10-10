@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 15**, taught by Percy
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Why logic: the lecture's starting problem
 
 The lecture begins with AI's basic loop—perceive, reason, act, and learn. The previous lecture covered probabilistic reasoning with Bayesian networks; this one turns to logical reasoning, first propositional logic and later first-order logic. The change is not a rejection of probability. AI also needs a language in which knowledge and rules can be stated explicitly and conclusions can be derived from them.
@@ -134,6 +143,10 @@ The ideal is equality: everything derived is true, and everything true in the se
 The public source has a clear chain: motivation through reasoning; the three ingredients of a formal language; propositional syntax and its five connectives; semantics through `I`, `get_models`, and KBs; entailment, contradiction, contingency, Ask/Tell; the Bayesian-network comparison; satisfiability and Z3 model checking; then modus ponens, forward inference, soundness, and completeness.
 
 It does not provide Canvas interactions, assignment solutions, hidden tests, or a CNF-conversion implementation in `propositional_logic.py`. It also does not walk through unit propagation, backtracking, DPLL branching, or CDCL learning. Those topics should not be filled in from another offering or from intuition. The computational limit already present in this lecture is enough to state precisely: formulas can be compact representations, while direct model enumeration can be exponential; SAT solvers make the existence of at least one satisfying assignment the central computational question.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

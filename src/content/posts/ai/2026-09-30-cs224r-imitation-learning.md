@@ -46,6 +46,21 @@ glossary:
 
 課表在這一講列了兩篇 optional reading：[Diffusion Policy（Chi et al.）](https://arxiv.org/abs/2303.04137v5) 和 [Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware（Zhao et al.，也就是 ALOHA/ACT）](https://arxiv.org/abs/2304.13705)。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=WxRDyObrm_M
+title: Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 第一個問題：平均值不是答案
 
 L1 最後的結論是：離散動作可以用 categorical 分佈表示，表達力最強；連續動作如果讓網路輸出 μ 和 σ，得到的是單峰的 Gaussian，表達力不夠。
@@ -204,6 +219,10 @@ print("落在平均值附近 ±0.2 的示範比例:", np.mean(np.abs(a - a.mean(
 - [CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)：同一套雜訊與去噪框架用在語言模型
 
 **系列導覽**：上一篇 [L1：把做決策寫成 RL 問題](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)｜下一篇 [HW1：Flappy Bird 模仿學習](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

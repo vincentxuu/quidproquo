@@ -43,6 +43,14 @@ glossary:
 
 **Fall 2026 對照**：[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)的 lab 清單寫 Lab 4「Quantization」、Lab 5「LLM deployment on laptop」，排程上 Lab 4 在 10 月 27 日發布、Lab 5 在 11 月 5 日發布。截至 2026-09-30 兩者都還沒有連結。Lab 4 的標籤和 Lab 2 重複，內容是否仍是 AWQ 要等放出才知道。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 兩份 lab 怎麼接起來
 
 第 13 講說過，量化只省空間，要變快還得有推論引擎。這兩份 lab 剛好是這句話的兩半：
@@ -182,6 +190,10 @@ docx 附了 `./evaluate.sh reference` 的範例輸出：reference 跑 100 次、
 - 同系列：[L13 LLM 部署](/posts/ai/2026-09-30-mit-65940-llm-deployment)（AWQ、TinyChat 原理）、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)（loop、multithreading、SIMD）、[Lab 2：K-means 與線性量化](/posts/ai/2026-09-30-mit-65940-lab2-quantization)（量化基本功）
 - 同樣在講 GPU 上怎麼判斷瓶頸：[Fall 2026 Lab 1 補充](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
 - 其他課的量化與推論：[CMU 11-868 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)、[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

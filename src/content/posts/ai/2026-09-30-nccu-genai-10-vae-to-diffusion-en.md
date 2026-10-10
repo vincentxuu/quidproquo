@@ -31,6 +31,21 @@ glossary:
 
 It draws on four official sources: [video 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk) (2025-04-22, about 2 h 54 min), the 78-page GenAI10 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08), and the week 10 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08 was last committed on 2025-04-28. **What follows quotes the current repo version.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
+title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
+```
+
+Original videos: [【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 The slides have six parts: embeddings, the autoencoder, the VAE, the sudden arrival of diffusion models, how diffusion works, and latent diffusion models. The video timeline lines up roughly like this:
@@ -207,6 +222,10 @@ This guide stands on its own. To go deeper, the site has these:
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L09 Why 2025 was called the year of AI agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en) | Next: [L11 Text-to-image AI: principles and practice](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 14**, listed on the o
 
 > Material gap: the official course page, lectures repository, and executable lecture artifact are public; Canvas recordings, classroom whiteboard interactions, assignment solutions, and hidden tests are not part of this public source. I do not fill those gaps with another year's lecture notes.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Put the Bayesian network back in context
 
 The lecture does not begin with EM. It first reviews what is being learned. Given random variables (X=(X_1,\ldots,X_n)), define a directed acyclic graph and a local conditional distribution for every node:
@@ -121,6 +130,10 @@ There is an identifiability limit as well. The hidden label names are arbitrary.
 The source sequence can be used as an implementation checklist. First ask whether every variable is observed. If yes, count each `(parameter_name, parent_values, value)` assignment and normalize each local bucket. Next decide whether local parameters are shared; that decision determines which observations are pooled. If zero estimates are a problem, seed the counts with pseudocounts and understand the limiting behavior as \(lambda\) changes. If a variable is hidden, do not fabricate its label: optimize the observed-data likelihood, compute posterior weights in the E-step, and run weighted count + normalize in the M-step.
 
 The same checklist also marks the limits supported by this material. Fully observed learning has a closed-form local estimate; incomplete-data learning has a marginalization term inside the log. EM can increase likelihood without reaching the global optimum, its result depends on initialization, and the names of hidden states are permutation-symmetric. The source does not discuss continuous variables, missingness mechanisms, general numerical optimizers, or extra convergence diagnostics here, so those topics remain outside this lecture reconstruction.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

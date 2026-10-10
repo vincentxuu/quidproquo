@@ -19,6 +19,14 @@ This is article eighteen in [Reading Stanford CS161](/en/series/stanford-cs161),
 
 I read the public [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf), and [official component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md). I did not watch the Canvas recording.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
+
 ## Stability is not universal happiness
 
 The model has `n` doctors and `n` one-position hospitals, each with complete strict rankings. A blocking pair strictly prefers each other to their assigned partners. A matching is stable when none exists. Stability neither maximizes total score nor gives everyone a first choice; it prevents a mutually preferred deviation. Ties, couples, incomplete lists, and the full real NRMP model are outside the formal treatment.
@@ -76,6 +84,10 @@ Choosing an arbitrary free doctor does not change the guarantees. Proposal trace
 ## Beyond the lecture
 
 Small-instance tests can enumerate all matchings, verify completeness and absence of blocking pairs, and compare all stable outcomes to check proposing-side optimality. Real markets with capacities, ties, or couples need stronger models; these are engineering and research directions, not claims from this lecture.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

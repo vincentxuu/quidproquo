@@ -39,6 +39,15 @@ glossary:
 
 **系列位置**：上一篇 [價值對齊：對齊誰、對齊什麼](/posts/ai/2026-09-30-cs234-value-alignment-ethics)｜這是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 這場客座放在哪裡
 
 [講義頁](https://web.stanford.edu/class/cs234/modules.html) 把這份 PDF 單獨列成一列「RL Guest Lecture」，連結名稱是「Shane Gu: World of World Modeling」，旁邊沒有錄影連結。投影片封面寫的是 **2026 年 2 月 25 日**，講者是 Google DeepMind 的 Senior Staff Research Scientist Shane Gu。
@@ -188,6 +197,10 @@ p.28 標題寫明「untested」：用 GDT 的策略函數去搜尋「到得了�
 - goal-conditioned RL 與 hindsight relabeling 的完整講法：[CS224R L12：多任務與 Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
 - 從電腦視覺角度看世界模型與機器人學習：[CS231N 收尾：World Modeling／Robot Learning](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
 - 深度 RL 的完整課程路線：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

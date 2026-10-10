@@ -17,6 +17,21 @@ draft: false
 
 Lecture 5 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Reinforcement Learning: Learning from Return Instead of Labels**. It Connects agent, environment, state, action, reward, and policy into an interaction loop, introducing credit assignment and exploration. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=1ij3dweHu-0
+title: Lecture 5 official video
+```
+
+Original videos: [Lecture 5 official video](https://www.youtube.com/watch?v=1ij3dweHu-0)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## What to take away
 
 - Separate immediate reward from long-term return
@@ -41,6 +56,10 @@ Define state, action, reward, and termination for a simple game. If the reward c
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

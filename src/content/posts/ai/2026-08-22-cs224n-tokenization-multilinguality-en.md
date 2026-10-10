@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that lecture 14 was guest-taught by Julie Kallini on February 19, 2026. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture14-guest-julie-tokenization-multilinguality.pdf) has five agenda parts: word/character-byte/subword tokenization, BPE training, spelling and glitch-token cases, multilingual and cross-lingual transfer, fairness, and multilingual tokenizer challenges.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Segmentation decides what the model sees
 
 Word tokens are interpretable but struggle with unseen forms and morphology. Character or byte vocabularies are small and nearly eliminate OOVs, but produce longer sequences. Subwords sit between: frequent strings merge and rare forms decompose.
@@ -92,6 +101,10 @@ Hand-run ten merges, train balanced and imbalanced multilingual tokenizers, then
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all five agenda sections in Julie Kallini's deck; live language examples and discussion are not reconstructed.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

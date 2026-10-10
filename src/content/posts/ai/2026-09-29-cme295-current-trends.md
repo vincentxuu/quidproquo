@@ -38,6 +38,21 @@ glossary:
 
 這堂課不在考試範圍，內容也最雜。本篇只挑兩條主線細講，Vision Transformer 與 diffusion LLM，其餘趨勢快速帶過。diffusion 的數學細節，會留到 2026 版新開的整講上架後再寫。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
+title: 2025 版第 9 講錄影
+```
+
+原始影片：[2025 版第 9 講錄影](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 八張圖複習一整學期
 
 投影片的回顧很有效率：每一講只留一張圖或一個關鍵字，依序堆成一條時間軸。照著它排，就是本系列前八篇的目錄：
@@ -254,6 +269,10 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 - 影像 diffusion 的數學：[CS229 第 14 章：擴散模型](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 推論成本為什麼卡在記憶體：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - 回到起點：[本系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

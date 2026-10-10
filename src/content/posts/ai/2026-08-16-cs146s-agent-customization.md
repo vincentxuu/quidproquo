@@ -27,6 +27,14 @@ draft: false
 
 課程實際列的是**四件**指揮工具（指示檔、hooks、commands、subagents）。它們看起來是四個功能，其實是**同一個問題的四種答案**：怎麼讓 agent 每次都照你們的做法做事，而不是每次都要重講一遍。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 課程的分工表：哪幾格是人的
 
 Fall 2025 對應的課堂是 Week 4「How to be an agent manager」，[投影片公開](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit)，Boris Cherny 也是那一堂的客座。它開場先畫了一條演進線：單一開發者管自己的產出 → lead 管多名開發者 → lead 管多名開發者（有 AI 輔助）→ **單一開發者管多個 agent 的產出**。課程對終點的描述是「every developer operates as a tech lead controlling their own army of agents」。
@@ -168,6 +176,10 @@ Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing tha
 - Claude Code 目前讀 `CLAUDE.md` 而非 `AGENTS.md`，這件事隨版本可能改變，實作前請查當下的官方文件
 - agents.md 的 60k 專案數是官網自述（連到 GitHub 搜尋結果），不是第三方統計
 - 本站的 hook 設定是 2026-08-16 當下的狀態
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

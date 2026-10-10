@@ -28,6 +28,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 8 篇，HW4 的最後一題。前兩篇是 [Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 和 [Autoencoder 到 VAE](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 先補：這題不考怎麼長一棵樹
 
 [HW4 題目](https://github.com/harvard-ml-courses/cs181-s26-homeworks/blob/main/hw4/hw4_release.tex)開頭明講：這份作業沒有要你手算建一棵決策樹，想複習的話請做 Section 6 講義最後那題練習。
@@ -131,6 +139,10 @@ HW4 到這裡結束。下一份作業 HW5 進入沒有標籤的學習：分群�
 
 - 上一篇：[HW4（中）：Autoencoder 為何不能生成，VAE 補了什麼](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)
 - 下一篇：[HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

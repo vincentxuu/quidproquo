@@ -40,6 +40,22 @@ It is also the template for every assignment in the course. At the start of the 
 
 This post covers the question structure, the points, the resources you need, and where the notebook breaks if you run it unchanged today. **It gives no solutions.**
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=PzvvtyK0QOk
+title: Homework 1 overview video (XCS224U, Spring 2023)
+```
+
+Original videos: [Homework 1 overview video (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Where it sits in the course
 
 The 2023 schedule puts Homework 1 under the first unit, "Domain adaptation for supervised sentiment." The April 5 session lists "Overview of Assign/bakeoff 1," but that item has **no slide link**; the only public material is the overview video on YouTube. The homework and bake-off were due April 17 at 3:00 pm, alongside Quiz 0 and Quiz 1 (on Canvas, not available outside Stanford).
@@ -150,6 +166,10 @@ One thing to do tonight: open the notebook, read only the four directions in Que
 
 - Course status, all three assignments, and environment pitfalls: [Reading Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - Pretraining and fine-tuning basics: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

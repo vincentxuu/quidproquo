@@ -42,6 +42,27 @@ glossary:
 
 Fall 2025 錄影只在 Canvas。官方首頁指向的 2023 年版對應影片是 [Lecture 16: Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA) 與 [Lecture 17: Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI)，本文只列為聽講補充，內容以 2025 投影片為準。整門課的存取等級是 **A3**；這兩講投影片與 Written 4 完整公開，缺的是當期錄影與解答。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
+title: CS149 2023 Lecture 16 錄影：Transactional Memory 1（補充材料）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
+title: CS149 2023 Lecture 17 錄影：Transactional Memory 2（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 16 錄影：Transactional Memory 1（補充材料）](https://www.youtube.com/watch?v=rFFf3WIJ7BA)、[CS149 2023 Lecture 17 錄影：Transactional Memory 2（補充材料）](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
+
 ## 夾在鎖與難處之間
 
 L17 第 4 頁的標題是「Between a Lock and a Hard Place」。鎖迫使你在兩件事之間取捨：並行度（效能）和出現 race 或 deadlock 的機率（正確性）。粗鎖並行度低但容易寫對；像上一講 hand-over-hand 那樣的細鎖並行度高，但容易寫錯。
@@ -181,6 +202,10 @@ PDF 後面還有 12 道 PRACTICE PROBLEM，主題包括另一題 MSI 狀態表�
 延伸閱讀：OS 角度的鎖與 deadlock，見 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
 
 系列導覽：上一篇 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)｜本篇是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

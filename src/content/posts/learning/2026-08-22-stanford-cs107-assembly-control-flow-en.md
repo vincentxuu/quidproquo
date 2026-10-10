@@ -19,6 +19,14 @@ An `addq` result still fits in one 64-bit register, but multiplying two 64-bit v
 
 The answer is `%rip`. Ordinarily it advances by the encoded length of the current instruction; at a `jmp`, it becomes the named target. This lecture deliberately stops at unconditional jumps. It does not yet introduce condition codes or conditional branches. Importing later flags, `cmp`/`test`, `jcc`, or function-call stack mechanics would obscure the basic model built here from instruction bytes.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, gaps, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -219,6 +227,10 @@ For control flow:
 3. At `jmp`, replace that default successor with the target.
 4. Record a fixed edge for a direct jump; trace the target value for an indirect jump.
 5. Reconstruct only loops or skips supported by those edges; do not assume an unseen condition.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

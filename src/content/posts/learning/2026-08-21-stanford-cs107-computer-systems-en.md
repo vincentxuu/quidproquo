@@ -26,6 +26,14 @@ This site's [map of Stanford's CS course sequence](/posts/learning/2026-08-20-st
 
 **Scope, up front.** Everything here comes from public web pages: the current quarter's course site, seven assignment specs, seven lab handouts with their solutions, three archived quarters (quarter codes and their terms are in the appendix), the ExploreCourses entry, and the Stanford Online for-credit page. **Not read: lecture recordings** (behind Canvas), **exams** (same), and the autograder's test suite (the course says explicitly it isn't released). So what follows is what's on those pages, not a report from someone who took the class.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## The hard facts
 
 The instructor rotates. The [ExploreCourses entry for CS107](https://explorecourses.stanford.edu/search?q=CS+107&view=catalog) shows Jerry Cain teaching autumn and winter next academic year and Nick Troccoli teaching spring. Summer 2026 is listed under Adam Keppler and Yasmine Alonso.
@@ -184,6 +192,10 @@ Three things I could not confirm. **First**, this site's Stanford CS course map 
 One more thing is deliberately left open: why the medians sit at the ceiling every quarter. Neither the announcements nor the syllabi explain it, and this piece offers no speculative mechanism. Quarters with a resubmission policy and quarters without have equally high medians, so any explanation linking the two needs evidence from outside these pages.
 
 And one thing wasn't unavailable so much as not attempted: the assignment and lab starter code lives on AFS behind a SUNet ID, this piece made no attempt to obtain it, and every description of assignment content here comes from the public assignment specs themselves.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

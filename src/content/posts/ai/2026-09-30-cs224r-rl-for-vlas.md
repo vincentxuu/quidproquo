@@ -37,6 +37,15 @@ glossary:
 
 投影片第 4 頁也先打了預防針：**這是一個開放、活躍的研究問題**，這講涵蓋的是近期的幾個主題，加上講者對這個領域的看法。讀的時候請把它當成一張研究地圖，不是定論。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [2025 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：從模擬搬到真機，換成從預訓練模型出發
 
 第 3 頁把這講和上一講接起來：
@@ -242,6 +251,10 @@ flow matching 在 [HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-
 可以確認：2026 投影片的文字、演算法步驟、數字（80%、99%、2 倍、13 小時、65 episode／約 10k 步、O(100 倍)、19 分鐘／約 11k 步）與論文標註；課表的日期與「沒有指定閱讀」；2025 封存頁和播放清單都沒有對應講次。不能確認：這講的講者（投影片沒有寫名字，只說「my opinion」）；各圖表的具體數值、比較基準和實驗設定；πRL、RLT、Probe-Learn-Distill、EXPO-FT 的論文全文（我沒有找到或沒有開啟它們的原始頁面，只依投影片上的標註）。
 
 系列導覽：上一篇 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)｜下一篇 [L18 前沿與研究方法](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -21,6 +21,26 @@ Official materials used: pages 34–61 of [agent_era.pdf](https://speech.ee.ntu.
 
 This lecture is mostly case studies rather than methods, so I follow the slide order and pick one point per section.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mmPmNezjCi0
+title: Video: AI Agent (2/3): interactions between AI agents
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VqB8zMujdjM
+title: Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example
+```
+
+Original videos: [Video: AI Agent (2/3): interactions between AI agents](https://www.youtube.com/watch?v=mmPmNezjCi0)、[Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example](https://www.youtube.com/watch?v=VqB8zMujdjM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 1. How should multiple agents collaborate?
 
 Slide 36 draws a minimal collaboration unit. One agent proposes plan A, another proposes plan B, other agents give suggestions, and the result is merged into plan C. The question: how do you wire such units into a network?
@@ -97,6 +117,10 @@ Not confirmed: I did not transcribe the two videos, so verbal commentary and ext
 Further reading on this site: [multi-agent safety](/posts/ai/2026-09-18-multi-agent-safety-en) and [OpenClaw's multi-agent setup](/posts/ai/2026-03-28-openclaw-multi-agent-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) | Next: [HW2: AI agent as an AI engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

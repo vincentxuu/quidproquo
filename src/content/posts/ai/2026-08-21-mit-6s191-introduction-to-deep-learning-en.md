@@ -23,6 +23,14 @@ This guide therefore does more than repeat nine video titles. It asks how the le
 
 I audited the 2026 course site, all nine slide entries, the official repository README, the labs and public solutions, plus the 2025 archive and both years' code branches. I **did not watch all nine recordings end to end**. This is an audit of structure and executability, not a review of presentation quality.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## Decide whether this is the course you need
 
 6.S191 describes itself as a high-intensity bootcamp. The 2026 run lasted from March 30 to May 25, meeting once a week. For MIT students it was a three-unit P/D/F course, graded through a project proposal. The stated prerequisites are elementary linear algebra, calculus, and the chain rule. Python helps but is not mandatory, and the site explicitly welcomes listeners.
@@ -145,6 +153,8 @@ Give it ninety minutes. If you can explain the tensor shapes, gradients, and pur
 
 ## Changelog
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Added the bilingual nine-lecture and three-lab series, and pinned all lab links to the official `2026` branch.
 
 ## References

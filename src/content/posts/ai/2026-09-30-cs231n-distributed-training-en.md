@@ -36,6 +36,22 @@ glossary:
 
 This is the most systems-heavy lecture in the course. Its running example is [Llama3-405B](https://arxiv.org/abs/2407.21783), and the slides explain why. The GPT-4 technical report explicitly withheld architecture, model size, hardware, and training compute, starting a trend of not sharing model details. Llama3, released by Meta in April 2024, shared many model and training details in its paper.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=9MvD-XsowsE
+title: Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training (YouTube)
+```
+
+Original videos: [Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training (YouTube)](https://www.youtube.com/watch?v=9MvD-XsowsE)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Part 1: GPUs and clusters
 
 **What a GPU is.** It was built for graphics and is now a general parallel processor. The slides take apart an NVIDIA H100: it has 50 MB of L2 cache, and each streaming multiprocessor is "sort of like a CPU core with vector instructions."
@@ -178,6 +194,10 @@ Finally, use TP, CP, PP, and DP at once. Arrange the GPUs in a 4D grid, and each
 - Why large-batch contrastive learning needs distributed training: the next post, [L12: Self-Supervised Learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
 
 **Series navigation**: Previous: [L10: Video Understanding](/posts/ai/2026-09-30-cs231n-video-understanding-en) | Next: [L12: Self-Supervised Learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

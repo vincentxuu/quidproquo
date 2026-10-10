@@ -19,6 +19,14 @@ This is article 22 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 This is **L2**: a four-page worksheet with P1–P8 plus a Platt challenge, a five-page key omitting only the P8 pset7 solution, and a three-page six-concept guide. Current slides are unavailable and video is Canvas-gated.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Logistic Regression refresher
 
 For `θ=[-1,3,-1]` and `x=[1,1,1]`, `z=1` and `ŷ=0.7311`. With `y=1`, `∂LL/∂θ₁=x₁(y-ŷ)=0.2689`, so ascent increases `θ₁`. Negative `θ₂` pushes predictions away from class 1.
@@ -94,6 +102,10 @@ Work through brute-force Bayes, Naive Bayes, train/test evaluation, calibration,
 - The worksheet has P1–P8 plus a challenge; the five-page key omits only P8.
 - The three-page guide has six concepts and no extra problem.
 - Current slides are unavailable and video is Canvas-gated.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

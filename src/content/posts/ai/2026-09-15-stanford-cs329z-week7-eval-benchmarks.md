@@ -24,6 +24,14 @@ Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（
 
 拿修 bug 當例子。request 是「修好這個 issue」，environment 是程式碼庫加終端機，stopping criteria 是交出 patch，scorer 是跑測試。後面三篇主讀物正好分工：[Zhu 等人的最佳實踐](https://arxiv.org/abs/2507.02825)在講 scorer 多容易寫錯，[Shankar 等人的驗證者研究](https://arxiv.org/abs/2404.12272)在講 LLM 幫忙打分要怎麼對齊人類，[Yang 等人的 SWE-smith](https://arxiv.org/abs/2504.21798)在講任務資料怎麼做大。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## 評分比你想的脆弱
 
 Zhu 等人的論文開門見山：很多 agentic benchmark 的題目設定或獎勵設計有坑。兩個點名案例：[SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified/) 測試案例不足，[TAU-bench](https://arxiv.org/abs/2406.12045) 把空回應也算過關——交白卷的 trivial agent 在航空子集拿下 38% 成功率。這類坑會讓分數低估或高估，幅度可達一倍。
@@ -60,6 +68,8 @@ Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-29：期中 demo 改為錄影繳交（週三 11/4 晚上 11:59 截止，不在課堂發表），同步改寫開頭與課程位置段落
 
 ## 參考資料

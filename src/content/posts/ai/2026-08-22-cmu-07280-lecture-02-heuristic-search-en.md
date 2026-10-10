@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 2: Heuristic Search**. The point is not memorizing five algorithms. It is seeing how each algorithm assigns a different priority to the same frontier. Completeness, path cost, and memory use are often determined at the moment the algorithm chooses what to expand next.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec2_Heuristic_Search_inked.pdf), [Search pre-reading](https://www.cs.cmu.edu/~07280/notes/search/search_prereading.html), [Recitation 1 worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1_sol.pdf), and checked [HW1](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf). No public lecture recording is available. Inked slides preserve marks on slides, not a verbatim class transcript.
@@ -79,6 +87,10 @@ The real design question is whether a computation cheaper than search can produc
 1. Trace the DFS, BFS, UCS, Greedy, and A* explored orders in Recitation 1 without its solution.
 2. Define misplaced-tile and Manhattan-distance heuristics for the eight puzzle and justify why each does not overestimate.
 3. Draw a three-node admissible-but-inconsistent example and run the course's A* graph search by hand.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

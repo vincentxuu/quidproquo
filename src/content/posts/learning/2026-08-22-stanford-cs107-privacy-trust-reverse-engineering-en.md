@@ -19,6 +19,14 @@ The early lectures taught us to track C bytes and pointers. The middle of the co
 
 This is not ethics attached as decoration. A security researcher can find vulnerabilities because they receive or acquire unusual capabilities. A data custodian can compute statistics because it concentrates other people's information. An allocator can reuse space because a client promises not to touch a freed block. The same questions connect all three: **who can do what, whom do we rely on, and who bears the risk of betrayal?**
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -160,6 +168,10 @@ Create two checklists after this lecture. For a security exercise, record author
 Lecture 20 is not mainly an invitation to memorize four privacy definitions or pre-learn allocator algorithms. It asks responsibility to grow alongside capability. Reverse engineering crosses abstraction boundaries, so distinguish ability from permission. Differential privacy offers a precise guarantee, so identify the threats outside it. Heap APIs look small, so expose the ownership contract shared by client and library.
 
 As allocator implementation begins, keep asking the same questions: who owns this resource, who is trusted, how long does trust last, and who is harmed when the contract breaks? Mature systems programming means understanding both the bytes and the power and responsibility behind them.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

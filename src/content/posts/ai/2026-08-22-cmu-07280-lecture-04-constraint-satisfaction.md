@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 4：Constraint Satisfaction Problems**。CSP 仍是搜尋，但它不把 state 當成黑盒。Variables、domains 與 constraints 直接暴露結構，讓演算法在完成整份 assignment 之前就能刪掉不可能的值。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf)、官方[backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。沒有公開逐講錄影；demo 展示演算法狀態，不提供講者口述。
@@ -66,6 +74,10 @@ Arc consistency 能提早偵測很多矛盾，但不能保證找到解，也不�
 1. 用三色重做澳洲地圖 CSP：列 variables、domains 與每條 binary constraint。
 2. 對一條三節點鏈手跑 AC-3，逐步寫 queue 與被刪除的值。
 3. 打開官方 demo，對同一題分別選 forward checking 與 AC-3，記錄何時第一次發現 dead end。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

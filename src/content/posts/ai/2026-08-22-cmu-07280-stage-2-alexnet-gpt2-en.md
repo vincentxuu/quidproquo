@@ -19,6 +19,14 @@ One distinctive choice in 07-280 is that neural networks do not end with a two-l
 
 This review checks the image and language stages together. It does not imply that public notebooks reproduce the enrolled experience; Gradescope, compute, staff help, and solution feedback remain part of the formal course. Independent learners can still reconstruct meaningful acceptance criteria from the public written specifications.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## AlexNet: placing spatial structure into representation
 
 A fully connected layer does not privilege neighboring pixels. A CNN writes a spatial prior into the model with local receptive fields and shared kernels. One-dimensional convolution at a single output position can be written as:
@@ -73,6 +81,10 @@ A better replication fixes four prompts, produces several samples per temperatur
 AlexNet and GPT-2 use different inputs and layers, but impose the same experimental duties: check tensor shapes, make the forward pass traceable, confirm gradients reach intended parameters, establish a baseline, and change one variable at a time. Autograd computes derivatives; it does not detect data leakage, reversed masks, or a contaminated validation split.
 
 The Stage II exit test is therefore not “both notebooks ran.” You should be able to reconstruct a forward pass from a tensor-shape table, explain why frozen parameters lack gradients, and connect a loss or perplexity curve to a concrete hypothesis. Only then has an architecture become a system.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

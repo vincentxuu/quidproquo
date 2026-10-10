@@ -28,6 +28,21 @@ glossary:
 
 這一講沒有公式。它的任務是讓你知道：這門課為什麼從「影像分類」開始，又為什麼一路走到生成模型、3D 與 world modeling。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=2fq9wYslV0A
+title: Spring 2025 Lecture 1: Introduction（YouTube）
+```
+
+原始影片：[Spring 2025 Lecture 1: Introduction（YouTube）](https://www.youtube.com/watch?v=2fq9wYslV0A)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 一張文氏圖定位這門課
 
 Part 1 前段用一張逐步長大的文氏圖定位課程（投影片註明靈感來自 Justin Johnson）。先有 Artificial Intelligence，裡面放進 Machine Learning，再把 Computer Vision 和 Deep Learning 放上去，最後標出「This class」：電腦視覺和深度學習的交集。
@@ -131,6 +146,10 @@ Part 2 的後半是行政。跟自學者有關的幾點：
 - [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：同一段神經網路史，從一般深度學習課的角度
 
 **系列導覽**：上一篇 [總覽與自學路線](/posts/ai/2026-09-30-cs231n-course-overview)｜下一篇 [L2：影像分類、kNN 與線性分類器](/posts/ai/2026-09-30-cs231n-image-classification-linear)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

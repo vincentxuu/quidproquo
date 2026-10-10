@@ -19,6 +19,14 @@ This is article 8 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 The official title is **Functions, Part I**. It rebuilds familiar functions as objects checkable with sets and first-order logic. “Is this a function?”, “Is it injective?”, and “Is it surjective?” become quantified claims that can be negated and proved instead of answered by visual intuition.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)
+
 ## 1. The proof-technique table returns
 
 The deck revisits the proof-technique table. To prove `∀x. A`, let the reader choose arbitrary `x` and prove `A`. To prove `∃x. A`, provide and verify a witness. For `A → B`, assume `A` and derive `B`. Prove both conjuncts and both directions of a biconditional. Simplify a negation before selecting the matching technique.
@@ -136,6 +144,8 @@ The complete deck supports the function rules, definition methods, piecewise fun
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the body, metadata, proof examples, and material boundary from the official Functions, Part I deck.
 
 ## References

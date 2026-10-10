@@ -17,6 +17,14 @@ draft: false
 
 第 15 講 **Pre-training/Transfer Learning/Fine-tuning** 在 2026 年 3 月 12 日進行。Lecture 14 已說明 CNN 如何學 visual features；這一講問的是，換到資料較少的新任務時，哪些能力值得保留，哪些參數需要重學。官方沒有公開逐講錄影，本文只依公開 lecture note 與 HW8 整理。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 主要來源是 [Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf)與 [HW8 written component](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf)。課表另指向 PyTorch Basics tutorial，但本文的核心主張不依賴該外部教學。沒有專屬 Spring 2026 recitation；Recitation 8 主要處理 CNN shapes 與 parameters。
@@ -70,6 +78,10 @@ Frozen head training 也常叫 linear probing，可先測 representation 本身�
 ## 今晚可以做的動作
 
 找一個小型 pretrained image model 與兩類資料。先凍結 backbone 訓練 linear head，再只解凍最後一個 block，以相同 split 跑相同 epochs。記錄 trainable parameters、最高 validation accuracy、train-validation gap 與每 epoch 時間；不要只比較最後一個 accuracy。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

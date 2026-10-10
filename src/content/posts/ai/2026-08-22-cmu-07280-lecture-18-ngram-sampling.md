@@ -17,6 +17,14 @@ series:
 
 Lecture 17 決定 tokens；**CMU 07-280 Spring 2026 Lecture 18** 才把 token sequence 變成可訓練、可生成的模型。官方 inked slides 題為 *NLP: N-gram LMs*，主線是 joint probability、Markov approximation、corpus counts、sampling 與 temperature，最後把問題交給 feature learning。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf)。未標註版直鏈在 2026-08-22 回傳 404，但 inked 版可匿名取得且內容完整。官方頁沒有 Spring 2026 逐講公開錄影，因此本文不描述教師當場如何講解 polls 或 worksheet。
@@ -84,6 +92,10 @@ N-gram 的優點是可檢查：一個機率可以追回某個 count。缺點也�
 ## 今晚可做動作
 
 沿用上一講的小 corpus，建立 unigram、bigram、trigram counts。對同一個開頭各生成三段文字：greedy、`T=0.5` sampling、`T=2` sampling。記錄第一個 zero-count context 在第幾步出現，並寫下你會選 smoothing、backoff 還是縮短 context；不要只評價哪段「比較像人話」。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

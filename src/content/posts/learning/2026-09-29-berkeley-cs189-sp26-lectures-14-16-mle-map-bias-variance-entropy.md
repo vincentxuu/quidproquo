@@ -25,6 +25,26 @@ draft: false
 
 這兩講上完隔週就是期中考（3/17），所以文末附一套用官方考題自評的流程。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
+title: Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ArSadC8hY-Q
+title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
+```
+
+原始影片：[Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 錄影：Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 教材在哪、能拿到什麼
 
 | 項目 | 官方標題／內容 | 教材 | Bishop 指定閱讀 |
@@ -140,6 +160,10 @@ draft: false
 1. 把 ridge 的目標函數從「負 log 後驗」親手推一次，寫出 λ 等於哪兩個變異數的比值。
 2. 算出西雅圖例子的熵 H(0.8)，確認 100 天約等於 73 bits。
 3. 挑一個晚上，照上面的流程計時寫完 sp26 期中考。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

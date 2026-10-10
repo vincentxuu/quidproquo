@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的問題：為什麼需要邏輯
 
 這一講從 AI 的基本循環切入：perceive、reason、act、learn。上一講談 Bayesian networks 的機率推理；這一講轉向 logical reasoning，先處理 propositional logic，之後才會到更有表達力的 first-order logic。切換不是因為機率不重要，而是因為 AI 也需要一種能把規則與知識寫得清楚、再據此推導的語言。
@@ -131,6 +140,10 @@ Forward inference 的輸入是 inference rules 的集合 `Rules` 與初始 KB。
 ## source 的邊界
 
 公開 artifact 到 completeness 為止；沒有 CNF 轉換或 DPLL/CDCL 的完整實作。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

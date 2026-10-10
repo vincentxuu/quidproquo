@@ -27,6 +27,15 @@ glossary:
 
 現在的 AI 工程師幾乎都在跟平行硬體打交道：訓練跑在 GPU 叢集，推論要擠 kernel 效能，連手機都有 NPU。但多數人對「為什麼 GPU 快」「為什麼加了核心卻沒變快」只有模糊印象。[CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) 就是補這一塊的課。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
+
 ## 這門課教什麼
 
 [課程首頁](https://gfxcourses.stanford.edu/cs149/fall25)開宗明義：從手機、多核 CPU、GPU、AI 加速器到超級電腦，平行處理無所不在；這門課要讓你理解設計平行系統的基本原理與工程取捨，並學會有效使用這些機器的程式技巧。因為寫出好的平行程式需要理解機器的效能特性，**課程同時講硬體和軟體**。
@@ -196,6 +205,10 @@ Course info 列的評分：
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

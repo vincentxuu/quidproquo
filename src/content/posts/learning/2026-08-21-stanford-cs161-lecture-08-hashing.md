@@ -21,6 +21,14 @@ series:
 
 Lecture 7 的紅黑樹已把搜尋、插入、刪除壓到最壞 `O(log n)`。Lecture 8 進一步問：若我們不需要排序順序，只想做 membership，能不能接近期望常數時間？雜湊表的答案不是「找到一個永遠均勻的神奇公式」，而是把隨機性放進演算法，對任何預先固定的 key 集合控制碰撞機率。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
+
 ## 為什麼 direct addressing 不夠
 
 若所有 key 都來自小集合 `{0,1,…,9}`，最簡單的方法是配置十格陣列，讓 key `k` 直接放在第 `k` 格。搜尋、插入與刪除都只需一次索引，的確是 `O(1)`。這叫 direct addressing。
@@ -217,6 +225,10 @@ Lecture 9 開始進入 graph algorithms。Adjacency list 中「某 vertex 的 ne
 要把 universal hashing 的證明變成自己的，可以固定一個小 prime，例如 `p=11`、`n=5`，列出幾組 `(a,b)`，手算兩個不同 keys 碰撞的比例。重點不是得到漂亮分布，而是核對比例不超過 `1/n`。
 
 若在寫實作，另做一張觀測表：每次插入後記錄 load factor、最大 chain 長度與平均成功 lookup 掃描數。當 load factor 超過門檻時才實作 resize / rehash，並另外分析那串操作的 amortized cost。這些是本站的練習建議，不是 Winter 2026 課堂新增結論。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

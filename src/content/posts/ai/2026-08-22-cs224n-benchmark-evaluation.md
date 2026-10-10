@@ -17,6 +17,22 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 11 講排在 2026 年 2 月 10 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture11-evaluation.pdf)的 agenda 分成四部：LLM benchmark 的近況、benchmark 設計、評估指標，以及警告與開放問題。這堂的主題不是再列一張排行榜，而是判斷一個分數還能不能支持決策。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=TO0CqzqiArM
+title: CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois
+```
+
+原始影片：[CS224N Spring 2024 Lecture 11: Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## Benchmark 的保存期限正在縮短
 
 [NLP benchmarking 綜述](https://aclanthology.org/2022.naacl-main.395/)指出 benchmark 與 leaderboard 能把研究問題變成共同目標，但當模型接近滿分，分數就失去區辨力。資料也可能進入預訓練語料，讓測試從泛化變成記憶。更麻煩的是，人類表現不再總是合理的 ceiling：任務可能測的是大量知識搜尋、特定格式或速度，而非人類專長。
@@ -138,6 +154,10 @@ Practical significance 和 statistical significance 分開。0.2 分改善即使
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文完整覆蓋投影片四部 agenda 與其子題，但不還原講者對特定 leaderboard 的口頭判斷。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

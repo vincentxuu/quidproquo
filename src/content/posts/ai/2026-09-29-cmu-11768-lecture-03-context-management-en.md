@@ -38,6 +38,14 @@ The problem is easy to state: every tool call from [last lecture](/en/posts/ai/2
 
 **How to read this post**: the lecture has two layers. The model layer covers attention architectures, position encoding, and training data — the concern of people who build models. The harness layer covers prompt caching and compaction — what anyone writing an agent deals with every day. If you build agents but don't train models, you can skip ahead to "The harness layer." Every model-layer section opens with the intuition and tucks formulas into collapsible blocks. For background on attention and inference, the site's [CS336 Lecture 4: Attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en) and [CS336 Lecture 10: Inference](/en/posts/ai/2026-08-22-cs336-inference-en) are good prerequisites.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Why agent context grows so fast
 
 The first slide is a quadratic. Say the fixed prefix is 1K and each call adds 5K of history: call 1 takes 6K of input, call 2 takes 11K, call 3 takes 16K, and after five calls you have processed 80K tokens in total. History grows linearly; **the total fed to the model grows quadratically**. Neubig says he has run coding-agent sessions for nearly a full day, so imagine how big that gets.
@@ -454,6 +462,10 @@ The schedule lists no required reading for this lecture, only a long reference l
 - [CS336 Lecture 10: inference is about reading less weight and KV cache](/en/posts/ai/2026-08-22-cs336-inference-en): prefill/decode and the KV cache from a systems view
 - [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/en/posts/ai/2026-03-24-context-engineering-guide-en): practical notes for the harness layer
 - [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): another take on MemGPT's external memory
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

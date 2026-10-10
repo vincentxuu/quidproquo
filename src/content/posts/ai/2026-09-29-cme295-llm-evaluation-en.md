@@ -38,6 +38,21 @@ You change one line of a system prompt and want to know whether answers got bett
 
 The slides first scope the word. "Evaluation" can mean **output quality** (instruction following, coherence, factuality) or **system performance** (latency, pricing, reliability). This lecture is about the former.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=8fNP4N46RRo
+title: 2025 Lecture 8 recording
+```
+
+Original videos: [2025 Lecture 8 recording](https://www.youtube.com/watch?v=8fNP4N46RRo)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Human rating: closest to the truth, with three problems
 
 The slides call human rating "closest to truth," then list three limitations:
@@ -248,6 +263,10 @@ These questions are adapted from Section IV, "LLM evaluation," of the [2025 fina
 - From perplexity to agent and safety evaluation: [CS336 Lecture 12](/posts/ai/2026-08-22-cs336-evaluation-en)
 - The practical side, with golden sets, blind judging and statistical tests: [How to rigorously compare an agent before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
 - Turning every agent tool call into a traceable span: [Agent observability: from OTel traces to catching hallucinations, tool misuse and infinite loops](/posts/ai/2026-06-04-agent-observability-failure-detection-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

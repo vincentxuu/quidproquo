@@ -19,6 +19,14 @@ draft: false
 
 Worksheet 與 answer key 是完整兩頁、P1–P7 加 challenge。Guide 有六個 concepts；名義上的第三頁只延續 wrap-up 與結語，不是額外單元。本講的重要轉換是：成功率不再只是一個固定但未知的數，而是 support 在 `[0,1]` 上的 random variable。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：用 Multinomial 複習開場
 
 公平六面骰擲五次，恰好兩次 3、兩次 5、一次 6。其他三個 faces 的 counts 為零，因此
@@ -148,6 +156,10 @@ Guide 前三個 concept 是 probability-as-random-variable、continuous-paramete
 - P6、P7 是 pset4 題，公開 answer key 刻意省略；本文只依公開 worksheet／guide 推導。
 - Guide 第三頁僅為 wrap-up 延續與結語，不是額外 concept。
 - Canvas 錄影未公開。Worksheet 與主要 guide 內容各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

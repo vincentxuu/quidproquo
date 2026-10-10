@@ -17,6 +17,22 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 2 講排在 2026 年 1 月 8 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf)的 agenda 有六段：word2vec 介紹、目標函數梯度、最佳化基礎、以計數捕捉詞義，以及詞向量評估；開頭另有簡短課務說明。這堂的目標很具體：能把詞義理解成高維實數向量，並讀懂 embedding 論文。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=DzpHeXVSC5I
+title: CS224N Spring 2024 Lecture 1: Intro and Word Vectors
+```
+
+原始影片：[CS224N Spring 2024 Lecture 1: Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 從「詞典裡的節點」改成「上下文中的位置」
 
 傳統詞彙資源如 [WordNet](https://wordnet.princeton.edu/)，把詞整理成同義詞集合與上下位關係。結構清楚，卻有人工維護、缺少新詞、同義程度難量化等限制。分布式表示換一個出發點：出現在相似上下文的詞，應該有相似表示。
@@ -118,6 +134,10 @@ Distributional hypothesis 只能從語言使用推回意義。若 corpus 從不�
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文只依 Lecture 2 投影片與官方列出的核心論文整理；課堂示範、口頭推導與問答無法驗證，因此沒有補寫。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

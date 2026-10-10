@@ -31,6 +31,14 @@ glossary:
 
 投影片在[官網](https://www.cmu-agents.com/slides/lecture-05-planning.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5)。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 開場案例：幫實驗室買 GPU 工作站
 
 講者用一個他們幾週前真的遇到的任務開場：比較各家廠商的工作站設定和價格，對照內部 wiki 上叢集的相容性要求，最後送出採購單。
@@ -331,6 +339,10 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 - [Stanford CS329Z 導讀 Week 5：該單幹還是開會——多智慧體與優化三軸](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization)
 - [AI-Native SDLC Playbook L4：Plan Mode 先寫計畫再寫程式](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode)
 - [Multi-Agent 的錯誤傳播與恢復](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

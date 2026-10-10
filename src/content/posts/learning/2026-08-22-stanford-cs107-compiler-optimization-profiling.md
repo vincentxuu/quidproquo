@@ -19,6 +19,14 @@ draft: false
 
 這講先用三層迴圈的矩陣乘法比較未最佳化與 `-O2`，再介紹 Callgrind 的動態指令計數。後半逐一看 constant folding、common-subexpression elimination、dead-code elimination、strength reduction、code motion 與 tail-recursion optimization，最後用反覆呼叫 `strlen` 的例子說明 compiler 為何有時知道得不夠多。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 教材與完整議程
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -187,6 +195,8 @@ Compiler 很強，因為它可以精確追蹤常數、資料流與 target instru
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：移除失效的 Stanford Callgrind guide，改以 Valgrind 官方手冊支撐工作流程與選項。
 
 ## 參考資料

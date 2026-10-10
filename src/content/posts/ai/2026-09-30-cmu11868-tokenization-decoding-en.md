@@ -33,6 +33,14 @@ The [previous post](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en
 
 Neither sounds like a "systems" topic, but both are about cost. Vocabulary size determines how big the embedding table and output layer are, and how many tokens the same sentence takes. The decoding strategy determines how many forward passes it takes to generate a piece of text. The second half of L09 is more direct still: speculative decoding is an inference acceleration technique.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## L08: tokenization is a trade-off
 
 ### Three granularities
@@ -148,6 +156,10 @@ The translation pipeline in [HW3](/posts/ai/2026-09-30-cmu11868-hw3-transformer-
 2. Open a tokenizer demo (slide 35 lists two), paste in a Chinese paragraph and an English one, and compare token counts
 3. Run the decoding notebook and compare greedy and beam search outputs
 4. Run the speculative decoding notebook, change N, and watch how the acceptance rate and speed move
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

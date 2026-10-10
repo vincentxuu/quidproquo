@@ -19,6 +19,15 @@ draft: false
 
 > 公開材料缺口：source 明確連到 Autumn 2023 的線性分類模組；課程入口、artifact、repository 與 playlist 列在文末。source 只呈現 sentiment classification 的任務例子，沒有提供 sentiment 作業的隱藏測資或解答，因此本文不補寫那些內容。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 從線性迴歸換成線性分類
 
 上一個單元的 prediction task 是 regression：輸入經過模型後輸出一個 real number，hypothesis class 是 linear functions。本講把輸出換成離散選擇：輸入對應一個 class 或 label，答案是 K 個選項中的一個；hypothesis class 則是 thresholded linear functions。接下來沿用線性迴歸的三個問題：哪些 predictor 可以選、如何判斷 predictor 好不好，以及怎樣算出最好的參數。
@@ -105,6 +114,10 @@ bag-of-words 把每個 token 看成 one-hot，再取所有 token vectors 的平�
 - maximum likelihood 的 probability product 經過 log、取負號，成為可最小化 loss。
 - multiclass 為每類算 logit，以 softmax 轉 probabilities；cross-entropy 對 one-hot label 是 target class probability 的 negative log。
 - 文字經 tokenization 與 one-hot 的數學表示成 tensor；實作可直接使用 indices。bag of words 固定維度但捨棄 word order。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

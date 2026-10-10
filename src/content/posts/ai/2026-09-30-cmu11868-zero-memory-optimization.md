@@ -32,6 +32,14 @@ glossary:
 
 這一講是 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 11 週 3/23 的「Memory Optimization in Distributed Training」，reading 只有一篇：[ZeRO（Rajbhandari et al., SC 2020）](https://arxiv.org/abs/1910.02054)。[L18 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf)有 76 頁，其中第 18 到 63 頁是逐格動畫，一格只多畫一個步驟。本課沒有公開錄影，以下根據投影片與論文摘要，頁碼指 PDF 頁碼。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 場景：資料平行省了通訊，卻浪費了記憶體
 
 第 5 頁的對照表點出兩種平行方式的取捨：
@@ -176,6 +184,10 @@ N = 8B、M = 16、K = 4：
 - 系列上一篇：[L16–L17 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 - 系列下一篇：[HW5：資料平行與管線平行](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 - 站內：[CS336 資源計算](/posts/ai/2026-08-22-cs336-resource-accounting)（每個參數要幾 bytes 的另一種算法）、[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

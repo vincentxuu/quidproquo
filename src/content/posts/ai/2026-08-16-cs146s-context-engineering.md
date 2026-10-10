@@ -27,6 +27,14 @@ draft: false
 
 先說這週最大的訊號：**Fall 2025 有一整堂課叫「Power prompting for LLMs」，Fall 2026 它變成這週四條主題裡的第一條**。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 為什麼 prompting 會被降級
 
 Anthropic 在 [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) 裡把這個轉向講得很清楚：
@@ -175,6 +183,10 @@ sub-agent 那條有個具體數字：子 agent 可能燒掉數萬 token，但回
 - 課程投影片講 MCP 傳輸層時是 stdio 與 SSE，規格之後有演進
 - 「2-3X faster」與「98.7%」分別出自框架作者與工具供應商，都是自家量測
 - MCP 的傳輸層規格仍在演進，寫作當下以官方文件為準
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -43,6 +43,27 @@ glossary:
 
 存取等級 **A3**，缺口同系列其他篇：2026 錄影只在 Canvas、課堂小測的即時結果與 Ed 討論不公開。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=L6OVEmV3NcE
+title: Lecture 5: Policy Search 1（Spring 2024，YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
+```
+
+原始影片：[Lecture 5: Policy Search 1（Spring 2024，YouTube）](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2（Spring 2024，YouTube）](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 為什麼不繼續學價值就好
 
 第 23 頁先回答「策略梯度值得學嗎」：它在 NLP（以 REINFORCE 做序列層級訓練）、機器人（[End-to-End Training of Deep Visuomotor Policies](https://arxiv.org/abs/1504.00702)）與 ChatGPT 都有影響力。投影片也預告，A2 要你實作的 PPO 就是訓練 ChatGPT 時用過的方法。
@@ -203,6 +224,10 @@ vanilla PG 每批資料只走一步梯度就丟掉，而且步長很難選。L6 
 - [CS229 筆記第 21 章：策略梯度變體](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants)
 
 **系列導覽**：上一篇 [order 6：DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)｜下一篇 [order 8：進階策略梯度——performance bound、KL、PPO、GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

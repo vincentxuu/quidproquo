@@ -39,6 +39,21 @@ glossary:
 
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "LLM Post Training" (Lecture 14, October 29). As of 2026-09-30 its slide and video links are still empty, so there is nothing to compare yet.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
+title: Lecture 14 recording (YouTube)
+```
+
+Original videos: [Lecture 14 recording (YouTube)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## What this lecture is about
 
 [Lecture 13](/posts/ai/2026-09-30-mit-65940-llm-deployment-en) asked how to run a trained LLM fast. This lecture steps back: a pretrained model can't act as an assistant or read images yet. How do you turn it into what you need at the lowest cost?
@@ -181,6 +196,10 @@ The last part needs no training. It's about how you ask:
 - RLHF/DPO: [CS224N Lecture 8: instruction tuning, RLHF, and DPO](/posts/ai/2026-08-22-cs224n-post-training-en), [CS224R L9: RLHF, DPO, and preference optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 - LoRA/QLoRA: [CMU 11-868 L23: efficient fine-tuning of large models](/posts/ai/2026-09-30-cmu11868-peft-lora-en), [CS224N Tinker and LoRA](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
 - Multimodal: [CS231N L16: vision and language](/posts/ai/2026-09-30-cs231n-vision-language-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

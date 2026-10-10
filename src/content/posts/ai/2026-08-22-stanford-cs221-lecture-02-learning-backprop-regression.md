@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：來源檔提供可執行講義與程式碼，但沒有公開課堂問答、完整口頭講解、額外實驗結果或作業解答。以下不替這些缺口補上看似合理的結論。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 議程：從張量操作到學習迴圈
 
 `backpropagation.py` 開頭先回顧 tensors，接著把這一講的重點列成三件事：用 tensor operations 組成 objective function、用 gradient 判斷怎麼改善 objective，以及用 computation graph 有效率地算 gradient。`linear_regression.py` 把這條技術線接到完整的 machine-learning pipeline：輸入與輸出、training data、predictor、hypothesis class、loss function 和 optimization algorithm。
@@ -111,6 +120,10 @@ bias   = bias   - learning_rate * grad[1]
 還要分清楚三個層次。第一，forward pass 只是依圖或 predictor 算出值；第二，loss 把預測和 targets 的差距整理成可優化的 scalar；第三，backward 與 gradient descent 才把 loss 對參數的敏感度轉成更新。缺任何一層，都不能只靠名詞說自己完成了 learning。尤其是梯度精確不等於模型合理：hypothesis class 可能太窄，feature 可能漏掉訊息，training loss 也可能不能代表未見資料的表現。
 
 本講交付的是可檢查的表示法：確認 `einsum` 軸與 scalar objective，用 finite difference 檢查局部變化，再以 graph、chain rule 與 reverse-mode 求 gradient，最後接上線性迴歸更新。更大模型與 optimizer 比較仍是材料缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

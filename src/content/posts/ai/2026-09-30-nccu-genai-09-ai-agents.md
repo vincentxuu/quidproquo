@@ -30,6 +30,21 @@ glossary:
 
 用到的官方材料有四份：[錄影 09](https://www.youtube.com/watch?v=49fwh6oc5Nc)（2025-04-15，約 2 小時 58 分）、投影片 GenAI09（33 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo07a】AI代理設計模式_Reflection`](https://yenlung.me/AI07a) 與 [`【Demo07c】AI代理設計模式_員瑛式思考生成器Two_Stage_CoT版`](https://yenlung.me/AI07c)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第九週作業。存取等級是 **A3**。要特別注意：這兩份 notebook 在 GitHub 上最近一次 commit 都是 2025-10-28，已經在 1132 學期結束之後，**以下引用的是 repo 目前版本，不是上課當時的原版**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=49fwh6oc5Nc
+title: 【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）](https://www.youtube.com/watch?v=49fwh6oc5Nc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 錄影 09 的時間軸分成兩段。前一小時（約 8:27–58:24）講投影片：AI Agents 元年、Agent 跟 LLM 的關係、四個設計模式；休息後（1:08:23 起）現場安裝 [AISuite](https://github.com/andrewyng/aisuite)，一路寫到 Gradio Web App，中間在 1:21:26 與 1:46:13 分別說明兩種作業。2:00:23 下課，2:08:47 起是助教課。
@@ -216,6 +231,10 @@ Gradio 介面兩欄：左邊是五個理由，右邊是最終貼文。
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L08 RAG 的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)｜下一篇：[L10 從變分自編碼器（VAE）開始的冒險旅程](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

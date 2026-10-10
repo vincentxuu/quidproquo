@@ -42,6 +42,14 @@ This post covers Lecture 6, "AI Agents", of the 2026 edition of Stanford [CME295
 
 Why write it early? Slide 6 of the 2026 Lecture 1 [deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf), "Difference with last year's edition", lists three new items for this year, and AI Agents is one of them. The timeline in the same deck ends on a box labeled "Agentic era!" holding four coding agents: Claude Code, Cursor, Codex and Antigravity. A course about Transformers now puts coding agents at the end of its timeline, and that is a signal worth reading.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Where this lecture sits in the 2026 syllabus
 
 Lecture 6 comes after Lecture 5, "LLM systems" (KV cache, speculative decoding), and before Lecture 7, "LLM evaluation" (which lists agent evaluation). The seven topics on the syllabus:
@@ -317,6 +325,10 @@ Once the video and slides for 2026 Lecture 6 are published (the syllabus date is
 - How "memory" is defined: file-based notes, vector memory, or in-context working memory
 - Whether ReAct, A2A and agent safety from 2025 are still in the slides
 - Replace the pre-lecture notice with an actual source note and remove any speculation the slides contradict
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

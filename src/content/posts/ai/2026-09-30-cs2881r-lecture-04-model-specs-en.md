@@ -40,6 +40,14 @@ There is no student-written LessWrong weekly summary for this lecture (the serie
 
 Barak discloses his position up front. He focuses on the [OpenAI Model Spec](https://model-spec.openai.com/) for two reasons: he works at OpenAI and helped write it, so he knows it best; and he considers it the most detailed spec any lab has published. He hopes other companies will publish more detailed ones.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Start with what people actually do with ChatGPT
 
 The plan on the slides has two lines: **what** we want models to follow, and **how** we get them to follow it. Barak says ninety percent of the lecture is about the first.
@@ -211,6 +219,10 @@ The recording ends with a preview of the midterm mini-project: reproduce one of 
 Further reading on this site: [CS329Z on LLM-as-judge and safety evaluation](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | Next: [L5: Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

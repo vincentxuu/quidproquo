@@ -32,6 +32,22 @@ glossary:
 
 關於錄影：Fall 2025 錄影只在 Canvas。這講前半的 DSL 內容，在課程首頁指向的 2023 公開錄影裡有對應的 [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)；**後半的 LLM agent 部分沒有任何公開錄影，只能依投影片**。本文全部以 2025 投影片為準，2023 影片只當前半的聽講補充，兩者內容是否一致本文沒有逐段比對。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
+title: 2023 Lecture 15 錄影：Domain Specific Programming Languages（僅對應前半 DSL 部分）
+```
+
+原始影片：[2023 Lecture 15 錄影：Domain Specific Programming Languages（僅對應前半 DSL 部分）](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
+
 ## 起點：寫快程式的人太少
 
 第 2 頁列出這講的目標：用各種機制和技術提高效能最佳化的生產力，一方面讓專家更有效率，一方面靠自動化。三個關鍵想法：
@@ -184,6 +200,10 @@ blurx.compute_at(x).vectorize(x, 8);
 - 自我改進 agent 的一般方法：[Stanford CS329A 自我改進 agent 導讀](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
 系列導覽：上一篇 [L12 把 AI 應用映射到資料中心](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)｜下一篇 [PA5 寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

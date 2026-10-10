@@ -30,6 +30,21 @@ glossary:
 
 The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) looked at aggregate numbers: jobs, productivity, growth. This one zooms in on one person and one chatbot. Near the end of class Boaz framed the topic this way: emotional reliance is the first large-scale example of way out-of-distribution inputs, and it will not be the last.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=GNvEjP1DfIs
+title: Lecture 11: Mental Health and Emotional Attachment (recording)
+```
+
+Original videos: [Lecture 11: Mental Health and Emotional Attachment (recording)](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## What this lecture offers
 
 | Material | Contents |
@@ -148,6 +163,10 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 - How model specs describe this behavior: [L4: Model Specifications & Compliance](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 - RLHF and safety training in the training pipeline: [L2: Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
 - How reliable LLM-as-judge is: [Stanford CS329Z Week 8: Judges and safety](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

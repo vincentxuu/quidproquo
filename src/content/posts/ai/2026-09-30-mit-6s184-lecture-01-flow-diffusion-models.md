@@ -32,6 +32,21 @@ glossary:
 
 這一講**不談怎麼訓練**。你會看到一個神經網路向量場 `u_t^θ`，但它的參數怎麼學，是[第 2 講](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)的事。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=9eJQQVrUUoI
+title: 第 1 講錄影：Flow and Diffusion Models (2026)
+```
+
+原始影片：[第 1 講錄影：Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 先把「生成」講精確：四個 Key Idea
 
 講義 §1.3 用四個 Key Idea 把問題形式化。
@@ -225,6 +240,10 @@ Require: 神經網路 u_t^θ，步數 n，diffusion coefficient σ_t
 - 機率概念生疏：講義附錄 A（A Reminder on Probability Theory），或本站 [Stanford CS109 導讀](/posts/learning/2026-08-21-stanford-cs109-probability)
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - DDPM 視角（時間方向相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

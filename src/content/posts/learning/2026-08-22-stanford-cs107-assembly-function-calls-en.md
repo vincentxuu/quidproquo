@@ -19,6 +19,14 @@ A function call is not merely a jump to another label. The caller must make para
 
 The contract enables separate compilation. A caller need not understand every callee instruction. If both obey the same ABI, they can exchange data, restore control, and know which registers may change.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, gaps, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -191,6 +199,10 @@ The final slide returns to `sum_array`: arguments arrive in `%rdi/%esi`; index a
 7. For a function pointer, trace the indirect target through register or memory data flow.
 
 Lecture 19's core is three simultaneous contracts: control reconnects through a return address, data crosses through parameter and return locations, and memory/register state follows ownership rules. Those contracts explain how separately compiled functions interoperate. Heap and later privacy topics need not be imported early.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

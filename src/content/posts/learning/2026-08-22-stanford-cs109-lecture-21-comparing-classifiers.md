@@ -19,6 +19,14 @@ draft: false
 
 本講是 **L2**：worksheet 四頁 P1–P8 加 Platt challenge，key 五頁，只省略 P8 pset7 解答；guide 三頁六 concepts。當期投影片不可用、錄影限 Canvas。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：Logistic Regression refresher
 
 `θ=[-1,3,-1]`、`x=[1,1,1]` 時，`z=1`、`ŷ=σ(1)=0.7311`。真實 `y=1`，所以 `∂LL/∂θ₁=x₁(y-ŷ)=0.2689`，gradient ascent 增加 `θ₁`。負的 `θ₂` 表示 feature 2 會把預測推離 class 1。
@@ -94,6 +102,10 @@ LL(a)=Σᵢ[yᵢlog qᵢ+(1-yᵢ)log(1-qᵢ)]
 - Worksheet 四頁 P1–P8 加 challenge；五頁 key 只省略 P8。
 - Guide 三頁六 concepts，無額外題目。
 - 當期投影片不可用、錄影限 Canvas。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,15 @@ series:
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 17 章（印刷頁 202–219）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；以下聚焦模型、計算與後訓練的連鎖，不逐一重做所有證明。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 從文字到 autoregressive 機率
 
 分詞器把文字轉成 token。字元詞彙小但序列長，整字詞彙短但容易遇到罕見詞；BPE 類 subword 方法在兩者間折衷。詞彙大小同時影響 embedding、輸出層與序列長度，因此不是純前處理細節。
@@ -72,6 +81,10 @@ Mixture of Experts 用 router 為每個 token 選少數 expert。它能增加總
 ## 練習
 
 對同一段 2,048-token prompt，比較「無 KV cache」與「有 KV cache」逐 token 生成時哪些張量需要重算。再畫一張表，分別寫出 FlashAttention、GQA 與 sliding window 主要節省的資源，以及各自沒有解決的瓶頸。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

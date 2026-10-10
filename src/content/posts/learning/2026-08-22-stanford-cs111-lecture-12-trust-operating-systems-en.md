@@ -19,6 +19,14 @@ This is part 13 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 The PDF defines trust as a trustor's willingness to accept vulnerability based on an expectation that a trustee will perform an important action, even without the ability to monitor or control it. Its philosophical version calls trust an unquestioning attitude: we stop repeatedly testing dependability and proceed as though it will work.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Trust extends agency and creates vulnerability
 
 Agency is a person's practical sense that they can understand, influence, and direct their interaction with a system. Verifying every step personally would sharply limit action. Trust delegates calculation, transportation, product safety, and education, increasing efficiency and reducing constant worry.
@@ -83,6 +91,9 @@ The proxy becomes another trustee and can misclassify, miss, or be bypassed. Giv
 
 A practical review has four columns: vulnerability accepted by the trustor; reproducible evidence about the trustee; an independent backup for failure; and design or institutional signals that may induce over-trust. Calling the OS a root of trust is not an invitation to blind trust. The closer a component is to the TCB, the more deliberately inference and substitution must be built from distrust.
 
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

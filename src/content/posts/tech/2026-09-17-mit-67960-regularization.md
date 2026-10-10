@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 9 講 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) 由 Sara Beery 授課。這講把正則化視為「工程工具箱」而非純理論：每種技巧解決什麼具體問題、怎麼正確用、怎麼跟其他技巧組合。這篇文章把講義重點整理成可直接套用的正則化決策表，並附上可跑的 PyTorch 程式碼。
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=EiO8BBa-xdc
+title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 正則化四大支柱：機制、效果、適用場景
 
 | 技巧 | 核心機制 | 解決的問題 | 現代預設值 |
@@ -247,6 +263,10 @@ for name, cfg in configs.items():
 | AdamW weight decay 不生效 | 用了 `optim.Adam(weight_decay=...)` | 改用 `optim.AdamW(weight_decay=...)` |
 | Mixup 後 loss 計算錯誤 | 直接用混合標籤算 CE | 用 `mixup_loss` 線性組合兩個 CE |
 | 小批次 BN 統計量不穩 | Batch size < 16 | 改 GroupNorm(32) 或 LayerNorm |
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

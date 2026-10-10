@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 6 講排在 2026 年 1 月 22 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture06-final-project.pdf)題為 **Final Projects: Custom and Default; Practical Tips**。agenda 分成兩塊：先用約十五分鐘補完 Transformer，再談專案類型與評分、研究題目與資料來源，最後 Q&A。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## Transformer 回顧補了什麼
 
 Decoder block 使用 masked self-attention，讓語言模型只能看左側上下文。Encoder 移除 causal mask，讓每個位置雙向查看序列。Encoder-decoder 則讓 decoder 透過 cross-attention 讀 encoder 輸出：query 來自 decoder，keys 與 values 來自來源序列。
@@ -104,6 +113,10 @@ Custom project 也應這樣拆。RAG 分成 indexing、retrieval、context、gen
 ## 材料缺口
 
 Winter 2026 錄影與 Q&A 不公開。本文涵蓋官方投影片的 Transformer recap 與三段 project agenda，但不重建學生提問、口頭題目建議或現場評分解釋。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

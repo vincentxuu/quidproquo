@@ -19,6 +19,21 @@ draft: false
 
 Access is **A3 minus grading**: the task, attack text, and rules are public, but a score required uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=qVTehGJQHys
+title: HW1 walkthrough video (YouTube)
+```
+
+Original videos: [HW1 walkthrough video (YouTube)](https://www.youtube.com/watch?v=qVTehGJQHys)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Why the first assignment is prompt injection defense
 
 The [previous post](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en) on OpenClaw covered two layers of defense: tell the model in `MEMORY.md` not to follow comments, or block commands in OpenClaw's config. The first layer "depends on how well the model follows instructions, so it isn't reliable." HW1 has you measure exactly how unreliable.
@@ -110,6 +125,10 @@ The slides' reference list points to two places to dig further: the HackAPrompt 
 - How OpenClaw itself thinks about these attacks: [OpenClaw's Threat Model](/posts/ai/2026-03-28-openclaw-threat-model-en)
 
 Series navigation: previous, [Dissecting the Lobster](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en) | next, [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) | [series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

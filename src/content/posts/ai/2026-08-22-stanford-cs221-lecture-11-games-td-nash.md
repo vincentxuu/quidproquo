@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。因此本文不替這些部分補上不存在的數據或結論。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的路線
 
 source 的 `main()` 先回顧上次的 two-player zero-sum games，接著把問題轉成：「能不能讓機器自己學會 evaluation function？」答案先由 TD learning 給出，再把學到的 value 放回遊戲策略。最後，課程從 turn-based games 走到 simultaneous games，並從 zero-sum 走到 non-zero-sum。
@@ -183,6 +192,10 @@ source 用三個 payoff 圖示例子對照：zero-sum Morra 的 Nash equilibrium
 ## source 的邊界
 
 本講展示 recurrence 與策略比較，不提供完整 Nash solver。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

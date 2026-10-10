@@ -26,6 +26,22 @@ This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watc
 
 ---
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=AuZoDsNmG_s
+title: Lecture 9: Career Advice in AI
+```
+
+Original videos: [Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 # Part one: Andrew Ng
 
 ## Has AI progress slowed down?
@@ -442,6 +458,10 @@ There's one claim running through the whole session, and it's the opposite of mo
 And the reason the technical-debt framework is useful is that it turns "should AI generate this code" **from a technical question into a financial one**: you've taken on a debt, is it worth it? That question is far more useful than "is vibe coding good or bad," because the latter has no answer and the former has one every time.
 
 As for the big-AI / small-AI fork — it's the one forward-looking judgment in this lecture **you can actually make a decision with**, and it has a clean criterion: **can your data leave your data center?**
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

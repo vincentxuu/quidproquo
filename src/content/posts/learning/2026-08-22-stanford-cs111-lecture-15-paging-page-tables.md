@@ -19,6 +19,14 @@ draft: false
 
 Segmentation 仍以 variable-size regions 配置 physical memory，留下 external fragmentation。Paging 的 key idea 是 virtual 與 physical address spaces 都切成 fixed-size chunks：virtual **pages** 對應 physical **page frames**。[官方 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf) 舉 4 KB（並戲稱 x86 myth）與 MacBook 16 KB 為常見例子；這是課堂快照，不是所有機器規格。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. VPN、offset 與 PTE
 
 Virtual address 拆成 virtual page number（VPN）與 page offset。MMU 用 page map/page table 把 VPN 映到 physical page number（PPN），offset 原樣保留，所以 `physical = PPN | offset`。Page size 是 4 KB 時，offset 正好 12 bits。（[官方講義](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf)）
@@ -95,6 +103,9 @@ Paging 消除 processes 之間的 **external fragmentation**：任何 free frame
 
 Lecture 15 的取捨因此是一組連動：fixed pages 簡化 allocation 並支援 sparse mappings；multi-level tables 節省 table memory卻增加 walk；TLB 以 locality 隱藏 walk，卻增加 invalidation/context-switch responsibility；large pages 減少 metadata/TLB pressure，卻增加 internal waste。後續 demand paging 才會討論 present=0 時如何從 disk 補頁。
 
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

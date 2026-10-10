@@ -19,6 +19,14 @@ series:
 
 關鍵缺口是影片。[syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 明寫 Spring 2026 錄影位於 bCourses Media Gallery，校外自學者通常無法存取。[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 公開錄影只能當歷史替代資源；主線仍以 2026 投影片、section 與作業為準。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## 六篇怎麼讀
 
 | 篇次 | 官方內容 | 要回答的問題 |
@@ -45,6 +53,10 @@ HW1、HW2 適合 CPU 起步。[HW3](https://rail.eecs.berkeley.edu/deeprlcourse/
 沒有 bCourses，就少了教師口頭說明、即時修正、Ed 討論、Gradescope 回饋與助教 office hours。文章會解釋投影片與作業之間的結構，卻不會虛構講者說過什麼，也不會把 Fall 2023 影片標成 2026。
 
 自學完成標準也因此改成可驗證的產物：一份推導筆記、一個通過小型環境的實作、一張跨 seed 結果表，以及一段失敗分析。這比「看完 25 講」更接近課程真正要求的能力。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

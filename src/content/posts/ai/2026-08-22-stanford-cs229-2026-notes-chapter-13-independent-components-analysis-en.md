@@ -17,6 +17,15 @@ draft: false
 
 This is a chapter-by-chapter reading of Chapter 13, printed pages 173–178, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings or schedule**. The chapter follows the cocktail-party problem: several microphones record different linear mixtures of simultaneous speakers; can the original voices be recovered from observations alone?
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## From a mixing matrix to an unmixing matrix
 
 ICA assumes
@@ -70,6 +79,10 @@ Chapter 12 used covariance eigenvectors to find orthogonal directions of maximum
 ## Self-study exercise
 
 Generate a sine wave and a square wave, standardize them, and mix them with an invertible $2\times2$ matrix. Compare a PCA rotation with ICA unmixing. When scoring recovered signals, allow permutation, scale, and sign changes; coordinate-wise error without alignment would incorrectly penalize ICA's unavoidable ambiguities.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

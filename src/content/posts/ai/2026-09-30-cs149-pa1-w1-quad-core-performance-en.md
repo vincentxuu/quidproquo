@@ -28,6 +28,14 @@ glossary:
 
 This post covers what each problem practices, what to watch for, and which direction to think in. **It contains no solutions.** The value of both assignments is in measuring and explaining things yourself.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
+
 ## What the assignment asks for
 
 The [README](https://github.com/stanford-cs149/asst1/blob/master/README.md) opens by stating its goal: understand the two main forms of parallelism in a modern multi-core CPU — **SIMD within a single core** and **parallelism across cores** (with a look at Hyper-Threading along the way). It says there is only a small amount of programming but **a lot of analysis**. The assignment is worth 100 points plus 6 points of extra credit.
@@ -155,6 +163,10 @@ Confirmed: the problems, point values, grading-machine specs, and constraints in
 Further reading: the README's "For the Curious" section strongly recommends Matt Pharr's [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all), which takes on questions like "why can't the compiler just parallelize it?"
 
 Series navigation: previous [L3: Latency vs. Bandwidth and ISPC](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en) | next [L4: The Thought Process of Parallelizing Code](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

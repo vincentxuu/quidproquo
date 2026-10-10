@@ -24,6 +24,28 @@ draft: false
 
 這篇是把公開的九支錄影逐堂聽完、再加上第一次開課那三場散落在別處的客座之後寫的，涵蓋課程主張什麼、34 篇指定閱讀怎麼分組、兩次開課之間改了什麼，以及沒修課的人實際能拿到多少。**不包含**逐篇論文精讀——那是另一個量級的工作。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
+title: 第二堂：Test-Time Compute Scaling
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnmHSAy3ck
+title: 第六堂：Train-Time Scaling / Scaling RL
+```
+
+原始影片：[第二堂：Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[第六堂：Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+
+課程與錄影入口：
+
+- [CS329A 錄影播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLangBM27OtEA)
+- [CS329A Winter 2025 錄影播放清單（含 Jeff Clune、Michele Catasta 客座）](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
+- [官方課程／講次來源](https://cs329a.stanford.edu/)
+
 ## 這門課的硬事實
 
 授課者兩位。[Aakanksha Chowdhery](https://www.achowdhery.com/) 在 Google 主導過 540B 的 PaLM，後來推動 Gemini 的 MoE 預訓練，現在在 Reflection AI。[Azalia Mirhoseini](http://azaliamirhoseini.com/) 是 Stanford 助理教授、[Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/) 主持人，MoE 與 AlphaChip 的共同作者，待過 Google Brain、Anthropic、Google DeepMind。
@@ -205,6 +227,8 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
 
 ## 參考資料

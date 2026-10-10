@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 2 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=D8RRq3TbtHU
+title: CS50 AI Week 2 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 2 — official lecture recording](https://www.youtube.com/watch?v=D8RRq3TbtHU)
+
+課程與錄影入口：
+
+- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
+
 ## TL;DR
 
 Week 2 引入機率處理不確定性：貝氏網路編碼條件獨立、馬可夫模型建模序列、PageRank 用隨機漫步排序網頁。兩專案分別實作遺傳推斷與網頁排名。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 2 Uncertainty (2020 錄製)](https://www.youtube.com/watch?v=qYl8k3K6t1M)
+YouTube：[Week 2 Uncertainty (2020 錄製)](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -329,6 +344,10 @@ style50 pagerank.py
 - [ ] 能推導 PageRank 公式並解釋 damping factor 作用
 - [ ] 理解 Heredity 中「先驗 vs 遺傳」機率的切換邏輯
 - [ ] 兩專案 `check50` 全綠
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

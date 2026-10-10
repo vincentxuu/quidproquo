@@ -34,6 +34,14 @@ The hardest part of the first class in an AI safety course is not listing risks.
 
 The first lecture of [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) (2025-09-04) handles this by assigning two readings with opposite views plus one on measurement, then taking the definitions apart in class. This post follows the same three pieces: what to read, what Boaz covered, and what the student experiment found.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Materials for this lecture
 
 | Material | Status |
@@ -156,6 +164,10 @@ One thing to do tonight: write one sentence each for a capability-based and an i
 
 - Series entry and material gaps: [Reading Harvard CS2881R (overview)](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - This site's course-openness grades: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

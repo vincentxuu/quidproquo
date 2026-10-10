@@ -36,6 +36,15 @@ glossary:
 
 這一講是文字單元的最後一講。講次表在同一天標著「HW1 out (L1-L4)」，兩天後的 Quiz 1 範圍也是 L1–L4。換句話說，這一講講的三個元件，下一篇的 [HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa) 就要你動手寫出來。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 前半：預訓練和微調到底差在哪
 
 投影片先給兩個定義：
@@ -191,6 +200,10 @@ HW1 的書面題第 4 大題（11 分）就是從這張表出發：先問直接�
 延伸閱讀：站上 [CME295 的 Transformer 技巧篇](/posts/ai/2026-09-29-cme295-transformer-tricks)從另一門課的角度講位置編碼與注意力變體；[CS336 的架構與超參數篇](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)和 [attention 與 MoE 篇](/posts/ai/2026-08-22-cs336-attention-moe)則從「自己訓練一個 LM」的角度整理同一批現代元件。
 
 系列導覽：上一篇 [L2–L3：Transformer LM、LLM 訓練與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)｜下一篇 [HW1：在 minGPT 加上 RoPE 與 GQA](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

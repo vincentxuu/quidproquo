@@ -40,6 +40,14 @@ glossary:
 
 這一講塞了五個以上的演算法，還有 reward hacking 和蒸餾。我的處理方式是：演算法收進一張對照表，reward hacking 單獨成一節，蒸餾放折疊區。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 範例：修一個 retry 設定的 bug
 
 這一講換了一個更像 agent 的範例，沿用第 6 講 coding agents 的教學題目（投影片附的原始題目連結指向 `cmu-agents/lecture-planning` repo，2026-09-29 查詢時未公開、回 404，題目內容以投影片為準）：
@@ -353,6 +361,10 @@ $$L_{\text{OPD}} = \mathbb{E}_{h \sim d_\mu}\big[D_{\text{KL}}(\pi_\theta(\cdot 
 - [Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)（CS230）
 - [CME295 第 6 講：reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼](/posts/ai/2026-09-29-cme295-llm-reasoning)
 - [CME295 第 5 講：RLHF 與 DPO 怎麼補上負面訊號](/posts/ai/2026-09-29-cme295-preference-tuning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

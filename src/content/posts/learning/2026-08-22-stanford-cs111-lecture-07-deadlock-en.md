@@ -19,6 +19,14 @@ This is part 8 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 The previous lecture established mutexes and condition variables while warning that more locks create complexity. This lecture starts from the other side of that tradeoff. Multiple locks can reduce contention and let each data structure encapsulate synchronization, but a thread often needs several resources simultaneously. Conflicting acquisition orders can leave every critical section locally correct while the system as a whole stops forever.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Why systems use multiple locks
 
 The PDF gives three motivations. First, reducing contention: one coarse-grained lock for unrelated data blocks otherwise independent operations, while fine-grained locks may permit more concurrency. Second, modularity: one lock per structure allows a module to preserve its own invariants. Third, real operations cross structures, so threads often need several locks at once.
@@ -121,6 +129,10 @@ The lecture's final insight is that deadlock breaks modularity. A module can pro
 This constraint can be painful. Code may hold a high-rank lock and later discover that it needs a low-rank resource. It cannot acquire directly; control flow or interfaces must change, or it must release and retry. Global order preserves safety by crossing module boundaries and restricting local implementation freedom.
 
 A concrete code-review action follows: list locks held together on every path as `L1 < L2 < ...`, then merge all paths into one ordering graph. Contradictory edges mean the design permits circular wait; do not wait for a test to reproduce it. An acyclic graph does not discharge the other three conditions or cover non-lock resources, but it makes the common prevention discipline auditable.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

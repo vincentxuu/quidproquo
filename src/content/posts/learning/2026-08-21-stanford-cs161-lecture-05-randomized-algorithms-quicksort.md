@@ -19,6 +19,14 @@ draft: false
 
 上一講的 Select 用 pivot 做 partition，然後只走答案所在的一側。QuickSort 保留同一個骨架，卻遞迴排序兩側。這個小改動讓 pivot 的品質更敏感：每次近乎切半是 `O(n log n)`，每次切成 `0` 與 `n-1` 則是 `Θ(n²)`。第五講要回答的不是「random pivot 通常不錯」這句直覺，而是：對任意固定輸入，只對演算法自己的亂數取期望時，如何嚴格證出 `O(n log n)`？
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
+
 ## 隨機化保證到底在保證什麼
 
 Randomized algorithm 在執行中做隨機選擇。同一輸入可能走不同路徑，執行時間因此也是 random variable。課堂使用 **Las Vegas algorithm** 這個分類：輸出永遠正確，速度則依亂數而變，可概括為「always works, probably fast」。Randomized QuickSort 屬於這一型；它不會因抽到壞 pivot 而輸出錯誤排序，只會變慢。
@@ -156,6 +164,10 @@ Lecture 4 與 Lecture 5 共用 pivot、partition、recursion，卻展示兩種�
 期望時間回答平均亂數成本，卻沒有告訴我們慢到某個門檻的機率。若系統在意 tail latency，可進一步研究 high-probability analysis，或採取限制遞迴深度、超過門檻後切換到 worst-case `O(n log n)` sorter 的混合策略。這些不是 Winter 2026 第五講已證的內容，所以與正文分開。
 
 隨機性也有實作前提：pivot 必須足夠接近均勻，亂數產生與選取本身要計入系統模型。面對可觀察或可預測亂數的敵對環境，「隨機 pivot」未必提供想像中的防護。數學定理的輸入 adversary、亂數來源與成本模型，都應在套用到工程前重新寫清楚。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

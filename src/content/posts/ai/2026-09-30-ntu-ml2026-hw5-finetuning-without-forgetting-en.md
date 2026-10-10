@@ -19,6 +19,21 @@ draft: false
 
 Access is **A3 minus grading**: the task, starter code, and data links are public. Scores come only from uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30. Code goes to NTU COOL, which needs an NTU account.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=HlSGih7bnrs
+title: HW5 walkthrough video (YouTube, in Chinese)
+```
+
+Original videos: [HW5 walkthrough video (YouTube, in Chinese)](https://www.youtube.com/watch?v=HlSGih7bnrs)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## What the assignment asks
 
 The slides open with two pictures. The first, "finetuning is powerful," shows a weight-loss word problem: the original model gets it wrong, and after fine-tuning on a math dataset it gets it right. The second, "finetuning leads to forgetting," shows a harmful prompt dressed up as an "ethical hacker" request. The original model refuses and offers defensive advice. After math fine-tuning, it starts listing intrusion steps.
@@ -132,6 +147,10 @@ The slides' references point to 2025 material: ML2025 [hw6.pdf](https://speech.e
 - The previous lecture in this course, making models stronger without touching weights: [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
 Series navigation: Previous [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en) | Next [Self-Correction: Can a Model Fix Its Own Mistakes?](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

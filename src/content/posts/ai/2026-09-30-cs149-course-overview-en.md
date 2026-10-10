@@ -26,6 +26,15 @@ glossary:
 
 Most AI engineers now work on parallel hardware every day. Training runs on GPU clusters, inference means squeezing kernel performance, and even phones ship an NPU. Yet many people have only a vague sense of why GPUs are fast, or why adding cores didn't make their program faster. [CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) fills that gap.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
+
 ## What the course teaches
 
 The [course home page](https://gfxcourses.stanford.edu/cs149/fall25) opens with the claim that parallel processing is everywhere, from smartphones, multi-core CPUs, GPUs, and AI accelerators to the largest supercomputers. The course aims to give a deep understanding of the principles and engineering trade-offs behind parallel systems, and to teach the programming techniques needed to use them well. Writing good parallel programs requires understanding a machine's performance characteristics, so **the course covers both hardware and software**.
@@ -195,6 +204,10 @@ These site series overlap with CS149. This series does not cut content because o
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): definitions of the A0–A3 grades
 
 **Series navigation**: next, [L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

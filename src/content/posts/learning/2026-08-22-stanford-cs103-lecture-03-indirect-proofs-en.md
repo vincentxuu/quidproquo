@@ -19,6 +19,14 @@ This is article 4 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 The previous lecture moved directly from assumptions to conclusions. This lecture asks what to do when that route is awkward: can we prove an equivalent statement instead? A safe change of direction begins by knowing exactly when the original statement is false. The deck therefore develops implication and negation before introducing contraposition and contradiction.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/)
+
 ## An implication promises something only when its antecedent holds
 
 An implication (P\to Q) reads “if (P) is true, then (Q) is true.” (P) is the antecedent and (Q) the consequent. The slides include “if an integer (n) is even, then (n^2) is even,” “if odd integers (m,n) are added, their sum is even,” and the deliberately outlandish “if you disprove Cantor's theorem, you receive an A+ in CS103.” The third is still an implication in form. An implication neither guarantees that its antecedent occurs nor asserts causality.
@@ -146,6 +154,8 @@ The complete deck supports the implication and negation rules, contrapositive pr
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt both language versions from the complete official deck, restoring quantified negation, contraposition, biconditionals, and both contradiction examples.
 
 ## References

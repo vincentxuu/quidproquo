@@ -41,6 +41,21 @@ glossary:
 
 先講一個和課表不一致的地方：**2026 投影片沒有專門講 BatchNorm 的頁面。** 正規化層的例子用的是 LayerNorm，BatchNorm 只出現在第 13 頁一張比較四種正規化的圖裡，旁邊寫「You will implement some of these in assignment 2!」。BatchNorm 的實作留給 [A2](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn) Q1。[2025 年的 lecture_6.pdf](https://cs231n.stanford.edu/slides/2025/lecture_6.pdf) 章節和 2026 版幾乎一樣，所以 2025 錄影應該也是這個結構，但我沒有逐分鐘核對影片。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=aVJy4O5TOk8
+title: Stanford CS231N Spring 2025 Lecture 6: CNN Architectures（YouTube）
+```
+
+原始影片：[Stanford CS231N Spring 2025 Lecture 6: CNN Architectures（YouTube）](https://www.youtube.com/watch?v=aVJy4O5TOk8)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 全講地圖
 
 第 4 頁把整講分成兩大組：
@@ -223,6 +238,10 @@ y = γ (x − μ) / σ + β
 延伸閱讀：站上 [CMU 11-785 的 CNN 系列](/posts/ai/2026-08-22-cmu-11785-10-cnn-two)對 CNN 的訓練與架構有另一套推導。
 
 系列導覽：上一篇 [L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)｜下一篇 [L7：循環神經網路與影像描述](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

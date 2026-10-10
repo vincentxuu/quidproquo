@@ -29,6 +29,27 @@ glossary:
 
 This post draws on four public sources: the [intro slides](https://web.stanford.edu/class/cs224u/slides/cs224u-intro-2023-handout.pdf) (a 98-page handout), videos [01](https://www.youtube.com/watch?v=K_Dh0Sxujuc) and [02](https://www.youtube.com/watch?v=J52Dtu40esQ) in the [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp), the three readings listed for Apr 3, and [setup.ipynb](https://github.com/cgpotts/cs224u/blob/main/setup.ipynb) in the repo. All of these are public, so under the site's course-map access scale this is an A3 (enough to self-study) historical offering. The Canvas quizzes and classroom recordings are not available.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
+title: Video 01: Intro & Evolution of Natural Language Understanding, Pt. 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=J52Dtu40esQ
+title: Video 02: Course Overview, Part 2
+```
+
+Original videos: [Video 01: Intro & Evolution of Natural Language Understanding, Pt. 1](https://www.youtube.com/watch?v=K_Dh0Sxujuc)、[Video 02: Course Overview, Part 2](https://www.youtube.com/watch?v=J52Dtu40esQ)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## One question, forty years
 
 Potts opens with a question he has used in this course for years:
@@ -185,6 +206,10 @@ If you only have half an hour, read section 2.2, "Cheap tricks," of [Levesque 20
 - [Stanford CS224U guide: overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en): course status, the three homeworks, the project grading document, and pitfalls in setting up the environment
 
 **Series navigation**: Previous: [Overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Next: [Contextual representations I: guiding ideas, the Transformer, and positional encoding](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

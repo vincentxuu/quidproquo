@@ -37,6 +37,22 @@ glossary:
 
 這一講的公式比 L3 多，但主軸只有一條：**與其等獎勵告訴你好壞，不如訓練一個網路來預測好壞。**
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=oejFZShW9hU
+title: Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）
+```
+
+原始影片：[Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）](https://www.youtube.com/watch?v=oejFZShW9hU)
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：policy gradient 在浪費資料
 
 第 3 頁複習 L3 時補了兩個特性：policy gradient 要**收完整條軌跡才能更新**；它**不依賴 Markov 性質**，所以可以直接用觀測值（observation）而不是完整狀態。
@@ -214,6 +230,10 @@ V 只吃狀態、不吃動作，比 Q 好學。
 - [CME295：偏好微調](/posts/ai/2026-09-29-cme295-preference-tuning)：KL 限制在 LLM 偏好最佳化裡的樣子
 
 **系列導覽**：上一篇 [L3：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)｜下一篇 [L5：Off-Policy Actor-Critic（PPO 與 SAC）](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

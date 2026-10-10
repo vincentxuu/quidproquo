@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 1 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-09-23. This reconstruction uses the [course schedule](https://web.stanford.edu/class/cs224w/) and the [lecture slides](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf); the slides credit Jure Leskovec and the course team.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include 01-intro.pdf and the readings listed on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable, so this article does not reconstruct them. The public 2021 videos are not evidence for a 2025 lecture.
@@ -106,6 +114,10 @@ Write a graph problem specification with examples, schema, feature availability,
 ## Where this lecture leads
 
 The concepts from Lecture 1 are composed in later lectures. Keep one small graph, a notation sheet, and a baseline. For every new model, identify whether it changes the data, message, aggregation, update, objective, or evaluation.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

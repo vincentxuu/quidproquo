@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 1, “Linear regression,” on printed pages 9–20 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of any quarter's recordings or lecture schedule.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Why the notes begin with linear regression
 
 CS229 uses linear regression to establish the language reused throughout the course: hypotheses, losses, optimization, statistical assumptions, and the distinction between parametric and nonparametric learning. The model is \(h_\theta(x)=\theta^T x\), with the intercept absorbed into a feature fixed at one.
@@ -74,6 +83,10 @@ Chapter 2 keeps a linear score but replaces continuous outputs with class probab
 ## Self-study exercise
 
 On one one-dimensional dataset, implement batch gradient descent, SGD, the normal equations, and locally weighted regression with three bandwidths. Plot every fitted curve, compare mean squared errors, and test whether fixed-rate SGD keeps oscillating while a decaying rate settles.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

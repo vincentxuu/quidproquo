@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料：作業投影片 [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf)（59 頁）、[Colab 起始碼](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing)（32 個 cell），以及助教的[作業說明影片](https://youtu.be/3xhwSsuNTM0)。作業 3/13 公告，截止時間是 2026/4/2 23:59（UTC+8）。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=3xhwSsuNTM0
+title: 影片：ML 2026 Spring hw2 AI Agent as an AI Engineer
+```
+
+原始影片：[影片：ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 校外讀者能做到哪裡
 
 存取等級 **A3（評分鏈除外）**：
@@ -134,6 +149,10 @@ node.metric = 1.0
 延伸閱讀：站上的 [CS231n：CNN 與影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)補 CNN 本身；[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)補 Intentional Compaction 的工程細節。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)｜下一篇 [加快生成（上）：Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

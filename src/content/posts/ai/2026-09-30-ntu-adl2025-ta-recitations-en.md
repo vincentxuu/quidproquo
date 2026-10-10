@@ -35,6 +35,26 @@ This post answers one question: **the lectures teach the principles, so what han
 
 **Sources**: the Recitation column of the course page, the ten recitation videos (YouTube titles and descriptions), five slide PDFs (same-name files on the Fall 2024 path), two TA Colab notebooks, and YouTube's auto-generated captions for the Deployment video. I opened and checked all of them on 2026-09-30. The lectures are taught in Mandarin; the slides mix Mandarin and English.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zuiACAhRUzA
+title: ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RYkEoCkJWeA
+title: ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)
+```
+
+Original videos: [ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle (YouTube, in Mandarin)](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects (YouTube, in Mandarin)](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics (YouTube, in Mandarin)](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=AgZuF7lsu-8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The big picture
 
 | Week | Recitation | Videos (length) | Slides | Lectures that week |
@@ -225,6 +245,10 @@ One thing to do tonight: open the [NLP Lifecycle Colab](https://colab.research.g
 
 Previous: [Post 17: beyond supervised learning and multimodality](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
 Series overview: [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

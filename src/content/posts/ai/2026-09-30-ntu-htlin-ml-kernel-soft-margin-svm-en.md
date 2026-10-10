@@ -32,6 +32,26 @@ This is part 10 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Te
 
 Access level: the MOOC materials are **A2**. Adding the public Fall 2024 HW6 PDF, [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), and the MNIST data brings these two lectures to **A3 (minus grading)**: there are no official solutions, and Gradescope grading is for enrolled students only.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=oOi7kqUTqxw
+title: T3-1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fb-WSBvsPak
+title: T3-2
+```
+
+Original videos: [T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Where the last post stopped
 
 The [previous post](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) turned the hard-margin SVM into a dual problem with N variables and N + 1 constraints, which looks independent of the transformed dimension d̃. But the dual's quadratic coefficients q_{n,m} = yₙyₘzₙᵀzₘ are still d̃-dimensional inner products, O(d̃) each if computed naively. T3 solves that. T4 solves a different problem: even with a fat boundary, the hard-margin SVM can still overfit.
@@ -198,6 +218,10 @@ There are no official solutions. For Q10–Q12, cross-check #SV and the margin w
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): the English course on the same textbook.
 
 Series navigation: previous, [Linear SVM and dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | next, [Kernel logistic regression and support vector regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

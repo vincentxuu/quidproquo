@@ -31,6 +31,21 @@ glossary:
 
 It draws on four official sources: [video 11](https://www.youtube.com/watch?v=8VS6Dcxmp34) (2025-04-29, about 2 h 59 min), the 72-page GenAI11 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08g】打造Stable_Diffusion的WebUI`](https://yenlung.me/AI08g), and the week 11 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08g was last committed on 2025-04-29, the day of the lecture. **What follows quotes the current repo version.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=8VS6Dcxmp34
+title: 【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）
+```
+
+Original videos: [【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=8VS6Dcxmp34)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 The slides have four parts: CLIP, which brings the meaning of text and images closer; "don't go ancestral": schedulers; LoRA; and image generation with diffusers. The video timeline:
@@ -184,6 +199,10 @@ This guide stands on its own. To go deeper, the site has these:
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en) | Next: [L12 ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

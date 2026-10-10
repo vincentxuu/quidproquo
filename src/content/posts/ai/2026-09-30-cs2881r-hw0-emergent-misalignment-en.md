@@ -39,6 +39,14 @@ That is emergent misalignment. HW0 of [CS 2881R](https://boazbk.github.io/mltheo
 
 It was also the admission filter. The README says only Harvard or MIT students planning to take the course for credit, and able to attend Thursday afternoon lectures, should submit, with a deadline of 11:59pm Eastern on 2025-08-04. The head TA's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) says selection combined the HW0 score, an interest form, and background; the interest form drew 274 responses.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## The paper it reproduces
 
 The README says the assignment closely follows the experimental setup of [Model Organisms for Emergent Misalignment](https://arxiv.org/abs/2506.11613) (Turner, Soligo, Taylor, Rajamanoharan, Nanda) and strongly recommends reading it first.
@@ -182,6 +190,10 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 - LoRA in theory and practice: [CMU 11-868: PEFT and LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora-en)
 - Limits of LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 - Series entry and material gaps: [Reading Harvard CS2881R (overview)](/posts/ai/2026-09-30-cs2881r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

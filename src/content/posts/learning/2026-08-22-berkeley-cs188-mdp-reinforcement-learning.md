@@ -18,6 +18,22 @@ draft: false
 
 搜尋假設你能列出 successor；強化學習則要在不確定結果與延遲 reward 下學會行動。[Lecture 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/)先建立 MDP，再進入 RL；[Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/)依序實作 value iteration、Q-learning、epsilon-greedy 與 approximate Q-learning。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=0CDpYf1KpOc
+title: CS188 Spring 2026 Lecture 9: MDPs I
+```
+
+原始影片：[CS188 Spring 2026 Lecture 9: MDPs I](https://www.youtube.com/watch?v=0CDpYf1KpOc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## 先分清 planning 和 learning
 
 Value iteration 已知 transition 與 reward model，透過 Bellman update 計算 value；Q-learning 不需要先知道模型，而從 `(state, action, reward, nextState)` 經驗更新 Q-value。兩者最後都能導出 policy，但資訊來源不同。若把這條邊界弄混，公式只剩符號代換。
@@ -31,6 +47,10 @@ Tabular Q-learning 每個 state-action pair 各自學值，遇到大型 Pacman s
 建議先在小 Gridworld 手算一次 Bellman update，再跑單一 autograder case；最後比較 training 關閉 exploration 前後的 policy。不要只看平均分數，要能指出 agent 為什麼選那個 action。
 
 系列導航：[上一篇：CSP 與多代理搜尋](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)｜[下一篇：Bayes nets 與 Ghostbusters](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

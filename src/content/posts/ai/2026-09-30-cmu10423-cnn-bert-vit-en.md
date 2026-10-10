@@ -27,6 +27,15 @@ glossary:
 
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture5-cnn-vit.pdf) and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture5-cnn-vit-ink.pdf) (70 pages each), and three readings: [sections 9.1–9.3](http://www.deeplearningbook.org/contents/convnets.html) of Goodfellow, Bengio, and Courville's *Deep Learning*, [BERT](https://arxiv.org/pdf/1810.04805.pdf), and [ViT](https://arxiv.org/pdf/2010.11929.pdf). The course is rated **A3** (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Recordings are on Panopto behind a CMU login, so this post works from the slides.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Why a generative AI course starts with understanding images
 
 None of this lecture's three models generates images, but later units keep using them:
@@ -138,6 +147,10 @@ Confirmed: the schedule's dates and readings, the plain and inked slide content,
 Further reading: the site's [Stanford CS231N guide](/posts/ai/2026-09-30-cs231n-course-overview-en) covers computer vision across a whole course. Its posts on [CNNs and image classification](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) and [attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en) pair well with this one. The prerequisite [CMU 11-785 guide](/posts/ai/2026-08-22-cmu-11785-course-overview-en) also has a full CNN unit.
 
 Series navigation: previous [HW1: adding RoPE and GQA to minGPT](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en) | next [L6: GANs and probabilistic graphical models](/posts/ai/2026-09-30-cmu10423-gans-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

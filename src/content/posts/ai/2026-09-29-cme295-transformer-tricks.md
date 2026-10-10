@@ -38,6 +38,21 @@ glossary:
 
 投影片分五段：位置編碼 → layer normalization → attention approximation → Transformer 模型分類 → BERT 深入拆解。前三段是「零件升級」，後兩段是「整台機器怎麼分家」。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=yT84Y5zCnaA
+title: 2025 版第 2 講錄影
+```
+
+原始影片：[2025 版第 2 講錄影](https://www.youtube.com/watch?v=yT84Y5zCnaA)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 位置資訊：從「加一個向量」到「轉一個角度」
 
 ### 為什麼需要位置
@@ -236,6 +251,10 @@ BERT 這一支沒有消失。投影片說它在業界「凡是跟 encoding 有�
 - attention 變體與 MoE：[CS336 Lecture 4：Attention 不只一種，MoE 也不是免費擴大模型](/posts/ai/2026-08-22-cs336-attention-moe)
 - BERT 在預訓練史上的位置：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - 上一講：[CME295 第 1 講：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -33,6 +33,14 @@ glossary:
 
 A deep research agent takes a research question that needs many searches and synthesis across many documents, then plans, searches, reflects, searches again, and finally hands back a long answer with citations. The slides split the lecture into three parts: **evaluation** (benchmarks, rubrics, citation support), **modeling** (learning to search and synthesize), and **retrieval** (finding evidence for the agent's next step). This post follows the same order.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## One search versus many
 
 The lecture opens with a contrast. "What is Akari Asai's office number at CMU?" takes one search of the faculty page. "Can AI agents synthesize scientific literature as well as human experts?" does not, and the slides break the agent's work on it into four steps:
@@ -260,6 +268,10 @@ Related posts on this site to read alongside the lecture:
 - [From Search Results to Reliable Citations: URL Deduplication, Source Tiers, and Claim-Source Mapping](/en/posts/ai/2026-08-22-search-results-reliable-citations-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
 - [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

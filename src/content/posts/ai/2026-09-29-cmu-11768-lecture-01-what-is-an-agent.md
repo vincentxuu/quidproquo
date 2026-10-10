@@ -39,6 +39,14 @@ glossary:
 
 這篇照課堂順序走：開場的成功與失敗案例、agent 的定義、從語言模型走到 agent 的三步、六種能力、訓練與 harness 的取捨、agent 系統的五個組成，最後是這門課的學習目標。課程形式、評分和作業細節放在[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 開場：agent 已經能做大事，也會闖大禍
 
 Fried 用兩個對比的例子開場。
@@ -275,6 +283,10 @@ Neubig 接著強調：agent 比你在其他機器學習課碰過的東西都複�
 - 站內：[OpenClaw Agent Loop 拆解](/posts/ai/2026-03-28-openclaw-agent-loop)，開場事故主角的迴圈怎麼寫
 - 站內：[Stanford CS329Z 導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，同樣要你從零寫 harness，但不碰訓練
 - 站內：[CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms)，從 RAG 和 function calling 的角度講同一件事
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

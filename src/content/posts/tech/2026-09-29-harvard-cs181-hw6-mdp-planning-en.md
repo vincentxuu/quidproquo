@@ -26,6 +26,14 @@ glossary:
 
 This is part 13 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 2)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en), dealt with HMMs, where the state evolves on its own and you only watch. Here the agent starts making decisions.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where it sits in the term
 
 Per the [2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ), Week 12 covered Single-Agent MDPs on Tuesday (April 14) and Reinforcement Learning I on Thursday; Section 10, "MDPs and Reinforcement Learning", was the Tuesday of Week 13. HW6 was released April 17 and due May 1.
@@ -136,6 +144,10 @@ Posts on this site that approach the same ideas from another angle; they don't r
 ## Next
 
 This problem assumes you have `get_transition_prob`. The next part, [HW6 (Part 4): Q-learning Swingy Monkey and Embedded EthiCS](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en), removes that assumption: the agent doesn't know the rules and must learn by trial and error.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

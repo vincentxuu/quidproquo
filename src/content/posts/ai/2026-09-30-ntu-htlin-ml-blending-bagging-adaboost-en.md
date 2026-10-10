@@ -36,6 +36,26 @@ The first six lectures of Techniques all do one thing: use kernels to pack a hug
 
 These two lectures answer two questions. First, why does combining help? Diversity, plus the fact that voting cancels out variance. Second, where does diversity come from? T7 gets it from random resampling of the data (bagging). T8 gets it from deliberate re-weighting (AdaBoost).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mjUKsp0MvMI
+title: Motivation of Aggregation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=DAFkKJYTMW4
+title: Uniform Blending
+```
+
+Original videos: [Motivation of Aggregation](https://www.youtube.com/watch?v=mjUKsp0MvMI)、[Uniform Blending](https://www.youtube.com/watch?v=DAFkKJYTMW4)、[Linear and Any Blending](https://www.youtube.com/watch?v=i03s1g7X_m4)、[Bagging (Bootstrap Aggregation)](https://www.youtube.com/watch?v=3T1mdvzRAF0)、[Motivation of Boosting](https://www.youtube.com/watch?v=hL8DjIHAzZY)、[Diversity by Re-weighting](https://www.youtube.com/watch?v=pTNKUj_1Dw8)、[Adaptive Boosting Algorithm](https://www.youtube.com/watch?v=vqTXLTYqbbw)、[Adaptive Boosting in Action](https://www.youtube.com/watch?v=5wPN87bwoaE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Where these lectures sit
 
 | Version | Week | Slides | Extended reading (as listed on the course page) |
@@ -189,6 +209,10 @@ How other courses on this site cover the same topics (this post does not skip an
 
 - [Harvard CS181 HW4: Decision Trees, Random Forests, and MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
 - [Reading Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

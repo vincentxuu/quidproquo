@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 8 講**，官方日期 2025-10-16。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/08-graph-transformer1.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含投影片與 schedule 列出的 optional readings。Canvas 錄影、現場 Q&A、板書及 Ed 討論不公開，因此本文不推測；2021 公開影片也不當成 2025 講次內容。
@@ -116,6 +124,10 @@ Repeated eigenvalues 在近似數值下不一定被精確辨認，跨 graph batc
 最後審查 batching：不同大小 graph padding 後，attention mask 必須同時遮 padding nodes 與不允許的 pairs；graph token 不能跨 batch graphs 互看；Laplacian vectors 的 padding 也不能被當成真座標。用兩張互不相干的小圖單獨推論，再放進同一 batch，輸出應一致。若 batch 後改變，通常是 mask、normalization 或 positional padding 錯，而不是模型隨機性。這項 invariance test 對所有 graph transformer implementation 都應成為固定單元測試。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

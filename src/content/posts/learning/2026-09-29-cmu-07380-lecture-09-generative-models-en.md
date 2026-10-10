@@ -22,6 +22,14 @@ Every classifier in 07-280 and 07-380 so far (logistic regression, neural networ
 
 This guide reflects the course site as of 2026-09-29. The schedule is marked `subject to change`.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 Materials I opened and read:
@@ -175,6 +183,10 @@ Before Naive Bayes, the slides review the definitions of independence and condit
 1. Print the [SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf), work it without looking at the solution, then compare with the 0.074 above.
 2. Run the sampling code above, then replace `sigmas` with full covariance matrices and switch to `rng.multivariate_normal`. Compare the two scatter plots.
 3. Do Poll 1 from the slides: a GDA with three classes, two features, and a full covariance per class has how many parameters? Count the μ's first, then the truly free entries of each Σ.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

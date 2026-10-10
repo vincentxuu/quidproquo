@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 6**, taught by Percy 
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Recap: what search is solving
 
 Last time began with a simple premise: complex problems require search, using thinking and reasoning to find an executable sequence of actions. A search problem must first be formalized as callable pieces: how states are represented, which successors follow from a state, the start state, and whether a state is an end state. The source's travel example constructs this interface with ten locations: obtain the start state, inspect its successors, and test one successor for termination.
@@ -102,6 +111,10 @@ A relaxed problem is not automatically easier. Costs must be reduced in a struct
 UCS explores by increasing past cost and uses priority-queue updates, DONE/stale-entry accounting, and backpointers to reconstruct a minimum-cost path; with nonnegative costs, the removed goal has minimum cost. A* is UCS with a heuristic: consistency keeps modified costs nonnegative, admissibility supplies a lower bound on future cost, and a useful relaxation may reduce exploration.
 
 Next time asks what happens when action outcomes are nondeterministic, such as rolling dice. Canvas interactions, assignment solutions, hidden tests, and unsupported numerical claims remain material gaps; they should not be filled with another term or intuition.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -48,6 +48,26 @@ glossary:
 
 **存取等級**：只看影片與投影片是 A2；加上 Fall 2024 的作業 PDF，這一段可以做到 A3，但沒有官方解答，Gradescope 批改只限修課生。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=6FWRijsmLtE
+title: Caltech Lecture 6（Yaser Abu-Mostafa）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4aIAxH8eBMs
+title: Recap and Preview
+```
+
+原始影片：[Caltech Lecture 6（Yaser Abu-Mostafa）](https://www.youtube.com/watch?v=6FWRijsmLtE)、[Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## L6 是選修，這篇怎麼處理
 
 兩個學期都把 L6 標成非必看。[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)把 L6 的四支影片列在 W4（09/30）的「suggested watching (anytime)」，L5 的影片則是「required watching (before class)」。Fall 2024 課程頁把 L6 放在「optional」，旁邊並列兩個版本：Caltech Yaser Abu-Mostafa 的[英文 Lecture 6](https://www.youtube.com/watch?v=6FWRijsmLtE)，以及林軒田的中文版四段。
@@ -208,6 +228,10 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 下一篇[VC 維度、雜訊與誤差衡量](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)會把「最大的非 break point」正式命名為 VC 維度 d<sub>VC</sub>，證明 d 維感知器的 d<sub>VC</sub> = d + 1，再把理論推廣到有雜訊的資料。
 
 延伸閱讀：Stanford CS229 的[泛化一章導讀](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)用不同的路線講同一個問題，可以對照。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

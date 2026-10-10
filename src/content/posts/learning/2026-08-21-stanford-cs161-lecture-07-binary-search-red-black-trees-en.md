@@ -21,6 +21,14 @@ I used the [official Lecture 7 anchor](https://stanford-cs161.github.io/winter20
 
 The lecture asks a more precise question than “what is a tree?” A sorted array supports fast search but expensive updates. An unsorted linked list makes local updates cheap but search expensive. Can one mutable set retain fast search, insertion, and deletion? A BST tries to combine those benefits, but its performance depends on its shape. A red-black tree turns “the shape must not become too bad” into invariants that an update algorithm can maintain.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
+
 ## Start from the operations, not the picture
 
 Assume all keys are distinct. We want to search for a key, insert, delete, find a predecessor or successor, and traverse the set in sorted order. A sorted array supports binary search in `Θ(log n)` and direct selection by rank, but an insertion or deletion usually shifts a linear suffix. An unsorted linked list reverses the tradeoff: a local edit can be `Θ(1)` when its position is known, while search is `Θ(n)`.
@@ -178,6 +186,10 @@ The next lecture narrows the requirement. If an application only needs membershi
 A useful exercise is to insert the same key sequence three ways: sorted order into an ordinary BST, an approximately median-first order into another BST, and red-black insertion. Record the height and search path after every update. The keys remain identical while the shape—and therefore the cost—changes.
 
 For implementation practice, begin with rotations rather than a full red-black tree. Run an in-order traversal before and after every rotation; any changed sequence reveals a pointer error. Then compute the black counts of all paths to `NIL` before attempting insertion fix-up. These are practice suggestions from this article, not added Winter 2026 requirements.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

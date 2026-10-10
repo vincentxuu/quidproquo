@@ -32,6 +32,27 @@ glossary:
 
 這份投影片有 80 頁，中間的 Compositionality 與 (Re)COGS 兩節跟作業三綁在一起，留到[下一篇](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)。本篇講其餘六節。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=l_w05N0QGLk
+title: 錄影 25：Overview（XCS224U, Spring 2023）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sZPxZm8HfaE
+title: 錄影 26：Analytical considerations
+```
+
+原始影片：[錄影 25：Overview（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=l_w05N0QGLk)、[錄影 26：Analytical considerations](https://www.youtube.com/watch?v=sZPxZm8HfaE)、[錄影 29：Adversarial testing](https://www.youtube.com/watch?v=486mTOQnhgU)、[錄影 30：Adversarial NLI](https://www.youtube.com/watch?v=_ZkewUyBb-w)、[錄影 31：DynaSent and conclusion](https://www.youtube.com/watch?v=2K0BH52EtIw)
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 評估有哪幾種
 
 投影片第 3 頁把評估分成兩大類：
@@ -174,6 +195,10 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 - 課程狀態與 COGS 成績表：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 同一件事在 2026 年 CS224N 的講法：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
 - 往模型內部看的方法：[CS224N 第 15 講：Agentic Interpretability](/posts/ai/2026-08-22-cs224n-interpretability)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

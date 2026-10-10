@@ -38,6 +38,22 @@ L9 opens by listing four ways to evaluate an algorithm: whether it converges, wh
 
 L9 is clear about why bandits come first: they are a simpler place to see these ideas, and the ideas will extend to MDPs.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=sqYii3nd78w
+title: Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"
+```
+
+Original videos: [Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"](https://www.youtube.com/watch?v=sqYii3nd78w)
+
+Course and recording entries:
+
+- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## The setting: RL with a single decision
 
 A multi-armed bandit is a tuple (A, R): A is a known set of m actions (arms), and R^a(r) = P[r | a] is each arm's unknown reward distribution. At each step you pick an action and get a reward; the goal is to maximize cumulative reward.
@@ -203,6 +219,10 @@ One thing you can do tonight: simulate the broken toes in 30 lines of Python, ru
 
 - Exploration methods and theory in deep RL: [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Course positioning, access gaps, and the 2024 video mapping: [Reading Stanford CS234 (series overview)](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

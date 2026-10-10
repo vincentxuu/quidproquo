@@ -34,6 +34,14 @@ Put differently, the first five assignments showed you what a framework looks li
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Where it sits in the course
 
 Each problem maps to earlier lectures:
@@ -118,6 +126,10 @@ The page also notes that SGLang's backend is built on [FlashInfer](https://arxiv
 
 - Parallelism in another course: [CS336 Parallelism Mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en)
 - Another take on inference systems: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

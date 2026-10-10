@@ -34,6 +34,26 @@ glossary:
 
 存取等級：MOOC 教材是 **A2**；加上 Fall 2024 HW6 題目 PDF 與公開的 [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) 和 MNIST 資料，這兩講可以到 **A3（評分鏈除外）**：沒有官方解答，Gradescope 批改只限修課生。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=oOi7kqUTqxw
+title: T3-1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fb-WSBvsPak
+title: T3-2
+```
+
+原始影片：[T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 上一篇停在哪
 
 [上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)把 hard-margin SVM 換成對偶問題：N 個變數、N + 1 條限制，看起來和轉換後的維度 d̃ 無關。但對偶的二次項係數 q_{n,m} = yₙyₘzₙᵀzₘ 仍是 d̃ 維的內積，直接算要 O(d̃)。T3 解決這個問題，T4 解決另一個問題：就算邊界夠胖，hard-margin SVM 還是會過擬合。
@@ -200,6 +220,10 @@ Gaussian soft-margin SVM 至少有 (C, γ) 兩個參數，投影片三張圖（C
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：同一本教科書的英文課。
 
 系列導覽：上一篇 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)｜下一篇 [Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

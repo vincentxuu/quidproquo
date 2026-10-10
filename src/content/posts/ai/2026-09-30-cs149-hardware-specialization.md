@@ -42,6 +42,22 @@ Fall 2025 的錄影只放在 Stanford Canvas。最接近的公開錄影是 [2023
 
 [上一篇](/posts/ai/2026-09-30-cs149-dnn-on-gpus)結尾留了一個問題：GPU 跑 DNN 很好，但它真的是最理想的平台嗎？這一講回答它。本篇也負責建立加速器的名詞（Tensor Core、脈動陣列、TMA、資料流架構），[下一篇](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)直接引用。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=2tAb3EgyjNw
+title: 2023 Lecture 18 錄影：Hardware Specialization
+```
+
+原始影片：[2023 Lecture 18 錄影：Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
+
 ## 為什麼要專用化：能量
 
 投影片第 2–4 頁先把問題換成能量。手機受電池與無風扇散熱限制；超級電腦與資料中心因為規模太大（數十萬顆 CPU 和 GPU），受供電與冷卻限制；而 AI 的需求在指數成長。
@@ -209,6 +225,10 @@ thread block cluster 最多 16 個 thread block，保證每個在不同的 SM �
 延伸閱讀：想看 TPU 與 JAX／Pallas 在 LLM 系統課裡怎麼被使用，讀 [CMU 11-868 TPU、JAX 與 Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)；想從 LLM 訓練的角度看 GPU 與 TPU，讀 [CS336 GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L9 在 GPU 上高效跑 DNN](/posts/ai/2026-09-30-cs149-dnn-on-gpus)｜下一篇 [L11 專用硬體的程式系統](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

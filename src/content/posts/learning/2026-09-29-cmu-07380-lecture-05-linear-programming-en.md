@@ -24,6 +24,14 @@ The short answer: **if an LP has a finite optimum, the set of optimal points alw
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 - [Lec5 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf): pre-reading polls, modeling the Diet Problem, three LP forms, the graphical view, vertex enumeration, simplex intuition, higher dimensions. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx) is also posted
@@ -142,6 +150,10 @@ The branch and bound example in [the next lecture](/en/posts/learning/2026-09-29
 - Previous: [HW2 guide: Classical and Motion Planning, from Robot-Cook PDDL to RRT\* to Graphing LPs](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
 - Next: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

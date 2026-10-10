@@ -17,6 +17,14 @@ draft: false
 
 > ⚠️ **版本**：2026 期末日期與週表以 [課站 schedule（Google Sheet）](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準；期末複習材料放在 [cs181-web 的 `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static)，實際打開後全是 **2025 版**（final review 標頭 `CS 1810 Spring 2025`，其餘 PDF 產生於 2025 年 5–6 月）。本篇 2026-09-29 查核。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **期末本身**：[CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) 期末在 **5 月 9 日（六）下午 2 點**，佔 `15%`；[syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus) 寫明閉卷，可帶一張 8.5×11 雙面筆記。
@@ -122,6 +130,10 @@ Checklist 也寫明哪些**不考**，例如 SVM dual 與 KKT 推導、二階最
 - 上一篇：[HW6（四）Q-learning 玩 Swingy Monkey＋Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics)
 - 回到起點：[Harvard CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
 - 上半學期對照：[期中檢核](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

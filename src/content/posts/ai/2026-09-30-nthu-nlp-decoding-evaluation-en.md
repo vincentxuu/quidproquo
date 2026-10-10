@@ -32,6 +32,26 @@ The official materials are the slides [W5_decoding.pdf](https://github.com/IKMLa
 
 First, which recording to watch. The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) puts this deck and the Hugging Face tutorial in the same W7 row, and its Topics column ("Python for text tutorial") is a syllabus template that doesn't match the content. I read the captions for Week 7 Tue.: it runs from the opening on decoding all the way to MMLU, and the professor closes with "that's it for decoding and evaluation today." [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) that week plays the Hugging Face tutorial (frames at minutes 5, 25, and 50 show the tutorial slides), which the previous part covers. For this unit, W7 Tue. alone is enough.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=NtPrXea8qSE
+title: Week 7 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4qDUML9TeHM
+title: Week 7 Thu.
+```
+
+Original videos: [Week 7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)、[Week 7 Thu.](https://www.youtube.com/watch?v=4qDUML9TeHM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## The setup: training has answers, testing doesn't
 
 The first 10 slides are review. A language model predicts the next word's probability given the previous words, P(y<sub>t</sub> | y<sub>1</sub>, …, y<sub>t−1</sub>). Add a source text x and you get a conditional language model, i.e. seq2seq: translation, summarization, and dialogue generation all fit here.
@@ -156,6 +176,10 @@ On MMLU, the professor notes that such datasets basically provide no training da
 - The Fall 2026 version of this unit isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study).
 
 **Series navigation**: previous, [Hugging Face BERT tutorial and HW3 multi-output learning](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en) | next, [GPT-2 / T5 Chinese summarization](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

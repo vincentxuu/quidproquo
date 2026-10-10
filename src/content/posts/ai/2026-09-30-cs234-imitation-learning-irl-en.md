@@ -40,6 +40,27 @@ Until now the reward has always been given. The second half of L7 asks a differe
 
 The slides give the motivation in one line. Having humans provide a reward signal while the RL algorithm acts is cheap supervision, but its sample complexity is high. The alternative is **imitation learning**.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: from 45:26, "Introduction to imitation learning"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=IEbuJtjqtMU
+title: from 4:28
+```
+
+Original videos: [from 45:26, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[from 4:28](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+
+Course and recording entries:
+
+- [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Slide ranges and the 2024 videos
 
 The 2026 PDF boundaries do not match the topics, so this post cuts by topic:
@@ -180,6 +201,10 @@ One thing to do tonight: make a table of what BC, DAgger, and IRL each need. Do 
 
 - The same topic in a deep RL course: [CS224R L2: imitation learning and multimodal policies](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
 - Another take on distribution shift: [Berkeley CS285 L1–4: imitation learning, distribution shift, and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

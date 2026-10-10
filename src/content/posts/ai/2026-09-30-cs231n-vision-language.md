@@ -32,6 +32,21 @@ glossary:
 
 **錄影和投影片的差異這一講特別大。** 2025 年的 [lecture_16.pdf](https://cs231n.stanford.edu/slides/2025/lecture_16.pdf) 有 148 頁，講者是 Ranjay Krishna，其中有一大段 Segment Anything；2026 版只在分類圖上列出 Segment Anything，另外新增了 Qwen3-VL、SigLIP 與 omni 模型。看 2025 錄影時，遇到 2026 投影片沒有的段落，就當成補充。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=mQOK0Mfyrkk
+title: YouTube：CS231N Spring 2025 Lecture 16: Vision and Language
+```
+
+原始影片：[YouTube：CS231N Spring 2025 Lecture 16: Vision and Language](https://www.youtube.com/watch?v=mQOK0Mfyrkk)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 場景：一個任務一個模型，還能走多遠？
 
 第 2 頁回顧課程到目前為止的思考方式：**每個任務訓練一個專門模型**。四個資料領域、四個模型、四個任務。
@@ -166,6 +181,10 @@ LLaVA 的訓練配方分三步：用預訓練的 LLM（例如 LLaMA）初始化�
 ## 存取限制
 
 依[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這門課是 **A3**：2026 投影片、作業與起始碼公開，另有 2025 完整錄影。本講的缺口是 2026 錄影只放在 Canvas、限修課生觀看；而且 2025 錄影和 2026 投影片的內容差異比其他講次大。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -20,6 +20,15 @@ draft: false
 
 > ⚠️ **版本提醒**：本系列涵蓋講課影片為 **2020 年春季錄製（Week 0–5）與 2023 年重錄（Week 6）**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## TL;DR
 
 七週十二專案建立的「古典 AI 內功」在 2026 年仍是必修：搜尋、邏輯、機率、優化、反向傳播。但表格型 RL、統計 NLP、手工 CNN 已非主流。免費 OCW 路線材料完整、自動評分閉環，缺口在 LLM 應用層。下一步：Transformer → 微調 → RAG → Agent → 評測。
@@ -214,6 +223,10 @@ CS50 AI 完成 (12 Projects ✓)
 | 10 | **Wrap-up (本文)** | **永恆/變遷/下一步** |
 
 ---
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

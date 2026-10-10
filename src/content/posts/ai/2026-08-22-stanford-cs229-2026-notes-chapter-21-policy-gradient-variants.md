@@ -17,6 +17,15 @@ series:
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 21 章（印刷頁 258–265）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；本文保留 REINFORCE 與 PPO 的核心推導、直覺和限制，不逐行複製全部證明。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## REINFORCE 不需要知道環境公式
 
 有限期軌跡記為 \(\tau=(s_0,a_0,\ldots,s_T)\)，隨機策略為 \(\pi_\theta(a\mid s)\)。目標是最大化折扣總 reward：
@@ -85,6 +94,10 @@ r_t(\theta)=\frac{\pi_\theta(a_t\mid s_t)}{\pi_{old}(a_t\mid s_t)}.
 ## 練習
 
 給兩條長度三的軌跡，每一步 reward 分別為 \((2,3,5)\) 與 \((1,1,0)\)，並令 \(\gamma=1\)。先寫出各時間點的 reward-to-go，再假設每個狀態的 baseline 都是 2，計算 advantage 的符號。最後令 \(\epsilon=0.2\)，分別解釋 \(\hat A>0,r=1.4\) 與 \(\hat A<0,r=0.7\) 時 PPO clipping 做了什麼。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

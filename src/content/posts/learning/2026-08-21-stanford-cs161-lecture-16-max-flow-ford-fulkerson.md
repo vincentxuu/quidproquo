@@ -21,6 +21,14 @@ draft: false
 
 上一講的 cut 幫 greedy 選出安全邊；這一講的 directed `s-t` cut 則提供 upper bound。Ford–Fulkerson 一面建構 flow，一面更新 residual graph。當 residual graph 再也沒有 `s→t` path，演算法不只停下，還從 reachability 直接讀出一個同值 cut。答案和證明一起出現，是這講最漂亮的地方。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
+
 ## Flow 與 cut
 
 輸入是 directed graph `G=(V,E)`、非負 capacity `c:E→R_{≥0}`、source `s` 與 sink `t`。Flow `f` 必須滿足：
@@ -118,6 +126,10 @@ Residual graph 同時承擔執行與證明：過程中列出 forward 增流及 r
 ## 延伸
 
 工程實作可在每輪保留 parent edge 以重建 path，並以 64-bit integer 防止容量總和溢位。測試應檢查 capacity、conservation、reported value，以及終止後 residual reachable cut 是否同值。若輸入允許 antiparallel edges，應用明確的 edge identity 或反向索引，不能直接套 notes 為簡化定義的公式。這些是實作建議，不是講義額外 theorem。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

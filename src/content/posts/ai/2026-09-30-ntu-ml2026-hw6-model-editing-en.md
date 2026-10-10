@@ -19,6 +19,21 @@ draft: false
 
 Access is **A3 minus grading**: the slides and Colab are public, and you can reproduce the experiments. But **the quiz questions themselves** are on NTU COOL, which needs an NTU account. hw6.pdf gives only the question counts and point values, not the questions.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=AR1bNACLOAU
+title: HW6 walkthrough video (YouTube)
+```
+
+Original videos: [HW6 walkthrough video (YouTube)](https://www.youtube.com/watch?v=AR1bNACLOAU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Prerequisite: no lecture this semester covers model editing
 
 HW6 doesn't map to any lecture this semester, and hw6.pdf names no prerequisite video. The 2025 edition of the course, though, has a lecture titled ["Micro-surgery for AI: a brief look at Model Editing"](https://youtu.be/9HPsz7F0mJg) (in Chinese; slides: [edit.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2025-course-data/edit.pdf)), and that semester's homework list also had an HW8 on Model Editing. I suggest watching that lecture for background (my suggestion, not an official requirement). The Colab's data file is still named `HW8_data.json`, a sign this assignment was carried over from the 2025 version.
@@ -120,6 +135,10 @@ Two spots in hw6.pdf show it was carried over from an older version. The two sin
 - The same week's lecture, a different take on fixing a model's answers: [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en)
 
 Series navigation: Previous [Self-Correction: Can a Model Fix Its Own Mistakes?](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en) | Next [Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

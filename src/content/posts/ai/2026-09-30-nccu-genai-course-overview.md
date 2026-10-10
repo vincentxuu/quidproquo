@@ -29,6 +29,14 @@ glossary:
 
 這篇是系列入口，只講課程是誰開的、校外讀者拿得到什麼、講次與作業怎麼對上、需要哪些工具，以及 Fall 2026 有什麼不同。每一講的內容留給後面各篇。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 這門課是誰的：政大主講，長庚那頁是衛星班
 
 在網路上搜尋這門課，最容易找到的完整頁面是 [yangchihyuan.github.io/courses/GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)。這頁掛在長庚大學人工智慧學系**楊智淵**老師的 CGU AICV Lab 網站上，屬於**長庚衛星班**的課程頁，並非主講者的官網。
@@ -191,6 +199,10 @@ TAICA 讓各校獨立評分，所以同一份作業在不同學校的份量不�
 - Diffusion 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；視覺生成：[Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)
 - 強化學習：[Berkeley CS285：模仿學習與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
 - 各校課程的公開程度比較：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

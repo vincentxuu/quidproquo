@@ -19,6 +19,22 @@ draft: false
 
 Lecture 9 說明 scaling law 的原理；這一講檢查公開團隊實際怎麼做。真正困難的不只是選 model size 與 token count，還要讓 initialization、learning rate、batch size 和 schedule 在規模改變時仍可比較。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=vTfEyOyzV9E
+title: CS336 Spring 2026 Lecture 11: Scaling Laws
+```
+
+原始影片：[CS336 Spring 2026 Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 公開 recipe 的共同骨架
 
 MiniCPM、DeepSeek、Qwen、Llama 3 等做法細節不同，卻共享一個務實順序。先把多數 Transformer 架構比例視為近似不隨規模改變，再用小模型 sweep learning rate 與 batch。最後以 IsoFLOPs 或 joint fit 選 parameter/data allocation。
@@ -58,6 +74,10 @@ Maximum update parameterization（μP）會調整 initialization 與 layer-speci
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依當期投影片的公開 recipe、optimizer scaling 與 μP 段落整理。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

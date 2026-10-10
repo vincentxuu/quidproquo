@@ -27,6 +27,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
+title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## What gap this lecture fills
 
 Earlier lectures covered architectures, optimization, and regularization — all "correct knowledge", but none told you **what to do when the loss refuses to move for three days**. Lecture 9 is that "survival manual for practice".
@@ -94,6 +110,10 @@ When loss won't drop, check in this order:
 ## Why this matters in practice
 
 The value of this lecture is not any single trick but **establishing a controllable experiment flow**. With a repeatable recipe, every failed experiment becomes diagnosable instead of "try a different random seed".
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

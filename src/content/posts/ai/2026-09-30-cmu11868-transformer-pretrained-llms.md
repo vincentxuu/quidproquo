@@ -30,6 +30,14 @@ glossary:
 
 11-868 講模型只用了兩堂：L06 講 Transformer，L07 講預訓練 LLM。跟 [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 或 [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 比，這兩堂的篇幅很短。它們只負責一件事：讓你知道**接下來要加速、切分、服務的東西長什麼樣子**，語言模型為什麼有效則交給其他課。本文照這個角度讀：每個元件都問兩件事，它的矩陣形狀是什麼、它會吃掉什麼資源。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 先定位：三種語言模型
 
 L06 第 4 頁把語言模型分成三類：
@@ -148,6 +156,10 @@ T5-11B 的 d_model 只有 1024，參數幾乎都堆在 FFN 的 65536 維。這�
 2. L07 的尺寸表是圖片，直接開 [LLaMA](https://arxiv.org/abs/2302.13971) Table 2 和 [GPT-3](https://arxiv.org/abs/2005.14165) Table 2.1、Table D.1
 3. 用 GPT-3 的數字算一次參數量、權重記憶體和訓練 FLOPs，當作進入後半學期的暖身
 4. L07 第 21 頁直接接到 [HW3 作業頁](https://llmsystem.github.io/llmsystemhomework/assignment_3/)，這份作業 2/4 發下，讀完本文與[下一篇](/posts/ai/2026-09-30-cmu11868-tokenization-decoding)就可以開始
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

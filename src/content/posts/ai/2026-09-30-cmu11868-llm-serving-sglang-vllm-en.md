@@ -38,6 +38,14 @@ glossary:
 
 The official order is SGLang on April 6, PEFT on April 8, and vLLM on April 13. This series puts the two serving lectures together because they solve the same problem, and page 9 of Lecture 22 says outright that "SGLang / vLLM share similar arch".
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The setting: one server, many requests
 
 Page 3 of Lecture 22 opens with scale: 200 million daily active users, 2.5 billion prompts a day, 30,000 requests per second. Pages 4–6 then list three common usage patterns, each hiding a systems problem:
@@ -196,6 +204,10 @@ Suggested order:
 - Another course's take on inference: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Making attention itself faster: [L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - Beyond one machine: [L26–L30 Serving at Scale: Prefill/Decode Disaggregation, KV Cache, and Heterogeneous Hardware](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

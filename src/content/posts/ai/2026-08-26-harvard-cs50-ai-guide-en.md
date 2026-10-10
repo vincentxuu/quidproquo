@@ -19,6 +19,15 @@ Search for free AI courses and [Harvard CS50's Introduction to Artificial Intell
 
 But "fully public" does not mean "fully current." Open any lecture's download links and the paths read `cdn.cs50.net/ai/2020/spring/` — the videos were filmed in spring 2020. So this guide answers two questions: what do these seven weeks and twelve projects actually involve, and is a course recorded in 2020 still worth following in 2026?
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## Decide whether this is your course
 
 The prerequisites are explicit on the official page: [CS50x](https://cs50.harvard.edu/x), or at least one year of experience with Python. No linear algebra or probability required — where probability matters, the course teaches it in week two.
@@ -113,6 +122,8 @@ If steps one through three take you three days or fewer, keep going. If reading 
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-26: Initial version. Recording and assignment version status verified against the official site on August 26, 2026.
 
 ## References

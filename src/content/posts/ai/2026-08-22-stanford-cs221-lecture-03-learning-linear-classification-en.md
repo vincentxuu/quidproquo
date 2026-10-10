@@ -19,6 +19,15 @@ This article follows the executable artifact's order: it reviews linear regressi
 
 > Public-material gap: the source explicitly links an Autumn 2023 linear-classification module; course, artifact, repository, and playlist links are below. The source gives sentiment classification as a task example, but provides neither hidden sentiment-assignment tests nor solutions, so they are not reconstructed here.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## From linear regression to linear classification
 
 The previous unit's prediction task was regression: an input maps to a real number, using linear functions as the hypothesis class. This unit changes the output to a discrete choice: one class or label among K choices, using thresholded linear functions. It keeps the same three learning questions: which predictors are possible, how good is one, and how can we compute the best parameters?
@@ -104,6 +113,10 @@ For a bag-of-words representation, represent each token as a one-hot vector and 
 - Maximum likelihood turns a product of target probabilities into a minimizable loss through logs and negation.
 - Multiclass models compute one logit per class and use softmax; for a one-hot label, cross-entropy is the negative log target-class probability.
 - Text becomes tensors through tokenization and one-hot representation; code can use indices directly. Bag of words is fixed-dimensional but discards word order.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

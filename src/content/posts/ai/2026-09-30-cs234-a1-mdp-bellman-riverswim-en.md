@@ -40,6 +40,15 @@ On the 2026 schedule, A1 is released in Week 1 and **due January 16 at 6 pm PST*
 
 This post covers what each question trains, which tools from the previous lecture it needs, and where people tend to get stuck. **It gives no solutions.**
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Submission and points
 
 You submit three parts on Gradescope:
@@ -197,6 +206,10 @@ One thing to do tonight: open `riverswim.py` and draw the 6 states and both acti
 
 - The same MDP, value iteration, and Q-learning as taught in another course: [CS221 Lecture 7: MDPs and Value Iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en)
 - A full deep RL course route with assignments: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

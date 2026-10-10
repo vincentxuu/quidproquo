@@ -32,6 +32,26 @@ glossary:
 
 讀完這篇，你應該能說清楚為什麼用 E_in 選模型不行、驗證集該切多大、為什麼選完要用全部資料重訓，以及 sampling bias 和 data snooping 分別在防什麼。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=BRLGPnrcel8
+title: Model Selection Problem
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RvkCaAwRP8A
+title: Validation
+```
+
+原始影片：[Model Selection Problem](https://www.youtube.com/watch?v=BRLGPnrcel8)、[Validation](https://www.youtube.com/watch?v=RvkCaAwRP8A)、[Leave-One-Out Cross Validation](https://www.youtube.com/watch?v=iToz5t0J6WU)、[V-Fold Cross Validation](https://www.youtube.com/watch?v=Y8PaLsYm0Ac)、[Occam's Razor](https://www.youtube.com/watch?v=Oj6j98ceUz8)、[Sampling Bias](https://www.youtube.com/watch?v=8QZZiIAdTUU)、[Data Snooping](https://www.youtube.com/watch?v=7nP5zWMQmxM)、[Power of Three](https://www.youtube.com/watch?v=29jgHPeRAqI)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 課程與教材對照
 
 | 講次 | YouTube 小節（播放清單序號） | 投影片 | LFD 章節 |
@@ -177,6 +197,10 @@ HW5 的 Q4 已經是技法 T1 的 hard-margin SVM，留給[下一篇](/posts/ai/
 - 基石到此結束。技法從「特徵轉換太貴」這個問題出發，第一站是 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
 - 其他學校的 ML 入門：[Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[Berkeley CS189](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

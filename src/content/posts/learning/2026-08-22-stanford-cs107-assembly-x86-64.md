@@ -19,6 +19,14 @@ draft: false
 
 本講以 `sum_array` 的十條指令拆解反組譯各欄、assembly 與 machine code、十六個 general-purpose registers，以及 compiler 的「載入、運算、寫回」。完整 addressing modes、資料寬度與 `mov` 變體主要留給下一講。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料、範圍與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -197,6 +205,10 @@ CPU 不會檢查 `%rdi` 是不是 `int *`，但 `int` 仍導致 32-bit operation
 本講的核心不是背 register names，而是改用 instruction、operand、register、memory address 與 control-flow edge 讀程式。對 `sum_array`，先由 `jge` 和 backward `jmp` 找 loop，再追 `%eax` 的 index、`%edx` 的 sum、memory operand 的 array access，最後找 return value：先畫控制流程，再追資料流，最後命名角色。
 
 練習時，把五行 C 編成 `.s` 與 executable，各看一次 `gcc -S` 和 `objdump -d`；在每條 instruction 旁註明「讀什麼、寫什麼、下一步去哪裡」。高階抽象不是被神祕抹掉，而是拆成可追蹤的機器狀態轉移。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

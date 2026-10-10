@@ -29,6 +29,14 @@ This week didn't exist in Fall 2025. A year ago, an agent was something you open
 
 **Disclosure: this post was written by a background agent** — running in an ephemeral cloud container on its own branch, pushing the result when done. The costs and limits below are not speculation.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## The shared parts
 
 Product names differ; the architecture has converged:
@@ -89,6 +97,10 @@ The order makes sense: one person managing three background agents is a tooling 
 - Background agent features and pricing move very fast; this post covers shared architecture, not product comparison
 - Fall 2026's guest and materials for this week aren't published
 - Conventions like "one agent, one PR" are young and may look different in a year
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

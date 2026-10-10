@@ -19,6 +19,14 @@ This is article 18 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 All three artifacts have three pages. The formal agenda is complete P1–P7 plus challenge. Rather than derive every randomized runtime's full distribution, this lecture uses conditional expectation, linearity, and indicators to obtain expected values directly.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Read a bootstrap p-value
 
 Among 10,000 null differences, 140 are at least as extreme as observed `2.1` minutes:
@@ -148,6 +156,10 @@ The six concepts are conditional expectation, total expectation, expected runtim
 - P4 and the challenge are pset5 items omitted from the public key and are derived only from worksheet code.
 - Current slides are unavailable and video is gated; this L2 guide does not reconstruct missing lecture content.
 - The limited artifact scope qualifies for the short-material exception; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ This is part 5 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 4 places two facts side by side: each thread executes sequentially, yet the global order among threads is not fixed. Too Much Milk is not a diversion; three failed attempts force precise definitions of race condition, atomicity, and critical section.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Learn concurrency through counterexamples
 
 First separate independent from cooperating threads, then split `read`, decision, and `write` into interleavable steps. Each proposed solution must be defeated by an explicit schedule. Only then do mutual exclusion, progress, and bounded waiting become more than labels attached after the fact.
@@ -60,6 +68,10 @@ It still busy-waits, directly handles two participants, and depends on memory-or
 ## Verify with a schedule, not intuition
 
 Choose one Too Much Milk attempt and place every read, write, and condition check into two columns until the schedule produces duplicate purchases or no purchase. Then identify the atomic region required to exclude that counterexample. “Add a lock” without drawing its boundary has not located the race.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

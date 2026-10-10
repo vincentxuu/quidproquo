@@ -39,6 +39,21 @@ glossary:
 
 當天的計畫分成兩部分。第一部分是 offline RL 的複習和例子，投影片標註「HW3 的一部分」；第二部分是 reward learning，其中「從人類偏好學獎勵」標註為「default project 的一部分」和「LLM 就是這樣被監督的」。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=PDIxDhA9Z6Y
+title: Spring 2025 Lecture 8: Reward Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 8: Reward Learning（YouTube，補充）](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 先收尾 offline RL
 
 這段是把 [L7](/posts/ai/2026-09-30-cs224r-offline-rl) 濃縮成兩個關鍵想法。問題設定不變：資料來自未知的 πβ，想在 πθ 下最大化獎勵。
@@ -193,6 +208,10 @@ LLM 的版本是：給 prompt x，取樣兩個回答 y 和 y′，請人判斷�
 - [CS336：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)：實作面的 post-training 流程
 
 **系列導覽**：上一篇 [L7：Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl)｜下一篇 [HW3：AWAC、IQL 與 AntMaze 上的 stitching](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

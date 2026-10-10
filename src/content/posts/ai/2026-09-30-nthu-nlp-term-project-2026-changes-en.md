@@ -21,6 +21,26 @@ The first 18 posts walked through one semester of Fall 2025 materials. This one 
 
 Official materials used: the 2025 [W0_Syllabus.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf) and [Course_summary.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Course_summary.pdf), the recordings in rows W14–W16 of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), the 2026 [Syllabus-115.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/Syllabus-115.pdf), and the schedule on the [repo's front page](https://github.com/IKMLab/NTHU_Natural_Language_Processing). Access ratings: Fall 2025 is **A3, enough for self-study**, though the term project only reaches syllabus level; Fall 2026 is **A2 (in progress)**. The scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=_hzMv789JQ8
+title: Week 14 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=03_BDLu3DDU
+title: Week 15 Tue.
+```
+
+Original videos: [Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8)、[Week 15 Tue.](https://www.youtube.com/watch?v=03_BDLu3DDU)、[Week 15 Thu.](https://www.youtube.com/watch?v=w48WxRz6LXE)、[Week 16 Tue.](https://www.youtube.com/watch?v=3AsbuOlSWpQ)、[Week 16 Thu.](https://www.youtube.com/watch?v=jQUHM3MQisw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 2025: the term project is worth 30%
 
 The Grading page of the 2025 syllabus is short:
@@ -151,6 +171,10 @@ TA office hours are Monday and Wednesday 15:30–16:30 in Delta Building room 71
 Confirmed: the weights, project types, constraints and schedules in both syllabi; the TAICA compute terms, the AI-TA page and the 2025 grade distribution charts; the project directions and end-of-term timeline in Course_summary; and the files, video IDs, titles and lengths listed for each week in the 2025 and 2026 READMEs. Not confirmed: what the fifth 2025 assignment was; the project spec, rubric and group topics; what the W15–W16 recordings contain (no captions, not watched); what exactly "CP4" refers to; why the course switched to a midterm; any Fall 2026 materials after W3.
 
 Series navigation: previous, [course summary and LLM reasoning notes](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en) | back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

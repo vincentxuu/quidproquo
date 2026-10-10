@@ -26,6 +26,14 @@ glossary:
 
 L01 分四段：LLM 能做什麼、數學基礎、LLM 系統的挑戰、課務（第 5 頁）。課務已經寫在[總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)，本篇只順著前三段，看這一講怎麼論證「LLM 需要系統」。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 課程目標先丟出一個算術題
 
 第 4 頁的學習目標有三條，第一條底下只放了一個問題：
@@ -115,6 +123,10 @@ L01 沒有真的算出 100B 模型要多少資源，它只把問題丟出來。�
 - [CS336 Lecture 2：先算 FLOPs 與記憶體，再談模型跑不跑得動](/posts/ai/2026-08-22-cs336-resource-accounting)：把 L01 丟出的資源問題實際算一次。
 - [CME295 第 5 講：LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)：用一講的篇幅看同一組系統問題。
 - [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：L01 推薦給「想學建模型」的人去修的課。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

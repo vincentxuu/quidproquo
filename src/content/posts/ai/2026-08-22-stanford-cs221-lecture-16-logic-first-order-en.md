@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 16**, taught by Percy
 
 > Material gap: The official lecture artifact, executable material, and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article does not fill those gaps with material from another offering.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 Propositional logic treats an entire sentence as a truth-valued symbol. That is useful for composing a fixed, finite collection of propositions with connectives, but it has no natural way to express a rule about “all students” or “some person.” Lecture 16’s first-order logic (FOL) separates two layers: terms denote objects in a domain, while formulas denote truth values. Constants, variables, and functions build terms; predicates, connectives, and quantifiers build formulas.
@@ -264,6 +273,10 @@ The whole lecture therefore presents a matched gain and cost. Objects and predic
 First ask whether a name is an object term, a function term, a predicate, or a formula; do not let `father(x)` and `Student(x)` collapse into “some expression.” When you see `∀` or `∃`, mark its scope and check that implication or conjunction is on the intended side. When inspecting a model, look for its domain and the interpretations of constants, functions, and predicates—not an arbitrary truth table. For propositionalization, record unique names and domain closure; for modus ponens, record the definite-clause restriction; with functions, record the possibility of infinitely many terms. Finally, keep soundness and completeness separate: the former means “does not derive falsehood,” while the latter means “does not miss entailments.”
 
 This is why the lecture is more than a vocabulary list. The source carries the same examples through sentences, syntax, models, queries, and inference rules. The important thing to follow is each change of representation and each assumption introduced by that change. The public Canvas interactions, assignment solutions, and hidden tests remain unavailable; this article preserves that gap instead of turning guesses into course conclusions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

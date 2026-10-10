@@ -36,6 +36,14 @@ The first four lectures made individual operations fast on a GPU. This one moves
 
 That question leads straight into Assignment 2. Slide 7 frames it with a snippet of PyTorch: call `loss(input_logits, target_labels)`, then `output.backward()`, and ask two things. How is backward implemented? Why does it work for any network?
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The lecture's four parts
 
 Slide 3 lists the day's topics, and the lecture follows them in order:
@@ -137,6 +145,10 @@ One thing you can do tonight: look only at the `backward_pass` on slide 27 and w
 
 - [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en): the same chain rule, derived from a deep learning course's angle
 - [Stanford CS336: Resource accounting](/posts/ai/2026-08-22-cs336-resource-accounting-en): how much compute the forward and backward passes each cost in training
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

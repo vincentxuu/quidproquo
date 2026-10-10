@@ -36,6 +36,14 @@ Unlike Assignment 1, all the code here is Python. It is not independent of Assig
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Where it sits in the course
 
 The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) releases HW2 on 1/28, the same day HW1 is due and L05 is taught, and makes it due 2/4: one week. Recitation 2 on 1/30 is "HW2, MiniTorch, More GPU".
@@ -123,6 +131,10 @@ One thing you can do tonight: open `minitorch/autodiff.py`, read only the method
 
 - [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en): the math behind autodiff
 - [CMU 10-414/714 Deep Learning Systems](https://dlsyscourse.org/): a whole course building a framework called Needle from scratch; this site has no series for it yet, but the [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) explains where it fits
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

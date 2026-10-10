@@ -17,6 +17,14 @@ series:
 
 **CMU 07-280, Spring 2026, Lecture 24** is **Monte Carlo Tree Search (MCTS)**. The current Fall 2026 page separately displays LLM Post Training, but that is not the Spring canonical lecture used by this series. This lecture combines earlier adversarial search, sampling, Q estimates, deep networks, and self-play into the Building AlphaZero finale.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 The Spring 2026 Lecture 24 `MCTS` slide and PowerPoint direct links returned 404 on August 22, 2026. This article therefore does not claim to have read that lecture deck. Its core sources are [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf), [Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf), plus S26 filenames and assignment metadata on the [official course site](https://www.cs.cmu.edu/~07280/).
@@ -109,6 +117,10 @@ Ending Spring 2026 with MCTS reconnects the course's two strands. Search decides
 ## An action for tonight
 
 Implement the game with 11 candies where each player takes one or two. Build FlatMCSearch first, then add node visits, mean values, UCB selection, expansion, and alternating-sign backup. Fix a random seed and compare root policies after 10, 100, and 1,000 simulations. Finally add a deliberately wrong prior and measure how many simulations search needs to correct it.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

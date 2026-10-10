@@ -24,6 +24,14 @@ posterior[h] = prior[h] × likelihood(observation | h)
 normalize(posterior)
 ```
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: One Bayes update
 
 A bag is equally likely to contain a Fair or Trick coin, whose head probabilities are `0.5` and `0.9`. After one head,
@@ -151,6 +159,10 @@ The guide's six concepts are belief updating, the belief-table loop, normalizati
 - P6 is a pset4 item deliberately omitted from the public answer key; this article derives only its likelihood and posterior from the public prompt.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

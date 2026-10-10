@@ -32,6 +32,26 @@ glossary:
 
 Official materials used: the slide deck [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf) (64 pages) and the lecture video listed on the course page, [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I) ("Is AI about to cross the Rubicon? How far are we from self-improving AI, part 2", in Mandarin). The ppt link in that row of the course page reads `self-evolving-agent.ptx` and returns 404; change it to `.pptx` and it opens. Access level is **A3**: slides and recording are public. This lecture has no homework or quiz attached.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=cQLKVzbwN7I
+title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
+```
+
+Original videos: [Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Part 1 in one formula
 
 Lee opens by restating Part 1 in symbols (slides 2–6). The AI is A_θ, where θ is the parameters of the underlying language model. What humans actually want is L̂, which papers usually stand in for with a benchmark such as a math olympiad score. People can't say exactly what they want, so they give the AI a proxy H: training data, a textbook, or just the sentence "be good at math". From H the AI defines its own loss L, and the rest is ordinary gradient descent from θ to θ'.
@@ -195,6 +215,10 @@ Verified: the text and embedded links of all 64 slides, the zh-TW captions of th
 Not verified: most slides are figures, so for numbers inside the papers (Darwin Gödel Machine scores, accuracy tables) this post only reports the trends described in the captions. The memory paper on slide 14 and the joint-evolution paper on slide 24 were matched to their arXiv IDs from the captions' descriptions ("a February 2026 paper", "a paper from early this year"). The captions render R-Zero as "R1-Zero" and AlphaEvolve as "AlphaEvo"; this post follows the slides. The AlphaEvolve and ShinkaEvolve slide wasn't walked through in the lecture, so this post describes only the loop diagram on it.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en) | Next: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

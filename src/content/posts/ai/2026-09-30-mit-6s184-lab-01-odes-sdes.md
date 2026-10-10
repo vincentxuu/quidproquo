@@ -29,6 +29,14 @@ glossary:
 
 [第 1 講](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)給了兩條更新式：Euler 和 Euler–Maruyama。Lab 1 要你把它們寫成程式，然後拿來看三種 SDE 的行為。整份 lab 不訓練任何神經網路，向量場都是手寫的，目的是讓你先對「模擬一條 SDE」有手感。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 開始前
 
 課程網站上這個 lab 叫 **Lab 1: Working with ODEs and SDEs**，notebook 標題是 Lab One: Simulating ODEs and SDEs。網站的流程是：
@@ -130,6 +138,10 @@ dX_t = ½ σ² ∇log p(X_t) dt + σ dW_t
 
 - 這些模擬器在 Lab 2 會被重用，搭配訓練好的向量場：[Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
 - score 與 Langevin 的正式推導：[L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

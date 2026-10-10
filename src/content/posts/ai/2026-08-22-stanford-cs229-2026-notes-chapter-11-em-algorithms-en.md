@@ -17,6 +17,15 @@ draft: false
 
 This is a chapter-by-chapter reading of Chapter 11, printed pages 150–166, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) by Tengyu Ma and Andrew Ng. It is **not a reconstruction of any quarter's recordings**. The chapter's spine is simple: latent variables make direct maximum likelihood difficult; EM alternates posterior inference and parameter updates; VAEs extend that pattern to neural networks and continuous latent variables.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Gaussian mixtures hide the component labels
 
 A Gaussian mixture first samples $z\sim\operatorname{Multinomial}(\phi)$, then samples $x\sim\mathcal N(\mu_j,\Sigma_j)$ conditional on $z=j$. If every $z^{(i)}$ were observed, $\phi_j$ would be the fraction in component $j$, while $\mu_j$ and $\Sigma_j$ would be that component's empirical mean and covariance. With latent labels, however, the marginal likelihood contains a sum over components inside a logarithm, coupling the parameters and eliminating those simple closed forms.
@@ -86,6 +95,10 @@ This chapter generalizes the alternating updates of k-means, replacing hard labe
 ## Self-study exercise
 
 Work through one EM iteration for a one-dimensional, two-component Gaussian mixture. Choose initial weights, means, and variances; compute responsibilities for four observations; then update means and mixture weights. Evaluate the observed-data log-likelihood before and after. Repeat from different initial means and compare the final solutions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

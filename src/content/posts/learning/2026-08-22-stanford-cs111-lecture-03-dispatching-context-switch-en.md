@@ -19,6 +19,14 @@ This is part 4 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 3 takes up the question left by the previous lecture: when threads outnumber cores, how can each appear to keep progressing? The answer is not one scheduler function but a loop of state transitions, PCBs, context save/restore, and dispatch.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Read the lecture as one CPU handoff
 
 Follow one thread from running to blocked, another from ready to selected, and eventually the first back to ready. At each step ask what returns the core to the kernel and which execution state must remain intact for a correct resume.
@@ -62,6 +70,10 @@ The context-switch sequence hinges on SP. Registers are saved into the current s
 ## Walk one dispatch by hand
 
 Draw running, ready, and blocked boxes for threads A and B. Starting when A issues blocking I/O, label the PCB update, stack-pointer switch, B’s resume, and A’s return to the ready queue after I/O completion. If a step cannot be attributed to an event or the dispatcher, revisit that state-transition arrow.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

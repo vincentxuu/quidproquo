@@ -36,6 +36,15 @@ glossary:
 
 **系列位置**：上一篇 [HW2：在 AFHQ 貓圖上從零實作 DDPM](/posts/ai/2026-09-30-cmu10423-hw2-ddpm)｜下一篇 [L11–L12：Instruction tuning、RLHF 與 DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 為什麼從影像又回到 LLM
 
 HW2 交完，下一份 [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) 要你用 LoRA 微調 GPT-2 做情感分類。這兩講就是在替它鋪路。問題本身很實際：你手上有一個幾十億參數的預訓練模型，和一份只有少量標註的資料集，要怎麼讓模型學會你的任務？
@@ -200,6 +209,10 @@ few-shot 可以直接用 ICL 做：先給任務說明，再依序放入訓練資
 - 同一段內容在別門課的講法：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)、[CS224U In-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)
 - LoRA 的訓練成本：[CME295 第 4 講：LLM 訓練的帳單，預訓練、SFT 與 LoRA 各花在哪裡](/posts/ai/2026-09-29-cme295-llm-training)
 - 課程狀態與自學路線：[CMU 10-423 系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

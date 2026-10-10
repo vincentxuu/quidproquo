@@ -17,6 +17,14 @@ series:
 
 Tabular Q-learning stores one number for every `(state, action)`. The Deep Reinforcement Learning segment of **CMU 07-280, Spring 2026, Lecture 23** addresses state explosion. Features and neural networks approximate `Q(s,a)`, allowing one experience to affect many related states.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 There is an important source gap. The Spring 2026 Lecture 23 `Deep_RL` slide and PowerPoint links listed by the course site all returned 404 on August 22, 2026. This article therefore **does not claim to have read the Lecture 23 slides** and does not invent their sequence.
@@ -105,6 +113,10 @@ This lecture also reconnects RL to supervised learning: DQN still has inputs, pr
 ## An action for tonight
 
 Do not begin with Atari. Use the two-dimensional linear features above and hand-calculate `y`, TD error, and weight updates for three transitions, then encode them as unit tests. Implement one version using the current network for every target and another that synchronizes a target network every ten steps. Plot not only reward but also TD loss, Q-value magnitude, and the gap between target and online predictions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

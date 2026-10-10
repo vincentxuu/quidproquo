@@ -32,6 +32,21 @@ glossary:
 
 Access rating: **A3 minus grading**. The slides print all 20 questions in both Chinese and English, and the Colab can be downloaded and run by anyone. The only things you can't get are the NTU COOL quiz itself and the grades. This assignment doesn't use JudgeBoi.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=KAbM5gM6Isw
+title: HW8 walkthrough video (YouTube)
+```
+
+Original videos: [HW8 walkthrough video (YouTube)](https://www.youtube.com/watch?v=KAbM5gM6Isw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Prerequisite: 2025 Lecture 7 on Reasoning
 
 Page 3 of hw8.pdf asks you to watch [Machine Learning in the Age of Generative AI (2025), Lecture 7: How do LLMs like DeepSeek-R1 "think deeply" (Reasoning)?](https://www.youtube.com/watch?v=bJFtcwLSNxI) (in Mandarin) first. This term has no new lecture that covers it.
@@ -131,6 +146,10 @@ Everything else is available. **Something you can do tonight**: copy the Colab, 
 - **Related reading**: [CME295 LLM Reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en) covers reasoning models and inference-time compute. [BrowseConf](/posts/ai/2026-09-19-browseconf-test-time-scaling-en) applies confidence-driven test-time scaling to browsing agents. For RL fundamentals, see [Berkeley CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW7: Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en) | Next: [Self-Improving AI (Part 2): improving the harness and learning to learn](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

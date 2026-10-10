@@ -17,6 +17,22 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 2 on January 8, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf) covers word2vec, objective-function gradients, optimization basics, count-based representations, and evaluation, after brief course logistics. Its concrete goal is to understand word meaning as a high-dimensional real vector and to read embedding papers.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The Spring 2024 recording below is supplementary material on the same topic, not a Winter 2026 lecture recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=DzpHeXVSC5I
+title: CS224N Spring 2024 Lecture 1: Intro and Word Vectors
+```
+
+Original videos: [CS224N Spring 2024 Lecture 1: Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## From dictionary nodes to positions in context
 
 Lexical resources such as [WordNet](https://wordnet.princeton.edu/) organize words into synonym sets and hypernym relations. Their structure is explicit, but they require manual maintenance, miss new uses, and do not naturally quantify degrees of similarity. Distributional representation begins elsewhere: words occurring in similar contexts should receive similar representations.
@@ -86,6 +102,10 @@ Corpus context supports relatedness, not every semantic relation. Antonyms often
 ## Material gap
 
 Winter 2026 recordings are not public. This account uses the Lecture 2 deck and the core papers on the official reading list. Classroom demonstrations, spoken derivations, and questions cannot be verified and are not reconstructed.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

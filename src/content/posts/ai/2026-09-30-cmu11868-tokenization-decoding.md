@@ -33,6 +33,14 @@ glossary:
 
 兩件事看起來都跟「系統」無關，其實都是成本問題。詞表大小決定 embedding 表和輸出層有多大、同一句話要多少個 token；解碼策略決定生成一段文字要跑幾次前向。L09 的後半更直接：speculative decoding 就是一個推論加速技術。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## L08：tokenization 是一個取捨
 
 ### 三種粒度
@@ -148,6 +156,10 @@ L09 第 4 頁先說明，窮舉所有序列找最大機率是 O(V^N)，不可能
 2. 開一個 tokenizer demo（投影片第 35 頁列了兩個），貼一段中文和一段英文，比較 token 數
 3. 跑 decoding notebook，比較 greedy 與 beam search 的輸出
 4. 跑 speculative decoding notebook，試著改 N，看接受率和速度怎麼變
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

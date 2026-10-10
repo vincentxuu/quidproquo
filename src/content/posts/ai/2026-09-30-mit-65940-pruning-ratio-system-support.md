@@ -32,6 +32,21 @@ glossary:
 
 第 4 講就是這三個問題。投影片第 2 頁把整個剪枝單元拆成五個問題，第 3 講處理前三個，本講處理「Determine the Pruning Ratio」與「Fine-tune/Train Pruned Neural Network」，再加一整段系統與硬體支援。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=upaZrpXkELc
+title: EfficientML.ai Lecture 4 錄影（Fall 2024）
+```
+
+原始影片：[EfficientML.ai Lecture 4 錄影（Fall 2024）](https://www.youtube.com/watch?v=upaZrpXkELc)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 先把剪枝寫成一個最佳化問題
 
 第 4 頁給了剪枝的正式寫法：
@@ -166,6 +181,10 @@ EIE 的第一個缺點，NVIDIA 用 M:N 稀疏回應。第 83–85 頁引用 [Mi
 - 剪枝的前半段（粒度與標準）：[第 3 講導讀](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
 - 同一套想法在 LLM 上：[CMU 11-868 導讀：模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)（W4A16 為什麼重生）
 - GPU 與 Tensor Core 的背景：[CS336：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

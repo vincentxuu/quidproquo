@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料：講義 [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) 第 1–33 頁（整份 61 頁，後半是下一篇的內容），以及課程頁列出的影片 [AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://youtu.be/urwDLyNa9FU)。存取等級是 **A3**：投影片 pdf／pptx 與錄影都公開，本講沒有對應的測驗或排行榜。
 
+## 課程影片來源
+
+影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=urwDLyNa9FU
+title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說
+```
+
+原始影片：[影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://www.youtube.com/watch?v=urwDLyNa9FU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 為什麼需要 Context Engineering
 
 投影片第 2 頁的圖很簡單：人類說一句話，語言模型用工具 1，拿到工具 1 的輸出，再用工具 2……每一輪都要把前面全部重新餵進去。語言模型「活在當下」，而**輸入長度有限**。
@@ -119,6 +134,10 @@ glossary:
 延伸閱讀：站上的 [Context Engineering 指南](/posts/ai/2026-03-24-context-engineering-guide)、[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)、CMU 11-768 的 [Context Management 導讀](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)，以及 Stanford CS146S 的 [Context Engineering 導讀](/posts/ai/2026-08-16-cs146s-context-engineering)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW1：防禦惡意指令](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)｜下一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

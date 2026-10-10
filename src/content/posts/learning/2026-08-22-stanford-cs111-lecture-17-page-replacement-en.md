@@ -19,6 +19,14 @@ This is part 18 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 Lecture 16 establishes demand paging's promise: a program can execute without keeping all code and data in physical memory at once. Lecture 17 asks what follows. When should a page enter memory, and which resident page should leave once RAM is full? The former is **page fetching policy**; the latter is **page replacement policy**. Page faults, the present bit, and restartable instructions are mechanisms. FIFO, LRU, Clock, and global replacement are policies.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Complete agenda
 
 The public deck proceeds through demand paging and locality; DRAM/SSD/disk trade-offs; the page-fault handler and x86-64 `CR2`; restartable instructions; fetching versus replacement; sources for demand-fetched pages; prefetching; Random, FIFO, MIN, and LRU; a 12-reference trace; why exact LRU is impractical; reference/dirty bits; Clock/second chance; clock-hand speed; global versus per-process replacement; a quantitative thrashing example; and finally suspending processes or controlling which working sets run together.
@@ -146,6 +154,10 @@ For a fault, separate mechanism (valid address, source, restart), fetching (targ
 ## Update history
 
 - 2026-08-22: Rewritten against the complete 19-page official deck, restoring fetching/replacement, Clock, global policy, and thrashing.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

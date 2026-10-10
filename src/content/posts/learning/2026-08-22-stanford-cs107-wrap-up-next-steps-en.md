@@ -19,6 +19,21 @@ Lecture 26 adds no new mechanism. It asks what we can now explain that we initia
 
 The public lecture is a wrap-up outline, and no transcript of the classroom Q&A is available. This article therefore covers only the six published questions, the comparison of early programs with the allocator, the learning goals, Sebastian C, and the course map. It neither invents Q&A nor turns a course list into enrollment advice.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=G7LJC9vJluU
+title: Sebastian C
+```
+
+Original videos: [Sebastian C](https://www.youtube.com/watch?v=G7LJC9vJluU)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -91,6 +106,8 @@ Lecture 26 does not say systems is finished. It leaves six stable questions for 
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Linked the wrap-up's absolute-value example explicitly to Lecture 5's `INT_MIN` signed-overflow caveat.
 
 ## References

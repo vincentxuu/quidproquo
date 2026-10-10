@@ -19,6 +19,14 @@ This is article nineteen in [Reading Stanford CS161](/en/series/stanford-cs161),
 
 The source boundary is unusually important: the official component provides **52 slides and no lecture notes**. I used the [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf) and [component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md), not Canvas or notes from another term.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
+
 ## Seventeen lectures in thirteen recap slides
 
 The recap joins rigor and intuition: design algorithms, prove correctness, analyze worst-case time, and express growth with big-O. It revisits divide-and-conquer, randomized QuickSort, sorting bounds and RadixSort, trees, hashing, graphs, shortest paths, DP, greedy algorithms, flows, and Embedded EthiCS.
@@ -78,6 +86,10 @@ The same date boundary applies to research examples and citation years: this art
 Natural next routes are optimization for LP algorithms and duality, coding theory for finite fields and decoding bounds, and learning-augmented algorithms for robust guarantees under prediction error. These are directions suggested by the deck, not material already taught in this lecture.
 
 The best use of this finale is as a map: choose a tool here, then return to the earlier lecture for its full proof. Lecture 18 is intentionally a roadmap rather than a compressed substitute for every route.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

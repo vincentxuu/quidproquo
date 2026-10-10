@@ -30,6 +30,22 @@ Fall 2025 錄影只在 Canvas，本講可對照 2023 公開錄影 [Lecture 4 - P
 
 投影片第 3–27 頁是 L3 後半 ISPC 內容的重播（`sinx()`、interleaved 與 blocked、`foreach`、`reduce_add`、SPMD 總結），[上一講的導讀](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)已經講過。本文從第 28 頁開始，也就是這一講真正的新主題：**寫一個平行程式時，腦中該跑什麼流程？**
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=0-ztm8SKq70
+title: 2023 Lecture 4 錄影：Parallel Programming Basics
+```
+
+原始影片：[2023 Lecture 4 錄影：Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
+
 ## 三個問題，一個目標
 
 第 29 頁把思考流程濃縮成三步：
@@ -186,6 +202,10 @@ flowchart LR
 延伸閱讀：本講的 lock 與原子性只講到動機。想看作業系統層面的完整討論，可以讀站上 [CS111 第 4 講：並行與原子性](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)與[第 5 講：lock 與 condition variable](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)；CS149 自己會在系列第 20–21 篇談 lock 的實作與 lock-free 程式設計。
 
 系列導覽：上一篇 [PA1 + Written 1：四核 CPU 效能分析](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)｜下一篇 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

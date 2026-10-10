@@ -22,6 +22,14 @@ The first lecture of [CS329Z](https://cs329z.stanford.edu/) (Sep 23, Foundations
 
 This guide follows the post's own argument: the definition, why systems are unavoidable, then its three design questions, three hard challenges, and four emerging directions. At the end I connect each section back to the course — what [HW1 actually asks you to hand in](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) is essentially the hands-on version of this article.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## The definition: system versus model in one sentence
 
 The post defines it in a single line: a compound AI system tackles tasks with **multiple interacting components**, including repeated model calls, retrievers, and external tools. An AI model, by contrast, is just a statistical model — a Transformer predicting the next token.
@@ -87,6 +95,8 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 
 ## References

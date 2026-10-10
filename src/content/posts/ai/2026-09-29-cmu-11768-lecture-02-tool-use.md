@@ -32,6 +32,14 @@ glossary:
 
 這一講不是教你「怎麼在 API 裡加 `tools` 參數」。它把工具呼叫從上到下剖開：模型為什麼需要工具、工具呼叫在 token 層長什麼樣、harness 怎麼解析與派送、怎麼保證格式正確、REST 和 MCP 差在哪、多個呼叫怎麼平行、最後怎麼評測。這些內容正是[作業 A1（Harness）](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)要你親手寫出來的部分。本篇照講課順序走，每節最後標出它在 A1 裡對應到哪裡。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 工具是什麼，什麼時候值得叫
 
 投影片的定義改寫自 Neubig 與 Fried、Zhiruo Wang 等人合寫的綜述 [What Are Tools Anyway?](https://arxiv.org/abs/2403.15452)：**工具是語言模型用來呼叫外部電腦程式的介面**。論文原文的定義更精確一些：工具是一個通往外部程式的函式介面，程式在語言模型之外執行，語言模型負責產生函式呼叫與輸入參數。投影片在底下補了一句很重要的分工：模型負責提議，外部軟體決定要不要執行、怎麼執行。
@@ -214,6 +222,10 @@ Neubig 提了一個現在 agent 圈的怪現象：**更貴的模型按任務計�
 - [MCP（Model Context Protocol）：AI Agent 工具呼叫的標準化協定](/posts/ai/2026-03-22-mcp-model-context-protocol)
 - [MCP vs CLI vs API：Agent 工具介面的真實分界](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)：和本講 REST vs MCP 一節互補
 - [Code Mode：把 tool definition 從 context 搬進 code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)：CodeAct 想法在 MCP 上的實作
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

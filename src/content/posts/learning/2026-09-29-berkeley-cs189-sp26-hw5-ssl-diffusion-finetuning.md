@@ -40,6 +40,14 @@ HW5 剛好把[上一篇 Lec 25–27](/posts/learning/2026-09-29-berkeley-cs189-s
 
 `hw5.pdf` 的 Deliverables 只寫了書面 PDF；notebook 開頭說測試集細節「見隨附 PDF」，但 `hw5.pdf` 裡沒有這段說明。實際規則以 notebook 最後幾格為準。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 書面 1：生物資料上的自監督學習
 
 背景是單細胞 RNA 定序（scRNA-seq）：每個細胞是一個 d 維的基因表現向量 xᵢ，d 是量到的基因數。標註細胞類型很貴，所以要自己造監督訊號。題目採用受 CPC、SimCLR、CLIP 啟發的對比目標。
@@ -148,6 +156,10 @@ Chat 格式那一格值得細讀：每筆資料是一串 `{"role": ..., "content
 - 系列導覽：上一篇 [Lec 25–27：蛋白質、agents 與完課](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)；這是系列最後一篇；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：先別訓練。把 notebook 跑到 Part 3，記下 baseline 準確率；再從 MMLU 抽幾十題非 machine learning 的一般題，做成自己的「遺忘監控集」。之後每改一次設定就同時看兩個數字，你會很快感受到 catastrophic forgetting 長什麼樣子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

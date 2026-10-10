@@ -37,6 +37,21 @@ The question for this lecture: **what is a score function, and why does learning
 
 The time direction is unchanged: **t=0 is noise, t=1 is data**.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=ngC3QnYSVNM
+title: Lecture 3-A recording: Score Functions (2026)
+```
+
+Original videos: [Lecture 3-A recording: Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Score functions point toward higher probability
 
 For any distribution `q(x)`, its **score function** is `∇ log q(x)`, the gradient of the log-likelihood with respect to x (§4.1, p.25). The intuition is simple: it points in the direction of steepest ascent in log-likelihood. Figure 8 in the notes draws it as a field of arrows pointing into the high-density regions.
@@ -251,6 +266,10 @@ On Gaussian paths, what each side learns converts into the other via Proposition
 - Appendix E of the notes (A Guide to the Diffusion Model Literature): discrete vs continuous time, forward processes vs probability paths, the inverted time convention, and how flow matching relates to stochastic interpolants, mapping the literature back onto this course's language
 
 Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | next, [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

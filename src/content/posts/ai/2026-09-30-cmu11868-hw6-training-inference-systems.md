@@ -34,6 +34,14 @@ glossary:
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 它在課程裡的位置
 
 兩題各自對應前面的講座：
@@ -118,6 +126,10 @@ glossary:
 
 - 另一門課的平行化觀念：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 - 推論系統的另一種講法：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

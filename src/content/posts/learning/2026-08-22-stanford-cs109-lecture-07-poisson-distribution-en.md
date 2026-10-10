@@ -19,6 +19,14 @@ This is article 8 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Although the official title is Poisson, the worksheet first completes another part of the previous lecture's agenda. Expectation locates a distribution's center; variance and standard deviation describe its spread. The worksheet then turns to counts in a fixed interval.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Reconnect expectation
 
 If each person you date is a life partner with probability `0.2`, independently, and dating stops at the first success, then
@@ -135,6 +143,10 @@ For each problem, record the random variable and unit, independence assumptions,
 - P4 is not missing; the earlier reading was a PDF page-boundary extraction artifact.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. This article uses the short-material exception: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

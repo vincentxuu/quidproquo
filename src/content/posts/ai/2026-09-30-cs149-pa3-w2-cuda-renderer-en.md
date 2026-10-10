@@ -30,6 +30,14 @@ glossary:
 
 [Lecture 7](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en) covered how CUDA's abstractions land on the GPU, and [Lecture 8](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en) covered replacing locks with primitives like scan and sort. PA3 tests both. The README says the renderer is very simple, but parallelizing it requires you to design and implement **data structures that can be efficiently constructed and manipulated in parallel**. Then, in bold: seriously, start early.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
+
 ## Where it sits in the course, and the environment
 
 PA3 is due October 30, right after Lectures 7 and 8. Per the [course info](https://gfxcourses.stanford.edu/cs149/fall25/courseinfo), programming assignments can be done in pairs and PA3 is worth 12% of the grade. Written 2 must be done in groups of three, randomly assigned by the staff, and each written assignment is worth 3%.
@@ -144,6 +152,10 @@ One thing you can do tonight: clone [asst3](https://github.com/stanford-cs149/as
 - Another course's introductory CUDA assignment: [CMU 11-868 Assignment 1: Writing MiniTorch's map, zip, reduce, and matmul in CUDA](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
 - A different explanation of threads, blocks, and shared-memory tiling: [CMU 11-868 L02–L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 - The environment requirements of all five assignments in one table: [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

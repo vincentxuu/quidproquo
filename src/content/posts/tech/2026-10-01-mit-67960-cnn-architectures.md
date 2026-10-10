@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 4 講 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)（YouTube: `bxVkZ4M-hIE`）由 Phillip Isola 授課。這講從「為什麼 MLP 不適合影像」切入，推導出 CNN 的三大設計原則：**局部連接**、**權重共享**、**平移等變性**。配合 [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) 必讀，這篇文章把講義重點重組成可直接套用的 CNN 設計框架，並附上可跑的 PyTorch 程式碼。
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
+title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids](https://www.youtube.com/watch?v=bxVkZ4M-hIE)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 為什麼 MLP 處理不好影像
 
 | 問題 | MLP 表現 | CNN 解法 |
@@ -253,6 +269,10 @@ print(f"經驗感受野像素數: {compute_rf(model)}")
 - 28:00–40:00 池化層、感受野計算、空洞卷積
 - 40:00–55:00 經典架構演進：LeNet → AlexNet → VGG → GoogLeNet
 - 55:00–1:10:00 現代 CNN 設計原則、實作細節
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

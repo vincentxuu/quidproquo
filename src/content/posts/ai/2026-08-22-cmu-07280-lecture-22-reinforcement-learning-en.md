@@ -17,6 +17,14 @@ series:
 
 Lecture 21 could sum over every successor because `P` and `R` were known. **CMU 07-280, Spring 2026, Lecture 22** removes that privilege. An agent chooses an action, observes a reward and next state, and learns from samples. The official title is simply *Reinforcement Learning*.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 This article fully reads the [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf), [Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf), and the public [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/). The official site has no public Spring 2026 lecture recording, so this reading relies only on published slides, recitation material, and code scaffolding.
@@ -94,6 +102,10 @@ Tabular Q-learning also assumes one storage cell for every `(s,a)`. Pac-Man, ima
 ## An action for tonight
 
 Create a deterministic MDP with two states and two actions and write down its true optimal Q-table. Hand-calculate the first three Q-learning updates from a fixed transition sequence, then reproduce them in code. Enable `ε=0.2` for 1,000 steps and record both visit counts and Q error for every action; do not inspect cumulative reward alone.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

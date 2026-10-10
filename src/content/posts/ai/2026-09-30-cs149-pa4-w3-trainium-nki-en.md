@@ -38,6 +38,14 @@ Access first. The course as a whole is A3 (enough to self-study), but **PA4 is e
 
 This post covers what each problem trains and what to watch for. **It does not include solutions.**
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
+
 ## From CUDA to Trainium: the cache is gone
 
 The previous assignment, [PA3](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en), was CUDA on an NVIDIA GPU. The PA4 README opens by comparing the two. CUDA's hierarchy is host memory, device global memory, per-thread-block shared memory, and per-thread private memory. Trainium has four levels:
@@ -213,6 +221,10 @@ So outside readers have three options:
 - The GPU counterpart with Triton kernels: [CS336 Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en).
 
 Series navigation: previous [L11 Programming Specialized Hardware](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) | next [L12 Mapping AI Applications to the Datacenter](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

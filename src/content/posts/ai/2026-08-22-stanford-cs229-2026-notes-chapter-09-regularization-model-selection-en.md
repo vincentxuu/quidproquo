@@ -19,6 +19,15 @@ This is a chapter-by-chapter reading of Chapter 9, printed pages 137–145, in t
 
 Chapter 8 diagnosed variance as a threat to generalization, but using fewer parameters is not the only remedy. Complexity may mean parameter norm, sparsity, smoothness, or even which one of many global minima an optimizer prefers.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Explicit regularization trades off two objectives
 
 The regularized objective is
@@ -64,6 +73,10 @@ This chapter turns Chapter 8's diagnosis into practical controls. Chapter 10 beg
 ## Self-study exercise
 
 Fit polynomial regressions across a grid of $L_2$ strengths. Train on one split, choose $\lambda$ only on validation data, and inspect the test set once. Then deliberately choose $\lambda$ by training error and compare test performance. The contrast makes the separation between parameter fitting and model selection concrete.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

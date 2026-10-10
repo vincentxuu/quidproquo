@@ -32,6 +32,21 @@ glossary:
 
 Official materials used: the homework slides [hw10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw10.pdf) (42 pages; from page 31 on, all 12 questions with their options), the [homework Colab](https://colab.research.google.com/drive/1QBtp0lQrjQbTKB1sLIxoavqhSU7EhG_g?usp=sharing) (32 cells), and the TA video listed on the course page, [ML 2026 Spring HW10 Spoken Language Model](https://youtu.be/Gx96VH6ePC4). The course page lists 5/29 as the release date; the deadline is 2026/06/18 23:59:59 (UTC+8), no late submissions. Grades are out by 2026/06/19, regrade requests close on 06/21, and final course grades are out by 06/22. The TAs are 陳竣瑋, 陳思齊, 鄭安妤, and 尹廷安.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Gx96VH6ePC4
+title: TA video: ML 2026 Spring HW10 Spoken Language Model
+```
+
+Original videos: [TA video: ML 2026 Spring HW10 Spoken Language Model](https://www.youtube.com/watch?v=Gx96VH6ePC4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Access level: A3, but no official answers
 
 - **Available**: the homework PDF (all 12 questions and options in the appendix), the Colab starter code, and the [homework code repo](https://github.com/Tincan0325/26spring_ml_hw10_speech_model) that the Colab clones.
@@ -145,6 +160,10 @@ Verified: the full text and embedded links of hw10.pdf; the Colab's markdown and
 Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. This post deliberately doesn't say which models Model A and Model B are in the homework repo, because that is the answer to Q2. The PDF gives no weight for Q9. No official answers have been released.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en) | This is the last post in the series
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

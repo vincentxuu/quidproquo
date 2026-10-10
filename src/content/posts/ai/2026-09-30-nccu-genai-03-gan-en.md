@@ -28,6 +28,21 @@ glossary:
 
 Three official sources back this post: the [Lecture 3 recording](https://www.youtube.com/watch?v=akt4A3OJ9h4) (2025-03-04, 2 h 45 min), the slide deck [GenAI03 GAN](https://drive.google.com/file/d/1UqnoeRSgHfNC0o6X5ENeWmLKqZNagskI/view) (91 pages), and the week 3 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are all public. Submission and grading run through each school's own platform, so outside readers can only self-assess.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=akt4A3OJ9h4
+title: Lecture 03: GANs, once all the rage (YouTube recording, 2025-03-04) (in Mandarin)
+```
+
+Original videos: [Lecture 03: GANs, once all the rage (YouTube recording, 2025-03-04) (in Mandarin)](https://www.youtube.com/watch?v=akt4A3OJ9h4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week fits
 
 L02 framed a neural network as a "function-learning machine": decide what goes in and what comes out, and let it learn the rest. L03 opens with that machine's blind spot: **for creative AI, the input-output relationship is not a function at all.**
@@ -207,6 +222,10 @@ This post stands on its own. To dig deeper:
 - How cross entropy relates to maximum likelihood: [CMU 07-280 Lecture 16: Maximum Likelihood](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L02 Neural Networks](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en) | Next: [L04 LLMs Are Simpler Than You Think](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

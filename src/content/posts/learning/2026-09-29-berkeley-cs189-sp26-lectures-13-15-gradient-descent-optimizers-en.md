@@ -22,6 +22,26 @@ The earlier lectures on linear and logistic regression were about *what* to mini
 
 On the schedule, Lec 13 (3/3) and Lec 15 (3/10) sit on either side of Lec 14 (MLE/MAP). This series combines the two optimization lectures into one post and covers Lec 14 in the [next one](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=1EAoNdjsOZw
+title: Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6zV_GGgUa0Y
+title: Lecture 15 recording: Learning with Gradient Descent
+```
+
+Original videos: [Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent](https://www.youtube.com/watch?v=1EAoNdjsOZw)、[Lecture 15 recording: Learning with Gradient Descent](https://www.youtube.com/watch?v=6zV_GGgUa0Y)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Where the materials are
 
 | Lecture | Official title | Materials | Assigned Bishop reading |
@@ -127,6 +147,10 @@ Previous: [Lec 11–12: classification and logistic regression](/en/posts/learni
 1. Open the small data table at the start of `lec15.pdf`, compute the gradient by hand and take one update step. Make sure you can write down dJ/dw1.
 2. Take a 2D quadratic (for example the slides' `(w0 − 1)² + (w1 − 2)² + 1`), multiply the coefficient in one direction by 100, run gradient descent in NumPy, and find the smallest η that makes it diverge. Compare it with `2/λ_max`.
 3. Do the first problem of Discussion 7 before watching its walkthrough.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -28,6 +28,26 @@ This is post 10 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/
 
 **Series position**: previous [Post-Training: Instruction Tuning, RLHF, and InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en) | next [RAG and HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=ii2kMoUyNOs
+title: ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=_QiIp0WTRzI
+title: ADL 2025 Fall Homework 2 (YouTube)
+```
+
+Original videos: [ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) (YouTube, in Mandarin)](https://www.youtube.com/watch?v=ii2kMoUyNOs)、[ADL 2025 Fall Homework 2 (YouTube)](https://www.youtube.com/watch?v=_QiIp0WTRzI)、[ADL TA Recitation: LLM LoRA Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=eGQMzbhokg0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The problem: full fine-tuning is too expensive
 
 The slides open with the same map as the previous lecture (pp.2–4). To do well on known tasks, you can do prompt tuning/engineering or tune the LM itself. Page 4 adds a note next to the second option: fine-tuning LLMs may be expensive and impractical. Page 5 therefore names the topic Parameter-Efficient LM Tuning, a more practical way to adapt LLMs.
@@ -112,6 +132,10 @@ One thing to try tonight: open the config of any Transformer model you have, tak
 - [CS224N Lecture 18: Material-Gap Record for Tinker and LoRA Without Regret](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
 
 Next: [RAG and HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

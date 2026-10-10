@@ -19,6 +19,14 @@ draft: false
 
 PDF 定義 trust 為：trustor 基於 trustee 會完成重要行動的 expectation，**自願讓自己暴露於對方行動的 vulnerability**，即使無法 monitor 或 control 對方。哲學版本更直接：trust 是停止持續質疑 dependability、先假定它會運作的態度。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Trust 擴張 agency，也建立 vulnerability
 
 Agency 是人理解、影響並引導自身行動與系統互動的實際感受。若每一步都要親自驗證，人能完成的事很少；trust 讓我們把計算、交通、食物安全、教育等工作交給他人或 technology，提升效率，也避免持續焦慮。
@@ -83,6 +91,9 @@ Proxy 也成為新的 trustee，可能誤判、漏判或被繞過；把安全交
 
 實作時可列四欄：trustor 承受什麼 vulnerability；trustee 有哪些可重現 evidence；failure 時由什麼 independent backup 接手；哪些設計或 institution 可能誘發 over-trust。OS 位於 root of trust 不代表盲信，而是越接近 TCB，越需要以 distrust 建立 inference 與 substitution。
 
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

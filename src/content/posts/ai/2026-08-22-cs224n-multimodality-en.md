@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the seventeenth regular unit took place on March 3, 2026, guest-taught by Luke Zettlemoyer under **Guest Lecture: Multimodality**. The course page publishes no current slides or agenda and lists four suggested plus seven optional readings. This article covers only the five public sources actually read and listed below; it does not present the other six as read or reconstruct the session.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Vision as a reasoning workspace
 
 [Visual Sketchpad](https://visualsketchpad.github.io/) puts drawing, marking, and visual tools inside a reasoning loop. The model can create an intermediate visual state and inspect it to continue reasoning. Unlike text-only chain of thought, this external workspace can carry spatial relationships.
@@ -38,6 +47,10 @@ The optional subset actually read here contains only [Multimodal RewardBench](ht
 ## What can and cannot be confirmed
 
 The date, speaker, title, and the fact that the official page lists eleven readings are confirmed. This article actually reads and summarizes the five sources in its reference list; the other six appear only in the schedule and support no content claim here. The actual agenda, architecture comparisons, live demonstrations, and conclusions are not confirmed. Reading-list order is not presented as teaching order. A slide-by-slide review should replace this map only if current slides are released.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

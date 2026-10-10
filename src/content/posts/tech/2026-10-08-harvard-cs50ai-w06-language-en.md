@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **re-recorded in 2023** (first six weeks are 2020); project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 6 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
+title: CS50 AI Week 6 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 6 — official lecture recording](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+
+Course and recording entries:
+
+- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
+
 ## TL;DR
 
 Week 6 handles natural language: N-gram conditional probability & smoothing, CFG syntax parsing with CYK, TF-IDF vector retrieval, attention mechanism & Transformer basics. Two projects implement syntactic generator and QA system.
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 6 Language (2023 re-recorded)](https://www.youtube.com/watch?v=Q7K9Q9Q9Q9Q)
+YouTube: [Week 6 Language (2023 re-recorded)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
 
 | Timestamp | Content |
 |---|---|
@@ -389,6 +404,10 @@ style50 questions.py
 - [ ] Understand Attention Q/K/V projections & scaled dot-product attention mechanism
 - [ ] Understand why Multi-Head Attention needs multiple heads (capture different relation types)
 - [ ] Both projects pass `check50` clean
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -32,6 +32,22 @@ glossary:
 
 用到的官方材料是 [L14 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/cachecoherence/14_coherence.pdf)（45 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 11 Cache Coherence 錄影](https://www.youtube.com/watch?v=lrCfG2CPDEw)當替代。本文以 2025 投影片為準，影片只列為聽講補充。這一講的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片完整公開，缺的是當期錄影。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=lrCfG2CPDEw
+title: CS149 2023 Lecture 11 Cache Coherence 錄影（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 11 Cache Coherence 錄影（補充材料）](https://www.youtube.com/watch?v=lrCfG2CPDEw)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
+
 ## 為什麼 AI kernel 之後突然回到 cache
 
 官方課序就是這樣排的：L9 到 L13 和 PA4、PA5 談 AI 系統，L14 到 L18 轉回共享記憶體的正確性。主題看起來斷了，其實接得回前面兩個地方：
@@ -202,6 +218,10 @@ Demo 的數字：8 個 thread 在 4 核系統上各自對自己的計數器加�
 延伸閱讀：作業系統層級的鎖與同步可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [PA5 在 H100 上寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)｜下一篇 [L15 記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

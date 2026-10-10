@@ -50,6 +50,14 @@ glossary:
 
 以下每一節先講直覺，公式收在可展開的區塊裡。凡是標「2025 投影片」的內容出自 [2025 版第 5 講](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)或[第 6 講](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf)投影片；其餘來自原始論文，會附連結。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 一、數學記號：把「生成一段回答」寫成 RL
 
 2025 投影片（第 5 講第 23–28 頁）已經給過對照表。agent 是 LLM，state 是「到目前為止的輸入」，action 是「下一個 token」。policy 是「下一個 token 的機率分布」，reward 是人類偏好。這一節只是把那張表寫成符號，後面每一條公式都會用到。
@@ -384,6 +392,10 @@ KL(π_θ ‖ π_teacher) = E_{x~π_θ} [ log π_θ(x_{t+1}|x_1..t) − log π_te
 - reward design 與 limitations 各列了哪幾條，跟本篇第二、四節的整理有哪些出入
 - on-policy distillation 引了哪篇來源（GKD、MiniLLM、Thinking Machines 或 Qwen3），用 forward 還是 reverse KL
 - 錄影連結，以及 2026 期中考（10 月 23 日）有沒有考到這一講
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

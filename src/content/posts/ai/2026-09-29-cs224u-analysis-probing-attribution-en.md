@@ -34,6 +34,27 @@ glossary:
 
 Access follows the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) definitions: **A3 (historical offering)**. Slides, recordings, and notebooks are all public. What you can't get is Quiz 4 on Canvas and the classroom recordings.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=5RZDKW1_HS4
+title: Video 33: Analysis Methods for NLU, Part 1: Overview
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
+title: Video 34: Part 2: Probing
+```
+
+Original videos: [Video 33: Analysis Methods for NLU, Part 1: Overview](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Video 34: Part 2: Probing](https://www.youtube.com/watch?v=lZqsLuAjZ4c)、[Video 35: Part 3: Feature Attribution](https://www.youtube.com/watch?v=p0dzR6iaFmc)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Going one layer beneath behavioral evaluation
 
 The [previous post](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en) was about black-box testing: does the model look right from the outside? On slide 3, Potts splits evaluation into two kinds. **Behavioral** covers standard IID, exploratory, hypothesis-driven, challenge, adversarial, and security-oriented tests. **Structural** covers probing, feature attribution, and interventions. This unit is about the second kind.
@@ -160,6 +181,10 @@ Confirmed: the schedule, the slide content, the three videos, and the current st
 Further reading: the site's CS224N series has an [interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) covering Been Kim's agentic interpretability, which complements the probing/IG line here.
 
 Series navigation: previous, [Compositionality: COGS, ReCOGS, and HW3](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en) | next, [Analysis Methods II: causal abstraction, IIT, and DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

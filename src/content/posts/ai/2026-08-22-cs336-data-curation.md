@@ -19,6 +19,22 @@ draft: false
 
 Lecture 13 找 raw sources；這一講決定哪些內容真正進入 token stream。Filtering、dedup 與 mixing 常被叫做 preprocessing，實際上每一步都在定義模型會學到的分布。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=5sxHosTLPF8
+title: CS336 Spring 2026 Lecture 14: Data
+```
+
+原始影片：[CS336 Spring 2026 Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## Filtering 是多個低精度判斷的組合
 
 Raw web 先做格式解析、語言辨識與正文抽取，再處理極短頁面、模板、廣告、程式碼比例、重複符號與低品質文字。Heuristic filters 便宜可解釋；classifier 可學到更複雜品質訊號，卻會把 reference dataset 的偏好放大。
@@ -56,6 +72,10 @@ Software-engineering data 更難。可從 GitHub PR 建真實 tasks、讓模型�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依 filtering、dedup、mixing 與 synthetic data 四部分整理。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

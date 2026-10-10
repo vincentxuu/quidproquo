@@ -31,6 +31,14 @@ glossary:
 
 These two lectures are Week 10 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus): "Distributed Model Training III" on 3/16 ([L16 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-16-model-parallel-83b41612547620ee0e172caa1ee448ed.pdf), 36 pages) and "Large models with Mixture-of-Expert" on 3/18 ([L17 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-17-MoE-3aa3125f9ccdd4bb7109ef077fbe9260.pdf), 38 pages). Lei Li teaches both. The course has no public recordings, so everything below comes from the slides and the readings on the Syllabus. Page numbers are PDF pages; the numbers printed in the slide corners run one to three higher in the second half of both decks.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The big picture: three ways to split
 
 L16 page 4 defines model parallelism as partitioning the model's computation (forward, backward, update) across workers, in two flavors: by layer and by tensor. A footnote on the same page defers the more advanced expert parallelism to later, which means L17.
@@ -197,6 +205,10 @@ Page 31 names two libraries DeepSeek released: [DeepEP](https://github.com/deeps
 - Hands-on for this lecture: [HW5: data parallelism and pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 - On this site: [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 - On this site: [CS336 attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en), [Why the MoE architecture wins](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

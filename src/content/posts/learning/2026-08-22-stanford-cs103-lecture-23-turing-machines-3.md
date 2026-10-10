@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Turing Machines, Part III**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/22/)
+
 ## recognizer 與 decider 的快速量詞稽核
 
 投影片 先測幾個容易偷換概念的敘述。若 M recognizes L 且 M rejects w，則 \(w\notin L\)，因 members 必 accept；此句成立。若 \(w\notin L\)，M 不一定 reject，可能 loop。若 M loops on 某個 \(w\in L\)，只能推出這台 M 不 recognize L，不能推出 L 本身 unrecognizable，因也許存在另一台 recognizer。
@@ -153,6 +161,8 @@ self-reference 的 quantifier 是 existence：對想要的 transformation，可�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「recognizer 與 decider 的快速量詞稽核」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

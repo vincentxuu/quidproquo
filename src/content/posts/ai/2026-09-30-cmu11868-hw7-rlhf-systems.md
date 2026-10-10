@@ -36,6 +36,14 @@ glossary:
 
 **不提供任何題目的解答。** RLHF 演算法本身（PPO 的推導、reward model 的理論）不在這裡展開，文末連到其他課的導讀。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 4/15 這一講：只有標題和一篇論文
 
 Syllabus 上 4/15 的講題是「Efficient Reinforcement Learning System for LLMs」。這一列沒有 `[slides]` 連結，講義編號 25 也從檔案序列裡缺掉，前後分別是 4/13 的 vLLM（L24）和 4/20 的 Dynamo（L26）。Fall 2026 的 [Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) 把它排在 11/23，一樣沒有投影片。
@@ -132,6 +140,10 @@ HybridFlow 摘要的論證分三步：
 - [Stanford CS336：RLVR](/posts/ai/2026-08-22-cs336-rlvr)：從 PPO 走到 GRPO 與可驗證獎勵，也談 rollout 系統的成本
 - [Berkeley CS285：策略與價值方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)：policy gradient、DQN、SAC 等 policy-based 與 value-based 方法
 - [Berkeley CS285 系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

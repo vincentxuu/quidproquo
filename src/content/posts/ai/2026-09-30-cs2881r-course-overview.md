@@ -33,6 +33,14 @@ glossary:
 
 這篇只回答三件事：去哪裡找材料、哪些東西拿得到、這個系列要怎麼讀。每一講的內容放在後面各篇。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 課站在哪裡：網址沿用舊的 ML theory seminar
 
 第一個會讓人找錯的地方是網址。課站掛在 Boaz 的 GitHub Pages 上，路徑是 `boazbk.github.io/mltheoryseminar/`，這是他過去開 ML 理論研討課時用的路徑。頁面底部還連著 [Spring 2023 ML Theory Seminar](https://boazbk.github.io/mltheoryseminar/spring2023) 和 Spring 2021 的舊版。
@@ -151,6 +159,10 @@ HW0 頁自己也說，去年的講課和筆記可以參考，但領域變化快�
 - Harvard 其他課：[Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
 今晚可以做的一件事：打開 [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) 的 README，看完「Instructions」三步，判斷你手上的 GPU 或雲端額度跑不跑得動 1B 模型的 LoRA 微調。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

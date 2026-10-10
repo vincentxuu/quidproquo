@@ -31,6 +31,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=zaMcHuJwe1w
+title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## From "generate" to "conditional generate"
 
 L14–L15 were about generating `x`, but in practice we more often need **a condition `y`, and generate the matching `x`**: `y` might be a class label, a sentence, or another image. Conditional generative models answer: how do we estimate and sample from `p(x | y)`?
@@ -108,6 +124,10 @@ In other words, **VAE latent + conditional diffusion + CFG** is the basic recipe
 - **Prompt not specific enough**: the model collapses to mean-image (a fundamental issue for the VAE family).
 - **y and x misaligned**: in fine-tuning, use LoRA / DreamBooth to "slot" a new concept into the model's condition space.
 - **Controllability vs diversity**: this is the fundamental trade-off in conditional generation; there is no silver bullet.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

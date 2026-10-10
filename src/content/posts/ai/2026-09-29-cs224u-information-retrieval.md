@@ -39,6 +39,27 @@ glossary:
 
 這篇回答一個問題：**為什麼一門自然語言理解的課，要花一整個單元講搜尋引擎的技術？**
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=enRb6fp5_hw
+title: IR Part 1: Guiding Ideas 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
+title: IR Part 3: IR metrics 錄影
+```
+
+原始影片：[IR Part 1: Guiding Ideas 錄影](https://www.youtube.com/watch?v=enRb6fp5_hw)、[IR Part 3: IR metrics 錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ)、[IR Part 4: Neural IR 錄影](https://www.youtube.com/watch?v=EDVqG86AT0Q)、[IR Part 2: Classical IR 錄影](https://www.youtube.com/watch?v=D3yL63aYNMQ)、[IR Part 5: Datasets and Conclusion 錄影](https://www.youtube.com/watch?v=Bqps-t-U9jw)
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 為什麼 NLU 課要講檢索
 
 投影片第一節「Guiding ideas」給了兩個方向相反的理由。
@@ -192,6 +213,10 @@ Potts 在 [IR 第 3 支錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ) 用�
 
 - RAG 與 language agent 的元件拆解：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 課程狀態與作業環境：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

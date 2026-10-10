@@ -22,6 +22,14 @@ draft: false
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 先講缺口：這是 pre-reading 版，不是課堂版
 
 2026-09-29 重新檢查課站時，Schedule 裡 Lec10 這一列**沒有投影片連結**，只列了 Bayes Net Demo、PR6 筆記、Canvas checkpoint 和選讀。依前幾講的檔名規則去猜的 `lectures/07380_F26_Lec10_Bayes_Nets.pdf` 回 404。另外，Lec9 的投影片檔名叫 `Lec9-10_Probabilistic_Generative_Models`，但它的文字內容沒有出現 Bayes net 或 graphical model 的段落，所以這份也不能當 Lec10 的課堂材料用。
@@ -197,6 +205,10 @@ P(+b,+e,+a,+j,+m) = 0.001 × 0.002 × 0.95 × 0.9 × 0.7 ≈ 1.2 × 10⁻⁶
 2. 用第 4 節的季節表算 `P(T | sun)`，先用 un-marginalize 寫出完整式子，再用 normalization trick 算一次，確認兩者一樣。
 3. 把 alarm network 的五張 CPT 寫成 Python dict，照「每張表查一格再相乘」寫一個 `joint(b,e,a,j,m)` 函式，再用它算 `P(B | +j,+m)`，看是否得到約 0.284。
 4. 在 [Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo) 選 `+c, −s, +r, +w`，逐步執行，記下每一步查到哪一格。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

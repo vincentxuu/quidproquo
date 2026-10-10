@@ -35,6 +35,26 @@ glossary:
 
 這份助教課和 [HF BERT 助教課](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)一樣是 2024 年版，沒有對應的作業，定位是參考實作。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 一個任務、兩種架構
 
 投影片第 2 頁定了範圍：用 cross-entropy 訓練 GPT-2 和 T5 做**中文抽象式摘要**，主要套件是 PyTorch、Hugging Face、ROUGE。第 5 頁先分清兩種摘要：
@@ -150,6 +170,10 @@ labels = torch.where(
 - Fall 2026 的對應單元還沒公開。依[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，Fall 2025 是 A3（足以自學）。
 
 **系列導覽**：上一篇 [解碼策略與 NLG 評估](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)｜下一篇 [GPT-3、InstructGPT 與 RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

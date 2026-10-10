@@ -38,6 +38,21 @@ glossary:
 
 Pages 2–3 give two reasons. **Customization**: sensors keep collecting new data, and the model needs to adapt. **Privacy**: sensitive data such as code or enterprise data should not go to the cloud. The Lecture Plan on page 4 has six items: gradient leakage, the training memory bottleneck, TinyTL, SparseBP, QAS, and PockEngine. The first is about privacy; the other five are about memory.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=1YuD_5UQxsA
+title: EfficientML.ai Lecture 21 - On-device Training (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 21 - On-device Training (YouTube)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Sharing only gradients is not safe either
 
 Pages 6–11 introduce FedAvg from [federated learning](https://arxiv.org/abs/1602.05629): each device trains on local data for N steps, sends its updated model to a server to be averaged, and receives the average back. The slides stress that important private data never leaves the device.
@@ -169,6 +184,10 @@ Pages 94–100 show results across platforms:
 
 - The same memory limits on the inference side: [Lecture 10 on MCUNet and tinyML](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en), [Lecture 11 on TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 - Quantization basics: [Lecture 6 on PTQ and QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

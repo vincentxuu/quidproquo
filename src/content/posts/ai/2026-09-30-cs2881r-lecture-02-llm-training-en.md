@@ -33,6 +33,21 @@ It draws on four official sources: the [lecture recording](https://youtu.be/GXgg
 
 Barak opens with a disclaimer: at OpenAI he does not work on pretraining, RL, or reasoning models, so the lecture is based on public papers. The five pre-readings are [InstructGPT](https://arxiv.org/abs/2203.02155), [Constitutional AI](https://arxiv.org/abs/2212.08073), [DeepSeekMath](https://arxiv.org/abs/2402.03300), [DeepSeek-R1](https://arxiv.org/abs/2501.12948), and [Deliberative Alignment](https://arxiv.org/abs/2412.16339).
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=GXggPt_gqiI
+title: Lecture 2 recording: Modern LLM training and safety training
+```
+
+Original videos: [Lecture 2 recording: Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Intuition first: the one idea to hold onto
 
 HW0 was hands-on. This lecture is where RL vocabulary arrives in bulk. Here is the one-line intuition everything else hangs on:
@@ -187,6 +202,10 @@ Confirmed: the lecture topics and reading list on the course site, the recording
 Further reading on this site for the full RL and RLHF math: [CS336 SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en), [CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr-en), [CME295 preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en), [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en), and [CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [HW0: Reproducing emergent misalignment on a 1B model](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en) | Next: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -24,6 +24,26 @@ glossary:
 
 First, the limit of this post: **L12 has no public slides.** The 12/01 row on the course page just says "Reasoning," with no slides and no video links. The five videos appear only in the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o). I did not transcribe the videos, so all I can report are their titles, lengths, and descriptions, plus the reasoning pages in the previous lecture's deck.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=paTmY2nZ8XI
+title: 12.1 What is Reasoning?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VHNdIld9sAg
+title: 12.2 Short CoT
+```
+
+Original videos: [12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The five videos
 
 The lectures are in Mandarin; each title carries a Chinese subtitle, translated here.
@@ -88,6 +108,10 @@ For detail beyond the video titles, two site series cover the same ground from c
 - From the same university, the [Hung-yi Lee Machine Learning 2026 Spring guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): all five L12 descriptions credit the slides to Prof. Lee, so his own course is a natural companion.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en) | Next: [Conversational AI and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

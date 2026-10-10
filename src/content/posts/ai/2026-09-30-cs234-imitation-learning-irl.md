@@ -40,6 +40,27 @@ glossary:
 
 投影片用一句話交代動機：讓人類在 RL 演算法做決定時給 reward 訊號，是便宜的監督，但樣本複雜度很高。另一條路是 **imitation learning**。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: 45:26 起「Introduction to imitation learning」
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=IEbuJtjqtMU
+title: 4:28 起
+```
+
+原始影片：[45:26 起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[4:28 起](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+
+課程與錄影入口：
+
+- [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 投影片範圍與 2024 影片對照
 
 2026 的檔案邊界跟主題不一致，這裡依主題切：
@@ -180,6 +201,10 @@ L8 開頭把這段收成一頁「Imitation Learning Summary」：非常強大、
 
 - 同一主題在深度 RL 課裡的版本：[CS224R L2：模仿學習與多峰 policy](/posts/ai/2026-09-30-cs224r-imitation-learning)
 - 分布偏移的另一種講法：[Berkeley CS285 L1–4：模仿學習、分布偏移與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

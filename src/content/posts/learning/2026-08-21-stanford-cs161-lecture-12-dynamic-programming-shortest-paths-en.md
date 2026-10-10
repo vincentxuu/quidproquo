@@ -19,6 +19,14 @@ This is article 13 in [Reading Stanford CS161](/en/series/stanford-cs161), cover
 
 This article follows the [official Lecture 12 page](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall), public notes, and the public slide PDF. It does not use the Canvas-only recording. Lecture 11 compared Dijkstra and Bellman–Ford through relaxation and weight assumptions. This lecture deliberately revisits Bellman–Ford, now emphasizing states, recurrences, and evaluation order before extending the same method to all-pairs shortest paths.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
+
 ## Bellman–Ford is already a DP table
 
 Let `G=(V,E)` be a weighted directed graph, with `n=|V|`, `m=|E|`, and source s. Define
@@ -158,6 +166,10 @@ The transferable skill is not memorizing two formulas. For a new optimization pr
 The notes quote Richard Bellman's recollection about the name “dynamic programming”: in a political environment, he chose words that sounded difficult to oppose for multistage decision processes. The history explains the unusual label, but it is not an algorithmic definition. States, recurrences, overlap, and evaluation order remain the useful criteria.
 
 The slides also mention asymptotically faster APSP research. That material is not required knowledge for this lecture and does not diminish Floyd–Warshall's role as the canonical DP example, so this article does not mix research bounds into the course guarantee.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

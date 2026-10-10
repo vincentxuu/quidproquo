@@ -36,6 +36,21 @@ glossary:
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 18: Frontiers](https://www.youtube.com/watch?v=FacJ_1tTSx4)（約 71 分鐘）。我對照過 [2025 版投影片](https://cs224r.stanford.edu/spring_2025/slides/18_cs224r_frontiers_how_to_research.pdf)（53 頁）和 2026 版：2026 版多了開頭三頁的整學期總整理和一頁研究案例，其餘前沿問題和研究建議的文字幾乎一樣。所以 2025 影片可以涵蓋本講大部分內容，只是開頭的總整理要以 2026 投影片為準。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=FacJ_1tTSx4
+title: Spring 2025 Lecture 18: Frontiers（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 18: Frontiers（YouTube，補充）](https://www.youtube.com/watch?v=FacJ_1tTSx4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：學完整套工具之後，還剩什麼沒解決
 
 投影片第 2 頁的課程提醒很現實：下週三海報發表，再下週一交期末報告，**不能用 late day，也不能延期**。這一講是修課學生在專題最後衝刺階段聽的。
@@ -298,6 +313,10 @@ Default 類的題目都建立在 [Default Project](/posts/ai/2026-09-30-cs224r-d
 - 第 43 頁那篇影片生成論文是哪一篇，投影片沒寫標題
 
 系列導覽：上一篇 [L17 VLA 的 RL](/posts/ai/2026-09-30-cs224r-rl-for-vlas)｜這是最後一篇｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

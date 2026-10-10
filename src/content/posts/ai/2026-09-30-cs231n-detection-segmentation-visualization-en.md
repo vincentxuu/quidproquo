@@ -36,6 +36,26 @@ glossary:
 
 Every CS231N model so far answers one question: what is this image? Lecture 9 breaks that question apart. What's in the image, where is each thing, and which object does each pixel belong to? At the end it turns the question around: when the model decides, where is it actually looking?
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=PTypu6GqEd4
+title: Spring 2025 Lecture 9 recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=utxbUlo9CyY
+title: video
+```
+
+Original videos: [Spring 2025 Lecture 9 recording](https://www.youtube.com/watch?v=PTypu6GqEd4)、[video](https://www.youtube.com/watch?v=utxbUlo9CyY)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## First, a gap: the schedule and the slides disagree
 
 The [2026 schedule](https://cs231n.stanford.edu/schedule.html) lists six topics for this lecture: single-stage detectors, two-stage detectors, semantic/instance/panoptic segmentation, feature visualization and inversion, adversarial examples, and DeepDream and style transfer.
@@ -151,6 +171,10 @@ The last part shifts from how to do the tasks to how to understand the model.
 - Adversarial examples and generative models: [CS230 on adversarial examples and generative models](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
 - The Transformer groundwork: [L8: Attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en)
 - A fuller deep learning theory course: [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

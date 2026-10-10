@@ -24,6 +24,14 @@ draft: false
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#assignments)狀態整理；課站註明 schedule 可能變動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 | 部分 | 材料 | 公開程度 |
@@ -134,6 +142,10 @@ python3.12 autograder.py -t test_cases/q2/04_segmentBlocked   # 單一測試
 - 上一篇：[Lecture 4 導讀：Motion Planning，RRT 在連續空間用取樣找路](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
 - 下一篇：[Lecture 5 導讀：Linear Programming](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

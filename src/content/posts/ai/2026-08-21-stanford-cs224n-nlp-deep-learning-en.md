@@ -26,6 +26,16 @@ That is what this piece does. The spine is a lecture-by-lecture and assignment-b
 
 The course site lists syllabi and assignments and nothing else. **It has never explained the reasoning behind a single change.** So everything below is what changed, not why.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Winter 2019 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
+- [CS224N Spring 2024 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## The hard facts
 
 The current offering is Winter 2026, taught by two people: [Diyi Yang](https://cs.stanford.edu/~diyiy/) and [Yejin Choi](https://yejinc.github.io/). Tuesday and Thursday afternoons in NVIDIA Auditorium, with twenty TAs listed.
@@ -152,6 +162,10 @@ If you would rather watch lectures first, the order to use is: watch lectures 1,
 - **Lecture counts**: the Winter 2019 syllabus lists 20 numbered lectures; Winter 2026's slide filenames run up to `lecture19`, four of them guest lectures (tokenization and multilinguality, interpretability, multimodality, Tinker and LoRA).
 - **An internal contradiction in the A4 handout**: the title line on page one reads "CS 224N Winter 2025 Assignment 4," but the running header on every page says Winter 2026, and the due date (Thursday, February 19) matches the Winter 2026 syllabus. Winter 2025's A4 was Transformer self-supervision and fine-tuning, due February 13, so the title line is a leftover string from copying.
 - **Not confirmed**: the course site publishes no enrollment numbers for any offering, and gives no reason for any syllabus change — "why drop machine translation" and "why add a history lecture" have no answer in the primary materials, and this piece does not speculate. I did not open the remaining archived offerings such as Winter 2020, Winter 2021 or Winter 2017, so the "last appeared in" claims above hold only within the six versions I actually compared.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

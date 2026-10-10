@@ -34,6 +34,21 @@ glossary:
 
 The [CS224R](https://cs224r.stanford.edu/) schedule calls this lecture "RL for LLMs: Reasoning." The guest speaker is Noam Brown, and the title slide lists OpenAI as his affiliation. [The previous lecture](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) ended on this point: learned reward models are unreliable, and switching to verifiable rewards like math and code led to reasoning models. This lecture picks up there, but its entry point isn't an algorithm. It's where compute should be spent.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=O2VpNnwB4lM
+title: Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)
+```
+
+Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)](https://www.youtube.com/watch?v=O2VpNnwB4lM)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The main argument: scaling gets a new dimension
 
 The first four slides lay out the thesis:
@@ -138,6 +153,10 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 - [Reading Berkeley CS285 Spring 2026](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en): fuller RL theory background
 
 **Series**: previous [L9: RLHF, DPO, and preference optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) | next [Default Project: fine-tuning an LLM on Countdown with SFT, IPO, and RLOO](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

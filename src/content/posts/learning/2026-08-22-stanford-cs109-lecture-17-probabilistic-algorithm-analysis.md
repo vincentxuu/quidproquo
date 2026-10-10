@@ -19,6 +19,14 @@ draft: false
 
 三份 artifacts 都是三頁；正式 agenda 為 P1–P7 加 challenge，題號完整。這講不追求每個 random runtime 的完整 distribution，而是用 conditional expectation、linearity 與 indicators 直接取得 expected value。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：讀懂 bootstrap p-value
 
 Null 下重抽 10,000 次 differences，其中 140 次至少與 observed `2.1` minutes 一樣極端：
@@ -148,6 +156,10 @@ E[K]=25
 - P4、challenge 是 pset5 題，公開 answer key 省略；本文只依 worksheet code 推導。
 - 當期投影片 unavailable、錄影 gated；L2 不重建缺失 lecture content。
 - 材料規模有限，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

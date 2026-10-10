@@ -35,6 +35,14 @@ He splits "AI that writes code" into three levels: writing a snippet (a single c
 
 This post follows the lecture's order through seven parts: training code models, evaluating generated code, the agentic coding loop, toolset design, evaluating and training coding agents, frontend development, and development tasks beyond the inner loop. The final section, on models that predict code behavior, ran out of class time; I cover it from the slides.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 1. Models that write code
 
 Start with single-step models: one prompt, one program out, no agent yet. To do even this, a model needs three abilities: the language itself (syntax, APIs, idioms), **editing** (conditioning on code on both sides instead of rewriting from scratch), and **reasoning** (from specification to behavior). Neubig singles out reasoning: code and math are the two most successful applications of reasoning models because in both it is relatively easy to check whether an answer is right.
@@ -245,6 +253,10 @@ L6 is the first Domain lecture after the Capabilities module, landing the pieces
 - On this site: [Edit tool trade-offs in coding agents](/en/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
 - On this site: [Toolset design philosophy in coding agents](/en/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy-en)
 - On this site: [The verification gate in coding agents](/en/posts/ai/2026-08-25-coding-agent-verification-gate-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

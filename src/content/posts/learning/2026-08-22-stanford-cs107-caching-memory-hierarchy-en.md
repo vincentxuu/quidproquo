@@ -19,6 +19,14 @@ The previous lecture used profilers and compiler transformations to ask what wor
 
 The Winter 2026 public deck extracts to only 55 lines. It is not a complete public course in cache architecture. This article faithfully explains its memory hierarchy, temporal locality, and spatial locality, then turns them into testable programming questions. It does not invent cache-line sizes, associativity, replacement policies, write policies, or processor-specific latencies.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -89,6 +97,8 @@ Lecture 25 is valuable because it is restrained. It replaces the assumption that
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Restored the page 3 cache-cost thought question and calculation, and documented the unavailable source for the page 5 `cache.c` demo.
 
 ## References

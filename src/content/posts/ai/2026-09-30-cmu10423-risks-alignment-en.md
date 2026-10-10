@@ -39,6 +39,15 @@ Official materials used: the [Course Description on the home page](https://www.c
 
 The question this post answers: **where do generative models go wrong, and how does alignment research deal with it?**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## What the syllabus promises versus what the slides cover
 
 The Course Description on the home page says students will learn about the ways things can go wrong, listing four in parentheses: bias, hallucination, adversarial attacks, and data contamination, along with ways to combat them.
@@ -231,6 +240,10 @@ Confirmed: the schedule's dates, speakers, and quiz coverage; the syllabus Cours
 Further reading: the [Harvard CS2881R guide](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers AI safety across a whole course, and its [adversarial robustness](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) and [economic impacts](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) lectures are closest to this post; the [CME295 preference tuning post](/posts/ai/2026-09-29-cme295-preference-tuning-en) fills in RLHF details.
 
 Series navigation: previous [L20: reasoning models](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) | next [L23: code generation and autonomous agents](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

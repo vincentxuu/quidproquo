@@ -32,6 +32,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 7 篇，接在 [HW4（上）Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 之後。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 場景：它能把臉還原，卻畫不出一張新臉
 
 HW4 Problem 2 的開場很有說服力。你先訓練一個卷積 autoencoder，把 CelebA 的臉壓成 128 維向量再還原，重建看起來不錯。然後題目要你做一件看似合理的事：從標準常態 `N(0, I)` 隨機抽一個 128 維向量，丟給 decoder。出來的東西通常不像臉。
@@ -146,6 +154,10 @@ VAE 的「encoder 把圖壓成分布、decoder 從 latent 還原」這個結構�
 
 - 上一篇：[HW4（上）：Transformer 從手算注意力到多頭](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 - 下一篇：[HW4（下）：決策樹、隨機森林與 Mixture of Experts](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

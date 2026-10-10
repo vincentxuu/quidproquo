@@ -31,6 +31,26 @@ The assigned reading is Chapter 12 (Transformers) of Bishop's *[Deep Learning: F
 
 [The previous post on Lec 19–20](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en) covered CNNs and generalization. These two lectures answer a follow-up: CNNs are already parameter-efficient, so why do we need a new architecture? This post covers only the core of attention. Positional encodings and the full encoder/decoder implementation are left to the next post, the [HW4 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en). That assignment walks you from softmax all the way to a transformer that generates stories.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mqaFEvi5rWE
+title: Lecture 21 recording: Transformers
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=syp1pSf_DYY
+title: Lecture 22 recording: Transformers (ctnd.)
+```
+
+Original videos: [Lecture 21 recording: Transformers](https://www.youtube.com/watch?v=mqaFEvi5rWE)、[Lecture 22 recording: Transformers (ctnd.)](https://www.youtube.com/watch?v=syp1pSf_DYY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## What I read, and the limits
 
 What I actually opened and read: the text layer of the slide PDF (119 pages), the Discussion 10 problems and solutions, and the titles of the two recordings. Many figures in the slides (CNN receptive fields, the attention heat maps from image captioning, the sinusoidal positional encoding curves) have no text layer, so I only relay what is written on the slides. I did not watch the recordings minute by minute, so this post does not claim what the instructors said in class.
@@ -193,6 +213,10 @@ When you use PyTorch's `nn.MultiheadAttention` or any LLM library, each layer do
 - Series navigation: previous, [Lec 19–20: CNNs and generalization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); next, [HW4 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: take the three tokens and three weight matrices from Discussion 10, problem 1. Compute q, k, and v by hand, then write one line of NumPy, `softmax(Q @ K.T / np.sqrt(d)) @ V`, and check the row for x₃ against your hand calculation.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

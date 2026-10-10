@@ -41,6 +41,26 @@ glossary:
 
 決策樹就是「邊學邊做 conditional aggregation」的那一格。本系列把三講合成一篇的理由也在這裡：T9 先講樹，T10 把樹放進 bagging，T11 把樹放進 boosting，三者共用同一條主線。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=dAqPpAXnMJ4
+title: Decision Tree Hypothesis
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s9Um2O7N7YM
+title: Decision Tree Algorithm
+```
+
+原始影片：[Decision Tree Hypothesis](https://www.youtube.com/watch?v=dAqPpAXnMJ4)、[Decision Tree Algorithm](https://www.youtube.com/watch?v=s9Um2O7N7YM)、[Decision Tree Heuristics in C&RT](https://www.youtube.com/watch?v=uvGC_Y0EYiA)、[Decision Tree in Action](https://www.youtube.com/watch?v=ryWTrPPbqcg)、[Random Forest Algorithm](https://www.youtube.com/watch?v=ATM3sH0D45s)、[Out-of-bag Estimate](https://www.youtube.com/watch?v=7oz5aO-FkR0)、[Feature Selection](https://www.youtube.com/watch?v=ChqNC94JXtM)、[Random Forest in Action](https://www.youtube.com/watch?v=Ipfpf7AW_yM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 在課表上的位置
 
 | 版本 | 週次 | 投影片 | 延伸閱讀（課程頁原列） |
@@ -246,6 +266,10 @@ T11 最後把整個第二段收成三張圖：
 
 - [Harvard CS181 HW4：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
 - [CMU 10-301 HW2：決策樹](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

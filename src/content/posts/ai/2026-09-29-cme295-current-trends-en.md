@@ -38,6 +38,21 @@ The first eight lectures took a sentence all the way to a model that reasons, us
 
 This lecture is not on the exam, and it is the most scattered of the nine. This post follows two threads in depth, the Vision Transformer and diffusion LLMs, and skims the rest. The math of diffusion is left for a separate post once the 2026 edition's dedicated lecture is out.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
+title: 2025 Lecture 9 recording
+```
+
+Original videos: [2025 Lecture 9 recording](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## The whole quarter in eight pictures
 
 The recap is efficient: each lecture keeps one figure or keyword, stacked into a timeline. Read in order, it doubles as the table of contents for this series:
@@ -254,6 +269,10 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 - The math of image diffusion: [CS229 Chapter 14: diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Why inference cost is bound by memory: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Back to the start: [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

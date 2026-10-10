@@ -24,6 +24,14 @@ draft: false
 
 這篇是把 2025 年秋季（Aut2526）的一手材料逐份讀過之後寫的。材料包括課程官網、`info.html` 的評分與誠信條款、三份作業 PDF、六份 Colab notebook（全部下載開過）、專案說明文件，以及三堂關鍵課的投影片。**不包含**論文精讀，也不包含 Canvas 後面的東西——那些我拿不到，下面會逐項講清楚。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 這門課的硬事實
 
 授課者是 [Jure Leskovec](https://profiles.stanford.edu/jure-leskovec)，Stanford 電腦科學系教授，做過 Pinterest 的 Chief Scientist。2025 年秋季有一位客座講師 Charilaos Kanatsoulis 共同掛名，投影片封面上兩人並列。
@@ -215,6 +223,10 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 - **付費修課的金額**：AI Professional Program 個別報名 1,950 美元一門（XCS224W）；研究生學分的 CS224W 在 Stanford Online 標示學費 6,300 美元。兩者查詢當下皆為 Enrollment Closed，且 XCS224W 沒有列出開課日期，而同一頁上多門姊妹課有。**頁面沒有說明原因。**
 - **DeepSNAP 與 OGB 的維護狀態**：查詢當下 GitHub API 顯示 `snap-stanford/deepsnap` 最後推送於 2025-11-24、`snap-stanford/ogb` 最後推送於 2025-05-06、`pyg-team/pytorch_geometric` 最後推送於 2026-08-17。兩個 repo 都沒有被標記為 archived。
 - **未能確認的三項**：（1）Colab 0 的 Google Drive 連結回 200，但它是 Drive 的檢視頁而非 notebook，我沒有取得它的 cell 內容，上表因此留白；（2）Stanford Online 的兩個 YouTube 播放清單分別是 47 支與 60 支，但我沒有逐支比對確認兩者的差集是什麼；（3）第 16 堂投影片的講者未在投影片上具名，我沒有找到官方頁面說明那堂由誰主講，因此文中沒有寫講者姓名。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

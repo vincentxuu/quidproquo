@@ -22,6 +22,14 @@ The short answer: **a Bayes net is a directed acyclic graph with one "given its 
 
 Based on the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule); the site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## The gap first: this is the pre-reading edition
 
 When I rechecked the course site on 2026-09-29, the Lec10 row of the schedule had **no slide link**. It lists only the Bayes Net Demo, the PR6 notes, a Canvas checkpoint and optional readings. Guessing the filename from earlier lectures, `lectures/07380_F26_Lec10_Bayes_Nets.pdf` returns 404. The Lec9 slides are named `Lec9-10_Probabilistic_Generative_Models`, but their text has no Bayes net or graphical model section, so they cannot stand in for Lec10 either.
@@ -197,6 +205,10 @@ Further reading: MLE foundations are in [07-280 Lecture 16](/en/posts/ai/2026-08
 2. Using the season table in Section 4, compute `P(T | sun)`: first write the full un-marginalized expression, then redo it with the normalization trick and confirm they match.
 3. Write the alarm network's five CPTs as Python dicts, write a `joint(b,e,a,j,m)` function that looks up one entry per table and multiplies, then use it to compute `P(B | +j,+m)` and see whether you get about 0.284.
 4. In the [Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo), select `+c, −s, +r, +w`, step through, and note which entry each step looks up.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 13 on February 17, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official Reasoning 2/2 deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture13-reasoning-part2.pdf) covers speculative decoding, off-policy drift and on-policy distillation, long-context extension, and inference-time scaling.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Speculative decoding: draft, then verify
 
 Autoregressive generation with a large model requires an expensive forward pass per token. [Speculative decoding](https://arxiv.org/abs/2211.17192) has a smaller draft model propose several tokens and a target model verify them in parallel. Its acceptance correction accounts for differences between draft and target distributions, preserving the target distribution when implemented correctly.
@@ -96,6 +105,10 @@ Compare baseline, speculative speed, self-consistency, and verifier selection; s
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four official agenda sections without reconstructing system details or comparisons absent from the deck.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

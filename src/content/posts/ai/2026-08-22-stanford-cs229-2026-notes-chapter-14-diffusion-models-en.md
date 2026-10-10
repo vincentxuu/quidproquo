@@ -17,6 +17,15 @@ draft: false
 
 This is a chapter-by-chapter reading of Chapter 14, printed pages 180–190, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings or schedule**. The chapter begins generative modeling by choosing a fixed path from data to Gaussian noise, then learning how to denoise every step in reverse.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## The forward process gradually washes data into a Gaussian
 
 Let $x_0\sim p_{data}$. Forward diffusion is a fixed Markov chain:
@@ -85,6 +94,10 @@ This chapter directly reuses Chapter 11's ELBO, treating the full noise trajecto
 ## Self-study exercise
 
 Choose one normalized small image and three values of $\bar\alpha_t$. Sample noise and construct each $x_t$ with the closed-form equation. Pretend a perfect model knows $\epsilon$ and solve algebraically for $x_0$. Then perturb the predicted noise slightly and observe how reconstruction error is amplified at low signal-to-noise timesteps.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

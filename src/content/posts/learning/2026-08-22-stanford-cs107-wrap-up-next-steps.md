@@ -19,6 +19,21 @@ Lecture 26 不再加入一套新機制，而是回頭問：十週之後，我們
 
 本講公開投影片是 wrap-up 骨架，課堂 Q&A 沒有公開 transcript。本文因此只整理投影片明列的六個問題、程式成長對照、allocator 綜合例、learning goals、Sebastian C 與後續課程地圖；不替現場問答編造內容，也不把課程清單擴寫成選課保證。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=G7LJC9vJluU
+title: Sebastian C
+```
+
+原始影片：[Sebastian C](https://www.youtube.com/watch?v=G7LJC9vJluU)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -91,6 +106,8 @@ Lecture 26 的結論不是「所有 systems topics 都學完了」。更準確�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：把 wrap-up 的 absolute-value 回顧明確連回 Lecture 5 的 `INT_MIN` signed-overflow caveat。
 
 ## 參考資料

@@ -31,6 +31,26 @@ glossary:
 
 官方指定閱讀是 Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》6.1–6.3.1（Lec 17）與第 8 章開頭到 8.1.4、8.2 開頭（Lec 18，不含 8.2.1 之後）。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=bMJ9igfvn1M
+title: Lecture 17 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=XlaV_z2knjA
+title: Lecture 18 錄影
+```
+
+原始影片：[Lecture 17 錄影](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 錄影](https://www.youtube.com/watch?v=XlaV_z2knjA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 場景：線性模型連 XOR 都學不會
 
 Lec 17 後半有一個完整的手算例子，改編自 Goodfellow 等人《[Deep Learning](https://www.deeplearningbook.org/contents/mlp.html)》第 6 章。資料只有四筆：
@@ -172,6 +192,10 @@ Discussion 8 只有兩題，都是證明題：
 - 系列導覽：上一篇 [HW2 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)；下一篇 [HW3 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：打開 Lec 17 講義的 XOR 例子，自己用 NumPy 算出線性模型的最佳解 `b* = 1/2`，再代入講義給的 ReLU 權重，確認四筆都對。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

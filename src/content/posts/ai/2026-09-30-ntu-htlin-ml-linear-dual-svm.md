@@ -34,6 +34,26 @@ glossary:
 
 存取等級：只看 MOOC 是 **A2**，投影片與 9 支影片都免費。這兩講在 Fall 2024 沒有專屬作業，相關練習都在 HW6（見文末），那份 PDF 公開，但沒有官方解答。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=A-GxGCCAIrg
+title: T1-1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8hak0XngnV0
+title: T1-2
+```
+
+原始影片：[T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[T1-2](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 從基石接過來：轉換的代價還沒付清
 
 基石收尾時留下兩個工具，技法第 1 講會把它們接在一起。
@@ -224,6 +244,10 @@ T2-2 的影片標題在 YouTube 上拼成「Largange Dual SVM」，投影片是�
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課。
 
 系列導覽：上一篇 [驗證與三個學習原則](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)｜下一篇 [Kernel 技巧與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

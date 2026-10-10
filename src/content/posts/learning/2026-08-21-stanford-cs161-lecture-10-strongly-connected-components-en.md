@@ -21,6 +21,14 @@ I used the [official Lecture 10 anchor](https://stanford-cs161.github.io/winter2
 
 Lecture 9 established that DFS from any vertex of an undirected component reaches the whole component. Directed graphs are harder. Reachability from u to v does not imply a return path. One DFS produces a reachable set, not mutual reachability. Lecture 10 contracts SCCs into a DAG and uses finish times to decide where a second DFS can start without escaping into another unprocessed component.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
+
 ## Directed graphs need two notions of connectivity
 
 In an undirected graph, define `u~v` when a path connects them. The relation is reflexive, symmetric, and transitive. Each equivalence class is a connected component.
@@ -153,6 +161,10 @@ Lecture 11 turns to weighted shortest paths. SCC decomposition is not itself a s
 To verify both official forms, draw one graph with three SCCs and run `G→G^T` and `G^T→G`. Record finish order and second-pass trees. Vertex times may differ, while the component partition must agree.
 
 An implementation can return both a component ID per vertex and the condensation DAG. Convert every original edge `(u,v)` to `(comp[u],comp[v])`, then remove self-loops and duplicates. This is an extension exercise from this article, not an additional Winter 2026 requirement.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

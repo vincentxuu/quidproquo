@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 3 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=qK46ET1xk2A
+title: CS50 AI Week 3 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 3 — official lecture recording](https://www.youtube.com/watch?v=qK46ET1xk2A)
+
+課程與錄影入口：
+
+- [CS50 AI Week 3 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/3/)
+
 ## TL;DR
 
 Week 3 解決優化問題：局部搜尋（爬山、隨機重啟）、模擬退火接受劣解、CSP 建模變數/域/約束、AC-3 過濾域、回溯搜尋配合 MRV 與 degree 啟發式。專案 Crossword 生成合法填字遊戲。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 3 Optimization (2020 錄製)](https://www.youtube.com/watch?v=8M8vLzl4p5M)
+YouTube：[Week 3 Optimization (2020 錄製)](https://www.youtube.com/watch?v=qK46ET1xk2A)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -280,6 +295,10 @@ style50 generate.py
 - [ ] 理解 LCV（最小衝突值）為何能減少回溯
 - [ ] 能解釋 Crossword 中 `overlaps` 字典如何編碼二元約束
 - [ ] Crossword 專案 `check50` 全綠（大型測資也能在時限內解出）
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

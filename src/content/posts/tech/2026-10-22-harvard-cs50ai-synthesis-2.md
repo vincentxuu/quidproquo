@@ -20,6 +20,15 @@ draft: false
 
 > ⚠️ **版本提醒**：本系列涵蓋講課影片為 **2020 年春季錄製（Week 0–5）與 2023 年重錄（Week 6）**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## TL;DR
 
 十二專案涵蓋搜尋、邏輯、機率、優化、ML、RL、CNN、NLP 七大領域。按難度分三級：入門（Degrees、Shopping）、核心（Tic-Tac-Toe、Knights、Minesweeper、Heredity、PageRank、Nim、Parser、Questions）、挑戰（Crossword、Traffic）。建議嚴格按週序做，專案即時並行。
@@ -197,6 +206,10 @@ Week 6: Parser (3-5h) → Questions (4-7h)
 - [綜論一：知識弧線](/posts/tech/2026-10-15-harvard-cs50ai-synthesis-1) (order 8)
 - **本篇：綜論二（本文）**(order 9)
 - [總結：永恆與變遷、下一步](/posts/tech/2026-10-29-harvard-cs50ai-wrapup) (order 10)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

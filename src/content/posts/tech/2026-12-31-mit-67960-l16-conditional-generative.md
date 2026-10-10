@@ -31,6 +31,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=zaMcHuJwe1w
+title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 從「生成」到「條件生成」
 
 L14–L15 都在生成 `x`，但實務上我們更常需要的是**給條件 `y`，生成對應的 `x`**：`y` 可能是類別、句子、另一張影像。條件生成模型回答的問題是：`p(x | y)` 怎麼估、怎麼採樣。
@@ -108,6 +124,10 @@ x_{t−1} ← x_t − γ · ∇_{x_t} log p(y | x_t) + 噪聲
 - **Prompt 不夠具體**：模型退化成 mean-image（VAE 系的根本毛病）。
 - **y 與 x 沒對齊**：微調階段用 LoRA / DreamBooth 把新概念「塞進」模型的條件空間。
 - **可控性 vs 多樣性**：這是條件生成的根本權衡，沒有銀彈。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

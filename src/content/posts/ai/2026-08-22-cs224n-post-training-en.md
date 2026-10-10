@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 8 on January 29, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf), **Post-training (RLHF, SFT, DPO)**, covers instruction fine-tuning, RLHF, InstructGPT/ChatGPT, limitations of RL and reward modeling, DPO, and human preference data versus AI feedback.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Next-token prediction is not user assistance
 
 Pretraining learns to continue text. Users expect a model to follow instructions, choose a useful form, and decline inappropriate requests. Instruction fine-tuning applies supervised learning to instruction–ideal-response examples, shifting a base model toward assistant interaction.
@@ -78,6 +87,10 @@ Create paired answers for twenty prompts, collect two independent human rankings
 ## Material gap and numbering note
 
 Winter 2026 recordings are not public. The deck cover retains a stale “Lecture 7: Post-training” label, but the official schedule, date, and filename establish it as regular lecture 8. This article covers all six agenda items without inventing spoken examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

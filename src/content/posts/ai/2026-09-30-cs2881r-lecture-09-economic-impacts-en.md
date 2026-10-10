@@ -30,6 +30,21 @@ The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safe
 
 Boaz Barak framed the session in one sentence. An AI safety course cares whether AI's effect on the world is good or bad, the economic side is among the most important pieces, and the course would be incomplete without it. Then he handed over to two guests: one looking from inside OpenAI, one looking at administrative data.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=4vQSMijp_M8
+title: Lecture 9: Economic Impacts of AI (recording)
+```
+
+Original videos: [Lecture 9: Economic Impacts of AI (recording)](https://www.youtube.com/watch?v=4vQSMijp_M8)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## What this lecture offers
 
 | Material | Contents | Status |
@@ -158,6 +173,10 @@ One thing to do tonight: open the Canaries paper, find the appendix figure behin
 - How capability is measured and how GDPval is built: [L7: Capabilities vs. Safety](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en), [L12: AI 2035 and GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en)
 - Timelines for AI doing AI R&D: [L6: Recursive Self-Improvement](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 - Course map and A0–A3 grading: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -36,6 +36,26 @@ This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026
 
 The whole lecture runs on one example sentence: "A cute teddy bear is reading." It gets split into tokens, turned into vectors, handed to an RNN, and then we see why the RNN can't cope, until finally a Transformer translates it into French: "Un ours en peluche mignon lit." Follow that sentence from start to finish and you've covered the entire lecture.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ub3GoFaUcds
+title: 2025 Lecture 1 recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=114i2Kz-LZA
+title: 2026 Lecture 1 recording
+```
+
+Original videos: [2025 Lecture 1 recording](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[2026 Lecture 1 recording](https://www.youtube.com/watch?v=114i2Kz-LZA)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Step 1: Split the sentence into tokens
 
 Models don't see text; they see tokens. There are three granularities for splitting, and the slides list the trade-offs of each:
@@ -159,6 +179,10 @@ These questions are adapted from Part I of the [2025 midterm](https://cme295.sta
 - RNNs and vanishing gradients: [CS224N Lecture 4: language models, RNNs, and vanishing gradients](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
 - Another take on going from recurrence to Transformers: [CS224N Lecture 5](/posts/ai/2026-08-22-cs224n-transformers-en)
 - Implementing BPE yourself: [CS336 Lecture 1](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

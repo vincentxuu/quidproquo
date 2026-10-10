@@ -19,6 +19,14 @@ draft: false
 
 因此本文聚焦重複 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) 中段的 block cache、free-space bitmap、block fragments、repacking 與 delayed allocation。Direct／indirect inode walk 和尾端 disk scheduling 已由 [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes)完整處理；這裡不假裝有另一份 deck，也不複製相同段落灌水。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Block cache 解掉冷索引的 I/O
 
 BSD inode 的 indirect block 若每次都從 disk 讀取，大檔操作最多會在 data I/O 前多付兩次 index reads。OS 因此用部分 main memory 保存最近存取的 disk blocks；頻繁使用的 indirect blocks 與 inode blocks 會自然留在 cache。投影片指定 LRU replacement，讓近期不活躍的 cached block 先被回收。
@@ -71,6 +79,8 @@ file 建立時不知道最終大小，而且是一 block 一 block 成長；小�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依與 Lecture 20 重複的官方 PDF，聚焦 cache、free space、fragments 與 delayed allocation，並記錄相同 SHA 與錄影缺口。
 
 ## 參考資料

@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=IiHknRHA-Gk
+title: MIT 6.7960 Fall 2024 — Lec 10. Architectures: Memory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 10. Architectures: Memory](https://www.youtube.com/watch?v=IiHknRHA-Gk)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 10. Architectures: Memory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec10_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 為什麼序列需要「記憶」
 
 前面的架構（MLP、CNN）對每個輸入獨立處理，沒有「時間」的概念。但語音、文字、感測器串流這類資料，第 t 步的意義高度依賴前面的上下文。要建模這種依賴，網路需要一個**跨時間保留資訊的狀態**。
@@ -91,6 +107,10 @@ Transformer（見 L08）直接用 attention 讓任意兩個時間步 **O(1)** �
 - 用 RNN 時，**梯度裁剪幾乎必開**，否則很容易爆炸。
 - 需要長程依賴又想用輕量模型，優先試 **LSTM/GRU** 而非 vanilla RNN。
 - 若任務本質是「看完整段再回答」（如文件理解），**注意力才是更自然的選擇**，別硬上 RNN。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

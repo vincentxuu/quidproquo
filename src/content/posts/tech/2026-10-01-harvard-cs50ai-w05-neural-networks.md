@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 5 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=J1QD9hLDEDY
+title: CS50 AI Week 5 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 5 — official lecture recording](https://www.youtube.com/watch?v=J1QD9hLDEDY)
+
+課程與錄影入口：
+
+- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
+
 ## TL;DR
 
 Week 5 進入深度學習：從感知機到多層神經網路、反向傳播鏈式法則計算梯度、損失函數與優化器、TensorFlow/Keras 建模、CNN 卷積池化結構。專案 Traffic 訓練 CNN 分類交通號誌圖片。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 5 Neural Networks (2020 錄製)](https://www.youtube.com/watch?v=Z5Jj8Q8Q8Q8)
+YouTube：[Week 5 Neural Networks (2020 錄製)](https://www.youtube.com/watch?v=J1QD9hLDEDY)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -308,6 +323,10 @@ style50 traffic.py
 - [ ] 理解 CNN 中 `Conv2D` 的 `filters`、`kernel_size`、`padding`、`strides` 參數效果
 - [ ] 理解 BatchNormalization、Dropout、Data Augmentation 的正則化機制
 - [ ] Traffic 專案 `check50` 全綠（測試集準確率達標）
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

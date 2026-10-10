@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 12**, taught by Percy
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR: what this lecture actually builds
 
 The source file does not begin with a mysterious Bayesian-network diagram. It begins with a question: how can a program represent a world, answer a probability query, and then generate samples from the same model? The lecture follows three operations:
@@ -290,6 +299,10 @@ This is why Bayesian networks require a mindset shift from ordinary classifiers.
 Starting with `P(S, R)`, conditioning is not just “apply Bayes.” Select compatible assignments, compute the probability of the evidence, and normalize. Treating tables as tensors makes `einsum` labels expose which axes are retained, aligned, or summed out. Bayesian networks then use a DAG and local conditional tables to define a joint; alarm shows explaining away; medical diagnosis shows how evidence can travel through another cause.
 
 Autoregressive language models connect the same factorization to token sequences. Probabilistic programs express the joint through sampling code. Rejection sampling estimates `P(query | evidence)` by filtering and counting, with flexibility but poor efficiency for rare evidence. The usable contract is to write down variables, evidence, query, local assumptions, normalization, and both representation and inference costs before trusting the answer. The source closes by pointing to better probabilistic inference next time.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

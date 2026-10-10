@@ -26,6 +26,26 @@ Linear regression itself is not hard. The hard part is that these four lectures 
 
 All three meet in one formula. By the end you should be able to derive `w = (XᵀX + λI)⁻¹Xᵀy` yourself and say where each term comes from.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=0YLmbbERr0g
+title: Video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=202aSB1p8do
+title: Video
+```
+
+Original videos: [Video](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Video](https://www.youtube.com/watch?v=202aSB1p8do)、[Video](https://www.youtube.com/watch?v=lrU8Vn0G44w)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Official materials and scope
 
 | Lecture | Date | Title (from the schedule) | Materials |
@@ -217,6 +237,10 @@ On this site:
 
 - Previous: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians, and GMMs](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 - Next: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

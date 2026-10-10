@@ -19,6 +19,14 @@ This is part 2 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 1 does not begin by asking students to memorize a closed definition of an OS. It follows changes in hardware cost and use to explain why operating systems accumulated layers: shared I/O cards, batch monitors, multiprogramming, and personal computers each answer a concrete bottleneck.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## How to read this historical lecture
 
 Keep two lines in view. When hardware was scarce, an OS primarily improved machine utilization. As hardware spread, convenience, protection, and sharing across applications became central. The sections below follow the slide chronology, then use the course structure and grading scheme to show how that history becomes CS111’s learning map.
@@ -80,6 +88,10 @@ Applied to the next lecture, threads and processes are not merely two definition
 ## Check yourself with a historical causal chain
 
 Choose one period and write “hardware or usage bottleneck → new OS mechanism → newly created policy or protection problem.” If the arrows cannot be explained, the dates have been memorized without the lecture’s causal account of design.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

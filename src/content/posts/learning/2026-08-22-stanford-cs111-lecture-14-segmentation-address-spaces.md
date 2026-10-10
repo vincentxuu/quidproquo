@@ -19,6 +19,14 @@ draft: false
 
 官方 `Lecture13.pdf` 與 `Lecture14.pdf` 都是 25 頁，SHA-256 同為 `f0aa78c7...e315`，內容逐位元組相同；calendar 卻把 4 月 29 日列為 **Virtual Memory, Continued**。Canvas 錄影不公開，本文不假裝有另一份 deck，只聚焦重複材料後段的 segmentation。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. 為何一組 base/bound 不夠
 
 Base/bound 讓每個 process 從 virtual 0 執行，hardware 同時做 `physical = base + virtual` 與 `virtual < bound`，達成 multitasking、transparency、isolation、efficiency。但整個 process 只有一段 contiguous region，code、data、stack 被迫綁在一起。
@@ -71,6 +79,9 @@ Address space 也 rigidly divided：code/data/stack virtual ranges 受 encoding 
 
 Segmentation 以多 descriptors 修好單一 region 的 protection、growth、sharing，卻保留 fixed-count 與 variable-size placement。下一講 paging 會用 fixed-size pages 和更大的 mapping table處理不連續 frames；本篇到此為止，不提前把 paging 寫回這份重複 PDF。
 
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

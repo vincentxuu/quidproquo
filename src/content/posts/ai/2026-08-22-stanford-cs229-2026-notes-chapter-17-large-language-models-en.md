@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 17, printed pages 202–219, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. The focus is the chain from model to computation to post-training, not a line-by-line reproduction of every proof.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## From text to an autoregressive probability
 
 A tokenizer converts text into tokens. Characters give a small vocabulary but long sequences; whole words shorten sequences but handle rare words poorly. Subword methods such as BPE occupy the middle ground. Vocabulary size changes embedding and output layers as well as sequence length, so tokenization is part of the model's systems design.
@@ -72,6 +81,10 @@ Chapter 16 used embeddings for retrieval and RAG. This chapter opens the Transfo
 ## Exercise
 
 For the same 2,048-token prompt, compare what must be recomputed during token-by-token generation with and without a KV cache. Then make a table showing the main resource saved by FlashAttention, GQA, and sliding-window attention—and the bottleneck each does not solve.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Context-Free Languages**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/19/)
+
 ## 從有限狀態限制轉向遞迴結構
 
 投影片 先回顧上一講：infinite distinguishing set 表示有無限多種 prefix information 必須由不同 states 保存，因此不可能有 finite automaton。接著用 Python arithmetic expressions 提問：合法 expression 長度與 nesting depth 沒有固定上限，單一固定格式的 Mad Libs 只能生成某一形狀，如何描述所有遞迴巢狀形式？
@@ -194,6 +202,8 @@ X → aX | ε
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「從有限狀態限制轉向遞迴結構」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

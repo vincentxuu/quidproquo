@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 14 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-11-11. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and [official slides](https://web.stanford.edu/class/cs224w/slides/14-advanced_gnns.pdf); speaker attribution follows the slides.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include the official slides and optional readings on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable and are not reconstructed. The public 2021 videos are not evidence for a 2025 lecture.
@@ -98,6 +106,10 @@ Use a renamed held-out schema with a shifted subgroup and verify task invariance
 ## Self-study checkpoint
 
 Write down the prediction unit, information cutoff time, negative set, and metric before running a model. Graph leakage often travels through another relation or a future edge and is invisible in a successful program run.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

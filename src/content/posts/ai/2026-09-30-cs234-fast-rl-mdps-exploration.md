@@ -43,6 +43,22 @@ glossary:
 
 存取等級是 **A3（足以自學）**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片公開。缺口是 2026 錄影只在 Canvas；投影片在 simulation lemma 那頁引用的 Winter 2023 problem session PDF（`sessions/CS234_Win23_ProblemSession2.pdf` 與解答），2026-09-30 查核時兩個網址都是 404。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=pc7oayCSZmQ
+title: Stanford CS234 Spring 2024 影片 13〈Exploration 3〉
+```
+
+原始影片：[Stanford CS234 Spring 2024 影片 13〈Exploration 3〉](https://www.youtube.com/watch?v=pc7oayCSZmQ)
+
+課程與錄影入口：
+
+- [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 這一講要解決什麼
 
 [第 13 篇](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)的 UCB 與[上一篇](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits)的 Thompson sampling，都只處理 bandit：每次決策做完就結束，下一步跟這一步無關。MDP 多了一件麻煩事：你今天去哪裡，決定了明天看得到什麼資料。第 12 講的「Check Your Understanding」直接把這點當成錯誤選項：「探索在 MDP 裡不重要，因為資料分布跟你走的策略無關」，答案是 False。
@@ -224,6 +240,10 @@ DPT 那兩頁的核心只有一句：訓練模型去預測最佳動作 $a^*$，�
 
 - 另一門深度 RL 課怎麼講探索與 RL 理論：[Berkeley CS285 L19–25：探索、RL 理論、多任務學習與開放問題](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 - 「學會探索」在 meta-RL 脈絡下的完整講法：[CS224R L13：Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

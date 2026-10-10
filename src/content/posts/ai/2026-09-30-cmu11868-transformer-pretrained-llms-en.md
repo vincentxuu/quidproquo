@@ -30,6 +30,14 @@ The first five posts laid the foundation: how a GPU runs a kernel, how a framewo
 
 11-868 covers the model in just two lectures: L06 on the Transformer, L07 on pre-trained LLMs. Compared with [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) or [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), that is short. The goal here is not to explain why language models work. It is to show you **what the thing you will accelerate, shard, and serve actually looks like**. This post reads the lectures from that angle and asks two questions of every component: what shape are its matrices, and what resources does it consume?
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Orientation: three kinds of language models
 
 L06 page 4 sorts language models into three types:
@@ -148,6 +156,10 @@ The following are my own rough estimates from the numbers above, not slide conte
 2. L07's size tables are images; open Table 2 of [LLaMA](https://arxiv.org/abs/2302.13971) and Tables 2.1 and D.1 of [GPT-3](https://arxiv.org/abs/2005.14165) directly
 3. Use GPT-3's numbers to compute parameter count, weight memory, and training FLOPs once, as a warm-up for the second half of the course
 4. L07 page 21 links straight to the [HW3 assignment page](https://llmsystem.github.io/llmsystemhomework/assignment_3/). The assignment went out on Feb 4; after this post and the [next one](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en) you can start it
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

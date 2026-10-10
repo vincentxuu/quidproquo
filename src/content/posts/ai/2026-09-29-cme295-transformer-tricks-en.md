@@ -38,6 +38,21 @@ This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/
 
 The slides run in five sections: position embeddings → layer normalization → attention approximation → a taxonomy of Transformer models → a deep dive on BERT. The first three are part upgrades; the last two are about how the whole machine split into families.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=yT84Y5zCnaA
+title: 2025 Lecture 2 recording
+```
+
+Original videos: [2025 Lecture 2 recording](https://www.youtube.com/watch?v=yT84Y5zCnaA)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Position information: from "add a vector" to "rotate by an angle"
 
 ### Why position is needed
@@ -236,6 +251,10 @@ These questions are adapted from Part II of the [2025 midterm](https://cme295.st
 - Attention variants and MoE: [CS336 Lecture 4](/posts/ai/2026-08-22-cs336-attention-moe-en)
 - BERT's place in the history of pretraining: [CS224N Lecture 7: pretraining, subwords, and in-context learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Previous lecture: [CME295 Lecture 1: From Tokens to Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

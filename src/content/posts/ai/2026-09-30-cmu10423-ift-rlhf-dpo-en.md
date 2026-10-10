@@ -37,6 +37,15 @@ I checked every fact against the official materials on 2026-09-30. The [schedule
 
 **Series position**: previous [L10–L11: parameter-efficient fine-tuning and in-context learning](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en) | next [HW3: fine-tuning GPT-2 with LoRA](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## One story, two models
 
 L11 opens with an example. The same five-sentence story, followed by "One-sentence Summary:", goes to two models:
@@ -183,6 +192,10 @@ One thing to do tonight: open the Bradley–Terry slide in L12 and verify that e
 
 - The same material in other courses: [CS224N Lecture 8: from instruction tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en), [CME295 Lecture 5: preference tuning with RLHF and DPO](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - Course status and a self-study path: [CMU 10-423 series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

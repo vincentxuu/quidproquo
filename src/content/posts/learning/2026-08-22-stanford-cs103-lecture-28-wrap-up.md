@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Wrap-Up**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/)
+
 ## 這講的角色與當期公告
 
 最後一講不是新增 theorem，而是公告、全課回顧、後續課程地圖與 Q&A。投影片 記載 final exam 在 Saturday 8:30–11:30，規則同 midterms：一張 8.5×11 吋 notes、不可用 electronic devices、所有 psets 與 lectures 累積考察，但本講除外。課後 4:30–6:30 有 review session，使用 practice exam；學生也被請託在 Axess 評課。
@@ -93,6 +101,8 @@ theory 列表還有 CS229M ML Theory、CS250 Codes、CS255 Cryptography、CS259Q
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「這講的角色與當期公告」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

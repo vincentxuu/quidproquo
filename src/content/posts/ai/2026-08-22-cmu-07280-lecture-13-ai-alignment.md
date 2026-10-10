@@ -17,6 +17,14 @@ draft: false
 
 第 13 講 **AI Alignment** 在 2026 年 2 月 26 日進行，位置正好在 Midterm 1 後。前四講建立模型與梯度，這一講改問：objective 可被有效最佳化，是否等於行為符合使用者要求與人類價值？官方講義明說這是一堂 discussion-oriented lecture；沒有公開錄影或逐字稿，因此本文只整理文件列出的議題與案例，不假裝知道現場討論結論。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文讀取 [AI Alignment lecture notes](https://www.cs.cmu.edu/~07280/lectures/280AIalignment_lecturenotes.pdf)與 [Autonomous AI Scientist Systems deck](https://www.cs.cmu.edu/~07280/lectures/07280_AutonomousScientists.pdf)。後者以 [Methodological Flaws in Autonomous AI Scientists](https://arxiv.org/abs/2509.08713)的實驗為例。HW6 在同日到期，但內容仍是 backprop，並非 alignment 作業；本講沒有專屬公開 recitation。
@@ -73,6 +81,10 @@ Deck 的 actionable takeaway 是：不能只審最終 paper，還要提交 trace
 ## 今晚可以做的動作
 
 選一個 agent 任務，寫一頁 evaluation spec：真正目標、可量測 proxy、三種可能 gaming route、兩個 distribution shifts、必須保存的 traces。再設計一個 control condition，讓「系統真的改善」和「只挑容易案例」能被分開。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,15 @@ draft: false
 
 The course answers that in the last three sections of the same [methods slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf): Datasets, Data organization, and Model evaluation. They match videos 42 to 44 in the [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) and the repo's [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb). The deck's "Associated materials" slide also assigns [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/) of Noah Smith's *Linguistic Structure Prediction*. That appendix is titled Experimentation. It covers train/dev/test, cross-validation, comparison without replication, and hypothesis testing.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Where this unit sits in the course
 
 In the 2023 [schedule](https://web.stanford.edu/class/cs224u/), the "NLP methods" unit spans May 17, 22, and 24. The same block lists Experiment protocol overview, NLP methods and metrics, and a guest session by [Kawin Ethayarajh](https://kawine.github.io/), "Real-world NLP assessments." The experiment protocol was due May 29.
@@ -192,6 +201,10 @@ If you can't answer any one of them, your "A beats B" conclusion isn't ready for
 - Previous in the series: [CS224U Methods and Metrics I](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
 - Next in the series: [CS224U Final Project Workflow: Lit Review and Experiment Protocol](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 - The evaluation part of the site's CS224N series: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

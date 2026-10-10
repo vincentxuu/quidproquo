@@ -18,6 +18,22 @@ draft: false
 
 [Lectures 5–8](https://inst.eecs.berkeley.edu/~cs188/sp26/) place two problem types together. CSPs use variables, domains, and constraints to reduce combinatorial search; game trees add other agents that respond. In [Project 2](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/), Pacman faces ghosts while you implement a reflex agent, minimax, alpha-beta pruning, expectimax, and an evaluation function.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=JMP3f3Pd7_8
+title: CS188 Spring 2026 Lecture 5: CSPs I
+```
+
+Original videos: [CS188 Spring 2026 Lecture 5: CSPs I](https://www.youtube.com/watch?v=JMP3f3Pd7_8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## CSPs: reduce choices before entering the game
 
 The [official CSP textbook chapter](https://inst.eecs.berkeley.edu/~cs188/textbook/csp/csps.html) represents a problem through variables, each variable's domain, and constraints on compatible assignments. Basic backtracking assigns one variable at a time. Ordering heuristics choose the next variable and value; propagation removes candidates that can no longer participate in a solution. These techniques preserve the solution set while avoiding branches already known to fail.
@@ -37,6 +53,10 @@ With limited depth, leaf-state evaluation defines the world the agent can see. C
 First draw a small tree with two ghosts and mark when agent index and depth change. Implement minimax before pruning, then obtain expectimax by changing only the ghost-node aggregation rule. Each step should correspond to one explicit assumption.
 
 Series navigation: [Previous: Search and heuristics](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics-en) | [Next: MDPs and reinforcement learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

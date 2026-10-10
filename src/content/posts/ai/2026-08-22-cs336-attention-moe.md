@@ -19,6 +19,22 @@ draft: false
 
 這一講把兩個常被分開談的主題放在一起：attention alternatives 與 mixture of experts（MoE）。共同問題是能否增加 context 或參數，卻不讓每個 token 支付完整成本。結構化稀疏可以做到，但省下的運算會轉化成新的最佳化與系統問題。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
+title: CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts
+```
+
+原始影片：[CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## Linear attention 改變乘法順序
 
 標準 attention 先建立 `QKᵀ`，序列長度為 `n` 時會產生 `n × n` 矩陣。若暫時拿掉 softmax，可利用結合律改寫：
@@ -72,6 +88,10 @@ MoE 不一定從頭訓練。Upcycling 會複製既有 dense feed-forward weights
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依投影片的 attention alternatives、MoE routing、training 與 systems 段落整理。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

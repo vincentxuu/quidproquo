@@ -19,6 +19,14 @@ draft: false
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda：從 counting 走到 binomial PMF
 
 第一題用十二人委員會複習 combination。四人委員會總數是 C(12,4)；恰兩位 senior 是 C(5,2)C(7,2)；全是 junior 是 C(7,4)。這些計數會直接變成 binomial PMF 裡的組合係數，但不放回抽樣本身不是 binomial。
@@ -43,6 +51,10 @@ C(n,k) 選出成功出現在哪 k 次；p^k 是那些成功同時發生；(1-p)^
 - Spring-dated 共用 Binomial 頁可核對 PMF 與建模條件，但不能證明 Summer 課堂流程。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

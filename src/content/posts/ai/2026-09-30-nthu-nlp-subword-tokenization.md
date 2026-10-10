@@ -30,6 +30,26 @@ glossary:
 
 投影片大綱分三段：Recap、Word Segmentation、Sub-word Tokenization。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Dpswwk6UMCc
+title: Week 5 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FB0fgRTEbJE
+title: Week 5 Thu.
+```
+
+原始影片：[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)、[Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 先回想：模型輸出的是整個詞彙表上的機率
 
 第 4–5 頁先回顧語言模型的輸出層：RNN 讀完「I love an」，hidden state 經過分類層，輸出一個長度等於詞彙量的機率分布，apple 0.6、elephant 0.3、eraser 0.05……所以**詞彙表怎麼建，直接決定模型能說出哪些字**。
@@ -169,6 +189,10 @@ X 是句子，x<sub>i</sub> 是第 i 種切法，n<sub>i</sub> 是它的 token �
 - 解答、測驗與課堂討論在 NTU COOL，校外讀者拿不到。Fall 2026 的這一講還沒公開。
 
 **系列導覽**：上一篇 [Transformer 與 Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers)｜下一篇 [ELMo、BERT、T5、BART、GPT：預訓練的三條路](/posts/ai/2026-09-30-nthu-nlp-bert-family)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

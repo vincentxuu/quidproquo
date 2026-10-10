@@ -27,6 +27,14 @@ draft: false
 
 「software factory」這個詞也出現在課程描述的收尾：學生結業時應該能「apply software-factory principles to building and evolving software at greater speed and scale」。它是這門課的終點命題。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 拆開這個詞
 
 工廠的核心不是自動化，是**流程可重複、缺陷可回溯、產線可調整**。搬到軟體上，「self-running, self-improving」需要三個東西同時到位：
@@ -121,6 +129,10 @@ W10 software factory   →  以上全部接成一條會自我強化的迴圈
 - Fall 2026 的 Week 10 客座尚未公布
 - 「software factory」目前主要是課程與少數廠商在用的說法，還沒有共識定義
 - 本文列的第二、三個缺口是我的判斷；第一個（責任歸屬）是課程自己列為 open question
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

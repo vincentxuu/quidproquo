@@ -31,6 +31,26 @@ These two lectures sit right after the midterm (3/17), on either side of spring 
 
 The assigned reading is Bishop's [Deep Learning: Foundations and Concepts](https://www.bishopbook.com/), 6.1–6.3.1 for Lec 17, and Chapter 8 from the introduction through 8.1.4 plus the opening of 8.2 (not 8.2.1 onward) for Lec 18.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=bMJ9igfvn1M
+title: Lecture 17 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=XlaV_z2knjA
+title: Lecture 18 video
+```
+
+Original videos: [Lecture 17 video](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 video](https://www.youtube.com/watch?v=XlaV_z2knjA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Scene: a linear model cannot even learn XOR
 
 The second half of Lec 17 works through a full example adapted from Chapter 6 of Goodfellow et al.'s [Deep Learning](https://www.deeplearningbook.org/contents/mlp.html). There are only four data points:
@@ -172,6 +192,10 @@ When you train in PyTorch, every addition, matrix multiply, or ReLU in the forwa
 - Series navigation: previous, [HW2 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en); next, [HW3 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: open the XOR example in the Lec 17 slides, compute the linear model's optimum `b* = 1/2` yourself in NumPy, then plug in the ReLU weights from the slides and confirm all four points come out right.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

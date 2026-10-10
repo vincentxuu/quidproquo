@@ -30,6 +30,14 @@ glossary:
 
 上一篇的 K-means 與 PCA 都在「重建」：用群中心或幾個主成分把影像拼回來，誤差越小越好。這篇的兩題換了思路。SimCLR 不重建任何東西，只要求網路認出「這兩張是同一張圖的不同裁切」。GAN 不算資料的似然，只要生成的樣本騙得過一個判別器。兩題的共同點是 [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf) 第 5 節的標題：**把學習看成一個分類問題**。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 在 2026 課表的位置
 
 | 項目 | 官方內容 |
@@ -143,6 +151,10 @@ EBM 這一段作業沒有出題，只在 Section 8 出現。
 
 - 站內 [CS230 導讀：Supervised、Self-Supervised 與 Weakly Supervised Learning](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)，從 triplet loss 一路講到 SimCLR 的動機。
 - 原始論文：[Chen et al., SimCLR (2020)](https://arxiv.org/abs/2002.05709)、[Goodfellow et al., Generative Adversarial Networks (2014)](https://arxiv.org/abs/1406.2661)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

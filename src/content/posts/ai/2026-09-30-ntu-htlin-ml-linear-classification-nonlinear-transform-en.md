@@ -32,6 +32,26 @@ By the end of Lecture 10, the third part of the course, "How Can Machines Learn?
 
 These two lectures close out the third part. After reading, you should be able to explain why regression can be used for classification, where the SGD update comes from, the two ways to split a multiclass problem, and how to count the price of a feature transform.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=qXfDVHVzI38
+title: Binary Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9HL3YvmrovQ
+title: Stochastic Grad. Descent
+```
+
+Original videos: [Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Course materials
 
 | Lecture | YouTube sections (playlist number) | Slides | LFD sections |
@@ -165,6 +185,10 @@ One thing to try tonight: use d̃ = C(Q+d, d) − 1 to compute the dimension for
 - The trade-off between feature transforms and regularization: [CMU 07-280 Lecture 10: Feature Engineering and Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en)
 - ML Techniques hands the "high dimensions cost you" problem to SVMs and kernels: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

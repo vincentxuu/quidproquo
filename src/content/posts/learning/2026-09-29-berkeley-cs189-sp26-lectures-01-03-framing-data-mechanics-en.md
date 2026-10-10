@@ -29,6 +29,26 @@ Most machine learning courses start deriving algorithms in week one. CS189 Sprin
 
 The textbook is Bishop and Bishop's *Deep Learning: Foundations and Concepts*. [bishopbook.com](https://www.bishopbook.com) hosts a free online reading version.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=IzfaWKuxThw
+title: video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=oVo_RajZ3aE
+title: video
+```
+
+Original videos: [video](https://www.youtube.com/watch?v=IzfaWKuxThw)、[video](https://www.youtube.com/watch?v=oVo_RajZ3aE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Lec 1: which problems belong to ML
 
 Lecture 1's definition is short: machine learning is software systems that improve (learn) through data. Two classic examples show why we need it. Spam is hard to define but easy to demonstrate. Face detection is hard to program but easy to demonstrate.
@@ -148,6 +168,10 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 - [Stanford CS109 L3: Bayes' theorem](/en/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en): background for the Discussion 1 probability question
 - [Stanford CS229 notes Ch. 1: linear regression](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en): how another course starts from linear models
 - [CMU 11-785 L1: introduction](/en/posts/ai/2026-08-22-cmu-11785-01-introduction-en): the same basics from a deep learning angle
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

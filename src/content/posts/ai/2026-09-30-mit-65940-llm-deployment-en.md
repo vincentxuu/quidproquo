@@ -39,6 +39,21 @@ glossary:
 
 **Fall 2026 status**: the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) renames Lecture 13 (October 27) to "LLM Quantization and Deployment". As of 2026-09-30 its slides and recording aren't up, so the content can't be compared yet.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=sTz2tXG1T0c
+title: Lecture 13 recording (YouTube)
+```
+
+Original videos: [Lecture 13 recording (YouTube)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## What this lecture is solving
 
 [Lecture 12](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en) left one fact on the table: an LLM generates one token at a time, and every token requires reading all of the model's weights from memory. This lecture organizes the ways to make that faster and cheaper into three paths. The Lecture Plan on page 2 is the map:
@@ -206,6 +221,10 @@ Put side by side, one thread runs through everything: **look at the activations*
 - Same series: [L12 Transformers and LLMs](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en), [L6 Quantization II (PTQ and QAT)](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en), [L11 TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 - Inference and serving: [CS336 inference](/posts/ai/2026-08-22-cs336-inference-en), [CMU 11-868 model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en), [CMU 11-868 LLM serving (SGLang and vLLM)](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en), [CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - MoE: [CMU 11-868 model parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

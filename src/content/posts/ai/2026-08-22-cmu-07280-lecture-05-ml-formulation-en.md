@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 5: ML Problem Formulation**. The first four lectures relied on human-defined transitions, constraints, utilities, and heuristics. This lecture turns to systems that rely primarily on examples, but it still does not choose a model. It first makes the input, output, and cost of error explicit.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf) and the following lecture's [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf) to verify how the formulation becomes a first model. No lecture recording is public.
@@ -81,6 +89,10 @@ Low training loss therefore does not by itself mean “the model learned.” The
 1. Choose a familiar problem and define `X`, `Y`, one `h`, and a computable loss.
 2. Calculate the empirical risk of two hypotheses on five toy examples.
 3. Make the loss asymmetric once and see whether the ERM choice changes.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

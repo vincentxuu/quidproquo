@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 This is the first lecture of CS224V Fall 2025, not the still-unpublished Autumn 2026 Agentic AI syllabus. Its premise is severe: an LLM can ignore retrieved evidence, mix in parametric memory, or fluently invent unsupported statements even with RAG. The course responds by turning an assistant into individually inspectable steps.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda
 
 The deck moves through the reliability problem, computational thinking, the 2022–2025 general research-assistant program, and the post-2025 scientific-assistant direction. Only then does it map the remaining course: free text, databases, long documents, knowledge graphs, SMT, dialogue policy, multimodal interfaces, and training. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf))
@@ -105,6 +113,10 @@ For every system, write three columns: input, formal intermediate state, observa
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public artifact is a slide deck, with no recording or complete speaker notes. Some slides intentionally leave classroom content out. This article therefore reconstructs only the visible argument and keeps Fall 2025 separate from the renamed 2026–27 catalog course.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

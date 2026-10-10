@@ -35,6 +35,22 @@ The first eight posts stayed on the CPU. This lecture moves to the GPU, but the 
 
 So the question for this lecture is concrete: **how do CUDA's grid, block, and thread abstractions land on GPU hardware?** Mapping DNNs onto GPUs waits for [the Lecture 9 post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en). This post covers only the execution model.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=qQTDF0CBoxE
+title: Stanford CS149 2023 Lecture 7 video
+```
+
+Original videos: [Stanford CS149 2023 Lecture 7 video](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
+
 ## From drawing triangles to running any program
 
 The slides open with some history, because the GPU's design trade-offs come from its original job: real-time 3D graphics.
@@ -178,6 +194,10 @@ One thing you can do tonight: copy down the `myFlag` example, write one sentence
 - The same GPU execution model from the LLM training angle: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - Another course's take on threads, blocks, the memory hierarchy, and tiling: [CMU 11-868 L02–L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 - Course positioning, the five assignments' environment needs, and the 2023 video mapping: [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

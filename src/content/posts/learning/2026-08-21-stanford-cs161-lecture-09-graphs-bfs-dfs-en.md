@@ -21,6 +21,14 @@ I used the [official Lecture 9 anchor](https://stanford-cs161.github.io/winter20
 
 The point is not to memorize two traversal procedures. Search order leaves different evidence behind. DFS discovery and finish times encode a nested structure. BFS layers encode exact distances measured in edges. The same `O(n+m)` scanning skeleton solves different problems because its frontier discipline and bookkeeping differ.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
+
 ## First decide how the graph lives in memory
 
 Write a graph as `G=(V,E)`, with `n=|V|` and `m=|E|`. An undirected edge works in both directions. A directed edge `(u,v)` points only from u to v. Sparse graphs have edge counts near `Θ(n)`; dense graphs can approach `Θ(n²)`.
@@ -165,6 +173,10 @@ The durable lesson is a proof pattern: state what the traversal metadata means, 
 Take one small graph and trace it three ways. Run DFS under two neighbor orders and compare timestamps. Sort a DAG by decreasing finish time and inspect every edge. Then run BFS, write every `L_i`, and reconstruct a shortest path through parents. Neighbor order changes the trees but not the three core conclusions.
 
 For a stronger bipartite implementation, return more than a boolean. On an equal-color edge, follow parent pointers to a common ancestor and emit the odd cycle. On success, return the coloring. A certificate makes correctness observable. These are practice suggestions, not added Winter 2026 requirements.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

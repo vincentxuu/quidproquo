@@ -26,6 +26,22 @@ Also: **there is no Lecture 7.** November 4th was Democracy Day, class was cance
 
 This post covers **[Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)** (2025/09/23, Andrew Ng, one hour). It's a course overview with no math, but Ng spends most of the hour on how he reads the industry and the job market.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=_NLHFoVNlbg
+title: Lecture 1: Introduction to Deep Learning
+```
+
+Original videos: [Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Why the flipped classroom is built this way
 
 CS230's in-person sessions **do not repeat the online videos**. Ng's reasoning:
@@ -223,6 +239,10 @@ RAG, vector databases, **evals and error analysis**, guardrails, knowledge-graph
 The direction is clear: **LLM and agent material grew from a footnote into core curriculum, foundational theory got compressed, and an entire lecture on opening up the model was added.** That L10 change is the interesting one — the old closing talk ran on 2021 slides, unchanged for three years running.
 
 **The official syllabus entry for Lecture 6 is still stale**: it lists "career advice / paper reading / healthcare AI guest" with 2024 slides, but the class actually recorded that day is **AI Project Strategy**. Careers is Lecture 9. Going by the website will send you to the wrong place.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

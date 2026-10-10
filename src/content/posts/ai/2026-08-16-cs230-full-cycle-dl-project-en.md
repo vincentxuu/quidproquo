@@ -19,6 +19,21 @@ draft: false
 
 This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)** (2025/10/07, Andrew Ng, 1 hour 7 minutes). There are **no slides** for this one — it's whiteboard and Q&A throughout. Ng takes a single case (a face-recognition door system) through the entire lifecycle, putting every decision point to a class vote before giving his answer.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=MGqQuQEUXhk
+title: Lecture 3: Full Cycle of a DL Project
+```
+
+Original videos: [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Why AI projects aren't like traditional software
 
 > "In a traditional software project you write code and you control your code. But an AI project involves code **and data**, and you almost never know what strange and wonderful things are in your data."
@@ -224,6 +239,10 @@ Ng makes this analogy himself throughout, but a few threads are worth pulling ou
 **"Blindly grabbing more data isn't a good strategy"** has a modern counterpart: blindly adding more context. The site's [context and memory](/posts/ai/2026-08-10-agent-context-memory-failure-en) post concludes that giving an LLM more information makes it dumber — that's the same principle as Ng's, showing up in a different place.
 
 **The modern version of "my test-set numbers are good" is "my eval numbers are good."** The site's [shipping is where the work starts](/posts/ai/2026-08-10-enterprise-agent-case-studies-en) post is about exactly this: green evals don't mean the system works, and the gap is usually a distribution shift.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -47,6 +47,26 @@ The deck is organized as four problem-to-goal pairs:
 | Hallucination | Factuality | 23–28 | 10.3 |
 | (steering models toward specific goals) | Alignment | 29–40 | none |
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3BAFtBS27UI
+title: ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=V2Pot_Uv31E
+title: ADL 10.2: Model Safety (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety (YouTube, in Mandarin)](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction (YouTube)](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge (YouTube)](https://www.youtube.com/watch?v=pZxBNlSqy6I)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Bias → Fairness
 
 ### Where bias comes from
@@ -164,6 +184,10 @@ One thing you can do tonight: take an LLM application you own, go through slide 
 
 Previous: [NLG: Decoding, Control, and Evaluation](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en)
 Next: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

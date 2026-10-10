@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 19, printed pages 227–243, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It organizes the mathematical spine and approximation methods without copying every proof.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## MDPs model delayed consequences
 
 A Markov decision process consists of states \(S\), actions \(A\), transition probabilities \(P_{sa}\), discount \(\gamma\), and reward \(R\). The Markov assumption says that, conditioned on the current state and action, the next state does not need earlier history.
@@ -68,6 +77,10 @@ Chapter 18 treated LLM token generation as a finite-horizon MDP and optimized th
 ## Exercise
 
 Write \(S,A,P,R,\gamma\) for a simplified balancing cart with position and velocity. Compare the state count when each dimension uses 20 bins with a linear value approximation using ten basis functions. Identify the information each representation is most likely to lose.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

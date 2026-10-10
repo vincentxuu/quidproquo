@@ -35,6 +35,26 @@ glossary:
 
 **本文依據**：課程頁 Recitation 欄、10 支助教影片（YouTube 標題與說明欄）、5 份助教講義 PDF（Fall 2024 路徑同名檔）、2 份助教 Colab，以及 Deployment 影片的 YouTube 自動字幕。全部在 2026-09-30 打開核對。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zuiACAhRUzA
+title: ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RYkEoCkJWeA
+title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
+```
+
+原始影片：[ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle NLP專案的一生（YouTube）](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects NLP專案的底層邏輯（YouTube）](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training 大型語言模型太大怎麼調整呢?（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics 大型語言模型基礎概念（YouTube）](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture 各種 Dense 模型架構的小技巧（YouTube）](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture 混合專家模型的架構（YouTube）](https://www.youtube.com/watch?v=AgZuF7lsu-8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 先看全貌
 
 | 週次 | 助教課 | 影片（時長） | 講義 | 同週講課 |
@@ -225,6 +245,10 @@ glossary:
 
 上一篇：[第 17 篇：超越監督學習與多模態](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
 系列總覽：[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

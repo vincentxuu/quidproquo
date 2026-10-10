@@ -35,6 +35,22 @@ The [previous post](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation-en) 
 
 Lecture 4 is titled **Model Free Control and Function Approximation**, and it does two things. First it carries policy iteration over to the model-free world in the tabular setting. Then it replaces the table with a parameterized function. The listed readings are [Sutton & Barto](http://incompleteideas.net/book/the-book-2nd.html) sections 5.2–5.4, 6.4, 6.5, and 6.7, and the structure follows David Silver's Lectures 5 and 6. Slide 2 shows deep RL playing Atari, so you know where the lecture is headed.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: Stanford CS234 Spring 2024 Lecture 4, "Q learning and Function Approximation"
+```
+
+Original videos: [Stanford CS234 Spring 2024 Lecture 4, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Carrying policy iteration over to the model-free world
 
 Policy iteration with a model alternates "evaluate → improve greedily." L4 p. 17 points out three things that change without a model:
@@ -178,6 +194,10 @@ One thing to do tonight: just compute the 2.5 and the 5. Write out the SARSA and
 
 - An introductory take on the same Q-learning in CS221: [CS221 Lecture 8: Reinforcement Learning and Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
 - Value-based methods in a deep RL course: [Berkeley CS285: Policy and Value Methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

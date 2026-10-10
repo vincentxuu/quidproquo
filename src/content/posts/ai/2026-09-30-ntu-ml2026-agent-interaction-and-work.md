@@ -21,6 +21,26 @@ draft: false
 
 這一講多半是「看案例」而不是「學方法」，所以下面照投影片順序走，每段只挑一個重點。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mmPmNezjCi0
+title: 影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VqB8zMujdjM
+title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例
+```
+
+原始影片：[影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動](https://www.youtube.com/watch?v=mmPmNezjCi0)、[影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例](https://www.youtube.com/watch?v=VqB8zMujdjM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 一、多個 agent 怎麼協作比較有效
 
 第 36 頁畫了一個最小的協作單位：方案 A 與方案 B 各自由一個 agent 提出，另外的 agent 給建議，最後匯整成方案 C。問題是：這樣的單位要怎麼接成網路？
@@ -97,6 +117,10 @@ draft: false
 延伸閱讀：站上的 [Multi-Agent 安全](/posts/ai/2026-09-18-multi-agent-safety)與 [OpenClaw 的多 agent 設定](/posts/ai/2026-03-28-openclaw-multi-agent)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)｜下一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

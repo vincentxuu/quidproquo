@@ -36,6 +36,21 @@ Official materials covered here:
 
 All page numbers are PDF page numbers.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=EjsB0WgIfUM
+title: Lecture 3 video (Fall 2024)
+```
+
+Original videos: [Lecture 3 video (Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Why start with pruning
 
 Page 4 lists the four techniques in the course's first part, "Efficient Inference": Pruning, Quantization, Neural Architecture Search, and Knowledge Distillation. Pruning comes first.
@@ -192,6 +207,10 @@ Open the [Fall 2024 Lab 1](https://colab.research.google.com/drive/1Fagq3JQBzCiz
 - [Stanford CS336: inference](/posts/ai/2026-08-22-cs336-inference-en): compression on the LLM inference side
 
 **Series navigation**: previous [Why efficiency matters and how to measure model size and compute](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en) | next [Pruning II: per-layer ratios and hardware support](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en) | [Series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

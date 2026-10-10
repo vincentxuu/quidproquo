@@ -32,6 +32,21 @@ glossary:
 
 Official materials used: the homework slides [hw9.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw9.pdf) (the first 23 pages explain the task; the rest are the questions in Chinese and English), the [homework Colab](https://colab.research.google.com/drive/1R1CNujj6-kVPkl53RQLt5kE7tYVS-Zmp?usp=sharing) (57 cells), and the TA video listed on the course page, [ML 2026 Spring HW9 - Flow Matching](https://youtu.be/wAAeuMQ9r5c). The course page lists 5/22 as the release date; the deadline is 2026/06/11 23:59:59 (UTC+8), no late submissions, with grades out by 2026/06/14. The TAs are 林育正, 吳岳霖, 林禹融, 蘇炳揚, 陳品睿, and 江履方.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=wAAeuMQ9r5c
+title: TA video: ML 2026 Spring HW9 - Flow Matching
+```
+
+Original videos: [TA video: ML 2026 Spring HW9 - Flow Matching](https://www.youtube.com/watch?v=wAAeuMQ9r5c)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Access level: A3, but no official answers
 
 - **Available**: the homework PDF, the Colab starter code, and all 19 questions, printed in the PDF in both Chinese and English.
@@ -154,6 +169,10 @@ Verified: the full text and embedded links of hw9.pdf; the Colab's markdown and 
 Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. The saved Colab contains some execution output; this post deliberately quotes none of those values so they don't become answers. No official answers have been released.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Can AI Improve Itself? (Part 2)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en) | Next: [HW10: Spoken Language Model](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

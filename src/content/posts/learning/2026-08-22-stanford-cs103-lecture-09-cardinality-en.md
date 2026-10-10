@@ -19,6 +19,14 @@ This is article 10 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official title is **Set Theory Revisited**, but the deck has a sharper through-line. It combines injections and surjections into bijections, uses bijections to define equal cardinality, and gives the formal proof of Cantor's theorem previewed on the first day. The purpose is not to force finite counting onto infinite sets. It is to state exactly what evidence makes two collections “the same size.”
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)
+
 ## Today's route: from bijections to Cantor's theorem
 
 The deck names three stages: bijections, the formal definition of cardinality, and Cantor's theorem. They form one dependency chain. A bijection supplies perfect pairing; pairing defines equinumerosity without an integer count; that definition translates Cantor's theorem into nonexistence of a certain bijection.
@@ -148,6 +156,8 @@ The next lecture turns to graphs, building higher-level properties from vertices
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the article from the complete official deck, covering bijections, equinumerous intervals, cardinal equality, and Cantor's diagonal argument; synchronized the Chinese article and research checklist.
 
 ## References

@@ -24,6 +24,14 @@ Outside Stanford the course is mostly known through the 2021 YouTube recordings.
 
 This piece was written after reading the Autumn 2025 (Aut2526) primary materials one by one: the course site, the grading and honor-code terms on `info.html`, all three homework PDFs, all six Colab notebooks (downloaded and opened), the project handout, and the slides for three key lectures. It does **not** include a close reading of the assigned papers, and it does not include anything behind Canvas — I can't reach that, and I say so explicitly wherever it matters.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## The hard facts
 
 The instructor is [Jure Leskovec](https://profiles.stanford.edu/jure-leskovec), a professor in Stanford's CS department and formerly Chief Scientist at Pinterest. Autumn 2025 added a guest instructor, Charilaos Kanatsoulis, credited alongside him on the slide covers.
@@ -215,6 +223,10 @@ One gray area is worth mentioning: above the schedule on the course site is a li
 - **Paid enrollment prices**: the AI Professional Program charges $1,950 for a single course (XCS224W); CS224W for graduate credit is listed on Stanford Online at $6,300 in tuition. Both read Enrollment Closed when checked, and XCS224W lists no start date although several sibling courses on the same page do. **The page gives no reason.**
 - **Maintenance status of DeepSNAP and OGB**: when checked, the GitHub API showed `snap-stanford/deepsnap` last pushed 2025-11-24, `snap-stanford/ogb` 2025-05-06, and `pyg-team/pytorch_geometric` 2026-08-17. Neither repo is marked archived.
 - **Three things I could not confirm**: (1) Colab 0's Google Drive link returns 200, but it's a Drive viewer page rather than the notebook, and I did not obtain its cell contents — hence the blank row in the table above; (2) Stanford Online's two YouTube playlists hold 47 and 60 videos, but I did not compare them video by video to establish what the difference consists of; (3) lecture 16's slides do not name their speaker, and I found no official page saying who taught it, so no name appears in the text.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

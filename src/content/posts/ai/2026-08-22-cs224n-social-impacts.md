@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 16 講排在 2026 年 2 月 26 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture16-impact-on-humanity.pdf)題為 *AI's impact on humanity*。agenda 有四段：hallucination、AI 輔助創造力的悖論、工作影響與 value alignment。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 為什麼模型會 hallucinate
 
 [Language Models (Mostly) Know What They Know](https://arxiv.org/abs/2207.05221)說明模型的自我評估訊號，而 [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664)分析訓練與評估誘因。語言模型被訓練成即使不確定也要產生下一個 token；模型可能估計自己不知道，卻仍因後訓練獎勵自信回答而選擇猜測。更強的推理或較高整體準確率，也不自動代表較低 hallucination。
@@ -156,6 +165,10 @@ Red team 找 failure，不估 prevalence；自然 usage telemetry 估 prevalence
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文完整涵蓋四段官方 agenda；投影片中引用的個案只用來說明風險機制，沒有把單一調查數字外推成整體學界比例。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -36,6 +36,14 @@ The course description lists "efficient implementation of RLHF," and this lectur
 
 **No solutions here.** I also don't derive the RLHF algorithms themselves (PPO, reward model theory); links to other courses are at the end.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The 4/15 lecture: a title and one paper
 
 The 4/15 entry on the Syllabus is "Efficient Reinforcement Learning System for LLMs." That row has no `[slides]` link, and deck number 25 is missing from the file sequence, between the 4/13 vLLM deck (L24) and the 4/20 Dynamo deck (L26). The Fall 2026 [Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) puts it on 11/23, again without slides.
@@ -132,6 +140,10 @@ This course treats RLHF as a systems problem. Guides to other courses on this si
 - [Stanford CS336: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en): from PPO to GRPO and verifiable rewards, including the cost of rollout systems
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en): policy gradient, DQN, SAC, and the rest of the policy-based and value-based toolkit
 - [Berkeley CS285 series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

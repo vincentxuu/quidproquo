@@ -20,6 +20,15 @@ draft: false
 
 Its strength is that concepts return as programs. P0 teaches Python and the autograder; P1–P4 use Pacman settings for search, multi-agent reasoning, RL, and probabilistic inference; P5 contains general ML tasks such as regression, classification, CNNs, and attention. That is why this series follows P0–P5 instead of producing 28 disconnected lecture summaries.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## What is publicly available
 
 Under this site's A0–A3 rubric, this edition is A3. The official page links directly to slides, YouTube recordings, the [online textbook](https://inst.eecs.berkeley.edu/~cs188/textbook/), discussion worksheets and solutions, and specifications and files for [Projects P0–P5](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/). The starter files include a local autograder, giving independent learners a workable code-test-revise loop.
@@ -46,6 +55,10 @@ For each stage, read the textbook first, watch the lecture, and attempt the disc
 ## Start tonight
 
 Open P0 and verify that Python and the local autograder run. Then read the state-space search chapter and write down the frontier rule for DFS, BFS, and UCS. If time remains, inspect P1's file layout and Q1 without trying to finish the project at once.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

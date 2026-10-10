@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 13 uses “multimodal” for interaction, not merely a model that sees images. A user can speak while operating an app. “Right-align every occurrence of [ReactGenie](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf)” requires inspecting the canvas, selecting multiple objects, composing APIs, and displaying the result in the native GUI.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: three problems and one framework
 
 The lecture motivates multimodal interaction and separates command composition, API exposure, and interchangeable and simultaneous input/output. It then develops ReactGenie's annotations, DSL, dialogue state, runtime, and generated UI before evaluating expressiveness, developer usability, and user experience. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf))
@@ -113,6 +121,10 @@ Expose only add, complete, and due-date-filter actions in a todo app. Give each 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck contains architecture and study summaries, not a full API reference, all demo source, raw study data, or a recording. Autumn 2026 material is not used to fill this Fall 2025 lecture.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

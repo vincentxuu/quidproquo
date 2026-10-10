@@ -19,6 +19,22 @@ draft: false
 
 這一講做兩件事。前半先回答「為什麼在已有 GPT、Claude、Gemini API 的年代，還要從零打造語言模型」；後半從原始位元組開始，實作 byte-level BPE tokenizer。兩段其實是同一件事：先找出會限制規模化的抽象，再親手拆開它。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=JuoVZkPBiKk
+title: CS336 Spring 2026 Lecture 1: Overview, Tokenization
+```
+
+原始影片：[CS336 Spring 2026 Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 課程不是反對抽象，而是提醒抽象會漏
 
 Liang 把研究者與底層技術的距離排成一條時間線：早期研究者自己實作並訓練模型，後來下載 BERT 微調，現在則向 API 模型下 prompt。抽象層升高讓產出更快，但語言模型的抽象仍會漏出底層細節；想做基礎研究的人，不能只會呼叫最上層介面。
@@ -76,6 +92,10 @@ Byte-level 起點解決了 unknown token：任何 UTF-8 輸入最後都能拆成
 ## 材料完整度
 
 本講有 Spring 2026 官方 schedule、完整可執行講義與官方課程錄影清單，足以對回當期講次。本文以講義為主；沒有把 Spring 2025 的影片、作業內容或後來的模型發展混進本講。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

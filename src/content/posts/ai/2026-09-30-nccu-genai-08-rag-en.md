@@ -28,6 +28,21 @@ Official sources: [video 08](https://www.youtube.com/watch?v=JClJEmZub-A) (2025-
 
 The notebook drift is especially visible this week, and I flag each case below: **the current repo version no longer matches what's on screen in the video.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=JClJEmZub-A
+title: Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)
+```
+
+Original videos: [Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=JClJEmZub-A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits
 
 Session one of video 08 opens with an aside on Llama 4 (18:44), then covers what RAG is, how it works, memory, and finance applications (28:08–57:40), and starts on program A, the vector database. Session two builds and saves the database, introduces the embedding model, uploads it to the cloud with a direct download link, then writes program B, designs the prompt, builds the Gradio app, and explains the assignment at 2:01. Session three has lightning talks from NTHU and NCCU students and a TA segment.
@@ -147,6 +162,10 @@ From the [Chang Gung satellite course page](https://yangchihyuan.github.io/cours
 - Letting the model decide whether to search again: [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 
 Previous: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en) | Next: [L09 Why 2025 Is the Year of AI Agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

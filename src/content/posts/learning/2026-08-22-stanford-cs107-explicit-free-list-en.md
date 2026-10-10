@@ -19,6 +19,14 @@ The preceding lectures build an implicit allocator and then link all free blocks
 
 This lecture follows one `realloc` transition. Check the block's actual capacity, then consider existing padding, a shrink-and-split, absorption of adjacent free blocks, and finally allocate-copy-free. All three in-place cases preserve the same invariants: alignment, a complete nonoverlapping heap partition, exactly one list entry for every free block, and an unchanged valid prefix of the old data.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -176,6 +184,10 @@ Lecture 23 is not merely a faster `realloc`. It forces three views into one func
 Write preconditions and postconditions for each helper: whether its node is currently listed, whether a returned remainder is already inserted, when metadata may be overwritten, and which pointer remains valid on failure. Decomposing an operation into unlink, change the physical extent, and reinsert as needed is much easier to debug than changing six pointers at once.
 
 The performance benefit of in-place growth is obvious. The deeper rule is simpler: preserve structural information before invalidating its old representation; prove a remainder is a legal block before indexing it; establish the new allocation before ending the old object's lifetime. Allocators have little room for error because one stale link eventually becomes overlapping memory returned to another caller.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

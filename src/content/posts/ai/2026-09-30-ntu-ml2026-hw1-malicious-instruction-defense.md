@@ -19,6 +19,21 @@ draft: false
 
 存取分級是 **A3 減評分**：題目、攻擊原文、規則都公開；要拿到分數得上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home)，而它在 2026-09-30 回傳 502。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qVTehGJQHys
+title: HW1 說明影片（YouTube）
+```
+
+原始影片：[HW1 說明影片（YouTube）](https://www.youtube.com/watch?v=qVTehGJQHys)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 為什麼第一份作業就是防 prompt injection
 
 [上一篇](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)的 OpenClaw 講到兩層防禦：在 `MEMORY.md` 裡叫模型別照做留言，或在 OpenClaw 的 config 裡擋掉指令。第一層「取決於語言模型遵守指令的能力，不一定可靠」。HW1 就是讓你親手測這一層到底有多不可靠。
@@ -110,6 +125,10 @@ policy.pdf 的作業表把 HW1 標成只走 JudgeBoi，不在 NTU COOL 上作答
 - OpenClaw 自己怎麼看這類攻擊：[OpenClaw 威脅模型](/posts/ai/2026-03-28-openclaw-threat-model)
 
 系列導覽：上一篇 [解剖小龍蝦：以 OpenClaw 看 AI Agent](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)｜下一篇 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

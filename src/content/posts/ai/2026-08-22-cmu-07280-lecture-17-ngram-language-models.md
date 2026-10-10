@@ -17,6 +17,14 @@ series:
 
 這是 **CMU 07-280 Spring 2026 Lecture 17** 的逐講導讀。官方投影片封面題為 *Natural Language Processing (NLP): N-gram Language Models*，內容從 corpus、tokenization 一路走到 N-gram 與 language model。這不是現代 LLM 的縮小版介紹，而是在回答更早的問題：文字要先變成什麼，才可能被機率模型處理？
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 17 官方投影片](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf)，並用課程首頁與 syllabus 核對 offering。官方頁沒有提供 Spring 2026 的逐講公開錄影，因此本文只解讀投影片可見內容，不補寫講者口述、課堂問答或現場示範結果。
@@ -86,6 +94,10 @@ N-gram 和 autoregressive transformer 都把 sequence probability 拆成逐 toke
 ## 今晚可做動作
 
 拿一段 100–300 字的文字，分別用 character、空白切 word、以及你手動做兩輪 BPE 的方式 tokenization。記下每種 vocabulary 大小與 token sequence 長度，再用 bigram counts 產生十個 token。若某個 context 沒在 corpus 出現，先不要偷偷補答案；把它標成 zero-count，留給下一講處理資料稀疏與 sampling。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

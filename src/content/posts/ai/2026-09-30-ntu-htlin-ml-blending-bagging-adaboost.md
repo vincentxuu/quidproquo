@@ -36,6 +36,26 @@ glossary:
 
 這兩講回答兩件事。第一，組合為什麼會變好：答案是多樣性，加上投票能抵銷 variance。第二，多樣性從哪裡來：T7 靠資料的隨機抽樣（bagging），T8 靠刻意重新加權（AdaBoost）。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mjUKsp0MvMI
+title: Motivation of Aggregation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=DAFkKJYTMW4
+title: Uniform Blending
+```
+
+原始影片：[Motivation of Aggregation](https://www.youtube.com/watch?v=mjUKsp0MvMI)、[Uniform Blending](https://www.youtube.com/watch?v=DAFkKJYTMW4)、[Linear and Any Blending](https://www.youtube.com/watch?v=i03s1g7X_m4)、[Bagging (Bootstrap Aggregation)](https://www.youtube.com/watch?v=3T1mdvzRAF0)、[Motivation of Boosting](https://www.youtube.com/watch?v=hL8DjIHAzZY)、[Diversity by Re-weighting](https://www.youtube.com/watch?v=pTNKUj_1Dw8)、[Adaptive Boosting Algorithm](https://www.youtube.com/watch?v=vqTXLTYqbbw)、[Adaptive Boosting in Action](https://www.youtube.com/watch?v=5wPN87bwoaE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 在課表上的位置
 
 | 版本 | 週次 | 投影片 | 延伸閱讀（課程頁原列） |
@@ -189,6 +209,10 @@ Q10 要求把 HW2 的 decision stump 擴充成多維、吃樣本權重的版本�
 
 - [Harvard CS181 HW4：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

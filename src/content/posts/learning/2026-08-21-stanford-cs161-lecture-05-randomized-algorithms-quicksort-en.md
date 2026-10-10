@@ -19,6 +19,14 @@ This is post 6 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 
 Lecture 4's Select partitions around a pivot and recurses only on the side containing the answer. QuickSort keeps the same structure but sorts both sides. That small change makes pivot quality more consequential: near-halves give `O(n log n)`, while repeated `0` versus `n-1` splits give `Θ(n²)`. Lecture 5 asks for more than the intuition that random pivots are usually decent. For any fixed input, taking expectation only over the algorithm's coins, how can we rigorously prove `O(n log n)`?
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
+
 ## What a randomized guarantee guarantees
 
 A randomized algorithm makes random choices during execution, so runtime becomes a random variable even on one fixed input. The lecture uses the **Las Vegas algorithm** category: the output is always correct, while runtime depends on randomness—“always works, probably fast.” Randomized QuickSort is Las Vegas. A bad pivot makes it slower, not wrong.
@@ -156,6 +164,10 @@ A useful paper exercise fixes `z_1,...,z_6` and lists which first pivots make `z
 Expected time does not say how likely runtime is to exceed a latency threshold. Systems that care about tail latency can study high-probability bounds or use a hybrid that limits recursion depth and switches to a worst-case `O(n log n)` sorter. Winter 2026 Lecture 5 does not prove those results, so they belong outside the lecture reconstruction.
 
 Randomness also has engineering assumptions: pivot selection should be sufficiently uniform, and random generation has a cost. Against an adversary that can observe or predict the random source, “random pivot” may not provide the intended defense. Before applying the theorem, restate its input adversary, randomness source, and cost model.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

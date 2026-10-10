@@ -19,6 +19,14 @@ Stanford CS107 的第一講不是急著教 C 語法，而是先把問題改寫�
 
 這篇對應 [Stanford CS107 Winter 2026 官方 Lecture 1](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf)，不是整門課的總覽。主脊依照投影片順序走：先定義課程視角，再讀課程主題與學習目標，接著整理作業、lab、考試與求助規則，最後進入 Unix 命令列。即使不在 Stanford 修課，這一講仍有用，因為它替後面二十五講畫出了一張「抽象層往下走」的地圖。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 講次資料與材料邊界
 
 - 課程：Stanford CS107: Computer Organization and Systems
@@ -170,6 +178,8 @@ rm old.c            # 刪除檔案
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依官方 PDF 修正 Lecture 1 投影片頁數為 33 頁。
 
 ## 參考資料

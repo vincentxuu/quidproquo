@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=yUh1fEGGdl4
+title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## When reconstruction is not enough: define "similarity" directly
 
 L11's reconstruction learning indirectly squeezes a good representation by "compressing the input back". But often what we care about is simply **how alike two samples are** — search engines, recommendation, face verification are all this need. The more direct route is **similarity-based representation learning**: instead of reconstructing, **sculpt the geometry of the latent space**.
@@ -100,6 +116,10 @@ But beware: **too-hard negatives may be false negatives** — e.g., two differen
 - **Where positives come from**: usually data augmentation (crop, color jitter, mask); augmentation strength directly sets which invariances are learned.
 
 Next lecture (L13) takes the theoretical view: why the architecture's inductive bias decides what the representation looks like, and the mysterious correspondence between wide nets and Gaussian processes.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

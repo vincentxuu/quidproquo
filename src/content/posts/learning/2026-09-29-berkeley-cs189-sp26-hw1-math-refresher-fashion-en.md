@@ -25,6 +25,14 @@ HW1 is titled "AGI, Everywhere, All at Once," but the content is practical. It c
 
 This post goes problem by problem: what each one tests and which lecture has the tools. **It does not include solutions.** HW1 has no public official solutions, and pasting answers would not help a self-learner anyway.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Official materials and scope
 
 The schedule lists three links under HW1:
@@ -155,6 +163,10 @@ On this site:
 
 - Previous: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 - Next: [Lec 11–12: classification, generative classifiers, logistic regression, and ROC](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

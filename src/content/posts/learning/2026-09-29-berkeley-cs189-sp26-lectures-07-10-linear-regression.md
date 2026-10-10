@@ -26,6 +26,26 @@ draft: false
 
 三條線最後會在同一條公式上會合。讀完這篇，你應該能自己推出 `w = (XᵀX + λI)⁻¹Xᵀy`，並說出每一項從哪裡來。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=0YLmbbERr0g
+title: 影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=202aSB1p8do
+title: 影片
+```
+
+原始影片：[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)、[影片](https://www.youtube.com/watch?v=202aSB1p8do)、[影片](https://www.youtube.com/watch?v=lrU8Vn0G44w)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 官方材料與讀取範圍
 
 | 講次 | 日期 | 講題（依排程頁） | 材料 |
@@ -217,6 +237,10 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 
 - 上一篇：[Lec 4–7：K-means、機率複習、MLE、多變量高斯與 GMM](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
 - 下一篇：[HW1 導讀：線代／微積分／機率熱身 + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

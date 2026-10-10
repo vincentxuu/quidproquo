@@ -34,6 +34,14 @@ The homework centers on [MiniTorch](https://llmsystem.github.io/llmsystemhomewor
 
 The FAQ draws a clear line between this course and CMU's other LLM course, 11-667. 11-667 covers models, learning algorithms, and applications. 11-868 covers "building systems for LLM, including training, serving, and maintaining." The FAQ also says plainly that students who don't want to write low-level systems code should take 11-667.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The hard facts
 
 | Item | Spring 2026 |
@@ -208,6 +216,10 @@ You won't have teammates or a grader, but the project spec makes a good practice
 - [CME295 Lecture 5: LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en): one lecture covering KV caches, distributed training, and inference speedups.
 - [Reading CMU 11-785 Deep Learning](/posts/ai/2026-08-22-cmu-11785-course-overview-en): background on autodiff and Transformers.
 - CMU 10-414/714 Deep Learning Systems ([dlsyscourse.org](https://dlsyscourse.org/)): another build-your-own-framework course. The site has no series for it yet; see the [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) for where it fits.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

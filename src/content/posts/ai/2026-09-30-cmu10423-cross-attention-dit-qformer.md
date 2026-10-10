@@ -28,6 +28,15 @@ glossary:
 
 [上一篇](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)說 LDM 用 cross-attention 讀提示詞，但沒拆開講。這一篇要回答：**文字條件是從模型的哪裡注入的？編輯提示詞時，為什麼能只改圖片的一部分？**
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Cross-attention：query 和 key/value 來自不同地方
 
 L14 先複習 L2 的 scaled dot-product attention：同一串輸入 x 各自乘上 W_q、W_k、W_v，得到 query、key、value。cross-attention 只改一件事：**query 來自一串序列 y（長度 n），key 和 value 來自另一串序列 x（長度 m）**。
@@ -202,6 +211,10 @@ HW4 程式題（40 分）把 L14 和 L15 串起來。hw4.pdf 的設定：
 - 存取等級 A0–A3 的定義：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 系列導覽：上一篇 [L12–L13：文生圖、latent diffusion 與視覺語言模型](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)｜下一篇 [HW4：用 Q-Former 做文生圖](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

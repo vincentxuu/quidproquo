@@ -29,6 +29,14 @@ glossary:
 
 它緊接在 [Lec 17–18（神經網路與反向傳播）](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)之後。講課時你看過 chain rule 怎麼在計算圖上跑；HW3 要你把它寫成一個能用的小型 PyTorch。notebook 開頭這樣寫：把課堂上的單變數 autograd 推廣到一般張量，模仿 `torch` 的 autograd 實作方式。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 先說清楚：拿得到什麼、拿不到什麼
 
 | 項目 | 狀態 |
@@ -145,6 +153,10 @@ Q4 用 OpenML 的 `wine-quality-red`（1599 筆紅酒、11 個化學特徵，預
 - 系列導覽：上一篇 [Lec 17–18](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)；下一篇 [Lec 19–20：初始化、BatchNorm、CNN 與泛化](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：下載 `hw3.ipynb`，只做 Q1 的 `__add__` 和 `__mul__`，建一張 `z = x * y + x` 的圖，手算 ∂z/∂x = y + 1，確認你的圖會把兩條路徑的梯度相加。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

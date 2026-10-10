@@ -20,6 +20,14 @@ series:
 
 It resembles a completely open course, but the boundary is sharp: the lecture chain is complete; the graded assignment chain is not. This guide and its series lock to Spring 2026 rather than mixing Fall 2025 or Fall 2026, and reconstruct only what public evidence supports.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
 ## Version decision: Spring 2026 is latest-complete
 
 Spring 2026 is the latest completed offering whose 28 content lectures can each be matched to slides and official recordings. Relative links in the [official lecture table](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html) sometimes omit `./` or contain spaces, so the series records resolved URLs instead of guessing paths from article pages.
@@ -71,6 +79,10 @@ Treat compute separately as well. Course documents discuss PSC, cloud environmen
 Each lecture guide locks to its official date, slides, and YouTube recording, follows the published agenda, and does not invent classroom dialogue. Course Logistics is included here; orders 1–28 map to the 28 content lectures. Implementations reproduce only small exercises supported by public material, with platform gaps stated explicitly.
 
 The pilot covers Lectures 1–4. It will be reviewed for complete agenda coverage, independently recomputed derivations, and a self-check path that works without Autolab before the rest is produced.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

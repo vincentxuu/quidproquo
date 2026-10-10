@@ -38,6 +38,27 @@ Homework 1 was classification: you get a sentence and label its sentiment. Homew
 
 This post answers one question: **why does a natural language understanding course spend a whole unit on search-engine technology?**
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=enRb6fp5_hw
+title: IR Part 1: Guiding Ideas video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
+title: IR Part 3: IR metrics video
+```
+
+Original videos: [IR Part 1: Guiding Ideas video](https://www.youtube.com/watch?v=enRb6fp5_hw)、[IR Part 3: IR metrics video](https://www.youtube.com/watch?v=9YCb-IxtbFQ)、[IR Part 4: Neural IR video](https://www.youtube.com/watch?v=EDVqG86AT0Q)、[IR Part 2: Classical IR video](https://www.youtube.com/watch?v=D3yL63aYNMQ)、[IR Part 5: Datasets and Conclusion video](https://www.youtube.com/watch?v=Bqps-t-U9jw)
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Why an NLU course covers retrieval
 
 The first section of the slides, "Guiding ideas," gives two reasons that point in opposite directions.
@@ -191,6 +212,10 @@ One thing to do tonight: pick any search feature you use (an internal document s
 
 - The components of RAG and language agents: [CS224N Lecture 10: Six Components of RAG and Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - Course status and the assignment environment: [Reading Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

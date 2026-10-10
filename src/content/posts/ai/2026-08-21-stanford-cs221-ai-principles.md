@@ -24,6 +24,14 @@ draft: false
 
 這篇涵蓋課程的硬事實、它自己怎麼定義 AI、四層主脊、2025 年秋季砍了什麼、八份作業各在做什麼，以及沒選課的人實際拿得到多少一手材料。**不涵蓋**逐堂的技術教學——那是講義本身的工作，而講義是公開的，文末會給路徑。系列的上一層入口是[〈Stanford CS 課程導讀〉](/posts/learning/2026-08-20-stanford-cs-course-map)，那篇講這門課在階梯的哪一格。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這門課的硬事實
 
 授課者輪替。[Autumn 2025 那版](https://stanford-cs221.github.io/autumn2025/)由 [Percy Liang](https://cs.stanford.edu/~pliang/) 主講，[Spring 2025 那版](https://stanford-cs221.github.io/spring2025/)是 Moses Charikar 與 Zachary Robertson。依 [ExploreCourses 的 CS221 條目](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog)，2026–2027 學年秋季由 Liang 開、春季由 Charikar 開。學分數與授課時段見附錄。
@@ -174,6 +182,10 @@ Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明�
 - **作業歷屆組成**：Autumn 2022 為 foundations、blackjack、pacman、scheduling、car、logic；Autumn 2023 把 blackjack 換成 sentiment；Autumn 2024 與 Spring 2025 增加 route 與 mountaincar，成為八份；Autumn 2025 移除 scheduling 與 car，加入 bayesian 與 society。
 - **遲交規則**：全學期 7 個延遲日，單份作業最多用 2 天，用完之後每逾一天上限降 25%，超過 2 天不收。
 - **未能確認的項目**：（一）三份官方頁面在先修條件上不一致時該以哪一份為準，沒有任何一頁說明；本文只能建議取聯集，無法判定優先序。（二）約束滿足被砍掉的原因，第一堂講義只寫了結果與一個顏文字，沒有給理由。（三）專案從計分項降為加分項的原因，歷屆課程網站都沒有說明。（四）作業指南頁寫著提交的程式「不保證支援標準函式庫以外的套件，不要用 numpy、scikit-learn、pandas」，但第一份作業的安裝步驟要你 `uv add numpy einops`，兩頁的適用範圍我無法從頁面本身確定。（五）Autumn 2025 的選課人數未公開。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

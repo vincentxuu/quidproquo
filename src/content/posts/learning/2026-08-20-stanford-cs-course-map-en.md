@@ -30,6 +30,14 @@ This is that map. It's ordered by **official prerequisites**, from the first pro
 
 Scope first: **this only covers courses whose materials are public enough to learn from**. On the [global map's scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), A0 is a catalog entry, A1 adds a syllabus, A2 exposes substantive partial material, and A3 supports a continuous self-study course. Versions on the main route meet the A3 threshold; catalog-only, Canvas-only, dormant, and placeholder subjects are excluded or called out separately. This measures access, not teaching quality or difficulty.
 
+## Course video sources
+
+This article maps multiple courses. See each linked course guide for its recording sources.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://www.cs.stanford.edu/bs-degree-requirements)
+
 ## First, kill one assumption: the number is not the difficulty
 
 Plenty of people read CS106B as easier than CS103, or CS336 as harder than CS229, because of the digits. That inference doesn't hold at Stanford, and it's the university that says so. The [academic advising handbook's page on the course catalog](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog) puts it flatly:
@@ -273,6 +281,8 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 
 ## Changelog
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-10-01: Added self-study status and guide links for CS234 (Winter 2026, A3) and CS224R (Spring 2026, A3) to the reinforcement learning and robotics branch, with CS224R placed after CS234 in the suggested order; added CS149's (Fall 2025, A3) public materials and execution-environment gaps to the systems branch; added the CS224R course site and the three guide series to References.
 
 - 2026-09-30: Added CS231N's self-study status to the vision branch (Spring 2026 slides and assignments A1–A3 public, recordings from the Spring 2025 YouTube playlist, rated A3) with a link to this site's guide; added the guide to the related links in References.

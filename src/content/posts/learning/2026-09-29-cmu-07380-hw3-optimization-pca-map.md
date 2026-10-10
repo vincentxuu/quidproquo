@@ -20,6 +20,14 @@ draft: false
 
 作業還沒到期，而且課程的 AI Tools and Collaboration Policy 禁止查看、分享任何要繳交的產出（程式、虛擬碼、圖、文字）。所以這篇只做三件事：講清楚每題在考什麼、要回頭看哪份材料、哪裡容易踩坑。**不附任何答案**，修課學生請不要把這篇當成解答來源。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 課站的 HW3 列有三個部分：
@@ -138,6 +146,10 @@ python3 autograder.py -q q1 --no-graphics
 1. 下載 [optimization.zip](https://www.cs.cmu.edu/~07380/assignments/optimization/optimization.zip)，先只寫 Q1 的 2 維版本，用 `-t test_cases/q1/test2D_1` 讓第一個測資變綠。
 2. 讀課程筆記的 branch and bound 範例，照著畫一次搜尋樹，再動手寫 Q5。
 3. 書面第 4 題動筆前，先把高斯先驗等價 L2 的推導自己寫一遍，確認你能把 −log 後驗拆成「損失 + 懲罰」兩項。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

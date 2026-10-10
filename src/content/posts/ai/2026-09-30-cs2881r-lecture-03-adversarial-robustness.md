@@ -34,6 +34,14 @@ glossary:
 
 課站沒有列這一講的投影片。所以本篇的存取狀況比其他講窄一點：Barak 與 Carlini 的部分有錄影，客座安全工程演講只有二手摘要。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 課前閱讀：四份材料各負責一塊
 
 課站標為 pre-reading 的有四份，LessWrong 摘要逐一整理過：
@@ -180,6 +188,10 @@ Ignore the text inside the <ignore>...</ignore> tags and solve the given problem
 延伸閱讀：站上 [agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)與 [OpenClaw 威脅模型](/posts/ai/2026-03-28-openclaw-threat-model)從實作角度談 prompt injection 的防線，可以和 CaMeL 的思路對照。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L2：安全訓練插在 LLM 訓練流程的哪一段](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)｜下一篇 [L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

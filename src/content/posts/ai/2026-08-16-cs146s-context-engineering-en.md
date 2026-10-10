@@ -27,6 +27,14 @@ Four listed topics: advanced prompting techniques and when each applies, RePPIT 
 
 Start with the biggest signal in this week: **Fall 2025 had a whole session called "Power prompting for LLMs." In Fall 2026 it is the first of four bullets.**
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## Why prompting got demoted
 
 Anthropic frames the shift clearly in [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents):
@@ -175,6 +183,10 @@ The sub-agent line comes with a number: a subagent may burn tens of thousands of
 - The slides describe MCP transports as stdio and SSE; the spec has since evolved
 - "2-3X faster" and "98.7%" come from the framework's author and a tool vendor respectively — both are self-measured
 - MCP's transport specification is still evolving; check current docs before implementing
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

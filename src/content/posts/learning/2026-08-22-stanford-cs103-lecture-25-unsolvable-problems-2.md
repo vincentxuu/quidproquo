@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Unsolvable Problems, Part II**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/24/)
+
 ## HALT 的定義與位置
 
 halting problem 問：給 TM M 與字串 w，M(w) 最終會 halt 嗎？這裡 halt 包含 accept 與 reject，排除 infinite loop。寫成 語言：
@@ -121,6 +129,8 @@ verifier 明確檢查 membership 證明；recognizer 可看成搜尋 證明。�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「HALT 的定義與位置」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

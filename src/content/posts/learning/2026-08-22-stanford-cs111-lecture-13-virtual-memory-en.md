@@ -19,6 +19,14 @@ This is part 14 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 Earlier lectures shared one core among concurrent threads. This lecture starts sharing one physical memory among concurrent processes. The PDF uses a historical sequence so each mechanism answers the previous design's failure rather than presenting virtual memory as magic.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Single-tasking and four memory-sharing goals
 
 Early batch monitors and early MS-DOS ran one program in memory with the OS. The design was simple and efficient, but programs could not coexist and a bad program could corrupt the OS or machine.
@@ -89,6 +97,9 @@ Segmentation still has a fixed number of segments, making arbitrary mappings suc
 
 Paging will next replace variable-size regions with fixed-size pages. Lecture 13's method is to retain the four goals while locating an insufficient representation at each generation: load-time relocation lacks runtime protection, base/bound has one region, and segmentation retains fixed-count and variable-length limits.
 
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -36,6 +36,21 @@ The [2026 schedule](https://cs231n.stanford.edu/schedule.html) gives L4 just two
 
 This post follows five layers: the setting, the intuition, the mechanics (formulas in collapsible blocks), the connection back to models, and where to go deeper. The mechanics layer uses the Section 2 five-step example as its backbone, because it goes more step by step than the handouts.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=25zD5qJHYsk
+title: Stanford CS231N Spring 2025 Lecture 4 recording
+```
+
+Original videos: [Stanford CS231N Spring 2025 Lecture 4 recording](https://www.youtube.com/watch?v=25zD5qJHYsk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The setting: linear classifiers aren't enough
 
 L3 ended with a picture: red points inside a ring of blue points, which no straight line can separate. Switch to polar coordinates (r, θ) and the red and blue points each line up in a column, separable by a line.
@@ -229,6 +244,10 @@ Posts on this site that cover the same ground from other angles:
 4. When matrix derivatives trip you up, go back to the 2×2×3 example in [linear-backprop.pdf](https://cs231n.stanford.edu/handouts/linear-backprop.pdf).
 
 One thing you can do tonight: draw the computational graph for f(x, y, z) = (x + y) · z on paper, plug in x = −2, y = 5, z = −4, write out the three gradients using only "add distributes, mul swaps", and check them against a numpy numerical gradient.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

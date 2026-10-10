@@ -27,6 +27,14 @@ The two listed sessions are "Course intro + build Claude Code in 200 lines" and 
 
 Note that this is not how the course opened a year ago. Fall 2025's Week 1 was "Introduction to Coding LLMs and AI Development," with sessions on "how an LLM is made" and "Power prompting for LLMs." In one year the opening moved from how the model gets built to how the agent gets assembled.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## How small the loop is
 
 In [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), Anthropic cites Simon Willison's definition and says they "have gravitated towards a simple definition for agents: **LLMs autonomously using tools in a loop**."
@@ -137,6 +145,10 @@ Step 5 is the most valuable one, and the one most people skip.
 - Fall 2026 assignments and slides aren't published; the route above is inferred from the Fall 2025 repo
 - "200 lines" is the Fall 2026 session title's claim and the code isn't public yet; the slides quoted here are from the equivalent Fall 2025 session
 - The Claude Code system prompt analysis is third-party reverse engineering and drifts between versions
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

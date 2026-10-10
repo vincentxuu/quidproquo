@@ -33,6 +33,26 @@ Official materials used:
 
 Access level follows the series rating of **A2**. The slides and videos are public, and there is no new assignment this week (HW2's topic is in [part 10](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en), with only an explainer video).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=suX2F2TqKuE
+title: 6.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cnd91AbBQ74
+title: 6.2
+```
+
+Original videos: [6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## What pre-training is
 
 Page 2's analogy: learn general knowledge from textbooks before being tested on a specific subject. Pre-training trains a model on a large, diverse dataset before fine-tuning it for a task. The three key steps are large-scale diverse data, self-supervised learning, and general representations; the payoff is scalability, generalizability, and transferability.
@@ -163,6 +183,10 @@ Not confirmed: the videos were not transcribed, so the instructor's spoken examp
 Further reading on this site: [CS224N Lecture 7: Pretraining](/posts/ai/2026-08-22-cs224n-pretraining-en) covers the same three architectures and in-context learning; [CS336 scaling-law foundations](/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en) goes deeper on Kaplan and Chinchilla; and [CS224U on in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning-en) extends the story through prompt design and DSPy.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [HW1 Chinese Extractive QA](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en) | Next: [Post-training: Instruction Tuning, RLHF, and InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

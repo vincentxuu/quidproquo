@@ -24,6 +24,15 @@ On the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-ma
 
 Scope first. **No slide-by-slide close reading, and no lecture-video content** — this offering's recordings live behind Canvas and are unavailable to non-enrolled students, and I say below exactly where that boundary falls. What follows is based on the Winter 2026 course site, the [ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+124&view=catalog) entry, the public assignment repos, and the textbook site itself.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [From Languages to Information YouTube channel](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
+- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
 ## The hard facts
 
 Winter 2026 meets Tuesday/Thursday afternoons in Hewlett 200, for three to four units, and satisfies the WAY-AQR general education requirement. The course site says enrollment runs to "almost 400" students a year, and there is **no cap** — the exact wording is "cs124 has no enrollment cap, so everyone is admitted!" The ExploreCourses listing for this section shows an enrollment of 350 (numbers in the appendix).
@@ -184,6 +193,10 @@ One item sits between the two and deserves its own paragraph: **there is a full 
 - **An archive directory whose label contradicts its contents**: `cs124.1254` is marked Winter 2025 by both its code and its page title, but what's inside is **an early draft of the Winter 2026 page** — the same "not taught in 2026–27" banner, the same January 6 start date, only with TAs still listed as TBD and no starter-code links on the assignments. Set the two side by side and two edits are visible: in that draft PA7 is named *Chatbot*, renamed to *Agent* in the released version; and the two honor-code sentences about using language models like a TA appear only in the released version. `cs124.1204` doesn't line up either: the title says Winter 2021, but the schedule runs from March 30 to June 3 and the staff email is `cs124-spr2021-staff`. **When citing an archived CS124 page, open it and check the contents; don't trust the directory code.** Where this piece refers to "the 2021 version," it means the content on the `cs124.1204` page, not its directory label.
 - **How the chapter numbers were checked**: the "what you get today" column in the table above comes from downloading the PDFs from both the main `slp3/` directory and `old_aug25/` and comparing the chapter titles on page one. The main-directory versions are headed Draft of August 19, 2026; the `old_aug25/` versions are headed Draft of August 24, 2025. Separately, `12.pdf` in the main directory still exists and downloads, but its content is Machine Translation, headed Draft of January 6, 2026 — while the index page lists Chapter 12 as "Agents [not written yet]" with no link.
 - **Unconfirmed items**: (1) the actual recording year of the YouTube videos — no official page states it, and this piece describes them only through the correspondence between playlist topics and archived syllabi, making no claim about the year. (2) Completion rates, grade distributions and average time spent on each Winter 2026 assignment — the course site publishes none of this, and neither does this piece. (3) Whether the course will keep the same syllabus after 2026–27 — the page says only that it isn't being offered and suggests when to take it, with nothing about future content.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

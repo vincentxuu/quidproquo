@@ -38,6 +38,21 @@ Picture yourself editing a photo with Stable Diffusion on a laptop. You only wan
 
 The Lecture Plan on page 6 has three parts. Part one covers diffusion basics: DDPM, conditional generation, latent diffusion, image editing, personalization. Part two covers fast sampling: DDIM and distillation. Part three covers acceleration: sparsity, quantization, parallelism. You can find the first two parts in other courses. The third is almost entirely MIT HAN Lab's own research, and it is what this course adds.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=LXrqmQrscf0
+title: EfficientML.ai Lecture 18 - Diffusion Models (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 18 - Diffusion Models (YouTube)](https://www.youtube.com/watch?v=LXrqmQrscf0)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Why it is slow: DDPM's two processes
 
 Pages 9–18 cover [DDPM (Ho et al., NeurIPS 2020)](https://arxiv.org/abs/2006.11239). It has two processes running in opposite directions:
@@ -147,6 +162,10 @@ The comparison on page 89 is convincing. The original takes 12.3 s on one GPU. N
 
 - An introductory take on diffusion: [CS231N Lecture 14: why adding and removing noise generates images](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
 - The same outlier problem, solved for LLMs: [Lecture 13 on LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en), [Lecture 6 on PTQ and QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

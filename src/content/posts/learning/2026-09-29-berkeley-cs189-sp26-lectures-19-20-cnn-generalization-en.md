@@ -36,6 +36,26 @@ Assigned reading (Bishop, [Deep Learning: Foundations and Concepts](https://www.
 | Lec 19 | 7.2.5 NN initialization; 7.4 through 7.4.2 (data normalization, batch norm); Chapter 10 through 10.2.8, plus 10.3.2 (CNNs) |
 | Lec 20 | 9.1.2 no free lunch; 9.3.1 early stopping; 9.3.2 double descent |
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=-4PpBUsB_S4
+title: Lecture 19 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4LrCyN7URuY
+title: Lecture 20 video
+```
+
+Original videos: [Lecture 19 video](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 video](https://www.youtube.com/watch?v=4LrCyN7URuY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Lec 19, first part: finishing backprop
 
 Lec 19 opens by repeating Lec 18's cost comparison: finite differences cost O(NL²) per step, quadratic in the number of parameters L, and symbolic differentiation suffers from "expression swell" (Bishop 8.1.4). Then it describes the shift from backprop to automatic differentiation:
@@ -147,6 +167,10 @@ Both problems in Discussion 9 are reused from Fall 2025 discussions (labeled F25
 - Series navigation: previous, [HW3 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en); next, [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: following Discussion 9 problem 2, write a 1D convolution in NumPy, then rewrite it as a 7×9 matrix multiply and confirm both give the same output. You will see directly what "15 entries, only 3 parameters" means.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

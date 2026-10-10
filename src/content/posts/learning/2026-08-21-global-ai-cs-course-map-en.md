@@ -21,6 +21,19 @@ This map covers Stanford, Carnegie Mellon University (CMU), MIT, UC Berkeley, Ha
 
 This is not a university ranking. It answers two narrower questions: how each school organizes AI and CS, and how much of that structure an outsider can actually use.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
+- [CS336 Spring 2026](https://cs336.stanford.edu/)
+- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
+- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
+
 ## Public is not yes or no
 
 “Public course” can refer to at least seven different things: a catalog description, syllabus, slides, assignment prompts, starter code, solutions, or recordings. Publishing one of them is enough for a search engine to surface the site. It is not enough to let someone complete the course.
@@ -153,6 +166,8 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-10-05: Added an "AI security courses" section covering current AI security courses and access levels at Stanford, CMU, Berkeley, and MIT, plus the three fully self-studiable courses in Taiwan and abroad.
 - 2026-10-01: "Where this series stands" now includes six new series: Stanford CS224R, CS234, CS149, MIT 6.5940, CMU 10-423, and Harvard CS2881R.
 - 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.

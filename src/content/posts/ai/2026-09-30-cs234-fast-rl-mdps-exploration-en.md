@@ -42,6 +42,22 @@ Official materials used: the [Lecture 12 slides (post-class version), "Fast RL C
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the slides are public. The gaps: 2026 recordings are on Canvas only, and the Winter 2023 problem session PDFs the simulation lemma slide cites (`sessions/CS234_Win23_ProblemSession2.pdf` and its solutions) both returned 404 when I checked on 2026-09-30.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=pc7oayCSZmQ
+title: Stanford CS234 Spring 2024 video 13, "Exploration 3"
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ)
+
+Course and recording entries:
+
+- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## What this lecture is for
 
 UCB in [part 13](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en) and Thompson sampling in the [previous post](/posts/ai/2026-09-30-cs234-thompson-sampling-bayesian-bandits-en) only handle bandits: each decision stands alone. MDPs add a harder problem. Where you go today decides what data you see tomorrow. Lecture 12's "Check Your Understanding" turns this into a wrong answer: "exploration doesn't really matter in MDPs because the data distribution is independent of the policy." The answer is False.
@@ -223,6 +239,10 @@ One thing to try tonight: take `riverswim.py` from Assignment 1, wrap a counter 
 
 - How another deep RL course covers exploration and RL theory: [Berkeley CS285 L19–25: Exploration, RL Theory, Multitask Learning, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Learning to explore in the meta-RL setting: [CS224R L13: Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

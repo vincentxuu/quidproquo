@@ -17,6 +17,14 @@ draft: false
 
 This is part 23 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 22**, taught by Mendel Rosenblum on 2026-05-18 under [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); inaccessible Canvas/Panopto video is not treated as reviewed. SHA-256 auditing shows Lecture 22 differs from adjacent Lectures 21 and 23, so there is no duplicate artifact.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## From inode blocks to persistent i-numbers
 
 The previous lecture found file blocks from an inode; this one finds an inode from a name. The inode array is divided into blocks at known disk locations. Its index, the i-number, uniquely identifies an inode within that file system.
@@ -78,6 +86,10 @@ Three checks separate them: hard links survive target rename by identity; symlin
 ## Update history
 
 - 2026-08-22: Rewritten against Lecture 22 through inode placement, traversal, working directories, hard links, and symlinks, with adjacent-artifact SHA auditing.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

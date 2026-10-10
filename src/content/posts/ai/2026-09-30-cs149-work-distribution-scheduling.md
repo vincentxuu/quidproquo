@@ -33,6 +33,22 @@ glossary:
 
 投影片「Today」列了三項：收尾 L4 的 grid solver、基本的負載平衡技巧、深入 Cilk 的排程器。本文只處理後兩項。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
+title: CS149 2023 Lecture 5 錄影（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 5 錄影（補充材料）](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
+
 ## 三個互相打架的目標
 
 L5 開頭把效能調校定義成「反覆修正 decomposition、assignment、orchestration 的選擇」，並列出三個彼此衝突的目標：
@@ -202,6 +218,10 @@ Cilk 用的是 **greedy join scheduling**：
 延伸閱讀：OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
 
 系列導覽：上一篇 [L4 平行化的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜下一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

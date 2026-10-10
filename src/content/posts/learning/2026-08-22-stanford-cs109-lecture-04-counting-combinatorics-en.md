@@ -19,6 +19,14 @@ This is article 5 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda: decide order and repetition before choosing a formula
 
 The three-component review gives all-up probability 0.95 cubed and at-least-one-down probability one minus that value. It previews a central counting move: count the complement when direct counting is awkward.
@@ -41,6 +49,10 @@ Use the product rule to construct outcomes in stages, permutations when order ma
 - The shared Spring-dated counting page supports the product-rule and combination notation, but not the Summer classroom sequence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

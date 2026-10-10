@@ -19,6 +19,15 @@ draft: false
 
 課程把這件事放在同一份 [methods 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf)的後三節：Datasets、Data organization、Model evaluation。對應 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 42 到 44 支影片，以及 repo 裡的 [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb)。投影片開頭的「Associated materials」另外指定了 Noah Smith《Linguistic Structure Prediction》的 [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/)——那一章標題就叫 Experimentation，內容涵蓋 train/dev/test、交叉驗證、無重複實驗的比較，以及假設檢定。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 這一單元在課程裡的位置
 
 2023 年的[講次表](https://web.stanford.edu/class/cs224u/)裡，「NLP methods」單元涵蓋 5 月 17、22、24 日三堂課，同一格列了 Experiment protocol overview、NLP methods and metrics，以及一場 [Kawin Ethayarajh](https://kawine.github.io/) 的客座「Real-world NLP assessments」。實驗計畫（experiment protocol）的截止日是 5 月 29 日。
@@ -192,6 +201,10 @@ methods 投影片的 Conclusion 以一頁收尾，標題是「An ideal moment fo
 - 同系列上一篇：[CS224U 方法與指標 I：分類指標與生成指標](/posts/ai/2026-09-29-cs224u-methods-metrics)
 - 同系列下一篇：[CS224U 期末專案流程：文獻回顧與實驗計畫](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 - 站內 CS224N 系列的評估篇：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

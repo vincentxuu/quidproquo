@@ -17,6 +17,15 @@ series:
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 19 章（印刷頁 227–243）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；本文整理決策問題的數學骨架與近似方法，不逐一複製全部證明。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## MDP 把延遲後果放進模型
 
 Markov decision process（MDP）由狀態集合 \(S\)、動作集合 \(A\)、轉移機率 \(P_{sa}\)、折扣 \(\gamma\) 與 reward \(R\) 組成。Markov 假設表示：給定目前狀態與動作，下一狀態不再依賴更早歷史。
@@ -68,6 +77,10 @@ s_{t+1}=As_t+Ba_t+\epsilon_t,
 ## 練習
 
 為一個含位置與速度的簡化平衡車寫出 \(S,A,P,R,\gamma\)。比較每維各切 20 格的離散化狀態數，與使用十個 basis functions 的線性價值近似。指出兩者各自最可能遺失的資訊。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 This is part 27 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 26**, taught by Mendel Rosenblum on 2026-05-29 under [Flash Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/26/Lecture26.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); Canvas/Panopto video is inaccessible. SHA auditing shows Lecture 26 differs from adjacent Lectures 25 and 27, so there is no duplicate artifact.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Flash sits between disk and DRAM
 
 [The deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/26/Lecture26.pdf) says flash replaced disks in phones and laptops and is packaged as SSDs. Against disk it has no moving parts, 100–1,000× lower random latency, and 3–10× higher cost per bit. Against DRAM it is nonvolatile, 5–20× cheaper, and 100–1,000× slower.
@@ -76,6 +84,10 @@ Flash favors out-of-place updates, whereas disks favored in-place layouts for re
 ## Update history
 
 - 2026-08-22: Rewritten against Lecture 26, scoping hardware figures as deck snapshots and documenting the page-size typo and crash-state boundary.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

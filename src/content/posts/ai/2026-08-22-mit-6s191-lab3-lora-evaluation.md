@@ -17,6 +17,14 @@ draft: false
 
 [MIT 6.S191 官方 2026 repo](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) 的 Lab 3 是 **Lab 3：LoRA 微調與 LLM-as-a-Judge 評估**。以 LFM2-1.2B 建立 chat template 與生成流程，用 LoRA 做風格調適，再透過 OpenRouter 與 Opik 組合 judge workflow。本文固定使用 2026 branch，避免 master 後續更新造成內容漂移。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## 開始前
 
 [官方 2026 README](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/README.md)指定 Google Colab、Python 3 與 GPU runtime。先複製 notebook 到自己的 Drive，再從頭執行；API key 放在 notebook 的秘密管理介面，不要寫進可分享的 cell 或提交到 Git。
@@ -39,6 +47,10 @@ draft: false
 ## 限制
 
 這是依賴最多的一份 lab：要 Colab GPU、Comet／Opik 與 OpenRouter key。[官方 Lab 3 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab3/LLM_Finetuning.ipynb)提醒強 judge 可能付費，免費模型可能受 rate limit；先查當日條款。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

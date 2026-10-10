@@ -24,6 +24,14 @@ draft: false
 
 你可以把它想成一位會用電腦的工程師學徒：給它任務與工具，它在沙箱裡試錯前進。本週有兩篇主讀物。[SWE-agent](https://arxiv.org/abs/2405.15793) 回答介面問題：給智慧體什麼樣的工具，它才改得動程式。[OpenHands](https://arxiv.org/abs/2407.16741) 回答平台問題：沙箱、工具庫、評測如何兜成通用底座。Guest 場沒有指定讀物，本篇不寫。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## ACI：智慧體是新的一類終端使用者
 
 靈感來自人機互動：人類有 IDE，智慧體也該有專屬介面。論文把這層抽象命名為 ACI，也就是智慧體與電腦之間的介面層。人類會自動忽略雜訊，模型卻要為每個 token 付代價，分心還會拖累表現。所以介面設計的任務很具體：讓狀態好讀、歷史精簡、動作可靠。
@@ -71,6 +79,10 @@ OpenHands 把支架做成平台。前身叫 OpenDevin，後來長成社群共建
 - 週一 11/16 Guest Lecture：客座場，無指定讀物。
 - 週三 11/18 Coding & Software Agents：主讀物 SWE-agent、OpenHands（本文已導讀）；延伸閱讀 [Anthropic Claude Code 實戰建議](https://www.anthropic.com/engineering/claude-code-best-practices)、[Young 談長運行智慧體的 harness](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)、[Jimenez 等人 SWE-bench：LLM 能否解真實 GitHub issue](https://arxiv.org/abs/2310.06770)。
 - 課表原文：[CS329Z 官網 Week 9](https://cs329z.stanford.edu/)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

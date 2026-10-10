@@ -32,6 +32,26 @@ glossary:
 - 作業說明 [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf)（24 頁）與起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
 - 錄影：助教課 [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) 與 HW3 說明影片 [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=VErSpYgZGiw
+title: VErSpYgZGiw
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fe1roWMVdUI
+title: Fe1roWMVdUI
+```
+
+原始影片：[VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw)、[Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 錄影與週次：先把對照關係理清楚
 
 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把助教課投影片和錄影掛在 W7 列，HW3 掛在 W8 列。實際情況比表格複雜一點：
@@ -170,6 +190,10 @@ notebook 裡那一格寫的是 `num_labels=3`，但 IMDb 是二元分類，`comp
 - 這份助教課是 2024 年版，Fall 2026 的對應單元還沒公開。依[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，Fall 2025 是 A3（足以自學），缺口是解答與評分。
 
 **系列導覽**：上一篇 [ELMo、BERT、T5、BART、GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family)｜下一篇 [解碼策略與 NLG 評估](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

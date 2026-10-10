@@ -17,6 +17,14 @@ draft: false
 
 Lecture 14, **Computer Vision**, took place on March 10, 2026. It puts the previous neural-network and backpropagation machinery into images. Instead of treating every pixel as an unrelated feature, one small kernel is reused across locations. No public lecture-by-lecture recording exists; this reading uses the lecture note, CNN pre-reading, Recitation 8, and homework material.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The sources are the [Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf), [CNN pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_CNNs.pdf), [Recitation 8 solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec8_sol.pdf), HW7, and HW8. HW7 diagnoses a single-hidden-layer network; HW8 moves into AlexNet and transfer experiments.
@@ -78,6 +86,10 @@ Lecture 15 reuses learned visual representations. With little data for a new tas
 ## What to do tonight
 
 Hand-compute a valid convolution between a `1×4×4` input and a `2×2` kernel, writing all four products at each position. Then calculate shapes and parameters for `3×64×64 → Conv(32,3×3,pad=1) → MaxPool(2)`. Deliberately multiply parameter count by output positions, then explain why that is wrong.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

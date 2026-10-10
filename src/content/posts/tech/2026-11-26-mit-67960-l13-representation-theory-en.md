@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=-eC0-5mXHQg
+title: MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory](https://www.youtube.com/watch?v=-eC0-5mXHQg)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 13. Representation Learning: Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec13_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Inductive bias: the architecture "makes assumptions for you"
 
 We have talked a lot about "how to learn representations", but this lecture steps back and asks: **what a representation looks like is largely decided by the architecture itself**. That is **inductive bias** — before seeing any data, the structure already prefers a certain class of functions.
@@ -95,6 +111,10 @@ Do not dismiss this as math gymnastics:
 This lecture closes several loose threads: **inductive bias decides the representation's shape (L13 itself), the infinite-width limit is theoretically analyzable but degenerate (NTK/NN–GP), and the real deep-learning power lives in the finite-width feature-learning regime (L07)**. Together they complete the picture of "why nets learn the way they do".
 
 Next lecture (L14) turns to generative models: from density / energy models to GANs, autoregressive, and diffusion.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

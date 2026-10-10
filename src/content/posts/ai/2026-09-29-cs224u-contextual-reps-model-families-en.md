@@ -33,6 +33,15 @@ The last seven sections of the same [contextual representations slide deck](http
 
 The best way to read these seven sections is to keep asking one question: **which part of pretraining does this family change?**
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist (videos 07–13)](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## The big picture
 
 | Family | What it changes | Evidence the course cites |
@@ -221,6 +230,10 @@ Running the whole notebook requires the course's [data.tgz](http://web.stanford.
 - This unit has no homework of its own. The first homework is where you actually fine-tune these models.
 
 **Series navigation**: Previous: [Contextual representations I: guiding ideas, the Transformer, and positional encoding](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en) | Next: [HW1: multi-domain sentiment analysis and the bake-off](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

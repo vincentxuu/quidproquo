@@ -38,6 +38,14 @@ Three questions organize the whole lecture:
 
 The [previous lecture (L3)](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) handled context management within a single task; this one handles memory across tasks. Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4).
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Three places to update an agent
 
 Fried starts by splitting "making an agent better" into three locations:
@@ -345,6 +353,10 @@ The closing discussion lays out four tensions: exact episode ↔ general skill, 
 - [The Skill Management Revolution for LLM Agents: From Voyager to MUSE-Autoskill](/en/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
 - [Memory and Skills in Hermes Agent](/en/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
 - [Agent Memory Systems: From RAG to Read-Write Memory](/en/posts/ai/2026-03-19-agent-memory-systems-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

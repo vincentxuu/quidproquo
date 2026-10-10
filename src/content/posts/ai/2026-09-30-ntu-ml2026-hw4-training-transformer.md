@@ -34,6 +34,21 @@ glossary:
 
 存取等級：題目、範例程式、資料集都公開，屬於 **A3**；缺的是評分鏈，下面會說明。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=QrqdoGf35Iw
+title: 影片：ML 2026 Spring HW4 -- Training Transformers
+```
+
+原始影片：[影片：ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 任務：把圖片當成一串 token
 
 hw4.pdf 第 3 頁寫明目標：用 transformer decoder-only 模型，對寶可夢圖片做 next-token prediction，學會「現在的 LM 架構怎麼做下一個 token 預測」。
@@ -109,6 +124,10 @@ Colab 裡的預設 GPT-2 設定與這張表一致（`n_embd` 64、`n_head` 2、`
 - 站上 Stanford CME295 的 [Transformer 技巧導讀](/posts/ai/2026-09-29-cme295-transformer-tricks)與 CMU 11-785 的 [Transformer 架構導讀](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures)，可以補 decoder-only 架構的背景
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)｜下一篇 [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

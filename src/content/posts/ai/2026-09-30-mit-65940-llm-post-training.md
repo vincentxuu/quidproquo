@@ -39,6 +39,21 @@ glossary:
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)同樣排了「LLM Post Training」（10 月 29 日，第 14 講），截至 2026-09-30 投影片與錄影還是空連結，無法比對內容。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
+title: 第 14 講錄影（YouTube）
+```
+
+原始影片：[第 14 講錄影（YouTube）](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這一講在解什麼
 
 [第 13 講](/posts/ai/2026-09-30-mit-65940-llm-deployment)處理的是「已經訓練好的 LLM 怎麼跑得快」。這一講往前退一步：預訓練完的模型還不會當助理、不會看圖，要怎麼用最少的成本把它調成你要的樣子？
@@ -181,6 +196,10 @@ $$
 - RLHF／DPO：[CS224N 第 8 講：instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)、[CS224R L9：RLHF、DPO 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 - LoRA／QLoRA：[CMU 11-868 L23 大模型的高效微調](/posts/ai/2026-09-30-cmu11868-peft-lora)、[CS224N Tinker 與 LoRA](/posts/ai/2026-08-22-cs224n-tinker-lora)
 - 多模態：[CS231N L16 視覺與語言](/posts/ai/2026-09-30-cs231n-vision-language)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

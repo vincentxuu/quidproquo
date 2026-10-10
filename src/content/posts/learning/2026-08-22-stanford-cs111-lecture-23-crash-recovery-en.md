@@ -19,6 +19,14 @@ This is part 24 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 The lecture asks one sharp question. A file-system operation may modify the free map, an inode, and a directory entry across several disk blocks, but disks do not provide arbitrary atomic multiblock writes. If power fails in the middle, which version should the rebooted system trust? The slides compare three answers in order: scan and repair afterward with `fsck`, constrain write order beforehand, or record an operation in a log before applying it. All three address consistency, but they choose different costs in lost data, startup time, and normal-path performance.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Most OS state can restart after a crash; file-system state cannot
 
 Page 3 narrows the problem. Reboot clears volatile memory, so scheduling queues, process tables, and similar state can be rebuilt from a clean slate. Users, however, expect disk data to survive a crash. “Start over” would abandon the file system's central persistence promise.
@@ -62,6 +70,10 @@ But “write the log first” is only a design principle, not a complete protoco
 ## Update history
 
 - 2026-08-22: Corrected the duplicate-artifact inference and narrowed this lecture to the crash model, `fsck`, ordered writes, and the WAL entry point.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

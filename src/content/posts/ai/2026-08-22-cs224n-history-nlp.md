@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 1 講 **History of NLP** 排在 2026 年 1 月 6 日，但未列講者；本文因此只歸因於 course staff，並依[課程介紹投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-intro.pdf)與[歷史投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-history.pdf)重建公開 agenda。這堂課先說清楚整季要學什麼，再用一條時間軸回答：今天的大型語言模型是從哪些不同的研究假設長出來的？
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 課程要把你帶到哪裡
 
 [Human Language Understanding & Reasoning](https://www.amacad.org/publication/daedalus/human-language-understanding-reasoning)補充了課程對理解與推理的界線。介紹投影片列出三個目標：現代 NLP 的方法基礎、理解人類語言本身的困難，以及建立問答、RAG、工具使用與 LLM 評估等語言系統。
@@ -105,6 +114,10 @@ Reinforcement learning 與 preference optimization 再把訊號從「這個 toke
 ## 材料缺口
 
 Winter 2026 的錄影只對修課者開放。本文依官方 intro 與 history 兩份投影片重建 agenda，不包含講者口頭補充、課堂問答或投影片之外的立場。Older offering 的公開影片沒有拿來補洞，因為那不是同一學期。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

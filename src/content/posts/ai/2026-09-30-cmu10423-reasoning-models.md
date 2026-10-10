@@ -36,6 +36,15 @@ glossary:
 
 這一講要回答的問題是：**推理模型和一般 LLM 的訓練與推論方式差在哪？** 投影片的答案分三步：先讓模型把推理寫出來，再用強化學習獎勵寫對的推理，最後讓推論時也能花更多算力想久一點。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 先交代一件事：這天晚上考試
 
 投影片第二頁是提醒：當晚 7 點有 80 分鐘的考試，範圍是 Lectures 1–15（和 Quiz 1–4 相同），可以帶一張雙面筆記；和全是選擇題的 Quiz 不同，考試會有開放式問題。所以 L20 本身不在考試範圍，只由 Quiz 5（4 月 6 日，涵蓋 L16–L20）驗收，題目不公開。
@@ -181,6 +190,10 @@ R1 在 R1-Zero 的基礎上改用混合訓練策略。投影片引的圖列出�
 延伸閱讀：站上 [CME295 的 LLM 推理篇](/posts/ai/2026-09-29-cme295-llm-reasoning)、[CS336 的 RLVR 篇](/posts/ai/2026-08-22-cs336-rlvr)從不同角度談推理模型與可驗證獎勵；可解釋性可以接著讀 [CS224N 可解釋性篇](/posts/ai/2026-08-22-cs224n-interpretability)與 [Harvard CS2881R 可解釋性篇](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)。
 
 系列導覽：上一篇 [L19 + L21：長上下文與 State Space／Hybrid 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)｜下一篇 [L22 + L26：實務風險與對齊科學](/posts/ai/2026-09-30-cmu10423-risks-alignment)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

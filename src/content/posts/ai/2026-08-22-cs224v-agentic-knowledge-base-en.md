@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 This lecture was already titled “Agentic AI for Knowledge Base Queries” in Fall 2025. That does not authorize mixing in the course-wide Autumn 2026 rename. Its historical scope is precise: make an agent construct SPARQL the way a knowledgeable Wikidata user does—by inspecting the graph while writing the query.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: KBQA, the agent, and evaluation data
 
 The deck introduces Wikidata's RDF graph and SPARQL, then explains schema discovery in knowledge-base QA. It compares fine-tuned parsing, prompted parsing, and subgraph retrieval before developing [SPINACH](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf)'s action loop. The final sections cover a dataset derived from real Wikidata help discussions, baselines, ablations, and a possible extension to SQL databases.
@@ -99,6 +107,10 @@ Choose one Wikidata question and forbid yourself from writing the complete query
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public slides include action definitions, a prompt summary, and result tables, but not the complete harness, all traces, or classroom discussion. This article describes Fall 2025 SPINACH only and infers nothing from the Autumn 2026 rename.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

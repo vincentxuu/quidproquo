@@ -23,6 +23,27 @@ draft: false
 
 結構是前 2/3 從零推導 Q-learning，最後 20 分鐘講 **RLHF**——後面那段是這一講對做 LLM 應用的人最有價值的部分。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=4E27qlfYw0A
+title: Lecture 5: Deep Reinforcement Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WXuK6gekU1Y
+title: AlphaGo
+```
+
+原始影片：[Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## RL 憑什麼重要
 
 | 成果 | 意義 |
@@ -309,6 +330,10 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 第三點正是站上 [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants) 那篇在處理的問題，只是 Katanforoosh 用圍棋把它講得更乾淨：**你永遠不會比你的評判者更強。**
 
 而 RLHF 那張對照表的實務意義是：**當你在 debug 一個 RLHF 過的模型時，你 debug 的是一個稀疏獎勵的序列決策問題。** 模型在第 300 個 token 講錯話，訊號要一路傳回去——這就是為什麼對齊常常在長回應上失效，而不是模型「不夠聽話」。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

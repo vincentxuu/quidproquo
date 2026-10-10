@@ -28,6 +28,14 @@ Stanford runs a for-credit course called [CS146S: The Modern Software Developer]
 
 This series works through the Fall 2026 syllabus one week per post. This first post covers the course itself, then puts both syllabi side by side.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## The hard facts
 
 The course site keeps its syllabus in a front-end chunk rather than in the page source, so the numbers below come from reading the site's actual data object:
@@ -136,6 +144,10 @@ One post per week plus this overview, eleven in total:
 - Marketing lines like "world's first course of its kind," "10x productivity," and the newsletter's "trusted by 32K developers globally" are course self-descriptions with no independent verification
 - The comparison between the two syllabi is my own item-by-item diff; the course publishes no changelog
 - All classroom content quoted in this series comes from Fall 2025 slides; those sessions may be taught differently in Fall 2026
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

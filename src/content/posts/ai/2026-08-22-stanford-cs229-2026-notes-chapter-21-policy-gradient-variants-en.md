@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 21, printed pages 258–265, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It preserves the central derivations, intuition, and limits of REINFORCE and PPO without copying every proof line by line.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## REINFORCE does not require environment formulas
 
 Let a finite-horizon trajectory be \(\tau=(s_0,a_0,\ldots,s_T)\), with stochastic policy \(\pi_\theta(a\mid s)\). The objective maximizes discounted total reward:
@@ -85,6 +94,10 @@ Chapter 20 performed model-based control using known or learned structure. Chapt
 ## Exercise
 
 Take two length-three trajectories with per-step rewards \((2,3,5)\) and \((1,1,0)\), and let \(\gamma=1\). Compute reward-to-go at every time, then use a baseline of 2 for each state and determine the advantage signs. Finally, with \(\epsilon=0.2\), explain clipping for \(\hat A>0,r=1.4\) and for \(\hat A<0,r=0.7\).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料：作業說明 [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf)（63 頁，後半是中英兩版題目）、[作業 Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing)（40 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU)。課程頁寫 3/20 公告，PDF 寫截止時間是 2026/04/09 23:59:59（UTC+8），不收遲交。助教是馮柏翰、吳岳霖、蘇炳揚。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
+title: 助教影片：ML 2026 Spring HW3 LLM Fast Inference
+```
+
+原始影片：[助教影片：ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 存取等級：A3，但沒有官方解答
 
 - **拿得到**：作業 PDF、Colab 起始碼，以及 20 題的完整題目。PDF 寫明「給沒修課也沒旁聽的人」，題目和 NTU COOL 上的一模一樣，中英兩版都有。
@@ -141,6 +156,10 @@ PDF 介紹 [vLLM](https://github.com/vllm-project/vllm) 是結合多種技術的
 不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。官方解答沒有公開，本文刻意不提供任何題目的答案。n-gram 加速的實作細節只依 Colab 程式裡的 `prompt_lookup_num_tokens` 參數描述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)｜下一篇 [Positional Embedding 與超長輸入](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

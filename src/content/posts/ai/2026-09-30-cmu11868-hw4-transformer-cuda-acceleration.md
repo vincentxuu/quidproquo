@@ -32,6 +32,14 @@ glossary:
 
 本文只講題目結構、配分、依賴、硬體需求與自學時會卡住的地方。**不提供解答，也不貼參考實作。**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 它在課程裡的位置
 
 2026 春季的 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 把 HW4 截止日排在 **3 月 11 日**，也就是 Distributed Model Training II 那一堂。Syllabus 沒有標 HW4 的發放日；前一份 HW3 在 2 月 18 日截止，那天正是 LightSeq Part 2 的課。中間隔著 Google 客座講 TPU 的兩堂和一週春假。
@@ -114,6 +122,10 @@ Problem 3 的 1.1 倍是另一回事。作業頁直接引 **Amdahl 定律**：�
 
 - 用 Triton 寫融合 kernel、以及先 profile 再優化的方法：[CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)
 - 把整個 attention 融合成一個 kernel：本系列的 [FlashAttention 篇](/posts/ai/2026-09-30-cmu11868-flashattention)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

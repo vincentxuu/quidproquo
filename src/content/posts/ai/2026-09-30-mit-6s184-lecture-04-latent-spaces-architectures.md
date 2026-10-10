@@ -37,6 +37,21 @@ glossary:
 
 第 4 講就是分別解這兩題。講義 §6 的順序是先講架構、再講 latent space，Slides 4 則是反過來先講 latent space（Section 6）、再講架構（Section 7）。本文照講義順序。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=g0MB1CCBmsI
+title: 第 4 講錄影：Latent Spaces, Neural networks (2026)
+```
+
+原始影片：[第 4 講錄影：Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 第一題：網路要怎麼吃三種輸入
 
 講義 §6.1 開頭把需求講清楚：網路有三個輸入，向量 `x ∈ R^d`、條件 `y`、時間 `t ∈ [0,1]`，一個輸出 `u_t^θ(x|y) ∈ R^d`。所以第一步是把 t 和 y 都變成網路能消化的向量。
@@ -273,6 +288,10 @@ Slides 4 另外寫 SD3 的資料集是 LAION，這一點講義沒有寫。講義
 - VAE 的完整推導（ELBO 觀點）：[CMU 11-785 L22：Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders)
 - Transformer 與 attention 從頭講：[Stanford CS224N：Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CMU 11-785 L18：Attention 與 Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
 - DDPM 觀點的 diffusion（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

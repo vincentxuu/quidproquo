@@ -30,6 +30,21 @@ glossary:
 
 It draws on four official sources: [video 09](https://www.youtube.com/watch?v=49fwh6oc5Nc) (2025-04-15, about 2 h 58 min), the 33-page GenAI09 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebooks [`【Demo07a】AI代理設計模式_Reflection`](https://yenlung.me/AI07a) and [`【Demo07c】AI代理設計模式_員瑛式思考生成器Two_Stage_CoT版`](https://yenlung.me/AI07c), and the week 9 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. One caveat: both notebooks were last committed on 2025-10-28, after the semester ended. **What follows quotes the current repo version, not the one used in class.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=49fwh6oc5Nc
+title: 【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）
+```
+
+Original videos: [【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）](https://www.youtube.com/watch?v=49fwh6oc5Nc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 Video 09 has two halves. The first hour (about 8:27–58:24) walks through the slides: the "year of agents", how agents relate to LLMs, and the four design patterns. After the break (from 1:08:23), Tsai installs [AISuite](https://github.com/andrewyng/aisuite) live and codes all the way to a Gradio web app. He explains the two homework options at 1:21:26 and 1:46:13. Class ends at 2:00:23, and the TA session starts at 2:08:47.
@@ -216,6 +231,10 @@ This guide stands on its own. To go deeper, the site has these:
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L08 RAG: principles and practice](/posts/ai/2026-09-30-nccu-genai-08-rag-en) | Next: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

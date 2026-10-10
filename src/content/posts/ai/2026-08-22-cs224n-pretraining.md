@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 7 講排在 2026 年 1 月 27 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf)題為 **Pretraining (Scaling, Systems, Data)**。agenda 有六段：動機、subword、從詞向量走到模型預訓練、三種架構、預訓練學到什麼，以及大型模型與 in-context learning。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 為什麼預訓練能擴張
 
 監督式任務仰賴人工標籤，資料量與任務範圍都受限。預訓練改從文字本身製造預測目標，讓模型能使用大規模、多樣且未標註的語料。之後再以少量標註資料、指令或 prompt 指定用途。
@@ -110,6 +119,10 @@ Context 中例子越多不一定越好。長 prompt 會增加成本，relevant e
 ## 材料缺口與編號註記
 
 Winter 2026 錄影不公開。投影片封面保留「Lecture 6: Pretraining」舊標籤，但官方課表、日期、檔名與前後序列都確認它是本學期 regular Lecture 7。本文依課表編號，不推測舊標籤來源。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

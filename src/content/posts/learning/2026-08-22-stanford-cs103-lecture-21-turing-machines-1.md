@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Turing Machines, Part I**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/20/)
+
 ## 為何 CFG 之後還要換模型
 
 finite automata 精確 recognize regular 語言，但像 \(\{a^nb^n\}\) 需要 unbounded counting。CFG 可以描述這類 recursive 語言，卻是 generator，不直接回答「一般 computing device 如何使用無界工作空間執行算法」。本講引入 Turing machine（TM），把有限控制與可任意延伸的 memory 分開。
@@ -139,6 +147,8 @@ DFA/NFA 輸入 head 概念上只向右、輸入 不可改，額外 memory 只在
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「為何 CFG 之後還要換模型」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

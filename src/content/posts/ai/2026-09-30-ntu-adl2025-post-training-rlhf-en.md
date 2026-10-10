@@ -33,6 +33,26 @@ This is post 9 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 
 The lecture answers one question: a pre-trained model already continues text well, so why train it again? The slides answer in two layers. First, make the model understand task descriptions. Second, make its outputs match human preference.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=G5O93KOsBCs
+title: ADL 7.1: Post-Training (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=PfSybChNSNc
+title: ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 7.1: Post-Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF (YouTube, in Mandarin)](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=-hchhJoH3YE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## From specialists to generalists
 
 The slides open with a contrast (pp.3–10):
@@ -179,6 +199,10 @@ Other course guides on this site cut the same topic differently:
 - [CME295 2026 Lecture 4: SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
 
 Next: [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

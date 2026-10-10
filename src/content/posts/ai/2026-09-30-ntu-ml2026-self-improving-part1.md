@@ -32,6 +32,21 @@ glossary:
 
 用到的官方材料：講義 [Self-Improving.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pdf)（62 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pptx)），以及課程頁列出的影片[AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://youtu.be/s06mSAGN4gM)。存取等級是 **A3**：投影片與完整錄影都公開，錄影附中文字幕。本講沒有獨立測驗。投影片大多是圖，本文的論述依影片字幕轉述，圖上引用的論文都回 arXiv 核對過標題。
 
+## 課程影片來源
+
+影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
+```
+
+原始影片：[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先備：這堂課假設你懂機器學習的三個步驟
 
 老師開場假設大家看過[生成式人工智慧與機器學習導論 2025 第 5 講](https://youtu.be/Taj1eHmZyWw)，知道機器學習就是三步：
@@ -201,6 +216,10 @@ Anthropic 今年 4 月的文章（[短版](https://www.anthropic.com/research/au
 不能確認：黃維萍同學的論文在本文撰寫時未找到公開版本，折疊裡的第二項公式是本文依課堂描述補的標準推導，不是從論文抄錄。「千問 0.6B／1.7B／4B」那組曲線，投影片標的是 R-Zero 的 arXiv 編號，本文沒有回原論文逐圖對照。PostTrainBench 的 51 分與 18 分依字幕轉述，沒有回論文核對表格。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)｜下一篇 [HW7：Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

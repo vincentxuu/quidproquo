@@ -34,6 +34,21 @@ glossary:
 
 [CS224R](https://cs224r.stanford.edu/) 課表把這一講叫「RL for LLMs: Reasoning」，客座講者是 Noam Brown，投影片封面標示他的單位是 OpenAI。[上一講](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)結尾提到：學到的 reward model 不可靠，改用數學、程式這類可驗證的獎勵，就走到了 reasoning model。這一講從那裡接著講，切入點是「算力該花在哪裡」，演算法放到後面才談。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=O2VpNnwB4lM
+title: Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）
+```
+
+原始影片：[Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）](https://www.youtube.com/watch?v=O2VpNnwB4lM)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 主線：scaling 多了一個維度
 
 投影片前四頁就把論點擺出來：
@@ -138,6 +153,10 @@ B：取樣 N 次（N = 1, 4, 16, 64），取多數決
 - [Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)：更完整的 RL 理論背景
 
 **系列導覽**：上一篇 [L9：RLHF、DPO 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)｜下一篇 [Default Project：用 SFT、IPO、RLOO 微調 LLM 解 Countdown](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

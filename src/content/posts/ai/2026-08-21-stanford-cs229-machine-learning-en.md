@@ -24,6 +24,16 @@ It also has the most complete public self-study materials of any Stanford course
 
 This piece was written after reading through the notes PDF chapter by chapter, putting the 2018 and 2026 syllabi side by side, and downloading and working through every problem set still reachable. It covers what the course teaches, where chapter 1 gets hard, what changed between the two syllabi, what the assignments look like, and how much someone without a Stanford account can actually get. It does **not** include a lecture-by-lecture listen — that is a different order of work, and the [CS329A post](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) in this series is the one that does it. For where this course sits on the prerequisite ladder, see the [map post](/posts/learning/2026-08-20-stanford-cs-course-map-en) that opens the series.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## The hard facts
 
 The prerequisites are spelled out concretely on the course site, in three parts. You can write non-trivial Python/NumPy (CS106A or CS106B level); probability to the level of CS109 or MATH151; multivariable calculus and linear algebra to the level of MATH51 or CS205L. All three are phrased as "equivalent to" — you do not need to have taken those course numbers.
@@ -166,6 +176,10 @@ The one-line version: **old recordings with new notes, assignments with the star
 - **Review notes still downloadable**: `section/cs229-linalg.pdf`, `section/cs229-prob.pdf`, `section/cs229-cvxopt.pdf`, and `section/cs229-gaussians.pdf` all return 200; the older per-topic notes listed on the 2018 syllabus, such as `notes/cs229-notes1.pdf`, all return 404.
 - **Self-test problem set**: `https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`, 4 pages, PDF `CreationDate` 2008-10-06. The header reads "CS 229, Public Course".
 - **Not confirmed**: (1) why lectures 15, 17, and 19 are missing from the spring 2026 recordings, and why the last three titles are misaligned — neither the Stanford Online page nor the playlist description says anything; (2) the grade breakdown (assignments / midterm / project) for any quarter of CS229 — the current syllabus is locked behind a Stanford account and this post obtained no official breakdown for any term, so it does not discuss grade weighting at all; (3) whether a public showcase of recent final projects exists anywhere — none found; (4) whether problem sets from years other than 2019 and 2020 remain on the server — only the summer2019 and summer2020 paths were tested.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

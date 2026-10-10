@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 5 講排在 2026 年 1 月 20 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf)的 agenda 先收完前一講的消失梯度與機器翻譯，再走過 recurrence 到 attention、self-attention、完整 Transformer，最後談成果、缺點與變體。這是本季的架構分水嶺：後面預訓練、後訓練、agent 與推理都預設你已經懂這裡。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 為什麼要離開 recurrence
 
 RNN 的 hidden state 必須依時間順序計算，位置之間的資訊也要逐步傳遞。即使 gated RNN 緩解梯度問題，訓練仍難以把同一句中的位置全面平行化。機器翻譯又要求 decoder 在不同輸出步驟關注來源句的不同部分，單一固定向量不夠用。
@@ -114,6 +123,10 @@ Generation test 要固定 seed 與 decoding setting。若 training loss 下降�
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文完整覆蓋投影片的六段 agenda，但沒有把 2019 或 Spring 2024 的公開影片當成這堂課的口述內容。投影片中的現場解說與課堂問答無法由公開材料確認。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -34,6 +34,15 @@ glossary:
 
 One thing stands out when you read the deck. The title says "datacenter," but only about pages 28–44 of 72 are about datacenter scale. Before that comes a memory primer and dataflow hardware; after it, energy and DRAM. The thread through all three is **data movement**: on chip, between chips, and across a cluster, the bottleneck is whether data arrives fast enough.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [CS149 2023 public lecture playlist (no video for this lecture)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
+
 ## Part one: HBM and dataflow hardware (pages 3–27)
 
 ### Why GPUs use HBM
@@ -185,6 +194,10 @@ This lecture is a survey. Each topic has a deeper guide on the site; this series
 - The big picture of LLM systems: [CME295 LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en)
 
 Series navigation: previous [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) | next [L13 Domain-Specific Languages and AI-Driven Performance Optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -29,6 +29,14 @@ glossary:
 
 上一講問的是「我們希望模型怎麼做」，答案寫成一份 model spec。這一講往下走一步：規則寫好之後，誰來執行、怎麼執行、執行錯了怎麼辦。社群平台已經在這件事上跌跌撞撞二十多年，[CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 請來 OpenAI Product Policy 的 [Ziad Reslan](https://jackson.yale.edu/person/ziad-reslan/)，把那段歷史接到生成式 AI 上。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 這一講拿得到什麼
 
 課站在 10 月 2 日底下只寫了三個主題：
@@ -120,6 +128,10 @@ glossary:
 - 政策寫在哪裡、怎麼解釋：[CS2881R L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 - 用模型當裁判與護欄的工程面：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 - 同一主題在其他課程的講法：[台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

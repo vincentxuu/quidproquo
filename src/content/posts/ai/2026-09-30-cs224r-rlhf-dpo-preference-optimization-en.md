@@ -34,6 +34,21 @@ The [CS224R](https://cs224r.stanford.edu/) schedule calls this lecture "RL for L
 
 The previous eleven posts were about robots and control. This lecture jumps to language models. Lining the two up first makes the derivations much easier to follow.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=XKLGuwvSKvI
+title: Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Mapping LLMs onto RL vocabulary
 
 The slides don't include this table. The series adds it as a bridge, using the definitions from [L1](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en):
@@ -203,6 +218,10 @@ Compute them with any small model and plug them into the DPO formula. Before tra
 - [Reading CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en): the course these slides were adapted from
 
 **Series**: previous [HW3: Offline RL with AWAC and IQL](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en) | next [L10: RL for LLM reasoning and test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

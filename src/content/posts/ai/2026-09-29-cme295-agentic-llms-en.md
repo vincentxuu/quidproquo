@@ -44,6 +44,21 @@ The previous lecture on [reasoning models](/posts/ai/2026-09-29-cme295-llm-reaso
 
 The lecture keeps Lecture 1's teddy bear. "Where is Cuddly?", "Find a bear near me!", and "My teddy bear is cold." map to the three parts.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
+title: 2025 Lecture 7 recording
+```
+
+Original videos: [2025 Lecture 7 recording](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## RAG: look it up before answering
 
 ### Why not just put everything in the prompt
@@ -276,6 +291,10 @@ These questions are adapted from Part III, "Agentic LLMs," of the [2025 final ex
 - The full landscape of RAG generations and variants: [The Complete Guide to RAG System Patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - The chunk-contextualizing technique from the slides: [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en)
 - How the agent loop is built in real coding agents: [Learning Agent Design from Mature Coding Agents (2): The Shape of the Agent Loop](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

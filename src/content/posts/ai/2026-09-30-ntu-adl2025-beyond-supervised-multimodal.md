@@ -43,6 +43,26 @@ glossary:
 
 「對應頁」是本文依主題比對的結果，影片實際放的投影片是不是這幾頁，沒有辦法從公開資訊確認。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=j5XknQ4MGw0
+title: 14.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=rQyhxK-fDyI
+title: 14.2 Auto-Encoder
+```
+
+原始影片：[14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 為什麼沒標註的資料也有用（第 2–11 頁）
 
 第 2 頁開宗明義：**大資料不等於大量標註資料。** 有標註用監督學習，有環境能給 reward 用強化學習，都沒有就用非監督學習。講義接著問：沒標註、甚至和任務無關的資料，為什麼能幫上忙？答案是**找出控制觀察資料的潛在因子（latent factors）**。
@@ -155,6 +175,10 @@ NLP 的例子（第 67–70 頁）：[SimCSE（Gao et al., 2021）](https://arxi
 下一篇是講課以外的支線：[助教課：從 PyTorch 到 LLM 部署](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [對話系統與工具使用](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)｜下一篇 [助教課：從 PyTorch 到 LLM 部署](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

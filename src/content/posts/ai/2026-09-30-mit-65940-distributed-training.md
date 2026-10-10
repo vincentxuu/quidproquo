@@ -45,6 +45,26 @@ L19 第 6 頁的表格說明了為什麼非分散不可：在 A100 上，ResNet-
 - **模型放不進一張卡**：要把模型切開（L19）。
 - **切開之後卡跟卡要講話**：通訊變成瓶頸（L20）。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=LcOM-nZdqxw
+title: EfficientML.ai Lecture 19 - Distributed Training Part 1（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lOVcPooetrM
+title: EfficientML.ai Lecture 20 - Distributed Training Part 2（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 19 - Distributed Training Part 1（YouTube）](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[EfficientML.ai Lecture 20 - Distributed Training Part 2（YouTube）](https://www.youtube.com/watch?v=lOVcPooetrM)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 四種切法一覽
 
 L19 第 12–31 頁先快速走過四種平行，L20 第 4 頁再把它們的取捨整理成一張表：
@@ -212,6 +232,10 @@ for iter in range(1, max_iters + 1):
 - [CMU 11-868 L18：ZeRO 怎麼把資料平行的記憶體切掉](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization)
 - [CMU 11-868 L16–L17：切層、切矩陣，還是切專家](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 - 梯度剪枝與 L3–L4 的權重剪枝是同一套思路：[L3 剪枝的粒度與標準](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

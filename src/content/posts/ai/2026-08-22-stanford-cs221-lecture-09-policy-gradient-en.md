@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 9**, taught by Percy 
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article covers only what appears in `policy_gradient.py`. Actor-critic, generalized advantage estimation, entropy regularization, and off-policy policy-gradient derivations are not silently added.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Where the lecture starts
 
 The previous lecture's thread was reinforcement learning. This lecture reviews that setting, then asks how to handle larger state spaces and how to learn the policy directly.
@@ -195,6 +204,10 @@ The source ends by placing three routes side by side: model-based methods estima
 The policy-gradient contract is concrete: the policy is a stochastic distribution `π_θ(a | s)`; the current policy generates the rollout; each rollout produces utility; and the update uses its `(state, action)` pairs weighted by utility or by a variance-reduced alternative. The log-derivative identity avoids differentiating the sampled discrete action as a continuous value while still producing an unbiased gradient estimator for expected utility.
 
 The costs are just as concrete. Updates wait for an episode to finish, and one trajectory's utility can be very noisy. Baselines and returns-to-go can reduce variance; bootstrapping trades some bias for lower variance. The source does not explain how to learn a baseline, choose hyperparameters, or prove convergence in larger environments. Those remain outside this material and cannot be inferred from the three-stop tram example.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -21,6 +21,14 @@ series:
 
 Lecture 9 的 BFS 已能算 unweighted shortest paths，因為每條 edge 都讓距離增加一。Weighted graph 改變了順序：edge 少的 path 可能更貴。Dijkstra 與 Bellman–Ford 都使用同一個核心動作——鬆弛（relaxation）——差別是「下一條該鬆弛誰」的秩序，以及那個秩序需要哪些權重前提。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
+
 ## 問題、符號與鬆弛
 
 給 weighted directed graph `G=(V,E)`、source `s` 與 edge weight `w(u,v)`，single-source shortest paths（SSSP）要找每個 v 的最短距離 `dist(s,v)`。一條 path 的成本是所有 edge weights 相加。最短 path 的任何 subpath 也必須是最短：若 prefix 可換成更便宜的 path，整條 path 就不是最短。
@@ -176,6 +184,10 @@ Lecture 9 的 BFS 是「所有 edge cost 都是 1」的 shortest-path algorithm�
 可用同一張五點 weighted graph 同時手算兩個演算法。每次 Dijkstra finalization 後記錄「為什麼它不會再變」；每次 BF round 後記錄「已保證正確到幾條 edges」。再加入一條負 edge 與一個負環，分別觀察 guarantee 消失與 distance 不存在。
 
 實作時回傳 distances 之外，也保留 predecessors；若偵測負環，沿 predecessor pointers 回走 n 步再繞一圈，可萃取 cycle certificate。這是本站的延伸練習，不是 Winter 2026 投影片額外要求。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

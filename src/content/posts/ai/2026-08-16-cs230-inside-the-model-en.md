@@ -25,6 +25,21 @@ Katanforoosh explains the rename:
 
 > "This lecture used to be called neural network interpretability, but I **broadened the scope**, because there's now a section on frontier models, and **for the models you're playing with out there, the interpretability methods mostly haven't been figured out.**"
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
+title: Lecture 10: What's Going On Inside My Model?
+```
+
+Original videos: [Lecture 10: What's Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Opening case: you're a model trainer at a frontier lab
 
 The setup is well built:
@@ -310,6 +325,10 @@ You probably aren't training a 200-billion-parameter model. But three things her
 **Three: read benchmarks for relative values only.** This applies directly to reading model release announcements, and he gives the reason — not that vendors falsify, but that **contamination is hard to detect and the capability a benchmark measures may not overlap with your task.**
 
 The last thing worth keeping is his honesty: **this whole methodology currently reaches two layers on transformers.** We understand the internals of the models we use every day far less well than we understand a 2014 convolutional network.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

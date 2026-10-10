@@ -29,6 +29,14 @@ glossary:
 
 By this point you've seen how models are trained (L2), how they're broken (L3), how their rules are written (L4), and how those rules are enforced (L5). The [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) midterm asks you to redo one of those results yourself, then ask: how solid is it?
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## What the assignment asks
 
 The first slide of the spec states the goal in one line: practice reproducing and critically examining results in AI safety research. You choose one paper from the options provided (or propose your own) and recreate its "headline figure."
@@ -140,6 +148,10 @@ One thing you can do tonight: open the paper you picked, look only at the headli
 - The lecture two of the candidates come from: [CS2881R L3: Jailbreaks, Prompt Injection, and Lessons Borrowed from Software Security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
 - Another course's jailbreak project design: [NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 - Engineering defenses against prompt injection: [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

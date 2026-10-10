@@ -31,6 +31,26 @@ The previous part covered how the BERT family is pretrained. This one is hands-o
 - The assignment handout [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf) (24 pages) and starter code [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
 - Recordings: the tutorial [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=VErSpYgZGiw
+title: VErSpYgZGiw
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fe1roWMVdUI
+title: Fe1roWMVdUI
+```
+
+Original videos: [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw)、[Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Recordings and weeks: sorting out what goes where
 
 The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists the tutorial slides and recording under W7 and HW3 under W8. The reality is a little messier:
@@ -169,6 +189,10 @@ What I noticed reading [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Langu
 - This tutorial is the 2024 version, and the Fall 2026 counterpart isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study); the gaps are solutions and grading.
 
 **Series navigation**: previous, [ELMo, BERT, T5, BART, GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family-en) | next, [Decoding strategies and NLG evaluation](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

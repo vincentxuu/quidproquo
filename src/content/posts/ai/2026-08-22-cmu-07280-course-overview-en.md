@@ -21,6 +21,14 @@ This is not a list that places “classic AI” beside fashionable models. The c
 
 This series uses the **first completed Spring 2026 offering** as its canonical edition. The official home page has switched to Fall 2026, moving Spring links into HTML comments. Most `S26` slides, notes, recitations, written homework, and notebooks remain anonymously accessible through direct URLs, although a few old direct links now fail. The surviving material is sufficient to reconstruct the complete course spine, but there is no public lecture-by-lecture video archive. The series will not invent spoken explanations or classroom discussion.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## What the redesign changed
 
 The [official 07-280 FAQ](https://www.cs.cmu.edu/~07280/) is explicit: 15-281 and 10-315 are being retired in favor of the 07-280 → 07-380 sequence. The first course must serve BSAI students and other SCS students who may take only one technical AI course; the second adds advanced topics and research methods.
@@ -105,6 +113,10 @@ The series contains 29 articles: this overview, 24 lecture readings, three stage
 For a first pass, begin with [Lecture 1: Introduction](/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction-en), work through each lecture exercise, and pause at the three stage reviews to reorganize what you learned. Before starting, download the [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf) and [Math Background](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf), then open the [Recitation 1 Search worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf). If you cannot define its state space, frontier, heuristic, and graph-search behavior, repair that foundation before jumping to the GPT-2 notebook. After all 24 lectures, use the [completion roadmap](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en) to test whether you produced executable evidence of learning.
 
 The value of 07-280 is precisely that it refuses to reduce modern AI to training a neural network. It starts from problem representation, moves through search, estimation, representation learning, and sequential decisions, and only then assembles landmark systems. Read in full, AlexNet, GPT-2, and AlphaZero become three integration exams—not marketing names placed in one syllabus.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

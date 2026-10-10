@@ -29,6 +29,21 @@ glossary:
 
 Lecture 1 is titled "Why study generative AI?" It does three things. It explains how the course runs, it argues for spending time on principles, and it gets everyone to produce a first plot in Colab. For readers with little programming background, the third matters most, because all of the next 13 lectures' homework happens in Colab.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=4BRBxy0EMT8
+title: recording
+```
+
+Original videos: [recording](https://www.youtube.com/watch?v=4BRBxy0EMT8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this lecture sits
 
 Going by the chapter list in the video description, the three sessions break down like this:
@@ -199,6 +214,10 @@ Lecture 1 of semester 1151 streamed on 2026-09-08. The [recording](https://www.y
 - Course ownership, grading versions, and the full homework table: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 - Another Taiwanese course that starts from zero in Colab: [Reading NTU Hung-yi Lee's Machine Learning 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 - How open each school's courses are: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

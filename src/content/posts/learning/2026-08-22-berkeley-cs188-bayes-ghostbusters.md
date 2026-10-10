@@ -18,6 +18,22 @@ draft: false
 
 [Lecture 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/)從 probability、Bayes nets、exact inference、sampling 一路進到 HMM 與 particle filtering。[Project 4 Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)把這些概念放進一個具體任務：Pacman 看不見 ghost，只拿得到帶雜訊的 Manhattan distance，要維護位置的 belief distribution 並追上目標。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q9TPylxjNoA
+title: CS188 Spring 2026 Lecture 13: Probability
+```
+
+原始影片：[CS188 Spring 2026 Lecture 13: Probability](https://www.youtube.com/watch?v=Q9TPylxjNoA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## Factor 操作不是機械表格
 
 Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加總；variable elimination 的結果與順序密切相關。實作每一步都應先寫出「目前 factor 代表哪個條件分布」，再檢查 unconditioned／conditioned variables，而不是只對 dictionary key 做操作。
@@ -33,6 +49,10 @@ Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加
 先手算一個兩變數 factor 的 join／eliminate，再做 exact inference；確認 belief 更新與 normalize 正確後，才進 particle filtering。最後讓 greedy BustersAgent 依各 ghost 最可能位置行動，觀察「最可能」與完整不確定性之間的取捨。
 
 系列導航：[上一篇：MDP 與強化學習](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)｜[下一篇：決策與機器學習](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

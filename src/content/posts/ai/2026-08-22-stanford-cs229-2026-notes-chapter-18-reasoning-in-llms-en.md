@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 18, printed pages 220–225, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains the main objectives and algorithmic intuition without claiming to reproduce every proof or implementation detail.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Chain of thought turns one prediction into a computation
 
 A direct answer models \(p(a\mid x)\). Chain of thought first generates an intermediate sequence \(z\), then the answer \(a\):
@@ -72,6 +81,10 @@ Chapter 17 built the autoregressive Transformer and SFT objective. This chapter 
 ## Exercise
 
 Define an RLVR setup for generating a function that passes unit tests: state, action, termination, reward, and reference policy for KL regularization. Then describe two reward-hacking scenarios and explain why merely adding more tests may still be insufficient.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

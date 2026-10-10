@@ -31,6 +31,14 @@ glossary:
 
 The notebook opens with five goals. The last two matter most: get a basic understanding of the performance gains from pruning (such as speedup), and understand the differences and trade-offs between the two approaches.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## When it runs and what you need
 
 According to the [Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), Lab 1 went out on September 17 (Lecture 4) and was due September 26 (Lecture 7), with the two quantization lectures in between. The collaboration policy: you may discuss answers, but each student hands in their own work and names who they collaborated with.
@@ -118,6 +126,10 @@ The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) rele
 
 - The two lectures this lab uses: [Lecture 3](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en), [Lecture 4](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
 - PyTorch and CNN basics: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en), [Reading MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

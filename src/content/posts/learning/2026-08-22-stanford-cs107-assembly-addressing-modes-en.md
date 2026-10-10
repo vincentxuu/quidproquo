@@ -19,6 +19,14 @@ draft: false
 
 The point is not to memorize seven arrangements of punctuation. For every operand, ask two questions: does it produce a value or an address? If it produces an address, does the instruction use the address itself or the contents stored there? Once those questions become routine, `(%rdi,%rcx,8)` stops looking like punctuation and starts looking like C's `arr[index]`.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, scope, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -275,6 +283,10 @@ Do not collapse `mov 9(%rax,%rdx),%rcx` into mental arithmetic. Write `EA = 9 + 
 The [GNU `objdump` documentation](https://sourceware.org/binutils/docs/binutils/objdump.html) explains that `-d` displays assembler mnemonics for machine instructions and that x86 output can select `-M intel` or `-M att`. [GCC's output options](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) let `-S` preserve compiler-generated assembly. Displaying one short C expression in both syntaxes is a direct exercise in holding semantics constant while notation changes.
 
 Lecture 15 reduces to one sentence: components inside parentheses calculate an address; the entire parenthesized operand accesses memory at that address. Combine that with `$` for immediates, `%` for registers, and source-first AT&T order, and dense punctuation becomes checkable pointer arithmetic.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

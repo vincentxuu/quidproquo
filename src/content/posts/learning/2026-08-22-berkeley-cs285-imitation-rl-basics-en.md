@@ -17,6 +17,14 @@ series:
 
 The [official schedule](https://rail.eecs.berkeley.edu/deeprlcourse/) starts with Introduction, Behavioral Cloning, Behavioral Cloning Part 2, and RL Basics. The point is not to memorize an RL algorithm first. It is to see where a supervised controller fails, then introduce learning from reward.
 
+## Course video sources
+
+The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## L1–2: control as supervised learning
 
 Behavioral cloning trains a policy on expert state-action pairs. Its training loss is simple; deployment is not. Once the learned policy makes a small error, it may visit states absent from expert data. Draw the training distribution beside the distribution induced by the learned policy before naming the problem “covariate shift.”
@@ -34,6 +42,10 @@ RL Basics reframes the task as an MDP. A policy produces a trajectory, rewards a
 The [Spring 2026 starter code](https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1) uses `uv` and Weights & Biases. This assignment is a sensible place to start on a local CPU; see the [homework compute ledger](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en) for the supporting details. Retain three artifacts: a reward curve, generated behavior video, and a qualitative comparison of MSE, DAgger, and flow matching.
 
 Public code is enough to implement the work, but it is not the complete enrolled experience. The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) owns the full access boundary.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

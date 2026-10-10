@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 5 章〈Kernel methods〉，講義頁碼 49–59。它是 **2026 notes 的逐章導讀**，不是某季錄影的重建。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 非線性，仍然可以對參數線性
 
 線性模型能力不足時，可以先把輸入送進特徵映射 \(\phi(x)\)，再學 \(\theta^T\phi(x)\)。例如一維輸入可展開成多項式特徵。模型對原始 \(x\) 是非線性的，但對參數 \(\theta\) 仍然線性，因此前面熟悉的 LMS 等方法仍可使用。
@@ -60,6 +69,10 @@ kernel trick 省掉顯式高維特徵，卻沒有讓資料規模消失。通常�
 ## 自學練習
 
 對三個二維點手算二次多項式特徵 \(\phi(x)\) 的所有內積，再用對應 polynomial kernel 直接計算，確認兩者一致。接著比較不同 Gaussian bandwidth 產生的 Gram 矩陣，觀察它如何從接近單位矩陣變成幾乎常數矩陣。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

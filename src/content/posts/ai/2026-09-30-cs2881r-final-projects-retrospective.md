@@ -24,6 +24,14 @@ draft: false
 
 前半篇是給想自己跑一次期末專題的讀者：規格、評分表、題目清單、19 份成果怎麼分布。後半篇是給想開類似課程、或想判斷這門課值不值得跟的讀者：助教與學生事後怎麼評價它。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 用到的官方材料與存取狀態
 
 | 材料 | 內容 | 狀態 |
@@ -227,6 +235,10 @@ Q-report 的文字意見與 head TA 回顧附的 Google 表單摘要（21 份）
 - 上一篇：[L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035)
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 本篇是系列最後一篇。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

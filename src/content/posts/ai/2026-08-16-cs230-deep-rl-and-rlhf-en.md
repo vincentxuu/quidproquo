@@ -23,6 +23,27 @@ This is a **substituted lecture**. He says up front that the week was supposed t
 
 The structure is two-thirds deriving Q-learning from scratch, then 20 minutes on **RLHF** — and that last part is the most valuable piece here for anyone building LLM applications.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=4E27qlfYw0A
+title: Lecture 5: Deep Reinforcement Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WXuK6gekU1Y
+title: AlphaGo
+```
+
+Original videos: [Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Why RL matters
 
 | Result | Significance |
@@ -310,6 +331,10 @@ The three reasons Go can't be learned with supervision **all transfer intact to 
 The third point is exactly what the site's [three forms of RAG and the evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en) post is working on — Katanforoosh just puts it more cleanly through Go: **you will never be stronger than your judge.**
 
 And the practical significance of the RLHF mapping table: **when you're debugging an RLHF'd model, you're debugging a sparse-reward sequential decision problem.** The model says something wrong at token 300 and the signal has to propagate all the way back — which is why alignment often fails on long responses, rather than the model being "insufficiently obedient."
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

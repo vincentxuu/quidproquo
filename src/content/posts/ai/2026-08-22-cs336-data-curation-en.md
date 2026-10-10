@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication,
 
 Lecture 13 finds raw sources. This lecture decides what enters the token stream. Filtering, deduplication, and mixing are called preprocessing, but each defines the distribution a model learns.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=5sxHosTLPF8
+title: CS336 Spring 2026 Lecture 14: Data
+```
+
+Original videos: [CS336 Spring 2026 Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Filtering combines several imperfect judgments
 
 Raw web data passes through format parsing, language identification, and main-text extraction before handling short pages, templates, ads, code ratios, repeated symbols, and low-quality prose. Heuristics are cheap and interpretable. Classifiers capture more complex signals but amplify the preferences of their reference dataset.
@@ -56,6 +72,10 @@ Use small-model ablations to compare not only aggregate validation loss but lang
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its filtering, deduplication, mixing, and synthetic-data sections.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

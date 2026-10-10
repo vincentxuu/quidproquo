@@ -21,6 +21,14 @@ The missing layer is video. The [syllabus](https://rail.eecs.berkeley.edu/deeprl
 
 This series therefore treats the 2026 slides, sections, and assignments as canonical.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## The six-part route
 
 | Part | Official material | Guiding question |
@@ -47,6 +55,10 @@ The course's compute support applies to enrolled students. A self-learner should
 Without bCourses, an external learner lacks the instructor's spoken explanation, corrections, Ed threads, Gradescope feedback, and office hours. These articles explain the structure connecting public slides and assignments. They do not invent lecture remarks or relabel Fall 2023 video as Spring 2026.
 
 A better completion criterion is an artifact: one derivation note, one implementation that succeeds on a small environment, a result table across seeds, and a failure analysis. That is closer to the course's actual work than merely “watching 25 lectures.”
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

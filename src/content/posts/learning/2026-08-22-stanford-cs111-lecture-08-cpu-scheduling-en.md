@@ -19,6 +19,14 @@ This is part 9 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 This lecture starts where dispatching left off. The dispatcher can save registers, switch stacks, and resume a thread; scheduling decides which thread should receive that mechanism next. Given ready threads and CPU cores, the policy chooses a thread for each core and how long it may run. The PDF develops the problem on one core before generalizing it to multiple cores. The recording is Canvas-only, so no unobserved spoken material is reconstructed here.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. FIFO: a simple ready queue is already a policy
 
 First-in-first-out scheduling, also called non-preemptive scheduling in the slides, keeps one ready queue. A thread that becomes ready joins the back; the dispatcher takes the front thread and runs it until exit or blocking. The structure and rule are simple, but arrival order lets an early long job determine every later job's delay.
@@ -107,6 +115,10 @@ The scheduler is code invoked by events, **not a resident thread**. The PDF list
 Scheduling importance changes with hardware and workload. It was central under timesharing; on a single-user PC priorities could be left more to the user; abundant multicore CPU time can reduce sensitivity to the exact algorithm. Datacenters make it interesting again by scheduling across hundreds or thousands of servers and colocating latency-critical web services with CPU-heavy ML training.
 
 The final contract is that a scheduling algorithm should not change the results a correct synchronized program produces, although it strongly changes efficiency and response time. Good schemes are adaptive, and strange-looking constants can materially affect behavior. True optimality would require predicting the future. Real systems use the past as an estimate and continually trade response time, utilization, overhead, fairness, and locality.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

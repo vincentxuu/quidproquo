@@ -25,6 +25,21 @@ Katanforoosh 說明了改名的理由：
 
 > 「這堂課以前叫 neural network interpretability，但我**把範圍放寬了**，因為現在多了一節談 frontier model，而**你在外面玩的那些模型，可解釋性方法多半還沒被搞定。**」
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
+title: Lecture 10: What's Going On Inside My Model?
+```
+
+原始影片：[Lecture 10: What's Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## 開場案例：你是 frontier lab 的模型訓練員
 
 情境設定得很好：
@@ -310,6 +325,10 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 **三、benchmark 只看相對值。** 這條可以直接套用在讀模型發布公告上，而且他給了理由——不是因為廠商造假，而是因為**汙染難以偵測、而 benchmark 測的能力和你的任務不一定重疊**。
 
 最後值得記住的是他的誠實：**這整套方法在 transformer 上目前只做得到兩層。** 我們對自己每天在用的模型，內部理解程度遠低於對一個 2014 年的卷積網路。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

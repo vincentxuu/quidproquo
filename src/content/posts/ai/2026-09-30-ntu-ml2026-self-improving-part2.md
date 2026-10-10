@@ -32,6 +32,26 @@ glossary:
 
 用到的官方材料：講義 [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf)（64 頁），以及課程頁列出的影片 [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I)。課程頁那一列的 ppt 連結寫成 `self-evolving-agent.ptx`，點下去是 404，改成 `.pptx` 才打得開。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的作業或測驗。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=cQLKVzbwN7I
+title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
+```
+
+原始影片：[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先把上集收成一條式子
 
 開場李宏毅用符號把上集重講一次（投影片第 2–6 頁）。AI 寫成 A_θ，θ 是背後語言模型的參數。人類真正想要的目標寫成 L̂，論文裡通常用某個 benchmark 代表，例如數學奧林匹亞的分數。但人說不清楚自己要什麼，只能給 AI 一個代理 H：可能是訓練資料、一本教科書，甚至只是一句「be good at math」。AI 從 H 自己定出 loss L，接著就是一般的 gradient descent，把 θ 更新成 θ'。
@@ -195,6 +215,10 @@ SEAL 的模型身兼兩職：解任務，也決定怎麼訓練自己。它輸出
 不能確認：投影片多為圖表，論文裡的數字（例如 Darwin Gödel Machine 的分數、各表格的正確率）本文只寫字幕描述的趨勢，沒有抄數字。第 14 頁的記憶論文與第 24 頁的聯合演化論文，是依字幕描述（「26 年 2 月的 paper」「今年年初的論文」）對到投影片上的 arXiv 編號。字幕把 R-Zero 聽成「R1-Zero」、把 AlphaEvolve 聽成「AlphaEvo」，本文以投影片為準。AlphaEvolve 與 ShinkaEvolve 那一頁講課時沒有逐一解說，本文只寫投影片上的迴圈圖。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)｜下一篇 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 這是 CMU 07-280 Spring 2026 的第 9 講，官方題名是 **Logistic Regression**，日期為 2026 年 2 月 10 日。這一講把前面的線性迴歸與最佳化接到分類：模型不再硬猜某次事件會不會發生，而是估計事件發生的機率。官方沒有公開逐講錄影，因此本文只依公開講義、pre-reading、Recitation 5 與作業題目整理，不還原課堂口述。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 核心來源是 [Lecture 9 官方 PDF](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec9_Logistic_Regression.pdf)與 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)。練習面以 [Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)核對二元與多類別公式，HW5 則把同一條線接到實際梯度下降實驗。本文不使用 Fall 2026 的課表題名。
@@ -90,6 +98,10 @@ Lecture 10 接著處理另一個限制：決策邊界對原始特徵仍是線性
 ## 今晚可以做的動作
 
 拿三筆二維資料，從 `θ=0` 開始手算兩次 SGD：每次依序寫出 `z`、`p̂`、cross-entropy、`(p̂-y)x` 和更新後的 `θ`。再把其中一筆標籤反轉，觀察哪一個梯度分量變化最大。最後將同一批資料加入 `x1²` 特徵，為 Lecture 10 預備。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

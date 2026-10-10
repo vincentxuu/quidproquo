@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 7**, taught by Percy 
 
 > Material gap: The official lecture artifact and video are public; the local `mdp.py` does not provide the full spoken lecture, Canvas interactions, assignment solutions, or hidden tests. The claims below therefore stay with what the source directly demonstrates or what follows from its equations. Details from another term, unseen video material, or intuition are not presented as Lecture 7 conclusions.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## 1. Start with search: why an MDP is needed
 
 `main()` begins by recalling last week's search. `TravelSearchProblem(num_locs=10)` has `start_state()`, `successors(state)`, and `is_end(state)`: each successor packages an action, a cost, and a next state. In search, executing an action from a state leads deterministically to one new state, so a solution can be described as an action sequence from start to goal; path cost then compares candidate solutions.
@@ -154,6 +163,10 @@ Finally, `max_iters=100` and `tolerance=1e-5` do not make `V*` exact. Hitting th
 ## 10. The model to carry forward
 
 Do not just memorize “take the max”; audit the contract. Does the state retain Markov information? Are actions complete and probabilities normalized? Is reward a negative cost or utility? Which states are terminal? Does γ fit future preferences? Is the reachable space finite and enumerable? If one answer is unclear, the table may not answer the intended question.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 5 on January 20, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf) finishes vanishing gradients and machine translation, then moves from recurrence to attention, self-attention, the complete Transformer, and finally results, drawbacks, and variants. It is the quarter's architectural dividing line: later lectures on pretraining, post-training, agents, and reasoning assume this material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Why leave recurrence
 
 An RNN computes hidden states in time order, and information between positions travels step by step. Gated RNNs alleviate gradient problems, but positions within a sentence remain difficult to parallelize. Machine translation also requires a decoder to focus on different source regions at different output steps; one fixed source vector is insufficient.
@@ -80,6 +89,10 @@ The public assignment proves copying behavior, single-head limits, and permutati
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all six agenda sections in the deck but does not treat the 2019 or Spring 2024 recordings as this lecture's spoken content. Live explanations and classroom questions cannot be confirmed from public material.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

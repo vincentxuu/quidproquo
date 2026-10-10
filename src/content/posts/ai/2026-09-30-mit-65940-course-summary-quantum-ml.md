@@ -36,6 +36,26 @@ glossary:
 
 走完 22 講之後，Song Han 用 13 頁投影片把整門課收起來，接著花了一講半講一個看似離題的主題：量子機器學習。本篇先整理課程總結說了什麼，再照 L23 投影片的六個段落走一遍量子 ML。最後回答規劃時的問題：這個主題為什麼收在一門講效率的課最後面。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=svjjD2uthhQ
+title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ZDk-GsyInt8
+title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1（YouTube）](https://www.youtube.com/watch?v=svjjD2uthhQ)、[EfficientML.ai Lecture 23: Quantum Machine Learning Part 2（YouTube）](https://www.youtube.com/watch?v=ZDk-GsyInt8)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## L22 前半：13 頁課程總結
 
 [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) 很短，但它是整門課唯一一份「俯瞰圖」，值得在開始讀系列之前先翻一遍。
@@ -199,6 +219,10 @@ SuperCircuit 是設計空間裡閘最多的電路，每個候選 SubCircuit 都�
 - 系列入口與四章地圖：[MIT 6.5940 導讀總覽](/posts/ai/2026-09-30-mit-65940-course-overview)
 - NAS 的搜尋空間與搜尋策略：[L7 NAS Part I](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)
 - 各校公開課程與 A0–A3 存取分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

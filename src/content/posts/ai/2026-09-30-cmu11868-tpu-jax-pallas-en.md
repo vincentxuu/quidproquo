@@ -39,6 +39,14 @@ Both lectures are by Srinath Mandalapu of Google CoreML Frameworks. The official
 
 The whole post answers one question: **when you move to TPUs and XLA, how does writing a fast kernel change?**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The scenario: the same attention on a different machine
 
 The agenda on L12 page 3 reads as a route: train GPT-2 in JAX, look at TPU hardware, trace how XLA compiles the program into hardware instructions, then shard across devices. L13 then asks what to do when XLA's automatic output is not good enough.
@@ -240,6 +248,10 @@ The algorithm is identical. What differs is **where control sits**. On GPUs you 
 - Previous: [L21 FlashAttention (guest lecture by Tri Dao)](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - Next: [L23 Parameter-Efficient Fine-Tuning for Large Models](/posts/ai/2026-09-30-cmu11868-peft-lora-en)
 - Series overview: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

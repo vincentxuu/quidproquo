@@ -17,6 +17,14 @@ draft: false
 
 Spring 2026 第 12 講的官方題名是 **Neural Networks (cont.)**，日期為 2 月 19 日；本文標題用 Backpropagation，是因為公開 slides 的主體正是向量化反向傳播。Fall 2026 把該講直接改名 Backpropagation，但本文的版本與材料仍鎖定 Spring。課程沒有公開逐講錄影。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文使用 [Lecture 12 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec12_Neural_Networks_II.pdf)、[Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf)、[Recitation 6 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf)及 [HW6](https://www.cs.cmu.edu/~07280/assignments/hw6_blank.pdf)。Slides 先談 universal approximation，再用 scalar 與 matrix calculus 展開 backprop；本文不把 theorem 誤讀成「任何網路都容易訓練」。
@@ -87,6 +95,10 @@ Backprop 計算 `∇θJ`；gradient descent 決定怎麼用它更新 `θ`。前�
 ## 今晚可以做的動作
 
 實作 `linear_forward` 與 `linear_backward`，再用中央差分檢查一個 weight：`(J(w+ε)-J(w-ε))/(2ε)`。讓 analytic 與 numerical gradient 的相對誤差低於你設定的容忍值，再加入 sigmoid。最後用一筆三類 one-hot 資料驗證 softmax-cross-entropy 對 logits 的 gradient 是 `ŷ-y`。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

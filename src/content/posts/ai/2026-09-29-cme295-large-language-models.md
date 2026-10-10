@@ -38,6 +38,21 @@ glossary:
 
 投影片的目錄分成五段：LLM overview、MoE-based LLMs、Response generation、Prompting strategies、Inference optimizations。本文的重心放在中間三段，也就是「模型生成時你能轉的旋鈕」。MoE 只講直覺，最後一段推論加速只畫地圖，細節都連到站上更完整的篇章。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: 2025 版第 3 講錄影
+```
+
+原始影片：[2025 版第 3 講錄影](https://www.youtube.com/watch?v=Q5baLehv5So)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 什麼東西算 LLM
 
 投影片先引一句定義：語言模型是「assigns probabilities to sequences of tokens」的統計或機器學習模型。LLM 的「Large」落在三件事上：
@@ -233,6 +248,10 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 - in-context learning 從哪裡來：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - 推論優化：[CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference)
 - 本系列下一講：[第 4 講：LLM 訓練](/posts/ai/2026-09-29-cme295-llm-training)；把 chain of thought 訓練進模型裡的做法在[第 6 講：LLM 推理](/posts/ai/2026-09-29-cme295-llm-reasoning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 12 on February 12, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official Reasoning 1/2 deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture12-reasoning-part1.pdf) covers decoding, DeepSeek-R1, PPO/GRPO/DAPO, and the nature, success, and failure conditions of reasoning.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Decoding changes the model you observe
 
 Greedy decoding selects the highest-probability token at every step; it is fast but myopic. Beam search retains several high-probability prefixes and suits tasks seeking a likely full sequence. In open generation, maximizing probability can become repetitive and bland. Sampling draws from the distribution, while temperature, top-k, and top-p control diversity.
@@ -92,6 +101,10 @@ Preserve raw trajectories and verifier decisions so generation coverage and sele
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four agenda sections and does not generalize one R1 case study into a universal result for reasoning models.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

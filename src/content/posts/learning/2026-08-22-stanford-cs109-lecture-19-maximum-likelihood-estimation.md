@@ -19,6 +19,14 @@ draft: false
 
 本講維持 **L2**：worksheet 共三頁，正式 P1–P6，另有 optional challenge；answer key 兩頁，P5 與 challenge 是 pset6 題，公開版刻意不附解答。Guide 是三頁六 concepts，最後一頁只延續 Concept 6 與 wrap-up。當期投影片不可用、錄影限 Canvas，以下不重建未公開內容。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：用 entropy 接回上一講
 
 均勻分布在四個值上：
@@ -135,6 +143,10 @@ Wrap-up 可要求一題串起：辨認 model 與 `θ`、寫 likelihood／log-lik
 - Worksheet 是三頁 P1–P6 加 optional challenge；兩頁 key 省略兩題 pset6 解答。
 - Guide 是三頁六 concepts，第三頁沒有第七個 concept。
 - 當期投影片不可用、錄影限 Canvas；本文未重建未公開內容。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

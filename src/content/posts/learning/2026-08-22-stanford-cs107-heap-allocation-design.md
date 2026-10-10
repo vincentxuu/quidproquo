@@ -19,6 +19,14 @@ Lecture 20 最後把視角從 `malloc` 的使用者轉到實作者：一段連�
 
 這不是尋找唯一「最好」的資料結構。配置器同時追求正確對齊、快速回應和高空間利用率，但改善其中一項常會傷害另一項。最簡單的 bump allocator 幾乎不花時間搜尋，代價是無法真正重用；implicit free list 能重用空間，卻得掃過使用中的 block。這講的主脊就是逐步增加 bookkeeping，並逐筆看見它買到的能力與新增的成本。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -166,6 +174,10 @@ Coalescing 可立即執行，也可延後到搜尋失敗或特定時點。立即
 實作前先寫出不變量，比先寫 `malloc` 主迴圈更省時間：payload alignment 是多少；header 的 size 是否包含自己；最低 block size 是多少；allocated flag 藏在哪個 bit；heap 如何表示終點；size arithmetic 如何拒絕 overflow；split 後兩塊是否都合法；free 後何時 coalesce。
 
 Lecture 21 的真正收穫不是背下 first fit，而是看懂 allocator 每增加一份 metadata，都在購買某種能力：header 買到走訪與回收，padding 買到 alignment，搜尋買到重用，splitting 買到較高利用率，coalescing 買到較大的連續空間。成本也同時存在。下一講把 free blocks 從隱含序列抽成 explicit list，會再次用更多結構換取更短搜尋。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

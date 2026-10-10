@@ -32,6 +32,15 @@ glossary:
 
 這一講的投影片由三段組成：課程導覽（生成式 AI 是什麼、能做什麼、課程政策）、module-based autodiff、語言模型從 n-gram 到 RNN。課程政策的部分已經寫在[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)，這裡只講技術內容。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 生成式 AI 就是機率建模
 
 投影片開頭畫了一組同心圓：AI 包住 machine learning，machine learning 包住 deep learning，最裡面是 GenAI。接著列出 AI 的子目標：perception、reasoning、control、planning、communication、creativity、learning，然後問：生成式 AI 跟這些目標有什麼關係？
@@ -155,6 +164,10 @@ HW0 在 1 月 14 日發布、1 月 26 日交 Slot A。第一講的作業表寫�
 - Backpropagation 的完整推導：[CMU 11-785 第 5 講：Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)
 - RNN 的訓練與梯度問題：[CMU 11-785 第 13 講：RNN（一）](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)
 - 另一門課怎麼講 RNN 語言模型：[CS224N：RNN 語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

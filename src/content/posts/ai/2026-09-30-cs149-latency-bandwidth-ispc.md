@@ -34,6 +34,22 @@ Fall 2025 的錄影只放在 Stanford Canvas。課程首頁指向 2023 年的公
 
 這一講分兩半，看起來不相干：前半講**記憶體頻寬**，後半講 **ISPC 程式模型**。它們其實共用一個前提——上一篇的三種硬體平行（多核、SIMD、硬體多執行緒）讓處理器的算力暴增，接下來的問題是「資料送不送得過來」與「程式設計師該怎麼描述平行」。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=F4bVSyz_jxo
+title: 2023 Lecture 3 錄影：Multi-core Arch Part II + ISPC Programming Abstractions
+```
+
+原始影片：[2023 Lecture 3 錄影：Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
+
 ## 投影片開頭先補上一講沒講完的
 
 投影片第 2 頁說明，L2 結尾的 hardware multi-threading 沒講到，這一講開頭會用 L2 的投影片補完。那部分的內容已寫在[上一篇](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)，這裡不再重複。
@@ -180,6 +196,10 @@ ISPC 就是用來練這件事的例子。
 延伸閱讀：想看頻寬限制在大型模型訓練上的樣子，可以接著讀站上的 [CS336 GPU 與 TPU 導讀](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L2 現代多核處理器](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)｜下一篇 [PA1 + Written 1：四核 CPU 效能分析](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

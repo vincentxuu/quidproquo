@@ -34,6 +34,21 @@ glossary:
 
 課務部分（評分、late days、AI 工具政策）[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)已經整理過，這裡只講內容。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=EvHRQhMX7_w
+title: Spring 2025 Lecture 1: Class Intro（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 1: Class Intro（YouTube，補充）](https://www.youtube.com/watch?v=EvHRQhMX7_w)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 先補一段：MDP 是什麼
 
 官方先修寫的是「假設你熟悉 RL 基礎」，投影片也說 MDP 會快速帶過。如果你從沒碰過，先抓住這個直覺就夠了：
@@ -193,6 +208,10 @@ reward：
 - [CS221 導讀](/posts/ai/2026-08-21-stanford-cs221-ai-principles)：官網推薦的 RL 前置課
 
 **系列導覽**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)｜下一篇 [L2：模仿學習與能表達多峰分佈的 policy](/posts/ai/2026-09-30-cs224r-imitation-learning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

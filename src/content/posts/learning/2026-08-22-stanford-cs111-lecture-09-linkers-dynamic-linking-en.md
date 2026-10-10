@@ -19,6 +19,14 @@ This is part 10 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 Lecture 9 marks a course transition. The first third on CPU issues—threads, processes, synchronization, and scheduling—is complete. The next third addresses process memory layout, virtual memory, and paging, before the final third turns to storage and file systems. A linker looks like a compiler tool, but it connects source code to the memory image of a running process.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Main memory and the process-layout questions
 
 The [official Lecture 9 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf) first fixes the hardware scale. Main memory is usually volatile DRAM. It is byte addressable but transferred in roughly 64-byte cache lines, with slide examples of 60–100 ns or 200–300 CPU cycles. Example capacities range from 16–64 GB for laptops through 32–256 GB for desktops to 512–4096 GB NUMA servers. These are Spring 2026 slide snapshots, not universal machine specifications.
@@ -107,6 +115,10 @@ A practical debugging order follows the model: verify that a definition exists i
 The lecture delivers a representation pipeline rather than a list of `ld` flags. The compiler lowers source names and structure into assembly. The assembler emits relocatable objects with placeholders. The linker uses section sizes, symbols, and unresolved references to construct an executable. Only the loader turns that executable into a process memory image. Each layer decides only after it has enough information.
 
 Static linking resolves at build time, producing a self-contained but potentially duplicated executable. Dynamic linking defers library placement, enabling sharing while adding runtime contracts for the loader, table, and compatible library. The coming virtual-memory and paging lectures can now explain why two processes both see their own address 0 and how shared code pages can exist beneath those private views.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

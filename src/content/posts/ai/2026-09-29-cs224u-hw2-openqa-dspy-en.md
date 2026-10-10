@@ -33,6 +33,22 @@ In the [Assignment 2 overview screencast](https://www.youtube.com/watch?v=NQUxBV
 
 This post covers the question structure, points, required resources, and where the notebook breaks if you run it as-is today. **It gives no solutions.**
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=NQUxBVOJM14
+title: Assignment 2 overview screencast (XCS224U, Spring 2023)
+```
+
+Original videos: [Assignment 2 overview screencast (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=NQUxBVOJM14)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Where it sits in the course
 
 The 2023 schedule puts Assignment 2 in the second unit, "Retrieval augmented in-context learning." The April 17 session opens with the [Overview of Assign/bakeoff 2 slides](https://web.stanford.edu/class/cs224u/slides/cs224u-hw2-overview-2023.pdf), followed by the Information retrieval and In-context learning lectures. The assignment, bake-off, and Quiz 2 were all due April 26 at 3:00 pm Pacific.
@@ -180,6 +196,10 @@ One thing to do tonight: clone the repo, download only the 600 MB index, start t
 - Course status, all three assignments, and environment pitfalls: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - A recent take on RAG and agents: [CS224N Lecture 10: Six Components of RAG and Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - The DSPy 3.x API: [DSPy: Compiling AI Programs with Signatures, Metrics, and Optimizers](/posts/ai/2026-08-22-dspy-ai-program-optimization-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

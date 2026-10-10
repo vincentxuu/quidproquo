@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 16, printed pages 196–201, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a guide to the notes, not a reconstruction of a particular quarter's recordings. It preserves the central objectives, evaluation logic, and system dependencies without claiming to reproduce every proof.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Why representations transfer
 
 In supervised pretraining, one can train a classifier, discard its final layer, and use the penultimate activations as \(\phi(x)\). The hope is that earlier layers capture reusable structure while the last layer only implements the original task boundary.
@@ -67,6 +76,10 @@ Chapter 15 explained how to adapt a pretrained foundation model. This chapter su
 ## Exercise
 
 Design a 100-query retrieval evaluation set. Define Recall@5 and NDCG@5, then plan three ablations: change the embedding model, increase ANN search depth, and add a reranker. State which stage each change targets and what cost it may add.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

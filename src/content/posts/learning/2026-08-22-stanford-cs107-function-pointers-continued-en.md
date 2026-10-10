@@ -19,6 +19,14 @@ Lecture 12 separated data width from ordering policy but still left an `int[]`. 
 
 This is the skeleton behind generic C library APIs such as `qsort` and `bsearch`. The important part is not merely function-pointer syntax. It is the division between the library view and client view, and the three-way result that forms a stable protocol between them.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -262,6 +270,10 @@ A practical check is to annotate every `void *` with its hidden `T`. For `record
 A generic algorithm owns base, count, and width, enough to compute element addresses with `char *`; it may not guess element type. A comparator owns the domain type, recovers it from `const void *`, and returns an ordering sign; it does not manage traversal or swapping. `qsort`, `bsearch`, `lfind`, and `lsearch` apply this division to different control flows.
 
 This design eliminates typed copies but converts relationships previously preserved by the compiler into API contracts. Reliable generic C is not merely correct casting. It means stating what each address designates, how many bytes are readable or writable, what the callback sign means, and how long a result pointer lives.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

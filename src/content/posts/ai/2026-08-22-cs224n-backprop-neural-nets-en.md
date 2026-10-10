@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 3 on January 13, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf) is titled Neural Network Foundations; its agenda reviews word-vector evaluation, introduces neural networks, and then covers matrix calculus and backpropagation. The purpose is not a generic deep-learning overview. It establishes the training language used by every later model.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## From linear classifiers to neural networks
 
 A linear model multiplies an input by weights and adds a bias. It learns a decision plane but cannot express a complex curved boundary with one layer. A neural network composes affine transformations with nonlinear functions, allowing hidden layers to learn features useful to the task.
@@ -83,6 +92,10 @@ Require shape assertions, agreement between numerical and analytic gradients, an
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the four agenda components in the deck but does not claim the complete board derivation or classroom questions. The deck's “Lecture Plan” mistakenly says Lecture 2; its filename, cover, and official schedule identify it as Lecture 3.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

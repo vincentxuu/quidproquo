@@ -30,6 +30,27 @@ glossary:
 
 [系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經貼過那張 COGS 成績表，重點是 structural 幾欄幾乎全是 0，本文不再重貼數字。這裡要講的是：那些 0 是怎麼來的、ReCOGS 怎麼拆解它們，以及作業三要你做什麼。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=g5zwxUqBzN8
+title: 錄影 27：Compositionality
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=tOh-1GYaDl8
+title: 錄影 28：COGS and ReCOGS
+```
+
+原始影片：[錄影 27：Compositionality](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[錄影 28：COGS and ReCOGS](https://www.youtube.com/watch?v=tOh-1GYaDl8)、[錄影 24：Homework 3 overview（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=e73Ch08XhX0)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 組合性是什麼，為什麼要測它
 
 [第 27 支錄影](https://www.youtube.com/watch?v=g5zwxUqBzN8)從組合性原則的非正式定義開始：
@@ -184,6 +205,10 @@ Q2 用的評分函式 `recogs_exact_match` 有三條規則，notebook 各給一�
 
 - COGS 成績表與課程狀態：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 評估設計的一般原則：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

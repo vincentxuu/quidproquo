@@ -38,6 +38,22 @@ Lecture 3's title states the problem outright: **Policy Evaluation Without Knowi
 
 The listed readings are sections 5.1, 5.5, and 6.1–6.3 of [Sutton & Barto, 2nd edition](http://incompleteideas.net/book/the-book-2nd.html), and the structure follows David Silver's Lecture 4.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=jjq51TRNVvk
+title: Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"
+```
+
+Original videos: [Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"](https://www.youtube.com/watch?v=jjq51TRNVvk)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Back to dynamic programming: it already borrows its own estimate
 
 L3 opens by recalling DP policy evaluation:
@@ -200,6 +216,10 @@ One thing to do tonight: just the AB example. Before looking at the answer, writ
 
 - The same topic in CS221 (an introductory take on TD and Q-learning): [CS221 Lecture 8: Reinforcement Learning and Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
 - Policy evaluation and value-based methods from a deep RL angle: [Berkeley CS285: Policy and Value Methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

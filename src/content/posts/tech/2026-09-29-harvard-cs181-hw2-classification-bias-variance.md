@@ -34,6 +34,14 @@ glossary:
 
 [上一篇 HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression) 還在做連續值迴歸。HW2 把輸出換成類別，同時丟出一個更難的問題：**模型說「觀測到的機率是 0.3」，和「10 個模型在這點各說各話」，是同一種不確定嗎？** 本篇沿著這個問題逐題走，說明每題在考什麼、要準備哪份 section。**不給解答。**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **四題的主線**：Problem 1 從 bias-variance 分解推到兩種不確定性；Problem 2 推生成式分類器的 MLE；Problem 3 把前兩題用在貸款申請資料上，實作五種分類器；Problem 4 回頭看梯度下降與 ridge。
@@ -161,6 +169,10 @@ flowchart LR
 - 上一篇：[HW1 迴歸](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)
 - 下一篇：[HW3 核方法、神經網路與 Scaling Law](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

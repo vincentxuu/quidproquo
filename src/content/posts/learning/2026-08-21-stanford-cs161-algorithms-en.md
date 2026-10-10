@@ -24,6 +24,14 @@ Start with the least obvious thing about it: the course has three stated goals, 
 
 This piece covers the Winter 2026 offering: eighteen sets of lecture notes, eight homework PDFs, the course policies and the embedded ethics material, plus the places where the primary sources disagree with the course's public reputation. It does **not** teach the algorithms — the notes do that themselves, and they are all public.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/)
+
 ## The hard facts
 
 Winter 2026 is co-taught by [Moses Charikar](https://profiles.stanford.edu/moses-charikar) and [Ellen Vitercik](https://profiles.stanford.edu/ellen-vitercik). Charikar holds the Donald E. Knuth professorship and works on search and indexing algorithms for high-dimensional data; Vitercik is an assistant professor in Management Science and Engineering and in CS. They alternate lectures, one each. Class meets in STLC 111, Monday and Wednesday afternoons.
@@ -185,6 +193,10 @@ If you can't, the course you need isn't CS161, it's CS 103. This one assumes fro
 - **Course staff**: two instructors, one course manager, one head CA, seven CAs, plus one CA dedicated to ACE.
 - **The Stanford Online version**: five units, eight weeks, ten to twenty hours a week suggested, tuition $7,875 (the page notes it is subject to change), running June 22 to August 15 in 2026, and showing enrollment closed when I checked.
 - **What I could not confirm**: first, enrollment numbers — neither the course site nor ExploreCourses publishes them, and I found no citable source. Second, whether autumn and summer offerings return in 2026–2027 — ExploreCourses currently lists only winter and spring, but future-year data fills in gradually, so it is too early to call it a reduction. Third, whether the full course sites for offerings before Winter 2026 are still up. The directory `web.stanford.edu/class/archive/cs/cs161/` returns a 404 outright, and I found no browsable archive index; the only old material I could confirm still exists is the year-by-year notebook repos on GitHub, going back to Winter 2021.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

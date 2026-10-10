@@ -32,6 +32,15 @@ You type a sentence into ChatGPT and it answers one word at a time. Lecture 1 as
 
 The deck has three parts: a course tour (what generative AI is, what it can do, course policies), module-based autodiff, and language models from n-grams to RNNs. The policies are covered in the [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en), so this post sticks to the technical content.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Generative AI is probabilistic modeling
 
 The deck opens with nested circles: AI contains machine learning, which contains deep learning, with GenAI at the center. It then lists AI's sub-goals (perception, reasoning, control, planning, communication, creativity, learning) and asks what generative AI has to do with any of them.
@@ -155,6 +164,10 @@ One thing to do tonight: open the HW0 recitation Colab, save a copy, run it up t
 - The full backpropagation derivation: [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en)
 - Training RNNs and their gradient problems: [CMU 11-785 Lecture 13: RNNs (Part 1)](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en)
 - How another course teaches RNN language models: [CS224N: RNN language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

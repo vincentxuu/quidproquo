@@ -19,6 +19,22 @@ draft: false
 
 這一講的題目故意叫做「Everything you didn't want to know」。近年的模型論文會列出大量架構變體，但真正的問題不是記住每個名稱。你要找出哪些選擇已有跨模型共識、哪些仍是局部取捨，以及哪些只是規模與系統條件不同。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=lVynu4bo1rY
+title: CS336 Spring 2026 Lecture 3: Architectures
+```
+
+原始影片：[CS336 Spring 2026 Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 從一個簡化的現代 Transformer 出發
 
 相較原始 Transformer，課堂改用較現代的 decoder-only 起點。Normalization 放在 block 前面、position 使用 RoPE，feed-forward 常採 gated activation。後面不是從空白選菜，而是問「偏離這個保守起點有沒有足夠理由」。
@@ -70,6 +86,10 @@ Softmax 是數值風險集中處。Output logits 可用 z-loss 抑制整體偏�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依投影片的架構、超參數、穩定性和 attention 章節整理，未拿其他學期補洞。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

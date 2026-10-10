@@ -39,6 +39,14 @@ Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出�
 - 課程頁：[cmu-agents.com 課表](https://www.cmu-agents.com/)（第 7 講有投影片與[錄影](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7)）
 - 本講內容以 2026-09-15 的投影片與錄影為準。講者對 GPT-6 Astra、Fable／Opus 5 等產品表現的評語，凡是查不到公開來源的，文中都標明是講者的說法；能對到官方數字的（例如 [OpenAI 的 GPT-6 Astra 公告](https://openai.com/index/gpt-6-astra/)）另外附上
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## CUA 是什麼：observe、reason、act 一直轉
 
 投影片用一個例子貫穿全場：「買一個藍色馬克杯」。
@@ -242,6 +250,10 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 - RL 階段的背景：[CS336 Lecture 16：RLVR 與 GRPO](/posts/ai/2026-08-22-cs336-rlvr)
 - SFT 的基礎：[CS336 Lecture 15：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - LLM 當評審的偏誤：[Self-Reflection 與 LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

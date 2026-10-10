@@ -29,6 +29,14 @@ This is part 3 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-cour
 
 The course schedule says HW1 went out on Friday, April 3, the day of L2, and was due April 10 at 9 pm Pacific. It is worth 10% of the course grade.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## How much is public
 
 On this site's [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) scale, this assignment is **A3 (enough to self-study)**. The problems, template, and full starter code are public, and you don't need cloud compute.
@@ -193,6 +201,10 @@ Download the starter code, set up the environment with `installation.md`, write 
 - [CME295 Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en): diffusion-style methods applied to language models
 
 **Series navigation**: Previous [L2: Imitation Learning](/posts/ai/2026-09-30-cs224r-imitation-learning-en) | Next [L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

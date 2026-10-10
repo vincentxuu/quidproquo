@@ -30,6 +30,26 @@ The PLA from [post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-percept
 
 **Sources**: MOOC slides [04_handout](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/04_handout.pdf), the W3 watch list on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/), extended slides [04e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/04e_handout.pdf), [Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf), and [Fall 2024 HW2](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw2/hw2_red.pdf). All checked on 2026-09-30.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=tOgbh5_747w
+title: YouTube
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=MgAihqFPkZc
+title: YouTube
+```
+
+Original videos: [YouTube](https://www.youtube.com/watch?v=tOgbh5_747w)、[YouTube](https://www.youtube.com/watch?v=MgAihqFPkZc)、[YouTube](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[YouTube](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Materials for this post
 
 | Section | Video | Slide summary (last page of the 04 handout) |
@@ -168,6 +188,10 @@ The simulated value comes out far below 0.33, matching the slides' point that Ho
 - [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another take on learning theory.
 
 **Series navigation**: Previous: [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) | [Overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) | Next: [Training vs. Testing: Effective Hypotheses, Growth Function, and Break Point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

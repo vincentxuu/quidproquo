@@ -38,6 +38,26 @@ This post covers Lecture 5, "LLM systems," of the 2026 edition of Stanford's [CM
 
 If you have used any LLM chat interface, you know the pattern: you send a question, wait a moment for the first word, and then words stream out at a steady pace. Those two waits are different kinds of work with different bottlenecks. The topic list for this lecture looks scattered, running from multi-GPU training to hardware choices, but most of it reduces to one idea: **moving data around a GPU often costs more than the computation itself**.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: recording
+```
+
+Original videos: [recording](https://www.youtube.com/watch?v=Q5baLehv5So)、[recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Where this lecture sits in the 2026 syllabus
 
 The [2026 syllabus](https://cme295.stanford.edu/syllabus/) schedules Lecture 5 for October 30, right after the October 23 midterm and before Lecture 6 on AI Agents. It lists exactly seven topics:
@@ -367,6 +387,10 @@ Once the slides and video go up on October 30, this post will be revised against
 - Whether "hardware trade-offs" folds in quantization and number formats
 - Whether GQA, latent attention, and PagedAttention are taught here or stay in Lecture 2
 - Replacing the "Where the 2025 edition covered this" table with 2026 slide pages, and updating the self-check from the 2026 final
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

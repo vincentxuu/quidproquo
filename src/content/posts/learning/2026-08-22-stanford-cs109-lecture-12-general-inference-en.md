@@ -19,6 +19,14 @@ This is article 13 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The canonical Summer worksheet is a complete two-page P1–P6 plus challenge. The PDF also contains an unnumbered **1-D Tracking** page with no lecture header and no counterpart in the answer key or LLM guide. This article covers it as an orphan supplemental artifact rather than inventing a P7.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: One more Bayes update
 
 The spam prior is `0.3`. A spam message contains `free` with probability `0.6`, versus `0.1` for not-spam:
@@ -132,6 +140,10 @@ The guide's six concepts are joint-table scale, Bayesian-network factorization, 
 - P6 is a pset4 item deliberately omitted from the public answer key; missing network parameters are not inferred.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The formal worksheet and guide are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

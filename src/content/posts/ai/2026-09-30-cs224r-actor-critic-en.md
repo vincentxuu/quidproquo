@@ -36,6 +36,22 @@ This is part 5 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-cour
 
 This lecture has more formulas than L3, but one idea runs through it: **instead of waiting for rewards to tell you what is good, train a network to predict it.**
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=oejFZShW9hU
+title: Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)
+```
+
+Original videos: [Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)](https://www.youtube.com/watch?v=oejFZShW9hU)
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: policy gradient wastes data
 
 The recap on slide 3 adds two properties of policy gradient. You **need to collect an entire trajectory before updating**. And it **doesn't rely on the Markov property**, so it can work from observations rather than full states.
@@ -213,6 +229,10 @@ That comparison maps out the next few lectures. L5 covers PPO and SAC, and L6 co
 - [CME295: Preference Tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en): what the KL constraint looks like in LLM preference optimization
 
 **Series navigation**: Previous [L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) | Next [L5: Off-Policy Actor-Critic (PPO and SAC)](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

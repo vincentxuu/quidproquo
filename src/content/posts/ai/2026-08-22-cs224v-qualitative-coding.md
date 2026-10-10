@@ -18,6 +18,14 @@ description: "CS224V Document Set Analysis：質性編碼、ACLED codebook、abs
 
 第九講討論一種常被低估的文件分析：研究者不是只問一題，而是依 codebook 持續標記大量文件裡的事件、角色、地點與關係。講義以疫情事件與 [ACLED 衝突事件方法](https://acleddata.com/methodology/)為主線，最後的結論很克制：自動質性編碼仍不足以跳過人工品質流程。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：從人工方法到端到端抽取
 
 講義先定義 qualitative coding 與 codebook，介紹疫情與 ACLED 案例，再檢討句子／span-based extraction。後半把 abstractive event extraction 拆成事件型別判定、argument extraction、受約束輸出、entity retrieval/filtering/assignment，最後做 task-specific 與 end-to-end 評估。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf))
@@ -123,6 +131,10 @@ Qualitative coding 的價值來自一致應用 codebook，而不是產出很多 
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 講義摘要仍在進行的研究與多份資料集，沒有公開完整標註手冊、review 流程或訓練／評估程式；本文不把研究 pipeline 寫成已可無人監督部署。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

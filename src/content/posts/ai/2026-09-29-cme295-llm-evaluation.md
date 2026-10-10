@@ -38,6 +38,21 @@ glossary:
 
 投影片先界定範圍：「評估」可以指**輸出品質**（有沒有照指示、連貫、正確），也可以指**系統表現**（延遲、價格、可靠度）。這一講只談前者。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=8fNP4N46RRo
+title: 2025 版第 8 講錄影
+```
+
+原始影片：[2025 版第 8 講錄影](https://www.youtube.com/watch?v=8fNP4N46RRo)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 人工評分：最接近真相，但有三個問題
 
 人工評分被投影片稱為「closest to truth」，但它有三個限制：
@@ -248,6 +263,10 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 - 從 perplexity 一路談到 agent 與安全評測：[CS336 Lecture 12：沒有一個真正的 LLM 評分](/posts/ai/2026-08-22-cs336-evaluation)
 - 實作面：golden set、盲評、統計檢定怎麼做：[調整 agent 之後，怎麼嚴謹比較前後差異](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 - 把 agent 的每個 tool call 變成可追蹤的 span：[Agent 可觀測性：從 OTel Trace 到抓出幻覺、工具誤用與無限迴圈](/posts/ai/2026-06-04-agent-observability-failure-detection)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

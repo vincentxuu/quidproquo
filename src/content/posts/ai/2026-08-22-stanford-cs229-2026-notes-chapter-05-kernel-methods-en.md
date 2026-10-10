@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 5, “Kernel methods,” on printed pages 49–59 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of a quarter's recordings.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Nonlinear in the input, linear in the parameters
 
 When a linear model is too limited, one can first map the input through \(\phi(x)\) and learn \(\theta^T\phi(x)\). A scalar input might be expanded into polynomial features. The result is nonlinear in the original \(x\) but remains linear in \(\theta\), so algorithms such as LMS still apply.
@@ -60,6 +69,10 @@ This chapter extends Chapter 1's “linear model over features” idea and prepa
 ## Self-study exercise
 
 For three two-dimensional points, explicitly construct second-degree polynomial features and calculate every inner product. Then compute the corresponding polynomial kernel directly and verify equality. Finally, compare Gram matrices from several Gaussian bandwidths and watch them move from nearly diagonal to nearly constant.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

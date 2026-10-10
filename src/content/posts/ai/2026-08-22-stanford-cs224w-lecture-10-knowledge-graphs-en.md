@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 10 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-10-23. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and [official slides](https://web.stanford.edu/class/cs224w/slides/10-kg.pdf); the slides credit Jure Leskovec, Charilaos Kanatsoulis, and the course team.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include the slides and optional readings listed on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable, so this article does not reconstruct them. The public 2021 videos are not evidence for a 2025 lecture.
@@ -114,6 +122,10 @@ Manually score a small set of triples under each decoder, including an antisymme
 ## Self-study checkpoint
 
 Take one minimal graph or set of triples and write down the input, invariances retained by the model, output, and evaluation. If two examples that should differ remain identical at every step, you have located an expressive gap in the encoder.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

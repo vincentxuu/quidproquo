@@ -32,6 +32,14 @@ glossary:
 
 **本文依據**：[repo 首頁 README（2026 版）](https://github.com/IKMLab/NTHU_Natural_Language_Processing)、[2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)、[2025 W0_Syllabus.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf)、[2026 Syllabus-115.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/Syllabus-115.pdf)、[2025 作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)、[2026 作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Assignments/README.md)、TAICA [114 學年上學期](https://taicatw.net/fall-114/)與[115 學年上學期](https://taicatw.net/fall-115/)開課清單，以及 [IKMLab NTHU YouTube 頻道](https://www.youtube.com/@IKMLabNTHU)的錄影。全部在 2026-09-30 打開核對，錄影逐支用 YouTube oEmbed 確認可公開播放。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 這門課的硬事實
 
 - **定位**：2025 的 Syllabus 封面寫「主導課程5：自然語言處理」，並註明 1200 人中保留 100 人給清大，聯盟學校平均每校約 50 人。TAICA 開課清單把它歸在「人工智慧自然語言技術學分學程」，難度標了八顆星，課程屬性是研究所課程。
@@ -153,6 +161,10 @@ glossary:
 - [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)：英文授課的 NLP 主課，逐屆比對 2019 到 2026 的課表。
 - [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)：偏自然語言理解、檢索與評估方法。
 - [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：同樣是中文授課、錄影全開，但主軸是 AI Agent 與模型行為。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

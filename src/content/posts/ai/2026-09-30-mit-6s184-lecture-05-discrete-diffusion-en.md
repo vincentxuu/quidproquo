@@ -39,6 +39,21 @@ The good news: the recipe from [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lectur
 
 The time convention matches the rest of the series: t=0 is noise and t=1 is data.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=d0kmyEJN2hI
+title: Lecture 5 recording: Discrete Diffusion Models (2026)
+```
+
+Original videos: [Lecture 5 recording: Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Start with the map: every continuous object has a discrete twin
 
 Slides 5 takes the six-cell table of continuous flow matching (conditional/marginal × probability path/vector field/loss) and swaps in the discrete versions. The table below pairs the numbered results from the notes. Each section after it fills in one row:
@@ -361,6 +376,10 @@ The notes' answer is that these principles were never specific to flows or CTMCs
 - Continuous diffusion from the DDPM view (time runs in the opposite direction from this course): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Starting points for discrete diffusion cited in the notes: [Campbell et al., A Continuous Time Framework for Discrete Denoising Models](https://arxiv.org/abs/2205.14987) (reference [5]) and [Gat et al., Discrete Flow Matching](https://arxiv.org/abs/2407.15595) (reference [16])
 - Source of Figure 18 in the notes: [Lipman et al., Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264) (reference [26])
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

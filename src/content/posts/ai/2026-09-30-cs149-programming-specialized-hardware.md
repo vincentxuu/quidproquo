@@ -34,6 +34,14 @@ glossary:
 
 本篇用到的硬體名詞（Tensor Core、TMA、脈動陣列、資料流架構）都在[上一篇](/posts/ai/2026-09-30-cs149-hardware-specialization)解釋過，這裡只引用。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
+
 ## 一、場景：同一個 kernel，換新 GPU 反而變慢
 
 第 31 頁用一組數字說明為什麼 GPU kernel 值得花力氣：
@@ -215,6 +223,10 @@ METAPIPE(M / MM, [&]() {
 延伸閱讀：想在 TPU 上看另一種「用 DSL 管理專用硬體」的做法，讀 [CMU 11-868 TPU、JAX 與 Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)；想看 Triton 這類更高階的 GPU kernel 語言，讀 [CS336 Kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)。下一篇 [PA4](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki) 會讓你在 AWS Trainium2 上親手管理軟體控制的晶片上記憶體。
 
 系列導覽：上一篇 [L10 硬體專用化與 DNN 加速器設計](/posts/ai/2026-09-30-cs149-hardware-specialization)｜下一篇 [PA4 + Written 3：Trainium2 與 NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

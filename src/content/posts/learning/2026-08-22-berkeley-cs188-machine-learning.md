@@ -18,6 +18,22 @@ draft: false
 
 [Lecture 19–25](https://inst.eecs.berkeley.edu/~cs188/sp26/)先談 rational decisions 與 value of perfect information，再進入 decision trees、linear regression、Naive Bayes、neural networks、language models 與 fine-tuning。[Project 5](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj5/)則把後半段落到 PyTorch：non-linear regression、手寫數字與語言分類、CNN、attention，以及 optional character-GPT。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qd1cyMpmbRs
+title: CS188 Spring 2026 Lecture 19: Rational Decisions
+```
+
+原始影片：[CS188 Spring 2026 Lecture 19: Rational Decisions](https://www.youtube.com/watch?v=qd1cyMpmbRs)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## 這不是另一門完整深度學習課
 
 P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model、forward pass、loss、optimizer、batch 與 training loop。它涵蓋面廣，但不取代專門的最佳化、表示學習或大模型課。把每題當成一個介面練習，比追求在短時間內補齊全部理論更實際。
@@ -31,6 +47,10 @@ P5 的作用是讓廣義 AI 課的學生碰到現代 ML workflow：定義 model�
 每完成一題，記錄 baseline、loss curve 與一類失敗案例。local autograder 能檢查介面與門檻，卻不會替你解釋為何模型錯；那一例才是自學者要補的分析。
 
 系列導航：[上一篇：Bayes nets 與 Ghostbusters](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)｜[下一篇：結業路線](/posts/learning/2026-08-22-berkeley-cs188-completion-route)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

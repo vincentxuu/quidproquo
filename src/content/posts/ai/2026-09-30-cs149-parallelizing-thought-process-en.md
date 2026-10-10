@@ -30,6 +30,22 @@ Fall 2025 recordings are only on Canvas. The matching public recording is [2023 
 
 Slides 3–27 replay the ISPC half of L3 (`sinx()`, interleaved vs. blocked, `foreach`, `reduce_add`, the SPMD summary), which the [previous lecture guide](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en) already covers. This post starts at slide 28, where the lecture's new topic begins: **what should run through your head when you write a parallel program?**
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=0-ztm8SKq70
+title: 2023 Lecture 4 recording: Parallel Programming Basics
+```
+
+Original videos: [2023 Lecture 4 recording: Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
+
 ## Three questions, one goal
 
 Slide 29 boils the process down to three steps:
@@ -186,6 +202,10 @@ The next lecture, L5, picks up at the assignment step: how to balance load witho
 Further reading: this lecture only motivates locks and atomicity. For the full operating-systems treatment, see this site's guides to [CS111 Lecture 4: concurrency and atomicity](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity-en) and [Lecture 5: locks and condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en). CS149 itself covers lock implementation and lock-free programming at orders 20–21 of this series.
 
 Series navigation: previous [PA1 + Written 1: Performance on a Quad-Core CPU](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en) | next [L5: Work Distribution and Scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

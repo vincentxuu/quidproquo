@@ -26,6 +26,21 @@ glossary:
 
 用到的官方材料：[錄影 07](https://www.youtube.com/watch?v=LOo0VKhjoRc)（2025-04-01，約 3 小時 3 分）、投影片 GenAI07（31 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04c】用OpenAI_API打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04c%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) 與 [`用_Ollama_打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E7%94%A8_Ollama_%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第七週作業。存取等級 **A3**。notebook 是跨課共用 repo，**以下引用 repo 目前版本，學期結束後可能已更新**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=LOo0VKhjoRc
+title: 【生成式 AI】07.打造自己的對話機器人（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】07.打造自己的對話機器人（YouTube 錄影）](https://www.youtube.com/watch?v=LOo0VKhjoRc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 錄影 07 的章節很清楚：前 30 分鐘講 OpenAI 金鑰、Groq 與 Ollama；0:39 起在 Colab 上裝 Ollama、做療癒系對話機器人；休息後（1:15 起）做「可以一直說下去」的版本和 Gradio web app，1:41 介紹 AISuite 套件，1:49 說明作業。第三節是閃電秀，其中一場主題是 Ollama 應用，助教另外介紹了 LM Studio。
@@ -145,6 +160,10 @@ Colab 免費版跑 1B 模型比較實際。想在自己電腦跑更大的版本�
 - 語言模型本身怎麼運作：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 
 上一篇：[L06 LLM 的應用及倫理議題的挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)｜下一篇：[L08 檢索增強生成（RAG）的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

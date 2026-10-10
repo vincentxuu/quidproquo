@@ -18,6 +18,22 @@ draft: false
 
 [Lectures 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/) progress from probability and Bayes nets through exact inference and sampling to HMMs and particle filtering. [Project 4: Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) makes the sequence concrete: Pacman cannot see ghosts and receives only noisy Manhattan-distance readings, so it must maintain location beliefs and pursue targets.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q9TPylxjNoA
+title: CS188 Spring 2026 Lecture 13: Probability
+```
+
+Original videos: [CS188 Spring 2026 Lecture 13: Probability](https://www.youtube.com/watch?v=Q9TPylxjNoA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## Factor operations are not mechanical tables
 
 Joining factors combines compatible information; elimination sums over a variable no longer needed. Variable-elimination cost depends strongly on order. Before each implementation step, state what distribution the factor represents and check conditioned versus unconditioned variables instead of manipulating dictionary keys blindly.
@@ -33,6 +49,10 @@ The official visualization displays posterior probability through brightness. Af
 Hand-calculate a join and elimination on a two-variable factor, then implement exact inference. Verify normalization before moving to particle filtering. Finally let the greedy BustersAgent act on each ghost's most likely position and examine what is lost when a complete uncertainty distribution is reduced to a mode.
 
 Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en) | [Next: Decisions and machine learning](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

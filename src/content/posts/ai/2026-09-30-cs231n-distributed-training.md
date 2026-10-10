@@ -36,6 +36,22 @@ glossary:
 
 這一講是整門課最偏系統的一講。它的貫穿範例是 [Llama3-405B](https://arxiv.org/abs/2407.21783)。投影片解釋了原因：GPT-4 技術報告明言不公開架構、模型大小、硬體與訓練算力，開啟了不分享模型細節的趨勢；Meta 在 2024 年 4 月釋出的 Llama3 則在論文裡公開大量模型與訓練細節。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=9MvD-XsowsE
+title: Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training（YouTube）
+```
+
+原始影片：[Stanford CS231N 2025 Lecture 11: Large Scale Distributed Training（YouTube）](https://www.youtube.com/watch?v=9MvD-XsowsE)
+
+課程與錄影入口：
+
+- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 第一部分：GPU 與叢集
 
 **GPU 是什麼。** 原本為圖形設計，現在是通用的平行處理器。投影片拆解 NVIDIA H100：有 50 MB 的 L2 cache，每個 streaming multiprocessor「有點像帶向量指令的 CPU 核心」。
@@ -178,6 +194,10 @@ CP 常用於長序列微調。Llama3-405B 的例子：第一階段 S=8192，不�
 - 大 batch 對比學習為什麼需要分散式訓練：本系列下一篇 [L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 
 **系列導覽**：上一篇 [L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)｜下一篇 [L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

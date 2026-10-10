@@ -30,6 +30,21 @@ I used four official sources: the [lecture 14 recording](https://www.youtube.com
 
 Access level is **A3**, with two gaps worth stating up front. First, the second half of the recording had on-site technical problems; the video description says to "refer to the slides for the second half" and lists the matching slide numbers. Second, only the final project rules are public; the list of 1132 projects is not.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=AOLoR3p2Z0Q
+title: 【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)
+```
+
+Original videos: [【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 On the Chang Gung schedule this lecture falls in week 15 (May 27). Week 14 (May 20) was NCCU's anniversary holiday, with no class. There is no homework, and the following week (June 3) is the final project showcase.
@@ -193,6 +208,10 @@ This post stands on its own. To dig deeper:
 - Course map: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L13: Reinforcement Learning and Generative AI Applications](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en) | this is the last post in the series
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

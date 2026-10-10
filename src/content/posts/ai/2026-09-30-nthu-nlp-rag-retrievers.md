@@ -35,6 +35,26 @@ glossary:
 
 這篇回答一個問題：**LLM 會編答案，要怎麼先「找對資料」？稀疏向量和稠密向量各有什麼長處？**
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
+title: Week 10 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=SMVvvbXLYg4
+title: Week 10 Thu.
+```
+
+原始影片：[Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4)、[Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 幻覺與兩條緩解路線
 
 投影片引用 [Ji et al. 2023](https://arxiv.org/abs/2202.03629) 的定義：自然語言生成模型常常產生無意義、或和輸入不一致的文字，這叫 hallucination。緩解方法列了兩條（外加一個「…」）：
@@ -179,6 +199,10 @@ GTR 分兩階段訓練：
 - RAG 與 language agent 的元件拆解：[CS224N 第 10 講：RAG 與 Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 工程面的 RAG 技法總整理：[RAG 技法大全](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - 中文 embedding 在 RAG 裡常見的坑：[繁中 embedding 的 RAG 失敗模式](/posts/ai/2026-06-04-zh-tw-embedding-rag-failures)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

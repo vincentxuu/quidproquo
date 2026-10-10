@@ -27,6 +27,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
+title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 這一講在補什麼缺口
 
 前面幾講講了架構、優化、正則化，都是「對的知識」，但沒告訴你**當 loss 三天不動時該怎麼辦**。第 9 講就是這堂「實作生存術」。
@@ -94,6 +110,10 @@ loss 不降時，按這個順序查：
 ## 為什麼這對實作重要
 
 這一講的價值不在某個具體技巧，而在**建立一個可控的實驗流程**。當你有一套可重複的 recipe，每次實驗失敗都能定位原因，而不是「換個隨機種子再試一次」。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

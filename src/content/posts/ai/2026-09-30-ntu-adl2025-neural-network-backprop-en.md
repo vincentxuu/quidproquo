@@ -29,6 +29,26 @@ This is post 2 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 
 The decks were checked on 2026-09-30. Video 2.5 is linked from the course page but is not on the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o), so watching only the playlist skips it. The page ranges in the table come from the section title slides in the deck, not from the video timelines.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=YfNmHxDHE-M
+title: ADL 2.1: How to Train a Model? (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=AySPuO7vOvA
+title: ADL 2.2: What is a Model? (YouTube)
+```
+
+Original videos: [ADL 2.1: How to Train a Model? (YouTube)](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model? (YouTube)](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean? (YouTube)](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function? (YouTube)](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation (YouTube)](https://www.youtube.com/watch?v=BHgssEwMxsY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Training a model means answering three questions
 
 Post 1's framework says training means picking the best function f* from a set of candidates. NN Basics p. 6 splits that into three questions, and the whole deck follows them:
@@ -194,6 +214,10 @@ Pages 26–27 draw this as a "reversed network": δ^(l+1) is the input, it is mu
 
 Previous: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en)
 Next: [Word Vectors, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

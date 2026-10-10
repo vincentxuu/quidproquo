@@ -28,6 +28,14 @@ glossary:
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 11 篇。上一篇是 [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)，下一篇是 [HW6（二）：HMM 與 Kalman filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman)。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 為什麼從 Problem 4 開始讀
 
 HW6 標題是「Sequential Models and Decision Making」，五題依序是 HMM（Kalman filter，15 分）、Policy／Value Iteration（15 分）、Q-learning 玩 Swingy Monkey（20 分）、Autoregressive Models（20 分）、Embedded Ethics（10 分）。但講課順序是反過來的：
@@ -127,6 +135,10 @@ Part 2 結論是生成慢在不能平行。speculative decoding 用兩個模型�
 
 - [CME295 第 3 講：LLM 生成時的控制旋鈕](/posts/ai/2026-09-29-cme295-large-language-models)：解碼策略、temperature、top-p。
 - [CME295 2026 第 5 講（課前預寫）：LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)：prefill 與 decode 的差別、KV cache 大小怎麼算、speculative decoding 的接受率與加速上限。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

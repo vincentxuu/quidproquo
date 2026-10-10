@@ -17,6 +17,21 @@ draft: false
 
 Lecture 3 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Computer Vision: How Convolution Preserves Spatial Structure**. It Moves from image tensors, convolution, and pooling to recognition systems, preparing for MNIST and face detection in Lab 2. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=pqIcoskUuWs
+title: Lecture 3 official video
+```
+
+Original videos: [Lecture 3 official video](https://www.youtube.com/watch?v=pqIcoskUuWs)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## What to take away
 
 - Compute feature-map sizes after kernel, stride, and padding choices
@@ -41,6 +56,10 @@ Compute one 3×3 convolution on a tiny image, then compare your shape with PyTor
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

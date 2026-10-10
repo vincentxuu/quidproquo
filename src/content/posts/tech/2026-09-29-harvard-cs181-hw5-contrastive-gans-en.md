@@ -30,6 +30,14 @@ This is part 10 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harv
 
 K-means and PCA in the previous post were both about reconstruction: rebuild each image from a centroid or a few components and keep the error small. These two problems take a different route. SimCLR reconstructs nothing; it only asks the network to recognize that two crops came from the same image. A GAN never computes a data likelihood; it only needs samples that fool a discriminator. What ties them together is the title of section 5 in [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf): **learning viewed as a classification problem**.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where this sits in the 2026 schedule
 
 | Item | Official source |
@@ -143,6 +151,10 @@ The assignment has no EBM question; EBMs appear only in Section 8.
 
 - [CS230 guide: supervised, self-supervised, and weakly supervised learning](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en), which goes from triplet loss to the motivation for SimCLR.
 - The original papers: [Chen et al., SimCLR (2020)](https://arxiv.org/abs/2002.05709) and [Goodfellow et al., Generative Adversarial Networks (2014)](https://arxiv.org/abs/1406.2661).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

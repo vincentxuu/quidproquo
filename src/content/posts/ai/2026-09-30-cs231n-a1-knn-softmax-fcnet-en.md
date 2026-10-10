@@ -40,6 +40,14 @@ The [assignments page](https://cs231n.stanford.edu/assignments.html) describes i
 
 This post covers each question's goals, which files you touch, and the checkpoints and inline questions the notebooks spell out. **It gives no solutions.** The [Honor Code on the assignments page](https://cs231n.stanford.edu/assignments.html) says it plainly: solutions from past offerings have been posted online, the course knows, and it expects all submitted work to be the student's own.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Goals on the assignment page
 
 The page frames the assignment as practice "putting together a simple image classification pipeline based on the k-Nearest Neighbor or the SVM/Softmax classifier". Its nine goals fall into four groups:
@@ -168,6 +176,10 @@ One thing you can do tonight: download the starter code, open `cs231n/classifier
 
 - The course as a whole, access gaps, and a 10-week self-study plan: [Reading Stanford CS231N (series overview)](/posts/ai/2026-09-30-cs231n-course-overview-en)
 - The same ideas from another angle: [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en), [CMU 11-785 Lecture 8: Optimizers and Regularization](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

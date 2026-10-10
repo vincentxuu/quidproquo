@@ -19,6 +19,14 @@ A bit string has no intrinsic sign. `1011` can be unsigned 11 or 4-bit two's-com
 
 This article follows the [official Winter 2026 Lecture 3 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf) in full. Its organizing question is how a finite bit pattern can support unsigned values, signed values, and addition. By the end, you should be able to decode small patterns by hand and explain why “the processor appears to wrap” does not mean “C promises signed overflow will wrap.”
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture metadata and source limits
 
 - Course: Stanford CS107: Computer Organization and Systems
@@ -237,6 +245,10 @@ A useful exercise for tonight is to draw a four-bit wheel and label every patter
 6. Overflow is a value-range design problem. Beyond choosing a type, define limits, check boundaries, and test long-term accumulation.
 
 The next lecture turns bit patterns from passive number representations into fields that programs actively manipulate: AND, OR, XOR, NOT, and masks. Without a clean separation between signed and unsigned interpretation, that material degenerates into a truth table. Once the same bits can be seen under multiple numeric meanings, bitwise operators become tools that can be reasoned about.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -20,6 +20,14 @@ series:
 
 This series is a guide to the materials, not a reconstruction of the classroom. The official site says that [recordings require a Berkeley login](https://cal-cs288.github.io/sp26/course_info/). Anonymous readers get 18 slide units, three assignments, two starter repositories, and project specifications. The articles stay within that evidence.
 
+## Course video sources
+
+Recordings are provided to enrolled students and Cal-affiliated auditors. No public external recording was verified; use the public slides.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://cal-cs288.github.io/sp26/course_info/)
+
 ## The prerequisites are operational
 
 The course assumes machine-learning experience and proficiency with PyTorch, NumPy, and neural networks; it provides no introductory tutorials. For undergraduate and master's students, [CS182, CS188, CS189, or EECS183/283A](https://cal-cs288.github.io/sp26/course_info/) is strongly encouraged.
@@ -53,6 +61,10 @@ The materials and starter code are sufficient for meaningful work, hence A3. [Co
 Official assessment for [Assignments 2 and 3](https://cal-cs288.github.io/sp26/assignments/) additionally relies on hidden tests, Gradescope, and a course-provided OpenRouter wrapper. Off-campus readers do not receive those pieces. The [final project](https://cal-cs288.github.io/sp26/project/) adds in-course team matching and checkpoint feedback. The course home only acknowledges VESSL AI and Google Cloud project compute credits; it does not promise public access to them.
 
 A2's Transformer and A3's RAG can both incur compute costs. Start with small data, small models, and CPU baselines before renting a GPU.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

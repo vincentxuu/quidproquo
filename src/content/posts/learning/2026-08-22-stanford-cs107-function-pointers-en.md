@@ -19,6 +19,14 @@ C has no templates or method dispatch, but an algorithm does not need to be copi
 
 That decomposition matters more than the syntax. A generic function does not pretend to know every type. It retains only the common mechanism and turns unknown facts into parameters. The cost is that `void *` does not preserve full type information. Length, width, writability, and the comparator contract must be maintained jointly by the interface and caller.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -273,6 +281,10 @@ A practical exercise is to take one typed array helper and mark the three forms 
 5. Fully generic C sorting needs both abstractions: `void * + size` abstracts data and a comparator callback abstracts behavior. Each removes type information and therefore demands a more precise interface.
 
 Lecture 12 is not primarily a clever bubble-sort demonstration. It shows how C builds reusable boundaries without language-level generics: retain common work in the library and return unknowable width and decisions to the caller. The less the type system preserves automatically, the less vague the contract may be.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

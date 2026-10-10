@@ -18,6 +18,21 @@ series:
 
 This article covers CMU 11-785 Spring 2026 **Lecture 26: Reinforcement Learning**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/Reinforcement_Learning_S26.pdf) and [official YouTube recording](https://youtu.be/NTd9W1rqIYk). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=NTd9W1rqIYk
+title: Lecture 26 official YouTube recording
+```
+
+Original videos: [Lecture 26 official YouTube recording](https://www.youtube.com/watch?v=NTd9W1rqIYk)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
 ## What this lecture addresses
 
 The lecture centers on states, actions, rewards, returns, values, and policy learning. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
@@ -45,6 +60,10 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

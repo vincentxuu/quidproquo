@@ -33,6 +33,15 @@ Official materials used: [hw4.zip](https://www.cs.cmu.edu/~mgormley/courses/1042
 
 This post covers structure, points, files to edit, compute, and environment. **It gives no solutions.**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## The basics
 
 | Item | Details |
@@ -177,6 +186,10 @@ Confirmed: the handout, starter code, unit tests, and notebook in hw4.zip; sched
 Further reading: for the math behind diffusion and guidance, see [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en). For the systems side of parameter-efficient fine-tuning such as LoRA, see [CMU 11-868 L23: Efficient Fine-Tuning for Large Models](/posts/ai/2026-09-30-cmu11868-peft-lora-en).
 
 Series: Previous: [L14–L15: Cross-Attention, DiT, Prompt-to-Prompt, and the Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en) | Next: [L15–L16: Scaling Laws and Mixture of Experts](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

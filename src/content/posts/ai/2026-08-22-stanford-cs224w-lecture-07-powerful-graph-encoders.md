@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 7 講**，官方日期 2025-10-14。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/07-theory2.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含投影片與 schedule 列出的 optional readings。Canvas 錄影、現場 Q&A、板書及 Ed 討論不公開，因此本文不推測；2021 公開影片也不當成 2025 講次內容。
@@ -116,6 +124,10 @@ Position-aware encoding 對 anchor choice 敏感。Random anchors 應多 seed，
 最終還要測 generalization boundary：在較小 cycles 或較短距離訓練，於更大 graph、未見 cycle length 與不同 anchor density 測試。Target-conditioned encoder 可能記住 training size pattern，substructure counter 可能超出預設 radius，position encoder 可能因 distance clipping 全部落入同一 bucket。逐項報 in-range 與 out-of-range，而不是只給混合平均。這個測試能區分「打破 training graphs 的對稱」與「學到可外推的結構規則」。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

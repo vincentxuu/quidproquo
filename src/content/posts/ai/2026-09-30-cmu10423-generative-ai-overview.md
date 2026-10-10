@@ -29,6 +29,15 @@ CMU 10-423 是卡內基美隆大學機器學習系的生成式 AI 課，Spring 2
 
 這篇回答三件事：這門課教什麼、校外讀者拿得到哪些東西、該怎麼自學。各講細節留給後面的篇章。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 這門課的硬事實
 
 | 項目 | Spring 2026 |
@@ -181,6 +190,10 @@ HW4 的 Colab Pro 建議需要 CMU 信箱，校外讀者得自己找 GPU。細�
 - Diffusion 與 flow matching 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 - LLM 的系統面（CUDA、分散式、服務）：[CMU 11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 - 先修：[CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

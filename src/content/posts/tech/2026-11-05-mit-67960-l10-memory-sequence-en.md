@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=IiHknRHA-Gk
+title: MIT 6.7960 Fall 2024 — Lec 10. Architectures: Memory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 10. Architectures: Memory](https://www.youtube.com/watch?v=IiHknRHA-Gk)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 10. Architectures: Memory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec10_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Why sequences need "memory"
 
 Earlier architectures (MLP, CNN) process each input independently, with no notion of "time". But speech, text, and sensor streams are data whose meaning at step t heavily depends on prior context. To model such dependency the network needs a **state that persists across time**.
@@ -91,6 +107,10 @@ But the RNN family did not vanish: in **online / streaming, low-latency, memory-
 - With RNNs, **gradient clipping is almost mandatory** or explosions are likely.
 - Need long-range dependency but want a lightweight model → prefer **LSTM/GRU** over vanilla RNN.
 - If the task is "read the whole passage then answer" (e.g., document understanding), **attention is the more natural choice** — don't force an RNN.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

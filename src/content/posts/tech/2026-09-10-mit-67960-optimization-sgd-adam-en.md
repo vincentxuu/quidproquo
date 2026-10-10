@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 7 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) is taught by Jeremy Bernstein. This lecture doesn't just list optimizers — it derives from **gradient descent dynamics** why large batches need large learning rates, why Adam fails in certain regimes, and how to use "scaling rules" to transfer hyperparameters from small-batch experiments to large-scale training. This article restructures the lecture highlights into a practical decision framework with runnable PyTorch code.
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Optimizer Genealogy: From SGD to Adam
 
 The main thread of deep learning optimizer evolution: **how to stably converge to good solutions in high-dimensional non-convex landscapes with minimal hyperparameter tuning**.
@@ -200,6 +216,10 @@ print("Saved plot to optimizer_comparison.png")
 | Val loss flat, train loss drops | Overfitting, weight decay too small | Increase wd, add dropout, early stopping |
 | Large batch won't converge | Linear scaling breaks | Switch to sqrt scaling, extend warmup, check BN stats |
 | AdamW weight decay ineffective | Used `weight_decay` param but optimizer is Adam | Use `torch.optim.AdamW` (decoupled) |
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

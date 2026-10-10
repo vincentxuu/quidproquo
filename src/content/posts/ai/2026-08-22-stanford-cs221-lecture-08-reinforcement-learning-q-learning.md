@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：本地對照的官方 artifact 覆蓋的是 MDP、tabular model-free 方法、SARSA 與 Q-learning。它沒有在這份檔案中提供 features 或 linear approximation 的實作，因此本文只標示缺口，不把其他講次的內容接進來。Canvas 課堂互動、作業解答與隱藏測資也不在公開材料裡。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 這一講的問題很具體：如果知道 MDP 的轉移機率與 reward，就能用 value iteration 找最佳策略；如果不知道，agent 就必須靠一次次互動取得資料。官方程式依序展示三種做法：先估計 MDP 再做 value iteration 的 model-based 方法、直接從完整 rollout 平均 Q 值的 model-free Monte Carlo，以及一邊走一邊 bootstrapping 的 SARSA 和 Q-learning。
@@ -123,6 +132,10 @@ SARSA 學的是目前 policy 的 `Q_π(s,a)`。最後一段問得更直接：如
 這講先回到已知 MDP，再移除模型前提，讓 agent 只能在 action 後收到 reward 與 next state。`simulate` 定義互動協定，model-based 估計模型後重用 value iteration，Monte Carlo 等完整回報，SARSA 用實際下一 action bootstrapping，Q-learning 則用 greedy next action 建 target，從 on-policy 轉成 off-policy。
 
 若問題改成 features、linear approximation 或巨大 state space，這份 Lecture 8 artifact 已經告訴你邊界：下一步要找另一份官方材料，而不是從本講自行推導不存在的段落。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

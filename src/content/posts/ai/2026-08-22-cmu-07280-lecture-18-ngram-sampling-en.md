@@ -17,6 +17,14 @@ series:
 
 Lecture 17 chose the tokens. **CMU 07-280, Spring 2026, Lecture 18** turns a token sequence into a model that can be trained and sampled. The official inked deck is titled *NLP: N-gram LMs*. Its path runs through joint probability, a Markov approximation, corpus counts, sampling, temperature, and finally the handoff to feature learning.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 This article fully reads the [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf). The uninked direct link returned 404 on August 22, 2026, while the inked deck remained anonymously accessible and complete. The official site provides no public Spring 2026 lecture recording, so this article does not invent how the instructors discussed polls or the worksheet live.
@@ -84,6 +92,10 @@ N-grams remain valuable because they are auditable. A probability can be traced 
 ## An action for tonight
 
 Using the corpus from Lecture 17, build unigram, bigram, and trigram counts. Generate three passages from the same prompt: greedy, sampling at `T=0.5`, and sampling at `T=2`. Record the first step at which each model encounters an unseen context, then choose whether you would smooth, back off, or shorten context. Do not stop at judging which output “sounds human.”
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ draft: false
 
 這講的主脊是一次 `realloc` 狀態轉換。先確認現有 block 的實際容量，再依序考慮 padding、縮小切割、吸收相鄰 free blocks，最後才走 allocate-copy-free。三個原地案例表面不同，實際都在維持同一組條件：alignment 不變、heap 仍被不重疊 blocks 完整切分、每個 free block 恰好出現在 free list 一次、舊資料的有效前綴不能改變。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 教材與完整議程
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -176,6 +184,10 @@ Lecture 23 不只是教一個更快的 `realloc`。它讓 allocator 的三種視
 實作時最有效的順序是把每個 helper 的前置與後置條件寫清楚：它接收的 node 是否已在 list、回傳時 remainder 是否已插入、metadata 何時可被覆寫、失敗時哪個 pointer 仍有效。把複雜操作拆成「unlink、改 physical range、必要時 reinsert」，每階段都能檢查，會比一口氣改六個 pointers 容易除錯。
 
 原地成長的效能收益很直觀，真正的課程價值卻是更樸素的原則：先保存仍需要的結構資訊，再讓舊表示失效；先證明 remainder 是合法 block，再把它放進索引；先確保新 allocation 成功，再結束舊物件生命週期。Allocator 沒有容錯空間，因為一次 stale link 最後會變成另一個 caller 的重疊記憶體。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

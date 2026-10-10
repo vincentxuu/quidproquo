@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。本文只覆蓋 `policy_gradient.py` 實際呈現的內容；source 沒有的 actor-critic、generalized advantage estimation、entropy regularization 或 off-policy policy-gradient 推導，不在本文假裝補齊。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講從哪裡出發
 
 RL 裡有兩個角色。environment 是一個 Markov decision process（MDP）；agent 則是 RL algorithm。source 用 `FlakyTramMDP(num_locs=6, failure_prob=0.1)` 作為小型環境：共有六個位置，搭 tram 有失敗機率。agent 從 state 1 開始，依序看到 state、選 action、收到 reward，再看到下一個 state。
@@ -177,6 +186,10 @@ source 實作選 `discount=1`，且未實作 baseline；本文不補入 actor-cr
 ## 這一講真正交付的契約
 
 policy gradient 學 `π_θ(a|s)`，用 rollout utility 加權 log probability；baseline/returns-to-go 降 variance，bootstrapping 以 bias 換 variance。source 未提供大環境收斂保證。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

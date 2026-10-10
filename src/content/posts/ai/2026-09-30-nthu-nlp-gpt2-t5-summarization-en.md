@@ -34,6 +34,26 @@ The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/b
 
 Like the [HF BERT tutorial](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en), this tutorial is the 2024 version. It has no assignment attached; treat it as a reference implementation.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## One task, two architectures
 
 Slide 2 sets the scope: train GPT-2 and T5 with cross-entropy for **Chinese abstractive summarization**, using PyTorch, Hugging Face, and ROUGE. Slide 5 separates two kinds of summarization:
@@ -149,6 +169,10 @@ Both notebooks pin the same versions: `torch==2.3.1` (cu121), `transformers==4.3
 - The Fall 2026 counterpart isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study).
 
 **Series navigation**: previous, [Decoding strategies and NLG evaluation](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en) | next, [GPT-3, InstructGPT, and RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

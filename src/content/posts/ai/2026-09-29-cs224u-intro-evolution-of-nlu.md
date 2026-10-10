@@ -30,6 +30,27 @@ glossary:
 
 本文依據的公開材料有四份：[intro 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-intro-2023-handout.pdf)（98 頁 handout）、YouTube 上 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 [01](https://www.youtube.com/watch?v=K_Dh0Sxujuc) 與 [02](https://www.youtube.com/watch?v=J52Dtu40esQ) 支錄影、講次表在 Apr 3 那一格列的三篇讀物，以及 repo 裡的 [setup.ipynb](https://github.com/cgpotts/cs224u/blob/main/setup.ipynb)。這些材料都公開，屬於課程地圖分級裡的 A3（足以自學）歷史版本；Canvas 上的 quiz 和教室錄影拿不到。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
+title: 影片 01：Intro & Evolution of Natural Language Understanding, Pt. 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=J52Dtu40esQ
+title: 影片 02：Course Overview, Part 2
+```
+
+原始影片：[影片 01：Intro & Evolution of Natural Language Understanding, Pt. 1](https://www.youtube.com/watch?v=K_Dh0Sxujuc)、[影片 02：Course Overview, Part 2](https://www.youtube.com/watch?v=J52Dtu40esQ)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 一個問題問了四十年
 
 Potts 的開場用了一個他在這門課裡用了很多年的問題：
@@ -186,6 +207,10 @@ pip install -r requirements.txt
 - [Stanford CS224U 導讀：總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)：開課狀態、三份作業、期末專案評分文件、自學環境的坑
 
 **系列導覽**：上一篇 [總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)｜下一篇 [上下文表徵 I：guiding ideas、Transformer 與位置編碼](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

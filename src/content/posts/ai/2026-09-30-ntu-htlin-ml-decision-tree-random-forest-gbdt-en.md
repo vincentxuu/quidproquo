@@ -41,6 +41,26 @@ At the end of the [previous post](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bag
 
 A decision tree fills the "learn while doing conditional aggregation" cell. That is also why this series reads the three lectures as one post: T9 covers trees, T10 puts trees inside bagging, and T11 puts trees inside boosting. They share one thread.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=dAqPpAXnMJ4
+title: Decision Tree Hypothesis
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s9Um2O7N7YM
+title: Decision Tree Algorithm
+```
+
+Original videos: [Decision Tree Hypothesis](https://www.youtube.com/watch?v=dAqPpAXnMJ4)、[Decision Tree Algorithm](https://www.youtube.com/watch?v=s9Um2O7N7YM)、[Decision Tree Heuristics in C&RT](https://www.youtube.com/watch?v=uvGC_Y0EYiA)、[Decision Tree in Action](https://www.youtube.com/watch?v=ryWTrPPbqcg)、[Random Forest Algorithm](https://www.youtube.com/watch?v=ATM3sH0D45s)、[Out-of-bag Estimate](https://www.youtube.com/watch?v=7oz5aO-FkR0)、[Feature Selection](https://www.youtube.com/watch?v=ChqNC94JXtM)、[Random Forest in Action](https://www.youtube.com/watch?v=Ipfpf7AW_yM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Where these lectures sit
 
 | Version | Week | Slides | Extended reading (as listed on the course page) |
@@ -246,6 +266,10 @@ How other courses on this site cover the same topics (this post does not skip an
 
 - [Harvard CS181 HW4: Decision Trees, Random Forests, and MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
 - [CMU 10-301 HW2: Decision Trees](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

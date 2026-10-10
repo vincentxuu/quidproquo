@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=QxOzQRtd440
+title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## What is a "representation" and why it matters
 
 The real product of deep learning is not the final classifier layer but **the vector representation the network compresses the input into**. After a good representation, cats cluster near cats and far from cars in vector space — and every downstream task (classification, retrieval, generation) becomes easier.
@@ -105,6 +121,10 @@ Representation learning bridges supervised learning and generative / foundation 
 - **Retrieval / similarity?** A good representation makes "nearest neighbor" meaningful.
 
 Next lecture (L12) shifts from "reconstruction" to "similarity" — contrastive learning pulls same-class representations together and pushes different ones apart.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

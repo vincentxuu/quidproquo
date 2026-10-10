@@ -17,6 +17,14 @@ series:
 
 **CMU 07-280 Spring 2026 Lecture 19** 把 language model 從 count table 改成可學習的向量幾何。官方投影片封面題為 *NLP: Word Embeddings / Attention*；實際主體是文字 features、兩組 token vectors、similarity、softmax 與訓練，attention 只作為下一講入口。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 19 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec19_NLP_Word_Embeddings.pdf)、[Word Embeddings pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Word_Embeddings.pdf)，以及 [Recitation 10](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10_sol.pdf)。官方頁沒有 Spring 2026 逐講公開錄影；本文不把投影片動畫或 recitation notebook 猜成課堂口述。
@@ -76,6 +84,10 @@ Recitation 10 用 *Green Eggs and Ham* corpus 建一個二維模型，要求觀�
 ## 今晚可做動作
 
 用十個 token、二維 embedding 建一個 one-step next-token model。手算一筆 `Uv`、softmax、cross-entropy 與 `ŷ-y`，再用程式訓練同一模型。最後比較兩件事：相似 context tokens 是否靠近，以及它們接近是否真的改善 held-out next-token loss。不要只看散點圖「像不像語意」。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

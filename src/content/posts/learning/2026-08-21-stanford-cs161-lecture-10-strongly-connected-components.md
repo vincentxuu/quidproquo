@@ -21,6 +21,14 @@ series:
 
 Lecture 9 已經知道：在 undirected graph 中，從任一 vertex 跑 DFS，就能走完整個 connected component。Directed graph 麻煩得多。從 u 能到 v，不表示 v 能回 u；一次 DFS 找到的是 reachable set，不是 mutual reachability。Lecture 10 的巧思，是先把 SCC 之間的關係看成 DAG，再用 finish times 決定「下一次 DFS 從哪個分量開始才不會漏出去」。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
+
 ## Directed graph 需要兩種 connected 概念
 
 Undirected graph 中，定義 `u~v` 當且僅當存在 u 到 v 的 path。因 edges 可雙向走，這個 relation 具有 reflexive、symmetric、transitive 三個性質；每個 equivalence class 就是一個 connected component。
@@ -155,6 +163,10 @@ Lecture 9 先建立 DFS forest 與 finish-time intervals；Lecture 10 沒有另�
 要自己驗證兩個官方版本，可畫一張有三個 SCC 的 directed graph，同時跑 `G→G^T` 與 `G^T→G`。逐 pass 寫下 finish order 與第二趟 trees；vertex 級 times 可能不同，component partition 必須相同。
 
 實作時建議回傳兩份結果：每個 vertex 的 component ID，以及 condensation DAG。後者可把每條原 edge `(u,v)` 轉成 `(comp[u],comp[v])`，去掉 self-loops 與重複 edge。這是本站的延伸練習，不是 Winter 2026 投影片要求。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

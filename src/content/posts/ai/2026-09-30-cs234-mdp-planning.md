@@ -34,6 +34,21 @@ glossary:
 
 投影片開頭留了一個問題，當天結束前回答。問題是：能不能設計出一種演算法，保證多算一輪，policy 就只會變好或不變？所有演算法都有這個性質嗎？答案是「可以，而且不是所有演算法都有」。這篇就是在講哪個演算法有、為什麼有。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=gHdsUUGcBC0
+title: Spring 2024 Lecture 2: Tabular MDP Planning（YouTube，補充）
+```
+
+原始影片：[Spring 2024 Lecture 2: Tabular MDP Planning（YouTube，補充）](https://www.youtube.com/watch?v=gHdsUUGcBC0)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 先回答暖身題：γ 大代表什麼
 
 投影片第一個小測驗：「在 MDP 裡，折扣因子 γ 大，代表短期獎勵比長期獎勵影響大得多。」答案是**錯**。γ 大代表更重視延遲的長期獎勵；γ = 0 才只看即時獎勵。
@@ -272,6 +287,10 @@ k = 1
 - [Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 
 **系列導覽**：上一篇 [RL 是什麼、MDP 的語言](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)｜下一篇 [A1：有效視野、reward hacking、Bellman residual、RiverSwim](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

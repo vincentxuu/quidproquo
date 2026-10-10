@@ -44,6 +44,26 @@ Official materials used:
 
 The "matching pages" column is my own topic match. Public information cannot confirm that the videos actually show these pages.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
+title: 13.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LHhxbXKfnKs
+title: 13.2 LaMDA
+```
+
+Original videos: [13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Two branches of dialogue systems
 
 Page 3 sorts why people want dialogue systems into four sentences. "I want to chat" is social chit-chat, the Turing-test kind of human-likeness. "I have a question" is information lookup. "I need to get this done" is task completion, such as booking a train from Kaohsiung to Taipei or a table at Din Tai Fung for five at 7 PM tonight. "What should I do?" is decision support. Page 4 folds these into two branches: **chit-chat and task-oriented**.
@@ -146,6 +166,10 @@ Not confirmed: whether the Fall 2025 videos use this 2024 deck, or how much it c
 - This series' [RAG + HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en) also covers WebGPT; this post focuses on its tool-use side.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en) | Next: [Beyond Supervised Learning and Multimodality](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

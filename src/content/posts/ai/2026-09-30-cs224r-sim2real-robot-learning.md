@@ -35,6 +35,21 @@ glossary:
 
 **配套影片的差異要先講清楚。** 2025 年這一段的切法不一樣：2025 的 L16 是「RL for Robots: Autonomous Learning」，sim-to-real 放在 2025 L17，封存頁列的客座講者是 Ashish Kumar，YouTube 上的標題是 [Lecture 17: Advancing Robot Intelligence](https://www.youtube.com/watch?v=Hp1WBWghrak)（約 50 分鐘）。講者不同，內容不能和 2026 對等引用，只適合當背景。本文完全依 2026 投影片寫。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=Hp1WBWghrak
+title: Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者不同，只當背景）
+```
+
+原始影片：[Spring 2025 Lecture 17: Advancing Robot Intelligence（YouTube，講者不同，只當背景）](https://www.youtube.com/watch?v=Hp1WBWghrak)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：為什麼要在模擬器裡學
 
 上一講結尾說，接下來兩講要處理 RL 用在機器人上的特殊考量。第一個是：真機器人很貴、很慢、會壞，能不能在模擬器裡學好再搬出來？
@@ -195,6 +210,10 @@ glossary:
 可以確認：2026 投影片的文字、式子與論文標註；課表的日期、講者與指定閱讀；2025 封存頁的講次切分與 2025 影片標題、長度；投影片上列出的專案網址都能開啟。不能確認：投影片裡大量影片與圖的內容，包括第 9 頁 18 秒訓練的任務是什麼、各方法在真機上的具體數據；SAPG、FastTD3/FastSAC、FPO/FPO++、BFM-Zero 的細節；2025 L17 錄影的內容（本文沒有拿它當依據）。
 
 系列導覽：上一篇 [L15 階層式 RL 與模仿學習](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il)｜下一篇 [L17 用 RL 改進機器人基礎模型（VLA）](/posts/ai/2026-09-30-cs224r-rl-for-vlas)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

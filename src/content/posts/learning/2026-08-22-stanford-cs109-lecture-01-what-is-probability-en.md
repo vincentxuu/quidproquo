@@ -19,6 +19,14 @@ This is article 2 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda: from listing outcomes to the axioms
 
 The first problem anchors the statement that an event is a subset of a sample space. Three flips produce eight equally likely sequences. “At least two heads” contains HHH, HHT, HTH, and THH; “first flip is tails” contains THH, THT, TTH, and TTT. Their intersection contains THH, so they are not mutually exclusive. The task combines three moves: enumerate outcomes, translate prose into a set, and use intersection—not verbal intuition—to test exclusivity.
@@ -37,6 +45,10 @@ The official guide orders sample space, event, equally likely outcomes, long-run
 - The shared Spring-dated welcome page supports the sample-space and axioms vocabulary, but not the Summer classroom sequence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

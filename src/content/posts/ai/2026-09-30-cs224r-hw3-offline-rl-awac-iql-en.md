@@ -40,6 +40,14 @@ The PDF lists three objectives:
 
 One rule to know up front: the PDF **prohibits using generative models to write code for this assignment**.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Environments and data
 
 | | AntMaze | PointMass |
@@ -152,6 +160,10 @@ If you're not ready to spend compute, do something free first. Open the expectil
 - [Berkeley CS285: Homework and Project Route](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en): compare how the two courses design their assignments
 
 **Series navigation**: Previous: [Lecture 8: Where Rewards Come From](/posts/ai/2026-09-30-cs224r-reward-learning-en) | Next: [Lecture 9: RLHF and Preference Optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

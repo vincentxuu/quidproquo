@@ -31,6 +31,26 @@ The [CS231N](https://cs231n.stanford.edu/) lecture on May 14, 2026 was the first
 
 One thing to clear up first: **the 2026 L13 slides actually cover only autoregressive models and VAEs.** The taxonomy (slides 46–47) marks autoregressive models and VAEs as "Today" and GANs and diffusion as "Next Time", and the last slide reads "Next Time: Generative Adversarial Networks, Diffusion Models". The GAN material is on slides 8–35 of [lecture_14.pdf](https://cs231n.stanford.edu/slides/2026/lecture_14.pdf). The 2025 slides split things the same way. Following the schedule and the series plan, this post includes GANs and marks where they really sit in the slides; the next post starts at diffusion.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=zbHXQRUNlH0
+title: YouTube: CS231N Spring 2025 Lecture 13: Generative Models 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Edr4uZFh4EE
+title: YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2
+```
+
+Original videos: [YouTube: CS231N Spring 2025 Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)、[YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Scene: a classifier can't say "this image makes no sense"
 
 The slides open by revisiting a familiar contrast (slides 14–21):
@@ -208,6 +228,10 @@ On the assignment side, [A3](https://cs231n.github.io/assignments2026/assignment
 ## Access limits
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this course is **A3**: the 2026 slides, assignments, and course notes are public, plus full 2025 recordings. The gaps for this lecture: 2026 recordings are on Canvas for enrolled students only, and the midterm (May 12, two days before this lecture) is not public.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

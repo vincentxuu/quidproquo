@@ -29,6 +29,14 @@ The Fall 2024 course description lists model compression, pruning, quantization,
 
 This post is the entry point to the series. It answers four questions: what the course teaches, why this series uses Fall 2024 instead of the newest edition, what outside readers can actually get, and how to read it.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## The hard facts
 
 | Item | Fall 2024 (series backbone) | Fall 2026 (in progress) |
@@ -183,6 +191,10 @@ These site series overlap with 6.5940. This series still covers the overlapping 
 - [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en): the theory of diffusion and flow matching
 
 **Series navigation**: Next: [Why efficiency matters and how to measure model size and compute](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

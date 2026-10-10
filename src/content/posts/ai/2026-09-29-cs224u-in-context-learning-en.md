@@ -44,6 +44,27 @@ At the start of the [ICL Part 4 video](https://www.youtube.com/watch?v=0mXbM2j3D
 
 The slides have five sections: Origins, Core concepts, The current moment, Techniques, and Suggested methods.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
+title: ICL Part 4: Techniques and Suggested Methods video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eyNLkiQ89KI
+title: ICL Part 1: Origins video
+```
+
+Original videos: [ICL Part 4: Techniques and Suggested Methods video](https://www.youtube.com/watch?v=0mXbM2j3Dzs)、[ICL Part 1: Origins video](https://www.youtube.com/watch?v=eyNLkiQ89KI)、[ICL Part 2: Core Concepts video](https://www.youtube.com/watch?v=7OOCV8XfMbo)、[ICL Part 3: Current Moment video](https://www.youtube.com/watch?v=a9KQkvcuV3I)
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Origins: from n-grams to GPT-3
 
 The slides open with a joke: the ChomskyBot, a very simple pattern-based language model that imitates Noam Chomsky's prose. The [ICL Part 1 video](https://www.youtube.com/watch?v=eyNLkiQ89KI) says it's only partly a joke: simple mechanisms can produce text that seems to say something.
@@ -177,6 +198,10 @@ One thing to do tonight: pick a task you regularly hand to a model, write 10 dev
 
 - Where in-context learning fits in pretraining: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Instruction tuning and RLHF in detail: [CS224N Lecture 8: From Instruction Tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

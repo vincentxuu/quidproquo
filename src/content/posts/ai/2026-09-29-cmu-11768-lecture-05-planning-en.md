@@ -29,6 +29,14 @@ Lecture 5 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 8, 2
 
 Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-05-planning.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5).
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Opening case: buying the lab a GPU workstation
 
 Fried opens with a task his group actually ran into a few weeks earlier: compare workstation configurations and prices across vendors, check compatibility against the cluster requirements on the internal wiki, and file a purchase requisition.
@@ -329,6 +337,10 @@ Four open problems:
 - [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/en/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en)
 - [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/en/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
 - [Multi-Agent Error Propagation and Recovery](/en/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

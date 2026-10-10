@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 先回顧：搜尋在解什麼問題
 
 上一講的起點是：複雜問題需要搜尋，也就是找出一串可執行的行動。搜尋問題要形式化成 state、successors、start state 與 end state；source 的十地點旅行例子正是先取起點、列 successors，再檢查終點。
@@ -102,6 +111,10 @@ admissibility 則是 `h(s) <= FutureCost(s)`，也就是 heuristic 永遠低估�
 UCS 以 increasing past cost 探索，透過 priority queue、frontier update、DONE/stale-entry accounting 與 backpointer 重建最低成本路徑；在 non-negative costs 下，取出的終點具有 minimum cost。A* 是加上 heuristic 的 UCS：consistent heuristic 讓修改後成本非負，admissible heuristic 提供 future cost 的下界，好的 relaxation 則可能減少探索。
 
 下一講的問題是：如果 action 的 outcome 不再 deterministic，例如擲骰子，搜尋會發生什麼事？至於本講未公開的 Canvas 互動、作業解答、hidden tests 與未提供的數據，仍維持材料缺口，不用另一個 term 或直覺補齊。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

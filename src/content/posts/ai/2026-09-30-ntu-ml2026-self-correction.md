@@ -17,6 +17,21 @@ draft: false
 
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 4/24「如何教育模型 (2)：Self-Correction」。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 13 篇。用到的官方材料是講義 [Self-Correction.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Correction.pdf)（65 頁，另有 pptx）與影片 [AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://youtu.be/m3i2mk5hs8U)。存取等級是 **A3**：投影片與錄影都公開。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=m3i2mk5hs8U
+title: 影片：AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理
+```
+
+原始影片：[影片：AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://www.youtube.com/watch?v=m3i2mk5hs8U)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 問題：沒人提醒時，模型能不能自己改
 
 你跟模型說「你錯了，錯在這裡」，它通常改得過來。這一講問的是更難的版本：**模型輸出答案後，沒有任何人介入，它能不能自己發現錯、自己改對？**
@@ -181,6 +196,10 @@ workflow 每題都硬插一句反思，不管答案對錯都逼模型多想。re
 不能確認：字幕把 TruthX 聽成「True Facts」，本文以投影片為準。老師提到「有一篇測過模型批判能力不比生成強的論文」，他說忘了放進投影片，本文找不到對應的引用，所以沒有附連結。MTI 的 62%→72% 與 RefineBench 用的模型名稱取自老師口述，本文沒有另外回原論文核對數字。
 
 系列導覽：上一篇 [HW5：微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)｜下一篇 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

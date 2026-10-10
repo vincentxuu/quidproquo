@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 4 講排在 2026 年 1 月 15 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf)的 agenda 有四段：語言模型、RNN、梯度爆炸與消失、機器翻譯。投影片直接把 language modeling 稱為整門課最重要的概念，因為現代生成式 NLP 大多仍建立在預測下一個 token 上。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 語言模型到底輸出什麼
 
 給定一段前文，語言模型輸出下一個詞的機率分布。用機率鏈鎖律，把每一步的條件機率相乘，就能為整段文字指定機率。訓練時以真實下一詞的負對數機率作為 loss；生成時則從模型分布選出下一個 token，再把它接回輸入。
@@ -121,6 +130,10 @@ Machine translation 的評估還揭露 exposure 與 search 問題。訓練 loss 
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文涵蓋官方投影片列出的四段 agenda，未還原口頭例題與課堂推導；同樣不以舊學期公開錄影替代。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -44,6 +44,27 @@ Access level is **A3**. The imitation learning half of Lecture 7 is covered in [
 
 This is the series' second mathematical peak. The main text sticks to intuition and results; proofs and definitions are in collapsible blocks.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: Lecture 7: Policy Search 3 (Spring 2024, YouTube)
+```
+
+Original videos: [Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)、[Lecture 7: Policy Search 3 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=4ngb0IZTg8I)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## The scenario: one step too far and performance collapses
 
 Page 27 of L6 frames policy gradients as an optimization problem: maximize $J(\pi_\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[\sum_t \gamma^t r_t]$ by stochastic gradient ascent, with gradient $\mathbb{E}[\sum_t \gamma^t \nabla_\theta \log \pi_\theta(a_t \mid s_t) A^{\pi_\theta}(s_t, a_t)]$. The slides then list two limitations.
@@ -228,6 +249,10 @@ The full assignment walkthrough is in the [A2 post](/posts/ai/2026-09-30-cs234-a
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
 **Series navigation**: previous [Part 7: policy gradients — REINFORCE, baselines, actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en) | next [Part 9: A2 — implementing REINFORCE, baselines, and PPO](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

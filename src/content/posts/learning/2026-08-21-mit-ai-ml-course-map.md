@@ -25,6 +25,19 @@ draft: false
 
 這篇把三層拆開。目標不是假裝校外讀者能「線上讀完 MIT 學位」，而是排出一條真的打得開、知道缺什麼的 AI／ML 路線。本站的 [6.S191 完整導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)已經深入單一課程；這篇處理它在整個 MIT 骨架裡的位置。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [**MIT 有正式的 AI 學位。**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
+- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
+- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
+- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
+- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
+- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
+
 ## 先讀懂兩個編號：6-4 不是 6.4
 
 **Course 6-4** 是學位代號；**6.3900、6.4110** 才是單門課的 subject number。另一個常見混亂來自 MIT EECS 在 Fall 2022 全面換號：小數點後三位的舊課號，多數改成四位新課號。
@@ -156,6 +169,8 @@ MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-01：公開程度表的 6.5940 Fall 2026 由 A0 改為 A2（學期進行中，已放出 L1–L6 與 Lab 0–1），Fall 2024 列補上 23 講投影片、23 支錄影與 Lab 0–5 的具體範圍；「視覺、機器人與效率系統」路線改寫 6.5940 段落並加上站內導讀連結；參考資料補上 Fall 2026 課頁。
 
 - 2026-09-30：公開程度表與「現代 AI 工程入門」路線補上 6.S184 Flow Matching & Diffusion（IAP 2026，講義、slides、錄影與 3 個 lab 含解答全公開，A3）與站內導讀連結。

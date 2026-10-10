@@ -19,6 +19,14 @@ draft: false
 
 Worksheet、answer key、guide 都是三頁；正式 agenda 是 P1–P6 加 challenge，沒有 orphan page 或跨頁缺號。核心分界是：sample distribution 描述 data 的 spread，sampling distribution 描述「重做整個 experiment 時 statistic 會怎麼變」，error bars 要描述後者。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：用 CLT 複習 checkout totals
 
 一百筆 IID checkout item counts 各有 mean 3、variance 4。總和 `S` 依 CLT：
@@ -148,6 +156,10 @@ Frequentist bootstrap 則把五個 ones、十個 zeros 當 empirical sample，�
 - 當期投影片 unavailable、錄影 gated；L2 文章不重建缺失 lecture content。
 - 文中 bootstrap code 是官方 pseudocode 的等價整理，不宣稱 production implementation details。
 - 材料規模有限，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

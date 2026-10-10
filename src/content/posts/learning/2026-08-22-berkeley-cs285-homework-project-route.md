@@ -17,6 +17,14 @@ series:
 
 [Spring 2026 starter repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) 公開 HW1–5 與兩個預設 final project 的 code，採 MIT License。這讓自學真正可執行；完整的公開／限修課資產分界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。本篇只負責作業算力與專案取捨。
 
+## 課程影片來源
+
+Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## 五份作業的成本表
 
 | 作業 | 實作焦點 | 官方運算訊號 | 自學建議 |
@@ -44,6 +52,10 @@ series:
 ## 交付邊界
 
 能做到的是公開作業的自我驗證版本，不是聲稱完成 Berkeley 學分課。影片、討論、評分與課程支援的完整清單統一維護在[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

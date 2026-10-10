@@ -28,6 +28,21 @@ glossary:
 
 The course schedule titles this row "inside the model: how models handle very long inputs". The official materials are the slides [pos.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pdf) (64 pages, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pptx)) and the video [How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://youtu.be/Ll-wk8x3G_g) (in Mandarin). Access level is **A3**: slides and recording are public, and this lecture has no quiz or leaderboard.
 
+## Course video sources
+
+Video sources were checked against the official course page. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
+title: Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding
+```
+
+Original videos: [Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://www.youtube.com/watch?v=Ll-wk8x3G_g)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The problem: "you hit me" vs. "I hit you"
 
 Slides 2–3 make the point quickly. Feed tokens A B C D into self-attention and look at D. If you reorder the first three as C B A, D's weighted sum comes out exactly the same. Yet "you hit me" and "I hit you" mean opposite things. The Transformer needs position information from somewhere.
@@ -130,6 +145,10 @@ Not confirmed: I did not transcribe the video, so examples and numbers the lectu
 - The CMU 11-785 guide on [Transformer architectures](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW3: LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en) | Next: [HW4: Training a Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

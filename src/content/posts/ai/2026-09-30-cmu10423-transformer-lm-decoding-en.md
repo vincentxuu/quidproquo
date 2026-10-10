@@ -31,6 +31,15 @@ The [previous post](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en) ended with
 
 The two lectures split the work. Lecture 2 covers only the **architecture**. Lecture 3 covers **training, efficiency and decoding**. HW1 asks you to add RoPE and GQA to minGPT, and these two lectures are its foundation.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## "Large language models" predate the Transformer
 
 Lecture 2 opens with some history. Before 2017, the two tasks that leaned hardest on language models were speech recognition and machine translation, and both used a **noisy channel model**:
@@ -188,6 +197,10 @@ One thing to do tonight: redo Lecture 2's classroom exercise on paper. Write dow
 - How other courses teach the Transformer: [CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 Lecture 18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en), [CME295: Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
 - Building a tokenizer from scratch: [CS336 Lecture 1: Overview and tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 - The systems side of the KV cache and inference: [CS336: Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

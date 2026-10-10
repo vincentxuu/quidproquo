@@ -21,6 +21,14 @@ I used the public [notes](https://stanford-cs161.github.io/winter2026/assets/fil
 
 Lecture 15 used cuts to select safe greedy edges. Here a directed `s-t` cut gives an upper bound. Ford–Fulkerson builds a flow while updating a residual graph; when no residual path remains, reachability produces an equal-valued cut. The result and its certificate arrive together.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
+
 ## Flows and cuts
 
 The input is a directed graph with nonnegative capacities, source `s`, and sink `t`. A flow obeys `0≤f(u,v)≤c(u,v)` and conservation at every vertex except `s,t`. Its value is source net outflow, `|f|=Σ_x f(s,x)-Σ_y f(y,s)`.
@@ -78,6 +86,10 @@ The residual graph serves execution and proof. During execution it represents bo
 ## Beyond the lecture
 
 Implementations can store reverse-edge indices and parent edges for path reconstruction, use sufficiently wide integers, and test capacity, conservation, value, and equality with the terminal reachable cut. Antiparallel original edges require explicit identities rather than the notes' simplified residual formula. These are engineering recommendations, not new lecture theorems.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

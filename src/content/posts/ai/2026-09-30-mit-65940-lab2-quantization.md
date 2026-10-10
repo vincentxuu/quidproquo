@@ -34,6 +34,14 @@ glossary:
 
 **Fall 2026 對照**：Fall 2026 的課程頁把 Lab 2 標為「Quantization」，排在 10 月 1 日發布；2026-10-01 再查時還沒有連結。放出後會在這裡補上差異。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這份 lab 要你做到什麼
 
 notebook 的 Goals 段列了七項，濃縮起來是三件事：
@@ -127,6 +135,10 @@ Q_bias   = q_bias − Linear[Z_input, q_weight]
 - 系列入口與課程狀態：[MIT 6.5940 導讀（系列總覽）](/posts/ai/2026-09-30-mit-65940-course-overview)
 - 同一套流程練剪枝：[Lab 1：Pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
 - LLM 的 4-bit 權重量化：[Lab 4＋Lab 5：AWQ 與筆電上的 LLM](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

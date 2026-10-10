@@ -34,6 +34,27 @@ glossary:
 
 本系列把這兩場從單元一搬到最後，理由很單純：[第 4 篇](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)剛講完 GPT、BERT、ELECTRA 這些模型家族，緊接著塞一個「文字也能用擴散生成」和一整套分散式訓練工程，等於同一段路上連跳兩個大台階。它們跟作業、期末專案都沒有直接關係，是「課程主線之外，2023 年這群人還在想什麼」的切片。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=4-kuJpVrr7M
+title: 影片 49：Fantastic Language Models and How to Build Them, Part 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=JVKtPZsiv4k
+title: 影片 50：Fantastic Language Models and How to Build Them, Part 2
+```
+
+原始影片：[影片 49：Fantastic Language Models and How to Build Them, Part 1](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[影片 50：Fantastic Language Models and How to Build Them, Part 2](https://www.youtube.com/watch?v=JVKtPZsiv4k)
+
+課程與錄影入口：
+
+- [XCS224U 播放清單（Spring 2023）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 這兩場拿得到什麼
 
 | 講座 | 官方材料 | 錄影 | 存取判斷 |
@@ -156,6 +177,10 @@ Karamcheti 的投影片副標寫著「Stanford || Zoom || Folks 2x-ing the Recor
 - [CMU 11-785 Lecture 23：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)：影像擴散的完整推導
 - [CS336 Lecture 8：ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲](/posts/ai/2026-08-22-cs336-parallelism-strategies)：把第二場講座最後「撞上通訊牆」之後的事講完
 - [CS224N 第 5 講：從 recurrence 到 Transformer](/posts/ai/2026-08-22-cs224n-transformers)：Transformer 機制的另一種講法
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -21,6 +21,14 @@ series:
 
 這堂課的核心不是背兩份走訪 pseudocode，而是看見「探索順序」會留下不同證據。DFS 的 discovery / finish times 把巢狀結構編碼下來；BFS 的 layers 則直接對應 edge 數最少的距離。相同的 `O(n+m)` 掃描框架，因容器與 bookkeeping 不同，能解不同問題。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
+
 ## 先決定圖怎麼放進記憶體
 
 圖寫成 `G=(V,E)`，令 `n=|V|`、`m=|E|`。Undirected graph 的 edge 雙向；directed graph 的 `(u,v)` 只表示 u 指向 v。Sparse graph 的 edges 接近 `Θ(n)`，dense graph 則可能接近 `Θ(n²)`。
@@ -165,6 +173,10 @@ Lecture 9 是課程從排序與資料結構轉進 graph algorithms 的入口。�
 可用同一張小圖做三次手算。第一次依不同 neighbor order 跑 DFS，比較 timestamps；第二次把 vertices 按 decreasing finish time 排出，檢查每條 DAG edge；第三次跑 BFS，逐層寫 `L_i` 並沿 parent 還原 shortest path。Neighbor order 會改變 tree 形狀，卻不會破壞三個核心結論。
 
 實作 bipartite test 時，不要只回傳 boolean。遇到同色 edge 時，沿 parent pointers 找共同 ancestor，輸出那條 odd cycle。成功時回傳 coloring，失敗時回傳反例，會讓正確性從抽象宣告變成可檢查 certificate。這是本站的延伸建議，不是 Winter 2026 額外要求。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

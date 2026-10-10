@@ -17,6 +17,14 @@ draft: false
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 19 篇，對應 **Stanford CS111, Spring 2026, Lecture 18**。2026-05-08 由 Mendel Rosenblum 主講，官方題目是 [Magnetic Disks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不可公開存取，因此不把錄影內容當成已核對來源。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## HDD 是會移動的儲存裝置
 
 硬碟由一到十片 platter 組成，[投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf)列出的旋轉速度是 5,000–15,000 RPM，常見尺寸為 2.5 與 3.5 吋。actuator 帶動 arm，使 read-write head 沿半徑移動；每個表面由相應磁頭存取。讀一筆資料不是單純查陣列，而是先讓機械部件抵達正確位置。
@@ -77,6 +85,8 @@ device 以 DMA 讀 command，將 sector bytes DMA 到指定 address，再把 com
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 Lecture 18 官方 PDF 重寫完整磁碟與 I/O device agenda，並限定硬體數字為投影片快照。
 
 ## 參考資料

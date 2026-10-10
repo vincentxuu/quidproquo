@@ -19,6 +19,14 @@ This is article 5 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 The lecture asks how to formalize definitions and reasoning used in proofs. Propositional logic compresses each complete statement into one Boolean value and studies how connectives combine those values. First-order logic, introduced next, opens statements back up to discuss objects and properties. That boundary is both propositional logic's power and its limitation.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/)
+
 ## From English propositions to Boolean algebra
 
 A proposition is a statement that is either true or false. Declarative English sentences can be propositions; commands and questions are not, because “close the door” and “what time is it?” do not themselves receive truth values. A propositional variable represents a whole proposition, usually with a lowercase letter such as $p,q,r,s$, and takes one of two values.
@@ -129,6 +137,8 @@ The complete public deck supports propositional variables, all seven symbols and
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt both language versions from the complete official deck, restoring truth tables, translation examples, precedence, and propositional equivalences.
 
 ## References

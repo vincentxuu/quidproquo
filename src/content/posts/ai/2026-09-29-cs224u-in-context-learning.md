@@ -44,6 +44,27 @@ Potts 在 [ICL 第 4 支錄影](https://www.youtube.com/watch?v=0mXbM2j3Dzs) 開
 
 投影片分五節：Origins、Core concepts、The current moment、Techniques、Suggested methods。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
+title: ICL Part 4: Techniques and Suggested Methods 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eyNLkiQ89KI
+title: ICL Part 1: Origins 錄影
+```
+
+原始影片：[ICL Part 4: Techniques and Suggested Methods 錄影](https://www.youtube.com/watch?v=0mXbM2j3Dzs)、[ICL Part 1: Origins 錄影](https://www.youtube.com/watch?v=eyNLkiQ89KI)、[ICL Part 2: Core Concepts 錄影](https://www.youtube.com/watch?v=7OOCV8XfMbo)、[ICL Part 3: Current Moment 錄影](https://www.youtube.com/watch?v=a9KQkvcuV3I)
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 起源：從 n-gram 到 GPT-3
 
 投影片先開了個玩笑：ChomskyBot，一個模仿 Noam Chomsky 文風、機制非常簡單的樣式式語言模型。[ICL 第 1 支錄影](https://www.youtube.com/watch?v=eyNLkiQ89KI) 說這只是半開玩笑，它提醒我們簡單機制也能產生看似有內容的文字。
@@ -182,6 +203,10 @@ Potts 對這張表的解讀比數字本身更值得記。他說只有在「新�
 
 - In-context learning 在預訓練脈絡裡的位置：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - Instruction tuning 與 RLHF 的細節：[CS224N 第 8 講：從 instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,14 @@ glossary:
 
 到 HW4 為止，每份作業都有標籤：溫度、貸款核准、影像類別。HW5 標題是「Clustering, PCA, SSL」，四題都拿掉了標籤。這篇講後兩題（Problem 3 分群、Problem 4 PCA），它們是講課順序裡先上的古典方法；Problem 1–2 的 SimCLR 與 GAN 留到下一篇。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## HW5 在 2026 課表的位置
 
 | 項目 | 官方內容 |
@@ -130,6 +138,10 @@ Section 7 第 3 節把 PCA 講成三件事，剛好對應這四題：
 
 - 站內 [Stanford CS229 講義第 10 章：分群與 k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means)，從交替最佳化角度再講一次 K-means。
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)，另一門大學 ML 課怎麼安排非監督學習。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

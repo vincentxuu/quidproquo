@@ -43,6 +43,21 @@ glossary:
 
 前三講回答的是「LLM 長什麼樣子」。第 4 講換一個問題：這樣一台機器，要怎麼從一堆隨機權重變成會回答問題的助理？投影片的答案分兩段。先**預訓練**，讓模型學會語言和程式碼的模式；再**微調**，讓它學會照指示做事。兩段的成本差了好幾個數量級，這一講大半篇幅在講錢和記憶體花在哪、怎麼省。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: 2025 版第 4 講錄影
+```
+
+原始影片：[2025 版第 4 講錄影](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 先看一個反例：預訓練完的模型只會接話
 
 投影片用一個問題開場：「Can I put my teddy bear in the washer?」（泰迪熊可以丟洗衣機嗎？）
@@ -279,6 +294,10 @@ LoRA 省了梯度和優化器狀態，但凍結的 W₀ 還是得整份放在記
 - GPU 為什麼卡在搬資料：[CS336 Lecture 5](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - ZeRO、FSDP 與 3D 平行：[CS336 Lecture 8](/posts/ai/2026-08-22-cs336-parallelism-strategies)
 - SFT 之後的 RLHF：[CS336 Lecture 15](/posts/ai/2026-08-22-cs336-sft-rlhf)，以及本系列[第 5 講](/posts/ai/2026-09-29-cme295-preference-tuning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

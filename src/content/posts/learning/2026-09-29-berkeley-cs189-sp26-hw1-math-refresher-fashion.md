@@ -25,6 +25,14 @@ HW1 的名字叫「AGI, Everywhere, All at Once」，但內容很務實。它在
 
 這篇逐題說明每一題在考什麼、該回哪一講找工具，**不附解法**。HW1 沒有公開的官方解答，貼答案對自學者也沒有幫助。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 官方材料與讀取範圍
 
 排程頁在 HW1 底下列了三個連結：
@@ -155,6 +163,10 @@ Part 2 整本在講一件真實世界常見的事：**訓練資料和測試資�
 
 - 上一篇：[Lec 7–10：線性回歸、最小平方的幾何、正則化](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
 - 下一篇：[Lec 11–12：分類、生成式分類器、logistic regression、ROC](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

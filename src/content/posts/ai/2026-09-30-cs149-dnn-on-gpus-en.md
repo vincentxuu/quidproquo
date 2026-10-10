@@ -37,6 +37,22 @@ Fall 2025 recordings live only on Stanford Canvas. The closest public video is [
 
 The [previous post](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) drew circles on a GPU. This one runs neural networks. The bridge: a conv layer is just a huge pile of dot products, and making dot products fast is still about the arithmetic intensity from [post 7](/posts/ai/2026-09-30-cs149-locality-communication-en).
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=qbKtU0X6-WU
+title: 2023 Lecture 10 video: Efficiently Evaluating DNNs on GPUs
+```
+
+Original videos: [2023 Lecture 10 video: Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU)
+
+Course and recording entries:
+
+- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/)
+
 ## Opening: you already know most of this
 
 Slides 3–10 are "things you already know — and should remember":
@@ -174,6 +190,10 @@ Slides 72–74 close with two questions. Why might a GPU be a good platform for 
 Further reading: to see how Triton kernels are actually written, read the site's [CS336 Kernels and Triton guide](/posts/ai/2026-08-22-cs336-kernels-triton-en). For the same ideas in an LLM systems course, read [CMU 11-868 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
 
 Series navigation: previous [PA3 + Written 2: CUDA circle renderer](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) | next [L10 Hardware specialization and DNN accelerator design](/posts/ai/2026-09-30-cs149-hardware-specialization-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -36,6 +36,21 @@ This post covers Lecture 5, "LLM tuning," of the 2025 edition of Stanford's [CME
 
 Every model in the first four lectures learned the same way: here is the right answer, copy it. This lecture switches to a different kind of training signal. It is the steepest step in the series, a jump from supervised learning straight into reinforcement learning, so we spend one section on why the jump is necessary before getting to any equations.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: 2025 Lecture 5 recording
+```
+
+Original videos: [2025 Lecture 5 recording](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Why SFT isn't enough
 
 The slides open with a recap of the pipeline: pretraining gives a model "basic knowledge" of language, code, and so on; finetuning (SFT) tunes it for specific tasks; and this lecture's topic, preference tuning, makes it "align with (human) preferences."
@@ -301,6 +316,10 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 - A more implementation- and data-focused take: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - What comes after PPO: [CS336 Lecture 16: RLVR and GRPO](/posts/ai/2026-08-22-cs336-rlvr-en), and [Lecture 6: reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en) in this series
 - RL fundamentals, deriving policy gradients and actor-critic from scratch: [Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

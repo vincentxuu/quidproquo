@@ -33,6 +33,21 @@ The [previous post](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en) st
 
 The slides open with a question to be answered by the end of class. Can we build algorithms that guarantee the policy only improves, or stays the same, with each extra round of computation? Do all algorithms have this property? The answer is "yes, and no, not all of them." This post covers which algorithm has it and why.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=gHdsUUGcBC0
+title: Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)
+```
+
+Original videos: [Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)](https://www.youtube.com/watch?v=gHdsUUGcBC0)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## The warm-up: what a large γ means
 
 The first quick check on the slides: "In an MDP, a large discount factor γ means short-term rewards are much more influential than long-term rewards." The answer is **false**. A large γ weighs delayed, long-term rewards more. Only γ = 0 values immediate rewards alone.
@@ -271,6 +286,10 @@ Then read [Sutton & Barto](http://incompleteideas.net/book/RLbook2018.pdf) secti
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
 **Series navigation**: previous, [What RL is and the language of MDPs](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en) | next, [A1: effective horizon, reward hacking, Bellman residuals, RiverSwim](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

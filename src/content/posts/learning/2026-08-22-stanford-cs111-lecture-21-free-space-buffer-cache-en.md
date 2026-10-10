@@ -19,6 +19,14 @@ This is part 22 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 This article focuses on cache, free-space bitmaps, fragments, repacking, and delayed allocation. Direct/indirect inode walks and disk scheduling belong to [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes); duplicate prose is not evidence of a second [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf).
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Block cache removes cold index I/O
 
 Without caching, a BSD inode's indirect path may add two index reads before data. The OS retains recent disk blocks in memory; frequently used indirect and inode blocks stay under the slide's LRU replacement policy.
@@ -72,6 +80,10 @@ The slide says cheap disk makes internal fragmentation less important. That is r
 ## Update history
 
 - 2026-08-22: Focused the duplicate Lecture 20/21 PDF on cache, free space, fragments, and delayed allocation, recording the shared SHA and video boundary.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

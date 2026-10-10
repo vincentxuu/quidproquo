@@ -22,6 +22,14 @@ Homework 2 was released on 2/24, the same day as Lec 11, and was due **Friday 3/
 
 This guide covers only what each problem tests, which lecture to revisit, and where people tend to get stuck. **It contains no answers.** HW1–4 have no public official solutions, and the GenAI policy in the [syllabus](https://eecs189.org/sp26/syllabus/) explicitly forbids pasting assignment text into GenAI tools. Enrolled students should not treat this as a solution source.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Official materials and what I could read
 
 The schedule's HW2 Assignment link points to a [Drive folder](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm) with just two files:
@@ -115,6 +123,10 @@ Previous: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/en/posts/lea
 1. Download `hw2_student.tex` and start with Problem 4, MLE vs MAP. Make sure you can rearrange the posterior back into Beta form.
 2. Open the Chatbot Arena paper, read only the introduction, and try answering Problem 1 parts a–d in your own words.
 3. Before Problem 9, run a small NumPy experiment: sample from a Gaussian plus 5% Cauchy, run k-means with k = 1, and watch whether the center jumps around.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

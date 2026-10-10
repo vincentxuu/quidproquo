@@ -24,6 +24,14 @@ draft: false
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 - [Lec5 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf)：pre-reading polls、Diet Problem 建模、三種 LP 形式、圖解、頂點枚舉、simplex 直覺、高維。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx)
@@ -142,6 +150,10 @@ flowchart LR
 - 上一篇：[HW2 導讀：Classical and Motion Planning，從 robot-cook PDDL 到 RRT\* 再到 LP 圖解](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp)
 - 下一篇：[Lecture 6 導讀：Integer Programming，先鬆弛成 LP 再用 branch and bound 分支](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -34,6 +34,22 @@ glossary:
 
 投影片列的清單是 map、filter、fold/reduce、scan/segmented scan、sort、groupBy、join、partition/flatten。主張只有一句：這些操作都有高效的平行實作，所以用它們寫成的程式，往往能在平行機器上跑得很好。後面加了一個星號：**前提是你沒被頻寬卡住**。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
+title: Stanford CS149 2023 Lecture 8 錄影
+```
+
+原始影片：[Stanford CS149 2023 Lecture 8 錄影](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
+
 ## 為什麼要這麼多平行度
 
 投影片把 [上一講](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda) 的 V100 規格搬回來：80 個 SM，最多同時交錯 163,840 個 CUDA thread。結論寫在同一頁：沒有暴露大量平行度、算術密度又不高的程式，在 GPU 上跑不快。
@@ -168,6 +184,10 @@ index 有重複時，scatter 得做成 `output[index[i]] = atomicOp(output[index
 - 用 CUDA 實作 map、zip、reduce 與 matmul 的作業：[CMU 11-868 作業一：用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
 - GPU 為什麼怕搬資料：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 系列總覽與 2023 錄影對照（2023 版第 9 講 Spark 在 Fall 2025 沒有對應講次）：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

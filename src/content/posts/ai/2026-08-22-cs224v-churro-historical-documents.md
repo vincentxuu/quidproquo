@@ -18,6 +18,14 @@ description: "CS224V NLP Building Blocks：歷史文件 OCR 缺口、HDML、CHUR
 
 Schedule 把第十二講寫成 NLP Building Blocks，投影片的實際主題是「Vision-Language Models to Make Historical Documents Accessible」。這堂不是泛用 NLP 元件總覽，而是 [CHURRO](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf) 從資料表示、模型到歷史研究助理的完整案例。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：歷史 OCR 的資料與系統
 
 講義先盤點數位典藏與現有 document/OCR benchmark，說明歷史文件的版面、手寫、語言與標註缺口。接著介紹 full-page extraction、HDML、CHURRO-DS、CHURRO VLM 與跨模型評估，最後把結果接到 WikiChat／HistoryGenie。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf))
@@ -121,6 +129,10 @@ HistoryGenie 再把 page extraction 接到可搜尋、可對話的研究介面�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 課程網站提供投影片，沒有課堂錄影或完整 reproducibility bundle。投影片摘要了 EMNLP 2025 研究；本文不從圖表反推未公開的訓練細節與成本。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

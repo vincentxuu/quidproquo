@@ -17,6 +17,14 @@ draft: false
 
 Lecture 13, **AI Alignment**, took place on February 26, 2026, immediately after Midterm 1. The preceding lectures built models and gradients. This one asks whether efficiently optimizing an objective implies behavior that meets user requirements and human values. The official note describes a discussion-oriented lecture. With no public recording or transcript, this article summarizes only documented topics and cases, not classroom conclusions.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The sources are the [AI Alignment lecture notes](https://www.cs.cmu.edu/~07280/lectures/280AIalignment_lecturenotes.pdf) and [Autonomous AI Scientist Systems deck](https://www.cs.cmu.edu/~07280/lectures/07280_AutonomousScientists.pdf). The latter presents experiments from [Methodological Flaws in Autonomous AI Scientists](https://arxiv.org/abs/2509.08713). HW6 was due that day but concerns backpropagation, not alignment; there is no dedicated public recitation.
@@ -73,6 +81,10 @@ Lecture 14 moves into computer vision, but alignment does not disappear. Dataset
 ## What to do tonight
 
 Choose one agent task and write a one-page evaluation specification: true goal, measurable proxy, three gaming routes, two distribution shifts, and required traces. Add one control condition that separates genuine improvement from selecting easier cases.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

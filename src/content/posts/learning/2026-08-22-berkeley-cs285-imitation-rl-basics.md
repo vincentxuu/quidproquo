@@ -17,6 +17,14 @@ series:
 
 [官方課表](https://rail.eecs.berkeley.edu/deeprlcourse/)把前四講排成 Introduction、Behavioral Cloning、Behavioral Cloning Part 2 與 RL Basics。這段主線不是先背演算法，而是先看 supervised learning 控制器在哪裡壞掉，再引入能用 reward 學習的 RL 問題。
 
+## 課程影片來源
+
+Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## L1–2：把控制先寫成監督式學習
 
 Behavioral cloning 用 expert 的 state-action pair 訓練 policy。訓練損失容易理解，真正的問題是部署後 policy 會造訪 expert 資料沒有涵蓋的 state；一個小錯誤可能把下一步推得更遠。先在紙上畫出「訓練分布」與「policy 自己造成的分布」，再讀投影片，會比只記 covariate shift 更有用。
@@ -34,6 +42,10 @@ RL Basics 把問題改寫成 MDP：policy 產生 trajectory，trajectory 累積 
 [Spring 2026 starter code](https://github.com/berkeleydeeprlcourse/homework_spring2026/tree/main/hw1) 使用 `uv` 與 Weights & Biases。這份作業適合從本機 CPU 起步；完整運算依據見[作業成本表](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)。完成時至少保留三樣產物：reward curve、自行產生的行為影片，以及 MSE、DAgger、flow matching 的質性差異。
 
 公開 PDF 與 code 足以實作，卻不等於擁有完整修課支援；差異統一列在[系列總覽的存取邊界](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

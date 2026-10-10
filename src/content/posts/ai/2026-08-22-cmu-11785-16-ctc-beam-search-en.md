@@ -18,6 +18,21 @@ series:
 
 This article covers CMU 11-785 Spring 2026 **Lecture 16: CTC Blanks and Beam Search**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec16.recurrent.pdf) and [official YouTube recording](https://youtu.be/slHIssLlgZ8). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=slHIssLlgZ8
+title: Lecture 16 official YouTube recording
+```
+
+Original videos: [Lecture 16 official YouTube recording](https://www.youtube.com/watch?v=slHIssLlgZ8)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
 ## What this lecture addresses
 
 The lecture centers on blanks, collapse rules, prefix probabilities, and approximate decoding. Keep three things separate while reading: the model or algorithm's definition, the objective it optimizes, and the actual computational flow. The first determines the allowed function family, the second states what training prefers, and the third controls memory, speed, and numerical stability.
@@ -45,6 +60,10 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -36,6 +36,15 @@ I checked every fact against the official materials on 2026-09-30. From L9 onwar
 
 **Series position**: previous [HW2: implementing DDPM from scratch on AFHQ cats](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) | next [L11–L12: instruction tuning, RLHF, and DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Why the course goes from images back to LLMs
 
 Once HW2 is in, the next assignment, [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en), has you fine-tune GPT-2 with LoRA for sentiment classification. These two lectures lay the groundwork. The question is practical: you have a pretrained model with billions of parameters and a small labeled dataset. How do you get the model to learn your task?
@@ -200,6 +209,10 @@ One thing to do tonight: open the LoRA Initialization slide in L10, write one se
 - The same material in other courses: [CS224N Lecture 7: pre-training, subwords, and in-context learning](/posts/ai/2026-08-22-cs224n-pretraining-en), [CS224U: in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning-en)
 - What LoRA saves in training cost: [CME295 Lecture 4: the bill for LLM training](/posts/ai/2026-09-29-cme295-llm-training-en)
 - Course status and a self-study path: [CMU 10-423 series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

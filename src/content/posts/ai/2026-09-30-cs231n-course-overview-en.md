@@ -27,6 +27,15 @@ The course description centers on end-to-end learning. Over 10 weeks, students i
 
 This post answers three questions: what the course teaches, what outside readers can actually get, and how to fit it into 10 weeks.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS231N Deep Learning for Computer Vision I 2025 (YouTube playlist)](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The hard facts
 
 **Meeting times**: Tuesdays and Thursdays, 12:00–1:20 PM Pacific, in NVIDIA Auditorium, plus Friday discussion sections.
@@ -149,6 +158,10 @@ The post order differs from the schedule in three places. Each assignment post c
 - [Berkeley CS285](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en): for readers who want to go on to robot learning
 
 **Series navigation**: Next: [L1: Where computer vision came from, and where this course is going](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

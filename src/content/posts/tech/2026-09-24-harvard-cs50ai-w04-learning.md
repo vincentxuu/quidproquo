@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 4 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=-g0iJjnO2_w
+title: CS50 AI Week 4 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 4 — official lecture recording](https://www.youtube.com/watch?v=-g0iJjnO2_w)
+
+課程與錄影入口：
+
+- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
+
 ## TL;DR
 
 Week 4 進入機器學習：監督式分類（k-NN、SVM、Perceptron、模型評估）、強化學習（MDP、Q-learning、ε-greedy 探索）。兩專案分別實作購買意願預測（k-NN）與學會玩 Nim 遊戲（Q-learning）。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 4 Learning (2020 錄製)](https://www.youtube.com/watch?v=6hL1QJ5V1K0)
+YouTube：[Week 4 Learning (2020 錄製)](https://www.youtube.com/watch?v=-g0iJjnO2_w)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -367,6 +382,10 @@ style50 nim.py
 - [ ] 理解 Nim 中狀態表示為何用 tuple（Q-table 鍵需可哈希）
 - [ ] 理解 ε-greedy 在訓練 vs 推論階段的不同行為
 - [ ] 兩專案 `check50` 全綠
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

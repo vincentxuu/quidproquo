@@ -35,6 +35,26 @@ The last post was about tuning new knowledge into a model with few parameters. T
 
 This post answers one question: **LLMs make up answers, so how do you find the right material first? And what are sparse and dense vectors each good at?**
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
+title: Week 10 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=SMVvvbXLYg4
+title: Week 10 Thu.
+```
+
+Original videos: [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4)、[Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Hallucination and two ways to mitigate it
 
 The slides take their definition from [Ji et al. 2023](https://arxiv.org/abs/2202.03629): natural language generation models often produce text that is nonsensical or unfaithful to the input, and this is called hallucination. Two mitigations are listed (plus an "…"):
@@ -179,6 +199,10 @@ One thing to do tonight: take a RAG system you work on and write three queries t
 - The components of RAG and language agents: [CS224N Lecture 10: RAG and Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - An engineering roundup of RAG techniques: [RAG Patterns Complete Guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - Common failure modes of Traditional Chinese embeddings in RAG: [zh-TW embedding RAG failures](/posts/ai/2026-06-04-zh-tw-embedding-rag-failures-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

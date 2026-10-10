@@ -19,6 +19,14 @@ This is part 29 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 The artifact audit found no duplicate deck: Lecture 28 has a different hash, page count, and title from Lectures 26 and 27. Nor is this final review merely a recitation of chapter names. Pages 2–7 inventory mechanisms along the three threads of concurrency, memory, and storage. Page 8 then extracts four cross-cutting ideas: virtualization, atomicity, locality, and layering. The real takeaway is how the latter four recur across the former three.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Thread one: concurrency is more than “running at the same time”
 
 Pages 2–3 divide concurrency management into processes and threads, synchronization, CPU scheduling, and deadlock. Processes and threads provide independently dispatchable units of execution. Once several execution units share state, race conditions make results depend on unpredictable interleavings. Locks, condition variables, monitors, and underlying atomic instructions restrict which interleavings may become visible.
@@ -79,6 +87,10 @@ If the compelling part of CS111 was how abstractions reach the kernel, continue 
 - Pages 6–7: disk I/O, file access, inodes, block layouts, free space, caching, scheduling, links, crash recovery, and FTL.
 - Page 8: virtualization, concurrency, atomicity, locality, and layering.
 - Pages 9–10: directions for further courses and the closing slide.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

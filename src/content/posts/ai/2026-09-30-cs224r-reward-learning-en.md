@@ -39,6 +39,21 @@ The slides give two learning goals:
 
 The plan has two parts. Part one is an offline RL recap and example, marked "Part of HW3." Part two is reward learning, where the preference subsection is marked "Part of default project" and "How LLMs are supervised!"
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=PDIxDhA9Z6Y
+title: Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Wrapping up offline RL
 
 This section compresses [Lecture 7](/posts/ai/2026-09-30-cs224r-offline-rl-en) into two key ideas. The setting is unchanged: data from an unknown πβ, rewards to maximize under πθ.
@@ -193,6 +208,10 @@ Pick an agent or LLM feature you work on and write down what its "reward" is tod
 - [CS336: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en): the post-training pipeline from the implementation side
 
 **Series navigation**: Previous: [Lecture 7: Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en) | Next: [HW3: AWAC, IQL, and Stitching on AntMaze](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

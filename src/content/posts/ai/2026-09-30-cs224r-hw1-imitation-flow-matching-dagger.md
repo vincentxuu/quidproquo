@@ -30,6 +30,14 @@ glossary:
 
 課程首頁的時間表寫著：HW1 在 4 月 3 日（週五）L2 當天發出，4 月 10 日晚上 9 點（太平洋時間）截止，占總成績 10%。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 公開到什麼程度
 
 依本站[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這份作業是 **A3（足以自學）**：題目、模板、完整起始碼都公開，而且不需要雲端算力。
@@ -194,6 +202,10 @@ Problem 2 和 Problem 3 是兩種不同的解法：一個讓模型能表達多�
 - [CME295 Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms)：diffusion 系方法用在語言模型
 
 **系列導覽**：上一篇 [L2：模仿學習](/posts/ai/2026-09-30-cs224r-imitation-learning)｜下一篇 [L3：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

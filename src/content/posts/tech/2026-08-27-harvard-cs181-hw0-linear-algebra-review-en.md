@@ -20,6 +20,14 @@ draft: false
 
 > ⚠️ **Edition**: This guide tracks [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0) (`hw0.tex`, due 2026-02-02) with [Spring 2025 HW0](https://github.com/harvard-ml-courses/cs181-s25-homeworks/tree/main/hw0) as fallback. Prerequisites and grading are from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [CS181 2025 site](https://harvard-ml-courses.github.io/cs181-web-2025/).
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 HW0 is graded for completeness (4%, [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)), but it is the only dedicated prerequisite screen. Four problems map to the textbook prerequisites — linear algebra, calculus, probability, and Python — and the slowest problem predicts what to patch before HW1's ice-core regression.
@@ -70,6 +78,10 @@ Role-playing `Steve the TF live demo`, fit a `line of best fit` via OLS (not a p
 ## Where it leads
 
 After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) (ice-core), [HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en), [HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en), [HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en), [HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en), and [HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en) are new material rather than remediation. The 2025 `practical` (Kaggle-style) is the capstone if you want more after HW6; 2026 has no practical, so use the 2025 version.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 1, **History of NLP**, on January 6, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff and reconstructs the public agenda from the [course-introduction deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-intro.pdf) and [history deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture01-history.pdf). The lecture first defines the quarter's destination, then asks where today's language models came from.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Where the course is taking you
 
 [Human Language Understanding & Reasoning](https://www.amacad.org/publication/daedalus/human-language-understanding-reasoning) supplements the course's boundary between understanding and reasoning. The introduction gives three goals: foundations of modern NLP, a broad understanding of why human language is difficult, and the ability to build language systems such as question answering, RAG, tool use, and LLM evaluation.
@@ -89,6 +98,10 @@ Lectures 1–5 establish representation and optimization; 7–10 move through pr
 ## Material gap
 
 Winter 2026 recordings are available only to enrolled students. This article follows the official introduction and history decks. It does not claim spoken examples, classroom discussion, or views absent from those slides, and it does not fill the gap with recordings from another offering.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

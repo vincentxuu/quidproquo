@@ -33,6 +33,15 @@ glossary:
 
 本文只講題目結構、配分、要改的檔案、算力與環境。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 基本資料
 
 | 項目 | 內容 |
@@ -177,6 +186,10 @@ python train_qformer.py \
 延伸閱讀：擴散模型與 guidance 背後的數學，可以對照 [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；LoRA 這類參數高效微調的系統面，見 [CMU 11-868 L23：大模型的高效微調](/posts/ai/2026-09-30-cmu11868-peft-lora)。
 
 系列導覽：上一篇 [L14–L15：Cross-attention、DiT、Prompt-to-Prompt 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)｜下一篇 [L15–L16：Scaling laws 與 Mixture of Experts](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

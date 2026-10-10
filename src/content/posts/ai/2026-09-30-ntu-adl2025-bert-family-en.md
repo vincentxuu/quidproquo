@@ -33,6 +33,26 @@ Official materials used:
 
 Access level follows the series rating of **A2**. The slides and videos for this lecture are public. The matching assignment, HW1, is submitted through Kaggle and NTU COOL, so outside readers can only practice from the spec (see [the next post](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=pSQM-HNHA64
+title: 5.2 BERT
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sqldA6AgV7s
+title: 5.3 BERT Variants
+```
+
+Original videos: [5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The starting point: word vectors ignore polysemy
 
 Page 3 opens with two sentences: "An apple a day, keeps the doctor away" and "Smartphone companies including apple, …". The two apples mean different things, but word vectors like word2vec and GloVe give each word **one** vector. The slide names two problems:
@@ -163,6 +183,10 @@ Not confirmed: the videos were not transcribed, so the instructor's spoken examp
 Further reading on this site: [CS224N Lecture 7: Pretraining](/posts/ai/2026-08-22-cs224n-pretraining-en) covers the three pre-training architectures from another angle, and [CS224U's contextual-representation model families](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en) walks through BERT, RoBERTa, ELECTRA, and others.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Tokenization and BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en) | Next: [HW1 Chinese Extractive QA](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

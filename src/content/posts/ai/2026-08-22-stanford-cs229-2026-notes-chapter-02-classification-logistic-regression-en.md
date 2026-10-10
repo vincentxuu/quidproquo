@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 2, “Classification and logistic regression,” on printed pages 21–29 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of a quarter's recordings.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## From a linear prediction to a class probability
 
 Using \(\theta^Tx\) directly to predict zero or one gives an unbounded output with no probability interpretation. Logistic regression computes a linear logit and compresses it into \([0,1]\):
@@ -68,6 +77,10 @@ Chapter 1 supplied the optimization and likelihood vocabulary. Chapter 3 derives
 ## Self-study exercise
 
 Create a two-dimensional binary dataset and train both logistic regression and a perceptron. Plot their boundaries, inspect how logistic probabilities change near the boundary, and compare gradient descent with Newton's method by both iteration count and elapsed computation.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

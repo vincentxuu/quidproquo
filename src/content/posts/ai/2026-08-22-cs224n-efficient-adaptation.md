@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 9 講排在 2026 年 2 月 3 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture09-peft.pdf)先用 DPO 與偏好資料收尾，再進入 prompting、PEFT、pruning/subnetwork、LoRA、prompt tuning、adapters 與其他方法。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 適應方法先看「改了什麼」
 
 Full fine-tuning 更新所有模型參數，彈性高，但每個任務都要保存完整模型，訓練記憶體也包含梯度與 optimizer state。Prompting 不更新權重，只改輸入上下文；成本低、迭代快，卻受 prompt 敏感度與 context 長度影響。
@@ -120,6 +129,10 @@ Serving test 也要模擬真實切換。若同一 batch 不能混用不同 LoRA�
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文覆蓋 overview 的 DPO、偏好資料與七個 adaptation 主題；投影片中的實驗圖只用來解釋方法取捨，不外推到未測任務。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

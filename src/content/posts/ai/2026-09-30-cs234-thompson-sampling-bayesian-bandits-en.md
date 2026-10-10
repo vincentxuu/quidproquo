@@ -37,6 +37,22 @@ The previous post's UCB assumes only that rewards are bounded; it makes no assum
 
 L11 takes another angle: **if you have prior knowledge about rewards, can you use it?** The answer is Bayesian bandits, and their best-known algorithm, Thompson sampling, explores with a completely different logic. Instead of guessing high, it draws lots according to what you currently believe.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=gFJNsfg_35E
+title: Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"
+```
+
+Original videos: [Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"](https://www.youtube.com/watch?v=gFJNsfg_35E)
+
+Course and recording entries:
+
+- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Opening: a quiz on deterministic rewards
 
 L11 opens with a quiz: what happens to UCB if the bandit's rewards are deterministic?
@@ -190,6 +206,10 @@ One thing you can do tonight: write a 20-line Bernoulli Thompson sampler with nu
 
 - Exploration in deep RL (count-based, posterior sampling, and more): [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Course positioning, access gaps, and the 2024 video mapping: [Reading Stanford CS234 (series overview)](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -18,6 +18,22 @@ draft: false
 
 The final three meetings on the [CS188 Spring 2026 calendar](https://inst.eecs.berkeley.edu/~cs188/sp26/) cover AI for Global Nuclear Monitoring, AI Safety, and Further Thoughts. They are not detached news topics. They ask what remains missing when search, decisions, uncertainty, and learning enter real institutions.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
+title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
+```
+
+Original videos: [CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## A standard for independent completion
 
 Without a Berkeley transcript, replace a vague claim of completion with an auditable portfolio. For each project from P1 through P5, preserve four things: the problem model, core algorithm, test evidence, and one failure case. P0 only verifies the environment and need not become a portfolio piece.
@@ -39,6 +55,10 @@ From a clean environment, rerun each local autograder. For every project, choose
 Afterward, choose a next course by direction: CS189 for mathematical ML, CS285 for deep RL, or an introductory NLP course before CS288. CS188 does not cover all of AI; it supplies a reusable language for representing AI problems.
 
 Series navigation: [Previous: Decisions and machine learning](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en) | [Back to the course overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

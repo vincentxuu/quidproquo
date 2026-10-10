@@ -24,6 +24,16 @@ draft: false
 
 這篇是把講義 PDF 逐章翻過、把 2018 與 2026 兩版課綱擺在一起比、把還抓得到的作業下載下來讀完之後寫的。涵蓋課程涵蓋什麼、第一章難在哪、兩版之間差了什麼、作業長什麼樣、以及沒有 Stanford 帳號的人實際拿得到多少。**不包含**逐堂錄影精聽——那是另一個量級的工作，本系列的 [CS329A 那篇](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)才是那種做法。這門課在整條先修階梯上的位置，見[系列入口的地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 這門課的硬事實
 
 先修條件官網寫得很具體，三條。能用 Python/NumPy 寫出不算 trivial 的程式（CS106A 或 CS106B 等級）；機率論到 CS109 或 MATH151 等級；多變數微積分與線性代數到 MATH51 或 CS205L 等級。三條都是「等同於」的寫法，不要求你真的修過那些課號。
@@ -167,6 +177,10 @@ draft: false
 - **仍可下載的複習講義**：`section/cs229-linalg.pdf`、`section/cs229-prob.pdf`、`section/cs229-cvxopt.pdf`、`section/cs229-gaussians.pdf` 皆回 200；`notes/cs229-notes1.pdf` 等 2018 課綱上的舊分冊講義已全部 404。
 - **自測題**：`https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`，4 頁，PDF `CreationDate` 為 2008-10-06。標頭寫「CS 229, Public Course」。
 - **未能確認的項目**：(1) ~~2026 春季錄影為何缺 15、17、19 三堂~~ **2026-08-26 已解開**：Spring 2026 為 Mon/Wed 上課，全季 20 個時段扣掉 Memorial Day（5/25）共 19 堂；播放清單只有 17 支，差的兩支就是 Lecture 14 裡講師親口宣布的兩場**客座講座**（其中一場確認為 Simran Arora 講 systems ML）——客座場未放進播放清單。三支錯植標題（自稱 Lecture 16/18/20）是上傳模板的殘跡，不是內容缺漏：17 支影片經字幕逐支比對內容完全連續，最後一支明講「the last lecture of this quarter」。自學者沒有漏掉任何正課。(2) 近年各季的精確成績配比——2020 年秋季起公開頁一律寫 Grading TBD，百分比移入登入限定文件。可考的錨點：2008 公開課 Handout 寫「作業四份各 10%、期中 20%、專案 40%、參與加給最多 3%」；[Fall 2020 的 logistics PDF](http://web.archive.org/web/20201031193539/http://cs229.stanford.edu/logistics_fall2020.pdf)（Wayback 存檔）寫「作業 45%、期中 15%、專案 40%」；現行的 project FAQ 只確認專案佔最終成績 40%，內部分配不公布；Summer 2026 的官方 FAQ 則是 HW 50%＋期末考 50%，暑期沒有專案。(3) 期末專案作品集——2026-08-26 系統性枚舉了 proj2005 到 proj2026 的所有路徑變體：仍在線上的公開作品集到 [proj2021spr](https://cs229.stanford.edu/proj2021spr/) 為止（含 Best Project Award 名單），2022 年起 live 全部 404 且 Wayback 零收錄；網站首頁現在明寫 course documents only shared with Stanford affiliates。(4) 其他年份 pset——CDX 全量列表顯示舊站年代（≤2017）曾有 ps0–ps4 含解答版與多屆期中考卷，但 Fall 2020 的 logistics PDF 第 8 節明文「assignments will only be posted on Ed」，Summer 2026 FAQ 重申同政策：**2020 年秋之後的 pset 不是沒找到，是從未存在於公開網路**。社群 mirror（如 maxim5/cs229-2018-autumn）覆蓋止於 2019 年代教材。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

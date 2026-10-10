@@ -19,6 +19,14 @@ draft: false
 
 讀任何 instruction 時，可以固定問四件事：operand 寬度是多少、來源在哪裡、目的在哪裡、括號只是拿來計算位址還是真的會 dereference。這套順序能解釋 `movzbl`、`leaq`、`addq` 和 `sar`，也能避免把 register 的不同名稱誤認成彼此獨立的 storage。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料、缺口與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -221,6 +229,10 @@ shlq %cl,%rax
 6. 對 binary ALU form，先算 `D op S`，再把結果寫回第二 operand。
 7. 對 shift，分清 `sar` 與 `shr`，並檢查 amount 是 immediate 還是 `%cl`。
 8. 最後才用 ABI 與周邊 instructions 命名語意。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

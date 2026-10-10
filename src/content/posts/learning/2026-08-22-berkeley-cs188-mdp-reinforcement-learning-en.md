@@ -18,6 +18,22 @@ draft: false
 
 Search assumes successors can be enumerated. Reinforcement learning must act under uncertain outcomes and delayed rewards. [Lectures 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/) establish MDPs and then RL; [Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/) implements value iteration, Q-learning, epsilon-greedy exploration, and approximate Q-learning.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=0CDpYf1KpOc
+title: CS188 Spring 2026 Lecture 9: MDPs I
+```
+
+Original videos: [CS188 Spring 2026 Lecture 9: MDPs I](https://www.youtube.com/watch?v=0CDpYf1KpOc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## Separate planning from learning
 
 Value iteration knows transition and reward models and computes values through Bellman updates. Q-learning does not require the model in advance; it updates Q-values from `(state, action, reward, nextState)` experience. Both can produce a policy, but their information sources differ.
@@ -31,6 +47,10 @@ Tabular Q-learning stores every state-action pair separately and generalizes poo
 Hand-calculate one Bellman update in a tiny Gridworld before running a single autograder case. Finally compare policies before and after exploration is disabled. Do not stop at average score; explain why the agent selects its action.
 
 Series navigation: [Previous: CSPs and multi-agent search](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en) | [Next: Bayes nets and Ghostbusters](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

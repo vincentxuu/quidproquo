@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 3 講排在 2026 年 1 月 13 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf)標題是 Neural Network Foundations，agenda 則列出詞向量評估回顧、神經網路介紹、矩陣微積分與反向傳播。這堂不是泛泛介紹深度學習；它要建立後面所有模型共用的訓練語言。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 從線性分類器到神經網路
 
 線性模型把輸入乘上一組權重再加偏差。它能學一個決策平面，卻無法單靠一層表示複雜的彎曲邊界。神經網路把多個仿射轉換與非線性函數串起來，使中間層能學到對任務有用的特徵。
@@ -115,6 +124,10 @@ SGD、Adam 與 learning-rate schedule 只決定如何使用 gradient。若 targe
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文涵蓋投影片 agenda 的四個主體，但不聲稱還原課堂上的完整板書推導或問答。官方投影片本身把 Lecture Plan 誤寫成「Lecture 2」；檔名、首頁課表與封面都把它識別為 Lecture 3。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

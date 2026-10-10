@@ -32,6 +32,26 @@ The previous two posts cover material students must self-study before enrolling.
 
 That is four new ideas, but one of them carries the rest: **a language model estimates the probability of a word sequence by predicting one next word at a time.** Word representations are its input, the RNN is its architecture, and the applications are what you get by changing its output. Keep that line in mind and the lecture holds together.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=215BxEbYrCs
+title: ADL 3.1: Word Representations
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eVA_WTW4gXE
+title: ADL 3.2: Language Modeling
+```
+
+Original videos: [ADL 3.1: Word Representations](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism (LSTM and GRU)](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## How do you put a word into a computer?
 
 Slide 4 splits word representations into two camps.
@@ -160,6 +180,10 @@ One thing to try tonight: take the three sentences on slide 10, count the window
 
 - The same material at Stanford: [CS224N Lecture 2: word2vec](/posts/ai/2026-08-22-cs224n-word-vectors-en), [CS224N Lecture 4: Language Models and RNNs](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
 - How NTU's courses divide the ground: [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

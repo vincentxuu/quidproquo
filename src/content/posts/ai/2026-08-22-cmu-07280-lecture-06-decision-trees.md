@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 6：Decision Trees**。Lecture 5 只說要從 hypothesis class 找 empirical risk 小的函數。這一講第一次把 `H` 具體化，並展示一個核心取捨：不窮舉所有樹，而是每個 node 貪心選一次最有資訊的 split。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Decision Trees lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes%20-%20decision%20trees.pdf)、[pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf)、[Recitation 3](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3_sol.pdf)，並核對 [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf)。沒有公開逐講錄影。
@@ -72,6 +80,10 @@ HW4 第一題給定 training set，要求比較 candidate splits；題面明確�
 1. 手算 fair coin、固定為反面、fair six-sided die 的 entropy。
 2. 為八筆二元資料計算兩個 attributes 的 conditional entropy 與 mutual information。
 3. 把最佳 attribute 當 root，遞迴做第二層，直到 leaf labels 一致或 attributes 用完。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

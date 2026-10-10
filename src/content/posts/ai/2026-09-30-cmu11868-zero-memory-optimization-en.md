@@ -31,6 +31,14 @@ glossary:
 
 This is the 3/23 lecture in Week 11 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), "Memory Optimization in Distributed Training." It has one reading: [ZeRO (Rajbhandari et al., SC 2020)](https://arxiv.org/abs/1910.02054). The [L18 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf) run 76 pages; pages 18 through 63 are frame-by-frame animation, each frame adding one step. The course has no public recordings, so this post draws on the slides and the paper's abstract. Page numbers are PDF pages.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The problem: data parallelism saves communication but wastes memory
 
 The comparison on page 5 lays out the trade-off:
@@ -175,6 +183,10 @@ The summary on page 75: ZeRO cuts memory sharply and is scalable, flexible, and 
 - Previous in series: [L16–L17 Model parallelism and MoE](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 - Next in series: [HW5: data parallelism and pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 - On this site: [CS336 resource accounting](/en/posts/ai/2026-08-22-cs336-resource-accounting-en) (another way to count bytes per parameter), [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

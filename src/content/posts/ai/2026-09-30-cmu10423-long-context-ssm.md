@@ -36,6 +36,15 @@ glossary:
 
 L19 和 L21 中間隔了一講 L20 推理模型。導讀把它們合成一篇，因為兩講回答的是同一個問題：**attention 的成本隨序列長度平方成長，還有哪些路可走？**
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 先看問題長什麼樣：一段影片就爆掉 context
 
 L19 開場沒有先講公式，而是貼了一段完整的 PyTorch 程式：用 ViT 把影片抽成 10 個影格，每個影格變成一串影像 token，接上 GPT-2 做影片問答。程式本身沒錯，下一頁卻只有一行錯誤訊息：輸入超過 Transformer 的最大上下文長度 4096 token。
@@ -203,6 +212,10 @@ L21 最後一段是 hybrid 模型。投影片列了三個動機：長上下文�
 延伸閱讀：站上 [CS336 的架構與超參數篇](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)與[推論篇](/posts/ai/2026-08-22-cs336-inference)從自己訓練 LM 的角度談位置編碼與 KV cache；[CMU 11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)從系統角度談分散式訓練與推論。
 
 系列導覽：上一篇 [L17–L18：分散式訓練、FlashAttention 與高效解碼](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)｜下一篇 [L20：推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 The crucial habit is not memorizing every `jg/jl/ja/jb`. Ask which instruction most recently wrote the flags, read a comparison in the `S2-S1` direction, and decide whether the values require signed or unsigned interpretation. A mistake in any one reverses the branch condition.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, gaps, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -266,6 +274,10 @@ The slides call the four-instruction form often fast, but that is not a universa
 8. When comparing cost, separate static instruction count from the dynamic path.
 
 Lecture 18 fully answers when to jump and how to produce a conditional result without jumping. It does not answer how a function transfers control or stores a return address. Keeping that boundary clear preserves the role of condition codes: a compressed summary of the latest operation, shared by jumps, sets, and moves to choose what happens next.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

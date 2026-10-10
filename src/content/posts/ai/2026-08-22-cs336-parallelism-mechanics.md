@@ -19,6 +19,22 @@ draft: false
 
 單張 GPU 的 optimization 到這裡結束。模型、optimizer state 或 batch 再大，就必須跨 devices。第七講刻意不用高階 wrapper 遮住細節，而是從 collective operations 組出三種基本平行化。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=6-cXp-aOmdg
+title: CS336 Spring 2026 Lecture 8: Parallelism
+```
+
+原始影片：[CS336 Spring 2026 Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 通訊有明確的距離階層
 
 同一 GPU 內的 registers、shared memory 與 HBM 最快；同一節點的 GPUs 可經 NVLink/NVSwitch；跨節點走 InfiniBand 或 Ethernet，頻寬更低、延遲更高。RDMA 讓裝置直接讀寫遠端記憶體，避免 CPU 與 kernel network stack 的額外複製。
@@ -60,6 +76,10 @@ Data parallel 沿 batch 切、tensor parallel 沿 width 切、pipeline parallel 
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義，包含 collectives 與三種平行化的 PyTorch 範例。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

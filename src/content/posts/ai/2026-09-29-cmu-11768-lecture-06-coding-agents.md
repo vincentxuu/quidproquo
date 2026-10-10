@@ -35,6 +35,14 @@ glossary:
 
 這篇照課堂順序走七段：程式模型的訓練、生成程式的評測、agentic coding 的迴圈、工具組設計、coding agent 的評測與訓練、前端開發、inner loop 之外的開發任務。最後一段「預測程式行為的模型」課堂上時間不夠沒講，本篇依投影片補上。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 一、會寫程式的模型
 
 先講單步模型：給一個 prompt，一次吐出程式，還不是 agent。要做到這件事，模型需要三種能力：懂程式語言本身（語法、API、慣用寫法）、會**編輯**（同時參考前後文修改程式，而不是每次重寫）、會**推理**（從規格推到行為）。Neubig 特別點出推理：程式和數學是推理模型最成功的兩個應用，因為兩者都相對容易驗證答案對不對。
@@ -245,6 +253,10 @@ L6 是 Capabilities 模組之後的第一個 Domain，把前五講的零件（�
 - 站內：[Coding agent 的編輯工具取捨](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs)
 - 站內：[Coding agent 的工具組設計哲學](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy)
 - 站內：[Coding agent 的驗證關卡](/posts/ai/2026-08-25-coding-agent-verification-gate)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

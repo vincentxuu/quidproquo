@@ -39,6 +39,14 @@ A computer use agent (CUA) differs from the text agents in earlier lectures at b
 - Course page: [cmu-agents.com schedule](https://www.cmu-agents.com/) (slides and [recording](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7) for Lecture 7)
 - This guide is based on the Sep 15, 2026 slides and recording. Where the speaker's claims about GPT-6 Astra, Fable / Opus 5 and other products have no public source, the text marks them as his; where an official number exists (for example [OpenAI's GPT-6 Astra announcement](https://openai.com/index/gpt-6-astra/)), it is added alongside.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## What a CUA is: observe, reason, act, repeat
 
 The slides carry one running example through the whole talk: "buy a blue mug."
@@ -242,6 +250,10 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 - Background for the RL stage: [CS336 Lecture 16: RLVR and GRPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
 - SFT basics: [CS336 Lecture 15: SFT and RLHF](/en/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Biases of LLM judges: [Self-Reflection and LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

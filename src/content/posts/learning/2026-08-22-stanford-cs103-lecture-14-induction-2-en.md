@@ -19,6 +19,14 @@ This is article 15 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Mathematical Induction, Part II**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/13/)
+
 ## Starting from ordinary induction
 
 For a predicate P, ordinary induction proves every P(n) from P(0) and the universally quantified step P(k) implies P(k+1). The deck recalls the powers-of-two identity by defining P(n) as the statement that the sum from i=0 through n-1 of 2^i equals 2^n-1. The empty sum establishes P(0). Under P(k), appending 2^k changes 2^k-1 into 2^(k+1)-1. This recap preserves the three obligations used throughout the lecture: define the predicate, identify exactly where the hypothesis is used, and invoke the induction principle only after base and step are complete.
@@ -86,6 +94,8 @@ The public deck explicitly supports the sections on starting from ordinary induc
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked starting from ordinary induction against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

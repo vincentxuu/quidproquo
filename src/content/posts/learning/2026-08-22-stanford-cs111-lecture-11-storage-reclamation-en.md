@@ -19,6 +19,14 @@ This is part 12 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 The material has an important anomaly: official `Lecture10.pdf` and `Lecture11.pdf` have the same SHA-256 (`368092c0...e67cb`) and are byte-identical 22-page files, although the calendar calls April 22 **Dynamic Storage Management, Continued**. The Canvas recording is unavailable, so the actual in-room continuation cannot be reconstructed. This article does not invent boundary tags or other absent content; it focuses on storage reclamation explicitly present in the repeated deck's latter half.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Placement and reclamation are different questions
 
 `allocate(size) -> ptr` finds space and `free(ptr)` returns it. Stacks, free lists, first/best fit, slabs, and bitmaps answer where storage should go. Reclamation asks the prior question: **when can an object never be accessed again?**
@@ -63,6 +71,9 @@ The slides give magnitudes of 10–20% of CPU time, 2–5× overallocation, and 
 
 The conclusion is not that GC always beats manual free. Reference counting buys local decisions but misses cycles; tracing GC buys global reachability while paying scan, space, and pause costs; manual reclamation leaves programmers exposed to dangling pointers and leaks. The duplicated artifact justifies this article's shorter length: these seven sections cover every reclamation item in the PDF without padding the article by repeating Lecture 10's placement discussion.
 
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -46,6 +46,14 @@ Instead it picks up the three questions order 9 left open:
 
 The 2026 slides and recording are not out yet. Anything marked "2025 slides" below comes from pages 71–98 of the [2025 Lecture 9 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf). Everything else comes from the original papers and official pages, and does not represent how the 2026 lecture will present it.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Start with a contradiction: where does 10x come from
 
 The "Discussion" slide in the 2025 deck says diffusion LLMs produce roughly 10x the output tokens per second of an ARM. Yet the [LLaDA](https://arxiv.org/abs/2502.09992) paper recommended on the same slides sets the number of sampling steps equal to the generation length in its main experiments, for a fair comparison. That means **one token is unmasked per step**. Run that way, it takes exactly as many forward passes as an autoregressive model, and LLaDA has no KV cache on top of that.
@@ -374,6 +382,10 @@ Once the November 20, 2026 video and slides are released, this post will be chec
 - Which sampling strategies the inference part covers, and whether it mentions KV caching and block generation
 - Whether the 2025 slides' "~10x tokens/s" gets an updated figure or a cited source
 - If the final exam (December 9, 2026) is released and covers this lecture, replace the self-check with questions adapted from the official exam
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

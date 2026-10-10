@@ -31,6 +31,14 @@ glossary:
 
 用到的官方材料是兩份投影片：3/25 的 [L19 Model Quantization](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-19-quantization-da7a2abad092c802b03672ce1cc7bee9.pdf)（25 頁）與 3/30 的 [L20 Model Quantization II](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-20-quantization2-ba573d7e5d82e68027bbd3a92c3cd819.pdf)（37 頁），講者都是 Lei Li。[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 在 L20 列的 reading 只有 [GPTQ](https://arxiv.org/abs/2210.17323)，L19 沒有列 reading；正在上課的 [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) 則替 L19 補上 NN Quantization、AdaQuant、LLM.int8() 三篇。本課講義公開、作業公開，存取等級是 **A3**，但沒有公開錄影，以下內容只來自投影片與論文。文中頁碼以 PDF 檔的頁數為準。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 聚焦問題：量化省下的是記憶體，還是時間？
 
 L19 第 3 頁先擺出成本：投影片寫 Llama-70B 推論需要 140GB GPU 記憶體。第 4 頁的定義很短：用低位元精度存參數與層輸出。好處列了兩條，缺點一條：
@@ -172,6 +180,10 @@ GPTQ 的三個改動：
 - 上一篇：[HW5：資料平行與管線平行](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 - 下一篇：[L21 FlashAttention（Tri Dao 客座）](/posts/ai/2026-09-30-cmu11868-flashattention)
 - 系列總覽：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

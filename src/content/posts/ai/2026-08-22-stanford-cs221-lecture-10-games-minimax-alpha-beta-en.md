@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 10**, taught by Percy
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Reframing the MDP problem as games
 
 The previous starting point is an MDP and reinforcement learning: the agent tries to maximize utility while the environment is random and known. This lecture changes the setting to games. The agent still maximizes its utility, but the opponent's strategy is unknown. That small change determines what a recurrence does at each node. With a random environment we take an expectation; with a player who chooses actions, we must state exactly what kind of opponent policy we assume.
@@ -145,6 +154,10 @@ That is the approximation failure mode. An evaluation function can mistake a sho
 `games.py` begins by separating state, turn, transitions, termination, and utility through five `Game` methods. It uses `simulate` to observe rollouts under fixed policies and `V_eval` to compute their expected utility exactly. Expectimax then maximizes at agent nodes and takes expectation under a fixed opponent policy. Minimax changes the opponent node to min, producing a worst-case policy for an unknown opponent. The face-off section makes clear that each optimality claim is relative to an opponent assumption. When chance enters the tree, expectiminimax combines max, min, and expectation.
 
 The final two speedups have different contracts. Alpha-beta is branch-and-bound with bounds and ordering, so it remains exact. An evaluation function is prior knowledge used at a depth-limited leaf, trading full-tree guarantees for computability. Alpha-beta's main practical variable is ordering; depth-limited evaluation's main risk is the quality of its estimates and cutoff depth. Keeping those assumptions next to the interface is what prevents “best against a fixed opponent,” “guaranteed against the worst opponent,” and “approximately best under a finite search” from collapsing into one answer.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

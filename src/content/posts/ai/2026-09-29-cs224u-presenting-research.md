@@ -23,6 +23,15 @@ draft: false
 
 **存取狀態（A3，歷史版）**：投影片、影片、projects.md、講次表上的指定閱讀大多公開。拿不到的是投影片第 3 頁連結的往年範例論文（`restricted/past-final-projects/`，302 轉 Stanford 登入頁）。另外，講次表上 David Goss 那篇〈hints on mathematical style〉的連結，2026-09-29 查核時已是 404。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 第一段：期末論文的課程特有要求
 
 評分三軸（指標恰當、方法紮實、對自身極限誠實）在[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經寫過，投影片第 4 頁只是重申。這一段真正新的是三條規定。
@@ -188,6 +197,10 @@ projects.md 與投影片都列了同一份清單：關掉會跳出的通知、�
 - 同系列下一篇：[Stanford CS224U 導讀 17：兩場延伸講座](/posts/ai/2026-09-29-cs224u-guest-lectures)
 - 資料集取捨與 Datasheets 的脈絡：[CS224U 方法與指標 II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
 - 站內 CS224N 系列的期末專案篇：[CS224N 第 6 講：把期末專案收斂成可驗證的研究問題](/posts/ai/2026-08-22-cs224n-final-projects)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

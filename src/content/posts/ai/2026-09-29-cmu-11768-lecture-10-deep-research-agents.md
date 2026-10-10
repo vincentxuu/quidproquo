@@ -34,6 +34,14 @@ glossary:
 
 Deep research agent 指的是：接到一個需要多次搜尋、跨多份文件綜合的研究問題，自己規劃、搜尋、反思、再搜尋，最後交出一份附引用的長答案。投影片把一堂課切成三塊——**評測**（benchmark、rubric、引用支持）、**建模**（怎麼學會搜尋與綜合）、**檢索**（怎麼替 agent 的下一步找到證據）。這篇照同樣的順序走。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 一次搜尋和很多次搜尋差在哪
 
 開場用兩個問題對比。「Akari Asai 在 CMU 的辦公室是幾號？」搜一次教職員頁面就有答案。「AI agent 綜合科學文獻的能力能不能跟人類專家一樣好？」就不一樣了，投影片把 agent 處理這題的過程拆成四步：
@@ -261,6 +269,10 @@ L10 是 Domains 模組的第三講，也是 Training 模組中間插進來的一
 - [從搜尋結果到可靠引用：URL 去重、來源分級與 Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)
 - [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

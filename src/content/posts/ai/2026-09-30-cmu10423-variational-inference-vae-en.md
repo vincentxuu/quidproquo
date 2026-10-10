@@ -31,6 +31,15 @@ This is the steepest post in the series, so here is the intuition up front: **VA
 
 If probability and Gaussians feel shaky, read the prerequisites section of [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) first. Every derivation below sits in a collapsible block, so you can skip them on a first pass.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## First half of L8: finishing diffusion
 
 L8 opens by recapping L7's U-Net, the forward and reverse processes, the three properties and the three parameterizations. It then adds two things.
@@ -197,6 +206,10 @@ Question 6.1 of [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en), "ELBO Surgery"
 - [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) and [Lab 3: from DiT and VAE to latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en), another mathematical language for diffusion and VAEs
 - [Reading CMU 11-785: Variational autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - [Reading Stanford CS231n: Generative Models I (VAEs and GANs)](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -31,6 +31,27 @@ This post covers the first three sections, which match videos [04](https://www.y
 
 Potts explains the trade-off at the start of video 04. Earlier versions of the course spent about two weeks on static vectors. The 2023 version goes straight to contextual representations and moves static vectors to the course's [background materials](https://web.stanford.edu/class/cs224u/background.html).
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=FEFeeRONEdw
+title: Video 04: Contextual Word Representations, Part 1: Guiding Ideas
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yqV_YfBBtK0
+title: Video 05: Part 2: Transformer
+```
+
+Original videos: [Video 04: Contextual Word Representations, Part 1: Guiding Ideas](https://www.youtube.com/watch?v=FEFeeRONEdw)、[Video 05: Part 2: Transformer](https://www.youtube.com/watch?v=yqV_YfBBtK0)、[Video 06: Part 3: Positional Encoding](https://www.youtube.com/watch?v=JERXX2Byr90)
+
+Course and recording entries:
+
+- [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## The scene: one "break," eight meanings
 
 Slide 4 lists sentences that all use the same verb:
@@ -180,6 +201,10 @@ Here $a^K_{ij}$ and $a^V_{ij}$ depend on the relative distance $j - i$, clipped 
 - In the extracted text of slide 27, the relative encoding slide still shows two "Limitations" lines, but the video says clearly that relative encoding passes both questions. The PDF text doesn't show whether the original slide strikes them out, so this post follows the video.
 
 **Series navigation**: Previous: [Opening lecture: the evolution of NLU and the course map](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en) | Next: [Contextual representations II: GPT, BERT, RoBERTa, ELECTRA, seq2seq, and distillation](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

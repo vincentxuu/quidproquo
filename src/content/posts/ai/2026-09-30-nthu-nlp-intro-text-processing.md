@@ -36,6 +36,26 @@ glossary:
 
 第一週的投影片就在處理這個落差。它回答一個問題：**在大型語言模型出現以前，電腦怎麼把一堆文字變成可以計算、可以排序的東西？** 答案是一條從資訊檢索長出來的管線，以及這條管線撞牆之後的兩次修補：LSA 和詞向量。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=X7XJcm9wfFA
+title: Fall 2025 Week 1 Tue. 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=0hTqSpoNp4o
+title: Fall 2025 Week 1 Thu. 錄影
+```
+
+原始影片：[Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/watch?v=0hTqSpoNp4o)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 語言對電腦為什麼難
 
 投影片開頭的定義很短：NLP 是讓電腦使用人類語言，被視為機器學習的一個分支；應用包括翻譯、資訊檢索、聊天機器人和資訊查證。接著它用一串例子說明「對人很簡單、對電腦很難」：
@@ -154,6 +174,10 @@ Skip-gram 的訓練流程投影片一步步畫出來：用窗口大小 1 從「T
 - [CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)：Stanford 版本的 word2vec 與分布語意講法。
 - [CS224U 資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)：BM25 公式、IR 指標與 neural IR。
 - [混合搜尋：BM25 + 向量 + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)：把本篇的 BM25 放進實際的 RAG 檢索系統。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

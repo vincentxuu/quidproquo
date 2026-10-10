@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 8: Optimization**. Lecture 7 had a normal equation for linear regression. This lecture deliberately returns to the objective's shape and builds an update rule that still works when no closed form exists. It is also the direct foundation for later neural networks and backpropagation.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
@@ -79,6 +87,10 @@ The lecture claims only that SGD is noisy but fast. It does not prove that noise
 1. Recompute the four updates for `J(ω)=ω²` and plot each iterate on the parabola.
 2. Compute one batch gradient for two linear-regression examples, then each single-example gradient.
 3. Write one stopping criterion and a case in which it gives a false sense of convergence.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

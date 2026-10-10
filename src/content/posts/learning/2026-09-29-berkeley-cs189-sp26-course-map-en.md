@@ -20,6 +20,14 @@ draft: false
 
 The short answer: **from this post on, every lecture and homework guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis).** It is the only version that currently publishes lecture videos, slides and discussions with solutions, plus homework all the way down to the notebooks.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## The four versions side by side
 
 I opened every official page below without logging in on 2026-09-29. The ratings use the A0–A3 scale from this site's [global course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only the listing is visible, A1 means the syllabus is visible, A2 means materials are partly open, and A3 means you can self-study the course.
@@ -130,6 +138,10 @@ The series follows the official Spring 2026 order, with each homework guide plac
 - [Berkeley AI/ML course map](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en): where CS189 sits among Berkeley's courses
 - [Stanford CS109 probability guide](/en/posts/learning/2026-08-21-stanford-cs109-probability-en): a route for catching up on probability
 - [Stanford CS229 guide](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another math-heavy intro ML course to compare against
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -50,6 +50,14 @@ The punchline first. Reading posts 5 and 6, the PPO and GRPO formulas look like 
 
 Each section below gives the intuition first, with formulas tucked into expandable blocks. Anything marked "2025 slides" comes from the [2025 Lecture 5](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf) or [Lecture 6](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf) slides; the rest comes from the original papers, linked inline.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 1. Mathematical conventions: writing "generate an answer" as RL
 
 The 2025 slides (Lecture 5, pp. 23–28) already gave the mapping. The agent is the LLM, the state is "the input so far," and the action is "the next token." The policy is "the probability distribution of the next token," and the reward is human preference. This section just turns that table into symbols that every later formula uses.
@@ -384,6 +392,10 @@ After the October 16, 2026 lecture, once the slides are posted, this post will b
 - Which items are listed under reward design and limitations, and how they differ from sections 2 and 4 here
 - Which source is cited for on-policy distillation (GKD, MiniLLM, Thinking Machines, or Qwen3), and whether it uses forward or reverse KL
 - The recording link, and whether the 2026 midterm (October 23) tests this lecture
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

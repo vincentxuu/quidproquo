@@ -32,6 +32,14 @@ This post is the series entry point. It answers three questions: what the course
 
 **Sources**: the [repo's main README (2026 edition)](https://github.com/IKMLab/NTHU_Natural_Language_Processing), the [2025 README](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), the [2025 W0_Syllabus.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf), the [2026 Syllabus-115.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/Syllabus-115.pdf), the [2025 assignment index](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md), the [2026 assignment index](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Assignments/README.md), TAICA's course lists for [Fall AY114](https://taicatw.net/fall-114/) and [Fall AY115](https://taicatw.net/fall-115/), and recordings on the [IKMLab NTHU YouTube channel](https://www.youtube.com/@IKMLabNTHU). I opened and checked all of them on 2026-09-30, and confirmed each recording is publicly playable through YouTube's oEmbed endpoint. Most materials are in Chinese or mixed Chinese and English.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## The hard facts
 
 - **Standing**: the 2025 syllabus cover calls it "Flagship Course 5: Natural Language Processing" and notes that of the 1,200 seats, 100 are reserved for NTHU and partner schools get about 50 each on average. TAICA's list files it under the Artificial Intelligence for Natural Language Technology Program, rates its difficulty at eight stars, and marks it as a graduate course.
@@ -153,6 +161,10 @@ Where topics overlap, this series still covers them in full. These links are for
 - [Reading Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en): Stanford's main NLP course in English, with syllabi compared from 2019 to 2026.
 - [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en): natural language understanding, retrieval, and evaluation methods.
 - [Reading NTU Hung-yi Lee's Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): also taught in Mandarin with all recordings public, but centered on AI agents and model behavior.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

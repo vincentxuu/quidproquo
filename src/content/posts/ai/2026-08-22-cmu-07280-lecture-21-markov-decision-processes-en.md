@@ -17,6 +17,14 @@ series:
 
 **CMU 07-280, Spring 2026, Lecture 21** moves from predicting the next token to selecting a sequence of actions. The official title is *Markov Decision Processes*. Its most important boundary is that transition probabilities and rewards are known. This lecture is about planning, not learning an environment from interaction.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 This article fully reads the [Lecture 21 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec21_MDPs.pdf), the [MDP pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MDPs.pdf), [Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf), and the racing problem in [Homework 11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf). The official site has no public Spring 2026 lecture recording, so no spoken classroom explanation is invented here.
@@ -93,6 +101,10 @@ State-space size is a separate problem. Even with known dynamics, a very large s
 ## An action for tonight
 
 Implement the `Stop/Try` MDP in a five-line loop and run twenty value-iteration updates from `V_0=0`. Test `γ=0,0.5,0.9`, recording the converged value and greedy action. Then make whether the agent has previously tried an action affect transitions without adding that fact to the state; observe why the Markov assumption fails.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

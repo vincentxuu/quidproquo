@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 13 講**，官方日期 2025-11-06。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/13-Advanced_topics_RDL.pdf)整理；講者以投影片署名為準。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含官方投影片與 schedule 的 optional readings。Canvas 錄影、現場 Q&A、板書與 Ed 討論不公開，本文不推測；2021 公開影片不作為 2025 講次證據。
@@ -116,6 +124,10 @@ Composite kernels、typed attention與heterogeneous batching各有overhead。報
 最後保存每個 relation 的 message norm、sample count 與 gradient norm，檢查熱門 relation 是否壓過其他類型、rare relation 是否完全沒有更新。若 attention 或 composite layer 改善，只在控制 relation frequency 後仍成立，才歸因架構。
 
 先寫出 prediction unit、資料可用時間、negative set 與 metric，再跑模型。圖上的資料洩漏常沿另一種 relation 或未來邊發生，只看程式是否執行成功抓不到。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

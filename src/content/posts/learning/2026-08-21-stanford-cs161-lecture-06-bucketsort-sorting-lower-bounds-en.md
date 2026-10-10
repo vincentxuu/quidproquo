@@ -19,6 +19,14 @@ This is post 7 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 
 The first five lectures obtained ordering information through comparisons. MergeSort already has worst-case `O(n log n)` time, so can sorting reach `O(n)`? The answer begins with a different question: **what may the algorithm do with a key?** Lecture 6 first proves `Ω(n log n)` in the comparison model, then leaves that model by reading integer keys directly in Counting Sort and Radix Sort. There is no contradiction.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting)
+
 ## Lower bounds depend on a computational model
 
 Comparison-based sorting can learn order only by comparing two elements. It cannot use a key as an array index, inspect a digit, or distribute objects through arithmetic on key values. However complicated the algorithm is, it distinguishes input orders through comparison answers.
@@ -169,6 +177,10 @@ For a paper check, run `21,345,13,101,50,234,1` through every pass and draw arro
 A formal randomized comparison lower bound must reason about a distribution over deterministic trees, often through distributional arguments. The official slides state but omit the proof. Any full addition should use a separate primary source and be marked as extension rather than quietly renaming deterministic leaf counting.
 
 Production radix implementations often use fixed machine words, array counting, and alternating buffers instead of linked-list buckets. Those choices can improve cache locality and constants without changing the central tradeoff: each pass touches `n` items, the radix controls bucket work, and word width controls pass count. The formula `d(n+r)` is an evaluation framework, not a substitute for measurement.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

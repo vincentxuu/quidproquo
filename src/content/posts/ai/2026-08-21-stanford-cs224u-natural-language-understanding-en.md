@@ -26,6 +26,15 @@ This piece is about what happens once you're inside. How the course divides labo
 
 It does **not** do a paper-by-paper close reading, and it does not cover the course materials inside XCS224U, the paid online version — those live behind a login I don't have. (Updated 26 August 2026: Stanford Online's page now states this course is no longer available as of May 19, 2025, making the free Spring 2023 YouTube recordings the only public record of instruction.)
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## The hard facts
 
 Start with the thing people get wrong most often: **the course site is frozen in Spring 2023.** Open it and the header says "Spring 2023" — teaching staff, syllabus, and due dates are all from that quarter. `cs224u.stanford.edu` just redirects to the same page.
@@ -223,4 +232,6 @@ Each part marks what isn't available: the Canvas quizzes, classroom recordings, 
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: Added "Series contents", linking parts 2–17 and noting what isn't public. Re-queried ExploreCourses through the same XML interface on 29 and 30 September 2026: the 2026-27 `<sections>` element is now empty (the Spring lecture and discussion sections are gone). The tldr, the hard-facts section, and the appendix were revised to match.

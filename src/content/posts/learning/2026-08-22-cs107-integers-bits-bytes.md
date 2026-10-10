@@ -19,6 +19,14 @@ draft: false
 
 這篇依 [Winter 2026 Lecture 3 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf) 的順序完整展開。主脊是「一個有限長度的 bit pattern，如何同時支撐 unsigned、signed 與加法」。讀完應該能徒手判讀小型 bit pattern，也能說明為何「處理器看起來會繞回」不等於「C 保證 signed overflow 會繞回」。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 講次資料與材料邊界
 
 - 課程：Stanford CS107: Computer Organization and Systems
@@ -237,6 +245,10 @@ if (sum < a) {
 6. Overflow 是值域設計問題。除了換型別，還要定義上限、檢查邊界並測試長時間累積。
 
 下一講會把 bit pattern 從「被動表示數字」推到「主動操作欄位」：AND、OR、XOR、NOT 與 mask。若這講的 signed／unsigned 解讀沒有分清，下一講很容易只剩運算表；先掌握同一串 bits 可以有不同數值語意，bitwise operator 才會成為可推理的工具。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

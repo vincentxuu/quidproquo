@@ -21,6 +21,14 @@ I used the [official Lecture 8 anchor](https://stanford-cs161.github.io/winter20
 
 Lecture 7 used red-black trees to obtain worst-case `O(log n)` search, insertion, and deletion. Lecture 8 asks whether a set that does not need sorted order can approach constant expected time. The answer is not a magical deterministic formula that always distributes keys evenly. Hashing puts randomness inside the algorithm and controls collision probability for any key set fixed before that random choice.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
+
 ## Why direct addressing is not enough
 
 If every key belongs to `{0,1,…,9}`, allocate ten array cells and store key `k` at index `k`. Search, insertion, and deletion each take one indexed access: genuine `O(1)` direct addressing.
@@ -217,6 +225,10 @@ Lecture 9 moves into graph algorithms. Even an adjacency list is a data-structur
 To internalize the universal-family proof, choose a small prime such as `p=11` and `n=5`. Enumerate several `(a,b)` pairs and count how often two fixed, distinct keys collide. The goal is not a perfectly even histogram; it is verifying the `1/n` pairwise bound.
 
 For implementation practice, record load factor, maximum chain length, and the average nodes scanned by a successful lookup after every insertion. Add resizing only when the load crosses a chosen threshold, then analyze that sequence separately with amortization. These are exercises suggested by this article, not additional Winter 2026 claims.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

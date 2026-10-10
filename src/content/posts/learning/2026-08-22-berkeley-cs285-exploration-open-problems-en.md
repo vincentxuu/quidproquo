@@ -17,6 +17,14 @@ series:
 
 The final seven items in the [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) are Exploration, RL Theory, two Midterm Review lectures, Advanced Exploration, Multi-task RL, and Challenges and Open Problems. This is not miscellaneous cleanup. It asks when earlier algorithms are reliable and whether experience transfers to new tasks.
 
+## Course video sources
+
+The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## L19–20: exploration and guarantees
 
 Exploration balances immediate reward against information value. RL Theory turns intuitions into assumptions and bounds on samples, regret, or performance. Annotate every theoretical result with its conditions. Tabular structure, coverage, or realizability assumptions cannot silently migrate into deep-RL practice.
@@ -34,6 +42,10 @@ Advanced Exploration reaches sparse rewards and representation-level information
 Produce a one-page research memo: problem, current approach, central assumption, failure case, and smallest experiment. Replace “sample efficiency matters” with a measurable question under a fixed interaction budget.
 
 The [Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) places current recordings in bCourses. If Fall 2023 or other historical videos on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) fill a conceptual gap, label their year and keep the 2026 slide agenda canonical. See the [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for the complete access boundary.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

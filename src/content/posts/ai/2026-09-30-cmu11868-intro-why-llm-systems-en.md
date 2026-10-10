@@ -26,6 +26,14 @@ glossary:
 
 L01 has four parts: what LLMs can do, mathematical foundations, challenges in LLM systems, and logistics (page 5). Logistics are covered in the [overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). This article follows the first three parts and traces how the lecture argues that LLMs need systems.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The learning objectives open with an arithmetic problem
 
 Page 4 lists three objectives. Under the first one sits a single question:
@@ -115,6 +123,10 @@ Page 47 describes the homework: individual, in Python and C++/CUDA, building the
 - [CS336 Lecture 2: count FLOPs and memory before asking if a model will run](/posts/ai/2026-08-22-cs336-resource-accounting-en): actually does the resource math L01 only poses.
 - [CME295 Lecture 5: LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en): the same systems questions in one lecture.
 - [Reading CMU 11-785 Deep Learning](/posts/ai/2026-08-22-cmu-11785-course-overview-en): the course L01 recommends for students who want to learn to build models.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

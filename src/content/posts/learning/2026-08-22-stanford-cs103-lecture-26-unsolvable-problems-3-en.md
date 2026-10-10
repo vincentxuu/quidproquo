@@ -19,6 +19,14 @@ This is article 27 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Unsolvable Problems, Part III**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/25/)
+
 ## The Lava Diagram's two classification tasks
 
 The previous lectures placed \(A_{\mathrm{TM}}\) and HALT in \(RE\setminus R\): each has a recognizer but no decider. This wrap-up separates two questions. How can we identify a machine-code language outside R? Rice's theorem is a quick filter. How can we show a language is outside RE entirely? We must rule out recognizers and verifiers or use an explicit diagonal contradiction.
@@ -126,6 +134,8 @@ The public deck explicitly supports the sections on the lava diagram's two class
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked the lava diagram's two classification tasks against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

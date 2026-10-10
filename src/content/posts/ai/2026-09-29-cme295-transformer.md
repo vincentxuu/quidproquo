@@ -36,6 +36,26 @@ glossary:
 
 整堂課只用一句例句：「A cute teddy bear is reading.」這句話先被切成 token、變成向量，再交給 RNN，然後說明 RNN 為什麼撐不住，最後由 Transformer 翻成法文「Un ours en peluche mignon lit.」。跟著這句話走一遍，就是這一講的全部路線。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ub3GoFaUcds
+title: 2025 版第 1 講錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=114i2Kz-LZA
+title: 2026 版第 1 講錄影
+```
+
+原始影片：[2025 版第 1 講錄影](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[2026 版第 1 講錄影](https://www.youtube.com/watch?v=114i2Kz-LZA)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 第一步：把句子切成 token
 
 模型看不到文字，只看得到 token。切的方式有三種粒度，投影片各列了優缺點：
@@ -159,6 +179,10 @@ flowchart LR
 - RNN 與梯度消失：[CS224N 第 4 講：語言模型、RNN 與消失梯度](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 - 從 recurrence 到 Transformer 的另一種講法：[CS224N 第 5 講](/posts/ai/2026-08-22-cs224n-transformers)
 - 自己實作 BPE：[CS336 Lecture 1](/posts/ai/2026-08-22-cs336-overview-tokenization)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

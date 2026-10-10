@@ -27,6 +27,14 @@ Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基�
 
 三篇主讀物裡，本篇深讀 Anthropic 評測指南與 MT-Bench。安全主線以 [PrivacyLens](https://arxiv.org/abs/2409.00138) 為核心，旁及部署期的護欄實務。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## 三種 grader：先選對工具再談自動化
 
 Anthropic 把 grader 分成三種。Code-based 看確定性證據：字串比對、單元測試、靜態分析、工具呼叫紀錄。Model-based 看開放性品質：照 rubric 打分、自然語言斷言、兩兩比對、參考答案比對、多裁判共識。Human 當黃金標準：專家審查、群眾外包、抽查採樣。
@@ -119,6 +127,8 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-12：補上 AutoLibra、CDI、prompt injection 與 RSP 四篇延伸閱讀的實質導讀，並標明 RSP 的歷史版本邊界。
 
 ## 參考資料

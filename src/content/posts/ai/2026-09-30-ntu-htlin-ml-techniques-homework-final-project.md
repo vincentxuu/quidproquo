@@ -30,6 +30,14 @@ glossary:
 
 這篇不給解答。每題只說它在練什麼、需要哪一篇的內容，以及怎麼自己驗證答案。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 存取等級與缺口
 
 依[全球 AI/CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，MOOC 加上 Fall 2024 作業 PDF 是 **A3，但評分鏈除外**。拿得到的東西和拿不到的東西如下：
@@ -210,6 +218,10 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 - 站內 [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：SVM、kernel 與 boosting 的另一種講法。
 
 系列導覽：上一篇 [基石作業導讀：Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)｜本篇是系列最後一篇，回到 [系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

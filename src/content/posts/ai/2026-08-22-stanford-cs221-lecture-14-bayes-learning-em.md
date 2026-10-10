@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方課程頁公開課程表，lectures repository 與可執行講義公開；Canvas 影片、課堂白板互動、作業解答與隱藏測資不在這份公開材料中。以下不把那些缺口用其他學期的講義補起來。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 先把 Bayesian network 放回原位
 
 Lecture 14 一開始不是直接跳進 EM，而是先回顧模型由什麼組成。給定隨機變數 (X=(X_1,ldots,X_n))，先在它們之間畫一張有向無環圖（DAG），再為每個節點指定一個區域條件分布：
@@ -117,6 +126,10 @@ M-step 重新掃過 weighted data。對每個 `(x, weight)`，`counts_g[x["G"]]`
 這份 source 的完整路徑可以壓成四個問題。第一，資料是否是所有變數的完整 assignment？是的話，為每個 `(parameter_name, parent_values, value)` 計數並正規化。第二，是否要共用 local parameter？那是建模選擇，會改變哪些觀測被合併。第三，是否要避免零機率？可以在 count 前放入 pseudocount，並知道 \(lambda\) 從 0 到很大時的行為。第四，是否有未觀察的變數？不能直接把缺的 label 當成真值，而要以 observed-data likelihood 為目標，在 E-step 算 posterior 權重、M-step 做 weighted count + normalize。
 
 這也劃出材料支持的限制：EM 的結果依初始化而變，可能只到 local maximum；hidden label 可置換；完全可觀察的 closed-form count + normalize 並不能原封不動套到 log 裡含 marginalization 的 incomplete-data objective。source 沒有在這裡討論連續變數、一般數值最佳化、缺失機制或更多收斂診斷，因此本文也不把那些內容冒充成 Lecture 14 的結論。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

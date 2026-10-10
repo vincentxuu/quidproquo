@@ -38,6 +38,21 @@ The first nine lectures (pruning, quantization, NAS, distillation) all answer th
 
 The Lecture Plan on page 2 has four items: what tinyML is, its challenges, tiny neural network design, and applications (vision, audio, time series and anomaly detection). This post follows that order.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=uR1KKhIhHEk
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 10 - MCUNet and TinyML (YouTube)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## What tinyML is: shrinking from the cloud to IoT
 
 Song Han opens with a spectrum (pages 5–8): **Cloud AI → Mobile AI → Tiny AI**. The cloud runs on GPUs and TPUs, with data uploaded for inference. Mobile runs on phones. One step further down are the microcontrollers inside IoT devices.
@@ -147,6 +162,10 @@ Pages 88–91: train an autoencoder to reconstruct normal data. In deployment, i
 - CNN basics and MobileNet-style building blocks: [CS231N L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en)
 - This series' two NAS lectures: [L7 Search Space and Strategy](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en), [L8 Hardware-Aware NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
 - Metric definitions (#Params, peak activation): [L1–L2 Efficiency Metrics](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

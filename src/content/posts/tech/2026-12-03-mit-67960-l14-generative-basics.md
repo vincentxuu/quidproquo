@@ -29,6 +29,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=hJlrAHqGOS8
+title: MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics](https://www.youtube.com/watch?v=hJlrAHqGOS8)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 14. Generative Models: Basics](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec14_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 生成模型的終極目標
 
 所有生成模型都在做同一件事：**學會資料的分佈 `p(x)`**，使得從這個分佈裡採樣，就能造出和訓練資料「同類但全新」的樣本。差別只在「怎麼表示、怎麼訓練、怎麼採樣」。
@@ -93,6 +109,10 @@ def diffusion_loss(net, x0, t, sqrt_alphas_cumprod, sqrt_1_m_alphas):
 - 要**文字這種離散序列**：自回歸（今天的大語言模型就是它）。
 
 下一批（L15、L16）會深入 VAE 與條件生成（text-to-image、image-to-text 等），把生成模型接回「可控」的需求。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

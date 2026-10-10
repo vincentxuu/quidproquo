@@ -33,6 +33,26 @@ glossary:
 
 這一講要回答一個問題：預訓練完的模型已經很會接話，為什麼還要再訓練一輪？講義的答案分兩層。第一層是讓模型讀懂「任務描述」，第二層是讓模型的輸出符合人類的偏好。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=G5O93KOsBCs
+title: ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=PfSybChNSNc
+title: ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）
+```
+
+原始影片：[ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF 從人類反饋中學習（YouTube）](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT 驚艷眾人的對話式 AI（YouTube）](https://www.youtube.com/watch?v=-hchhJoH3YE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 從專才到通才
 
 講義開頭用一組對照把問題定下來（第 3–10 頁）：
@@ -179,6 +199,10 @@ L_RM = − E_(x, y_w, y_l) [ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 - [CME295 2026 第 4 講：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
 下一篇：[PEFT：Adapter、LoRA、Prompt Tuning 與 HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -33,6 +33,21 @@ A note on the change in register. [The previous post on L10](/posts/ai/2026-09-3
 
 The course site gives this lecture a single framing question: Is AI R&D an "AI-complete" task? In other words, to automate AI research, do you first need a general AI that can do everything, or is a narrow AI that writes code and runs experiments enough?
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=wzep3Rnv6iw
+title: L6 lecture video (YouTube)
+```
+
+Original videos: [L6 lecture video (YouTube)](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Official materials and access
 
 | Material | Status |
@@ -196,6 +211,10 @@ Asked what the labs actually want, he cited OpenAI's charter (AI that benefits h
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L10: reading the model's insides and reading its chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
 - Next: [L7: how to measure capabilities and where to set safety thresholds](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,21 @@ draft: false
 
 本篇對應 **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)**（2025/10/07，Andrew Ng 主講，1 小時 07 分）。這一講**沒有投影片**，全程白板加問答，Ng 用同一個案例（人臉辨識開門系統）走完整個生命週期，每個決策點都先丟給學生投票再給答案。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=MGqQuQEUXhk
+title: Lecture 3: Full Cycle of a DL Project
+```
+
+原始影片：[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## AI 專案為什麼和傳統軟體不一樣
 
 > 「傳統軟體專案裡你寫程式、你控制你的程式碼。但 AI 專案同時牽涉程式碼**和資料**，而你幾乎永遠不知道你的資料裡有什麼奇怪又美妙的東西。」
@@ -224,6 +239,10 @@ Ng 自己一路在做這個類比，但有幾條值得挑明：
 **「盲目抓更多資料不是好策略」** 現在的對應物是「盲目加更多 context」。站上 [context 與記憶](/posts/ai/2026-08-10-agent-context-memory-failure)那篇的結論——給 LLM 更多資訊會讓它變笨——和 Ng 這裡講的是同一個道理的兩種表現。
 
 **「我測試集分數很好」的當代版本是「我 eval 分數很好」。** 站上 [上線才是工作的開始](/posts/ai/2026-08-10-enterprise-agent-case-studies)整篇在講的就是這件事：eval 綠了不等於系統能用，而中間的落差通常是分佈變了。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

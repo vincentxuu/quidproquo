@@ -30,6 +30,15 @@ glossary:
 
 > **版本說明**：講次表 3 月 16 日 Lecture 16 連到的兩份 PDF，封面寫「Matt Gormley & Pat Virtue, Mar. 17, 2025」，提醒頁是 Spring 2025 的 HW4 日期，PDF 建立時間也是 2025 年 3 月。也就是說 Spring 2026 沿用了去年的 MoE 投影片。L15 的 Scaling 段註明「Scaling slides credit: Pat Virtue」。錄影只放在 CMU 內部的 Panopto，校外看不到，所以本篇完全依投影片撰寫。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 為什麼這一段接在多模態之後
 
 講次表把 L15–L18 歸在「Scaling Up」。前 14 講一直在問「模型長什麼樣、怎麼訓練」，這一段換成工程問題：錢和 GPU 有限時，模型該多大、要餵多少資料，放不下時又怎麼辦。
@@ -167,6 +176,10 @@ top-k 的 k 通常選得很小。投影片的兩個例子：Mixtral k = 2、$N_e
 - MoE 的系統面（專家平行、通訊）：[CMU 11-868 L16–L17：模型放不進一張卡時](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 
 系列導覽：上一篇 [HW4：用 Q-Former 做文生圖](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)｜下一篇 [L17–L18：分散式訓練、Flash Attention 與高效解碼](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

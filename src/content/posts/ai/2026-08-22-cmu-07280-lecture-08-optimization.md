@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 8：Optimization**。Lecture 7 的 linear regression 有 normal equation；這一講故意退回 objective 的形狀，建立沒有 closed form 時仍可使用的更新規則。它也是後面 neural networks 與 backpropagation 的直接地基。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf)、[Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf)、[Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf)，並核對 [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf)。官方沒有公開逐講錄影。
@@ -79,6 +87,10 @@ Batch gradient 是整份資料的確切平均方向；SGD 是隨機估計。單�
 1. 對 `J(ω)=ω²`手算表中的四組更新，再畫出 `J` 與每一步位置。
 2. 對兩筆 linear-regression 資料計算一次 batch gradient，再分別算兩個 single-sample gradients。
 3. 寫一個停止條件，並說明它可能誤判的情況。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

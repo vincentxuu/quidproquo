@@ -32,6 +32,26 @@ The post draws on two sets of material in the [IKMLab course repo](https://githu
 
 Access level is **A3**: the handout, starter code, and full data are public. Solutions and grading scripts are on NTU COOL. Fall 2026 has not released HW2 yet, so everything here is the 2025 version.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=INIrdjLVMEU
+title: Fall 2025 W4 Tue TA session recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=nFQCFaRs0kE
+title: 2025 HW2 walkthrough video
+```
+
+Original videos: [Fall 2025 W4 Tue TA session recording](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 walkthrough video](https://www.youtube.com/watch?v=nFQCFaRs0kE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## The TA session: a toolbox for the assignment
 
 The session starts with setup (Anaconda, conda commands, installing PyTorch for your CUDA version), then uses y = ax² + b to introduce the model, the loss, and the optimizer. Below are the parts that matter for HW2.
@@ -129,6 +149,10 @@ The handout asks for results as text rather than only images, to make grading ea
 - Next in this series: [Transformers and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en)
 - RNNs in an English-language course: [CMU 11-785: RNNs, part 1](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en), [CMU 11-785: RNNs, part 2](/posts/ai/2026-08-22-cmu-11785-14-rnn-two-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

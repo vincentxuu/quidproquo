@@ -33,6 +33,21 @@ glossary:
 
 課站替這一講寫的聚焦問題只有一句：Is AI R&D an "AI-complete" task？意思是：要自動化 AI 研發，是不是得先有能做所有事的通用 AI，還是一個只會寫程式、跑實驗的窄 AI 就夠了？
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=wzep3Rnv6iw
+title: L6 講課錄影（YouTube）
+```
+
+原始影片：[L6 講課錄影（YouTube）](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 用到的官方材料與存取狀態
 
 | 材料 | 狀態 |
@@ -196,6 +211,10 @@ AI 2027 的起飛階段依序是：superhuman coder 讓研發加速約 5 倍，s
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L10：看模型內部與看 chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
 - 下一篇：[L7：能力怎麼量，安全門檻怎麼設](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

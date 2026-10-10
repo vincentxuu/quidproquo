@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 3, “Generalized linear models,” on printed pages 30–34 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of one quarter's recordings.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Two algorithms are instances of one template
 
 The first two chapters appear to handle unrelated output types, but both make the same move: choose an exponential-family conditional distribution for the output, then make its natural parameter a linear function of the input.
@@ -60,6 +69,10 @@ The model is also conditional: it describes \(y\mid x\) but not the distribution
 ## Self-study exercise
 
 Choose a count-data problem. Assume \(y\mid x\) is Poisson, write the distribution in exponential-family form, identify the relationship between its natural parameter and conditional mean, and derive the response function under \(\eta=\theta^Tx\). Then name two reasons the Poisson assumption might fail on your data.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -30,6 +30,21 @@ glossary:
 
 I used three official sources: the [lecture 13 recording](https://www.youtube.com/watch?v=xG8ccKlW_Cc) (2025-05-13, 3 h 3 min), the slide deck [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view) (73 slides, in Chinese), and the week 13 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Note that the slide file is numbered 12, but it is the deck for lecture 13; its footer reads "13 強化學習與生成式 AI 綜合應用." Access level is **A3**: recordings, slides, and the assignment are public. There is no matching demo notebook this week.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
+title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)
+```
+
+Original videos: [【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 The course has treated AI as a "function-learning machine" throughout: decide what goes in and what comes out, prepare training data, and let a neural network do the rest. L13 faces a case where **we simply don't know the right answer**. At each moment in Breakout, should the paddle go left or right? Where should this Go stone go? Nobody can label that. All we know is whether things turned out well.
@@ -209,6 +224,10 @@ This post stands on its own. To dig deeper:
 - DeepSeek's verifiable-reward route: [CS336 Lecture 16: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L12: ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en) | next, [L14: New Trends in Generative AI and the Final Project](/posts/ai/2026-09-30-nccu-genai-14-new-trends-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

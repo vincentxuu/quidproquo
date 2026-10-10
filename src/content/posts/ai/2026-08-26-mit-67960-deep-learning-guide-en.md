@@ -21,6 +21,14 @@ This is not, however, a fully open course. Problem sets are released through [Gr
 
 This post answers four questions: what the course teaches, how the three instructors divide it, how the 21 lectures connect, and how far an outside learner can get using two free textbooks. My verification covered the complete Fall 2025 schedule, grading section, and policies on the official site; I did not open every slide deck to audit its inner pages, so descriptions of individual lectures come from the official site's own summaries.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## First, decide if this is your course
 
 The official description promises "fundamentals of deep learning, including both theory and applications," covering neural net architectures (MLPs, CNNs, RNNs, graph nets, transformers), backpropagation and automatic differentiation, learning theory and generalization in high dimensions, plus applications to computer vision, NLP, and robotics. The prerequisites are stiff: 18.05 (probability and statistics) plus one of 6.3720, 6.3900, or 6.C01 — meaning you should already have taken a machine learning or algorithms subject before walking in. It carries 3-0-9 units, and due to heavy enrollment Fall 2025 accepted no cross-registrations at all.
@@ -116,6 +124,10 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 ## Bottom line
 
 6.7960 Fall 2025 is a rigorously designed A2 course: 21 public decks, curated readings, and an open project guidelines document make materials-level self-study entirely feasible, while closed psets, solutions, and current-year recordings mark the real boundary for outsiders. Substitute textbooks for lectures, fill recordings from OCW 2024, and close with a mini project — you won't get MIT credit, but you will reach the core of the course.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

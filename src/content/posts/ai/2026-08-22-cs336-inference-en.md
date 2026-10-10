@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 10: Inference**, taught by Percy Li
 
 Training places a full sequence inside matrix multiplications. Autoregressive inference generates only the next token. That difference turns the same Transformer into another systems problem at serving time: weights and KV cache are repeatedly read from memory while requests arrive and finish at different times.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=EfM546A79aM
+title: CS336 Spring 2026 Lecture 10: Inference
+```
+
+Original videos: [CS336 Spring 2026 Lecture 10: Inference](https://www.youtube.com/watch?v=EfM546A79aM)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Three metrics represent three product objectives
 
 **Time to first token (TTFT)** measures the wait from submitting a prompt to receiving the first token and is dominated by prefill. **Inter-token latency** measures the pace of later tokens for one request. **Throughput** measures total tokens per second across many requests.
@@ -68,6 +84,10 @@ Tokens per second alone hides user waiting; latency alone may hide idle GPUs. Le
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its inference accounting, KV-cache, quantization, speculation, and paging structure.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

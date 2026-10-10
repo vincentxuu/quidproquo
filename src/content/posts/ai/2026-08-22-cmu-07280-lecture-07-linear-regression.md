@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 7：Linear Regression**。Lecture 5 的 ERM 在這裡第一次完整解到底：選 linear hypothesis、選 squared loss，把資料疊成 matrix，最後求出最佳參數的 closed-form expression。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Linear Regression lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Linear_Regression.pdf)、[Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf)、[Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf)，並核對 [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf)。沒有公開逐講錄影。
@@ -104,6 +112,10 @@ Normal equation 給解析答案，適合看清幾何與推導；但直接形成�
 1. 對三個一維點手算 `Σxy/Σx²`，再用微分驗證。
 2. 寫出一個含 intercept 的 design matrix，逐項標 `X`、`θ`、`y` shape。
 3. 找一組兩欄完全相同的 features，說明為何 `XᵀX` 不可逆。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

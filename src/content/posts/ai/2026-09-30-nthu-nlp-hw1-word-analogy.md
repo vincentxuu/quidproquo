@@ -28,6 +28,21 @@ glossary:
 
 本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 裡 Fall 2025 的 [Assignment 1 資料夾](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1)：題目說明 [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf)、起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb)、處理好的 `questions-words.csv`，以及助教的[說明影片](https://youtu.be/nCS3GpHwqr8)（影片標題是「Week 2 Thu. - Assignment 1」，在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)掛在 W2 那一列）。這份作業的存取等級是 **A3**：題目、起始碼、資料都公開，缺的是解答與評分腳本，那些在 NTU COOL 上，校外讀者拿不到。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=nCS3GpHwqr8
+title: 2025 HW1 說明影片
+```
+
+原始影片：[2025 HW1 說明影片](https://www.youtube.com/watch?v=nCS3GpHwqr8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 作業在考什麼
 
 題目 PDF 對 analogy 的說法是：「A is to B as C is to D」。拿詞向量作答，就是算 B − A + C，再找離這個向量最近的詞，看它是不是 D。
@@ -119,6 +134,10 @@ PDF 第 28 頁列出建議的前處理：去掉非英文詞、去停用詞、lem
 - 本系列下一篇：[Seq2seq、LSTM 與 Attention](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
 - 同主題的英文課：[CS224N 導讀：Word Vectors](/posts/ai/2026-08-22-cs224n-word-vectors)
 - 回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

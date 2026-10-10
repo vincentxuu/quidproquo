@@ -19,6 +19,15 @@ draft: false
 
 因此這篇不能忠實重建「講了什麼」。以下是官方閱讀清單能支持的閱讀導圖，目的在保存系列位置與材料邊界，不把論文內容冒充課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 路線一：從解釋答案改成能持續調查的 agent
 
 官方首先列出 [*Because we have LLMs, we Can and Should Pursue Agentic Interpretability*](https://arxiv.org/abs/2506.12152)。這條路把 interpretability 從單次視覺化或 feature attribution，推向能提出假設、設計 probe、呼叫分析工具並累積證據的調查流程。
@@ -40,6 +49,10 @@ Neologism learning 嘗試學習新概念 token，讓模型能引用、控制或�
 ## 本講可確認與不可確認的範圍
 
 可確認的是日期、講者、題名與五篇官方閱讀。不可確認的是講者實際 agenda、採用哪些投影片、論文涵蓋比例、現場案例與結論。官網 HTML 裡出現一條被註解掉的舊學期 slide link，並非 Winter 2026 公開材料，本文沒有使用。若官方之後補上投影片，這篇才應升級成逐段 lecture review。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

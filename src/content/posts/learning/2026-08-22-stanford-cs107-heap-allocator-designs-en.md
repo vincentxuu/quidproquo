@@ -19,6 +19,14 @@ Lecture 21's implicit free list uses each block's size to walk the physical heap
 
 This is more than adding a `next` pointer. A free block now belongs to two orders: physical neighbors by address and logical neighbors in the free list. Coalescing uses the first; search and removal use the second. The dangerous failure is updating one relation while the other still treats an obsolete node as valid.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -140,6 +148,10 @@ Build the heap walker and checker first. Test insert/remove positions, then allo
 On failure, retain the shortest trace and print physical and logical maps before and after every operation. Corruption often occurs one split or unlink before the eventual crash.
 
 The lasting lesson is ownership across structures. A free block is both contiguous memory and a linked-list node. Every transition must answer: what is its physical extent, which logical links name it, and may the client still touch these bytes? Optimization is trustworthy only when all three answers agree.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

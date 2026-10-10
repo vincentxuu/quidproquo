@@ -19,6 +19,14 @@ draft: false
 
 因此這一篇只承擔 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) 前段的 multilevel inode／index walk 與尾端 disk scheduling。中段的 block cache、write policy、free bitmap、fragments 與 delayed allocation 集中放在 [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)。這是對 byte-identical artifact 的編輯分工，不是聲稱公開材料提供了確切的課堂切點。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 4.3BSD inode 是一棵按需長大的樹
 
 [投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)模型把 disk 與 file 都切成 4 KiB blocks，inode 是 block-pointer tree 的 root，形狀類似 page table。inode 有 14 個 pointers，零表示沒有 block。前 12 個是 direct pointers，直接指向 file blocks 0–11；小檔不需額外 index I/O。
@@ -53,6 +61,8 @@ inode tree 回答的是「logical block 對應哪個 disk block」，沒有決�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 byte-identical Lecture 20／21 PDF 落實分工；本篇聚焦 inode index walk 與 disk scheduling，cache、free-space 與 allocation 改由 Lecture 21 承擔。
 
 ## 參考資料

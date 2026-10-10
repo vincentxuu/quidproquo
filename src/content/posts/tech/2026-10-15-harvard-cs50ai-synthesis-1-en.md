@@ -20,6 +20,15 @@ draft: false
 
 > ⚠️ **Version note**: Lecture videos are **Spring 2020 recordings (Weeks 0–5) and 2023 re-record (Week 6)**; project specs, distribution code, and check50 slugs follow the 2026 OCW site.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## TL;DR
 
 Seven weeks aren't isolated topics but a deliberate knowledge arc: deterministic search → logical reasoning → probabilistic uncertainty → combinatorial optimization → supervised/reinforcement learning → neural networks → language models. Each week's core abstraction builds on the previous; projects precisely target theoretical focal points.
@@ -193,6 +202,10 @@ Language Models: Sequence Conditional Probability (Week 6)
 - **This Post: Synthesis 1** (order 8)
 - [Synthesis 2: Project Portfolio Comparison](/posts/tech/2026-10-22-harvard-cs50ai-synthesis-2-en) (order 9)
 - [Wrap-up: Timeless vs Changed, Next Steps](/posts/tech/2026-10-29-harvard-cs50ai-wrapup-en) (order 10)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

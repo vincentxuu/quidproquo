@@ -37,6 +37,14 @@ glossary:
 
 本篇只講要求、架構、評分與設計取捨，並把每個 TODO 對回 L1–L6 的概念。**不給解答**，也不會貼任何 TODO 的實作。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 三個部分怎麼串起來
 
 ```text
@@ -213,6 +221,10 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 - 站內：[Coding agent 的上下文壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)
 - 站內：[Coding agent 的 code mode](/posts/ai/2026-08-25-coding-agent-code-mode)（程式化工具呼叫的設計取捨）
 - 站內：[Coding agent 的 hooks、skills 與 plugins](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

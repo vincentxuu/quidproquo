@@ -41,6 +41,22 @@ Fall 2025 recordings live only on Stanford Canvas. The closest public video is [
 
 The [previous post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) ended on a question: GPUs run DNNs well, but are they the ideal platform? This lecture answers it. This post also sets up the accelerator vocabulary (Tensor Core, systolic array, TMA, dataflow architecture) that the [next post](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) uses without re-explaining.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=2tAb3EgyjNw
+title: 2023 Lecture 18 video: Hardware Specialization
+```
+
+Original videos: [2023 Lecture 18 video: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
+
+Course and recording entries:
+
+- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
+
 ## Why specialize: energy
 
 Slides 2–4 reframe the problem as energy. Phones are limited by battery life and fanless heat dissipation. Supercomputers and data centers are limited by power and cooling because of their sheer scale (hundreds of thousands of CPUs and GPUs). And AI demand is growing exponentially.
@@ -206,6 +222,10 @@ Slide 71's summary. Specialized hardware for DNNs:
 Further reading: for how TPUs are used with JAX and Pallas in an LLM systems course, read [CMU 11-868 TPU, JAX, and Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en). For GPUs and TPUs from the LLM training side, read [CS336 GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous [L9 Running DNNs efficiently on GPUs](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) | next [L11 Programming systems for specialized hardware](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

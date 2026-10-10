@@ -27,6 +27,21 @@ draft: false
 
 ---
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=aWlRtOlacYM
+title: Lecture 4: Adversarial Robustness and Generative Models
+```
+
+原始影片：[Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 # 第一部分：對抗式穩健性
 
 ## 十年三波攻擊
@@ -368,6 +383,10 @@ x_0 --(encoder)--> z_0 --加噪--> z_t --(diffusion 去噪)--> z_0 --(decoder)--
 這條線會在 Lecture 10 被正面處理：那一講整堂在講怎麼打開模型看內部，而它的結論同樣誠實——這套方法在 transformer 上目前只做得到兩層。
 
 對做 LLM 應用的人來說，可以直接搬走的是**間接 prompt injection** 那段。站上的 [安全](/posts/ai/2026-08-10-agent-security-harness-layer)那篇講的是怎麼在 harness 層做損害控制，而這一講補上了它沒有的那一半：**為什麼模型本身防不住**——因為脆弱性來自架構的線性本質與輸入的高維度，那不是靠對齊能修掉的東西。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

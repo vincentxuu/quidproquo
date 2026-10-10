@@ -25,6 +25,14 @@ draft: false
 
 以下依 2026-09-29 抓取的作業頁。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 - 作業頁：[assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
@@ -172,6 +180,10 @@ Q6、Q7 的測資檔裡直接寫著盤面，`cat` 就看得到。用 `-q` 或 `-
 上一篇：[Lecture 2 導讀：Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents)。下一篇：[Lecture 3 導讀：Classical Planning](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning)。
 
 想看這類 Pacman 作業是怎麼一路演化過來的，可以讀 [Pacman AI 作業系譜](/posts/learning/2026-08-22-pacman-ai-project-lineage)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

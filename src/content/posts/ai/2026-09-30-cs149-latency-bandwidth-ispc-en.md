@@ -34,6 +34,22 @@ Fall 2025 recordings live only on Stanford's Canvas. The course home page points
 
 The lecture has two halves that look unrelated. The first is about **memory bandwidth**; the second is about the **ISPC programming model**. They share one premise. The previous lecture's three forms of hardware parallelism (multi-core, SIMD, hardware multithreading) made processors enormously capable. The next questions are whether data can arrive fast enough, and how a programmer should describe parallel work.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=F4bVSyz_jxo
+title: 2023 Lecture 3 recording: Multi-core Arch Part II + ISPC Programming Abstractions
+```
+
+Original videos: [2023 Lecture 3 recording: Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
+
 ## The lecture opens by finishing the last one
 
 Slide 2 says that hardware multithreading, at the end of L2, did not get covered, so this lecture starts by going through those L2 slides. That material is in the [previous post](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en) and is not repeated here.
@@ -180,6 +196,10 @@ Slide 56's summary is three sentences: programming models are a way to think abo
 Further reading: to see bandwidth limits at the scale of large-model training, continue with this site's [CS336 guide to GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous [L2: A Modern Multi-Core Processor](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en) | next [PA1 + Written 1: Performance on a Quad-Core CPU](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

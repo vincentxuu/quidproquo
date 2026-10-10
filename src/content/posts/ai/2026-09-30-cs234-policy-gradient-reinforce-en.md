@@ -42,6 +42,27 @@ Official materials used:
 
 Access level is **A3**, with the same gaps as the rest of the series: the 2026 recordings are on Canvas only, and live poll results and Ed discussions are not public.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=L6OVEmV3NcE
+title: Lecture 5: Policy Search 1 (Spring 2024, YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
+```
+
+Original videos: [Lecture 5: Policy Search 1 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Why not keep learning values?
 
 Page 23 first answers whether policy gradients are worth learning. They have been influential in NLP (sequence-level training built on REINFORCE), in robotics ([End-to-End Training of Deep Visuomotor Policies](https://arxiv.org/abs/1504.00702)), and in ChatGPT. The slides also note that PPO, which you implement in A2, was used to train ChatGPT.
@@ -202,6 +223,10 @@ Vanilla PG throws away each batch after a single gradient step, and its step siz
 - [CS229 notes, Chapter 21: policy gradient variants](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants-en)
 
 **Series navigation**: previous [Part 6: DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en) | next [Part 8: advanced policy gradients — performance bounds, KL, PPO, GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

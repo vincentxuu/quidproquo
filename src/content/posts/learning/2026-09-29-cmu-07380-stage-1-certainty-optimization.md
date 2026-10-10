@@ -22,6 +22,14 @@ draft: false
 
 本文只綜合本系列 order 1–13 已經引用過的官方材料，加上[課站 Schedule](https://www.cs.cmu.edu/~07380/#schedule) 的模組分段，不引入新事實。依 2026-09-29 課站狀態；課站註明 schedule 可能變動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 課站自己怎麼分段
 
 Schedule 的「Module」欄把前十講分成四段。這是課程官方的分法，不是本系列的詮釋：
@@ -118,6 +126,10 @@ Schedule 上的下一講 Lec11（9/30）是 Approximate Inference：Likelihood w
 1. 拿一張紙，替 Lec2–Lec10 每一講各寫一句「這一講在解決上一講的什麼問題」，寫不出來的那一講就回去讀它的預讀筆記。
 2. 挑 HW1–HW3 中你還沒跑過的一份程式作業，下載 starter，先跑一次 `autograder.py` 看全部失敗的樣子，確認環境可用。
 3. 把 [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) 第 4 題（MAP：先驗與正則化）的題目讀完，試著只寫出 log-posterior 的形式，不急著解完。這一步能檢查你是否真的從優化跨到了機率。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

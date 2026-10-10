@@ -19,6 +19,21 @@ draft: false
 
 投影片第 16 頁有一行免責聲明：OpenClaw 是開源專案，隨時都在變動，本課程以概念為主。本篇也一樣，只照課程的講法拆 agent 機制。OpenClaw 的安裝、頻道、閘道器與設定細節，請看站上的 [OpenClaw 文件導讀](/posts/ai/2026-03-28-openclaw-overview)系列。
 
+## 課程影片來源
+
+影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
+title: 課堂錄影：解剖小龍蝦（YouTube）
+```
+
+原始影片：[課堂錄影：解剖小龍蝦（YouTube）](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先看小龍蝦能做什麼
 
 開場是一段實際示範。李宏毅讓 OpenClaw（他叫它「小金」）自己去開一個 YouTube 頻道，做一支介紹 AI Agent 的影片：寫頻道自我介紹、用工具畫頭像、上網蒐集資料、做投影片、寫講稿、用語音合成錄音、合成影片，最後上傳。人只在中間說了幾句「可以，去做吧」「不錯，上傳你的頻道」。
@@ -152,6 +167,10 @@ HEARTBEAT 是心跳機制：每隔一段固定時間戳 agent 一下，讓它做
 - 語言模型原理的先備：[生成式人工智慧與機器學習導論 2025 第 1 講](https://youtu.be/TigfpYPJk1s)
 
 系列導覽：上一篇 [系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜下一篇 [HW1：LLM 惡意指令防禦](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

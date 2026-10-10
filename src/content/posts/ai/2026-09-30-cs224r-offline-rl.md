@@ -44,6 +44,21 @@ glossary:
 
 這講也是 [HW3](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql) 的理論基礎，投影片在 AWAC 和 IQL 兩頁都直接寫「你會在 HW3 實作它」。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=lRDaXnPIzks
+title: Spring 2025 Lecture 7: Offline RL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 7: Offline RL（YouTube，補充）](https://www.youtube.com/watch?v=lRDaXnPIzks)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 先回顧：線上 RL 的四種 model-free 演算法
 
 投影片開頭用一張表收束前半學期：
@@ -195,6 +210,10 @@ SAC 這類 off-policy actor-critic 本來就能用 replay buffer 裡的舊資料
 - [CS224R L6：Q-learning](/posts/ai/2026-09-30-cs224r-q-learning)：本講的 TD 目標與 target network 都從這裡來
 
 **系列導覽**：上一篇 [HW2：線上 RL](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)｜下一篇 [L8：獎勵從哪裡來](/posts/ai/2026-09-30-cs224r-reward-learning)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

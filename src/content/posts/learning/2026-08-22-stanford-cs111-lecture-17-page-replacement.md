@@ -19,6 +19,14 @@ draft: false
 
 Lecture 16 建立 demand paging 的承諾：程式不必把全部 code 與 data 同時放進 physical memory，也能執行。Lecture 17 接著問兩題：什麼時候把 page 搬進來？RAM 已滿時又要換掉哪一頁？前者是 **page fetching policy**，後者是 **page replacement policy**。Page fault、present bit 與 restartable instruction 是機制；FIFO、LRU、Clock 與 global replacement 則是政策。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 本講完整 agenda
 
 公開投影片依序涵蓋：demand paging 與 locality 回顧；DRAM、SSD、disk 的取捨；page fault handler 與 x86-64 `CR2`；可重新啟動的指令；fetching 和 replacement 兩項政策；demand fetching 的 page 來源；prefetching；Random、FIFO、MIN、LRU；12 次 page reference trace；精確 LRU 為何不實際；reference／dirty bits；Clock／second chance；clock hand speed；global 與 per-process replacement；thrashing 的量化例子；最後是停止部分 processes 或控制可同時執行的 working sets。
@@ -145,6 +153,8 @@ Lecture 17 因此畫出 demand paging 的界線。Mechanism 能安全 trap、補
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依官方 19 頁 PDF 重寫全文，補齊 fetching／replacement、Clock、global policy 與 thrashing 的完整議程。
 
 ## 參考資料

@@ -19,6 +19,14 @@ This is article 6 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda: from counting to the binomial PMF
 
 The committee review has C(12,4) total committees, C(5,2)C(7,2) with exactly two seniors, and C(7,4) all-junior committees. These counts anticipate the binomial coefficient, although sampling without replacement itself is not binomial.
@@ -41,6 +49,10 @@ C(n,k) chooses the success locations, p^k makes those successes occur, and (1-p)
 - The shared Spring-dated Binomial page supports the PMF and modeling conditions, but not the Summer classroom sequence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

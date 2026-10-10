@@ -29,6 +29,22 @@ Two official sources back this post. The first is the 32-page slide deck [05_cs2
 
 The companion video is [Spring 2025 Lecture 5: Off-Policy Actor Critic](https://www.youtube.com/watch?v=cRGKc-nAWho) (about 69 minutes). Treat it as a **supplement**. The title matches, but the slides have been updated for 2026, and details may differ. Everything below follows the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=cRGKc-nAWho
+title: Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)](https://www.youtube.com/watch?v=cRGKc-nAWho)
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: data is expensive, yet each batch gets used once
 
 Recall L3 and L4. You run the policy, collect a batch of trajectories, compute one gradient, update once, and throw the batch away. Slide 15 calls this "fully on-policy."
@@ -168,6 +184,10 @@ The slide says both roads **benefit from seeding with imitation or demonstration
 Confirmed: the text and equations on the 2026 slides, the schedule dates and reading list, and the titles and lengths of the 2025 videos. Not confirmed: anything said aloud in the 2026 lecture (recordings are Canvas-only), and the specifics of the video demos on slides 25–28 (the PDF has only stills and citations). The hyperparameters on slide 14 are the slide's examples, not HW2's settings. For HW2's actual settings, see the homework post.
 
 Series navigation: previous [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic-en) | next [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

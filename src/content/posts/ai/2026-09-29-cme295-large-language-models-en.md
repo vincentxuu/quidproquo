@@ -38,6 +38,21 @@ If you have called any LLM API, you have probably seen `temperature` and `top_p`
 
 The slides are organized into five parts: LLM overview, MoE-based LLMs, Response generation, Prompting strategies, and Inference optimizations. This post centers on the middle three, which are the knobs you can turn while the model is generating. MoE gets the intuition only, and the final part on inference speedups gets a map, with links to fuller posts on this site for the details.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: 2025 Lecture 3 recording
+```
+
+Original videos: [2025 Lecture 3 recording](https://www.youtube.com/watch?v=Q5baLehv5So)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## What counts as an LLM
 
 The slides open with a definition: a language model is a statistical or machine learning model that "assigns probabilities to sequences of tokens." The "Large" rests on three things:
@@ -233,6 +248,10 @@ These questions are adapted from Part III of the [2025 midterm](https://cme295.s
 - Where in-context learning comes from: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Inference optimization: [CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference-en)
 - Next in this series: [Lecture 4: LLM training](/posts/ai/2026-09-29-cme295-llm-training-en); training chain of thought into the model itself comes in [Lecture 6: LLM reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

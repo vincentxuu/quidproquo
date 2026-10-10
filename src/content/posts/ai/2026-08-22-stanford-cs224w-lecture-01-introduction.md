@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 1 講**，官方日期 2025-09-23。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含 01-intro.pdf 與 schedule 上的閱讀清單。Canvas 錄影、現場 Q&A、板書補充與 Ed 討論不公開，因此本文不推測那些內容；2021 YouTube 錄影也不作為 2025 講次證據。
@@ -108,6 +116,10 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 完成本講後，應能交付一份不超過一頁的 graph problem specification：畫出一個正例與一個反例，列出 node/edge schema、feature availability、prediction unit、split boundary、baseline 與 metric。再用一句話說明為何普通表格模型看不到那個關係訊號。若這句話無法成立，就先保留非圖 baseline，不要因課程名稱而預設 GNN 必勝。這份 specification 會成為後續十九講所有模型比較不變的契約。
 
 第 1 講建立的概念會在後續講次繼續組合。閱讀時保留自己的小圖、符號表與 baseline；每遇到新模型，就問它改了資料、訊息、聚合、更新、目標函數或評估中的哪一項。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

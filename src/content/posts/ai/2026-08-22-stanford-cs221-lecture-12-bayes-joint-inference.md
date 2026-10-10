@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 本講把 joint distribution 從完整表格拆成 Bayesian network factorization，並用 inference、probabilistic program 與 rejection sampling 顯示表示法和計算成本的交換。
@@ -274,6 +283,10 @@ Bayesian network 不同於固定 input → output 的 classifier：medical examp
 ## 11. 收束：從 joint 到可計算的 query
 
 先確認 network 的 factorization 與 local tables，再選 exact tensor computation 或近似 sampling；答案不能脫離 modeling assumptions 與 evidence 的稀有程度。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

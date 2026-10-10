@@ -19,6 +19,14 @@ draft: false
 
 **課程版本：** CS124 / LINGUIST 180, Winter 2026。**官方單元：** Week 1，2026-01-06、01-08。**講師：** Dan Jurafsky；1 月 8 日另有 Jupyter 與 PA0 tutorial。**公開材料：** [Week 1 課表與 syllabus](https://web.stanford.edu/class/cs124/lec/)、[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)、[PA0 repo](https://github.com/cs124/pa0-jupyter-tutorial)。**材料缺口：** Introduction 是未錄影的現場課；Canvas 上 Windows／Mac setup videos 需要 Stanford 權限。因此本文只整理公開投影片、課表與 repo，不能重建現場問答或講者未寫在投影片上的說明。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
+
 ## 這門課到底把什麼放在一起
 
 [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) 先列 LLM 的元件：BPE tokenization、logistic regression、word embeddings、neural networks、attention、sampling、language-model loss 與 RAG；下一頁又把 information retrieval、recommendation、speech recognition、social networks 與 ethical issues 放進同一門課。表面上很散，真正的共同問題是：**如何把人使用的語言與關係，轉成機器能排序、預測或產生的表示。**
@@ -90,6 +98,10 @@ Winter 2026 [schedule／syllabus](https://web.stanford.edu/class/cs124/lec/) 把
 ## 延伸
 
 想先知道完整十週材料的可取得程度，可讀[既有 CS124 總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)。那篇處理課程定位、先修與版本漂移；本篇只對應 Winter 2026 Week 1，不拿其他年份影片補進本週。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

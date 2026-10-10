@@ -37,6 +37,26 @@ glossary:
 
 這一講沒有對應作業，講義與影片都公開，沒有額外缺口，系列整體的存取分級是 A2。它要回答的問題是：**大家都在講 agent，它到底是什麼？推理、記憶、規劃、多代理各自解決什麼？**
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=R0YBJve0NoI
+title: ADL 11.1: Language Agents Introduction（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UO527XuWEzg
+title: ADL 11.2: Reasoning（YouTube）
+```
+
+原始影片：[ADL 11.1: Language Agents Introduction（YouTube）](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning（YouTube）](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory（YouTube）](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning（YouTube）](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems（YouTube）](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Agent 是什麼，language agent 又多了什麼
 
 第 2 頁先擺出兩邊的聲音：Bill Gates、Andrew Ng、Sam Altman 看好 agent，另一邊則說目前的 agent 只是 LLM 的薄包裝、自回歸 LLM 永遠無法推理或規劃。講義沒有選邊，而是回到定義。
@@ -139,6 +159,10 @@ glossary:
 
 上一篇：[偏見、安全、幻覺與對齊＋期末專題](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 下一篇：[Reasoning（影片限定）](/posts/ai/2026-09-30-ntu-adl2025-reasoning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

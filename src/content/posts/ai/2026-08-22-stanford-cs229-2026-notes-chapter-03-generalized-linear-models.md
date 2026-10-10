@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 3 章〈Generalized linear models〉，講義頁碼 30–34。它是 **2026 notes 的逐章導讀**，不是某一季課程錄影的重建。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 兩個演算法其實是一個模板
 
 前兩章看似分別處理連續與二元輸出，但它們都做同一件事：讓輸出的條件分布屬於指數族，再令分布的自然參數由輸入的線性函數決定。
@@ -60,6 +69,10 @@ GLM 並不保證選到正確的輸出分布，也不保證自然參數真的隨�
 ## 自學練習
 
 選一個計數資料問題。假設 \(y\mid x\) 服從 Poisson 分布，將它寫成指數族形式，找出自然參數與條件平均的關係，再推導以 \(\eta=\theta^Tx\) 為前提的 response function。最後列出 Poisson 假設可能不適合該資料的兩個理由。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

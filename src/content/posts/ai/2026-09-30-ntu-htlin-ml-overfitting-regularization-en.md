@@ -31,6 +31,26 @@ The nonlinear transforms in the [previous post](/posts/ai/2026-09-30-ntu-htlin-m
 
 After reading, you should be able to name the four causes of overfitting, say how deterministic noise differs from ordinary noise, derive the weight-decay objective from a constraint, and explain what regularization corresponds to in VC theory.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=BA76U3JBDdE
+title: What is Overfitting?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6bfcLhHhgs0
+title: The Role of Noise and Data Size
+```
+
+Original videos: [What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Course materials
 
 | Lecture | YouTube sections (playlist number) | Slides | LFD sections |
@@ -192,6 +212,10 @@ One thing to try tonight: take any linear model you have, sweep the L2 coefficie
 - Regularization in deep learning: [MIT 6.7960: Regularization](/posts/tech/2026-09-17-mit-67960-regularization-en)
 - ML Techniques revisits SVMs from the regularization angle: [Kernel Logistic Regression and Support Vector Regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

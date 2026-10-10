@@ -19,6 +19,14 @@ draft: false
 
 這講只問一個尖銳的問題：一個檔案系統操作需要修改 free map、inode、directory entry 等多個 disk blocks，但硬碟不提供任意多 block 的 atomic write；如果機器剛好在中間斷電，重開機後該相信哪個版本？投影片依序比較三條路：事後用 `fsck` 掃描修復、事前約束寫入順序，以及先寫 log 再套用更新。三者都在處理一致性，卻對資料遺失、啟動時間與正常路徑成本做出不同選擇。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 崩潰後，大部分 OS 狀態可以重來，檔案系統不行
 
 [投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/23/Lecture23.pdf)第 3 頁先縮小問題範圍。重新開機會清掉 volatile memory，因此排程佇列、process table 等狀態可以從乾淨狀態重建；使用者卻預期 disk 上的資料跨越 crash 存活。檔案系統若只說「重開就好」，等於放棄它最核心的持久性承諾。
@@ -61,6 +69,8 @@ draft: false
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：修正 duplicate artifact 推論，並將本講收斂到 crash model、`fsck`、ordered writes 與 WAL 入口。
 
 ## 參考資料

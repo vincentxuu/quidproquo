@@ -30,6 +30,21 @@ Two official sources back this post: the [Lecture 5 recording](https://www.youtu
 
 > **If you'd rather skip the math**: this is the steepest stretch of the series. Read just the first paragraph of each section and skip the collapsed blocks, or jump straight to [L06 LLM Applications and Ethics](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en). The application lectures that follow won't leave you stuck.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mhjegVhqb_M
+title: Lecture 05: The complete guide to Transformers (YouTube recording, 2025-03-18) (in Mandarin)
+```
+
+Original videos: [Lecture 05: The complete guide to Transformers (YouTube recording, 2025-03-18) (in Mandarin)](https://www.youtube.com/watch?v=mhjegVhqb_M)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week fits
 
 L04 framed an LLM as a machine that continues text by guessing the next word, and gave Q/K/V a brief cameo. L05 goes back and finishes the job: **every component of a Transformer, taken apart, is matrix multiplication.**
@@ -231,6 +246,10 @@ This post stands on its own. For more rigorous or more hands-on versions:
 - Another Mandarin-taught route: [NTU Hung-yi Lee ML 2026 guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L04 LLMs Are Simpler Than You Think](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en) | Next: [L06 LLM Applications and Ethics](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

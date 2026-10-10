@@ -38,6 +38,21 @@ glossary:
 
 第 6 頁的 Lecture Plan 分三段。第一段是 diffusion 基礎：DDPM、條件生成、latent diffusion、影像編輯、個人化。第二段是快速取樣：DDIM 與 distillation。第三段是加速技巧：sparsity、quantization、parallelism。前兩段在其他課也講得到，第三段幾乎都是 MIT HAN Lab 自己的研究，是這門課獨有的部分。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=LXrqmQrscf0
+title: EfficientML.ai Lecture 18 - Diffusion Models（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 18 - Diffusion Models（YouTube）](https://www.youtube.com/watch?v=LXrqmQrscf0)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 先搞懂為什麼慢：DDPM 的兩個過程
 
 第 9–18 頁講 [DDPM（Ho et al., NeurIPS 2020）](https://arxiv.org/abs/2006.11239)。它有兩個方向相反的過程：
@@ -147,6 +162,10 @@ MACs 少了，延遲不一定跟著少，所以第 78 頁在 RTX 3090 上量了�
 
 - Diffusion 入門視角：[CS231N L14：Diffusion 為什麼加噪再去噪就能生成圖片](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
 - 同一套 outlier 問題在 LLM 上的解法：[L13 LLM 部署](/posts/ai/2026-09-30-mit-65940-llm-deployment)、[L6 PTQ 與 QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

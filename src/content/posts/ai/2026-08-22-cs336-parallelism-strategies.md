@@ -19,6 +19,22 @@ draft: false
 
 第七講教你用 collectives 組出平行化；第八講問大型模型究竟該怎麼組。它把 datacenter 當成新的計算單位：GPU memory、NVLink domain、跨節點 fabric 與 batch size 共同決定切法，沒有一個 strategy 能單獨解完所有限制。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
+title: CS336 Spring 2026 Lecture 7: Parallelism
+```
+
+原始影片：[CS336 Spring 2026 Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## ZeRO 從複製 state 開始減
 
 Naive data parallel 每張卡都保存完整 parameters、gradients 與 optimizer states。計算能隨 batch 分散，記憶體卻完整複製。ZeRO 利用 reduce-scatter 與 all-gather 的等價性逐階 sharding：
@@ -67,6 +83,10 @@ Parameter memory 在啟動前可算清楚；activation 隨 batch、sequence、hi
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文涵蓋投影片的 networking、ZeRO/FSDP、TP/PP/SP/EP 與組合策略。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

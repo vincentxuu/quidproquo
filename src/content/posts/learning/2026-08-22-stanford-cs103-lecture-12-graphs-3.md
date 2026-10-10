@@ -19,6 +19,14 @@ draft: false
 
 課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜實際講者。以下依公開完整投影片重建定義、證明與電影 puzzle；Canvas／Panopto 的口頭內容不在材料範圍內。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/)
+
 ## 從 adjacency 與 reachability 接回本講
 
 上一講定義：兩節點之間有邊就稱為 adjacent；兩節點之間存在 path 就稱為彼此 reachable。本講的證明焦點換成：當邊、顏色或偏好被分配到有限類別時，有什麼結構無論如何都躲不掉？
@@ -135,6 +143,8 @@ WLOG 必須伴隨可說明的交換顏色或重新編號。`R(3)≤6` 不等於�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依官方完整投影片逐項重建廣義鴿籠原理、朋友與陌生人定理、Ramsey theory、Sim 與電影偏好 puzzle 的雙語正文。
 
 ## 參考資料

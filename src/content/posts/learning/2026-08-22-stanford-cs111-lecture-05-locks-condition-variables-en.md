@@ -19,6 +19,14 @@ This is part 6 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 The previous lecture's Too Much Milk solutions forced exclusion out of flags and carefully enumerated interleavings, but were too complicated. This lecture asks for two higher-level capabilities: **mutual exclusion**, to express critical sections, and **blocking**, to delay a thread without wasting a CPU. A mutex solves the first problem and a condition variable the second. The PDF repeatedly repairs one producer/consumer `Pipe` to establish why both are necessary.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## From Too Much Milk to a mutex
 
 Because `lock` is both noun and verb, a class and method with that name would produce `lock.lock()`. C++ calls the mutual-exclusion object `std::mutex`. The lecture begins with three operations:
@@ -204,6 +212,10 @@ void Pipe::put(char c) {
 `get()` symmetrically waits for `count > 0` and notifies `charRemoved`. The contracts are visible together: `unique_lock` represents ownership; while rechecks after every wakeup; wait atomically releases and reacquires; circular-state updates stay in the critical section; notify says only that state may have changed.
 
 Five questions audit any condition-variable program: What is shared state? Which mutex protects it? What is each operation's predicate? Is wait inside a locked while loop? Which state transition notifies which waiter? If any answer is missing, successful runs are not yet a synchronization proof.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

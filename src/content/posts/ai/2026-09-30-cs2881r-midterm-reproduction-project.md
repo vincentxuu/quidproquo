@@ -29,6 +29,14 @@ glossary:
 
 讀到這裡，你已經看過模型怎麼被訓練（L2）、怎麼被攻破（L3）、規範怎麼寫（L4）與怎麼執行（L5）。[CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 的期中作業要你把其中一個結果親手做一遍，然後問：它有多穩？
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 作業在問什麼
 
 規格投影片第一頁把目標寫成一句話：練習重現並批判性地檢視 AI 安全研究的結果。做法是從提供的論文裡挑一篇（也可以自己提），重現它的「headline figure」。
@@ -140,6 +148,10 @@ head TA Roy Rinberg 在課程結束後的回顧文裡，對期中的描述是：
 - 四篇候選中兩篇的來源講次：[CS2881R L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)
 - 另一門課的 jailbreak 專題設計：[台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 - Prompt injection 的工程防線：[安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

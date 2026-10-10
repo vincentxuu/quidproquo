@@ -30,6 +30,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=tjD9LIzIIek
+title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## i.i.d. 假設與真實世界的落差
 
 幾乎所有 ML 教科書都假設訓練與測試是 i.i.d.（independent and identically distributed）抽自同一個分布。但真實部署從來不是這樣：相機換了型號、醫院換了城市、語料從英文變成法律條文。模型在 in-distribution 拿到 95% 準確率，一上線掉到 60% — 這不是 bug，是**假設破掉**。
@@ -96,6 +112,10 @@ for x_unlabeled, _ in test_loader:
 - **Shift 中**：test-time adaptation（無標註）或自訓練。
 - **Shift 大**：domain adaptation（用目標域少量資料）甚至重訓。
 - **Concept shift**：幾乎只能重標資料，模型層救不回。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

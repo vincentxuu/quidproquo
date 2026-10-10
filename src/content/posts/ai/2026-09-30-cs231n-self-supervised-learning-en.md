@@ -35,6 +35,22 @@ glossary:
 
 The lecture starts from something the course already showed. In the 4096-dimensional features from AlexNet's last layer, nearest neighbors are semantically similar images, while nearest neighbors in pixel space are not. **Learned representations are useful, but they need a lot of labeled data.** Can we train such representations without huge manually labeled datasets?
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=4howBU7THbM
+title: Stanford CS231N 2025 Lecture 12: Self-Supervised Learning (YouTube)
+```
+
+Original videos: [Stanford CS231N 2025 Lecture 12: Self-Supervised Learning (YouTube)](https://www.youtube.com/watch?v=4howBU7THbM)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The framework: pretext and downstream tasks
 
 The slides split self-supervised learning into two stages:
@@ -186,6 +202,10 @@ The paper's abstract lists two main findings: self-supervised ViT features expli
 - Suggested reading from the schedule: [Lilian Weng's Self-Supervised Representation Learning](https://lilianweng.github.io/lil-log/2019/11/10/self-supervised-learning.html)
 
 **Series navigation**: Previous: [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en) | Next: [L13: Generative Models I: VAEs, GANs, and Autoregressive Models](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

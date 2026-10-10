@@ -19,6 +19,14 @@ This is article 18 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Finite Automata, Part III**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/16/)
+
 ## The automata ladder measures power with languages
 
 The deck orients the remaining course as DFA, NFA, PDA (studied through equivalent CFGs), and Turing machine. At each level, a language impossible below must motivate greater memory. NFAs appear to add perfect guessing, but this lecture proves that they recognize exactly the DFA languages.
@@ -79,6 +87,8 @@ The public deck explicitly supports the sections on the automata ladder measures
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked the automata ladder measures power with languages against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

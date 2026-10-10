@@ -19,6 +19,14 @@ Stanford CS107 does not begin by rushing into C syntax. Lecture 1 first changes 
 
 This article covers [the official Winter 2026 Lecture 1](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf), not the entire course. It follows the slide order: the course's point of view, topics and learning goals, assignments, labs, exams and support, and finally the Unix command line. Even outside Stanford, the lecture is useful because it supplies a map for the next twenty-five lectures: a controlled descent through layers of abstraction.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture metadata and source limits
 
 - Course: Stanford CS107: Computer Organization and Systems
@@ -170,6 +178,8 @@ The next lecture turns the map into a first C program: headers, `main`, `printf`
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Corrected the Lecture 1 deck length to 33 pages from the official PDF.
 
 ## References

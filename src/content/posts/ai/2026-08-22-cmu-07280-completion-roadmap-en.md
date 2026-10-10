@@ -19,6 +19,14 @@ draft: false
 
 Reading every guide is therefore not course completion. The enrolled course combines exams, written and programming homework, pre-reading, recitation, and participation. Independent learners do not have the same feedback chain and must preserve inspectable artifacts instead. The standard below does not pretend to grant CMU credit.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## The course teaches integration interfaces
 
 Four interfaces recur beneath the topic breadth:
@@ -79,6 +87,10 @@ For NLP, vision, or RL, expand one artifact into a project with a dataset or env
 Stop adding videos. Spend seven days consolidating: repair search and supervised-model tests in the first two days; rerun CNN and GPT experiments on days three and four; verify RL and MCTS on day five; write limitations on day six; and draw the full data and control flow from search to self-play on blank paper on the final day.
 
 If one branch cannot be drawn, return to its lecture guide instead of restarting at Lecture 1. The value of 07-280 is not that it mentions every AI term once. It is learning how a system's representation, learning signal, inference procedure, and verification duties constrain one another.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

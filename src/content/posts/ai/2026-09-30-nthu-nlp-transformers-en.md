@@ -30,6 +30,21 @@ The official material for this lecture is [W3_Transformers.pdf](https://github.c
 
 The slides have six parts: issues with RNNs, attention as a solution, self-attention, the Transformer encoder-decoder, the Transformer's achievements, and Transformer variants. This guide follows that order in five layers: scenario, intuition, mechanism, back to the model, going deeper.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Week 4 Thu.
+```
+
+Original videos: [Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Scenario: John lives in New York, but the RNN forgot John
 
 Slide 3 opens with a QA example. The sentence mentions John at the start and New York later, and the model must answer where John lives. In an RNN, how much two words influence each other depends on their distance. John's information has to travel nearly O(N) time steps before it meets the answer, and it has faded by then. The slide puts it this way: we already know that "closer means more important" is not the right way to understand a sentence.
@@ -173,6 +188,10 @@ The last slide shows a training-cost chart from the [Stanford AI Index Report 20
 - The Fall 2026 version of this lecture is not yet public (the 2026 schedule is empty from W4 on); this guide uses Fall 2025 only.
 
 **Series navigation**: previous [PyTorch Tutorial and HW2: Arithmetic as Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en) | next [Sub-word Tokenization: Why a Model's Vocabulary Is Made of Word Pieces](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

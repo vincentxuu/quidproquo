@@ -32,6 +32,26 @@ glossary:
 
 四段裡有四個新概念，但真正貫穿的只有一件事：**語言模型要估計一串詞出現的機率，做法是一次預測下一個詞。**詞的表示是它的輸入，RNN 是它的架構，應用是它換個輸出後能做的事。讀的時候抓住這條線就不會散。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=215BxEbYrCs
+title: ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eVA_WTW4gXE
+title: ADL 3.2: Language Modeling 語言模型
+```
+
+原始影片：[ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling 語言模型](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network 簡介](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications RNN各式應用](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism 了解LSTM與GRU的細節](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 詞要怎麼放進電腦
 
 投影片第 4 頁把詞的表示分成兩派。
@@ -160,6 +180,10 @@ RNN 的做法是沿時間軸展開（Unfold）。輸入是 init、x₁、x₂…
 
 - 同一段內容在 Stanford 的講法：[CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)、[CS224N RNN 與語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 - 同校課程怎麼分工：[台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

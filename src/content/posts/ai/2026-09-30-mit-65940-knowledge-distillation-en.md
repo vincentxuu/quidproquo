@@ -41,6 +41,21 @@ This is part 11 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-cours
 
 The access grade from the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) is **A3, enough for self-study**, though this lecture has no lab. **Fall 2026 comparison**: as of 2026-09-30, the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) has released only L1–L6. This lecture is not up yet.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
+title: EfficientML.ai Lecture 9 - Knowledge Distillation (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 9 - Knowledge Distillation (YouTube)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Why a course on efficiency covers distillation
 
 The earlier tools in this course, pruning, quantization, and [NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en), all change the model itself: remove parameters, lower the bit width, or switch to a cheaper architecture. This lecture asks something else. Once the architecture is fixed and the model is small, **how do you train it better?**
@@ -152,6 +167,10 @@ The summary on slide 81 restates the five parts and previews the next lecture, [
 If you want the essentials: the temperature example in part 1 (slides 7–10) and the six matching targets in part 2 (slides 12–28) are the core of KD. NetAug in part 5 (slides 67–80) is this course's own angle and directly answers why tiny models are hard to train.
 
 If you came from [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en): the lab extracts subnets straight from the OFA super network with no retraining. This lecture offers another path: once the architecture is fixed, distillation or NetAug can still train it better.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

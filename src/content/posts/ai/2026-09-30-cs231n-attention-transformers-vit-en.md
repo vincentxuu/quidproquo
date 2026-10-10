@@ -34,6 +34,21 @@ Through Lecture 7, CS231N has two kinds of structure: convolution for grids and 
 
 The lecture follows one line: where attention came from → abstracting it into a general operation → building the Transformer out of it → turning images into something a Transformer can consume. This post follows the same line.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=RQowiOF_FvQ
+title: Spring 2025 Lecture 8 recording
+```
+
+Original videos: [Spring 2025 Lecture 8 recording](https://www.youtube.com/watch?v=RQowiOF_FvQ)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The problem: an RNN translator squeezed through one vector
 
 The slides open with seq2seq translation, turning "we see the sky" into the Italian "vediamo il cielo". The encoder RNN reads the whole English sentence and hands the decoder only its final hidden state, a summary c of the sentence. The longer the sentence, the more has to fit into that one fixed-size vector.
@@ -171,6 +186,10 @@ These courses cover the same architecture from the language model side. This pos
 - [CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en)
 - [CME295: Transformers](/posts/ai/2026-09-29-cme295-transformer-en)
 - Building a Transformer language model from scratch: [CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

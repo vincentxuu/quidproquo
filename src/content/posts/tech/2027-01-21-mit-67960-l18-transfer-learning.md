@@ -31,6 +31,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
+title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 為什麼遷移有效
 
 經驗觀察：在一個大資料集（如 ImageNet 1.2M、LAION 400M、web-crawl 文字）上訓練的網路，前幾層學到的幾乎都是「邊、紋理、顏色梯度」這種**通用視覺特徵**，只有最後幾層才對到具體任務。把這些中段表示搬到一個資料少的小任務（例如只有幾百張醫療影像），往往比從頭訓練好得多。
@@ -93,6 +109,10 @@ ImageNet 標註要花幾千小時人類工時，且很多資料根本沒標籤�
 ## 串到 L19
 
 L19 會深入 L18 沒展開的 PEFT（LoRA 數學推導、prefix tuning 細節）、foundation model 與 in-context learning 的關係、以及災難性遺忘問題。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

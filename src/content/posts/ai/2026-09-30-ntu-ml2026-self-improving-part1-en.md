@@ -32,6 +32,21 @@ glossary:
 
 Official materials: the slides [Self-Improving.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pdf) (62 pages, plus a [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Improving.pptx)) and the video listed on the course page, [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://youtu.be/s06mSAGN4gM) ("Is AI about to cross the Rubicon? How far away is self-improving AI, part 1"; in Mandarin). Access rating: **A3**. The slides and the full recording are public, and the recording has Chinese captions. There is no quiz for this lecture. Most slides are images, so this post follows the captions for the argument. Every paper cited on the slides was checked against arXiv for its title.
 
+## Course video sources
+
+Video sources were checked against the official course page. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: Video: Is AI about to cross the Rubicon? How far away is self-improving AI (part 1)
+```
+
+Original videos: [Video: Is AI about to cross the Rubicon? How far away is self-improving AI (part 1)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Prerequisite: the three steps of machine learning
 
 Lee assumes you have seen [Lecture 5 of his 2025 Intro to Generative AI and Machine Learning](https://youtu.be/Taj1eHmZyWw) (in Mandarin), where machine learning is three steps:
@@ -201,6 +216,10 @@ Verified: the slide text and linked citations, the Chinese captions on the video
 Not verified: I could not find a public version of Wei-Ping Huang's paper, so the second-term formula in the fold is a standard derivation based on the lecture's description, not copied from the paper. For the Qwen 0.6B / 1.7B / 4B curves, the slide cites the R-Zero arXiv ID, but I did not match the figure against the paper. PostTrainBench's 51 and 18 come from the captions and were not checked against the paper's tables.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en) | Next: [HW7: Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

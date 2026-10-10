@@ -17,6 +17,14 @@ draft: false
 
 Spring 2026 Lecture 10 is **Feature Engineering and Regularization**, dated February 12. Lecture 9's logistic model still draws a linear boundary in its input features. This lecture first expands what the model can represent, then immediately addresses the overfitting created by that expansion. There is no public lecture-by-lecture recording, and this article does not reconstruct spoken content.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 This reading uses the [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf), the official [Model Selection deck](https://www.cs.cmu.edu/~07280/lectures/model%20selection.pdf), the [Recitation 5 solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf), and HW5. The Spring link for `07280_S26_Lec10_Regularization.pdf` now returns 404, so the article does not claim to have read it or substitute Fall 2026 material.
@@ -81,6 +89,10 @@ Manual feature engineering makes `φ(x)` explicit. It can be interpretable and d
 ## What to do tonight
 
 Create eight noisy `(x,y)` points and fit degree-1, degree-3, and degree-7 polynomials. Hold out two points solely for validation. Record training and validation MSE, then apply three `λ` values to the degree-7 model. Do not inspect test points until degree and `λ` have been selected.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

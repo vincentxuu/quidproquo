@@ -25,6 +25,14 @@ The difference is not model size but who moves first. A reactive agent's loop st
 
 Week 11 is arranged like a closing act. Monday (Proactive Agents) assigns Shaikh et al.'s [General User Models](https://arxiv.org/abs/2505.10831), with a follow-up paper on Next Action Prediction plus privacy-and-trust discussion. Wednesday (Open Problems & Final Demos) has no single assigned reading: the course lays out multimodal agents, web and computer use, science agents, long-running architectures, and production observability, converging on three open directions. My Wednesday write-up below is framed as the course's view, not any one paper's claim. Paper-video peer reviews are also due Monday, and Demo Day lands in finals week under the theme Making Life at Stanford Better with Agents.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## GUM: turning screen traces into a user model
 
 [GUM](https://arxiv.org/abs/2505.10831) takes any unstructured observation, such as screenshots, as input. Its output is a set of natural-language propositions, each carrying a confidence score. Seeing a wedding invite, it writes down that the user is invited to a friend's wedding; seeing repeated draft edits followed by related-work reading, it writes down that the user is stuck on collaborator feedback. High confidence for the former, low for the latter, all labeled honestly.
@@ -85,6 +93,8 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-12: Made the Week 10 Thanksgiving recess explicit in the series map and course-material checklist so the Week 9-to-11 jump no longer looks like a missing post.
 
 ## References

@@ -37,6 +37,21 @@ Access level is **A3**: the slides download anonymously, and the 2026 recordings
 
 Companion video (**supplementary**): [Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw) (about 70 minutes). The first half of [the 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) is still wrapping up model-based RL (synthetic data generation and when to use model-based RL), so the start of the recording probably covers that too. This post follows the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=qNdsI_4AQJw
+title: Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)](https://www.youtube.com/watch?v=qNdsI_4AQJw)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Why learn many tasks at once
 
 Page 6 asks whether we can train a **generalist** policy that does many "tasks" rather than one. The examples cut across fields: an LLM assistant that books travel and buys groceries, a legged robot that walks, runs and dances, a mobile manipulator that hangs up a towel and unloads a dishwasher, a music recommender personalized to many users, and a game agent that plays Flappy Bird and Pokemon. These tasks may differ in reward, dynamics and even action space.
@@ -192,6 +207,10 @@ Things self-learners should watch for:
 Confirmed: the text, algorithms and summary table of the 2026 slides, the schedule date and assigned reading, the contents and compute rules of the 2025 HW4 PDF, and the title and length of the 2025 L12 video. Not confirmed: the in-class discussion of the question on page 9, the video material on pages 15–18, and how the three relabeling prerequisites were explained aloud (the collapsible section above is my inference).
 
 Series navigation: previous [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en) | next [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

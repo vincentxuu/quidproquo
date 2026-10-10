@@ -30,6 +30,26 @@ The [previous post](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization
 
 After reading, you should be able to explain why selecting models by E_in fails, how big a validation set should be, why you retrain on all the data after selecting, and what sampling bias and data snooping each guard against.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=BRLGPnrcel8
+title: Model Selection Problem
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RvkCaAwRP8A
+title: Validation
+```
+
+Original videos: [Model Selection Problem](https://www.youtube.com/watch?v=BRLGPnrcel8)、[Validation](https://www.youtube.com/watch?v=RvkCaAwRP8A)、[Leave-One-Out Cross Validation](https://www.youtube.com/watch?v=iToz5t0J6WU)、[V-Fold Cross Validation](https://www.youtube.com/watch?v=Y8PaLsYm0Ac)、[Occam's Razor](https://www.youtube.com/watch?v=Oj6j98ceUz8)、[Sampling Bias](https://www.youtube.com/watch?v=8QZZiIAdTUU)、[Data Snooping](https://www.youtube.com/watch?v=7nP5zWMQmxM)、[Power of Three](https://www.youtube.com/watch?v=29jgHPeRAqI)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Course materials
 
 | Lecture | YouTube sections (playlist number) | Slides | LFD sections |
@@ -175,6 +195,10 @@ One thing to try tonight: open the code from your last model evaluation and make
 - ML Foundations ends here. ML Techniques starts from the problem that feature transforms are expensive; first stop: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
 - Intro ML at other schools: [Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en), [Berkeley CS189](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

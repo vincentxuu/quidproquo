@@ -30,6 +30,14 @@ glossary:
 
 [第 7 講](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda) 講 CUDA 抽象怎麼落到 GPU，[第 8 講](/posts/ai/2026-09-30-cs149-data-parallel-thinking) 講怎麼用 scan、sort 這類原語取代鎖。PA3 把兩者一起考：README 開頭說這個渲染器很簡單，但把它平行化需要你設計並實作**能被平行建構與操作的資料結構**。接著用粗體重複了一次：真的要早點開始。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
+
 ## 課程裡的位置與環境
 
 PA3 在 10 月 30 日截止，前面剛上完第 7、8 講。依 [course info](https://gfxcourses.stanford.edu/cs149/fall25/courseinfo)，程式作業可以兩人一組，PA3 占總成績 12%；Written 2 必須三人一組、由助教隨機分組，每份書面作業占 3%。
@@ -144,6 +152,10 @@ README 的配分有兩處自相矛盾，讀的時候注意：Grading Guidelines 
 - 另一門課的 CUDA 入門作業：[CMU 11-868 作業一：用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
 - thread、block 與 shared memory tiling 的另一種講法：[CMU 11-868 L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 - 五個作業的環境需求總表：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

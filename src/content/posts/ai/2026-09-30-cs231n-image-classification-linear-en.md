@@ -28,6 +28,21 @@ The second [CS231N](https://cs231n.stanford.edu/) lecture was on April 2, the sa
 
 The lecture introduces the two simplest classifiers. Neither is good enough in practice, but every later lecture builds on the framework they leave behind: how to split the data, how to compute scores, and how to define a loss.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=pdqofxJeBN8
+title: Spring 2025 Lecture 2: Image Classification with Linear Classifiers (YouTube)
+```
+
+Original videos: [Spring 2025 Lecture 2: Image Classification with Linear Classifiers (YouTube)](https://www.youtube.com/watch?v=pdqofxJeBN8)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The problem: a computer only sees numbers
 
 The [slides](https://cs231n.stanford.edu/slides/2026/lecture_2.pdf) define the task first: given an image and a set of possible labels (dog, cat, truck, plane, …), output one of them.
@@ -160,6 +175,10 @@ Besides softmax, the official [Linear Classification](https://cs231n.github.io/l
 - [Reading Stanford CS231N: overview and self-study plan](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 **Series navigation**: Previous: [L1: Where computer vision came from, and where this course is going](/posts/ai/2026-09-30-cs231n-intro-vision-history-en) | Next: [L3: Regularization and optimization](/posts/ai/2026-09-30-cs231n-regularization-optimization-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

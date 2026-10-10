@@ -24,6 +24,14 @@ The data flywheel is one sentence: every production output is training material 
 
 Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## Evaluation: read real outputs before setting metrics
 
 Metrics cannot come from armchair theorizing. The advice is to read a batch of real outputs first, then decide what to validate. The example is vivid: filler words like "delve" and "crucial" reek of model authorship, and you only think to ban them after seeing them in the wild. There is no shortcut here — reading data is the job.
@@ -90,6 +98,8 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
 
 ## References

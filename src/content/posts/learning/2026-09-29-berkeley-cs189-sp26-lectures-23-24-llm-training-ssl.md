@@ -29,6 +29,26 @@ glossary:
 
 這兩講接在 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers) 和 [HW4](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert) 之後。你已經會搭一個 transformer，這裡要回答兩個問題：怎麼把它訓練成 ChatGPT 這類的東西？沒有標籤的時候，要怎麼學到好的表徵？兩講共用一個核心想法：**自己造一個假的監督任務**。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=m13yELgj02c
+title: Lecture 23 錄影：LLM Training And Applications
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=iGcer6b6mp8
+title: Lecture 24 錄影：Self-Supervised Learning
+```
+
+原始影片：[Lecture 23 錄影：LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 錄影：Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 讀取範圍與限制
 
 我實際打開並讀過的：兩份講義 PDF 的文字層、Discussion 11 題目與解答、兩支錄影的標題。講義很多圖（架構圖、生成結果、熱圖）沒有文字層，我只轉述投影片上有字的部分；錄影沒有逐分鐘看完。
@@ -166,6 +186,10 @@ Discussion 11 的三題都標著「F25 Dis11」，題目沿用 Fall 2025。它�
 - 系列導覽：上一篇 [HW4 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)；下一篇 [Lec 25–27：蛋白質、agents 與完課](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：照 Lec 23 的算法，用 D = 12288、96 層重算一次 GPT-3 的 attention 與 MLP 參數量，確認 MLP 大約是 attention 的兩倍。接著做 Discussion 11 第 3 題，把 N = 1000 代進去，看 KV cache 省下多少次矩陣乘法。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

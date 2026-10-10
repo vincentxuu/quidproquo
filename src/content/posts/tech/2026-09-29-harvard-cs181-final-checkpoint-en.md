@@ -17,6 +17,14 @@ draft: false
 
 > ⚠️ **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **The exam**: The [CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) final is on **Saturday, May 9, at 2pm** and is worth `15%`. The [syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus) says it is closed-book, with one 8.5×11 sheet of notes allowed (front and back).
@@ -122,6 +130,10 @@ The data is in the repo's [`practical/data`](https://github.com/harvard-ml-cours
 - Previous: [HW6 (4): Q-learning on Swingy Monkey + Embedded EthiCS](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
 - Back to the start: [Harvard CS181 overview](/en/posts/tech/2026-08-27-harvard-cs181-overview-en)
 - First-half counterpart: [Midterm checkpoint](/en/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

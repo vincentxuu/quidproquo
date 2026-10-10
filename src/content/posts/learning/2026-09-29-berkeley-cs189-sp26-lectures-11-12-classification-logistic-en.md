@@ -26,6 +26,26 @@ The spine of these two lectures is that **the same classification problem can be
 2. Why logistic regression is "more general" than LDA but not necessarily better.
 3. Why 95% accuracy can mean a completely useless classifier.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=oid6SvXy8Kw
+title: Video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=xBCpwQt8A5w
+title: Video
+```
+
+Original videos: [Video](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Video](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Official materials and scope
 
 | Lecture | Date | Title | Materials | Bishop reading on the schedule |
@@ -203,6 +223,10 @@ On this site:
 
 - Previous: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
 - Next: [Lec 13 & 15: convergence, momentum, Adam, SGD, and learning with GD](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

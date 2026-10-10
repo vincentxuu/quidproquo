@@ -19,6 +19,22 @@ draft: false
 
 課程在談資料以前先談 evaluation，因為資料會把模型推向你量測的行為。這一講最重要的句子是：沒有唯一正確的 evaluation。你必須先說規則、對象與使用情境，再選 metric。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=JpAxdTWQJxM
+title: CS336 Spring 2026 Lecture 12: Evaluation
+```
+
+原始影片：[CS336 Spring 2026 Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## Perplexity 平滑，但不等於有用
 
 語言模型是 token sequence 的機率分布；perplexity 衡量模型對資料集配置的平均機率。它連續、便宜，能畫出平滑 scaling curve，也適合 pretraining 開發。
@@ -64,6 +80,10 @@ Benchmark contamination 讓三者更難判斷。模型可能在 pretraining 看�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依其 perplexity、exam、chat、agent、reasoning、安全與 validity 主線整理。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

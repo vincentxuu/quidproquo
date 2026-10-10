@@ -34,6 +34,14 @@ glossary:
 
 [HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) was about continuous regression. HW2 switches the output to classes and asks a harder question: **when a model says "the probability of observing it is 0.3," and when 10 models disagree about the same point, is that the same kind of uncertainty?** This post walks through each problem around that question: what it tests and which section to prepare. **No solutions.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **The thread through four problems**: Problem 1 goes from the bias-variance decomposition to two kinds of uncertainty. Problem 2 derives the MLE of a generative classifier. Problem 3 applies both to loan-applicant data with five classifiers. Problem 4 returns to gradient descent and ridge.
@@ -161,6 +169,10 @@ Submission per the assignment: the writeup PDF goes to Gradescope `HW2` with pag
 - Previous: [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en)
 - Next: [HW3 Kernels, Neural Networks, and Scaling Laws](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

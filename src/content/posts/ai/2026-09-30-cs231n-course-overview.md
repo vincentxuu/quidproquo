@@ -27,6 +27,15 @@ glossary:
 
 這篇回答三個問題：這門課教什麼、校外讀者實際拿得到什麼、怎麼排 10 週把它讀完。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS231N Deep Learning for Computer Vision I 2025（YouTube 播放清單）](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 這門課的硬事實
 
 **上課時間與地點**：週二、週四 12:00–1:20 PM（太平洋時間），在 NVIDIA Auditorium。週五另有 discussion section。
@@ -149,6 +158,10 @@ Discussion section 有六次：Python/Numpy、Backprop、Final Project 說明、
 - [Berkeley CS285 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)：想接著看 robot learning 的讀者
 
 **系列導覽**：下一篇 [L1：電腦視覺從哪裡來，這門課要走到哪裡](/posts/ai/2026-09-30-cs231n-intro-vision-history)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

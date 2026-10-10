@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 7 章〈Deep learning〉，講義頁碼 80–113。它是 **2026 notes 的逐章導讀**，不是某一學期深度學習錄影的重建。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 從固定特徵到學習表徵
 
 前幾章的模型多半對參數線性，即使 kernel 隱含的特徵很複雜，特徵映射本身仍由人選定。神經網路把模型改成對輸入與參數都非線性的函數 \(\bar h_\theta(x)\)。回歸直接使用它的輸出；二元與多類別分類則把輸出視為 logits，再接 sigmoid 或 softmax 與對應的負對數概似。
@@ -60,6 +69,10 @@ a^{[k]}=\sigma(W^{[k]}a^{[k-1]}+b^{[k]}).
 ## 自學練習
 
 只用矩陣運算實作一個兩層 MLP：ReLU 隱藏層加二元 logistic loss。手寫 forward 與 backward，使用有限差分檢查每個參數梯度，再把逐筆版本改成 batch-first 向量化版本，核對兩者梯度一致。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 19 講**，官方日期 2025-12-04。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[第 19 講 Conclusion 官方投影片](https://web.stanford.edu/class/cs224w/slides/19-conclusion.pdf)整理；講者以投影片署名為準。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含官方投影片與 schedule 的 optional readings。Canvas 錄影、現場 Q&A、板書與 Ed 討論不公開，本文不推測；2021 公開影片不作為 2025 講次證據。
@@ -74,6 +82,10 @@ Deck 先介紹 controlled random search（CRS）這個較早的 design-space 搜
 ### 最後帶走的工作流
 
 第 19 講的結論很窄也很實用：先用 small-dataset performance spectrum 選 12 anchors，用 anchor rankings 找相似 tasks，再把相似 task 的 best designs 轉移過來。它不是 universal ranking predictor，而是一個受 evaluation budget 約束的 model-transfer procedure。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

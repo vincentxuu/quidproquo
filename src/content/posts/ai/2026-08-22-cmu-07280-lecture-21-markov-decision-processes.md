@@ -17,6 +17,14 @@ series:
 
 **CMU 07-280 Spring 2026 Lecture 21** 從「預測下一 token」切換到「選一連串 actions」。官方題目是 *Markov Decision Processes*。本講的關鍵限制很重要：transition probabilities 與 rewards 已知；問題是如何規劃，而不是如何從互動資料學出環境。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 21 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec21_MDPs.pdf)、[MDP pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MDPs.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並核對 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 的 racing problem。官方頁沒有 Spring 2026 逐講公開錄影，本文不虛構課堂口述。
@@ -93,6 +101,10 @@ Recitation 11 用 racing car MDP 要求寫出 transition、reward、discount 影
 ## 今晚可做動作
 
 把上面的 `Stop/Try` MDP 寫成五行迴圈，從 `V_0=0` 做二十次 value iteration。改測 `γ=0,0.5,0.9`，記錄收斂值與 greedy action。然後刻意把「是否已嘗試過」設成會影響 transition、卻不放進 state，觀察 Markov assumption 為何失效。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

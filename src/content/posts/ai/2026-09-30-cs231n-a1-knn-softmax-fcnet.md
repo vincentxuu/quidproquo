@@ -40,6 +40,14 @@ glossary:
 
 本文只講每題的目標、要動哪些檔案、notebook 寫明的檢查點與行內問答。**不提供任何解答。** [作業總頁的 Honor Code](https://cs231n.stanford.edu/assignments.html) 直接寫了：往年作業的解答有被貼到網路上，課程知道，並期待所有繳交的作業都是學生自己的。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 作業頁列出的目標
 
 作業頁說這份作業是在練習「以 kNN 或 SVM／Softmax 分類器組出一條簡單的影像分類 pipeline」，目標有九條，歸納起來是四類：
@@ -168,6 +176,10 @@ notebook 標題是「Fully-Connected Neural Nets」，照順序帶你寫出模�
 
 - 課程全貌、存取缺口與 10 週自學排程：[Stanford CS231N 導讀（系列總覽）](/posts/ai/2026-09-30-cs231n-course-overview)
 - 同一批觀念的另一個角度：[CMU 11-785 第 5 講：反向傳播](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)、[CMU 11-785 第 8 講：最佳化器與正則化](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

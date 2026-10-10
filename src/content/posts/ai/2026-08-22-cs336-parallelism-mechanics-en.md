@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 7: Parallelism**, taught by Percy L
 
 Single-GPU optimization ends here. When the model, optimizer state, or batch grows further, work must cross devices. Lecture 7 deliberately avoids hiding the mechanics behind a high-level wrapper and instead builds three fundamental parallel strategies from collective operations.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=6-cXp-aOmdg
+title: CS336 Spring 2026 Lecture 8: Parallelism
+```
+
+Original videos: [CS336 Spring 2026 Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Communication has a physical hierarchy
 
 Registers, shared memory, and HBM within one GPU are fastest. GPUs in one node communicate through NVLink or NVSwitch. Cross-node traffic uses InfiniBand or Ethernet with lower bandwidth and higher latency. RDMA lets devices access remote memory without extra copies through the CPU and kernel networking stack.
@@ -60,6 +76,10 @@ The most useful experiment in the executable lecture is to hold tensor size fixe
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact with PyTorch examples for collectives and all three parallel strategies.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

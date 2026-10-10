@@ -25,6 +25,14 @@ Two things up front:
 
 Everything below follows the assignment page as fetched on 2026-09-29.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 - Assignment page: [assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
@@ -172,6 +180,10 @@ The local autograder does not record grades. Official submission means uploading
 Previous: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Next: [Lecture 3 guide: Classical Planning](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en).
 
 For how this family of Pacman assignments evolved, see the [Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

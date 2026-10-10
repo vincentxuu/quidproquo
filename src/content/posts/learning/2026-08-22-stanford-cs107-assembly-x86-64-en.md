@@ -19,6 +19,14 @@ To a processor, a C `for` loop no longer has variable names, an `int` type, or a
 
 This lecture establishes only the first layer of that reading skill. The disassembly of `sum_array` contains ten instructions. The slides first explain the columns in that output, then connect assembly to machine code, introduce the processor's sixteen general-purpose registers, and show how a compiler lowers high-level work into loading, operating, and storing. The official calendar also previews addressing modes, data widths, and variants of `mov`, but the public slides only begin those subjects here; Lecture 15 carries most of that detail forward.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials, scope, and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -249,6 +257,10 @@ The point is not to memorize sixteen register names. It is to change the unit in
 For `sum_array`, locate the loop through `jge` and the backward `jmp`; identify the index through updates to `%eax`; identify the sum through accumulation into `%edx`; reconstruct array access from `(%rdi,%rcx,4)`; and finally detect the return value from `%eax`'s last role. The sequence scales to more complex compiler output: draw control flow first, trace dataflow second, and name roles last.
 
 If you do only one exercise, compile five lines of C to both a `.s` file and an executable tonight, then inspect them with `gcc -S` and `objdump -d`. Annotate every instruction with “what it reads, what it writes, and where execution goes next” before looking up a complete C answer. High-level abstractions were not erased by magic; they were decomposed into another set of traceable machine-state transitions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

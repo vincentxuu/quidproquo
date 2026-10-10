@@ -32,6 +32,22 @@ glossary:
 
 這一篇的數學負荷比前面重。正文只放直覺和結論，推導收在折疊區。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=KCAOXd4IO9o
+title: Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）
+```
+
+原始影片：[Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）](https://www.youtube.com/watch?v=KCAOXd4IO9o)
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：模仿學習的天花板
 
 投影片第 4 頁先總結模仿學習的優缺點：簡單、可擴展、能學出不錯的行為；但**超越不了示範者**，也沒辦法從練習中進步。
@@ -180,6 +196,10 @@ L4 投影片第 27 頁會再提到這個 KL 限制，並說它會在 LLM 偏好�
 - [CME295：LLM 的 RL](/posts/ai/2026-09-29-cme295-rl-with-llms)、[CS336：RLVR](/posts/ai/2026-08-22-cs336-rlvr)：policy gradient 用在語言模型上的樣子
 
 **系列導覽**：上一篇 [HW1：Flappy Bird 上的 BC、Flow Matching 與 DAgger](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)｜下一篇 [L4：Actor-Critic 與價值估計](/posts/ai/2026-09-30-cs224r-actor-critic)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

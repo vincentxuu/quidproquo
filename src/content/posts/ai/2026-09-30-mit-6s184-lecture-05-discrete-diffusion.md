@@ -40,6 +40,21 @@ glossary:
 
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=d0kmyEJN2hI
+title: 第 5 講錄影：Discrete Diffusion Models (2026)
+```
+
+原始影片：[第 5 講錄影：Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 先看對照表：每個連續物件都有離散版
 
 Slides 5 把連續 flow matching 的六格表（條件／邊際 × 機率路徑／向量場／loss）直接換成離散版。下表把講義裡對應的編號排在一起，後面每一節就是在填這張表：
@@ -362,6 +377,10 @@ Slides 5 有一頁討論離散擴散與自回歸模型的取捨，每一點都�
 - DDPM 視角的連續擴散（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 講義引用的離散擴散起點：[Campbell et al., A Continuous Time Framework for Discrete Denoising Models](https://arxiv.org/abs/2205.14987)（參考文獻 [5]）、[Gat et al., Discrete Flow Matching](https://arxiv.org/abs/2407.15595)（參考文獻 [16]）
 - 講義 Figure 18 的圖源：[Lipman et al., Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264)（參考文獻 [26]）
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

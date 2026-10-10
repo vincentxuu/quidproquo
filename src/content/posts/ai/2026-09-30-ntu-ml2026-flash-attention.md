@@ -32,6 +32,21 @@ glossary:
 
 用到的官方材料：講義 [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf) 第 1–28 頁（整份 55 頁，後半是[下一篇 KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)），課程頁列出的影片[加快語言模型生成速度 (1/2)：Flash Attention](https://youtu.be/vXb2QYOUzl4)，以及投影片第 28 頁的[範例 Colab](https://colab.research.google.com/drive/1KoeKKIXSXI9b-pYg0kun3-uLQkP6p_hC?usp=sharing)。存取等級是 **A3**：投影片 pdf／pptx、錄影與範例程式都公開。本講沒有獨立測驗，對應的練習在 [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=vXb2QYOUzl4
+title: 影片：加快語言模型生成速度 (1/2)：Flash Attention
+```
+
+原始影片：[影片：加快語言模型生成速度 (1/2)：Flash Attention](https://www.youtube.com/watch?v=vXb2QYOUzl4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先備：這堂課假設你已經懂 Transformer
 
 投影片第 2 頁只放了一個先備連結：[【生成式人工智慧與機器學習導論2025】第3講：解剖大型語言模型](https://youtu.be/8iFvM7WUUs8)。老師開場就說，這堂課預設你已經清楚 Transformer 內部怎麼運作，而且講的是**推論（inference）**，不是訓練。
@@ -155,6 +170,10 @@ Colab 裡做了三件事：
 不能確認：字幕裡把示範模型說成另一個名字，本文以 Colab 程式碼的 `google/gemma-3-4b-it` 為準。講課當場的秒數與 Colab 存檔輸出不一致（存檔裡最長的那次沒有 OOM），因此真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，文字依字幕轉述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)｜下一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

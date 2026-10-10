@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 4 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=-g0iJjnO2_w
+title: CS50 AI Week 4 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 4 — official lecture recording](https://www.youtube.com/watch?v=-g0iJjnO2_w)
+
+Course and recording entries:
+
+- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
+
 ## TL;DR
 
 Week 4 enters machine learning: supervised classification (k-NN, SVM, Perceptron, model evaluation), reinforcement learning (MDP, Q-learning, ε-greedy exploration). Two projects implement purchase prediction (k-NN) and learning to play Nim (Q-learning).
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 4 Learning (2020 recording)](https://www.youtube.com/watch?v=6hL1QJ5V1K0)
+YouTube: [Week 4 Learning (2020 recording)](https://www.youtube.com/watch?v=-g0iJjnO2_w)
 
 | Timestamp | Content |
 |---|---|
@@ -367,6 +382,10 @@ style50 nim.py
 - [ ] Understand why Nim state uses tuple (Q-table keys must be hashable)
 - [ ] Understand ε-greedy behavior difference in training vs inference
 - [ ] Both projects pass `check50` clean
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

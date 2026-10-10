@@ -34,6 +34,22 @@ glossary:
 
 整講可以用一個問題串起來：**多出來的 T 要在網路的哪裡、用什麼代價處理？** 每一種架構都是對這個問題的不同答案。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=wElqklprhPE
+title: Stanford CS231N 2025 Lecture 10: Video Understanding（YouTube）
+```
+
+原始影片：[Stanford CS231N 2025 Lecture 10: Video Understanding（YouTube）](https://www.youtube.com/watch?v=wElqklprhPE)
+
+課程與錄影入口：
+
+- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 任務與資料：從「認物件」到「認動作」
 
 影像分類認的是狗、貓、卡車；影片分類認的是游泳、跑步、跳躍、吃東西。投影片用的範例資料集是 [Sports-1M](https://cs.stanford.edu/people/karpathy/deepvideo/)：100 萬支 YouTube 影片，標註了 487 種運動（Karpathy et al., CVPR 2014）。
@@ -146,6 +162,10 @@ self-attention 的成本隨 token 數平方成長，所以投影片提出兩大�
 - 為什麼長序列很貴、要怎麼切到多張 GPU：本系列下一篇 [L11：大規模分散式訓練](/posts/ai/2026-09-30-cs231n-distributed-training)
 
 **系列導覽**：上一篇 [L9：物件偵測、影像分割與模型可視化](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)｜下一篇 [L11：大規模分散式訓練](/posts/ai/2026-09-30-cs231n-distributed-training)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

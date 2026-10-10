@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 6: Kernels, Triton**, taught by Per
 
 Lecture 5 explains data movement, tiling, and fusion. Lecture 6 asks you to measure and write a kernel. The order matters: without trustworthy benchmarks and a profiler, a custom kernel merely optimizes a guess.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=xnDHaNUvHBg
+title: CS336 Spring 2026 Lecture 6: Kernels, Triton, XLA
+```
+
+Original videos: [CS336 Spring 2026 Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Correctness, performance, and diagnosis are separate layers
 
 PyTorch provides tensor semantics and mature kernels, making it the correctness baseline. Triton lets a programmer think in thread blocks and tiles, controlling how data moves from HBM into faster memory, gets processed, and returns. Lower-level PTX exposes loads, stores, and registers, but it is rarely the right first interface.
@@ -59,6 +75,10 @@ Triton reduces CUDA's syntactic burden but does not remove hardware constraints.
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact containing benchmarks, profiling, and four Triton examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

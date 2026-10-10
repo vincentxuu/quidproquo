@@ -34,6 +34,22 @@ glossary:
 
 The official material is the [L15 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf) (60 pages, also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)). Fall 2025 recordings are Canvas-only; the course home page points to the 2023 [Lecture 12 Memory Consistency video](https://www.youtube.com/watch?v=nFXWmo9MFiY) instead. This post follows the 2025 slides and lists the video only as a supplement. The access level is **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are fully public, and only the current recordings are missing.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=nFXWmo9MFiY
+title: CS149 2023 Lecture 12 Memory Consistency video (supplement)
+```
+
+Original videos: [CS149 2023 Lecture 12 Memory Consistency video (supplement)](https://www.youtube.com/watch?v=nFXWmo9MFiY)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
+
 ## What this lecture actually covers
 
 The course home page titles L15 "Implementing Synchronization + Memory Consistency," with the description "Fine-grained synchronization via locks, motivation for relaxed consistency, implications to programmers." The PDF's cover reads "Memory Coherency and Consistency," and the deck has two parts:
@@ -184,6 +200,10 @@ Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page diff
 Further reading: lock implementations and atomic operations from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | next [L16 Fine-grained locking and lock-free programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

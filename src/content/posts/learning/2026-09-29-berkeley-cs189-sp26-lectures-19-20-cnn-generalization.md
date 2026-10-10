@@ -36,6 +36,26 @@ glossary:
 | Lec 19 | 7.2.5 NN 初始化；7.4 到 7.4.2（資料正規化、batch norm）；第 10 章到 10.2.8，以及 10.3.2（CNN） |
 | Lec 20 | 9.1.2 no free lunch；9.3.1 early stopping；9.3.2 double descent |
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=-4PpBUsB_S4
+title: Lecture 19 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4LrCyN7URuY
+title: Lecture 20 錄影
+```
+
+原始影片：[Lecture 19 錄影](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 錄影](https://www.youtube.com/watch?v=4LrCyN7URuY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## Lec 19 前段：收尾反向傳播
 
 Lec 19 開頭把 Lec 18 的成本比較再講一次：有限差分每一步要 O(NL²)，和參數量 L 成平方；符號微分會出現「expression swell」（Bishop 8.1.4）。接著講從反向傳播到自動微分的轉變：
@@ -147,6 +167,10 @@ Discussion 9 兩題都沿用 Fall 2025 的 discussion（講義標注 F25 Dis8 Q1
 - 系列導覽：上一篇 [HW3 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)；下一篇 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：照 Discussion 9 第 2 題，用 NumPy 寫一個 1D 卷積，再把它改寫成 7×9 的矩陣乘法，確認兩者輸出一樣。做完你會直接看懂「15 個元素、只有 3 個參數」是什麼意思。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -31,6 +31,22 @@ Slide 5 lists just two learning goals: understand the key intuition behind polic
 
 The math load here is heavier than before. The main text keeps to intuition and conclusions, and the derivations sit in collapsible sections.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=KCAOXd4IO9o
+title: Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)
+```
+
+Original videos: [Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)](https://www.youtube.com/watch?v=KCAOXd4IO9o)
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: imitation learning's ceiling
 
 Slide 4 first sums up imitation learning. It is simple and scalable and can learn good behavior. But it **cannot outperform the demonstrator** and cannot improve with practice.
@@ -179,6 +195,10 @@ That last point is your cue for when to use it. If rewards are sparse, or you ca
 - [CME295: RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en) and [CS336: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en): what policy gradient looks like for language models
 
 **Series navigation**: Previous [HW1: BC, Flow Matching, and DAgger on Flappy Bird](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) | Next [L4: Actor-Critic and Value Estimation](/posts/ai/2026-09-30-cs224r-actor-critic-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

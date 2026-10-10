@@ -36,6 +36,14 @@ The spec opens with a note: the default project isn't meant to be less work. It 
 
 It ties the last two lectures together. You run [L9](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)'s preference optimization and the verifiable-reward RL from [L10](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) on the same task.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The task: Countdown
 
 Each problem gives a set of numbers and a target. The model has to write a sequence of arithmetic operations that turns those numbers into the target. The starter code README's example is target 24 with numbers [3, 4, 6, 8], and the model should output:
@@ -176,6 +184,10 @@ Download [default_proj.zip](https://cs224r.stanford.edu/material/default_proj.zi
 - [CME295: Preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en): an overview of the DPO family
 
 **Series**: previous [L10: RL for LLM reasoning and test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) | next [L11: Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

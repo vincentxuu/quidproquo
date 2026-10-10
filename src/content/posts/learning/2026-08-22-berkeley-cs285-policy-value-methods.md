@@ -17,6 +17,14 @@ series:
 
 第 5–10 講形成課程的演算法核心：[官方 agenda](https://rail.eecs.berkeley.edu/deeprlcourse/)依序是 Policy Gradients、Actor Critic、Value-Based RL、Q-learning in Practice，以及兩講 Advanced Policy Gradients。讀法應沿著「估計什麼、資料從哪來、偏差與變異怎麼交換」前進。
 
+## 課程影片來源
+
+Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## Policy-based：直接改善 policy
 
 L5 從 trajectory objective 推出 policy gradient；reward-to-go、baseline 與 advantage 都是在不改目標的前提下降低估計變異。L6 的 actor-critic 用 critic 估計 actor 的更新訊號，換來可能的 function-approximation bias。Section 3 把兩者接起來，Section 5 再處理進階 policy gradient。
@@ -32,6 +40,10 @@ L7–8 從 Bellman backup 進入 DQN 與實務穩定技巧。L9–10 回到更�
 ## 完成標準
 
 最後應能不看筆記回答：policy gradient 為何高變異、critic 如何降低變異又引入偏差、DQN 為何需要 replay 與 target network、SAC 的 entropy 為何有用。回答不了，就回到推導與最小實驗，不要直接堆算力。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

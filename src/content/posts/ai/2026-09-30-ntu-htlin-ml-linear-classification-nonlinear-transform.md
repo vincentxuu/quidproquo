@@ -32,6 +32,26 @@ glossary:
 
 這兩講是第三段的收尾。讀完你應該能說出：為什麼可以拿迴歸來做分類、SGD 的更新式是怎麼來的、多類別分類有哪兩種拆法，以及特徵轉換的代價要怎麼算。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qXfDVHVzI38
+title: Binary Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9HL3YvmrovQ
+title: Stochastic Grad. Descent
+```
+
+原始影片：[Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 課程與教材對照
 
 | 講次 | YouTube 小節（播放清單序號） | 投影片 | LFD 章節 |
@@ -165,6 +185,10 @@ Q1 屬於 L10 的 cross-entropy，Q5 是邏輯迴歸的 Newton 法（Hessian）�
 - 特徵轉換與正則化的取捨：[CMU 07-280 Lecture 10：Feature Engineering 與 Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization)
 - 技法篇會把「維度大要付代價」這個問題交給 SVM 與 kernel：[線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

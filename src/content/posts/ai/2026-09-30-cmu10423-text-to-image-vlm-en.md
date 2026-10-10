@@ -28,6 +28,15 @@ The recordings live on CMU's Panopto and aren't available outside CMU, so this p
 
 The previous post, [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en), still dealt with text-only LLMs. This one returns to the diffusion models of [L7](/posts/ai/2026-09-30-cmu10423-diffusion-models-en) and [L8](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en) and adds a new question: **how does text steer image generation, and how does a language model come to read an image?**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Second half of L12: conditional image generation
 
 The slides open with five tasks that generate an image under some condition:
@@ -192,6 +201,10 @@ The slides' takeaway: VLMs with VQ-VAE-style encoders can define a loss over ima
 - Definitions of access grades A0–A3: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: previous [HW3: Fine-tuning GPT-2 with LoRA](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) | next [L14–L15: Cross-attention, DiT, Prompt-to-Prompt, and Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 5**, taught by Percy 
 
 > Material gap: the source provides this executable lecture only. This article does not fill in route-assignment solutions, other lecture slides, or experiments not shown in the source.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Motivation: why search still matters
 
 The previous lecture was machine learning: a learning algorithm maps training data `{(input, output)}` to a predictor, and a predictor maps an input to a number or class. Real problems often require more than a one-step reflex. They require reasoning: thinking, problem solving, and planning. This lecture turns to search, one form of reasoning in a deterministic world.
@@ -106,6 +115,10 @@ In `LanguageModelSearchProblem`, the state is the prompt plus the response prefi
 For a new problem, ask in order: What is the start state? What are the successors, actions, and costs? What counts as an end state? What action sequence is a solution, and how are costs added? Does the state retain tickets, the previous action, or any other information that changes the future? If the state space fits in memory and many paths merge, dynamic programming is a candidate. If exact search is infeasible, consider best-of-n or beam search.
 
 The main lesson is not that DP always beats recursion. Modeling determines which histories can be compressed, and compression creates the opportunity to cache. Exhaustive search gives an exact baseline but can be exponential; DP removes repeated work when the state space is small and paths overlap; best-of-n and beam search trade a finite computation budget for approximate answers. Learning can supply costs, and search can find a solution under those costs. Cycles such as A → B → C → A are deferred to the next lecture.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 0 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=WbzNRTTrX0g
+title: CS50 AI Week 0 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 0 — official lecture recording](https://www.youtube.com/watch?v=WbzNRTTrX0g)
+
+Course and recording entries:
+
+- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
+
 ## TL;DR
 
 Week 0 introduces search as the foundational problem-solving framework in AI: from uninformed to informed search, then adversarial search. Two projects map directly to BFS (Degrees) and Minimax (Tic-Tac-Toe).
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 0 Search (2020 recording)](https://www.youtube.com/watch?v=6CDPTq0C98U)
+YouTube: [Week 0 Search (2020 recording)](https://www.youtube.com/watch?v=WbzNRTTrX0g)
 
 | Timestamp | Content |
 |---|---|
@@ -277,6 +292,10 @@ style50 tictactoe.py
 - [ ] Can write Minimax recursion skeleton and Alpha-Beta pruning condition
 - [ ] Understand why `result` must deep copy (Minimax explores many board states in parallel)
 - [ ] Both projects pass `check50` clean
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

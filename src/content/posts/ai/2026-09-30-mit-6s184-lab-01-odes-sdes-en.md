@@ -29,6 +29,14 @@ glossary:
 
 [Lecture 1](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en) gave two update rules, Euler and Euler–Maruyama. Lab 1 has you turn them into code and use them to watch three kinds of SDEs. No neural network is trained anywhere in this lab; every vector field is written by hand. The point is to get a feel for simulating an SDE before anything is learned.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Before you start
 
 On the course site this lab is called **Lab 1: Working with ODEs and SDEs**; the notebook's own title is Lab One: Simulating ODEs and SDEs. The site's workflow is:
@@ -130,6 +138,10 @@ The lab ends with a short derivation in two parts:
 
 - These simulators come back in Lab 2, paired with trained vector fields: [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
 - The formal treatment of scores and Langevin dynamics: [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

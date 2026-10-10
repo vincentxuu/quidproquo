@@ -17,6 +17,14 @@ series:
 
 [官方 agenda](https://rail.eecs.berkeley.edu/deeprlcourse/)最後七講是 Exploration、RL Theory、兩講 Midterm Review、Advanced Exploration、Multi-task RL，以及 Challenges and Open Problems。這不是零散收尾，而是回頭問前面演算法在哪些條件下可靠，以及面對新任務時能不能重用經驗。
 
+## 課程影片來源
+
+Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## L19–20：探索與保證
 
 Exploration 處理短期 reward 與資訊價值的衝突；RL Theory 則把直覺轉成假設、樣本需求與 regret／performance 的界線。讀投影片時，把每個結論旁邊補上成立條件。少了 tabular、coverage、realizability 等條件，保證很容易被誤用到深度 RL 實務。
@@ -34,6 +42,10 @@ Advanced Exploration 延伸到稀疏 reward 與表示層面的資訊取得。Mul
 最後一講應產出一頁 research memo：問題、現有方法、核心假設、失敗案例、最小實驗。不要只寫「sample efficiency 很重要」；改寫成可量測的問題，例如固定互動 budget 時，某種 representation 是否讓兩個新 task 的回報更快上升。
 
 [Spring 2026 syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 明列當期錄影位於 bCourses。若使用[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 等歷史影片補概念，筆記要明示年份，並以 2026 投影片題目為準。完整存取邊界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

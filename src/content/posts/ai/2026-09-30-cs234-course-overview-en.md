@@ -28,6 +28,15 @@ glossary:
 
 This post answers five questions: what the course covers, what you need first, what outside readers can actually get, how the 2026 materials pair with the 2024 recordings, and how to lay out ten weeks.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## What the course covers
 
 The course description opens with a claim: realizing the impact of AI requires autonomous systems that learn to make good decisions, and reinforcement learning is one powerful way to get there. The course aims to give a solid introduction to RL, including its core challenges of generalization and exploration. The assignments cover RL basics, deep RL, and the basics of training with RL from human feedback.
@@ -221,6 +230,10 @@ These series on the site overlap with CS234. This series does not cut content be
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): where the A0–A3 tiers are defined
 
 **Series navigation**: next, [What RL is and the language of MDPs](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

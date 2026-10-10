@@ -18,6 +18,14 @@ description: "拆解 CS224V Structured and Hybrid Data：NL-to-SQL、schema、�
 
 第六講把資料來源從自由文字換成資料庫。這時「把相關內容塞進 context」不是主要問題；真正的門檻是把使用者條件翻成精確查詢，並確定查詢真的符合 schema。這堂仍屬 Fall 2025 的 Conversational Virtual Assistants，不是 2026 改名後的新課綱。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：結構化查詢與混合檢索
 
 講義先定義關聯式資料庫、schema 與 NL-to-SQL semantic parsing，接著處理少量與大量 enumerated values、空結果和評估陷阱。後半把問題擴到文字、表格與 Wikidata，討論 query classification、retrieve-and-read，以及多來源組合。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf))
@@ -119,6 +127,10 @@ Hybrid source 還有不同更新頻率。Table 每小時刷新、文字介紹每
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片是架構與文獻導覽，沒有一份完整參考實作；後半引用的 benchmark 表格也不足以支持跨資料集泛化。公開資料沒有課堂錄影與講者補充。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

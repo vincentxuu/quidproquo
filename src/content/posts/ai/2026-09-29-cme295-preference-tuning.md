@@ -36,6 +36,21 @@ glossary:
 
 前四講的模型都用同一種方式學東西：給正確答案，叫它照著寫。這一講要換一種訓練訊號。整個系列在這裡的落差最大，從監督式學習一口氣跳到強化學習，所以先花一節說清楚為什麼非跳不可，再進公式。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: 2025 版第 5 講錄影
+```
+
+原始影片：[2025 版第 5 講錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 為什麼 SFT 不夠
 
 投影片開場先回顧流程：預訓練讓模型有語言和程式的「基本知識」，微調（SFT）讓它會做特定任務，這一講的 preference tuning 則讓它「對齊人的偏好」。
@@ -301,6 +316,10 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 - 更偏實作與資料的角度：[CS336 Lecture 15：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - PPO 之後的下一步：[CS336 Lecture 16：RLVR 與 GRPO](/posts/ai/2026-08-22-cs336-rlvr)，以及本系列[第 6 講：推理](/posts/ai/2026-09-29-cme295-llm-reasoning)
 - 補 RL 基礎，把 policy gradient 和 actor-critic 從頭推一遍：[Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

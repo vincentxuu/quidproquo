@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 19**, dated 2025-12-0
 
 > Material boundary: the schedule and repository use different names for the same 2025-12-01 lecture. I label claims directly stated in the PDF as “Deck fact,” research or forecasts cited by the deck as “Deck citation,” and connective reasoning as “My interpretation.” I did not fill gaps with another term or a lecture transcript. Market valuations, survey numbers, and forecast graphics are treated as snapshots in this deck, not as live statistics in 2026.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The lecture's problem
 
 The 70-page deck does not open by asking which architecture comes next. It asks three connected questions: how might AI change the economy as a whole, which upstream resources and organizational choices make models possible, and through what mechanisms could model capability become growth? That is the overlap between the schedule’s **AI Supply Chains** label and the slides’ **Economics of AI** label.
@@ -112,6 +121,10 @@ Turn the deck into four exercises: draw model and organization layers; label com
 Keep “what the deck says” separate from “what we want to test.” The ASML, TSMC, and Nvidia descriptions and valuations are deck snapshots. The data-acquisition table is an analytical framework. The 2025 genAI survey numbers are a cited survey example. The links among GPTs, the J-curve, Cobb-Douglas, and ideas are research-backed concepts assembled by the deck. My extension must not turn them into a complete current industry census.
 
 Open gaps include compute cost/capacity decomposition, contract context for the $1.5B transaction, empirical distribution-channel comparison, and a reproducible macro model. These remain follow-ups, not conclusions supplied by common sense. First label a number as deck fact, deck citation, or interpretation; then ask which bottleneck and complement a market conclusion omits.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

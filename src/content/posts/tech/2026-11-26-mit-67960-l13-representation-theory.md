@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=-eC0-5mXHQg
+title: MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory](https://www.youtube.com/watch?v=-eC0-5mXHQg)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 13. Representation Learning: Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec13_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 歸納偏置：架構在「替你做假設」
 
 前面談了很多「怎麼學表示」，但這一講先退一步問：**表示長什麼樣，其實在很大程度被架構本身決定了**。這就是 **inductive bias（歸納偏置）**——網路在還沒看到資料之前，就因為結構而偏好某一類函數。
@@ -95,6 +111,10 @@ NN–GP 描述的是**隨機初始化**的網路。那訓練之後呢？ **神�
 這一講把前面零散的線索收口：**歸納偏置決定表示長相（L13 本體），寬度極限決定理論可分析但退化（NTK/NN–GP），而真正的深度學習威力在有限寬的 feature learning regime（L07）**。三者合起來，才是一個完整的「網路為什麼這樣學」的圖像。
 
 下一講（L14）轉向生成模型：從密度 / 能量模型到 GAN、自回歸與擴散。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

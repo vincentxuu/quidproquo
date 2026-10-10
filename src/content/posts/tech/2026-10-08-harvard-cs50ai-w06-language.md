@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2023 年重錄版**（前六週為 2020 年）；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 6 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
+title: CS50 AI Week 6 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 6 — official lecture recording](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+
+課程與錄影入口：
+
+- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
+
 ## TL;DR
 
 Week 6 處理自然語言：N-gram 條件機率與平滑、CFG 句法結構與 CYK 解析、TF-IDF 向量檢索、注意力機制與 Transformer 基礎。兩專案分別實作句法生成器與問答系統。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 6 Language (2023 重錄版)](https://www.youtube.com/watch?v=Q7K9Q9Q9Q9Q)
+YouTube：[Week 6 Language (2023 重錄版)](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -389,6 +404,10 @@ style50 questions.py
 - [ ] 理解 Attention Q/K/V 投影與 scaled dot-product 注意力機制
 - [ ] 理解 Multi-Head Attention 為何需要多頭（捕捉不同關係類型）
 - [ ] 兩專案 `check50` 全綠
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

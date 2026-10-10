@@ -31,6 +31,14 @@ glossary:
 
 **這篇不寫解法**。HW1–4 沒有公開的官方解答；我只描述每題在問什麼、為什麼這樣設計、要注意哪裡。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 校外讀者拿得到什麼
 
 | 項目 | 狀態 |
@@ -155,6 +163,10 @@ flowchart LR
 - 系列導覽：上一篇 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)；下一篇 [Lec 23–24：LLM 訓練與自監督學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：下載 `hw4_part1.ipynb`，只跑到「Load the Data」那一格，確認 `timm/mini-imagenet` 能載入，再動手寫 1a 的 CNN，把最後一層卷積輸出的形狀印出來。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

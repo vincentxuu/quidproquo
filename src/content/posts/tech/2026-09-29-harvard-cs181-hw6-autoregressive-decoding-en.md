@@ -28,6 +28,14 @@ glossary:
 
 This is part 11 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW5 (Part 2): SimCLR Contrastive Learning and GANs](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en). Next: [HW6 (Part 2): HMMs and the Kalman Filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en).
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Why start HW6 with Problem 4
 
 HW6 is titled "Sequential Models and Decision Making." Its five problems, in order, are HMMs (Kalman filter, 15 pts), policy/value iteration (15 pts), Q-learning on Swingy Monkey (20 pts), Autoregressive Models (20 pts), and Embedded Ethics (10 pts). The lectures run the other way:
@@ -127,6 +135,10 @@ This series covers only what the assignment needs. For how these techniques work
 
 - [CME295 Lecture 3: the control knobs of LLM generation](/posts/ai/2026-09-29-cme295-large-language-models-en): decoding strategies, temperature, top-p.
 - [CME295 2026 Lecture 5 (pre-written): LLM systems](/posts/ai/2026-09-29-cme295-llm-systems-en): prefill vs decode, sizing the KV cache, speculative decoding's acceptance rate and speedup ceiling.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -41,6 +41,21 @@ glossary:
 
 存取等級是 [課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map) 的 **A3 足以自學**，但這一講沒有對應的 lab。**Fall 2026 對照**：截至 2026-09-30，[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)只放出 L1–L6，這一講還沒上線。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
+title: EfficientML.ai Lecture 9 - Knowledge Distillation（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 9 - Knowledge Distillation（YouTube）](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 為什麼這門課要講蒸餾
 
 前幾講的工具，pruning、quantization、[NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)，都在改模型本身：砍掉參數、降低位元、換一個更省的架構。這一講問的是另一件事：架構定了、模型很小，**怎麼把它訓練得更好？**
@@ -152,6 +167,10 @@ L_aug = L(W_base) + α · L([W_base, W_aug])
 如果要挑重點讀：第一段的溫度例子（第 7–10 頁）與第二段的六種對齊對象（第 12–28 頁）是 KD 的核心；第五段的 NetAug（第 67–80 頁）是這門課特有的角度，直接回答「小模型為什麼難訓練」。
 
 如果你是從 [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas) 過來的：lab 裡直接從 OFA super network 抽出子網路，沒有再訓練；這一講提供的是另一條路，架構定下來之後，還能靠蒸餾或 NetAug 把它訓練得更好。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

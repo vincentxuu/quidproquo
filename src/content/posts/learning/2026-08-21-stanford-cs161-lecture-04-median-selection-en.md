@@ -19,6 +19,14 @@ This is post 5 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 
 Selection takes an array `A` of `n` numbers and an integer `k∈{1,...,n}` and returns the kth smallest value. The direct solution sorts with MergeSort and reads position `k`, taking `O(n log n)`. But if we need one rank, must we discover the complete order of every other element? Lecture 4 says no: deterministic worst-case selection can run in `O(n)`.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)
+
 ## The minimum already exposes an Ω(n) lower bound
 
 When `k=1`, selection means finding the minimum. A linear scan maintains the smallest value seen and costs `O(n)`. This is optimal. If a deterministic algorithm never inspects some `A[i]`, change that position to a value below its output. The execution remains identical and returns the old answer, which is now wrong. A correct algorithm must let every element be ruled out, giving an `Ω(n)` lower bound.
@@ -161,6 +169,10 @@ For a self-test, take 25 distinct values, group them by five, circle every group
 Production implementations often prefer random pivots because the code is short and constants are low. Deterministic selection matters when adversarial inputs or latency tails matter more than average throughput. State the threat model first: can an attacker arrange inputs, and is a rare quadratic path acceptable? Then choose the pivot strategy.
 
 Also compare the value of the outputs. If a program will ask for many different ranks, paying `n log n` once to sort may be amortized over later constant-time queries. If it needs one median, linear selection realizes its full advantage. Complexity belongs to the whole workload, not merely to a function name.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

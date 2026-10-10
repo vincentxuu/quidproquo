@@ -19,6 +19,14 @@ Lecture 6 reduces text to its memory representation. C has no built-in string ty
 
 The programmer owns length, bounds, and capacity. Miss one `\0` and the array still exists but string functions cannot safely consume it. Whenever `char *` appears, ask where the string ends, how large the destination is, and who may modify it.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and scope
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -285,6 +293,10 @@ Before choosing a C string function, answer five questions:
 That checklist is more reliable than “`strncpy` is safer,” which is simply false as a general rule. Each C function performs a narrow job. None carries capacity or repairs a broken contract. `strlen` trusts termination, `strcpy` trusts space, and `strcat` trusts both an existing terminator and spare capacity.
 
 Lecture 6 does not ultimately deliver an API cheat sheet. It teaches a systems habit: when type information is insufficient, restore the implicit contract in your mental memory diagram. Buffer overflows and security issues in the next lecture do not arrive from nowhere. They are what happens when this lecture's capacity, terminator, and pointer relationships are violated.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

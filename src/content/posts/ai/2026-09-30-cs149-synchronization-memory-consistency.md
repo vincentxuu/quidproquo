@@ -36,6 +36,22 @@ glossary:
 
 用到的官方材料是 [L15 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf)（60 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 12 Memory Consistency 錄影](https://www.youtube.com/watch?v=nFXWmo9MFiY)當替代。本文以 2025 投影片為準，影片只列為聽講補充。存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片完整公開，缺的是當期錄影。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=nFXWmo9MFiY
+title: CS149 2023 Lecture 12 Memory Consistency 錄影（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 12 Memory Consistency 錄影（補充材料）](https://www.youtube.com/watch?v=nFXWmo9MFiY)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
+
 ## 先說清楚這一講的範圍
 
 課程首頁把 L15 標為「Implementing Synchronization + Memory Consistency」，描述是「Fine-grained synchronization via locks, motivation for relaxed consistency, implications to programmers」。實際打開 PDF，封面寫的是「Memory Coherency and Consistency」，內容分兩段：
@@ -186,6 +202,10 @@ x86 大致是 TSO，軟體需要模型沒保證的順序時，可以用 `_mm_lfe
 延伸閱讀：作業系統角度的鎖實作與 atomic 操作，可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜下一篇 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

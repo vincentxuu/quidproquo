@@ -19,6 +19,14 @@ draft: false
 
 原始 worksheet 共兩頁：P1–P3 在第一頁，P4–P7 與 challenge 在第二頁，題號完整。P5 與 challenge 屬 problem set，公開 answer key 刻意隱藏解答；本文會明確區分官方刊出的答案與依公開題目自行推導的部分。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：用 Exponential 複習銜接
 
 Server 下一次 request 的等待時間是 `T~Exp(0.5)` 小時，因此
@@ -166,6 +174,10 @@ P(W<5) = Φ((5-3)/√10) ≈ Φ(0.632) ≈ 0.736
 - P5 與 challenge 是 problem-set 題，官方公開 answer key 刻意省略解答；本文只依公開題目自行推導。
 - Canvas 錄影未公開，不推測其中額外例子或講者說法。
 - Worksheet 與 guide 各兩頁，採短材料例外，以逐題完整為準；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

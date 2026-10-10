@@ -17,6 +17,14 @@ series:
 
 The [official schedule](https://rail.eecs.berkeley.edu/deeprlcourse/) assigns L11–18 to Variational Inference, VI in RL, Control as Inference, LLM RL, two lectures on Model-Based RL, and two on Offline RL. Together they ask what signal an agent can trust when data, models, and objectives are incomplete.
 
+## Course video sources
+
+The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## L11–14: control as inference
 
 L11–13 establish latent-variable and variational-inference machinery, then express optimality as a probabilistic event. Reward, trajectory distributions, and entropy enter one language. Section 6 supports the derivation; Section 7 connects IRL and LLM RL.
@@ -38,6 +46,10 @@ Offline RL cannot collect corrective interactions. Out-of-distribution actions c
 Read the slides and sections first. For HW4, start with the smallest format-copy run. For HW5, choose one task, seed, and baseline, and verify loading, evaluation, and checkpoints before scaling. The goal is understanding failure modes, not reproducing course-only compute support.
 
 See the [series overview's access boundary](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for current course assets and the proper use of historical video.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -24,6 +24,21 @@ glossary:
 
 **系列位置**：上一篇 [RAG（下）：從 ODQA 到 Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)｜下一篇 [RAG 助教課 1/2＋HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=xGwQYvya_Ag
+title: W12 週四錄影（Fall 2025）
+```
+
+原始影片：[W12 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=xGwQYvya_Ag)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 為什麼要用 API
 
 投影片第 3 頁給兩個理由，都很直接：
@@ -118,6 +133,10 @@ Gemini 那段示範得最完整：
 
 - prompt 調整的方法：[Prompt Engineering 迭代指南](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
 - 從 API 走向 agent：[CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

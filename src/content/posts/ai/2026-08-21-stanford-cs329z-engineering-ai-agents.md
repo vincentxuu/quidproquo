@@ -24,6 +24,14 @@ draft: false
 
 這篇對過四邊的一手資料：課程官網、它背後那個公開的 GitHub repo、ExploreCourses，以及已經公開的前兩堂投影片。涵蓋這門課實際怎麼運作、作業長什麼樣、課綱在開學前後被改了什麼，以及它跟另外兩門也叫 agent 的 Stanford 課差在哪。**不包含**逐堂內容拆解——課程 9 月 23 日才開始，逐週內容由[系列的週導讀](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)接手。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## 這門課的硬事實
 
 授課者三位，都掛在課程官網的 Instructors 區塊。[Diyi Yang](https://cs.stanford.edu/~diyiy/) 是 Stanford CS 助理教授，研究主軸是 socially aware NLP 與人機互動，2024 年拿到 Sloan Research Fellowship。[Michael Ryan](https://michryan.com/) 是 Diyi Yang 與 Percy Liang 共同指導的博士生、Knight-Hennessy 學者，也是 [DSPy](https://dspy.ai/) 的核心貢獻者。[John Yang](https://john-b-yang.github.io/) 是 Ludwig Schmidt 與 Diyi Yang 指導的二年級博士生，SWE-agent 與 [SWE-smith](https://arxiv.org/abs/2504.21798) 的第一作者。
@@ -177,6 +185,8 @@ DSPy 本身現在的狀態：[MIT 授權、持續發版](https://github.com/stan
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-29：依課程網站 9 月的改版與前兩堂投影片更新——HW1 改為禁用框架的 Agentic Harness（Part B 的 DSPy 重寫移除）、專案主題改自選並加入 ICLR 格式與可重現性、評分表改為互評 20%、補上助教、教室、算力補助、旁聽與錄影說明、投影片內容，並同步改寫標題與 tldr
 
 ## 參考資料

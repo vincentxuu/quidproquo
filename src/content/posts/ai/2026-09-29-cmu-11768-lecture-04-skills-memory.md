@@ -40,6 +40,14 @@ glossary:
 
 [上一講（L3）](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)處理的是單一任務內的 context 管理；這一講處理的是跨任務的記憶。投影片在[官網](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4)。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 更新 agent 的三個位置
 
 講者先把「讓 agent 變好」分成三個位置：
@@ -347,6 +355,10 @@ ASI 也測了跨網站：在 WebArena 上歸納的 `sort_listings` 預期點一�
 - [LLM Agent 的技能管理：從 Voyager 到 MUSE-Autoskill 的 Skill Lifecycle 全景](/posts/ai/2026-06-06-llm-agent-skill-lifecycle)
 - [Hermes Agent 的記憶與技能](/posts/ai/2026-08-18-hermes-agent-memory-skills)
 - [Agent Memory 系統：從 RAG 到 Read-Write 記憶的演化](/posts/ai/2026-03-19-agent-memory-systems)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

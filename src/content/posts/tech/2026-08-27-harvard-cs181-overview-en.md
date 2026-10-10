@@ -17,6 +17,14 @@ draft: false
 
 > ⚠️ **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **Can I self-study?** [CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) is **A3** (`hw0-6` + notes + sections + [textbook](https://github.com/harvard-ml-courses/cs181-textbook), `all learning will be in-person` with no public recordings; Gradescope/Ed require enrollment), as rated in the [Harvard AI/ML Course Map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en).
@@ -107,4 +115,6 @@ Suggested path: read this overview to decide whether to follow the 2026 main lin
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - **2026-09-29**: Expanded the series to orders 0–15, added "Posts in this series" and a limits list; filled in HW1–HW6 due dates, problems, and exam dates from the 2026 schedule and each `.tex`; corrected the old claims that the Google Sheet schedule was deleted and that 2026 sections were not public.

@@ -33,6 +33,22 @@ glossary:
 
 上一篇列的三個目標，這篇處理第二個：**減少通訊**。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=Mhdny2JNhmc
+title: CS149 2023 Lecture 6 錄影（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 6 錄影（補充材料）](https://www.youtube.com/watch?v=Mhdny2JNhmc)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
+
 ## 共享位址空間只是抽象
 
 到目前為止，課程都假設所有處理器接到同一個記憶體系統，看到單一的共享位址空間。L6 第一件事是提醒你：這個抽象的實作很複雜。一條「把位址 X 的值載入 R0」的指令，背後可能要經過好幾層 cache 才碰到 DRAM。
@@ -202,6 +218,10 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 延伸閱讀：cache 與記憶體階層的基礎可以先讀 [CS107 的 caching 與 memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy)。GPU 上的同一套頻寬與 fusion 思維，可以對照 [CS336 的 GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)｜下一篇 [PA2：從零打造 task execution library](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

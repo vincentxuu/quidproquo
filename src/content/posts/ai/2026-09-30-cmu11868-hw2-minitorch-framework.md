@@ -36,6 +36,14 @@ glossary:
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 它在課程裡的位置
 
 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 把 HW2 放在 1/28 發放，也就是 HW1 截止、L05 上課的同一天，2/4 截止，只有一週。1/30 的 Recitation 2 主題是「HW2, MiniTorch, More GPU」。
@@ -123,6 +131,10 @@ llmsys_hw2 在春季截止前的最後一筆主線 commit 是 2026-01-29 的 `b9
 
 - [CMU 11-785 第 5 講：反向傳播](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)：自動微分背後的數學
 - [CMU 10-414/714 Deep Learning Systems](https://dlsyscourse.org/)：整門課從頭做一個叫 needle 的框架；本站還沒有導讀系列，課程定位見 [CMU AI／ML 課程地圖](/posts/learning/2026-08-21-cmu-ai-ml-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

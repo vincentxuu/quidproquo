@@ -19,6 +19,14 @@ This is article 14 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The worksheet and answer key are both complete two-page P1–P6 plus challenge artifacts. The LLM guide displays a third page, but it contains only a carried-over closing sentence and page number—not a seventh concept or additional agenda item.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Review inference with a two-node network
 
 The network is `Overloaded→Slow`, with `P(Overloaded=1)=0.1`, `P(Slow=1|Overloaded=1)=0.95`, and `P(Slow=1|Overloaded=0)=0.2`. Thus
@@ -145,6 +153,10 @@ The six guide concepts are the Multinomial coefficient, joint PMF, applicability
 - The guide's third page contains only closing text and a page number, not another concept.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and substantive guide content are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

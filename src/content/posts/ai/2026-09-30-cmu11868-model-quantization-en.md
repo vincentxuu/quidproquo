@@ -31,6 +31,14 @@ glossary:
 
 The official materials are two slide decks, both by Lei Li: [L19 Model Quantization](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-19-quantization-da7a2abad092c802b03672ce1cc7bee9.pdf) on 3/25 (25 pages) and [L20 Model Quantization II](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-20-quantization2-ba573d7e5d82e68027bbd3a92c3cd819.pdf) on 3/30 (37 pages). The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) lists only [GPTQ](https://arxiv.org/abs/2210.17323) as reading for L20 and nothing for L19. The in-progress [Fall 2026 Syllabus](https://llmsystem.github.io/llmsystem2026fall/docs/Syllabus) adds three readings to L19: NN Quantization, AdaQuant, and LLM.int8(). Slides and assignments are public, so the access level is **A3**, but there are no public recordings. Everything below comes from the slides and papers. Page numbers refer to the PDF files.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The question: does quantization save memory or time?
 
 L19 page 3 opens with cost: the slide says Llama-70B needs 140GB of GPU memory for inference. Page 4 gives a short definition: store parameters and layer outputs in low-bit precision. It lists two benefits and one drawback:
@@ -172,6 +180,10 @@ Put together: GPTQ reliably saves memory. The speedup comes from decoding alread
 - Previous: [HW5: Data and Pipeline Parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 - Next: [L21 FlashAttention (guest lecture by Tri Dao)](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - Series overview: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 1：Introduction**。它不是一堂把 AI 名詞排成時間線的暖身課。整份投影片反覆追問：當輸入太複雜，不能直接手寫規則時，系統如何建立可用的表示，再據此做預測或行動？
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf)與[Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf)。官方沒有匿名公開這一講的錄影或逐字稿，因此本文只解讀文件，不會補寫講者口述、現場活動結果或問答。
@@ -74,6 +82,10 @@ Lecture 1 的 HW0 是 Gradescope online-only，校外無法匿名讀到題面或
 1. 讀 Notation Guide，把不熟的五個符號抄成自己的速查表。
 2. 用「輸入、表示、輸出、好壞標準」四欄重寫一個熟悉的 AI 應用。
 3. 打開 Recitation 1，只做 Tower of Hanoi 的 state 與 action 定義；不要先看 solution。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

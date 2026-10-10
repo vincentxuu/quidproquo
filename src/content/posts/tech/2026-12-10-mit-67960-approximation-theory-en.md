@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
+title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## The most fundamental question
 
 Earlier lectures covered *how to train*; later ones cover *architectures*. This one steps back and asks a theory question: **how well can a neural network approximate the function we actually want?** This is not mathematical navel-gazing — it directly decides "is the network big enough, and should we go wider or deeper."
@@ -90,6 +106,10 @@ Sweep the hidden width from 8 to 1024 and you will see the fit go from underfitt
 - **Width is not the only lever**: shallow nets suffice for low-dimensional, smooth problems; for high-dimensional, compositional structure, go deeper first.
 - **Don't blindly widen**: an ultra-wide shallow net can approximate in theory but trains and generalizes poorly; deep nets carry an inductive bias that fits real data better.
 - **Theory answers "why deep"**: not fashion, but expressive efficiency (this also ties back to L13's NTK view — the extremely-wide limit collapses into a linear kernel method).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

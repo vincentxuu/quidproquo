@@ -32,6 +32,14 @@ The previous post covered how LightSeq fuses the small operations in a Transform
 
 This post covers only the structure, points, dependencies, hardware, and where self-learners get stuck. **No solutions and no reference implementations.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Where it sits in the course
 
 The Spring 2026 [syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) puts the HW4 deadline on **March 11**, the day of Distributed Model Training II. The syllabus doesn't list a release date for HW4; the previous assignment, HW3, was due February 18, the day of LightSeq Part 2. In between come two Google guest lectures on TPUs and a week of spring break.
@@ -114,6 +122,10 @@ One thing you can do tonight: clone the repo, read only `ker_attn_softmax_lt32` 
 
 - Writing fused kernels in Triton, and profiling before optimizing: [CS336 Lecture 6: Benchmark and Profile Before Writing a Triton Kernel](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 - Fusing all of attention into one kernel: this series' [FlashAttention post](/posts/ai/2026-09-30-cmu11868-flashattention-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

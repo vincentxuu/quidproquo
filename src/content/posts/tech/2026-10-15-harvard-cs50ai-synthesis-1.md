@@ -20,6 +20,15 @@ draft: false
 
 > ⚠️ **版本提醒**：本系列涵蓋講課影片為 **2020 年春季錄製（Week 0–5）與 2023 年重錄（Week 6）**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## TL;DR
 
 七週主題不是孤立知識點，而是一條刻意設計的知識弧線：從確定性搜尋 → 邏輯推理 → 機率不確定性 → 組合優化 → 監督/強化學習 → 神經網路 → 語言模型。每週核心抽象層層遞進，專案精準對應理論重點。
@@ -193,6 +202,10 @@ Week 6: Language        ──►  序列建模、注意力、Transformer 前夜
 - **本篇：綜論一（本文）**(order 8)
 - [綜論二：專案組合比較](/posts/tech/2026-10-22-harvard-cs50ai-synthesis-2) (order 9)
 - [總結：永恆與變遷、下一步](/posts/tech/2026-10-29-harvard-cs50ai-wrapup) (order 10)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

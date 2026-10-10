@@ -32,6 +32,26 @@ glossary:
 
 兩份講義在 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)上是分開的兩列，但 Transformer 講義的前 9 頁就是 Attention 講義的複習，所以本篇合起來讀。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=FLNSD3zykgE
+title: ADL 4.1: Attention Mechanism 注意力機制
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=c0O9s6MCFys
+title: ADL 4.2: Self-Attention & Transformer 自注意力機制之模型
+```
+
+原始影片：[ADL 4.1: Attention Mechanism 注意力機制](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer 自注意力機制之模型](https://www.youtube.com/watch?v=c0O9s6MCFys)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 第一步：翻譯時為什麼需要 attention
 
 ### 從人的注意力講起
@@ -186,6 +206,10 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 
 - 同一段內容在 Stanford 的講法：[CS224N Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CME295 第 1 講：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - 講義引用的逐行實作：[The Annotated Transformer（Sasha Rush）](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

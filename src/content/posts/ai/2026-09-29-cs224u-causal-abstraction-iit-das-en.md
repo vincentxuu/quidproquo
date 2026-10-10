@@ -33,6 +33,27 @@ I used four official sources: slides 41–61 of the [Analysis methods in NLP dec
 
 This is the steepest post in the series. I stick to intuition, use the notebook's equality task as the running example, and keep the formal definitions in a collapsed block.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=6pwpOOj33aw
+title: Video 36: Causal Abstraction & Interchange Intervention Training (IIT)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
+title: Video 37: Distributed Alignment Search (DAS) & Conclusion
+```
+
+Original videos: [Video 36: Causal Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Video 37: Distributed Alignment Search (DAS) & Conclusion](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Remember where the last post got stuck
 
 In the last post's addition network, a probe said L2 stored x + y, yet the output layer's weight on L2 was 0. **Having the information doesn't mean using it.** Probing can't answer "does the model rely on this to decide?" The tools in this post exist to answer exactly that, and they do it by directly editing the model's internal states.
@@ -191,6 +212,10 @@ Confirmed: the schedule's reading list, the slide content, videos 36–37, and t
 Further reading: the site's [CS224N interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) follows the agentic interpretability and concept discovery line, which makes a useful contrast.
 
 Series navigation: previous, [Analysis Methods I: probing and feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) | next, [Methods and Metrics I: classifier and generation metrics](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

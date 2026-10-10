@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 8: Parallelism**, taught by Tatsuno
 
 Lecture 7 builds parallelism from collectives. Lecture 8 asks how to compose it for a large model. It treats the datacenter as the new compute unit: GPU memory, NVLink domains, cross-node fabric, and batch size jointly determine sharding. No strategy solves every limit alone.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
+title: CS336 Spring 2026 Lecture 7: Parallelism
+```
+
+Original videos: [CS336 Spring 2026 Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## ZeRO removes replicated state in stages
 
 Naive data parallelism stores full parameters, gradients, and optimizer state on every device. Compute spreads with the batch, while memory remains replicated. ZeRO uses the relationship between reduce-scatter and all-gather to shard progressively:
@@ -67,6 +83,10 @@ A configuration that runs is not necessarily efficient. Lecture 8's central test
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide covers its networking, ZeRO/FSDP, TP/PP/SP/EP, and composition sections.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

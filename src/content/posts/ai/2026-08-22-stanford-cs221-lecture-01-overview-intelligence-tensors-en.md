@@ -17,6 +17,15 @@ draft: false
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 1**, taught by Percy Liang and dated 2025-09-22. It reads only the three public executable artifacts: `welcome.py`, `history.py`, and `tensors.py`. The course entry point is the [official course site](https://stanford-cs221.github.io/autumn2025/), and the lecture trace is [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome). Canvas-only classroom interaction is not treated as evidence, and claims absent from these sources are not added.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The lecture agenda
 
 The order defines the agent's problem, examines historical representations and algorithms, then makes shapes and cost inspectable. CS221 asks how to represent a problem before asking how inference or learning should proceed.
@@ -126,6 +135,10 @@ Reductions can also be named: `x.sum(dim=-1)` is expressed as `reduce(x, "... hi
 ## Checks after reading
 
 Together, the artifacts suggest listing abilities and goals, marking computation, information, and societal constraints, then checking tensor shapes. Start with the smallest test case; hidden tests and unpublished solutions are not reconstructed here.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

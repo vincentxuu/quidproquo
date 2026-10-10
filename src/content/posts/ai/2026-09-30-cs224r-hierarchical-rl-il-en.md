@@ -33,6 +33,21 @@ Access level is **A3**: the slides download anonymously, and the 2026 recordings
 
 Companion video (**supplement**): [Spring 2025 Lecture 15: Hierarchical RL and IL](https://www.youtube.com/watch?v=iKWYLSVAtfM) (about 70 minutes). The 2025 lecture ran on May 21 with the same title and reading, but it is last year's recording and may differ from the 2026 slides. This post follows the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=iKWYLSVAtfM
+title: Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)](https://www.youtube.com/watch?v=iKWYLSVAtfM)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Setting: stringing behaviors together
 
 Slide 3 recaps the previous two lectures. [Multi-task and goal-conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en) feeds the policy a task descriptor z or a goal state s_g. [Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) feeds it a few episodes of experience on a new task. Today's question: **can we string together behaviors from multiple (sub)tasks?**
@@ -193,6 +208,10 @@ Further reading on this site:
 Confirmed: the text, algorithm steps, and figure titles in the 2026 slides; the schedule's date and reading; the title and length of the 2025 video; and every paper title (each arXiv page was opened). Not confirmed: what was said in the slide 13 discussion, the numbers and metrics behind the bar charts on slides 34–36, and how the four industry systems on slide 23 were presented in class. The 2026 slides title SuSIE "SuSIE: Subgoal Synthesis via Image Editing," while arXiv titles it "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models." They are the same paper.
 
 Series navigation: previous [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) | next [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

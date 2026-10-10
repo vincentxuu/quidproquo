@@ -34,6 +34,22 @@ Potts 在[作業二 overview 錄影](https://www.youtube.com/watch?v=NQUxBVOJM14
 
 本文只講題目結構、配分、需要的資源，以及今天照原樣跑會卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=NQUxBVOJM14
+title: 作業二 overview 錄影（XCS224U, Spring 2023）
+```
+
+原始影片：[作業二 overview 錄影（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=NQUxBVOJM14)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 它在課程裡的位置
 
 2023 年講次表把作業二放在第二個單元「Retrieval augmented in-context learning」。4 月 17 日那堂先上 [Overview of Assign/bakeoff 2 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-hw2-overview-2023.pdf)，接著才是 Information retrieval 與 In-context learning 兩堂。作業、bake-off 與 Quiz 2 都在 4 月 26 日下午 3 點（Pacific）截止。
@@ -181,6 +197,10 @@ dspy-ai==2.4.13
 - 課程狀態、三份作業總覽與環境坑：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - RAG 與 agent 的新近整理：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - DSPy 3.x 的 API：[DSPy：用 Signature、Metric 與 Optimizer 編譯 AI 程式](/posts/ai/2026-08-22-dspy-ai-program-optimization)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

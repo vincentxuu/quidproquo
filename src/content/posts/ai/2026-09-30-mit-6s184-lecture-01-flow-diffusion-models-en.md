@@ -31,6 +31,21 @@ The notes open with a line from Song et al.: creating noise from data is easy; c
 
 This lecture **does not cover training**. You will meet a neural-network vector field `u_t^θ`, but how its parameters are learned is the subject of [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en).
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=9eJQQVrUUoI
+title: Lecture 1 recording: Flow and Diffusion Models (2026)
+```
+
+Original videos: [Lecture 1 recording: Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Making "generate" precise: four Key Ideas
 
 Notes §1.3 formalizes the problem with four Key Ideas.
@@ -224,6 +239,10 @@ The last line: **a diffusion model with σ_t = 0 is a flow model.**
 - Rusty on probability: Appendix A of the notes (A Reminder on Probability Theory), or this site's [Stanford CS109 guide](/posts/learning/2026-08-21-stanford-cs109-probability-en)
 - A broader intro to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - The DDPM view (opposite time direction): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

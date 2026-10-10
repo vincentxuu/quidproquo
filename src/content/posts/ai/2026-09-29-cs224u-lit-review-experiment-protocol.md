@@ -19,6 +19,15 @@ draft: false
 
 CS224U 的期末專案占成績一半，拆成三段：文獻回顧、實驗計畫、期末論文。三段的評分軸——「不看結果好壞，看指標是否恰當、方法是否紮實、對自身極限是否誠實」——系列總覽的[期末專案一節](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經整理過，這裡不重複。本篇只做一件事：**把前兩段交件拆成可以照著做的步驟。**第三段期末論文放在[下一篇](/posts/ai/2026-09-29-cs224u-presenting-research)。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 用到的官方材料與存取狀態
 
 | 材料 | 內容 | 狀態 |
@@ -169,6 +178,10 @@ Protocol overview 投影片第 5 頁：
 - 同系列下一篇：[CS224U 寫 NLP 論文、投稿與上台報告](/posts/ai/2026-09-29-cs224u-presenting-research)
 - 評分軸與成績配比：[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 站內 CS224N 系列的期末專案篇：[CS224N 第 6 講：把期末專案收斂成可驗證的研究問題](/posts/ai/2026-08-22-cs224n-final-projects)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -36,6 +36,21 @@ glossary:
 
 這一講的主線只有一條：attention 從哪裡來 → 抽象成一個通用運算 → 用它蓋出 Transformer → 把圖片也變成 Transformer 能吃的輸入。本文照這條線走。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=RQowiOF_FvQ
+title: Spring 2025 Lecture 8 錄影
+```
+
+原始影片：[Spring 2025 Lecture 8 錄影](https://www.youtube.com/watch?v=RQowiOF_FvQ)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 場景：RNN 翻譯模型卡在一個向量
 
 投影片從 seq2seq 翻譯開始，例子是把「we see the sky」翻成義大利文「vediamo il cielo」。Encoder RNN 讀完整句英文後，只把最後的隱藏狀態交給 decoder，當成整句話的摘要 c。句子一長，所有資訊都得擠進這一個固定大小的向量。
@@ -173,6 +188,10 @@ Y = A V         [N × D_out]   Y_i = Σ_j A_ij V_j
 - [CS224N：Transformer](/posts/ai/2026-08-22-cs224n-transformers)
 - [CME295：Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - 從零寫出 Transformer 語言模型：[CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

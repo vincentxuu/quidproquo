@@ -34,6 +34,27 @@ glossary:
 
 存取等級沿用[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的定義，是 **A3（歷史版）**：投影片、錄影、notebook 都公開。拿不到的是 Canvas 上的 Quiz 4 和教室錄影。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=5RZDKW1_HS4
+title: 影片 33：Analysis Methods for NLU, Part 1: Overview
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
+title: 影片 34：Part 2: Probing
+```
+
+原始影片：[影片 33：Analysis Methods for NLU, Part 1: Overview](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[影片 34：Part 2: Probing](https://www.youtube.com/watch?v=lZqsLuAjZ4c)、[影片 35：Part 3: Feature Attribution](https://www.youtube.com/watch?v=p0dzR6iaFmc)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 從行為評估往裡面走一層
 
 [上一篇](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)做的是黑盒測試：模型從外面看起來行不行。Potts 在投影片第 3 頁把評估分成兩類。一類是 **Behavioral**：標準 IID、探索式、假說驅動、challenge、adversarial、security-oriented。另一類是 **Structural**：probing、feature attribution、interventions。這個單元講的是後者。
@@ -160,6 +181,10 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 延伸閱讀：站上 CS224N 系列也有一篇 [interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)，談的是 Been Kim 的 agentic interpretability，跟這裡的 probing／IG 路線互補。
 
 系列導覽：上一篇 [組合性：COGS、ReCOGS 與 HW3](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)｜下一篇 [解釋方法 II：causal abstraction、IIT 與 DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

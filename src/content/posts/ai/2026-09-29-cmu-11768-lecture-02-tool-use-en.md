@@ -32,6 +32,14 @@ glossary:
 
 This lecture is not "how to add a `tools` parameter to your API call." It cuts tool calling open from top to bottom: why models need tools, what a tool call looks like at the token level, how the harness parses and dispatches it, how to guarantee well-formed output, how REST and MCP differ, how to run calls in parallel, and how to evaluate the whole thing. These are exactly the pieces [Assignment 1 (Harness)](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) makes you write by hand. This guide follows the lecture order and flags where each section shows up in A1.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## What a tool is, and when it's worth calling
 
 The slides paraphrase the definition from the survey Neubig co-wrote with Fried, Zhiruo Wang, and others, [What Are Tools Anyway?](https://arxiv.org/abs/2403.15452): **a tool is an interface through which a language model can invoke an external computer program**. The paper's own wording is more precise: an LM-used tool is a function interface to a computer program that runs externally to the LM, where the LM generates the function calls and input arguments. The slide then adds the division of labor: the model proposes; external software decides whether and how to execute.
@@ -214,6 +222,10 @@ The schedule lists four:
 - [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Invocation](/en/posts/ai/2026-03-22-mcp-model-context-protocol-en)
 - [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/en/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): complements this lecture's REST vs MCP section
 - [Code Mode: Moving Tool Definitions from Context into Code](/en/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en): the CodeAct idea implemented on top of MCP
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -21,6 +21,19 @@ draft: false
 
 這不是大學排名，也不是「哪間學校最好」。它只回答兩件事：這間學校如何安排 AI／CS 課程，以及校外讀者現在到底拿得到多少。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
+- [CS336 Spring 2026](https://cs336.stanford.edu/)
+- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
+- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
+
 ## 公開課不是 yes／no，而是四個等級
 
 「課程公開」至少可能指七件不同的事：課程描述、課綱、投影片、作業題目、起始碼、解答與錄影。一個網站只要公開其中一項，搜尋引擎就可能把它送到你面前，但這不等於你能照著修完整門課。
@@ -153,6 +166,8 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-05：新增「AI 資安課」一節：Stanford、CMU、Berkeley、MIT 的現行 AI 資安課與分級，以及台灣與海外能完整自學的三門課。
 - 2026-10-01：「已寫到哪裡」補上 Stanford CS224R、CS234、CS149，MIT 6.5940，CMU 10-423 與 Harvard CS2881R 六個新系列。
 - 2026-09-30（3）：新增[台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)；「已寫到哪裡」補上台大 ADL、林軒田、清大 NLP、政大生成式 AI 四個中文課系列。

@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 13 講排在 2026 年 2 月 17 日，但未列講者；本文因此只歸因於 course staff。[官方 Reasoning 2/2 投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture13-reasoning-part2.pdf)的 agenda 包含 speculative decoding、off-policy drift 與 on-policy distillation、long-context extension，以及 inference-time scaling。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## Speculative decoding：先草擬，再驗證
 
 大型模型自回歸生成時，每個 token 都要跑一次昂貴 forward pass。[Speculative decoding](https://arxiv.org/abs/2211.17192) 讓較小的 draft model 先提出一串 token，再由 target model 平行驗證。接受規則會修正 draft 與 target 分布的差異，因此在正確實作下保留 target model 的輸出分布。
@@ -136,6 +145,10 @@ Generator 必須先 sample 到 correct candidate，verifier 才能選；oracle p
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文涵蓋四段官方 agenda，不重建投影片之外的系統實作細節或課堂比較。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

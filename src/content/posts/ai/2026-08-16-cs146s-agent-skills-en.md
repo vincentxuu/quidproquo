@@ -27,6 +27,14 @@ Three topics: what skills are, how SKILL.md plus scripts encode a workflow, and 
 
 This week did not exist in Fall 2025 — Agent Skills hadn't shipped yet.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## A suspiciously small spec
 
 Anthropic's definition, from [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) (October 2025):
@@ -121,6 +129,10 @@ Point 4 has an easily missed effect: you find out that the context the agent act
 - "Web skills" is the Fall 2026 syllabus's term; the course hasn't defined it yet
 - Implementations of the cross-platform Agent Skills standard vary in maturity; verify portability per client
 - This site's skill counts are a 2026-08-16 snapshot
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

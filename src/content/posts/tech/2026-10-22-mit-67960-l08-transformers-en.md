@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
+title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## The three core ideas
 
 Lecture 8 breaks the Transformer into three independent but interlocking ideas:
@@ -93,6 +109,10 @@ So the Transformer does not "overturn" earlier architectures — it expands the 
 - **Do not mythologize the Transformer**: it is an architecture with very weak inductive bias (global attention assumes almost no structure), so its data efficiency is usually worse than CNNs (vision) or GNNs (graphs), yet its ceiling is highest when data is abundant.
 - **Attention is not free**: the `O(n²)` sequence-length complexity means long sequences are VRAM-hungry. In practice mitigate with FlashAttention, sparse attention, or chunking long sequences.
 - **Positional encoding is a hidden landmine**: if your task is order-sensitive (most are) and you forget positional codes, performance collapses.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

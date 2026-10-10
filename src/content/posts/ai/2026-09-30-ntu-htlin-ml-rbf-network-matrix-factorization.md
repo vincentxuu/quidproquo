@@ -39,6 +39,26 @@ glossary:
 
 **存取等級：A2，而且沒有練習材料。** 影片與投影片免費，但 [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 與 [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 兩個學期的課程計畫都跳過 T14–T15：兩學期都在 NN／deep learning（212u、213u）之後直接接 modern deep learning（302u、303u）。所以這兩講沒有對應的 `u` 版更新投影片，課程頁也沒有標 LFD 章節。我翻過 Fall 2024 的 HW0–HW7 與期末專題說明，沒有任何一題考 RBF 網路、k-means 或矩陣分解。能拿來自我檢查的只有投影片裡的 Fun Time 小題。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=7lHhnpdPVr0
+title: RBF Network Hypothesis
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=dEYdx2rS66c
+title: RBF Network Learning
+```
+
+原始影片：[RBF Network Hypothesis](https://www.youtube.com/watch?v=7lHhnpdPVr0)、[RBF Network Learning](https://www.youtube.com/watch?v=dEYdx2rS66c)、[k-Means Algorithm](https://www.youtube.com/watch?v=ker9RF2TDUU)、[k-Means and RBFNet in Action](https://www.youtube.com/watch?v=D5elADTz1vk)、[Linear Network Hypothesis](https://www.youtube.com/watch?v=2pX76iH_irw)、[Basic Matrix Factorization](https://www.youtube.com/watch?v=3l5kaWkcR6s)、[Stochastic Gradient Descent](https://www.youtube.com/watch?v=br3IzOz-xMs)、[Summary of Extraction Models](https://www.youtube.com/watch?v=xKZMB4T2a2s)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 這兩講在技法裡的位置
 
 技法把整門課分成三種處理特徵的方式：kernel 模型把大量特徵嵌進 kernel（T1–T6），aggregation 模型把多個假說當成特徵組合起來（T7–T11），extraction 模型把特徵當成隱藏變數一起學（T12–T15）。T12–T13 講神經網路與 autoencoder，本篇的兩講再補上兩種萃取模型：
@@ -225,6 +245,10 @@ T14–T15 沒有 Fall 2024 或 Fall 2026 的作業題，也沒有官方解答。
 下一篇[總結：三大技巧，外加 Fall 2024 的現代深度學習補充](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)會用 T16 把整門技法收成特徵、最佳化、防過擬合三類技巧，並接上 Fall 2024 補充的 ReLU、He 初始化、momentum 與 Adam。
 
 延伸閱讀：[Stanford CS224W 導讀](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)從圖的角度處理推薦問題，可以和本篇的矩陣分解對照。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

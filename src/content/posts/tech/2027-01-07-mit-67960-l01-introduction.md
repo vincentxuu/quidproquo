@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=6FkRvTtUc-o
+title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 一、deep learning 為什麼在 2010 年代後爆發
 
 LeCun、Bengio、Hinton 2015 在 *Nature* 的綜述把這件事講得很清楚：**三股力量同時到位**。
@@ -96,6 +112,10 @@ print("env OK, params:", sum(p.numel() for p in model.parameters()))
 - **工程師**：抓 L03 → L07 → L08 → L14 → L20 → L21 → L24，理解理論與現代 LLM 的工程實務。
 - **研究者**：從 L03 一路讀到 L24，PS1–PS3 真的做。
 - **應用方**：L14–L17 + L18–L19 給你部署與遷移的判斷力。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

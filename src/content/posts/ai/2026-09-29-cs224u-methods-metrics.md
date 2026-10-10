@@ -30,6 +30,27 @@ glossary:
 
 資料集、資料切分、模型比較是投影片後半，留給[下一篇](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=ORg6bZ3d1Rc
+title: 影片 39：NLP Methods and Metrics, Part 1: Overview
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=mbL4uUNtZwY
+title: 影片 40：Part 2: Classifier Metrics
+```
+
+原始影片：[影片 39：NLP Methods and Metrics, Part 1: Overview](https://www.youtube.com/watch?v=ORg6bZ3d1Rc)、[影片 40：Part 2: Classifier Metrics](https://www.youtube.com/watch?v=mbL4uUNtZwY)、[影片 41：Part 3: Generation Metrics](https://www.youtube.com/watch?v=DXz4IeOENiM)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 為什麼一門 NLU 課要專門講指標
 
 前兩篇（[解釋方法 I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)、[II](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)）處理的是「模型內部在做什麼」。這一篇退回一個更基本的問題：你拿來下結論的那個數字，到底在量什麼？
@@ -186,6 +207,10 @@ notebook 版本字串是「CS224u, Stanford, Spring 2023」，作者 Potts。它
 延伸閱讀：站上 [CS224N 的 benchmark 與評估導讀](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)談的是 LLM 時代的 benchmark 設計，可以接著讀。
 
 系列導覽：上一篇 [解釋方法 II：causal abstraction、IIT 與 DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)｜下一篇 [方法與指標 II：資料集、資料切分與模型比較](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

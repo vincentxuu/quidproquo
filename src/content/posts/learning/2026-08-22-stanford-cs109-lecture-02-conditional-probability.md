@@ -19,6 +19,14 @@ draft: false
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda：條件、chain rule、全機率與 Bayes
 
 第一題先用單顆骰子複習集合運算：偶數與大於 3 的交集不是空集合，聯集要避免重複計數，補事件可直接處理「不是 6」。這段複習的目的，是讓條件機率分子 P(E∩F) 有清楚的集合意義。
@@ -39,6 +47,10 @@ draft: false
 - Spring-dated 共用 conditioning 頁可核對公式與 Bayes 用語，但不能證明 Summer 課堂流程。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

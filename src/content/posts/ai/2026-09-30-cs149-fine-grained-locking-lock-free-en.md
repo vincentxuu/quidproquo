@@ -35,6 +35,22 @@ The official material is the [L16 slides PDF](https://gfxcourses.stanford.edu/cs
 
 Part 5 of the series has no direct link to AI. Still, every thread pool and every multithreaded runtime you write sits on these primitives. The task queue in [PA2](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) is exactly a shared data structure that many threads hit at once.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=GA1ObImqaMo
+title: 2023 Lecture 13 recording: Fine-Grained Synchronization and Lock-Free Programming (supplement)
+```
+
+Original videos: [2023 Lecture 13 recording: Fine-Grained Synchronization and Lock-Free Programming (supplement)](https://www.youtube.com/watch?v=GA1ObImqaMo)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
+
 ## Three ways to get stuck
 
 Slide 3 defines three terms and notes that deadlock and livelock are correctness problems, while starvation is really about fairness:
@@ -162,6 +178,10 @@ Confirmed: the contents of the L16 slides PDF, and the lecture date and summary 
 Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L15: Implementing Synchronization and Memory Consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | next [L17–L18: Transactional Memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ This is article 15 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The worksheet and answer key contain complete two-page P1–P7 plus challenge material. The guide has six concepts; its nominal third page only continues the wrap-up and closing note. The lecture's conceptual move is to treat an unknown success probability as a random variable supported on `[0,1]`, not merely a fixed unknown number.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Open with a Multinomial review
 
 A fair six-sided die is rolled five times, with exactly two 3s, two 5s, and one 6:
@@ -148,6 +156,10 @@ The six concepts are probability as a random variable, continuous-parameter Baye
 - P6 and P7 are pset4 items deliberately omitted from the public answer key; this article derives only what the public worksheet and guide support.
 - The guide's third page only continues the wrap-up and closing note, not another concept.
 - The Canvas recording is inaccessible. The worksheet and substantive guide content are two pages each, so the short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

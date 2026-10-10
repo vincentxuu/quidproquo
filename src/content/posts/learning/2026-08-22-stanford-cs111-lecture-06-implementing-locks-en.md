@@ -19,6 +19,14 @@ This is part 7 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 6 stops treating a lock as a black box. Its 16-page deck begins with interrupt masking on one core, then adds atomic exchange, spinning, blocking, and wakeup across successive multicore versions. Each change removes a concrete race and may expose the next one.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Track the lock invariant version by version
 
 Across versions 1 through 5, follow only three pieces of state: whether the guard is held, whether the lock is available, and whether a waiter has entered the queue. The hard boundary is between observing failure and going to sleep, where a wakeup must not be lost. The sections therefore follow the versions rather than imposing a generic mechanism/policy template.
@@ -55,6 +63,10 @@ The public PDF has only 16 pages. Excluding title, reading, and announcement sli
 One useful extension is fault-injection reading. After every state transition, assume that the thread is descheduled, the process crashes, or the machine loses power, then record what an observer can see. This is not a claim about a required course test; it is a method for turning the design diagrams into verification cases.
 
 A second exercise is a mechanism/policy table. Put only capabilities on the left and selection or allocation rules on the right. An item that cannot be placed usually reveals two concepts that have not yet been separated.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

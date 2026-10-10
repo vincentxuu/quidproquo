@@ -32,6 +32,21 @@ Pruning cuts the *number* of weights. Quantization cuts the *bits* per weight. L
 
 In practice, Lecture 5 covers only the first two methods. The summary on page 69 lists K-means and linear quantization only, and the comparison table on page 68 has a question mark in the binary/ternary column. The Lecture Plan of [Lecture 6](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) is where binary and ternary quantization appear as a formal item. This post follows what the slides actually cover and leaves binary/ternary for the next one.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=ymAzUz3qlIA
+title: EfficientML.ai Lecture 5 recording (Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 5 recording (Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Why bit width matters
 
 Page 3 cites [Horowitz's ISSCC 2014 paper](https://doi.org/10.1109/ISSCC.2014.6757323) and lists the energy of various operations on a 45nm process. The standout pair: an 8-bit integer add costs 0.03 pJ and a 32-bit float add costs 0.9 pJ, a 30x gap. Multiplication points the same way, with 0.2 pJ for an 8-bit integer multiply and 3.7 pJ for a 32-bit float multiply.
@@ -200,6 +215,10 @@ Fall 2026's Lab 2 is labeled Quantization and had not been released as of 2026-0
 - Quantization formats from a user's point of view (GGUF, Q4/Q8): [Understanding AI models: quantization](/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
 - How an LLM systems course teaches quantization: [Reading CMU 11-868: model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - The previous stop on the same road: [Lecture 4: pruning ratios and system support](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

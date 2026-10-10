@@ -27,6 +27,14 @@ glossary:
 
 This is part 12 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 1)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en), covered autoregressive models, which model the observed sequence directly. This part takes the other view of sequences: an unseen state is moving behind the observations.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where HW6 sits in the term
 
 Per the [2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ), Week 11 covered Autoregressive Models on Tuesday (April 7) and Hidden Markov Models on Thursday (April 9); the following Tuesday's Section 9 was "Autoregressive Models and HMMs". HW6 was released on April 17, labeled "AR, HMMS, MDPs, RL" on the schedule, and was due May 1.
@@ -142,6 +150,10 @@ Posts on this site that approach the same ideas from another angle; they don't r
 ## Next
 
 In an HMM the state just evolves on its own. The next part, [HW6 (Part 3): Policy Iteration and Value Iteration for MDPs](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), lets an agent choose actions, so transitions start to depend on what you do. The 2026 [Lecture 21 slides](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view) open with exactly this contrast: the HMM's `p(z_{t+1} | z_t)` becomes the MDP's `p(s_{t+1} | s_t, a_t)`.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

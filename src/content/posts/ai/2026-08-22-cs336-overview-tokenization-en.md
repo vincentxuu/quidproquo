@@ -19,6 +19,22 @@ This post covers Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization*
 
 The lecture does two things. First, it asks why anyone should build a language model from scratch when GPT, Claude, and Gemini are available through APIs. It then starts from raw bytes and implements a byte-level BPE tokenizer. These are two parts of the same argument: identify the abstractions that limit scaling, then open them up by building them.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=JuoVZkPBiKk
+title: CS336 Spring 2026 Lecture 1: Overview, Tokenization
+```
+
+Original videos: [CS336 Spring 2026 Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
+
+Course and recording entries:
+
+- [Official CS336 Spring 2026 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## The course is not against abstraction; it warns that abstractions leak
 
 Liang lays out a timeline of researchers moving away from the underlying technology. Researchers once implemented and trained their own models, later downloaded BERT and fine-tuned it, and now prompt models through APIs. Higher abstractions increase productivity, but language-model abstractions remain leaky. Researchers who want to change the foundations cannot work exclusively through the topmost interface.
@@ -76,6 +92,10 @@ The last step reconnects tokenization to the course's main theme. Every token re
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry, a complete executable lecture, and an official course recording playlist, so it can be aligned to the offering. This guide uses the lecture artifact as its primary source and does not merge in Spring 2025 videos, assignment details, or later model developments.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

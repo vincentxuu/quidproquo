@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 3: Architectures, hyperparameters**
 
 The lecture is deliberately titled “Everything You Didn't Want to Know.” Recent model papers expose a large number of architectural variants, but the useful question is not how to memorize every name. It is which choices have converged across models, which remain local tradeoffs, and which differ because scale or systems constraints differ.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=lVynu4bo1rY
+title: CS336 Spring 2026 Lecture 3: Architectures
+```
+
+Original videos: [CS336 Spring 2026 Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Start from a simplified modern Transformer
 
 Compared with the original Transformer, the lecture's baseline is already a modern decoder-only design: normalization before each block, RoPE for position, and a gated feed-forward network. Every later comparison asks whether there is enough reason to deviate from this conservative starting point.
@@ -70,6 +86,10 @@ That is the lecture's practical conclusion. Architecture search is not the accum
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its architecture, hyperparameter, stability, and attention sections without filling gaps from another offering.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

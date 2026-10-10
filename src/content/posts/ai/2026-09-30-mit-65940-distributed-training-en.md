@@ -45,6 +45,26 @@ But "add more GPUs" runs into two problems, one per lecture:
 - **The model does not fit on one GPU**: you have to split it (L19).
 - **Once split, GPUs have to talk to each other**: communication becomes the bottleneck (L20).
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=LcOM-nZdqxw
+title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lOVcPooetrM
+title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 19 - Distributed Training Part 1 (YouTube)](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[EfficientML.ai Lecture 20 - Distributed Training Part 2 (YouTube)](https://www.youtube.com/watch?v=lOVcPooetrM)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Four ways to split
 
 L19 pages 12–31 run through four kinds of parallelism, and L20 page 4 summarizes the trade-offs:
@@ -212,6 +232,10 @@ for iter in range(1, max_iters + 1):
 - [CMU 11-868 Lecture 18: how ZeRO shards data-parallel memory](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
 - [CMU 11-868 Lectures 16–17: split layers, matrices, or experts](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 - Gradient pruning follows the same logic as weight pruning in Lectures 3–4: [Lecture 3 on pruning granularity and criteria](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

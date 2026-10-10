@@ -44,6 +44,26 @@ glossary:
 
 「對應頁」是本文依主題比對的結果，影片實際放的投影片是不是這幾頁，沒有辦法從公開資訊確認。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
+title: 13.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LHhxbXKfnKs
+title: 13.2 LaMDA
+```
+
+原始影片：[13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 對話系統的兩支
 
 講義第 3 頁用四句話分出人為什麼需要對話系統：「我想聊天」是社交閒聊，要通過圖靈測試那種像人；「我有問題」是資訊查詢；「我要把這件事辦完」是任務完成，例如訂高雄到台北的車票、訂鼎泰豐今晚 7 點 5 人；「我該怎麼做」是決策支援。第 4 頁把它收成兩支：**閒聊（chit-chat）與任務型（task-oriented）**。
@@ -146,6 +166,10 @@ glossary:
 - 本系列 [RAG＋HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3) 也講到 WebGPT，這篇著重它的工具使用面。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning)｜下一篇 [超越監督學習與多模態](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

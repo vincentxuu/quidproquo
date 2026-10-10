@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Unsolvable Problems, Part III**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/25/)
+
 ## Lava Diagram 的兩個辨識任務
 
 前兩講把 \(A_{\mathrm{TM}}\) 與 HALT 放進 \(RE\setminus R\)：兩者都有 recognizer，卻沒有 decider。本講收尾時要分開回答兩題。第一，看到 machine-code 語言，如何判斷它在 R 外？Rice's Theorem 提供快速篩選。第二，如何判斷甚至在 RE 外？要檢查是否可能有 recognizer／verifier，或用 diagonal 語言 直接反證。
@@ -126,6 +134,8 @@ L_D=\{\langle M\rangle\mid M\text{ does not accept }\langle M\rangle\}
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「Lava Diagram 的兩個辨識任務」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

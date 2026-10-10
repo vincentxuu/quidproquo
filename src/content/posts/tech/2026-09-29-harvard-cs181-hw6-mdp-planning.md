@@ -28,6 +28,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 13 篇。上一篇 [HW6（二）](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman)處理的是狀態自己演化、你只能觀察的 HMM。這篇讓 agent 開始做決定。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 在學期裡的位置
 
 依 [2026 官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)，Week 12 週二（4 月 14 日）講 Single-Agent MDPs，週四接 Reinforcement Learning I；Section 10「MDPs and Reinforcement Learning」在 Week 13 週二。HW6 在 4 月 17 日發布、5 月 1 日截止。
@@ -138,6 +146,10 @@ flowchart LR
 ## 下一篇
 
 這題的前提是你知道 `get_transition_prob`。下一篇 [HW6（四）：Q-learning 玩 Swingy Monkey 與 Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics) 拿掉這個前提：agent 不知道規則，只能從試錯裡學。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

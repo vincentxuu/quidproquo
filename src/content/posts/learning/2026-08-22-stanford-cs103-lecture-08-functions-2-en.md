@@ -19,6 +19,14 @@ This is article 9 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 Functions Part I defined domains, codomains, involutions, and injections. Part II is not merely another vocabulary list. Its central skill is translating first-order formulas into proof actions. The same `∀` or `→` demands a different next step depending on whether it is assumed or remains to be proved. That distinction connects every example in the deck.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/)
+
 ## 1. Recap: a function type is a proof contract
 
 Writing `f : A → B` commits us to defining `f(a)` for every `a∈A` and making every result belong to `B`. It does not promise that all of `B` is reached. The domain specifies legal inputs; the codomain is the allowed destination set, not necessarily the actual range.
@@ -125,6 +133,8 @@ The public deck shows the agenda, definitions, bird example, both involution the
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the article from the complete official Functions Part II deck, restoring the deck-specific proofs of surjectivity, assuming versus proving, involution relationships, and composition.
 
 ## References

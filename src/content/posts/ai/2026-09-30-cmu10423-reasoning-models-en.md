@@ -36,6 +36,15 @@ Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses
 
 The question this lecture answers: **how do reasoning models differ from ordinary LLMs in training and inference?** The slides answer in three steps: get the model to write its reasoning out, reward correct reasoning with reinforcement learning, and let the model spend more compute thinking at inference time too.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## One thing first: the exam is tonight
 
 The second slide is a reminder: an 80-minute exam at 7 pm that evening, covering Lectures 1–15 (the same as Quizzes 1–4), with one double-sided sheet of notes allowed; unlike the all-multiple-choice quizzes, the exam includes open-ended questions. So L20 itself is not on the exam. It is tested only by Quiz 5 (April 6, covering L16–L20), whose questions are not public.
@@ -181,6 +190,10 @@ Confirmed: the schedule's date and quiz coverage; the text, tables, figure capti
 Further reading: this site's [CME295 LLM reasoning post](/posts/ai/2026-09-29-cme295-llm-reasoning-en) and [CS336 RLVR post](/posts/ai/2026-08-22-cs336-rlvr-en) cover reasoning models and verifiable rewards from other angles; for interpretability, continue with the [CS224N interpretability post](/posts/ai/2026-08-22-cs224n-interpretability-en) and the [Harvard CS2881R interpretability post](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en).
 
 Series navigation: previous [L19 + L21: long context and state space / hybrid models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en) | next [L22 + L26: practical risks and the science of alignment](/posts/ai/2026-09-30-cmu10423-risks-alignment-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

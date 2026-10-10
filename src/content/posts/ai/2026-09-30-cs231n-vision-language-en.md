@@ -30,6 +30,21 @@ For the [CS231N](https://cs231n.stanford.edu/) lecture on May 26, 2026, the [sch
 
 **The gap between recording and slides is especially large for this lecture.** The 2025 [lecture_16.pdf](https://cs231n.stanford.edu/slides/2025/lecture_16.pdf) has 148 pages, was given by Ranjay Krishna, and includes a long section on Segment Anything; the 2026 version lists Segment Anything only in the taxonomy, and adds Qwen3-VL, SigLIP, and omni models. When the 2025 recording covers something the 2026 slides don't, treat it as extra material.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=mQOK0Mfyrkk
+title: YouTube: CS231N Spring 2025 Lecture 16: Vision and Language
+```
+
+Original videos: [YouTube: CS231N Spring 2025 Lecture 16: Vision and Language](https://www.youtube.com/watch?v=mQOK0Mfyrkk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Scene: how far can one model per task go?
 
 Slide 2 recaps how the course has thought about models so far: **train a specialized model for each task**. Four data domains, four models, four tasks.
@@ -164,6 +179,10 @@ Looking back, this lecture gathers parts from earlier ones: the ViT from [L8](/p
 ## Access limits
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this course is **A3**: the 2026 slides, assignments, and starter code are public, plus full 2025 recordings. The gaps for this lecture: 2026 recordings are on Canvas for enrolled students only, and the 2025 recording differs from the 2026 slides more than in other lectures.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

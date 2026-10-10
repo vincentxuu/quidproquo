@@ -40,6 +40,21 @@ The slides frame it as "computer architecture from a software engineer's perspec
 
 Several later slides use GPUs as examples. This series saves GPUs for [post 9, L7 GPU architecture and CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en), so this post covers CPUs only.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=CKmNpAO5rS4
+title: CS149 2023 Lecture 2 video (YouTube)
+```
+
+Original videos: [CS149 2023 Lecture 2 video (YouTube)](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
 ## Opening review
 
 The 2025 version of L2 opens with a review of L1: a program is a list of instructions, superscalar processors find independent instructions and run them in parallel, and then memory latency, stalls, caches, and LRU. The [previous post](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en) already covers all of that.
@@ -224,6 +239,10 @@ The 2023 [Lecture 2 video](https://www.youtube.com/watch?v=CKmNpAO5rS4) (about 1
 ---
 
 **Series navigation**: [← Previous: L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en) | Next: [L3 Latency vs. bandwidth + ISPC →](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

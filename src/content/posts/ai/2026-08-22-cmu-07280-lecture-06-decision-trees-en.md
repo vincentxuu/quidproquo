@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 6: Decision Trees**. Lecture 5 said to find a low-empirical-risk function in a hypothesis class. This lecture makes `H` concrete and exposes a central tradeoff: do not enumerate every possible tree; greedily choose one informative split at each node.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [Decision Trees lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes%20-%20decision%20trees.pdf), [pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf), [Recitation 3](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
@@ -72,6 +80,10 @@ A single path through a tree is readable, but training is greedy. A small data c
 1. Calculate the entropy of a fair coin, an always-tails coin, and a fair six-sided die.
 2. Compute conditional entropy and mutual information for two attributes in an eight-example binary dataset.
 3. Use the best attribute as the root and recurse until labels agree or attributes are exhausted.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

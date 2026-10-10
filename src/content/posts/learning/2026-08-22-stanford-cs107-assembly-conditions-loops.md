@@ -17,6 +17,14 @@ draft: false
 
 `cmp %rsi,%rdi` 沒有把 subtraction result 寫進 general-purpose register，下一條 `jge` 卻能據此決定是否跳轉。中間的橋樑是 condition codes：CPU 用少數 flags 保存最近一次算術或邏輯操作的關鍵性質。Stanford CS107 Lecture 18 就從這份隱藏 state 出發，把 C 的 `if`、`while`、`for` 還原成 fall-through 與 control-flow edges。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料、缺口與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -250,6 +258,10 @@ max:
 6. 對 loop 補上初始化、test、update、back edge 與 exit edge。
 7. 對 `setcc` 追單一 byte 如何擴展；對 `cmovcc` 追預設值與覆寫值。
 8. 若比較成本，分開 static instruction count 與實際 path 的 dynamic count。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

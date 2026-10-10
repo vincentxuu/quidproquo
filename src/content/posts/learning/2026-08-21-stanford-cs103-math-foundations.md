@@ -24,6 +24,14 @@ draft: false
 
 這篇是把現行課程網站、八份 problem set、二十多份自製講義、Honor Code 頁面與兩個封存學期版逐頁讀完之後寫的。要處理的是「進去之後會發生什麼事」：課程真正的軸心、作業實際長什麼樣、難度在哪一份轉折、以及沒修課的人拿得到什麼。它在整份修課階梯上的位置，[Stanford CS 課程導讀](/posts/learning/2026-08-20-stanford-cs-course-map)那篇已經排過，這裡不重複。**不包含**逐題解法——解答本身也不公開，原因下面會講。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/)
+
 ## 這門課的硬事實
 
 先修條件是 CS106B（或 CS106X、或同等背景），而且**可以同時修**。ExploreCourses 的條目寫得很直接：`Prerequisite: CS106B or equivalent. CS106B may be taken concurrently with CS103.`
@@ -166,6 +174,10 @@ CS103 課程網站首頁的側欄裡，掛著一整排以「Guide to」開頭的
 - **講義長度**：Proofwriting Checklist 的網頁版約一萬四千字、八條準則各附練習；Guide to Proofs on Sets、Guide to Induction、Guide to the Myhill-Nerode Theorem 各約一萬字上下。這些是我抓取網頁後計字的粗估，不是官方數字。
 - **封存網址編碼**：`cs103.1268` → 學年結束於 2026、季別碼 8（暑期）。季別碼 2=秋、4=冬、6=春、8=暑。此規則由我逐一測試 `1212` 到 `1268` 各代碼並比對頁面自述的學期得出，Stanford 沒有公開說明頁。
 - **未能確認的三項**：（一）我沒有找到任何一屆 CS103 的官方公開上課錄影，但「找不到」不等於「不存在」，不排除有非官方轉載。（二）Stanford 的課程封存區沒有可瀏覽的索引頁（`web.stanford.edu/class/archive/cs/cs103/` 回 404），所以「最早的封存版本是哪一屆」我只能逐碼測試，測到 2020 年秋季仍存在就停了，更早的沒有窮舉。（三）ExploreCourses 的 CS 103 描述叫讀者去加選 CS103A，但以 CS103A 搜尋只會搜到 CS 103 本身；目錄裡實際存在的伴隨課是 CS 103ACE（一學分、Satisfactory/No Credit、與 CS103 同修）。這兩個代碼之間的關係我沒有查到官方說明。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

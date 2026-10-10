@@ -30,6 +30,21 @@ glossary:
 
 這一講介紹兩個最簡單的分類器。它們在實務上都不夠用，但後面每一講都建立在它們留下的框架上：資料怎麼切、分數怎麼算、loss 怎麼定。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=pdqofxJeBN8
+title: Spring 2025 Lecture 2: Image Classification with Linear Classifiers（YouTube）
+```
+
+原始影片：[Spring 2025 Lecture 2: Image Classification with Linear Classifiers（YouTube）](https://www.youtube.com/watch?v=pdqofxJeBN8)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 問題：電腦看到的只是數字
 
 [投影片](https://cs231n.stanford.edu/slides/2026/lecture_2.pdf)先定義任務：給一張圖和一組可能的標籤（dog、cat、truck、plane…），輸出其中一個。
@@ -162,6 +177,10 @@ Q2 很實用：訓練剛開始若 loss 明顯不是 log(C)，通常代表程式�
 - [Stanford CS231N 導讀：總覽與自學路線](/posts/ai/2026-09-30-cs231n-course-overview)
 
 **系列導覽**：上一篇 [L1：電腦視覺從哪裡來，這門課要走到哪裡](/posts/ai/2026-09-30-cs231n-intro-vision-history)｜下一篇 [L3：正則化與最佳化](/posts/ai/2026-09-30-cs231n-regularization-optimization)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

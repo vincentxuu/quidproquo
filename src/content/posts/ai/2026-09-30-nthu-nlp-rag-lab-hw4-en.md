@@ -27,6 +27,26 @@ glossary:
 
 **Series**: previous [LLM API lab](/posts/ai/2026-09-30-nthu-nlp-llm-api-en) | next [Course summary and LLM reasoning notes](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=JvThEbeOZbs
+title: HW4 walkthrough (in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=anCghHOjzV0
+title: W13 Tuesday: RAG1
+```
+
+Original videos: [HW4 walkthrough (in Mandarin)](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 Tuesday: RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 Thursday: RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 Thursday recording (in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Timeline: the assignment came before the labs
 
 The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists HW4 and its walkthrough in the W12 row; the walkthrough was uploaded on 2025-11-20. The two RAG labs are in W13 (2025-11-24 and 11-26). At the start of the [W11 Thursday lecture](https://www.youtube.com/live/cRSaBtoTDag), Kao said HW4 was meant to go out that week but was pushed back one week because the RAG material and the lab videos weren't ready. The handout gives three weeks to finish.
@@ -147,6 +167,10 @@ One thing to try tonight: download `cat-facts.txt` and `questions_answers.txt` a
 - Chunking: [Chunking strategies decide whether RAG finds the answer](/posts/ai/2026-03-12-chunking-strategies-en)
 - Evaluating RAG: [RAG evaluation frameworks and tool selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 - Another course's RAG assignment: [CS224U Assignment 2: OpenQA and DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -23,6 +23,14 @@ This post is the series entry point. It covers the course structure, what outsid
 
 **Sources**: the [MOOC page](https://www.csie.ntu.edu.tw/~htlin/mooc/) (footer: last updated 2024-08-30), the [Foundations](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf) and [Techniques](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2) YouTube playlists, the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) and its [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf), the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and its homework PDFs, the [Coursera page for Foundations part 1](https://www.coursera.org/learn/ntumlone-mathematicalfoundations), and [NTU OpenCourseWare's note on Coursera's policy](https://ocw.aca.ntu.edu.tw/courses/mooc0016) (in Mandarin). I opened and checked all of them on 2026-09-30.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Two MOOCs: seven questions, 32 lectures, 130 videos
 
 Page 2 of [01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) describes Foundations as "foundation oriented" and "story-like," strung along four questions. Techniques is split by three ways of handling features. The Fall 2026 course page numbers these seven segments topic 1 through topic 7:
@@ -159,6 +167,10 @@ These courses overlap with this series, but every post here stands on its own; t
 - [CMU 10-301 guide](/posts/learning/2026-08-22-cmu-10301-overview-en), [Berkeley CS189 guide](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en): intro ML at other schools.
 
 Next: [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

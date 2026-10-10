@@ -17,6 +17,14 @@ draft: false
 
 [MIT 6.S191 官方 2026 repo](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) 的 Lab 2 是 **Lab 2：從 MNIST 到 DB-VAE 臉部去偏差**。Part 1 用 dense network 與 CNN 辨識 MNIST；Part 2 以 DB-VAE 學習臉部 latent distribution，再調整訓練取樣。本文固定使用 2026 branch，避免 master 後續更新造成內容漂移。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## 開始前
 
 [官方 2026 README](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/README.md)指定 Google Colab、Python 3 與 GPU runtime。先複製 notebook 到自己的 Drive，再從頭執行；API key 放在 notebook 的秘密管理介面，不要寫進可分享的 cell 或提交到 Git。
@@ -39,6 +47,10 @@ draft: false
 ## 限制
 
 這是課堂實驗，不是已證明適用所有人口群體的公平性修補。資料、量測方式與部署情境仍需另行稽核。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 先說材料的異常：Lecture 23 與 Lecture 24 的 PDF 都有 23 頁，逐頁標題、條列與順序相同。兩個檔案的 SHA-256 不同，但抽出的文字只差 `/lost+found` 的斜線與四處句點。公開資料因此沒有一份獨立的「continued」[投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)。本文不虛構不存在的內容，而是把第 1–15 頁交給 Lecture 23，從第 16 頁起專注 write-ahead logging、transaction、checkpoint，以及 consistency 與 durability 的分界。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 從前講接續：公開素材相同，閱讀問題不同
 
 [Lecture 23](/posts/learning/2026-08-22-stanford-cs111-lecture-23-crash-recovery)已處理第 1–15 頁的 crash model、`fsck`、ordered writes 與 WAL 入口。本講不再重講掃描修復案例，而是從第 16 頁開始追問：一筆 log 如何描述更新、多筆 entry 如何組成 transaction、replay 如何允許重做，以及 checkpoint 如何安全回收 log。（[官方投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)）
@@ -59,6 +67,10 @@ log entry 可以描述 logical operation，例如「把某區塊設為 inode 的
 - 第 16–18 頁：logical／physical entry、idempotence、consistent group、Assignment 8 transaction。
 - 第 19–22 頁：checkpoint、metadata-only logging、優缺點、delayed log writes、`fsync`、裝置失效。
 - 第 23 頁：performance、durability、consistency 與可恢復失敗範圍的取捨。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

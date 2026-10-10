@@ -30,6 +30,27 @@ The [previous post](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en) ended 
 
 The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already reproduced the COGS results table, whose headline is that the structural columns are almost all zeros. I won't repeat the numbers. This post covers where those zeros came from, how ReCOGS takes them apart, and what Assignment 3 asks you to do.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=g5zwxUqBzN8
+title: Screencast 27: Compositionality
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=tOh-1GYaDl8
+title: Screencast 28: COGS and ReCOGS
+```
+
+Original videos: [Screencast 27: Compositionality](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Screencast 28: COGS and ReCOGS](https://www.youtube.com/watch?v=tOh-1GYaDl8)、[Screencast 24: Homework 3 overview (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=e73Ch08XhX0)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## What compositionality is and why test it
 
 [Screencast 27](https://www.youtube.com/watch?v=g5zwxUqBzN8) opens with an informal statement of the principle:
@@ -184,6 +205,10 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 
 - The COGS results table and course status: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - General principles of evaluation design: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

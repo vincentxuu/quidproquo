@@ -34,6 +34,21 @@ Last lecture said an AI model is a "dopey AI robot": you only need to know what 
 
 The slides come in five parts: building the dopey AI robot, neural networks, our distance from the truth, gradient descent, and building a first neural network. The first four are concepts. The last is hands-on, and the homework starts from it.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=s1QqujRMEUk
+title: recording
+```
+
+Original videos: [recording](https://www.youtube.com/watch?v=s1QqujRMEUk)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Part 1: inputs and outputs have to be numbers
 
 The dopey robot only eats numbers. The slides show what "numbers" can look like with three examples:
@@ -242,6 +257,10 @@ The Fall 2026 syllabus describes week 2 as core neural network concepts (percept
 
 - The full version of neural networks, backpropagation, and CNNs/RNNs: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
 - Course ownership and the full homework table: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

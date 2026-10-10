@@ -19,6 +19,14 @@ This is post 2 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 
 The first lecture does not begin by asking students to memorize a definition of an algorithm. It picks a task everyone already knows: integer multiplication. Grade-school multiplication gives the correct product, but knowing how to compute an answer and knowing how the work scales are different skills. The lecture uses this one example to connect all three course goals: design a different algorithm, analyze its growth, and communicate the reason clearly enough for someone else to check.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here)
+
 ## Three goals, one argument
 
 The slides name the goals as **Design, Analysis, and Communication**. Karatsuba multiplication exercises all three at once:
@@ -183,6 +191,10 @@ You can test your understanding without writing code. Work through the three pro
 Practical Karatsuba implementations usually do not recurse all the way to one-digit inputs. They switch back to grade-school multiplication below a threshold. This is a hybrid engineering strategy: use the better asymptotic order on large inputs and avoid recursive overhead on small ones. The Winter 2026 public materials do not prescribe a threshold, and neither does this article. The right crossover depends on the integer representation, language, and hardware and should be benchmarked there.
 
 A useful experiment is to record two measurements separately: the number of single-digit products and wall-clock time. The first should resemble the recursion-tree prediction. The second also includes interpreter overhead, allocation, and cache behavior. Looking at both shows exactly what the analytical model explains and what it leaves outside its boundary.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

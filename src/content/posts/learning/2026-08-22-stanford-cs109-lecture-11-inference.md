@@ -24,6 +24,14 @@ posterior[h] = prior[h] × likelihood(observation | h)
 normalize(posterior)
 ```
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：一次 Bayes update
 
 袋子等機率裝著 Fair coin 或 Trick coin；兩者出現 heads 的機率分別為 `0.5` 與 `0.9`。觀察一次 heads 後：
@@ -151,6 +159,10 @@ Posterior 就是 prior 乘上 indicator 再正規化。所有 `d≤-17` 的 mass
 - P6 是 pset4 題，公開 answer key 刻意省略解答；本文只依公開題目建立 likelihood 與 posterior。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - Worksheet 與 guide 各兩頁，採短材料例外；以逐題完整為準，維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

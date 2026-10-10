@@ -19,6 +19,14 @@ draft: false
 
 前五講一直用比較決定順序：問 `a<b`，再依答案分支。MergeSort 已做到 worst-case `O(n log n)`，那能不能繼續改到 `O(n)`？答案不是單純的可以或不可以，而是先問：**演算法被允許對 key 做什麼？** 第六講先在 comparison model 證明 `Ω(n log n)`，再讓演算法直接讀整數 key，用 Counting Sort 與 Radix Sort 繞出比較模型。兩者並不矛盾。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting)
+
 ## Lower bound 永遠依賴計算模型
 
 Comparison-based sorting 只能透過兩元素比較取得次序資訊，不能把 key 當陣列索引、不能讀某一位數字，也不能根據數值做算術分桶。在此模型裡，演算法可能很複雜，卻仍只能以比較答案逐步區分輸入排列。
@@ -171,6 +179,10 @@ Lecture 6 把前半段的漸近分析推到「模型」層次。前面問某算�
 Randomized comparison lower bound 的正式證明通常要處理「對 deterministic trees 的分布」，常見工具會連到 distributional reasoning。官方 slides 只陳述結論並略過證明，因此若要補上，應另選一手教材並獨立標示，不能把 deterministic 葉節點計數偷偷改名。
 
 工程上的 radix 實作也常用固定機器字寬、陣列式 counting 與多 pass buffer，而不是 linked-list buckets。這可能改善 cache locality 與常數，但不改核心取捨：每 pass 處理 `n` 個項目，radix 決定 bucket 工作，位寬決定 pass 數。理論式 `d(n+r)` 是評估這些選擇的骨架，不是替硬體量測下結論。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

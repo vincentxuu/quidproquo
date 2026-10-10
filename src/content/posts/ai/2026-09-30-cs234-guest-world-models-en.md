@@ -38,6 +38,15 @@ glossary:
 
 **Series position**: Previous: [Value Alignment: Aligned to Whom, and to What](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Where this talk sits
 
 The [modules page](https://web.stanford.edu/class/cs234/modules.html) gives this PDF its own row, "RL Guest Lecture", with the link text "Shane Gu: World of World Modeling" and no video link. The title slide is dated **February 25, 2026**. The speaker is Shane Gu, a Senior Staff Research Scientist at Google DeepMind.
@@ -187,6 +196,10 @@ One thing to do tonight: write out the shooting and collocation equations from p
 - Goal-conditioned RL and hindsight relabeling in depth: [CS224R L12: Multi-Task and Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
 - World models and robot learning from the computer vision side: [CS231N wrap-up: World Modeling / Robot Learning](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
 - A full deep RL course route: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -29,6 +29,15 @@ Official materials used: the [syllabus on the course home page](https://www.cs.c
 
 The question for this post: **beyond homework, how does a course decide you've learned the material, and how can an outside reader check themselves with only the public materials?**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Assessment at a glance
 
 The syllabus lists weights for three course numbers. Content is identical; 10-623 adds HW623, and 10-723 adds Quiz723 on top of that:
@@ -212,6 +221,10 @@ Confirmed: the syllabus weights, schedule dates, the coursework page's lists, th
 Further reading: to compare how other courses run projects and exams, see [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en) (also on this course's prerequisite list) and [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en).
 
 Series navigation: previous [L24–L26: audio, video generation, and interactive world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en) | this is the last post | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

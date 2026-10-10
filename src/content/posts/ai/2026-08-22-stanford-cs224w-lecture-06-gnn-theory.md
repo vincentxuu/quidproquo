@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 6 講**，官方日期 2025-10-09。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/06-theory.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含投影片與 schedule 列出的 optional readings。Canvas 錄影、現場 Q&A、板書及 Ed 討論不公開，因此本文不推測；2021 公開影片也不當成 2025 講次內容。
@@ -116,6 +124,10 @@ GIN 的 sum+MLP 與一般 sparse message passing 成本近似隨 edges 線性，
 最後再做一個 precision check：將 hand-crafted features 設為容易 collision 的整數，分別以 float32、float64 跑相同 sum+MLP，記錄接近但不相同的 neighborhoods 是否在 normalization 後難以區分。這不是推翻 WL 理論，而是提醒理論中的精確 injectivity 與實際有限精度/有限寬度有距離。若任務仰賴精確 counting，需把 count range、numeric precision 與 out-of-distribution graph size 納入測試。最終報告同時列「理論可區分」與「本次訓練成功區分」，不把兩者合併成一句。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

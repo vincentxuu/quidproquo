@@ -47,6 +47,26 @@ glossary:
 | Hallucination | Factuality | 23–28 | 10.3 |
 | （調整模型往特定目標） | Alignment | 29–40 | 無 |
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=3BAFtBS27UI
+title: ADL 10.1: Fairness for Bias Mitigation（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=V2Pot_Uv31E
+title: ADL 10.2: Model Safety（YouTube）
+```
+
+原始影片：[ADL 10.1: Fairness for Bias Mitigation（YouTube）](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety（YouTube）](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation（YouTube）](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction（YouTube）](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge（YouTube）](https://www.youtube.com/watch?v=pZxBNlSqy6I)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Bias → Fairness
 
 ### 偏見從哪裡來
@@ -164,6 +184,10 @@ glossary:
 
 上一篇：[NLG：解碼、控制與評估](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
 下一篇：[Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

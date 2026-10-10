@@ -20,6 +20,14 @@ draft: false
 
 核心結論：**想跟著本系列逐講自學，走 [Spring 2026](https://eecs189.org/sp26/)；想走 SVM、決策樹、PCA、boosting 的經典路線，走 Spring 2025；想看下一學期長什麼樣，看 [Fall 2026](https://eecs189.org/fa26)。** Spring 2026 公開講義、25 支講課影片、附解答的 discussion 與 HW1–5 題目，本系列從第 2 篇起以它為底本（版本比較見 [CS189 有三個版本](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)）。Spring 2025 在 `people.eecs.berkeley.edu/~jrs/189s25/` 保留 25 講 lecture notes、HW1–7、code/data 與歷屆考題（本站判 [A3](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map)），正式錄影則放在 bCourses，要登入。Fall 2026 剛在 `eecs189.org/fa26` 公布 27 講行事曆（`Lec01 Introduction + ML Problem Framing` 到 `Lec27 Closing`），但講義與作業多數尚未開放，泛用網址 `eecs189.org` 本身也會隨學期重導向，舊檔有輪替後 404 的前例。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 公開到什麼程度
 
 依本站 A0–A3 標準：
@@ -105,4 +113,6 @@ Spring 2026 共 27 講、5 份作業，本系列按官方課序把講次與作�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-29：系列擴充為 18 篇，改以 Spring 2026 為底本，新增「系列文章」目錄與待釋出清單；修正「HW1–7 怎麼走」一節，原文把 Spring 2026／Fall 2026 的課序誤寫成 Spring 2025 的 HW 主題，改依 189s25 課程頁的講次標題重寫，並更正 Spring 2025 錄影需 bCourses 登入；公開程度表新增 Spring 2026；起步動作改指向系列文。

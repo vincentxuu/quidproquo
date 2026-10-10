@@ -19,6 +19,14 @@ This is article 13 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The course team is Cynthia Bailey Lee and Alex Aiken. The public page does not identify a per-meeting speaker, so this article does not guess one. The reconstruction below follows the complete public deck; spoken material restricted to Canvas or Panopto is outside its scope.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/)
+
 ## Connecting adjacency and reachability to this lecture
 
 The previous lecture defined adjacent nodes as nodes joined by an edge and reachable nodes as nodes connected by a path. Those notions remain the substrate, but the proof question changes: when edges, colors, or preferences are assigned among finitely many categories, what structure becomes unavoidable?
@@ -129,6 +137,8 @@ The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/le
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the bilingual article from the complete official deck, covering generalized pigeonhole, friends and strangers, Ramsey theory, Sim, and the movie-preference puzzle.
 
 ## References

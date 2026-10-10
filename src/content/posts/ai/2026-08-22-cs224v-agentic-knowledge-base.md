@@ -18,6 +18,14 @@ description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難
 
 這堂標題本來就叫 Agentic AI for Knowledge Base Queries，屬於 Fall 2025 歷史課綱；不能因為 CS224V 在 2026–27 學年整門改名 Agentic AI，就把新版內容混進來。第十講的範圍很明確：讓 agent 像熟悉 Wikidata 的人一樣，邊查 schema 邊建立 SPARQL。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：KBQA、agent、資料集
 
 講義先介紹 Wikidata 的 RDF graph 與 SPARQL，說明 KBQA 的 schema discovery 困難；接著比較 fine-tuned semantic parsing、prompted parsing 與 subgraph retrieval。核心段落建立 [SPINACH](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf) 的 action loop，後半介紹從真實 Wikidata 求助討論建成的資料集、基線、ablation，以及將類似方法延伸到 SQL 的方向。
@@ -127,6 +135,10 @@ Agent 可能重複同一個無結果 action。SPINACH 偵測重複、rollback，
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片提供 action 定義、prompt 摘要與結果表，沒有完整 evaluation harness、全部 trace 或課堂討論。本文只描述 Fall 2025 講義中的 SPINACH，不用 2026 新課名推論課程方向。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

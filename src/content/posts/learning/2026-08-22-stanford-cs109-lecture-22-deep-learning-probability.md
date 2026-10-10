@@ -19,6 +19,14 @@ draft: false
 
 本講維持 **L2**。Worksheet 四頁，正式 P1–P7 加 optional multi-class challenge；五頁 key 的所有題目都有公開解答，沒有 pset omission。Guide 三頁六 concepts。當期投影片不可用、錄影限 Canvas。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：calibration 與 baseline
 
 模型在 60 筆預測約 0.8 的資料中命中 36 筆，observed fraction 是 0.60，因此不 calibrated 且 overconfident。資料整體 70% 為 label 1，always-positive baseline accuracy 是 0.70。Calibration 約束 probability 的語意，不保證 threshold decision 勝過 baseline。
@@ -82,6 +90,10 @@ Guide 依序涵蓋 softmax、stacked logistic units、deep-learning likelihood�
 - Worksheet 四頁 P1–P7 加 challenge；五頁 key 全部公開。
 - Guide 三頁六 concepts，無額外題號。
 - 當期投影片不可用、錄影限 Canvas；本文只使用公開 artifacts。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

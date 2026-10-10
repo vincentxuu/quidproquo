@@ -20,6 +20,22 @@ draft: false
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 7 講 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（縮放規則與優化）由 Jeremy Bernstein 授課。這講不只是列優化器清單，而是從**梯度下降的動力學**出發，推導為什麼大批次需要大學習率、為什麼 Adam 在某些情況下會失效、以及怎麼用「縮放規則」把小批次實驗的超參數轉移到大規模訓練。這篇文章把講義重點重組成可直接套用的決策框架，並附上可跑的 PyTorch 程式碼。
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 優化器的譜系：從 SGD 到 Adam
 
 深度學習優化器演進的主線是：**怎麼在高維非凸地形裡，用最少的超參數調整，穩定收斂到好解**。
@@ -200,6 +216,10 @@ print("Saved plot to optimizer_comparison.png")
 | 驗證 loss 不降、訓練 loss 降 | 過擬合、weight decay 太小 | 調大 wd、加 dropout、早停 |
 | 大批次訓練不收斂 | Linear scaling 失效 | 改 sqrt scaling、延長 warmup、檢查 batch norm 統計量 |
 | AdamW 權重衰減無效 | 用了 `weight_decay` 參數但優化器是 Adam | 改用 `torch.optim.AdamW`（解耦） |
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

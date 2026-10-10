@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 16 講**，官方日期 2025-11-18。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[該列官方投影片](https://web.stanford.edu/class/cs224w/slides/Lecture16.pdf)整理；講者以投影片署名為準。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含官方投影片與 schedule 的 optional readings。Canvas 錄影、現場 Q&A、板書與 Ed 討論不公開，本文不推測；2021 公開影片不作為 2025 講次證據。投影片檔名若與講次數字不同，本文仍以 Fall 2025 schedule 的列次對應為準。
@@ -128,6 +136,10 @@ Instruction/QA data若由同一graph triples生成，train/test questions可能�
 最終做四格 evidence ablation：保留文字刪圖、保留圖刪文字、保留retrieved subgraph但打亂relation、保留relation但替換node text。這四格分別測language prior、structure、relation semantics與attribute semantics。每格固定LLM、prompt與token budget，報retrieval recall、answer accuracy、unsupported claims與latency。若combined只比text-only多一點卻成本翻倍，結論應是增量有限；若打亂relation仍不降，系統可能根本沒使用graph結構。另以unanswerable queries測abstention，確保沒有evidence時不靠世界知識硬答。
 
 把 pipeline 拆成 graph construction、retrieval 或 sampling、encoder、prediction head 與 evaluation。每次只替換一個部件，保留成本與失敗 trace，才知道改動是否真的有效。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

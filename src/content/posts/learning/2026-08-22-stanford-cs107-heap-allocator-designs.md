@@ -19,6 +19,14 @@ Lecture 21 的 implicit free list 讓每個 block header 記錄 size 與使用�
 
 這個優化並非「多放一個 next pointer」就結束。Free block 從此同時屬於兩種順序：它在 heap 位址上有物理左右鄰居，也在 free list 中有邏輯前後節點。Coalescing 依賴前者，搜尋與移除依賴後者。最危險的錯誤不是某一行 pointer syntax，而是更新了一種關係，忘了另一種關係仍把舊節點當成有效。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -154,6 +162,10 @@ Explicit list 最大優勢是只搜尋 free candidates，但每個 free block �
 錯誤發生時保存最短 trace。印出每一步前後的 physical map 與 logical map，標出 header size/state、node prev/next。不要只看 crash 行；corruption 常在早一個 split 或 unlink 發生，直到下一次 traversal 才爆炸。
 
 Lecture 22 真正教的是資料結構 ownership。Free block 不是單純 linked-list node，也不是單純連續 bytes；它同時參與 heap partition 與候選集合。可靠 allocator 的每個狀態轉換，都要回答三題：物理範圍現在是什麼、邏輯 list 目前指向誰、client 是否仍有權碰這些 bytes。三個答案一致，速度優化才站得住。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

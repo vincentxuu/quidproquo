@@ -17,6 +17,14 @@ draft: false
 
 第 11 講 **Neural Networks** 在 2026 年 2 月 17 日進行。它沒有把神經網路當成全新的神祕模型，而是從已學過的 linear／logistic regression 往上堆：每個 neuron 都先做加權和，再套 activation；多個 neuron 組合後，feature transform 不再由人手寫。沒有公開逐講錄影，本文只讀文字材料。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 主要來源是 [Lecture 11 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec11_Neural_Networks_I.pdf)、[Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf)、[Recitation 6 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf)與 HW6。Slides 包含互動 demo 的課堂活動提示，但沒有公開投票結果；本文不把空白投影片補成講者答案。
@@ -85,6 +93,10 @@ Lecture 12 接著回答實作核心：每個參數的梯度若都展開成一條
 ## 今晚可以做的動作
 
 在紙上畫一個 `2→3→2` 網路，替每個 `W`、`b`、`z`、`a` 標 shape，算出總參數量。接著任選一個二維輸入與小整數權重，完整算一次 forward pass；最後只對其中一個輸出層 weight 手算 loss derivative，為下一講預熱。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

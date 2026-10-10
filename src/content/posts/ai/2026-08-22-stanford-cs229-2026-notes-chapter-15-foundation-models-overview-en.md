@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 15, printed pages 191–195, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the current public notes, not a reconstruction of any quarter's recordings or lecture schedule. The goal is to explain the derivational spine and practical choices, not reproduce every proof.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Why pretrain first and adapt later
 
 A foundation model is not one model that magically solves every downstream problem. It first learns reusable parameters from broad data, then adapts with a smaller task-specific dataset. For pretraining samples \(x_1,\dots,x_n\), the generic objective is
@@ -65,6 +74,10 @@ Chapter 14 showed how a diffusion model can be trained as a generative model. Th
 ## Exercise
 
 For a \(4096\times4096\) weight matrix and LoRA rank \(r=16\), calculate the trainable parameter counts and ratio for full fine-tuning versus LoRA. Then explain why that ratio is not also the reduction in inference memory or computation.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

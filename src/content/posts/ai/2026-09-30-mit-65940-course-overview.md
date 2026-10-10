@@ -30,6 +30,14 @@ Fall 2024 課頁的課程描述列出的主題有 model compression、pruning、
 
 這一篇是 MIT 6.5940 導讀的入口，回答四件事：這門課教什麼、為什麼本系列用 Fall 2024 而不是最新一屆、校外讀者實際拿得到什麼，以及怎麼讀。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這門課的硬事實
 
 | 項目 | Fall 2024（本系列主幹） | Fall 2026（進行中） |
@@ -184,6 +192,10 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)：diffusion 與 flow matching 的理論
 
 **系列導覽**：下一篇 [為什麼要高效、怎麼量模型大小與運算量](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ This is article 3 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda: conditioning, chain rule, total probability, and Bayes
 
 The opening die problem reviews sets so that the numerator P(E∩F) has a concrete meaning. The second problem then compares three dice questions. Unconditionally, five ordered pairs sum to eight. Given that the first die is five, only six outcomes remain and only a second die of three succeeds. Given that at least one die is five, eleven outcomes remain and both (5,3) and (3,5) succeed. Similar English conditions produce different answers because they retain different sample spaces.
@@ -37,6 +45,10 @@ Multiplying along branches is the chain rule. Adding disjoint paths to one label
 - The shared Spring-dated conditioning page supports the formulas and Bayes vocabulary, but not the Summer classroom sequence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

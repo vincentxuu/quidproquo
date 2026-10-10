@@ -31,6 +31,14 @@ It follows [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs
 
 **This post does not give solutions.** HW1–4 have no public official solutions. I describe only what each question asks, why it is designed that way, and what to watch out for.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## What outside readers can get
 
 | Item | Status |
@@ -155,6 +163,10 @@ The model is torchvision's `convnext_base` (from "[A ConvNet for the 2020s](http
 - Series navigation: previous, [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en); next, [Lec 23–24: LLM training and self-supervised learning](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: download `hw4_part1.ipynb`, run only up to the "Load the Data" cell to confirm `timm/mini-imagenet` loads, then write 1a's CNN and print the output shape of the last convolution layer.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

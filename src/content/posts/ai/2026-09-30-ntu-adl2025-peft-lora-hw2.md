@@ -28,6 +28,26 @@ glossary:
 
 **系列位置**：上一篇 [後訓練：Instruction Tuning、RLHF 與 InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)｜下一篇 [RAG 與 HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=ii2kMoUyNOs
+title: ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=_QiIp0WTRzI
+title: ADL 2025 Fall Homework 2（YouTube）
+```
+
+原始影片：[ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）](https://www.youtube.com/watch?v=ii2kMoUyNOs)、[ADL 2025 Fall Homework 2（YouTube）](https://www.youtube.com/watch?v=_QiIp0WTRzI)、[ADL TA Recitation: LLM LoRA Training（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 問題：整個模型微調太貴
 
 講義的開頭和上一篇共用同一張地圖（第 2–4 頁）：要在已知任務上做好，可以做 prompt tuning／engineering，也可以調整 LM 本身。第 4 頁在後者旁邊加了一句：微調 LLM 可能又貴又不實際。第 5 頁因此把主題定為 Parameter-Efficient LM Tuning，也就是更實際的 LLM 調整方式。
@@ -112,6 +132,10 @@ B ∈ R^(d×r),  A ∈ R^(r×k),  r ≪ min(d, k)
 - [CS224N 第 18 講：Tinker and LoRA Without Regret 材料缺口紀錄](/posts/ai/2026-08-22-cs224n-tinker-lora)
 
 下一篇：[RAG 與 HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

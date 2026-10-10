@@ -45,6 +45,26 @@ glossary:
 
 **版本差異**：Fall 2024 的 [08u 投影片](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/08u_handout.pdf)只有三個小節，拿掉了 MOOC 版的 Weighted Classification。Fall 2026 在 W4（09/30）課前必看清單裡，L8 也只列前三支影片。加權分類在本篇保留，因為 MOOC 仍有這一節，而且技法的 AdaBoost 會用到同樣的想法。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=XxPB9GlJEUk
+title: Definition of VC Dimension
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WQzhc1IdB_I
+title: VC Dimension of Perceptrons
+```
+
+原始影片：[Definition of VC Dimension](https://www.youtube.com/watch?v=XxPB9GlJEUk)、[VC Dimension of Perceptrons](https://www.youtube.com/watch?v=WQzhc1IdB_I)、[Physical Intuition of VC Dimension](https://www.youtube.com/watch?v=5-V5WCf8cY8)、[Interpreting VC Dimension](https://www.youtube.com/watch?v=_DN_oF-i6ag)、[Noise and Probabilistic Target](https://www.youtube.com/watch?v=Br8J5pZM_CE)、[Error Measure](https://www.youtube.com/watch?v=2gCnX0V1do8)、[Algorithmic Error Measure](https://www.youtube.com/watch?v=0ApgGq4mh1E)、[Weighted Classification](https://www.youtube.com/watch?v=XfuRb1jT4hs)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 第一部分：VC 維度
 
 ### 定義
@@ -190,6 +210,10 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 下一篇[線性迴歸與邏輯迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)進入「How Can Machines Learn?」，用本篇的平方誤差推出線性迴歸的閉式解，再從 likelihood 推出 cross-entropy 與梯度下降。
 
 延伸閱讀：Stanford CS229 的[泛化一章導讀](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)用 bias–variance 的角度看同一個問題；Caltech 版的 Lecture 8 也是 Bias-Variance Tradeoff，跟林軒田把 L8 排成 Noise and Error 的路線不同，可以對照著看。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

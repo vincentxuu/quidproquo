@@ -38,6 +38,14 @@ glossary:
 
 **怎麼讀這篇**：本講有兩層。模型層在講注意力架構、位置編碼、訓練資料，是做模型的人的事；harness 層在講 prompt cache 和 compaction，是每個寫 agent 的人每天都會碰到的事。只寫 agent 不訓練模型的讀者，可以先跳到「Harness 層」。模型層每一節都先給直覺，公式收在折疊區；如果想先補注意力與推論的基礎，站內的 [CS336 Lecture 4：Attention 與 MoE](/posts/ai/2026-08-22-cs336-attention-moe) 和 [CS336 Lecture 10：推論](/posts/ai/2026-08-22-cs336-inference) 是很好的前置。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Agent 的 context 為什麼長得這麼快
 
 投影片第一張就是一個二次方：假設固定前綴 1K、每次呼叫多 5K 歷史，第 1 次輸入 6K，第 2 次 11K，第 3 次 16K……五次呼叫累積要處理 80K token。歷史是線性長的，**送進模型的總量是二次方長的**。Neubig 說他自己跑過接近一整天的 coding agent session，可以想像會變多大。
@@ -454,6 +462,10 @@ Neubig 講了一個 OpenHands 早期的故事。他們認為自己做出了最�
 - [CS336 Lecture 10：LLM 推論的核心不是少算，而是少讀權重與 KV cache](/posts/ai/2026-08-22-cs336-inference)：prefill／decode 與 KV cache 的系統觀點
 - [Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型](/posts/ai/2026-03-24-context-engineering-guide)：harness 層的實務整理
 - [Stanford CS329Z 導讀 Week 4：ReAct 與 MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory)：MemGPT 外存記憶的另一種講法
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -20,6 +20,14 @@ draft: false
 
 Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), Build an Agentic Harness: no agent frameworks, just a chat-completion call, and you build a company's internal AI assistant from scratch — with the project proposal due Friday (Oct 9). Hand-building in the homework while reading a framework paper in lecture is where this week's tension lives.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## MCP: the standard plug for tools
 
 The spec's inspiration is LSP (Language Server Protocol): back when every editor needed per-language rewiring, unification unlocked the ecosystem. MCP wants the same for AI tools, in three roles: the host is the LLM app, building clients, aggregating context, and enforcing consent and security policy; clients are connectors inside the host, one client per server; servers provide context and capabilities, all over JSON-RPC 2.0. Isolation is a stated design principle: servers never see the full conversation or each other. Capabilities are negotiated up front at initialization — undeclared features stay off.
@@ -54,6 +62,8 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 
 ## References

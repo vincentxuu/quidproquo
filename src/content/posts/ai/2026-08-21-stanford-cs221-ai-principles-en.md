@@ -24,6 +24,14 @@ In 2026, when everyone is talking about LLMs, a course still teaching A\* and re
 
 What follows covers the hard facts, how the course defines AI, the four-layer spine, what Autumn 2025 cut, what the eight assignments actually ask for, and how much primary material you can get without enrolling. It does **not** teach the material lecture by lecture — that's the lecture notes' job, and they're public; paths at the end. The series entry point is [Reading Stanford's CS Courses](/posts/learning/2026-08-20-stanford-cs-course-map-en), which places this course on the ladder.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The hard facts
 
 Instructors rotate. [Autumn 2025](https://stanford-cs221.github.io/autumn2025/) was taught by [Percy Liang](https://cs.stanford.edu/~pliang/); [Spring 2025](https://stanford-cs221.github.io/spring2025/) by Moses Charikar and Zachary Robertson. Per the [ExploreCourses entry for CS221](https://explorecourses.stanford.edu/search?q=CS+221&view=catalog), the 2026–2027 autumn section goes to Liang and the spring section to Charikar. Units and meeting times are in the appendix.
@@ -174,6 +182,10 @@ For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2
 - **Assignment lineup across offerings**: Autumn 2022 was foundations, blackjack, pacman, scheduling, car, logic; Autumn 2023 swapped blackjack for sentiment; Autumn 2024 and Spring 2025 added route and mountaincar for a total of eight; Autumn 2025 removed scheduling and car and added bayesian and society.
 - **Late policy**: 7 late days for the quarter, at most 2 on any single assignment; past that, the cap drops 25% per additional day, and nothing is accepted more than 2 days late.
 - **What could not be confirmed**: (1) which of the three official pages takes precedence when they disagree on prerequisites — none of them says; this piece can only suggest taking the union, not settle the ordering. (2) Why constraint satisfaction was cut — the first lecture records the outcome and an emoticon, no reason. (3) Why the project dropped from a graded component to extra credit — no course site across the offerings explains it. (4) The assignment policy page says submitted code has "no guarantee of support for packages beyond the standard library" and tells you not to use numpy, scikit-learn or pandas, yet the setup steps for the first assignment tell you to run `uv add numpy einops`; I can't determine from the pages themselves which scope each rule applies to. (5) Autumn 2025 enrollment is not published.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

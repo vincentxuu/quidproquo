@@ -30,6 +30,22 @@ glossary:
 
 The official material is the [L14 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/cachecoherence/14_coherence.pdf) (45 pages, also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)). Fall 2025 recordings are Canvas-only; the course home page points to the 2023 [Lecture 11 Cache Coherence video](https://www.youtube.com/watch?v=lrCfG2CPDEw) instead. This post follows the 2025 slides and lists the video only as a supplement. The access level is **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are fully public, and only the current recordings are missing.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=lrCfG2CPDEw
+title: CS149 2023 Lecture 11 Cache Coherence video (supplement)
+```
+
+Original videos: [CS149 2023 Lecture 11 Cache Coherence video (supplement)](https://www.youtube.com/watch?v=lrCfG2CPDEw)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
+
 ## Why the course returns to caches after AI kernels
 
 That is the official order: L9 through L13, PA4, and PA5 cover AI systems, and L14 through L18 return to correctness in shared memory. The topic seems to break, but it connects back to two earlier places:
@@ -200,6 +216,10 @@ Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page diff
 Further reading: locks and synchronization from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [PA5, the fastest kernel on an H100](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en) | next [L15 Memory consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -21,6 +21,14 @@ This article uses only the public [lecture notes](https://stanford-cs161.github.
 
 Lecture 12 introduced the language of dynamic programming through Bellman–Ford and Floyd–Warshall. Lecture 13 immediately applies that language to three problems that look unrelated: strings, capacity-constrained selection, and trees. The actual lesson is not three formulas. It is how to determine exactly what a subproblem must remember. Leave one condition out of a state and an algorithm may reuse an item illegally. Choose the state well and a problem that is NP-hard on general graphs becomes linear on trees.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
+
 ## The lecture's five-step dynamic programming recipe
 
 The notes open with five steps for designing a dynamic program. They also provide the organizing spine for the lecture:
@@ -228,6 +236,10 @@ The following implementation ideas are not part of the formal Winter 2026 Lectur
 LCS length needs only two rows. Recovering a sequence with less than the full `mn` table requires a more advanced divide-and-conquer reconstruction method. Zero-one knapsack can be compressed to one dimension, but `x` must run from `W` downward. Unbounded knapsack normally runs capacity upward because reuse within the same pass is legal. What looks like a small loop-direction detail controls whether transitions read a newly written value or a value from the preceding item stage.
 
 To reconstruct vertices for tree MWIS, store whether `A(u)` came from including or excluding `u`, then traverse downward from the root. Ties may be resolved arbitrarily or preserved to enumerate multiple optima. These additions do not change the lecture's correctness argument, but they complete step four of the recipe: returning the actual solution.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

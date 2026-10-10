@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 7, “Deep learning,” on printed pages 80–113 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of a quarter's deep-learning recordings.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## From fixed features to learned representations
 
 Earlier models are mostly linear in their parameters. Even when a kernel implies complicated features, the feature map is selected rather than learned end to end. Neural networks replace that model with \(\bar h_\theta(x)\), nonlinear in both inputs and parameters. Regression uses its output directly; binary and multiclass classification treat outputs as logits and apply sigmoid or softmax with the corresponding negative log-likelihood.
@@ -60,6 +69,10 @@ This chapter reuses Chapter 2's classification losses and extends Chapter 5's re
 ## Self-study exercise
 
 Using only matrix operations, implement a two-layer MLP with a ReLU hidden layer and binary logistic loss. Write forward and backward passes, check every parameter gradient with finite differences, and then convert the per-example version into batch-first vectorized code. Verify that both versions produce matching gradients.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

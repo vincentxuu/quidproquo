@@ -20,6 +20,14 @@ This is Lecture 1 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fa
 
 Everything below follows the course site as fetched on 2026-09-29. The site marks its schedule `Subject to change`, so dates and topics may still move.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 Materials read for this post:
@@ -138,6 +146,10 @@ For prerequisites, the site asks for 07-280 plus one probability course, each wi
 3. Before Lec2, read the [PR1 Propositional Logic notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf). The course puts syntax and model checking in the pre-reading, and Lec2 starts straight from algorithms.
 
 Next: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Previous: [series overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

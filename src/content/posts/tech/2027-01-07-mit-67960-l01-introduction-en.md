@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=6FkRvTtUc-o
+title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 1. Why deep learning exploded after the 2010s
 
 LeCun, Bengio, and Hinton's 2015 *Nature* survey makes the case clearly: **three forces matured at the same time.**
@@ -96,6 +112,10 @@ If you're just auditing:
 - **Engineer**: skim L03 → L07 → L08 → L14 → L20 → L21 → L24, for theory and modern LLM engineering practice.
 - **Researcher**: read L03 through L24 in order, and actually do PS1–PS3.
 - **Practitioner**: L14–L17 + L18–L19 give you deployment and transfer judgment.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

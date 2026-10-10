@@ -19,6 +19,14 @@ This is article 11 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The lecture expands from one random variable to how several variables move together. A joint distribution is the complete starting point. Summing out an unneeded variable produces a marginal; normalizing a row or column produces a conditional; independence asks whether the joint factors into a product of marginals.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Open with a Normal review
 
 For an IQ-like score `X~N(100,225)`, the second parameter is variance, so `σ=15`. The z-score of 130 is two:
@@ -145,6 +153,10 @@ The guide orders joint PMFs, marginals, conditioning within a joint, independenc
 - P6 and the challenge are pset4 items deliberately omitted from the public answer key; this article derives them only from the public prompts.
 - The challenge prior is `3/4`; `34` is a PDF fraction-extraction artifact.
 - The Canvas recording is inaccessible. The worksheet and guide are two pages each, so the short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

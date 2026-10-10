@@ -41,6 +41,26 @@ This post answers one question: **how does GPT-3, a model that continues text, b
 
 The outline has five items: a recap from GPT-1 to GPT-3, the Sparse Transformer, InstructGPT, RLHF, and Meta's Llama and Llama-2.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=w-M9plRRVQc
+title: Week 8 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=h-m9wVSx0_s
+title: Week 8 Thu.
+```
+
+Original videos: [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## From GPT-1 to GPT-3: only a few architecture changes
 
 **GPT-1** ([Radford et al. 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)) is the decoder half of the Transformer: 12 layers, 117M parameters, trained with a language modeling objective. The slides put it next to the original Transformer diagram. With no encoder, the decoder's cross-attention is gone too.
@@ -197,6 +217,10 @@ One thing to do tonight: ask your usual chat model one factual question and one 
 - Approaches to preference tuning: [Reading CME295: Preference Tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - SFT and RLHF from an engineering angle: [Reading CS336: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Why GQA and the KV cache hit memory limits: [Reading NTU Hung-yi Lee ML 2026: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

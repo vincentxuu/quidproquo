@@ -32,6 +32,27 @@ CS224U 2023 年 4 月 5 日那堂的主題是 contextual word representations。
 
 Potts 在第 04 支影片一開頭就說明了取捨：以前的版本會花大約兩週講靜態向量，2023 年這版直接跳到上下文表徵。靜態向量變成課程網站上的[背景材料](https://web.stanford.edu/class/cs224u/background.html)。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=FEFeeRONEdw
+title: 影片 04：Contextual Word Representations, Part 1: Guiding Ideas
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yqV_YfBBtK0
+title: 影片 05：Part 2: Transformer
+```
+
+原始影片：[影片 04：Contextual Word Representations, Part 1: Guiding Ideas](https://www.youtube.com/watch?v=FEFeeRONEdw)、[影片 05：Part 2: Transformer](https://www.youtube.com/watch?v=yqV_YfBBtK0)、[影片 06：Part 3: Positional Encoding](https://www.youtube.com/watch?v=JERXX2Byr90)
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 場景：同一個「break」，八種意思
 
 投影片第 4 頁列了一串例子，全部是同一個動詞：
@@ -181,6 +202,10 @@ $$\alpha_{ij} = \mathrm{softmax}\left(\frac{(x_i W^Q)^\top (x_j W^K + a^K_{ij})}
 - 投影片第 27 頁的文字檔在相對位置編碼下仍印著兩條「Limitations」，但錄影明確說相對位置編碼兩題都過。PDF 抽出的文字看不出原投影片是否有刪除線，本文以錄影的說法為準。
 
 **系列導覽**：上一篇 [開場：NLU 的演進與課程地圖](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)｜下一篇 [上下文表徵 II：GPT、BERT、RoBERTa、ELECTRA、seq2seq 與蒸餾](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

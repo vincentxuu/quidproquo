@@ -33,6 +33,26 @@ glossary:
 
 存取等級是 **A3**：題目、起始碼和完整資料都公開，缺的是解答與評分腳本（在 NTU COOL）。Fall 2026 的 HW2 還沒公布，本篇內容全部是 2025 版。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=INIrdjLVMEU
+title: Fall 2025 W4 Tue 助教課錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=nFQCFaRs0kE
+title: 2025 HW2 說明影片
+```
+
+原始影片：[Fall 2025 W4 Tue 助教課錄影](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 說明影片](https://www.youtube.com/watch?v=nFQCFaRs0kE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 助教課：交作業前的工具箱
 
 助教課從環境安裝講起（Anaconda、conda 指令、依 CUDA 版本安裝 PyTorch），再用 y = ax² + b 的例子帶出「模型、loss、optimizer」三件事。以下只挑和 HW2 直接相關的部分。
@@ -130,6 +150,10 @@ PDF 建議數據盡量用文字呈現，不要只貼圖，方便批改。繳交�
 - 本系列下一篇：[Transformer 與 Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers)
 - 英文課的 RNN 段落：[CMU 11-785：RNN（一）](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)、[CMU 11-785：RNN（二）](/posts/ai/2026-08-22-cmu-11785-14-rnn-two)
 - 回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

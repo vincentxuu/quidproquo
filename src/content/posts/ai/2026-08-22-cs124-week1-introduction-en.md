@@ -19,6 +19,14 @@ draft: false
 
 **Course version:** CS124 / LINGUIST 180, Winter 2026. **Official unit:** Week 1, January 6 and 8. **Instructor:** Dan Jurafsky, with a separate Jupyter/PA0 tutorial on January 8. **Public materials:** the [schedule and syllabus](https://web.stanford.edu/class/cs124/lec/), [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf), and [PA0 repository](https://github.com/cs124/pa0-jupyter-tutorial). **Public-material gap:** the live Introduction was not recorded, and the platform-specific setup videos require Stanford Canvas access. This article therefore does not reconstruct live discussion.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
 ## One course, several kinds of information
 
 The official [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf) list BPE tokenization, logistic regression, embeddings, neural networks, attention, sampling, language-model loss, and RAG alongside information retrieval, recommendation, speech recognition, social networks, and ethical issues. Their common problem is representation: turning language and relationships into objects a machine can rank, predict, or generate.
@@ -82,6 +90,10 @@ Independent study can still preserve artifacts that a deadline-driven student mi
 ## Further study
 
 For the broader course, prerequisites, and source-access audit, see the [existing CS124 overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). This article covers only Winter 2026 Week 1 and does not import older public recordings.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

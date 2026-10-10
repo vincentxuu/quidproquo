@@ -42,6 +42,15 @@ glossary:
 
 三講共用一個問題：**前面在文字和圖片上學到的 tokenizer、Transformer、latent diffusion，要怎麼延伸到聲音、時間軸，以及會回應使用者動作的世界？** 答案的形狀一再重複：先找一個好的表示（頻譜圖、離散 token、潛在空間），再套用已經學過的生成模型。
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## L24：音訊的理解與合成
 
 ### 先把聲音變成模型吃得下的東西
@@ -231,6 +240,10 @@ Genie-2 的技術描述很模糊，投影片推測主要的改變是規模（更
 延伸閱讀：擴散與 flow matching 的數學可以讀 [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；世界模型在強化學習裡的角色可以看 [CS234 客座：World of World Modeling](/posts/ai/2026-09-30-cs234-guest-world-models)。
 
 系列導覽：上一篇 [L23：程式生成與自主 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)｜下一篇 [收尾：練習考卷、HW623 與期末專案](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

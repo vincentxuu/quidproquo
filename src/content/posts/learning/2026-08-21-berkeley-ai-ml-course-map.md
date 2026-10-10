@@ -21,6 +21,19 @@ draft: false
 
 麻煩在於，課號和公開程度都會誤導人。CS185 與 CS285 是同一主題的大學部／研究所配對，CS180 與 CS280A 也是；但 CS C280 又是另一門研究所視覺課。某個學期曾公開的網址，隔年也可能變成 404。這篇因此同時檢查官方 prerequisites、2025–2026 實際課站，以及匿名讀者現在拿不拿得到講義、作業、程式碼與錄影。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [Berkeley EECS 的學士方案比較](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)
+- [UC Berkeley EECS — CS Lower-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-lowerdiv/)
+- [UC Berkeley EECS — CS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-upperdiv/)
+- [UC Berkeley EECS — EECS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/eecs-2/degree-reqs-upperdiv-2/)
+- [CS61A — Fall 2025](https://www-inst.eecs.berkeley.edu/~cs61a/fa25/)
+- [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+
 ## 先打地基：61A、61B、70 與數學
 
 Berkeley 的 CS BA lower-division requirements 包含 CS61A、CS61B 或 61BL、CS61C、CS70，以及微積分與線性代數。若只看 AI／ML 課程的直接 prerequisites，可以壓成這個結構：
@@ -166,6 +179,8 @@ Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-30：CS189 Spring 2026 課站已重新上線，改判 A3 並補進盤點表；Spring 2025 的正式錄影需 bCourses 登入，移除「影片公開」的說法；連到擴寫後的 CS189 導讀系列。
 - 2026-08-22：依 CS C280 官方背景要求，把 CS C182 補回進階視覺自學路線。
 

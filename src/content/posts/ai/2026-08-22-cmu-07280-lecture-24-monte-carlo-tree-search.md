@@ -17,6 +17,14 @@ series:
 
 **CMU 07-280 Spring 2026 Lecture 24** 是 **Monte Carlo Tree Search（MCTS）**。現行 Fall 2026 首頁另外顯示 LLM Post Training，但那不是本系列鎖定的 Spring canonical lecture。這一講把前面的 adversarial search、sampling、Q estimates、deep networks 與 self-play 組成 Building AlphaZero 的收束。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 Spring 2026 Lecture 24 `MCTS` slides 與 pptx 直鏈在 2026-08-22 回傳 404，因此本文不宣稱讀過該講投影片。核心來源是 [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf)、[Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf)，再以[官方課程首頁](https://www.cs.cmu.edu/~07280/)的 S26 filename 與 assignment metadata 核對版本。
@@ -107,6 +115,10 @@ Spring 2026 以 MCTS 結束，正好把整門課的兩條線接起來：前半�
 ## 今晚可做動作
 
 實作「11 顆糖、每次拿 1 或 2 顆」遊戲。先做 FlatMCSearch，再加入 node visits、mean value、UCB selection、expansion 與 alternating-sign backup。固定 random seed，比較 10、100、1,000 simulations 時 root policy。最後加入一個刻意偏錯的 prior，觀察多少 simulations 後 search 能否修正它。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

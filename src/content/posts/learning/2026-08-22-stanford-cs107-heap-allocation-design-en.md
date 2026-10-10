@@ -19,6 +19,14 @@ Lecture 20 ended by changing perspective from a client of `malloc` to its implem
 
 The goal is not one universally best data structure. An allocator simultaneously wants correct alignment, fast responses, and high space utilization, but improving one can damage another. A bump allocator spends almost no time searching but cannot truly reuse individual blocks. An implicit free list reuses space but scans allocated blocks too. This lecture progressively adds bookkeeping and accounts for both the capability it buys and the cost it creates.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -175,6 +183,10 @@ The implementation must likewise respect overlap and failure atomicity: it canno
 Write invariants before the main `malloc` loop: payload alignment, whether header size includes itself, minimum block size, the allocated-bit location, heap termination, overflow rejection, legality of both split products, and coalescing timing.
 
 The lasting lesson is not memorizing first fit. Every piece of metadata purchases an ability: a header enables traversal and reclamation, padding ensures alignment, search enables reuse, splitting improves utilization, and coalescing restores large intervals. Each also costs something. The next lecture extracts free blocks into an explicit list, once again buying a shorter search with more structure.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

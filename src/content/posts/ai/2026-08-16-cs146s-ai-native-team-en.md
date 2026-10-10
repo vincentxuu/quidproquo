@@ -27,6 +27,14 @@ Three topics: MCP portals and centralized, permissioned tool access; LLM gateway
 
 This week handles what the first eight sidestepped: **what happens when the user is a company rather than a person.**
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## Where "everyone wires their own" breaks
 
 One engineer connecting five MCP servers on their laptop is fine. Three hundred engineers each doing it grows five problems at once:
@@ -119,6 +127,10 @@ And one refreshingly honest one: the inference team treats it like a "slot machi
 - Anthropic's internal usage figures are self-reported, single point in time, single company
 - The MCP registry and enterprise portal product landscape moves fast; this post covers responsibilities, not products
 - Model pricing and capability tiers reshuffle every few months, so routing strategy needs re-validation
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

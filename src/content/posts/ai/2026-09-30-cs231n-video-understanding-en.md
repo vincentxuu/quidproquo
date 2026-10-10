@@ -33,6 +33,22 @@ The [previous post](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualiza
 
 One question ties the lecture together: **where in the network do you handle the extra T, and at what cost?** Each architecture is a different answer.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=wElqklprhPE
+title: Stanford CS231N 2025 Lecture 10: Video Understanding (YouTube)
+```
+
+Original videos: [Stanford CS231N 2025 Lecture 10: Video Understanding (YouTube)](https://www.youtube.com/watch?v=wElqklprhPE)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Task and data: from objects to actions
 
 Image classification recognizes dogs, cats, and trucks. Video classification recognizes swimming, running, jumping, and eating. The example dataset is [Sports-1M](https://cs.stanford.edu/people/karpathy/deepvideo/): 1 million YouTube videos labeled with 487 sports (Karpathy et al., CVPR 2014).
@@ -145,6 +161,10 @@ So far everything classifies short clips. The second half extends in three direc
 - Why long sequences are expensive and how to split them across GPUs: the next post, [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en)
 
 **Series navigation**: Previous: [L9: Object Detection, Segmentation, and Visualization](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en) | Next: [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

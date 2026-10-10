@@ -33,6 +33,21 @@ glossary:
 
 Barak 開場先聲明：他在 OpenAI 不做 pretraining、RL 或推理模型，這堂課的內容來自公開論文。課前指定閱讀有五篇：[InstructGPT](https://arxiv.org/abs/2203.02155)、[Constitutional AI](https://arxiv.org/abs/2212.08073)、[DeepSeekMath](https://arxiv.org/abs/2402.03300)、[DeepSeek-R1](https://arxiv.org/abs/2501.12948)、[Deliberative Alignment](https://arxiv.org/abs/2412.16339)。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=GXggPt_gqiI
+title: Lecture 2 錄影：LLM 訓練流程與安全訓練（Modern LLM training and safety training）
+```
+
+原始影片：[Lecture 2 錄影：LLM 訓練流程與安全訓練（Modern LLM training and safety training）](https://www.youtube.com/watch?v=GXggPt_gqiI)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 直覺先行：這一講只需要記住一件事
 
 HW0 是動手操作，這一講開始大量出現 RL 術語。先給一句話的直覺，後面所有東西都掛在它上面：
@@ -187,6 +202,10 @@ Barak 的講評比結果更值得記：
 延伸閱讀：RL 數學與 RLHF 的完整推導，站上有 [CS336 SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)、[CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr)、[CME295 preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning)、[CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms)，以及 [CS285 的 policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [HW0：用 1B 模型重現 emergent misalignment](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment)｜下一篇 [L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

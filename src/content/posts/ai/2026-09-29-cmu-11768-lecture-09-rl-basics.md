@@ -34,6 +34,14 @@ glossary:
 
 這篇照講者的順序走，數學一律放在折疊區。只想抓直覺的讀者，跳過所有「機制」折疊區也讀得完。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 場景：在 1 到 16 之間猜一個數字
 
 整講用同一個例子。環境藏了一個 1 到 16 的整數，agent 有四次機會。猜錯時環境回「higher」或「lower」，猜中就結束，拿到獎勵 1；四次用完還沒中，獎勵是 0。
@@ -363,6 +371,10 @@ $$\nabla_\theta J = \sum_t w_t\, \nabla_\theta \log \pi_\theta(a_t \mid h_t)$$
 - [Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)（CS230）
 - [CME295 第 5 講：RLHF 與 DPO 怎麼補上負面訊號](/posts/ai/2026-09-29-cme295-preference-tuning)
 - [CME295 第 6 講：reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼](/posts/ai/2026-09-29-cme295-llm-reasoning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

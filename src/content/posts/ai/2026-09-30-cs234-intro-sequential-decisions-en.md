@@ -33,6 +33,21 @@ The first lecture of [CS234](https://web.stanford.edu/class/cs234/) has three pa
 
 One note first: the post-class PDF has 60 pages, but its page numbers read "/ 70," and the last page is the day's summary. The next lecture's slides pick up where this one stops.
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=WsvFL-LjA6U
+title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WsvFL-LjA6U)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## What RL is
 
 The slides define it in one line: **learning through experience or data to make good decisions under uncertainty.**
@@ -216,6 +231,10 @@ If you want to compute something, take the Mars rover MRP with γ = 0.5 and rewa
 - [CS221 L7: MDPs and value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en): MDPs in a prerequisite course
 
 **Series navigation**: previous, [series overview](/posts/ai/2026-09-30-cs234-course-overview-en) | next, [Planning with a model: policy evaluation, PI, VI](/posts/ai/2026-09-30-cs234-mdp-planning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -35,6 +35,26 @@ glossary:
 
 The [previous post](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en) turned text into vectors from the retrieval side. This one switches to language models. The first slide is titled "GAI Motivation" and lists two problems with supervised learning (text classification, QA systems): not enough training data, and limited domain knowledge. The next slide says the most common way to generate a sentence is to write the words down one after another.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cqp5a39eyJQ
+title: Fall 2025 Week 2 Thu. recording
+```
+
+Original videos: [Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch?v=6Z0A4JMptT8)、[Fall 2025 Week 2 Thu. recording](https://www.youtube.com/watch?v=cqp5a39eyJQ)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Statistical language models: counting n-grams
 
 The slides recall Markov (1913, on how the chance of a letter depends on the letter before it) and Shannon (1951, "Prediction and Entropy of Printed English"). Then they use a collage of Chinese song lyrics: in that text, the probability that one particular character follows "you" is 1/4, and the probability that it follows a longer three-character history is 0. A language model learns exactly these conditional probabilities.
@@ -162,6 +182,10 @@ The 2026 main README links the [v2 of this deck](https://github.com/IKMLab/NTHU_
 
 - [CS224N word vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en): Stanford's derivation of word2vec.
 - [CS224N RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en): another take on n-grams, perplexity, and RNN language models.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

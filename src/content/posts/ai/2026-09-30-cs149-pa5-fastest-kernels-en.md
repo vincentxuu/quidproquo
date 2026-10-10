@@ -29,6 +29,14 @@ glossary:
 
 This post covers what each problem exercises, what to measure first, and which direction to think in. **No solutions.**
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
+
 ## How this assignment differs from the first four
 
 The [README](https://github.com/stanford-cs149/asst5-kernels/blob/main/README.md) frames PA5 as "a very short final project." The staff calibrated it so a team can earn a decent score in about two evenings, while teams that want to go deep can spend much longer chasing very fast code. Compared with [PA1](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en) through PA4, three things change:
@@ -161,6 +169,10 @@ One more thing to watch: the SwiGLU README calls [arXiv 1710.05941](https://arxi
 Further reading: the full FlashAttention story in [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention-en); Triton's programming model in [CS336 kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en); another take on GPU programming in [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
 
 **Series**: previous [L13 DSLs and AI-driven optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) | next [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

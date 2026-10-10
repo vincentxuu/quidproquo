@@ -19,6 +19,14 @@ Bitwise operator 暫時忽略整體數值，把每個位置當成獨立欄位。
 
 本講先收束 conversion 與 truncation，再進入 operators、bit vector 與 bitmask。本文依 [Winter 2026 Lecture 4 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf) 展開。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 講次資料與材料邊界
 
 - 課程：Stanford CS107: Computer Organization and Systems
@@ -331,6 +339,10 @@ schedule ^= CS106A;
 6. Mask 的四個核心 idioms 是設定、清除、測試與切換，而且都能從 truth table 推導，不必硬背。
 
 下一講會接續 left shift、right shift 與 `gdb`。先記住 mask 中 1 是要操作的位置、0 是要保留的位置；shift 會提供建立與搬動這些位置的方法。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

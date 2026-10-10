@@ -19,6 +19,14 @@ This is article 11 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Graphs, Part I**. The lecture abstracts a graph from “objects and their relationships,” then uses two placement problems to motivate vertex covers and independent sets. Its central result is an iff theorem: a set `C` is a vertex cover exactly when its complement `V − C` is an independent set.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)
+
 ## Graphs compress domain stories into relationship structures
 
 Highway maps, chemical bonds, and social relationships come from different domains, yet share one skeleton: a collection of objects and links between them. Graph theory deliberately discards the objects' physical nature and the links' domain-specific meaning, retaining only which objects are connected. That is not indifference to reality; it is a decision about which information the current argument needs.
@@ -152,6 +160,8 @@ Recordings, transcripts, and classroom discussion are not public, so this articl
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the article from the official Graphs, Part I deck, restoring the formal definitions, complement iff theorem, and both proof directions.
 
 ## References

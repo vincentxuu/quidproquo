@@ -43,6 +43,21 @@ This post covers Lecture 4, "LLM training," of the 2025 edition of Stanford's [C
 
 The first three lectures answered "what does an LLM look like?" Lecture 4 asks a different question: how does that machine go from random weights to an assistant that answers questions? The slides give a two-part answer. First **pretraining**, which teaches the model the patterns of language and code. Then **finetuning**, which teaches it to do what it's told. The two stages differ in cost by several orders of magnitude, and most of the lecture is about where the money and memory go and how to save them.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: 2025 Lecture 4 recording
+```
+
+Original videos: [2025 Lecture 4 recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Start with a counterexample: a pretrained model only continues text
 
 The slides open with a question: "Can I put my teddy bear in the washer?"
@@ -279,6 +294,10 @@ These questions are adapted from Part IV, "LLM training," of the [2025 midterm](
 - Why GPUs are bottlenecked on data movement: [CS336 Lecture 5](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - ZeRO, FSDP, and 3D parallelism: [CS336 Lecture 8](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 - RLHF after SFT: [CS336 Lecture 15](/posts/ai/2026-08-22-cs336-sft-rlhf-en), and [Lecture 5](/posts/ai/2026-09-29-cme295-preference-tuning-en) of this series
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

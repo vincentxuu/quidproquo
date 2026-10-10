@@ -33,6 +33,26 @@ Read the lectures along this line and they stop feeling like a pile of unrelated
 | Discussion 2 | Week 3 | [Worksheet](https://drive.google.com/file/d/1MZs3r4ZOMhKUTAXjvLU9lxeCvGCUq1ND/view?usp=drive_link) / [Solutions](https://drive.google.com/file/d/1rGh1__n8Q7q9ScAJvSQWFsygwwsChh5V/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/watch?v=Mf4deCkjUkQ&list=PL-ysCubq-Sa9uYDjsrzfmPCLLbjfOKVPd&index=3) | — |
 | Discussion 3 | Week 4 | [Worksheet](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view?usp=drive_link) / [Solutions](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj) | — |
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=STdR9OyulZE
+title: video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=kU7a1K3PX10
+title: video
+```
+
+Original videos: [video](https://www.youtube.com/watch?v=STdR9OyulZE)、[video](https://www.youtube.com/watch?v=kU7a1K3PX10)、[video](https://www.youtube.com/watch?v=JzlMrqaa_-A)、[video](https://www.youtube.com/watch?v=0YLmbbERr0g)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Lec 4, first half: K-means clustering
 
 Lecture 4 sets unsupervised learning next to supervised learning. Supervised data comes as (xᵢ, yᵢ) pairs, while unsupervised data has only xᵢ. The slides list five unsupervised tasks: clustering, dimensionality reduction, representation learning, generative modeling and density estimation. The clustering examples include geyser eruption patterns, customer segments, disease subtypes, cell types in single-cell data and ancestry groups in genetic data.
@@ -167,6 +187,10 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 - [Stanford CS109 L19: maximum likelihood estimation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en): another take on MLE
 - [Stanford CS109 L9: the normal distribution](/en/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en): background on the univariate Gaussian
 - [Stanford CS229 notes Ch. 4: generative learning algorithms](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en): multivariate Gaussians used for classification
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

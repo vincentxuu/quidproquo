@@ -19,6 +19,14 @@ This is article 6 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 Propositional logic treats a whole statement as true or false and combines statements with `¬`, `∧`, `∨`, `→`, and `↔`. This lecture opens that black box. Which objects does a sentence discuss? Which property applies to which object? How do “some” and “every” enter a formula? The main difficulty is not the larger alphabet. Every syntactic component has a fixed input and output type.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)
+
 ## From Propositional Logic to Objects
 
 A propositional variable can represent one truth value but cannot preserve the internal structure of who likes whom. First-order logic (FOL) adds three kinds of tools. Predicates describe properties and relations among objects, functions map objects to objects, and quantifiers let one formula range over possible objects.
@@ -140,6 +148,8 @@ The complete deck supports the sequence from object language through the two qua
 
 ## Update Log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the lost bilingual body item by item from the official Lecture 4 deck, corrected topic metadata, and restored constants, predicates, functions, quantifiers, scope, precedence, and translation examples.
 
 ## References

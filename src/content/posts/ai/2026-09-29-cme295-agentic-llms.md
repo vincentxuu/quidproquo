@@ -44,6 +44,21 @@ glossary:
 
 整講延續第 1 講的泰迪熊：「Where is Cuddly?」「Find a bear near me!」「My teddy bear is cold.」三個問題分別對應三塊。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
+title: 2025 版第 7 講錄影
+```
+
+原始影片：[2025 版第 7 講錄影](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## RAG：回答之前先查資料
 
 ### 為什麼不能把所有資料都塞進 prompt
@@ -276,6 +291,10 @@ Google 2025 年發表的 [Agent2Agent（A2A）](https://developers.googleblog.co
 - RAG 各世代與變體的全景：[RAG 系統模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - 投影片提到的 chunk 上下文化：[Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
 - agent 迴圈在真實 coding agent 裡怎麼實作：[跟成熟 coding agent 學設計（2）：Agent loop 的形狀](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

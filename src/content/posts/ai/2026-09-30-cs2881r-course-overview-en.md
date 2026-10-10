@@ -33,6 +33,14 @@ Head TA Roy Rinberg's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vp
 
 This post answers three questions: where the materials are, what you can actually get, and how to read this series. Lecture content lives in the later posts.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Where the site is: an old ML theory seminar URL
 
 The first trap is the URL. The course lives on Boaz's GitHub Pages at `boazbk.github.io/mltheoryseminar/`, the path he used for his earlier ML theory seminars. The footer still links the [Spring 2023 ML Theory Seminar](https://boazbk.github.io/mltheoryseminar/spring2023) and a Spring 2021 version.
@@ -151,6 +159,10 @@ Each post in this series stands on its own. Where it overlaps other course guide
 - Other Harvard courses: [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
 One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) README, read the three "Instructions" steps, and decide whether your GPU or cloud budget can handle LoRA fine-tuning of a 1B model.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

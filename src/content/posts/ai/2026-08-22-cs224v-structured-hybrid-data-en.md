@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 6 replaces free text with databases. The main challenge is no longer placing relevant prose in context. It is translating user constraints into a precise query that matches the schema. This remains the Fall 2025 Conversational Virtual Assistants course, not the renamed Autumn 2026 syllabus.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: structured queries and hybrid retrieval
 
 The deck defines relational databases, schemas, and NL-to-SQL semantic parsing; then covers small and large enumerated domains, empty results, and evaluation traps. Its second half expands to text, tables, and Wikidata through query classification, retrieve-and-read, and multi-source combination. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf))
@@ -97,6 +105,10 @@ Write ten questions for one restaurant table and save gold result sets rather th
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The slides survey architectures and literature without a single complete reference implementation. Their benchmark tables do not establish cross-dataset generalization. No recording or full speaker notes are public.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

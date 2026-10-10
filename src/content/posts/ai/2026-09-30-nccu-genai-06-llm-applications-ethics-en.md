@@ -30,6 +30,21 @@ glossary:
 
 Four official sources: [video 06](https://www.youtube.com/watch?v=m6DFB60Tk68) (2025-03-25, about 3 h 4 min, in Mandarin), the 57-page GenAI06 slides (in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)), the notebook [`【Demo04】用OpenAI_API打造員瑛式思考生成器`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8.ipynb) in the [AI-Demo](https://github.com/yenlung/AI-Demo) repo, and the week-6 assignment on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Videos, slides, notebooks, and assignment text are all public. The notebooks live in a repo shared across many workshops, though, so **everything below refers to the current repo version, which may have changed since the semester ended.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=m6DFB60Tk68
+title: Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)
+```
+
+Original videos: [Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=m6DFB60Tk68)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits
 
 Video 06 has three sessions. Session one (roughly 0:16–1:01) covers new models and ethics. Session two (1:11–2:01) covers prompt design and live coding. Session three is student lightning talks and feedback on the week-3 assignment. The slides follow the same order in three parts: "LLM problems and discussion", "Customizing your LLM with good prompts", and "Building your own chatbot with the OpenAI API".
@@ -193,6 +208,10 @@ This post stands on its own. For more depth, other series on this site:
 - The full course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L05 Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en) | Next: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

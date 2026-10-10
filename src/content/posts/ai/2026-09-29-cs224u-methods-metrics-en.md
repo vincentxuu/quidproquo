@@ -30,6 +30,27 @@ Official sources: slides 1–41 of the [Methods and metrics deck](https://web.st
 
 Datasets, data organization, and model comparison make up the second half of the slides and are left for the [next post](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en).
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=ORg6bZ3d1Rc
+title: Video 39: NLP Methods and Metrics, Part 1: Overview
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=mbL4uUNtZwY
+title: Video 40: Part 2: Classifier Metrics
+```
+
+Original videos: [Video 39: NLP Methods and Metrics, Part 1: Overview](https://www.youtube.com/watch?v=ORg6bZ3d1Rc)、[Video 40: Part 2: Classifier Metrics](https://www.youtube.com/watch?v=mbL4uUNtZwY)、[Video 41: Part 3: Generation Metrics](https://www.youtube.com/watch?v=DXz4IeOENiM)
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Why an NLU course spends a unit on metrics
 
 The previous two posts ([Analysis Methods I](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) and [II](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)) dealt with what a model does internally. This one steps back to a more basic question: what does the number you base your conclusion on actually measure?
@@ -186,6 +207,10 @@ Confirmed: the schedule, slides 1–41, videos 39–41, the notebook, and the gr
 Further reading: the site's [CS224N benchmark and evaluation guide](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en) covers benchmark design in the LLM era and makes a good next read.
 
 Series navigation: previous, [Analysis Methods II: causal abstraction, IIT, and DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en) | next, [Methods and Metrics II: datasets, data organization, and model comparison](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

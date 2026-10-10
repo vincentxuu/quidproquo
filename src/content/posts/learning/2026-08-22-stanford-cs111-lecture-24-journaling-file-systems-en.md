@@ -19,6 +19,14 @@ This is part 25 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 First, an anomaly in the source material: the Lecture 23 and Lecture 24 PDFs both have 23 pages, with the same page titles, bullets, and ordering. Their SHA-256 hashes differ, but extracted text differs only in the slash in `/lost+found` and four periods. The public material therefore does not provide an independent “continued” [slide](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf) deck. Rather than invent missing content, this series assigns pages 1–15 to Lecture 23 and uses this article for page 16 onward: write-ahead logging, transactions, checkpoints, and the boundary between consistency and durability.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Continuing from the previous lecture: same public material, different question
 
 [Lecture 23](/posts/learning/2026-08-22-stanford-cs111-lecture-23-crash-recovery) owns pages 1–15: the crash model, `fsck`, ordered writes, and the WAL entry point. This lecture does not repeat those repair cases. It starts from page 16 and asks how one log entry describes an update, how several entries form a transaction, how replay tolerates repetition, and how a checkpoint safely reclaims the log ([official slides](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)).
@@ -59,6 +67,10 @@ To test your understanding, close the slides and model one “allocate a new blo
 - Pages 16–18: logical and physical entries, idempotence, consistent groups, and Assignment 8 transactions.
 - Pages 19–22: checkpoints, metadata-only logging, benefits and costs, delayed log writes, `fsync`, and device failure.
 - Page 23: trade-offs among performance, durability, consistency, and the failures a design can recover from.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

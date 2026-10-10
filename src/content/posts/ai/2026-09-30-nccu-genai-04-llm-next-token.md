@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料有三份：[第 4 講錄影](https://www.youtube.com/watch?v=LcSTLXCJrzA)（2025-03-11，2 小時 54 分）、投影片 [GenAI04 大型語言模型](https://drive.google.com/file/d/10mfLvj8o2H4z6sHI4xGXAr7OCgWxAoR5/view)（90 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第四週作業說明。存取等級是 **A3**：錄影、投影片、作業題目與評分標準都公開；作業批改走各校平台，校外讀者只能自評。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=LcSTLXCJrzA
+title: 【生成式 AI】04. 大型語言模型原來這麼簡單（YouTube 錄影，2025-03-11）
+```
+
+原始影片：[【生成式 AI】04. 大型語言模型原來這麼簡單（YouTube 錄影，2025-03-11）](https://www.youtube.com/watch?v=LcSTLXCJrzA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 L03 處理的是圖像生成，L04 轉到文字。這一講的任務是把「ChatGPT 為什麼會講話」拆到一般人聽得懂的程度：**文字生成 AI 只是一台看前面的字、預測下一個字的呆萌機器。**
@@ -195,6 +210,10 @@ for tau in (1, 0.5, 2):
 - 從零實作語言模型：[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L03 紅極一時的 GAN](/posts/ai/2026-09-30-nccu-genai-03-gan)｜下一篇 [L05 Transformers 全攻略](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 Spring 2026 officially called Lecture 12 **Neural Networks (cont.)**, dated February 19. This article foregrounds backpropagation because it is the public slide deck's main technical subject. Fall 2026 renamed the lecture, but the edition and sources here remain Spring 2026. No public lecture-by-lecture recording exists.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The sources are the [Lecture 12 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec12_Neural_Networks_II.pdf), [Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf), [Recitation 6 solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf), and [HW6](https://www.cs.cmu.edu/~07280/assignments/hw6_blank.pdf). The slides begin with universal approximation and then develop scalar and matrix backpropagation. This reading does not misstate the theorem as “every network is easy to train.”
@@ -87,6 +95,10 @@ The next lecture pauses model derivations and asks a higher-level question: even
 ## What to do tonight
 
 Implement `linear_forward` and `linear_backward`, then check one weight by central difference: `(J(w+ε)-J(w-ε))/(2ε)`. Require analytic and numerical gradients to meet a tolerance before adding sigmoid. Finally, verify on one three-class example that the softmax-cross-entropy gradient with respect to logits is `ŷ-y`.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

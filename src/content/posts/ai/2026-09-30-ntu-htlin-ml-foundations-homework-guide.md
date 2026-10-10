@@ -41,6 +41,14 @@ glossary:
 
 所以本篇**不給答案**，只說每題在練什麼、需要什麼資料，以及怎麼自己驗證結果。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 作業長什麼樣
 
 ### Fall 2024 的格式
@@ -193,6 +201,10 @@ hw2 以後依課程計畫在 10/07 起陸續公布，截至 2026-09-30 都還沒
 技法部分的 HW6、HW7 與期末專題（虛構的 HTMLB 棒球勝負預測）在下一篇[技法作業與期末專題](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)。上一篇是[T16 Finale 與現代深度學習補充](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)。
 
 各份作業對應的講次導讀：[L1–L3](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)、[L4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)、[L5–L6](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)、[L7–L8](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)、[L9–L10](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)、[L11–L12](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)、[L13–L14](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)、[L15–L16](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

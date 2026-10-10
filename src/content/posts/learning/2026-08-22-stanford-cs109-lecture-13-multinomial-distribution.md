@@ -19,6 +19,14 @@ draft: false
 
 正式 worksheet 與 answer key 都是兩頁、P1–P6 加 challenge，題號完整。LLM guide 雖顯示第三頁，但該頁只有前頁延續的收尾句與頁碼，沒有第七個 concept 或額外 agenda。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：以兩節點 network 複習 inference
 
 Bayesian network 是 `Overloaded→Slow`，其中 `P(Overloaded=1)=0.1`、`P(Slow=1|Overloaded=1)=0.95`、`P(Slow=1|Overloaded=0)=0.2`。因此
@@ -145,6 +153,10 @@ P(X1=k,X2=n-k)
 - Guide 的第三頁只有收尾文字與頁碼，不代表額外 concept。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - Worksheet 與主要 guide 內容各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 這是 Spring 2026 第 10 講 **Feature Engineering and Regularization**，日期為 2 月 12 日。Lecture 9 的 logistic regression 對輸入特徵仍只畫出線性邊界；這一講先用 feature transform 擴張可表示的函數，再立刻處理擴張後的過度擬合。沒有公開逐講錄影，本文也不補寫課堂口述。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文深讀 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)、官方 [Model Selection deck](https://www.cs.cmu.edu/~07280/lectures/model%20selection.pdf)、[Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)與 HW5。Spring 2026 課表原本連到的 `07280_S26_Lec10_Regularization.pdf` 目前回傳 404，因此本文不宣稱讀過那份 deck，也不拿 Fall 2026 材料補洞。
@@ -81,6 +89,10 @@ Feature engineering 由人指定 `φ(x)`，可解釋、資料需求低，也把�
 ## 今晚可以做的動作
 
 取 8 個帶少量雜訊的 `(x,y)` 點，分別擬合 1、3、7 次多項式。固定其中 2 點只作 validation，不參與訓練。記下三個模型的 training 與 validation MSE，再對 7 次模型加入三個不同 `λ`。不要先看 test 點；等選完 degree 與 `λ` 才做最後一次評估。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

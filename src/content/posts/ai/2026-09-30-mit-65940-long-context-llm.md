@@ -38,6 +38,21 @@ glossary:
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)同樣排了「Long Context LLM」（11 月 3 日，第 15 講），截至 2026-09-30 投影片與錄影還沒上線。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=kgTWKjbnrBA
+title: 第 15 講錄影（YouTube）
+```
+
+原始影片：[第 15 講錄影（YouTube）](https://www.youtube.com/watch?v=kgTWKjbnrBA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這一講在解什麼
 
 想讓 LLM 讀一整本書、一小時的影片，或跟你聊上幾百輪，會同時撞上三道牆：模型在訓練長度之外會壞掉、它不一定真的用得上長上下文、KV cache 大到放不下。第 2 頁的 Lecture Plan 剛好對應這三道牆，再加一段跳出 Transformer 的替代方案：
@@ -177,6 +192,10 @@ Window attention 很省，但**開頭的 token 一被踢出 cache，模型就崩
 - KV cache：[CMU 11-868 大規模服務與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)、[台大李宏毅 ML 2026：KV Cache 與瘦身法](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 - 長上下文與 SSM：[CMU 10-423 L19 + L21：長上下文與 State Space／Hybrid 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)
 - 推論系統：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

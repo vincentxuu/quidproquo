@@ -36,6 +36,15 @@ Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses
 
 Lecture 20 on reasoning models sits between L19 and L21. This guide puts the two together because they answer the same question: **attention cost grows with the square of sequence length, so what other routes are there?**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## What the problem looks like: one video blows the context
 
 L19 does not open with formulas. It shows a complete PyTorch program: extract 10 frames from a video with a ViT, turn each frame into a run of image tokens, and feed them into GPT-2 for video question answering. The code is fine, but the next slide shows a single error message: the input exceeds the Transformer's maximum context length of 4096 tokens.
@@ -203,6 +212,10 @@ Confirmed: the schedule's dates, speakers, and quiz coverage; the text, tables, 
 Further reading: this site's [CS336 architectures and hyperparameters post](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en) and [inference post](/posts/ai/2026-08-22-cs336-inference-en) discuss position encodings and the KV cache from the angle of training your own LM; the [CMU 11-868 guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) covers distributed training and inference from the systems side.
 
 Series navigation: previous [L17–L18: distributed training, FlashAttention, and efficient decoding](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en) | next [L20: reasoning models](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,14 @@ draft: false
 
 第 14 講 **Computer Vision** 日期為 2026 年 3 月 10 日。它把前兩講的 neural network 與 backprop 放進影像：不再把每個 pixel 當成彼此無關的 feature，而是讓同一個小型 kernel 在不同位置重複使用。官方沒有公開逐講錄影，本文只依 lecture note、CNN pre-reading、Recitation 8 與作業材料整理。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 核心來源是 [Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf)、[CNN pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_CNNs.pdf)、[Recitation 8 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec8_sol.pdf)、HW7 與 HW8。HW7 仍以單 hidden-layer network 做訓練診斷；HW8 才正式做 AlexNet 與 transfer experiments。
@@ -78,6 +86,10 @@ Lecture 15 會進一步利用已學好的 visual representation。當新任務�
 ## 今晚可以做的動作
 
 手算一個 `1×4×4` 輸入與 `2×2` kernel 的 valid convolution，逐格寫出四項乘積。再為 `3×64×64 → Conv(32,3×3,pad=1) → MaxPool(2)` 算 output shapes 與參數。最後刻意把 output positions 乘進參數量，再指出為什麼那是錯的。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

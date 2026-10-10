@@ -29,6 +29,15 @@ glossary:
 
 GANs can draw, but they have a basic limitation: they can't compute the probability p_θ(x) of an image, so they are trained with an adversarial game instead. L7 (February 4, 2026) introduces diffusion models, which take a different route. First define a process that slowly turns an image into noise, then train a network to run that process backward. This is also the model you implement from scratch in the [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) programming section.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Three models in one table
 
 The slides restate the problem as unsupervised learning. Data comes from a true distribution p\*(x₀); we pick a p_θ(x₀) that is easy to sample from and want p_θ ≈ p\*. The three model families differ in whether they can maximize log p_θ(x₀) directly:
@@ -170,6 +179,10 @@ Sampling starts from x_T ~ N(0, I) and counts t down from T to 1. At each step t
 - [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) and [Lecture 1: flow and diffusion models](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en), which revisit diffusion through ODEs and SDEs
 - [Reading CMU 11-785: Diffusion models](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - [Reading Stanford CS231n: Generative models and diffusion](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

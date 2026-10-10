@@ -47,6 +47,21 @@ L10 answered along two paths. One reads the reasoning the model writes out, its 
 
 The course site lists four subtopics for the lecture: Activations, Sparse Auto Encoders (SAE), Black box models, and Chain of thought. This post covers all four, in the order the speakers actually used. Bowen said at the start that they would go "in reverse order of the stack": first the CoT, which is closer to an internal monologue, then activations, which are closer to signals in the brain.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=79otWC2FQlE
+title: L10 lecture video (YouTube)
+```
+
+Original videos: [L10 lecture video (YouTube)](https://www.youtube.com/watch?v=79otWC2FQlE)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Official materials and access
 
 | Material | Status |
@@ -248,6 +263,10 @@ Some student questions worth noting:
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L8: scheming, reward hacking, and deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
 - Next: [L6: will AI doing AI R&D trigger an intelligence explosion?](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

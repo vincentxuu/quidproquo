@@ -31,6 +31,14 @@ glossary:
 
 這篇只講作業要什麼、架構長怎樣、怎麼計分、設計上有哪些取捨，**不給解答**。課表上沒有一堂專門講評測的課，評測設計只出現在這份作業裡，所以本篇最後會把它接回 L9 到 L11：你在 A2 寫的評分器，就是 A3 之後 RL 要最大化的 reward。
 
+## 課程影片來源
+
+課程官方課表位於 SPA 的 #/schedule；本次 Groundlane 與 Exa 未取得完整課表，未重新核實本文的直接影片來源。請由官方課表查看該講錄影是否已上架。
+
+課程與錄影入口：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## 作業在評什麼：資料視覺化 agent
 
 受測對象是**資料視覺化 agent**：拿到資料檔和使用者的圖表規格，自己寫 matplotlib 程式、執行、存出 `figure.png`。學生要寫的是**評分器（validator）**：給定任務、agent 的完整軌跡、輸入資料與最後的圖，判斷這次執行有沒有錯，錯在哪一類。
@@ -172,6 +180,10 @@ Part 1 和 Part 3 代表兩種找評分器弱點的方法：一種是讀真實�
 - [調整 agent 之後，怎麼嚴謹比較前後差異：從 golden set 到統計檢定](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 - [Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

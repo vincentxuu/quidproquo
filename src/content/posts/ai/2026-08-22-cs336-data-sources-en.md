@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**, tau
 
 Data is easily hidden behind “we used internet text.” Lecture 13 follows the path from a live service to a raw snapshot and later processed data, asking about origin, acquisition, and rights before Lecture 14 handles filtering, deduplication, and mixing.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=-qm0ln33G24
+title: CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)
+```
+
+Original videos: [CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## A web crawl is not a download of the entire internet
 
 A crawler begins from seed URLs, discovers links, and downloads pages. Modern sites often require JavaScript, buttons, forms, or login state. Paywalls, CAPTCHAs, rate limits, geographic blocks, and bot detection make a public URL different from anonymous bulk access.
@@ -56,6 +72,10 @@ Lecture 13 is not a request for a longer source list. It treats acquisition as a
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. Legal sections summarize the course's framework and engineering implications; specific uses require jurisdiction-specific professional advice.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

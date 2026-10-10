@@ -19,6 +19,14 @@ draft: false
 
 Lecture 9 是課程的轉折：前一個三分之一完成 CPU、threads、processes、synchronization 與 scheduling；接著進入 main memory、process layout、virtual memory 與 paging，最後才是 storage 和 file systems。linker 看似是編譯工具，卻剛好把「程式如何成為記憶體中的 process」接起來。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Main memory 與 process layout 的問題
 
 [官方 Lecture 9 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf)先固定硬體尺度。main memory 通常是 volatile DRAM，可 byte-addressable，但實際以約 64-byte cache line 搬移；投影片列出約 60–100 ns、200–300 CPU cycles 的 access time。容量例子是 laptop 16–64 GB、desktop 32–256 GB、server 512–4096 GB，server 還可能是 NUMA。這些是 Spring 2026 投影片的量級快照，不是跨所有機器的規格保證。
@@ -107,6 +115,10 @@ Shared libraries 允許多個 processes 在 memory 共用 library code 的 singl
 本講最終交付的不是 `ld` 旗標清單，而是一條 representation pipeline。source 的名字與結構先被 compiler 降成 assembly；assembler 產生含 placeholders 的 relocatable objects；linker 以 section sizes、symbols、unresolved references 建 executable；loader 才把它變成記憶體中的 process。每一層只在擁有足夠資訊時作決定。
 
 Static linking 在 build time 完成 resolution，換取自足但可能重複的 executable；dynamic linking 把 library placement 延後，換取共享與彈性，也新增 loader、jump table 與 compatibility 的執行期契約。下一段課程要討論 virtual memory 與 paging；到時「兩個 processes 為何都能看見自己的 address 0」以及 shared pages 如何成立，就有了可銜接的 code/data layout。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

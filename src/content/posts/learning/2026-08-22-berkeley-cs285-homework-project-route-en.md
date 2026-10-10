@@ -19,6 +19,14 @@ The public [Spring 2026 starter repository](https://github.com/berkeleydeeprlcou
 
 The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) owns the complete public-versus-enrolled access boundary. This article owns compute and project tradeoffs.
 
+## Course video sources
+
+The Spring 2026 course page lists current slides but links to Fall 2023 recordings. Lecture numbers cannot be directly matched across versions.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+
 ## Compute ledger
 
 | Work | Implementation focus | Official compute signal | Self-study choice |
@@ -46,6 +54,10 @@ A self-study project can be one baseline, one modification, three seeds, one pri
 ## Delivery boundary
 
 The public path can reproduce a self-evaluated version of the assignments. It cannot claim completion of the Berkeley credit-bearing course. The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) maintains the full list of video, discussion, grading, and course-support limits.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

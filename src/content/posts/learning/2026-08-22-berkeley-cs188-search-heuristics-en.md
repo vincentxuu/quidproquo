@@ -18,6 +18,22 @@ draft: false
 
 The opening unit of CS188 asks how an agent should expand possible states when it does not know the solution path. The [Lectures 1–4 schedule](https://inst.eecs.berkeley.edu/~cs188/sp26/) covers agents, uninformed search, A*, and local search. [Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/) turns that sequence into implementations of DFS, BFS, UCS, and A*, followed by heuristic design for corners and food search.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=On4rmdfuFKE
+title: CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments
+```
+
+Original videos: [CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments](https://www.youtube.com/watch?v=On4rmdfuFKE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## Fix the common skeleton first
 
 All four graph-search methods share a loop: remove a node from the frontier, test the goal, expand successors, and avoid repeated states. DFS and BFS change frontier order; UCS orders by accumulated cost; A* adds an estimate of remaining cost. Four largely duplicated implementations usually mean the shared abstraction has been missed.
@@ -39,6 +55,10 @@ Heuristics must balance speed with correctness. The [official P1 specification](
 After P1, retain three questions: does the state preserve necessary information, what preference does the frontier encode, and does the heuristic provide only a safe directional estimate? Those questions return in MDPs, Bayes nets, and planning.
 
 Series navigation: [Previous: Course overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en) | [Next: CSPs and multi-agent search](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -23,6 +23,19 @@ The undated [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/) uses a 2023 d
 
 This guide therefore separates **the offering, lecture assets, assignment assets, and feedback system** before reconstructing Harvard's internal AI/ML route.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
+- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
+- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
+- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
+- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
+- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
+
 ## Harvard's formal foundation is not CS50 AI
 
 Harvard College calls a major a concentration. The current [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/) cover programming, formal reasoning, systems, computation and the world, linear algebra, and probability; the honors route also requires an AI-tagged course. A common route is:
@@ -100,6 +113,8 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 
 ## Changelog
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-10-01: Added CS 2881R AI Safety (Fall 2025 complete; reading lists, 11 lecture recordings, HW0 repo, and project specs public; A3 by seminar standards) to the entry-point table and the broad-AI/specialist route, with a link to this site's guide; added the Fall 2025 course site to References.
 - 2026-09-30: The CS1810 section and the series disclaimer now link to this site's [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) (Spring 2026 HW0–HW6 plus midterm/final checkpoints); added it to the references.
 - 2026-08-27: Added a six-round audit disclaimer — CS182 2026/2025/2024/2023 are all A0 for the current offering (Locator Canvas unpublished, no public homework repo; only F22 22-lecture + F18 P0–5 as historical A2); CS181 four-year comparison (two midterms vs midterm+final, hw3–5 reshuffle, practical lifecycle) and the deleted Google Sheet note; weekly guides will use homework numbers as the clock.

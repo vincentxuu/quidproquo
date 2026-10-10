@@ -34,6 +34,21 @@ glossary:
 
 前面十一篇都在講機器人和控制，這一講突然跳到語言模型。先把兩邊對上，後面的推導會好讀很多。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=XKLGuwvSKvI
+title: Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）](https://www.youtube.com/watch?v=XKLGuwvSKvI)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 先把 LLM 對到 RL 的語言
 
 投影片沒有畫這張表，這是本系列為了銜接加上的對照。它用的是 [L1](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior) 的定義：
@@ -203,6 +218,10 @@ log p_θ(y_l | x)     log p_ref(y_l | x)
 - [CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)：這一講投影片的來源課
 
 **系列導覽**：上一篇 [HW3：用 AWAC 和 IQL 做 offline RL](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)｜下一篇 [L10：LLM 推理的 RL 與 test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

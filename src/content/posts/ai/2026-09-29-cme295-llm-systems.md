@@ -38,6 +38,26 @@ glossary:
 
 你用過任何 LLM 聊天介面，大概都有這個經驗：送出問題後要等一下，第一個字才出現；之後字就一個一個穩定地流出來。這兩段等待其實是兩種不同的工作，瓶頸也不一樣。這一講的主題清單看起來很雜，從多 GPU 訓練一路到硬體選型，但大多可以收斂成同一個問題：**資料在 GPU 裡搬來搬去的成本，常常比計算本身還貴**。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: 錄影
+```
+
+原始影片：[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)、[錄影](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 這一講在 2026 課表的位置
 
 [2026 課表](https://cme295.stanford.edu/syllabus/)把第 5 講排在 10 月 30 日，就在 10 月 23 日期中考之後、第 6 講 AI Agents 之前。課表列出的主題只有這 7 項：
@@ -367,6 +387,10 @@ FlashAttention-3 論文提到，第二版在 H100 上只用到 35% 的算力。�
 - 「hardware trade-offs」有沒有收進量化與數值格式
 - GQA、latent attention、PagedAttention 是放在這一講，還是留在第 2 講
 - 用 2026 版投影片的頁碼取代「2025 版在哪裡講過」那張表，並依 2026 期末考更新自我檢測
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

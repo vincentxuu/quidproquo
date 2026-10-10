@@ -17,6 +17,14 @@ draft: false
 
 This is part 17 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 16**. Mendel Rosenblum taught it on 2026-05-04 under [Demand Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/16/Lecture16.pdf). The official Lecture 16/17 PDFs are byte-identical and video is inaccessible, so the spoken boundary cannot be recovered. To avoid duplication, this article owns fault/fetching mechanism; [Lecture 17](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement) owns replacement policy.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## From address spaces to true virtual memory
 
 Earlier lectures mapped each process's virtual addresses through page tables to physical frames. If every page had to remain in DRAM, that would still mainly provide isolation and relocation. Demand paging goes further: a program can execute before all its information enters memory. Recently used pages stay in DRAM, while idle contents remain in the executable or a backing store, also called swap space in the deck.
@@ -67,6 +75,10 @@ Three questions test the model. Why does `present=0` not necessarily mean an inv
 ## Update history
 
 - 2026-08-22: Narrowed after duplicate-deck review to page-fault, fetching, and prefetch mechanism; replacement moves to Lecture 17.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

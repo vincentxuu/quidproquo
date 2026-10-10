@@ -19,6 +19,14 @@ draft: false
 
 07-280 的第三階段從 MDP 建模，走過 value iteration、Q-learning 與 function approximation，再用 MCTS 與 self-play 收束到 Building AlphaZero。官方公開了 worksheet、部分 solutions 與作業入口，卻沒有完整逐講錄影；HW12 的舊 PDF 直連在本文查核時已回傳 404。因此本篇只對可匿名驗證的官方課程頁與 Recitation 14 下結論，不假裝擁有完整 grader。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## MDP 先把不確定性寫清楚
 
 Markov decision process 用 state `s`、action `a`、transition `P(s'|s,a)`、reward `R` 與 discount `γ` 描述 sequential decision problem。Bellman optimality equation 把長期價值拆成眼前 reward 與下一步最佳價值：
@@ -73,6 +81,10 @@ network → policy/value priors → MCTS → improved action distribution
 你應該能區分 environment reward、value estimate 與 search statistics；能手算一次 Q-learning update；能解釋 `π_t` 為何是 search 產生的訓練 target，而不是環境直接給的 label。最重要的是，能畫出資料從 self-play 回到 network 的完整路徑。
 
 做到這裡，07-280 的課程設計才真正閉合：Lecture 2 的 search 並沒有被 ML 章節丟掉，而是在 AlphaZero 裡回來；神經網路也不只是分類器，而成為 search 的 prior 與 evaluator。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

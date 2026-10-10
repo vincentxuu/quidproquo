@@ -20,6 +20,14 @@ draft: false
 
 結論先講：**從本篇開始，講次與作業導讀一律以 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）為底本。** 它是目前唯一同時公開講課影片、講義、附解答的 discussion，而且作業完整公開到 notebook 的版本。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 四個版本並排看
 
 以下每一格都是 2026-09-29 匿名打開官方頁面核對的結果。等級用本站[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3 定義：A0 只看得到課表、A1 看得到課綱、A2 教材部分開放、A3 足以自學。
@@ -130,6 +138,10 @@ Spring 2025 的講課 notes 和整本 `machlearn.pdf` 都能匿名下載，作�
 - [Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)：CS189 在 Berkeley 課程地圖上的位置
 - [Stanford CS109 機率導讀](/posts/learning/2026-08-21-stanford-cs109-probability)：先修機率不熟時的補課路線
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：另一門數學型 ML 入門課，可以對照
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

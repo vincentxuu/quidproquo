@@ -20,6 +20,21 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 1 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=HWQLez87vqM
+title: CS50 AI Week 1 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 1 — official lecture recording](https://www.youtube.com/watch?v=HWQLez87vqM)
+
+Course and recording entries:
+
+- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
+
 ## TL;DR
 
 Week 1 moves from search to knowledge representation: encode the world in propositional logic, verify entailment via model checking, scale reasoning with Resolution. Two projects map to logic puzzle solving (Knights) and Minesweeper inference (Minesweeper).
@@ -384,6 +399,10 @@ style50 minesweeper.py
 - [ ] Understand Knights project: "identity constraints" vs "utterance constraints" logical encoding
 - [ ] Understand Minesweeper: why `mark_mine`/`mark_safe` adjust `count` differently
 - [ ] Both projects pass `check50` clean
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

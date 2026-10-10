@@ -17,6 +17,14 @@ series:
 
 This is a lecture-by-lecture reading of **CMU 07-280, Spring 2026, Lecture 17**. The official slide deck is titled *Natural Language Processing (NLP): N-gram Language Models*. It moves from corpora and tokenization to N-grams and language models. Before asking how to build a modern LLM, it asks a more basic question: what must text become before a probabilistic model can process it?
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 This article fully reads the [official Lecture 17 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf) and uses the course site and syllabus to verify the offering. The official site does not provide a public Spring 2026 lecture recording, so this is a reading of published materials, not a reconstruction of spoken explanations, classroom questions, or live demos.
@@ -86,6 +94,10 @@ N-grams are therefore not merely obsolete language models. They make the chain r
 ## An action for tonight
 
 Take a 100–300 word passage and tokenize it three ways: characters, whitespace-delimited words, and two manual BPE rounds. Record vocabulary size and sequence length for each. Then build bigram counts and generate ten tokens. When a context has never appeared, label it as a zero count instead of inventing a fallback; that failure is the starting point for Lecture 18.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

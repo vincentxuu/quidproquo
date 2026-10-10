@@ -19,6 +19,14 @@ draft: false
 
 `create_string` 確實建立 `"aaaa"` 並回傳當時的位址；但 pointer 抵達 caller 時，pointee 已結束 lifetime。Heap 修正生命週期，不會自動修正容量、初始化、配置失敗或釋放責任。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -262,6 +270,10 @@ Failure to free 造成 leak：allocated object 已不再需要，程式卻沒有
 接著逐條畫出 lifetime：automatic object 到 scope／activation 結束；allocated object到 `free`；literal 具有 static duration 但不可修改。Pointer 本身的 lifetime 與 pointee 分開畫，Mayday 的錯誤會立刻顯現——caller 的 `str` 活著，不代表它指向的 local array 還活著。
 
 Lecture 10 的核心不是背 segment 圖，而是把「位址」與「可合法使用的期間」綁在一起。Stack 用控制流程自動管理 lifetime；heap 讓 lifetime 與呼叫堆疊脫鉤，換來明確 ownership。選 heap 不是取得永久記憶體，而是接下一份必須完成的 cleanup 工作。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

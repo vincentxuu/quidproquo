@@ -23,6 +23,14 @@ draft: false
 
 **本文依據**：[MOOC 頁](https://www.csie.ntu.edu.tw/~htlin/mooc/)（頁尾最後更新 2024-08-30）、[基石](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)與[技法](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)兩份 YouTube 播放清單、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)與 [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf)、[Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)與各份作業 PDF、[Coursera 基石上課頁](https://www.coursera.org/learn/ntumlone-mathematicalfoundations)、[臺大開放式課程的 Coursera 政策說明](https://ocw.aca.ntu.edu.tw/courses/mooc0016)，全部在 2026-09-30 打開核對。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 兩門 MOOC：七個問題、32 講、130 支影片
 
 [01_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf) 第 2 頁把基石定位成「foundation oriented」而且「story-like」的課，用四個問題串起來。技法再用三種處理特徵的方式分段。Fall 2026 課程頁把這七段編成 topic 1 到 topic 7：
@@ -159,6 +167,10 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 - [CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：其他學校的 ML 入門課。
 
 下一篇：[學習問題、PLA 與學習的種類](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

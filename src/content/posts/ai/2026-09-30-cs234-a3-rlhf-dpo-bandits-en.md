@@ -40,6 +40,15 @@ This post covers only the question structure, points, what the starter code look
 
 > **An ordering issue first**: Q4, best arm identification, uses bandit concepts that the course only teaches in L9. In this series that is the next post, [order 13](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en). Do Q1–Q3 and Q5 first, and come back to Q4 after reading it.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Schedule, submission, and points
 
 Per the [2026 schedule](https://web.stanford.edu/class/cs234/), Assignment 3 was released in Week 5 (Feb 2–8, the midterm week) and was due **Feb 20 at 6 pm** in Week 7, with up to 2 late days. The PDF header says "Feb 20, 2025", which doesn't match the Winter 2026 schedule year and is probably a leftover header. Go by the assignments page.
@@ -214,6 +223,10 @@ One thing you can do tonight: download the Drive zip, set up the environment, an
 - The same RLHF/DPO material in CS224R (deep RL and LLM perspective): [CS224R L9: RLHF, DPO, and Preference Optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 - Where SFT and RLHF sit in the LLM training pipeline: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Another route through exploration and open problems: [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

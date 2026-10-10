@@ -18,6 +18,14 @@ description: "CS224V Long-Document QA：訓練與切塊路線、SLIDERS schemati
 
 第八講把問題規模拉到「一組長文件」：比較公司年報、病歷、新聞事件或發票時，答案可能散在不同段落與文件。單純增加 context window 沒有解決跨文件整合，也沒有提供可查詢的中間狀態。SLIDERS 把文字轉成為問題量身打造的表格。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：從兩條路線到 SLIDERS
 
 講義先比較 training-based 與 chunking-based 方法，再列出切塊的三個難題：每塊如何表示、邊界切斷語意怎麼辦、大量局部輸出如何整合。接著逐層建立 SLIDERS：schematization、semantics-driven chunking、contextualized extraction、reconciliation、SUQL querying，最後展示 preliminary evaluation。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf))
@@ -125,6 +133,10 @@ SLIDERS 的優勢不只是能放更多 token，而是把每份文件的局部證
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 講義明稱 preliminary evaluation，沒有足夠資訊把結果視為成熟 production benchmark；公開資料也沒有完整 pipeline code、成本分析或課堂錄影。本文保留這個研究階段的限制。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

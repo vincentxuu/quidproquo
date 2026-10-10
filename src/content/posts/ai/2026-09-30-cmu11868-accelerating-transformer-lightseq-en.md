@@ -35,6 +35,14 @@ glossary:
 
 **Series**: Previous: [HW3: A Decoder-Only Transformer in MiniTorch](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture-en) | Next: [HW4: Fused CUDA Kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## What this lecture answers
 
 By the end of HW3 you have a trainable Transformer built on your own MiniTorch framework. It runs, but slowly. Lecture 10 asks: **while the model still fits on one GPU, how much faster can single-GPU training and inference get, and where does the speed come from?**
@@ -171,6 +179,10 @@ One thing you can do tonight: run the PyTorch profiler on a forward pass of any 
 - The same ideas in Triton, and measuring before optimizing: [CS336 Lecture 6: Benchmark and Profile Before Writing a Triton Kernel](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 - GPU memory hierarchy and the "move less data" intuition: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - This course's earlier GPU programming model: [L02-L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

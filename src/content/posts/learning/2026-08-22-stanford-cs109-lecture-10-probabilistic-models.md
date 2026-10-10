@@ -19,6 +19,14 @@ draft: false
 
 本講把「一個 random variable 的分布」擴張到「多個變數如何一起變動」。Joint distribution 是完整起點。把不關心的變數加總掉得到 marginal，以 marginal 正規化一列或一欄得到 conditional。Independence 則問 joint 能否分解成 marginals 的乘積。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：用 Normal 複習開場
 
 IQ-like score `X~N(100,225)` 的第二個參數是 variance，所以 `σ=√225=15`。130 分的 z-score 為二：
@@ -145,6 +153,10 @@ Posterior 從 `0.75` 大幅降到約 `0.142`。`Exp(3)` 的平均等待只有 `1
 - P6 與 challenge 是 pset4 題，公開 answer key 刻意省略解答；本文只依公開題目推導。
 - Challenge prior 為 `3/4`；`34` 是 PDF 分數的文字抽取 artifact。
 - Canvas 錄影未公開，不推測額外課堂內容。Worksheet 與 guide 各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

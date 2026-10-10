@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 9 on February 3, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture09-peft.pdf) closes DPO and preference data, then covers prompting, PEFT, pruning/subnetworks, LoRA, prompt tuning, adapters, and other methods.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Classify adaptation by what changes
 
 Full fine-tuning updates every parameter. It is flexible, but each task stores a full model and training memory includes gradients and optimizer state. Prompting changes no weights and modifies only context. It is cheap to iterate but sensitive to wording and context limits.
@@ -80,6 +89,10 @@ Simulate multi-tenant switching, mixed-adapter batching, cold load, and merged v
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the DPO and preference-data recap plus all seven adaptation topics. Experimental plots in the deck explain trade-offs but are not generalized to untested tasks.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

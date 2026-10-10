@@ -26,6 +26,21 @@ glossary:
 
 Official sources: [video 07](https://www.youtube.com/watch?v=LOo0VKhjoRc) (2025-04-01, about 3 h 3 min, in Mandarin), the 31-page GenAI07 slides (in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)), the notebooks [`【Demo04c】用OpenAI_API打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04c%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) and [`用_Ollama_打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E7%94%A8_Ollama_%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) in the [AI-Demo](https://github.com/yenlung/AI-Demo) repo, and the week-7 assignment on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. The notebooks live in a shared repo, so **everything below refers to the current repo version, which may have changed since the semester ended.**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=LOo0VKhjoRc
+title: Generative AI 07: Build your own chatbot (YouTube recording, in Mandarin)
+```
+
+Original videos: [Generative AI 07: Build your own chatbot (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=LOo0VKhjoRc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits
 
 Video 07's chapters are clear. The first 30 minutes cover OpenAI keys, Groq, and Ollama. From 0:39 Tsai installs Ollama in Colab and builds a comforting chatbot. After the break (from 1:15) he builds a version that "keeps talking" and a Gradio web app, introduces the AISuite package at 1:41, and explains the assignment at 1:49. Session three is lightning talks, including one on Ollama applications, and a TA segment on LM Studio.
@@ -145,6 +160,10 @@ From the [Chang Gung satellite course page](https://yangchihyuan.github.io/cours
 - How language models themselves work: [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en)
 
 Previous: [L06 LLM Applications and Ethical Challenges](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en) | Next: [L08 Retrieval-Augmented Generation (RAG)](/posts/ai/2026-09-30-nccu-genai-08-rag-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

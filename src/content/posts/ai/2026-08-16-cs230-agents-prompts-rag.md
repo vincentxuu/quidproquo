@@ -23,6 +23,21 @@ draft: false
 
 （**這一講和站上既有的 [Agent 生產線](/series/agent)、[AI Agent 實戰](/series/ai-agent-systems)、[RAG 技法大全](/series/rag-techniques) 三個系列有大量重疊。** 本文照課堂內容完整寫，重疊的段落會在結尾指向站上更深的展開。）
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=k1njvbBmfsw
+title: Lecture 8: Agents, Prompts, and RAG
+```
+
+原始影片：[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## 開場：兩個軸
 
 ```
@@ -326,6 +341,10 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 **二、「等你 fine-tune 完，下一個模型已經打敗你了」。** 這是一個關於**時間**的論證，不是關於品質的論證。它會不會成立，取決於模型迭代速度和你的資料護城河的相對關係——而下一篇的客座講者會從另一個市場給出相反的結論。
 
 **三、「技能的半衰期太短，所以只教廣度」。** 這句話如果是真的，那它同時也是對這整個系列的評價標準：**這九篇如果只教你 2025 年秋天的做法，那它兩年後就沒用了。** 值得留下的是那些不隨版本改變的東西——為什麼要 chain（可除錯性）、為什麼記憶要分層（存取成本）、為什麼要看中間輸出（不然無法回溯）。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

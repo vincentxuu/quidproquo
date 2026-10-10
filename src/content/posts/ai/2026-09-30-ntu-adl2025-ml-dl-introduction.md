@@ -21,6 +21,26 @@ draft: false
 
 這一講沒有數學推導。它要讀者帶走兩個觀念：學習就是找函數；把任務寫成「輸入領域 → 輸出領域」之後，才知道該選什麼模型。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Nls5bHxW6i0
+title: ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=asuLb0lLmJY
+title: ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）
+```
+
+原始影片：[ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? 如何應用深度學習?（YouTube）](https://www.youtube.com/watch?v=oT4UQj_PXYo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 寫不出規則的任務，改成讓機器找函數
 
 講義第 5 頁用一個情緒分類任務開場：判斷商品評論是正面還是負面。「I love this product!」可以寫規則，看到 love、like 就輸出正面；「It claims too much.」也可以，看到 too much、bad 就輸出負面。但「It's a little expensive.」呢？中文版的例子更貼近台灣讀者：「台灣第一波上市！」是推，「規格好雞肋…」是噓，「樓下買了我才考慮」要判成什麼？
@@ -100,6 +120,10 @@ draft: false
 
 上一篇：[台大陳縕儂 深度學習之應用 2025 Fall 導讀：課程地圖、A2 分級與讀法](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 下一篇：[神經網路與反向傳播](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

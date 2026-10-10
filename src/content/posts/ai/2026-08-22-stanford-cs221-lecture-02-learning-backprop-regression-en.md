@@ -19,6 +19,15 @@ This article uses only two executable artifacts: [`backpropagation.py`](https://
 
 > Material gap: the source files provide executable lecture artifacts and code, but not classroom Q&A, a complete spoken explanation, additional experimental results, or assignment solutions. This article does not fill those gaps with plausible-sounding claims.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Agenda: from tensor operations to a learning loop
 
 `backpropagation.py` opens with a review of tensors and then states three goals: compose tensor operations into objective functions, use gradients to determine how to improve an objective, and use computation graphs to compute gradients efficiently. `linear_regression.py` connects that technical line to a machine-learning pipeline: inputs and outputs, training data, predictors, a hypothesis class, a loss function, and an optimization algorithm.
@@ -111,6 +120,10 @@ When the two artifacts are read together, shape checking is one of the most reus
 The three layers should also remain distinct. A forward pass computes values through a graph or predictor. A loss turns predictions and targets into an optimizable scalar. Backward propagation and gradient descent turn the loss’s sensitivity to parameters into an update. Missing any one layer cannot be repaired by recognizing the vocabulary. Exact gradients do not make a model appropriate: the hypothesis class may be too narrow, features may discard information, and training loss may fail to represent performance on unseen data.
 
 The lecture’s concrete deliverable is a representation that can be checked step by step. Verify `einsum` axes; verify that the objective is scalar; use finite differences to build local-change intuition; put primitive operations in a graph; use local derivatives and the chain rule for reverse-mode backpropagation; then connect residuals, squared loss, averaged gradients, and an update loop in linear regression. Larger models, different data distributions, generalization guarantees, practical optimizer comparisons, and unpublished classroom material are deliberate gaps.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

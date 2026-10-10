@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 2: PyTorch (einops), resource accou
 
 Lecture 1 places efficiency at the center of the course; Lecture 2 immediately asks you to calculate it. The questions are no longer “is this model large?” but: how much computation does a 70B model require? What is the largest AdamW model that fits on eight H100s? Is an operation limited by compute or memory bandwidth?
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=kuYAsz7zspQ
+title: CS336 Spring 2026 Lecture 2: PyTorch (einops), Resource Accounting
+```
+
+Original videos: [CS336 Spring 2026 Lecture 2: PyTorch (einops), Resource Accounting](https://www.youtube.com/watch?v=kuYAsz7zspQ)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Everything eventually becomes a tensor
 
 Data, parameters, gradients, activations, and optimizer states all live in tensors. A memory estimate needs two quantities: the number of elements and the bytes per element. fp32 uses four bytes; fp16 and bf16 use two. bf16 retains roughly the dynamic range of fp32 at lower precision, so deep-learning systems often store parameters, activations, and gradients in bf16 while retaining optimizer state in fp32.
@@ -76,6 +92,10 @@ The table does not replace a profiler, but it catches order-of-magnitude mistake
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its PyTorch examples and summary without merging another offering.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

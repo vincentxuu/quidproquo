@@ -26,6 +26,22 @@ draft: false
 
 本篇對應 **[Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)**（2025/09/23，Andrew Ng 主講，1 小時）。這一講是課程總覽，沒有數學，但 Ng 用了大半時間講他對產業與職涯的看法。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=_NLHFoVNlbg
+title: Lecture 1: Introduction to Deep Learning
+```
+
+原始影片：[Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## flipped classroom 為什麼這樣設計
 
 CS230 的實體課**不重複線上影片的內容**。Ng 的理由：
@@ -223,6 +239,10 @@ RAG、向量資料庫、**evals 與 error analysis**、guardrails、知識圖譜
 方向很清楚：**LLM 與 agent 的內容從附註膨脹成主課，基礎理論被壓縮，並新增了一整講「打開模型看裡面」。** 那個 L10 特別有意思——舊版的結業致詞用的是 2021 年的投影片，連續沿用三年沒動。
 
 **官網 syllabus 的 Lecture 6 條目到現在還是過期的**：上面寫「職涯建議／論文閱讀／醫療 AI 客座」配 2024 年的投影片，但那天實際錄下來的整堂課是 **AI Project Strategy**。職涯是 Lecture 9。照官網找會找錯。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ The answer is **branch and bound**. Pretend the integer constraint isn't there a
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 - [Lec6 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf), 18 pages: LP → IP, the graphical view, relaxation, argmin vs. min notation, three polls, the branch and bound algorithm and example. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx) is also posted
@@ -137,6 +145,10 @@ This is the recitation's most complete branch and bound problem. One ounce of me
 - Previous: [Lecture 5: Linear Programming, and Why the Optimum Sits at a Vertex](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
 - Next: [Lecture 7: Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA](/en/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

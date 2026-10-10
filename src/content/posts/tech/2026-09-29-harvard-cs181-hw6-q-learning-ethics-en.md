@@ -27,6 +27,14 @@ glossary:
 
 This is part 14 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 3)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), planned in a Gridworld with known transitions. This part drops "known": the agent learns while it plays.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where it sits in the term
 
 Per the [2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ):
@@ -153,6 +161,10 @@ Posts on this site that approach the same ideas from another angle; they don't r
 ## Next
 
 HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/en/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en), uses the official final checklist and practice problems to consolidate the second half of the term.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

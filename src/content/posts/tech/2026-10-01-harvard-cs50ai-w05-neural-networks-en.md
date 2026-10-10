@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 5 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=J1QD9hLDEDY
+title: CS50 AI Week 5 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 5 — official lecture recording](https://www.youtube.com/watch?v=J1QD9hLDEDY)
+
+Course and recording entries:
+
+- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
+
 ## TL;DR
 
 Week 5 enters deep learning: from perceptron to multi-layer neural nets, backprop chain rule for gradients, loss functions & optimizers, TensorFlow/Keras modeling, CNN conv/pool structure. Project Traffic trains CNN to classify traffic sign images.
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 5 Neural Networks (2020 recording)](https://www.youtube.com/watch?v=Z5Jj8Q8Q8Q8)
+YouTube: [Week 5 Neural Networks (2020 recording)](https://www.youtube.com/watch?v=J1QD9hLDEDY)
 
 | Timestamp | Content |
 |---|---|
@@ -308,6 +323,10 @@ style50 traffic.py
 - [ ] Understand CNN `Conv2D` `filters`, `kernel_size`, `padding`, `strides` effects
 - [ ] Understand BatchNormalization, Dropout, Data Augmentation regularization mechanisms
 - [ ] Traffic project passes `check50` clean (test accuracy meets threshold)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

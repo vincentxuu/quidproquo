@@ -20,6 +20,14 @@ draft: false
 
 Week 3 是轉折週。週一（10/5，Tool Use & Function Calling）的主讀物是 [MCP 規範](https://modelcontextprotocol.io/specification/2025-06-18)：工具從此有統一插頭，不用每接一家重寫一遍。週三（10/7，Frameworks & Agent Design）的主讀物是 Khattab 等人的 [DSPy](https://arxiv.org/abs/2310.03714)（ICLR 2024）：prompt 模板從手工藝變成可編譯、可優化的程式。同一個週一，[HW1 發布](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)：Build an Agentic Harness，不准用任何 agent 框架，只給一個 chat-completion 呼叫，從零刻一個公司內部的 AI 助理，週五（10/9）還要交 project proposal。一邊手刻、一邊在課堂上讀框架論文，這週的張力就在這裡。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## MCP：工具的統一插頭
 
 規範的靈感來自 LSP（Language Server Protocol）：當年每個編輯器配每種語言都要重寫一遍，LSP 統一之後生態才爆發。MCP 想對 AI 工具做同樣的事，角色拆三層。Host 是 LLM 應用，負責建 Client、收攏 context、執行同意與安全政策。Client 是裡面的連接器，一個 Client 只連一台 Server。Server 提供 context 與能力，全走 JSON-RPC 2.0。隔離是寫死的設計原則：Server 拿不到完整對話，也看不見別台 Server。開什麼能力，初始化先做 capability negotiation，沒宣告就不能用。
@@ -54,6 +62,8 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
 
 ## 參考資料

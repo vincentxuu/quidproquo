@@ -34,6 +34,19 @@ This post ties them together with one official source: the course list that TAIC
 
 All courses in this post are taught in Mandarin unless noted otherwise.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
+- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+- [assignment index](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
+- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [Introduction to Artificial Intelligence](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
+- [Lectures page](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
+
 ## What TAICA is: a list that tells you where each course streams
 
 The "Origin of the Project" section on the [TAICA homepage](https://taicatw.net/) says the alliance was set up by the Ministry of Education. It pools teaching resources through cross-university AI programs, so universities with enough AI faculty can support schools that lack them. The alliance has run since academic year (AY) 113, which began in fall 2024, and the homepage says 55 institutions had joined by the second semester of AY113. The programs cover Applied AI Exploration, Industrial Applications, Natural Language Technology, and Computer Vision, and the site menu later added a Cybersecurity Technology program.
@@ -166,6 +179,8 @@ The public courses outside NTU share one trait. TAICA needs thousands of student
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-10-05: Corrected the description of Lin's Large Language Models and Information Security Systems (its focus is using LLMs for security, not protecting AI). Added an "AI security courses" section covering the status of TAICA's cybersecurity program and AI security courses at Chung Cheng, NCKU, NYCU, and NTU.
 
 ## References

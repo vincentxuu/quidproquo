@@ -19,6 +19,14 @@ This is article 2 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 The official topic is **Introduction, Set Theory**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/00/)
+
 ## Three questions set the course's direction
 
 The deck frames CS103 through three questions. Which problems can computers solve leads to computability theory. Why are some problems harder than others leads to complexity theory. How can we be certain of those answers requires discrete mathematics. These are not independent units: proving that a machine cannot do something requires precise definitions of problem, machine, and proof.
@@ -123,6 +131,8 @@ The public deck fully displays the set-notation examples, subset and power-set e
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the set-theory article from the official deck, restored the quantifier and type checks in Cantor's diagonal, and removed a dead handout link.
 
 ## References

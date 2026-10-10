@@ -19,6 +19,14 @@ This is article 12 in the [Stanford CS103 Guide](/series/stanford-cs103), corres
 
 The preceding lecture defined a graph as `G = (V, E)`, where `V` is a node set and each member of `E` is an unordered pair of distinct nodes. This lecture asks dynamic questions: what counts as moving through a graph, when can one node reach another, what happens when all nonedges become edges, and how can “more objects than places” force a mathematical structure?
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)
+
 ## Adjacency is the basis of every movement definition
 
 If `{u, v} ∈ E`, nodes `u` and `v` are adjacent. This recap becomes the local test for every sequence that follows: instead of judging the whole drawing at once, check whether each consecutive pair of nodes has an edge.
@@ -131,6 +139,8 @@ The [official lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs10
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the bilingual article item by item from the complete official deck, covering walks, reachability, graph complements, the pigeonhole principle, and Ramsey theory.
 
 ## References

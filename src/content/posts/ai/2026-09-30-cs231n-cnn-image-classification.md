@@ -40,6 +40,22 @@ glossary:
 
 有一個小地方要先說明。這份 2026 投影片每頁頁尾印的日期是「April 14, 2025」，但第 2 頁的行政公告寫 A1 在「Wednesday 4/16」截止，跟 2026 課表一致。本文只把它當成 2026 課表連結的版本，不推論它和 2025 版差多少。對照 [2025 年的 lecture_5.pdf](https://cs231n.stanford.edu/slides/2025/lecture_5.pdf)，章節順序幾乎一樣，差別是 2025 版多了 Bag of Words 一頁，以及一段「往年投影片」附錄。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=f3g1zGdxptI
+title: Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs（YouTube）
+```
+
+原始影片：[Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs（YouTube）](https://www.youtube.com/watch?v=f3g1zGdxptI)
+
+課程與錄影入口：
+
+- [Stanford CS231N Spring 2025 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 從線性分類器的極限講起
 
 投影片第 6–14 頁是回顧。第 9 頁把線性分類器的問題說成兩種觀點：
@@ -178,6 +194,10 @@ Conv(Translate(X)) = Translate(Conv(X))
 延伸閱讀：站上 [CMU 11-785 的 CNN 第一講](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)從掃描式 MLP 推導卷積，是另一條進路；[CMU 07-280 第 14 講](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)是更入門的電腦視覺與 CNN 介紹。
 
 系列導覽：上一篇 [A1 導讀：kNN、Softmax、兩層網路與全連接網路](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)｜下一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

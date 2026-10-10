@@ -30,6 +30,21 @@ glossary:
 
 > **不想碰數學的讀者**：這篇是整個系列最陡的一段。你可以只讀每節的第一段直覺、跳過所有折疊區，或者直接跳到 [L06 LLM 的應用與倫理](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)，後面的應用課不會卡住。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mhjegVhqb_M
+title: 【生成式 AI】05. Transformers 全攻略（YouTube 錄影，2025-03-18）
+```
+
+原始影片：[【生成式 AI】05. Transformers 全攻略（YouTube 錄影，2025-03-18）](https://www.youtube.com/watch?v=mhjegVhqb_M)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 L04 用「猜下一個字」把 LLM 講成一台會接話的機器，也讓 Q/K/V 露了一面。L05 回頭把那一面講透：**Transformer 裡的每一個零件，拆開都是矩陣乘法。**
@@ -231,6 +246,10 @@ print(softmax(scores / np.sqrt(5)).round(2))  # [0.4  0.29 0.11 0.08 0.11]
 - 中文授課的另一條路線：[台大李宏毅 ML 2026 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L04 大型語言模型原來這麼簡單](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)｜下一篇 [L06 LLM 的應用與倫理挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

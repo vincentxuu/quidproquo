@@ -20,6 +20,14 @@ series:
 
 這個系列採「教材導讀」，不是逐字課堂重建。官方課站明載[錄影需要 Berkeley 登入](https://cal-cs288.github.io/sp26/course_info/)，匿名讀者拿得到的是 18 組 slides、三份作業、兩個 starter repositories 與 project 規格。文章只解釋這些材料明確支持的內容，不替未公開的口頭授課補台詞。
 
+## 課程影片來源
+
+官方規定錄影提供給修課學生與 Berkeley 校內旁聽者；尚未確認校外可公開觀看的錄影，請參考公開講義。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://cal-cs288.github.io/sp26/course_info/)
+
 ## 先修不是建議清單而已
 
 官方要求已有 machine learning 經驗，能熟練使用 PyTorch、NumPy 與 neural networks，而且不提供入門教學；對大學部與碩士生，[CS182、CS188、CS189 或 EECS183/283A](https://cal-cs288.github.io/sp26/course_info/) 也被列為強烈建議背景。校外讀者若還沒自己寫過訓練迴圈、cross-entropy 與基本 attention，先補 ML 與 PyTorch，會比硬跟課表有效。
@@ -53,6 +61,10 @@ series:
 [Assignment 2 與 Assignment 3](https://cal-cs288.github.io/sp26/assignments/) 的正式驗收還依賴 hidden tests、Gradescope，以及課程提供的 OpenRouter wrapper。校外讀者拿不到這些部分。[Final project](https://cal-cs288.github.io/sp26/project/) 另有課內團隊媒合與階段回饋；課站只說 VESSL AI 與 Google Cloud 提供 project compute credits，沒有承諾對外開放。
 
 A2 的 Transformer 與 A3 的 RAG 都可能產生費用。先用小資料、小模型與 CPU baseline 驗證管線，再決定是否租 GPU。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

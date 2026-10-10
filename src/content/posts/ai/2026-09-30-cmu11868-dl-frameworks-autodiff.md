@@ -36,6 +36,14 @@ glossary:
 
 這個問題直接連到作業二。投影片第 7 頁把它寫成一段 PyTorch：`loss(input_logits, target_labels)` 之後呼叫 `output.backward()`，然後問兩件事：backward 是怎麼實作的？為什麼它對任何網路都有效？
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 這一講的四段結構
 
 投影片第 3 頁列出今天的主題，整講照這個順序走：
@@ -137,6 +145,10 @@ glossary:
 
 - [CMU 11-785 第 5 講：反向傳播](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)：同一套連鎖律，從深度學習課的角度推導
 - [Stanford CS336：資源估算](/posts/ai/2026-08-22-cs336-resource-accounting)：訓練時前向與反向各花多少計算量
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

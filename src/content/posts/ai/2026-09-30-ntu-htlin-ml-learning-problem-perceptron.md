@@ -30,6 +30,26 @@ glossary:
 
 **本文依據**：MOOC 投影片 [01](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf)、[02](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/02_handout.pdf)、[03](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/03_handout.pdf) handout；[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的 W2–W3 課前必看清單與 extended slides [01e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/01e_handout.pdf)、[02e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/02e_handout.pdf)、[03e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/03e_handout.pdf)；[Fall 2024 HW1](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw1/hw1_red.pdf) 與 [Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf)。全部在 2026-09-30 打開核對。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=nQvpFSMPhr0
+title: Course Introduction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sS4523miLnw
+title: What is Machine Learning
+```
+
+原始影片：[Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)、[What is Machine Learning](https://www.youtube.com/watch?v=sS4523miLnw)、[Applications of Machine Learning](https://www.youtube.com/watch?v=PveL3-fO_Qk)、[Components of Machine Learning](https://www.youtube.com/watch?v=pR1xsocj_Pw)、[Machine Learning and Other Fields](https://www.youtube.com/watch?v=vc2BimJ3XJA)、[Perceptron Hypothesis Set](https://www.youtube.com/watch?v=WlpF1Phkv28)、[Perceptron Learning Algorithm](https://www.youtube.com/watch?v=1xnUlrgJJGo)、[Guarantee of PLA](https://www.youtube.com/watch?v=Okrrz0IYoSE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## 這篇對應的教材
 
 | 講 | 影片（YouTube，依 MOOC 小節） | LFD 章節（依 Fall 2026 課程頁） |
@@ -192,6 +212,10 @@ L3 把學習問題沿四個軸分類。每個軸都有一個「核心」選項�
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課，第 1 講「The Learning Problem」對應這一篇的開頭。
 
 **系列導覽**：[總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)｜下一篇 [學習可行嗎：Hoeffding 與「出了資料之外」](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

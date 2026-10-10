@@ -30,6 +30,14 @@ This is part 18, the final post, of [Reading NTU Hsuan-Tien Lin Machine Learning
 
 This post gives no solutions. For each problem it says what the problem practices, which post to read first, and how to check your own answer.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Access level and gaps
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the MOOC plus the Fall 2024 homework PDFs reach **A3, minus the grading chain**:
@@ -210,6 +218,10 @@ Fall 2026 grading is 30% homework, 30% exam, 40% project (tentative), and the co
 - [Reading Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) on this site: another angle on SVMs, kernels, and boosting.
 
 Series navigation: previous, [Foundations homework guide: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) | this is the last post; back to the [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

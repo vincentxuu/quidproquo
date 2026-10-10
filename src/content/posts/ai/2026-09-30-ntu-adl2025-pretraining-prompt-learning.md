@@ -34,6 +34,26 @@ glossary:
 
 存取等級沿用系列的 **A2**：本講的講義與影片都公開，本週沒有新作業（HW2 的題目在[第 10 篇](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)，只有說明影片）。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=suX2F2TqKuE
+title: 6.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cnd91AbBQ74
+title: 6.2
+```
+
+原始影片：[6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 預訓練是什麼
 
 講義第 2 頁的比喻：先讀教科書學通識，再去考特定科目。預訓練就是在大量、多樣的資料上先訓練模型，之後再針對特定任務微調。三個關鍵步驟是大規模多樣資料、self-supervised learning、學到通用表示；換來的是可擴展、可泛化、可遷移。
@@ -164,6 +184,10 @@ Hard prompt 的問題在第 55 頁：
 延伸閱讀：站上 [CS224N 第 7 講：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)講同樣的三種架構與 in-context learning；[CS336 的 scaling laws 基礎](/posts/ai/2026-08-22-cs336-scaling-laws-foundations)把 Kaplan 與 Chinchilla 講得更深；[CS224U 的 in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)從 prompt 設計與 DSPy 的角度延伸。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [HW1 中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)｜下一篇 [後訓練：Instruction Tuning、RLHF 與 InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

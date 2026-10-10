@@ -19,6 +19,14 @@ draft: false
 
 本文讀了公開 [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf) 與[官方 component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md)。Canvas 錄影未觀看。正文只陳述這些 Winter 2026 材料支持的模型與結論。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
+
 ## Stable 不是每個人都滿意
 
 基本模型有 `n` 位 doctors、`n` 家各一個 position 的 hospitals，雙方都有無 ties 的完整 strict ranking。Matching 中若 doctor `d` 與 hospital `h` 都嚴格偏好彼此勝過現任，`(d,h)` 是 blocking pair；沒有 blocking pair 才叫 stable。Stable 不等於總分最高，也不保證每個人拿第一志願，只排除一對人有共同動機繞過機制。
@@ -97,6 +105,10 @@ Naive greedy 容易錯在把 hospital 首次接受永久化。Deferred Acceptanc
 ## 延伸
 
 真實 matching markets 常有 capacities、ties、couples 與不完整偏好，不能把本講 theorem 原封不動搬過去。工程測試可生成小型 strict preferences，暴力枚舉 matchings，檢查輸出完整、無 blocking pair，並比較所有 stable solutions 驗證 proposing-side optimality。這是驗證策略，不是課堂對真實 NRMP 的完整模型。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

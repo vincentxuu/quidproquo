@@ -19,6 +19,14 @@ draft: false
 
 本講不是把倫理當成技術之外的裝飾。安全研究者能找到漏洞，是因為被允許或自行取得了特殊能力；資料管理者能做統計，是因為手上集中著別人的資訊；allocator 能重用一段空間，是因為 client 承諾不再碰已 `free` 的 block。三個問題其實相通：**誰能做什麼、我們依賴誰、背叛之後誰承擔風險？**
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -160,6 +168,10 @@ Privacy 與 allocator 看似是兩堂課，實際上共享同一個 systems 習�
 Lecture 20 的核心不是背四種 privacy 定義，也不是搶先學 allocator 演算法。它要求在能力增長時同步擴大責任感：reverse engineering 讓你能穿過抽象層，就更需要區分能力與授權；differential privacy 給出精確保證，就更需要辨認它沒有涵蓋的威脅；heap API 看似簡單，就更需要看見 library 與 client 共同維持的 ownership contract。
 
 下一步進 allocator 實作時，最值得保留的問題仍是同一組：誰擁有這段資源、誰被信任、信任持續多久、違反契約時誰會受傷。Systems programming 的成熟，不只是看得懂 bytes，也包括看得懂 bytes 背後的權力與責任。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

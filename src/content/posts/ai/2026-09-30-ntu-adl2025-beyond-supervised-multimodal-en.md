@@ -41,6 +41,26 @@ Official materials used:
 
 The "matching pages" column is my own topic match. Public information cannot confirm that the videos actually show these pages.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=j5XknQ4MGw0
+title: 14.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=rQyhxK-fDyI
+title: 14.2 Auto-Encoder
+```
+
+Original videos: [14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Why unlabeled data helps (pages 2–11)
 
 Page 2 opens with the premise: **big data is not big annotated data.** With labels you use supervised learning; with an environment that gives rewards, reinforcement learning; with neither, unsupervised learning. The deck then asks why unlabeled, even unrelated, data can help. The answer: **find the latent factors that control the observations.**
@@ -153,6 +173,10 @@ Not confirmed: whether the Fall 2025 videos use this 2024 deck, or how much it c
 The next post leaves the lectures for the side track: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Conversational AI and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en) | Next: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

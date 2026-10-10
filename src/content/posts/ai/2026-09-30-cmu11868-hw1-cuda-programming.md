@@ -38,6 +38,14 @@ glossary:
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 它在課程裡的位置
 
 官方時程跟導讀順序不同。[Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 把 HW1 放在 1/14「GPU Programming Basics 1」當天發，1/28 截止，那天正好是 L05 框架與自動微分那一講。也就是說，修課學生是一邊上 L02–L04 一邊寫這份作業。本系列把它排在三講 GPU 之後，因為 reduce 與 matmul 的 hints 直接用到 L04 的 tiling 與記憶體存取觀念。
@@ -110,6 +118,10 @@ glossary:
 
 - [Stanford CS336：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)：從硬體角度解釋為什麼記憶體搬運常常比計算更貴
 - [Stanford CS336：Kernel 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)：同樣的 kernel 優化思路，改用 Triton 寫
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

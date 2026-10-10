@@ -32,6 +32,21 @@ glossary:
 
 **Fall 2026 對照**：Fall 2026 的第 7 講排在 10 月 1 日，2026-10-01 查課程頁時投影片與錄影都還沒有連結。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=3W146_T8eCs
+title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I（MIT 6.5940, Fall 2024）
+```
+
+原始影片：[EfficientML.ai Lecture 7 - Neural Architecture Search Part I（MIT 6.5940, Fall 2024）](https://www.youtube.com/watch?v=3W146_T8eCs)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這講在整個 NAS 單元的位置
 
 第 4 頁列出整個 NAS 單元的大綱，第 7 講只負責前半：
@@ -185,6 +200,10 @@ Network-level 固定 block 的種類，搜整個網路的形狀。第 49–53 �
 - 效率指標與 building block 的第一次介紹：[第 1–2 講＋Lab 0](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 - CNN 架構的另一種講法：[CMU 11-785 CNN 單元](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)
 - Transformer 從頭講起：[CMU 11-785 注意力與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

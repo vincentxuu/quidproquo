@@ -24,6 +24,15 @@ draft: false
 
 這篇讀過的東西：Spring 2026 的課程官網、`lecture_01.py` 的原始碼、五份作業各自的 GitHub repo 與 PDF 講義、四個排行榜 repo、課程的 AI 政策文件，以及 ExploreCourses 與 Stanford Online 的條目。**不包含**逐堂聽完錄影——那是另一個量級的工作。這篇處理的是文字材料能證明的事。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## 這門課的硬事實
 
 Spring 2026 是第三次開課，週一週三下午在 Skilling Auditorium 上，助教三位。ExploreCourses 的條目寫 `Terms: Spr | Units: 3-5`，下一次開課掛在 **2026–2027 春季**，而且條目裡直接寫「Application required, apply at http://cs336.stanford.edu/」。
@@ -188,6 +197,10 @@ Stanford Online 那頁把「為什麼要申請」寫得很直接：「Due to hig
 - **排行榜數字**：第一份的班內表（Spring 2026）預算標「0.75 B200 hours」、單次最多 45 分鐘，天真基準線 validation loss 5.00，目前榜首 3.03543；2025 那屆的班內表與全球表預算都是「1.5 H100 hours」。第二份（Spring 2026）在兩張 B200、batch size 2、序列長度 32768 上量完整一步的時間，天真基準線 10 秒，目前榜首 3,837 毫秒，且規定整個量測跑程從空的 PyTorch/Triton 快取起算要在 10 分鐘內完成。
 - **學分與學費**：課程頁寫 5 學分，ExploreCourses 寫 3-5，Stanford Online 的遠距版寫 5 學分、7,875 美元、10 週、每週 20–25 小時、2026 年 3 月 30 日至 6 月 10 日。三者並存，本文照各自來源標注，沒有取捨。
 - **未能確認的項目**：一，Spring 2026 播放清單顯示 18 支影片，而課表有 19 個講次格（17 堂正課加 2 場客座），少的是哪一堂我沒有逐支比對確認。二，第三份作業的訓練 API（`hyperturing.stanford.edu:8000`）我沒有測試連通性，只能確認 repo 說它需要八位數學生證號當 key。三，Spring 2026 各作業實際的完成率、選課人數與錄取率，公開材料裡都沒有。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

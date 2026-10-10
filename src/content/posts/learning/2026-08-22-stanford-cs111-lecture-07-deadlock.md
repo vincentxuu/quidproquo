@@ -19,6 +19,14 @@ draft: false
 
 上一講建立 mutex 與 condition variable，也提醒 lock 太多會增加複雜度。本講從那個取捨的另一面開始。多把 locks 可以降低 contention，也能讓每個 data structure 自己封裝同步，但一條 thread 經常要同時持有多個 resources。只要取得順序互相衝突，所有 critical sections 都可能各自寫對，整個系統卻永遠停止前進。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 為什麼系統需要多把 locks
 
 PDF 先列出三個動機。第一是降低 contention。若不相關的資料共用一把 coarse-grained lock，任一操作都會擋住其他操作；拆成 fine-grained locks，可能允許更多 concurrency。第二是 modularity：一個 structure 配一把 lock，模組可以自行維持不變量。第三是實際操作常跨 structures，因此 thread 會同時需要多把 locks。
@@ -123,6 +131,10 @@ Process 2: mv b/z a/q
 這會造成實際痛點。有時 code 已持有高 rank lock，接著才發現需要低 rank resource。它不能直接取得，只能重構 control flow、提早取得、釋放後重試，或重新設計介面。global order 保住 safety，卻會穿過 module boundary，限制局部實作自由。
 
 讀完後，可以把 code review 變成一個具體動作：列出每條 path 同時持有的 locks，寫成 `L1 < L2 < ...`，再把所有 paths 合併成一張 ordering graph。若出現互相矛盾的 edges，就不要等測試重現；設計本身已允許 circular wait。若 graph 無 cycle，仍要另查其他三個條件與非 lock resources，但至少最常見的 prevention discipline 已可被檢查。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

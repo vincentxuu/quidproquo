@@ -17,6 +17,14 @@ draft: false
 
 Lecture 11, **Neural Networks**, took place on February 17, 2026. It does not introduce a neural network as an unrelated mysterious model. It stacks familiar linear and logistic operations: every neuron forms a weighted sum and applies an activation, while multiple neurons allow the feature transform itself to be learned. No lecture-by-lecture public recording exists, so this article uses the written material only.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The sources are the [Lecture 11 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec11_Neural_Networks_I.pdf), [Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf), [Recitation 6 solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf), and HW6. The slides contain prompts for interactive activities but no public poll results; this reading does not fill blank slides with invented spoken answers.
@@ -85,6 +93,10 @@ Lecture 12 addresses the computational question. Expanding a separate chain rule
 ## What to do tonight
 
 Draw a `2→3→2` network and label the shape of every `W`, `b`, `z`, and `a`. Count all parameters. Choose one two-dimensional input and small integer weights, then compute a complete forward pass. Finally, derive the loss gradient for one output-layer weight to prepare for Lecture 12.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

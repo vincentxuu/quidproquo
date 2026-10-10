@@ -17,6 +17,15 @@ draft: false
 
 This article reads Chapter 6, “Support vector machines,” on printed pages 60–78 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of any quarter's recordings.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## From correct classification to distance from the boundary
 
 Two hyperplanes may classify every training point correctly while differing greatly in robustness. SVMs express that difference through margins. With \(y\in\{-1,1\}\) and score \(w^Tx+b\), an example's functional margin is
@@ -72,6 +81,10 @@ This chapter realizes Chapter 5's main kernel application and contrasts with Cha
 ## Self-study exercise
 
 On separable two-dimensional data, draw the maximum-margin line, both margin boundaries, and the support vectors. Add one outlier, fit soft-margin SVMs with three values of \(C\), and record how margin width, violations, and the number of support vectors change.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

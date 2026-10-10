@@ -17,6 +17,21 @@ draft: false
 
 Lecture 9 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Massively Parallel Training: Memory and Communication Set the Boundary**. It Starts with GPU memory pressure and moves through checkpointing, offloading, ZeRO, FSDP, and multiple forms of parallelism. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=UZZD9d9YqnQ
+title: Lecture 9 official video
+```
+
+Original videos: [Lecture 9 official video](https://www.youtube.com/watch?v=UZZD9d9YqnQ)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## What to take away
 
 - Estimate parameters, gradients, optimizer states, and activations separately
@@ -41,6 +56,10 @@ Make a four-column memory budget for a model, then choose checkpointing, shardin
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

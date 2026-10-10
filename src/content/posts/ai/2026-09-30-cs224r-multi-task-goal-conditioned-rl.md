@@ -40,6 +40,21 @@ glossary:
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw)（約 70 分鐘）。[2025 年的 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)前半段還在收尾 model-based RL（合成資料生成、什麼時候用 model-based RL），錄影前段可能也是這些內容。以下以 2026 投影片為準。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=qNdsI_4AQJw
+title: Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）](https://www.youtube.com/watch?v=qNdsI_4AQJw)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 為什麼要一次學很多任務
 
 第 6 頁的問題是：能不能訓練一個**通才** policy，做很多「任務」而不只一個？投影片的例子橫跨好幾個領域：LLM 助理訂機票和買菜、足式機器人走路跑步跳舞、行動操作機器人掛毛巾和清洗碗機、音樂推薦系統對很多不同使用者做個人化、遊戲 agent 玩 Flappy Bird 和 Pokemon。這些任務的 reward、dynamics，甚至動作空間都可能不同。
@@ -195,6 +210,10 @@ goal-conditioned 的優缺點：
 可以確認：2026 投影片的文字、演算法和總結表，課表日期與指定閱讀，2025 HW4 題目 PDF 的內容與算力規定，2025 L12 影片的標題與長度。不能確認：第 9 頁思考題在課堂上的討論、第 15–18 頁影片素材的內容，以及 relabeling 三個前提在課堂上的口頭解釋（上面折疊區是我的推論）。
 
 系列導覽：上一篇 [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)｜下一篇 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 上一講的 Too Much Milk 用旗標與逐條 interleaving 勉強做出互斥，但解法太複雜。本講要找兩個更高階的同步能力。第一是讓 critical section 容易表達的 **mutual exclusion**；第二是在某件事尚未發生時，不浪費 CPU 地延後 thread 的 **blocking**。mutex 解第一題，condition variable 解第二題。整份 PDF 用同一個 producer/consumer `Pipe` 反覆改錯，重點正是看清楚兩者為何缺一不可。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 從 Too Much Milk 到 mutex
 
 `lock` 在英文裡既是名詞也是動詞，若類別和方法都叫 lock，就會出現 `lock.lock()`。C++ 因而把 mutual-exclusion object 稱為 `std::mutex`。本講先使用三個操作：
@@ -206,6 +214,10 @@ void Pipe::put(char c) {
 讀完後可用五題檢查 condition-variable 程式。共享狀態是什麼？哪把 mutex 保護它？每種操作的 predicate 是什麼？wait 是否在持鎖的 while 裡？哪次狀態改變需要通知哪類 waiter？
 
 實際 review 時，把這五個答案逐一標在 code 上。若其中一題答不出來，程式即使成功跑過幾次，也還沒有同步正確性的證明。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

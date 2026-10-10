@@ -19,6 +19,15 @@ The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n
 
 This article therefore cannot faithfully reconstruct what was taught. It is a reading map supported by the official list, preserving the series position and material boundary without presenting papers as classroom speech.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Route one: from explaining an answer to an investigating agent
 
 The first official reading is [*Because we have LLMs, we Can and Should Pursue Agentic Interpretability*](https://arxiv.org/abs/2506.12152). This route moves interpretability beyond one visualization or feature attribution toward an investigation that proposes hypotheses, designs probes, calls analysis tools, and accumulates evidence.
@@ -40,6 +49,10 @@ Neologism learning introduces new concept tokens that a model can reference, con
 ## What can and cannot be confirmed
 
 The date, speaker, title, and five official readings are confirmed. The spoken agenda, deck, coverage of each paper, live examples, and conclusions are not. The page HTML contains a commented-out link to an older offering's slides; it is not Winter 2026 public material and is not used here. This article should become a full lecture review only if current slides are later released.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

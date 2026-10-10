@@ -36,6 +36,26 @@ glossary:
 
 [上一篇](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)從資訊檢索的角度，把文字變成了向量。這一篇換成語言模型的角度。投影片第一頁的標題是「GAI Motivation」，列出監督式學習（文字分類、問答系統）的兩個問題：缺訓練資料、領域知識有限；下一頁接著說，產生句子最常見的方式就是一個字接一個字寫下去。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cqp5a39eyJQ
+title: Fall 2025 Week 2 Thu. 錄影
+```
+
+原始影片：[Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/watch?v=6Z0A4JMptT8)、[Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/watch?v=cqp5a39eyJQ)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 統計語言模型：數 n-gram
 
 投影片先回顧 Markov（1913 年研究一個字母出現的機率怎麼取決於前一個字母）與 Shannon（1951 年〈Prediction and Entropy of Printed English〉），再用一段中文歌詞拼貼示範：在這段文字裡，「妳」後面接「說」的機率是 1/4，「沒停妳」後面接「說」的機率是 0。語言模型要做的，就是把這種條件機率學起來。
@@ -163,6 +183,10 @@ RNN 就是為序列設計的。投影片的比喻是「Moving average 進階版�
 
 - [CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)：Stanford 版本的 word2vec 推導。
 - [CS224N RNN 與語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)：n-gram、perplexity 與 RNN 語言模型的另一種講法。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

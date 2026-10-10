@@ -26,6 +26,16 @@ draft: false
 
 課程網站只列出課表與作業，**它從來沒有解釋任何一次改動的理由**。所以底下講的全部是「改了什麼」，不是「為什麼改」。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Winter 2019 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
+- [CS224N Spring 2024 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 這門課的硬事實
 
 現行是 Winter 2026，授課者兩位：[Diyi Yang](https://cs.stanford.edu/~diyiy/) 與 [Yejin Choi](https://yejinc.github.io/)。每週二、四下午在 NVIDIA Auditorium 上課，助教掛了二十位。
@@ -152,6 +162,10 @@ CS224N 是 NLP 分支的樞紐，這件事在 ExploreCourses 的先修欄位裡�
 - **講次總數**：Winter 2019 課表列出 20 堂編號講次；Winter 2026 的投影片檔名編到 `lecture19`，其中四堂是客座（tokenization 與多語言、可解釋性、多模態、Tinker 與 LoRA）。
 - **A4 handout 的內部矛盾**：檔案第一頁的標題行寫「CS 224N Winter 2025 Assignment 4」，但每一頁的頁首寫的是 Winter 2026，截止日期（2 月 19 日星期四）與 Winter 2026 課表一致。Winter 2025 的 A4 是 Transformer 自監督與微調、2 月 13 日截止，所以標題行是複製時留下的舊字串。
 - **未能確認**：課程網站沒有公開任何一屆的選課人數，也沒有說明任何一次課綱改動的理由——「為什麼砍掉機器翻譯」「為什麼加一堂 NLP 歷史」在一手材料上查不到答案，本篇不做推測。Winter 2020、Winter 2021、Winter 2017 等其餘封存版本我沒有逐一打開，所以上面的「最後一次出現」判斷只在我實際比對過的六個版本範圍內成立。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,26 @@ glossary:
 
 本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 的投影片 [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf)（33 頁）。在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)上，它掛在 W3 那一列，錄影是 [W3 Tue](https://www.youtube.com/live/LFeFc0VtKRI) 與 [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g)。課表的 Topics 欄寫著「Introduction to NLP (Language model)」，那是課綱模板，實際內容以投影片為準。本篇只根據投影片撰寫，沒有逐段對照錄影。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 W3 Tue 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UZ22K0rmU1g
+title: Fall 2025 W3 Thu 錄影
+```
+
+原始影片：[Fall 2025 W3 Tue 錄影](https://www.youtube.com/watch?v=LFeFc0VtKRI)、[Fall 2025 W3 Thu 錄影](https://www.youtube.com/watch?v=UZ22K0rmU1g)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 問題：翻譯的長度對不上
 
 投影片先講機器翻譯的地位：很多 NLP 語言模型的進展，最早都是為了解決翻譯問題。接著舉了幾個翻譯例子，其中一個是「來都來了」→「Since we're already here…」。
@@ -131,6 +151,10 @@ Attention 的核心想法是：**生成每個輸出時，讓模型聚焦在輸�
 - 本系列下一篇：[PyTorch 助教課＋HW2 把算式當語言](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
 - 英文課的同一段：[CS224N 導讀：RNN 與語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)、[CMU 11-785：Language Models 與機器翻譯](/posts/ai/2026-08-22-cmu-11785-17-language-models-translation)、[CMU 11-785：Attention 與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
 - 回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

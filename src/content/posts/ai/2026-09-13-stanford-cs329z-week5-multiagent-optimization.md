@@ -24,6 +24,14 @@ draft: false
 
 週三（10/21，Optimization）換了一個問題：不管單幹還是開會，系統要變強只有三個地方能調。改 prompt（換說明書）、改權重（換腦袋）、加推理算力（想久一點）。主讀物是 Snell 等人的 [test-time compute 論文](https://arxiv.org/abs/2408.03314)（ICLR 2025）與 Agrawal 等人的 [GEPA](https://arxiv.org/abs/2507.19457)。時間點很現實：[HW1 在 10/30 截止](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，這是交卷前最後一個完整週。這篇幫你決定力氣花在哪一軸。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## 單體 vs 多體：AutoGen 把分工寫成對話
 
 AutoGen 的核心抽象有兩個，[開源實作](https://github.com/microsoft/autogen)可以直接玩。第一是 conversable agent：每個 agent 都能收訊息、做事、回訊息，後端可以是 LLM、人、工具或混搭。內建最常用的兩個是 AssistantAgent（LLM 主力，負責想和寫）與 UserProxyAgent（人或工具的代理，負責跑 code、回傳結果、必要時找人）。
@@ -78,6 +86,8 @@ Week 5 之後只剩一週：Week 6 是嘉賓演講加 Data for Agentic Systems�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、改成不用框架的完整 harness），改寫「HW1 收尾」的十天計畫與各節「怎麼做」裡的作業對應
 
 ## 參考資料

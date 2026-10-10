@@ -38,6 +38,26 @@ Official materials covered here:
 
 Page numbers below are PDF page numbers. The number printed in the slide corner is sometimes off by one or two.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
+title: Lecture 1 video (Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=I0nKjPpZmMU
+title: Lecture 2 video (Fall 2024)
+```
+
+Original videos: [Lecture 1 video (Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[Lecture 2 video (Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## The problem: models grow faster than hardware
 
 Lecture 1 opens (page 3) with a two-line chart. One line is language-model size: Transformer 0.05B, BERT 0.34B, GPT-2 1.5B, GPT-3 175B, MT-NLG 530B. The other is GPU memory, from 32GB on the V100 to 80GB on the A100. The gap keeps widening, and the chart's caption reads "Model compression bridges the gap." Page 3 of Lecture 2 puts it in one line: Moore's law gives about 2× every two years, while deep learning models grow about 4× every two years.
@@ -206,6 +226,10 @@ The [Fall 2026 Lab 0](https://colab.research.google.com/drive/1PfVYxikSaVpCSD-cn
 - [Stanford CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en): latency from the memory-bandwidth angle
 
 **Series navigation**: previous [Series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en) | next [Pruning I: granularity and criteria](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

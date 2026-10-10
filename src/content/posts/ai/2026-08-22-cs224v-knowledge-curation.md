@@ -18,6 +18,14 @@ description: "拆解 CS224V Knowledge Curation 講義的完整路線：RAG、STO
 
 第二講問的不是「怎麼摘要搜尋結果」，而是研究寫作前如何找出自己尚未想到的面向。官方 schedule 把它叫 Knowledge Curation；主角是 [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf)、Co-STORM，最後接到 Homework 1 的 DataSTORM。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：從 RAG 到人機共同研究
 
 講義先快速複習資訊檢索與 RAG，再指出一般搜尋式寫作的兩個缺口：使用者的問題通常太窄，單輪檢索也不會主動追問。接著完整走過 STORM 的前期研究、文章生成與評估；後半把人加入 Co-STORM 的多代理討論，最後介紹結合網路與資料庫探索的 DataSTORM。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf))
@@ -135,6 +143,10 @@ Research depth 與 breadth 之間也要明確選擇。每個 perspective 都追�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片沒有錄影，部分表格的口頭解釋不可得；其中的使用量與人類評估數字屬講義對研究結果的摘要，本文不把它們泛化成所有 deep-research 系統的結論。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

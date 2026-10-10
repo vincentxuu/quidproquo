@@ -23,6 +23,19 @@ CSCI S-80 Summer 2026 確實是 Harvard Summer School 的正式 2026 班次，�
 
 所以這篇不會把畫面年份當教材版本。我會把 **正式開課、講授資產、作業資產與回饋系統**拆開，再回答 Harvard 的校內 AI／ML 主幹如何接起來。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
+- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
+- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
+- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
+- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
+- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
+
 ## Harvard 的正式地基不是 CS50 AI
 
 Harvard College 把主修稱為 concentration。現行 [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/) 要求程式設計、formal reasoning、systems、computation and the world，以及線性代數和機率；honors 路線另要求一門帶 AI tag 的課。最常見的起點可以壓成：
@@ -102,6 +115,8 @@ Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-01：入口表與「補廣義 AI 或專題分支」路線補上 CS 2881R AI Safety（Fall 2025 完整結束，閱讀清單、11 講錄影、HW0 repo 與專題規格公開，以研討課標準列 A3）與站內導讀連結；參考資料補上 Fall 2025 課站。
 - 2026-09-30：CS1810 段落與系列免責邊界加上本站 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的連結（Spring 2026 HW0–HW6 與期中／期末檢查點），參考資料同步列入。
 - 2026-08-27：補上六輪稽核後的免責邊界 — CS182 2026/2025/2024/2023 當期皆 A0（Locator Canvas 未發布、無公開 hw repo，僅 F22 22講+F18 P0–5 為歷史 A2）；CS181 2026/2025/2024/2023 對照表（成績從雙期中到 midterm+final、hw3–5 重組、practical 存廢）與 Google Sheet 已刪註記，逐週導讀以 hw 編號為節拍。

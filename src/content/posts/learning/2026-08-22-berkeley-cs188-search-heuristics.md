@@ -18,6 +18,22 @@ draft: false
 
 CS188 的第一段用 Pacman 回答一個基本問題：在不知道答案路徑的情況下，agent 要依什麼順序展開可能狀態？[Lecture 1–4 的課表](https://inst.eecs.berkeley.edu/~cs188/sp26/)依序處理 agents、uninformed search、A* 與 local search；[Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/)則要求你實作 DFS、BFS、UCS、A*，再設計 corners 與 food search 的 heuristic。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=On4rmdfuFKE
+title: CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments
+```
+
+原始影片：[CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments](https://www.youtube.com/watch?v=On4rmdfuFKE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
 ## 先固定共同骨架
 
 四種 graph search 都可以看成同一個迴圈：從 frontier 取出節點、檢查目標、展開 successor、避免重複狀態。DFS 與 BFS 改的是 frontier 順序；UCS 用累積成本排序；A* 再加入對剩餘成本的估計。若四份程式碼大量重複，通常代表共同抽象還沒看清楚。
@@ -39,6 +55,10 @@ heuristic 則必須在速度與正確性間守住界線。[官方 P1 規格](htt
 完成 P1 後，真正該帶走的是三個問題：state 是否保留了必要資訊、frontier 代表什麼偏好、heuristic 是否只提供安全的方向感。這三問會一路回到後面的 MDP、Bayes nets 與 planning。
 
 系列導航：[上一篇：課程總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)｜[下一篇：CSP 與多代理搜尋](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

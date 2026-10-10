@@ -27,6 +27,14 @@ draft: false
 
 值得注意的是這門課去年不是這樣開場的。Fall 2025 的第一週叫「Introduction to Coding LLMs and AI Development」，兩堂課分別是「how an LLM is made」跟「Power prompting for LLMs」。一年之間，開場從「模型是怎麼做出來的」換成「agent 是怎麼組起來的」。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## agent loop 有多小
 
 Anthropic 在 [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) 裡引用了 Simon Willison 的定義，並說「we've gravitated towards a simple definition for agents: **LLMs autonomously using tools in a loop**」。
@@ -137,6 +145,10 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 - Fall 2026 的作業與投影片尚未公布，本文的作業路線是依 Fall 2025 repo 推的
 - 「200 行」是 Fall 2026 講題的說法，實際程式碼還沒公開；本文引用的是 Fall 2025 同主題課堂的投影片
 - Claude Code 的 system prompt 分析文是第三方逆向，版本會漂
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ This is article 26 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Unsolvable Problems, Part II**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/24/)
+
 ## Defining and locating HALT
 
 The halting problem asks whether a TM M eventually halts on input w. Here halting includes accepting and rejecting but excludes an infinite loop. As a language,
@@ -121,6 +129,8 @@ The public deck explicitly supports the sections on defining and locating halt a
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked defining and locating halt against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

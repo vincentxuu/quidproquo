@@ -19,6 +19,14 @@ This is article 7 in the [Stanford CS103 guide](/series/stanford-cs103), corresp
 
 The previous lecture introduced predicates, functions, and quantifiers. This lecture starts doing serious translation. The difficulty is not the symbols themselves. A natural-language sentence often hides scope, dependencies, exceptions, and uniqueness at once. The safest method preserves the sentence's skeleton and replaces it one layer at a time instead of attempting the whole formula in one leap.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
+
 ## The four Aristotelian forms
 
 For predicates `A(x)` and `B(x)`, the deck asks students to memorize four patterns. “All As are Bs” is `∀x. (A(x) → B(x))`. “Some As are Bs” is `∃x. (A(x) ∧ B(x))`. “No As are Bs” is `∀x. (A(x) → ¬B(x))`. “Some As are not Bs” is `∃x. (A(x) ∧ ¬B(x))`.
@@ -174,6 +182,8 @@ The complete public deck supports the four forms, the two love examples, quantif
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt both language versions from the complete official First-Order Logic, Part II deck, restoring nested quantifiers, negation, restricted quantifiers, and uniqueness.
 
 ## References

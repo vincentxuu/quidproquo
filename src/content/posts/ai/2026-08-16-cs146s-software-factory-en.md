@@ -27,6 +27,14 @@ Three topics: self-running, self-improving software systems; running and securin
 
 "Software factory" also closes the course description: graduates should be able to "apply software-factory principles to building and evolving software at greater speed and scale." It is the course's terminal proposition.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## Unpacking the term
 
 A factory's core isn't automation — it's that the process is repeatable, defects are traceable, and the line is adjustable. Translated to software, "self-running, self-improving" needs three things in place at once:
@@ -121,6 +129,10 @@ To study on your own, [the complete Fall 2025 materials](https://themodernsoftwa
 - The Week 10 guest for Fall 2026 is unannounced
 - "Software factory" is currently used mostly by this course and a few vendors, with no consensus definition
 - The second and third gaps above are my assessment; the first (accountability) is the course's own open question
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ draft: false
 
 這篇是第一階段整合，不取代逐講文章。它把 Spring 2026 syllabus 的 Search Fundamentals 與 ML Fundamentals 放在同一張圖上，讓你檢查自己是否只記得演算法名稱，還是真的能把問題寫成可計算的形式。官方沒有完整逐講公開錄影，因此以下只根據 syllabus、公開講義、recitation 與 homework 規格重建。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 同一條主線：表示、評分、移動
 
 搜尋問題先明定 state、action、transition、goal test 與 path cost。監督式學習換了一套詞：輸入特徵是表示，模型參數決定候選函數，loss 評分候選解，optimizer 則決定如何移動。CSP 的 variable／domain／constraint，也能讀成另一種表示與評分介面。
@@ -74,6 +82,10 @@ dy/db = (dy/dz)(dz/db) = 2z
 你應該能從自然語言題目寫出 representation、objective 與 update rule；能說清楚 heuristic、feature、loss 與 regularizer 各自壓縮或偏好什麼；也能手算一次 backpropagation。如果其中一項只能背定義，就回到對應逐講文章與 recitation worksheet，不要急著進 AlexNet。
 
 下一階段會把這些零件裝進三個具體系統：CNN 讓影像表示具有空間結構，GPT-2 讓序列表示透過 attention 互動，而訓練框架負責把計算圖真正跑在硬體上。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

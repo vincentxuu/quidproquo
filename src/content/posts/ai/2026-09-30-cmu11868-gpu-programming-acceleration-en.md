@@ -46,6 +46,14 @@ glossary:
 
 These three lectures are the foundation of the course. As the [overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) notes, the prerequisites only ask for C/C++, yet L02 reaches CUDA in week two. This article follows a five-layer structure: a surprising number first, then intuition, then the mechanisms, and finally the link back to LLMs and the homework.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The scene: a correct matmul that uses 2.48% of the GPU
 
 L04 page 6 shows the most obvious matrix-multiply kernel. Each thread computes one element of the output by taking the dot product of a row of A and a column of B. The code is correct.
@@ -221,6 +229,10 @@ Recitation 1 covers setup before coding: getting a PSC account, head nodes versu
 - [CS336 Lecture 6: learn to benchmark and profile before writing Triton kernels](/posts/ai/2026-08-22-cs336-kernels-triton-en): one level up from CUDA, writing kernels in Triton.
 - Practice recommended in Recitation 1: Sasha Rush's [GPU-Puzzles](https://github.com/srush/GPU-Puzzles), NVIDIA's [cuda-samples](https://github.com/NVIDIA/cuda-samples), and [How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance: a Worklog](https://siboehm.com/articles/22/CUDA-MMM), which optimizes a matmul step by step toward cuBLAS.
 - Assigned reading: *Programming Massively Parallel Processors*, 4th ed. The Syllabus pairs L02 with chapters 2 and 4, L03 with chapter 3, and L04 with chapters 5 and 6. L04 page 2 also recommends NVIDIA's [CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

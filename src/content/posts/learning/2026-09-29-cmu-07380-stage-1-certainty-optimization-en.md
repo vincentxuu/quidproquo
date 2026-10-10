@@ -22,6 +22,14 @@ The short answer: **the first ten lectures run from "provable and enumerable" to
 
 This post synthesizes only the official materials already cited in orders 1–13 of this series, plus the module split on the [course schedule](https://www.cs.cmu.edu/~07380/#schedule). It adds no new facts. Based on the course site as of 2026-09-29; the site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## How the course site splits it
 
 The schedule's "Module" column splits the first ten lectures into four blocks. This is the course's own split, not this series' interpretation:
@@ -118,6 +126,10 @@ If you are self-studying along with this series, the math behind Lec2–Lec8 can
 1. On a sheet of paper, write one sentence for each of Lec2–Lec10: "what problem from the previous lecture does this one solve?" Wherever you get stuck, go back to that lecture's pre-reading.
 2. Pick a programming assignment from HW1–HW3 you have not run yet, download the starter, and run `autograder.py` once to see everything fail, confirming your environment works.
 3. Read question 4 of [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) (MAP: priors and regularization) and try to write only the form of the log-posterior, without rushing to finish. This checks whether you have really crossed from optimization to probability.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

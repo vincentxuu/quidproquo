@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 6 章〈Support vector machines〉，講義頁碼 60–78。它是 **2026 notes 的逐章導讀**，不是任何一學期錄影內容的重建。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 從「分對」到「離邊界夠遠」
 
 同樣能把訓練資料分開的兩條超平面，穩健程度可能不同。SVM 用間隔描述這個差異。採 \(y\in\{-1,1\}\) 與分數 \(w^Tx+b\) 時，單筆資料的函數間隔是
@@ -72,6 +81,10 @@ Sequential minimal optimization（SMO）在對偶問題中一次挑兩個 \(\alp
 ## 自學練習
 
 在二維資料上畫出可分情況的最大間隔線、兩側 margin 與 support vectors。加入一個離群點後，分別用三個 \(C\) 訓練 soft-margin SVM，記錄間隔寬度、違規點與 support-vector 數量如何變化。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

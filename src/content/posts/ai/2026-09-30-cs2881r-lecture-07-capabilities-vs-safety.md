@@ -39,6 +39,21 @@ glossary:
 
 錄影裡的實際情況要先說清楚：Becker 的演講涵蓋了前兩項；第三項沒有講到。Boaz 在錄影最後說，他原本打算談 responsible scaling policy 與 Preparedness Framework，但時間不夠，會另外找時間。本篇最後一節依閱讀清單補上這兩份框架，並明確標出那部分不是課堂內容。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=fuRmxFZ-umE
+title: L7 講課錄影（YouTube）
+```
+
+原始影片：[L7 講課錄影（YouTube）](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 用到的官方材料與存取狀態
 
 | 材料 | 狀態 |
@@ -240,6 +255,10 @@ Becker 說這部分之後會有經濟學家客座（見 [L9 經濟衝擊](/posts
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L6：AI 做 AI 研發會不會觸發智慧爆炸](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 - 下一篇：[L9：AI 對就業與生產力的早期證據](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

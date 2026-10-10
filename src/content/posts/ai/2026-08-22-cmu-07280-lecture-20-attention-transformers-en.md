@@ -17,6 +17,14 @@ series:
 
 The Lecture 19 model used one previous token to predict the next. **CMU 07-280, Spring 2026, Lecture 20** asks how a model can use an entire context while preserving position and deciding which locations matter for the current token. The official title is *Attention & Transformers*, and the deck builds from averaged context vectors to a GPT-2 skeleton.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 This article fully reads the [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf), [Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf), and [Homework 11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) for the Building GPT2 connection. The official site has no public Spring 2026 lecture recording, so this article does not reconstruct slide-animation timing or spoken explanations.
@@ -96,6 +104,10 @@ Compared with an N-gram, attention selects context dynamically and shares contin
 ## An action for tonight
 
 Choose small matrices with `T=3,d_k=2` and calculate `QKᵀ/√2`, the causal mask, row-wise softmax, and `AV` by hand. Reproduce the result in roughly ten lines of NumPy and assert every shape. Then deliberately apply column-wise softmax and check whether each row still sums to one; this catches an implementation error more effectively than memorizing the formula.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

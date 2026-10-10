@@ -46,6 +46,14 @@ glossary:
 
 這三講是整門課的地基。[總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)提過，先修只要求會 C／C++，但 L02 第二週就進到 CUDA。本篇照五層結構走：先看一個讓人意外的數字，再建直覺，然後拆機制，最後連回 LLM 與作業。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 場景：寫對的 matmul，只用到 2.48% 的算力
 
 L04 第 6 頁放了一個最直覺的矩陣乘法 kernel：每個 thread 負責輸出矩陣的一個元素，沿著 A 的一列、B 的一行做內積。程式完全正確。
@@ -221,6 +229,10 @@ Recitation 1 講的是動手前的準備：PSC 的帳號申請、head node 與 G
 - [CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)：從 CUDA 往上一層，用 Triton 寫 kernel。
 - Recitation 1 推薦的練習：Sasha Rush 的 [GPU-Puzzles](https://github.com/srush/GPU-Puzzles)、NVIDIA 的 [cuda-samples](https://github.com/NVIDIA/cuda-samples)，以及把 matmul 一步步優化到接近 cuBLAS 的 [How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance: a Worklog](https://siboehm.com/articles/22/CUDA-MMM)。
 - 指定閱讀：*Programming Massively Parallel Processors* 第 4 版，Syllabus 對應 L02 第 2、4 章、L03 第 3 章、L04 第 5、6 章；L04 第 2 頁另外推薦 NVIDIA 的 [CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

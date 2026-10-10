@@ -45,6 +45,26 @@ Official materials used:
 
 **Version differences**: the Fall 2024 [08u slides](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/08u_handout.pdf) have only three sections; the MOOC section on Weighted Classification is gone. Fall 2026's required-before-class list for W4 (09/30) likewise includes only the first three L8 videos. This post keeps weighted classification because the MOOC still has it, and the same idea returns in the Techniques course with AdaBoost.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=XxPB9GlJEUk
+title: Definition of VC Dimension
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WQzhc1IdB_I
+title: VC Dimension of Perceptrons
+```
+
+Original videos: [Definition of VC Dimension](https://www.youtube.com/watch?v=XxPB9GlJEUk)、[VC Dimension of Perceptrons](https://www.youtube.com/watch?v=WQzhc1IdB_I)、[Physical Intuition of VC Dimension](https://www.youtube.com/watch?v=5-V5WCf8cY8)、[Interpreting VC Dimension](https://www.youtube.com/watch?v=_DN_oF-i6ag)、[Noise and Probabilistic Target](https://www.youtube.com/watch?v=Br8J5pZM_CE)、[Error Measure](https://www.youtube.com/watch?v=2gCnX0V1do8)、[Algorithmic Error Measure](https://www.youtube.com/watch?v=0ApgGq4mh1E)、[Weighted Classification](https://www.youtube.com/watch?v=XfuRb1jT4hs)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Part 1: The VC dimension
 
 ### Definition
@@ -190,6 +210,10 @@ Per the course schedule, Fall 2026 hw2 comes out on 10/07. As of 2026-09-30 it i
 The next post, [Linear Regression and Logistic Regression](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), moves on to "How Can Machines Learn?". It derives the closed-form solution of linear regression from this post's squared error, then derives cross-entropy and gradient descent from likelihood.
 
 Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en) looks at the same problem through bias–variance. Caltech's Lecture 8 is also Bias-Variance Tradeoff, a different path from Lin's choice of Noise and Error for L8, and the two are worth comparing.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

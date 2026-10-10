@@ -28,6 +28,21 @@ glossary:
 
 Official materials used: the homework slides [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf) (59 pages, in English), the [Colab starter code](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing) (32 cells), and the TA's [homework video](https://youtu.be/3xhwSsuNTM0). The assignment was released on 3/13 and was due 2026/4/2 23:59 (UTC+8).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3xhwSsuNTM0
+title: Video: ML 2026 Spring hw2 AI Agent as an AI Engineer
+```
+
+Original videos: [Video: ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## What outside readers can do
 
 Access level is **A3 (except the grading chain)**:
@@ -134,6 +149,10 @@ Not confirmed: I did not transcribe the homework video and did not run the full 
 Further reading on this site: [CS231n: CNNs and image classification](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) for the CNN itself, and [context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en) for the engineering side of Intentional Compaction.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Interaction between AI agents and their impact on work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en) | Next: [Faster generation (part 1): Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

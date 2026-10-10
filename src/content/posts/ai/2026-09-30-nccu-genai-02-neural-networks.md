@@ -35,6 +35,21 @@ glossary:
 
 投影片分成五段：打造呆萌型 AI 機器人、神經網路、我們和真實的距離、梯度下降、打造第一個神經網路。前四段是觀念，最後一段是實作，作業就從實作那段改。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=s1QqujRMEUk
+title: 【生成式 AI】02. 神經網路的概念
+```
+
+原始影片：[【生成式 AI】02. 神經網路的概念](https://www.youtube.com/watch?v=s1QqujRMEUk)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 第一段：輸入和輸出都要是數字
 
 呆萌型機器人只吃數字。投影片用三個例子說明「數字」可以長成什麼樣子：
@@ -243,6 +258,10 @@ Fall 2026 課綱的第 2 週描述是：神經網路的核心概念（感知器�
 
 - 神經網路、反向傳播與 CNN／RNN 的完整版本：[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
 - 課程歸屬與全學期作業表：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

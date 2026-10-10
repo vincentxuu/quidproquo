@@ -34,6 +34,22 @@ Up to now the course has taught you to think about parallel programs in terms of
 
 The list on the slide is map, filter, fold/reduce, scan/segmented scan, sort, groupBy, join, and partition/flatten. The claim is a single sentence: these operations have high-performance parallel implementations, so programs written with them often run efficiently on parallel machines. It carries an asterisk: **if you can avoid being bandwidth bound**.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
+title: Stanford CS149 2023 Lecture 8 video
+```
+
+Original videos: [Stanford CS149 2023 Lecture 8 video](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
+
 ## Why so much parallelism
 
 The slides bring back the V100 numbers from [the previous lecture](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en): 80 SMs and up to 163,840 interleaved CUDA threads. The conclusion is on the same slide. Programs that don't expose lots of parallelism, and don't have high arithmetic intensity, won't run efficiently on GPUs.
@@ -168,6 +184,10 @@ One thing you can do tonight: pick a piece of code you've written that accumulat
 - An assignment that implements map, zip, reduce, and matmul in CUDA: [CMU 11-868 Assignment 1: Writing MiniTorch's map, zip, reduce, and matmul in CUDA](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
 - Why GPUs dread moving data: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - Series overview and the 2023 video mapping (the 2023 Lecture 9 on Spark has no Fall 2025 counterpart): [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

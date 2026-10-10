@@ -20,6 +20,15 @@ draft: false
 
 > ⚠️ **Version note**: Lecture videos are **Spring 2020 recordings (Weeks 0–5) and 2023 re-record (Week 6)**; project specs, distribution code, and check50 slugs follow the 2026 OCW site.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## TL;DR
 
 Seven weeks and twelve projects establish "Classical AI Fundamentals" still essential in 2026: search, logic, probability, optimization, backprop. But tabular RL, statistical NLP, hand-crafted CNNs are no longer mainstream. Free OCW route has complete materials and auto-grading loop; gap is LLM application layer. Next steps: Transformers → Fine-tuning → RAG → Agents → Evaluation.
@@ -215,6 +224,10 @@ These ten posts (Overview + 7 Weeks + 2 Syntheses + Wrap-up) map CS50 AI's compl
 | 10 | **Wrap-up (This Post)** | **Timeless/Changed/Next Steps** |
 
 ---
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

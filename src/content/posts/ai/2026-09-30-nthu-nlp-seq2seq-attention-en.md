@@ -27,6 +27,26 @@ This is post 4 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/po
 
 The source is the 33-slide deck [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf) from the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing). The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists it in the W3 row with two recordings, [W3 Tue](https://www.youtube.com/live/LFeFc0VtKRI) and [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g) (lectures are in Mandarin). That row's Topics column says "Introduction to NLP (Language model)", but it is a syllabus template, so the slides are the source of truth. This post is based on the slides only; I did not check it against the recordings segment by segment.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 W3 Tue recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UZ22K0rmU1g
+title: Fall 2025 W3 Thu recording
+```
+
+Original videos: [Fall 2025 W3 Tue recording](https://www.youtube.com/watch?v=LFeFc0VtKRI)、[Fall 2025 W3 Thu recording](https://www.youtube.com/watch?v=UZ22K0rmU1g)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## The problem: translation lengths do not line up
 
 The deck opens by noting that many advances in NLP language models were first driven by translation. It shows a few examples, including the Chinese idiom 來都來了 rendered as "Since we're already here…".
@@ -130,6 +150,10 @@ Attention without RNNs is the heart of the Transformer, which this series covers
 - Next in this series: [PyTorch TA Session + HW2 Arithmetic as a Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en)
 - The same material in English-language courses: [CS224N: RNNs and Language Models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en), [CMU 11-785: Language Models and Translation](/posts/ai/2026-08-22-cmu-11785-17-language-models-translation-en), [CMU 11-785: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

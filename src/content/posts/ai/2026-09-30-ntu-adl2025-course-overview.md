@@ -21,6 +21,15 @@ draft: false
 
 **本文依據**：[Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)、[Course Logistics 投影片](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf)（18 頁）、[2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)、[HW1 規格投影片](https://docs.google.com/presentation/d/1PzKXFOZc9mMhw8NewNZQDDerTpjK9U1Ot1hrALpKSTA/edit?usp=sharing)，以及用來比對的 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~miulab/f115-adl/)，全部在 2026-09-30 打開核對。對應的影片是 [ADL 0: Course Introduction 課程介紹與規定](https://youtu.be/RwRZVd9rLxE)（29:36）。課程以中文講授、投影片為英文。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+- [ADL Fall 2025 官方播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
+
 ## 這門課的硬事實
 
 依 Course Logistics 投影片：
@@ -140,6 +149,10 @@ adl.miulab.tw 現在轉到 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~mi
 站內相關入口：[台大 AI／ML 課程導讀](/posts/learning/2026-09-30-ntu-ai-ml-course-map)把 ADL 和李宏毅、林軒田的課放在一起比較；同校的[李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)從 AI Agent 切入，和 ADL 由基礎往上堆的順序互補。想看英文授課的 NLP 主線，可以對照 [Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)。
 
 下一篇：[什麼是機器學習與深度學習](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

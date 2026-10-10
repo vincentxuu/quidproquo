@@ -19,6 +19,14 @@ draft: false
 
 正式 Summer worksheet 是 P1–P6 加 challenge 的兩頁，題號完整。官方 PDF 另夾一頁沒有講次標頭、題號，且 answer key 與 LLM guide 都未收錄的 **1-D Tracking**。本文把它標為 orphan supplemental artifact 並在文末涵蓋，不把它誤編為 P7。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：再做一次 Bayes update
 
 Spam prior 為 `0.3`。Spam message 含 `free` 的機率是 `0.6`，not-spam 則是 `0.1`：
@@ -132,6 +140,10 @@ f(T=t|X=4)
 - P6 是 pset4 題，公開 answer key 刻意省略解答；本文不推測缺少的 network parameters。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - 正式 worksheet／guide 各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -21,6 +21,15 @@ Over nine lectures, the course goes from tokenization all the way to AI agents a
 
 This series will work through all nine lectures, one post each. This first post covers what the course looks like, how the 2025 and 2026 editions differ, and how it divides the ground with [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) and [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), which this site has already covered.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Format: two units, no homework, just two exams
 
 The [course homepage](https://cme295.stanford.edu/) puts it plainly:
@@ -125,6 +134,10 @@ So this series won't rewrite what CS224N and CS336 already cover. Where somethin
 - **Prerequisites**: linear algebra and machine learning basics. If you're missing the ML basics, start with the earlier courses in the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en).
 
 One thing you can do tonight: open Lecture 1 in the [2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy), follow along with the [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf) through the first 30 minutes on tokenization, and then read the first post in this series.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

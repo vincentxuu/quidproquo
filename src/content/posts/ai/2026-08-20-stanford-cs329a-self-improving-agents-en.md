@@ -24,6 +24,28 @@ It teaches a gap — and then, in its final lecture, says plainly how much of th
 
 This piece was written after watching all nine public lectures, plus the three guest lectures from the first offering that sit on other channels. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
+title: Lecture 2: Test-Time Compute Scaling
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnmHSAy3ck
+title: Lecture 6: Train-Time Scaling / Scaling RL
+```
+
+Original videos: [Lecture 2: Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Lecture 6: Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+
+Course and recording entries:
+
+- [CS329A lecture playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLangBM27OtEA)
+- [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
+- [Official course / lecture source](https://cs329a.stanford.edu/)
+
 ## The hard facts
 
 Two instructors. [Aakanksha Chowdhery](https://www.achowdhery.com/) led the 540B PaLM model at Google, then drove pre-training and scaling for Gemini's MoE models; she's now at Reflection AI. [Azalia Mirhoseini](http://azaliamirhoseini.com/) is a Stanford assistant professor and director of the [Scaling Intelligence Lab](https://scalingintelligence.stanford.edu/), co-creator of MoE architectures and AlphaChip, previously at Google Brain, Anthropic and Google DeepMind.
@@ -205,6 +227,8 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 
 ## Changelog
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
 
 ## References

@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=QxOzQRtd440
+title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 什麼是「表示」，為什麼它重要
 
 深度學習真正的產品不是最後那層分類器，而是**中間那個把輸入壓縮成的向量表示（representation）**。同一張貓的圖，經過好的表示之後，貓與貓會在向量空間裡靠近、貓與汽車會遠離——下游任務（分類、檢索、生成）都因此變簡單。
@@ -105,6 +121,10 @@ z_q = argmin_k ‖z − e_k‖   →   用 e_k 當作離散表示
 - 想要**檢索 / 相似度**？好表示讓「最近鄰」就有意義。
 
 下一講（L12）會從「重建」轉向「相似性」——用對比學習讓同類表示靠近、異類推遠。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

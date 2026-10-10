@@ -21,6 +21,21 @@ This post covers **[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised 
 
 This is the densest lecture in the series. Katanforoosh is CEO of Workera and a CS230 co-creator; he teaches half the in-person sessions. His framing up front: the in-person class doesn't repeat the academic content of the online videos, it brings **industry perspective and decision-making method**. So the whole lecture is three case studies, and at every step he asks the students what they'd do before giving an answer.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=DNCn1BpCAUY
+title: Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
+```
+
+Original videos: [Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Warm-up: pinning down what a "model" is
 
 > "**Model = architecture + parameters.** Think of ChatGPT in the cloud as really just **two files**: one describing the architecture, one describing the parameters. You keep calling those two files and you get inference. It's obviously more complicated than that in practice, but that's the core."
@@ -274,6 +289,10 @@ The posts in the site's [RAG Techniques Compendium](/en/series/rag-techniques) l
 This bears directly on retrieval. When results are obviously semantically relevant but don't rank, the problem often isn't chunking or reranking — it's that **the embedding model was trained on a notion of "close" that differs from your query situation**. The site's [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) post pulls BM25 back in to cover that blind spot, and this is the root of why.
 
 The synthetic-data pipeline (**the script knows the answer, so it can label automatically**) holds up today too — people generating eval datasets with LLMs are using the same principle, and will hit the same trap: **you can synthesize the training set, the test set has to be real.**
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

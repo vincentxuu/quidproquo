@@ -19,6 +19,14 @@ Lecture 10 asks how long data must live and who ends its lifetime. A local array
 
 `create_string` really creates `"aaaa"` and returns its current address, but the pointee's lifetime has ended when that pointer reaches the caller. Heap storage repairs lifetime, not capacity, initialization, allocation failure, or cleanup.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -242,6 +250,10 @@ For every allocation, record five answers:
 Then draw lifetimes separately: automatic objects until scope/activation ends; allocated objects until `free`; literals with static duration but no mutation. Separate pointer lifetime from pointee lifetime and Mayday becomes obvious—the caller's `str` lives, but its local-array pointee does not.
 
 Lecture 10 is not ultimately a segment-map quiz. It binds an address to the interval in which access is legal. Stack storage ties lifetime to control flow. Heap storage unties it from calls and replaces that convenience with ownership. Choosing the heap does not obtain permanent memory; it accepts a cleanup obligation.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

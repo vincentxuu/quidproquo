@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 16 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-11-18. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and the [official slide artifact linked in that row](https://web.stanford.edu/class/cs224w/slides/Lecture16.pdf); speaker attribution follows the slides.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include the official slides and optional readings on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable and are not reconstructed. The public 2021 videos are not evidence for a 2025 lecture. Where a slide filename differs from the lecture number, the Fall 2025 schedule row remains canonical.
@@ -104,6 +112,10 @@ Remove the decisive edge and require abstention or answer change; add distractor
 ## Self-study checkpoint
 
 Decompose the pipeline into graph construction, retrieval or sampling, encoder, prediction head, and evaluation. Replace one component at a time and retain cost and failure traces so any improvement remains attributable.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

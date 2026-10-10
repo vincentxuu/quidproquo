@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 10 講**，官方日期 2025-10-23。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/10-kg.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含投影片與 schedule 列出的 optional readings。Canvas 錄影、現場 Q&A、板書及 Ed 討論不公開，因此本文不推測；2021 公開影片也不當成 2025 講次內容。
@@ -118,6 +126,10 @@ Ranking score 不是機率，不同 query 的尺度也可能不同。若系統�
 最後做 evaluator unit test：手工建立一個 query，包含正解、另一個 known true answer、兩個 false candidates 與一個同分 candidate。逐步算 raw rank、filtered rank、reciprocal rank 與 Hits@K，明定 optimistic、pessimistic 或 average tie policy。再與程式輸出逐項比對。KG 實驗常因 filter dictionary 漏掉 validation/test facts或 score direction顛倒而產生漂亮但錯誤的 MRR；五個 entity 的手算案例能在大規模訓練前抓到。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

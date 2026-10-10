@@ -44,6 +44,21 @@ The slides state three learning goals:
 
 The lecture is also the theory behind [HW3](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en). Both the AWAC slide and the IQL slide say "You will implement it in homework 3!"
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=lRDaXnPIzks
+title: Spring 2025 Lecture 7: Offline RL (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 7: Offline RL (YouTube, supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Recap: four model-free online RL algorithms
 
 The lecture opens with a table that wraps up the first half of the course:
@@ -195,6 +210,10 @@ Draw the nine-state graph on paper. Suppose the data holds only two trajectories
 - [CS224R Lecture 6: Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en): where this lecture's TD targets and target networks come from
 
 **Series navigation**: Previous: [HW2: Online RL](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en) | Next: [Lecture 8: Where Rewards Come From](/posts/ai/2026-09-30-cs224r-reward-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

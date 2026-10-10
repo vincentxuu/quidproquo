@@ -50,6 +50,26 @@ Official materials used:
 
 **Access level**: videos and slides alone are A2. Add the Fall 2024 homework PDFs and this stretch reaches A3, but there are no official solutions and Gradescope grading is for enrolled students only. The grading scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=6FWRijsmLtE
+title: Caltech Lecture 6 (Yaser Abu-Mostafa)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4aIAxH8eBMs
+title: Recap and Preview
+```
+
+Original videos: [Caltech Lecture 6 (Yaser Abu-Mostafa)](https://www.youtube.com/watch?v=6FWRijsmLtE)、[Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## L6 is optional, so here is how this post handles it
 
 Both semesters mark L6 as not required. The [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) lists the four L6 videos under W4 (09/30) as "suggested watching (anytime)", while the L5 videos are "required watching (before class)". The Fall 2024 page files L6 under "optional" and offers two versions side by side: Yaser Abu-Mostafa's [English Lecture 6](https://www.youtube.com/watch?v=6FWRijsmLtE) at Caltech, and Lin's four-part Mandarin version.
@@ -210,6 +230,10 @@ Per the course schedule, Fall 2026 hw2 comes out on 10/07. As of 2026-09-30 it i
 The next post, [VC Dimension, Noise and Error Measures](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), gives "the largest non-break point" its formal name, the VC dimension d<sub>VC</sub>. It proves that d-dimensional perceptrons have d<sub>VC</sub> = d + 1, then extends the theory to noisy data.
 
 Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en) approaches the same question by a different route.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

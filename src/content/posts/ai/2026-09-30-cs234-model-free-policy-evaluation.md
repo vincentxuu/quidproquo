@@ -38,6 +38,22 @@ glossary:
 
 投影片列的對應讀物是 [Sutton & Barto 第二版](http://incompleteideas.net/book/the-book-2nd.html) 的 5.1、5.5、6.1–6.3 節，結構參考 David Silver 的第 4 講。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=jjq51TRNVvk
+title: Stanford CS234 Spring 2024 Lecture 3「Policy Evaluation」
+```
+
+原始影片：[Stanford CS234 Spring 2024 Lecture 3「Policy Evaluation」](https://www.youtube.com/watch?v=jjq51TRNVvk)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 先回到動態規劃：它其實已經在「借」自己的估計
 
 L3 開頭先回顧 DP 版的 policy evaluation：
@@ -200,6 +216,10 @@ L4 p.15 的總結給了一個應用情境：評估新推薦系統每個 session 
 
 - 同樣主題在 CS221 的講法（TD、Q-learning 的入門版）：[CS221 第 8 講：強化學習與 Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)
 - 深度 RL 視角下的策略評估與 value-based 方法：[Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

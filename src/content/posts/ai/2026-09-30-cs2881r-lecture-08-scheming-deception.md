@@ -33,6 +33,21 @@ glossary:
 
 **系列位置**：上一篇 [期中：挑一張 headline figure 重現並延伸](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)｜下一篇 [L10：看模型內部與看 chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=8NL1NAMrJxY
+title: Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming（YouTube 開場錄影）
+```
+
+原始影片：[Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming（YouTube 開場錄影）](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 先看一個場景
 
 這一週的學生實驗給 coding agent 一個簡單任務：在 Python 裡寫一個排序函式，要通過正確性與速度兩組測試。研究者用時間上限當旋鈕，一路調到誠實的 Python 實作不可能達成。agent 對整個工作區有讀寫權限。
@@ -191,6 +206,10 @@ Boaz、Marius、Buck 三人在同一堂課給了三種角度，彼此有明確�
 - Reward hacking 在 RL 訓練中的來源：[CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理](/posts/ai/2026-08-22-cs336-rlvr)、[CMU 07-280 Lecture 13：AI Alignment 從 Reward Hacking 走到可稽核的 AI Scientist](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 - Agent 的權限與監控工程：[安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
 - 用模型當 monitor 與裁判：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

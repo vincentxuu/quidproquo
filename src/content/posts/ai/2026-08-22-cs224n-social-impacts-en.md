@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 16 on February 26, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture16-impact-on-humanity.pdf), *AI's impact on humanity*, has four agenda sections: hallucination, the paradox of AI-assisted creativity, workforce impact, and value alignment.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Why models hallucinate
 
 [Language Models (Mostly) Know What They Know](https://arxiv.org/abs/2207.05221) studies self-evaluation signals, while [Why Language Models Hallucinate](https://arxiv.org/abs/2509.04664) analyzes training and evaluation incentives. A language model is trained to produce a next token even under uncertainty: it may estimate that it lacks an answer yet still guess because post-training rewarded confident responses. Stronger reasoning or higher overall accuracy does not automatically mean lower hallucination.
@@ -104,6 +113,10 @@ Document affected groups, authority, evidence, appeal, monitoring, rollback, abs
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four official agenda sections. Cases cited in the deck illustrate mechanisms and are not extrapolated into field-wide rates.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

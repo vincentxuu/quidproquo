@@ -36,6 +36,26 @@ Access level: the MOOC alone is **A2**. The slides and all 9 videos are free. Fa
 
 The lectures are taught in Mandarin; the slides are in English.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=A-GxGCCAIrg
+title: T1-1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8hak0XngnV0
+title: T1-2
+```
+
+Original videos: [T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[T1-2](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Picking up from Foundations: the transform bill is still unpaid
 
 Foundations ended with two tools, and Techniques Lecture 1 connects them.
@@ -226,6 +246,10 @@ There are no official solutions. For Q1, you can write a kernel perceptron and c
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook.
 
 Series navigation: previous, [Validation and three learning principles](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | next, [Kernel trick and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

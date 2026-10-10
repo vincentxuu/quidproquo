@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 3 講**，官方日期 2025-09-30。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/03-GNN1.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含 03-GNN1.pdf 與 schedule 上的閱讀清單。Canvas 錄影、現場 Q&A、板書補充與 Ed 討論不公開，因此本文不推測那些內容；2021 YouTube 錄影也不作為 2025 講次證據。
@@ -116,6 +124,10 @@ Neighbor averaging 常隱含 homophily，但真實邊可能連接不同類別。
 本講的交付物是一份 layer trace：對同一張 tiny graph 列出初始 feature、每層 neighbor multiset、aggregate、center combine 與 final prediction。再列出框架設定中的 self-loop、flow direction、aggregation name 與 normalization。只要手算和程式在某層第一次分歧，就停在那層修正；不要用更多 epochs 掩蓋語意錯誤。這份 trace 也是後續判斷 WL 表達限制與 over-smoothing 的基準證據。
 
 第 3 講建立的概念會在後續講次繼續組合。閱讀時保留自己的小圖、符號表與 baseline；每遇到新模型，就問它改了資料、訊息、聚合、更新、目標函數或評估中的哪一項。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

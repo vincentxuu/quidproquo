@@ -33,6 +33,26 @@ draft: false
 | Discussion 2 | 第 3 週 | [題目](https://drive.google.com/file/d/1MZs3r4ZOMhKUTAXjvLU9lxeCvGCUq1ND/view?usp=drive_link) / [解答](https://drive.google.com/file/d/1rGh1__n8Q7q9ScAJvSQWFsygwwsChh5V/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/watch?v=Mf4deCkjUkQ&list=PL-ysCubq-Sa9uYDjsrzfmPCLLbjfOKVPd&index=3) | — |
 | Discussion 3 | 第 4 週 | [題目](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view?usp=drive_link) / [解答](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj) | — |
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=STdR9OyulZE
+title: 影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=kU7a1K3PX10
+title: 影片
+```
+
+原始影片：[影片](https://www.youtube.com/watch?v=STdR9OyulZE)、[影片](https://www.youtube.com/watch?v=kU7a1K3PX10)、[影片](https://www.youtube.com/watch?v=JzlMrqaa_-A)、[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## Lec 4 前半：K-means 分群
 
 Lecture 4 先把非監督式學習放在監督式學習旁邊對照：監督式學習的資料是 (xᵢ, yᵢ) 配對，非監督式學習只有 xᵢ。投影片列出非監督式學習的五種任務：分群、降維、表徵學習、生成式建模、密度估計。分群的應用例子包括間歇泉噴發模式、顧客分群、疾病亞型、單細胞資料的細胞類型、基因資料的祖源群體。
@@ -167,6 +187,10 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 - [Stanford CS109 L19：最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)：MLE 的另一種講法
 - [Stanford CS109 L9：常態分布](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution)：一維高斯的前置
 - [Stanford CS229 講義 Ch.4：生成式學習演算法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms)：多變量高斯在分類上的用法
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

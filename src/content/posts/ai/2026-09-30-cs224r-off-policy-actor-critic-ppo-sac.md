@@ -30,6 +30,22 @@ glossary:
 
 配套影片是 [Spring 2025 Lecture 5: Off-Policy Actor Critic](https://www.youtube.com/watch?v=cRGKc-nAWho)（約 69 分鐘），屬於**補充教材**：標題相同，但投影片已換成 2026 版，細節可能不一樣。以下內容以 2026 投影片為準。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=cRGKc-nAWho
+title: Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）](https://www.youtube.com/watch?v=cRGKc-nAWho)
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：資料很貴，但每批只用一次
 
 先回想 L3、L4 的做法。跑 policy 收一批軌跡，算一次梯度，更新一次，然後把這批資料丟掉。投影片第 15 頁把這叫做「fully on-policy」。
@@ -169,6 +185,10 @@ n 步 advantage 與 GAE：
 可以確認：2026 投影片的文字與公式、課表日期與閱讀清單、2025 影片的標題與長度。不能確認：2026 課堂上的口頭補充（錄影只在 Canvas），以及投影片第 25–28 頁影片示範的具體內容（PDF 只有截圖和出處）。第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
 
 系列導覽：上一篇 [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)｜下一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

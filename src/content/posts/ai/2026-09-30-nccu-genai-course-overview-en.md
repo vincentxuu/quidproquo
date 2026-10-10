@@ -29,6 +29,14 @@ The course has a clear audience: beginners with little programming background. T
 
 This post is the series entry. It covers who runs the course, what outside readers can get, how lectures line up with homework, which tools you need, and what changes in Fall 2026. Each lecture gets its own post.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Whose course is it: NCCU teaches it, the Chang Gung page is a satellite section
 
 Search for this course and the most complete page you will find is [yangchihyuan.github.io/courses/GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025). It lives on the CGU AICV Lab site of **Chih-Yuan Yang** (楊智淵), Department of Artificial Intelligence, Chang Gung University. It is not the lead instructor's site. It is the page for the **Chang Gung satellite section**.
@@ -189,6 +197,10 @@ Each lecture here stands on its own. These series on the site are only for when 
 - Diffusion math: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); visual generation: [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en)
 - Reinforcement learning: [Berkeley CS285: imitation learning and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
 - How open each school's courses are: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

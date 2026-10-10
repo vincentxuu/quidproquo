@@ -30,6 +30,26 @@ The official material for this lecture is [W3_subword.pdf](https://github.com/IK
 
 The slides have three parts: recap, word segmentation, and sub-word tokenization.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Dpswwk6UMCc
+title: Week 5 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FB0fgRTEbJE
+title: Week 5 Thu.
+```
+
+Original videos: [Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)、[Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Recap: the model outputs a probability over the whole vocabulary
 
 Slides 4–5 revisit a language model's output layer. After an RNN reads "I love an", the hidden state goes through a classification layer that outputs a distribution as long as the vocabulary: apple 0.6, elephant 0.3, eraser 0.05, and so on. So **how you build the vocabulary decides which words the model can say at all**.
@@ -169,6 +189,10 @@ Slides 42–43 wrap up. Sub-word tokenization handles unknown, misspelled and co
 - Solutions, quizzes and class discussion live on NTU COOL and are not available to outside readers. The Fall 2026 version of this lecture is not yet public.
 
 **Series navigation**: previous [Transformer and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en) | next [ELMo, BERT, T5, BART, GPT: Three Roads to Pretraining](/posts/ai/2026-09-30-nthu-nlp-bert-family-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

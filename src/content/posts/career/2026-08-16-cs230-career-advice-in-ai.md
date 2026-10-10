@@ -26,6 +26,22 @@ draft: false
 
 ---
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=AuZoDsNmG_s
+title: Lecture 9: Career Advice in AI
+```
+
+原始影片：[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 # 第一部分：Andrew Ng
 
 ## AI 的進展有沒有變慢
@@ -445,6 +461,10 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 而技術債那個框架之所以有用，正是因為它把「該不該用 AI 生這段程式碼」**從技術問題轉成財務問題**：你背了一筆債，它值不值得。這個問法比「vibe coding 好不好」有用太多，因為後者沒有答案，前者每次都有。
 
 至於大 AI vs 小 AI 的分岔——那是這一講唯一一個**可以拿去做決策**的前瞻判斷，而且它有一條乾淨的判準：**你的資料能不能離開你的機房。**
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

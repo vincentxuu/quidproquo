@@ -18,6 +18,14 @@ description: "拆解 CS224V Grounding Conversational Agents on Free Text：RAG �
 
 第五講回到自由文字：資料不像資料庫有 schema，也不像 Worksheet 有固定欄位，助理怎麼避免順口補完？[WikiChat 論文](https://aclanthology.org/2023.findings-emnlp.157/)的答案是把 RAG 展開成多次檢索、過濾與主張查核，而不是相信「有 context 就不會幻覺」。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：先拆穿基線，再建立 pipeline
 
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
@@ -121,6 +129,10 @@ Verification 結果要能影響 response。最保守是刪除 unsupported claim�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片沒有完整程式碼、prompt 與課堂錄影；「七階段」在不同投影片也以更細的 prompt 操作展開。本文描述的是可見的演算法角色，不聲稱能由投影片逐字重建 production WikiChat。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

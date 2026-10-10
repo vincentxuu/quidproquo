@@ -29,6 +29,26 @@ draft: false
 
 講義在 2026-09-30 打開核對。2.5 有掛在課程頁上，但不在 [2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)裡，只照清單看會漏掉；表中的頁碼範圍是依講義裡的章節標題頁對應，不是影片時間軸。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=YfNmHxDHE-M
+title: ADL 2.1: How to Train a Model?（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=AySPuO7vOvA
+title: ADL 2.2: What is a Model?（YouTube）
+```
+
+原始影片：[ADL 2.1: How to Train a Model?（YouTube）](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model?（YouTube）](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean?（YouTube）](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function?（YouTube）](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation（YouTube）](https://www.youtube.com/watch?v=BHgssEwMxsY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 訓練一個模型＝回答三個問題
 
 第 1 篇的機器學習框架說：訓練就是從一組候選函數裡挑出最好的 f*。NN Basics 第 6 頁把它拆成三個問題，整份講義就照這三題走：
@@ -194,6 +214,10 @@ Backpropagation 講義第 12 頁先分清楚兩個方向：
 
 上一篇：[什麼是機器學習與深度學習](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
 下一篇：[詞向量、語言模型與 RNN](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

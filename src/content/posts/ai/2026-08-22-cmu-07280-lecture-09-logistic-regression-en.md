@@ -17,6 +17,14 @@ draft: false
 
 This is Lecture 9 of CMU 07-280 Spring 2026, officially titled **Logistic Regression** and dated February 10, 2026. It connects linear regression and optimization to classification by estimating the probability of an event rather than making an immediate hard decision. No lecture-by-lecture public recording exists, so this reading uses only the public lecture document, pre-reading, Recitation 5, and homework prompts.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The primary sources are the [official Lecture 9 PDF](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec9_Logistic_Regression.pdf) and the [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf). The [Recitation 5 solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf) checks the binary and multiclass formulas, while HW5 connects the same ideas to optimization experiments. Fall 2026 schedule wording is not used.
@@ -90,6 +98,10 @@ Lecture 10 addresses the next limitation: the boundary remains linear in the ori
 ## What to do tonight
 
 Take three two-dimensional examples and perform two SGD updates from `θ=0`. For each step, write down `z`, `p̂`, cross-entropy, `(p̂-y)x`, and the new `θ`. Flip one label and identify which gradient component changes most. Then add an `x1²` feature to prepare for Lecture 10.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

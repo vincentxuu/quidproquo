@@ -27,6 +27,14 @@ Three topics: what makes a repo agent-ready (structure, docs, tests, checks), sc
 
 This may be **the most counterintuitive week in the new syllabus**: it argues that when your agent underperforms, the model usually isn't the problem.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## This week didn't appear from nowhere
 
 I originally wrote that this week "didn't exist in Fall 2025." Having read the older slides, that needs correcting: **the topic had no week of its own, but the idea was already there.**
@@ -136,6 +144,10 @@ That said, the closing line is true regardless of vendor interest:
 - The three published scores are a snapshot; repos change
 - Individual criteria within the eight pillars will shift as the product iterates
 - Fall 2026's actual materials and assignment for this week land after classes start
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

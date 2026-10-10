@@ -32,6 +32,21 @@ glossary:
 
 **Fall 2026 comparison**: Fall 2026 Lecture 7 is scheduled for October 1. When I checked the course page on 2026-10-01, neither the slides nor the recording were linked yet.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=3W146_T8eCs
+title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Where this lecture sits in the NAS unit
 
 Page 4 outlines the whole NAS unit. Lecture 7 covers only the first half:
@@ -185,6 +200,10 @@ One thing to do tonight: write a ResNet bottleneck and a MobileNetV2 inverted bo
 - First introduction to efficiency metrics and building blocks: [Lectures 1–2 + Lab 0](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
 - Another take on CNN architectures: [CMU 11-785 CNN unit](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en)
 - Transformers from scratch: [CMU 11-785 attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

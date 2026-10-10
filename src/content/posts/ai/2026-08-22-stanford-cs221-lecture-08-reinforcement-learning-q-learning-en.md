@@ -19,6 +19,15 @@ This article covers **Stanford CS221, Autumn 2025, Lecture 8**, taught by Percy 
 
 > Material gap: The local copy of the official artifact covers MDPs, tabular model-free methods, SARSA, and Q-learning. It does not provide features or linear approximation in this file, so this article marks that gap rather than importing material from another lecture. Canvas interactions, assignment solutions, and hidden tests are also unavailable.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## TL;DR
 
 The lecture asks a concrete question: if the transition probabilities and rewards of an MDP are known, value iteration can find an optimal policy; if they are unknown, the agent must learn from repeated interaction. The official program proceeds through three approaches: model-based value iteration after estimating an MDP, model-free Monte Carlo that averages Q-values from complete rollouts, and SARSA and Q-learning, which bootstrap while the episode is still running.
@@ -127,6 +136,10 @@ The lecture starts with a known MDP: policy, rollout, policy evaluation, and val
 Model-based learning reconstructs an estimated MDP from feedback and reuses value iteration. Model-free Monte Carlo directly accumulates complete-rollout utilities as Q-values. Epsilon-greedy ensures that the agent does not simply repeat its current favorite action. Because complete returns arrive too late, SARSA bootstraps from the next action actually selected. Finally, Q-learning keeps exploratory action selection but builds its target from the greedy next action, moving from on-policy to off-policy learning.
 
 If the question changes to features, linear approximation, or huge state spaces, this Lecture 8 artifact has already marked the boundary: find the next official material instead of inventing missing sections here.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

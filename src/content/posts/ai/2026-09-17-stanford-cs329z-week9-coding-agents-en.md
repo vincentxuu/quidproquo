@@ -24,6 +24,14 @@ The week's question is simple: hand an agent a GitHub issue and see if it can fi
 
 Think of the coding agent as an apprentice engineer with a computer: give it a task and tools, and let it fail and recover inside a sandbox. Two anchor readings carry the week. [SWE-agent](https://arxiv.org/abs/2405.15793) asks the interface question: what tools does an agent need before it can change code at all? [OpenHands](https://arxiv.org/abs/2407.16741) asks the platform question: how do sandboxes, tool libraries, and benchmarks snap into one general base? The guest lecture lists no required reading, so this guide skips it.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## ACI: the agent is a new kind of end user
 
 The inspiration comes from human-computer interaction: humans got the IDE, so agents deserve an interface of their own. The paper names this layer the ACI, the interface sitting between agent and computer. Humans tune out noise for free, while models pay for every token and lose focus under clutter. So the design brief is concrete: readable state, compact history, reliable actions.
@@ -71,6 +79,10 @@ Three further readings round out the week. [Anthropic's Claude Code best practic
 - Monday 11/16 guest lecture: no required reading.
 - Wednesday 11/18 Coding & Software Agents: anchors SWE-agent and OpenHands (covered above); further reading Anthropic's Claude Code best practices, Young on harnesses for long-running agents, Jimenez et al. on SWE-bench.
 - Schedule: [CS329Z Week 9](https://cs329z.stanford.edu/)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

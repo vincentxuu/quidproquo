@@ -24,6 +24,14 @@ Its position on Stanford's AI course map is odd. Everyone knows it exists; few p
 
 This post was written after opening four academic-year entries on ExploreCourses, the frozen course site, and every chapter of the public lecture notes. It covers what the hard rules say, how the five assignments are paced, how complete the notes really are, and how the course relates to CS236. It does **not** walk through the math chapter by chapter — that's the notes' job, and the notes are public. For where this course sits in the sequence, see the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en).
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs228.stanford.edu/)
+
 ## The hard facts
 
 The prerequisite line is one sentence, copied verbatim from the [ExploreCourses entry for CS 228](https://explorecourses.stanford.edu/search?q=CS+228&view=catalog):
@@ -161,6 +169,10 @@ If you can explain that to yourself, you can follow every inference algorithm in
 - **Where the course site lives**: `cs228.stanford.edu` actually redirects to `ermongroup.github.io/cs228`, with the header marked Winter 2023-24. `web.stanford.edu/class/archive/cs/cs228/` returns 404 — this course has no past offerings in the Stanford archive.
 
 **Not confirmed**: (1) why CS228 skipped multiple consecutive academic years (2025-26 included), and why CS236 hasn't run since Autumn 2023 — no official page explains it, but the 26 August 2026 re-check lined up the timeline: ExploreCourses XML confirms the last offerings of both courses were taught by Ermon himself (CS228 Winter 2024 with 133 students; CS236 Autumn 2023 with 321), and he has been **CEO of Inception Labs**, a diffusion-LLM startup, since July 2024 — out of stealth February 2025, $50M seed November 2025 led by Menlo Ventures, whose interview describes the founders as having "walked away from tenure." The gap in teaching coincides exactly with the startup years, and Stanford's faculty startup policy requires a leave of absence for management roles. This is the strongest available explanation by indirect evidence, but no official source connects the two explicitly. The courses aren't dead: CS236 is scheduled for Spring 2027 with Ermon listed as PI, and CS228 is listed for Winter 2027 with instructor TBD. (2) Who will teach the CS228 slot listed for Winter of academic year 2026-27 — the ExploreCourses instructor field is currently blank (checked 26 August 2026). (3) The actual problems and difficulty spread of the five assignments — the content is locked on Ed, and everything said here about the assignments comes from the public schedule and grading policy, not from the assignments themselves.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

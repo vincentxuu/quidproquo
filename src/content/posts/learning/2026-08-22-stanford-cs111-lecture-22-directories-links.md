@@ -17,6 +17,14 @@ draft: false
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 23 篇，對應 **Stanford CS111, Spring 2026, Lecture 22**。2026-05-18 由 Mendel Rosenblum 主講，官方題目是 [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，未把口述內容當成來源。SHA-256 稽核顯示 Lecture 22 與相鄰 Lectures 21、23 都不同，沒有 duplicate artifact。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 從 inode blocks 到持久的 i-number
 
 前一講回答 inode 如何找到 file blocks，這講反過來問：給定名字，OS 如何找到 inode？inode 本身也要跨 reboot 保存，因此 file system 把 inode array 切成 blocks，放在 disk 的已知位置。i-number 是 array index，在同一 file system 內唯一識別 inode，也是 kernel 辨認 file 的底層名稱。
@@ -77,6 +85,8 @@ hard link 增加同一 inode 的 namespace references：改其中一名看到的
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 Lecture 22 官方 PDF 重寫 inode placement、pathname traversal、working directory、hard links 與 symbolic links，並完成相鄰 artifact SHA 稽核。
 
 ## 參考資料

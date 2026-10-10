@@ -31,6 +31,27 @@ The first three units were about models and architectures. The fourth turns to h
 
 The deck runs 80 pages. Its Compositionality and (Re)COGS sections tie into Assignment 3, so they get [their own post](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en). This one covers the other six sections.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=l_w05N0QGLk
+title: Screencast 25: Overview (XCS224U, Spring 2023)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sZPxZm8HfaE
+title: Screencast 26: Analytical considerations
+```
+
+Original videos: [Screencast 25: Overview (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Screencast 26: Analytical considerations](https://www.youtube.com/watch?v=sZPxZm8HfaE)、[Screencast 29: Adversarial testing](https://www.youtube.com/watch?v=486mTOQnhgU)、[Screencast 30: Adversarial NLI](https://www.youtube.com/watch?v=_ZkewUyBb-w)、[Screencast 31: DynaSent and conclusion](https://www.youtube.com/watch?v=2K0BH52EtIw)
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Varieties of evaluation
 
 Slide 3 sorts evaluation into two families:
@@ -173,6 +194,10 @@ One thing to do tonight: take any classifier you have and write five minimal pai
 - Course status and the COGS results table: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - How CS224N covered the same ground in 2026: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
 - Methods that look inside the model: [CS224N Lecture 15: Reading Agentic Interpretability Without Public Slides](/posts/ai/2026-08-22-cs224n-interpretability-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

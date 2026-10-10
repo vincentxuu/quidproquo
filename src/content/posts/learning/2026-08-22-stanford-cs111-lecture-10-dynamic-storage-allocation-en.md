@@ -21,6 +21,14 @@ Dynamic storage management asks how applications and operating systems manage me
 
 The same requests leave different hole patterns when frees arrive in a different order. The allocator cannot see whether splitting a large block now will block a large future request. Placement is therefore an online decision made from current free-space state, with future fragmentation as a consequence.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Stack allocation trades ordering restrictions for constant time
 
 Stack allocation supports last allocated, first freed (LIFO) lifetimes. A single stack pointer moves on allocation and moves back on free. Nested calls and recursion naturally have this order; tree traversal, expression evaluation, and top-down recursive-descent parsing are other slide examples.
@@ -82,6 +90,10 @@ The PDF combines sweep with copying/compaction; this article preserves that agen
 The slides give cost magnitudes of 10–20% of CPU time, 2–5× overallocation, and long pauses. These illustrate trade-offs, not guarantees for every runtime, heap, and workload. Generational, incremental, and concurrent designs lie outside the public deck. ([official lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/10/Lecture10.pdf))
 
 The lecture can be unified as prediction exchanged for efficiency. Predictable LIFO lifetime makes a stack pointer nearly free. Arbitrary heap lifetime needs free lists and placement. Fixed sizes enable slabs and bitmaps. Trackable ownership makes reference counts direct. General graph reachability requires collection and pays scan, space, and pause costs. No allocator simultaneously provides arbitrary lifetimes, zero fragmentation, constant time, immediate reclamation, and zero metadata.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

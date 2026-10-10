@@ -17,6 +17,14 @@ draft: false
 
 第 16 講 **MLE and Probabilistic Modeling** 在 2026 年 3 月 17 日進行。前面幾講已使用 squared error 與 cross-entropy，這一講終於回答「為什麼是這些 loss」：先假設資料如何由未知參數產生，再選出最能解釋已觀察資料的參數。官方沒有公開逐講錄影，本文只依 lecture note、pre-reading、Recitation 9 與 HW9。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 主要來源是 [Maximum Likelihood lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_MLE.pdf)、完整 [MLE pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MLE.pdf)、[Recitation 9 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec9_sol.pdf)與 [HW9](https://www.cs.cmu.edu/~07280/assignments/hw9_blank.pdf)。Pre-reading 另含 categorical、multivariate Gaussian 與 conditional likelihood；本文主脊鎖定 MLE 如何重建先前 regression objectives。
@@ -100,6 +108,10 @@ MLE 只在候選 model family 裡找最能解釋資料的參數。若 coin flips
 ## 今晚可以做的動作
 
 用 10 次 coin flips 手算 Bernoulli likelihood 與 log-likelihood，在 `θ=0.1,0.2,…,0.9` 畫表，確認最大值落在 sample mean 附近。接著寫出一筆 logistic regression 的 conditional log-likelihood，逐項對照 cross-entropy。最後列出你的資料是否真的支持 i.i.d. 假設。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

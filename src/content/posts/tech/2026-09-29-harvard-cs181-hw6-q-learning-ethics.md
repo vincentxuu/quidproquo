@@ -28,6 +28,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 14 篇。上一篇 [HW6（三）](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning)在已知轉移機率的 Gridworld 裡做規劃。這篇拿掉「已知」：agent 只能邊玩邊學。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## 在學期裡的位置
 
 依 [2026 官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)：
@@ -154,6 +162,10 @@ Section 10 的說法是：SARSA 學的是「我實際做的事值多少」，Q-l
 ## 下一篇
 
 HW6 是最後一份作業。下一篇 [期末檢核與系列收尾](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint) 用官方的 final checklist 與練習題，把下半學期收斂起來。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

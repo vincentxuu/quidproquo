@@ -17,6 +17,14 @@ series:
 
 Lecture 19 的模型只用一個前 token 預測下一個。**CMU 07-280 Spring 2026 Lecture 20** 問：要同時利用整段 context，該如何保留位置，又讓模型依目前 token 決定要看哪裡？官方題目是 *Attention & Transformers*，投影片從平均 context vectors 一步步推到 GPT-2 skeleton。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並以 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 核對 Building GPT2 對應。官方頁沒有 Spring 2026 逐講公開錄影，因此不描述 slide animation 的現場節奏或教師口述。
@@ -96,6 +104,10 @@ Attention weights 告訴我們某一 head 在該 forward pass 如何組合 value
 ## 今晚可做動作
 
 拿 `T=3,d_k=2` 的小矩陣，手算 `QKᵀ/√2`、causal mask、row-wise softmax 與 `AV`。接著寫十行 NumPy 重算，逐一 assert shapes。最後故意把 softmax 改成 column-wise，看每列是否還加總為一；這能比背公式更快抓到實作錯誤。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

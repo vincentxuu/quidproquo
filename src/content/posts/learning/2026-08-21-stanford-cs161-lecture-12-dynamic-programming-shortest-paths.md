@@ -19,6 +19,14 @@ series:
 
 本文依照[官方 Lecture 12 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)、公開 notes 與 slides PDF 整理。Canvas-only 錄影未作為來源。Lecture 11 從 relaxation 與權重條件比較 Dijkstra、Bellman–Ford；這一講刻意重訪 Bellman–Ford，但重點換成「狀態、遞迴式、填表順序」，再把同一套方法推到 all-pairs shortest paths。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
+
 ## Bellman–Ford 其實已經是一張 DP 表
 
 給定 weighted directed graph `G=(V,E)`、`n=|V|`、`m=|E|` 與 source `s`。定義：
@@ -158,6 +166,10 @@ Lecture 11 的核心對比是 greedy finalization：Dijkstra 挑目前 estimate 
 講義引用 Richard Bellman 對「dynamic programming」名稱的回憶：在政治環境下，他選了聽來難以反對的詞來描述 multistage decision process。這段歷史有助理解名稱，但不是演算法定義；判斷一個方法是不是 DP，仍應回到 state、recurrence、overlap 與 evaluation order。
 
 Slides 也提到 APSP 存在漸進上更快的研究結果。那不是本講 required knowledge，也不改變 Floyd–Warshall 作為標準 DP 範例的價值；本篇不把研究型界線混進課堂演算法保證。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

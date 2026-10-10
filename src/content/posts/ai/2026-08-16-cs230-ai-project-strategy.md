@@ -23,6 +23,22 @@ draft: false
 
 這一講用兩個例子：前半是**語音控制檯燈的喚醒詞偵測**（end-to-end 單一模型），後半是 **AI deep researcher**（多元件 pipeline）。後半那段是全系列最能直接搬到 LLM 應用的內容。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=s6JVGzABKho
+title: Lecture 6: AI Project Strategy
+```
+
+原始影片：[Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## 為什麼要教這個
 
 > 「懂演算法很重要……但真正驅動效能的，是一個團隊**擁有高效開發流程的能力**。超參數怎麼調？資料怎麼收？試了第一次不成功——而它通常不會成功——**你下一步做什麼？**做這些決策的技能，往往造成字面意義上的 **10 倍**生產力差距。」
@@ -243,6 +259,10 @@ Ng 用的例子已經是 LLM pipeline 了，所以幾乎不用轉譯。真正值
 站上 [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes) 那篇列了十種問題和對應解法，而這一講補上的是**你怎麼知道自己中的是哪一種**——那十種解法都很好，但如果你的問題其實在挑網頁那一步，換再多檢索策略都不會動。
 
 至於前半的喚醒詞案例，有一個洞見今天一樣成立：**「你會得到一個語音活動偵測器」**。當你用合成資料建 eval 集，如果所有正例都有某個共同的表面特徵，模型（或你的 judge）會學會抓那個特徵，而不是你真正想測的東西。這和站上 [上線才是工作的開始](/posts/ai/2026-08-10-enterprise-agent-case-studies) 講的落差是同一個機制的兩端。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

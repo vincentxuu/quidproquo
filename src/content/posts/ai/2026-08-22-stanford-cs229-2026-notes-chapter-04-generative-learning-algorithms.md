@@ -17,6 +17,15 @@ draft: false
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 4 章〈Generative learning algorithms〉，講義頁碼 35–48。它是 **2026 notes 的逐章導讀**，不是某一學期錄影的重建；本章把 Naive Bayes 標成 optional reading，也應照講義的權重理解。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 判別式與生成式的分岔
 
 邏輯斯迴歸直接學 \(p(y\mid x)\)。生成式分類器改學類別先驗 \(p(y)\) 和類別條件分布 \(p(x\mid y)\)，再用 Bayes 法則比較
@@ -64,6 +73,10 @@ GDA 對高斯形狀與共享協方差敏感；Naive Bayes 對特徵相依關係�
 ## 自學練習
 
 用同一個二元資料集訓練邏輯斯迴歸與 GDA，先在近似高斯資料比較，再刻意加入偏斜或離群值。另用十封短文字手算 Bernoulli Naive Bayes，觀察不加平滑時一個未見詞如何讓整個類別機率歸零。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

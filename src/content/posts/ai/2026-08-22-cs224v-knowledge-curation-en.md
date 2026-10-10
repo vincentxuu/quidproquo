@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 2 asks how pre-writing research can reveal dimensions the writer did not know to ask about. The schedule calls this Knowledge Curation. [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf) and Co-STORM are the central systems, followed by DataSTORM and Homework 1.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: from RAG to collaborative research
 
 The deck reviews retrieval and RAG, then identifies two weaknesses in ordinary search-driven writing: the initial question is often too narrow, and one-shot retrieval does not ask useful follow-ups. It covers STORM's research, generation, and evaluation pipeline; adds a person to Co-STORM's multi-agent discourse; and closes with DataSTORM's combination of web and database exploration. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf))
@@ -115,6 +123,10 @@ Choose an unfamiliar topic, list three perspectives yourself, and generate an ou
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 There is no public recording, and oral explanations for several tables are unavailable. Usage and human-evaluation figures in the deck summarize the named studies; this article does not generalize them to every deep-research system.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

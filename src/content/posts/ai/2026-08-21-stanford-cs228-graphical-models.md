@@ -24,6 +24,14 @@ draft: false
 
 這篇是把 ExploreCourses 的四個學年條目、凍結的課程官網、以及那份公開講義的每一章實際打開讀過之後寫的。涵蓋：硬規定寫了什麼、五份作業的節奏、講義的真實完整度、以及它跟 CS236 的關係。**不包含**逐章的數學推導——那是講義本身的工作，而講義是公開的。系列的階梯排序見[《Stanford CS 課程導讀》地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs228.stanford.edu/)
+
 ## 這門課的硬事實
 
 先修條件原文只有一句，逐字抄自 [ExploreCourses 的 CS 228 條目](https://explorecourses.stanford.edu/search?q=CS+228&view=catalog)：
@@ -161,6 +169,10 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 - **課程官網位置**：`cs228.stanford.edu` 實際導向 `ermongroup.github.io/cs228`，頁首標示 Winter 2023-24。`web.stanford.edu/class/archive/cs/cs228/` 回 404，這門課沒有 Stanford 封存區的歷屆版本。
 
 **未能確認的項目**：(1) CS228 為何連續兩個學年停開、CS236 為何自 Autumn 2023 後未再開課——官方從未說明，但 2026-08-26 的查核把時間軸對上了：ExploreCourses XML 確認最後一次開課兩門都是 Ermon 本人教（Winter 2024 的 CS228 有 133 人、Autumn 2023 的 CS236 有 321 人），而他 **2024 年 7 月起擔任 diffusion LLM 新創 Inception Labs 的 CEO**，2025 年 2 月出 stealth、11 月拿 $50M seed（Menlo Ventures 領投），投資方訪談裡直接說三位創辦人「walk away from tenure」——停開期與創業期完全重疊。Stanford 的 faculty startup 政策也明文要求教授接管理職應休假（leave of absence）。這是間接證據最強的解釋，但沒有任何官方來源明文連結兩者。課程本身沒有死掉：CS236 已排進 Spring 2027 且 PI 就是 Ermon，CS228 排 Winter 2027 但講師 TBD。(2) Winter 2027 的授課者是誰，ExploreCourses 的講師欄目前空白。(3) 五份作業的實際題目與難度分布，作業內容鎖在 Ed 上，本篇對作業的描述全部來自公開的時程表與評分政策，不是作業本身。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ draft: false
 
 這篇是把那份教材真的下載打開、逐頁讀完之後寫的。另外把課程網站、[榮譽守則手冊](https://web.stanford.edu/class/cs109/handouts/honorCode.html)、課程大綱、講次頁面與 ExploreCourses 條目全部對過一遍。涵蓋這門課的硬規定、那份 AI 教材的實際形狀與它明確禁止的事、作業長什麼樣，以及自學者實際能拿到多少。**不包含**機率內容本身的教學——那是課程自己的工作，不是導讀的工作。系列的上一層在[《Stanford CS 課程導讀》地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)，這篇不重複那份地圖的階梯排序。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## 這門課的硬事實
 
 2026 年夏季由 [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/) 授課，週一到週四上午在 CoDa B80。接下來的學年秋、冬、春三學期都有開，三位不同的授課者輪流：秋季 Gregg、冬季 [Chris Piech](https://stanford.edu/~cpiech/bio/index.html)、春季 Jerry Cain。秋季那班的選課上限掛到 **999 人**（皆見 ExploreCourses 條目，查詢方式與其他兩班的上限收在附錄）。加上夏季這輪，這門課一年開四次，不存在「等不到」的問題。
@@ -156,6 +164,10 @@ score = sophistication × (1 + creativity + impact)
 - **榮譽守則第四條的引文**：原文寫的是「LLMs do leave tell tail probabilistic distributions in their output」，`tell tail` 應為 `tell-tale`（藏不住的、洩底的），正文採此讀法翻譯。
 - **首頁講次表的日期筆誤**：首頁「This Week in CS109」把 6 月 25 日標成 Tue，但進度表上同一講是 Thu。以進度表為準。
 - **未能確認的三件事**：（一）Summer 2026 的作業究竟是六份還是七份——進度表列到 Pset #6，大綱與側邊選單都寫七份，psetapp 需登入所以無法核對；（二）LLM Learning Guide 最早出現在哪一個學期——封存的 Autumn 2024、Winter 2025、Summer 2025 三個版本的頁面都沒有這一欄，但封存版不完整，無法斷言 Summer 2026 是首次；（三）課堂參與那 25% 的細部組成——大綱裡討論分組討論課與一對一考前面談的段落，在現行頁面上是被註解掉的狀態，不確定夏季班是否仍然實施。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

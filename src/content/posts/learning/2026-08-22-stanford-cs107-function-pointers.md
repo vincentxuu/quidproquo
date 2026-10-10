@@ -17,6 +17,14 @@ draft: false
 
 C 沒有 template，仍能避免為每種型別複製演算法。Lecture 12 把泛型拆成資料定址與比較規則：`void *` 加 width 解決前者，function pointer 讓 caller 注入後者。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -248,6 +256,10 @@ Callback 雖能讀 global state 或修改資料，但結果若反覆變動，sor
 `void *` 是未知型別 object 的地址，不是未知寬度元素的 iterator；走訪時要另帶 width。Byte algorithm 只搬 object representation，range 與 lifetime 由 caller 保證。`memcpy` 要求不重疊，`memmove` 才定義 overlap。Function pointer 則把 client policy 變成參數，但 signature 與 ordering 契約仍要吻合。
 
 共同工作留在 library，資料寬度與決策交還 caller；型別保存得愈少，契約就必須愈精確。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

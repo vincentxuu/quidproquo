@@ -38,6 +38,14 @@ glossary:
 
 官方課序是 4/6 講 SGLang、4/8 講 PEFT、4/13 講 vLLM。本系列把兩講服務排在一起，因為它們在解同一個問題，而且投影片第 9 頁就寫明「SGLang / vLLM share similar arch」。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 場景：一台伺服器要同時接住很多請求
 
 第 22 講第 3 頁用一個規模開場：2 億日活躍使用者、每天 25 億個 prompt、每秒 3 萬個請求。第 4–6 頁接著列三種常見的使用型態，每一種都藏著一個系統問題：
@@ -196,6 +204,10 @@ attention 計算時，依 block table 抓回不連續的 block，當場做 atten
 - 另一門課怎麼講推論：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
 - attention 本身怎麼變快：[L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)
 - 單機之後：[L26–L30 大規模服務：prefill／decode 拆分、KV cache 與異質硬體](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

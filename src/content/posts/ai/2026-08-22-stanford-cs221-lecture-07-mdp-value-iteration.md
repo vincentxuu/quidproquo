@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：官方講義與影片公開；本篇指定的本地 `mdp.py` 沒有提供完整課堂口述、Canvas 互動、作業解答或隱藏測資。因此下文只把原始碼直接示範或能由公式推出的內容寫成主張；沒有把其他學期、影片未見的細節或直覺補成 CS221 本講的結論。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 1. 從 search 開始：為什麼需要 MDP
 
 `main()` 先回顧上週的 search。`TravelSearchProblem(num_locs=10)` 有 `start_state()`、`successors(state)` 與 `is_end(state)`：一個 successor 會把 action、cost 和 next state 放在一起。對 search 而言，從 state 執行一個 action 會 deterministic 地抵達一個新 state，所以解可以描述成從起點到終點的一串 actions；路徑成本再用來比較解的好壞。
@@ -154,6 +163,10 @@ memory 方面，`values`、`new_values`、`pi` 與 visited set 都隨可達 stat
 ## 10. 讀完這一講應帶走的模型
 
 不要只背「取最大」，要檢查新問題的契約：state 是否保留 Markov 所需資訊、actions 是否完整、probability 是否加總為 1、reward 是負成本還是效用、哪些 state terminal、γ 是否符合遠期偏好，以及可達 states 是否有限可枚舉。任一項不清楚，輸出就未必回答原問題。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -39,6 +39,21 @@ The course site's outline for this lecture:
 
 What actually happened in the video needs saying up front. Becker's talk covered the first two items; the third was not covered. At the end of the video, Boaz says he had planned to talk about responsible scaling policies and the Preparedness Framework but ran out of time and would find another slot. The last section of this post fills in those two frameworks from the reading list and is clearly marked as not coming from the lecture.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=fuRmxFZ-umE
+title: L7 lecture video (YouTube)
+```
+
+Original videos: [L7 lecture video (YouTube)](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Official materials and access
 
 | Material | Status |
@@ -240,6 +255,10 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L6: will AI doing AI R&D trigger an intelligence explosion?](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 - Next: [L9: early evidence on AI, jobs, and productivity](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

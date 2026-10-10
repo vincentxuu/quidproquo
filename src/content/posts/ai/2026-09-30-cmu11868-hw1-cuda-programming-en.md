@@ -38,6 +38,14 @@ The previous post covered threads, blocks, and the memory hierarchy. This one tu
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## Where it sits in the course
 
 The official schedule differs from this series' reading order. The [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) releases HW1 on 1/14, the day of "GPU Programming Basics 1", and makes it due 1/28, the day of L05 on frameworks and autodiff. Enrolled students write this assignment while attending L02–L04. This series places it after all three GPU lectures because the reduce and matmul hints lean directly on L04's tiling and memory-access ideas.
@@ -110,6 +118,10 @@ One thing you can do tonight: clone [llmsys_hw1](https://github.com/llmsystem/ll
 
 - [Stanford CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en): why memory movement is often more expensive than compute, from the hardware side
 - [Stanford CS336: Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en): the same kernel optimization ideas, written in Triton
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

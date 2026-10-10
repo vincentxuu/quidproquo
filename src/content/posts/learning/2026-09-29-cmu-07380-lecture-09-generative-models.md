@@ -22,6 +22,14 @@ draft: false
 
 本文依 2026-09-29 的課站狀態寫成，課站標明 schedule `subject to change`。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 我實際打開並讀過的材料：
@@ -175,6 +183,10 @@ Mitchell 的章節證明了一件很漂亮的事：在一種「變異數不隨�
 1. 列印 [SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf)，先不看解答算一次，再和上面的 0.074 對照。
 2. 跑上面的取樣程式，再把 `sigmas` 換成完整的共變異數矩陣，改用 `rng.multivariate_normal`，比較兩張散佈圖。
 3. 做投影片 Poll 1：三個類別、兩個特徵、每類各有完整共變異數的 GDA，到底有幾個參數？先數 μ，再數 Σ 裡真正自由的項。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

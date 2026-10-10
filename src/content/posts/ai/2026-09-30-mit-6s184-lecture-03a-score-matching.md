@@ -37,6 +37,21 @@ glossary:
 
 時間方向跟前面一樣：**t=0 是雜訊，t=1 是資料**。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=ngC3QnYSVNM
+title: 第 3-A 講錄影：Score Functions (2026)
+```
+
+原始影片：[第 3-A 講錄影：Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 分數函數：往機率更高的方向指
 
 對任意分佈 `q(x)`，它的**分數函數**是 `∇ log q(x)`，log-likelihood 對 x 的梯度（§4.1，p.25）。直覺很單純：它指向 log-likelihood 上升最快的方向。講義 Figure 8 把它畫成一片指向高密度區的箭頭。
@@ -251,6 +266,10 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 - 講義附錄 E（A Guide to the Diffusion Model Literature）：說明離散時間 vs 連續時間、forward process vs 機率路徑、反向時間慣例，以及 flow matching 與 stochastic interpolants 的關係，把文獻的寫法對回本課的語言
 
 系列導覽：上一篇 [L2：Flow matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)｜下一篇 [Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

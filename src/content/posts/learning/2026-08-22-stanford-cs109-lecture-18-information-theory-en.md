@@ -19,6 +19,14 @@ This is article 19 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The artifacts intentionally have different agendas. The two-page worksheet/key contain formal P1–P5, with no P6 or challenge. The three-page guide has six concepts and additionally covers entropy code, KL divergence, and distribution comparisons. This article covers each source without inventing worksheet numbers.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Review a recursive expectation
 
 `retry()` succeeds with probability `.5` and returns four seconds; otherwise it spends two seconds and retries. For `μ=E[T]`,
@@ -154,6 +162,10 @@ The six concepts are surprise, entropy, information gain, entropy code, KL diver
 - P5 is a pset5 item omitted from the public answer key and is computed only from the prompt.
 - Current slides are unavailable and video is gated; this L2 guide does not reconstruct missing lecture content.
 - The limited artifact scope qualifies for the short-material exception; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

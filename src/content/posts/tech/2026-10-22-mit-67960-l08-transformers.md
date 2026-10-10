@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
+title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 三個核心想法
 
 第 8 講把 Transformer 拆成三個獨立、但彼此配合的想法：
@@ -93,6 +109,10 @@ def scaled_dot_product_attention(q, k, v):
 - **不要神化 Transformer**：它是一種 inductive bias 很弱的架構（全域注意力幾乎不假設結構），所以資料效率通常不如 CNN（影像）或 GNN（圖），但在資料夠多時上限最高。
 - **注意力不是免費的**：`O(n²)` 的序列長度複雜度意味著長序列會很吃顯存。實務上要用 FlashAttention、稀疏注意力、或把長序列切成塊來緩解。
 - **位置編碼是隱形地雷**：如果你的任務對順序敏感（大多數任務都是），忘記加位置編碼，模型表現會慘不忍睹。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

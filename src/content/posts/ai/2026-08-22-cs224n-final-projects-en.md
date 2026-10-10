@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 6 on January 22, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture06-final-project.pdf) is titled **Final Projects: Custom and Default; Practical Tips**. The agenda first spends about fifteen minutes completing the Transformer picture, then covers project types and assessment, research topics and data sources, and Q&A.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## What the Transformer review completes
 
 A decoder block uses masked self-attention so a language model sees only left context. An encoder removes the causal mask and gives every position bidirectional context. An encoder–decoder lets the decoder read encoder outputs through cross-attention: queries come from the decoder while keys and values come from the source.
@@ -72,6 +81,10 @@ Assign ownership for dataset versions, evaluation changes, and test runs. Separa
 ## Material gap
 
 Winter 2026 recordings and Q&A are not public. This article covers the Transformer recap and the three project agenda items in the official deck, but it does not reconstruct student questions, spoken topic suggestions, or live assessment explanations.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -27,6 +27,14 @@ glossary:
 
 這份作業把第 11 到 13 篇講的東西拿來動手：[資料平行](/posts/ai/2026-09-30-cmu11868-data-parallel-training)（L14–L15）和[管線平行](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)（L16 上半）。[上一篇的 ZeRO](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization) 不在這份作業裡，要到 HW6 才用 DeepSpeed 實際跑。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 基本資料
 
 | 項目 | 內容 |
@@ -105,6 +113,10 @@ Problem 1 限定只能用 `torch.distributed` 和 `torch.multiprocessing.Process
 - 系列下一篇：[L19–L20 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 前一份作業：[HW4：Softmax／LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)；下一份作業：[HW6：DeepSpeed ZeRO＋LoRA 訓練、SGLang 推論](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)
 - 站內：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

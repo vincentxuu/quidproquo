@@ -26,6 +26,14 @@ glossary:
 
 This is post 8 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) and the last problem in HW4. The previous two posts covered [Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en) and [autoencoders to VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en).
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## First: this problem doesn't test growing a tree
 
 The [HW4 handout](https://github.com/harvard-ml-courses/cs181-s26-homeworks/blob/main/hw4/hw4_release.tex) says up front that no problem asks you to build a decision tree by hand, and points you to the last exercise in the Section 6 notes for review.
@@ -129,6 +137,10 @@ That wraps up HW4. HW5 moves to learning without labels: clustering, PCA, and se
 
 - Previous: [HW4 (Part 2): why autoencoders can't generate, and what VAEs add](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)
 - Next: [HW5 (Part 1): K-means, HAC, and PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

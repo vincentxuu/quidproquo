@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 8 scales to sets of long documents. Comparing annual reports, medical records, news, or invoices requires evidence scattered across sections and files. A larger context window does not itself integrate documents or expose queryable intermediate state. SLIDERS converts text into a table tailored to the question.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: two approaches, then SLIDERS
 
 The deck contrasts training-based and chunking-based methods, then names three chunking problems: representation, broken semantic boundaries, and integration of many local outputs. It builds SLIDERS through schematization, semantics-driven chunking, contextualized extraction, reconciliation, SUQL querying, and preliminary evaluation. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf))
@@ -97,6 +105,10 @@ Take three reports and one comparison question. Hand-design five fields and reta
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The deck explicitly calls its evaluation preliminary. It does not establish a mature production benchmark or publish the complete pipeline, cost analysis, or recording. This article preserves that research-stage qualification.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

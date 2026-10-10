@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
 
+## 課程影片來源
+
+採用官方 Week 0 頁面目前連結的講課錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=WbzNRTTrX0g
+title: CS50 AI Week 0 — official lecture recording
+```
+
+原始影片：[CS50 AI Week 0 — official lecture recording](https://www.youtube.com/watch?v=WbzNRTTrX0g)
+
+課程與錄影入口：
+
+- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
+
 ## TL;DR
 
 Week 0 以搜尋為切入點，建立 AI 最基礎的解題框架：從無資訊搜尋到有資訊搜尋，再到對弈搜尋。兩個專案分別對應 BFS（Degrees）與 Minimax（Tic-Tac-Toe）。
 
 ## 課程影片與時間軸
 
-YouTube：[Week 0 Search (2020 錄製)](https://www.youtube.com/watch?v=6CDPTq0C98U)
+YouTube：[Week 0 Search (2020 錄製)](https://www.youtube.com/watch?v=WbzNRTTrX0g)
 
 | 時間區段 | 內容 |
 |---|---|
@@ -275,6 +290,10 @@ style50 tictactoe.py
 - [ ] 能寫出 Minimax 遞迴骨架與 Alpha-Beta 剪枝條件
 - [ ] 理解 `result` 必須深拷貝的原因（Minimax 會並行探索多棋盤狀態）
 - [ ] 兩個專案 `check50` 全綠
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

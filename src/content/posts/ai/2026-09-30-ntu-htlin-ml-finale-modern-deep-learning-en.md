@@ -39,6 +39,26 @@ Official material used:
 
 **Access level:** all four Fall 2024 decks download freely, but they are slides only, with no recordings. Fall 2024 HW7 was released in week 14 and goes up to the neural networks of T12; it does not test 302u or 303u. So this stretch is A2. The access levels are defined in the [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=WeLobtIDBzI
+title: Feature Exploitation Techniques
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=En-EyzFipaw
+title: Error Optimization Techniques
+```
+
+Original videos: [Feature Exploitation Techniques](https://www.youtube.com/watch?v=WeLobtIDBzI)、[Error Optimization Techniques](https://www.youtube.com/watch?v=En-EyzFipaw)、[Overfitting Elimination Techniques](https://www.youtube.com/watch?v=b6t22jVVC0s)、[Machine Learning in Practice](https://www.youtube.com/watch?v=jIpwy-mPvIA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Three versions, three different endings
 
 The three versions of the course end differently, so start by laying them out:
@@ -180,6 +200,10 @@ The Fall 2026 course page advertises a public live stream, but I did not check w
 The course content ends here. The next post, [Foundations Homework Guide: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en), goes back over the Foundations homework, followed by [Techniques Homework and the Final Project](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en).
 
 Further reading: 302u and 303u are only a doorway into deep learning. To go further, this site has [CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en) (its lectures on [loss surfaces and momentum](/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum-en) and [optimizers and regularization](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en) pick up right where 303u stops), [MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en), and NTU's other track, [Hung-yi Lee's ML 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

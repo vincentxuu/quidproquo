@@ -38,6 +38,21 @@ glossary:
 
 先記住時間方向：這門課的 **t=0 是雜訊，t=1 是資料**。很多 diffusion 文獻剛好相反，後面對照其他教材時要小心。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=PNkMKWW8Khw
+title: 第 2 講錄影：Flow Matching (2026)
+```
+
+原始影片：[第 2 講錄影：Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 一張表先看懂整講
 
 Slides 2 把這一講整理成一個 2×3 的「Flow Matching Matrix」。上排是「條件」，意思是只看**單一資料點**；下排是「邊際」，意思是看**整個資料分佈**。
@@ -257,6 +272,10 @@ L_CFM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖u_t^θ(α_t z + β_t ε) − (�
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 
 系列導覽：上一篇 [Lab 1：模擬 ODE 與 SDE](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)｜下一篇 [L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

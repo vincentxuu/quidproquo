@@ -31,6 +31,14 @@ glossary:
 
 This is post 7 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en), following [HW4 (Part 1) on Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en).
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## The setup: it can rebuild a face, but can't draw a new one
 
 HW4 Problem 2 opens with a convincing demonstration. You train a convolutional autoencoder that squeezes CelebA faces into a 128-dimensional vector and rebuilds them, and the reconstructions look fine. Then the problem asks you to do something that seems reasonable: draw a random 128-dimensional vector from a standard normal `N(0, I)` and feed it to the decoder. What comes out usually doesn't look like a face.
@@ -145,6 +153,10 @@ Section 6 §2.5 also has a result that ties straight into the next assignment: a
 
 - Previous: [HW4 (Part 1): Transformers, from hand-computed attention to multi-head](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 - Next: [HW4 (Part 3): decision trees, random forests, and Mixture of Experts](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

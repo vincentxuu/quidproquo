@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 10 講排在 2026 年 2 月 5 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture10-rag-agents.pdf)題為 **RAG and Language Agents**。agenda 先用 adapters 收尾，再依序講問答與 RAG、language agents、推理與規劃、記憶、工具使用、agent data 與評估。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## RAG 把知識來源移到模型外
 
 只靠參數回答，模型的知識受訓練時間與容量限制，也很難指出具體依據。[RAG](https://arxiv.org/abs/2005.11401) 先根據問題檢索文件，再把結果放進生成上下文。典型流程包含索引、retriever、context construction 與 generator。
@@ -130,6 +139,10 @@ Credit assignment 是難點：成功可能只有一個關鍵 retrieval，其他�
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文涵蓋 adapter recap 與六個正式 agenda 主題，不還原講者現場 demo 或口頭案例；對 agent 安全邊界的說明是從架構需求推導的實務檢查，不冒充投影片實驗結論。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

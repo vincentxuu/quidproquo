@@ -37,6 +37,21 @@ Switch to a 1024×1024 color image and two things break at once:
 
 Lecture 4 solves these two problems separately. Notes §6 covers architectures first and latent space second; Slides 4 reverses the order (Section 6 latent spaces, Section 7 architectures). This post follows the notes.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=g0MB1CCBmsI
+title: Lecture 4 recording: Latent Spaces, Neural networks (2026)
+```
+
+Original videos: [Lecture 4 recording: Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Problem one: how the network takes three inputs
 
 Notes §6.1 opens with the requirements: three inputs, a vector `x ∈ R^d`, a condition `y`, and a time `t ∈ [0,1]`, and one output, `u_t^θ(x|y) ∈ R^d`. Step one is turning t and y into vectors the network can digest.
@@ -273,6 +288,10 @@ Slides 4 also lists LAION as SD3's dataset, which the notes don't mention. The n
 - The full VAE derivation (ELBO view): [CMU 11-785 L22: Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - Transformers and attention from scratch: [Stanford CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 L18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - Diffusion from the DDPM perspective (time runs the opposite way): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

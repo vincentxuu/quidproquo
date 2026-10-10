@@ -38,6 +38,21 @@ glossary:
 
 這篇照五層走：場景、直覺、機制（公式收在折疊區塊）、連回模型、想深入。機制那一層用 section 2 的五步例題當骨架，因為它比講義更一步一步。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=25zD5qJHYsk
+title: Stanford CS231N Spring 2025 Lecture 4 錄影
+```
+
+原始影片：[Stanford CS231N Spring 2025 Lecture 4 錄影](https://www.youtube.com/watch?v=25zD5qJHYsk)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 場景：線性分類器不夠用
 
 L3 結尾留了一張圖：一圈紅點被一圈藍點包住，任何一條直線都分不開。換成極座標 (r, θ) 之後，紅點和藍點各自排成一列，一條直線就分開了。
@@ -231,6 +246,10 @@ L4 的最後一頁寫著「Next Time: Convolutional Neural Networks!」。全連
 4. 卡在矩陣求導時，回去讀 [linear-backprop.pdf](https://cs231n.stanford.edu/handouts/linear-backprop.pdf) 的 2×2×3 小例子。
 
 今晚可以做的一件事：在紙上畫出 f(x, y, z) = (x + y) · z 的計算圖，代入 x = −2、y = 5、z = −4，只用「add 分配、mul 交換」兩條規則寫出三個梯度，再用 numpy 的數值梯度核對。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

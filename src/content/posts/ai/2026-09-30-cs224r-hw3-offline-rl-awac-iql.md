@@ -40,6 +40,14 @@ PDF 開頭列了三個目標：
 
 另外要知道一條規定：PDF 寫明**禁止用生成式模型幫你寫這份作業的程式碼**。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 環境與資料
 
 | | AntMaze | PointMass |
@@ -152,6 +160,10 @@ actor 的更新跟 AWAC 類似，都是 advantage 加權。PDF 也點出 IQL 的
 - [Berkeley CS285：作業與專題路線](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)：比較兩門課的作業設計
 
 **系列導覽**：上一篇 [L8：獎勵從哪裡來](/posts/ai/2026-09-30-cs224r-reward-learning)｜下一篇 [L9：RLHF 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

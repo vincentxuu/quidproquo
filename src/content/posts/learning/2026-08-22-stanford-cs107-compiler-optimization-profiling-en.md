@@ -19,6 +19,14 @@ draft: false
 
 The lecture first compares unoptimized and `-O2` builds of a triple-loop matrix multiply, then introduces Callgrind's dynamic instruction counts. It next examines constant folding, common-subexpression elimination, dead-code elimination, strength reduction, code motion, and tail-recursion optimization. Repeated `strlen` calls finally show why a compiler sometimes lacks knowledge available to the programmer.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -187,6 +195,8 @@ The next time code feels slow, do not edit immediately. Profile fixed input, rec
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Replaced the dead Stanford Callgrind guide with the live official Valgrind manual for the workflow and option claims.
 
 ## References

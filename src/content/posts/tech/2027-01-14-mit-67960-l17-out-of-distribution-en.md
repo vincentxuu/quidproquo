@@ -30,6 +30,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=tjD9LIzIIek
+title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## The gap between the i.i.d. assumption and the real world
 
 Almost every ML textbook assumes training and test data are i.i.d. samples from the same distribution. But real deployment is never like that: the camera model changes, the hospital changes city, the corpus moves from English to legal text. A model hits 95% accuracy in-distribution, then 60% in production — not a bug, the **assumption broke**.
@@ -96,6 +112,10 @@ Run for 1–2 epochs and the model "moves toward the test distribution's feature
 - **Medium shift**: test-time adaptation (unlabeled) or self-training.
 - **Large shift**: domain adaptation (a bit of target-domain data) or even retraining.
 - **Concept shift**: almost only re-labeling — the model layer can't save you.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

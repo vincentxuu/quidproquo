@@ -27,6 +27,26 @@ glossary:
 
 **系列位置**：上一篇 [LLM API 助教課](/posts/ai/2026-09-30-nthu-nlp-llm-api)｜下一篇 [課程總結與 LLM Reasoning 筆記](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=JvThEbeOZbs
+title: HW4 說明影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=anCghHOjzV0
+title: W13 週二錄影：RAG1
+```
+
+原始影片：[HW4 說明影片](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 週二錄影：RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 週四錄影：RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 週四錄影](https://www.youtube.com/watch?v=cRSaBtoTDag)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 時間線：作業比助教課先發
 
 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把 HW4 和說明影片放在 W12 那一列，說明影片的上傳日是 2025-11-20；兩堂 RAG 助教課在 W13（2025-11-24 與 11-26）。老師在 [W11 週四](https://www.youtube.com/live/cRSaBtoTDag)開頭說過，HW4 原本那週就要發，因為 RAG 內容和助教課影片還沒準備好，延後一週。作業說明寫的期限是三週。
@@ -147,6 +167,10 @@ MMR 在站上有[專文](/posts/ai/2026-03-12-mmr-diversity-reranking)可以補�
 - 切塊策略：[Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies)
 - RAG 怎麼評估：[RAG 評估框架與工具選型](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 - 另一門課的 RAG 作業：[CS224U 作業二：OpenQA 與 DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

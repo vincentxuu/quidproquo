@@ -17,6 +17,21 @@ draft: false
 
 Lecture 4 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Generative Modeling: From Latent Spaces to Diffusion**. It Separates generative from discriminative tasks, organizes VAE, GAN, and diffusion objectives, and leads into Lab 2’s DB-VAE. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=R8V8CbuxryI
+title: Lecture 4 official video
+```
+
+Original videos: [Lecture 4 official video](https://www.youtube.com/watch?v=R8V8CbuxryI)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## What to take away
 
 - Explain how latent variables can represent factors of variation
@@ -41,6 +56,10 @@ Draw a VAE with encoder, sampling, and decoder; label both loss terms before ope
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

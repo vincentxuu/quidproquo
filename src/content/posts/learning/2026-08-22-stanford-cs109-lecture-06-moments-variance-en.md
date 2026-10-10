@@ -17,6 +17,14 @@ draft: false
 
 This is article 7 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 6: Moments (Expectation)** on June 30 with Chris Gregg. Its Summer agenda comes from the [schedule](https://web.stanford.edu/class/cs109/schedule.html), [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture06-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture06-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture06-LLMPrompts.pdf). The `/spr26` [reader](https://probabilitycoders.stanford.edu/spr26) is a shared, Spring-dated concept reference rather than evidence of the Summer lecture. Canvas video is inaccessible and is not reconstructed.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## From a distribution to an operational summary
 
 Expectation is the probability-weighted average,
@@ -83,6 +91,10 @@ so a random permutation has one fixed point on average. The challenge derives `E
 
 - This guide covers all seven worksheet problems and the optional challenge without inventing inaccessible classroom examples.
 - Recordings are Canvas-gated and were not used.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

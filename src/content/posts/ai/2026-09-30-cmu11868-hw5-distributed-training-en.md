@@ -26,6 +26,14 @@ glossary:
 
 This assignment puts parts 11 through 13 into practice: [data parallelism](/en/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) (L14–L15) and [pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) (first half of L16). [ZeRO from the previous post](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en) isn't part of it; you run ZeRO through DeepSpeed in HW6.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## At a glance
 
 | Item | Details |
@@ -104,6 +112,10 @@ Also, the last commit on main is dated 2026-04-30, so it still reflects spring. 
 - Next in series: [L19–L20 Model quantization](/en/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - Previous assignment: [HW4: fused CUDA kernels for Softmax and LayerNorm](/en/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en); next assignment: [HW6: DeepSpeed ZeRO + LoRA training, SGLang inference](/en/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
 - On this site: [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

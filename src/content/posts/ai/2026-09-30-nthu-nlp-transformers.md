@@ -30,6 +30,21 @@ glossary:
 
 投影片大綱分六段：RNN 的問題、attention 當解法、self-attention、Transformer encoder-decoder、Transformer 的成就、Transformer 變體。本篇照這個順序，用「場景 → 直覺 → 機制 → 連回模型 → 想深入」五層來寫。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Week 4 Thu.
+```
+
+原始影片：[Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 場景：John 住在紐約，RNN 卻忘了 John
 
 投影片第 3 頁用一個問答例子開場：句子開頭提到 John，後面講到 New York，要模型回答 John 住哪。RNN 裡，兩個字互相影響的程度由距離決定。John 的資訊要一路傳過將近 O(N) 個時間步才碰得到答案，途中早就被沖淡了。投影片的說法是：我們早就知道「越近越重要」不是理解句子的正確方式。
@@ -173,6 +188,10 @@ pos 是位置，i 是維度索引。偶數維用 sin、奇數維用 cos，波長
 - Fall 2026 的這一講還沒公開（2026 課表 W4 之後都是空的），本文只根據 Fall 2025。
 
 **系列導覽**：上一篇 [PyTorch 助教課與 HW2：把算式當語言](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)｜下一篇 [Sub-word Tokenization：為什麼模型的詞彙表是「半個字」](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

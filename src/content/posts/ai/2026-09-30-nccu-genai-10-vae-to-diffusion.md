@@ -31,6 +31,21 @@ glossary:
 
 用到的官方材料有四份：[錄影 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk)（2025-04-22，約 2 小時 54 分）、投影片 GenAI10（78 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第十週作業。存取等級是 **A3**。Demo08 在 GitHub 上最近一次 commit 是 2025-04-28，**以下引用的是 repo 目前版本**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
+title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 投影片分六段：Embeddings、自編碼器 Autoencoder、變分自編碼器 VAE、橫空出世的 Diffusion Models、Diffusion Models 原理、Latent Diffusion Models。錄影的時間軸大致對應：
@@ -207,6 +222,10 @@ repo 目前版本的流程：
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L09 為什麼大家說 2025 是 AI Agents 元年](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)｜下一篇：[L11 文字生圖 AI 的原理及實作](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

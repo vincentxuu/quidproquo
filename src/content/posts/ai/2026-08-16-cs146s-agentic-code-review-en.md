@@ -27,6 +27,14 @@ Three topics: what AI review catches well and what it misses, review architectur
 
 That shift is telling. A year ago the talk worth booking was about how to write. Now it's about who checks.
 
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
+
 ## Why the course treats review as high leverage
 
 The matching Fall 2025 session was Week 7, "AI code review" ([slides](https://docs.google.com/presentation/d/1NkPzpuSQt6Esbnr2-EnxM9007TL6ebSPFwITyVY-QxU/edit), with Graphite CPO Tomas Reimers as guest). It opens with three sets of numbers, sourced to [Coding Horror](https://blog.codinghorror.com/code-reviews-just-do-it/) — itself an assigned reading for the course:
@@ -111,6 +119,10 @@ That single sentence answers both accountability and process design.
 - AutoCommenter's numbers come from a 2023–2024 deployment and several model generations ago; they describe the **shape of the problem**, not today's absolute performance
 - Fall 2026's materials and assignment for this week aren't published
 - Tool capability boundaries move fast; the table above needs periodic re-testing
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

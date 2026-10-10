@@ -36,6 +36,21 @@ glossary:
 
 **Fall 2026 對照**：Fall 2026 的[第 6 講投影片](https://www.dropbox.com/scl/fi/4zry0dea0hrykoa2aoqp0/Lec06-Quantization-II.pdf?rlkey=cb7gol6t8jcrb8kyyxpxwjzfb&dl=0)（80 頁）與[錄影](https://www.youtube.com/watch?v=_sHTMuOQY5A)已經上線。Lecture Plan 五項一字不差。逐頁比對只少了兩頁：一頁重複的線性量化回顧，以及 HAQ 在 edge／cloud 硬體上的位元分配圖（F24 第 80 頁）。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=wrcgWm_nUeE
+title: EfficientML.ai Lecture 6 - Quantization Part II（MIT 6.5940, Fall 2024）
+```
+
+原始影片：[EfficientML.ai Lecture 6 - Quantization Part II（MIT 6.5940, Fall 2024）](https://www.youtube.com/watch?v=wrcgWm_nUeE)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 上一講留下的問題
 
 第 5 講給了兩種量化：K-means（權重存整數索引加一本浮點 codebook）與線性量化（`r = S(q − Z)`，權重與運算都能用整數）。第 6 講第 3 頁把兩者並排複習後，第 10 頁直接丟出本講的核心問題：
@@ -217,6 +232,10 @@ g_W = ∂L/∂W = ∂L/∂Q(W)
 - 量化基礎：[第 5 講：量化 I](/posts/ai/2026-09-30-mit-65940-quantization-basics)
 - LLM 推論中的量化與系統觀點：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
 - 反向傳播：[CMU 11-785 第 5 講](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

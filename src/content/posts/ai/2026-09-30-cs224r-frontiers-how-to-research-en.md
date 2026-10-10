@@ -34,6 +34,21 @@ Access level is **A3**: the slides, project specs, and project reports are all r
 
 Companion video (**supplementary**): [Spring 2025 Lecture 18: Frontiers](https://www.youtube.com/watch?v=FacJ_1tTSx4) (about 71 minutes). I compared the [2025 deck](https://cs224r.stanford.edu/spring_2025/slides/18_cs224r_frontiers_how_to_research.pdf) (53 pages) with the 2026 one. The 2026 deck adds three opening slides summarizing the quarter and one research example slide; the text of the open problems and research advice is nearly identical. So the 2025 video covers most of this lecture, but for the opening summary, go by the 2026 slides.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=FacJ_1tTSx4
+title: Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)](https://www.youtube.com/watch?v=FacJ_1tTSx4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The setting: what is still unsolved after the full toolkit
 
 The course reminder on slide 2 is blunt: poster session next Wednesday, final report due the Monday after, **no late days and no extensions**. Students heard this lecture during the final push on their projects.
@@ -296,6 +311,10 @@ Not confirmed:
 - Which video generation paper slide 43 refers to; the slide doesn't give its title
 
 Series navigation: previous [L17 RL for VLAs](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en) | this is the final post | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

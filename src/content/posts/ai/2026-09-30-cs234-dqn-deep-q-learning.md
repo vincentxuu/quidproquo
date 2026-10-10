@@ -39,6 +39,22 @@ glossary:
 
 第 5 講的檔名是〈Policy Gradient I〉，但前 21 頁其實在收尾上一講的函數近似，講 DQN。本系列依主題切篇，所以這篇只講前半，後半的策略梯度留給[下一篇](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: 影片 04〈Q learning and Function Approximation〉
+```
+
+原始影片：[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 先回到上一篇的最後一個式子
 
 上一篇的結尾，表格裝不下了，我們用參數 $w$ 的函數 $\hat{Q}(s, a; w)$ 來近似 Q。第 5 頁把三種做法並排，差別只在「拿什麼當真正 Q 的替代目標」：
@@ -171,6 +187,10 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 - [CS229 筆記第 19 章：強化學習](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)：先修課對 MDP 與 value iteration 的整理
 
 **系列導覽**：上一篇 [order 5：沒模型時怎麼控制](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)｜下一篇 [order 7：策略梯度——REINFORCE、baseline、actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

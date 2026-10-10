@@ -38,6 +38,21 @@ The slides draw the boundary of "reasoning" with two questions. "What is the cou
 
 The previous lecture ([Lecture 5: preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en)) used [PPO](https://arxiv.org/abs/1707.06347) to make models say what people want to hear. This one asks whether the same RL toolkit can teach a model to think before it answers.
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: 2025 Lecture 6 recording
+```
+
+Original videos: [2025 Lecture 6 recording](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+
 ## Step 1: write the reasoning, then the answer
 
 The core idea comes from [Chain-of-Thought](https://arxiv.org/abs/2201.11903) (Wei et al., 2022): show "explain first, then answer" in the prompt's examples, and the model follows suit. The slides ask how old the bear will be next year. With a bare-answer example the model gets it wrong; with a worked example it writes "one year older than this year, which was 4, so 5."
@@ -251,6 +266,10 @@ These are paraphrased from Part II, "LLM reasoning," of the [2025 final exam](ht
 - The inference side of test-time scaling: [CS224N Lecture 13: speculative decoding and test-time scaling](/posts/ai/2026-08-22-cs224n-reasoning-two-en)
 - RL foundations, policy gradient and actor-critic: [Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 - PPO and DPO from the previous lecture: [CME295 Lecture 5](/posts/ai/2026-09-29-cme295-preference-tuning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

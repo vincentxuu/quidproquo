@@ -31,6 +31,26 @@ Going back to "how do we split text" right after the Transformer looks like a st
 
 The deck is only 22 pages, and 14 of them walk through a single example. Work that example yourself and you have read the lecture.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=NrT5kmnTFCk
+title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=HEikzVL-lZU
+title: Byte Pair Encoding Tokenization
+```
+
+Original videos: [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The problem: out-of-vocabulary words
 
 The table on slide 2 makes the problem concrete. The vocabulary comes from training data. Common words like hat and learn get their own vectors. The next three kinds of word all become UNK and share one uninformative vector:
@@ -138,6 +158,10 @@ One thing to try tonight: open the [OpenAI tokenizer](https://platform.openai.co
 - Building a BPE tokenizer from scratch: [CS336 Lecture 1: From Bytes to a Tokenizer](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 - A fuller treatment of multilingual token costs: [CS224N Lecture 14: How Tokenization Creates Multilingual Cost Gaps](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
 - How another course connects tokenization to the Transformer: [CME295 Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

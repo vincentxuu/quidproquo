@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 為什麼要單獨講「優化的縮放定律」
 
 前面 L03 講了 SGD / Adam 的機制，L04 講了正則化，L06 講了 CNN 架構。但這些都假設一件事：**網路夠小、超參數夠好調**。一旦你把寬度從 256 拉到 8192、深度從 12 層堆到 100 層，原本調好的 learning rate 會瞬間爆炸或僵死。
@@ -101,6 +117,10 @@ class LinearMUP(nn.Module):
 3. **縮放是可預測的**：μP 解決「寬度遷移」，critical batch size 解決「算力分配」。
 
 對工程師來說，最直接的收穫是：下次要從 1 億參數擴到 100 億，先在小網路上用 μP 調好超參數，再線性外推，而不是重新 grid search 一輪。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

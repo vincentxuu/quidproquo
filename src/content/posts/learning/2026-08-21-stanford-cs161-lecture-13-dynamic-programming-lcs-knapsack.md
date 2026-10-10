@@ -21,6 +21,14 @@ draft: false
 
 Lecture 12 才剛用 Bellman–Ford 與 Floyd–Warshall 建立動態規劃的語言，Lecture 13 馬上把那套語言搬到三種外觀完全不同的問題：字串、容量限制、樹。真正要學的不是三條公式，而是如何判斷「子問題到底要記哪些資訊」。如果 state 少記一個條件，演算法可能重複使用同一個物品；如果 state 選得剛好，原本在一般圖上 NP-hard 的問題，限制在樹上後可以線性解完。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
+
 ## 本講的五步動態規劃 recipe
 
 Notes 一開始把設計動態規劃整理成五步。這個清單也是整堂課的主脊：
@@ -228,6 +236,10 @@ Lecture 12 用最短路徑第一次完整介紹 recurrence、重疊子問題與�
 LCS 若只要長度，可用兩列；若還要重建而不想保留完整 `mn` table，需要更進階的 divide-and-conquer reconstruction。0-1 knapsack 可壓成一維，但必須讓 `x` 從 `W` 往下走；unbounded 則通常從小往大，因為同一物品可在同輪重用。兩者看似只是迴圈方向不同，背後其實是在控制 transition 讀到「本輪新值」還是「上一輪舊值」。
 
 樹上 MWIS 若要回傳 vertices，可在每個 `u` 記錄 `A(u)` 是由「選 u」還是「不選 u」取得，再從 root 往下重建。Tie 時可任選，或同時保留多個最佳解。這些做法都不改變本講的 correctness argument，但會把第四步「找實際解」補完整。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

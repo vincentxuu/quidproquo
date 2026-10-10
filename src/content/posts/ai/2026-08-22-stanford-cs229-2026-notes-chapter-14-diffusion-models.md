@@ -17,6 +17,15 @@ draft: false
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 14 章（印刷頁 180–190）的逐章導讀，依官方主講義整理，**不是任何一學期錄影或課表的重建**。本章進入生成模型：先設計一條把資料變成高斯雜訊的固定路徑，再學習反方向每一步如何去噪。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 正向過程把困難分布逐步洗成高斯
 
 令 $x_0\sim p_{data}$。正向 diffusion 是固定 Markov chain：
@@ -86,6 +95,10 @@ $$
 ## 自學練習
 
 選一張已正規化的小影像與三個 $\bar\alpha_t$ 值，對同一張影像各抽一份 $\epsilon$，用 closed-form 公式產生 $x_t$。接著假裝模型完美知道 $\epsilon$，從 $x_t$ 代數解回 $x_0$。最後替 $\epsilon$ 加入小誤差，觀察在低訊噪比時間步中，重建誤差如何被放大。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

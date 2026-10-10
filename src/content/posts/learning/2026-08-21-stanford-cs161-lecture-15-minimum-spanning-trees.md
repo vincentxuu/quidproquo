@@ -21,6 +21,14 @@ draft: false
 
 上一講用 exchange argument 證明 greedy choice 不會排除最佳解。這一講把同一思想濃縮成一個可重複使用的定理：只要找到一個尊重目前選邊的 cut，跨越它的最輕邊就是安全的。Prim 與 Kruskal 外觀看來很不一樣，一個長出單棵樹，一個合併森林；證明卻是同一個模板。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
+
 ## 問題與不變量
 
 輸入是 connected undirected graph `G=(V,E)`，每條邊有實數權重 `w(e)`。Spanning tree 連接所有 vertices、沒有 cycle，並有 `|V|-1` 條邊。目標找使
@@ -131,6 +139,10 @@ Lecture 14 說 greedy choice 需要 exchange proof；Lecture 15 把它封裝成 
 實作 Kruskal 時，通常用 parent forest 加 union by rank/size 與 path compression；這能實現講義提到的近 `α(n)` amortized bound。工程上也應明確定義 tie-breaking，讓輸出可重現；它不影響最佳成本，卻會影響測試預期的 edge list。
 
 若要驗證實作，不只檢查總權重。還應檢查輸出恰有 `n-1` 邊、連通、無 cycle，並在小圖上與 brute-force spanning trees 比較。對不連通輸入，API 應選擇報錯或明確回傳 forest，不要悄悄宣稱得到 MST。這些是工程延伸，不是本講新增的 theorem。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

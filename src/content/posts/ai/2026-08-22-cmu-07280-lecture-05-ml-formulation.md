@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 5：ML Problem Formulation**。前四講由人定義 transitions、constraints、utility 與 heuristic；這一講轉向「主要依賴 examples」的系統，但仍不急著選模型。它先要求把輸入、輸出與錯誤代價寫清楚。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf)，並讀取下一講指定的 [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf)以確認概念如何落到第一個模型。官方沒有公開逐講錄影。
@@ -81,6 +89,10 @@ Empirical risk 使用已看過的有限 samples，risk 卻定義在未知分布�
 1. 選一個熟悉問題，寫出 `X`、`Y`、一個 `h` 與 loss；每項都要能計算。
 2. 用五筆玩具資料手算兩個 hypotheses 的 empirical risk。
 3. 改變一次 loss 的不對稱代價，觀察 ERM 選擇是否改變。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

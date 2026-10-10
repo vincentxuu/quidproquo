@@ -34,6 +34,14 @@ glossary:
 
 The hardware terms used here (Tensor Core, TMA, systolic array, dataflow architecture) were all explained in the [previous post](/posts/ai/2026-09-30-cs149-hardware-specialization-en) and are only referenced here.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
+
 ## 1. The scene: the same kernel gets slower on a newer GPU
 
 Slide 31 makes the case that GPU kernels are worth the effort:
@@ -215,6 +223,10 @@ Keep in mind while reading: the GPU-versus-RDU comparison, the Llama call counts
 Further reading: for another way of managing specialized hardware through a DSL, on TPUs, read [CMU 11-868 TPU, JAX, and Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en). For higher-level GPU kernel languages like Triton, read [CS336 Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en). Next up, [PA4](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) has you manage software-controlled on-chip memory yourself on AWS Trainium2.
 
 Series navigation: previous [L10 Hardware specialization and DNN accelerator design](/posts/ai/2026-09-30-cs149-hardware-specialization-en) | next [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

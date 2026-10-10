@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Why devote a whole lecture to "scaling rules for optimization"
 
 L03 covered SGD / Adam, L04 covered regularization, L06 covered CNN architectures. All of them implicitly assume one thing: **the network is small enough and the hyperparameters are easy enough to tune**. The moment you push width from 256 to 8192 or depth from 12 to 100 layers, a learning rate that worked perfectly suddenly explodes or dies.
@@ -101,6 +117,10 @@ This lecture ties three scattered ideas into one story:
 3. **Scaling is predictable**: μP handles width transfer, the critical batch size handles compute allocation.
 
 The most direct engineering lesson: the next time you scale from 100M to 10B parameters, tune hyperparameters with μP on a small net first, then extrapolate linearly — rather than launching a fresh grid search.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

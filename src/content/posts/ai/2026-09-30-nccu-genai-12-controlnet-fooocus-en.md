@@ -31,6 +31,21 @@ glossary:
 
 I used three official sources: the [lecture 12 recording](https://www.youtube.com/watch?v=3TdC6xb1RfY) (2025-05-06, 3 h 12 min), the slide deck [GenAI12 ControlNet 與 Fooocus](https://drive.google.com/file/d/15-cHR3PSoGVmXj0yrrzCksDJQ1fcVtir/view) (33 slides, in Chinese), and the week 12 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Access level is **A3**: recordings, slides, and the assignment with its rubric are public. There is no matching notebook in [AI-Demo](https://github.com/yenlung/AI-Demo) this week; the hands-on part uses the open-source [Fooocus](https://github.com/lllyasviel/Fooocus) itself.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3TdC6xb1RfY
+title: 【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)
+```
+
+Original videos: [【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)](https://www.youtube.com/watch?v=3TdC6xb1RfY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week sits in the course
 
 L10 went from VAEs to latents. L11 took Stable Diffusion apart into U-Net, CLIP, schedulers, and LoRA, and built an image-generation web app with diffusers. Anyone who did that hit the same wall quickly: a prompt can say *what* you want but not *what it should look like*. Pose and layout are left to the model's mood.
@@ -204,6 +219,10 @@ This post stands on its own. To dig deeper:
 - Where ControlNet sits in 2023 computer vision research: [2023 AI Conference Guide: Computer Vision](/posts/ai/2026-08-24-ai-conference-2023-cv-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L11: Text-to-Image AI](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en) | next, [L13: Reinforcement Learning and Generative AI Applications](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

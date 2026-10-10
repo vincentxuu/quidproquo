@@ -24,6 +24,21 @@ glossary:
 
 **Series**: previous [RAG, Part 2: from ODQA to Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en) | next [RAG labs 1/2 + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=xGwQYvya_Ag
+title: W12 Thursday recording (Fall 2025, in Mandarin)
+```
+
+Original videos: [W12 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=xGwQYvya_Ag)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Why use an API
 
 Slide 3 gives two blunt reasons:
@@ -118,6 +133,10 @@ One thing to try tonight: move your most-used prompt out of your code into a YAM
 
 - Iterating on prompts: [Prompt engineering iteration guide](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
 - From APIs to agents: [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

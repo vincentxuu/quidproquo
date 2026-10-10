@@ -25,6 +25,14 @@ draft: false
 
 Week 11 的安排很像收官。週一（Proactive Agents）的主讀物是 Shaikh 等人的 [General User Models](https://arxiv.org/abs/2505.10831)，另有 Next Action Prediction 延伸論文與隱私信任的討論。週三（Open Problems & Final Demos）沒有單一讀物。課程把 multimodal、web 與 computer-use、science agent、long-running 架構、production observability 攤開，收斂成三個開放方向。以下對週三的整理標示為課程視角，而非某篇論文的主張。paper video 的 peer review 也在週一截止，Demo Day 排在 finals week，主題是 Making Life at Stanford Better with Agents。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+
 ## GUM：把螢幕痕跡變成使用者模型
 
 [GUM](https://arxiv.org/abs/2505.10831) 的輸入是任何非結構化觀察，例如螢幕截圖。輸出是一組自然語言命題，每個命題帶一個信心分數。看到婚禮邀請，寫下使用者受邀參加朋友的婚禮；看到你反覆改草稿又切去讀相關文獻，寫下使用者被合作者的意見卡住了。前者信心高，後者信心低，系統都誠實標出來。
@@ -85,6 +93,8 @@ production observability 是同一週的另一半。tracing、monitoring、cost 
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-09-12：在系列回顧與課表對照中明示 Week 10 為感恩節停課週，避免 Week 9 直接跳到 Week 11 造成漏文疑慮。
 
 ## 參考資料

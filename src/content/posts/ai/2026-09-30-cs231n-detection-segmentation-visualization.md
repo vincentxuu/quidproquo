@@ -38,6 +38,26 @@ glossary:
 
 到目前為止，CS231N 的模型都只回答一個問題：這張圖是什麼？第 9 講把問題拆細：圖裡有哪些東西、各在哪裡、每個像素屬於誰？最後再反過來問：模型做判斷時，到底在看哪裡？
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=PTypu6GqEd4
+title: Spring 2025 Lecture 9 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=utxbUlo9CyY
+title: 影片
+```
+
+原始影片：[Spring 2025 Lecture 9 錄影](https://www.youtube.com/watch?v=PTypu6GqEd4)、[影片](https://www.youtube.com/watch?v=utxbUlo9CyY)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 先講一個落差：課表和投影片不一樣
 
 [2026 課表](https://cs231n.stanford.edu/schedule.html)替這一講列了六個主題：單階段偵測、兩階段偵測、語意／實例／全景分割、特徵可視化與 inversion、對抗樣本、DeepDream 與風格轉換。
@@ -153,6 +173,10 @@ glossary:
 - 對抗樣本、生成模型：[CS230 對抗樣本與生成模型](/posts/ai/2026-08-16-cs230-adversarial-and-generative)
 - 同一套 Transformer 基礎：[L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
 - 更完整的深度學習理論課：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

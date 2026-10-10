@@ -51,6 +51,26 @@ glossary:
 - 投影片有好幾頁是圖片或討論題，沒有講者的答案；本文照實寫出題目，不替講者補結論
 - 2024 公開播放清單裡真正對應的是[影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)：依 YouTube 章節，前 15 分鐘是 AlphaZero 收尾，[15:24 起](https://www.youtube.com/watch?v=FOlPpjNbHjE&t=924s)是 Dan Webber 的 value alignment，章節依序是 misalignment、定義 AI 目標、對齊偏好（28:28）、對齊最佳利益（36:13）、LLM 個人化研究（40:57）、社會與道德對齊（58:34），跟 2026 投影片的主軸大致相同；sycophancy 與 agentic AI 有沒有講到，章節看不出來。標題叫〈Value Alignment〉的[影片 16](https://www.youtube.com/watch?v=eenJzay5aLo)章節實際是小考檢討、課程回顧與 RL 應用案例，不是本篇的內容
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eenJzay5aLo
+title: 影片 16〈Value Alignment〉
+```
+
+原始影片：[Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[影片 16〈Value Alignment〉](https://www.youtube.com/watch?v=eenJzay5aLo)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 為什麼 RL 課要談這個
 
 CS234 從[第 1 篇](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)開始就把 reward 當成給定的：MDP 是 $(S, A, P, R, \gamma)$，演算法的工作是最大化期望回報。這一講問的是寫下 $R$ 之前的事：你寫下的東西，是你真正想要的嗎？
@@ -175,6 +195,10 @@ bottom-up 的延伸是 participatory AI，把「向人學習」擴大成：
 - 以對齊為主軸的整門課：[Harvard CS2881R 導讀：第一門 AI 安全研究所課](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 另一門入門課怎麼講 AI 對齊：[CMU 07-280 第 13 講：AI 對齊](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 - RLHF 在 LLM 後訓練裡的位置：[CS224N 第 8 講：從 instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

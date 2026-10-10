@@ -40,6 +40,21 @@ Access level is **A3**. The 2026 class recordings are on Canvas only.
 
 First, one mismatch with the schedule: **the 2026 slides have no dedicated BatchNorm section.** The normalization example is LayerNorm. BatchNorm appears only in a figure on page 13 comparing four normalization schemes, captioned "You will implement some of these in assignment 2!" Implementing BatchNorm is left to [A2](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) Q1. The [2025 lecture_6.pdf](https://cs231n.stanford.edu/slides/2025/lecture_6.pdf) has almost the same sections as the 2026 deck, so the 2025 recording likely follows this structure, but I did not check the video minute by minute.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=aVJy4O5TOk8
+title: Stanford CS231N Spring 2025 Lecture 6: CNN Architectures (YouTube)
+```
+
+Original videos: [Stanford CS231N Spring 2025 Lecture 6: CNN Architectures (YouTube)](https://www.youtube.com/watch?v=aVJy4O5TOk8)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Map of the lecture
 
 Page 4 splits the lecture into two groups:
@@ -222,6 +237,10 @@ Not confirmed: who taught this lecture in 2026 (the lecturer column on the 2026 
 Further reading on this site: the [CMU 11-785 CNN lectures](/posts/ai/2026-08-22-cmu-11785-10-cnn-two-en) derive CNN training and architecture a different way.
 
 Series navigation: previous [L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) | next [L7: Recurrent Neural Networks and Image Captioning](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

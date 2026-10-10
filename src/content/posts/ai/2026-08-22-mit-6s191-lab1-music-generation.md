@@ -17,6 +17,14 @@ draft: false
 
 [MIT 6.S191 官方 2026 repo](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab1) 的 Lab 1 是 **Lab 1：用 PyTorch 與 LSTM 生成音樂**。先完成 PyTorch tensor、autograd 與 module 基礎，再把 ABC 樂譜切成字元序列，訓練 LSTM 逐字生成音樂。本文固定使用 2026 branch，避免 master 後續更新造成內容漂移。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## 開始前
 
 [官方 2026 README](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/README.md)指定 Google Colab、Python 3 與 GPU runtime。先複製 notebook 到自己的 Drive，再從頭執行；API key 放在 notebook 的秘密管理介面，不要寫進可分享的 cell 或提交到 Git。
@@ -39,6 +47,10 @@ draft: false
 ## 限制
 
 [官方 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part2_Music_Generation.ipynb)使用 Google Colab GPU，也會要求 Comet API key；校外讀者可以學完核心 TODO，但競賽與 MIT 回饋不可預期。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

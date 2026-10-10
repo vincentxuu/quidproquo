@@ -29,6 +29,26 @@ This guide is based on the official materials of [CS189 Spring 2026](https://eec
 
 These two lectures come after [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en) and [HW4](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en). You can already build a transformer. Here the questions are: how do you train it into something like ChatGPT? And how do you learn good representations when you have no labels? Both lectures share one core idea: **invent a fake supervised task**.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=m13yELgj02c
+title: Lecture 23 recording: LLM Training And Applications
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=iGcer6b6mp8
+title: Lecture 24 recording: Self-Supervised Learning
+```
+
+Original videos: [Lecture 23 recording: LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 recording: Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## What I read, and the limits
 
 What I actually opened and read: the text layer of both slide PDFs, the Discussion 11 problems and solutions, and the titles of the two recordings. Many figures in the slides (architecture diagrams, generated samples, heat maps) have no text layer, so I only relay what is written on the slides. I did not watch the recordings minute by minute.
@@ -166,6 +186,10 @@ Put the two lectures together: a decoder-only transformer first does next-token 
 - Series navigation: previous, [HW4 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en); next, [Lec 25–27: proteins, agents, and closing](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: following Lec 23's arithmetic, recompute GPT-3's attention and MLP parameter counts with D = 12288 and 96 layers, and confirm the MLP is about twice the size of attention. Then work Discussion 11, problem 3 with N = 1000 and see how many matrix multiplications the KV cache saves.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

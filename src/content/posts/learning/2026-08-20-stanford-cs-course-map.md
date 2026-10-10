@@ -30,6 +30,14 @@ Stanford 電腦科學系一年開出的課超過三百門，其中一大批把�
 
 範圍先講清楚：**這篇只收「教材公開到足以自學」的課**。沿用[全球入口](/posts/learning/2026-08-21-global-ai-cs-course-map)的標準，A0 是 catalog，A1 是 syllabus，A2 是部分實質教材，A3 才是能排成連續自學課。本篇主路線納入的版本均以 A3 為門檻；只剩課表或 Canvas 內材料的課不列入路線，停開與佔位條目則另表揭露。這是教材公開度，不是教學品質或難度評分。
 
+## 課程影片來源
+
+這是多門課的地圖文章；各課錄影來源見對應課程導讀。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://www.cs.stanford.edu/bs-degree-requirements)
+
 ## 先破一個誤會：課號不是難度
 
 很多人以為 CS106B 比 CS103 簡單、CS336 比 CS229 難，因為數字比較小或比較大。這個推論在 Stanford 不成立，而且不成立是官方講的。[學術輔導處的課程目錄說明頁](https://advising.stanford.edu/current-students/advising-student-handbook/course-catalog)寫得很直接：
@@ -273,6 +281,8 @@ https://explorecourses.stanford.edu/search?view=xml-20200810&academicYear=202520
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-01：強化學習與機器人分支補上 CS234（Winter 2026，A3）與 CS224R（Spring 2026，A3）的自學條件與站內導讀連結，建議順序把 CS224R 排在 CS234 之後；系統與效能分支補上 CS149（Fall 2025，A3）的公開範圍與執行環境缺口；參考資料同步補上 CS224R 官網與三個導讀系列。
 
 - 2026-09-30：視覺分支補上 CS231N 的自學條件（Spring 2026 投影片與 A1–A3 作業公開、錄影對照 Spring 2025 YouTube，評為 A3）與站內導讀連結；參考資料的站內延伸同步補上。

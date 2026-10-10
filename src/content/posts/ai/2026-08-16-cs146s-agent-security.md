@@ -27,6 +27,14 @@ draft: false
 
 安全是十週裡**唯一兩版都在的主題**。但這週要同時處理兩件方向相反的事：拿 agent 當防守工具，以及把 agent 本身當成新的攻擊面。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 課程先教的三個縮寫
 
 Fall 2026 這週的第一條主題直接寫 SAST / SCA。Fall 2025 的對應課堂是 Week 6「AI QA, SAST, DAST, and Beyond」（[投影片](https://docs.google.com/presentation/d/1C05bCLasMDigBbkwdWbiz4WrXibzi6ua4hQQbTod_8c/edit)），把三個縮寫定義清楚：
@@ -149,6 +157,10 @@ OWASP 在 2026 年 8 月 3 日發布 [GenAI / LLM Top 10 2026 版](https://genai
 - o3 的實驗是 2025 年 5 月，模型已換代；那組數字說明的是**方法的形狀**，不是今天的命中率
 - OWASP 清單每年改版，寫作當下最新是 2026-08-03 發布的 GenAI / LLM Top 10 2026
 - 各家 agent 的沙箱與權限預設值變動頻繁，實作前查當下文件
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

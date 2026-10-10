@@ -31,6 +31,14 @@ Image and video generators such as Stable Diffusion 3 and Meta Movie Gen are mos
 
 This post is the entry point and contains no derivations. By the end you will know what the course teaches, where each material lives, what is missing, and what order to read things in.
 
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## What the course is
 
 The formal title on the course site is **6.S184: Generative AI with Stochastic Differential Equations**; the page header reads Flow Matching and Diffusion Models. The [labs repo README](https://github.com/eje24/iap-diffusion-labs/tree/2026) uses the cross-listed number 6.S184/6.S975 and says the labs are "as taught at MIT over IAP 2026."
@@ -139,6 +147,10 @@ The course site footer says **CC BY-NC-SA**. This series only summarizes and gui
 - The DDPM view (opposite time direction): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Discrete diffusion language models: [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
 - Deep learning overall: [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

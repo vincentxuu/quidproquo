@@ -33,6 +33,14 @@ This post is based on the [recording](https://www.youtube.com/watch?v=paAcPaaYZG
 
 I follow the lecture's order and keep all the math in collapsible sections. If you only want the intuition, you can skip every "Mechanism" block and still follow along.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## The setup: guess a number between 1 and 16
 
 One example runs through the entire lecture. The environment hides an integer from 1 to 16 and the agent gets four guesses. After a wrong guess the environment replies "higher" or "lower." A correct guess ends the episode with reward 1; running out of guesses gives reward 0.
@@ -362,6 +370,10 @@ Further reading on this site (the same algorithms from other angles; not a subst
 - [Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame](/en/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) (CS230)
 - [CME295 Lecture 5: RLHF and DPO Add the Negative Signal](/en/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - [CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO](/en/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

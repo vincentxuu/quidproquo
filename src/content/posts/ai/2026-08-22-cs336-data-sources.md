@@ -19,6 +19,22 @@ draft: false
 
 資料是最容易被一句「我們用網路語料」掩蓋的部分。第十三講從 live service 一路追到 raw snapshot，再到後續 processed data，先問來源、取得方式與權利，下一講才談 filtering、deduplication 與 mixing。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=-qm0ln33G24
+title: CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)
+```
+
+原始影片：[CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## Web crawl 不是下載整個網路
 
 Crawler 從 seed URLs 發現連結並下載頁面，但現代網站常依 JavaScript、按鈕、表單與登入狀態動態產生內容。Paywall、CAPTCHA、rate limit、地區封鎖與 bot detection 都讓「公開網址」不等於匿名可大量取得。
@@ -56,6 +72,10 @@ BERT 使用 Wikipedia 與 BooksCorpus，GPT-2 以 Reddit outbound links 建 WebT
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。法律段落僅轉述課堂框架與工程含意；具體使用仍須依司法管轄區與法律專業意見判斷。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 本講的官方題目是 **Nonregular Languages**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/18/)
+
 ## 四種 regular 的說法已經等價
 
 投影片 開頭收束前三講：下列條件等價——L regular；存在 DFA \(D\) 使 \(\mathcal L(D)=L\)；存在 NFA \(N\) 使 \(\mathcal L(N)=L\)；存在 regex \(R\) 使 \(\mathcal L(R)=L\)。因此證 nonregular 時，只需排除其中一種表示，其他三種也一起不可能。
@@ -134,6 +142,8 @@ suffix 必須包含 separator；若只選 x，concat 後未必有合法 EQ 格�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 clean review 重查「四種 regular 的說法已經等價」的投影片覆蓋，並修正失效連結、metadata 與中文語域。
 
 ## 參考資料

@@ -28,6 +28,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 12 篇。上一篇 [HW6（一）](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)講自迴歸模型：直接對觀測序列建模。這篇換另一種看序列的角度：觀測背後有一個看不到的狀態在走。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## HW6 在學期裡的位置
 
 依 [2026 官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)，Week 11 週二（4 月 7 日）講 Autoregressive Models、週四（4 月 9 日）講 Hidden Markov Models；下週二的 Section 9 是「Autoregressive Models and HMMs」。HW6 在 4 月 17 日發布，課表上的標註是「AR, HMMS, MDPs, RL」，5 月 1 日截止。
@@ -143,6 +151,10 @@ N(x; μ_a, σ_a²) · N(x; μ_b, σ_b²)
 ## 下一篇
 
 HMM 裡的狀態只是被動地演化。下一篇 [HW6（三）：MDP 的 Policy Iteration 與 Value Iteration](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning) 讓 agent 選擇動作，狀態轉移開始取決於你做了什麼。2026 的 [Lecture 21 投影片](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view)就是用這個對比開場的：HMM 的 `p(z_{t+1} | z_t)` 變成 MDP 的 `p(s_{t+1} | s_t, a_t)`。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

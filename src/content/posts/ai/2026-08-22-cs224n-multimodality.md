@@ -17,6 +17,15 @@ draft: false
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 17 個正規單元在 2026 年 3 月 3 日由 Luke Zettlemoyer 客座主講，官方題名是 **Guest Lecture: Multimodality**。課程頁沒有公開本季投影片或 agenda，並列出四篇 suggested readings 與七篇 optional readings；本文只整理實際讀過並列於文末的五項公開來源，不把其餘六篇描述成已讀，也不重建講者實際內容。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
 ## 視覺可以是推理工作區
 
 [Visual Sketchpad](https://visualsketchpad.github.io/) 把畫圖、標記與視覺工具放進推理迴圈。重點不只是「模型看得懂圖片」，而是模型能生成中間視覺狀態，再讀回來繼續推理。這和純文字 chain-of-thought 的差別，在於外部工作區可以承載空間關係。
@@ -38,6 +47,10 @@ draft: false
 ## 可確認與不可確認
 
 可確認的是日期、講者、題名，以及官方頁共列十一篇閱讀；本文實際讀取並摘要的是文末五項來源。其餘六篇只存在於課表清單，不作內容主張。不可確認的是實際 agenda、講者比較了哪些架構、現場 demo 與結論。本文沒有把論文排列順序當成授課順序；若公開投影片補上，才應按 slide agenda 改寫。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

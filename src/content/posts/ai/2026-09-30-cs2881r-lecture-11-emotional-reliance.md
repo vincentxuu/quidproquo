@@ -30,6 +30,21 @@ glossary:
 
 [上一篇](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)看的是總體數字：就業、生產力、成長。這一篇把鏡頭拉到一個人跟一個聊天機器人之間。Boaz 在課末給這個主題的定位是：情感依賴是「遠遠超出分布的輸入」第一個大規模出現的例子，而且不會是最後一個。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=GNvEjP1DfIs
+title: Lecture 11: Mental Health and Emotional Attachment（錄影）
+```
+
+原始影片：[Lecture 11: Mental Health and Emotional Attachment（錄影）](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 這一講的材料
 
 | 材料 | 內容 |
@@ -148,6 +163,10 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 - 模型規格裡怎麼寫這類行為：[L4：模型規格與合規](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 - 訓練流程中的 RLHF 與安全訓練：[L2：現代 LLM 訓練](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
 - LLM-as-judge 的可靠性：[Stanford CS329Z 第 8 週：Judge 與安全](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

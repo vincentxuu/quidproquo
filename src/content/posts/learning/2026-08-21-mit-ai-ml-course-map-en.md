@@ -25,6 +25,19 @@ That does not mean MIT publishes a seamless online path from a first Python less
 
 This guide keeps those layers separate. It does not pretend that an outside learner can “take an MIT degree online.” It builds a path whose links open and whose missing pieces are explicit. The site already has a detailed [guide to MIT 6.S191](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en); this article places that short course inside the larger MIT structure.
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [**MIT has a formal AI degree.**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
+- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
+- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
+- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
+- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
+- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
+
 ## Two numbering systems: Course 6-4 is not subject 6.4
 
 **Course 6-4** identifies a degree program. **6.3900 and 6.4110** identify individual subjects. A second source of confusion is MIT EECS's Fall 2022 renumbering, which replaced most three-digit decimal subject numbers with four-digit ones.
@@ -156,6 +169,8 @@ The most valuable thing to borrow from MIT is not a list of famous subjects. It 
 
 ## Changelog
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-10-01: Moved 6.5940 Fall 2026 from A0 to A2 in the access table (term in progress, L1–L6 and Lab 0–1 released) and spelled out the Fall 2024 scope (23 lecture decks, 23 recordings, Lab 0–5); rewrote the 6.5940 paragraph in the vision, robotics, and efficient systems route with a link to this site's guide; added the Fall 2026 course page to References.
 
 - 2026-09-30: Added 6.S184 Flow Matching & Diffusion (IAP 2026; notes, slides, recordings, and three labs with solutions all public, A3) to the access table and the modern AI engineering route, with a link to this site's guide.

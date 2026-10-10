@@ -32,6 +32,26 @@ glossary:
 
 這份投影片只有 22 頁，其中 14 頁是一個例子的逐步示範。把那個例子自己算一遍，這一講就讀完了。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=NrT5kmnTFCk
+title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=HEikzVL-lZU
+title: Byte Pair Encoding Tokenization
+```
+
+原始影片：[ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 問題：詞表外的詞
 
 投影片第 2 頁的表格把問題講得很具體。詞表從訓練資料來，常見的 hat、learn 有自己的向量；下面三種詞全部變成 UNK，共用同一個沒什麼意義的向量：
@@ -139,6 +159,10 @@ w i d e s t </w>  : 3
 - 從零實作 BPE tokenizer：[CS336 Lecture 1：從位元組到 tokenizer](/posts/ai/2026-08-22-cs336-overview-tokenization)
 - 多語 token 成本的更完整討論：[CS224N 第 14 講：Tokenization 如何製造多語言成本差](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality)
 - 另一門課怎麼把切字接到 Transformer：[CME295 第 1 講](/posts/ai/2026-09-29-cme295-transformer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

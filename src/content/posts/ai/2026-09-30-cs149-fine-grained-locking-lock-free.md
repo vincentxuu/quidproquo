@@ -37,6 +37,22 @@ glossary:
 
 Part 5 這幾篇和 AI 沒有直接關係，但你寫的每個 thread pool、每個多執行緒 runtime 都踩在這些原語上。[PA2](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling) 的 task queue 就是一個要被多條 thread 同時存取的共享資料結構。
 
+## 課程影片來源
+
+本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=GA1ObImqaMo
+title: CS149 2023 Lecture 13 錄影：Fine-Grained Synchronization and Lock-Free Programming（補充材料）
+```
+
+原始影片：[CS149 2023 Lecture 13 錄影：Fine-Grained Synchronization and Lock-Free Programming（補充材料）](https://www.youtube.com/watch?v=GA1ObImqaMo)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
+
 ## 先分清楚三種「卡住」
 
 投影片第 3 頁先定義三個詞，並註明 deadlock 與 livelock 是正確性問題，starvation 比較接近公平性問題：
@@ -164,6 +180,10 @@ test-and-set 家族的共同問題是放鎖那一刻所有等待者同時去搶�
 延伸閱讀：OS 角度的鎖實作與 deadlock，可以讀 [CS111 Lecture 6：實作鎖](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)與 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
 
 系列導覽：上一篇 [L15 同步實作與記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜下一篇 [L17–L18 Transactional memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,26 @@ glossary:
 
 **系列位置**：上一篇 [RAG（上）：幻覺與檢索器](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)｜下一篇 [LLM API 助教課](/posts/ai/2026-09-30-nthu-nlp-llm-api)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=chIewpk4-q0
+title: W11 週二錄影（Fall 2025）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cRSaBtoTDag
+title: W11 週四錄影（Fall 2025）
+```
+
+原始影片：[W11 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 這一篇接在哪裡，錄影對到哪裡
 
 [上一篇](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)把檢索器講完：從 BM25 到 DPR，重點都是「怎麼找對文章」。投影片第 60 頁「From Retrievers to QA」換了一個問題：找到文章之後，誰來讀、怎麼讀，整條管線一起訓練又會怎樣。那一頁的例子是問「Oppenheimer 哪一年出生」，沒有檢索的 LLM 答 1967（其實是他過世那年），接上維基百科段落後答 1904。投影片也特別註明，生成器又叫 reader，因為問答本質上是閱讀理解。
@@ -146,6 +166,10 @@ glossary:
 - 另一門課怎麼講同一件事：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 檢索評估與 neural IR：[CS224U 資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)
 - 工程實作全景：[RAG 系統模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

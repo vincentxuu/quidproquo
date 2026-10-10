@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 4: Attention alternatives and mixtu
 
 The lecture places two topics together that are often discussed separately: attention alternatives and mixture of experts (MoE). They share a question: can a model gain longer context or more parameters without making every token pay the full cost? Structured sparsity can do that, but saved arithmetic becomes a new optimization and systems problem.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
+title: CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts
+```
+
+Original videos: [CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Linear attention changes multiplication order
 
 Standard attention constructs `QKᵀ`, producing an `n × n` matrix for sequence length `n`. If softmax is temporarily removed, associativity gives:
@@ -72,6 +88,10 @@ Sparsity does not eliminate cost; it relocates it. The durable test from Lecture
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its attention-alternative, MoE-routing, training, and systems sections.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

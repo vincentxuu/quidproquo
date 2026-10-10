@@ -19,6 +19,14 @@ This is article 17 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The worksheet, key, and guide are all three pages. The formal agenda is P1–P6 plus challenge, with no orphan page or numbering gap. A sample distribution describes data spread; a sampling distribution describes how a statistic changes when the whole experiment is repeated. Error bars target the latter.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Review a CLT for checkout totals
 
 One hundred IID checkout counts each have mean three and variance four. For total `S`,
@@ -148,6 +156,10 @@ The six concepts are population/sample/statistic, unbiased variance, SE, the boo
 - Current slides are unavailable and video is gated; an L2 article does not reconstruct missing lecture content.
 - Bootstrap code is equivalent organization of official pseudocode, not a claim about production implementation details.
 - The limited artifact scope qualifies for the short-material exception; the article remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

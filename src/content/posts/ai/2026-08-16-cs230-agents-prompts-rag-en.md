@@ -23,6 +23,21 @@ It's **the most-watched lecture in the series** at 460,000 views, three times th
 
 (**This lecture overlaps heavily with three existing series on this site: [The Agent Production Line](/en/series/agent), [AI Agent Systems](/en/series/ai-agent-systems), and [The RAG Techniques Compendium](/en/series/rag-techniques).** This post covers the lecture content in full and points at the site's deeper treatments where they overlap.)
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=k1njvbBmfsw
+title: Lecture 8: Agents, Prompts, and RAG
+```
+
+Original videos: [Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 ## Opening: two axes
 
 ```
@@ -328,6 +343,10 @@ What's genuinely worth taking from this lecture, and isn't on the site, is three
 **Two: "by the time you finish fine-tuning, the next model has beaten you."** This is an argument about **time**, not about quality. Whether it holds depends on the relationship between model iteration speed and your data moat — and the next post's guest speaker reaches the opposite conclusion from a different market.
 
 **Three: "the half-life of skills is too short, so we only teach breadth."** If that's true, it's simultaneously the criterion for judging this whole series: **if these nine posts only teach you how things were done in autumn 2025, they're useless in two years.** What's worth keeping is what doesn't change with versions — why to chain (debuggability), why to tier memory (access cost), why to look at intermediate outputs (otherwise you can't trace back).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

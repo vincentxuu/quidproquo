@@ -21,6 +21,19 @@ CMU 的情況和前幾站都不一樣：它不只有[正式的人工智慧學士
 
 這篇因此不會拿一張「最新課號清單」冒充自學路線。我會先還原 BSAI 新主幹，再把 2025–2026 課站逐一用匿名視窗檢查。本文查核日是 **2026 年 8 月 21 日**；Fall 2026 課程尚未開始，未來課表不會被算成已完成教材。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [正式的人工智慧學士（BSAI）](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)
+- [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
+- [CMU SCS — BS in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/)
+- [CMU SCS — BSAI Program Roadmap](https://www.cs.cmu.edu/bs-in-artificial-intelligence/program-roadmap)
+- [07-280 Artificial Intelligence and Machine Learning I](https://www.cs.cmu.edu/~07280/)
+- [07-380 Artificial Intelligence and Machine Learning II](https://www.cs.cmu.edu/~07380/)
+
 ## BSAI 新主幹：不是只學模型
 
 CMU 在 Fall 2018 推出 BSAI。現行 curriculum 先要求完整的數學、統計與 CS 地基，包括 15-122、15-150、15-210、15-213、15-251，以及微積分、線性代數、離散數學和機率統計。AI 本身的核心則可以壓成：
@@ -150,6 +163,8 @@ CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-01：公開教材盤點與深入分支補上 10-423/623/723 Generative AI（Spring 2026：26 講投影片、HW1–HW4 與附解答練習考卷公開，錄影在 Panopto，A3）與站內導讀連結；參考資料補上課站。
 - 2026-09-30：公開教材盤點與系統分支補上 11-868 LLM Systems（Spring 2026：28 份講義、7 份 MiniTorch 作業全公開，沒有錄影、需要 GPU，A3）與站內導讀連結。
 - 2026-09-29：Fall 2026 開學後重查：07-280 Fall 2026 改為 A2→A3（前 11 講與 HW1–5 已公開）、07-380 投影片進度更新、11-785 F26 逐講上片中；新增 11-768 AI Agents（表格與分支路線）；補上本站 07-280、10-301、11-785、11-768 導讀連結。

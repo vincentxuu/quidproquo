@@ -19,6 +19,14 @@ This is article 14 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Mathematical Induction, Part I**. The deck begins with a room doing the wave, states the induction principle, develops a formal proof through a sum of powers of two, turns the counterfeit-coin problem into a recursive strategy, and finishes with a false proof and the MU puzzle to show why a base case and an invariant matter. These are not disconnected examples. Each asks how one property can be transmitted reliably from a current state to a next state.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)
+
 ## The wave: induction's two gears
 
 Imagine a row of people doing the wave. The first person raises their arms. After that, each person raises their arms when the preceding person does. If both facts are reliable, the wave travels through the entire row. The first fact supplies a starting point; the second supplies a transmission rule. Neither suffices alone. With no starter, the rule is never triggered. If the rule can break, the later people are not covered.
@@ -164,6 +172,8 @@ The next lecture is previewed as covering later starting points, larger steps, a
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rebuilt the lost body from the complete official Lecture 12 deck, restoring the powers-of-two proof, counterfeit-coin strategy, false induction, and MU puzzle invariant.
 
 ## References

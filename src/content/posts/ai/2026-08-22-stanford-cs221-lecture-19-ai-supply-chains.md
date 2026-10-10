@@ -19,6 +19,15 @@ draft: false
 
 > 材料邊界：課表與 repo 標題不同。本文區分「投影片事實」「投影片引用」「我的解讀」，不用錄影補洞；數字均為 deck 快照，不是 2026 即時統計。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的問題
 
 這 70 頁 deck 問：AI 如何改變經濟？模型需要哪些資源與組織選擇？能力如何變成成長？這是兩個官方標題的交集。
@@ -112,6 +121,10 @@ CS221 前半段讓人習慣用狀態、行動、目標函數、資料與不確�
 每個假說都要把「投影片說了什麼」與「我們想測什麼」分開。投影片對 ASML、TSMC、Nvidia 的描述和估值是 deck snapshot；對 data acquisition 的分類是分析框架；對 2025 genAI survey 的數字是 cited forecast／survey example；對 GPT、J-curve、Cobb-Douglas 與 ideas 的關係，則是引用研究和講者整理出的模型語言。我的延伸不能把它們混寫成目前產業的完整 census。
 
 材料缺 compute 成本分解、15 億美元交易的 contract context、distribution 實證比較，以及可重現的 macro model。這些只能列為 follow-up，不能靠常識補成 deck 結論。工作方法是先標 deck fact、deck citation 或我的解讀，再問市場結論漏了哪個 bottleneck 與 complement。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

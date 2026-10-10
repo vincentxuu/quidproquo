@@ -35,6 +35,14 @@ glossary:
 
 **系列位置**：上一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜下一篇 [L16–L17 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 這兩講在回答什麼
 
 [上一講的 LightSeq](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq) 把一張 GPU 榨乾。接下來的問題是：一張不夠時，**多張 GPU 一起訓練，時間花在哪裡？**
@@ -199,6 +207,10 @@ L15 第 8 頁引用論文列出的兩個目標：
 
 - 用 collective 組出資料、張量與管線平行，含通訊量推導：[CS336 Lecture 7：從 collective operations 組出資料、張量與管線平行](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 - ZeRO、FSDP 與硬體拓撲：[CS336 Lecture 8：ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

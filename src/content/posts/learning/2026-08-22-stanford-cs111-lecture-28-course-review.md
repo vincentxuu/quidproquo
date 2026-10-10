@@ -19,6 +19,14 @@ draft: false
 
 素材稽核沒有發現重複講義：Lecture 28 的檔案雜湊、頁數與標題均不同於 Lecture 26、27。這份期末回顧也不是把章節名稱再念一次。第 2–7 頁先沿著 concurrency、memory、storage 三條主線盤點機制，第 8 頁再抽出 virtualization、atomicity、locality、layering 四個跨章節觀念。真正要帶走的是後者如何反覆出現在前者。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 第一條主線：並行不是「同時跑」而已
 
 第 2–3 頁把 concurrency management 拆成 processes and threads、synchronization、CPU scheduling、deadlock。process 與 thread 提供可獨立 dispatch 的執行單位；一旦多個執行單位共享狀態，race condition 就會讓結果依賴不可預測的 interleaving。lock、condition variable、monitor 與底層 atomic instruction，是用來限制哪些 interleaving 可以被看見。
@@ -79,6 +87,10 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 - 第 6–7 頁：disk I/O、file access、inode、block layout、free space、cache、scheduling、links、crash recovery、FTL。
 - 第 8 頁：virtualization、atomicity、locality、layering。
 - 第 9–10 頁：後續課程方向與結語。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

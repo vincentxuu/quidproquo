@@ -24,6 +24,14 @@ The frame the course site opens with is "compound AI systems": systems assembled
 
 This piece cross-checks four primary sources: the course site, the public GitHub repo behind it, ExploreCourses, and the first two lecture decks now posted. It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus around the start of the quarter, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course only started on September 23, and the week-by-week material is handled by [the series' weekly guides](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en).
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## The hard facts
 
 Three instructors, all listed in the Instructors block on the course site. [Diyi Yang](https://cs.stanford.edu/~diyiy/) is an assistant professor in Stanford CS working on socially aware NLP and human-AI interaction; she won a Sloan Research Fellowship in 2024. [Michael Ryan](https://michryan.com/) is a PhD student co-advised by Diyi Yang and Percy Liang, a Knight-Hennessy Scholar, and a core contributor to [DSPy](https://dspy.ai/). [John Yang](https://john-b-yang.github.io/) is a second-year PhD student advised by Ludwig Schmidt and Diyi Yang, and first author on SWE-agent and [SWE-smith](https://arxiv.org/abs/2504.21798).
@@ -177,6 +185,8 @@ Every time you add a piece, rerun the same ten questions and note which got bett
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: Updated for the course site's September revisions and the first two lecture decks — HW1 is now a framework-free Agentic Harness (the Part B DSPy rewrite is gone), the project topic is open with ICLR format and reproducibility added, the grading table now gives peer review 20%; added the TAs, room change, compute credits, audit and recording notes, and the slide contents; rewrote the title and tldr to match
 
 ## References

@@ -36,6 +36,15 @@ A1 讓你用 numpy 手寫出一個全連接網路。A2 接著問兩件事：網�
 
 五道題剛好排成一條從「自己推梯度」到「交給 PyTorch」的斜坡。[作業總頁](https://cs231n.stanford.edu/assignments.html)把 A2 定為總成績的 18%，是三份作業裡權重最高的一份。[第 9 講投影片](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf)第 2 頁也提醒：A2 是三份裡最長的，截止後緊接著期中考與專題 milestone，要早點開始。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 這份作業長什麼樣子
 
 | 題目 | Notebook | 你要改的檔案 | 對應講次 |
@@ -165,6 +174,10 @@ Part V 的要求是：10 個 epoch 內在 CIFAR-10 **驗證集**上達到至少 
 - 下一份作業把 RNN 換成 Transformer：[A3 導讀](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)
 - 另一門課怎麼教 backprop 與神經網路：[CS224N：反向傳播與神經網路](/posts/ai/2026-08-22-cs224n-backprop-neural-nets)
 - 更完整的深度學習理論課：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

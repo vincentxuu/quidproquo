@@ -31,6 +31,26 @@ This guide is based on the official materials of [CS189 Spring 2026](https://eec
 
 The schedule lists no Bishop readings for these three lectures.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
+title: Lecture 25 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yRgSQCXr8M0
+title: Lecture 27 video
+```
+
+Original videos: [Lecture 25 video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 video](https://www.youtube.com/watch?v=yRgSQCXr8M0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## Lec 25: AI for protein engineering
 
 ### A protein is a string of letters
@@ -207,6 +227,10 @@ These directions follow the threads CS189's last lectures leave open, using guid
 - Series navigation: previous, [Lec 23–24: LLM training and self-supervised learning](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en); next, [HW5 (optional) guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: pick a [Terminal-Bench](https://www.tbench.ai/) task category and build a mini environment with Lec 27's three parts: a one-sentence task description, a Dockerfile that breaks something, and a test script that checks whether it's fixed. Once you've written the verifier, you'll see that deciding what counts as success is much harder than getting the agent to move.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

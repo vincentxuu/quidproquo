@@ -17,6 +17,14 @@ draft: false
 
 這是 **CMU 07-280 Spring 2026 Lecture 3：Adversarial Search**。上一講在固定世界裡找一條路。這一講的下一個狀態會被對手或隨機事件改變，所以答案不再是一條 action sequence，而是一套「看到什麼就怎麼回應」的 contingent plan。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf)、[Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。沒有公開錄影；本文不會把投影片上的棋局與 demo 寫成未記錄的課堂口述。
@@ -71,6 +79,10 @@ Depth limit 不是只把計算砍短。它把「真正走到 terminal 的 utilit
 1. 先不剪枝，替 Recitation 2 第一棵樹算完整 minimax value。
 2. 再依相同順序標 `α`、`β`，每剪一枝寫一句「它為何不可能改變祖先決策」。
 3. 自建一個三 action 例子，讓 minimax 與 expectimax 分別選不同 action。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

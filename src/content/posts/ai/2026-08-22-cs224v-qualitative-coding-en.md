@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 9 examines document analysis in which researchers repeatedly code events, actors, places, and relationships under a codebook. Epidemic events and ACLED conflict data provide the running cases. Its conclusion is deliberately restrained: automated qualitative coding is not ready to bypass human quality control.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: from manual practice to extraction
 
 The deck defines qualitative coding and codebooks, introduces epidemic and ACLED cases, and critiques sentence/span extraction. It then decomposes abstractive event extraction into event-type detection, argument extraction, constrained output, entity retrieval/filtering/assignment, and task-specific and end-to-end evaluation. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf))
@@ -99,6 +107,10 @@ Build a small codebook over twenty documents. For every event type, write one po
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The lecture summarizes active research and multiple datasets without publishing the complete annotation manual, review workflow, or training/evaluation code. This article does not present the research pipeline as an unattended production system.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

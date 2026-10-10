@@ -19,6 +19,14 @@ This is article 10 in [Reading Stanford CS109](/series/stanford-cs109), covering
 
 The original worksheet has two pages: P1–P3 are on page one, while P4–P7 and the challenge are on page two. No problem number is missing. P5 and the challenge are problem-set items deliberately hidden from the public answer key; this guide distinguishes its derivations from officially printed solutions.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Review Exponential waiting time
 
 The wait for a server's next request is `T~Exp(0.5)` hours:
@@ -166,6 +174,10 @@ The guide's six concepts are Normal parameters, standardization and `Φ`, symmet
 - P5 and the challenge are problem-set items deliberately omitted from the public answer key; this article derives them only from the public prompts.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. The short-material exception applies: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

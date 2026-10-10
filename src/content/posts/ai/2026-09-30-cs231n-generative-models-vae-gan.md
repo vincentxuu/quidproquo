@@ -32,6 +32,26 @@ glossary:
 
 有一件事要先講清楚：**2026 的 L13 投影片實際只講了自迴歸和 VAE。** 分類圖（第 46–47 頁）把自迴歸與 VAE 標成「Today」、GAN 與 diffusion 標成「Next Time」，最後一頁寫著「Next Time: Generative Adversarial Networks, Diffusion Models」。GAN 的內容在 [lecture_14.pdf](https://cs231n.stanford.edu/slides/2026/lecture_14.pdf) 第 8–35 頁。2025 年的投影片也是同樣的切法。本文照課表和系列規劃把 GAN 一起收進來，並標明它在投影片裡的實際位置；下一篇只從 diffusion 開始。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=zbHXQRUNlH0
+title: YouTube：CS231N Spring 2025 Lecture 13: Generative Models 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Edr4uZFh4EE
+title: YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2
+```
+
+原始影片：[YouTube：CS231N Spring 2025 Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)、[YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 場景：分類器沒辦法說「這張圖不合理」
 
 投影片先回顧一個大家已經很熟的對照（第 14–21 頁）：
@@ -209,6 +229,10 @@ $$D^*_G(x) = \frac{p_{data}(x)}{p_{data}(x) + p_G(x)}$$
 ## 存取限制
 
 依[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這門課是 **A3**：2026 投影片、作業與課程筆記公開，另有 2025 完整錄影。本講的缺口是 2026 錄影只放在 Canvas、限修課生觀看；期中考（5 月 12 日，本講前兩天）題目不公開。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

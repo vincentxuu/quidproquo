@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 4 on January 15, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf) has four agenda parts: language modeling, RNNs, exploding and vanishing gradients, and machine translation. It calls language modeling the course's most important concept because much of modern generative NLP still rests on next-token prediction.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## What a language model outputs
 
 Given a prefix, a language model outputs a probability distribution over the next word. The probability chain rule multiplies these conditional probabilities to assign a probability to a whole text. Training minimizes the negative log probability of the observed next word; generation selects a token from the model distribution and feeds it back as input.
@@ -87,6 +96,10 @@ Hold tokenizer, data, scale, and decoding fixed; report quality with throughput,
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four agenda sections in the official deck but does not reconstruct spoken examples or classroom derivations, and it does not substitute public recordings from an older offering.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

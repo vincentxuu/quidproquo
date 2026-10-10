@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 The schedule labels Lecture 12 “NLP Building Blocks,” while its deck is specifically “Vision-Language Models to Make Historical Documents Accessible.” It is not a general NLP-components survey. It presents [CHURRO](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf) from representation and data through model and historical-research application.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: data and systems for historical OCR
 
 The lecture surveys digitization projects and document/OCR benchmarks, then explains gaps in layout, handwriting, languages, and annotation. It covers full-page extraction, HDML, CHURRO-DS, the CHURRO VLM, cross-model evaluation, and integration with WikiChat and HistoryGenie. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf))
@@ -99,6 +107,10 @@ Select ten pages from one collection and define representation rules for reading
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The course site provides slides but no recording or complete reproducibility bundle. The deck summarizes the EMNLP 2025 work; this article does not infer undisclosed training details or costs from its charts.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

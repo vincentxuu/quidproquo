@@ -34,6 +34,26 @@ glossary:
 
 存取等級沿用系列的 **A2**：本講的講義與影片都公開，但對應的作業 HW1 要在 Kaggle 與 NTU COOL 繳交，校外讀者只能照規格自己練（見[下一篇](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)）。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=pSQM-HNHA64
+title: 5.2 BERT
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sqldA6AgV7s
+title: 5.3 BERT Variants
+```
+
+原始影片：[5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 起點：詞向量不懂多義詞
 
 講義第 3 頁用兩句話開場：「An apple a day, keeps the doctor away」和「Smartphone companies including apple, …」。兩個 apple 意思完全不同，但 word2vec、GloVe 這類詞向量給每個詞只有**一個**向量。問題有兩層：
@@ -164,6 +184,10 @@ XLNet 的 permutation language model 在所有可能的分解順序上做 AR 預
 延伸閱讀：站上 [CS224N 第 7 講：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)從另一個角度講 encoder／decoder／encoder-decoder 三種預訓練；[CS224U 的 contextual representation 模型家族](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)也整理了 BERT、RoBERTa、ELECTRA 等模型。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Tokenization 與 BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)｜下一篇 [HW1 中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

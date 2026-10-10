@@ -42,6 +42,27 @@ Official material used:
 
 Fall 2025 recordings are only on Canvas. The course home page points to the 2023 recordings instead; the matching videos are [2023 Lecture 16: Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA) and [2023 Lecture 17: Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI). This post treats them as listening supplements and follows the 2025 slides. The course as a whole is **A3**; both lectures' slides and Written 4 are fully public, and what is missing is the current-term recording and the solutions.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
+title: 2023 Lecture 16 recording: Transactional Memory 1 (supplement)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
+title: 2023 Lecture 17 recording: Transactional Memory 2 (supplement)
+```
+
+Original videos: [2023 Lecture 16 recording: Transactional Memory 1 (supplement)](https://www.youtube.com/watch?v=rFFf3WIJ7BA)、[2023 Lecture 17 recording: Transactional Memory 2 (supplement)](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
+
 ## Between a lock and a hard place
 
 Slide 4 of L17 is titled "Between a Lock and a Hard Place." Locks force a trade-off between the degree of concurrency (performance) and the chance of races or deadlock (correctness). Coarse locks give low concurrency but are easier to get right. Fine-grained locks like last lecture's hand-over-hand scheme give high concurrency but are easier to get wrong.
@@ -181,6 +202,10 @@ Confirmed: the contents of the L17 and L18 slides and the Written 4 PDF, and the
 Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | this is the last part | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

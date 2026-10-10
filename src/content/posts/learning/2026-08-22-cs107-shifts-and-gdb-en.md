@@ -19,6 +19,14 @@ A mask selects positions; a shift moves positions where they are needed. Togethe
 
 CS107 Lecture 5 also formally brings GDB into the everyday workflow. The goal is not to memorize abbreviations. It is to establish a repeatable observation loop: stop at a breakpoint, control the next transition, view values in several formats, inspect memory and the call stack, then return to the source. This article follows the [official Winter 2026 Lecture 5 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf) in full.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture metadata and source limits
 
 - Course: Stanford CS107: Computer Organization and Systems
@@ -280,6 +288,8 @@ The next lecture moves into `char` and C strings. GDB's `x` command and `/c` dis
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Corrected the `INT_MIN` analysis of the branchless absolute-value example; the original expression has signed overflow and is not a complete working implementation.
 
 ## References

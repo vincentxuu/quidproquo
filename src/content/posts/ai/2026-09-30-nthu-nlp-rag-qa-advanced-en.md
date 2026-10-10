@@ -31,6 +31,26 @@ glossary:
 
 **Series**: previous [RAG, Part 1: hallucination and retrievers](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) | next [LLM API lab](/posts/ai/2026-09-30-nthu-nlp-llm-api-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=chIewpk4-q0
+title: W11 Tuesday recording (Fall 2025, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cRSaBtoTDag
+title: W11 Thursday recording (Fall 2025, in Mandarin)
+```
+
+Original videos: [W11 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## Where this picks up, and what the recordings cover
 
 The [previous post](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) finished the retriever story, from BM25 to DPR. All of it was about finding the right passage. Slide 60, "From Retrievers to QA," asks a new question: once you have the passage, who reads it, how, and what happens if you train the whole pipeline together? Its example asks what year Oppenheimer was born. The LLM without retrieval says 1967, which is actually the year he died. With a Wikipedia passage attached, it says 1904. The slide also notes that the generator is called the "reader," because QA is a reading-comprehension task.
@@ -145,6 +165,10 @@ One thing to try tonight: take a RAG system or ChatGPT conversation you already 
 - The same topic from another course: [CS224N Lecture 10: six components of RAG and language agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - Retrieval evaluation and neural IR: [CS224U: information retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
 - The engineering landscape: [RAG patterns: a complete guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

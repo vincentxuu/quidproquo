@@ -24,6 +24,14 @@ draft: false
 
 這篇涵蓋 Winter 2026 那一輪的十八講講義、八份作業 PDF、課程政策與嵌入式倫理教材，以及一手材料裡跟外界印象對不上的地方。**不包含**演算法本身的教學——那是講義自己的工作，而且它們全部公開。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/)
+
 ## 這門課的硬事實
 
 Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) 與 [Ellen Vitercik](https://profiles.stanford.edu/ellen-vitercik) 合開。前者是 Donald E. Knuth 講座教授，研究高維資料的檢索與索引演算法；後者是管理科學與工程系暨資工系助理教授。兩人輪流上台，一人一堂交錯排。課堂在 STLC 111，每週一、三下午各一堂。
@@ -185,6 +193,10 @@ Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) �
 - **課程人力**：兩位授課者、一位課程經理、一位 head CA、七位 CA，另有一位 ACE 專屬 CA。
 - **Stanford Online 版本**：五學分，八週，每週建議十到二十小時，學費 7,875 美元（頁面註明可能變動），2026 年的檔期是 6 月 22 日到 8 月 15 日，我查證當下顯示未開放報名。
 - **未能確認的項目**：一、修課人數。課程網站與 ExploreCourses 都沒有公布，我沒有找到可引用的來源。二、2026–2027 學年是否會再開秋季與夏季班——ExploreCourses 目前只掛冬季與春季，但未來學年的資料會陸續補，現在下「減開」的結論太早。三、Winter 2026 之前各屆的完整課程網站是否還開著。`web.stanford.edu/class/archive/cs/cs161/` 這層目錄直接回 404，我沒有找到可瀏覽的封存索引；能確認還在的舊材料只有 GitHub 上逐年的 notebook repo（最早到 2021 年冬季）。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

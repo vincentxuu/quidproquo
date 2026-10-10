@@ -19,6 +19,14 @@ This is article 17 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Finite Automata, Part II**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/15/)
+
 ## The DFA definition connects the first half of CS103
 
 A DFA over alphabet Sigma consists of a state set S, one start state s0 in S, an accepting subset A of S, and a transition function delta:S x Sigma -> S. The start requirement makes S nonempty; A may be empty or all of S. If S has q0,q1,q2 and Sigma={0,1}, the domain has six ordered pairs. Every pair has exactly one output, formalizing determinism.
@@ -91,6 +99,8 @@ The public deck explicitly supports the sections on the dfa definition connects 
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked the dfa definition connects the first half of cs103 against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

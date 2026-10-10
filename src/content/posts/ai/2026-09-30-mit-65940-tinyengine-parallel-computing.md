@@ -38,6 +38,21 @@ glossary:
 
 這講的程式碼比前面多，但骨架很單純。前半段用**同一個矩陣乘法**，依序套上 loop 優化、SIMD、multithreading、CUDA，每一步都報加速倍數；後半段換成卷積，講四個 TinyEngine 會用到的推論技巧。第 2 頁的 Lecture Plan 就是這三段：Edge AI 與 MCU 的特性、平行運算技巧、推論最佳化。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=wl1UEnIOVek
+title: EfficientML.ai Lecture 11 - TinyEngine（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 11 - TinyEngine（YouTube）](https://www.youtube.com/watch?v=wl1UEnIOVek)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## MCU 到底小在哪
 
 第 5 頁把四種平台排成一張表。兩端對比最能說明問題：
@@ -147,6 +162,10 @@ for i in range(N):
 - 局部性與 arithmetic intensity：[CS149 L6 Locality 與通訊](/posts/ai/2026-09-30-cs149-locality-communication)
 - GPU 與 Triton kernel：[CS336 Lecture 5：GPU](/posts/ai/2026-08-22-cs336-gpu-tpu)、[CS336 Lecture 6：Triton kernel](/posts/ai/2026-08-22-cs336-kernels-triton)
 - CUDA 作業實戰：[CMU 11-868 HW1：CUDA 程式設計](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

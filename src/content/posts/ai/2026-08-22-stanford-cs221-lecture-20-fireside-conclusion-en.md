@@ -17,6 +17,22 @@ draft: false
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 20**, dated 2025-12-03. It is not a lecture that derives a new algorithm from slides. It is a fireside chat led by the course moderator, Ken, with Percy Liang answering student questions, followed by Percy’s closing thanks to the class. The [official course site](https://stanford-cs221.github.io/autumn2025/) and this series’ official schedule establish the offering and lecture order; the primary artifact is the [official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k). [video](https://youtu.be/5u5I5jvWR5k?t=43)
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=5u5I5jvWR5k
+title: Official lecture artifact: official Stanford Online video
+```
+
+Original videos: [Official lecture artifact: official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## Materials and Reading Method
 
 The lecture repository contains no slide artifact or executable lecture for this session. The account below uses only the official Stanford Online auto-transcript and the course schedule’s identification of the lecture. It does not turn unclear captioned proper nouns into facts, and it does not attribute the moderator’s questions to Percy. The captions repeatedly misrecognize terms such as `Turing test`, `ChatGPT`, course numbers, names, and years, so the article separates recoverable meaning from unresolved wording. [video](https://youtu.be/5u5I5jvWR5k?t=5)
@@ -128,6 +144,10 @@ The fireside chat does not provide a final definition of AI or declare one winni
 Several linked observations emerge from Percy’s answers, though they should not be presented as a four-point conclusion he read aloud. First, the hard problem is shifting from doing to deciding what should be done: if a tool can build any app in five minutes, the difficult question is which app is worth building. Second, fundamentals remain useful because search, policy, probability, and logic are different tools for examining a new system rather than historical names invalidated by a product update. Third, in an uncertain future, growth, learning and adaptation, collaboration, and the ability to ask good questions are more durable than collecting impressive labels early. Fourth, AI evaluation cannot stop at static leaderboards or plausible-looking reasoning traces; it must ask whether systems are reliable, transparent, inspectable, and capable of producing real-world results. [video](https://youtu.be/5u5I5jvWR5k?t=1117)、[video](https://youtu.be/5u5I5jvWR5k?t=1259)、[video](https://youtu.be/5u5I5jvWR5k?t=1805)、[video](https://youtu.be/5u5I5jvWR5k?t=2732)、[video](https://youtu.be/5u5I5jvWR5k?t=654)、[video](https://youtu.be/5u5I5jvWR5k?t=852)
 
 This is an editorial synthesis of the recording, not a closing list Percy reads out. The actual ending is plain: Percy thanks Ken, the teaching team, and the students who stayed with the course, and wishes them well for the rest of the quarter. Because this lecture has no public slide artifact, the honest reading is not to invent a hidden agenda. It is to keep the questions, answers, laughter, caption gaps, and unresolved problems together. Lecture 20’s conclusion demonstrates the habit CS221 tries to leave behind: separate source material from inference before deciding what to model next. [video](https://youtu.be/5u5I5jvWR5k?t=3487)、[video](https://youtu.be/5u5I5jvWR5k?t=3503)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -40,6 +40,14 @@ glossary:
 
 Barak 開場就先揭露立場：他之所以聚焦 [OpenAI Model Spec](https://model-spec.openai.com/)，一是他在 OpenAI、參與過撰寫，比較熟；二是他認為這是目前各家公開的規範裡最詳細的一份，也希望其他公司公開更詳細的版本。
 
+## 課程影片來源
+
+官方 Fall 2025 課表提供部分講次錄影；本篇的直接影片連結尚未由這次取得的官方頁面核實，請由課表查看可用錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## 先看大家實際拿 ChatGPT 做什麼
 
 投影片的計畫只有兩行：模型該遵守**什麼**，以及**怎麼**讓它遵守。Barak 說這堂課九成在講前者。
@@ -211,6 +219,10 @@ Hugh Van Deventer 問的是：拿一個安全訓練很少的模型，給它詳�
 延伸閱讀：站上 [CS329Z 的 LLM-as-judge 與安全評測](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)｜下一篇 [L5：Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

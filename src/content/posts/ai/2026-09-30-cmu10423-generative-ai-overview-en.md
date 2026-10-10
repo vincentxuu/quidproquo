@@ -29,6 +29,15 @@ The course description is broad. It covers how to build generative models and ot
 
 This post answers three questions: what the course teaches, what an outside reader can actually get, and how to study it on your own. Lecture details come in the later posts.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## The hard facts
 
 | Item | Spring 2026 |
@@ -181,6 +190,10 @@ This course overlaps with several series on this site. Every post in this series
 - The math of diffusion and flow matching: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 - The systems side of LLMs (CUDA, distributed training, serving): [Reading CMU 11-868](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 - Prerequisites: [Reading CMU 10-301](/posts/learning/2026-08-22-cmu-10301-overview-en), [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

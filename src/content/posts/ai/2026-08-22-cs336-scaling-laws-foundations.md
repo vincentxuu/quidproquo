@@ -19,6 +19,22 @@ draft: false
 
 如果最後一次大模型訓練才發現模型太大、資料太少或 learning rate 不對，預算已經無法追回。Scaling law 的用途，是用一批較小實驗建立簡單、可檢驗的關係，再預測昂貴區域。它不是保證未來的定律，而是一套設計實驗與管理不確定性的工具。
 
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
+title: CS336 Spring 2026 Lecture 9: Scaling Laws
+```
+
+原始影片：[CS336 Spring 2026 Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
+
 ## Power law 為什麼容易被看見
 
 許多學習曲線可以寫成 error 隨 data size 的 power law；在 log-log 圖上就接近直線。直線的 slope 表示增加資料的邊際收益，offset 則反映資料品質、分布或方法的整體差異。
@@ -62,6 +78,10 @@ Chinchilla 問的是固定訓練 compute 下取得最低 loss；產品生命週�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文涵蓋 data scaling、模型工程與 compute-optimal scaling，沒有預先挪用 Lecture 11 的實作內容。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ The short answer: **PCA's two usual definitions, minimizing reconstruction error
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## Official materials and what I read
 
 - [Lec7 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA_inked.pdf), 41 pages: definitions, an MRI growth-plate example, centering, coordinate transforms, the PCA algorithm, the two objectives, the equivalence proof, Lagrange multipliers, choosing K, SVD. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA.pptx) is also posted
@@ -158,6 +166,10 @@ Two other posts on this site cover LoRA from the implementation side: [CS224N Ti
 - Previous: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 - Next: [Lecture 8: MAP, How Priors Enter Estimation and Why It Equals Regularization](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

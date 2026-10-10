@@ -36,6 +36,21 @@ glossary:
 
 頁碼一律是 PDF 頁數。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=EjsB0WgIfUM
+title: Lecture 3 錄影（Fall 2024）
+```
+
+原始影片：[Lecture 3 錄影（Fall 2024）](https://www.youtube.com/watch?v=EjsB0WgIfUM)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 為什麼從剪枝開始
 
 第 4 頁列出課程第一部分「Efficient Inference」的四個技術：Pruning、Quantization、Neural Architecture Search、Knowledge Distillation。Pruning 排第一。
@@ -192,6 +207,10 @@ Fall 2026 的 Lab 1 改成 GPU Basics，Lab 2 的主題則是課頁與投影片�
 - [Stanford CS336 導讀：推論](/posts/ai/2026-08-22-cs336-inference)：LLM 推論端的壓縮方法
 
 **系列導覽**：上一篇 [為什麼要高效、怎麼量模型大小與運算量](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)｜下一篇 [Pruning II：每層剪多少、硬體怎麼支援](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)｜[系列入口](/posts/ai/2026-09-30-mit-65940-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,14 @@ glossary:
 
 本文只寫題目在練什麼、該先量什麼、往哪個方向想。**不附解答。**
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
+
 ## 這份作業跟前四份不一樣
 
 [README](https://github.com/stanford-cs149/asst5-kernels/blob/main/README.md) 把 PA5 定位成「很短的期末專題」：助教校準過，大約兩個晚上可以拿到不錯的分數，想深挖的組也可以花很多時間追求極快的實作。它和 [PA1](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance) 到 PA4 最大的差別有三個：
@@ -162,6 +170,10 @@ README 把這個迴圈寫成四步：執行、量測、用對程式的理解加�
 延伸閱讀：FlashAttention 的完整推導與演進看 [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention)；Triton 的程式模型看 [CS336 kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)；GPU 程式設計的另一種講法看 [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)。
 
 系列導覽：上一篇 [L13 DSL 與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)｜下一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 17: Alignment — multimodality**, 
 
 Transformers consume tokens. Text needs tokenization, and images or video likewise need conversion into processable units. Understanding benefits from high-level semantics, while generation requires color, texture, and spatial detail. One representation rarely optimizes both.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=26FtD08ZpOU
+title: CS336 Spring 2026 Lecture 17: Alignment - Multimodality
+```
+
+Original videos: [CS336 Spring 2026 Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## CLIP learns semantics through contrastive training
 
 CLIP collects image-text pairs and encodes images and text separately. Within a batch, each image should be closer to its caption than other captions, and the text-to-image direction is trained too. Large noisy pair collections provide supervision without manual class labels.
@@ -58,6 +74,10 @@ Lecture 17 returns the course to Lecture 1: every modality eventually needs toke
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its CLIP, SigLIP, LLaVA, Qwen-VL, and Chameleon sections without including later guest sessions.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

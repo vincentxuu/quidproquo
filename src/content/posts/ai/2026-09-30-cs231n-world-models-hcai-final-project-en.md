@@ -39,6 +39,27 @@ glossary:
 
 The last two lectures stop teaching new algorithms. They push what came before outward: how vision models connect to action, and whom they should serve. Meanwhile, the heaviest thing on enrolled students' plates is the final project, worth 35% of the grade.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=XSfmOH_xVSU
+title: CS231N Spring 2025 Lecture 17 recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
+title: CS231N Spring 2025 Lecture 18 recording: Human-Centered AI (Fei-Fei Li)
+```
+
+Original videos: [CS231N Spring 2025 Lecture 17 recording](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[CS231N Spring 2025 Lecture 18 recording: Human-Centered AI (Fei-Fei Li)](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+
+Course and recording entries:
+
+- [CS231N Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## 2026 L17: World Modeling, one line on the schedule
 
 For May 28, 2026, the schedule has two lines: "Lecture 17: World Modeling" and "Guest Lecturer: Prof. Gordon Wetzstein." No subtopics, no slides, no suggested readings. A3 is due the same day.
@@ -152,6 +173,10 @@ That completes this series: the public L1–L16 slides of CS231N Spring 2026, al
 
 - A full course on reinforcement learning and robot learning: [Reading Berkeley CS285](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - General deep learning and another take on course projects: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

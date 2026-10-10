@@ -38,6 +38,21 @@ glossary:
 
 第 2–3 頁給兩個理由。**客製化**：感測器不斷收到新資料，模型要跟著調整。**隱私**：程式碼、企業資料這類敏感資料不該送上雲端。第 4 頁的 Lecture Plan 分六項：梯度洩漏、訓練記憶體瓶頸、TinyTL、SparseBP、QAS、PockEngine。前一項講隱私，後五項講記憶體。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=1YuD_5UQxsA
+title: EfficientML.ai Lecture 21 - On-device Training（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 21 - On-device Training（YouTube）](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 只分享梯度，其實也不安全
 
 第 6–11 頁先介紹 [federated learning](https://arxiv.org/abs/1602.05629) 的 FedAvg：每台裝置用本地資料訓練 N 步，把更新後的模型送到 server 平均，再發回去。投影片強調，重要的私人資料從不離開裝置。
@@ -169,6 +184,10 @@ Adam 也能救回大部分精度，但要多 3 倍記憶體，在裝置上用不
 
 - 推論端的同一套記憶體限制：[L10 MCUNet 與 tinyML](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 - 量化基礎：[L6 PTQ 與 QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

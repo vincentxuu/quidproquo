@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 19 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-12-04. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and the [official Lecture 19 Conclusion deck](https://web.stanford.edu/class/cs224w/slides/19-conclusion.pdf); speaker attribution follows the slides.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include the official slides and optional readings on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable and are not reconstructed. The public 2021 videos are not evidence for a 2025 lecture.
@@ -74,6 +82,10 @@ Save the sampled 100 designs, their performance, the 12 anchor positions, per-ta
 ### The final workflow
 
 Use a small-dataset performance spectrum to select anchors, use anchor rankings to identify similar tasks, and transfer known best designs from those tasks. This is a budgeted model-transfer procedure, not a universal ranking predictor.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

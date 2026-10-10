@@ -21,6 +21,14 @@ I used the public [lecture notes](https://stanford-cs161.github.io/winter2026/as
 
 Lecture 14 used exchange arguments to justify greedy choices. This lecture packages the same idea into a reusable theorem: find a cut that respects the edges already chosen, and a light edge crossing it is safe. Prim grows one tree while Kruskal merges a forest, but both use exactly this proof template.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
+
 ## The problem and its invariant
 
 The input is a connected undirected graph `G=(V,E)` with real edge weights. A spanning tree connects all vertices without a cycle and has `|V|-1` edges. An MST minimizes `w(T)=Σ_{e∈T}w(e)`. Repeated weights mean that neither the lightest edge nor the MST must be unique.
@@ -115,6 +123,10 @@ Lecture 14 introduced exchange arguments; Lecture 15 crystallizes one as the cut
 Practical Kruskal implementations use union by rank or size together with path compression to realize the near-`α(n)` bound. Deterministic tie-breaking also makes outputs reproducible even though it does not affect minimum cost.
 
 Tests should check more than total weight: exactly `n-1` edges, connectivity, acyclicity, and agreement with brute-force trees on small graphs. An API should reject disconnected input or explicitly return a forest. These are engineering extensions, not additional lecture theorems.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

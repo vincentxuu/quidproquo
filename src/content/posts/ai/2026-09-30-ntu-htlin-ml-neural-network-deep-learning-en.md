@@ -36,6 +36,26 @@ The first part of Techniques packs many features in with kernels; the second com
 
 One piece of context matters for these two lectures. The videos were uploaded in 2016, when deep learning was "gaining attention in recent years" (the slides' words). So T13 centers on layer-wise pre-training and autoencoders, not the ReLU, Adam, or Transformers common today. In Fall 2024 Lin added two modern deep learning slide decks, 302u and 303u, which this series covers in [post 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en).
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=GwRS2YJv2Ck
+title: Motivation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=giOcWMbi1bU
+title: Neural Network Hypothesis
+```
+
+Original videos: [Motivation](https://www.youtube.com/watch?v=GwRS2YJv2Ck)、[Neural Network Hypothesis](https://www.youtube.com/watch?v=giOcWMbi1bU)、[Neural Network Learning](https://www.youtube.com/watch?v=Z26n4YGNWvQ)、[Optimization and Regularization](https://www.youtube.com/watch?v=z2tHzMzoOOs)、[Deep Neural Network](https://www.youtube.com/watch?v=H1czfox0Nog)、[Autoencoder](https://www.youtube.com/watch?v=eBVPQ4fgs_k)、[Denoising Autoencoder](https://www.youtube.com/watch?v=gx2Vfw8S--0)、[Principal Component Analysis](https://www.youtube.com/watch?v=Bgc4UY8567A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## Where these lectures sit
 
 | Version | Week | Slides | LFD (as listed on the course page) |
@@ -209,6 +229,10 @@ These series on this site overlap with this post, but this post stands on its ow
 - [Reading MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en): graduate-level deep learning.
 - [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): NTU's parallel track, leaning toward deep learning and generative AI.
 - [Harvard CS181 HW4: Autoencoders and VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en) and [CMU 10-301 HW5: Neural Networks](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks-en): homework on the same topics from other schools.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

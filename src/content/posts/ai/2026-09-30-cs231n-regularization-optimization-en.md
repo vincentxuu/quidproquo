@@ -42,6 +42,21 @@ The [2026 schedule](https://cs231n.stanford.edu/schedule.html) lists four topics
 
 This is the first hard post in the series, so it follows five layers: the setting, the intuition, the mechanics (formulas in collapsible blocks), how it connects to the course's models, and where to go deeper.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=dyNGd06MWn4
+title: Stanford CS231N Spring 2025 Lecture 3 recording
+```
+
+Original videos: [Stanford CS231N Spring 2025 Lecture 3 recording](https://www.youtube.com/watch?v=dyNGd06MWn4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## The setting: walking downhill without a map
 
 At the start of the optimization section, the slides show a photo of a valley and a walking figure. One way to read it: the loss is altitude, W is where you stand, and the goal is the valley floor. With tens of thousands of parameters you can't see the whole terrain. You can only compute the slope under your feet.
@@ -238,6 +253,10 @@ The schedule links this lecture to the [optimization-1](https://cs231n.github.io
 3. Copy the RMSProp and Adam code from the slides into a notebook, run them on a narrow 2-D bowl, and plot the trajectories.
 
 One thing you can do tonight: in numpy, define f(x, y) = x² + 20y², run SGD and SGD + Momentum (ρ = 0.9) from the same starting point for 50 steps, and plot both paths. You'll see what "jitter along the steep direction, crawl along the shallow one" actually looks like.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -28,6 +28,21 @@ The first [CS231N](https://cs231n.stanford.edu/) lecture of 2026 was on March 31
 
 There are no equations in this lecture. Its job is to show why the course starts with image classification, and why it goes all the way to generative models, 3D, and world modeling.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=2fq9wYslV0A
+title: Spring 2025 Lecture 1: Introduction (YouTube)
+```
+
+Original videos: [Spring 2025 Lecture 1: Introduction (YouTube)](https://www.youtube.com/watch?v=2fq9wYslV0A)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## One Venn diagram to place the course
 
 Early in part 1, a Venn diagram grows one circle at a time (the slides credit Justin Johnson for the idea). Artificial Intelligence comes first, then Machine Learning inside it, then Computer Vision and Deep Learning. Finally the slide labels "This class": the overlap of computer vision and deep learning.
@@ -131,6 +146,10 @@ The 2026 recordings are on Canvas only and closed to outside readers. If you wan
 - [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en): the same neural network history, from a general deep learning course
 
 **Series navigation**: Previous: [Overview and self-study plan](/posts/ai/2026-09-30-cs231n-course-overview-en) | Next: [L2: Image classification, kNN, and linear classifiers](/posts/ai/2026-09-30-cs231n-image-classification-linear-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

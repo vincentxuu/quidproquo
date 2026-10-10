@@ -17,6 +17,14 @@ series:
 
 Lecture 21 可以對所有 successor states 做 expectation，因為 `P` 與 `R` 已知。**CMU 07-280 Spring 2026 Lecture 22** 拿掉這項特權：agent 只能採取 action、看到 reward 與 next state，再從 samples 學習。官方題目就是 *Reinforcement Learning*。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 官方材料與讀取範圍
 
 本文完整讀取 [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf)、[Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf)，並檢查公開的 [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/)。官方頁沒有 Spring 2026 逐講公開錄影，本文只依公開 slides、recitation 與程式骨架說明。
@@ -94,6 +102,10 @@ Tabular Q-learning 也假設每個 `(s,a)` 都能存一格。Pac-Man、影像或
 ## 今晚可做動作
 
 建立兩個 states、兩個 actions 的 deterministic MDP，列出真實 optimal Q-table。用固定 transition sequence 手算前三次 Q-learning，再寫程式比對。之後打開 `ε=0.2` 跑 1,000 steps，分別記錄每個 action 的 visit count 與 Q error；不要只看最後 cumulative reward。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

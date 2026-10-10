@@ -17,6 +17,21 @@ draft: false
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 8 講是 **AI for Science：把領域結構放進學習流程**。以科學發現循環為主線，說明 simulator、AI emulator 與實驗如何合作，而不是把科學簡化成通用預測。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=rZACoZD8AG8
+title: Lecture 8 官方影片
+```
+
+原始影片：[Lecture 8 官方影片](https://www.youtube.com/watch?v=rZACoZD8AG8)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## 這一講要帶走什麼
 
 - 分清真實實驗、模擬器與 AI surrogate 的角色
@@ -41,6 +56,10 @@ draft: false
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ A bitwise operator does not treat an integer as a merely small number. It tempor
 
 CS107 Lecture 4 therefore does not begin immediately with truth tables. It first closes the representation thread from Lecture 3: casts, mixed-signedness comparison, extension, and truncation. Only after tracking which bits remain, appear, or disappear does it introduce AND, OR, NOT, XOR, bit vectors, and bitmasks. This article follows all 27 pages of the [official Winter 2026 Lecture 4 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf).
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Lecture metadata and source limits
 
 - Course: Stanford CS107: Computer Organization and Systems
@@ -339,6 +347,10 @@ For a type exercise, decode eight-bit pattern `11111011` as both unsigned and tw
 6. The four core mask idioms—set, clear, test, and toggle—can all be derived from truth tables rather than memorized.
 
 The next lecture continues bitwise operators, especially left and right shifts, and observes representations in `gdb`. This lecture establishes the mask-selection rule first: ones indicate positions to affect, while zeroes preserve positions. Shifts will add a way to create and move those selections.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

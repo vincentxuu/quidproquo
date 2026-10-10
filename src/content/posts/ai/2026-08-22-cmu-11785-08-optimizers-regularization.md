@@ -18,6 +18,21 @@ series:
 
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 8: Training VI: Optimizers and Regularization**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec8.optimizersandregularizers.pdf)與[官方 YouTube 錄影](https://youtu.be/4bxoPcAk1t0)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=4bxoPcAk1t0
+title: Lecture 8 official YouTube recording
+```
+
+原始影片：[Lecture 8 official YouTube recording](https://www.youtube.com/watch?v=4bxoPcAk1t0)
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
 ## 這一講處理什麼
 
 這講的中心是AdaGrad、Adam、正則化、BatchNorm、Dropout 與 loss 選擇。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
@@ -45,6 +60,10 @@ series:
 ## 讀完後
 
 闔上 slides，用一張紙寫下這講的輸入、輸出、目標函數與一個失敗模式。能不看筆記說明這四項，才往下一講；否則回到剛才的小例子，縮小輸入直到每一步都能人工核對。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

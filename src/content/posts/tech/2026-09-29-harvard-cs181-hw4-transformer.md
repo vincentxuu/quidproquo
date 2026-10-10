@@ -28,6 +28,14 @@ glossary:
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 6 篇。上一篇是[期中檢核](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)，這篇進入期中後的第一份作業 HW4。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## HW4 在學期裡的位置
 
 依 [2026 官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)，HW4 的三個主題是這樣排的：
@@ -125,6 +133,10 @@ HW4 Problem 1 沒有處理 causal mask、KV cache 或長上下文的成本，這
 ## 下一篇
 
 [HW4（中）：Autoencoder 為何不能生成，VAE 補了什麼](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)——從「每個 token 看彼此」換到「把一張圖壓進窄窄的 latent 再還原」。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

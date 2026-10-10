@@ -32,6 +32,22 @@ The official source is the [Lecture 5 slide PDF](https://gfxcourses.stanford.edu
 
 The "Today" slide lists three items: finishing Lecture 4's grid solver, basic load-balancing techniques, and a deep dive into Cilk's scheduler. This post covers the last two.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
+title: CS149 2023 Lecture 5 recording (supplement)
+```
+
+Original videos: [CS149 2023 Lecture 5 recording (supplement)](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
+
 ## Three goals that fight each other
 
 Lecture 5 opens by defining performance tuning as iteratively refining your choices of decomposition, assignment, and orchestration, with three conflicting goals:
@@ -201,6 +217,10 @@ Confirmed: the contents of the Lecture 5 slide PDF and the lecture date on the c
 Further reading: OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
 
 Series navigation: previous, [Lecture 4: the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | next, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

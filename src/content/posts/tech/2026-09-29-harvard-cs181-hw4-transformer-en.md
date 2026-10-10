@@ -26,6 +26,14 @@ glossary:
 
 This is post 6 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous post is the [midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en); this one opens HW4, the first assignment after the midterm.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where HW4 sits in the term
 
 Per the [2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ), Week 6 covered Representation Learning / Autoencoders on Tuesday and Transformers on Thursday (March 5). The midterm was March 10, and Non-parametric Models / Decision Trees followed on March 12. HW4 was released after spring break on March 23 and due April 3. The matching section is **Section 6: Transformers, Autoencoders, Decision Trees**, the week of March 24.
@@ -119,6 +127,10 @@ Other courses approach the same topic from different angles:
 ## Next
 
 [HW4 (Part 2): why autoencoders can't generate, and what VAEs add](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en). We move from "every token looks at every other token" to "squeeze an image through a narrow latent and rebuild it".
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

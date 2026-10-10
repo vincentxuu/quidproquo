@@ -30,6 +30,14 @@ glossary:
 
 存取等級是 **A3**：題目、模板、起始碼和算力指南都能匿名下載。解答、autograder、Gradescope 與 Ed 討論不公開。**本文只說明題目要你做什麼，不寫解答**，包括 Problem 1 各情境會走到哪個目標。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 任務：一個只有終點才給分的鐵鎚
 
 作業的主角是一台 4 自由度的 Sawyer 機械手臂，動作空間是連續的，觀測是環境狀態，不是影像。它要拿起一把鐵鎚，把釘子敲進去。起始碼的 README 說明，環境是 Meta-World 的 `hammer-v2`。
@@ -192,6 +200,10 @@ UTD（update-to-data ratio）是每走一步環境，做幾次 critic 梯度更�
 延伸閱讀：[Berkeley CS285 的作業與專題路線](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)也有 PPO 和 off-policy 的實作作業，可以當作第二套練習。
 
 系列導覽：上一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜下一篇 [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,21 @@ glossary:
 
 Official materials used: the homework slides [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf) (63 pages; the second half holds the questions in Mandarin and English), the [homework Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing) (40 cells), and the TA walkthrough video [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU) listed on the course page. The course page gives 3/20 as the release date, and the PDF sets the deadline at 2026/04/09 23:59:59 (UTC+8) with no late submissions. The TAs are 馮柏翰, 吳岳霖, and 蘇炳揚.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
+title: TA video: ML 2026 Spring HW3 LLM Fast Inference
+```
+
+Original videos: [TA video: ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Access level: A3, but no official answers
 
 - **Available**: the homework PDF, the Colab starter code, and the full text of all 20 questions. The PDF says the questions are provided "for those who are neither enrolled in nor auditing the course" and are identical to the ones on NTU COOL, in both Mandarin and English.
@@ -141,6 +156,10 @@ Verified: the full text and embedded links of hw3.pdf, the Colab's markdown and 
 Not verified: the TA video has no captions to pull, and this post did not transcribe it, so any extra hints in the video are not included. The official answers are not public, and this post deliberately gives no answers. The description of n-gram speed-up is based only on the `prompt_lookup_num_tokens` parameter in the Colab code.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) | Next: [Positional Embedding and Very Long Inputs](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

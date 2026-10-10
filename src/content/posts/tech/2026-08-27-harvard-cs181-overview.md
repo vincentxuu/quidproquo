@@ -17,6 +17,14 @@ draft: false
 
 > ⚠️ **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。2026 課站嵌入的 [Google Sheet 課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 可匿名匯出（2026-09-29 確認），本系列以 `hw 編號` 為週節拍、課表講題為篇內順序。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **可自學嗎**：[CS181 2026](https://harvard-ml-courses.github.io/cs181-web/) 是 **A3**（`hw0-6` 七份 + notes + sections + [textbook](https://github.com/harvard-ml-courses/cs181-textbook) 形成閉環，`all learning will be in-person` 無當期錄影，Gradescope/Ed 需選課），與 [Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map) 判一致。
@@ -107,4 +115,6 @@ draft: false
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - **2026-09-29**：系列擴充到 order 0–15，新增「系列文章一覽」與限制清單；依 2026 課表與各份 `.tex` 補上 HW1–HW6 截止日、題目與考試日期；更正「Google Sheet 課表已刪」與「2026 section 未公開」的舊說法。

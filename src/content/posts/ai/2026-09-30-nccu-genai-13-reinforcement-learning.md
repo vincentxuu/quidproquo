@@ -31,6 +31,21 @@ glossary:
 
 用到的官方材料有三份：[第 13 講錄影](https://www.youtube.com/watch?v=xG8ccKlW_Cc)（2025-05-13，3 小時 3 分）、投影片 [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view)（73 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第十三週作業說明。注意投影片檔名的編號是 12，但它是第 13 講的講義，投影片頁尾也寫「13 強化學習與生成式 AI 綜合應用」。存取等級是 **A3**：錄影、投影片、作業說明都公開；這一講沒有對應的 Demo notebook。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
+title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）
+```
+
+原始影片：[【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 這門課一路用「函數學習機」的角度看 AI：想清楚輸入和輸出，準備好訓練資料，剩下交給神經網路。L13 碰到的情況是，**我們根本不知道正確答案**。打磚塊的每一刻該往左還是往右？圍棋這一手該下哪裡？沒有人能標出來。我們只知道最後的結果好不好。
@@ -210,6 +225,10 @@ y_w 要比較高分、y_ℓ 要比較低分。方向對了，sigmoid 值會趨�
 - DeepSeek 那條可驗證獎勵路線：[CS336 Lecture 16：RLVR](/posts/ai/2026-08-22-cs336-rlvr)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)｜下一篇 [L14 生成式 AI 新趨勢與期末專案](/posts/ai/2026-09-30-nccu-genai-14-new-trends)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

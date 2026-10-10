@@ -38,6 +38,22 @@ Access level is **A3**. Slides, notes, and a recording are public, but the 2026 
 
 One detail first. Every page footer of the 2026 slides reads "April 14, 2025," yet the admin slide on page 2 says A1 is due "Wednesday 4/16," which matches the 2026 schedule. I treat this deck as the version the 2026 schedule links to and don't infer how much it changed. Compared with the [2025 lecture_5.pdf](https://cs231n.stanford.edu/slides/2025/lecture_5.pdf), the section order is nearly identical. The 2025 deck adds one Bag of Words slide and an appendix of slides from earlier years.
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=f3g1zGdxptI
+title: Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs (YouTube)
+```
+
+Original videos: [Stanford CS231N Spring 2025 Lecture 5: Image Classification with CNNs (YouTube)](https://www.youtube.com/watch?v=f3g1zGdxptI)
+
+Course and recording entries:
+
+- [Stanford CS231N Spring 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
+
 ## Start with the limits of linear classifiers
 
 Pages 6–14 are a recap. Page 9 states the problem with linear classifiers from two viewpoints:
@@ -176,6 +192,10 @@ Not confirmed: who actually taught this lecture in 2026 (the lecturer column on 
 Further reading on this site: [CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
 
 Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Connected Nets](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en) | next [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

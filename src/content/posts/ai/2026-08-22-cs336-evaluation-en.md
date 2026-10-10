@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 12: Evaluation**, taught by Percy L
 
 The course discusses evaluation before data because data pushes a model toward the behavior being measured. The lecture's central statement is that no single evaluation is true. Rules, objects, and use cases must be specified before choosing a metric.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=JpAxdTWQJxM
+title: CS336 Spring 2026 Lecture 12: Evaluation
+```
+
+Original videos: [CS336 Spring 2026 Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Perplexity is smooth but not equivalent to usefulness
 
 A language model is a probability distribution over token sequences. Perplexity measures its average assigned probability to a dataset. It is continuous, cheap, useful for smooth scaling curves, and central to pretraining development.
@@ -64,6 +80,10 @@ Lecture 12 does not ask for more leaderboard runs. It requires each score to ans
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its perplexity, exam, chat, agent, reasoning, safety, and validity structure.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

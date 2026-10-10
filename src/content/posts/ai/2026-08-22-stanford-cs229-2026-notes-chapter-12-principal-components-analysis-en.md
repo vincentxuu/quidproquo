@@ -19,6 +19,15 @@ This is a chapter-by-chapter reading of Chapter 12, printed pages 167–172, in 
 
 PCA targets linear redundancy among coordinates. Recording the same speed in both miles and kilometers creates nearly duplicate attributes. More generally, if a point cloud lies mostly along a diagonal direction, much of its meaningful variation may fit on one intrinsic axis.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Preprocessing defines what counts as large variation
 
 The notes typically subtract each feature mean and divide by its empirical standard deviation:
@@ -65,6 +74,10 @@ Chapter 11 modeled data with probabilistic latent variables. PCA instead builds 
 ## Self-study exercise
 
 Use a two-dimensional dataset whose features have very different numeric scales. Compute covariance, the leading eigenvector, and the fraction of variance explained after centering only; repeat after standardization. Plot both principal axes and explain how the definition of scale changes what PCA calls important.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

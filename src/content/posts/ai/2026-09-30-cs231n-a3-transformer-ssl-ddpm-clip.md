@@ -47,6 +47,15 @@ A3 是 CS231N 三份作業的最後一份。前面幾篇講的 attention、自�
 
 本文只寫官方頁面與起始碼裡看得到的題目、檔案與目標。**不提供任何解答。**
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [CS231N Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
+
 ## 基本規格
 
 [作業總頁](https://cs231n.stanford.edu/assignments.html)把 A3 列為總成績的 15%。2026 課表上它在 5 月 14 日（L13 那天）發佈，5 月 28 日晚上 11:59（太平洋時間）截止。
@@ -164,6 +173,10 @@ notebook 的任務是訓練一個 DDPM，生成**以文字提示為條件的 32�
 - Transformer 與 attention 更深入的語言模型視角：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)、[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
 - 擴散與 flow matching 的完整數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 - 生成模型的另一門課觀點：[CS230 對抗樣本與生成模型](/posts/ai/2026-08-16-cs230-adversarial-and-generative)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

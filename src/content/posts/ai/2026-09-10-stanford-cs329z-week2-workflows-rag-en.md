@@ -21,6 +21,14 @@ draft: false
 
 Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+
 ## First, the split: workflows are not agents
 
 Anthropic's first cut is definitional. Workflows run LLMs and tools along **predefined code paths**; agents let the LLM direct its own process and tool use. Both are agentic systems, but the selection logic differs completely: predictable tasks on fixed paths call for workflows, unpredictable step counts with model judgment call for agents. And most applications need neither — a single LLM call with retrieval and examples is usually enough. That paragraph is the post's brake pedal; every pattern below must answer to it.
@@ -93,6 +101,8 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's han
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
 - 2026-09-12: Added substantive guided readings of Effective Context Engineering and ColBERT.
 

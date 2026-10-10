@@ -19,6 +19,14 @@ Lecture 12 還留下 `int[]`。Lecture 13 讓演算法只保存 base、count 與
 
 這也是 `qsort`、`bsearch` 等 APIs 的骨架：library 與 client 各自保留必要知識，以三向回傳值溝通。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -248,6 +256,10 @@ Linear search 不要求排序；`bsearch` 以排序成本換取更快的 repeate
 Generic algorithm 用 base、count 與 width 計算地址，不猜 element type。Comparator 還原 `const void *` 的 domain type並回傳 ordering sign，不管理 traversal。`qsort`、`bsearch`、`lfind` 與 `lsearch` 只是套用到不同控制流程。
 
 實作前可在每個 `void *` 旁標出隱藏的 `T`，把 `sizeof(array[0])` 留在呼叫處，並確認 callback sign、range、capacity 與 result lifetime。可靠的 generic C 不只會 cast，更能說清楚每個被 compiler 擦掉的關係。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

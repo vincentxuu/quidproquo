@@ -33,6 +33,21 @@ glossary:
 
 The first lecture, on September 23, 2025, is titled with two questions: Why Parallelism? Why Efficiency? Those two questions set the direction of the whole course. The first half answers the first one: why single-core processors stopped getting faster on their own. The second half answers the other: even once a program is parallel, why should you still care about efficiency?
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=V1tINV2-9p4
+title: CS149 2023 Lecture 1 video (YouTube)
+```
+
+Original videos: [CS149 2023 Lecture 1 video (YouTube)](https://www.youtube.com/watch?v=V1tINV2-9p4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
+
 ## Parallel computers and speedup
 
 The slides give a short definition: **a parallel computer is a collection of processing elements that cooperate to solve problems quickly.** Two side notes state the course's stance: we care about performance, and we care about efficiency. Using multiple processing elements is just the means of getting performance.
@@ -179,6 +194,10 @@ The 2023 [Lecture 1 video](https://www.youtube.com/watch?v=V1tINV2-9p4) (about 1
 ---
 
 **Series navigation**: [← Series overview](/posts/ai/2026-09-30-cs149-course-overview-en) | Next: [L2 Modern multi-core processors: multi-core, SIMD, multithreading →](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

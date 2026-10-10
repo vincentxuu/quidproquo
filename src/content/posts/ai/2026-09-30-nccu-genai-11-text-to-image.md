@@ -31,6 +31,21 @@ glossary:
 
 用到的官方材料有四份：[錄影 11](https://www.youtube.com/watch?v=8VS6Dcxmp34)（2025-04-29，約 2 小時 59 分）、投影片 GenAI11（72 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo08g】打造Stable_Diffusion的WebUI`](https://yenlung.me/AI08g)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第十一週作業。存取等級是 **A3**。Demo08g 在 GitHub 上最近一次 commit 是 2025-04-29，也就是上課當天，**以下引用的是 repo 目前版本**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=8VS6Dcxmp34
+title: 【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=8VS6Dcxmp34)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 投影片分四段：讓文字和圖像的意涵拉近的 CLIP、不要 A 圖——排程器、LoRA、用 diffusers 實作圖像生成。錄影的時間軸：
@@ -184,6 +199,10 @@ repo 目前版本的結構：
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L10 從變分自編碼器（VAE）開始的冒險旅程](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)｜下一篇：[L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

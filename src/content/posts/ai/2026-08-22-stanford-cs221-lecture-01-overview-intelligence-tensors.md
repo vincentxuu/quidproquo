@@ -17,6 +17,15 @@ draft: false
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 1**，由 Percy Liang 主講，日期標示為 2025-09-22。閱讀範圍只包括三份公開 executable artifacts：`welcome.py`、`history.py`、`tensors.py`。課程入口在[官方網站](https://stanford-cs221.github.io/autumn2025/)，本講 trace 入口是 [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome)。下文不把 Canvas-only 的課堂互動當證據，也不補寫來源沒有提供的結論。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的 agenda
 
 這個順序先定義 agent 的問題，再看歷史上的表示與演算法，最後用 tensor 操作檢查 shape、狀態和成本；CS221 先問如何表示，再問如何 inference 或 learning。
@@ -122,6 +131,10 @@ Reduction 也可命名：`x.sum(dim=-1)` 等同 `reduce(x, "... hidden -> ...", 
 ## 讀完後的檢查
 
 最後列出能力與 goals、資源限制，再核對 tensor shapes。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

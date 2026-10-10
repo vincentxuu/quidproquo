@@ -20,6 +20,14 @@ draft: false
 
 以下內容依 2026-09-29 抓取的課站。課站自己標了 `Subject to change`，日期和主題之後可能會動。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-07-380 — official course materials and recording index](https://www.cs.cmu.edu/~07380/)
+
 ## 官方材料與讀取範圍
 
 本文讀過的材料：
@@ -138,6 +146,10 @@ flowchart LR
 3. 在開始 Lec2 前讀完課站的 [PR1 Prop Logic 筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf)。課程把命題邏輯的語法和 model checking 放在 pre-reading，Lec2 直接從演算法開始。
 
 下一篇：[Lecture 2 導讀：Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents)。上一篇：[系列總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

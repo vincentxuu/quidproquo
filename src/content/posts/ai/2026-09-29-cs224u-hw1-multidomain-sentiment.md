@@ -40,6 +40,22 @@ glossary:
 
 本文只講題目結構、配分、需要的資源，以及今天照原樣跑會卡在哪。**不提供任何題目的解答。**
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=PzvvtyK0QOk
+title: 作業一 overview 錄影（XCS224U, Spring 2023）
+```
+
+原始影片：[作業一 overview 錄影（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 它在課程裡的位置
 
 2023 年的講次表把作業一放在第一個單元「Domain adaptation for supervised sentiment」底下。4 月 5 日那堂列著「Overview of Assign/bakeoff 1」，但這一項**沒有投影片連結**，公開的只有 YouTube 上那支 overview 錄影。作業與 bake-off 在 4 月 17 日下午 3 點截止，同一時間要交 Quiz 0 與 Quiz 1（Canvas 上，校外拿不到）。
@@ -150,6 +166,10 @@ SST 那一側的風險看起來比較小：`SetFit/sst5` 在 Hub 上是純資料
 
 - 課程狀態、三份作業總覽與環境坑：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 預訓練與微調的基礎：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

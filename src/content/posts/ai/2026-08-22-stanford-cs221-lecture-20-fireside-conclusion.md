@@ -17,6 +17,22 @@ draft: false
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 20**（2025-12-03）。這場 fireside chat 由 Ken 主持、Percy Liang 回答學生問題。課程順序以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；主要材料是 [Stanford Online 影片](https://www.youtube.com/watch?v=5u5I5jvWR5k)。[影片](https://youtu.be/5u5I5jvWR5k?t=43)
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=5u5I5jvWR5k
+title: 本講官方材料：official Stanford Online video
+```
+
+原始影片：[本講官方材料：official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 材料範圍與閱讀方法
 
 lecture repo 沒有本講投影片或 executable lecture。以下內容只依官方 Stanford Online 影片的自動字幕，以及課程排程對本講的標示整理；不把字幕中聽不清楚的專有名詞補成確定事實，也不把主持人的提問誤寫成 Percy 的主張。字幕本身常把 `Turing test`、`ChatGPT`、課號、姓名和年份辨識錯誤，因此文中會把可以辨認的語意與仍有疑問的字詞分開。 [影片](https://youtu.be/5u5I5jvWR5k?t=5)
@@ -122,6 +138,10 @@ Percy 對「AI 是不是泡沫」的回答很直接：當然有泡沫，但 AI �
 編者的收束是：工具愈強，愈要判斷什麼值得做；基礎概念仍是拆解新系統的工具；學習、適應、合作與好問題比履歷標籤耐久；評估還要看可靠、透明與真實結果。這不是 Percy 的逐字四點原則。[影片](https://youtu.be/5u5I5jvWR5k?t=1117)、[影片](https://youtu.be/5u5I5jvWR5k?t=1805)、[影片](https://youtu.be/5u5I5jvWR5k?t=2732)、[影片](https://youtu.be/5u5I5jvWR5k?t=852)
 
 影片最後，Percy 感謝 Ken、教學團隊與學生並祝大家學期順利。本講沒有投影片；因此保留字幕缺口、區分材料與推論，比補造隱藏 agenda 更忠實。[影片](https://youtu.be/5u5I5jvWR5k?t=3487)、[影片](https://youtu.be/5u5I5jvWR5k?t=3503)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

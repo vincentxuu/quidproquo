@@ -19,6 +19,14 @@ draft: false
 
 前半課程把一個 core 分享給 concurrent threads；從今天開始，要把一份 physical memory 分享給 concurrent processes。PDF 採歷史順序，讓每個新機制都針對前一版的失敗，而不是直接把現代 virtual memory 當成魔法。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. Single-tasking 與四個 memory-sharing goals
 
 Early batch monitors 與早期 MS-DOS 一次只讓一個 program 占據 memory，OS 也在同一 physical layout。好處是簡單有效率；壞處是 programs 無法共存，錯誤程式可以寫壞 OS 或整台 machine。
@@ -89,6 +97,9 @@ Segmentation 仍有限制。固定 segment 數量無法自然支援任意多 map
 
 所以 segmentation 改善了 base/bound 的「一區到底」，卻沒有消除 variable-size placement。下一步 paging 會把 address space 切成固定大小 pages，以另一種 metadata 與 translation trade-off 解決。Lecture 13 的核心方法是保留四個 goals，再逐代定位哪個 representation 太弱：load-time relocation 缺 runtime protection，base/bound 只有一區，segmentation 又受固定數與 variable lengths 限制。
 
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

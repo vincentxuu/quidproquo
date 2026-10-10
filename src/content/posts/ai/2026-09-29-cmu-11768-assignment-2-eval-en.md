@@ -30,6 +30,14 @@ The three individual assignments in [CMU 11-768 AI Agents](https://www.cmu-agent
 
 This post covers only what the assignment asks for, how it is structured, how it is scored, and the design trade-offs — **no solutions**. The schedule has no lecture dedicated to evaluation; evaluation design lives only in this assignment. So the end of this post ties it back to L9 through L11: the validator you write in A2 is what RL maximizes as a reward from A3 on.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## What is being evaluated: a data-visualization agent
 
 The system under test is a **data-visualization agent**: given data files and a user's chart spec, it writes matplotlib code, runs it, and saves `figure.png`. What students write is a **validator**: given the task, the agent's full trajectory, the input data, and the final figure, decide whether the run went wrong and in which family.
@@ -171,6 +179,10 @@ For the series overview, see [the course overview post](/en/posts/ai/2026-09-29-
 - [How to Rigorously Compare Before and After Agent Changes: From Golden Sets to Statistical Testing](/en/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
 - [Self-Reflection + LLM-as-Judge: Having AI Evaluate Its Own Answers](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

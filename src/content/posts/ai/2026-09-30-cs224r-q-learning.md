@@ -36,6 +36,26 @@ glossary:
 
 配套影片（**補充教材**）有兩支：[Spring 2025 Lecture 6: Q-Learning](https://www.youtube.com/watch?v=-7kv6jf0isQ)（約 62 分鐘）和 [Spring 2025 Tutorial Session: Review of Q-Learning](https://www.youtube.com/watch?v=07MQNMcxhZU)（約 51 分鐘）。兩支都是 2025 年的錄影，內容可能和 2026 投影片、講義有出入，以下以 2026 教材為準。
 
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=-7kv6jf0isQ
+title: Spring 2025 Lecture 6: Q-Learning（YouTube，補充）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=07MQNMcxhZU
+title: Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 6: Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=07MQNMcxhZU)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
 ## 場景：能不能連 policy 都不學
 
 上一篇走到 SAC 式的 off-policy actor-critic：critic 學 Q，actor 往 Q 高的方向走。投影片第 6 頁問了下一個問題：**如果 Q 已經告訴你哪個動作最好，還需要另外學一個 policy 嗎？**
@@ -210,6 +230,10 @@ TA 講義最後兩節是 DQN walkthrough 和 Soft Actor-Critic，PDF 上只有�
 可以確認：2026 投影片與 TA 講義的文字、公式與圖表標題，課表日期、地點與閱讀清單，2025 兩支影片的標題與長度。不能確認：第 7 頁思考題在課堂上給的答案、TA 加課的口頭內容、講義 DQN 與 SAC walkthrough 的細節。第 2 頁的課程提醒提到會分享「去年 head CA 的筆記」，這份筆記沒有出現在公開頁面上。
 
 系列導覽：上一篇 [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)｜下一篇 [HW2：Gridworld Q-learning、PPO 與 Sawyer 鐵鎚任務](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

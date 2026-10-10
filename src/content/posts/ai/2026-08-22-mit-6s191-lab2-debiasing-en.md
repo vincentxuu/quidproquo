@@ -17,6 +17,14 @@ draft: false
 
 Lab 2 in the [official MIT 6.S191 2026 repository](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab2) is **Lab 2: From MNIST to Facial Debiasing with a DB-VAE**. Part 1 classifies MNIST with dense and convolutional networks; Part 2 learns a facial latent distribution with a DB-VAE and changes training sampling. This article pins the 2026 branch so later changes to master do not silently alter the exercise.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## Before you begin
 
 The [official 2026 README](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/README.md) specifies Google Colab, Python 3, and a GPU runtime. Copy the notebook to your Drive and run it from the beginning. Put API keys in the notebook's secret manager—never in a shareable cell or Git commit.
@@ -39,6 +47,10 @@ Keep a notebook copy, one reproducible end-to-end run, and a short conclusion: w
 ## Limits
 
 This is a course experiment, not a fairness fix proven across all populations. Data, measurement, and deployment context still require a separate audit.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

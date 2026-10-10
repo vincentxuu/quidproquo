@@ -28,6 +28,21 @@ This is post 3 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/po
 
 The sources are the Fall 2025 [Assignment 1 folder](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1) in the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing): the handout [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf), the starter [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb), the processed `questions-words.csv`, and the TA's [walkthrough video](https://youtu.be/nCS3GpHwqr8) (titled "Week 2 Thu. - Assignment 1" and listed in the W2 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)). The video is in Mandarin. Access level is **A3**: the handout, starter code, and data are public. Solutions and grading scripts live on NTU COOL, which outside readers cannot reach.
 
+## Course video sources
+
+These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=nCS3GpHwqr8
+title: 2025 HW1 walkthrough video
+```
+
+Original videos: [2025 HW1 walkthrough video](https://www.youtube.com/watch?v=nCS3GpHwqr8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## What the assignment tests
 
 The handout phrases analogy as "A is to B as C is to D." With word vectors you compute B − A + C, find the nearest word, and check whether it is D.
@@ -119,6 +134,10 @@ So if you study with the 2025 materials, you are doing the same assignment as th
 - Next in this series: [Seq2seq, LSTM, and Attention](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en)
 - The same topic in an English-language course: [CS224N: Word Vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

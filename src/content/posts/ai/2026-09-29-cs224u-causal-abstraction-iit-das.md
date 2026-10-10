@@ -33,6 +33,27 @@ glossary:
 
 這是整個系列最陡的一篇。以下只講直覺，並用 notebook 的 equality task 當貫穿的例子，形式定義收在折疊區塊裡。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=6pwpOOj33aw
+title: 影片 36：Causal Abstraction & Interchange Intervention Training (IIT)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
+title: 影片 37：Distributed Alignment Search (DAS) & Conclusion
+```
+
+原始影片：[影片 36：Causal Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[影片 37：Distributed Alignment Search (DAS) & Conclusion](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
 ## 先記住上一篇卡在哪
 
 上一篇的加法網路裡，probe 說 L2 存了 x + y，但 L2 對輸出的權重是 0。**有資訊，不代表有用到。** probing 回答不了「模型是不是靠這個在做決定」。這篇的工具要回答的正是這一題，而且回答的方式是直接動手改模型的內部狀態。
@@ -191,6 +212,10 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 延伸閱讀：站上 [CS224N 的 interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)走的是 agentic interpretability 與概念發現的路線，可以對照。
 
 系列導覽：上一篇 [解釋方法 I：probing 與 feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)｜下一篇 [方法與指標 I：分類與生成指標](/posts/ai/2026-09-29-cs224u-methods-metrics)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -30,6 +30,15 @@ Official materials used: the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormle
 
 > **Version note**: Both PDFs linked from the March 16 Lecture 16 row have a cover reading "Matt Gormley & Pat Virtue, Mar. 17, 2025", a reminder slide with Spring 2025 HW4 dates, and a 2025 creation date. Spring 2026 reused last year's MoE deck. The Scaling section of L15 is marked "Scaling slides credit: Pat Virtue". Recordings are on CMU's internal Panopto and not visible from outside, so this post relies entirely on the slides.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Why this comes after multimodal models
 
 The schedule groups L15–L18 as "Scaling Up". The first 14 lectures asked what models look like and how to train them. This unit turns to engineering: with limited money and GPUs, how big should the model be, how much data should it see, and what do you do when it doesn't fit?
@@ -167,6 +176,10 @@ Confirmed: the text, formulas, and citations on both slide decks; schedule dates
 - The systems side of MoE (expert parallelism, communication): [CMU 11-868 L16–L17: When a Model Won't Fit on One GPU](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 
 Series: Previous: [HW4: Text-to-Image with a Q-Former](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) | Next: [L17–L18: Distributed Training, FlashAttention, and Efficient Decoding](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

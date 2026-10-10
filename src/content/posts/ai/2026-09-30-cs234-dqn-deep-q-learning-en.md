@@ -38,6 +38,22 @@ Access level is **A3 (enough for self-study)**: the slides and the A2 handout ar
 
 Lecture 5 is titled "Policy Gradient I", but its first 21 pages finish off function approximation and cover DQN. This series splits by topic, so this post covers only that first half. The policy gradient half is in the [next post](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en).
 
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: video 04, "Q learning and Function Approximation"
+```
+
+Original videos: [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
 ## Back to the last equation of the previous post
 
 At the end of the previous post, the table no longer fit, so we approximated Q with a function $\hat{Q}(s, a; w)$ parameterized by $w$. Page 5 lines up three methods. They differ only in what they use as a stand-in for the true Q:
@@ -170,6 +186,10 @@ This series does not give answers. The other three questions of A2 (policy gradi
 - [CS229 notes, Chapter 19: reinforcement learning](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en): the prerequisite course's treatment of MDPs and value iteration
 
 **Series navigation**: previous [Part 5: model-free control](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en) | next [Part 7: policy gradients — REINFORCE, baselines, actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

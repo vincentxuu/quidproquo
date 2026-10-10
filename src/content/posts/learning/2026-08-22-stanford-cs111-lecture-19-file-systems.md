@@ -17,6 +17,14 @@ draft: false
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 20 篇，對應 **Stanford CS111, Spring 2026, Lecture 19**。2026-05-11 由 Mendel Rosenblum 主講，官方題目是 [File Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/19/Lecture19.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，因此不把錄影內容當成已核對來源。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 高延遲磁碟上的四個問題
 
 上一講的磁碟具有高 latency，連續傳輸卻相對快。檔案系統要同時處理四件事：disk-space management 要分享容量、減少 seeks 並避免浪費；naming 把 file name 解析成 blocks 的位置；reliability 要讓資料跨 OS crash 與 hardware failure 留存並可恢復；protection 則隔離使用者並允許受控分享。
@@ -77,6 +85,8 @@ Contiguous 用極小 inode 與優秀 locality 換取難成長和 fragmentation�
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：依 Lecture 19 官方 PDF 重寫完整 file-layout agenda，並標示 4 KiB block 問號、容量模型與 IBM PC 年份異常。
 
 ## 參考資料

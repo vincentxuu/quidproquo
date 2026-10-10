@@ -36,6 +36,14 @@ glossary:
 
 五份講義的講者分別來自學界、NVIDIA、開源專案與中國的 LLM 服務公司，角度差很多。本文按論證順序重排，不照檔案編號。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 五份講義一覽
 
 | 編號 | 講題（Syllabus 標題） | 講者 | 日期 | 頁數 | Syllabus 列的 reading |
@@ -168,6 +176,10 @@ L30 是 Lei Li 自己的講義，比較像地圖。前半用 [a16z 的 LLM 應�
 - 單機服務的前一步：[L22＋L24 LLM 服務：排程、RadixAttention、PagedAttention](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
 - 另一門課的推論講法：[Stanford CS336：推論](/posts/ai/2026-08-22-cs336-inference)
 - vLLM 本身的架構：[vLLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

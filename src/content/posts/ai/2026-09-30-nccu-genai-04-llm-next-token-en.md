@@ -28,6 +28,21 @@ glossary:
 
 Three official sources back this post: the [Lecture 4 recording](https://www.youtube.com/watch?v=LcSTLXCJrzA) (2025-03-11, 2 h 54 min), the slide deck [GenAI04 Large Language Models](https://drive.google.com/file/d/10mfLvj8o2H4z6sHI4xGXAr7OCgWxAoR5/view) (90 pages), and the week 4 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are public; grading runs through each school's platform, so outside readers can only self-assess.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=LcSTLXCJrzA
+title: Lecture 04: LLMs are simpler than you think (YouTube recording, 2025-03-11) (in Mandarin)
+```
+
+Original videos: [Lecture 04: LLMs are simpler than you think (YouTube recording, 2025-03-11) (in Mandarin)](https://www.youtube.com/watch?v=LcSTLXCJrzA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## Where this week fits
 
 L03 dealt with image generation; L04 turns to text. Its job is to explain "why ChatGPT can talk" at a level anyone can follow: **a text-generation AI is just a simple machine that looks at the preceding words and predicts the next one.**
@@ -195,6 +210,10 @@ for tau in (1, 0.5, 2):
 - Building a language model from scratch: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L03 GANs](/posts/ai/2026-09-30-nccu-genai-03-gan-en) | Next: [L05 Transformers, Explained](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

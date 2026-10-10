@@ -39,6 +39,15 @@ glossary:
 
 這一篇回答的問題是：**生成模型會在哪些地方出錯，對齊研究又怎麼處理？**
 
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；匿名頁面未載入影片並提示登入。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## 課綱承諾了什麼，投影片實際講了什麼
 
 課程首頁的 Course Description 寫著，學生會學到「things can go wrong」的方式，括號裡列了四項：bias、hallucination、adversarial attacks、data contamination，以及對抗這些問題的方法。
@@ -231,6 +240,10 @@ glossary:
 延伸閱讀：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)整門課都在談 AI 安全，其中[對抗式穩健性](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)與[經濟衝擊](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)兩講和本篇最接近；[CME295 的偏好調整篇](/posts/ai/2026-09-29-cme295-preference-tuning)補 RLHF 的細節。
 
 系列導覽：上一篇 [L20：推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)｜下一篇 [L23：程式生成與自主 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

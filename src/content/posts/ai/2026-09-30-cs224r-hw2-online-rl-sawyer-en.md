@@ -30,6 +30,14 @@ The assignment went out on April 10, 2026 (the day of L4) and was due on Gradesc
 
 Access level: **A3**. The handout, template, starter code, and compute guide all download anonymously. Solutions, the autograder, Gradescope, and Ed are not public. **This post explains what each problem asks you to do and gives no solutions**, including which goal each Problem 1 scenario reaches.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## The task: a hammer that pays only at the end
 
 The star is a 4-degree-of-freedom Sawyer arm with a continuous action space. It observes environment states, not images. It has to pick up a hammer and drive a nail. The starter code's README says the environment is Meta-World's `hammer-v2`.
@@ -192,6 +200,10 @@ Confirmed: the full handout text, the starter code's file list and configs, the 
 Related reading: the [Berkeley CS285 homework and project route](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en) also includes PPO and off-policy assignments, if you want a second set of exercises.
 
 Series navigation: previous [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | next [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

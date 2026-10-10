@@ -17,6 +17,21 @@ draft: false
 
 Lecture 2 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Sequence Modeling: From RNNs to Attention**. It Addresses data where order changes meaning—text, audio, and time series—and connects directly to music generation in Lab 1. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=d02VkQ9MP44
+title: Lecture 2 official video
+```
+
+Original videos: [Lecture 2 official video](https://www.youtube.com/watch?v=d02VkQ9MP44)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
 ## What to take away
 
 - Understand how recurrent state carries the past forward
@@ -41,6 +56,10 @@ Take a short ABC score and manually form input/next-character pairs before openi
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -21,6 +21,15 @@ draft: false
 
 這個系列會把九堂課逐堂讀完。這篇先交代課程長什麼樣、2025 和 2026 兩版差在哪、跟站上已經寫過的 [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 和 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 怎麼分工。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [2025 版 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 課程形式：兩學分、沒有作業、只有兩次考試
 
 [課程首頁](https://cme295.stanford.edu/)寫得很直接：
@@ -125,6 +134,10 @@ flowchart LR
 - **先修**：線性代數和機器學習基礎。缺機器學習基礎的話，可以先讀 [Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡排在前面的課。
 
 今晚能做的一件事：打開 [2025 版播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)的第 1 講，配著[投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)看前 30 分鐘的 tokenization 段落，再來讀本系列第 1 篇。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

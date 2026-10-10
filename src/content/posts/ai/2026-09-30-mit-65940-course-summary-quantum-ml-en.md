@@ -36,6 +36,26 @@ glossary:
 
 After 22 lectures, Song Han wraps up the course in 13 slides, then spends a lecture and a half on what looks like a detour: quantum machine learning. This post first goes through the course summary, then walks the six sections of the Lecture 23 slides. It ends with the question from the series plan: why does a course on efficiency close with this topic?
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=svjjD2uthhQ
+title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ZDk-GsyInt8
+title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (YouTube)](https://www.youtube.com/watch?v=svjjD2uthhQ)、[EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (YouTube)](https://www.youtube.com/watch?v=ZDk-GsyInt8)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Lecture 22, first half: a 13-page course summary
 
 [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) is short, but it is the only bird's-eye map of the whole course. It is worth skimming before you start the series.
@@ -199,6 +219,10 @@ The [F26 course page](https://hanlab.mit.edu/courses/2026-fall-65940) marks Chap
 - Series entry point and chapter map: [Reading MIT 6.5940 overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 - NAS search spaces and strategies: [Lecture 7, NAS Part I](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en)
 - Open courses by school and the A0–A3 access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

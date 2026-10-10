@@ -19,6 +19,14 @@ This is article 29 in the [Stanford CS103 guide](/series/stanford-cs103), corres
 
 The official topic is **Wrap-Up**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/27/)
+
 ## The role of this lecture and term-specific announcements
 
 The final meeting adds no new theorem. Its agenda is announcements, a course-wide retrospective, directions for further study, and questions. The deck schedules the final for Saturday 8:30–11:30 under the midterm rules: one 8.5×11-inch note sheet, no electronics, and cumulative coverage of problem sets and lectures except this meeting. A 4:30–6:30 review session follows class using a practice exam, and students are asked to submit Axess evaluations.
@@ -93,6 +101,8 @@ The public deck explicitly supports the sections on the role of this lecture and
 
 ## Update log
 
+
+- 2026-10-10: Added course video sources and recording access notes.
 - 2026-08-22: Rechecked the role of this lecture and term-specific announcements against the official deck, removed dead handout links, and revised metadata and wording after clean review.
 
 ## References

@@ -17,6 +17,15 @@ draft: false
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 11 章（印刷頁 150–166）的逐章導讀，依 Tengyu Ma 與 Andrew Ng 的官方主講義整理，**不是某學期錄影的重建**。本章的主脊是：隱變數讓直接 maximum likelihood 變難，EM 改為交替估計後驗分布、更新模型參數，VAE 再把這套做法推到神經網路與連續隱變數。
 
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+
+課程與錄影入口：
+
+- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
 ## 高斯混合把群別藏起來
 
 高斯混合模型先抽群別 $z\sim\operatorname{Multinomial}(\phi)$，再依 $z=j$ 抽 $x\sim\mathcal N(\mu_j,\Sigma_j)$。若 $z^{(i)}$ 已知，$\phi_j$ 是第 $j$ 群比例，$\mu_j$ 與 $\Sigma_j$ 是該群樣本的平均與共變異矩陣；但未標記資料看不到 $z$，marginal likelihood 裡出現「先對群別加總、再取 log」，參數彼此纏在一起，沒有同樣簡單的封閉解。
@@ -86,6 +95,10 @@ $$
 ## 自學練習
 
 為一維兩成分高斯混合手算一次 EM。先任選 $\phi_j,\mu_j,\sigma_j^2$，對四個資料點算責任度，再更新均值與混合權重。計算更新前後的 observed-data log-likelihood，確認它沒有下降；換一組初始均值再做一次，觀察最後解是否相同。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

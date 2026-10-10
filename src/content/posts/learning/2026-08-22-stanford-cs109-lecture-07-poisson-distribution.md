@@ -19,6 +19,14 @@ draft: false
 
 官方題名雖是 Poisson，worksheet 前半先補齊上一講的另一半工作：期望值指出分布中心，variance 與 standard deviation 說明它散得多開。接著才用 Poisson 處理「固定區間內發生幾次」。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1：先把 expectation 接回來
 
 每次約會遇到人生伴侶的機率是 `0.2`，彼此獨立，直到第一次成功才停止，則約會人數
@@ -135,6 +143,10 @@ P(X≥1) ≈ 1 - e^-0.01 ≈ 0.00995
 - P4 沒有缺漏；先前判讀是 PDF 跨頁抽取 artifact。
 - Canvas 錄影未公開，不推測其中的額外例子或講者說法。
 - Worksheet 與 guide 各僅兩頁，因此採短材料例外：以逐題完整為準，不用通用段落灌長度；仍維持 `draft: true` 等待獨立審稿。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

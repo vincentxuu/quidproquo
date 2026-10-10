@@ -17,6 +17,14 @@ draft: false
 
 This is part 28 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 27**, taught by Mendel Rosenblum on 2026-06-01 under [Virtual Machines](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); Canvas/Panopto video is inaccessible. SHA auditing shows Lecture 27 differs from adjacent Lectures 26 and 28.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## From process abstraction to machine abstraction
 
 A process sees linear virtual pages, unprivileged CPU state, and calls such as open/read/write, fork, wait, and exit—a subset of the machine. CPU looks similar; memory and files differ substantially.
@@ -84,6 +92,10 @@ Data centers once isolated applications on separate underused machines. One appl
 ## Update history
 
 - 2026-08-22: Rewritten against Lecture 27 through VM abstraction, trap-and-emulate, virtual I/O, memory virtualization, and usage, with adjacent-artifact SHA auditing.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 3 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=qK46ET1xk2A
+title: CS50 AI Week 3 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 3 — official lecture recording](https://www.youtube.com/watch?v=qK46ET1xk2A)
+
+Course and recording entries:
+
+- [CS50 AI Week 3 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/3/)
+
 ## TL;DR
 
 Week 3 solves optimization problems: local search (hill climbing, random restart), simulated annealing accepts worse moves, CSP models variables/domains/constraints, AC-3 filters domains, backtracking with MRV and degree heuristics. Project Crossword generates valid crossword puzzles.
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 3 Optimization (2020 recording)](https://www.youtube.com/watch?v=8M8vLzl4p5M)
+YouTube: [Week 3 Optimization (2020 recording)](https://www.youtube.com/watch?v=qK46ET1xk2A)
 
 | Timestamp | Content |
 |---|---|
@@ -280,6 +295,10 @@ style50 generate.py
 - [ ] Understand why LCV (Least Constraining Value) reduces backtracking
 - [ ] Can explain how Crossword's `overlaps` dictionary encodes binary constraints
 - [ ] Crossword project passes `check50` clean (large test cases solve within time limit)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

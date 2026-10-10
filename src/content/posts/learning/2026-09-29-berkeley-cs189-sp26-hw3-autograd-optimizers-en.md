@@ -29,6 +29,14 @@ This guide is based on the [official HW3 folder](https://drive.google.com/drive/
 
 It follows directly from [Lec 17–18 (neural networks and backprop)](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en). In lecture you watched the chain rule run on a computation graph; HW3 has you turn it into a small working PyTorch. In the notebook's own words, you extend the single-variable autograd from lecture to general tensors, mimicking how `torch`'s autograd is implemented.
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+
 ## First: what you can and cannot get
 
 | Item | Status |
@@ -145,6 +153,10 @@ The optional Q5 is a simplified Muon: approximate the orthogonalization `UVᵀ` 
 - Series navigation: previous, [Lec 17–18](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en); next, [Lec 19–20: initialization, BatchNorm, CNNs, and generalization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: download `hw3.ipynb`, implement only `__add__` and `__mul__` from Q1, build the graph `z = x * y + x`, work out ∂z/∂x = y + 1 by hand, and confirm your graph adds the gradients from both paths.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

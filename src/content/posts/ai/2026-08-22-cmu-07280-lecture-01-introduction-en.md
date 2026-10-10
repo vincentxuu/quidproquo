@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 1: Introduction**. It is not merely a warm-up that arranges AI terms on a timeline. The slides keep returning to one question: when an input is too complex for hand-written rules, how can a system build a useful representation and use it to predict or act?
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf), and [Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf). There is no anonymously accessible lecture recording or transcript, so this article interprets the documents only. It does not reconstruct spoken explanations, activity results, or Q&A.
@@ -74,6 +82,10 @@ When later lectures present closed-form linear regression or CSP algorithms, do 
 1. Read the Notation Guide and write a five-symbol cheat sheet for the notation you do not use fluently.
 2. Describe one familiar AI application in four columns: input, representation, output, and performance criterion.
 3. Open Recitation 1 and formulate only the Tower of Hanoi state and actions before reading the solution.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

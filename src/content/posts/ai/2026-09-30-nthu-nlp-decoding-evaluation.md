@@ -33,6 +33,26 @@ glossary:
 
 先釐清錄影對照。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W7 列同時掛了這份投影片和 Hugging Face 助教課，Topics 欄寫的「Python for text tutorial」是課綱模板，對不上實際內容。我讀了 Week 7 Tue. 的字幕，這一支從開場講解碼一路講到 MMLU，教授在結尾說「今天的講 decoding 跟講評估就到這邊為止」。同週的 [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) 則是播放 Hugging Face 助教課（我在第 5、25、50 分鐘截圖確認畫面是助教投影片），上一篇已經整理過。所以這一講看 W7 Tue. 一支就夠。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=NtPrXea8qSE
+title: Week 7 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4qDUML9TeHM
+title: Week 7 Thu.
+```
+
+原始影片：[Week 7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)、[Week 7 Thu.](https://www.youtube.com/watch?v=4qDUML9TeHM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 場景：訓練時有標準答案，測試時沒有
 
 投影片前 10 頁是回顧。語言模型給定前面的字，預測下一個字的機率 P(y<sub>t</sub> | y<sub>1</sub>, …, y<sub>t−1</sub>)。多了一段來源文字 x 的叫 conditional language model，也就是 seq2seq：翻譯、摘要、對話生成都屬於這一類。
@@ -157,6 +177,10 @@ GLUE 表裡的 STS-B 和 RTE、MNLI 值得多看一眼。上一篇 HW3 做的 re
 - Fall 2026 的這一講還沒公開。依[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，Fall 2025 是 A3（足以自學）。
 
 **系列導覽**：上一篇 [Hugging Face BERT 助教課與 HW3 多輸出學習](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)｜下一篇 [GPT-2／T5 中文摘要實作](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

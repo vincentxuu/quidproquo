@@ -21,6 +21,14 @@ The course website defines its subject in one sentence: systems that use large l
 
 This post is the entry point for the series: first the format and the bar to get in, then the 23-lecture schedule, the three assignments, and the project, and finally how the 27 posts in this series are laid out and where they stand.
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Format: the prerequisite is enforced
 
 Class meets Tuesdays and Thursdays for 80 minutes, with no class during fall break (Oct 12–16) and Thanksgiving (Nov 25–27); Dec 1–3 are final poster sessions. Communication runs through Piazza and submissions through Canvas; readers outside CMU have the public slides, YouTube recordings, and assignment repos on the course site.
@@ -139,6 +147,10 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 Material status as of 2026-09-29: L1–L9 have slides and recordings, L10 and L11 have slides only, and nothing after L12 is public yet.
 
 If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

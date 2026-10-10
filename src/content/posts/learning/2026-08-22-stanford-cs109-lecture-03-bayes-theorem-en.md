@@ -19,6 +19,14 @@ This is article 4 in [Reading Stanford CS109](/series/stanford-cs109), covering 
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda: this lecture is actually about independence
 
 The schedule labels Lecture 3 “Bayes Theorem,” while the current worksheet and navbar center independence and inclusion-exclusion. That source conflict should not be hidden. This guide follows the worksheet agenda and shows how it continues the previous lecture.
@@ -39,6 +47,10 @@ Disjoint events cannot occur together. Independent events leave each other’s p
 - The shared Spring-dated independence page helps explain the schedule/worksheet title mismatch; it is not Summer-specific evidence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

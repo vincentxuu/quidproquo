@@ -18,6 +18,14 @@ This guide reconstructs the lecture from the [official Fall 2025 deck](https://w
 
 Lecture 3 addresses a concrete risk: a ride, course, or reservation agent must not invent unavailable options or execute an undeclared action. Genie Worksheets express task capability as an inspectable declarative specification. The LLM interprets language without freely deciding what the system can do.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda: from dialogue state to runtime
 
 The deck compares finite-state machines, intent-and-slot systems, and LLM agents before defining formal dialogue state. It then develops the rationale and constructs of Genie Worksheets—task and knowledge-base worksheets, fields, confirmation, and actions. The final sections cover the contextual semantic parser, runtime, composition, and offline and real-user evaluation. ([lecture source](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf))
@@ -105,6 +113,10 @@ Before coding, specify a room-booking Worksheet: typed fields, fields requiring 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 There is no public demo recording, and slide excerpts are not a complete language or API specification. This account does not use Autumn 2026 material to fill Fall 2025 gaps.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

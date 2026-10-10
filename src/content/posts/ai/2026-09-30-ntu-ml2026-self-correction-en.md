@@ -17,6 +17,21 @@ draft: false
 
 **This post covers the 4/24 lecture "How to educate a model (2): Self-Correction" from [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 13 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slides [Self-Correction.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Correction.pdf) (65 pages, plus a pptx) and the video [AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://youtu.be/m3i2mk5hs8U) (in Chinese). Access is **A3**: slides and recording are both public.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=m3i2mk5hs8U
+title: Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)
+```
+
+Original videos: [Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)](https://www.youtube.com/watch?v=m3i2mk5hs8U)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The question: can a model fix itself when nobody points out the error?
 
 Tell a model "you're wrong, here's where," and it usually fixes the answer. This lecture asks the harder version: **after the model answers, with no human involved, can it notice the error and correct it on its own?**
@@ -181,6 +196,10 @@ Verified: the text and main figures of all 65 slides (the benchmark scatter plot
 Not verified: the captions render TruthX as "True Facts"; this post follows the slides. Lee mentions a paper showing models critique no better than they generate but says he forgot to put it on the slides, and I couldn't identify it, so there's no link. MTI's 62%→72% and the model names used in RefineBench come from Lee's narration; I didn't check the numbers against the original papers.
 
 Series navigation: Previous [HW5: Finetuning without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en) | Next [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

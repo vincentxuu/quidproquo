@@ -32,6 +32,21 @@ glossary:
 
 用到的官方材料：作業說明 [hw9.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw9.pdf)（前 23 頁是說明，後面是中英兩版題目）、[作業 Colab](https://colab.research.google.com/drive/1R1CNujj6-kVPkl53RQLt5kE7tYVS-Zmp?usp=sharing)（57 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW9 - Flow Matching](https://youtu.be/wAAeuMQ9r5c)。課程頁寫 5/22 公告，截止時間 2026/06/11 23:59:59（UTC+8），不收遲交，成績在 2026/06/14 前公布。助教是林育正、吳岳霖、林禹融、蘇炳揚、陳品睿、江履方。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=wAAeuMQ9r5c
+title: 助教影片：ML 2026 Spring HW9 - Flow Matching
+```
+
+原始影片：[助教影片：ML 2026 Spring HW9 - Flow Matching](https://www.youtube.com/watch?v=wAAeuMQ9r5c)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 存取等級：A3，但沒有官方解答
 
 - **拿得到**：作業 PDF、Colab 起始碼，以及 19 題的完整題目，中英兩版都印在 PDF 裡。
@@ -154,6 +169,10 @@ loss 是 MSE(u, u_target)，而且 target 會先 `detach()`，當成固定的標
 不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。Colab 存檔裡有部分執行輸出，本文刻意不引用任何數值，避免變成答案。官方解答沒有公開。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI 自我成長（下）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)｜下一篇 [HW10：Spoken Language Model](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

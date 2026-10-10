@@ -31,6 +31,14 @@ Stable Diffusion 3、Meta Movie Gen 這類圖片與影片生成器，底層多�
 
 這篇是系列入口，不做任何推導。讀完你會知道這門課教什麼、材料在哪、缺什麼，以及該按什麼順序讀。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 這門課是什麼
 
 課程網站上的正式課名是 **6.S184: Generative AI with Stochastic Differential Equations**，網站標題則是 Flow Matching and Diffusion Models。[labs repo 的 README](https://github.com/eje24/iap-diffusion-labs/tree/2026) 寫的是跨列課號 6.S184/6.S975，註明「as taught at MIT over IAP 2026」。
@@ -139,6 +147,10 @@ Stable Diffusion 3、Meta Movie Gen 這類圖片與影片生成器，底層多�
 - DDPM 視角（時間方向相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 離散擴散語言模型：[CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)
 - 深度學習整體：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -32,6 +32,14 @@ glossary:
 
 [上一篇 HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance) 的特徵都是人手挑的基底。HW3 走完一條線：手工特徵映射 → kernel 讓特徵維度可以無限大 → 神經網路自己學特徵 → 模型和資料該放大多少才划算。本篇逐題說明每題的要求與對應講義，**不給解答**。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## TL;DR
 
 - **Problem 1（30 分）**：多項式 kernel 展開成 6 維特徵、同心圓資料在 `(x₁, x₂, x₁²+x₂²)` 空間變得可分、ridge 改寫成 dual 係數 `α`、再到 RBF kernel 的兩個極限。
@@ -142,6 +150,10 @@ L(N, D) ≈ a / N^α  +  b / D^β  +  L∞
 - 上一篇：[HW2 分類與偏差—變異](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
 - 下一篇：[期中檢核：用官方 checklist 盤點 HW0–HW3](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

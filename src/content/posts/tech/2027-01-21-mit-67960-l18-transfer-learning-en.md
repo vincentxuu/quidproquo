@@ -31,6 +31,22 @@ additionalSeries:
 
 ---
 
+## Course video sources
+
+The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
+title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## Why transfer works
 
 Empirical observation: a network trained on a big dataset (ImageNet 1.2M, LAION 400M, web-crawl text) learns **generic visual features** (edges, textures, color gradients) in its early layers, and only the last few layers bind to the specific task. Moving those mid-level representations to a small-data task (say a few hundred medical images) usually beats training from scratch.
@@ -93,6 +109,10 @@ Practically, **self-supervised pretraining + downstream fine-tuning** already be
 ## Bridge to L19
 
 L19 goes deeper into the PEFT that L18 left as a preview (LoRA math derivation, prefix tuning details), the foundation-model era and in-context learning, and catastrophic forgetting.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

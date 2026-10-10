@@ -34,6 +34,15 @@ glossary:
 
 先說一件讀投影片時會注意到的事：講題是「映射到資料中心」，但 72 頁裡真正講資料中心規模的大約是第 28–44 頁。前面是記憶體入門與資料流硬體，後面是能源與 DRAM。把三段串起來的主題是**資料搬移**——從晶片內、晶片間到整座叢集，瓶頸都是資料送不送得過來。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單（無本講對應影片）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
+
 ## 第一段：HBM 與資料流硬體（第 3–27 頁）
 
 ### 為什麼 GPU 用 HBM
@@ -185,6 +194,10 @@ glossary:
 - LLM 系統的整體圖像：[CME295 LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)
 
 系列導覽：上一篇 [PA4 + Written 3：Trainium2 與 NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)｜下一篇 [L13 領域專用語言與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

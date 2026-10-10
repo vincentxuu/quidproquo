@@ -19,6 +19,14 @@ This is part 16 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 
 Segmentation still allocates variable-size physical regions and externally fragments. Paging divides both virtual and physical spaces into fixed-size chunks: virtual **pages** map to physical **page frames**. The [official PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf) gives 4 KB (“x86 myth”) and 16 KB MacBook examples as course snapshots, not universal specifications.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 1. VPN, offset, and PTE
 
 A virtual address splits into virtual page number (VPN) and page offset. The MMU page map/page table converts VPN to physical page number (PPN) while preserving the offset. A 4 KB page therefore uses 12 offset bits. ([official lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf))
@@ -95,6 +103,9 @@ Paging removes **external fragmentation** between processes because any frame ca
 
 The trade-offs are linked: fixed pages simplify allocation and sparse mappings; multilevel tables save memory but add walks; TLB locality hides walks but creates invalidation/context-switch duties; large pages reduce metadata/TLB pressure but waste more internally. Demand paging later explains how a non-present page is fetched from disk.
 
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,14 @@ draft: false
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 11 講**，官方日期 2025-10-28。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/11-recsys.pdf)整理；講者以投影片署名為準。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+
 ## 材料與缺口
 
 公開材料包含官方投影片與 schedule 的 optional readings。Canvas 錄影、現場 Q&A、板書與 Ed 討論不公開，本文不推測；2021 公開影片不作為 2025 講次證據。
@@ -120,6 +128,10 @@ Pure ID LightGCN 遇到新 user/item 沒 embedding。加入 side features 才可
 Graph recommendation 的結論還要限定 interaction semantics。預測 click 不等於滿意度，預測 purchase 不等於長期價值；官方 deck 的模型比較回答的是 collaborative ranking，不應被擴寫成產品成效。若加入內容、價格或業務規則，需另列 feature availability 與 intervention bias。這個界線避免把離線 link prediction 誤當因果推薦。
 
 先寫出 prediction unit、資料可用時間、negative set 與 metric，再跑模型。圖上的資料洩漏常沿另一種 relation 或未來邊發生，只看程式是否執行成功抓不到。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,15 @@ glossary:
 
 This post answers four questions: what the course teaches, what outside readers can actually get, how the 2026 offering differs from the 2025 one that has public recordings, and how to read this series.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## What the course teaches
 
 The course description opens with this idea: humans, animals and robots have to make decisions in the world, and those decisions change the world they live in. The course is about algorithms that learn behavior from experience. It focuses on practical methods that use deep neural networks to learn from high-dimensional observations.
@@ -166,6 +175,10 @@ These series on the site overlap with CS224R. This series does not cut anything 
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): where the A0–A3 tiers are defined
 
 **Series navigation**: Next: [L1: Framing decision-making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -39,6 +39,26 @@ glossary:
 
 這篇回答一個問題：**沒有 A100 叢集，怎麼微調大模型？**
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
 ## 開場：LLM 時代的 NLP 還能做什麼
 
 投影片開頭引用 CMU Eduard Hovy 在 ROCLING 2024 的演講。第一頁是一段自嘲：「看 LLM 能做什麼！為什麼？不知道／那是未來工作／沒想過」，連問三輪。第二頁給出三個方向：讓 LLM 好用（NLP 工程）、讓 LLM 有用（NLP 應用）、讓 LLM 可理解（NLP 研究）。第一個方向底下的第一項，就是把 LLM 調到特定領域、做出更小更便宜的模型。
@@ -210,6 +230,10 @@ LoRA 在投影片比較表上的優勢是**推論時沒有額外開銷**：訓�
 - 從 prompt 到 LoRA 的高效適應方法：[CS224N 第 8 講：Efficient Adaptation](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
 - 訓練階段的記憶體與參數帳：[CME295 導讀：LLM Training](/posts/ai/2026-09-29-cme295-llm-training)
 - 微調時怎麼不忘記舊能力：[台大李宏毅 ML 2026 導讀：HW5 微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -28,6 +28,22 @@ additionalSeries:
 
 ---
 
+## 課程影片來源
+
+影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=yUh1fEGGdl4
+title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
 ## 重建式不夠時：直接定義「相似性」
 
 L11 的重建式學習是「把輸入壓回去」間接逼出好表示。但很多時候我們關心的就是**兩個樣本像不像**——搜尋引擎、推薦、人臉驗證都是這種需求。這時更直接的做法是**相似性式（similarity-based）表示學習**：不去重建，而去**塑造潛空間的幾何**。
@@ -100,6 +116,10 @@ Wang & Isola (2020) 給了對比表示兩條簡潔的評價準則：
 - **正樣本從哪來**：通常是資料增強（crop、color jitter、mask），增強的強度直接決定學到的不變性。
 
 下一講（L13）會從理論視角看：為什麼架構的歸納偏置（inductive bias）決定了表示長什麼樣，以及寬網路與高斯過程的神祕對應。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

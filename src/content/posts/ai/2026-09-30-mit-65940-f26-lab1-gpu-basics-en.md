@@ -37,6 +37,14 @@ glossary:
 
 **Access level A2 (semester in progress)**: the archive is publicly downloadable, but submissions go through MIT's Canvas, there are no public solutions, and the course page says it isn't taking cross-registered students this semester. The notebook includes a few public test cases for self-checking. This post **doesn't include solutions**.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## What's in the archive
 
 The README's title is "Lab1: Efficient AI Fundamentals", and its acknowledgment credits Zhijian Liu's Z Lab for providing the lab.
@@ -136,6 +144,10 @@ One thing you can do tonight: download the archive and do only 2.1.2, using your
 - Same series: [L13 LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en), [Lab 4 + Lab 5](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en), [L11 TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 - GPUs and kernels: [CS336 GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en), [CS336 kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en), [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 - FlashAttention: [CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -19,6 +19,14 @@ draft: false
 
 這是 Winter 2026 一份只有 55 行抽取文字的短 deck，不是一堂公開材料完整的 cache architecture 課。本文忠實說清投影片提出的 memory hierarchy、temporal locality 與 spatial locality，再把它們轉成可驗證的程式設計問題；不自行補入 cache line 大小、associativity、replacement policy、寫入策略或特定處理器 latency。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -89,6 +97,8 @@ Lecture 25 的價值正是克制。它沒有要求背一張硬體參數表，而
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-22：補回第 3 頁 cache 成本思考題及計算，並記錄第 5 頁 `cache.c` demo 的公開材料缺口。
 
 ## 參考資料

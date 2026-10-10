@@ -31,6 +31,26 @@ The [previous post](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) e
 
 The two decks are separate rows on the [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), but the first nine pages of the Transformer deck review the Attention deck, so this post reads them together.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=FLNSD3zykgE
+title: ADL 4.1: Attention Mechanism
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=c0O9s6MCFys
+title: ADL 4.2: Self-Attention & Transformer
+```
+
+Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer](https://www.youtube.com/watch?v=c0O9s6MCFys)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## Step one: why translation needs attention
 
 ### Starting from human attention
@@ -185,6 +205,10 @@ One thing to try tonight: write a self-attention in under 20 lines of NumPy, wit
 
 - The same material at Stanford: [CS224N Lecture 5: From Recurrence to the Transformer](/posts/ai/2026-08-22-cs224n-transformers-en), [CME295 Lecture 1: From Tokens to Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
 - The line-by-line implementation the slides cite: [The Annotated Transformer (Sasha Rush)](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

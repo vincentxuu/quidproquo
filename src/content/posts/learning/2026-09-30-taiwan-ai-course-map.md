@@ -32,6 +32,19 @@ glossary:
 
 這篇用一份官方清單把它們串起來：TAICA 臺灣大專院校人工智慧學程聯盟每學期公布的開課清單。分級沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3。A0 只有課表，A1 有課綱，A2 有部分實質教材或錄影。A3 則是教材加作業，足以排成連貫的自學路線。這是本站的編輯分級，不代表有學分或助教批改。台大的課請看台大那篇，這裡不重複。以下公開狀態以 **2026 年 9 月 30 日**的查核為準。
 
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
+- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+- [作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
+- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [人工智慧導論](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
+- [Lectures 頁](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
+
 ## TAICA 是什麼：一份會告訴你「課在哪裡直播」的清單
 
 [TAICA 首頁](https://taicatw.net/)的「計畫緣起」說，這是教育部成立的聯盟。它用跨校的人工智慧學程整合教學資源，讓 AI 師資充足的大學輔佐師資不足的學校。聯盟自 113 學年度起運作，首頁寫到 113 學年度第 2 學期已有 55 所大專校院加入。學程分成探索應用、工業應用、自然語言技術、視覺技術等幾類，網站選單後來又多了資訊安全技術學程。
@@ -164,6 +177,8 @@ TAICA 的[人工智慧資訊安全技術學程](https://taicatw.net/artificial_i
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-10-05：修正林俊叡《大型語言模型與資訊安全系統》的定位（主軸是用 LLM 做資安，不是保護 AI）；新增「AI 資安課」一節，整理 TAICA 資安學程的開課現況，以及中正、成大、陽明交大、台大的 AI 資安課。
 
 ## 參考資料

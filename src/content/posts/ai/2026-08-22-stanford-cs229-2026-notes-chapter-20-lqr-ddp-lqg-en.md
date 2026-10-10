@@ -17,6 +17,15 @@ series:
 
 This article reads Chapter 20, printed pages 244–257, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains how structured control problems are solved and approximated without reproducing every Riccati or Gaussian-conditioning proof.
 
+## Course video sources
+
+This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+
+Course and recording entries:
+
+- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
 ## Finite-horizon dynamic programming works backward
 
 A finite-horizon problem may have time-dependent dynamics, rewards, and policies. It starts with terminal value and recurses backward:
@@ -84,6 +93,10 @@ Chapter 19 introduced general MDPs and continuous-state approximation. This chap
 ## Exercise
 
 Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the optimal action should be proportional to \(s_t\) with the opposite sign. Then add \(y_t=s_t+v_t\) and draw the data flow among Kalman predict, Kalman update, and the LQR action.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

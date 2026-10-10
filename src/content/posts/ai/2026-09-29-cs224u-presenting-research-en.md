@@ -23,6 +23,15 @@ The 2023 [schedule](https://web.stanford.edu/class/cs224u/) put this lecture in 
 
 **Access (A3, historical edition):** the slides, videos, projects.md, and most of the schedule's readings are public. The past example papers linked on slide 3 (`restricted/past-final-projects/`) redirect to a Stanford login. Also, the schedule's link to David Goss's "hints on mathematical style" returned 404 when checked on 2026-09-29.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
 ## Part 1: course-specific rules for the final paper
 
 The three grading axes (appropriate metrics, strong methods, honesty about limits) are in the [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en); slide 4 only restates them. What's new here are three rules.
@@ -188,6 +197,10 @@ Take something you wrote recently (a design doc, a blog post, a report) and run 
 - Next in the series: [Reading Stanford CS224U, Part 17: Two Extension Lectures](/posts/ai/2026-09-29-cs224u-guest-lectures-en)
 - Context for dataset trade-offs and Datasheets: [CS224U Methods and Metrics II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
 - The final-project part of the site's CS224N series: [CS224N Lecture 6: Turn a Final Project into a Testable Question](/posts/ai/2026-08-22-cs224n-final-projects-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

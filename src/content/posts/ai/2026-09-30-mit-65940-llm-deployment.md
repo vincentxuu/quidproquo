@@ -39,6 +39,21 @@ glossary:
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)把第 13 講（10 月 27 日）改名為「LLM Quantization and Deployment」，截至 2026-09-30 投影片與錄影還沒上線，無法比對內容。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=sTz2tXG1T0c
+title: 第 13 講錄影（YouTube）
+```
+
+原始影片：[第 13 講錄影（YouTube）](https://www.youtube.com/watch?v=sTz2tXG1T0c)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 這一講在解什麼
 
 [第 12 講](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)留下一個事實：LLM 生成時一次只吐一個 token，每吐一個都要把整個模型的權重從記憶體搬一次。這一講把「讓它變快、變省」的方法整理成三條路，第 2 頁的 Lecture Plan 就是全講地圖：
@@ -206,6 +221,10 @@ QServe 的兩個對策：
 - 同系列：[L12 Transformer 與 LLM](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)、[L6 量化 II（PTQ 與 QAT）](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 - 推論與 serving：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)、[CMU 11-868 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)、[CMU 11-868 LLM serving（SGLang 與 vLLM）](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)、[CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)
 - MoE：[CMU 11-868 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

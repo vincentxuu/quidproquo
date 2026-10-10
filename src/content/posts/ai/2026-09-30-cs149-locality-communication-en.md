@@ -31,6 +31,22 @@ The official source is the [Lecture 6 slide PDF](https://gfxcourses.stanford.edu
 
 Of the three goals from the previous post, this one tackles the second: **reduce communication**.
 
+## Course video sources
+
+This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=Mhdny2JNhmc
+title: CS149 2023 Lecture 6 recording (supplement)
+```
+
+Original videos: [CS149 2023 Lecture 6 recording (supplement)](https://www.youtube.com/watch?v=Mhdny2JNhmc)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
+
 ## A shared address space is only an abstraction
 
 So far the course has assumed all processors connect to one memory system that presents a single shared address space. Lecture 6 starts by reminding you that implementing this abstraction is complicated. A single "load the value at address X into R0" may pass through several cache levels before reaching DRAM.
@@ -200,6 +216,10 @@ Confirmed: the contents of the Lecture 6 slide PDF and the lecture date. The num
 Further reading: for cache and memory-hierarchy basics, start with [CS107 on caching and the memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy-en). For the same bandwidth-and-fusion thinking on GPUs, compare [CS336 on GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous, [Lecture 5: work distribution and scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) | next, [PA2: building a task execution library from scratch](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -22,6 +22,14 @@ Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **
 
 這篇只講每題在考什麼、需要回頭看哪一講、哪裡容易卡住。**不附任何答案。** HW1–4 沒有公開的官方解答，而且 [Syllabus](https://eecs189.org/sp26/syllabus/) 的 GenAI 政策明文禁止把作業題目貼進 GenAI 工具，修課學生請不要把這篇當成解答來源。
 
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## 官方材料與讀取範圍
 
 排程上 HW2 的 Assignment 連到一個 [Drive 資料夾](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm)，裡面只有兩個檔案：
@@ -115,6 +123,10 @@ Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **
 1. 下載 `hw2_student.tex`，先寫第 4 題 MLE vs MAP，確認你能把後驗整理回 Beta 分布的形式。
 2. 打開 Chatbot Arena 論文，只讀 introduction，試著用自己的話回答第 1 題的 a 到 d。
 3. 動第 9 題前，先用 NumPy 做個小實驗：從高斯加 5% Cauchy 抽樣，跑 k = 1 的 k-means，看中心會不會亂跳。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

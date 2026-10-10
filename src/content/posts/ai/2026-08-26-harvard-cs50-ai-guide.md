@@ -19,6 +19,15 @@ draft: false
 
 但「材料全開」不等於「材料是最新的」。打開任何一講的下載連結，你會發現路徑寫著 `cdn.cs50.net/ai/2020/spring/`——影片是 2020 年春天錄的。這篇要回答的問題因此有兩個層：這七週和十二個 projects 到底在做什麼；以及一份 2020 年的錄影，放在 2026 年還值不值得跟。
 
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
 ## 先判斷它是不是你要的課
 
 官方頁面把先修條件寫得很清楚：修過 [CS50x](https://cs50.harvard.edu/x)，或至少一年 Python 經驗。沒有要求線性代數或機率——需要機率的地方，課程會在第二週自己教。
@@ -113,6 +122,8 @@ draft: false
 
 ## 更新紀錄
 
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 - 2026-08-26：初版。錄影與作業版本狀態以 2026 年 8 月 26 日官網查核為準。
 
 ## 參考資料

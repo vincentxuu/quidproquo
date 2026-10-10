@@ -30,6 +30,21 @@ glossary:
 
 用到的官方材料有四份：[錄影 06](https://www.youtube.com/watch?v=m6DFB60Tk68)（2025-03-25，約 3 小時 4 分）、投影片 GenAI06（57 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04】用OpenAI_API打造員瑛式思考生成器`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第六週作業。存取等級是 **A3**：錄影、投影片、範例 notebook 與作業說明都公開，但 notebook 是跨課共用的 repo，**以下引用的是 repo 目前版本，學期結束後可能已更新**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=m6DFB60Tk68
+title: 【生成式 AI】06.大型語言模型（LLM）的應用及倫理議題的挑戰（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】06.大型語言模型（LLM）的應用及倫理議題的挑戰（YouTube 錄影）](https://www.youtube.com/watch?v=m6DFB60Tk68)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 錄影 06 分三節。第一節（約 0:16–1:01）講新模型與倫理，第二節（1:11–2:01）講 prompt 設計並現場寫程式，第三節是學生閃電秀與第三週作業講評。投影片也照這個順序分成三段：「LLM 問題和討論」「下好 prompt 客製化你的 LLM」「用 OpenAI API 打造自己的對話機器人」。
@@ -193,6 +208,10 @@ reply = chat_completion.choices[0].message.content
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L05 Transformers 全攻略](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)｜下一篇：[L07 打造自己的對話機器人](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

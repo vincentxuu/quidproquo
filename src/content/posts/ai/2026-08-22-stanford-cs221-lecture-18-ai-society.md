@@ -17,6 +17,15 @@ draft: false
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 18**，2025-11-19 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society)。以下依 `main()` 的可執行順序閱讀，不把它擴寫成一篇泛論 AI 倫理；材料沒有提供的數據和結論會保留為缺口。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的問題
 
 ### 從技術面轉向社會面
@@ -184,6 +193,10 @@ OpenAI 2016 年 CoastRunners 案例中，目標是讓船競賽，reward 卻是�
 ## 材料缺口
 
 本文以 `society.py` 與原有官方連結為主，並在有必要的地方補上可核對的權威來源。官方講義與影片公開；Canvas 互動、作業解答、隱藏測資不公開。因此沒有替 GenderShades、全球 reward 差異、胸腔引流管、FMTI 或法律爭議補上未提供的數據，也沒有把規範方向寫成已證明的因果結論。材料列出案例和策略，卻沒有完整公平定義、全面部署規則或每項策略的成效比較；法律段落也只描述美國法的幾個重要分界，不能當成跨國法律意見。這些保留為缺口。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 11: Scaling — case study and deta
 
 Lecture 9 explains scaling-law principles. This lecture inspects how public teams implement them. Choosing model size and token count is not enough; initialization, learning rate, batch size, and schedules must remain comparable as scale changes.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=vTfEyOyzV9E
+title: CS336 Spring 2026 Lecture 11: Scaling Laws
+```
+
+Original videos: [CS336 Spring 2026 Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Public recipes share a common skeleton
 
 MiniCPM, DeepSeek, Qwen, and Llama 3 differ in details but follow a practical sequence. Treat most Transformer architecture ratios as approximately scale-invariant, sweep learning rate and batch with small models, then use IsoFLOPs or joint fitting for parameter/data allocation.
@@ -58,6 +74,10 @@ Lecture 11's conclusion is deliberately unglamorous. Scaling laws do not remove 
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its public recipes, optimizer scaling, and μP sections.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

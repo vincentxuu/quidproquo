@@ -40,6 +40,26 @@ glossary:
 
 這一講沒有對應的作業，[存取分級](/posts/ai/2026-09-30-ntu-adl2025-course-overview)沿用系列的 A2：講義與影片都公開，這一講本身沒有缺口。同一週的助教課 LLM Inference & Evaluation 放在本系列的[助教課篇](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=1d9WhPS6gv8
+title: ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=agHrC93u7w8
+title: ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）
+```
+
+原始影片：[ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control 控制輸出內容的特性（YouTube）](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation 評估語言生成的結果（YouTube）](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG 進一步提升語言生成結果（YouTube）](https://www.youtube.com/watch?v=Ly67whCaS4M)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 從語言模型到 conditional LM
 
 講義第 3 頁先列出含有生成的任務：機器翻譯、抽象式摘要、對話、看圖說故事、創意寫作。第 4–7 頁把它們統一成同一個問題。
@@ -176,6 +196,10 @@ Beam size 的取捨在第 22 頁有個好例子：對一句「我主要吃生食
 
 上一篇：[RAG＋HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)
 下一篇：[偏見、安全、幻覺與對齊＋期末專題](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

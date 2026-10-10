@@ -45,6 +45,21 @@ The learning goals are specific: how to represent distributions with neural netw
 
 The schedule lists two optional readings for this lecture: [Diffusion Policy (Chi et al.)](https://arxiv.org/abs/2303.04137v5) and [Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (Zhao et al., i.e. ALOHA/ACT)](https://arxiv.org/abs/2304.13705).
 
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=WxRDyObrm_M
+title: Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
 ## Problem one: the mean is not the answer
 
 L1 ended here: discrete actions can use a categorical distribution, which is maximally expressive. For continuous actions, a network that outputs μ and σ gives a single-peaked Gaussian, which is not expressive enough.
@@ -203,6 +218,10 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 - [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en): the same noise-and-denoise framework applied to language models
 
 **Series navigation**: Previous: [L1: Framing decision-making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en) | Next: [HW1: Imitation learning on Flappy Bird](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -36,6 +36,22 @@ glossary:
 
 L4 的標題是 **Model Free Control and Function Approximation**，一講裡做了兩件事：先在表格設定下把 policy iteration 搬到沒有模型的世界，再把表格換成參數化的函數。投影片列的讀物是 [Sutton & Barto](http://incompleteideas.net/book/the-book-2nd.html) 5.2–5.4、6.4、6.5、6.7 節，結構參考 David Silver 的第 5、6 講。投影片第 2 頁放的是 Atari 上的 deep RL，先讓你知道這一講的終點在哪。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」
+```
+
+原始影片：[Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 把 policy iteration 搬到沒有模型的世界
 
 有模型時的 policy iteration 是「評估 → 貪婪改進」反覆做。L4 p.17 指出，沒模型時有三個地方要改：
@@ -179,6 +195,10 @@ L4 p.78 的「What You Should Understand」（DQN 那一條留到下一篇）：
 
 - 同一套 Q-learning 在 CS221 的入門講法：[CS221 第 8 講：強化學習與 Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)
 - 深度 RL 課程裡的 value-based 方法：[Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

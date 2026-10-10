@@ -19,6 +19,14 @@ draft: false
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda：從列結果到公理
 
 第一題用三次擲硬幣固定「事件是樣本空間的子集合」。八個序列是等可能的原子結果；「至少兩次正面」包含 HHH、HHT、HTH、THH，「第一次反面」包含 THH、THT、TTH、TTT。兩事件交集是 THH，因此不是互斥。這個小題同時要求三個動作：完整列出樣本空間、把自然語言翻成集合、用交集判斷互斥，而不是看兩句話聽起來是否衝突。
@@ -39,6 +47,10 @@ draft: false
 - Spring-dated 共用 welcome 頁可核對樣本空間與公理用語，但不能證明 Summer 課堂流程。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

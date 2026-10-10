@@ -40,6 +40,15 @@ glossary:
 
 > **先說一個順序問題**：第四題 best arm identification 用的是 bandit 的概念，課堂上要到 L9 才教，本系列放在下一篇 [order 13](/posts/ai/2026-09-30-cs234-bandits-regret-ucb)。建議 Q1–Q3、Q5 先做，Q4 等讀完下一篇再回來。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 時程、繳交與配分
 
 依 [2026 課表](https://web.stanford.edu/class/cs234/)，作業三在 Week 5（Feb 2–8，期中考那週）發下，Week 7 的 **2 月 20 日下午 6 點**截止，最多可用 2 個 late day。題目 PDF 抬頭寫的是「Feb 20, 2025」，跟 Winter 2026 的課表年份對不上，應該是沿用舊版抬頭；日期以作業頁為準。
@@ -214,6 +223,10 @@ x 是情境（狀態），y_w 是被偏好的動作（LLM 裡就是回應），y
 - 同一套 RLHF／DPO 在 CS224R 的講法（深度 RL 與 LLM 視角）：[CS224R L9：RLHF、DPO 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 - SFT 與 RLHF 在 LLM 訓練管線裡的位置：[CS336 Lecture 15：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - 探索與開放問題的另一條路線：[Berkeley CS285 L19–25：探索、RL 理論與開放問題](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

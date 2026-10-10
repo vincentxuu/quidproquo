@@ -19,6 +19,14 @@ draft: false
 
 Lecture 9 organizes the traps as “Seven Commandments of C Strings.” For every expression, ask whether it is an array object or pointer value, where the characters live, whether storage is mutable, and whether the pointer may be redirected.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -247,6 +255,10 @@ Third, prove bounds and lifetime. Pointer arithmetic is defined only within one 
 During review, annotate each `char *` with source object, mutability, known capacity, and lifetime. If one field is guesswork, the interface lacks information or a documented precondition.
 
 Lecture 9 does not erase the array-pointer distinction; it explains their cooperation. An array provides contiguous storage, conversion provides a first-element address, pointer arithmetic navigates, and dereference accesses an element. Separating those steps keeps `arr[i]` convenience from hiding its memory contract.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

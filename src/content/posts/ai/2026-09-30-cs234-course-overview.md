@@ -28,6 +28,15 @@ glossary:
 
 這篇回答五個問題：這門課教什麼、要先會什麼、校外讀者實際拿得到什麼、2026 教材和 2024 錄影怎麼搭、10 週要怎麼排。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 這門課教什麼
 
 首頁的課程描述開頭是：要實現 AI 的影響力，需要能學會做好決策的自主系統，而強化學習是其中一個有力的方法。這門課要給 RL 一個扎實的入門，核心挑戰與方法包括 generalization 和 exploration。作業涵蓋 RL 基礎、deep RL，以及 RL from human feedback 的基礎訓練。
@@ -221,6 +230,10 @@ Tutorials 是 2026 版的新設計。[第一講投影片](https://web.stanford.e
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [RL 是什麼、MDP 的語言](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ draft: false
 
 這篇讀完了課程官網、四個學年的 ExploreCourses 條目、公開的十四份講義與兩份作業 PDF。涵蓋改名前後的差異、課程主張什麼、作業真正的門檻在哪、自學者實際拿得到多少。**不包含**逐篇論文精讀，也不包含新學年的課綱——那份還沒上線。想先看這門課在整條 Stanford CS 階梯的哪一格，可以回[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## 這門課的硬事實
 
 授課者是 [Monica Lam](https://suif.stanford.edu/~lam/)，Stanford CS 系教授、美國國家工程院院士、ACM Fellow，也是編譯器「龍書」的共同作者。她主持 [Open Virtual Assistant Lab（OVAL）](https://oval.cs.stanford.edu/)，這門課的教材幾乎就是這個實驗室的成果目錄。自 2022 年起每年秋季開，PI 一直是她。
@@ -121,6 +129,10 @@ Genie Worksheets 是這門課的核心工具，也是課程立場的體現：你
 - **講義引用的系統數字**（皆出自第一堂投影片，非本文獨立查證）：WikiChat 英文事實正確率 97%、支援 25 種語言；SPINACH 部署在 Wikidata 查詢論壇，1700 次對話、198 個抽樣的成功率 78%；Genie Worksheets 準確率 80%，對照組 GPT-4 function calling 為 0–10%；STORM 有 80 萬名自然使用者、寫出 140 萬篇文章。
 - **11 月 12 日那堂的 NLP building blocks**：講的是 CHURRO，一個 3B 參數的歷史文獻辨識視覺語言模型，論文收錄於 [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1763/)。
 - **未能確認的項目**：（1）改名的官方理由——ExploreCourses、課程網站、OVAL 網站三處都沒有任何說明；（2）2026 年秋季是否沿用 2025 年的作業與閱讀清單，新課綱尚未上線；（3）2026-2027 條目目前只列 Monica Lam 一人，助教名單尚未公布，無法判斷是否有異動。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

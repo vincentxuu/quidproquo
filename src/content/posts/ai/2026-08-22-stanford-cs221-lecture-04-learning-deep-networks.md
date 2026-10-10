@@ -19,6 +19,15 @@ draft: false
 
 > 材料缺口：PyTorch 可執行示例公開；實際課堂錄影另見官方播放清單。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
 ## 這一講的路線
 
 官方可執行檔案的入口是 `main()`：先回顧 NumPy、手寫計算圖與 PyTorch，再依序走過非線性動機、線性 MLP、多層感知器、深網、殘差、layer normalization、初始化和 optimizer。順序是先說清楚值如何沿圖計算，再處理深度帶來的訓練穩定性問題。
@@ -70,6 +79,10 @@ PyTorch 已提供 `nn.Linear`、`nn.CrossEntropyLoss` 和 `torch.optim.SGD`。�
 第三個方法是 proper initialization。來源令 `input_dim=16384`、`output_dim=32`，以常態權重和輸入做 `y=x@w`；每個 `y` 元素按 `sqrt(input_dim)` 的尺度放大，可能造成梯度爆掉。將權重除以 `sqrt(input_dim)` 讓尺度不依賴 input dimension；來源把它連到 Xavier initialization，並把常態分布截斷在 `[-3,3]` 避免 outlier。原始資料是 Glorot and Bengio 2010。
 
 第四個方法是 stochastic optimizer。全資料 gradient 需加總所有 examples，大資料集上每次更新太昂貴，因此每步抽子集，得到 unbiased estimate。來源用四個梯度 `[1,2]、[3,4]、[5,6]、[7,8]`，先算全體 mean，再固定 seed 1、取 batch size 2 的 indices，計算抽樣 mean。實作上每個 epoch 先 permute，再切 consecutive chunks，最後比較 batch mean 的平均與全體 gradient；並提示可用 Adam 取代 SGD。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

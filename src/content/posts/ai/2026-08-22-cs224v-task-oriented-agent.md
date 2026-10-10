@@ -18,6 +18,14 @@ description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態�
 
 第三講處理一個很實際的風險：叫車、選課或訂位 agent 不能憑語感補出不存在的選項，也不能執行規格外動作。Genie Worksheets 的做法是把任務能力寫成可檢查的宣告式規格，讓 LLM 處理語言理解，卻不讓它自由決定系統能做什麼。
 
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+
 ## Agenda：從對話狀態到完整 runtime
 
 講義先比較有限狀態機、intent／slot 架構與 LLM agent，再建立 formal dialogue state。中段說明 Genie Worksheet 的設計理由與語法：task worksheet、knowledge-base worksheet、欄位、確認與動作。後段才進 contextual semantic parser、runtime、worksheet 組合，以及離線與真人評估。 ([講義來源](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf))
@@ -121,6 +129,10 @@ Worksheet 不是零成本抽象。每個 domain 都要定義 fields、relations�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片沒有課堂 demo 錄影，部分語法頁也不是完整語言規格；本文不把投影片片段當成可直接執行的 API 文件。Autumn 2026 新課綱沒有用來補這堂 Fall 2025 內容。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

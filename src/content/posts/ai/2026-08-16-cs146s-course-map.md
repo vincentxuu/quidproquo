@@ -28,6 +28,14 @@ Stanford 有一門叫 [CS146S: The Modern Software Developer](https://themoderns
 
 這個系列會照 Fall 2026 的十週逐篇拆。這是第一篇，先把課程本身講清楚，再把兩版大綱擺在一起比。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 這門課的硬事實
 
 課程官網把 syllabus 塞在前端 chunk 裡，不在 HTML 原始碼中，所以以下數字是從課程網站實際資料物件讀出來的：
@@ -136,6 +144,10 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 - 課程行銷語言裡的「世界第一門這類課」「10x productivity」、以及電子報宣稱的「trusted by 32K developers globally」都屬於課程自述，沒有獨立第三方查證
 - 兩版大綱的比較是我從課程網站的資料物件逐項對出來的；官方沒有發布 changelog
 - 本系列引用的課堂內容全部來自 Fall 2025 投影片。Fall 2026 開課後那幾堂可能講得不一樣
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -24,6 +24,14 @@ The thing worth looking at isn't the syllabus. It's the column next to it. On th
 
 This piece was written after downloading those PDFs and reading them page by page, then cross-checking the course website, the [honor code handout](https://web.stanford.edu/class/cs109/handouts/honorCode.html), the syllabus, the lecture pages and the ExploreCourses entry. It covers the course's hard rules, the actual shape of that AI coursework and what it explicitly forbids, what the problem sets look like, and how much a self-learner really gets. It does **not** teach probability — that's the course's job, not a reading guide's. The layer above this one is the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map); this piece doesn't repeat that map's ordering.
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## The hard facts
 
 Summer 2026 is taught by [Chris Gregg](https://web.stanford.edu/~cgregg/chris-gregg/), Monday through Thursday mornings in CoDa B80. The course runs again in all three quarters of the coming academic year, under three different instructors: Gregg in autumn, [Chris Piech](https://stanford.edu/~cpiech/bio/index.html) in winter, Jerry Cain in spring. The autumn section has an enrollment cap of **999** (all from the ExploreCourses entries; the query method and the other two caps are in the appendix). With the summer offering, that's four times a year. Nobody is stuck waiting for a seat.
@@ -156,6 +164,10 @@ To keep going, treat the `worksheets/` directory as your main line: for each lec
 - **The honor code Rule 4 quote**: the original reads "LLMs do leave tell tail probabilistic distributions in their output." `tell tail` is presumably `tell-tale`; the quote is reproduced above exactly as published.
 - **A date typo on the homepage schedule**: the homepage's "This Week in CS109" labels June 25 as Tue, while the schedule lists that same lecture on Thu. Trust the schedule.
 - **Three things that could not be confirmed**: (1) whether Summer 2026 has six or seven problem sets — the schedule lists through Pset #6, while the syllabus and the sidebar menu both say seven, and psetapp requires a login so it can't be checked; (2) which quarter the LLM Learning Guide first appeared in — the archived Autumn 2024, Winter 2025 and Summer 2025 pages have no such column, but the archives are incomplete, so Summer 2026 can't be declared the first; (3) what the 25% in-class work is actually made of — the syllabus paragraphs on discussion sections and one-on-one pre-exam meetings are commented out on the live page, and it's unclear whether the summer offering still runs them.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

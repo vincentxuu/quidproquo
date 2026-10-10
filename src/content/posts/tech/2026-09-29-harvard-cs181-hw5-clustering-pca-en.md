@@ -30,6 +30,14 @@ This is part 9 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harva
 
 Through HW4, every assignment had labels: temperatures, loan decisions, image classes. HW5 is titled "Clustering, PCA, SSL," and all four problems drop the labels. This post covers the last two (Problem 3 clustering, Problem 4 PCA), the classical methods that come first in the lecture order. Problems 1–2, SimCLR and GANs, are in the next post.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [harvard-cs181 — official course materials and recording index](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
 ## Where HW5 sits in the 2026 schedule
 
 | Item | Official source |
@@ -130,6 +138,10 @@ One detail: the K-means objective is computed on `large_dataset` (5000 images), 
 
 - [Stanford CS229 notes, chapter 10: clustering and k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means-en), which revisits K-means as alternating optimization.
 - [Berkeley CS189 Spring 2025 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), for how another university ML course schedules unsupervised learning.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -17,6 +17,15 @@ draft: false
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 18**, taught by Percy Liang on 2025-11-19. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society). It follows the executable order of `main()` rather than turning the lecture into a generic essay. Claims not supplied by the artifact remain gaps.
 
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
 ## The lecture's problem
 
 ### From technical to societal aspects
@@ -184,6 +193,10 @@ The practical tools are multiple metrics across subpopulations, third-party audi
 ## Material gaps
 
 This article uses `society.py` and the existing official links as its base, adding authoritative sources inline where needed. The official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are not. No unprovided numbers were added for GenderShades, global reward differences, chest-drain images, FMTI, or legal disputes, and normative directions were not rewritten as proven causal conclusions. The artifact names cases and strategies but supplies no complete fairness definition, comprehensive deployment rules, or comparative effectiveness results for every strategy. The legal discussion is also limited to selected U.S. distinctions, not cross-jurisdiction legal advice. Those remain gaps.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

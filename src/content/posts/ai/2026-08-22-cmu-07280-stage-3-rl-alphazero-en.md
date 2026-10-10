@@ -19,6 +19,14 @@ Earlier stages usually begin with answers supplied by a dataset: search has a go
 
 Stage III moves from MDPs through value iteration, Q-learning, and function approximation, then combines MCTS with self-play in Building AlphaZero. Public worksheets, some solutions, and assignment links remain available, but there is no complete public recording set. The old direct HW12 PDF also returned 404 during this audit, so this review limits claims to the anonymous official course page and Recitation 14 rather than implying access to the complete grader.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## An MDP makes uncertainty explicit
 
 A Markov decision process specifies states `s`, actions `a`, transitions `P(s'|s,a)`, rewards `R`, and discount `γ`. The Bellman optimality equation separates long-term value into immediate reward and the best value available next:
@@ -73,6 +81,10 @@ An independent implementation should begin with tic-tac-toe or a reduced Connect
 You should distinguish environment rewards, value estimates, and search statistics; calculate one Q-learning update; and explain why `π_t` is a search-generated target rather than a label directly supplied by the environment. Most importantly, you should be able to draw the entire path from self-play data back into the network.
 
 At that point the course closes its loop. Lecture 2's search has not been discarded by machine learning; it returns inside AlphaZero. The neural network is no longer merely a classifier but a prior and evaluator for search.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

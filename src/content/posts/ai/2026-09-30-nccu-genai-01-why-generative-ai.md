@@ -30,6 +30,21 @@ glossary:
 
 第一講的標題是「為什麼要研究生成式 AI？」。它有三件事：說明這門課怎麼上、回答為什麼要花時間學原理、讓每個人在 Colab 上跑出第一張圖。對程式基礎不多的讀者，第三件事最重要，因為接下來 13 講的作業全部在 Colab 上完成。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=4BRBxy0EMT8
+title: 【生成式 AI】01. 為什麼要研究生成式 AI？（課程介紹）
+```
+
+原始影片：[【生成式 AI】01. 為什麼要研究生成式 AI？（課程介紹）](https://www.youtube.com/watch?v=4BRBxy0EMT8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 這一講在課程中的位置
 
 依錄影說明欄的分段，三節課大致這樣分：
@@ -200,6 +215,10 @@ interact(draw, n=(1., 10.))
 - 課程歸屬、評分版本與完整作業表：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
 - 另一門也用 Colab 從零開始的台灣課程：[台大李宏毅 機器學習 2026 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 - 各校課程公開程度的比較：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

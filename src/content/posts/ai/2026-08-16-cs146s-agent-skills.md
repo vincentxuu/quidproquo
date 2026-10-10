@@ -27,6 +27,14 @@ draft: false
 
 這一週在 Fall 2025 完全不存在——那時 Agent Skills 還沒發表。
 
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
+
 ## 規格小得有點可疑
 
 Anthropic 在 [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)（2025 年 10 月）給的定義是：
@@ -120,6 +128,10 @@ Anthropic 給的四條開發建議，濃縮起來是：
 - 「web skills」是 Fall 2026 syllabus 的用詞，課程尚未公布具體定義
 - Agent Skills 成為跨平台標準後各家實作進度不一，能不能直接搬要個別確認
 - 本站 repo 的 skill 數字是 2026-08-16 當下的狀態
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

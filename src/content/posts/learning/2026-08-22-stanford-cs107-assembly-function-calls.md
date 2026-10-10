@@ -19,6 +19,14 @@ draft: false
 
 這份契約的價值在於 separate compilation：caller 不必讀懂 callee 每一行，只要雙方遵守同一 ABI，就能交換 data、恢復 control，並知道哪些 registers 可能改變。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料、缺口與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -191,6 +199,10 @@ ABI 的 register table還包含 `%rsp` 必須維持 stack discipline，以及各
 7. Function pointer 的 indirect target 要沿 register/memory data flow 追來源。
 
 Lecture 19 的核心是三份契約同時成立：control 由 return address 接回去，data 依 parameter/return locations 交換，memory 與 registers 依 ownership 規則恢復。這些契約足以解釋獨立編譯的 functions 為何能互相呼叫；heap 與後續 privacy 議題不需要被提前塞進來。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -19,6 +19,14 @@ draft: false
 
 先說清楚材料邊界：官方 component **只提供 52 頁 slides，沒有 lecture notes**。本文只使用[官方 slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf)與[component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md)，沒有觀看 Canvas 錄影，也沒有拿其他學期 notes 補洞。下列公式、例子與限制都以 slides 為界。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
+
 ## 十七講濃縮成十三張回顧
 
 Slides 用 `What just happened?` 回顧前 17 講，將它們壓成 13 張主題頁。主線不是背過多少名稱，而是把 rigor 與 intuition 放在一起：設計演算法、證明 correctness、分析 worst-case runtime，並用 big-O 表達成長。
@@ -106,6 +114,10 @@ Slides 提到 Master Method、randomized QuickSort、Bellman–Ford、Floyd–Wa
 後續學習可以沿三條線走：最佳化課程補齊 LP algorithms 與 duality theorem；coding theory 補 finite fields、distance 與 decoding bounds；learning-augmented algorithms 研究預測錯誤時的 robust guarantees。這些是由 slides 指向的路線，不是本講已教授內容。
 
 若把整個系列當複習索引，最好的使用方式是先從這篇選工具，再回對應 lecture 查完整 proof。Lecture 18 的價值是地圖，而不是把每條路壓成一頁捷徑。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

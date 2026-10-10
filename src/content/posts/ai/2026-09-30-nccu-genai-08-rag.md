@@ -28,6 +28,21 @@ glossary:
 
 這一講的 notebook 版本落差特別明顯，下文會逐一標出：**repo 目前版本和錄影畫面已經不同**。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=JClJEmZub-A
+title: 【生成式 AI】08.檢索增強生成(RAG)的原理及實作（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】08.檢索增強生成(RAG)的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=JClJEmZub-A)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
 ## 本週在課程中的位置
 
 錄影 08 第一節先插播 Llama 4（18:44），接著 RAG 介紹、原理、記憶、金融應用（28:08–57:40），然後開始寫程式 A「向量資料庫」。第二節接著建庫、介紹 embedding model、把資料庫存到雲端並產生直接下載連結，再寫程式 B、設計 prompt、做 Gradio，2:01 說明作業。第三節是清華、政大學生的閃電秀與助教課。
@@ -146,6 +161,10 @@ glossary:
 - 檢索之後，讓模型自己決定要不要再查：[CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
 
 上一篇：[L07 打造自己的對話機器人](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)｜下一篇：[L09 為什麼 2025 是 AI Agents 元年](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

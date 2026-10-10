@@ -32,6 +32,21 @@ Official materials used:
 
 **Access**: this is the only ADL Fall 2025 assignment with a fully public spec, and a main reason the series is rated **A2**. The spec, baseline settings, and report questions are visible. The data lives on Kaggle, though: the slide's Kaggle link is an invite link that this guide did not open, so it is unknown whether downloads or submissions still work. Code and reports go to NTU COOL, which requires an NTU account.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=DVjBNRHUWc0
+title: Video: ADL 2025 Fall Homework 1
+```
+
+Original videos: [Video: ADL 2025 Fall Homework 1](https://www.youtube.com/watch?v=DVjBNRHUWc0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## The task: two-stage extractive QA
 
 The slide example pairs one question with four paragraphs:
@@ -169,6 +184,10 @@ Not confirmed: the assignment video was not transcribed, so the TAs' spoken addi
 Further reading: the full NLP project workflow (data, the Hugging Face text-classification Colab) is left to the series' final post on [TA recitations](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en). For contrast, the site's [CS224U HW2 open-domain QA guide](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en) takes the retrieval-plus-LLM route instead of BERT span extraction.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [BERT and Its Family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | Next: [Pre-training Families and Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

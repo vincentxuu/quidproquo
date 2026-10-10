@@ -28,6 +28,21 @@ glossary:
 
 課表上這一列的標題是「深入模型內部架構：模型如何處理超長輸入」，用到的官方材料是講義 [pos.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pdf)（64 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pptx)）與影片[如何讓 Transformer 知道輸入 Token 的順序？Absolute、Relative、RoPE、到沒有 Positional Embedding](https://youtu.be/Ll-wk8x3G_g)。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的測驗或排行榜。
 
+## 課程影片來源
+
+影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
+title: 影片：如何讓 Transformer 知道輸入 Token 的順序？Absolute、Relative、RoPE、到沒有 Positional Embedding
+```
+
+原始影片：[影片：如何讓 Transformer 知道輸入 Token 的順序？Absolute、Relative、RoPE、到沒有 Positional Embedding](https://www.youtube.com/watch?v=Ll-wk8x3G_g)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 場景：「你打我」和「我打你」
 
 投影片第 2–3 頁的例子很短：把 A B C D 四個 token 丟進 self-attention，對 D 來說，前面三個 token 的順序換成 C B A，attention 的加權總和完全一樣。可是「你 打 我」和「我 打 你」意思相反。所以 Transformer 需要額外的位置資訊。
@@ -130,6 +145,10 @@ i 越小頻率越高（秒針），i 越大頻率越低（時針）。投影片�
 - CMU 11-785 導讀的 [Transformer 架構](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW3：LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)｜下一篇 [HW4：訓練 Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

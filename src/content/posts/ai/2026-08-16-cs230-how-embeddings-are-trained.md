@@ -21,6 +21,21 @@ draft: false
 
 這是全系列資訊密度最高的一講。Katanforoosh 是 Workera 的執行長，也是 CS230 的共同創辦人，他教一半的實體課。他開場給的定位是：實體課不重複線上影片的學術內容，而是帶**產業視角與決策方法**——所以整堂課的形式是三個案例研究，每一步都先問學生「你會怎麼做」再給答案。
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=DNCn1BpCAUY
+title: Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
+```
+
+原始影片：[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
 ## 暖身：把「模型」講清楚
 
 > 「**模型 = 架構 + 參數。** 你想 ChatGPT 在雲端上其實就是**兩個檔案**：一個描述架構，一個描述參數。你不斷呼叫這兩個檔案，就得到推論結果。當然實際複雜得多，但核心就是這兩件事。」
@@ -274,6 +289,10 @@ Katanforoosh 把這題丟給學生，逼問得很細。有人說「讓網路找�
 這直接影響檢索。當你發現結果語意上明明相關卻排不上去，問題往往不在 chunking 或 rerank，而在**那個 embedding 模型當初被訓練成認為什麼叫「接近」**，和你的查詢情境不一樣。站上 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 那篇要把 BM25 拉回來補盲區，根源就在這裡。
 
 另外那個合成資料 pipeline（**腳本知道答案，所以能自動標註**）今天一樣成立——現在大家用 LLM 生 eval 資料集，用的是同一個原理，也會踩到同一個坑：**訓練集可以合成，測試集必須真實。**
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

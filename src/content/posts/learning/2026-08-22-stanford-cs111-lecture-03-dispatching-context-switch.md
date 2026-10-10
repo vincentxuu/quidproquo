@@ -19,6 +19,14 @@ draft: false
 
 Lecture 3 接手上一講留下的問題：threads 多於 cores 時，核心如何讓每條執行緒看似持續前進？答案不是單一 scheduler 函式，而是一個由狀態轉移、PCB、context save／restore 與 dispatcher 組成的閉環。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 用一次 CPU 交接讀完整講
 
 本文沿一條執行緒從 running 進入 blocked、另一條從 ready 被選上、之後原執行緒再回到 ready 的路徑閱讀投影片。每一步都問兩件事：誰讓 kernel 重新取得 core，以及下一次恢復時哪些 execution state 必須仍然正確。
@@ -68,6 +76,10 @@ preemption 仍不是零成本。每次切換要保存與恢復 state，切到不
 ## 手動走一次 dispatcher
 
 替 A、B 兩條執行緒各畫 running、ready、blocked 三格，從 A 發出阻塞式 I/O 開始，逐步標出 PCB 更新、SP 切換、B 恢復，以及 I/O 完成後 A 回到 ready queue。任何一步若不知道由事件還是 dispatcher 觸發，就回看對應狀態箭頭。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

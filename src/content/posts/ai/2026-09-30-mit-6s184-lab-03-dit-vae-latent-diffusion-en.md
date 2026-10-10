@@ -37,6 +37,14 @@ The first two labs did unconditional generation on 2D toy distributions. Lab 3 u
 
 So finish L3B and L4 before opening this lab.
 
+## Course video sources
+
+Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## Getting it, doing it, checking your answers
 
 The course site's Labs section lists the steps: open the instructions, download the `.ipynb` from GitHub, work in whatever Jupyter environment you like (the site suggests Google Colab, and Lab 3 has a Colab link), then export to PDF and submit to Gradescope via Canvas, **without clearing cell outputs**.
@@ -207,6 +215,10 @@ One thing worth computing yourself: this latent holds 128×4×4 = 2048 numbers, 
 - Transformers and attention from scratch: [Stanford CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 L18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - The VAE ELBO derivation: [CMU 11-785 L22: Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - The previous lab: [Lab 2: Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

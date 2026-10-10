@@ -19,6 +19,22 @@ This post covers **CS336 Spring 2026 Lecture 9: Scaling laws**, taught by Tatsun
 
 Discovering that a model is too large, data too scarce, or the learning rate wrong during the final run wastes an irreversible budget. Scaling laws use a set of smaller experiments to establish simple, testable relationships and predict an expensive region. They are not guaranteed laws of the future but tools for experimental design and uncertainty management.
 
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
+title: CS336 Spring 2026 Lecture 9: Scaling Laws
+```
+
+Original videos: [CS336 Spring 2026 Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
+
 ## Why power laws appear as straight lines
 
 Many learning curves express error as a power law of dataset size. They become approximately linear on a log-log plot. The slope represents marginal returns from more data; the offset captures broad differences in quality, distribution, or method.
@@ -62,6 +78,10 @@ Lecture 9's value is not a permanent exponent. It turns “we think scaling will
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide covers data scaling, model engineering, and compute-optimal scaling without importing Lecture 11's practical material early.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

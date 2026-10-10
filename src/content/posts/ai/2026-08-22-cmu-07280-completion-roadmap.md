@@ -19,6 +19,14 @@ draft: false
 
 所以「讀完整套導讀」不能當作完成課程。官方正式班用 exams、written/programming homework、pre-reading、recitation 與 participation 多面評量；校外讀者沒有相同 feedback chain，必須自己留下可檢查的 artifacts。這篇給出一套不冒充 CMU 學分的結業標準。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。 現行首頁已切換 Fall 2026，本文的 Spring 2026 講義版本另見文內參考資料。
+
+課程與錄影入口：
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## 07-280 真正教的是整合介面
 
 課程表面跨度很大，底層反覆出現四個介面：
@@ -79,6 +87,10 @@ draft: false
 不要再看新影片。用七天整理既有成果：前兩天補齊搜尋與監督式模型測試；第三、四天重跑 CNN／GPT 實驗；第五天驗證 RL／MCTS；第六天寫每個 artifact 的 limitations；最後一天用空白紙畫出整門課從 search 到 self-play 的資料與控制流。
 
 若其中一條畫不出來，就回到對應逐講，而不是從 Lecture 1 全部重看。07-280 的價值不在於把 AI 名詞都教一次，而在於讓你知道一個 AI system 的問題表示、學習訊號、推論程序與驗證責任如何互相牽動。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

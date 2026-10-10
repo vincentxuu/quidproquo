@@ -32,6 +32,21 @@ glossary:
 
 Official materials used: the slides [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf), pages 29–55, and the lecture video [加快語言模型生成速度 (2/2)：KV Cache](https://youtu.be/fDQaadKysSA) (in Mandarin). Access level is **A3**: slides (pdf/pptx) and recording are public. The hands-on part is the vLLM section of [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en).
 
+## Course video sources
+
+Video sources were checked against the official course page. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=fDQaadKysSA
+title: Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)
+```
+
+Original videos: [Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)](https://www.youtube.com/watch?v=fDQaadKysSA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The scene: KV Cache itself is simple
 
 Lee opens with a pun: in Mandarin, "cache" and "cash" sound the same, and the cache really does have something to do with money. That pays off at the end of this post.
@@ -153,6 +168,10 @@ Verified: the text and figures of slides 29–55 (the Gemma 2 table, the OpenAI 
 Not verified: the captions mishear the head count as 30 and name a different model for the pricing example; this post uses the numbers on the slides (32 heads, gpt-5.4 prices). The slide only shows a screenshot of the pricing table, and this post did not check OpenAI's current prices, so check the official page for real numbers. In the summary table, the "Other cost" cells for GQA, MLA, Sliding Window, and StreamingLLM are blank on the slide.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 1: Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) | Next: [HW3: LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

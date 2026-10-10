@@ -28,6 +28,21 @@ glossary:
 
 用到的官方材料：講義 [harness.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pdf)（63 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pptx)），影片 [Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://youtu.be/R6fZR_9kmIw)。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的測驗或排行榜。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=R6fZR_9kmIw
+title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導
+```
+
+原始影片：[影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://www.youtube.com/watch?v=R6fZR_9kmIw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 場景：一個會自己捏造檔案的小模型
 
 投影片第 2–4 頁的示範很具體。任務是修好 `parser.py` 裡的 `extract_emails`，讓它能抓到 `test-user@domain.com` 這種帶 `-` 或 `_` 的地址，並讓 `verify.py` 的測試通過。system prompt 只說：你可以寫 bash 或 python code block，系統會執行並回傳結果，完成就輸出 DONE。
@@ -138,6 +153,10 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 - CMU 11-768 導讀的 [Assignment 1：Harness](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW4：訓練 Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)｜下一篇 [HW5：微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

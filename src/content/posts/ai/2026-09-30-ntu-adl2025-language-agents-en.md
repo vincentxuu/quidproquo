@@ -35,6 +35,26 @@ This is post 14 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/
 
 There is no homework for this lecture. Slides and videos are public, with no extra gaps beyond the series-wide A2 grade. The question it answers: **everyone talks about agents, but what exactly is one, and what do reasoning, memory, planning, and multiple agents each solve?**
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=R0YBJve0NoI
+title: ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UO527XuWEzg
+title: ADL 11.2: Reasoning (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory (YouTube, in Mandarin)](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems (YouTube, in Mandarin)](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## What an agent is, and what language agents add
 
 Slide 2 lays out both camps. Bill Gates, Andrew Ng, and Sam Altman are bullish on agents; the other side says current agents are thin wrappers around LLMs and that autoregressive LLMs can never reason or plan. The slides don't pick a side. They go back to definitions.
@@ -137,6 +157,10 @@ One thing you can do tonight: take an agent you use or are building, and followi
 
 Previous: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

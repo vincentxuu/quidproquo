@@ -28,6 +28,15 @@ The recordings live on CMU's Panopto and aren't available outside CMU, so this p
 
 The [previous post](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en) said LDM reads the prompt through cross-attention without taking it apart. This post answers: **where in the model does the text condition enter, and why can editing the prompt change only part of the image?**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## Cross-attention: queries and keys/values come from different places
 
 L14 starts by reviewing scaled dot-product attention from L2: one input sequence x is multiplied by W_q, W_k, and W_v to get queries, keys, and values. Cross-attention changes one thing. **Queries come from one sequence y (length n), while keys and values come from another sequence x (length m).**
@@ -202,6 +211,10 @@ The schedule puts Quiz 4 on March 16, covering the text-to-image part of L12 thr
 - Definitions of access grades A0–A3: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: previous [L12–L13: Text-to-image, latent diffusion, and vision-language models](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en) | next [HW4: Text-to-image with a Q-Former](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

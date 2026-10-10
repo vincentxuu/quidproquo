@@ -19,6 +19,14 @@ draft: false
 
 Lecture 9 用「C strings 七誡」整理陷阱。每讀一行都要回答：這是 array object 還是 pointer value？字元存在哪裡？位址能否改指別處？透過它寫入是否合法？
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## 本講資料與完整 agenda
 
 - 課程：Stanford CS107: Computer Organization & Systems
@@ -252,6 +260,10 @@ C 仍然是 pass-by-value。被複製的是 `&str[0]` 這個位址值，不是�
 做 code review 時，可以對每個 `char *` 寫下「來源物件、可寫與否、已知容量、有效期限」四欄。若其中一欄只能靠猜，介面就少傳了資訊或少寫了前置條件。
 
 Lecture 9 最終不是要消除 array 與 pointer 的差別，而是理解它們為何能合作：陣列提供連續元素與儲存空間，轉換提供首元素位址，pointer arithmetic 提供導航，dereference 才真正存取元素。把四步分開，`arr[i]` 的便利就不會再掩蓋底下的記憶體契約。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -23,6 +23,14 @@ draft: false
 
 The first half is for readers who want to run a final project themselves: the spec, the rubric, the topic list, and how the 19 results are spread. The second half is for anyone planning a similar course, or deciding whether this one is worth following: how the TAs and students judged it afterward.
 
+## Course video sources
+
+The official Fall 2025 schedule provides recordings for some lectures. A direct recording link for this article was not confirmed by the official page retrieved in this update; use the schedule to inspect available recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
 ## Official materials and access
 
 | Material | Contents | Status |
@@ -226,6 +234,10 @@ If you've followed the series this far, the next step is running a final project
 - Previous: [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en)
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - This is the last part of the series.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

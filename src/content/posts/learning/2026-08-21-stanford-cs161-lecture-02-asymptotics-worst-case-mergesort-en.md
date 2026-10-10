@@ -19,6 +19,14 @@ This is post 3 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 
 Lecture 1 used Karatsuba to argue that growth tells us more about an algorithm than one timing measurement. Lecture 2 splits that intuition into two checkable questions: **Does the algorithm actually return the right answer? Does it perform well for every input?** Sorting supplies a shared language. InsertionSort is easy to trace, while MergeSort ties together divide and conquer, inductive correctness, and recursive runtime.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)
+
 ## What InsertionSort preserves
 
 Given an array `A`, InsertionSort starts at the second element. Each round stores the current element, shifts larger elements in the left prefix one position to the right, and inserts the current element into the gap:
@@ -164,6 +172,10 @@ The same three questions apply to every new algorithm: what invariant does it pr
 InsertionSort often performs well on small or nearly sorted arrays, while MergeSort executes essentially the same recursive structure even when the input is ordered. Practical sorting systems therefore often use hybrid strategies and switch to insertion sorting for small subarrays. Lecture 2 does not prescribe a threshold or describe a specific standard-library implementation. Any threshold belongs to a benchmark for a particular language, element type, and machine.
 
 A second extension is to finish the Merge proof yourself. Before each iteration, state three facts: `S` is sorted, `S` contains exactly the consumed portions of both inputs, and the smaller front item is the next global minimum. This exercise is closer to the proof skill used throughout the course than memorizing the phrase `n log n`.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

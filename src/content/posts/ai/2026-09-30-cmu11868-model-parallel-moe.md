@@ -31,6 +31,14 @@ glossary:
 
 這兩講對應 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 10 週：3/16 的「Distributed Model Training III」（[L16 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-16-model-parallel-83b41612547620ee0e172caa1ee448ed.pdf)，36 頁）與 3/18 的「Large models with Mixture-of-Expert」（[L17 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-17-MoE-3aa3125f9ccdd4bb7109ef077fbe9260.pdf)，38 頁），講者都是 Lei Li。本課沒有公開錄影，以下只根據投影片與 Syllabus 列的 reading；頁碼指 PDF 頁碼（兩份投影片角落印的編號在後半段都比 PDF 頁碼大一到三號）。
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 先看全貌：三種切法
 
 L16 第 4 頁把 model parallel 定義為「把模型的計算（forward、backward、update）分到多個 worker」，並分成兩種：按層分（distributed layer-wise）和按張量分（distributed tensor）。同一頁的註腳說更進階的 expert parallelism 留到之後，也就是 L17。
@@ -197,6 +205,10 @@ DeepSpeed-MoE 論文摘要給的整體數字是：推論延遲與成本比既有
 - 本講的實作：[HW5：資料平行與管線平行](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 - 站內：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
 - 站內：[CS336 attention 與 MoE](/posts/ai/2026-08-22-cs336-attention-moe)、[MoE 架構為什麼會贏](/posts/ai/2026-08-26-moe-architecture-why-it-wins)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

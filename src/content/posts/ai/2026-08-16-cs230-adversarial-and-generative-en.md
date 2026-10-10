@@ -27,6 +27,21 @@ The lecture packs in two semi-independent topics: the first 30–45 minutes are 
 
 ---
 
+## Course video sources
+
+The videos below are the recordings linked for the topics covered in this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=aWlRtOlacYM
+title: Lecture 4: Adversarial Robustness and Generative Models
+```
+
+Original videos: [Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
 # Part one: adversarial robustness
 
 ## A decade, three waves of attack
@@ -368,6 +383,10 @@ And the detection problem is the same on both sides: **you can't tell from the o
 This thread gets addressed head-on in Lecture 10, which spends the whole session opening models up — and its conclusion is equally honest: on transformers, this methodology currently only reaches two layers.
 
 For people building LLM applications, the directly portable piece is **indirect prompt injection**. The site's [security](/posts/ai/2026-08-10-agent-security-harness-layer-en) post covers how to damage-control at the harness layer, and this lecture supplies the half it doesn't have: **why the model itself can't defend against it** — because the fragility comes from the architecture's linear nature and the input's high dimensionality, and that isn't something alignment fixes.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

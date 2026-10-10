@@ -19,6 +19,14 @@ draft: false
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## Worksheet agenda：先問順序與重複，再選公式
 
 三元件服務題先複習獨立與補事件：全數正常是 0.95³，至少一個故障是 1-0.95³。這也預告 counting 的基本策略——直接數困難時，改數補集合。
@@ -41,6 +49,10 @@ BANANA 的六個字母含 A 三個、N 兩個，因此是 6!/(3!2!)；MISSISSIPP
 - Spring-dated 共用 counting 頁可核對 product rule 與 combination 記號，但不能證明 Summer 課堂流程。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

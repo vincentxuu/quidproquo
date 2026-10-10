@@ -39,6 +39,14 @@ glossary:
 
 整篇只回答一個問題：**換到 TPU 與 XLA，寫高效 kernel 的思路有什麼不同？**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 場景：同一個 attention，換一台機器
 
 L12 第 3 頁的議程可以讀成一條路線：先用 JAX 訓練 GPT-2，再看 TPU 的硬體，然後追蹤 XLA 怎麼把程式編成硬體指令，最後是跨裝置的 sharding。L13 接著問：XLA 自動做的不夠好時，怎麼自己動手。
@@ -240,6 +248,10 @@ def add_matrices_pipelined_param(x, y, *, bm=256, bn=256):
 - 上一篇：[L21 FlashAttention（Tri Dao 客座）](/posts/ai/2026-09-30-cmu11868-flashattention)
 - 下一篇：[L23 大模型的高效微調](/posts/ai/2026-09-30-cmu11868-peft-lora)
 - 系列總覽：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

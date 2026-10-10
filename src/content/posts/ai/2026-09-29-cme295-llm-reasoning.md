@@ -38,6 +38,21 @@ glossary:
 
 前一講（[第 5 講：偏好對齊](/posts/ai/2026-09-29-cme295-preference-tuning)）用 [PPO](https://arxiv.org/abs/1707.06347) 讓模型說人想聽的話。這一講接著問：同一套 RL 工具，能不能讓模型學會「先想再答」？
 
+## 課程影片來源
+
+下列影片連結已列於本文對應講次的來源。
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: 2025 版第 6 講錄影
+```
+
+原始影片：[2025 版第 6 講錄影](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
 ## 第一步：先寫推理，再寫答案
 
 核心想法來自 [Chain-of-Thought](https://arxiv.org/abs/2201.11903)（Wei et al., 2022）：在 prompt 的範例裡示範「先解釋、再作答」，模型就會跟著先寫推理步驟。投影片的例子是問熊明年幾歲，直接給答案的範例會讓模型算錯，示範過推理的範例則讓模型寫出「比今年大一歲，今年 4 歲，所以是 5 歲」。
@@ -251,6 +266,10 @@ flowchart LR
 - test-time scaling 的推論端：[CS224N 第 13 講：Speculative Decoding 與 Test-Time Scaling](/posts/ai/2026-08-22-cs224n-reasoning-two)
 - policy gradient、actor-critic 的 RL 基礎：[Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 - 前一講的 PPO 與 DPO：[CME295 第 5 講](/posts/ai/2026-09-29-cme295-preference-tuning)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

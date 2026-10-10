@@ -28,6 +28,21 @@ glossary:
 
 Access rating: **A3 minus grading**. The spec, both models, the Colab, and the evaluation code are public. The leaderboard requires uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30, and the paper questions are on NTU COOL, which needs an NTU account.
 
+## Course video sources
+
+These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=YQtwk_L686I
+title: HW7 walkthrough video (YouTube)
+```
+
+Original videos: [HW7 walkthrough video (YouTube)](https://www.youtube.com/watch?v=YQtwk_L686I)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## Prerequisite: hw7.pdf names none, but one lecture fits
 
 The HW7 slides list no prerequisite video, and this term has no lecture on model merging. Lee's 2025 [Intro to Generative AI and ML, Lecture 8](https://www.youtube.com/watch?v=EnWz5XuOnIQ) (in Mandarin) is literally titled "Lifelong learning for general models (Fine-tuning, Model Editing, Model Merging, Test-Time Training)," and the [previous post, Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en), also points to it for TTT. It is the quickest way to pick up the concepts.
@@ -122,6 +137,10 @@ The slides estimate 0.5–2 hours to merge and 1–2 hours to run inference on t
 - **Tools**: the [mergekit](https://github.com/arcee-ai/mergekit) README lists every merge method and its parameters. Hugging Face PEFT also has a [model merging guide](https://huggingface.co/docs/peft/developer_guides/model_merging).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) | Next: [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

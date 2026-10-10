@@ -21,6 +21,14 @@ This post is the series entry point. It covers the course structure, what outsid
 
 **Sources**: the [course page](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php), the [policy slides, policy.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/policy.pdf) (22 slides), the [NTU course catalog syllabus for 114-2](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696), and the [bonus assignment slides, bonus.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/bonus.pdf). I opened and checked all of them on 2026-09-30. The matching video is the [ML 2026 course introduction](https://youtu.be/gl-BdDjNPVI).
 
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## The hard facts
 
 - **Course number and credits**: EE5184, 4 credits, elective, Fridays 14:20–18:20 in room 博理 112. The catalog notes it is co-taught with 吳沛遠.
@@ -113,6 +121,10 @@ Scoring in bonus.pdf is per team: +2 for participating, +10 for the top 30%, +20
 Related on this site: the [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) compares this course with the rest of NTU's offerings, and the Hung-yi Lee section of [Which AI Courses to Take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide-en) places it among other courses.
 
 Next: [Dissecting the Lobster: How AI Agents Work, Using OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

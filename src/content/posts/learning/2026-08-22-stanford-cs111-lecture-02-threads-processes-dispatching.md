@@ -19,6 +19,14 @@ draft: false
 
 Lecture 2 先回答「被 OS 排程與隔離的是什麼」。投影片從 sequential execution 定義 thread，再把 registers、stack、code、variables 與 open files 分成私有或共享狀態，最後用 `fork`／`execvp`／`waitpid` 與 thread creation 串起物件生命週期。
 
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 從執行單位讀這講
 
 本講刻意還不進入 dispatcher。閱讀順序應是：先區分 program、行程與執行緒，再看 system call 如何請核心建立或替換行程，最後列出新執行緒啟動所需的 program counter、stack 與參數。下一講才有足夠語彙討論 context switch。
@@ -68,6 +76,10 @@ C++ 的 `std::thread t(func)` 建立一條與目前控制流並行的新 thread�
 ## 用共享狀態表自我檢查
 
 畫兩欄比較新行程與同一行程內的新執行緒：逐項填入 code、variables、registers、stack、open files 是否共享。再解釋 `fork`、`execvp`、`waitpid` 分別改變哪一列；答不出來時，就回到投影片的 execution-state 清單。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

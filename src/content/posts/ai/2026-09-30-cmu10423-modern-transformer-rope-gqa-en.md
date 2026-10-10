@@ -36,6 +36,15 @@ Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses
 
 This is the last lecture of the text unit. The schedule marks "HW1 out (L1-L4)" on the same day, and Quiz 1 two days later also covers L1–L4. The three components in this lecture are exactly what the next post, [HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en), asks you to build.
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## First half: what separates pre-training from fine-tuning
 
 The slides start with two definitions:
@@ -191,6 +200,10 @@ Confirmed: the schedule's dates and readings, the plain and inked slide content,
 Further reading: the site's [CME295 post on Transformer tricks](/posts/ai/2026-09-29-cme295-transformer-tricks-en) covers position encodings and attention variants from another course's angle. [CS336's architectures and hyperparameters post](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en) and its [attention and MoE post](/posts/ai/2026-08-22-cs336-attention-moe-en) survey the same modern components from the "train your own LM" angle.
 
 Series navigation: previous [L2–L3: Transformer LMs, LLM training, and decoding](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en) | next [HW1: adding RoPE and GQA to minGPT](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

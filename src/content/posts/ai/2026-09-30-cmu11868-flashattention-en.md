@@ -39,6 +39,14 @@ This is one of the harder posts in the series. It starts with the scenario and i
 
 The whole post answers one question: **why is attention bottlenecked by IO rather than FLOPs?**
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists.
+
+Course and recording entries:
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## The scenario: longer sequences slow training down
 
 Pages 2–3 give the motivation. Understanding a whole book or codebase needs long context. Higher image resolution helps vision. Audio and video are naturally very long sequences. But as context grows, training slows down or stops fitting.
@@ -177,6 +185,10 @@ The next post takes the same problem to TPUs: [L12–L13 TPU, JAX, and Pallas](/
 - Previous: [L19–L20 Model Quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - Next: [L12–L13 TPU, JAX, and Pallas/Splash Attention](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en)
 - Series overview: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

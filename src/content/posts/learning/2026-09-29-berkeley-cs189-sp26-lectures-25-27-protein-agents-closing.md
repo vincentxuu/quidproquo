@@ -31,6 +31,26 @@ glossary:
 
 這三講排程頁都沒有列 Bishop 指定閱讀。
 
+## 課程影片來源
+
+影片連結對應本文教材；此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
+title: Lecture 25 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yRgSQCXr8M0
+title: Lecture 27 錄影
+```
+
+原始影片：[Lecture 25 錄影](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 錄影](https://www.youtube.com/watch?v=yRgSQCXr8M0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+
 ## Lec 25：蛋白質工程的 AI
 
 ### 蛋白質是一串字母
@@ -207,6 +227,10 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 - 系列導覽：上一篇 [Lec 23–24：LLM 訓練與自監督學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)；下一篇 [HW5（選修）導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：挑一個 [Terminal-Bench](https://www.tbench.ai/) 的任務類型，照 Lec 27 的三件套自己寫一個迷你環境：一句任務描述、一份會把東西弄壞的 Dockerfile、一支檢查是否修好的測試腳本。寫完 verifier 你就會發現，「怎麼判定成功」比「怎麼讓 agent 動起來」難得多。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -17,6 +17,14 @@ draft: false
 
 This is **CMU 07-280 Spring 2026 Lecture 4: Constraint Satisfaction Problems**. A CSP is still search, but it does not treat a state as a black box. Variables, domains, and constraints expose structure, allowing the algorithm to delete impossible values before completing an assignment.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official materials and reading scope
 
 I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf), used the official [backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/), and read [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf), its [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No lecture recording is public. The demo exposes algorithm state, not spoken instruction.
@@ -66,6 +74,10 @@ This pattern—reasoning to reduce a space, search to handle residual ambiguity�
 1. Formulate Australian map coloring with three colors: list variables, domains, and every binary constraint.
 2. Run AC-3 on a three-node chain, recording the queue and each deleted value.
 3. Open the official demo and compare when forward checking and AC-3 first discover the same dead end.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

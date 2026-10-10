@@ -39,6 +39,14 @@ Lecture 1 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Aug 25, 2026; 
 
 This post follows the lecture in order: the opening successes and failures, the definition of an agent, the three steps from language model to agent, the six capabilities, the training-versus-harness trade-off, the five components of an agent system, and the course's learning objectives. Format, grading, and assignment details are in the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
+## Course video sources
+
+The official schedule is at the SPA route #/schedule. Groundlane and Exa did not retrieve the full schedule in this update, so the article’s direct recording sources were not reverified. Check the official schedule for the lecture recording.
+
+Course and recording entries:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
 ## Opening: agents can do big things, and break big things
 
 Fried opens with two contrasting examples.
@@ -275,6 +283,10 @@ Long context. Keeping every memory in context affects efficiency, not just accur
 - On this site: [The OpenClaw Agent Loop](/en/posts/ai/2026-03-28-openclaw-agent-loop-en), how the loop behind the opening incident is written
 - On this site: [Reading Stanford CS329Z](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), which also has you build a harness from scratch but doesn't touch training
 - On this site: [CME295 Lecture 7: Agentic LLMs](/en/posts/ai/2026-09-29-cme295-agentic-llms-en), the same ground from the RAG and function-calling angle
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

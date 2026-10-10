@@ -19,6 +19,14 @@ Lecture 6 defined a C string as a memory contract: starting from a `char *`, a p
 
 The distinction to retain is simple: **valid content does not imply a safe memory operation.** A password may contain only permitted characters and no forbidden fragment, yet still be too long for its destination. `strspn` and `strstr` answer policy questions; capacity reasoning answers a bounds question. Conflating them lets memory bugs hide inside ordinary business logic.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1268/faq)
+
 ## Materials and complete agenda
 
 - Course: Stanford CS107: Computer Organization & Systems
@@ -202,6 +210,10 @@ Trace string input through these questions:
 This turns “be careful about buffer overflow” into line-by-line work. It also explains why half the lecture concerns search: `strchr`, `strstr`, and spans return boundary-bearing results. Using them correctly requires progress, null checks, alias awareness, and termination. Security is not bolted on at the end; it extends the same pointer reasoning.
 
 Lecture 7 reduces to one sentence: **validating what text says and proving that memory can hold it are different jobs.** Product policy needs the first; remaining within C's defined execution needs the second. Reliable systems code proves both.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

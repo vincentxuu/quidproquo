@@ -39,6 +39,14 @@ glossary:
 
 整篇只回答一個問題：**為什麼 attention 的瓶頸是 IO，而不是 FLOPs？**
 
+## 課程影片來源
+
+本篇依官方講義、投影片或作業導讀；本次檢查官方公開頁面，尚未核實本文對應講次的公開錄影。這不表示課程沒有錄影。
+
+課程與錄影入口：
+
+- [cmu-11-868-llm-systems — official course materials and recording index](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)
+
 ## 場景：序列一長，訓練就慢下來
 
 投影片第 2–3 頁先講動機：讀整本書、整個 codebase 需要長 context；影像解析度變高、音訊與影片天生是很長的序列。可是 context 一拉長，訓練就變慢甚至跑不動。
@@ -177,6 +185,10 @@ FP8 的問題是 outlier 讓量化誤差變大。第 24 頁的解法是 incohere
 - 上一篇：[L19–L20 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 下一篇：[L12–L13 TPU、JAX 與 Pallas／Splash Attention](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)
 - 系列總覽：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

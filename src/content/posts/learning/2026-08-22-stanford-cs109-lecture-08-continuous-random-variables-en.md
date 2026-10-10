@@ -24,6 +24,14 @@ P(a≤X≤b) = ∫[a,b] f(x) dx
 F(a) = P(X≤a) = ∫[-∞,a] f(x) dx
 ```
 
+## Course video sources
+
+This article covers Summer 2026 materials. The current official site now shows Autumn 2026; a public recording for the Summer offering has not been verified.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## P1: Reconnect Poisson counts
 
 A primatologist collects 15 usable samples per day on average. For `X~Poi(15)`,
@@ -151,6 +159,10 @@ The guide orders six concepts: PMF to PDF, area and normalization, the CDF, Unif
 - P3 is a pset3 problem whose solution is deliberately omitted from the official answer key; this article derives it only from the public prompt.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. This article uses the short-material exception: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

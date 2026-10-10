@@ -17,6 +17,14 @@ draft: false
 
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 7 篇，對應 **Summer 2026 Lecture 6: Moments (Expectation)**，官方日期是 6 月 30 日，講者 Chris Gregg。Summer agenda 依[官方 schedule](https://web.stanford.edu/class/cs109/schedule.html)、[worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture06-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture06-AnswerKey.pdf)與 [LLM learning guide](https://web.stanford.edu/class/cs109/worksheets/Lecture06-LLMPrompts.pdf)確定；`/spr26` [課程讀本](https://probabilitycoders.stanford.edu/spr26)是跨 offering 共用的 Spring-dated 概念參考，不是 Summer 講次證據。Canvas 錄影未公開，因此不重建課堂口述。
 
+## 課程影片來源
+
+本文導讀 Summer 2026 教材；現行官方網址已改為 Autumn 2026，尚未核對到 Summer 2026 可公開觀看的對應錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs109/schedule.html)
+
 ## 從分布到一個可運算的摘要
 
 前一講建立 PMF，這一講問下一步：知道每個值的機率後，怎麼用一個數字描述長期中心？離散隨機變數的期望值是
@@ -100,6 +108,10 @@ Challenge 用同一招證明 binomial 期望。把成功總數寫成 n 個 Berno
 
 - 本文完整覆蓋 worksheet 的七題與 optional challenge；短材料依實際 agenda 收束，不加入未在 artifacts 中出現的課堂例子。
 - 公開錄影只在 Canvas，本文沒有使用；投影片存取狀態不取代 worksheet 證據。
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

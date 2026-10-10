@@ -19,6 +19,15 @@ draft: false
 
 Official materials used: [hw1.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip) from the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html) (the 27-page hw1.pdf, starter code, and a LaTeX template), the [read-only Overleaf template](https://www.overleaf.com/read/sdrhkbjjdhwv#8049a1), the January 30 [HW1 recitation slides](https://docs.google.com/presentation/d/1IpSzQ5dkr3iO0riNfareQiif9J9O684amTBATiybuVk/edit?usp=sharing) (public Google Slides), and the syllabus homework rules. **This post covers only the structure and setup of the assignment. It contains no solutions.**
 
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. The anonymous page did not load the videos and prompted sign-in. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
 ## The basics
 
 | Item | Details |
@@ -177,6 +186,10 @@ Confirmed: the PDF, starter code, and tests in hw1.zip; the recitation slides; t
 Further reading: to write an LM from scratch and make the architecture choices yourself, see the [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en). Karpathy's original [minGPT repo](https://github.com/karpathy/minGPT) is also worth comparing against, to see what the course version simplified.
 
 Series navigation: previous [L4: pre-training, fine-tuning, and the modern Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en) | next [L5: CNNs, encoder-only Transformers, and ViT](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

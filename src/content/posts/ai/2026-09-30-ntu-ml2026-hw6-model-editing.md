@@ -19,6 +19,21 @@ draft: false
 
 存取分級是 **A3 減評分**：投影片與 Colab 公開，照著做得出實驗結果；但**測驗題目本身**在 NTU COOL 上，需要台大帳號，hw6.pdf 只寫了題數與配分，沒有印出題目。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=AR1bNACLOAU
+title: HW6 說明影片（YouTube）
+```
+
+原始影片：[HW6 說明影片（YouTube）](https://www.youtube.com/watch?v=AR1bNACLOAU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
 ## 先備：本學期沒有講 Model Editing
 
 HW6 跟本學期任何一講都沒有一對一關係。hw6.pdf 沒有指定先備影片，不過 2025 年同一門課的課程頁有一講[「人工智慧的微創手術 — 淺談 Model Editing」](https://youtu.be/9HPsz7F0mJg)（[edit.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2025-course-data/edit.pdf)）；那學期的作業表上也有一份 HW8 Model Editing。本文建議先看那一講當背景（這是本文的建議，不是官方指定）。Colab 下載的資料檔還叫 `HW8_data.json`，可見這份作業是從 2025 年的版本沿用過來的。
@@ -120,6 +135,10 @@ hw6.pdf 有兩處看得出是沿用舊版：single editing 的兩頁寫「report
 - 同一週的講次，另一種「不改參數也能修正」的思路：[Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction)
 
 系列導覽：上一篇 [Self-Correction：模型能改自己的錯嗎](/posts/ai/2026-09-30-ntu-ml2026-self-correction)｜下一篇 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

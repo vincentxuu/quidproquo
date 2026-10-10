@@ -17,6 +17,14 @@ draft: false
 
 Lecture 15, **Pre-training/Transfer Learning/Fine-tuning**, took place on March 12, 2026. Lecture 14 explained how CNNs learn visual features. This lecture asks which capabilities to preserve and which parameters to relearn when a new task has less data. There is no public lecture-by-lecture recording; this article uses the public lecture note and HW8.
 
+## Course video sources
+
+This article follows official notes, slides, or assignments. This check of the official public pages did not verify a public recording for the material covered here; it does not establish that no recording exists. The current homepage is for Fall 2026; see the article references for its Spring 2026 material.
+
+Course and recording entries:
+
+- [cmu-07-280 — official course materials and recording index](https://www.cs.cmu.edu/~07280/)
+
 ## Official material and scope
 
 The primary sources are the [Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf) and [HW8 written component](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf). The schedule also links a PyTorch Basics tutorial, but this article's core claims do not depend on it. There is no dedicated Spring 2026 recitation; Recitation 8 focuses on CNN shapes and parameters.
@@ -70,6 +78,10 @@ Lecture 16 moves from architecture back to probabilistic assumptions. Cross-entr
 ## What to do tonight
 
 Choose a small pretrained vision model and a two-class dataset. First freeze the backbone and train a linear head. Then unfreeze only the final block with the same split and epochs. Record trainable parameters, best validation accuracy, train-validation gap, and time per epoch rather than comparing only final accuracy.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

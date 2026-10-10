@@ -38,6 +38,21 @@ glossary:
 
 投影片第 2 頁的 Lecture Plan 有四項：什麼是 tinyML、tinyML 的挑戰、tiny 神經網路設計、應用（視覺、語音、時間序列／異常偵測）。本篇照這個順序走。
 
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=uR1KKhIhHEk
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML（YouTube）
+```
+
+原始影片：[EfficientML.ai Lecture 10 - MCUNet and TinyML（YouTube）](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## 什麼是 tinyML：從雲端一路縮到 IoT
 
 Song Han 用一條光譜開場（第 5–8 頁）：**Cloud AI → Mobile AI → Tiny AI**。雲端靠 GPU/TPU，資料上傳後推論；行動端靠手機；再往下就是 IoT 裝置裡的微控制器。
@@ -147,6 +162,10 @@ Song Han 用一條光譜開場（第 5–8 頁）：**Cloud AI → Mobile AI →
 - CNN 基礎與 MobileNet 類 building block：[CS231N L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
 - 本系列的 NAS 兩講：[L7 搜尋空間與策略](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)、[L8 硬體感知 NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)
 - 指標定義（#Params、peak activation）：[L1–L2 效率指標](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

@@ -41,6 +41,14 @@ This is part 17 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations 
 
 So this post **gives no answers**. It covers what each problem practices, what data it needs, and how to check your own results. The access levels are defined in the [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
 ## What the homework looks like
 
 ### The Fall 2024 format
@@ -193,6 +201,10 @@ hw2 onward are scheduled to appear from 10/07; none was public as of 2026-09-30.
 The Techniques homework, HW6 and HW7, and the final project (predicting wins in a fictional baseball league, HTMLB) are in the next post, [Techniques Homework and the Final Project](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en). The previous post is [T16 Finale and the modern deep learning supplement](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en).
 
 Lecture guides matching each assignment: [L1–L3](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en), [L4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en), [L5–L6](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en), [L7–L8](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), [L9–L10](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), [L11–L12](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), [L13–L14](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en), [L15–L16](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en).
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -24,6 +24,26 @@ glossary:
 
 先講清楚這篇的限制：**L12 沒有公開投影片。** 課程頁 12/01 那一列只寫「Reasoning」，沒有講義也沒有影片連結；五支影片只出現在 [2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)。本文沒有逐字聽寫影片，所以下面能寫的只有影片標題、長度與說明欄，加上前一講講義裡跟 reasoning 有關的頁面。
 
+## 課程影片來源
+
+以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=paTmY2nZ8XI
+title: 12.1 What is Reasoning?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VHNdIld9sAg
+title: 12.2 Short CoT
+```
+
+原始影片：[12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
 ## 五支影片
 
 | # | 影片 | 中文副標 | 長度 |
@@ -86,6 +106,10 @@ L12 沒有投影片，但 [Language Agents 講義（251110_LangAgent.pdf）](htt
 - 同校的 [李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：L12 五支影片的說明欄都註明投影片借自李宏毅老師，可以對照他自己的課。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents)｜下一篇 [對話系統與工具使用](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

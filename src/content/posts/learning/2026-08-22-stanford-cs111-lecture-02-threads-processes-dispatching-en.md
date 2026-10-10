@@ -19,6 +19,14 @@ This is part 3 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 2 first answers what an OS schedules and isolates. The slides define a thread as sequential execution, divide registers, stacks, code, variables, and open files into private or shared state, and then connect object lifecycles through `fork`, `execvp`, `waitpid`, and thread creation.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## Read this lecture from the execution unit outward
 
 The dispatcher is deliberately deferred. First separate a program, a process, and a thread. Then see how system calls ask the kernel to create or replace a process. Finally identify the program counter, stack, and argument required to start a thread. That vocabulary makes context switching in the next lecture intelligible.
@@ -68,6 +76,10 @@ The next lecture puts threads on cores and introduces ready, running, and blocke
 ## Check yourself with a shared-state table
 
 Draw two columns comparing a new process with a new thread inside one process. For code, variables, registers, stacks, and open files, mark what is shared. Then explain which row `fork`, `execvp`, and `waitpid` changes; return to the execution-state list when an answer is unclear.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

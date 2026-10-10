@@ -20,13 +20,28 @@ draft: false
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
+## Course video sources
+
+Uses the lecture recording currently linked by the official Week 2 page.
+
+```youtube
+url: https://www.youtube.com/watch?v=D8RRq3TbtHU
+title: CS50 AI Week 2 — official lecture recording
+```
+
+Original videos: [CS50 AI Week 2 — official lecture recording](https://www.youtube.com/watch?v=D8RRq3TbtHU)
+
+Course and recording entries:
+
+- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
+
 ## TL;DR
 
 Week 2 introduces probability for uncertainty: Bayesian nets encode conditional independence, Markov chains model sequences, PageRank ranks pages via random walks. Two projects implement genetic inference (Heredity) and web ranking (PageRank).
 
 ## Lecture Video & Timestamps
 
-YouTube: [Week 2 Uncertainty (2020 recording)](https://www.youtube.com/watch?v=qYl8k3K6t1M)
+YouTube: [Week 2 Uncertainty (2020 recording)](https://www.youtube.com/watch?v=D8RRq3TbtHU)
 
 | Timestamp | Content |
 |---|---|
@@ -329,6 +344,10 @@ style50 pagerank.py
 - [ ] Can derive PageRank formula and explain damping factor role
 - [ ] Understand Heredity's "prior vs inheritance" probability switching logic
 - [ ] Both projects pass `check50` clean
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

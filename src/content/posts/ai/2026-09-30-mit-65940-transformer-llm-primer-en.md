@@ -36,6 +36,21 @@ This post takes only the **efficiency view**: which design choices cost memory, 
 
 The Lecture Plan on page 6 has four parts: Transformer basics, design variants, LLMs, and advanced topics (multimodal LLMs).
 
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=EV6xb4xY708
+title: EfficientML.ai Lecture 12 - Transformer and LLM (YouTube)
+```
+
+Original videos: [EfficientML.ai Lecture 12 - Transformer and LLM (YouTube)](https://www.youtube.com/watch?v=EV6xb4xY708)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
 ## Transformer basics: where the cost hides
 
 ### Why move away from RNNs and CNNs
@@ -162,6 +177,10 @@ Page 88 explains the capacity factor C with a small example: 6 tokens, 3 experts
 - Another take on inference cost: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - KV cache and serving systems: [CMU 11-868 serving at scale: prefill/decode disaggregation and the KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
 - MoE and model parallelism: [CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

@@ -30,6 +30,14 @@ notebook 開頭說，這個 lab 是 flow matching 和 score matching 的直覺�
 
 這篇不貼完整解答，只講每一題在考什麼、跟講義哪裡對應、怎麼對官方解答。
 
+## 課程影片來源
+
+請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
 ## 開始之前：三件事
 
 **1. 取得 notebook。** 課程網站的 Lab 2 入口是 Google Drive 連結；網站流程是從 GitHub 下載 `.ipynb`，用 Jupyter 或 Colab 打開。本文以 GitHub 版為準，因為解答在同一個 repo。
@@ -203,6 +211,10 @@ notebook 點出這條路徑跟高斯路徑的兩個差別：
 - 另一門課的 flow matching 作業：[Berkeley CS189 HW2：回歸、GMM 與 flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
 
 系列導覽：上一篇 [L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)｜下一篇 [L3B：Guidance 與 classifier-free guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

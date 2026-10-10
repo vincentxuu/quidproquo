@@ -38,6 +38,22 @@ L9 開頭列出四種評估演算法的方式：會不會收斂、會不會收�
 
 Brunskill 在 L9 說得很清楚，為什麼先講 bandit：它是看清這些想法最簡單的地方，而這些想法之後會延伸到 MDP。
 
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=sqYii3nd78w
+title: Stanford CS234 Spring 2024 播放清單第 11 支「Exploration 1」
+```
+
+原始影片：[Stanford CS234 Spring 2024 播放清單第 11 支「Exploration 1」](https://www.youtube.com/watch?v=sqYii3nd78w)
+
+課程與錄影入口：
+
+- [Spring 2024 版](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
 ## 設定：只做一個決定的 RL
 
 multi-armed bandit 是一個 (A, R) 組合：A 是已知的 m 個動作（手臂），R^a(r) = P[r | a] 是每隻手臂未知的 reward 分布。每一步選一個動作、拿到一個 reward，目標是最大化累積 reward。
@@ -203,6 +219,10 @@ L10 p.5–6 放了一個真實案例：[Bastani et al. 在 Nature 發表的 COVI
 
 - 探索在深度 RL 裡的做法與理論：[Berkeley CS285 L19–25：探索、RL 理論與開放問題](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 - 課程定位、存取缺口與 2024 影片對照：[Stanford CS234 導讀（系列總覽）](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 更新紀錄
+
+- 2026-10-10：補上課程影片來源與錄影取得方式。
 
 ## 參考資料
 

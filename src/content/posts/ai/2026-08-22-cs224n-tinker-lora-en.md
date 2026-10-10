@@ -17,6 +17,15 @@ draft: false
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the eighteenth regular unit was scheduled for March 5, 2026, guest-taught by John Schulman. The only session content on the official page is the title **Guest Lecture: Tinker and LoRA Without Regret**, plus a link to the speaker's website; no current-quarter deck is public.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
 ## Confirmed facts
 
 - It is the eighteenth instructional unit on the Winter 2026 regular schedule.
@@ -37,6 +46,10 @@ A complete lecture series should neither invent content nor silently omit a miss
 ## Material gap
 
 This article is the gap artifact, not a lecture summary. Beyond the official schedule and speaker identity, it does not present external Tinker or LoRA material as classroom content.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 

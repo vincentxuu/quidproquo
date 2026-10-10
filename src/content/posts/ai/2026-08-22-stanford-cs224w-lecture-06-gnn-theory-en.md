@@ -17,6 +17,14 @@ draft: false
 
 This is **Lecture 6 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-10-09. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and [official slides](https://web.stanford.edu/class/cs224w/slides/06-theory.pdf); the slides credit Jure Leskovec, Charilaos Kanatsoulis, and the course team.
 
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+
 ## Materials and gaps
 
 Public materials include the slides and optional readings listed on the schedule. Canvas video, live Q&A, board work, and Ed discussions are unavailable, so this article does not reconstruct them. The public 2021 videos are not evidence for a 2025 lecture.
@@ -116,6 +124,10 @@ Build four controlled pairs: multisets that mean collapses but sum separates; lo
 Run one additional precision check with integer features designed to produce nearby sums. Compare the same sum-plus-MLP computation in float32 and float64, and record whether normalization makes distinct neighborhoods difficult to separate. This does not refute WL theory; it exposes the gap between exact injectivity and finite precision or width. For counting tasks, test count range and out-of-distribution graph sizes, and report “theoretically distinguishable” separately from “distinguished by this training run.”
 
 Take one minimal graph or set of triples and write down the input, invariances retained by the model, output, and evaluation. If two examples that should differ remain identical at every step, you have located an expressive gap in the encoder.
+
+## Update Log
+
+- 2026-10-10: Added course video sources and recording access notes.
 
 ## References
 
