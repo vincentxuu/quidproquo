@@ -81,7 +81,7 @@ Based on the course schedule (checked 2026-09-29), merging the module labels the
 | Intro and agent capabilities | L1–L5 | What an agent is, tool use, long-context management, skills and memory, planning and multi-agent coordination |
 | Domains | L6, L7, L10 | Coding agents, computer use agents (JY Koh), deep research agents (Akari Asai) |
 | Training methods | L8, L9, L11, L12 | SFT (Yueqi Song), RL basics, advanced RL algorithms, RL systems (Apurva Gandhi) |
-| Safety | L13, L16 | Sandboxing and credential management, observability and monitoring (Eric Wallace) |
+| Safety | L13, L16 | Agent safety (red teaming, sandboxes, credential brokering, monitoring basics, evaluation), observability and monitoring (Eric Wallace) |
 | Frameworks | L14, L15 | OpenHands, LangGraph |
 | Interaction | L17–L19 | Agents and the future of work (Zora Wang), multi-agent interaction (Saujas Vaduguru), human-agent interaction (Valerie Chen) |
 | Search and advanced topics | L20–L23 | Reranking and critic models, tree search (JY Koh), guest lectures by Karthik Narasimhan and Sasha Rush |
@@ -140,10 +140,10 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 10 | L9 | [RL Basics](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) | Published |
 | 11 | L10 | [Deep Research Agents (Akari Asai)](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published (from slides; video pending) |
 | 12 | L11 | [Advanced RL Algorithms](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video pending) |
-| 13 | L12 | RL Systems (Apurva Gandhi) | Awaiting course release |
+| 13 | L12 | [RL Systems (Apurva Gandhi)](/en/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video pending) |
 | 14 | A2 | [Assignment 2: Eval](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en) | Published |
-| 15 | L13 | Sandboxing & Credential Management | Awaiting course release |
-| 16 | L14 | OpenHands | Awaiting course release |
+| 15 | L13 | [Agent Safety: sandboxes, credentials, monitoring, evaluation](/en/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en) | Published (from slides; video pending) |
+| 16 | L14 | [OpenHands](/en/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en) | Published (from slides; video pending) |
 | 17 | L15 | LangGraph | Awaiting course release |
 | 18 | L16 | Observability & Monitoring (Eric Wallace) | Awaiting course release |
 | 19 | L17 | Agents and the Future of Work (Zora Wang) | Awaiting course release |
@@ -155,13 +155,14 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | 25 | L22 | Guest: Karthik Narasimhan | Awaiting course release |
 | 26 | L23 | Guest: Sasha Rush | Awaiting course release |
 
-Material status as of 2026-09-29: L1–L9 have slides and recordings, L10 and L11 have slides only, and nothing after L12 is public yet.
+Material status as of 2026-10-10: L1–L9 have slides and recordings, L10–L14 have slides only, nothing from L15 on is public yet, and the Assignment 3 repo is not public either (due Oct 29).
 
 If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: The official site added slides for lectures 12–14, so this series gains guides to RL Systems, Agent Safety and OpenHands, and the progress table is updated. The official schedule renamed "Sandboxing & Credential Management" to Agent Safety (Oct 6); lecture 13 now covers red teaming, sandboxes, credential brokering, monitoring and safety evaluation, and the schedule's module labels changed to Agent Safety, Agent Frameworks and so on.
 
 ## References
 

@@ -81,7 +81,7 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 導論與 agent 能力 | L1–L5 | 什麼是 agent、工具使用、長 context 管理、技能與記憶、規劃與多 agent 協調 |
 | 應用領域 | L6、L7、L10 | Coding agent、computer use agent（JY Koh）、deep research agent（Akari Asai） |
 | 訓練方法 | L8、L9、L11、L12 | SFT（Yueqi Song）、RL 基礎、進階 RL 演算法、RL 系統（Apurva Gandhi） |
-| 安全 | L13、L16 | 沙盒與憑證管理、可觀測性與監控（Eric Wallace） |
+| 安全 | L13、L16 | Agent 安全（red teaming、沙盒、憑證代管、監控入門、評測）、可觀測性與監控（Eric Wallace） |
 | 框架 | L14、L15 | OpenHands、LangGraph |
 | 互動 | L17–L19 | Agent 與未來的工作（Zora Wang）、多 agent 互動（Saujas Vaduguru）、人與 agent 互動（Valerie Chen） |
 | 搜尋與進階主題 | L20–L23 | Reranking 與 critic model、樹搜尋（JY Koh）、客座 Karthik Narasimhan、客座 Sasha Rush |
@@ -140,10 +140,10 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 10 | L9 | [RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics) | 已上線 |
 | 11 | L10 | [Deep Research Agents（Akari Asai）](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents) | 已上線（依投影片，待影片補充） |
 | 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl) | 已上線（依投影片，待影片補充） |
-| 13 | L12 | RL Systems（Apurva Gandhi） | 待課程上架 |
+| 13 | L12 | [RL Systems（Apurva Gandhi）](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems) | 已上線（依投影片，待影片補充） |
 | 14 | A2 | [Assignment 2：Eval](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval) | 已上線 |
-| 15 | L13 | Sandboxing & Credential Management | 待課程上架 |
-| 16 | L14 | OpenHands | 待課程上架 |
+| 15 | L13 | [Agent Safety：沙盒、憑證、監控與評測](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety) | 已上線（依投影片，待影片補充） |
+| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands) | 已上線（依投影片，待影片補充） |
 | 17 | L15 | LangGraph | 待課程上架 |
 | 18 | L16 | Observability & Monitoring（Eric Wallace） | 待課程上架 |
 | 19 | L17 | Agents and the Future of Work（Zora Wang） | 待課程上架 |
@@ -155,13 +155,14 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 | 25 | L22 | 客座：Karthik Narasimhan | 待課程上架 |
 | 26 | L23 | 客座：Sasha Rush | 待課程上架 |
 
-2026-09-29 的材料狀態：L1–L9 有投影片和錄影，L10、L11 只有投影片，L12 之後尚未公開。
+2026-10-10 的材料狀態：L1–L9 有投影片和錄影，L10–L14 目前只有投影片，L15 之後尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
 
 如果只打算讀幾篇，建議順序是：[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)建立「六種能力 × 兩條路」的地圖，接著讀 A1 看 harness 實際長什麼樣，再讀 A2 和 RL 那幾講，看評測怎麼變成訓練訊號。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：官網新上架第 12–14 講投影片，新增 RL Systems、Agent Safety、OpenHands 三篇導讀並更新進度表。官方把原本的「Sandboxing & Credential Management」改名為 Agent Safety（10/6），第 13 講的內容因此涵蓋 red teaming、沙盒、憑證代管、監控與安全評測；課表模組也改為 Agent Safety、Agent Frameworks 等標籤。
 
 ## 參考資料
 

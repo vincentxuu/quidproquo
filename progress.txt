@@ -1,6 +1,7 @@
 # quidproquo progress
 
 Last updated: 2026-10-10
+- **CMU 11-768 第 12–14 講 2026-10-10**：官網新上架 L12 RL Systems、L13 Agent Safety（原 Sandboxing & Credential Management 改名）、L14 OpenHands 投影片（皆無錄影），新增中英導讀各 3 篇並更新總覽進度表；L10–L14 待影片補充、A3 repo 尚未公開、L15 之後未上架。
 - **CS329Z 2026-10-10**：更新中英總導讀與 Week 1–3 官方投影片入口；前五堂 PDF、HW1 starter／資料／測試已公開，系列描述同步更新。Groundlane 已核對官方課表、Logistics、GitHub README 與作業 PDF。
 - **課程系列標題排序 2026-10-10**：SeriesDirectory 中英文以 Intl.Collator 自然排序課程標題，其他分類保留日期順序；課號數值排序與輸入保留檢查通過。
 
