@@ -37,6 +37,8 @@ title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是 2023 年 Lecture 9（約 79 分鐘，2023 年 9 月上傳）與本文（以 Winter 2026 投影片〈Pretraining (Scaling, Systems, Data)〉為準）的主題關係，不是 2026 課堂錄影，也不是 2024 年版。字幕涵蓋 subword 與 BPE 類的詞彙設計、pre-training／fine-tuning 範式、decoder、encoder（BERT 的 masked language modeling）與 encoder-decoder（span corruption／T5）三種預訓練方式、parameter-efficient fine-tuning，結尾講 GPT-3 的 in-context learning、chain-of-thought 與 Chinchilla 一句話帶過規模問題，主題與本文前半相符。2023 版沒有 Winter 2026 版的 systems 與 data 兩個主軸（字幕沒有 GPU、資料過濾或去重的討論，scaling 只有結尾的 Chinchilla 提及），本文那幾節只依 Winter 2026 投影片，不是影片內容。
+
 ## 為什麼預訓練能擴張
 
 監督式任務仰賴人工標籤，資料量與任務範圍都受限。預訓練改從文字本身製造預測目標，讓模型能使用大規模、多樣且未標註的語料。之後再以少量標註資料、指令或 prompt 指定用途。
@@ -135,6 +137,7 @@ Winter 2026 錄影不公開。投影片封面保留「Lecture 6: Pretraining」�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 2023 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2023 年影片涵蓋 subword、三種預訓練方式、PEFT 與 in-context learning；scaling／systems／data 三主軸在影片中只有 Chinchilla 一句，標明非影片內容。
 
 ## 參考資料
 

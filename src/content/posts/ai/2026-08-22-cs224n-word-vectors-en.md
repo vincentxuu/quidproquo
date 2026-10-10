@@ -44,6 +44,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the Spring 2024 Lectures 1 and 2 (about 80 and 79 minutes) relate to this article, which is based on the Winter 2026 Lecture 2 slides; they are not the 2026 classroom recordings. Lecture 1 opens with course logistics and a discussion of language and word meaning (WordNet, the drawbacks of one-hot vectors, distributional semantics) and from about 69% moves into the Word2Vec objective, the window, softmax and the gradient derivation, matching this article's first two sections. Lecture 2 first reviews gradient descent and SGD, then skip-gram and CBOW and negative sampling, demos analogies with GloVe vectors in a notebook (about 15 to 30%), covers co-occurrence matrices and SVD around 45 to 50%, then the GloVe model, evaluating word vectors (intrinsic versus extrinsic, human similarity judgments) and polysemy (about 73 to 80%), and ends by turning to neural-network classification, matching the article's negative sampling, count-based/SVD and evaluation sections. The transcripts contain no PMI derivation and nothing on how word vectors relate to modern embedding tables, how to read an embedding paper or the specific notebook exercises, so those sections rest on the Winter 2026 slides and this site's own additions, not on the videos.
+
 ## From dictionary nodes to positions in context
 
 Lexical resources such as [WordNet](https://wordnet.princeton.edu/) organize words into synonym sets and hypernym relations. Their structure is explicit, but they require manual maintenance, miss new uses, and do not naturally quantify degrees of similarity. Distributional representation begins elsewhere: words occurring in similar contexts should receive similar representations.
@@ -118,6 +120,7 @@ Winter 2026 recordings are not public. This account uses the Lecture 2 deck and 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. Spring 2024 Lectures 1 and 2 cover the Word2Vec objective, negative sampling, co-occurrence/SVD, GloVe, evaluation and polysemy, matching the article's main line; PMI and modern embedding tables are not in the videos and are marked as not video content.
 
 ## References
 

@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Autumn 2018 Lecture 19 (about 81 minutes) covers state-action rewards and finite-horizon MDPs (dynamic programming backward from the last step), then linear dynamical systems and linearizing a non-linear model, and finally LQR (assuming V* is quadratic, which yields a linear policy), matching the chapter's first two sections and the LQR section. The words Riccati, DDP, Kalman and LQG never appear in the transcript, so the chapter's DDP and LQG sections are not covered and rest on the notes alone. Lecture 18 (about 80 minutes) is continuous-state MDPs and fitted value iteration and only mentions LQR and LQG as coming later (around 48%), so it is background.
+
 ## Finite-horizon dynamic programming works backward
 
 A finite-horizon problem may have time-dependent dynamics, rewards, and policies. It starts with terminal value and recurses backward:
@@ -115,6 +117,7 @@ Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the o
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Lecture 19 covers finite-horizon DP, linearization and LQR; DDP and LQG (Kalman) are not in the videos and rest on the notes alone; Lecture 18 is background on continuous-state MDPs.
 
 ## References
 

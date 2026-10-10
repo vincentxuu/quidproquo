@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 7 (about 80 minutes) reviews the loss and cross entropy, SGD and mini-batches, ReLU and two-layer network notation, then after about 80% residual connections and layer norm, matching the chapter's nonlinearity, MLP and modern-modules sections; Lecture 8 (about 62 minutes) covers backpropagation (chain rule, Jacobians, forward and backward passes), matching the chapter's backpropagation section. The chapter's closing section on vectorization across examples does not appear in the Lecture 8 transcript ("vectorize" and "batch" appear zero times) and rests on the notes alone.
+
 ## From fixed features to learned representations
 
 Earlier models are mostly linear in their parameters. Even when a kernel implies complicated features, the feature map is selected rather than learned end to end. Neural networks replace that model with \(\bar h_\theta(x)\), nonlinear in both inputs and parameters. Regression uses its output directly; binary and multiclass classification treat outputs as logits and apply sigmoid or softmax with the corresponding negative log-likelihood.
@@ -91,6 +93,7 @@ Using only matrix operations, implement a two-layer MLP with a ReLU hidden layer
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Lectures 7 and 8 match the chapter topics; the vectorization-across-examples section is not in the videos and rests on the notes alone.
 
 ## References
 

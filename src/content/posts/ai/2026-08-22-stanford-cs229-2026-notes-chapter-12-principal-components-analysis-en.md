@@ -45,6 +45,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. In Spring 2026 Lecture 10 (about 80 minutes) the first 60% is EM and only from about 62% does it turn to PCA (the direction of maximum variance, eigenvectors of the covariance matrix, projection), so the relevant part is the last 40%. In Andrew Ng's Autumn 2018 Lecture 15 (about 79 minutes) roughly the first 80% is PCA: standardizing to zero mean and unit variance, projecting onto the principal axis, maximizing projected variance to get the principal eigenvector of the covariance matrix, dimensionality-reduction applications (a neuroscience example, among others); only the last 20% starts the ICA cocktail-party problem. Both match this chapter's topic; the Lecture 10 transcript never says "reconstruct", so reconstruction-error statements rest on the notes alone.
+
 ## Preprocessing defines what counts as large variation
 
 The notes typically subtract each feature mean and divide by its empirical standard deviation:
@@ -96,6 +98,7 @@ Use a two-dimensional dataset whose features have very different numeric scales.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Both videos contain a PCA segment that matches the chapter; the first 60% of Lecture 10 is EM and the last 20% of Lecture 15 is the start of ICA, neither part of this chapter.
 
 ## References
 

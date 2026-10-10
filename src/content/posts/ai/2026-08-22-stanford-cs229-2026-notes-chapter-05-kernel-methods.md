@@ -38,6 +38,8 @@ title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季 Andrew Ng 的 Lecture 7（約 80 分鐘）：開頭先講 optimal margin classifier／SVM 的最佳化問題與 representer theorem，之後講高維特徵映射、kernel trick、kernel matrix（字幕稱 Gram matrix）、Mercer 定理與半正定條件、多項式與高斯 kernel、可核化的演算法（含 linear regression、logistic regression、perceptron），最後以 L1 soft margin 與 MNIST 例子作結；主題與本章相符，但這是 2018 年的講法，不是 2026 版講義的逐段來源。
+
 ## 非線性，仍然可以對參數線性
 
 線性模型能力不足時，可以先把輸入送進特徵映射 \(\phi(x)\)，再學 \(\theta^T\phi(x)\)。例如一維輸入可展開成多項式特徵。模型對原始 \(x\) 是非線性的，但對參數 \(\theta\) 仍然線性，因此前面熟悉的 LMS 等方法仍可使用。
@@ -86,6 +88,7 @@ kernel trick 省掉顯式高維特徵，卻沒有讓資料規模消失。通常�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片（2018 年 Lecture 7）主題與本章相符；字幕前段是 SVM 收尾，尾段是 soft margin 與 MNIST，超出本章範圍。
 
 ## 參考資料
 

@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 5 (about 82 minutes); the transcript covers generative versus discriminative models, the Gaussian and shared covariance, GDA with maximum likelihood, GDA versus logistic regression (including a quadratic-decision-boundary demo that is not in the notes), and only after roughly 90% moves to a Naive Bayes spam filter with Laplace smoothing (auto-captioned as "applause smoothing"). It matches this chapter. On Naive Bayes the transcript stops at the simplifying assumption and smoothing and does not compare the Bernoulli and multinomial event models, which rest on the notes alone.
+
 ## Discriminative and generative routes
 
 Logistic regression learns \(p(y\mid x)\) directly. A generative classifier instead learns a class prior \(p(y)\) and class-conditional input model \(p(x\mid y)\), then applies Bayes' rule:
@@ -89,6 +91,7 @@ Train logistic regression and GDA on the same binary dataset, first with approxi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this chapter; noted that Naive Bayes appears only at the end and the event-model comparison is not in the transcript.
 
 ## References
 

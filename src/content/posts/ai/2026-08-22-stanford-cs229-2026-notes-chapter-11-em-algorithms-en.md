@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 10 (about 80 minutes): roughly the first 60% is EM (a GMM with soft assignments, Jensen's inequality, the ELBO (auto-captioned as "elbow"), the E and M steps, step-by-step monotone improvement and only reaching a local maximum), and from about 62% it turns to PCA (Chapter 12). It matches the first half of this chapter. The chapter's second half on variational inference, VAEs and the reparameterization trick never appears in the transcript ("variational", "reparam" and "VAE" occur zero times) and rests on the notes alone.
+
 ## Gaussian mixtures hide the component labels
 
 A Gaussian mixture first samples $z\sim\operatorname{Multinomial}(\phi)$, then samples $x\sim\mathcal N(\mu_j,\Sigma_j)$ conditional on $z=j$. If every $z^{(i)}$ were observed, $\phi_j$ would be the fraction in component $j$, while $\mu_j$ and $\Sigma_j$ would be that component's empirical mean and covariance. With latent labels, however, the marginal likelihood contains a sum over components inside a logarithm, coupling the parameters and eliminating those simple closed forms.
@@ -112,6 +114,7 @@ Work through one EM iteration for a one-dimensional, two-component Gaussian mixt
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The first 60% of the video matches the chapter's GMM, Jensen, ELBO and EM parts and the rest is PCA; variational inference, VAEs and reparameterization are not in the video and rest on the notes alone.
 
 ## References
 

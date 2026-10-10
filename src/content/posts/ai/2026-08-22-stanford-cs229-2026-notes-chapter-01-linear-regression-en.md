@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 2 (about 78 minutes) covers the supervised learning setup, linear regression, batch and stochastic gradient descent and the normal equations, matching the chapter's LMS, SGD and normal-equation sections. The first half of Lecture 3 (about 62 minutes) covers the probabilistic interpretation of the error term (zero mean, IID, Gaussian) and maximum likelihood, matching the chapter's probabilistic-interpretation section; its second half moves on to classification, logistic regression and Newton's method (Chapter 2 material). Its YouTube title says "Weighted Least Squares", but the transcript never mentions locally weighted regression ("weighted" appears zero times). Neither video covers the chapter's last section on locally weighted linear regression, which rests on the notes alone.
+
 ## Why the notes begin with linear regression
 
 CS229 uses linear regression to establish the language reused throughout the course: hypotheses, losses, optimization, statistical assumptions, and the distinction between parametric and nonparametric learning. The model is \(h_\theta(x)=\theta^T x\), with the intercept absorbed into a feature fixed at one.
@@ -105,6 +107,7 @@ On one one-dimensional dataset, implement batch gradient descent, SGD, the norma
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Lecture 2 and the first half of Lecture 3 match the chapter; Lecture 3's title does not match its content (no locally weighted regression, second half is classification), so the locally weighted regression section rests on the notes alone.
 
 ## References
 

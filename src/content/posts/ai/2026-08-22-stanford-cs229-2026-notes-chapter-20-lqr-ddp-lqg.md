@@ -43,6 +43,8 @@ title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Mac
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。2018 年秋季 Lecture 19（約 81 分鐘）先講 state-action reward 與有限期 MDP（從最後一步往回做的動態規劃），再講線性動態系統與線性化非線性模型，最後是 LQR（假設 V* 為二次函數、得到線性策略），對應本章前兩節與 LQR 一節；字幕裡沒有出現 Riccati、DDP、Kalman、LQG，本章的 DDP 與 LQG 兩節影片未涵蓋，只依講義。Lecture 18（約 80 分鐘）是連續狀態 MDP 與 fitted value iteration，只在中段（約 48%）提到之後會講 LQR 與 LQG，屬背景補充。
+
 ## 有限期動態規劃先從終點往回看
 
 有限期問題允許動態、reward 與策略隨時間改變。終點價值先定義，再向後遞迴：
@@ -115,6 +117,7 @@ s_{t+1|t+1}=s_{t+1|t}+K_t(y_{t+1}-Cs_{t+1|t}),
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認 Lecture 19 涵蓋有限期 DP、線性化與 LQR；DDP 與 LQG（Kalman）影片未涵蓋，標明只依講義；Lecture 18 為連續狀態 MDP 的背景補充。
 
 ## 參考資料
 

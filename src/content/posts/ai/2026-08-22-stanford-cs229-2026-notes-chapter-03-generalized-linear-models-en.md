@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 4 (about 74 minutes); the transcript covers the exponential family form (sufficient statistic, log partition function), constructing GLMs (including the canonical result) and softmax multi-class classification, matching this chapter. It names the Gaussian, Bernoulli and multinomial (softmax) cases, but never mentions Poisson (count data gets only a passing mention), so the Poisson part rests on the notes alone.
+
 ## Two algorithms are instances of one template
 
 The first two chapters appear to handle unrelated output types, but both make the same move: choose an exponential-family conditional distribution for the output, then make its natural parameter a linear function of the input.
@@ -86,6 +88,7 @@ Choose a count-data problem. Assume \(y\mid x\) is Poisson, write the distributi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this chapter; noted that the transcript has no Poisson.
 
 ## References
 

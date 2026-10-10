@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 10 (about 80 minutes; the YouTube title credits Archit Sharma, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers prompting, instruction fine-tuning (SFT), preference data and a reward model using summarization as the running example (including Bradley-Terry), why a KL penalty to the initial model is added, and then the DPO derivation (after about 70%), matching this article's main line. The speaker says the course does not assume reinforcement-learning background and does not go into PPO/REINFORCE (no proximal or policy-gradient derivation in the transcript), so the PPO objective section rests on the Winter 2026 slides alone; there is also no discussion of AI feedback, Constitutional AI or LLM-as-judge, so the "human and AI feedback" and quality-control sections are likewise not video content.
+
 ## Next-token prediction is not user assistance
 
 Pretraining learns to continue text. Users expect a model to follow instructions, choose a useful form, and decline inappropriate requests. Instruction fine-tuning applies supervised learning to instruction–ideal-response examples, shifting a base model toward assistant interaction.
@@ -103,6 +105,7 @@ Winter 2026 recordings are not public. The deck cover retains a stale “Lecture
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The 2024 video covers SFT, reward models, the KL penalty and DPO, matching the article's main line; PPO details and AI feedback are not in the video and are marked as not video content.
 
 ## References
 

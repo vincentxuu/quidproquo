@@ -37,6 +37,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 11 (about 84 minutes; the YouTube title credits Yann Dubois, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers the overall evaluation framework, close-ended tasks (multiple choice, MMLU, SuperGLUE and multi-task averaging), open-ended evaluation (reference-based metrics, human evaluation and annotator selection, LLM-as-judge such as AlpacaEval), perplexity, robustness of rankings to small prompt changes, contamination and dynamic test sets, matching this article's topic. It never mentions Goodhart or construct validity and has no adversarial design or concrete procedures such as an "evaluation contract" or "contamination audit", so those sections rest on the Winter 2026 slides and this site's own additions, not on the video.
+
 ## Benchmark shelf lives are shrinking
 
 The [NLP benchmarking survey](https://aclanthology.org/2022.naacl-main.395/) explains how benchmarks and leaderboards turn research questions into shared targets. When models approach saturation, scores lose discriminative power. Test data may also enter pretraining corpora, turning generalization into recall. Human performance is not always a meaningful ceiling when a task rewards broad retrieval, strict formatting, or speed rather than human expertise.
@@ -115,6 +117,7 @@ Winter 2026 recordings are not public. This article covers the deck's four agend
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The 2024 video covers close/open-ended evaluation, LLM judges, prompt robustness, contamination and dynamic test sets; Goodhart, construct validity, adversarial design and audit procedures are not in the video and are marked as not video content.
 
 ## References
 

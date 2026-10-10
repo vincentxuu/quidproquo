@@ -21,11 +21,11 @@ series:
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自CS229 Spring 2026 與舊版 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
 
 ```youtube
-url: https://www.youtube.com/watch?v=hHC-SF3utxg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
 ```
 
 ```youtube
@@ -33,7 +33,7 @@ url: https://www.youtube.com/watch?v=d5gaWTo6kDM
 title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
 ```
 
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg)、[Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
+原始影片：[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)、[Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
 
 課程與錄影入口：
 
@@ -42,6 +42,8 @@ title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Lear
 - [官方課程／講次來源](https://cs229.stanford.edu/)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。2018 年秋季 Lecture 17（約 79 分鐘）講 MDP 五元組、Bellman 方程、value iteration 與 policy iteration，並開始處理由資料估計轉移機率與探索，連續狀態只在約 58% 預告「下次再講」，對應本章前兩節；Lecture 18（約 80 分鐘）講連續狀態 MDP：discretization、model／simulator、以線性迴歸近似價值函數的 fitted value iteration，對應本章連續狀態一節。原本嵌的 Spring 2026 Lecture 16（YouTube 標題「Basic Concept in RL, Policy Gradient」）字幕實為 attention 變體、MoE、in-context learning 與 SFT，完全沒有 MDP、Bellman 或 value iteration，已換成 Lecture 18（那支 2026 影片改放在第 17 章）。
 
 ## MDP 把延遲後果放進模型
 
@@ -99,6 +101,7 @@ s_{t+1}=As_t+Ba_t+\epsilon_t,
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。原嵌的 Spring 2026「Lecture 16: Basic Concept in RL」字幕實為 attention 變體、MoE 與 SFT，已換成 2018 Lecture 18（連續狀態 MDP、fitted value iteration）；Lecture 17 與本章前半相符。
 
 ## 參考資料
 

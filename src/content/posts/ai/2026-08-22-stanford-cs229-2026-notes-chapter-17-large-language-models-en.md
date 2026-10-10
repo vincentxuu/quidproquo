@@ -24,8 +24,8 @@ This article reads Chapter 17, printed pages 202–219, of the [2026 CS229 main 
 This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
 
 ```youtube
-url: https://www.youtube.com/watch?v=lNTajqxxOn4
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss
+url: https://www.youtube.com/watch?v=hHC-SF3utxg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
 ```
 
 ```youtube
@@ -33,7 +33,7 @@ url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
 ```
 
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss](https://www.youtube.com/watch?v=lNTajqxxOn4); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
 
 Course and recording entries:
 
@@ -42,6 +42,8 @@ Course and recording entries:
 - [Official course / lecture source](https://cs229.stanford.edu/)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter; one of the two originally embedded videos did not match. Lecture 14 (about 78 minutes) opens by announcing a few lectures on LLMs, then covers tokenization, the autoregressive conditional-probability decomposition, the softmax output, attention and the causal mask, and ends with normalization and residuals, with a mention of the T-squared cost for long sequences; this matches the chapter's first two sections and the start of the long-sequence section. The originally embedded Lecture 13 (YouTube title "LLMs, Next-Word Prediction Loss") is in fact the second half of the representation-learning material (contrastive learning, semantic search, RAG) with no next-token, tokenization or transformer content, so it was replaced here and its content moved to Chapter 16. The replacement carries the YouTube title "Lecture 16: Basic Concept in RL, Policy Gradient", but its transcript covers attention variants (multi-query/grouped-query, KV cache, sliding window), mixture of experts, in-context learning (few-shot, zero-shot) and SFT, matching the chapter's long-sequence and "MoE, prompting and SFT" sections; the title does not match, the content does.
 
 ## From text to an autoregressive probability
 
@@ -103,6 +105,7 @@ For the same 2,048-token prompt, compare what must be recomputed during token-by
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The embedded Lecture 13 was really contrastive learning, semantic search and RAG (moved to Chapter 16), so it was replaced by the video whose transcript covers attention variants, MoE, in-context learning and SFT (hHC-SF3utxg, whose YouTube title wrongly says Lecture 16 RL); Lecture 14 matches the first half of the chapter.
 
 ## References
 

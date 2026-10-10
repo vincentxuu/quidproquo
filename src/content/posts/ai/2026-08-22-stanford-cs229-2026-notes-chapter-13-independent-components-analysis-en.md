@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. In the Autumn 2018 Lecture 15 (about 79 minutes) roughly the first 80% is PCA and ICA starts only in the last 20%: the cocktail-party problem, the mixing matrix, and the two things that cannot be recovered (which source is s1/s2, and sign), matching the chapter's first two sections. In Lecture 16 (about 78 minutes) the first 60% continues ICA: Gaussian sources leave a rotational ambiguity so ICA is impossible, the density transformation must include the determinant of W, and the algorithm is derived by maximum likelihood, matching the chapter's last three sections; from about 62% it turns to MDPs in reinforcement learning (Chapter 19). Both are the 2018 presentation, not line-by-line sources for the 2026 notes.
+
 ## From a mixing matrix to an unmixing matrix
 
 ICA assumes
@@ -101,6 +103,7 @@ Generate a sine wave and a square wave, standardize them, and mix them with an i
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The last 20% of Lecture 15 and the first 60% of Lecture 16 match the chapter; the rest is PCA and MDPs.
 
 ## References
 

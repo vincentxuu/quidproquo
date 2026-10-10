@@ -38,6 +38,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discr
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 5（約 82 分鐘），字幕依序講生成式與判別式的差別、高斯分布與共享協方差、GDA 與其最大概似、GDA 與 logistic regression 的比較（含講義沒有的二次決策邊界示範），最後約 90% 之後才進到 Naive Bayes 垃圾郵件過濾並提到 Laplace 平滑（字幕自動辨識成 applause smoothing）；主題與本章相符。字幕對 Naive Bayes 只講到簡化假設與平滑，沒有 Bernoulli／multinomial event model 的對照，那部分只依講義。
+
 ## 判別式與生成式的分岔
 
 邏輯斯迴歸直接學 \(p(y\mid x)\)。生成式分類器改學類別先驗 \(p(y)\) 和類別條件分布 \(p(x\mid y)\)，再用 Bayes 法則比較
@@ -90,6 +92,7 @@ GDA 對高斯形狀與共享協方差敏感；Naive Bayes 對特徵相依關係�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本章相符，補註 Naive Bayes 在影片尾段只講到簡化假設與平滑，event model 的對照只依講義。
 
 ## 參考資料
 

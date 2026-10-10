@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 11 (about 83 minutes); the transcript covers the noising forward process (adding Gaussian noise step by step and unrolling x0 to xt in one expression), learning the reverse process (recovering a clean image from noise), the ELBO (after about 70%, auto-captioned as "elbow") and the training objective, with a continuous-time digression around 55%. It matches this chapter. The chapter's last section on why a score appears in continuous time is not covered: the word "score" never appears in the transcript and continuous time is only a digression, so that section rests mainly on the notes.
+
 ## The forward process gradually washes data into a Gaussian
 
 Let $x_0\sim p_{data}$. Forward diffusion is a fixed Markov chain:
@@ -111,6 +113,7 @@ Choose one normalized small image and three values of $\bar\alpha_t$. Sample noi
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the chapter; the continuous-time score section is not in the video and rests mainly on the notes.
 
 ## References
 

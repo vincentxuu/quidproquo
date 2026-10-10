@@ -43,6 +43,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. For roughly its first two thirds, Lecture 6 (about 81 minutes) is still finishing Naive Bayes (Laplace smoothing, event models for text); it starts introducing SVMs after about 55% and reaches the functional and geometric margin and the optimal margin classifier at about 70%, ending with a preview of kernels. Lecture 7 (about 80 minutes) opens with the optimal margin classifier's optimization problem and the representer theorem, spends its body on kernels (see Chapter 5) and has the L1 soft-margin SVM near the end. Neither transcript covers the chapter's Lagrange duality derivation, KKT conditions or SMO (Lecture 6 never mentions Lagrange; neither mentions SMO), so those sections rest on the notes alone; together the videos match only the first half of the chapter (margins, the max-margin optimization) and the idea of soft margin.
+
 ## From correct classification to distance from the boundary
 
 Two hyperplanes may classify every training point correctly while differing greatly in robustness. SVMs express that difference through margins. With \(y\in\{-1,1\}\) and score \(w^Tx+b\), an example's functional margin is
@@ -103,6 +105,7 @@ On separable two-dimensional data, draw the maximum-margin line, both margin bou
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The two videos cover only the margin and optimization part of this chapter (Lecture 6 is mostly Naive Bayes first); the duality derivation, KKT and SMO are not in either transcript and rest on the notes alone.
 
 ## References
 

@@ -43,6 +43,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Network
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 7（約 80 分鐘）回顧損失函數與 cross entropy、SGD 與 mini-batch、ReLU 與兩層網路的記號，約 80% 之後講 residual connection 與 layer norm，與本章前半（非線性、MLP、模組）與「現代網路模組」一節相符；Lecture 8（約 62 分鐘）講反向傳播：chain rule、Jacobian、forward／backward pass，與本章反向傳播一節相符。本章最後的「跨樣本向量化」，Lecture 8 字幕沒有出現（vectorize、batch 皆零次），該節只依講義。
+
 ## 從固定特徵到學習表徵
 
 前幾章的模型多半對參數線性，即使 kernel 隱含的特徵很複雜，特徵映射本身仍由人選定。神經網路把模型改成對輸入與參數都非線性的函數 \(\bar h_\theta(x)\)。回歸直接使用它的輸出；二元與多類別分類則把輸出視為 logits，再接 sigmoid 或 softmax 與對應的負對數概似。
@@ -91,6 +93,7 @@ a^{[k]}=\sigma(W^{[k]}a^{[k-1]}+b^{[k]}).
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認 Lecture 7 與 8 的主題與本章相符；跨樣本向量化一節影片未涵蓋，標明只依講義。
 
 ## 參考資料
 

@@ -44,6 +44,8 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 2 - Word 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是 2024 年春季 Lecture 1 與 Lecture 2（分別約 80 與 79 分鐘）和本文（以 Winter 2026 Lecture 2 投影片為準）的主題關係，不是 2026 課堂錄影。Lecture 1 前段是課程說明與語言、詞義的討論（WordNet、one-hot 向量的缺點、distributional semantics），約 69% 起進入 Word2Vec 的目標函數、window、softmax 與梯度推導，對應本文前兩節。Lecture 2 先回顧梯度下降與 SGD，再講 skip-gram 與 CBOW、negative sampling，約 15–30% 用 GloVe 向量在 notebook 示範 analogy，約 45–50% 講 co-occurrence 矩陣與 SVD，之後是 GloVe 模型、詞向量評估（intrinsic／extrinsic、人類相似度判斷）、一詞多義（polysemy，約 73–80%），結尾轉到神經網路分類，對應本文 negative sampling、count-based／SVD 與評估各節。字幕沒有出現 PMI 的推導，也沒有談詞向量與現代 embedding table 的關係、如何讀 embedding paper 或 notebook 的具體練習，本文那幾節只依 Winter 2026 投影片與本站補充，不是影片內容。
+
 ## 從「詞典裡的節點」改成「上下文中的位置」
 
 傳統詞彙資源如 [WordNet](https://wordnet.princeton.edu/)，把詞整理成同義詞集合與上下位關係。結構清楚，卻有人工維護、缺少新詞、同義程度難量化等限制。分布式表示換一個出發點：出現在相似上下文的詞，應該有相似表示。
@@ -150,6 +152,7 @@ Winter 2026 錄影不公開。本文只依 Lecture 2 投影片與官方列出的
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2024 年 Lecture 1、2 涵蓋 Word2Vec 目標函數、negative sampling、co-occurrence／SVD、GloVe、評估與一詞多義，與本文主線相符；PMI、現代 embedding table 等節影片未涵蓋，標明非影片內容。
 
 ## 參考資料
 

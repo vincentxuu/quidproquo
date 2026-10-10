@@ -38,6 +38,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 10（約 80 分鐘）：前約 60% 是 EM——soft assignment 的 GMM、Jensen 不等式、ELBO（字幕自動辨識成 elbow）、E step／M step 與逐步單調改善、只找到局部最大；約 62% 之後轉去 PCA（屬第 12 章）。主題與本章前半相符。本章後半的變分推論、VAE 與 reparameterization trick，字幕完全沒有出現（variational、reparam、VAE 皆零次），那幾節只依講義。
+
 ## 高斯混合把群別藏起來
 
 高斯混合模型先抽群別 $z\sim\operatorname{Multinomial}(\phi)$，再依 $z=j$ 抽 $x\sim\mathcal N(\mu_j,\Sigma_j)$。若 $z^{(i)}$ 已知，$\phi_j$ 是第 $j$ 群比例，$\mu_j$ 與 $\Sigma_j$ 是該群樣本的平均與共變異矩陣；但未標記資料看不到 $z$，marginal likelihood 裡出現「先對群別加總、再取 log」，參數彼此纏在一起，沒有同樣簡單的封閉解。
@@ -112,6 +114,7 @@ $$
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片前 60% 與本章 GMM、Jensen、ELBO、EM 相符，後 40% 是 PCA；變分推論、VAE、reparameterization 影片未涵蓋，標明只依講義。
 
 ## 參考資料
 

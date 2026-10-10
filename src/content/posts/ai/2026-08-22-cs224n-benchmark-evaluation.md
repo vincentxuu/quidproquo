@@ -37,6 +37,8 @@ title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benc
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Lecture 11（約 84 分鐘，YouTube 標題署名 Yann Dubois，字幕本身沒有出現講者姓名）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕涵蓋評估的整體框架、close-ended 任務（多選題、MMLU、SuperGLUE 與多任務平均）、open-ended 評估（reference-based 指標、人類評估與標註者選擇、LLM-as-judge 如 AlpacaEval）、perplexity、prompt 微調就改變排名的穩健性、contamination 與 dynamic test set，主題與本文相符。字幕沒有出現 Goodhart、construct validity，也沒有 adversarial 設計與「evaluation contract」「contamination audit」之類的具體流程，本文這些節只依 Winter 2026 投影片與本站補充，不是影片內容。
+
 ## Benchmark 的保存期限正在縮短
 
 [NLP benchmarking 綜述](https://aclanthology.org/2022.naacl-main.395/)指出 benchmark 與 leaderboard 能把研究問題變成共同目標，但當模型接近滿分，分數就失去區辨力。資料也可能進入預訓練語料，讓測試從泛化變成記憶。更麻煩的是，人類表現不再總是合理的 ceiling：任務可能測的是大量知識搜尋、特定格式或速度，而非人類專長。
@@ -163,6 +165,7 @@ Winter 2026 錄影不公開。本文完整覆蓋投影片四部 agenda 與其子
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2024 年影片涵蓋 close／open-ended 評估、LLM judge、prompt 穩健性、contamination 與 dynamic test set；Goodhart、construct validity、adversarial 與審計流程影片未涵蓋，標明非影片內容。
 
 ## 參考資料
 

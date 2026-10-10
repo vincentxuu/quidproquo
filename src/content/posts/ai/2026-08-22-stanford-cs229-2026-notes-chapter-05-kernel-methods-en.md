@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Andrew Ng's Autumn 2018 Lecture 7 (about 80 minutes): it opens with the optimal margin classifier/SVM optimization problem and the representer theorem, then covers high-dimensional feature maps, the kernel trick, the kernel matrix (the transcript also calls it the Gram matrix), Mercer's theorem and positive semi-definiteness, polynomial and Gaussian kernels, which algorithms can be kernelized (linear regression, logistic regression, the perceptron) and closes with the L1 soft-margin SVM and MNIST. The topic matches this chapter, but it is the 2018 presentation, not a line-by-line source for the 2026 notes.
+
 ## Nonlinear in the input, linear in the parameters
 
 When a linear model is too limited, one can first map the input through \(\phi(x)\) and learn \(\theta^T\phi(x)\). A scalar input might be expanded into polynomial features. The result is nonlinear in the original \(x\) but remains linear in \(\theta\), so algorithms such as LMS still apply.
@@ -86,6 +88,7 @@ For three two-dimensional points, explicitly construct second-degree polynomial 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video (2018 Lecture 7) matches the chapter topic; its opening (SVM wrap-up) and ending (soft margin, MNIST) go beyond this chapter.
 
 ## References
 

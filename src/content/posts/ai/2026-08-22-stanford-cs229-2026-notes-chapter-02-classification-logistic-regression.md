@@ -24,11 +24,16 @@ draft: false
 本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
 
 ```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+```youtube
 url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
 ```
 
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
 
 課程與錄影入口：
 
@@ -37,6 +42,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Fa
 - [官方課程／講次來源](https://cs229.stanford.edu/)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 3（約 62 分鐘）後半段（約 55% 起）從二元分類、sigmoid 與 logistic regression 講到概似、約 80% 後講 Newton 法，與本章主線相符；它前半段是線性迴歸的機率解釋（屬第 1 章），YouTube 標題「Weighted Least Squares」與內容不符。Lecture 4（約 74 分鐘）講指數族、GLM 與 softmax 多類別分類，字幕完全沒有出現 Newton 法，與本章只有 logistic regression 與 softmax 的交集；原本只嵌這支，已補上 Lecture 3。
 
 ## 從線性預測改成機率分類
 
@@ -94,6 +101,7 @@ P(y=j\mid x)=\frac{e^{\theta_j^Tx}}{\sum_{s=1}^k e^{\theta_s^Tx}}.
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。原本只嵌 Lecture 4（指數族／GLM），與本章的 logistic regression、Newton 法只部分重疊，已補嵌 Lecture 3（後半段正好講 logistic regression 與 Newton 法）；兩支標題與內容的出入已在核對標記註明。
 
 ## 參考資料
 

@@ -24,11 +24,16 @@ This article reads Chapter 2, “Classification and logistic regression,” on p
 This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
 
 ```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+```youtube
 url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
 ```
 
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI), [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
 
 Course and recording entries:
 
@@ -37,6 +42,8 @@ Course and recording entries:
 - [Official course / lecture source](https://cs229.stanford.edu/)
 
 Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. The second half of Lecture 3 (about 62 minutes; from roughly 55% on) goes from binary classification and the sigmoid to logistic regression and likelihood, then Newton's method after about 80%, matching the chapter's main line; its first half is the probabilistic interpretation of linear regression (Chapter 1), and its YouTube title "Weighted Least Squares" does not match the content. Lecture 4 (about 74 minutes) covers the exponential family, GLMs and softmax multi-class classification and never mentions Newton's method, so it overlaps this chapter only at logistic regression and softmax; it was the only video embedded before, and Lecture 3 has been added.
 
 ## From a linear prediction to a class probability
 
@@ -94,6 +101,7 @@ Create a two-dimensional binary dataset and train both logistic regression and a
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Only Lecture 4 (exponential family/GLM) was embedded, which overlaps this chapter only partly, so Lecture 3 (whose second half covers logistic regression and Newton's method) was added; title-versus-content mismatches are noted in the check line.
 
 ## References
 

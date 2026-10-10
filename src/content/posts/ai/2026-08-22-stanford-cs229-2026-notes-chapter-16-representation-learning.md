@@ -28,7 +28,12 @@ url: https://www.youtube.com/watch?v=_kREM2UAiJ8
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning
 ```
 
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning](https://www.youtube.com/watch?v=_kREM2UAiJ8)
+```youtube
+url: https://www.youtube.com/watch?v=lNTajqxxOn4
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning](https://www.youtube.com/watch?v=_kREM2UAiJ8)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss](https://www.youtube.com/watch?v=lNTajqxxOn4)
 
 課程與錄影入口：
 
@@ -37,6 +42,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representatio
 - [官方課程／講次來源](https://cs229.stanford.edu/)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 12（約 76 分鐘）開場明說先把擴散模型講完再進基礎模型：前約 45% 是擴散收尾，約 47% 起講 pre-training、embedding、zero-shot／few-shot、微調與 LoRA，只與本章第一節「表徵可以重用」相符。Lecture 13（約 61 分鐘）才是本章主體：從 supervised pre-training 與對比學習（正負樣本的 loss）講到語意搜尋（embedding 相似度、最近鄰），約 87% 起講 retrieval-augmented generation（把取回的文件放進 LLM 的 context、不必改模型參數、取捨）。但 Lecture 13 在 YouTube 的標題是「LLMs, Next-Word Prediction Loss」，字幕裡完全沒有 next-token／autoregressive／transformer，標題與內容不符；原本只嵌 Lecture 12，已補上 Lecture 13。
 
 ## 表徵為什麼能重用
 
@@ -93,6 +100,7 @@ y\sim p_\psi\bigl(y\mid q,\hat R(q)\bigr).
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。原只嵌 Lecture 12（前半是擴散收尾），補嵌 Lecture 13（字幕實為對比學習、語意搜尋與 RAG，與本章主體相符；其 YouTube 標題「LLMs, Next-Word Prediction Loss」與內容不符）。
 
 ## 參考資料
 

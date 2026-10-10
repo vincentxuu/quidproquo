@@ -45,6 +45,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2026 Lecture 1 (about 37 minutes) taught by Tengyu Ma; the transcript is the course introduction: prerequisites, the AI tools policy, definitions of machine learning (1959 and Tom Mitchell 1998), the supervised/unsupervised/reinforcement taxonomy and previews of LLMs and diffusion models. It fits the article as a course-level overview, and the article makes no finer claims about this video. The Lecture 14 opening, the attention-variants quote and the descriptions of Lectures 16/18/20 come from other videos, not this one, and were not re-read here.
+
 ## The hard facts
 
 The prerequisites are spelled out concretely on the course site, in three parts. You can write non-trivial Python/NumPy (CS106A or CS106B level); probability to the level of CS109 or MATH151; multivariable calculus and linear algebra to the level of MATH51 or CS205L. All three are phrased as "equivalent to" — you do not need to have taken those course numbers.
@@ -192,6 +194,7 @@ The one-line version: **old recordings with new notes, assignments with the star
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The public Spring 2026 playlist (17 videos) is live; embedded Lecture 1 as a related supplement for this course-level article.
+- 2026-10-10: Checked the video content against its transcript. The embedded Lecture 1 matches the topic; quotes from other lectures are not in this video and were not re-read.
 
 ## References
 

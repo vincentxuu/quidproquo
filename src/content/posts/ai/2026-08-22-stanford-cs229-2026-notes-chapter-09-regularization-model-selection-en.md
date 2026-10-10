@@ -40,6 +40,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 6 (about 78 minutes); the transcript runs through overfitting and underfitting, the bias-variance decomposition, regularization (L2, L1 and norm penalties, roughly 50 to 75%), the Bayesian view that "regularization encodes prior knowledge" (a single sentence, around 55%), double descent, and only around 90% train/dev/test splits, k-fold cross-validation and hyperband. It fits this chapter's topic broadly. Implicit regularization appears only as a few sentences about the optimizer's implicit bias after double descent, and the MAP derivation and its equivalence with weight decay are never worked through, so those two sections rest mainly on the notes.
+
 ## Explicit regularization trades off two objectives
 
 The regularized objective is
@@ -90,6 +92,7 @@ Fit polynomial regressions across a grid of $L_2$ strengths. Train on one split,
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The video topic broadly matches the chapter; implicit regularization and MAP get only a sentence or two in the video and rest mainly on the notes.
 
 ## References
 

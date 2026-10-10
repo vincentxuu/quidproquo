@@ -24,8 +24,8 @@ series:
 本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
 
 ```youtube
-url: https://www.youtube.com/watch?v=lNTajqxxOn4
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss
+url: https://www.youtube.com/watch?v=hHC-SF3utxg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
 ```
 
 ```youtube
@@ -33,7 +33,7 @@ url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
 ```
 
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss](https://www.youtube.com/watch?v=lNTajqxxOn4)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
 
 課程與錄影入口：
 
@@ -42,6 +42,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers,
 - [官方課程／講次來源](https://cs229.stanford.edu/)
 
 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。Lecture 14（約 78 分鐘）開場說明接下來是幾堂大型語言模型，先講 tokenization，再講 autoregressive 的條件機率分解、softmax 輸出、attention 與 causal mask，結尾是 normalization 與 residual，並提到長序列的 T² 成本，對應本章前兩節與長序列成本一節的開頭。原本嵌的 Lecture 13（YouTube 標題「LLMs, Next-Word Prediction Loss」）字幕其實是表徵學習的下半場（對比學習、語意搜尋、RAG），沒有 next-token、tokenization 或 transformer，已撤換，內容改放到第 16 章。換上的影片雖然 YouTube 標題寫「Lecture 16: Basic Concept in RL, Policy Gradient」，字幕卻是 attention 變體（multi-query／grouped-query、KV cache、sliding window）、mixture of experts、in-context learning（few-shot、zero-shot）與 SFT，對應本章長序列成本與「MoE、提示與 SFT」兩節；標題與內容不符，跟本章相符的是內容。
 
 ## 從文字到 autoregressive 機率
 
@@ -103,6 +105,7 @@ Mixture of Experts 用 router 為每個 token 選少數 expert。它能增加總
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。原嵌的 Lecture 13 字幕實為對比學習、語意搜尋與 RAG，已移到第 16 章，這裡換成內容為 attention 變體、MoE、in-context learning 與 SFT 的影片（hHC-SF3utxg，YouTube 標題誤植為 Lecture 16 RL）；Lecture 14 與本章前半相符。
 
 ## 參考資料
 

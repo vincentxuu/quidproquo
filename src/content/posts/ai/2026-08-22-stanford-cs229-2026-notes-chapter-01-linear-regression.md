@@ -43,6 +43,8 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 2（約 78 分鐘）講監督式學習設定、線性迴歸、batch／stochastic gradient descent 與 normal equations，和本章的 LMS、SGD、常態方程相符。Lecture 3（約 62 分鐘）前半段講誤差項的機率解釋（零均值、IID、高斯）與最大概似，與本章第 3 節相符，後半段已轉到分類、logistic regression 與 Newton 法（屬第 2 章）；它在 YouTube 的標題寫「Weighted Least Squares」，但字幕裡完全沒有出現局部加權迴歸（weighted、locally weighted 皆零次）。兩支影片都沒有講本章最後一節的局部加權線性迴歸，該節只依講義。
+
 ## 為什麼從線性迴歸開始
 
 CS229 不是把線性迴歸當成「畫一條線」的簡單工具，而是拿它建立全課共用的語言：假設函數、損失函數、最佳化、統計假設，以及參數式與非參數式方法的差別。模型寫成 \(h_\theta(x)=\theta^T x\)，截距則併入固定為 1 的特徵。
@@ -105,6 +107,7 @@ w^{(i)}=\exp\left(-\frac{\|x^{(i)}-x\|_2^2}{2\tau^2}\right),
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認 Lecture 2 與 Lecture 3 前半段與本章相符；Lecture 3 的標題與內容不符（無局部加權迴歸，後半段是分類），局部加權迴歸一節標明只依講義。
 
 ## 參考資料
 

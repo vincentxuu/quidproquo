@@ -43,6 +43,8 @@ title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 6（約 81 分鐘）前約三分之二還在收尾 Naive Bayes（Laplace 平滑、文字分類的 event model），約 55% 之後才開始介紹 SVM，約 70% 起講 functional margin、geometric margin 與 optimal margin classifier，結尾預告 kernel；Lecture 7（約 80 分鐘）開頭接 optimal margin classifier 的最佳化問題與 representer theorem，主體是 kernel（見第 5 章），尾段有 L1 soft margin。本章的 Lagrange 對偶推導、KKT 與 SMO，兩支字幕都沒有講（Lecture 6 完全沒出現 Lagrange，兩支都沒有 SMO），那幾節只依講義；兩支合起來只對得上本章前半（margin、最大間隔最佳化）與 soft margin 的概念。
+
 ## 從「分對」到「離邊界夠遠」
 
 同樣能把訓練資料分開的兩條超平面，穩健程度可能不同。SVM 用間隔描述這個差異。採 \(y\in\{-1,1\}\) 與分數 \(w^Tx+b\) 時，單筆資料的函數間隔是
@@ -103,6 +105,7 @@ Sequential minimal optimization（SMO）在對偶問題中一次挑兩個 \(\alp
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片只涵蓋本章前半的 margin 與最佳化問題；Lecture 6 前段是 Naive Bayes；對偶推導、KKT、SMO 影片未涵蓋，標明只依講義。
 
 ## 參考資料
 
