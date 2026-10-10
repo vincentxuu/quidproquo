@@ -24,6 +24,8 @@ description: "拆解 CS224V Knowledge Curation 講義的完整路線：RAG、STO
 
 本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 2 講「Knowledge Curation」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 2 講（約 1 小時 29 分），由兩位客座講者介紹 STORM 與知識整理（knowledge curation，從檢索走向寫出像 Wikipedia 的長文與大綱），與本文主題相符；本文的細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
 ```youtube
 url: https://www.youtube.com/watch?v=MY9B4eeeaTE
 title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
@@ -161,6 +163,7 @@ Research depth 與 breadth 之間也要明確選擇。每個 perspective 都追�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas（需登入）；找到 Fall 2024 公開的同主題講次，附為相關補充影片，Fall 2025 原講次錄影未確認。
+- 2026-10-10：依字幕核對影片內容。影片主題相符（STORM、knowledge curation）；文章對影片沒有具體說法，只加標記。
 
 ## 參考資料
 

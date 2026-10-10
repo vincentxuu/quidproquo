@@ -37,6 +37,8 @@ One thing to clear up first: **the 2026 L13 slides actually cover only autoregre
 
 This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the embedded video is Spring 2025 Lecture 13 (length 1:12:30; speaker Justin Johnson per the video description). The transcript covers generative vs. discriminative models, density and maximum likelihood, the chain rule, and VAEs with the ELBO, matching the first half of the article (mechanism 1, autoregressive, and mechanism 2, VAE); GAN barely appears (2 mentions; GANs are in Lecture 14). The GAN section is in Lecture 14 (linked as text only, not embedded); that transcript was checked for the diffusion post and does contain GANs, the discriminator and StyleGAN. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
 ```youtube
 url: https://www.youtube.com/watch?v=zbHXQRUNlH0
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
@@ -231,6 +233,7 @@ Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-gl
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles. The second embedded video was Lecture 14 (diffusion), which is outside this article’s scope, so it was removed from the embeds and kept as a text link.
+- 2026-10-10: Checked the video content against its transcript. The video topic and lecture number match. The article places GANs in the L14 recording, consistent with the L13 transcript barely covering them, so only the check note was added.
 
 ## References
 

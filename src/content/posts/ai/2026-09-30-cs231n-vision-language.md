@@ -38,6 +38,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 16 講（長度 1:09:53，客座講者 Ranjay Krishna，字幕開場介紹確認），字幕有 CLIP 與對比式預訓練、Segment Anything（長達整段）、Flamingo、Winoground／ARO 類評測與 foundation model，與本文主題相符。字幕沒有 LLaVA、SigLIP、Qwen3-VL 與 omni 模型，與本文說 2026 投影片新增這些、2025 錄影有一大段 Segment Anything 一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=mQOK0Mfyrkk
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language
@@ -188,6 +190,7 @@ LLaVA 的訓練配方分三步：用預訓練的 LLM（例如 LLaMA）初始化�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題、講次與講者相符；文章說的錄影與 2026 投影片差異（Segment Anything、Qwen3-VL、SigLIP、omni）與字幕一致，不需更正，只加標記。
 
 ## 參考資料
 

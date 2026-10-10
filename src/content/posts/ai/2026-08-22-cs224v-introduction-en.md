@@ -24,6 +24,8 @@ This is the first lecture of CS224V Fall 2025, not the still-unpublished Autumn 
 
 This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 1, "Introduction") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
 
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 1 (about 1 h 29 min). Like the Fall 2025 first lecture this article follows, it is the course introduction: the transcript covers the course overview, knowledge work and automation, whether a bigger LLM can remove hallucination, a pipeline that checks each claim and filters unsupported ones, and TA and project logistics. The article's arguments and figures come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
 ```youtube
 url: https://www.youtube.com/watch?v=cNxlGYO4YME
 title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
@@ -131,6 +133,7 @@ The public artifact is a slide deck, with no recording or complete speaker notes
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
+- 2026-10-10: Checked the video content against its transcript. The video topic and lecture number match (course introduction, hallucination, fact-checking). The article makes no specific claims about the video, so only the check note was added.
 
 ## References
 

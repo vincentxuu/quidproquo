@@ -45,6 +45,8 @@ The last two lectures stop teaching new algorithms. They push what came before o
 
 This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): both transcripts were read. The first is Spring 2025 Lecture 17, Robot Learning (length 1:18:32, guest speaker Yunzhu Li, confirmed by the spoken introduction); it covers Atari and AlphaGo, credit assignment, particle dynamics models and the elastic dough-to-dumpling task, behavior cloning, inverse RL, diffusion policy, the RT-1-to-Pi-Zero timeline, and real-world evaluation and sim-to-real challenges, matching the article. It has no definition of a world model and does not mention 1X World Models, DayDreamer or NVIDIA Cosmos, which is corrected (the text had presented them as the speaker's definition and examples). The second is Lecture 18, Human-Centered AI (length 1:05:15, Fei-Fei Li); the content the article summarizes from the transcript (540 million years ago, the summer vision project, the three waves of object recognition and the 2012 ImageNet convergence, Visual Genome, hand hygiene and ICU sensing, the survey of about 1,400 people, zero performance on BEHAVIOR tasks, augmentation rather than replacement) was spot-checked and all appears in the transcript. The final-project section is unrelated to the videos and was not checked.
+
 ```youtube
 url: https://www.youtube.com/watch?v=XSfmOH_xVSU
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
@@ -92,7 +94,7 @@ Next come robotic foundation models: a policy that maps (observation, goal) stra
 
 ### Pointing toward world models
 
-Two points from the challenges section are worth keeping. First, evaluation: it happens mostly in the real world, which is costly and noisy, and training loss correlates only weakly with real-world success; simulation has its own sim-to-real gap. Second, one slide titled "Foundation Policy → Foundation World Models," where the speaker defines a world model as **action-conditioned future prediction**, with examples like 1X World Models, DayDreamer and NVIDIA Cosmos.
+Two points from the challenges section are worth keeping. First, evaluation: it happens mostly in the real world, which is costly and noisy, and training loss correlates only weakly with real-world success; simulation has its own sim-to-real gap. Second, one slide titled "Foundation Policy → Foundation World Models," where the slide defines a world model as **action-conditioned future prediction**, with examples like 1X World Models, DayDreamer and NVIDIA Cosmos. The recording's transcript only says here that people now collect large amounts of action-conditioned robot interaction data to train foundation policies and could use the same data to train foundation world models; neither the definition nor the three example names appear in it.
 
 The 2026 L17 happens to be titled World Modeling. That is a connection I see between the two schedules and the 2025 slides. **It doesn't mean the 2026 lecture covered this material.**
 
@@ -180,6 +182,7 @@ That completes this series: the public L1–L16 slides of CS231N Spring 2026, al
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles. The 2026 Lecture 17 is World Modeling while the 2025 Lecture 17 is Robot Learning, so the topics differ; this is noted in the section.
+- 2026-10-10: Checked the video content against its transcript. In the L17 challenges paragraph, the world-model definition and examples are now attributed to the slides, and the recording is described as only saying that large action-conditioned robot interaction data could train foundation world models, without that definition or the three examples. The L18 spot-check found no problems.
 
 ## References
 

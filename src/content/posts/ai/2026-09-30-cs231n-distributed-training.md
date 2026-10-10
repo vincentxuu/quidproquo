@@ -42,6 +42,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 11 講（長度 1:12:53），字幕有 H100／B200 與 GPU 算力成長、Llama 3 叢集、all-reduce、FSDP／HSDP、activation checkpointing、context／tensor／pipeline 平行、microbatch 與 MFU／HFU（30%、40% 的門檻），與本文主題相符；字幕沒有出現 1.875 PB 這類數字，那是投影片內容。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=9MvD-XsowsE
 title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
@@ -201,6 +203,7 @@ CP 常用於長序列微調。Llama3-405B 的例子：第一階段 S=8192，不�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法，只加標記。
 
 ## 參考資料
 

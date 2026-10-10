@@ -38,6 +38,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：第一支影片是 Spring 2025 第 13 講（長度 1:12:30，講者依影片說明欄為 Justin Johnson），字幕有生成式與判別式模型、density 與最大概似、chain rule、VAE 與 ELBO，與本文的前半（機制一自迴歸、機制二 VAE）相符；字幕幾乎沒有 GAN（只出現 2 次，GAN 在第 14 講）。GAN 段落在第 14 講（本篇只以文字連結列出、未嵌入），該影片的字幕已在 diffusion 篇核對，有 GAN、discriminator、StyleGAN。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=zbHXQRUNlH0
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
@@ -232,6 +234,7 @@ $$D^*_G(x) = \frac{p_{data}(x)}{p_{data}(x) + p_G(x)}$$
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。第二支嵌入影片是 Lecture 14（Diffusion），不屬於本篇範圍，已移出嵌入，改為文字連結。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符；本文把 GAN 放在「錄影在 L14」，與 L13 字幕幾乎不講 GAN 一致，不需更正，只加標記。
 
 ## 參考資料
 

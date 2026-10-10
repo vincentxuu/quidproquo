@@ -30,7 +30,7 @@ glossary:
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文主要依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [Lecture 8 投影片](https://cs231n.stanford.edu/slides/2026/lecture_8.pdf)（124 頁，2026-09-30 下載核對），加上 5/1 section 的 [RNNs & Transformers 複習投影片](https://cs231n.stanford.edu/slides/2026/section_5.pdf)（封面註明複製自 2025 年版本）。錄影請看 Spring 2025 的 [Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)；2026 錄影只放在 Canvas，限修課生。兩個年份的投影片大致相同，但 2026 版多了 RoPE 與 QK-Norm 兩頁，看影片時會少這兩段。存取等級 **A3**。
+> **版本說明**：本文主要依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 課表連結的 [Lecture 8 投影片](https://cs231n.stanford.edu/slides/2026/lecture_8.pdf)（124 頁，2026-09-30 下載核對），加上 5/1 section 的 [RNNs & Transformers 複習投影片](https://cs231n.stanford.edu/slides/2026/section_5.pdf)（封面註明複製自 2025 年版本）。錄影請看 Spring 2025 的 [Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)；2026 錄影只放在 Canvas，限修課生。兩個年份的投影片大致相同，但 2026 版多了 RoPE 與 QK-Norm 兩頁，看影片時會少這兩段。字幕裡也沒有 Flash Attention，以及本文最後一節的 Pre-Norm、SwiGLU 與 MoE，影片結尾是 Transformer 總結。存取等級 **A3**。
 
 **系列位置**：上一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜下一篇 [L9：物件偵測、影像分割與模型可視化](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 
@@ -41,6 +41,8 @@ glossary:
 ## 課程影片來源
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 8 講（長度 1:06:31），字幕有 RNN 翻譯模型與 attention、self-attention 的矩陣運算、排列等變、位置編碼、masked 與 multi-head、RNN／卷積／self-attention 比較、Transformer block 與 ViT 概述，結尾是 Transformer 總結。字幕沒有 RoPE、QK-Norm、Flash Attention、Pre-Norm、SwiGLU、MoE，也沒有 224×224／16×16 patch 的數字例子，這些屬於本文依據的 2026 投影片，已在版本說明補上。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=RQowiOF_FvQ
@@ -195,6 +197,7 @@ Y = A V         [N × D_out]   Y_i = Σ_j A_ij V_j
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符；版本說明只提到影片少了 RoPE 與 QK-Norm，實際上少的更多（Flash Attention、Pre-Norm、SwiGLU、MoE 等），已補充。
 
 ## 參考資料
 

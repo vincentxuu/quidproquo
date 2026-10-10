@@ -46,6 +46,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：兩支影片都讀了字幕。第一支是 Spring 2025 第 17 講 Robot Learning（長度 1:18:32，客座講者 Yunzhu Li，字幕開場介紹確認），字幕有 Atari 與 AlphaGo、credit assignment、粒子動態模型與彈塑性麵團做餃子、behavior cloning、inverse RL、diffusion policy、RT-1 到 Pi-Zero 的時間線、真實世界評估與 sim-to-real 挑戰，與本文敘述相符；字幕沒有 world model 的定義，也沒有 1X World Models、DayDreamer、NVIDIA Cosmos，已更正（原文寫成講者給的定義與例子）。第二支是第 18 講 Human-Centered AI（長度 1:05:15，Fei-Fei Li），本文依字幕整理的內容（540 百萬年前、summer vision project、物件辨識三波與 2012 年 ImageNet 匯流、Visual Genome、手部衛生與 ICU、約 1,400 人調查、BEHAVIOR 任務表現為零、增強而非取代）抽樣都在字幕出現。期末專題段與影片無關，未核對。
+
 ```youtube
 url: https://www.youtube.com/watch?v=XSfmOH_xVSU
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
@@ -93,7 +95,7 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 
 ### 最後指向 world model
 
-挑戰那一段有兩個重點值得記。第一是評估：主要靠真實世界測試，成本高、雜訊大，訓練 loss 跟真實成功率只有弱相關；模擬又有 sim-to-real 落差。第二是投影片的一頁標題「Foundation Policy → Foundation World Models」，講者給 world model 的定義是 **action-conditioned future prediction**，並舉了 1X World Models、DayDreamer、NVIDIA Cosmos。
+挑戰那一段有兩個重點值得記。第一是評估：主要靠真實世界測試，成本高、雜訊大，訓練 loss 跟真實成功率只有弱相關；模擬又有 sim-to-real 落差。第二是投影片的一頁標題「Foundation Policy → Foundation World Models」，投影片給 world model 的定義是 **action-conditioned future prediction**，並舉了 1X World Models、DayDreamer、NVIDIA Cosmos。錄影字幕在這一段只說到：現在大家收集大量 action-conditioned 的機器人互動資料來訓練 foundation policy，也可以拿同一批資料訓練 foundation world model；這個定義和三個例子的名稱字幕都沒有出現。
 
 2026 年的 L17 講題正好是 World Modeling。這是我從兩年課表與 2025 投影片看到的銜接，**不代表 2026 那堂講了 2025 這些內容**。
 
@@ -181,6 +183,7 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。2026 版 Lecture 17 是 World Modeling，2025 版同號講次是 Robot Learning，主題不同，已在說明中註明。
+- 2026-10-10：依字幕核對影片內容。L17 挑戰段改成「投影片的定義與例子」，並說明錄影只講到用大量 action-conditioned 機器人互動資料訓練 foundation world model，沒有那個定義與三個例子；L18 抽樣核對無誤。
 
 ## 參考資料
 

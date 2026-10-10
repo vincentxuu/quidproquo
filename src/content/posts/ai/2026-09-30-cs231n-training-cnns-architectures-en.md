@@ -46,6 +46,8 @@ First, one mismatch with the schedule: **the 2026 slides have no dedicated Batch
 
 This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 6 (length 1:11:07). Zane Durante introduces himself at the start as this lecture's speaker, and the transcript covers LayerNorm (BatchNorm only briefly early on), Dropout, activations, AlexNet/VGG/ResNet, initialization, data augmentation, transfer learning and hyperparameters, matching the article's topic. It has no GoogLeNet or Cutout. The article's remark that the 2026 slides have no dedicated BatchNorm page is compatible with the recording touching BatchNorm only briefly. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
 ```youtube
 url: https://www.youtube.com/watch?v=aVJy4O5TOk8
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures
@@ -244,6 +246,7 @@ Series navigation: previous [L5: Image Classification with CNNs](/posts/ai/2026-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic, lecture number and speaker match, and the sampled concepts appear in the transcript. The article makes no specific video claims that needed correcting, so only the check note was added.
 
 ## References
 

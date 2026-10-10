@@ -43,6 +43,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 12 講（長度 1:14:41，講者 Ehsan Adeli 依影片說明欄），字幕有 pretext task（旋轉、拼圖、上色）、MAE、linear probing、對比學習、MoCo、CPC 與 DINO，與本文主題相符；字幕沒有 inpainting、InfoNCE、SimCLR 的拼法與多感官（audio）段落，後者與本文說投影片沒有獨立的多感官監督段落一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=4howBU7THbM
 title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
@@ -211,6 +213,7 @@ def H(t, s):
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法（約 1 小時 14 分與影片 1:14:41 一致），只加標記。
 
 ## 參考資料
 

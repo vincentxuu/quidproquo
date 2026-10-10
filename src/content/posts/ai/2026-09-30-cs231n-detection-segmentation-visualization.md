@@ -44,6 +44,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 9 講（長度 1:13:43，講者依影片說明欄為 Ehsan Adeli），字幕有語意分割與全卷積網路、upsampling／轉置卷積、R-CNN 與 region proposal、YOLO、DETR、Mask R-CNN、saliency、CAM／Grad-CAM 與 ViT 注意力可視化，與本文主題相符。YouTube 說明欄列的對抗樣本、DeepDream、風格轉換在字幕中也沒有出現，與本文說這幾個主題沒有被講到一致。字幕未見 U-Net 與 anchor 的名稱，那些細節來自投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=PTypu6GqEd4
 title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
@@ -176,6 +178,7 @@ title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmen
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。第二支嵌入影片是 DETR 論文作者的 ECCV 2020 演講，不是課程錄影，已移出嵌入，改為文字連結。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法，只加標記。
 
 ## 參考資料
 

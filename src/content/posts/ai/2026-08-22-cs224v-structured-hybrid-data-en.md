@@ -24,6 +24,8 @@ Lecture 6 replaces free text with databases. The main challenge is no longer pla
 
 This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Introduction to Agents for Structured and Hybrid Data") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
 
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 11 "Intro to Agents" (about 1 h 29 min) on structured and hybrid data. The transcript covers a semantic parser from English to SQL, few-shot prompting, handling enumerated values, spot-checking errors by hand, and hybrid data with free text plus benchmark results, matching the article's topic; it does not cover Wikidata or the empty-result diagnosis found in the article's slide-based sections. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
 ```youtube
 url: https://www.youtube.com/watch?v=6UGa_6wQ5Ng
 title: CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024
@@ -123,6 +125,7 @@ The slides survey architectures and literature without a single complete referen
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches (NL-to-SQL, enumerated values, hybrid data). The article makes no specific claims about the video, so only the check note was added, noting slide sections the transcript does not cover.
 
 ## References
 

@@ -34,6 +34,8 @@ There are no equations in this lecture. Its job is to show why the course starts
 
 This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 1 (length 1:02:52). The transcript has Fei-Fei Li's opening, the Cambrian origin of vision and the camera obscura, the AI winter, perceptrons and the Neocognitron, ImageNet and AlexNet, and course assignment and grading logistics, matching the article's topic. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
 ```youtube
 url: https://www.youtube.com/watch?v=2fq9wYslV0A
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
@@ -153,6 +155,7 @@ The 2026 recordings are on Canvas only and closed to outside readers. If you wan
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic and lecture number match. The article only says the video runs about one hour, consistent with its 1:02:52 length, so nothing needed correcting.
 
 ## References
 

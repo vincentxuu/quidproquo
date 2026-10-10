@@ -44,6 +44,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 4 講（長度 1:16:46），字幕有 sigmoid／ReLU 激活函數、神經元與大腦的類比、numpy 實作範例、計算圖與 local gradient、Jacobian 與矩陣梯度，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=25zD5qJHYsk
 title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
@@ -253,6 +255,7 @@ L4 的最後一頁寫著「Next Time: Convolutional Neural Networks!」。全連
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有具體說法，只加標記。
 
 ## 參考資料
 

@@ -22,7 +22,9 @@ Lecture 3 addresses a concrete risk: a ride, course, or reservation agent must n
 
 ## Course video sources
 
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (the September 30 lecture, "Building a task-oriented agent") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (the September 30 lecture on task-oriented agents) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 3 (about 1 h 29 min) on conversational agents that combine knowledge retrieval and task execution. The transcript covers task-oriented agents and dialogue, multi-turn slot filling, the Genie worksheet (a declarative programming language), and course-enrollment and restaurant-booking examples, matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video. The text had quoted "Building a task-oriented agent" as the lecture title, which appears neither in the transcript nor on the video page, so it is now an unquoted topic description.
 
 ```youtube
 url: https://www.youtube.com/watch?v=DqHRDUdIhpw
@@ -131,6 +133,7 @@ There is no public demo recording, and slide excerpts are not a complete languag
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches (task-oriented agents, Genie worksheet). In the video-source paragraph, the quoted title "Building a task-oriented agent" became an unquoted topic description; otherwise only the check note was added.
 
 ## References
 

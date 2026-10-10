@@ -24,6 +24,8 @@ Lecture 2 asks how pre-writing research can reveal dimensions the writer did not
 
 This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 2, "Knowledge Curation") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
 
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 2 (about 1 h 29 min). Two guest speakers present STORM and knowledge curation (going beyond retrieval to Wikipedia-style long-form articles and outlines), which matches the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
 ```youtube
 url: https://www.youtube.com/watch?v=MY9B4eeeaTE
 title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
@@ -141,6 +143,7 @@ There is no public recording, and oral explanations for several tables are unava
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches (STORM, knowledge curation). The article makes no specific claims about the video, so only the check note was added.
 
 ## References
 

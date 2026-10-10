@@ -34,6 +34,8 @@ glossary:
 
 本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 1 講（長度 1:02:52），字幕有 Fei-Fei Li 開場、寒武紀視覺起源與 camera obscura、AI winter、感知器與 Neocognitron、ImageNet 與 AlexNet、課程作業與評分安排，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
 ```youtube
 url: https://www.youtube.com/watch?v=2fq9wYslV0A
 title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
@@ -153,6 +155,7 @@ Part 2 的後半是行政。跟自學者有關的幾點：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符；文章對影片只說「長約 1 小時」，與影片長度 1:02:52 一致，無須修正。
 
 ## 參考資料
 
