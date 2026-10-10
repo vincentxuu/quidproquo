@@ -37,7 +37,7 @@ glossary:
 
 ## 課程影片來源
 
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）核對標題與影片 ID。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=sNw40lEhaIQ

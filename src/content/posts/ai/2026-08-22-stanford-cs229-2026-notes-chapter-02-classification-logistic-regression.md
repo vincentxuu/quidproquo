@@ -101,7 +101,7 @@ P(y=j\mid x)=\frac{e^{\theta_j^Tx}}{\sum_{s=1}^k e^{\theta_s^Tx}}.
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
-- 2026-10-10：依字幕核對影片內容。原本只嵌 Lecture 4（指數族／GLM），與本章的 logistic regression、Newton 法只部分重疊，已補嵌 Lecture 3（後半段正好講 logistic regression 與 Newton 法）；兩支標題與內容的出入已在核對標記註明。
+- 2026-10-10：依字幕核對影片內容。原本只嵌 Lecture 4（指數族／GLM），與本章的 logistic regression、Newton 法只部分重疊，已補嵌 Lecture 3（後半段正好講 logistic regression 與 Newton 法）；兩支標題與內容的出入已在核對記號註明。
 
 ## 參考資料
 
