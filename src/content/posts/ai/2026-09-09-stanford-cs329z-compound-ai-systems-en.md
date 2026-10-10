@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 The first lecture of [CS329Z](https://cs329z.stanford.edu/) (Sep 23, Foundations & Landscape) assigns exactly one anchor reading: [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) (BAIR Blog, 2024), led by Matei Zaharia with ten co-authors across Berkeley, Stanford, and Databricks. Opening with this piece states the whole course's position: the class makes no bets on what the next big model will unlock. It cares about one thing — engineering the best possible system out of today's parts. The three keywords of lecture one, decomposition, data, and evaluation, all grow out of this post.
 
@@ -26,11 +26,14 @@ This guide follows the post's own argument: the definition, why systems are unav
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## The definition: system versus model in one sentence
 
@@ -104,6 +107,7 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

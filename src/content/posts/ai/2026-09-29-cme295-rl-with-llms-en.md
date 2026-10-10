@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Pre-lecture edition**: This post was written on September 29, 2026, before 2026 Lecture 4 (October 16, 2026) has been taught. It is based on the 2026 syllabus topic list, material the 2025 slides already covered, and the original papers. It will be checked against the video and slides once they are posted.
 
@@ -54,11 +54,26 @@ Each section below gives the intuition first, with formulas tucked into expandab
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is a pre-written guide to CME295 2026 Lecture 4 (Reinforcement learning with LLMs, October 16). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The videos below are the public 2025 Lecture 5 (LLM tuning, with PPO) and Lecture 6 (LLM reasoning, with GRPO); the 2025 course had no standalone RL lecture, so they are included only as related background and are not the 2026 Lecture 4 recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## 1. Mathematical conventions: writing "generate an answer" as RL
 
@@ -398,6 +413,7 @@ After the October 16, 2026 lecture, once the slides are posted, this post will b
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The 2026 Lecture 4 recording is not yet published; the 2025 Lecture 5 and 6 videos are included as related supplementary material.
 
 ## References
 

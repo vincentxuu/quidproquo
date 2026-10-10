@@ -14,7 +14,7 @@ description: "逐段拆解 Stanford CS224V Fall 2025 Introduction：幻覺問題
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-introduction-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
@@ -22,11 +22,22 @@ description: "逐段拆解 Stanford CS224V Fall 2025 Introduction：幻覺問題
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 1 講「Introduction」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=cNxlGYO4YME
+title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
+```
+
+原始影片：[CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon](https://www.youtube.com/watch?v=cNxlGYO4YME)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## Agenda：這堂課實際走了什麼
 
@@ -127,6 +138,7 @@ Human evaluation 仍然需要，但題目必須明確。「哪個回答比較好
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas（需登入）；找到 Fall 2024 公開的同主題講次，附為相關補充影片，Fall 2025 原講次錄影未確認。
 
 ## 參考資料
 

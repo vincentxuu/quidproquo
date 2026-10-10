@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-preference-tuning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 5, "LLM tuning," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 31, 2025). The main source is the [111-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf); the [recording](https://www.youtube.com/watch?v=PmW_TMQ3l0I) runs 1 hour 47 minutes if you want to follow along.
 
@@ -40,18 +40,21 @@ Every model in the first four lectures learned the same way: here is the right a
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: 2025 Lecture 5 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
 ```
 
-Original videos: [2025 Lecture 5 recording](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Why SFT isn't enough
 
@@ -322,6 +325,7 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

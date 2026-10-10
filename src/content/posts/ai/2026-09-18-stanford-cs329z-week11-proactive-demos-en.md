@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-18-stanford-cs329z-week11-proactive-demos)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Picture two assistants. The first waits for your orders and never moves until told. The second watches: you receive a wedding invitation from a friend, and it already has suit-rental options and a budget waiting for you. The first is reactive, the second is a [proactive agent](https://arxiv.org/abs/2505.10831), and Week 11 Monday is about the second kind.
 
@@ -29,11 +29,14 @@ Week 11 is arranged like a closing act. Monday (Proactive Agents) assigns Shaikh
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## GUM: turning screen traces into a user model
 
@@ -98,6 +101,7 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Made the Week 10 Thanksgiving recess explicit in the series map and course-material checklist so the Week 9-to-11 jump no longer looks like a missing post.
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

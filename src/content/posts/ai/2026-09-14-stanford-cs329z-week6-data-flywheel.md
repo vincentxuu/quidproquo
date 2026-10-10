@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 Week 6 是繳交週。週一（10/26）是主題待定的客座演講，同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28，Data for Agentic Systems）的主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著 11/4 晚上 11:59 前要交期中 demo 錄影，期中報告在 11/6 到期。
 
@@ -28,11 +28,14 @@ Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 評估：先看真實輸出，再定指標
 
@@ -109,6 +112,7 @@ Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分手刻／框架兩部分、語料換成企業 email）、期中 demo 改為錄影繳交（11/4 晚上 11:59 截止），同步改寫時程、軌跡紀錄與課程位置段落
+- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 

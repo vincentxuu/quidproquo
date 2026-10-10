@@ -14,7 +14,7 @@ description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
@@ -22,11 +22,22 @@ description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（知識圖譜 agent 查詢（Wikidata／SPARQL））；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
+title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
+```
+
+原始影片：[CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## Agenda：KBQA、agent、資料集
 
@@ -141,6 +152,7 @@ Agent 可能重複同一個無結果 action。SPINACH 偵測重複、rollback，
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas（需登入）；找到 Fall 2024 公開的同主題講次，附為相關補充影片，Fall 2025 原講次錄影未確認。
 
 ## 參考資料
 

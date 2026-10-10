@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/) is Stanford CS's introduction to language and information, taught by [Dan Jurafsky](https://web.stanford.edu/~jurafsky/) and cross-listed in Linguistics (LINGUIST 180/280). It is about turning unstructured text, speech and social links into things you can compute on: tokenizing, classifying, retrieving, recommending, transcribing. The course states its own position bluntly — it is the **undergraduate front door** to a whole row of graduate courses: CS224N, CS246, CS276, CS336.
 
@@ -28,12 +28,14 @@ Scope first. **No slide-by-slide close reading, and no lecture-video content** �
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The official Winter 2026 course page (read live on 2026-10-10) says the pre-recorded videos are in Canvas Modules (course 186110); opening it redirected me to the Stanford login page, confirming the sign-in wall, and the five live lectures and five labs are explicitly "not recorded". The From Languages to Information YouTube channel has an 80-video "CS124 - Full Course" playlist, but its weekly titles (for example Week 2: Naive Bayes, Week 6: Chatbots and Dialogue Agents) do not match the Winter 2026 syllabus, so it is not treated as the current term’s recordings and nothing is embedded.
 
 Course and recording entries:
 
 - [From Languages to Information YouTube channel](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
 - [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -199,6 +201,7 @@ One item sits between the two and deserves its own paragraph: **there is a full 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official page says the pre-recorded videos are in Canvas and opening it confirmed the sign-in wall; the YouTube channel’s weekly titles do not match the Winter 2026 syllabus, so nothing is embedded and the status is now sign-in required.
 
 ## References
 

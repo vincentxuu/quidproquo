@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/career/2026-08-16-cs230-career-advice-in-ai-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > [上一篇](/posts/ai/2026-08-16-cs230-agents-prompts-rag)講了 agent 的完整縱軸。這一篇是整個系列唯一不談技術的一講。
 
@@ -30,19 +30,21 @@ draft: false
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=AuZoDsNmG_s
-title: Lecture 9: Career Advice in AI
+title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
 ```
 
-原始影片：[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
 
 課程與錄影入口：
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
 
 # 第一部分：Andrew Ng
 
@@ -467,6 +469,7 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 
 ## 參考資料
 

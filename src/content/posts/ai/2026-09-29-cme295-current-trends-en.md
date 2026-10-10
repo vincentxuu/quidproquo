@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-current-trends)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 9, "Current trends," of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (December 5, 2025). The main source is the [128-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=Q86qzJ1K1Ss) (1:51:31). Everything here is based on what is written or drawn on the slides, not on what was said in class.
 
@@ -42,18 +42,21 @@ This lecture is not on the exam, and it is the most scattered of the nine. This 
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
-title: 2025 Lecture 9 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends
 ```
 
-Original videos: [2025 Lecture 9 recording](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## The whole quarter in eight pictures
 
@@ -275,6 +278,7 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

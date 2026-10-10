@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs124-week1-introduction)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) begins with a map, not a Transformer crash course. Dan Jurafsky's January 6 Introduction arranges the quarter as an engineering chain: decide how text becomes tokens, then study classification, retrieval, and representations before moving into neural networks, Transformers, speech, recommendation, and network analysis. The governing idea is that an LLM is a system assembled from learnable components, not a black box that appears fully formed.
 
@@ -23,11 +23,13 @@ draft: false
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The official Winter 2026 course page (read live on 2026-10-10) says the January 6 Introduction is a live lecture by Dan marked "required not recorded", and January 8 is a live tutorial. The only videos listed for this week are the PA0 Windows and Mac setup demos, which sit in Canvas (sign-in required) and are not lecture recordings. The "CS124 - Full Course" YouTube playlist uses weekly titles that differ from the Winter 2026 syllabus, so it is not treated as this term’s recording.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
+Checked: 2026-10-10.
 
 ## One course, several kinds of information
 
@@ -96,6 +98,7 @@ For the broader course, prerequisites, and source-access audit, see the [existin
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official page says the January 6 Introduction is a live lecture that is not recorded; the only video listed for the week is the PA0 setup demo (Canvas, sign-in required); the status is now checked, no recording listed.
 
 ## References
 

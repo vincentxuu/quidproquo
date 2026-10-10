@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-agentic-llms)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 7 of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "Agentic LLMs," from the 2025 edition (November 14, 2025). The main source is the [151-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=h-7S6HNq0Vg) (1h49m). Everything here comes from what is written on the slides; nothing said only out loud in class is included.
 
@@ -48,18 +48,21 @@ The lecture keeps Lecture 1's teddy bear. "Where is Cuddly?", "Find a bear near 
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
-title: 2025 Lecture 7 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
 ```
 
-Original videos: [2025 Lecture 7 recording](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## RAG: look it up before answering
 
@@ -297,6 +300,7 @@ These questions are adapted from Part III, "Agentic LLMs," of the [2025 final ex
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

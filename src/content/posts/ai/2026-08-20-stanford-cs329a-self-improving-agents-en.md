@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 [CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) is a three-unit graduate seminar in Stanford's CS department about what happens to a model *after* it ships. It doesn't teach LangGraph. It doesn't teach CrewAI. Not one session of the quarter is about wiring frameworks together.
 
@@ -28,25 +28,27 @@ This piece was written after watching all nine public lectures, plus the three g
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from the public CS329A Autumn 2025 recordings on Stanford Online; on 2026-10-10 the video pages for Parts 2, 6 and 9 were confirmed to exist with titles matching the lectures (Part 9 is a text link only).
 
 ```youtube
 url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
-title: Lecture 2: Test-Time Compute Scaling
+title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=yVnmHSAy3ck
-title: Lecture 6: Train-Time Scaling / Scaling RL
+title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
 ```
 
-Original videos: [Lecture 2: Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Lecture 6: Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+Original videos: [Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y), [Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck), [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 
 Course and recording entries:
 
-- [CS329A lecture playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLangBM27OtEA)
 - [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
 - [Official course / lecture source](https://cs329a.stanford.edu/)
+- [CS329A Part 1, Course Overview (Stanford Online public recordings, 9 parts)](https://www.youtube.com/watch?v=6YnLB0XbTnI)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -232,6 +234,7 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
+- 2026-10-10: Rechecked video status. Confirmed live that the Part 2, 6 and 9 video pages exist with matching titles, so the status is now videos included; the playlist link had an incomplete ID and now points to the Part 1 video.
 
 ## References
 

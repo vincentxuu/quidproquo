@@ -14,7 +14,7 @@ description: "CS224V Training LLMs／Data-Efficient Language Modeling：資料�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
@@ -22,11 +22,15 @@ Schedule 把最後一講簡寫成 Training LLMs，但 deck 的精確標題是 Da
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## Agenda：用好既有資料，再製造新資料
 
@@ -177,6 +181,7 @@ Synthetic continued pretraining 的方向是學習「一份文件的 neighbor」
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas，實際開啟入口確認有登入牆；公開的 Fall 2024 播放清單沒有確定對得上本講的講次，維持不嵌入，狀態改為需登入。
 
 ## 參考資料
 

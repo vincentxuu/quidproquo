@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
 
@@ -42,18 +42,26 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 3 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 2 講「Large Language Models」所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q5baLehv5So
-title: 2025 版第 3 講錄影
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
 ```
 
-原始影片：[2025 版第 3 講錄影](https://www.youtube.com/watch?v=Q5baLehv5So)
+```youtube
+url: https://www.youtube.com/watch?v=GaIeu3npx04
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 什麼東西算 LLM
 
@@ -254,6 +262,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 2025 播放清單與官方 2026 課表，第 3 講（2025）與第 2 講（2026）的影片 ID 相符，並補上 2026 版第 2 講錄影。
 
 ## 參考資料
 

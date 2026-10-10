@@ -14,7 +14,7 @@ description: "CS224V Agentic AI for Knowledge Base Queries: Wikidata and SPARQL 
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
@@ -22,11 +22,22 @@ This lecture was already titled “Agentic AI for Knowledge Base Queries” in F
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (agents for knowledge-graph queries (Wikidata / SPARQL)) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+```youtube
+url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
+title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
+```
+
+Original videos: [CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Agenda: KBQA, the agent, and evaluation data
 
@@ -113,6 +124,7 @@ The public slides include action definitions, a prompt summary, and result table
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
 
 ## References
 

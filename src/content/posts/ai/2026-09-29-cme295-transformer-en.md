@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The main sources are the 2025 [recording](https://www.youtube.com/watch?v=Ub3GoFaUcds) and its [135-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf), cross-checked against the new edition released on September 25, 2026 ([recording](https://www.youtube.com/watch?v=114i2Kz-LZA), [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)).
 
@@ -40,23 +40,26 @@ The whole lecture runs on one example sentence: "A cute teddy bear is reading." 
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 1); the second is the Autumn 2026 recording listed for Lecture 1 on the official 2026 syllabus (https://cme295.stanford.edu/syllabus/). Lecture titles and video IDs were checked live on 2026-10-10 and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Ub3GoFaUcds
-title: 2025 Lecture 1 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=114i2Kz-LZA
-title: 2026 Lecture 1 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers
 ```
 
-Original videos: [2025 Lecture 1 recording](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[2026 Lecture 1 recording](https://www.youtube.com/watch?v=114i2Kz-LZA)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Step 1: Split the sentence into tokens
 
@@ -185,6 +188,7 @@ These questions are adapted from Part I of the [2025 midterm](https://cme295.sta
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the 2025 playlist and the official 2026 syllabus; both Lecture 1 video IDs match, so the status is now videos included.
 
 ## References
 

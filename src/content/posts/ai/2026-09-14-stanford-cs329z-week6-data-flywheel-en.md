@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Week 6 is submission week. Monday (Oct 26) holds a guest lecture, topic still TBA, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
 
@@ -28,11 +28,14 @@ Shankar splits the loop into three stations: evaluation, monitoring, and continu
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## Evaluation: read real outputs before setting metrics
 
@@ -103,6 +106,7 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

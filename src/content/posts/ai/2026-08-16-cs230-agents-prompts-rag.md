@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > [上一篇](/posts/ai/2026-08-16-cs230-ai-project-strategy)講了怎麼決定該修哪一段 pipeline。這一篇把整條縱軸從 prompt 拉到 multi-agent。
 
@@ -27,18 +27,21 @@ draft: false
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=k1njvbBmfsw
-title: Lecture 8: Agents, Prompts, and RAG
+title: Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG
 ```
 
-原始影片：[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+查核日期：2026-10-10。
 
 ## 開場：兩個軸
 
@@ -347,6 +350,7 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 
 ## 參考資料
 

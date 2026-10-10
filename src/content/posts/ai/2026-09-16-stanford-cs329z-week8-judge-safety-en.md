@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Week 8 is judges week plus safety week. Monday (11/9) covers LLM-as-a-Judge and eval infrastructure. Wednesday (11/11) covers Agent Safety and Guardrails. The paper video is due Friday, and quarter projects enter final rehearsal.
 
@@ -31,11 +31,14 @@ Of the three anchor readings, this guide reads the Anthropic eval guide and MT-B
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## Three grader types: pick the right tool before automating
 
@@ -128,6 +131,7 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Added substantive guides to AutoLibra, CDI, prompt injection, and RSP, including the historical-version boundary for RSP.
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/career/2026-08-16-cs230-career-advice-in-ai)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > [The previous post](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en) ran the whole vertical axis of agents. This one is the only lecture in the series with no technical content at all.
 
@@ -30,19 +30,21 @@ This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watc
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=AuZoDsNmG_s
-title: Lecture 9: Career Advice in AI
+title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
 ```
 
-Original videos: [Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
 
 Course and recording entries:
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 # Part one: Andrew Ng
 
@@ -464,6 +466,7 @@ As for the big-AI / small-AI fork — it's the one forward-looking judgment in t
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

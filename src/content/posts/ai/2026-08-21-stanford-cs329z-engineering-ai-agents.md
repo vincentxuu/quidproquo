@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) 是 Stanford 電腦科學系 2026 年秋季第一次開的三學分課。名字裡的關鍵字是 **Engineering**。它不是把最新的 agent 論文排成十週讀完，而是要學生把一套 agentic 系統從零做出來、量出來，然後在 Demo Day 上把它演一遍。
 
@@ -29,11 +29,14 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -215,6 +218,7 @@ Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多�
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：更新前五堂官方 PDF 投影片，補上已公開的 HW1 起始碼、講義、資料、測試與自學指令，並核對 AI 使用規則與錄影取得方式。
 - 2026-09-29：依課程網站 9 月的改版與前兩堂投影片更新——HW1 改為禁用框架的 Agentic Harness（Part B 的 DSPy 重寫移除）、專案主題改自選並加入 ICLR 格式與可重現性、評分表改為互評 20%、補上助教、教室、算力補助、旁聽與錄影說明、投影片內容，並同步改寫標題與 tldr
+- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 

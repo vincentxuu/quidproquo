@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > [上一篇](/posts/ai/2026-08-16-cs230-adversarial-and-generative)講了模型怎麼被攻破、以及怎麼生成東西。這一篇換一種學習方式。
 
@@ -27,24 +27,26 @@ draft: false
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符；第二支為與本講相關的 AlphaGo 紀錄片（非課程錄影）。
 
 ```youtube
 url: https://www.youtube.com/watch?v=4E27qlfYw0A
-title: Lecture 5: Deep Reinforcement Learning
+title: Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=WXuK6gekU1Y
-title: AlphaGo
+title: AlphaGo - The Movie | Full award-winning documentary
 ```
 
-原始影片：[Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo - The Movie | Full award-winning documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
 
 課程與錄影入口：
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
 
 ## RL 憑什麼重要
 
@@ -336,6 +338,7 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 
 ## 參考資料
 

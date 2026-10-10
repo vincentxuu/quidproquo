@@ -19,17 +19,20 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## First, the split: workflows are not agents
 
@@ -111,6 +114,7 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's han
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

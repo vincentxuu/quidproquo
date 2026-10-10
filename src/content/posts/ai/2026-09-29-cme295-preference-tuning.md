@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 5 講「LLM tuning」（2025 年 10 月 31 日）。主要來源是 [111 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)，[錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)長 1 小時 47 分，可以對照著看。
 
@@ -40,18 +40,21 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: 2025 版第 5 講錄影
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
 ```
 
-原始影片：[2025 版第 5 講錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 為什麼 SFT 不夠
 
@@ -322,6 +325,7 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 
 ## 參考資料
 

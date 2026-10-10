@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-ai-project-strategy)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > [The previous post](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) covered reinforcement learning and RLHF. This one returns to the most practical end.
 
@@ -27,19 +27,21 @@ The lecture uses two examples: the first half is **trigger-word detection for a 
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=s6JVGzABKho
-title: Lecture 6: AI Project Strategy
+title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
 ```
 
-Original videos: [Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
 
 Course and recording entries:
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Why teach this
 
@@ -265,6 +267,7 @@ As for the trigger-word half, one insight holds up perfectly today: **"you'll ge
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

@@ -36,7 +36,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Pre-lecture edition**: written on September 29, 2026. Lecture 6 of the 2026 edition (November 6, 2026) has not happened yet. This post is based on the topic list in the 2026 syllabus, material already covered in the 2025 slides, and primary sources. It will be revised against the video and slides once they are published.
 
@@ -46,11 +46,21 @@ Why write it early? Slide 6 of the 2026 Lecture 1 [deck](https://cme295.stanford
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is a pre-written guide to CME295 2026 Lecture 6 (AI Agents, November 6). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The video below is the public 2025 Lecture 7, "Agentic LLMs"; the article itself notes that tool calling, MCP and retrieval were already covered there, so it is included only as related background and is not the 2026 Lecture 6 recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Where this lecture sits in the 2026 syllabus
 
@@ -331,6 +341,7 @@ Once the video and slides for 2026 Lecture 6 are published (the syllabus date is
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The 2026 Lecture 6 recording is not yet published; the 2025 Lecture 7 video is included as related supplementary material.
 
 ## References
 

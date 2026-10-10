@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-reasoning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 6 of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "LLM reasoning" (November 7, 2025). The main source is the [148-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf); the recording is [here](https://www.youtube.com/watch?v=k5Fh-UgTuCo). Everything below comes from the slides; where the slides don't say something, I cite the source paper instead.
 
@@ -42,18 +42,21 @@ The previous lecture ([Lecture 5: preference tuning](/posts/ai/2026-09-29-cme295
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: 2025 Lecture 6 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
 ```
 
-Original videos: [2025 Lecture 6 recording](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Step 1: write the reasoning, then the answer
 
@@ -272,6 +275,7 @@ These are paraphrased from Part II, "LLM reasoning," of the [2025 final exam](ht
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

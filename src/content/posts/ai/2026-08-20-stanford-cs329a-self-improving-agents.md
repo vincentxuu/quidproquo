@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [CS329A: Self Improving AI Agents](https://cs329a.stanford.edu/) 是 Stanford 電腦科學系的三學分研究所 seminar，講的是「模型上線之後怎麼繼續變強」。它不教 LangGraph，不教 CrewAI，整學期沒有一堂在講框架怎麼拼。
 
@@ -28,25 +28,27 @@ draft: false
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 公開的 CS329A Autumn 2025 錄影；2026-10-10 已即時確認第 2、6、9 堂的影片頁存在且標題與講次相符（第 9 堂只留文字連結）。
 
 ```youtube
 url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
-title: 第二堂：Test-Time Compute Scaling
+title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=yVnmHSAy3ck
-title: 第六堂：Train-Time Scaling / Scaling RL
+title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
 ```
 
-原始影片：[第二堂：Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[第六堂：Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+原始影片：[Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 
 課程與錄影入口：
 
-- [CS329A 錄影播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLangBM27OtEA)
 - [CS329A Winter 2025 錄影播放清單（含 Jeff Clune、Michele Catasta 客座）](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
 - [官方課程／講次來源](https://cs329a.stanford.edu/)
+- [CS329A 第 1 堂 Course Overview（Stanford Online 公開錄影，共 9 堂）](https://www.youtube.com/watch?v=6YnLB0XbTnI)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -232,6 +234,7 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
+- 2026-10-10：重查影片狀態。即時確認第 2、6、9 堂的影片頁與標題相符，狀態改為已附影片；原播放清單連結的 ID 不完整，改連第 1 堂影片。
 
 ## 參考資料
 

@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer-tricks)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), "Transformer-based models & tricks" (October 3, 2025). The main source is the [109-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture2.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=yT84Y5zCnaA) (1 hour 47 minutes). This post is written from what is on the slides, and flags anything the slides don't cover.
 
@@ -42,18 +42,21 @@ The slides run in five sections: position embeddings → layer normalization →
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=yT84Y5zCnaA
-title: 2025 Lecture 2 recording
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks
 ```
 
-Original videos: [2025 Lecture 2 recording](https://www.youtube.com/watch?v=yT84Y5zCnaA)
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Position information: from "add a vector" to "rotate by an angle"
 
@@ -257,6 +260,7 @@ These questions are adapted from Part II of the [2025 midterm](https://cme295.st
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

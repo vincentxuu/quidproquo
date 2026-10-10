@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-when-prompting-stops-working)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is the first post in the [Reading Stanford CS230](/en/series/cs230) series.
 
@@ -30,19 +30,21 @@ This post covers **[Lecture 1: Introduction to Deep Learning](https://www.youtub
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=_NLHFoVNlbg
-title: Lecture 1: Introduction to Deep Learning
+title: Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning
 ```
 
-Original videos: [Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
 
 Course and recording entries:
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Why the flipped classroom is built this way
 
@@ -245,6 +247,7 @@ The direction is clear: **LLM and agent material grew from a footnote into core 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-16-cs230-ai-project-strategy-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > [上一篇](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)講了強化學習與 RLHF。這一篇回到最實務的一端。
 
@@ -27,19 +27,21 @@ draft: false
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=s6JVGzABKho
-title: Lecture 6: AI Project Strategy
+title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
 ```
 
-原始影片：[Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
 
 課程與錄影入口：
 
 - [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
 
 ## 為什麼要教這個
 
@@ -265,6 +267,7 @@ Ng 用的例子已經是 LLM pipeline 了，所以幾乎不用轉譯。真正值
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 
 ## 參考資料
 

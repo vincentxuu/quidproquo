@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 [CS329Z: Engineering AI Agents](https://cs329z.stanford.edu/) is a three-unit course running for the first time in Autumn 2026 in Stanford's CS department. The load-bearing word in the title is **Engineering**. It is not ten weeks of reading the latest agent papers. Students build an agentic system end to end, measure it, and then perform it on Demo Day.
 
@@ -29,11 +29,14 @@ This piece cross-checks four primary sources: the course site, the public GitHub
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -217,6 +220,7 @@ The final evaluation is conversational: simulated users ask questions, respond, 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

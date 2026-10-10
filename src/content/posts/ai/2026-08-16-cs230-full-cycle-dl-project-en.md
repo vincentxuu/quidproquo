@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > [The previous post](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en) covered how embeddings get trained. This one zooms out to the whole project.
 
@@ -23,18 +23,21 @@ This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.c
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
 ```youtube
 url: https://www.youtube.com/watch?v=MGqQuQEUXhk
-title: Lecture 3: Full Cycle of a DL Project
+title: Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project
 ```
 
-Original videos: [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
 
 ## Why AI projects aren't like traditional software
 
@@ -245,6 +248,7 @@ Ng makes this analogy himself throughout, but a few threads are worth pulling ou
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 
 ## References
 

@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS329Z](https://cs329z.stanford.edu/) 第一堂課只指定了一篇主讀物：Matei Zaharia 領銜的 [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)（BAIR Blog）。作者群橫跨 Berkeley、Stanford 與 Databricks。選它當開場白，整門課的立場就說完了：這門課不賭下一個大模型會帶來什麼能力，只關心一件事——用今天的零件把系統架到最好。第一堂課的三個關鍵字 decomposition、data、evaluation，全是從這篇文章長出來的。
 
@@ -26,11 +26,14 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 定義：系統和模型差在哪
 
@@ -102,6 +105,7 @@ draft: false
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：補上本週官方課堂投影片直連。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、不再要求 DSPy 重寫、語料換成企業 email），同步改寫相關段落
+- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 
