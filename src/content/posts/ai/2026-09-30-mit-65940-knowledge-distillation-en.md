@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 11 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. It covers **Lecture 9: Knowledge Distillation** from the [Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), taught by Song Han on October 3, 2024. Both materials are public:
 
@@ -44,19 +44,20 @@ This is part 11 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-cours
 The access grade from the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) is **A3, enough for self-study**, though this lecture has no lab. **Fall 2026 comparison**: as of 2026-09-30, the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) has released only L1–L6. This lecture is not up yet.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
-title: EfficientML.ai Lecture 9 - Knowledge Distillation (YouTube)
+title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 9 - Knowledge Distillation (YouTube)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+Original videos: [EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Why a course on efficiency covers distillation
 
@@ -173,6 +174,7 @@ If you came from [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en): the lab ex
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

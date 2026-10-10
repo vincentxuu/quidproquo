@@ -24,12 +24,13 @@ This is not, however, a fully open course. Problem sets are released through [Gr
 This post answers four questions: what the course teaches, how the three instructors divide it, how the 21 lectures connect, and how far an outside learner can get using two free textbooks. My verification covered the complete Fall 2025 schedule, grading section, and policies on the official site; I did not open every slide deck to audit its inner pages, so descriptions of individual lectures come from the official site's own summaries.
 
 ## Course video sources
-
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
 
 ## First, decide if this is your course
 
@@ -130,6 +131,7 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 
 ## References
 

@@ -27,15 +27,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-12-31-mit-67960-l16-conditional-generative)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 16). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**.
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=zaMcHuJwe1w
@@ -48,6 +47,8 @@ Course and recording entries:
 
 - [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
 
 ## From "generate" to "conditional generate"
 
@@ -130,6 +131,7 @@ In other words, **VAE latent + conditional diffusion + CFG** is the basic recipe
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

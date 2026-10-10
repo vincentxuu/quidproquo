@@ -15,24 +15,25 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l05-reinforcement-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 5 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Reinforcement Learning: Learning from Return Instead of Labels**. It Connects agent, environment, state, action, reward, and policy into an interaction loop, introducing credit assignment and exploration. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=1ij3dweHu-0
-title: Lecture 5 official video
+title: MIT 6.S191: Reinforcement Learning
 ```
 
-Original videos: [Lecture 5 official video](https://www.youtube.com/watch?v=1ij3dweHu-0)
+Original videos: [MIT 6.S191: Reinforcement Learning](https://www.youtube.com/watch?v=1ij3dweHu-0)
 
 Course and recording entries:
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
 
 ## What to take away
 
@@ -62,6 +63,7 @@ Define state, action, reward, and termination for a simple game. If the reward c
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-on-device-training)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 21 (2024-11-19) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec21-On-Device-Training-And-Transfer-Learning.pdf](https://www.dropbox.com/scl/fi/35992g5bz2sa1hxo3dmn6/Lec21-On-Device-Training-And-Transfer-Learning.pdf?rlkey=yqym2zffstfrdsui371lkvael&st=sqmt0oro&dl=0) (102 pages) and the [lecture recording](https://www.youtube.com/watch?v=1YuD_5UQxsA). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public, as is the DLG code the slides cite; this lecture has no lab.
 >
@@ -41,19 +41,20 @@ glossary:
 Pages 2–3 give two reasons. **Customization**: sensors keep collecting new data, and the model needs to adapt. **Privacy**: sensitive data such as code or enterprise data should not go to the cloud. The Lecture Plan on page 4 has six items: gradient leakage, the training memory bottleneck, TinyTL, SparseBP, QAS, and PockEngine. The first is about privacy; the other five are about memory.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=1YuD_5UQxsA
-title: EfficientML.ai Lecture 21 - On-device Training (YouTube)
+title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 21 - On-device Training (YouTube)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+Original videos: [EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Sharing only gradients is not safe either
 
@@ -190,6 +191,7 @@ Pages 94–100 show results across platforms:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

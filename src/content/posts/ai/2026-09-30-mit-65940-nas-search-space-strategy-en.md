@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 8 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. Pruning and quantization shrink a network you already have. This lecture takes the other route: design a network that is small and accurate from the start.
 
@@ -35,8 +35,7 @@ glossary:
 **Fall 2026 comparison**: Fall 2026 Lecture 7 is scheduled for October 1. When I checked the course page on 2026-10-01, neither the slides nor the recording were linked yet.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=3W146_T8eCs
@@ -48,6 +47,8 @@ Original videos: [EfficientML.ai Lecture 7 - Neural Architecture Search Part I (
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Where this lecture sits in the NAS unit
 
@@ -206,6 +207,7 @@ One thing to do tonight: write a ResNet bottleneck and a MobileNetV2 inverted bo
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

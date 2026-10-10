@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post follows §1.3 and §2 (pp.4–13) of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) for [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026, [Slides 1](https://diffusion.csail.mit.edu/2026/docs/20260120_Lecture_01.pdf), and the [Lecture 1 recording](https://www.youtube.com/watch?v=9eJQQVrUUoI). Theorem, example, and algorithm numbers follow the notes. Checked on 2026-09-30.
 
@@ -34,19 +34,20 @@ The notes open with a line from Song et al.: creating noise from data is easy; c
 This lecture **does not cover training**. You will meet a neural-network vector field `u_t^θ`, but how its parameters are learned is the subject of [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en).
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=9eJQQVrUUoI
-title: Lecture 1 recording: Flow and Diffusion Models (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
 ```
 
-Original videos: [Lecture 1 recording: Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Making "generate" precise: four Key Ideas
 
@@ -245,6 +246,7 @@ The last line: **a diffusion model with σ_t = 0 is a flow model.**
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

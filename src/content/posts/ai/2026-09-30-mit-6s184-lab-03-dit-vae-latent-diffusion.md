@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的 Lab 3。題目用 [eje24/iap-diffusion-labs（branch 2026）](https://github.com/eje24/iap-diffusion-labs/tree/2026) 的 [`labs/lab_three.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_three.ipynb)，對照官方解答 [`solutions/lab_three_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_three_complete.ipynb)。理論部分引用[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5–6。存取等級 A3：題目、解答、講義、錄影全部公開；缺的是評分回饋。2026-09-30 核對。
 
@@ -40,12 +40,13 @@ glossary:
 所以先讀完 L3B 和 L4 再開這個 lab。
 
 ## 課程影片來源
-
-請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 怎麼拿、怎麼做、怎麼對答案
 
@@ -221,6 +222,7 @@ patch_size=1 代表 4×4 的 latent 切成 16 個 token，每個 token 是一個
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
 
 ## 參考資料
 

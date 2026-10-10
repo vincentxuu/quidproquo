@@ -18,13 +18,12 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-10-01-mit-67960-cnn-architectures-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 4 講 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)（YouTube: `bxVkZ4M-hIE`）由 Phillip Isola 授課。這講從「為什麼 MLP 不適合影像」切入，推導出 CNN 的三大設計原則：**局部連接**、**權重共享**、**平移等變性**。配合 [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) 必讀，這篇文章把講義重點重組成可直接套用的 CNN 設計框架，並附上可跑的 PyTorch 程式碼。
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。 本文標題的 L05 是本站系列編號；OCW 對應的是 Lec 04 Architectures: Grids（CNN 與格狀資料）。下方「影片時間戳」章節未逐段對照影片。
 
 ```youtube
 url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
@@ -37,6 +36,8 @@ title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
 
 - [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
 
 ## 為什麼 MLP 處理不好影像
 
@@ -275,6 +276,7 @@ print(f"經驗感受野像素數: {compute_rf(model)}")
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

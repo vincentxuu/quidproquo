@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-distributed-training)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 19 (2024-11-12) and Lecture 20 (2024-11-14) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec19-Distributed-Training-I.pdf](https://www.dropbox.com/scl/fi/85ud2gzrtyllgeqgpv9gs/Lec19-Distributed-Training-I.pdf?rlkey=80t52w3peqqf8oanpc6ojmvnf&st=jn4yxsjy&dl=0) (103 pages), [Lec20-Distributed-Training-II.pdf](https://www.dropbox.com/scl/fi/c0w7j7dxduuf8ply7lzeb/Lec20-Distributed-Training-II.pdf?rlkey=ynh3yx4jf99nojklt0ki7zh0y&st=vxzkzdt4&dl=0) (76 pages), and two recordings ([L19](https://www.youtube.com/watch?v=LcOM-nZdqxw), [L20](https://www.youtube.com/watch?v=lOVcPooetrM)). "L19 page N" refers to the PDF page. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public; neither lecture has a lab, so what you cannot get from outside MIT is Canvas and Piazza.
 >
@@ -48,24 +48,25 @@ But "add more GPUs" runs into two problems, one per lecture:
 - **Once split, GPUs have to talk to each other**: communication becomes the bottleneck (L20).
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=LcOM-nZdqxw
-title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (YouTube)
+title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=lOVcPooetrM
-title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (YouTube)
+title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 19 - Distributed Training Part 1 (YouTube)](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[EfficientML.ai Lecture 20 - Distributed Training Part 2 (YouTube)](https://www.youtube.com/watch?v=lOVcPooetrM)
+Original videos: [EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LcOM-nZdqxw), [EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=lOVcPooetrM)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Four ways to split
 
@@ -238,6 +239,7 @@ for iter in range(1, max_iters + 1):
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

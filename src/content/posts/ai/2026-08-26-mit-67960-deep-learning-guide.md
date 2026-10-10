@@ -24,12 +24,13 @@ draft: false
 本文要回答四件事：這門課教什麼、三位講師怎麼分工、21 講的主題怎麼接起來，以及兩個版本各自能讓你走到哪裡。查證範圍是 Fall 2025 官方課站與 MIT OCW Fall 2024 的完整 schedule、grading 與 policies。我沒有逐份打開每個投影片 PDF 檢查內頁；以下對各講內容的描述來自官網自己的摘要文字。
 
 ## 課程影片來源
-
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。
 
 課程與錄影入口：
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
 
 ## 先判斷它是不是你要的課
 
@@ -155,6 +156,7 @@ OCW 版公開的東西很完整：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方入口，各講錄影列在官方頁，逐講影片附在各講文章；狀態維持「僅附官方入口或錄影清單」。
 
 ## 參考資料
 

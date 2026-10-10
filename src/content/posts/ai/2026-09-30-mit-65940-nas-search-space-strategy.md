@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 8 篇。剪枝與量化是把一個現成的網路變小，這一講換個角度：一開始就設計出又小又準的網路。
 
@@ -35,19 +35,20 @@ glossary:
 **Fall 2026 對照**：Fall 2026 的第 7 講排在 10 月 1 日，2026-10-01 查課程頁時投影片與錄影都還沒有連結。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=3W146_T8eCs
-title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I（MIT 6.5940, Fall 2024）
+title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 7 - Neural Architecture Search Part I（MIT 6.5940, Fall 2024）](https://www.youtube.com/watch?v=3W146_T8eCs)
+原始影片：[EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 這講在整個 NAS 單元的位置
 
@@ -206,6 +207,7 @@ Network-level 固定 block 的種類，搜整個網路的形狀。第 49–53 �
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

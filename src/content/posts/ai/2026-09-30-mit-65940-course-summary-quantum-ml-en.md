@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Edition note**: This post covers Lecture 22 (2024-11-21, Course Summary + Quantum Machine Learning I) and Lecture 23 (2024-11-26, Quantum Machine Learning II) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Course-Summary.pdf](https://www.dropbox.com/scl/fi/cn0wr4zxuv4hvpce81lo1/Course-Summary.pdf?rlkey=ycn79vnsu2n7395fz1v04khz0&st=z86d0rap&dl=0) (13 pages), [Lec23-Quantum-ML-II.pdf](https://www.dropbox.com/scl/fi/wxpnpwkrl6pw7lb4n4vrg/Lec23-Quantum-ML-II.pdf?rlkey=21msd9zdilhry5pydlkvbn7n4&st=aoyc9pzv&dl=0) (99 pages), and the [Lecture 22](https://youtu.be/svjjD2uthhQ) and [Lecture 23](https://youtu.be/ZDk-GsyInt8) recordings. Page numbers are PDF pages. Facts were checked against the official materials on 2026-09-30. Access level is **A3**: slides and recordings are public. The gap: **Quantum ML Part I has no slides**. The Slides link for Lecture 22 points only to Course-Summary.pdf, so this post does not cover Part I's content.
 >
@@ -39,24 +39,25 @@ glossary:
 After 22 lectures, Song Han wraps up the course in 13 slides, then spends a lecture and a half on what looks like a detour: quantum machine learning. This post first goes through the course summary, then walks the six sections of the Lecture 23 slides. It ends with the question from the series plan: why does a course on efficiency close with this topic?
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=svjjD2uthhQ
-title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (YouTube)
+title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=ZDk-GsyInt8
-title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (YouTube)
+title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (YouTube)](https://www.youtube.com/watch?v=svjjD2uthhQ)、[EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (YouTube)](https://www.youtube.com/watch?v=ZDk-GsyInt8)
+Original videos: [EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=svjjD2uthhQ), [EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ZDk-GsyInt8)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Lecture 22, first half: a 13-page course summary
 
@@ -225,6 +226,7 @@ The [F26 course page](https://hanlab.mit.edu/courses/2026-fall-65940) marks Chap
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

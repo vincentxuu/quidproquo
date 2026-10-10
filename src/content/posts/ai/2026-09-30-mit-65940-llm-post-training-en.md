@@ -29,7 +29,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-post-training)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 18 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series.
 
@@ -42,19 +42,20 @@ glossary:
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "LLM Post Training" (Lecture 14, October 29). As of 2026-09-30 its slide and video links are still empty, so there is nothing to compare yet.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
-title: Lecture 14 recording (YouTube)
+title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 14 recording (YouTube)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+Original videos: [EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## What this lecture is about
 
@@ -202,6 +203,7 @@ The last part needs no training. It's about how you ask:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

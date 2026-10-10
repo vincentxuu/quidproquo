@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 版，2026-09-30 對照[講義 PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §4（pp.25–33）與 [Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf) 前半（到 Key takeaway 為止）撰寫，[第 3-A 講錄影](https://www.youtube.com/watch?v=ngC3QnYSVNM)可搭配觀看。Slides 3 由 3-A 與 3-B 共用，後半的 guidance 留給 [L3B](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)。存取等級 **A3 足以自學**。
 
@@ -40,19 +40,20 @@ glossary:
 時間方向跟前面一樣：**t=0 是雜訊，t=1 是資料**。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=ngC3QnYSVNM
-title: 第 3-A 講錄影：Score Functions (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
 ```
 
-原始影片：[第 3-A 講錄影：Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 分數函數：往機率更高的方向指
 
@@ -272,6 +273,7 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

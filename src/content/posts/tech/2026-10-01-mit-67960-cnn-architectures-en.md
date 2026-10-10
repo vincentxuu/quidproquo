@@ -18,13 +18,12 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-10-01-mit-67960-cnn-architectures)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 4 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) (YouTube: `bxVkZ4M-hIE`) is taught by Phillip Isola. This lecture starts from "why MLPs fail on images" and derives CNN's three design principles: **local connectivity**, **weight sharing**, and **translation equivariance**. Paired with [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) as required reading, this article restructures the lecture highlights into a practical CNN design framework with runnable PyTorch code.
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW. The “L05” in this article’s title is this site’s series numbering; the matching OCW lecture is Lec 04 Architectures: Grids (CNNs and grid data). The “video timestamps” section below has not been checked segment by segment against the video.
 
 ```youtube
 url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
@@ -37,6 +36,8 @@ Course and recording entries:
 
 - [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
 
 ## Why MLPs Fail on Images
 
@@ -275,6 +276,7 @@ print(f"Empirical RF pixels: {compute_rf(model)}")
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

@@ -18,25 +18,31 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-10-mit-67960-optimization-sgd-adam-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 第 7 講 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（縮放規則與優化）由 Jeremy Bernstein 授課。這講不只是列優化器清單，而是從**梯度下降的動力學**出發，推導為什麼大批次需要大學習率、為什麼 Adam 在某些情況下會失效、以及怎麼用「縮放規則」把小批次實驗的超參數轉移到大規模訓練。這篇文章把講義重點重組成可直接套用的決策框架，並附上可跑的 PyTorch 程式碼。
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：本文標題的 L03 是本站系列編號，OCW 的 Lec 03 其實是 Approximation Theory，且 OCW 沒有一講專門講 Adam 與學習率排程。下方兩支是相關講次：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 Lec 07 Scaling Rules for Optimization（優化縮放規則）。它們是主題補充，不能證明本文全部內容來自這兩講。
 
 ```youtube
 url: https://www.youtube.com/watch?v=vidCX_dMCu0
 title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
 ```
 
-原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
 
 課程與錄影入口：
-
 - [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
 
 ## 優化器的譜系：從 SGD 到 Adam
 
@@ -222,6 +228,7 @@ print("Saved plot to optimizer_comparison.png")
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。OCW 沒有對應「優化總覽」的單一講次，改附 Lec 02 與 Lec 07 兩支相關補充影片，狀態改為「僅附相關補充影片；原講次錄影未確認」。
 
 ## 參考資料
 

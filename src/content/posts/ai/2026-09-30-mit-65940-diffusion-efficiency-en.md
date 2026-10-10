@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 18 (2024-11-07) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec18-Diffusion-Models.pdf](https://www.dropbox.com/scl/fi/f4end70haytw1nalboxp2/Lec18-Diffusion-Models.pdf?rlkey=emaxca812n2npb2rinq1nor64&st=ed3ziw4o&dl=0) (91 pages) and the [lecture recording](https://youtu.be/LXrqmQrscf0). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public; this lecture has no lab, so the only things out of reach are Canvas and Piazza.
 >
@@ -41,19 +41,20 @@ Picture yourself editing a photo with Stable Diffusion on a laptop. You only wan
 The Lecture Plan on page 6 has three parts. Part one covers diffusion basics: DDPM, conditional generation, latent diffusion, image editing, personalization. Part two covers fast sampling: DDIM and distillation. Part three covers acceleration: sparsity, quantization, parallelism. You can find the first two parts in other courses. The third is almost entirely MIT HAN Lab's own research, and it is what this course adds.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=LXrqmQrscf0
-title: EfficientML.ai Lecture 18 - Diffusion Models (YouTube)
+title: EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 18 - Diffusion Models (YouTube)](https://www.youtube.com/watch?v=LXrqmQrscf0)
+Original videos: [EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LXrqmQrscf0)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Why it is slow: DDPM's two processes
 
@@ -168,6 +169,7 @@ The comparison on page 89 is convincing. The original takes 12.3 s on one GPU. N
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

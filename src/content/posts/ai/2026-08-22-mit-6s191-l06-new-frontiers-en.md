@@ -15,24 +15,25 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l06-new-frontiers)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 6 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **New Frontiers: Choosing the Problem Beyond the Model**. It Places deep learning in emerging applications and real constraints, emphasizing data, outputs, evaluation, and failure conditions. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=ev7cLSd-ySE
-title: Lecture 6 official video
+title: MIT 6.S191: Language Models and New Frontiers
 ```
 
-Original videos: [Lecture 6 official video](https://www.youtube.com/watch?v=ev7cLSd-ySE)
+Original videos: [MIT 6.S191: Language Models and New Frontiers](https://www.youtube.com/watch?v=ev7cLSd-ySE)
 
 Course and recording entries:
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
 
 ## What to take away
 
@@ -62,6 +63,7 @@ Choose one idea and describe its problem, input, output, data, baseline, and fai
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

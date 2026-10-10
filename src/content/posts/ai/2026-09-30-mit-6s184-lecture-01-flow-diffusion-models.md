@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §1.3 與 §2（pp.4–13）、[Slides 1](https://diffusion.csail.mit.edu/2026/docs/20260120_Lecture_01.pdf)，以及[第 1 講錄影](https://www.youtube.com/watch?v=9eJQQVrUUoI)。定理、例子與演算法編號都照講義。2026-09-30 核對。
 
@@ -35,19 +35,20 @@ glossary:
 這一講**不談怎麼訓練**。你會看到一個神經網路向量場 `u_t^θ`，但它的參數怎麼學，是[第 2 講](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)的事。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=9eJQQVrUUoI
-title: 第 1 講錄影：Flow and Diffusion Models (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
 ```
 
-原始影片：[第 1 講錄影：Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 先把「生成」講精確：四個 Key Idea
 
@@ -246,6 +247,7 @@ Require: 神經網路 u_t^θ，步數 n，diffusion coefficient σ_t
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

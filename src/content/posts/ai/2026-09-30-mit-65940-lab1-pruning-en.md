@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the [Lab 1 Colab notebook](https://colab.research.google.com/drive/1Fagq3JQBzCizodyxpHKvWDzfCC7F1RWN) from [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). I downloaded the raw notebook on 2026-09-30 and checked question numbers, points, and setup cell by cell. Access level **A3**: the notebook, pretrained weights, and dataset download are all public. What's missing is official solutions and grading feedback (submission goes through MIT Canvas). **This post contains no solutions.**
 
@@ -34,12 +34,13 @@ glossary:
 The notebook opens with five goals. The last two matter most: get a basic understanding of the performance gains from pruning (such as speedup), and understand the differences and trade-offs between the two approaches.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## When it runs and what you need
 
@@ -132,6 +133,7 @@ The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) rele
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

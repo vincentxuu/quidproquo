@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 10 講（2024-10-08），主要材料是 [Lec10-MCUNet.pdf](https://www.dropbox.com/scl/fi/udgt7c6sw5wpvrbh7us2t/Lec10-MCUNet.pdf?rlkey=sryh8aiehv8792uk1ocu00icn&st=8v4oql2g&dl=0)（93 頁）與 [課堂錄影](https://youtu.be/uR1KKhIhHEk)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、錄影、同期 Lab 3 都公開；拿不到的是 Canvas 繳交與評分回饋。
 >
@@ -41,19 +41,20 @@ glossary:
 投影片第 2 頁的 Lecture Plan 有四項：什麼是 tinyML、tinyML 的挑戰、tiny 神經網路設計、應用（視覺、語音、時間序列／異常偵測）。本篇照這個順序走。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=uR1KKhIhHEk
-title: EfficientML.ai Lecture 10 - MCUNet and TinyML（YouTube）
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 10 - MCUNet and TinyML（YouTube）](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+原始影片：[EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 什麼是 tinyML：從雲端一路縮到 IoT
 
@@ -168,6 +169,7 @@ Song Han 用一條光譜開場（第 5–8 頁）：**Cloud AI → Mobile AI →
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

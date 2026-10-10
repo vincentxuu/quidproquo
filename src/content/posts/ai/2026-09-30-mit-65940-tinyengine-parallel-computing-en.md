@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 11 (2024-10-10) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec11-TinyEngine.pdf](https://www.dropbox.com/scl/fi/z1980bzepegz85ara200n/Lec11-TinyEngine.pdf?rlkey=5evtfesbourbo03nlhazmiy1r&st=ehihqr5t&dl=0) (79 pages) and the [lecture recording](https://youtu.be/wl1UEnIOVek). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides, video, and the example code repos the slides cite are all public. What you can't get is Canvas submission and grading feedback.
 >
@@ -40,19 +40,20 @@ glossary:
 This lecture has more code than the earlier ones, but the structure is simple. The first half takes **one matrix multiply** and applies loop optimizations, SIMD, multithreading, and CUDA in turn, reporting a speedup at each step. The second half switches to convolution and covers four inference tricks TinyEngine uses. The Lecture Plan on page 2 has exactly these three parts: edge AI and MCU characteristics, parallel computing techniques, and inference optimizations.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=wl1UEnIOVek
-title: EfficientML.ai Lecture 11 - TinyEngine (YouTube)
+title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 11 - TinyEngine (YouTube)](https://www.youtube.com/watch?v=wl1UEnIOVek)
+Original videos: [EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Where an MCU is small
 
@@ -167,6 +168,7 @@ In other words, the CPU techniques from this lecture come back unchanged to spee
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

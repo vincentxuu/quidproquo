@@ -18,25 +18,31 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-10-mit-67960-optimization-sgd-adam)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 7 [Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) is taught by Jeremy Bernstein. This lecture doesn't just list optimizers — it derives from **gradient descent dynamics** why large batches need large learning rates, why Adam fails in certain regimes, and how to use "scaling rules" to transfer hyperparameters from small-batch experiments to large-scale training. This article restructures the lecture highlights into a practical decision framework with runnable PyTorch code.
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the “L03” in this article’s title is this site’s series numbering; OCW Lec 03 is actually Approximation Theory, and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
 
 ```youtube
 url: https://www.youtube.com/watch?v=vidCX_dMCu0
 title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
 ```
 
-Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0), [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
 
 Course and recording entries:
-
 - [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
 
 ## Optimizer Genealogy: From SGD to Adam
 
@@ -222,6 +228,7 @@ print("Saved plot to optimizer_comparison.png")
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. OCW has no single lecture matching this optimization overview, so Lec 02 and Lec 07 are embedded as related supplementary videos and the status is now “Related supplementary video included; the original lecture recording has not been verified.”
 
 ## References
 

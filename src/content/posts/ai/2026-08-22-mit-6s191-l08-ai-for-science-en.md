@@ -15,24 +15,25 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l08-ai-for-science)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 8 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **AI for Science: Putting Domain Structure into Learning**. It Uses the scientific-discovery loop to show how simulators, AI emulators, and experiments cooperate instead of reducing science to generic prediction. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=rZACoZD8AG8
-title: Lecture 8 official video
+title: MIT 6.S191: AI for Science
 ```
 
-Original videos: [Lecture 8 official video](https://www.youtube.com/watch?v=rZACoZD8AG8)
+Original videos: [MIT 6.S191: AI for Science](https://www.youtube.com/watch?v=rZACoZD8AG8)
 
 Course and recording entries:
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
 
 ## What to take away
 
@@ -62,6 +63,7 @@ Draw the data flow among hypothesis, experiment, simulator, and AI emulator for 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post follows the IAP 2026 offering of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html). I checked it on 2026-09-30 against §4 of the [lecture notes PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) (pp.25–33) and the first half of [Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf), up to the "Key takeaway" slide. The [Lecture 3-A recording](https://www.youtube.com/watch?v=ngC3QnYSVNM) is a good companion. Slides 3 is shared by 3-A and 3-B; the guidance half belongs to [L3B](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en). Access level: **A3, enough for self-study**.
 
@@ -40,19 +40,20 @@ The question for this lecture: **what is a score function, and why does learning
 The time direction is unchanged: **t=0 is noise, t=1 is data**.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=ngC3QnYSVNM
-title: Lecture 3-A recording: Score Functions (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
 ```
 
-Original videos: [Lecture 3-A recording: Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Score functions point toward higher probability
 
@@ -272,6 +273,7 @@ Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

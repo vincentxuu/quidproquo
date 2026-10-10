@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §7（pp.54–66）、[Slides 5](https://diffusion.csail.mit.edu/2026/docs/20260130_Lecture_05.pdf)，以及[第 5 講錄影](https://www.youtube.com/watch?v=d0kmyEJN2hI)（1 小時 21 分）。Theorem、Example、Algorithm、eq. 編號都照講義。存取等級 A3：講義、slides、錄影、lab 與官方解答都公開；但這一講**沒有對應的 lab**，講義 §1.2 也把 §7 標成 Optional。2026-09-30 核對。
 
@@ -43,19 +43,20 @@ glossary:
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=d0kmyEJN2hI
-title: 第 5 講錄影：Discrete Diffusion Models (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
 ```
 
-原始影片：[第 5 講錄影：Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 先看對照表：每個連續物件都有離散版
 
@@ -383,6 +384,7 @@ Slides 5 有一頁討論離散擴散與自回歸模型的取捨，每一點都�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

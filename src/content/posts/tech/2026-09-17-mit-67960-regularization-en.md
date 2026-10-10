@@ -18,13 +18,12 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-17-mit-67960-regularization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 9 [Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/) is taught by Sara Beery. This lecture treats regularization as an "engineering toolbox" rather than pure theory: what concrete problem each technique solves, how to use it correctly, and how to combine it with others. This article restructures the lecture highlights into a practical regularization decision table with runnable PyTorch code.
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: the “L04” in this article’s title is this site’s series numbering (OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content or the “video timestamps” section below.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EiO8BBa-xdc
@@ -37,6 +36,8 @@ Course and recording entries:
 
 - [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
 
 ## Four Pillars of Regularization: Mechanism, Effect, Use Cases
 
@@ -270,6 +271,7 @@ for name, cfg in configs.items():
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded Lec 06 Generalization Theory is not the lecture for this topic (weight decay, dropout, batch norm), so the status is now “Related supplementary video included; the original lecture recording has not been verified”, and the video-timestamps section is noted as not tied to any official video.
 
 ## References
 

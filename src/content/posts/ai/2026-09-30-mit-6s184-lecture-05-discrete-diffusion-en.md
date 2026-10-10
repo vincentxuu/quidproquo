@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post follows §7 (pp.54–66) of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) for [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026, [Slides 5](https://diffusion.csail.mit.edu/2026/docs/20260130_Lecture_05.pdf), and the [Lecture 5 recording](https://www.youtube.com/watch?v=d0kmyEJN2hI) (1 h 21 min). Theorem, example, algorithm, and equation numbers follow the notes. Access level A3: the notes, slides, recordings, labs, and official solutions are all public. This lecture, however, has **no matching lab**, and §1.2 of the notes marks §7 as Optional. Checked on 2026-09-30.
 
@@ -42,19 +42,20 @@ The good news: the recipe from [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lectur
 The time convention matches the rest of the series: t=0 is noise and t=1 is data.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=d0kmyEJN2hI
-title: Lecture 5 recording: Discrete Diffusion Models (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
 ```
 
-Original videos: [Lecture 5 recording: Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Start with the map: every continuous object has a discrete twin
 
@@ -382,6 +383,7 @@ The notes' answer is that these principles were never specific to flows or CTMCs
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

@@ -18,17 +18,31 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-24-mit-67960-ps1-mlp-backprop)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) [Homework 1](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_hw1_pdf/) is the course's first programming assignment, with a core goal: **implement MLP forward and backward passes from scratch to understand the mechanics of automatic differentiation**. This article walks through every HW1 checkpoint, providing runnable NumPy reference implementations and PyTorch verification scripts.
 
 ## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: Homework 1 has no dedicated recording. The two videos below are related public OCW videos: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and the PyTorch Tutorial. They are background supplements, not a walkthrough of HW1.
 
-Choose by topic from the official MIT OCW Fall 2024 recording gallery; overview, assignment, and topic articles are not assumed to correspond to a single lecture.
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o5gPABcGZwc
+title: PyTorch Tutorial
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0), [PyTorch Tutorial](https://www.youtube.com/watch?v=o5gPABcGZwc)
 
 Course and recording entries:
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+Checked: 2026-10-10.
 
 ## HW1 Problem Structure Overview
 
@@ -305,6 +319,7 @@ if __name__ == "__main__":
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. HW1 has no dedicated recording, so OCW Lec 02 and the PyTorch Tutorial are embedded as related supplementary videos and the status is now “Related supplementary video included; the original lecture recording has not been verified.”
 
 ## References
 

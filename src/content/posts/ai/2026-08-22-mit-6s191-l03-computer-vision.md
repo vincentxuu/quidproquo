@@ -15,24 +15,25 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-l03-computer-vision-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 3 講是 **電腦視覺：卷積如何保留空間結構**。從影像張量、卷積與 pooling 走到辨識系統，替 Lab 2 的 MNIST 與臉部偵測打底。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=pqIcoskUuWs
-title: Lecture 3 官方影片
+title: MIT 6.S191: Convolutional Neural Networks
 ```
 
-原始影片：[Lecture 3 官方影片](https://www.youtube.com/watch?v=pqIcoskUuWs)
+原始影片：[MIT 6.S191: Convolutional Neural Networks](https://www.youtube.com/watch?v=pqIcoskUuWs)
 
 課程與錄影入口：
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
 
 ## 這一講要帶走什麼
 
@@ -62,6 +63,7 @@ title: Lecture 3 官方影片
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

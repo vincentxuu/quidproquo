@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 20 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and combines Lectures 16 and 17.
 
@@ -48,24 +48,25 @@ glossary:
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) keeps "Vision Transformer" (Lecture 16, November 5) but **drops the GAN, Video, and Point Cloud lecture**. Lectures 17 and 18 become Diffusion Model Part I and Part II. As of 2026-09-30 none of these are up yet. For now, the Fall 2024 materials are the only way to study Lecture 17's content.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=v0jYDgaVzlk
-title: Lecture 16 recording
+title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=o_60Yhb79W8
-title: Lecture 17 recording
+title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 16 recording](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[Lecture 17 recording](https://www.youtube.com/watch?v=o_60Yhb79W8)
+Original videos: [EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk), [EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Why these two lectures go together
 
@@ -214,6 +215,7 @@ Two threads run through both:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

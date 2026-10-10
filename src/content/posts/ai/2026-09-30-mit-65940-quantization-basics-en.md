@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-basics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the [MIT 6.5940 Fall 2024 course page](https://hanlab.mit.edu/courses/2024-fall-65940), the most recent complete offering; the [series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en) explains why. The main source is the [Lecture 5 slides, Lec05-Quantization-I.pdf](https://www.dropbox.com/scl/fi/qc2s9opsa2mnqfithvwz1/Lec05-Quantization-I.pdf?rlkey=sizfzkdv85etnplz1nqgngeql&st=zr1y81q7&dl=0) (70 pages; page numbers below are PDF pages). The [recording](https://www.youtube.com/watch?v=ymAzUz3qlIA) is linked too, but every claim here rests on the slides. Facts were checked against the official materials on 2026-09-30. Access level: Fall 2024 is **A3**; Fall 2026 is **A2** (in progress).
 
@@ -35,19 +35,20 @@ Pruning cuts the *number* of weights. Quantization cuts the *bits* per weight. L
 In practice, Lecture 5 covers only the first two methods. The summary on page 69 lists K-means and linear quantization only, and the comparison table on page 68 has a question mark in the binary/ternary column. The Lecture Plan of [Lecture 6](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) is where binary and ternary quantization appear as a formal item. This post follows what the slides actually cover and leaves binary/ternary for the next one.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=ymAzUz3qlIA
-title: EfficientML.ai Lecture 5 recording (Fall 2024)
+title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 5 recording (Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+Original videos: [EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Why bit width matters
 
@@ -221,6 +222,7 @@ Fall 2026's Lab 2 is labeled Quantization and had not been released as of 2026-0
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

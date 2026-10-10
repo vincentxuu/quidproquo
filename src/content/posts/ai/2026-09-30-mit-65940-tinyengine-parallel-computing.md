@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 11 講（2024-10-10），主要材料是 [Lec11-TinyEngine.pdf](https://www.dropbox.com/scl/fi/z1980bzepegz85ara200n/Lec11-TinyEngine.pdf?rlkey=5evtfesbourbo03nlhazmiy1r&st=ehihqr5t&dl=0)（79 頁）與 [課堂錄影](https://youtu.be/wl1UEnIOVek)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、錄影、投影片引用的範例程式碼 repo 都公開；拿不到的是 Canvas 繳交與評分回饋。
 >
@@ -41,19 +41,20 @@ glossary:
 這講的程式碼比前面多，但骨架很單純。前半段用**同一個矩陣乘法**，依序套上 loop 優化、SIMD、multithreading、CUDA，每一步都報加速倍數；後半段換成卷積，講四個 TinyEngine 會用到的推論技巧。第 2 頁的 Lecture Plan 就是這三段：Edge AI 與 MCU 的特性、平行運算技巧、推論最佳化。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=wl1UEnIOVek
-title: EfficientML.ai Lecture 11 - TinyEngine（YouTube）
+title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 11 - TinyEngine（YouTube）](https://www.youtube.com/watch?v=wl1UEnIOVek)
+原始影片：[EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## MCU 到底小在哪
 
@@ -168,6 +169,7 @@ for i in range(N):
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

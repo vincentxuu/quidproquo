@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-quantization-basics-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文以 [MIT 6.5940 Fall 2024 課頁](https://hanlab.mit.edu/courses/2024-fall-65940)為主幹（最近一屆完整學期，理由見[系列總覽](/posts/ai/2026-09-30-mit-65940-course-overview)）。主要材料是 [Lecture 5 投影片 Lec05-Quantization-I.pdf](https://www.dropbox.com/scl/fi/qc2s9opsa2mnqfithvwz1/Lec05-Quantization-I.pdf?rlkey=sizfzkdv85etnplz1nqgngeql&st=zr1y81q7&dl=0)（70 頁，下文頁碼皆指 PDF 頁），[錄影](https://www.youtube.com/watch?v=ymAzUz3qlIA)一併列出但本文的主張都以投影片為準。事實於 2026-09-30 打開官方材料核對。存取等級：Fall 2024 **A3**；Fall 2026 **A2**（進行中）。
 
@@ -35,19 +35,20 @@ glossary:
 實際上第 5 講只講完前兩種。第 69 頁的總結只列 K-means 與線性量化，第 68 頁的比較表在二值／三值那一欄打了問號；[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)的 Lecture Plan 才把二值與三值量化列為正式項目。本篇照投影片實際內容走，二值／三值留到下一篇。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=ymAzUz3qlIA
-title: EfficientML.ai Lecture 5 錄影（Fall 2024）
+title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 5 錄影（Fall 2024）](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+原始影片：[EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 為什麼位元數這麼重要
 
@@ -221,6 +222,7 @@ Fall 2026 的 Lab 2 標為 Quantization，截至 2026-09-30 尚未放出；Fall 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

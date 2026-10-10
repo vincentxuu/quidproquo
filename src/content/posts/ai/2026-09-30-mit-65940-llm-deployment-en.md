@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-deployment)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post follows the Fall 2024 edition of [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940).** It is post 15 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and picks up from [Lecture 12: Transformers and LLMs](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en).
 
@@ -42,19 +42,20 @@ glossary:
 **Fall 2026 status**: the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) renames Lecture 13 (October 27) to "LLM Quantization and Deployment". As of 2026-09-30 its slides and recording aren't up, so the content can't be compared yet.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=sTz2tXG1T0c
-title: Lecture 13 recording (YouTube)
+title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 13 recording (YouTube)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
+Original videos: [EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## What this lecture is solving
 
@@ -227,6 +228,7 @@ Put side by side, one thread runs through everything: **look at the activations*
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

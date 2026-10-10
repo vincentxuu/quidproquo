@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 20 篇，合併第 16 與第 17 講。
 
@@ -48,24 +48,25 @@ glossary:
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)保留「Vision Transformer」（11 月 5 日，第 16 講），但 **GAN、Video、Point Cloud 這一講被拿掉**，第 17、18 講改成 Diffusion Model Part I／II。截至 2026-09-30 這幾講都還沒上線。想學第 17 講的內容，目前只能用 Fall 2024 的材料。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=v0jYDgaVzlk
-title: 第 16 講錄影
+title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=o_60Yhb79W8
-title: 第 17 講錄影
+title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[第 16 講錄影](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[第 17 講錄影](https://www.youtube.com/watch?v=o_60Yhb79W8)
+原始影片：[EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 為什麼這兩講放在一起
 
@@ -214,6 +215,7 @@ return out
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

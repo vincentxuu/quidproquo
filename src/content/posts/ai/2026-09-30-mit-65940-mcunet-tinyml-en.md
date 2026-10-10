@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 10 (2024-10-08) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec10-MCUNet.pdf](https://www.dropbox.com/scl/fi/udgt7c6sw5wpvrbh7us2t/Lec10-MCUNet.pdf?rlkey=sryh8aiehv8792uk1ocu00icn&st=8v4oql2g&dl=0) (93 pages) and the [lecture recording](https://youtu.be/uR1KKhIhHEk). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides, video, and the Lab 3 released that week are all public. What you can't get is Canvas submission and grading feedback.
 >
@@ -41,19 +41,20 @@ The first nine lectures (pruning, quantization, NAS, distillation) all answer th
 The Lecture Plan on page 2 has four items: what tinyML is, its challenges, tiny neural network design, and applications (vision, audio, time series and anomaly detection). This post follows that order.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=uR1KKhIhHEk
-title: EfficientML.ai Lecture 10 - MCUNet and TinyML (YouTube)
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 10 - MCUNet and TinyML (YouTube)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+Original videos: [EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## What tinyML is: shrinking from the cloud to IoT
 
@@ -168,6 +169,7 @@ Pages 88–91: train an autoencoder to reconstruct normal data. In deployment, i
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

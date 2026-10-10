@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > This is post 1 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series, based on the Fall 2024 edition. The [series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en) explains why it does not follow Fall 2026.
 
@@ -41,24 +41,25 @@ Official materials covered here:
 Page numbers below are PDF page numbers. The number printed in the slide corner is sometimes off by one or two.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
-title: Lecture 1 video (Fall 2024)
+title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=I0nKjPpZmMU
-title: Lecture 2 video (Fall 2024)
+title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 1 video (Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[Lecture 2 video (Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+Original videos: [EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w), [EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## The problem: models grow faster than hardware
 
@@ -232,6 +233,7 @@ The [Fall 2026 Lab 0](https://colab.research.google.com/drive/1PfVYxikSaVpCSD-cn
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

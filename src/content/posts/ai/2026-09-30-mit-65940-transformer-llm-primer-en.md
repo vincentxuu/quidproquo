@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on Lecture 12 (2024-10-17) of [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). The main materials are [Lec12-Transformers-and-LLM.pdf](https://www.dropbox.com/scl/fi/4o87goykb0aoyopps02t4/Lec12-Transformers-and-LLM.pdf?rlkey=k97sdf3ls3xxz4fgvte6px279&dl=0) (90 pages) and the [lecture recording](https://youtu.be/EV6xb4xY708). Page numbers refer to PDF pages. Facts were checked against the official materials on 2026-09-30. Access level **A3**: slides and video are public. This lecture has no matching lab.
 >
@@ -39,19 +39,20 @@ This post takes only the **efficiency view**: which design choices cost memory, 
 The Lecture Plan on page 6 has four parts: Transformer basics, design variants, LLMs, and advanced topics (multimodal LLMs).
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EV6xb4xY708
-title: EfficientML.ai Lecture 12 - Transformer and LLM (YouTube)
+title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [EfficientML.ai Lecture 12 - Transformer and LLM (YouTube)](https://www.youtube.com/watch?v=EV6xb4xY708)
+Original videos: [EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Transformer basics: where the cost hides
 
@@ -183,6 +184,7 @@ Page 88 explains the capacity factor C with a small example: 6 tokens, 3 experts
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

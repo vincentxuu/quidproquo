@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列的第 2 篇，依據 Fall 2024 版。上一篇講了怎麼量模型大小與運算量，這一篇開始真的動手把模型變小。
 
@@ -39,19 +39,20 @@ glossary:
 頁碼一律是 PDF 頁數。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=EjsB0WgIfUM
-title: Lecture 3 錄影（Fall 2024）
+title: EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[Lecture 3 錄影（Fall 2024）](https://www.youtube.com/watch?v=EjsB0WgIfUM)
+原始影片：[EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 為什麼從剪枝開始
 
@@ -213,6 +214,7 @@ Fall 2026 的 Lab 1 改成 GPU Basics，Lab 2 的主題則是課頁與投影片�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

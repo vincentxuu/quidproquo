@@ -29,7 +29,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-llm-post-training-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 18 篇。
 
@@ -42,19 +42,20 @@ glossary:
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)同樣排了「LLM Post Training」（10 月 29 日，第 14 講），截至 2026-09-30 投影片與錄影還是空連結，無法比對內容。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
-title: 第 14 講錄影（YouTube）
+title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[第 14 講錄影（YouTube）](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+原始影片：[EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 這一講在解什麼
 
@@ -202,6 +203,7 @@ $$
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列的第 1 篇，依據 Fall 2024 版。為什麼不用 Fall 2026，[系列入口](/posts/ai/2026-09-30-mit-65940-course-overview)有說明。
 
@@ -41,24 +41,25 @@ glossary:
 以下頁碼都是 PDF 的頁數，投影片角落印的頁碼有時差一兩頁。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
-title: Lecture 1 錄影（Fall 2024）
+title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=I0nKjPpZmMU
-title: Lecture 2 錄影（Fall 2024）
+title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[Lecture 1 錄影（Fall 2024）](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[Lecture 2 錄影（Fall 2024）](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+原始影片：[EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 問題：模型長得比硬體快
 
@@ -232,6 +233,7 @@ Fall 2026 的 [L1 投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

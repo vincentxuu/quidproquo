@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 6 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and follows [Lecture 5: Quantization I](/posts/ai/2026-09-30-mit-65940-quantization-basics-en).
 
@@ -39,8 +39,7 @@ glossary:
 **Fall 2026 comparison**: The Fall 2026 [Lecture 6 slides](https://www.dropbox.com/scl/fi/4zry0dea0hrykoa2aoqp0/Lec06-Quantization-II.pdf?rlkey=cb7gol6t8jcrb8kyyxpxwjzfb&dl=0) (80 pages) and [recording](https://www.youtube.com/watch?v=_sHTMuOQY5A) are already up. The five-item Lecture Plan is word-for-word identical. A page-by-page comparison finds only two pages missing: a duplicate linear-quantization recap, and the chart of HAQ's bit allocation on edge versus cloud hardware (F24 page 80).
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=wrcgWm_nUeE
@@ -52,6 +51,8 @@ Original videos: [EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, F
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## The question Lecture 5 left open
 
@@ -238,6 +239,7 @@ One thing you can do tonight: open the table on page 26 and work out VS-Quant's 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

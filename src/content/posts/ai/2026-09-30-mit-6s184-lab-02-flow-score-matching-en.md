@@ -20,7 +20,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > **Version note**: This post covers Lab 2 of the IAP 2026 offering of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html). I checked it on 2026-09-30 against [`labs/lab_two.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_two.ipynb), [`solutions/lab_two_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_two_complete.ipynb), and the README changelog in the [labs repo (branch 2026)](https://github.com/eje24/iap-diffusion-labs/tree/2026). Access level: **A3, enough for self-study**. The notebook and official solutions are public, but graded submission is only for enrolled MIT students.
 
@@ -33,12 +33,13 @@ The notebook introduces itself as an intuitive, hands-on walk-through of flow ma
 This post doesn't reproduce the solutions. It explains what each problem tests, where it maps to the notes, and how to check yourself against the official answers.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Before you start: three things
 
@@ -217,6 +218,7 @@ Series navigation: previous, [L3A: Score Functions, SDE Sampling, and Score Matc
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

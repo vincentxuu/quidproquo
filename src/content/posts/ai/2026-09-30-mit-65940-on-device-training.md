@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-on-device-training-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 21 講（2024-11-19），主要材料是 [Lec21-On-Device-Training-And-Transfer-Learning.pdf](https://www.dropbox.com/scl/fi/35992g5bz2sa1hxo3dmn6/Lec21-On-Device-Training-And-Transfer-Learning.pdf?rlkey=yqym2zffstfrdsui371lkvael&st=sqmt0oro&dl=0)（102 頁）與 [課堂錄影](https://www.youtube.com/watch?v=1YuD_5UQxsA)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開，投影片引用的 DLG 程式碼也公開；這講沒有對應 lab。
 >
@@ -41,19 +41,20 @@ glossary:
 第 2–3 頁給兩個理由。**客製化**：感測器不斷收到新資料，模型要跟著調整。**隱私**：程式碼、企業資料這類敏感資料不該送上雲端。第 4 頁的 Lecture Plan 分六項：梯度洩漏、訓練記憶體瓶頸、TinyTL、SparseBP、QAS、PockEngine。前一項講隱私，後五項講記憶體。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=1YuD_5UQxsA
-title: EfficientML.ai Lecture 21 - On-device Training（YouTube）
+title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 21 - On-device Training（YouTube）](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+原始影片：[EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 只分享梯度，其實也不安全
 
@@ -190,6 +191,7 @@ Adam 也能救回大部分精度，但要多 3 倍記憶體，在裝置上用不
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

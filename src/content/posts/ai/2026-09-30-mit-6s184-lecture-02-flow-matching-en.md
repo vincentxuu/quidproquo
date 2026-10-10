@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post follows the IAP 2026 offering of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html). I checked it on 2026-09-30 against §3 of the [lecture notes PDF](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) (pp.14–24) and [Slides 2](https://diffusion.csail.mit.edu/2026/docs/20260122_Lecture_02.pdf). The [Lecture 2 recording](https://www.youtube.com/watch?v=PNkMKWW8Khw) is a good companion. Access level: **A3, enough for self-study**. All equation numbers refer to the notes.
 
@@ -39,19 +39,20 @@ This lecture answers one question: **how do we tune θ so that the ODE endpoint 
 Keep the time direction in mind: in this course **t=0 is noise and t=1 is data**. Much of the diffusion literature uses the reverse, so be careful when you compare with other material.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=PNkMKWW8Khw
-title: Lecture 2 recording: Flow Matching (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)
 ```
 
-Original videos: [Lecture 2 recording: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## One table for the whole lecture
 
@@ -276,6 +277,7 @@ Series navigation: previous, [Lab 1: Simulating ODEs and SDEs](/posts/ai/2026-09
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 

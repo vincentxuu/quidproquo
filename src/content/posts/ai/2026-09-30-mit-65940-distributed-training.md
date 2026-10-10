@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-distributed-training-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 19 講（2024-11-12）與第 20 講（2024-11-14），主要材料是 [Lec19-Distributed-Training-I.pdf](https://www.dropbox.com/scl/fi/85ud2gzrtyllgeqgpv9gs/Lec19-Distributed-Training-I.pdf?rlkey=80t52w3peqqf8oanpc6ojmvnf&st=jn4yxsjy&dl=0)（103 頁）、[Lec20-Distributed-Training-II.pdf](https://www.dropbox.com/scl/fi/c0w7j7dxduuf8ply7lzeb/Lec20-Distributed-Training-II.pdf?rlkey=ynh3yx4jf99nojklt0ki7zh0y&st=vxzkzdt4&dl=0)（76 頁）與兩支錄影（[L19](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[L20](https://www.youtube.com/watch?v=lOVcPooetrM)）。文中「L19 第 N 頁」指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開；這兩講沒有對應 lab，校外拿不到的是 Canvas 與 Piazza。
 >
@@ -48,24 +48,25 @@ L19 第 6 頁的表格說明了為什麼非分散不可：在 A100 上，ResNet-
 - **切開之後卡跟卡要講話**：通訊變成瓶頸（L20）。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=LcOM-nZdqxw
-title: EfficientML.ai Lecture 19 - Distributed Training Part 1（YouTube）
+title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=lOVcPooetrM
-title: EfficientML.ai Lecture 20 - Distributed Training Part 2（YouTube）
+title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 19 - Distributed Training Part 1（YouTube）](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[EfficientML.ai Lecture 20 - Distributed Training Part 2（YouTube）](https://www.youtube.com/watch?v=lOVcPooetrM)
+原始影片：[EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LcOM-nZdqxw)、[EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=lOVcPooetrM)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 四種切法一覽
 
@@ -238,6 +239,7 @@ for iter in range(1, max_iters + 1):
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
 
 ## 參考資料
 

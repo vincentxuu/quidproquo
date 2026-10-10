@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) (IAP 2026): [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5 (pp.34–40), the classifier-free guidance part of [Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf), and the [Lecture 3B recording](https://www.youtube.com/watch?v=8oWZ1bHwyRI) (39 minutes). Equation, Remark, and Algorithm numbers follow the notes. Access level A3: notes, slides, recordings, labs, and official solutions are all public; lab grading is for enrolled MIT students only. Checked 2026-09-30.
 
@@ -37,19 +37,20 @@ The star is **classifier-free guidance (CFG)**. Its derivation needs only two th
 The time convention matches the rest of the series: t=0 is noise, t=1 is data.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
-title: Lecture 3B recording: Classifier-free Guidance (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
 ```
 
-Original videos: [Lecture 3B recording: Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## First, vocabulary: guided is not conditional
 
@@ -241,6 +242,7 @@ Both the notes and slides use Stable Diffusion 3 as an example. Slides 3 gives S
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
 
 ## References
 
