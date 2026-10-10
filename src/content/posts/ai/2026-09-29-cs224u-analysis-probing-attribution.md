@@ -52,6 +52,8 @@ title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Sprin
 
 原始影片：[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
 
+內容核對：已依字幕核對（2026-10-10）：影片 33（Part 1: Overview）與影片 34（Part 2: Probing）的字幕逐項對照：奇偶偵測器反例與原話、三欄計分表、Tenney 各層結果、probe selectivity、加法網路因果反例；文中引用的影片 35（Feature Attribution）也讀過，IG 公理、反例與範例皆吻合，未發現需修正之處。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -188,6 +190,7 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

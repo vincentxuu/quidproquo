@@ -57,6 +57,8 @@ title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Sprin
 
 原始影片：[Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw)、[Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas，17:47）與 Part 3（IR metrics，19:22）的字幕逐項對照：消化系統無字串重疊的例子、標準 QA 與 OpenQA 對照、知識密集型任務、三種搜尋範式、捏造連結與 Bing 引用 DSP 論文的例子、SAIL 部落格；指標部分的 success／RR／precision／recall／average precision 範例與 D3 略勝 D2、選擇原則、延遲等其他維度與 Pareto frontier，皆吻合。文中引用但未嵌入的 Part 4（Neural IR）與 Part 5（Datasets）也讀過，cross-encoder／DPR／ColBERT／SPLADE 的比較、重排與 centroid 做法、PLAID 的 287 毫秒到 58 毫秒、資料集清單與三個未展開主題皆吻合。TF-IDF／BM25 公式與 MS MARCO 排行表數字屬投影片內容，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -220,6 +222,7 @@ Potts 在 [IR 第 3 支錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ) 用�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

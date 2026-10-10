@@ -62,6 +62,8 @@ title: Stanford XCS224U: Natural Language Understanding I In-context Learning, P
 
 原始影片：[Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs)、[Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Techniques and Suggested Methods）與 Part 1（Origins）的字幕逐項對照：Potts 的過時預告、demonstration 的選法與四類方式、ELMo 示範過濾例子、CoT／generic step-by-step／self-consistency（dsp.majority）／Self-Ask／反覆改寫、DSP 結果的解讀與四條建議；Origins 的 ChomskyBot、Brants 2007、decaNLP、GPT-2 的 TL;DR 與翻譯、GPT-3 摘要，皆吻合。文中引用但未嵌入的 Part 2（Core Concepts）與 Part 3（Current Moment）也讀過，術語定義、第 (2) 條無法驗證、生成是強加的規則、Potts 選第 4 個說法、Alpaca 的 175 個種子任務與 52,000 個例子皆吻合。HotPotQA 的 28.3／36.9／51.4 與 Mina Lee 客座屬投影片內容（客座無錄影），未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -210,6 +212,7 @@ Potts 對這張表的解讀比數字本身更值得記。他說只有在「新�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

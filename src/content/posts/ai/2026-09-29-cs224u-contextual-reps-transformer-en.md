@@ -49,6 +49,8 @@ title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transfor
 
 Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw), [Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
 
+Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas) and Part 2 (Transformer) were compared item by item with their transcripts: the two-weeks-of-static-vectors trade-off, the break/flat/crane/any examples, the four stages and five milestones, the four building blocks, the step-by-step Transformer block and the d_k exception, multi-head attention, and the BERT-base structure. Part 3 (Positional Encoding), which the post cites but does not embed, was read as well; the two guiding questions, the comparison of three schemes, the relative-position window, and the conclusion all match. Nothing needed correcting.
+
 Course and recording entries:
 
 - [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -208,6 +210,7 @@ Here $a^K_{ij}$ and $a^V_{ij}$ depend on the relative distance $j - i$, clipped 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

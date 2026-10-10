@@ -47,6 +47,8 @@ title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 20
 
 原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
 
+內容核對：已依字幕核對（2026-10-10）：已依 Homework 2 字幕逐項對照：Potts 對任務難度的說法（2018 年提不出、前一年出題時擔心太難）、QA 任務表四列與 few-shot OpenQA 的限制、SQuAD 只當 train／dev 示範來源、凍結檢索與凍結 LM、評估成本提醒與 200 題樣本、Cohere 免費與 OpenAI 少量額度、text-davinci-001 設定、@dsp.transformation 的用意、Question 1／2（annotate）與原創系統，皆吻合。DSPy 版配分、成本數字與版本落差屬 notebook／PyPI 內容，不在影片內，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -204,6 +206,7 @@ dspy-ai==2.4.13
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

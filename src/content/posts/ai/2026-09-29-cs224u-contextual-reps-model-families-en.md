@@ -31,7 +31,7 @@ glossary:
 
 > **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 4 of the [Stanford CS224U guide](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The Transformer block and positional encoding are covered in [the previous post](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en); this one starts directly with the model families.
 
-The last seven sections of the same [contextual representations slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf) (GPT, BERT, RoBERTa, ELECTRA, seq2seq, Distillation, Wrap-up) match videos 07 through 13 in the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). Each runs about 6 to 14 minutes.
+The last seven sections of the same [contextual representations slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf) (GPT, BERT, RoBERTa, ELECTRA, seq2seq, Distillation, Wrap-up) match videos 07 through 13 in the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp).
 
 The best way to read these seven sections is to keep asking one question: **which part of pretraining does this family change?**
 
@@ -51,6 +51,8 @@ title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I S
 
 Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ), [Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
 Other related videos (text links only): [Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs), [Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU), [Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc), [Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI), [Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
+
+Content check: verified against the video transcript (2026-10-10): Video 04 (GPT) and video 05 (BERT) were compared item by item with their transcripts: the autoregressive loss, the attention mask, teacher forcing, 'the model predicts scores, not tokens', fine-tuning options, the GPT size table, MLM and NSP, [CLS] fine-tuning, BERT releases and the 512 limit, and the four known limitations. The five videos the post describes but does not embed (RoBERTa, ELECTRA, seq2seq, distillation, wrap-up) were also read, and their claims match. The one claim the transcripts cannot support, the 'about 6 to 14 minutes' running time, was removed.
 
 Course and recording entries:
 
@@ -250,6 +252,7 @@ Running the whole notebook requires the course's [data.tgz](http://web.stanford.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed the 'about 6 to 14 minutes each' running time, which the transcripts cannot confirm; the other video claims match the transcripts.
 
 ## References
 

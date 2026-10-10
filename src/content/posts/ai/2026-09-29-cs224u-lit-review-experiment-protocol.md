@@ -37,6 +37,8 @@ title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Ov
 
 原始影片：[Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA)、[Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Lit Review Overview 與 Experiment Protocol Overview 的字幕逐項對照：productive dialogue 的目的、約 6 頁上限 8 頁與 ACL 模板、1／2／3 人讀 5／7／9 篇、五個建議段落、六步搜尋迴圈與『不要讀完整篇』、AI 助手輸出須加引號的政策與 GPT-4 示範、七個必填段落、短文件與上限 8 頁、不要求結果但歡迎、盡快有完整管線、『沒有假設其實也是假設』，皆吻合。projects.md／projects.html 的細節與 Siyan 的專案分享屬文件與投影片內容（該分享沒有錄影），未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -197,6 +199,7 @@ Protocol overview 投影片第 5 頁：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

@@ -56,6 +56,8 @@ title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Sprin
 
 Original videos: [Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw), [Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
 
+Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas, 17:47) and Part 3 (IR metrics, 19:22) were compared item by item with their transcripts: the digestive-system example with no string overlap, standard QA versus OpenQA, knowledge-intensive tasks, the three search paradigms, the fabricated links and Bing citing the DSP paper, the SAIL blog; and, for metrics, the success / RR / precision / recall / average precision examples (with D3 slightly ahead of D2), the selection principles, non-accuracy dimensions, and the Pareto frontier. All match. Part 4 (Neural IR) and Part 5 (Datasets), which the post cites but does not embed, were read as well; the cross-encoder / DPR / ColBERT / SPLADE comparison, the reranking and centroid approaches, PLAID going from 287 ms to 58 ms, the dataset list, and the three topics left unexplored all match. The TF-IDF / BM25 formulas and the MS MARCO leaderboard figures come from the slides and were not checked against transcripts.
+
 Course and recording entries:
 
 - [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -219,6 +221,7 @@ One thing to do tonight: pick any search feature you use (an internal document s
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

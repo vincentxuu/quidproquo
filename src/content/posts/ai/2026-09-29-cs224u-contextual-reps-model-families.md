@@ -31,7 +31,7 @@ glossary:
 
 > **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 的 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 4 篇。Transformer block 與位置編碼在[上一篇](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)，本篇直接從模型家族開始。
 
-同一份 [contextual representations 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf)的後七節（GPT、BERT、RoBERTa、ELECTRA、seq2seq、Distillation、Wrap-up）對應 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 07 到 13 支影片，每支約 6 到 14 分鐘。
+同一份 [contextual representations 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf)的後七節（GPT、BERT、RoBERTa、ELECTRA、seq2seq、Distillation、Wrap-up）對應 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 07 到 13 支影片。
 
 讀這七節最好的方式，是一直問同一個問題：**這個家族改了預訓練的哪一環？**
 
@@ -51,6 +51,8 @@ title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I S
 
 原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
 其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
+
+內容核對：已依字幕核對（2026-10-10）：影片 04（GPT）與影片 05（BERT）的字幕逐項對照：自迴歸損失、attention mask、teacher forcing、『模型預測分數而非 token』、微調方式、GPT 規模表、MLM 與 NSP、[CLS] 微調、BERT 版本與 512 上限、四個已知限制。文中描述但未嵌入的 RoBERTa、ELECTRA、seq2seq、蒸餾與 Wrap-up 五支影片（連結於文中）也讀過字幕，各項說法吻合。唯一無法支持的是『每支約 6 到 14 分鐘』的片長，已刪除。
 
 課程與錄影入口：
 
@@ -250,6 +252,7 @@ notebook 的流程：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
+- 2026-10-10：依字幕核對影片內容。刪除字幕無法驗證的『每支約 6 到 14 分鐘』片長；其餘影片說法與字幕相符。
 
 ## 參考資料
 

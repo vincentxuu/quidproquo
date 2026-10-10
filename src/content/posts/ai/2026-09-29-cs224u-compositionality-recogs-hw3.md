@@ -48,6 +48,8 @@ title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS
 
 原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
 
+內容核對：已依字幕核對（2026-10-10）：影片 27（Compositionality）與影片 28（COGS and ReCOGS）的字幕逐項對照：組合性原則與例句、對『無限』的保留、系統性與 mean apple pie 例、歷史回顧、COGS 任務與變數編號等慣例、切分類別、全 0 欄位、bigram 頻率、長度與遞迴的解耦（變數 45／46）、PP 修飾語假說與三種改寫、ReCOGS 三項改寫與四個概念問題，皆吻合。第 24 支作業說明錄影（文中引用但未嵌入）無法取得字幕，其三處說法已標明未核對。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -168,7 +170,7 @@ gen 的類別名稱有規律：`X_to_Y` 或 `only_seen_as_X_as_Y`，意思是某
 
 **Q1 是純資料分析，不訓練模型。** overview 投影片直接給了劇透：Charlie 在訓練集只當 theme，在泛化集只當 agent；Lina 在訓練集只當 agent，在泛化集只當 theme。
 
-**Q2 之前有一段很長的建模插曲。** notebook 把訓練 ReCOGS 模型需要的六個元件都給你：Hugging Face tokenizer、PyTorch Dataset、`EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`、`RecogsLoss`、`RecogsModule`、`RecogsModel`。不打算自己訓練的話，只要把最後一個當介面用。Potts 在[第 24 支錄影](https://www.youtube.com/watch?v=e73Ch08XhX0)說，tokenizer 原本要出成作業題，但他自己寫得太痛苦，決定直接給。
+**Q2 之前有一段很長的建模插曲。** notebook 把訓練 ReCOGS 模型需要的六個元件都給你：Hugging Face tokenizer、PyTorch Dataset、`EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`、`RecogsLoss`、`RecogsModule`、`RecogsModel`。不打算自己訓練的話，只要把最後一個當介面用。Potts 在[第 24 支錄影](https://www.youtube.com/watch?v=e73Ch08XhX0)說，tokenizer 原本要出成作業題，但他自己寫得太痛苦，決定直接給。（此點出自第 24 支作業說明錄影，本站未讀其字幕，未核對。）
 
 Q2 用這個訓練好的模型延續 Q1 的分析，你會親眼看到：一個很好的模型，錯得最多的正是那些出現在陌生位置的名字。
 
@@ -178,9 +180,9 @@ Q2 用的評分函式 `recogs_exact_match` 有三條規則，notebook 各給一�
 - 合取項的順序不重要：`dog ( 4 ) AND happy ( 4 )` 等於 `happy ( 7 ) AND dog ( 7 )`
 - 變數的一致性重要：`dog ( 4 ) AND happy ( 4 )` 不等於 `dog ( 4 ) AND happy ( 7 )`
 
-**Q3 換成 in-context learning。** 錄影預告了一個現象：大型語言模型預測的 LF 乍看都像樣，但一跑評分，可能一題都沒對。這個任務要求完全正確，「看起來差不多」不算。
+**Q3 換成 in-context learning。** 錄影預告了一個現象：大型語言模型預測的 LF 乍看都像樣，但一跑評分，可能一題都沒對。這個任務要求完全正確，「看起來差不多」不算。（此點出自第 24 支作業說明錄影，本站未讀其字幕，未核對。）
 
-**Q4 原創系統**，overview 投影片列的方向有：DSPy 程式、繼續訓練課程的模型、拿預訓練模型來微調、從頭訓練、甚至符號求解器。notebook 附了 T5 的起始程式；錄影說直接拿 T5 來預測，它會把句子翻成德文，得先在 ReCOGS 上微調。
+**Q4 原創系統**，overview 投影片列的方向有：DSPy 程式、繼續訓練課程的模型、拿預訓練模型來微調、從頭訓練、甚至符號求解器。notebook 附了 T5 的起始程式；錄影說直接拿 T5 來預測，它會把句子翻成德文，得先在 ReCOGS 上微調。（此點出自第 24 支作業說明錄影，本站未讀其字幕，未核對。）
 
 **Q5 bake-off**：在 `cs224u-recogs-test-unlabeled.tsv` 加一欄 `prediction`，存成 `cs224u-recogs-bakeoff-entry.tsv` 上傳。
 
@@ -212,6 +214,7 @@ Q2 用的評分函式 `recogs_exact_match` 有三條規則，notebook 各給一�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。字幕核對影片 27、28 皆吻合；引用但未嵌入的第 24 支錄影無法取得字幕，三處相關說法標明未核對。
 
 ## 參考資料
 

@@ -37,6 +37,8 @@ title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Ov
 
 Original videos: [Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA), [Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
 
+Content check: verified against the video transcript (2026-10-10): The Lit Review Overview and Experiment Protocol Overview videos were compared item by item with their transcripts: the productive-dialogue rationale, about six pages with an eight-page cap and the ACL template, 5/7/9 papers for groups of 1/2/3, the five suggested sections, the six-step search loop and 'don't read whole papers', the policy that AI-assistant output must be quoted and the GPT-4 demo, the seven required sections, the short document with an eight-page cap, results not required but welcome, a working pipeline as soon as possible, and 'not having a hypothesis is itself a hypothesis'. All match. Details from projects.md / projects.html and Siyan's project talk come from documents and slides (the talk has no recording) and were not checked against transcripts.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -197,6 +199,7 @@ Once those two are filled in, Data and Metrics usually follow.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

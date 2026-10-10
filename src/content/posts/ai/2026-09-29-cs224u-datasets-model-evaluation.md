@@ -38,6 +38,8 @@ title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation
 原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
 其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Datasets）與 Part 6（Model Evaluation & Conclusion）的字幕逐項對照：資料集的六種用途與三個『兩者都要』問題、DynaSent 提示條件、Bowman 與 Dahl 的反方意見與 Potts 的回應、MoNLI 例子、baseline 與任務特定 baseline、超參數搜尋 50／100／500 的算例與 20 萬 GPU 小時、六種妥協、分類器比較四種工具、early stopping 與學習曲線、隨機初始化與 XOR 8／10、結論五項，皆吻合。投影片與 notebook 專屬的細節（Data organization 切分、Dynascore 表格）不在這兩支影片內，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -221,6 +223,7 @@ methods 投影片的 Conclusion 以一頁收尾，標題是「An ideal moment fo
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

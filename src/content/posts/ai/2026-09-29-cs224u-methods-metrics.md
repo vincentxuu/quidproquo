@@ -48,6 +48,8 @@ title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metri
 
 原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=ORg6bZ3d1Rc)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023](https://www.youtube.com/watch?v=mbL4uUNtZwY)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Overview）與 Part 2（Classifier Metrics）的字幕逐項對照：專案不以結果好壞評分、2010 與 2023 的實驗流程對比與金額、兩條不能破的規則、Strathern 定律與排行榜利弊、各種應用情境與『F1 並不適用』的批評、人類表現的說法、accuracy／precision／recall／F／macro／weighted／micro 的定義與弱點、cross-entropy 與 accuracy、PR 曲線與 average precision，皆吻合；混淆矩陣數字（accuracy 0.81、macro F1 0.43）自行重算與字幕描述一致。文中引用但未嵌入的 Part 3（Generation Metrics）也讀過，perplexity、WER、BLEU、其他參考式與無參考式、任務導向指標皆吻合。未發現需修正之處。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -214,6 +216,7 @@ notebook 版本字串是「CS224u, Stanford, Spring 2023」，作者 Potts。它
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

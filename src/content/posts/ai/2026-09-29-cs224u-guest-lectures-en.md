@@ -52,6 +52,8 @@ title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, 
 
 Original videos: [Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M), [Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
 
+Content check: verified against the video transcript (2026-10-10): Videos 49 (Part 1, 45:57 per the transcript page) and 50 (Part 2, 1:20:41) were checked against their transcripts: the first part is Potts on ELECTRA and the end of neural IR; Karamcheti takes over about the last third of Part 1 and ends on the MLP-as-kernel analogy, and about the second half of Part 2, covering warmup through ZeRO. His self-introduction (fourth-year PhD, language for robotics), gradient accumulation (batch 4 OOM), about 100 days on one GPU, 16 GPUs, DDP at about 7 days, mixed precision, ZeRO at about 3 days, the communication wall, and the closing PEFT recommendation all match. Slide numbers, the exact day counts (99.63, 6.01, 3.37), and the memory estimates come from the slides; the transcripts only give spoken approximations. The Diffusion talk has no recording and is not covered.
+
 Course and recording entries:
 
 - [XCS224U playlist (Spring 2023)](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -184,6 +186,7 @@ The previous post, [Part 16: Writing NLP Papers, Submitting, and Giving Talks](/
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video content matches the post's claims; only the check note was added.
 
 ## References
 

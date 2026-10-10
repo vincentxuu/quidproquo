@@ -48,6 +48,8 @@ title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS
 
 Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8), [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
 
+Content check: verified against the video transcript (2026-10-10): Video 27 (Compositionality) and video 28 (COGS and ReCOGS) were compared item by item with their transcripts: the compositionality principle and example, the caveat on 'infinite', systematicity and the mean apple pie example, the history, the COGS task and variable-numbering conventions, split categories, the all-zero columns, bigram frequencies, decoupling length from recursion (variable 45 vs 46), the PP-modifier hypothesis and three rewrites, ReCOGS's three modifications, and the four conceptual questions. All match. The post also cites the Homework 3 overview video (video 24, not embedded); its transcript could not be retrieved, so three claims drawn from it are marked as unchecked.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -168,7 +170,7 @@ The whole assignment has one rule, stated at the top of the notebook and again i
 
 **Q1 is pure data analysis, no model training.** The overview slides give the spoiler outright: Charlie is only a theme in train and only an agent in gen; Lina is only an agent in train and only a theme in gen.
 
-**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest. In [screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0), Potts says the tokenizer was meant to be a homework question, but writing it was so painful for him that he decided to just provide it.
+**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest. In [screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0), Potts says the tokenizer was meant to be a homework question, but writing it was so painful for him that he decided to just provide it. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
 Q2 uses this trained model to continue the Q1 analysis, and you see for yourself that a very good model makes most of its mistakes on exactly the names that appear in unfamiliar positions.
 
@@ -178,9 +180,9 @@ Q2's scoring function, `recogs_exact_match`, follows three rules, each with an e
 - Conjunct order doesn't matter: `dog ( 4 ) AND happy ( 4 )` equals `happy ( 7 ) AND dog ( 7 )`
 - Consistency of variable names does matter: `dog ( 4 ) AND happy ( 4 )` does not equal `dog ( 4 ) AND happy ( 7 )`
 
-**Q3 switches to in-context learning.** The screencast warns that large language models produce LFs that look plausible at a glance, yet the evaluation can score them 0. The task demands exact correctness; "roughly right" doesn't count.
+**Q3 switches to in-context learning.** The screencast warns that large language models produce LFs that look plausible at a glance, yet the evaluation can score them 0. The task demands exact correctness; "roughly right" doesn't count. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
-**Q4, the original system**: the overview slides suggest a DSPy program, further training of the course model, fine-tuning a pretrained model, training from scratch, or even a symbolic solver. The notebook includes T5 starter code; the screencast notes that T5 used directly will translate your sentences into German, so it needs fine-tuning on ReCOGS first.
+**Q4, the original system**: the overview slides suggest a DSPy program, further training of the course model, fine-tuning a pretrained model, training from scratch, or even a symbolic solver. The notebook includes T5 starter code; the screencast notes that T5 used directly will translate your sentences into German, so it needs fine-tuning on ReCOGS first. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
 **Q5, the bake-off**: add a `prediction` column to `cs224u-recogs-test-unlabeled.tsv`, save it as `cs224u-recogs-bakeoff-entry.tsv`, and upload.
 
@@ -212,6 +214,7 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Videos 27 and 28 match their transcripts; three claims taken from the cited but unembedded video 24, whose transcript was unavailable, are now marked as unchecked.
 
 ## References
 

@@ -53,6 +53,8 @@ title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview:
 
 原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
 
+內容核對：已依字幕核對（2026-10-10）：已依 Homework 1 Overview: Bake Off 字幕逐項對照：作業節奏相同的開場、背景材料建議、三份資料與 mystery 句子、測試集 honor code 與『sin』的說法、單元測試、Q1／Q2 各 task 與 background 先做的建議、原創系統規則與原創性評分、START／STOP COMMENT 與文字描述的用意、bake-off 的 prediction 欄與檔名，以及結尾的助教回顧報告，皆吻合。資料載入相容性、配分數字與運算資源屬 notebook／網頁內容，不在影片內，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -173,6 +175,7 @@ SST 那一側的風險看起來比較小：`SetFit/sst5` 在 Hub 上是純資料
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

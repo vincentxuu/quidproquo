@@ -51,6 +51,8 @@ title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS
 
 Original videos: [Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw), [Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
 
+Content check: verified against the video transcript (2026-10-10): Video 36 (Causal Abstraction & IIT) and video 37 (DAS & Conclusion) were compared item by item with their transcripts: the addition-network interchange intervention example, the properties of IIA, the four 'because' findings, IIT's double update and four applications, DAS's two problems and rotation matrix, the Alpaca finding, the four future directions, and the scorecard. All match and nothing needed correcting. Notebook figures and slide numbers are not in the videos and were not checked against the transcripts.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -219,6 +221,7 @@ Series navigation: previous, [Analysis Methods I: probing and feature attributio
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

@@ -49,6 +49,8 @@ title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Consid
 
 Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk), [Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
 
+Content check: verified against the video transcript (2026-10-10): Video 25 (Part 1: Overview) and video 26 (Part 2: Analytical Considerations) were compared item by item with their transcripts: the evaluation spectrum, the standard versus adversarial protocols, Winograd and Levesque, the even/odd models, the two unfair-task examples, the three inoculation-by-fine-tuning outcomes, and MoNLI. Videos 29-31 (Adversarial Testing, ANLI, DynaSent), which the post also cites, were read as well; the SQuAD ranking shuffle, Breaking NLI, Naik's three diagnoses, the ANLI procedure, the two DynaSent rounds, and the five open questions all match. The one claim the transcripts cannot support, the 'about 22 minutes' running time, was removed; the 2.2% and 90.0 MoNLI figures come from the slides, while the transcript only says 'essentially 0'.
+
 Course and recording entries:
 
 - [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -185,7 +187,7 @@ The last content slide lists five questions, and the screencast gives Potts's le
 
 ## How to self-study it
 
-1. Watch screencast 26 first (about 22 minutes). It's the analytical frame for the whole unit, and every case study reads better through it.
+1. Watch screencast 26 first. It's the analytical frame for the whole unit, and every case study reads better through it.
 2. For each adversarial test, place it in the three inoculation outcomes: did the failure turn out to be the data, the model, or the challenge set?
 3. When you do Assignment 1 or a final project, treat DynaSent's distributional training as a ready-made comparison condition.
 
@@ -201,6 +203,7 @@ One thing to do tonight: take any classifier you have and write five minimal pai
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Removed the 'about 22 minutes' running time, which the transcript cannot confirm; the other video claims match the transcripts.
 
 ## References
 

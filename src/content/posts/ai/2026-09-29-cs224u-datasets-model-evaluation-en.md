@@ -38,6 +38,8 @@ title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation
 Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
 Other related videos (text links only): [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
 
+Content check: verified against the video transcript (2026-10-10): Part 4 (Datasets) and Part 6 (Model Evaluation & Conclusion) were compared item by item with their transcripts: the six uses of datasets and the three 'use both' questions, the DynaSent prompt condition, Bowman and Dahl's counterargument and Potts's response, the MoNLI example, random and task-specific baselines, the 50/100/500 hyperparameter arithmetic and the 200,000 GPU hours, the six compromises, the four classifier-comparison tools, early stopping and learning curves, random initialization and XOR 8 of 10, and the five concluding points. All match. Details that come only from the slides or notebooks (data-organization splits, the Dynascore tables) are not in these two videos and were not checked against the transcripts.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -221,6 +223,7 @@ If you can't answer any one of them, your "A beats B" conclusion isn't ready for
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

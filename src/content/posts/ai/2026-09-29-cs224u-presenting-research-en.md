@@ -42,6 +42,8 @@ title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I 
 Original videos: [Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40), [Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
 Other related videos (text links only): [Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY), [Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
 
+Content check: verified against the video transcript (2026-10-10): The Part 2 (Writing NLP Papers) and Part 4 (Giving Talks) videos were compared item by item with their transcripts: the paper outline and 4/8-page format, how to write the intro and related work, Shieber's three styles and rational reconstruction, McCarthy's single thread, Goss's 'have mercy on the reader', Blackburn on honesty, ELMo and GloVe as examples; and the talk structure, Pullum's six rules, minimalist versus comparative slides (Potts says he leans comparative), overlays / color / size / boxes and arrows, the pre-talk chores (notifications, power save, PDF backup, being ready without slides), and the advice on the discussion period. All match. Part 1 and Part 3 (Your Papers, Conference Submission) are not embedded and were not read; the conference-submission details (anonymity period, bidding, review form) come from the slides and projects.md and were not checked against transcripts.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -217,6 +219,7 @@ Take something you wrote recently (a design doc, a blog post, a report) and run 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2023 playlist does have recordings for this topic; they are now embedded and the status is Videos included.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

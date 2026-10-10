@@ -52,6 +52,8 @@ title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, 
 
 原始影片：[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
 
+內容核對：已依字幕核對（2026-10-10）：影片 49（Part 1，字幕長度顯示 45:57）與影片 50（Part 2，1:20:41）的字幕核對：確認前段為 Potts 講 ELECTRA 與 neural IR 收尾、Karamcheti 在 Part 1 約後三分之一接手並以 MLP 與 kernel 類比結束，在 Part 2 約後半接手、講 warmup 到 ZeRO；也核對自我介紹（四年級博士生、language for robotics）、gradient accumulation（batch 4 OOM）、單卡約 100 天、16 張 GPU、DDP 約 7 天、混合精度、ZeRO 約 3 天、通訊瓶頸，以及最後一句推薦 PEFT，皆吻合。投影片頁碼與精確天數（99.63、6.01、3.37）、記憶體估算屬投影片內容，字幕只有口語約數。Diffusion 場次無錄影，未涉及。
+
 課程與錄影入口：
 
 - [XCS224U 播放清單（Spring 2023）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -184,6 +186,7 @@ Karamcheti 的投影片副標寫著「Stanford || Zoom || Folks 2x-ing the Recor
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片內容與文章說法吻合，僅加上核對標記。
 
 ## 參考資料
 

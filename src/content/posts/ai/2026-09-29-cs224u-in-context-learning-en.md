@@ -62,6 +62,8 @@ title: Stanford XCS224U: Natural Language Understanding I In-context Learning, P
 
 Original videos: [Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs), [Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
 
+Content check: verified against the video transcript (2026-10-10): Part 4 (Techniques and Suggested Methods) and Part 1 (Origins) were compared item by item with their transcripts: Potts's warning that the lecture will date, how to choose demonstrations and the four approaches, the ELMo demonstration-filtering example, CoT / generic step-by-step / self-consistency (dsp.majority) / Self-Ask / iterative rewriting, the reading of the DSP results, and the four suggestions; and, from Origins, ChomskyBot, Brants 2007, decaNLP, GPT-2's TL;DR and translation, and the GPT-3 abstract. All match. Part 2 (Core Concepts) and Part 3 (Current Moment), which the post cites but does not embed, were read as well; the term definitions, the unverifiable condition (2), generation as an imposed rule, Potts choosing answer 4, and Alpaca's 175 seed tasks and 52,000 examples all match. The HotPotQA figures (28.3 / 36.9 / 51.4) and the Mina Lee guest talk come from slides (the guest talk has no recording) and were not checked against transcripts.
+
 Course and recording entries:
 
 - [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -205,6 +207,7 @@ One thing to do tonight: pick a task you regularly hand to a model, write 10 dev
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

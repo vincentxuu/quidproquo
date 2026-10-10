@@ -50,6 +50,8 @@ title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transfor
 
 原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas）與 Part 2（Transformer）的字幕逐項對照：兩週靜態向量的取捨、break／flat／crane／any 例子、四階段與五個里程碑、四塊積木、Transformer block 逐步計算與 d_k 例外、multi-head、BERT-base 結構；文中引用的 Part 3（Positional Encoding，未嵌入）也讀過，兩個問題與三種位置編碼的比較、相對位置窗口與結論皆吻合。未發現需修正之處。
+
 課程與錄影入口：
 
 - [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -209,6 +211,7 @@ $$\alpha_{ij} = \mathrm{softmax}\left(\frac{(x_i W^Q)^\top (x_j W^K + a^K_{ij})}
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

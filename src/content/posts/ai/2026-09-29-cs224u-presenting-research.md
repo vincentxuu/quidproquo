@@ -42,6 +42,8 @@ title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I 
 原始影片：[Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40)、[Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
 其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY)、[Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
 
+內容核對：已依字幕核對（2026-10-10）：影片 Part 2（Writing NLP Papers）與 Part 4（Giving Talks）的字幕逐項對照：論文大綱與 4／8 頁格式、Intro 與 Related work 的寫法、Shieber 三種風格與理性重建、McCarthy 的主線、Goss 的『have mercy on the reader』、Blackburn 的誠實、ELMo 與 GloVe 作為範例；報告的結構、Pullum 六條規則、極簡派與比較派（Potts 自稱偏比較派）、overlay／顏色／大小／方框箭頭、上台前的瑣事（通知、省電模式、PDF 備份、準備無投影片）、討論時間的建議，皆吻合。文中的 Part 1 與 Part 3（Your Papers、Conference Submission）未嵌入也未讀，匿名期、bidding、審稿表等投稿流程細節來自投影片與 projects.md，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -217,6 +219,7 @@ projects.md 與投影片都列了同一份清單：關掉會跳出的通知、�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2023 播放清單其實有對應講次的錄影，已嵌入並改為已附影片。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

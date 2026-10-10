@@ -53,6 +53,8 @@ title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview:
 
 Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
 
+Content check: verified against the video transcript (2026-10-10): The Homework 1 Overview: Bake Off video was compared item by item with its transcript: the opening about assignments sharing a rhythm, the background-material advice, the three datasets and the mystery sentences, the test-set honor code and the 'sin' remark, unit tests, each Q1/Q2 task and the advice to do the background sections first, the original-system rule and originality grading, the START/STOP COMMENT lines and the written description, the bake-off prediction column and file names, and the closing teaching-team report. All match. Data-loading compatibility, point values, and compute needs come from the notebook and web pages, not the video, and were not checked against the transcript.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -173,6 +175,7 @@ One thing to do tonight: open the notebook, read only the four directions in Que
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcript were found; only the check note was added.
 
 ## References
 

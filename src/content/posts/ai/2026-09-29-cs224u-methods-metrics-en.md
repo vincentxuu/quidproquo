@@ -48,6 +48,8 @@ title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metri
 
 Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=ORg6bZ3d1Rc), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023](https://www.youtube.com/watch?v=mbL4uUNtZwY)
 
+Content check: verified against the video transcript (2026-10-10): Part 1 (Overview) and Part 2 (Classifier Metrics) were compared item by item with their transcripts: projects not graded on how good the results are, the 2010 versus 2023 experimental protocols and dollar figures, the two fixed rules, Strathern's law and the pros and cons of leaderboards, the application scenarios and the criticism that F1 fits none of them, the remark on human performance, the definitions and weaknesses of accuracy / precision / recall / F / macro / weighted / micro, cross-entropy and accuracy, and PR curves with average precision. All match, and the confusion-matrix figures (accuracy 0.81, macro F1 0.43) recompute consistently with the transcript. Part 3 (Generation Metrics), which the post cites but does not embed, was read as well; perplexity, WER, BLEU, other reference-based and reference-free metrics, and task-oriented metrics all match. Nothing needed correcting.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -214,6 +216,7 @@ Series navigation: previous, [Analysis Methods II: causal abstraction, IIT, and 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

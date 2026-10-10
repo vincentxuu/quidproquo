@@ -52,6 +52,8 @@ title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Sprin
 
 Original videos: [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4), [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
 
+Content check: verified against the video transcript (2026-10-10): Video 33 (Part 1: Overview) and video 34 (Part 2: Probing) were compared item by item with their transcripts: the even/odd detector counterexample and the quote, the three-column scorecard, Tenney's layer results, probe selectivity, and the addition-network causal counterexample. Video 35 (Feature Attribution), which the post also cites, was read as well; the IG axioms, counterexample, and worked example all match, and nothing needed correcting.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -188,6 +190,7 @@ Series navigation: previous, [Compositionality: COGS, ReCOGS, and HW3](/posts/ai
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
 
 ## References
 

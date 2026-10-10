@@ -51,6 +51,8 @@ title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS
 
 原始影片：[Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
 
+內容核對：已依字幕核對（2026-10-10）：影片 36（Causal Abstraction & IIT）與影片 37（DAS & Conclusion）的字幕逐項對照：加法網路的 interchange intervention 例子、IIA 的性質、四項『because』發現、IIT 的 double update 與四項應用、DAS 的兩個問題與旋轉矩陣、Alpaca 發現、結論的四個方向與三格計分表，皆吻合，未發現需修正之處。notebook 數字與投影片頁碼不在影片內，未以字幕驗證。
+
 課程與錄影入口：
 
 - [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -219,6 +221,7 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對標記。
 
 ## 參考資料
 

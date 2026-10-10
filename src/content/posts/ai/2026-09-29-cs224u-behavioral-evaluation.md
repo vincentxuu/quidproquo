@@ -50,6 +50,8 @@ title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Consid
 
 原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
 
+內容核對：已依字幕核對（2026-10-10）：影片 25（Part 1: Overview）與影片 26（Part 2: Analytical Considerations）的字幕逐項對照：評估光譜、標準評估與對抗評估流程、Winograd／Levesque、奇偶模型、不公平題目的兩個例子、inoculation by fine-tuning 三種結果、MoNLI；文中引用的影片 29–31（Adversarial Testing／ANLI／DynaSent）也讀過，SQuAD 排名洗牌、Breaking NLI、Naik 三種診斷、ANLI 流程、DynaSent 兩輪設計與五個開放問題皆吻合。唯一無法由字幕支持的是『約 22 分鐘』的片長，已刪除；MoNLI 的 2.2% 與 90.0 為投影片數字，字幕只說『essentially 0』。
+
 課程與錄影入口：
 
 - [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -186,7 +188,7 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 
 ## 自學怎麼做
 
-1. 先看第 26 支錄影（約 22 分鐘），它是整個單元的分析框架；其他案例都可以用它來讀。
+1. 先看第 26 支錄影，它是整個單元的分析框架；其他案例都可以用它來讀。
 2. 讀每個對抗測試時，把它放進 inoculation 的三格表：這個失敗後來被證明是資料、模型，還是挑戰集本身的問題？
 3. 做作業一或期末專案時，把 DynaSent 的 distributional training 當成一個可以直接試的對照組。
 
@@ -202,6 +204,7 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。刪除字幕無法驗證的『約 22 分鐘』片長；其餘影片說法與字幕相符。
 
 ## 參考資料
 

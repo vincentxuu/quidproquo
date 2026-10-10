@@ -46,6 +46,8 @@ title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 20
 
 Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
 
+Content check: verified against the video transcript (2026-10-10): The Homework 2 video was compared item by item with its transcript: Potts's remarks on difficulty (not posable in 2018, worried it was too hard last year), the four-row QA task table and the few-shot OpenQA constraints, SQuAD used only as train/dev demonstration source, frozen retriever and frozen LM, the evaluation-cost warning and the 200-example sample, free Cohere and small OpenAI credits, the text-davinci-001 setup, the purpose of @dsp.transformation, Question 1/2 (annotate), and the original system. All match. The DSPy-version point values, cost figures, and version gaps come from the notebook and PyPI, not the video, and were not checked against the transcript.
+
 Course and recording entries:
 
 - [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
@@ -203,6 +205,7 @@ One thing to do tonight: clone the repo, download only the 600 MB index, start t
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. No mismatches with the transcript were found; only the check note was added.
 
 ## References
 
