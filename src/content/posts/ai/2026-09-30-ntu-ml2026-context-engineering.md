@@ -47,6 +47,8 @@ title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念�
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片 urwDLyNa9FU（53:05）字幕已讀。核對 C_{t+1} ← F(C_t, I_t, O_t) 形式化與 P／M 拆分、LLM summary 與 Hard Clear（SWE-bench 比較、軌跡延長）、卸載到 log1.txt、ACON（Context Collapse、不動參數）、AgentFold（需微調）、語言模型不喜歡壓縮、subagent 視為自主壓縮與 Context-Folding 的兩種懲罰、Observation 約 84%／讀程式碼約 76%、memory_get 的行數過濾、MCP-Zero（GitHub 工具 4,600 token）、Dynamic Cheatsheet／ACE／Recursive Language Models，文中關於影片的說法皆能在字幕找到，未發現錯誤；投影片頁碼與個別數字（如 ACON 的 26%）屬講義內容，字幕未涵蓋、無法驗證。
+
 ## 為什麼需要 Context Engineering
 
 投影片第 2 頁的圖很簡單：人類說一句話，語言模型用工具 1，拿到工具 1 的輸出，再用工具 2……每一輪都要把前面全部重新餵進去。語言模型「活在當下」，而**輸入長度有限**。
@@ -143,6 +145,7 @@ title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
 
 ## 參考資料
 

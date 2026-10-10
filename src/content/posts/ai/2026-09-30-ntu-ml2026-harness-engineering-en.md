@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video R6fZR_9kmIw (about 92 minutes; the transcript obtained is a machine-translated English version with some mistranslated proper nouns) was read through. Checked the small-model bug-fix opening demo and its three added sections, the three harness levers, the two AGENTS.md studies, SWE-agent's search and edit/lint tools, the Google Workspace CLI, planner/generator/evaluator and DeepMind's generator/verifier/reviser, the Ralph loop (mistranslated as Homer), context anxiety, textual gradients, emotion steering and the cheating experiment, the four feedback types for life-long agents and the hindsight method, the τ-bench simulated-user gap, and the PinchBench demo and Meta-Harness cross-model and cross-task experiments. Two corrections: for the first AGENTS.md study Lee says only speed and tokens were measured, not correctness; and the PinchBench starting score is spoken as 13.5 (the slide chart shows 13.8%). Also added Lee's explanation of AutoDream. Slide page numbers and figures on the charts cannot be verified from the transcript.
+
 ## The demo: a small model that fakes its own files
 
 Slides 2–4 set up a concrete task. Fix `extract_emails` in `parser.py` so it catches addresses with `-` or `_`, such as `test-user@domain.com`, and make the tests in `verify.py` pass. The system prompt only says: you may write bash or python code blocks, the system will run them and return the output, and you should print DONE when finished.
@@ -82,7 +84,7 @@ The most direct harness is a rules file written in plain language and placed in 
 
 Does the file actually help? The slides put two studies with different findings side by side:
 
-- **[On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents](https://arxiv.org/abs/2601.20404) (slide 20)** compared runs with and without AGENTS.md across 10 repos and 124 PRs. With the file, median runtime and output tokens were lower, and task completion was similar.
+- **[On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents](https://arxiv.org/abs/2601.20404) (slide 20)** compared runs with and without AGENTS.md across 10 repos and 124 PRs. With the file, median runtime and output tokens were lower; the abstract reports similar task completion, but in the video Lee points out that the repos had no ground-truth answers, so the study could only measure speed and tokens, not correctness.
 - **[Evaluating AGENTS.md](https://arxiv.org/abs/2602.11988) (slide 21)** found that on SWE-bench and a second set of real issues, context files generally did not raise success rates and increased inference cost by over 20% on average. Agents followed the instructions in the files, but repository overviews didn't help much.
 
 Slide 22 quotes OpenAI's post and frames AGENTS.md as an employee handbook.
@@ -137,7 +139,7 @@ Slide 54 introduces [τ-bench](https://arxiv.org/abs/2406.12045), which has an L
 
 Slides 58–62 pull everything into one question: can the harness update itself too?
 
-Slide 59 is Lee's own demo. He tells an agent named "小金" (drawn as a lobster, labeled opus 4.6) to find a not-so-smart AI (Haiku 3.5), give it a skills test called PinchBench, and keep teaching it until it scores above 90. In the diagram, 小金 hands an AGENT.md to Haiku and gets back scores and test results. On slide 60 the score starts at 13.8% in round 1 (no preparation), jumps to 57.9% once AGENT.md adds "save your answers to a file", and reaches 62.2% after adding "don't ask for explanations; you've been given everything you need". Slide 61 reads "stuck…", followed by "go find some related papers to read". The curve on slide 62 ends at 85.1%. That final AGENT.md lists the OS, the shell and installed tools, plus rules like "first step: always list the workspace files" and "read all input files mentioned in the task before doing any work". It is essentially the same thing as the three sections Lee added for gemma at the start of the lecture.
+Slide 59 is Lee's own demo. He tells an agent named "小金" (drawn as a lobster, labeled opus 4.6) to find a not-so-smart AI (Haiku 3.5), give it a skills test called PinchBench, and keep teaching it until it scores above 90. In the diagram, 小金 hands an AGENT.md to Haiku and gets back scores and test results. On slide 60 the score starts at 13.8% in round 1 (no preparation; Lee says about 13.5 points aloud), jumps to 57.9% once AGENT.md adds "save your answers to a file", and reaches 62.2% after adding "don't ask for explanations; you've been given everything you need". Slide 61 reads "stuck…", followed by "go find some related papers to read". The curve on slide 62 ends at 85.1%. That final AGENT.md lists the OS, the shell and installed tools, plus rules like "first step: always list the workspace files" and "read all input files mentioned in the task before doing any work". It is essentially the same thing as the three sections Lee added for gemma at the start of the lecture.
 
 The same slide cites [Meta-Harness](https://arxiv.org/abs/2603.28052), where an agent with filesystem access reads the source code, scores and execution traces of every previous harness candidate and searches for a better harness. The slide notes that the paper runs experiments across LLMs and across tasks.
 
@@ -149,7 +151,7 @@ Slide 63 returns to the three levers and the closing line: **sometimes a model f
 
 Confirmed: the structure of the 63 slides, each slide's title and on-slide text, and the cited papers and posts (arXiv titles and abstracts, both Anthropic posts and the emotions paper were checked), plus the titles of the YouTube videos embedded in the slides.
 
-Not confirmed: I did not transcribe the video, so anything the lecturer only said aloud is not included. The PinchBench demo is described only from the slide's dialogue box and score charts, and I did not look up PinchBench itself. AutoDream appears on the slide only as a name and an illustration, so I don't speculate about what it is. OpenAI's harness engineering page returned 403 when I checked, so I can only confirm that the slides cite it.
+Not confirmed: I did not transcribe the video, so most of what the lecturer only said aloud is not included (except where noted below). The PinchBench demo is described only from the slide's dialogue box and score charts, and I did not look up PinchBench itself. AutoDream appears on the slide only as a name and an illustration; in the video Lee says it is an unreleased feature seen after the Claude Code source leak, used to organize past memories during idle time, and I do not speculate beyond that. OpenAI's harness engineering page returned 403 when I checked, so I can only confirm that the slides cite it.
 
 ## Further reading
 
@@ -162,6 +164,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Added that the first AGENTS.md study only measured speed and tokens, noted the spoken PinchBench starting score, and added Lee's explanation of AutoDream; everything else matches.
 
 ## References
 

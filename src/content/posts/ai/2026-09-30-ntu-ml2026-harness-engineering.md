@@ -47,6 +47,8 @@ title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：影片 R6fZR_9kmIw（約 92 分鐘；取得的字幕為機器翻譯的英文版，專有名詞有誤譯）字幕已讀完。核對小模型修 bug 的開場示範與三段說明、harness 三種手段、AGENTS.md 兩篇研究、SWE-agent 的搜尋與編輯／lint 工具、Google Workspace CLI、planner／generator／evaluator 與 DeepMind generator／verifier／reviser、Ralph loop（字幕誤譯為 Homer）、context anxiety、文字梯度、emotion steering 與作弊實驗、life-long agent 的四種回饋與 hindsight 方法、τ-bench 模擬使用者落差、PinchBench 示範與 Meta-Harness 的跨模型跨任務實驗。發現並更正兩處：AGENTS.md 第一篇研究老師說明只量速度與 token、沒有量正確率；PinchBench 起始分數口述為 13.5（投影片圖為 13.8%）。另補上老師對 AutoDream 的說明。投影片頁碼與圖上數字無法由字幕驗證。
+
 ## 場景：一個會自己捏造檔案的小模型
 
 投影片第 2–4 頁的示範很具體。任務是修好 `parser.py` 裡的 `extract_emails`，讓它能抓到 `test-user@domain.com` 這種帶 `-` 或 `_` 的地址，並讓 `verify.py` 的測試通過。system prompt 只說：你可以寫 bash 或 python code block，系統會執行並回傳結果，完成就輸出 DONE。
@@ -82,7 +84,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 這份檔案到底有沒有用？投影片並列了兩篇結論不同的研究：
 
-- **[On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents](https://arxiv.org/abs/2601.20404)（第 20 頁）**：在 10 個 repo、124 個 PR 上比較有無 AGENTS.md，有的時候執行時間的中位數與輸出 token 都比較少，完成率相近。
+- **[On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents](https://arxiv.org/abs/2601.20404)（第 20 頁）**：在 10 個 repo、124 個 PR 上比較有無 AGENTS.md，有的時候執行時間的中位數與輸出 token 都比較少；論文摘要稱完成行為相近，但老師在影片裡特別說明，這篇找來的 repo 沒有標準答案，只能量速度與 token，沒有量答案對不對。
 - **[Evaluating AGENTS.md](https://arxiv.org/abs/2602.11988)（第 21 頁）**：在 SWE-bench 與另一批真實 issue 上，context file 通常沒有提高成功率，推論成本平均增加超過 20%；agent 會遵守其中的指示，但 repo 概覽類的內容幫助不大。
 
 第 22 頁引 OpenAI 的文章，把 AGENTS.md 看成「工作手則」。
@@ -137,7 +139,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 第 58–62 頁把前面的內容收成一個問題：harness 能不能也自動更新？
 
-第 59 頁是李老師自己的示範：叫一隻龍蝦圖示的 agent「小金」（標註 opus 4.6）去找一個不聰明的 AI（Haiku 3.5），做一個叫 PinchBench 的能力檢定；表現不好就教它，直到 90 分以上。圖上的分工是：小金把 AGENT.md 交給 Haiku，拿回分數與考試結果。第 60 頁的分數曲線從第 1 輪「裸考」的 13.8% 開始，AGENT.md 加上「把答案存到檔案中」後跳到 57.9%，再加上「不要要求解釋，所有你該知道的都給你了」到 62.2%；第 61 頁寫著「卡住了……」，下一步是「去找一些相關的論文來讀一下」。第 62 頁的曲線最後到 85.1%，那一版 AGENT.md 裡寫著作業系統、shell、已安裝的工具，以及「第一步一律先列出 workspace 檔案」「動手前讀完任務提到的所有輸入檔」這類規則。你會發現，它和開場李老師替 gemma 加的三段說明幾乎是同一種東西。
+第 59 頁是李老師自己的示範：叫一隻龍蝦圖示的 agent「小金」（標註 opus 4.6）去找一個不聰明的 AI（Haiku 3.5），做一個叫 PinchBench 的能力檢定；表現不好就教它，直到 90 分以上。圖上的分工是：小金把 AGENT.md 交給 Haiku，拿回分數與考試結果。第 60 頁的分數曲線從第 1 輪「裸考」的 13.8% 開始（影片口述約 13.5 分），AGENT.md 加上「把答案存到檔案中」後跳到 57.9%，再加上「不要要求解釋，所有你該知道的都給你了」到 62.2%；第 61 頁寫著「卡住了……」，下一步是「去找一些相關的論文來讀一下」。第 62 頁的曲線最後到 85.1%，那一版 AGENT.md 裡寫著作業系統、shell、已安裝的工具，以及「第一步一律先列出 workspace 檔案」「動手前讀完任務提到的所有輸入檔」這類規則。你會發現，它和開場李老師替 gemma 加的三段說明幾乎是同一種東西。
 
 同一頁引用 [Meta-Harness](https://arxiv.org/abs/2603.28052)：用一個能讀檔案系統的 agent，看過去所有 harness 候選的原始碼、分數與執行軌跡，搜尋更好的 harness；投影片註明它有跨 LLM 與跨 task 的實驗。
 
@@ -149,7 +151,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 可以確認：講義 63 頁的結構、每頁標題與圖上文字、引用的論文與文章（arXiv 論文的標題與摘要、Anthropic 兩篇文章、emotions 研究原文都核對過），以及投影片內嵌的 YouTube 影片標題。
 
-不能確認：本文沒有逐字聽寫影片，老師口頭補充的內容沒有寫進來。PinchBench 的示範只根據投影片上的對話框與分數圖轉述，PinchBench 本身沒有另外查證。AutoDream 在投影片上只有名稱與一張插圖，本文不推測它的內容。OpenAI 的 harness engineering 頁面在核對時回傳 403，只能確認投影片有引用。
+不能確認：本文沒有逐字聽寫影片，老師口頭補充的內容多數沒有寫進來（下面註明的除外）。PinchBench 的示範只根據投影片上的對話框與分數圖轉述，PinchBench 本身沒有另外查證。AutoDream 在投影片上只有名稱與一張插圖；影片中老師說它是 Claude Code 原始碼外流後被看到、尚未釋出的功能，用於閒置時整理過往記憶，本文不再延伸推測。OpenAI 的 harness engineering 頁面在核對時回傳 403，只能確認投影片有引用。
 
 ## 延伸閱讀
 
@@ -162,6 +164,7 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。補註 AGENTS.md 第一篇研究只量速度與 token、PinchBench 起始分數口述差異，並補上影片中對 AutoDream 的說明；其餘與字幕相符。
 
 ## 參考資料
 

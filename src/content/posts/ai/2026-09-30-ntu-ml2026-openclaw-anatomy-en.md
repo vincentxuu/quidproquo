@@ -38,6 +38,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video 2rcJdFuNbZQ (83:17; the transcript obtained is a machine-translated English version with some mistranslated proper nouns) was read. Checked the opening demo of Xiao Jin creating a YouTube channel, the system prompt exceeding 4,000 tokens, every turn starting fresh (the amnesia analogy), the Read/Write/exec flow, TTS verification up to five times and the self-written TTS_check script, sub-agents (spawn) and disabling them at the code level, SKILLs being tradable, the Koi finding of 341 malicious skills (the transcript says 341 out of nearly 3,000), memory writing and memory search, HEARTBEAT, compaction and pruning (soft trim), and the AI email-deletion incident and safety advice; all match the transcript and no errors were found. The Puppeteer/ElevenLabs/FFmpeg pipeline inside the example SKILL.md, framework release dates and slide page numbers have no counterpart in the transcript; they come from the slides and cannot be verified from the video.
+
 ## What the lobster can do
 
 The lecture opens with a live demo. Lee has OpenClaw (he calls it 小金, "Little Gold") start its own YouTube channel and make a video introducing AI agents. It writes the channel description, draws its own avatar with a tool, researches online, builds slides, writes a script, records narration with speech synthesis, renders the video, and uploads it. The human only chimes in a few times: "Sure, go ahead," "Looks good, upload it to your channel."
@@ -176,6 +178,7 @@ Series navigation: previous, [series overview](/posts/ai/2026-09-30-ntu-ml2026-c
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

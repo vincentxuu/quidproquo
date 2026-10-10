@@ -56,6 +56,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10): Part 2 (cQLKVzbwN7I, 1:09:08) was read in full; Part 1 (s06mSAGN4gM, 1:03:44) was read to check the post's recap of Part 1 and its PostTrainBench statement. For Part 2 I checked the L̂/L/H notation recap, Agent = Harness + LLM, OPRO's "take a deep breath" and prompt wording, the genetic-algorithm-style pool, GEPA, the memory-design paper, the Darwin Gödel Machine (10/60/200 staged evaluation, the morganucodon analogy), DSPy, the three papers on joint harness-and-parameter updates, goal shift and TTT, Do Self-Evolving Agents Forget? and CPE, HyperAgent/Gödel Agent/Learning to Self-Evolve, SEAL, the φ/θ description of meta learning, the RNN reframing, parameters as genes and context as neurons, the three memory layers, intrinsic motivation (curiosity/empowerment), and the peacock tail and I, Robot examples; all match the transcript. Two corrections: the two precise timestamps in the post ("52:17" in Part 1 and "1:54:30" in lecture 8 of 2025) cannot be verified from the transcripts and were replaced with relative positions marked as unchecked. Slide page numbers and paper IDs come from the slides and cannot be verified from the transcripts.
+
 ## Part 1 in one formula
 
 Lee opens by restating Part 1 in symbols (slides 2–6). The AI is A_θ, where θ is the parameters of the underlying language model. What humans actually want is L̂, which papers usually stand in for with a benchmark such as a math olympiad score. People can't say exactly what they want, so they give the AI a proxy H: training data, a textbook, or just the sentence "be good at math". From H the AI defines its own loss L, and the rest is ordinary gradient descent from θ to θ'.
@@ -118,7 +120,7 @@ Slides 25–32 take on another practical problem: the goal H that humans give ca
 
 The slide shows a robot whose goal was to become a tank, so it grew treads. Now the goal is to fly, and the treads are too heavy. Both extremes have costs: **dropping everything is wasteful**, since the radar on its head may still be useful; **carrying everything is too heavy**, since some parts no longer fit.
 
-Goals change most often in **Test-Time Training (TTT, also called Test-Time Adaptation)**. The model adapts its parameters to each input, so every new input is a goal shift. One extreme resets to the original model each time; the other carries updated parameters forward to the next input. For how to balance the two, Lee points to lecture 8 of last semester's course ([lifelong learning for general models](https://youtu.be/EnWz5XuOnIQ), timestamp 1:54:30 on the slide, in Mandarin), which covered his lab's paper by Wei-Ping Huang and Guan-Ting Lin, [Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech](https://arxiv.org/abs/2406.11064). He doesn't repeat it here.
+Goals change most often in **Test-Time Training (TTT, also called Test-Time Adaptation)**. The model adapts its parameters to each input, so every new input is a goal shift. One extreme resets to the original model each time; the other carries updated parameters forward to the next input. For how to balance the two, Lee points to lecture 8 of last semester's course ([lifelong learning for general models](https://youtu.be/EnWz5XuOnIQ), the slide marks a point near the end of that lecture; the exact timestamp has not been verified; in Mandarin), which covered his lab's paper by Wei-Ping Huang and Guan-Ting Lin, [Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech](https://arxiv.org/abs/2406.11064). He doesn't repeat it here.
 
 **Forgetting** works the same way. Parameter forgetting already got a full lecture last year ([post-training and forgetting](https://youtu.be/Z6b5-77EfGk), in Mandarin). The new question is: **can editing the harness cause forgetting too?** Lee says there isn't much literature yet and cites a May paper, [Do Self-Evolving Agents Forget?](https://arxiv.org/abs/2605.09315). It finds that while updating a workflow to handle the current problems, the agent keeps making the workflow more complex (measured in lines of code), past the point of need, until simple tasks start failing. Its proposed method, CPE, adds core statements to the workflow-update prompt saying what must not change and which abilities must be kept. With GPT-5 mini and GPT-5.1 as the models doing harness updates, runs without this constraint did worse on both simple and complex tasks.
 
@@ -138,7 +140,7 @@ The update rule can also live in parameters. [Learning to Self-Evolve](https://a
 
 Parameter update algorithms (gradient descent, Adam, AdamW) have always been designed by people. Slides 41–46 show that machines can do this too:
 
-- **[PostTrainBench](https://arxiv.org/abs/2603.08640)** (slide 43): tests whether a language model can write code to train another model. Part 1 already mentioned it (video at 52:17).
+- **[PostTrainBench](https://arxiv.org/abs/2603.08640)** (slide 43): tests whether a language model can write code to train another model. Part 1 already mentioned it near its end, as Lee says aloud in Part 2 (exact timestamp not verified).
 - **[autoresearch](https://github.com/karpathy/autoresearch)** (slide 44): Lee says this recently popular project is the same idea, with one language model deciding how to update another model's parameters.
 - **[AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) and [ShinkaEvolve](https://arxiv.org/abs/2509.19349)** (slide 45): drawn as an algorithm → score → new algorithm loop.
 - **[SEAL (Self-Adapting Language Models)](https://arxiv.org/abs/2506.10943)** (slide 46): an example of specifically training a model to produce training procedures.
@@ -224,6 +226,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed two timestamps that could not be verified; everything else matches.
 
 ## References
 

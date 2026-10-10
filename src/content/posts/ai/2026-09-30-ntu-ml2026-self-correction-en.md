@@ -36,6 +36,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video m3i2mk5hs8U (1:27:42) was read in full. Checked the three-route framing, error detection from representations and TruthX (heard as "True Facts" in the captions), contrastive decoding as (1+α)z−αz⁻ with an extra pass per token, the Obama/GPT-2 Small example, DoLa (logit lens, built into Hugging Face, first author a former lab project student), LayerCD, ICD "dumbing-down" prompts, CAD with the black-banana and surfboard examples, the audio version, MTI (reusing KV Cache, "Output Error", 62% to 72%, worse with other words), VISTA/ACG, the two intuitions for "check again" and the caveat that critiquing is not necessarily easier than generating, the conclusions of Can LLMs Correct Themselves and RefineBench, the confidence-level/critique-score formula and the effect of instruction wording, the two verification figures and the majority-vote baseline (the transcript says about 100x or more compute for 3.8%; the post's 128x is the slide figure), the Hillary Clinton birthplace example, ReVISE's two stages, the distribution shift when directly teaching correction, RLVR, the cost of thinking, K^(T+1) and the 6-bit parity example, and the pass@k debate and The Debate on RLVR; all match the transcript and no errors were found. The specific CL/CS table numbers, paper IDs and slide page numbers come from the slides and cannot be verified from the transcript.
+
 ## The question: can a model fix itself when nobody points out the error?
 
 Tell a model "you're wrong, here's where," and it usually fixes the answer. This lecture asks the harder version: **after the model answers, with no human involved, can it notice the error and correct it on its own?**
@@ -205,6 +207,7 @@ Series navigation: Previous [HW5: Finetuning without Forgetting](/posts/ai/2026-
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

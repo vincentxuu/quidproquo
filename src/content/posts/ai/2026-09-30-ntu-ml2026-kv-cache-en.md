@@ -51,6 +51,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video fDQaadKysSA (38:33) was read in full. Checked Prefill/Decode and why only k and v are cached, Gemma 2 at about 0.72 MB per token and about 114k tokens on an A100, why MQA/GQA share k/v across queries, the MLA no-decompression derivation, Sliding Window (Mistral 7B, GPT-OSS interleaving), StreamingLLM and attention sinks, Scissorhands/H2O, cross-conversation prompt caching and the prefix rule, system-prompt ordering (date goes last), the "book a flight from x to y" example, and the summary table rows; all match the transcript. Two small spoken-versus-slide differences (the head count is spoken as 30 and the pricing example as GPT-4o; Don't Break the Cache is described as saving at least 50%); the post follows the slide figures and says so.
+
 ## The scene: KV Cache itself is simple
 
 Lee opens with a pun: in Mandarin, "cache" and "cash" sound the same, and the cache really does have something to do with money. That pays off at the end of this post.
@@ -138,7 +140,7 @@ When are prefixes identical? **When you use an AI agent** (slides 51–52). Reca
 
 The slide cites [OpenClaw issue #27732](https://github.com/openclaw/openclaw/issues/27732) as a real community discussion about this ordering. Slide 53 gives a prompt-writing example: "Book me a flight from Taipei to Boston" and "Book me a flight from San Francisco to New York" share only the first few words. Rewrite both as "Book me a flight from x to y" with the values of x and y at the end, and the shared prefix gets much longer.
 
-Slide 54 cites the January 2026 paper [Don't Break the Cache](https://arxiv.org/abs/2601.06007), which measures prompt caching on long-horizon agent tasks. The chart on the slide shows cost reductions of 79.6% for GPT-5.2, 78.5% for Claude Sonnet 4.5, 52.2% for Gemini 2.5 Pro, and 45.9% for GPT-4o.
+Slide 54 cites the January 2026 paper [Don't Break the Cache](https://arxiv.org/abs/2601.06007), which measures prompt caching on long-horizon agent tasks. The chart on the slide shows cost reductions of 79.6% for GPT-5.2, 78.5% for Claude Sonnet 4.5, 52.2% for Gemini 2.5 Pro, and 45.9% for GPT-4o. In the video Lee only says aloud that models such as Gemini 2.5 Pro and GPT-4o can save "at least 50%, even more", which differs slightly from the 45.9% shown for GPT-4o on the chart; the chart figures are the ones to rely on.
 
 **Try it**: dump the full prompt your agent or LLM app sends, find every field that changes per call (timestamps, user names, retrieved results), and make sure they all come after the fixed content.
 
@@ -177,6 +179,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The transcript matches the post; only a note was added that the spoken Don't Break the Cache figure differs slightly from the chart.
 
 ## References
 

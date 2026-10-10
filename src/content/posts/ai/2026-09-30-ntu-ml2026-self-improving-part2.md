@@ -56,6 +56,8 @@ title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：下集 cQLKVzbwN7I（1:09:08）字幕全文已讀；上集 s06mSAGN4gM（1:03:44）字幕已讀，用於核對本文對上集的回顧與 PostTrainBench 的說法。下集核對 L̂／L／H 的符號回顧、Agent = Harness + LLM、OPRO 的「先深呼吸」與提示寫法、類基因演算法的 pool、GEPA、記憶設計論文、Darwin Gödel Machine（10／60／200 三階段、摩根齒獸比喻）、DSPy、harness 與參數聯合更新的三篇論文、目標轉移與 TTT、Do Self-Evolving Agents Forget? 與 CPE、HyperAgent／Gödel Agent／Learning to Self-Evolve、SEAL、Meta Learning 的 φ／θ 說法、RNN 換句話說、參數是基因／context 是神經元、三層記憶、內在動機（curiosity／empowerment）、孔雀尾巴與《機械公敵》，皆與字幕一致。更正兩處：文中兩個精確時間點（上集「52:17」、2025 第 8 講「1:54:30」）無法在字幕驗證，已改為相對位置並註明未核對。投影片頁碼與論文編號屬講義內容，字幕無法驗證。
+
 ## 先把上集收成一條式子
 
 開場李宏毅用符號把上集重講一次（投影片第 2–6 頁）。AI 寫成 A_θ，θ 是背後語言模型的參數。人類真正想要的目標寫成 L̂，論文裡通常用某個 benchmark 代表，例如數學奧林匹亞的分數。但人說不清楚自己要什麼，只能給 AI 一個代理 H：可能是訓練資料、一本教科書，甚至只是一句「be good at math」。AI 從 H 自己定出 loss L，接著就是一般的 gradient descent，把 θ 更新成 θ'。
@@ -118,7 +120,7 @@ Darwin Gödel Machine 那段最值得看。它維護的 pool 叫 archive，archi
 
 投影片畫了一個機器人：原本的目標是變坦克，所以長出履帶；新目標是飛起來，履帶就太重了。兩個極端各有缺點：**拋棄一切太浪費**，頭上的雷達可能還有用；**背負一切太沉重**，有些東西已經不合時宜。
 
-目標變得最頻繁的情境是 **Test-Time Training（TTT，又稱 Test-Time Adaptation）**。模型根據每一筆輸入調整參數，所以每來一筆新資料，就是一次目標轉移。極端一是每次都退回原點，極端二是參數一路帶到下一筆。怎麼取捨，李宏毅指向上學期機器學習導論第 8 講（[通用模型的終身學習](https://youtu.be/EnWz5XuOnIQ)，投影片標到 1:54:30），裡面講了他實驗室黃維平與林冠廷的論文 [Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech](https://arxiv.org/abs/2406.11064)，這一講不重複。
+目標變得最頻繁的情境是 **Test-Time Training（TTT，又稱 Test-Time Adaptation）**。模型根據每一筆輸入調整參數，所以每來一筆新資料，就是一次目標轉移。極端一是每次都退回原點，極端二是參數一路帶到下一筆。怎麼取捨，李宏毅指向上學期機器學習導論第 8 講（[通用模型的終身學習](https://youtu.be/EnWz5XuOnIQ)，投影片標註在該講接近尾聲處，精確時間點未核對），裡面講了他實驗室黃維平與林冠廷的論文 [Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech](https://arxiv.org/abs/2406.11064)，這一講不重複。
 
 **遺忘**也一樣。參數的遺忘去年第六講（[後訓練與遺忘問題](https://youtu.be/Z6b5-77EfGk)）已經用一整堂講過。新的問題是：**改 harness 也會遺忘嗎？**李宏毅說這方面文獻還不多，引用了一篇五月的論文 [Do Self-Evolving Agents Forget?](https://arxiv.org/abs/2605.09315)。它發現更新 workflow 時，為了應付眼前的問題，workflow 會越改越複雜（用程式行數衡量），複雜到沒有必要，結果簡單任務反而做不好。它提出的 CPE 方法是在更新 workflow 的 prompt 裡加上「什麼不能動、什麼能力一定要保留」的核心敘述。用 GPT-5 mini 和 GPT-5.1 做 harness 更新時，不加這種約束，簡單任務和複雜任務都比較差。
 
@@ -138,7 +140,7 @@ Darwin Gödel Machine 那段最值得看。它維護的 pool 叫 archive，archi
 
 更新參數的演算法（gradient descent、Adam、AdamW）一直是人設計的。第 41–46 頁說明這也能交給機器：
 
-- **[PostTrainBench](https://arxiv.org/abs/2603.08640)**（第 43 頁）：看一個語言模型有沒有能力寫程式去訓練其他模型。上集最後已經提過（影片 52:17）。
+- **[PostTrainBench](https://arxiv.org/abs/2603.08640)**（第 43 頁）：看一個語言模型有沒有能力寫程式去訓練其他模型。老師在下集口述，上集接近結尾時已提過（精確時間點未核對）。
 - **[autoresearch](https://github.com/karpathy/autoresearch)**（第 44 頁）：李宏毅說這個「前一陣子很紅」的專案也是同一個概念，用一個語言模型決定怎麼更新另一個語言模型的參數。
 - **[AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) 與 [ShinkaEvolve](https://arxiv.org/abs/2509.19349)**（第 45 頁）：投影片畫成 algorithm → score → new algorithm 的迴圈。
 - **[SEAL（Self-Adapting Language Models）](https://arxiv.org/abs/2506.10943)**（第 46 頁）：這是特別訓練模型產生訓練方法的例子。
@@ -224,6 +226,7 @@ SEAL 的模型身兼兩職：解任務，也決定怎麼訓練自己。它輸出
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。移除兩個無法驗證的精確時間點，其餘與字幕相符。
 
 ## 參考資料
 

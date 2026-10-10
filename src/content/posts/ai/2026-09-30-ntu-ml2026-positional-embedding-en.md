@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video Ll-wk8x3G_g (1:29:43) was read in full. Checked the "you hit me / I hit you" order problem, the Sinusoidal clock-hand analogy and periods (about 6.3, 628.3, 54,000+), the relative-position motivation, ALiBi (hand-set b, different per head) and T5 (trainable bias, worse than ALiBi), the RoPE rotation derivation, adoption by Llama/Qwen/Gemma, KV Cache compatibility, the Colab demo showing attention does not simply decay with distance, Train Short Test Long and Position Interpolation (still needs fine-tuning), frequency-based methods, NTK-Aware (from a Reddit post, LLaMA 7B), YaRN, Dynamic Scaling (and its KV Cache compatibility issue), LongRoPE (evolutionary search, two million tokens), NoPE and DroPE; all match the transcript and no errors were found. Slide page numbers and paper titles come from the slides and cannot be verified from the transcript.
+
 ## The problem: "you hit me" vs. "I hit you"
 
 Slides 2–3 make the point quickly. Feed tokens A B C D into self-attention and look at D. If you reorder the first three as C B A, D's weighted sum comes out exactly the same. Yet "you hit me" and "I hit you" mean opposite things. The Transformer needs position information from somewhere.
@@ -154,6 +156,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

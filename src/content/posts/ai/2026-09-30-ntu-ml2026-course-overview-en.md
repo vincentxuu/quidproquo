@@ -40,6 +40,8 @@ Course and recording entry:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video gl-BdDjNPVI (26:46, course introduction) was read in full. Checked the class schedule and format (Friday 14:20, about an hour of lecture plus TA homework walkthrough, floating end time, recordings online on Monday), the prerequisite of last semester's introductory course (10 lectures of about two hours each), ten assignments worth 10 points each, free Colab being enough to pass (C-, 60 points), the add-on quota of about 700 and priority order, auditing versus enrolled differences, no Python syntax teaching, and the Teaching Monster bonus; all match the transcript. The transcript does not cover policy.pdf page numbers, the assignment date table, the JudgeBoi/NTU COOL breakdown or the academic-integrity rules, which come from the slides and course page and cannot be verified from the video. The video was recorded early in the term and announces two guest talks (Appier, Chen Wei), whereas this post lists three based on the course page; the post follows the course page.
+
 ## The hard facts
 
 - **Course number and credits**: EE5184, 4 credits, elective, Fridays 14:20–18:20 in room 博理 112. The catalog notes it is co-taught with 吳沛遠.
@@ -137,6 +139,7 @@ Next: [Dissecting the Lobster: How AI Agents Work, Using OpenClaw](/posts/ai/202
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official course page publicly lists a "Machine Learning 2026 course introduction" video; embedded it and set status to Videos included.
+- 2026-10-10: Checked the video content against its transcript. The rules described in the introduction video match the post; no body text needed changing.
 
 ## References
 

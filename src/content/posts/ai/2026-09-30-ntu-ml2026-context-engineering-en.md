@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video urwDLyNa9FU (53:05) was read. Checked the C_{t+1} ← F(C_t, I_t, O_t) formalization and the P/M split, LLM summary versus Hard Clear (the SWE-bench comparison and trajectory elongation), offloading to log1.txt, ACON (context collapse, no parameter updates), AgentFold (needs fine-tuning), models disliking compression, subagents as autonomous compression and the two Context-Folding penalties, observations at about 84% and code reading at about 76%, memory_get line-range filtering, MCP-Zero (GitHub tools at 4,600 tokens), Dynamic Cheatsheet, ACE and Recursive Language Models. Every video-related claim appears in the transcript and no errors were found; slide page numbers and individual figures (such as ACON's 26%) come from the slides, which the transcript does not cover, and cannot be verified.
+
 ## Why Context Engineering
 
 The picture on slide 2 is simple. A human says something, the model calls tool 1, gets tool 1's output, calls tool 2, and so on. Every round, the whole history is fed back in. The model "lives in the present", and **its input length is finite**.
@@ -143,6 +145,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

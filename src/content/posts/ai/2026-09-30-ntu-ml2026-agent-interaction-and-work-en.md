@@ -45,6 +45,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcripts (2026-10-10): both videos (mmPmNezjCi0, VqB8zMujdjM) were read. Checked the MacNet topology comparison, the werewolf Mona/Grace example, Moltbook and the five Church of Molt tenets, the three Moltbook analyses, Andrew Hall's Claude Code paper and cost comparison, the ideation-execution gap, AAAI 2026 AI review, and the Agents4Science 247/48 figures. Every video-related claim in the post appears in the transcripts and no errors were found; slide page numbers, the paper table and cited links are this site's additions and cannot be verified from the transcripts.
+
 ## 1. How should multiple agents collaborate?
 
 Slide 36 draws a minimal collaboration unit. One agent proposes plan A, another proposes plan B, other agents give suggestions, and the result is merged into plan C. The question: how do you wire such units into a network?
@@ -126,6 +128,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match what the post says; no body text needed changing.
 
 ## References
 

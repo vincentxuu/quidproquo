@@ -47,6 +47,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
+
 ## Prerequisite: hw7.pdf names none, but one lecture fits
 
 The HW7 slides list no prerequisite video, and this term has no lecture on model merging. Lee's 2025 [Intro to Generative AI and ML, Lecture 8](https://www.youtube.com/watch?v=EnWz5XuOnIQ) (in Mandarin) is literally titled "Lifelong learning for general models (Fine-tuning, Model Editing, Model Merging, Test-Time Training)," and the [previous post, Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en), also points to it for TTT. It is the quickest way to pick up the concepts.
@@ -146,6 +148,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
 
 ## References
 

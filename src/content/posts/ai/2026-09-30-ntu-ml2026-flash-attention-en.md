@@ -51,6 +51,8 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): video vXb2QYOUzl4 (49:39) was read in full. Checked Prefill/Decode and the three-cost evaluation framework, the warehouse/workbench analogy (80GB is the warehouse, the workbench is only a dozen or so MB), chunking and the rule that nothing proportional to L fits on the workbench, the online-softmax correction exp(d1−d2), the output-correction formula that skips the attention weights, Hugging Face being unable to return attention weights, the Colab difference of about 1e-7, the roughly 8–9x speedup at length 4096, and the CUDA OOM at long lengths; all match the transcript. One inconsistency: the instructor names Yi-34B for the real-model demo in the transcript while the post said gemma-3-4b-it, so it now lists both and reports trends only; the saved Colab output and slide page numbers cannot be verified from the video.
+
 ## Prerequisite: you are expected to know Transformers
 
 Slide 2 has one prerequisite link: [Lecture 3 of Intro to Generative AI & ML 2025: Dissecting LLMs](https://youtu.be/8iFvM7WUUs8) (in Mandarin). Lee opens by saying the lecture assumes you already understand how a Transformer works inside, and that it is about **inference**, not training.
@@ -155,7 +157,7 @@ The Colab does three things:
 
 - **Numerical check**: random q, k, v (B=4, H=8, L=256, D=64). The maximum difference between the two algorithms is around 1e-7.
 - **Speed comparison**: sequence lengths from 64 to 4096. On the A100, Flash Attention is about 9× faster at length 4096 (the saved Colab output shows 9.49x).
-- **A real model**: `google/gemma-3-4b-it` with `attn_implementation` set to `eager` (no Flash Attention) or `sdpa`, fed a long string repeated many times and asked for one token. In the lecture, short inputs showed no real difference, because the model also spends a lot of time on feed-forward layers and embeddings. Once the string got longer, Flash Attention was clearly faster. Ten times longer again, and the run hit CUDA out of memory.
+- **A real model**: the saved Colab code names `google/gemma-3-4b-it` (the instructor says Yi-34B in the transcript; the two disagree, so only trends are reported below), with `attn_implementation` set to `eager` (no Flash Attention) or `sdpa`, fed a long string repeated many times and asked for one token. In the lecture, short inputs showed no real difference, because the model also spends a lot of time on feed-forward layers and embeddings. Once the string got longer, Flash Attention was clearly faster. Ten times longer again, and the run hit CUDA out of memory.
 
 Lee notes that what ran out was the warehouse, not the workbench. However big it is, the warehouse has a limit. **Why long sequences blow up the warehouse** is the topic of the next lecture, KV Cache.
 
@@ -171,7 +173,7 @@ His conclusion: Flash Attention gets a several-fold speed-up just by carrying da
 
 Verified: the structure and text of slides 1–28, the video transcript (from the zh-TW captions on YouTube), the demo Colab's code and saved outputs, and the titles of cited papers (checked on arXiv).
 
-Not verified: the captions name a different demo model; this post follows the Colab code, which uses `google/gemma-3-4b-it`. The timings in the lecture do not match the saved Colab output (the longest saved run did not hit OOM), so the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content is paraphrased from the transcript.
+Not verified: which model the real-model demo used. The instructor says Yi-34B in the transcript, while the saved Colab code names `google/gemma-3-4b-it`; the two disagree, so this post draws no conclusion and reports trends only. The timings in the lecture do not match the saved Colab output (the longest saved run did not hit OOM), so the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content is paraphrased from the transcript.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW2: An AI Agent as an AI Engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en) | Next: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
 
@@ -179,6 +181,7 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The transcript names Yi-34B for the real-model demo while the Colab code names gemma-3-4b-it; the post now states both. Everything else matches.
 
 ## References
 
