@@ -29,7 +29,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **This post is written from the slides; the official recording went up on 2026-10-10 (72 min), and the text has not yet been revised against it.** Everything below comes from the [slides](https://www.cmu-agents.com/slides/lecture-10-deep-research-agents.pdf), not from what the lecturer said; spoken content will be added after I watch the video. Every number and example below comes from the slides or the papers they cite. For each paper used to support a point, I opened the full text and checked the relevant passage: where the slides and the paper differ, both are given, and anything found only on the slides is marked as such.
+> **This post is written from the slides and the recording.** The slides remain the backbone (the official recording is 72 minutes, published 2026-10-10); the speaker's spoken remarks and the Q&A are collected in the section "Q&A and spoken remarks from the recording" and marked as spoken. The recording's English captions are auto-generated; I corrected proper nouns from context and the papers (for example "DP 2" is DR Tulu and "OTI" is CMU LTI), and where the speaker did not give a number or setup clearly, I report only what she said. Every number and example below comes from the slides, the papers they cite, or the speaker's remarks. For each paper used to support a point, I opened the full text and checked the relevant passage: where the slides and the paper differ, both are given, and anything found only on the slides is marked as such.
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is Daniel Fried and Graham Neubig's Fall 2026 course on agents. Its Domains module covers coding agents, then computer use agents, and the third domain is deep research. Lecture 10 (Sep 24) is a guest lecture by [Akari Asai](https://akariasai.github.io/), first author of [OpenScholar](https://arxiv.org/abs/2411.14199) (arXiv:2411.14199, Nature 2026) and joint first author of [DR Tulu](https://arxiv.org/abs/2511.19399) (arXiv:2511.19399, ICML 2026), so half of this lecture is her explaining how she built these systems.
 
@@ -247,6 +247,68 @@ The last ablation asks which history helps retrieval most. All retrievers use DR
 
 **The current step's reasoning is the strongest signal.** Adding previously retrieved documents scores below "queries + reasoning" in all four settings, so more history is not automatically better.
 
+## Q&A and spoken remarks from the recording
+
+Everything in this section comes from the recording and is not on the slides. These are Akari Asai's or students' spoken words; I summarize the points, and the numbers and judgments are the speaker's.
+
+### Two reasons she gave that are not on the slides
+
+- **Why BrowseComp-Plus exists.** To score well on BrowseComp, an agent makes on the order of a hundred search calls per trajectory. Hitting a real search API every time is expensive and slow, and Google's results change almost daily, so the same experiment cannot be reproduced the next day. BrowseComp-Plus fixes the corpus to remove that problem.
+- **The cost of writing rubrics.** She said that in the OpenScholar work, one rubric took a PhD-level expert almost an hour. That is why people want LMs to generate rubrics automatically, and why rubric quality becomes the bottleneck.
+
+### Advice for the final project
+
+Someone in the room (the recording does not say who) asked: if you want a deep research project, which benchmark should you use? Her answer:
+
+| If you want to… | Her suggestion | Reason (spoken) |
+|---|---|---|
+| Work on short, verifiable questions | [BrowseComp](https://arxiv.org/abs/2504.12516) | It has some issues but high-quality questions; good for trying methods such as context management and for seeing inference-time scaling. Downside: it is large and needs many searches |
+| Cut inference cost, or do retrieval research | [BrowseComp-Plus](https://arxiv.org/abs/2508.06600) | Fixed corpus, no live API, and you can train your own embedding model to compare |
+| Open-ended long answers | [DeepResearch Bench](https://arxiv.org/abs/2506.11763) (she named the second version) | Automatic grading still has problems, but the second version is relatively high quality; she said the first version is widely used and its scores are already very high |
+| An expert domain | [FinSearchComp](https://arxiv.org/abs/2509.13160) | Her verdict was "decent"; there are also newer domain benchmarks she did not cover |
+
+### Which model and which search tool
+
+- **Baseline models.** There are now many 8B-scale deep research models, and Qwen models are common baselines on BrowseComp and BrowseComp-Plus. Beating the newest large proprietary models is hard, she warned; but if you target a specific task with a careful training recipe, beating a proprietary deep research product on one benchmark is possible, and that is a valid project direction.
+- **Search tool.** A web search API is the safest start; she mentioned Serper as stable and fast enough. But RL repeats searches over many steps and many rollouts per step, and that is costly: she said that in a recent deep research training run, **a single RL run cost roughly $3,000 to $4,000 in search API fees alone** (spoken; she did not say which model or setup).
+- **Cheaper options.** Use BrowseComp-Plus, or a local index during training: BM25, or Qwen3 4B/8B embedding models, which you can choose from the MTEB leaderboard.
+- **For retrieval researchers.** She said not to chase the top number on one benchmark; show the method works across agents, for example strong public agents such as GPT-OSS or GLM, instead of tuning for a single agent.
+
+### Where small models fall short of frontier models
+
+Someone asked what an 8B specialist lacks that keeps it from beating frontier models. She started by saying it is hard to win, then split tasks into two kinds:
+
+- **Long-horizon tasks like BrowseComp.** Frontier models are clearly stronger. She guessed small models lack the ability to manage many search calls, long contexts and planning, which SFT does not fix; even the 32B Tongyi DeepResearch does not catch the best models.
+- **Open-ended long answers (HealthBench, ScholarQABench, DeepResearch Bench).** The challenge is not managing long context but collecting enough information and synthesizing a high-quality long answer, and she did not see a big gap there. She also admitted it may be that our way of grading long answers is not good enough to reveal one.
+
+### The biggest bottleneck is evaluation
+
+Asked about the biggest bottleneck in deep research today, she said **evaluation**, for concrete reasons:
+
+1. For short-form tasks, once you know the target you can reverse-engineer the benchmark and borrow recipes from math and coding reasoning, so the numbers look great.
+2. Open-ended tasks long lacked a decent benchmark, and without evaluation you cannot use it for rejection sampling or as an RL reward.
+3. Rubric grading on existing long-form benchmarks has its own biases, such as favoring longer answers; BrowseComp questions are fairly synthetic, and whether they reflect real user needs is still open.
+4. The gap she is working on: today's benchmarks grade the final answer, but people use deep research to change their next action, make a decision, or find a bug in code. **No benchmark measures whether the research result helps someone complete the downstream task.**
+
+### Can evolving rubrics be used elsewhere
+
+Asked whether DR Tulu's evolving rubrics apply to other open-ended benchmarks, she said her group did not try it, but other papers have used similar ideas for general chat (for example Arena-Hard). She thinks rubric-based RL is quite general, and heard that frontier labs are still working out how to optimize when there is no clean binary reward.
+
+Other spoken details about rubrics:
+
+- **How rollouts are contrasted.** During training, 8 trajectories are sampled per question, and an LM reads their final answers and generates positive and negative rubrics that separate good from bad. She said they did not ablate the number of trajectories or whether to look at intermediate steps.
+- **Rubric weights.** She said they did not spend time estimating the importance of each item, because even experts often disagree about which items matter most; another direction to study.
+- **How strong the rubric generator must be.** Final training used GPT-4.1 to generate rubrics. They also tried a Qwen base model, which still gave a large improvement, but to maximize performance GPT-4.1 was about 10 points better. Rubrics are generated at every training step, so a proprietary model is quite expensive; she said recent papers train open rubric-generation models, but those are mostly validated on short-form reward benchmarks, so whether they can replace a strong model is still open.
+- **Why do a little SFT first.** Her spoken account of the ablation: starting RL from a Qwen base without SFT reached only about 40% at 600 steps; with just 5% of the SFT data (undertrained SFT) the same 600 steps gave about 10 points more. Because of compute limits, DR Tulu ran only one baseline out to 4,000 steps.
+
+### Contamination, and answers that leak in
+
+Asked how to tell search apart from memorized answers:
+
+- BrowseComp was built by checking that the frontier models of the time could not answer; but she was candid that frontier labs' pretraining and post-training data are probably contaminated, so it is hard to be sure GPT-6 has not seen these questions.
+- Newer papers run recent models on BrowseComp without search and still see no more than about 20% (her statement; she did not name the paper).
+- A hole that is easy to miss: in DR Tulu's evaluation she found that without a blocklist, the agent retrieves the answers straight from Hugging Face or the original dataset page. **When evaluating a search agent, block at least Hugging Face and other sources of the original dataset.**
+
 ## The four-line summary
 
 The final slide:
@@ -284,6 +346,7 @@ Related posts on this site to read alongside the lecture:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Corrected the video status. The Lecture 10 recording is now published, so the "pending" label no longer applied; the video is embedded, and the text is still based on the slides pending a video-based revision.
+- 2026-10-10: Revised Lecture 10 against the official recording's captions: added the section "Q&A and spoken remarks from the recording" (project benchmarks, models and search tools, small-vs-frontier gap, the evaluation bottleneck, spoken details on evolving rubrics, contamination and blocklists) and updated the opening note.
 
 ## References
 
