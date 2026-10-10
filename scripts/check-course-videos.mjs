@@ -17,6 +17,8 @@ const POSTS = path.join(ROOT, 'src/content/posts');
 
 const STATUS_RE = /^\*\*(?:影片狀態|Video status)[：:].*$/m;
 const INCLUDED_RE = /已附影片|Videos included/;
+const CONTENT_CHECK_RE = /內容核對[：:]\s*已依(?:字幕|影片)核對|Content check:\s*verified against the video/;
+const TIMESTAMP_RE = /^#{2,3} .*(?:影片時間戳|時間戳|影片(?:與)?時間軸|Video timestamps|Timestamps|Lecture Video)|^\| *(?:Timestamp|時間戳|時間點|時間軸) *\|/m;
 const SUPPLEMENTARY_RE = /補充影片|supplementary video/i;
 const ID_RE = /^[A-Za-z0-9_-]{11}$/;
 
@@ -75,6 +77,14 @@ for (const file of walk(POSTS)) {
           `回原始來源即時重查後更新日期（或嵌入新找到的影片）`
       );
     }
+  }
+  // 影片時間戳章節或 fence 的 start: 深連結，宣稱了影片「哪一分鐘講了什麼」，必須有內容核對標記
+  const hasDeepLink = [...text.matchAll(/^```youtube\s*\n([\s\S]*?)^```/gm)].some((m) => /^start:\s*[1-9]\d*/m.test(m[1]));
+  if ((TIMESTAMP_RE.test(text) || hasDeepLink) && !CONTENT_CHECK_RE.test(text)) {
+    problems.push(
+      `${rel}: 含影片時間戳或 start 深連結，但缺「內容核對：已依字幕核對」標記——` +
+        `時間點必須對照字幕確認（見 post-update skill「課程影片狀態」）`
+    );
   }
   const pair = pairs.get(slug) ?? {};
   pair[isEn ? 'en' : 'zh'] = { rel, included, ids };
