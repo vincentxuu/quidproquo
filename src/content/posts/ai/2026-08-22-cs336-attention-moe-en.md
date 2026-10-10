@@ -25,6 +25,8 @@ The lecture places two topics together that are often discussed separately: atte
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (Attention Alternatives). The captions cover linear attention, Mamba, delta-rule recurrent models, sparse attention with a lightweight indexer (DeepSeek DSA), MoE and routers, load balancing, router z-loss, upcycling, shared experts, MLA and multi-token prediction. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
@@ -95,6 +97,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

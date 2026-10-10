@@ -19,9 +19,9 @@ draft: false
 
 > [上一篇](/posts/ai/2026-08-16-cs230-agents-prompts-rag)講了 agent 的完整縱軸。這一篇是整個系列唯一不談技術的一講。
 
-本篇對應 **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)**（2025/11/18，1 小時 45 分）。這是全系列**第二高流量**的一講（43.7 萬觀看），也是唯一一講**有外部客座、而且客座講了八成時間**。
+本篇對應 **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)**（2025/11/18，1 小時 45 分）。這一講流量偏高（2026-10-10 頁面顯示約 45.8 萬觀看，次於 Lecture 1 的約 73 萬與 Lecture 8 的約 51 萬），也是唯一一講**有外部客座、而且客座講了八成時間**。
 
-- 前 20 分鐘：**Andrew Ng**
+- 約前 20 多分鐘（依字幕位置推估，字幕無時間碼）：**Andrew Ng**
 - 其餘：**Laurence Moroney**——前微軟、前 Google AI 首席倡議者（TensorFlow 推廣主力），現在在 **ARM** 帶團隊，寫過 20 幾本書
 
 **時間錨點**：上課當天早上 **Gemini 3 發表**，Ng 現場說「今天早上才出，我還沒空玩」。
@@ -31,6 +31,8 @@ draft: false
 ## 課程影片來源
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（長度 1:45:09 與文中「1 小時 45 分」相符）。字幕由 Andrew Ng 先講、再介紹 Laurence Moroney 接手（約占字幕前四分之一），Moroney 部分約占其餘。逐項對過字幕，皆有對應：Gemini 3 當天早上發表、METR 與「每七個月翻倍」、工程師：PM 比例 4:1／7:1／8:1、Java 金流後端的學生、300 多個職缺的試算表與 10x 工程師、996、棒球與寫書、愛爾蘭女性生圖、技術債與房貸類比、macOS Swift UI、Replit 與「so what」、泡沫與 Titanic、pets.com、7B 等於昨天的 50B、Alipay 相簿搜尋、冰球影片、敘利亞證書（10 萬美元／年）、冰場非營利（15 萬美元／年）、威爾斯腦癌研究者、Google 面試兩次失敗與 20 多本書。「McKinsey 85%」與「YC 80%」兩個數字，講者確實是這樣說的，文中另附查證註記。三處修正：（1）觀看數與排名：2026-10-10 頁面顯示約 45.8 萬次，次於 Lecture 1（約 73 萬）與 Lecture 8（約 51 萬），原寫「第二高流量」已改；（2）「前 20 分鐘」字幕無時間碼，改為依字幕位置推估的「約前 20 多分鐘」；其餘無需修改。
 
 ```youtube
 url: https://www.youtube.com/watch?v=AuZoDsNmG_s
@@ -70,7 +72,7 @@ title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
 
 ## 產品管理瓶頸
 
-這是 Ng 這 20 分鐘的核心論點：
+這是 Ng 這一段的核心論點：
 
 > 「當『從一份寫清楚的 spec 到程式碼』變得越來越容易，**瓶頸就越來越是「決定要做什麼」。**」
 
@@ -470,6 +472,7 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。主要說法與引述皆有字幕對應；更正觀看數排名與「前 20 分鐘」的時間說法。
 
 ## 參考資料
 

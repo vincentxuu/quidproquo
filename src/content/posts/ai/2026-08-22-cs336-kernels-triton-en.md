@@ -25,6 +25,8 @@ Lecture 5 explains data movement, tiling, and fusion. Lecture 6 asks you to meas
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (the YouTube title is Kernels, Triton, XLA; the lecturer is Percy, opening by following on from Tatsu's GPU lecture). The captions cover Triton, PTX, GeLU fusion, softmax, matmul, occupancy, thread coarsening, shared-memory bank conflicts, and benchmark synchronization/warm-up. The article does not mention XLA, so the title difference does not matter here. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=xnDHaNUvHBg
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
@@ -82,6 +84,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

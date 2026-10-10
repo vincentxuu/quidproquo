@@ -21,13 +21,15 @@ draft: false
 
 本篇對應 **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)**（2025/11/11，Kian Katanforoosh 主講，1 小時 50 分）。
 
-這是全系列**流量最高**的一講，46 萬觀看，是第二名的三倍。而且它在 2024 年還只是 Lecture 9 的一行標題「RAG and AI Agents」、**沒有投影片**；2025 年才擴成 110 分鐘的完整一講。這個變化本身就是這幾年重心移動的縮影。
+這是全系列流量偏高的一講（2026-10-10 頁面顯示約 51 萬觀看，次於 Lecture 1 的約 73 萬）。而且它在 2024 年還只是 Lecture 9 的一行標題「RAG and AI Agents」、**沒有投影片**；2025 年才擴成 110 分鐘的完整一講。這個變化本身就是這幾年重心移動的縮影。
 
 （**這一講和站上既有的 [Agent 生產線](/series/agent)、[AI Agent 實戰](/series/ai-agent-systems)、[RAG 技法大全](/series/rag-techniques) 三個系列有大量重疊。** 本文照課堂內容完整寫，重疊的段落會在結尾指向站上更深的展開。）
 
 ## 課程影片來源
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 8（長度 1:49:54 與文中「1 小時 50 分」相符；開場字幕即「another lecture for CS230…beyond LLM」）。逐項對過字幕，皆有對應：Microsoft 2016 Twitter bot 16 小時下架、Altman 與 Musk 的 LLM 宣傳機器之爭、needle in a haystack（聖經）、BCG 的 jagged frontier 與「falling asleep at the wheel」、centaur／cyborg、「prompt engineer」的看法、reflection 與 chain of thought、Jane 的 prompt template、八輪之後的對話切章、chaining 為最受歡迎的技巧、Prompt Fu（Promptfoo）並排五個 LLM、不建議 fine-tuning 與 Slack fine-tuning 笑話（字幕歸於 Ross Lazerowitz 的實驗）、HyDE 與 chunking、退款的 agentic 對照、工作記憶／長期記憶與三秒、MCP、決定論與模糊、human-in-the-loop 申訴、McKinsey 信用風險案例、LLM traces、客觀／主觀評估、multi-agent 的平行與重用、智慧家庭與冰箱、architecture search、嬰兒比喻、「不教第 17 種 RAG 優化」。一處修正：原寫「全系列流量最高、46 萬觀看、是第二名的三倍」不成立，2026-10-10 頁面顯示約 51 萬觀看，次於 Lecture 1 的約 73 萬，已更正。
 
 ```youtube
 url: https://www.youtube.com/watch?v=k1njvbBmfsw
@@ -351,6 +353,7 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。主要說法與引述皆有字幕對應；更正流量排名與倍數說法。
 
 ## 參考資料
 

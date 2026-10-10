@@ -19,11 +19,13 @@ draft: false
 
 > [The previous post](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en) covered how embeddings get trained. This one zooms out to the whole project.
 
-This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)** (2025/10/07, Andrew Ng, 1 hour 7 minutes). There are **no slides** for this one — it's whiteboard and Q&A throughout. Ng takes a single case (a face-recognition door system) through the entire lifecycle, putting every decision point to a class vote before giving his answer.
+This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)** (2025/10/07, Andrew Ng, 1 hour 7 minutes). It is mostly live Q&A (in the captions Ng calls his own sketch a "bad drawing", so there was presumably live drawing; whether slides were used cannot be judged from the captions). Ng takes a single case (a face-recognition door system) through the entire lifecycle, putting every decision point to a class vote before giving his answer.
 
 ## Course video sources
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Andrew Ng; the captions open with "the full cycle of a deep learning project", and the 1:07:05 runtime matches the article). Checked item by item against the captions: the two-day deadline and "Tuesday 11:52", at least 50,000 face images, the Siamese network, sampling in cafeterias, the two VAD options (changed-pixel epsilon, about five lines of Python), picking sharp frames, Texas traffic lights, phones inspected by his team's software, the piano and Sherlock Holmes attic analogy, Claude/Gemini for coding, and the re-authentication dashboard all appear. Two fixes: (1) "no slides, whiteboard throughout" cannot be judged from captions (only the speaker calling it a "bad drawing"), so the wording is now neutral; (2) the acquisition amount is garbled in the captions (only "definitely more than tens of millions of dollars" is clear), and the text now says so.
 
 ```youtube
 url: https://www.youtube.com/watch?v=MGqQuQEUXhk
@@ -108,7 +110,7 @@ A CEO spent **over a hundred million dollars** acquiring a company for its data,
 
 **The value of data is extremely hard to judge in advance.** Will student ID photos be weird? Overly exaggerated expressions? Too much smiling? He says he doesn't know either — "my own Stanford ID photo looks pretty odd."
 
-(**This figure is Ng's own recollection, and the company is unnamed.**)
+(**This figure is Ng's own recollection, and the company is unnamed; the number is garbled in the captions, where only "definitely more than tens of millions of dollars" is clear, so "over a hundred million" is an inference from context.**)
 
 ### What he actually does
 
@@ -249,10 +251,11 @@ Ng makes this analogy himself throughout, but a few threads are worth pulling ou
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims all matched the captions; "no slides" reworded neutrally and the acquisition amount flagged as unclear in the captions.
 
 ## References
 
-- [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk) — 2025/10/07, Andrew Ng. Source for the speed framing, the commensurability principle, the VAD cascade, and the drift and dashboard practice. **There are no slides for this lecture**
+- [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk) — 2025/10/07, Andrew Ng. Source for the speed framing, the commensurability principle, the VAD cascade, and the drift and dashboard practice.
 - [CS230 syllabus](https://cs230.stanford.edu/syllabus/) — lecture dates and the online-module mapping
 - [Context and memory: where agents actually fail](/posts/ai/2026-08-10-agent-context-memory-failure-en) — on-site post, the modern version of "more data/context isn't always better"
 - [Shipping is where the work starts: enterprise agent case studies](/posts/ai/2026-08-10-enterprise-agent-case-studies-en) — on-site post, the gap between test-set numbers and real usability

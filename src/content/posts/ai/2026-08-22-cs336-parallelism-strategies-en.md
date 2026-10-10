@@ -25,6 +25,8 @@ Lecture 7 builds parallelism from collectives. Lecture 8 asks how to compose it 
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 8 (Parallelism, Tatsu). The captions open with "last lecture Percy covered…underlying mechanics" and cover ZeRO/FSDP, tensor/pipeline/sequence/context/expert parallelism, activation checkpointing, pipeline bubbles, and 3D/4D combinations in large-model case studies. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=6-cXp-aOmdg
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
@@ -90,6 +92,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; video titles now use the original titles. One mismatch was found and corrected: the embedded video was Lecture 7, but this article covers Lecture 8, so it now embeds the Lecture 8 video.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

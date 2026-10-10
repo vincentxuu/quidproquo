@@ -31,6 +31,8 @@ Katanforoosh 說明了改名的理由：
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 10（長度 1:46:54 與文中「1 小時 47 分」相符；講者為 Kian，字幕中以第一人稱說明把課程「broadened the scope」）。逐項對過字幕，皆有對應：2000 億參數 checkpoint 退步案例與 MoE router、saliency 用 softmax 前分數、integrated gradients、occlusion（博美犬、阿富汗獵犬）、GAP 與 Grad-CAM、梯度上升（大麥町、鵝一整群、紅鶴）、dataset search 取前五、deconvolution 與 transposed convolution、翻轉 filter 與 switches、Zeiler & Fergus 與 Yosinski、兩層 transformer 與 induction head、Chinchilla 700 億對 GPT-3 1750 億、GPT-5 成本「數億美元」、n-gram 汙染偵測與 Llama 4、The Pile、非英語 token 12% 升到 19%、experience replay、「99% 的 Python 程式碼已在網路上」、Epoch AI。文中對 Epoch 數字與課堂不符的註記未在字幕比對（屬本站查證）。無需修改正文。
+
 ```youtube
 url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
 title: Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?
@@ -335,6 +337,7 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。主要說法與引述皆有字幕對應，無需修改正文。
 
 ## 參考資料
 

@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 8（Parallelism，講者 Tatsu）。字幕開場稱「last lecture Percy covered…underlying mechanics」，並涵蓋 ZeRO／FSDP、tensor／pipeline／sequence／context／expert parallel、activation checkpointing 與 pipeline bubble、各大模型的 3D／4D 組合案例。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=6-cXp-aOmdg
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
@@ -90,6 +92,7 @@ Parameter memory 在啟動前可算清楚；activation 隨 batch、sequence、hi
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，影片標題改用原標題。發現一處對調並已更正：原本嵌入的是 Lecture 7 的影片，本篇對應 Lecture 8，已換成 Lecture 8 的影片。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

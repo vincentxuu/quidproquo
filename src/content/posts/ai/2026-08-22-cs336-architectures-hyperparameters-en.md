@@ -25,6 +25,8 @@ The lecture is deliberately titled “Everything You Didn't Want to Know.” Rec
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Architectures). The captions open with "everything you didn't want to know about architectures and hyperparameters" and cover each section here: pre-norm vs post-norm, RMSNorm, bias, SwiGLU, RoPE, aspect ratio, vocabulary, dropout/weight decay, QK norm, z-loss, soft-capping, GQA and sliding window. The lecturer (Tatsu) matches the official schedule. Checked by keyword and passage sampling, not line by line; the article makes no other specific claims about the video, so no changes were needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=lVynu4bo1rY
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
@@ -93,6 +95,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and section concepts all appear in the captions; no body changes needed.
 
 ## References
 

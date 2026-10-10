@@ -25,6 +25,8 @@ Discovering that a model is too large, data too scarce, or the learning rate wro
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (Scaling Laws, Tatsu; the captions describe it as the first of two scaling-law lectures). The captions cover power laws/log-log plots, intrinsic dimension, Kaplan vs Chinchilla, IsoFLOPs, joint fits, LSTM vs Transformer scaling comparisons, critical batch size and MoE scaling. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
@@ -85,6 +87,7 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

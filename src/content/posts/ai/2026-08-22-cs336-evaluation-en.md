@@ -25,6 +25,8 @@ The course discusses evaluation before data because data pushes a model toward t
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 12 (Evaluation). The captions cover perplexity, exam-style benchmarks such as MMLU and GPQA, Chatbot Arena and LLM-as-judge, agent evaluations such as SWE-bench, Terminal-Bench and Kaggle with scaffolds, ARC, safety benchmarks, realism/validity and contamination. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=JpAxdTWQJxM
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
@@ -87,6 +89,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

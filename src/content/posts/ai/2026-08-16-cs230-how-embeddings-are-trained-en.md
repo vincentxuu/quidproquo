@@ -27,6 +27,8 @@ This is the densest lecture in the series. Katanforoosh is CEO of Workera and a 
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 2 (1:39:48, matching "1 hour 40 minutes"; in the captions Kian says he co-teaches with Andrew and gives about half of the in-person lectures). Checked item by item against the captions: the model as two files, YOLO, "the number one mistake is adding data but forgetting to adjust the labels", Norway/Sweden, 64x64x3, 412x412x3, the German friends and Palo Alto/New York subway, the Italian labelling experiment and "a thousand times", millions of samples in three hours, CC BY/MIT/Apache, the PhD student in Gates, the 128-dimensional vector with 0.4/0.5 thresholds, the 47:23:3 vote, Global Entry, K nearest neighbors, the phone-album centroid, the five next-token examples, masking 20 time steps, and ImageBind all appear. One note: the captions say only "contrastive learning" and never mention SimCLR, its 76.5%/85.8% numbers, or FaceNet's 99.63%; these come from the papers, and the text now says so.
+
 ```youtube
 url: https://www.youtube.com/watch?v=DNCn1BpCAUY
 title: Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
@@ -241,7 +243,7 @@ A photo of a dog rotated 90 degrees is still the same dog. The human brain uses 
 - Rotate, crop, translate, add noise — any deformed version pairs with the original
 - Or mask the left half and the right half of the same face and tell the network "these two should be almost the same vector"
 
-**No triplets needed.** This is contrastive learning, and the canonical work is [SimCLR](https://arxiv.org/abs/2002.05709) (Chen, Kornblith, Norouzi, Hinton, ICML 2020). The results make the case: train a linear classifier on top of SimCLR's representations and you get 76.5% ImageNet top-1, **matching a supervised ResNet-50**; fine-tune on just 1% of labels and you get 85.8% top-5.
+**No triplets needed.** This is contrastive learning (the captions use only this name; SimCLR and the paper figures below are site additions taken from the paper, not the video), and the canonical work is [SimCLR](https://arxiv.org/abs/2002.05709) (Chen, Kornblith, Norouzi, Hinton, ICML 2020). The results make the case: train a linear classifier on top of SimCLR's representations and you get 76.5% ImageNet top-1, **matching a supervised ResNet-50**; fine-tune on just 1% of labels and you get 85.8% top-5.
 
 > "**From FaceNet's supervised triplets in 2015 to self-supervised pairs — that's why modern models can train on 'billions of unlabeled images.'**"
 >
@@ -299,6 +301,7 @@ The synthetic-data pipeline (**the script knows the answer, so it can label auto
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims matched the captions; SimCLR and the paper figures are now marked as site additions taken from the papers, not the video.
 
 ## References
 

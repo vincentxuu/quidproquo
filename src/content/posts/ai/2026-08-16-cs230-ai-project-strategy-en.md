@@ -29,6 +29,8 @@ The lecture uses two examples: the first half is **trigger-word detection for a 
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (Andrew Ng; 1:15:18 matches "1 hour 15 minutes", and the captions open with "continue our discussion on AI project strategy"). Checked item by item against the captions, all appear: the Robert lamp, starting with a literature search and skimming, emailing paper authors (about 10 minutes, roughly 50% reply), video games having only about 20 car types, 100 training clips / 25 dev / 0 test, 97% accuracy equal to print zero, the 1:10 and 1:30 imbalance remarks, duplicating positives and lengthening the window, the "voice activity detector" trap, debugging rather than development, one problem a day and the 4-hour / 3-week training cycles, "twice as long", nasa.gov vs bobsbackyardastronomyblog.com, 10 to 100 queries, percentages not needing to sum to 100%, and "three, four hours" of error analysis. The captions never mention slides, so "no dedicated slides" cannot be confirmed from them but is not contradicted. No body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=s6JVGzABKho
 title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
@@ -268,6 +270,7 @@ As for the trigger-word half, one insight holds up perfectly today: **"you'll ge
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims and quotes matched the captions; no body changes needed.
 
 ## References
 

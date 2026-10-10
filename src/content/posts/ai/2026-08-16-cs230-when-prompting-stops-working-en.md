@@ -32,6 +32,8 @@ This post covers **[Lecture 1: Introduction to Deep Learning](https://www.youtub
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Introduction to Deep Learning, Andrew Ng; 1:00:17 matches "1 hour", and the captions open with the course overview and flipped classroom). Checked item by item against the captions: "usually only up to an hour and 20 minutes" of in-person time, Ian Goodfellow building the dorm-room GPU server, predictable scaling (the Baidu paper is garbled by ASR) and OpenAI's scaling laws, traditional algorithms plateauing, Claude Code/Gemini CLI/Codex/Cursor/Windsurf, 2 a.m. hyperparameter tuning and going home at 3 or 7 a.m., the nephew and the GPUs, the 10x speed gap, the database migration that wiped records, punch cards to keyboards and assembly language, the syllabus unchanged since 2002, Tommy Nelson and Midjourney, 50,000 faces, CS129/229/230, the five modules, and "move fast and be responsible" all appear. The word COBOL is garbled in the captions, so only the remark about looking up old articles is confirmed; the closing comparison of the 2024 and 2025 syllabi is the site's own research, not video content.
+
 ```youtube
 url: https://www.youtube.com/watch?v=_NLHFoVNlbg
 title: Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning
@@ -248,6 +250,7 @@ The direction is clear: **LLM and agent material grew from a footnote into core 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims and quotes matched the captions; the word COBOL is garbled in the captions; no body changes needed.
 
 ## References
 

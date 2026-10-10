@@ -19,9 +19,9 @@ draft: false
 
 > [The previous post](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en) ran the whole vertical axis of agents. This one is the only lecture in the series with no technical content at all.
 
-This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)** (2025/11/18, 1 hour 45 minutes). It's the **second most-watched** lecture in the series (437,000 views) and the only one **with an external guest who speaks for 80% of the time.**
+This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)** (2025/11/18, 1 hour 45 minutes). It is among the more-watched lectures in the series (about 458,000 views on the page on 2026-10-10, behind Lecture 1 at about 731,000 and Lecture 8 at about 511,000) and the only one **with an external guest who speaks for 80% of the time.**
 
-- First 20 minutes: **Andrew Ng**
+- Roughly the first 20-plus minutes (estimated from caption position; the captions have no timestamps): **Andrew Ng**
 - The rest: **Laurence Moroney** — ex-Microsoft, ex-Google AI Lead Advocate (the main force behind TensorFlow advocacy), now leading a team at **ARM**, author of 20-odd books
 
 **Time anchor**: **Gemini 3 launched** the morning of this class, and Ng says live, "it came out this morning, I haven't had a chance to play with it yet."
@@ -31,6 +31,8 @@ This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watc
 ## Course video sources
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (1:45:09, matching "1 hour 45 minutes"). The captions have Andrew Ng speaking first and then introducing Laurence Moroney (Ng's part is roughly the first quarter of the captions, Moroney the rest). Checked item by item against the captions, all appear: Gemini 3 released that morning, METR and "doubling every seven months", engineer:PM ratios of 4:1/7:1/8:1, the student assigned to the Java payment backend, the 300+ job spreadsheet and the 10x engineer, 996, baseball and writing books, the Irish-woman image test, technical debt with the mortgage analogy, macOS Swift UI, Replit and "so what", the bubble and Titanic, pets.com, today's 7B being as smart as yesterday's 50B, Alipay photo search, the ice hockey video, the Syrian certificate ($100,000 a year), the ice-rink nonprofit ($150,000 a year), the Welsh brain-cancer researcher, and failing Google twice with 20+ books. The speaker really does cite "McKinsey 85%" and "YC 80%"; the article already adds its own verification notes on both. Two corrections: (1) view count and rank: the page showed about 458,000 views on 2026-10-10, behind Lecture 1 (about 731,000) and Lecture 8 (about 511,000), so "second most-watched" was changed; (2) "first 20 minutes" has no timestamp support in the captions, so it now reads as roughly the first 20-plus minutes, estimated from caption position. Nothing else needed changing.
 
 ```youtube
 url: https://www.youtube.com/watch?v=AuZoDsNmG_s
@@ -70,7 +72,7 @@ He says the research that most changed his thinking is **METR** switching to a d
 
 ## The product management bottleneck
 
-This is the core argument of Ng's 20 minutes:
+This is the core argument of Ng's segment:
 
 > "As 'from a well-written spec to code' gets easier and easier, **the bottleneck increasingly becomes deciding what to build.**"
 
@@ -467,6 +469,7 @@ As for the big-AI / small-AI fork — it's the one forward-looking judgment in t
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims and quotes matched the captions; corrected the view-count ranking and the "first 20 minutes" timing claim.
 
 ## References
 

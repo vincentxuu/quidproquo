@@ -32,6 +32,8 @@ draft: false
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 1（Introduction to Deep Learning，Andrew Ng 主講，長度 1:00:17 與文中「1 小時」相符，開場字幕即為課程簡介與 flipped classroom）。逐項對過字幕：實體課「usually only up to an hour and 20 minutes」、宿舍組 GPU 的 Ian Goodfellow、scaling 可預測（字幕的百度論文為 ASR 亂碼）與 OpenAI scaling laws、傳統演算法 plateau、Claude Code／Gemini CLI／Codex／Cursor／Windsurf、凌晨 2 點調參與 3 點／7 點回家、姪子與 GPU、10x 差距、database migration 清空資料庫、打孔卡到鍵盤與組合語言、2002 年課綱、Tommy Nelson 與 Midjourney、五萬張人臉、CS129／229／230、五個模組、move fast and be responsible 皆有對應。COBOL 一詞字幕為亂碼，只能確認講者提到查過舊文章；延伸一節的 2024／2025 大綱比對屬本站研究，不是影片內容。
+
 ```youtube
 url: https://www.youtube.com/watch?v=_NLHFoVNlbg
 title: Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning
@@ -248,6 +250,7 @@ RAG、向量資料庫、**evals 與 error analysis**、guardrails、知識圖譜
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。主要說法與引述皆有字幕對應，COBOL 一詞字幕亂碼，無需修改正文。
 
 ## 參考資料
 

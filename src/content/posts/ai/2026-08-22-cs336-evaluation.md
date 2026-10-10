@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 12（Evaluation）。字幕涵蓋 perplexity、MMLU／GPQA 類考試型 benchmark、Chatbot Arena 與 LLM-as-judge、SWE-bench／Terminal-Bench／Kaggle 類 agent 評測與 scaffold、ARC、safety benchmark、realism／validity 與 contamination。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=JpAxdTWQJxM
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
@@ -87,6 +89,7 @@ Benchmark contamination 讓三者更難判斷。模型可能在 pretraining 看�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

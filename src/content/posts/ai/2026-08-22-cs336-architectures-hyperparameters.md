@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Architectures）。字幕開場即說明「everything you didn't want to know about architectures and hyperparameters」，並涵蓋本文各節的 pre-norm／post-norm、RMSNorm、bias、SwiGLU、RoPE、aspect ratio、vocabulary、dropout／weight decay、QK norm、z-loss、soft-capping、GQA 與 sliding window；講者為 Tatsu 與官方 schedule 一致。逐句未比對，文章沒有對影片下其他具體說法，無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=lVynu4bo1rY
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
@@ -93,6 +95,7 @@ Softmax 是數值風險集中處。Output logits 可用 z-loss 抑制整體偏�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與各節概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

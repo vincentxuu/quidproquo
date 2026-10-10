@@ -25,6 +25,8 @@ Single-GPU optimization ends here. When the model, optimizer state, or batch gro
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 7 (Parallelism, Percy). The captions cover all-reduce, reduce-scatter, all-gather, broadcast, NCCL, NVLink, InfiniBand, and data/tensor/pipeline parallelism. The earlier Lecture 7/8 swap fix is consistent with the Lecture 8 captions, which open with "last lecture Percy covered…mechanics". Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
@@ -83,6 +85,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; video titles now use the original titles. One mismatch was found and corrected: the embedded video was Lecture 8, but this article covers Lecture 7, so it now embeds the Lecture 7 video.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

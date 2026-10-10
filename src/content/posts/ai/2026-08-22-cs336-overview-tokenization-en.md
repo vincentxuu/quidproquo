@@ -25,6 +25,8 @@ The lecture does two things. First, it asks why anyone should build a language m
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Overview, Tokenization). The captions open with Percy introducing the teaching staff and cover the course motivation, the bitter lesson and efficiency, mechanics/mindset/intuitions, the history from BERT to API models, and byte-level BPE (256 byte values, merges). Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=JuoVZkPBiKk
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
@@ -99,6 +101,7 @@ This lecture has a Spring 2026 schedule entry, a complete executable lecture, an
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

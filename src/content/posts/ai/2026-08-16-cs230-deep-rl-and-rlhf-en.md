@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading Stanford CS230"
   order: 5
-tldr: "The third reason Go can't be learned with supervision is the interesting one: the ground truth itself is ill-defined — the strongest human doesn't play their best moves every day, and even their best move isn't optimal. The last 20 minutes map RLHF fully back onto RL: the agent is the model being fine-tuned, the action is the next token, an episode is one full generation, and the reward is extremely sparse."
+tldr: "The third reason Go can't be learned with supervision is the interesting one: the ground truth itself is ill-defined — the strongest human doesn't play their best moves every day, and even their best move isn't optimal. The last 15 minutes or so map RLHF fully back onto RL: the agent is the model being fine-tuned, the action is the next token, an episode is one full generation, and the reward is extremely sparse."
 description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 5: why Go can't be learned with supervision, Q-learning worked by hand, how deep Q-learning manufactures labels from nothing, experience replay and ε-greedy, and mapping SFT, reward models and RLHF back onto every RL term."
 draft: false
 ---
@@ -23,11 +23,13 @@ This post covers **[Lecture 5: Deep Reinforcement Learning](https://www.youtube.
 
 This is a **substituted lecture**. He says up front that the week was supposed to cover network interpretability and LLM visualization, but the students hadn't reached attention maps and CNNs yet, so teaching it in week five would be too far ahead — interpretability moved later (it became Lecture 10).
 
-The structure is two-thirds deriving Q-learning from scratch, then 20 minutes on **RLHF** — and that last part is the most valuable piece here for anyone building LLM applications.
+The structure is roughly the first 80% deriving Q-learning and DQN from scratch, then about 15 minutes on **RLHF** (YouTube's auto chapters start it around 1:30:24) — and that last part is the most valuable piece here for anyone building LLM applications.
 
 ## Course video sources
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match; the second is the AlphaGo documentary related to this lecture (not a course recording).
+
+Content check: verified against the video transcript (2026-10-10): Two videos: (1) 4E27qlfYw0A is Lecture 5 (Deep Reinforcement Learning, Kian; 1:45:01 matches "1 hour 45 minutes", and the captions open with the swap that moved the interpretability lecture later); its transcript was read. (2) WXuK6gekU1Y is DeepMind's official upload of the documentary "AlphaGo - The Movie" (1:30:28, not a course recording); its transcript was read to confirm it is that film, and consists of narration and interviews, not lecture content. For the lecture, checked item by item against the captions, all appear: the three objections to supervised Go, teach by example vs experience, advertising, fog of war, the recycling Q table with gamma = 0.9, the Bellman equation, Breakout preprocessing (grayscale, four frames) and "park the bus", terminal states, experience replay and prioritized sweeping, epsilon = 5%, the bike ride across campus, sumo, the Netflix AlphaGo documentary, PPO, InstructGPT's 13,000 pairs, reward models, sparse rewards, and Karpathy's video "from 4 days ago" (the lecturer did not play it, only said he would post it). The Seaquest story is "I think it was CQS, I forgot which one" in the captions, consistent with the article. One fix: "the last 20 minutes on RLHF" does not match YouTube's auto chapters (RLHF Introduction starts around 1:30:24 of 1:45:01, about 15 minutes), so it now says roughly the first 80% is Q-learning/DQN and the last 15 minutes or so is RLHF.
 
 ```youtube
 url: https://www.youtube.com/watch?v=4E27qlfYw0A
@@ -340,6 +342,7 @@ And the practical significance of the RLHF mapping table: **when you're debuggin
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Read both video transcripts; lecture claims matched the captions; corrected the RLHF segment length (about 15 minutes, not 20).
 
 ## References
 

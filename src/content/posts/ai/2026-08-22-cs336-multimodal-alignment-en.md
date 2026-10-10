@@ -25,6 +25,8 @@ Transformers consume tokens. Text needs tokenization, and images or video likewi
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 17 (Alignment: Multimodality; Percy opens by saying he had planned to cover RL but chose multimodality instead). The captions cover CLIP (contrastive), ViT/patches, LLaVA (projector, frozen components), any-res tiling, Qwen-VL (dynamic resolution, mRoPE, DeepStack), Chameleon, VQ discrete tokens and diffusion. The captions do not use the word SigLIP; the article presents it as a CLIP follow-up without saying the video covers it. Not checked line by line; no body changes needed.
+
 ```youtube
 url: https://www.youtube.com/watch?v=26FtD08ZpOU
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality
@@ -81,6 +83,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; SigLIP is not named in the captions and the article does not claim it is.
 
 ## References
 

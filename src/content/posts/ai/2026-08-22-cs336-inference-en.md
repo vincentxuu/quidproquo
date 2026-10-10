@@ -25,6 +25,8 @@ Training places a full sequence inside matrix multiplications. Autoregressive in
 
 The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 10 (Inference; it opens by following on from Tatsu's scaling-laws lecture). The captions cover TTFT, prefill/decode, KV-cache reduction (GQA, MLA, cross-layer), quantization (including GPTQ and activation-aware methods), speculative decoding, continuous batching and paging of the KV cache by analogy with operating systems. Two items are not in the captions: Medusa and EAGLE (the lecturer says there is a large follow-up literature and skips it), and the names PagedAttention/vLLM (the lecturer only says systems people reused operating-system paging). Both sentences now mark them as site additions. The rest was not compared line by line.
+
 ```youtube
 url: https://www.youtube.com/watch?v=EfM546A79aM
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference
@@ -67,7 +69,7 @@ Pruning, distillation, and new architectures also reduce cost, but they act diff
 
 A smaller draft model proposes several tokens, and the target model evaluates them in parallel. Acceptance and a residual distribution preserve exact sampling from the target distribution. The more accurate the draft, the more tokens one target pass accepts.
 
-This does not shrink a target pass. It combines several memory-bound token steps into one. Benefit depends on draft cost, acceptance rate, batch, and target hardware. Medusa and EAGLE modify how drafts are produced.
+This does not shrink a target pass. It combines several memory-bound token steps into one. Benefit depends on draft cost, acceptance rate, batch, and target hardware. The lecturer notes there is a large literature improving on speculative decoding and skips it; Medusa and EAGLE, which modify how drafts are produced, are site additions not covered in the video.
 
 ## Continuous batching and PagedAttention manage dynamic requests
 
@@ -75,7 +77,7 @@ Static batching waits until all sequences finish, leaving short requests behind 
 
 Preallocating one maximum contiguous KV-cache region per request causes internal and external fragmentation. PagedAttention borrows operating-system paging, splitting cache into non-contiguous blocks and mapping logical sequence positions through a page table. It also enables shared system-prompt prefixes or multiple samples from one prompt.
 
-This is the core idea behind vLLM's serving baseline: it changes dynamic memory allocation without changing the model's answers.
+The video explains paging only by analogy (operating-systems people already solved this fragmentation problem) and does not name PagedAttention or vLLM; those names are site additions. This is the core idea behind vLLM's serving baseline: it changes dynamic memory allocation without changing the model's answers.
 
 ## A complete inference benchmark
 
@@ -91,6 +93,7 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Medusa/EAGLE and the PagedAttention/vLLM names are not mentioned in the video; they are now marked as site additions.
 
 ## References
 

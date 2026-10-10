@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（Scaling Laws，講者 Tatsu，字幕稱「two lectures on scaling law」的第一講）。字幕涵蓋 power law／log-log、intrinsic dimension、Kaplan 與 Chinchilla、IsoFLOPs、joint fit、LSTM 對 Transformer 的 scaling 比較、critical batch size 與 MoE 的 scaling。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
@@ -85,6 +87,7 @@ Chinchilla 問的是固定訓練 compute 下取得最低 loss；產品生命週�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

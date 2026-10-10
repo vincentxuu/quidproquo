@@ -33,6 +33,8 @@ draft: false
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 4（長度 1:47:17，與文中「1 小時 47 分」相符）。講者以第一人稱談 Andrew Ng 的前博士生（Abbeel）與 Stanford Gates 大樓，語氣與 Lecture 2 的 Kian 一致；姓名字幕未直接出現，講者署名依 YouTube 說明欄的講師名單。逐項對過字幕，大部分皆有對應：開場「30 到 45 分鐘講 adversarial robustness」、鬣蜥（iguana）最佳化與「比宇宙原子還多」、library→prison／washer→doormat、YOLO v2 的 adversarial patch（可印色域、顏色平滑兩項 loss）、每分鐘最多 ping 三次、非線性之說被推翻、五維 logistic regression 的 0.08、FGSM、Anthropic 的 red teaming 與 constitutional AI、backdoor、祖母攻擊、non-saturating 與 mode collapse、DCGAN 的向量運算與 Midjourney 仍用 GAN、flamingo／漢堡的多樣性對照、noise schedule、Sora 的 cube 當 token、「幾分鐘內」。全文引述抽樣核對，未發現需修正之處；文中 0.83 這個結果字幕沒有辨識出（其餘算式一致）。
+
 ```youtube
 url: https://www.youtube.com/watch?v=aWlRtOlacYM
 title: Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models
@@ -393,6 +395,7 @@ x_0 --(encoder)--> z_0 --加噪--> z_t --(diffusion 去噪)--> z_0 --(decoder)--
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。抽樣核對全文主要說法與引述，皆有字幕對應，無需修改正文。
 
 ## 參考資料
 

@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "Stanford CS230 導讀"
   order: 5
-tldr: "圍棋不能用監督式學習的第三個理由最有意思：ground truth 本身就沒有良好定義——最強的人類不是每天下出最好的棋，而他最好的棋也不是最優解。這一講的最後 20 分鐘把 RLHF 完整放回 RL 的框架：agent 是被微調的模型、action 是下一個 token、一個 episode 是一次完整生成，而且獎勵極度稀疏。"
+tldr: "圍棋不能用監督式學習的第三個理由最有意思：ground truth 本身就沒有良好定義——最強的人類不是每天下出最好的棋，而他最好的棋也不是最優解。這一講的最後約 15 分鐘把 RLHF 完整放回 RL 的框架：agent 是被微調的模型、action 是下一個 token、一個 episode 是一次完整生成，而且獎勵極度稀疏。"
 description: "Stanford CS230（2025 秋季）Lecture 5 完整導讀：從圍棋為什麼不能用監督式學習講起，Q-learning 手算、deep Q-learning 怎麼無中生有造標籤、experience replay 與 ε-greedy，最後把 SFT、獎勵模型與 RLHF 對回 RL 的每一個詞。"
 draft: false
 ---
@@ -23,11 +23,13 @@ draft: false
 
 這是**臨時換掉的一講**。他開場就說：原本這週要講神經網路可解釋性與 LLM 視覺化，但學生還沒學到 attention map 和 CNN，第五週講會太超前，所以把可解釋性挪到後面（就是 Lecture 10）。
 
-結構是前 2/3 從零推導 Q-learning，最後 20 分鐘講 **RLHF**——後面那段是這一講對做 LLM 應用的人最有價值的部分。
+結構是前面約八成從零推導 Q-learning 與 DQN，最後約 15 分鐘（YouTube 自動章節標在約 1:30:24 起）講 **RLHF**——後面那段是這一講對做 LLM 應用的人最有價值的部分。
 
 ## 課程影片來源
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符；第二支為與本講相關的 AlphaGo 紀錄片（非課程錄影）。
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片：（1）4E27qlfYw0A 是 Lecture 5（Deep Reinforcement Learning，Kian 主講，長度 1:45:01 與文中「1 小時 45 分」相符，開場字幕說明臨時把可解釋性講次挪後），已讀字幕；（2）WXuK6gekU1Y 是 DeepMind 官方上傳的《AlphaGo – The Movie》紀錄片（1:30:28，非課程錄影），已讀字幕確認確是該紀錄片，字幕為旁白與訪談，不含課堂內容。講座部分逐項對過字幕，皆有對應：圍棋三個反駁、teach by example／experience、廣告、fog of war、回收的 Q table 與 γ=0.9、Bellman 方程、Breakout 前處理（灰階、四格）與 park the bus、終止狀態、experience replay 與 prioritized sweeping、ε=5%、騎腳踏車穿越校園、相撲、Netflix 的 AlphaGo 紀錄片、PPO、13,000 筆 InstructGPT、獎勵模型、稀疏獎勵、Karpathy「四天前」的影片（講者未播放，只說之後上傳）。Seaquest 一事字幕為「I think it was CQS, I forgot which one」，與文中說法一致。一處修正：「最後 20 分鐘講 RLHF」不符 YouTube 自動章節（RLHF Introduction 約 1:30:24 起，全長 1:45:01，約 15 分鐘），已改為約八成 Q-learning／DQN、最後約 15 分鐘 RLHF（含摘要）。
 
 ```youtube
 url: https://www.youtube.com/watch?v=4E27qlfYw0A
@@ -339,6 +341,7 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片字幕皆已讀；講座主要說法皆有對應，更正 RLHF 段落長度（約 15 分鐘，非 20 分鐘）。
 
 ## 參考資料
 

@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 6（YouTube 標題為 Kernels, Triton, XLA；講者 Percy，開場接續 Tatsu 的 GPU 講次）。字幕涵蓋 Triton、PTX、GeLU 的 fusion、softmax、matmul、occupancy、thread coarsening、shared-memory bank conflict 與 benchmark 同步／warm-up。字幕沒有 XLA 相關內容的跡象不影響本文（本文未提 XLA）。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=xnDHaNUvHBg
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
@@ -82,6 +84,7 @@ Triton 降低了 CUDA 的語法負擔，沒有移除硬體限制。第六講真�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

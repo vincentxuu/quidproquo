@@ -25,6 +25,8 @@ draft: false
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 7（Parallelism，講者 Percy）。字幕涵蓋 all-reduce、reduce-scatter、all-gather、broadcast、NCCL、NVLink、InfiniBand、data／tensor／pipeline parallel。此前已更正的 Lecture 7／8 對調，與字幕開場（Lecture 8 稱「last lecture Percy covered…mechanics」）相符。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
@@ -83,6 +85,7 @@ Data parallel 沿 batch 切、tensor parallel 沿 width 切、pipeline parallel 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，影片標題改用原標題。發現一處對調並已更正：原本嵌入的是 Lecture 8 的影片，本篇對應 Lecture 7，已換成 Lecture 7 的影片。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

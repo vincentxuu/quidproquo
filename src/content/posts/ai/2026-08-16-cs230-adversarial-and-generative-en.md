@@ -33,6 +33,8 @@ The lecture packs in two semi-independent topics: the first 30–45 minutes are 
 
 The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
 
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (1:47:17, matching "1 hour 47 minutes" in the article). The lecturer speaks in the first person about "a former PhD student of Andrew Ng" (Abbeel) and the Gates building, consistent with Kian in Lecture 2; the name itself is not spoken in the captions, so the attribution rests on the instructor list in the YouTube description. Checked item by item against the captions, nearly everything matches: the opening plan of "30 to 45 minutes" on adversarial robustness, the iguana optimization and "more than the atoms in the universe", library-to-prison and washer-to-doormat, the YOLO v2 adversarial patch (printable-colour and smoothness loss terms), at most three pings per minute, the non-linearity explanation being wrong, the 0.08 output of the five-dimensional logistic regression, FGSM, Anthropic red teaming and constitutional AI, backdoors, the grandmother attack, non-saturating loss and mode collapse, DCGAN vector arithmetic and Midjourney still using GANs, the flamingo and burger diversity comparison, the noise schedule, Sora's "cube" as a token, and "within minutes". Quotes were sampled and nothing needed fixing; the 0.83 result is not recognisable in the captions (the rest of the arithmetic matches).
+
 ```youtube
 url: https://www.youtube.com/watch?v=aWlRtOlacYM
 title: Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models
@@ -393,6 +395,7 @@ For people building LLM applications, the directly portable piece is **indirect 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Sampled the main claims and quotes against the captions; all matched, no body changes needed.
 
 ## References
 

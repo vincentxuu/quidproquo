@@ -25,6 +25,8 @@ Transformer 接收 token。文字需要 tokenizer，影像與影片也必須轉�
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 17（Alignment: Multimodality，講者 Percy 開場說原訂講 RL、改講多模態）。字幕涵蓋 CLIP（contrastive）、ViT／patch、LLaVA（projector、freeze）、any-res 切 tile、Qwen-VL（動態解析度、mRoPE、DeepStack）、Chameleon、VQ 離散 token 與 diffusion。字幕未見 SigLIP 一詞（正文把 SigLIP 當 CLIP 後續做法介紹，未宣稱影片講過），逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=26FtD08ZpOU
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality
@@ -81,6 +83,7 @@ Image tokens 通常比 text tokens entropy 高，也可能造成 norm growth 與
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕；SigLIP 字幕未點名，正文未宣稱影片講過。
 
 ## 參考資料
 

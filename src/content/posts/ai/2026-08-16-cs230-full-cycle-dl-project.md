@@ -19,11 +19,13 @@ draft: false
 
 > [上一篇](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)講了 embedding 怎麼被訓練出來。這一篇拉高一層，看整個專案。
 
-本篇對應 **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)**（2025/10/07，Andrew Ng 主講，1 小時 07 分）。這一講**沒有投影片**，全程白板加問答，Ng 用同一個案例（人臉辨識開門系統）走完整個生命週期，每個決策點都先丟給學生投票再給答案。
+本篇對應 **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)**（2025/10/07，Andrew Ng 主講，1 小時 07 分）。這一講以現場問答為主（字幕中 Ng 提到自己「bad drawing」，應有現場畫圖；有無投影片字幕無法判斷），Ng 用同一個案例（人臉辨識開門系統）走完整個生命週期，每個決策點都先丟給學生投票再給答案。
 
 ## 課程影片來源
 
 下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Andrew Ng 主講，字幕開場即為「full cycle of a deep learning project」，長度 1:07:05 與文中「1 小時 07 分」相符）。逐項對過字幕：兩天期限與「週二 11:52」、至少 5 萬張人臉、Siamese network、cafeteria 取樣、VAD 兩個選項（變動像素 epsilon、約五行 Python）、挑清晰畫格、Texas 紅綠燈、手機被其團隊軟體檢查、鋼琴與福爾摩斯閣樓、Claude／Gemini 寫程式、重新驗證率儀表板，皆有對應。兩處修正：（1）「沒有投影片、全程白板」字幕無法判斷，只看得到講者說自己「bad drawing」，已改為如實描述；（2）併購資料公司的金額，字幕該處辨識成亂碼（只清楚聽到「肯定超過數千萬美元」），已註明。
 
 ```youtube
 url: https://www.youtube.com/watch?v=MGqQuQEUXhk
@@ -108,7 +110,7 @@ Ng 說他做過其中一套商用系統。實際部署過的一個場景是：**
 
 **資料的價值極難事先判斷。** 學生證照片會不會很怪？表情太浮誇？笑太多？他說他也不知道——「我自己的 Stanford ID 照片看起來就很怪。」
 
-（**這個金額是 Ng 口述、未指名的估計。**）
+（**這個金額是 Ng 口述、未指名的估計；字幕該處數字辨識不清，只清楚聽到「肯定超過數千萬美元」，「超過一億美元」是依上下文的推測。**）
 
 ### 他自己常用的做法
 
@@ -249,10 +251,11 @@ Ng 自己一路在做這個類比，但有幾條值得挑明：
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CS230 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。字幕核對全文主要說法皆有對應；「無投影片」改為如實描述，併購金額註明字幕不清。
 
 ## 參考資料
 
-- [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk) — 2025/10/07，Andrew Ng。速度框架、相稱原則、VAD 串接、資料漂移與儀表板實務的出處。**這一講沒有投影片**
+- [Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk) — 2025/10/07，Andrew Ng。速度框架、相稱原則、VAD 串接、資料漂移與儀表板實務的出處。
 - [CS230 syllabus](https://cs230.stanford.edu/syllabus/) — 講次時間與線上模組對照
 - [context 與記憶：agent 失敗的真正位置](/posts/ai/2026-08-10-agent-context-memory-failure) — 站上文章，「更多資料/context 不一定更好」的當代版本
 - [上線才是工作的開始：企業 agent 案例橫向讀](/posts/ai/2026-08-10-enterprise-agent-case-studies) — 站上文章，測試集分數與實際可用性的落差

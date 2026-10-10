@@ -25,6 +25,8 @@ Lecture 9 說明 scaling law 的原理；這一講檢查公開團隊實際怎麼
 
 下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
 
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 11（Scaling Laws 第二講，講者 Tatsu）。字幕涵蓋 MiniCPM、DeepSeek、Qwen、Llama 的 scaling recipe、WSD 與 cosine schedule、learning rate／batch size grid、μP、IsoFLOPs。逐句未比對，正文無需修改。
+
 ```youtube
 url: https://www.youtube.com/watch?v=vTfEyOyzV9E
 title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
@@ -81,6 +83,7 @@ Maximum update parameterization（μP）會調整 initialization 與 layer-speci
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 
