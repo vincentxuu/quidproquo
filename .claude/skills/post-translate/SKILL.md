@@ -7,6 +7,12 @@ description: "Translate an existing zh-TW post under a category directory in src
 
 把既有的 zh-TW 文章做出對應的英文版，存到同一個 `src/content/posts/<category>/`，靠 `lang: en` 與英文 slug 區分，並建立雙向連結。
 
+## 模型家族翻譯（必讀）
+
+翻譯「AI 模型家族」系列先讀 `../post/references/model-family-contract.md`。家族主篇保留七個語意節點，使用規格中的英文 H2；總覽／跨家族比較保持其任務結構。英文 `series.name` 必須是已登錄的 `AI Model Families`，不能沿用中文名；order 不動。
+
+模型矩陣、model ID、context、價格、benchmark、限制、來源與選型結論逐項對照，不只數標題。中文已有版本更新而英文仍是舊版時，把差異列成表；受影響的新版本與定價回原有官方來源核對後同步，查證範圍另記，不宣稱整篇已重驗。翻譯不增加 checked-at，保留原始 date 與舊核對紀錄。glossary 選填，不能用新增術語補猜架構。執行 `node .agents/skills/post/scripts/check-model-family-format.mjs <中英檔案...>` 再跑既有品質閘門。
+
 ## 路由規則
 
 quidproquo 的雙語靠兩件事：
@@ -60,7 +66,7 @@ cp src/content/posts/<category>/YYYY-MM-DD-<zh-slug>.md \
 | `tags` | 維持原 tag（tag 是 ID，不翻） |
 | `date` | 沿用原文發文日（讀者預期是同一篇的英譯） |
 | `category` / `type` | 不動 |
-| `series` / `additionalSeries` | `order` 不動。`name` 照抄中文原名，或改用 `src/utils/series.ts` 的 `SERIES_DEFINITIONS` 裡該系列登錄的英文名；**不要自己翻一個新的英文名**，對不上登錄表的名稱會被當成另一個系列，英文系列頁多出一張卡、上下篇也斷掉 |
+| `series` / `additionalSeries` | `order` 不動。模型家族依專用規格必用英文名；其他系列 `name` 照抄中文原名，或改用 `src/utils/series.ts` 的 `SERIES_DEFINITIONS` 裡該系列登錄的英文名；**不要自己翻一個新的英文名**，對不上登錄表的名稱會被當成另一個系列，英文系列頁多出一張卡、上下篇也斷掉 |
 
 ### 4. 翻譯內容
 
@@ -108,6 +114,7 @@ en 版開頭加：
 ### 7. 驗證
 
 ```bash
+pnpm verify
 pnpm check:references
 pnpm lint
 pnpm astro check

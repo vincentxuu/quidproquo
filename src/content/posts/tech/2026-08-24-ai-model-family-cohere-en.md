@@ -31,29 +31,17 @@ In 2019, Transformer co-author Aidan Gomez founded Cohere in Toronto. While most
 
 This is the eighth deep dive in the [AI Model Family](/en/series/ai) series, tracing Cohere from language-model startup to enterprise RAG suite. For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-## Family Timeline
+## Family positioning and model matrix
 
-| Version | Release | Key fact |
-|---|---|---|
-| Cohere founded | 2019 | Toronto, by Aidan Gomez (Transformer co-author) with Nick Frosst and Ivan Zhang |
-| Command (original) | 2022–2023 | Early generation models at $1.00/$2.00, establishing the API foundation |
-| Command R | 2024-03-11 | First RAG-specialized model, 128K context, $0.50/$1.50 |
-| Command R+ | 2024-04 | Flagship 104B params, 128K context, $3.00/$15.00, complex RAG and multi-step tool use |
-| Command R+ 08-2024 | 2024-08 | Major refresh, +50% throughput, −25% latency, repriced to $2.50/$10.00 |
-| Aya 101 | 2024-02 | 13B, 101 languages, Apache 2.0 |
-| Aya 23 | 2024-05 | 8B/35B, 23 languages, CC BY-NC 4.0 |
-| Aya Expanse | 2024-12-05 | 8B (8K) / 32B (128K), 23 languages, CC BY-NC 4.0, API $0.50/$1.50 |
-| Command A | 2025-03-13 | 111B, 256K context, runs on two GPUs, 150% higher throughput than R+ 08-2024 |
-| Embed v4.0 | 2025 | Mixed image-text (text + images + PDFs), 128K, variable dims 256–1536 |
-| Rerank v3.5 / v4 | 2025 | v3.5 single multilingual 4K; v4 Fast/Pro 32K with semi-structured JSON/YAML |
-| North / Compass | 2025 | Enterprise workspace North + intelligent search Compass |
-| North Mini Code | 2025 | First agentic coding MoE: 30B total / 3B active, 256K context, Apache 2.0 |
-| Transcribe | 2025 | Speech recognition, including Arabic fine-tuned variant |
+| Model / line | Positioning | Key difference | Access |
+|---|---|---|---|
+| Command A | Enterprise RAG generation | Cited answers and tool use | API / private deployment |
+| Embed v4 / Rerank v4 | RAG retrieval and reranking | Vectors and search units have separate billing | API / deployment options below |
+| Aya 101 / Aya 23 / Expanse | Multilingual research | Coverage and license vary by generation | Apache 2.0 / CC BY-NC 4.0 by version |
 
-Six years, four generational leaps. Cohere's rhythm is not "a bigger model every quarter" but "each pillar evolves independently, converging on the North platform."
 
-## Four Pillars: Why Cohere Is Not Just an LLM Company
 
+### Four Pillars: Why Cohere Is Not Just an LLM Company
 Most families have one main line (Qwen bets on full size coverage, DeepSeek on MoE efficiency, Claude on agents). Cohere runs four in parallel:
 
 **Command (generation)**: Chat, RAG grounded generation, multi-step tool use. From R to R+ to A, every generation doubled down on "how to do RAG with less compute" — Command A matches larger rivals' quality at 111B and needs only two A100/H100s.
@@ -66,59 +54,8 @@ Most families have one main line (Qwen bets on full size coverage, DeepSeek on M
 
 The combination is Cohere's only moat: others make you assemble OpenAI + BGE + Jina + NLLB yourself; Cohere gives you the full stack from one vendor, one bill, one private deployment.
 
-## Architecture: Why "RAG-Native"
 
-### Grounded generation with citations
-
-Command R/R+/A are trained from the start for "given documents, produce a cited answer." The model annotates where information came from rather than improvising. For enterprise knowledge-base QA — legal, support, finance — answers without sources are unacceptable.
-
-### Multi-step tool use
-
-Since Command R+, the models support sequential multi-step tool use within a single response cycle, using prior tool outputs to decide the next step. This is the foundation for agents, and Cohere made it R+'s headline feature in 2024 rather than a late add-on. Command A adds emphasis on "avoiding unnecessary tool calls" — in practice, calling tools recklessly is more expensive than not calling them.
-
-### Efficiency-first design
-
-Command A's pitch is not parameter count but efficiency: 111B params, 256K context, two GPUs, 150% higher throughput than R+ 08-2024. Cohere's official line is "on par or better than GPT-4o and DeepSeek-V3 across agentic enterprise tasks, with significantly greater efficiency" ([Command A launch post](https://cohere.com/blog/command-a)). For enterprises that need private deployment, "the flagship runs on two cards" matters more than "2% higher on a benchmark."
-
-## Embed v4 and Rerank v4: How to Choose
-
-### Embed: From Dual Track to Unified
-
-| Item | Embed v4.0 | Embed v3.0 (full) | Embed v3.0 (light) |
-|---|---|---|---|
-| Modality | Text + images + mixed PDFs | Text | Text |
-| Dimensions | 256 / 512 / 1024 / 1536 (default 1536) | 1024 | 384 |
-| Context | 128K tokens | 512 tokens | 512 tokens |
-| Languages | Single multilingual (100+) | English / multilingual split | English / multilingual split |
-| Distance | Cosine / Dot / Euclidean | Cosine | Cosine |
-| Quantization | float / int8 / uint8 / binary | float | float |
-
-Two key upgrades in v4.0: **multimodal input** (embed images and PDFs directly without converting to text first) and **variable dimensions** (pick 256 dims to save storage or 1536 dims to preserve quality). The old 512-token context was a hard ceiling for long documents; v4.0 at 128K can embed an entire document directly.
-
-Pricing: no public per-token price for Embed — enterprise negotiation; [Model Vault](https://cohere.com/pricing) dedicated instances are Small $4/hr ($2,500/mo), Medium $5/hr ($3,250/mo).
-
-### Rerank: From 4K to 32K
-
-| Item | Rerank v4 Pro / Fast | Rerank v3.5 | Rerank v3.0 |
-|---|---|---|---|
-| Languages | Single multilingual | Single multilingual | English / multilingual split |
-| Context | 32K | 4K | 4K |
-| Semi-structured | JSON/YAML/tables supported | — | — |
-| Billing | Per search unit (1 query + 100 docs) | Same | Same |
-| Long docs | Auto-chunked (>510 tokens) | Same | Same |
-
-The core differentiator in v4 is **semi-structured data**: enterprise documents mix tables, JSON, and YAML, and v4 Pro/Fast can score such content directly without converting to plain text. Bumping context from 4K to 32K allows reranking much longer documents in one pass.
-
-Model Vault pricing: Rerank 3.5 and Rerank 4 Fast Medium both $5/hr ($3,250/mo), Rerank 4 Pro Large $10/hr ($6,500/mo).
-
-### One-Line Selector
-
-- **New projects → v4**: Embed v4.0 + Rerank v4 Pro is the current golden pair, covering multimodal and 32K reranking.
-- **Cost-sensitive**: Rerank 4 Fast and Pro cost the same at Medium ($5/hr) — pick Pro; for Embed use 512 dims instead of 1536 to halve storage and latency.
-- **Already on v3**: v3.0's English/multilingual split was unified in v3.5/v4 — upgrading simplifies integration.
-
-## Aya: From 101 Languages to 23
-
+### Aya: From 101 Languages to 23
 | Version | Params | Languages | Context | License | API pricing |
 |---|---|---|---|---|---|
 | Aya 101 | 13B (mT5-xxl) | 101 | — | Apache 2.0 | — (weight download) |
@@ -130,8 +67,8 @@ Aya's evolution shows convergence: from broad 101-language coverage to deeper qu
 
 The 23-language list: Arabic, Chinese (simp/trad), Czech, Dutch, English, French, German, Greek, Hebrew, Hindi, Indonesian, Italian, Japanese, Korean, Persian, Polish, Portuguese, Romanian, Russian, Spanish, Turkish, Ukrainian, Vietnamese — identical to Command A's 23.
 
-## North, Compass, and the Extended Family
 
+### North, Compass, and the Extended Family
 Beyond models, Cohere layers two platforms:
 
 **[North](https://cohere.com/north)**: Enterprise AI workspace bundling Command, Embed, Rerank, document connectors, and agent workflows. Think "ChatGPT + RAG + automation inside the enterprise," emphasizing private, secure integration with existing systems. **[Compass](https://cohere.com/compass)**: Intelligent search and discovery, focused on document discovery and insight surfacing.
@@ -157,10 +94,88 @@ Two observations:
 
 **Platformization cuts both ways.** North packages the four pillars into a one-stop solution — a plus for enterprises already on Cohere; but for teams that only want Embed or Rerank, North's presence can raise "am I being locked in?" concerns. In practice, Embed/Rerank/Command are all usable standalone via API without going through North.
 
-## Pricing and Deployment
+## Family evolution
+
+### Family Timeline
+| Version | Release | Key fact |
+|---|---|---|
+| Cohere founded | 2019 | Toronto, by Aidan Gomez (Transformer co-author) with Nick Frosst and Ivan Zhang |
+| Command (original) | 2022–2023 | Early generation models at $1.00/$2.00, establishing the API foundation |
+| Command R | 2024-03-11 | First RAG-specialized model, 128K context, $0.50/$1.50 |
+| Command R+ | 2024-04 | Flagship 104B params, 128K context, $3.00/$15.00, complex RAG and multi-step tool use |
+| Command R+ 08-2024 | 2024-08 | Major refresh, +50% throughput, −25% latency, repriced to $2.50/$10.00 |
+| Aya 101 | 2024-02 | 13B, 101 languages, Apache 2.0 |
+| Aya 23 | 2024-05 | 8B/35B, 23 languages, CC BY-NC 4.0 |
+| Aya Expanse | 2024-12-05 | 8B (8K) / 32B (128K), 23 languages, CC BY-NC 4.0, API $0.50/$1.50 |
+| Command A | 2025-03-13 | 111B, 256K context, runs on two GPUs, 150% higher throughput than R+ 08-2024 |
+| Embed v4.0 | 2025 | Mixed image-text (text + images + PDFs), 128K, variable dims 256–1536 |
+| Rerank v3.5 / v4 | 2025 | v3.5 single multilingual 4K; v4 Fast/Pro 32K with semi-structured JSON/YAML |
+| North / Compass | 2025 | Enterprise workspace North + intelligent search Compass |
+| North Mini Code | 2025 | First agentic coding MoE: 30B total / 3B active, 256K context, Apache 2.0 |
+| Transcribe | 2025 | Speech recognition, including Arabic fine-tuned variant |
+
+Six years, four generational leaps. Cohere's rhythm is not "a bigger model every quarter" but "each pillar evolves independently, converging on the North platform."
+
+## Architecture and training trade-offs
+
+### Architecture: Why "RAG-Native"
+#### Grounded generation with citations
+
+Command R/R+/A are trained from the start for "given documents, produce a cited answer." The model annotates where information came from rather than improvising. For enterprise knowledge-base QA — legal, support, finance — answers without sources are unacceptable.
+
+#### Multi-step tool use
+
+Since Command R+, the models support sequential multi-step tool use within a single response cycle, using prior tool outputs to decide the next step. This is the foundation for agents, and Cohere made it R+'s headline feature in 2024 rather than a late add-on. Command A adds emphasis on "avoiding unnecessary tool calls" — in practice, calling tools recklessly is more expensive than not calling them.
+
+#### Efficiency-first design
+
+Command A's pitch is not parameter count but efficiency: 111B params, 256K context, two GPUs, 150% higher throughput than R+ 08-2024. Cohere's official line is "on par or better than GPT-4o and DeepSeek-V3 across agentic enterprise tasks, with significantly greater efficiency" ([Command A launch post](https://cohere.com/blog/command-a)). For enterprises that need private deployment, "the flagship runs on two cards" matters more than "2% higher on a benchmark."
+
+
+### Embed: From Dual Track to Unified
+| Item | Embed v4.0 | Embed v3.0 (full) | Embed v3.0 (light) |
+|---|---|---|---|
+| Modality | Text + images + mixed PDFs | Text | Text |
+| Dimensions | 256 / 512 / 1024 / 1536 (default 1536) | 1024 | 384 |
+| Context | 128K tokens | 512 tokens | 512 tokens |
+| Languages | Single multilingual (100+) | English / multilingual split | English / multilingual split |
+| Distance | Cosine / Dot / Euclidean | Cosine | Cosine |
+| Quantization | float / int8 / uint8 / binary | float | float |
+
+Two key upgrades in v4.0: **multimodal input** (embed images and PDFs directly without converting to text first) and **variable dimensions** (pick 256 dims to save storage or 1536 dims to preserve quality). The old 512-token context was a hard ceiling for long documents; v4.0 at 128K can embed an entire document directly.
+
+Pricing: no public per-token price for Embed — enterprise negotiation; [Model Vault](https://cohere.com/pricing) dedicated instances are Small $4/hr ($2,500/mo), Medium $5/hr ($3,250/mo).
+
+
+### Rerank: From 4K to 32K
+| Item | Rerank v4 Pro / Fast | Rerank v3.5 | Rerank v3.0 |
+|---|---|---|---|
+| Languages | Single multilingual | Single multilingual | English / multilingual split |
+| Context | 32K | 4K | 4K |
+| Semi-structured | JSON/YAML/tables supported | — | — |
+| Billing | Per search unit (1 query + 100 docs) | Same | Same |
+| Long docs | Auto-chunked (>510 tokens) | Same | Same |
+
+The core differentiator in v4 is **semi-structured data**: enterprise documents mix tables, JSON, and YAML, and v4 Pro/Fast can score such content directly without converting to plain text. Bumping context from 4K to 32K allows reranking much longer documents in one pass.
+
+Model Vault pricing: Rerank 3.5 and Rerank 4 Fast Medium both $5/hr ($3,250/mo), Rerank 4 Pro Large $10/hr ($6,500/mo).
+
+## Evaluation and alternatives
+
+### Competitive Position
+Cohere in the 2026 landscape:
+
+- **vs. OpenAI (GPT-5.6 + text-embedding-3)**: GPT leads on general quality and ecosystem, but Cohere's Embed/Rerank are purpose-built for RAG with grounded generation and citations. For "traceable enterprise QA," Cohere is the lower-friction choice.
+- **vs. BGE-M3 / Jina (open retrieval)**: BGE-M3 (MIT, 36M downloads) + Jina Reranker v3.5 is the default open RAG stack — self-hostable and cheap. Cohere Embed v4/Rerank v4 wins on multimodal, 32K, semi-structured, and enterprise support, not raw scores.
+- **vs. Qwen / DeepSeek (open generation)**: Both offer commercially self-hostable weights (Apache 2.0/MIT); Cohere Command does not — but Cohere's multi-step tool use and grounded RAG are more mature for enterprise workflows.
+- **vs. Claude / Gemini (closed generation)**: Claude Opus 5 and Gemini 3 lead on coding and reasoning; Cohere's differentiation is the "generation + retrieval + reranking" bundle with private deployment, not single-point quality.
+- **vs. NLLB / SeamlessM4T (multilingual/translation)**: Aya 101's 101-language coverage matches NLLB-200 and adds instruction following (context-aware translation); Aya Expanse delivers stronger generation within 23 languages.
+
+One-line positioning: **If you want a single `/chat/completions` endpoint, Cohere is not the first pick; if you want a privately deployable RAG pipeline, Cohere is one of the few families that ships it complete.**
+
+## Licensing, pricing, and deployment
 
 ### API Pricing (per million tokens)
-
 | Model | Input | Output | Notes |
 |---|---|---|---|
 | Command R 03-2024 | $0.50 | $1.50 | Deprecated (2025-09-15) |
@@ -173,8 +188,8 @@ Two observations:
 
 Sources: [Cohere Pricing](https://cohere.com/pricing) and [Command A docs](https://docs.cohere.com/docs/command-a).
 
-### Private Deployment
 
+### Private Deployment
 Two private paths, both Kubernetes-containerized, available on AWS/Azure/GCP/OCI:
 
 - **Private Deployments**: Runs in the customer's own environment (on-prem or isolated VPC), data never leaves.
@@ -182,8 +197,8 @@ Two private paths, both Kubernetes-containerized, available on AWS/Azure/GCP/OCI
 
 Model Vault is billed per instance-hour; see the Embed/Rerank tables above for those Vault prices. Vault pricing for the Command series requires contacting sales.
 
-### Licensing Gotchas
 
+### Licensing Gotchas
 Cohere's licensing splits into three tiers — check before you choose:
 
 - **API (Command/Embed/Rerank)**: Commercial API, pay-as-you-go, no weight downloads. Data-sovereignty-sensitive workloads require Private Deployment, not "download and self-host."
@@ -192,20 +207,15 @@ Cohere's licensing splits into three tiers — check before you choose:
 
 Compared to other families in this series: Qwen (Apache 2.0/custom), DeepSeek (MIT), Llama 4 (Community License), and Mistral (Apache/Modified MIT) all offer commercially self-hostable weights; Cohere's flagship generation and retrieval models **do not** — going private means going through official deployment channels.
 
-## Competitive Position
+## Agent integration and selection
 
-Cohere in the 2026 landscape:
+### One-Line Selector
+- **New projects → v4**: Embed v4.0 + Rerank v4 Pro is the current golden pair, covering multimodal and 32K reranking.
+- **Cost-sensitive**: Rerank 4 Fast and Pro cost the same at Medium ($5/hr) — pick Pro; for Embed use 512 dims instead of 1536 to halve storage and latency.
+- **Already on v3**: v3.0's English/multilingual split was unified in v3.5/v4 — upgrading simplifies integration.
 
-- **vs. OpenAI (GPT-5.6 + text-embedding-3)**: GPT leads on general quality and ecosystem, but Cohere's Embed/Rerank are purpose-built for RAG with grounded generation and citations. For "traceable enterprise QA," Cohere is the lower-friction choice.
-- **vs. BGE-M3 / Jina (open retrieval)**: BGE-M3 (MIT, 36M downloads) + Jina Reranker v3.5 is the default open RAG stack — self-hostable and cheap. Cohere Embed v4/Rerank v4 wins on multimodal, 32K, semi-structured, and enterprise support, not raw scores.
-- **vs. Qwen / DeepSeek (open generation)**: Both offer commercially self-hostable weights (Apache 2.0/MIT); Cohere Command does not — but Cohere's multi-step tool use and grounded RAG are more mature for enterprise workflows.
-- **vs. Claude / Gemini (closed generation)**: Claude Opus 5 and Gemini 3 lead on coding and reasoning; Cohere's differentiation is the "generation + retrieval + reranking" bundle with private deployment, not single-point quality.
-- **vs. NLLB / SeamlessM4T (multilingual/translation)**: Aya 101's 101-language coverage matches NLLB-200 and adds instruction following (context-aware translation); Aya Expanse delivers stronger generation within 23 languages.
 
-One-line positioning: **If you want a single `/chat/completions` endpoint, Cohere is not the first pick; if you want a privately deployable RAG pipeline, Cohere is one of the few families that ships it complete.**
-
-## What This Means for Agent Builders
-
+### What This Means for Agent Builders
 - **End-to-end RAG pipeline** → Embed v4 (recall) + Rerank v4 Pro (rerank) + Command A (cited generation) is Cohere's golden path — one API vendor, one private deployment.
 - **Multi-step agents** → Command A/R+ multi-step tool use supports sequential calls ("search → read docs → compute → respond").
 - **Multilingual agents** → Aya Expanse 32B (128K) handles cross-lingual documents, or Aya 101 (Apache 2.0) for self-hosted multilingual classification/translation.
@@ -224,13 +234,19 @@ Pragmatic mix-and-match:
 | Complex coding agent | Claude Opus 5 / DeepSeek V4 Pro + Cohere Rerank | Strongest generator + Cohere reranking |
 | Agent needing private deployment | Cohere Private Deployment / Model Vault | Data stays on-prem, SOC 2/HIPAA/GDPR |
 
-## Overall
+## Limitations and trade-offs
 
+Aya 23 and Expanse do not inherit Aya 101’s Apache terms: their licenses are noncommercial. Generation, embedding, and reranking also have different costs and capability measures.
+
+### Overall
 Cohere proves a different survival strategy: instead of competing with OpenAI and Anthropic on "the strongest chat model," it productizes every stage of RAG. Where rivals offer an endpoint, Cohere offers a pipeline — Embed for recall, Rerank for precision, Command for generation, Aya for crossing languages, all runnable in a private environment.
 
 The cost is openness. Flagship generation and retrieval have no commercially open weights, and Aya's openness stepped back from Apache 2.0 to CC BY-NC. Cohere's "open" is research-open, not deployment-open. Before choosing Cohere, confirm you need "a RAG infrastructure you can buy" rather than "weights you can self-host" — that line matters more than any benchmark score.
 
----
+
+## Update history
+
+- **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 

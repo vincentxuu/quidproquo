@@ -25,12 +25,52 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-llama)
 
-In February 2023, Meta released Llama 1—an open LLM family at 7B/13B/33B/65B. That decision changed the industry: open models went from "academic toy" to "enterprise infrastructure." By April 2026, Llama 4 Scout arrived with a 10M-token window and Maverick with a 128-expert MoE, both open multimodal benchmarks. But the same year Meta launched closed-source Muse Spark, and Llama 4 is likely the last major open Llama. This is the fifth family deep-dive in the "AI 模型家族" series, tracing Llama's complete evolution from Llama 1 to Llama 4 and its changed position in 2026.
+In February 2023, Meta released Llama 1—an open LLM family at 7B/13B/33B/65B. That decision changed the industry: open models went from "academic toy" to "enterprise infrastructure." By April 2026, Llama 4 Scout arrived with a 10M-token window and Maverick with a 128-expert MoE, both open multimodal benchmarks. But the same year Meta launched closed-source Muse Spark, and Llama 4 is likely the last major open Llama. This is the fifth family deep-dive in the "AI Model Families" series, tracing Llama's complete evolution from Llama 1 to Llama 4 and its changed position in 2026.
 
 For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-## Family Evolution Timeline
+## Family positioning and model matrix
 
+| Model / line | Positioning | Key difference | Access |
+|---|---|---|---|
+| Llama 4 Scout | Long context | Llama 4 open-weight line | Community License weights |
+| Llama 4 Maverick | General multimodality | Llama 4 open-weight line | Community License weights |
+| Muse Spark | Closed flagship | Separate from open Llama | Closed service |
+
+
+
+### Two Product Lines: Open Weights for Ecosystem, Closed Muse Spark for Flagship
+To understand Llama's 2026 moves, split it into two parallel lines—like Qwen and Meta, open-first then recently closing:
+
+**Open-Weight Line** (HuggingFace / Ollama / llama.cpp): Every generation from Llama 1 through Llama 4, fully downloadable, fine-tunable, self-hostable. This line owns ecosystem—Ollama, vLLM, llama.cpp all first-class; fine-tuning community's preferred base; nearly every local AI desktop app (LM Studio, Jan, GPT4All) runs Llama out of the box.
+
+**Closed-Flagship Line** (Muse Spark): Only appeared April 2026, with Meta's announcement calling Llama 4 Maverick "our previous generation"—marking the flagship's shift from open to closed. This line never releases weights; future updates are Meta-only.
+
+The turning point: Meta (ex-Facebook) has, since establishing FAIR in 2013, used "open source" as core strategy—not by selling model API (unlike OpenAI and Anthropic), but by enhancing social products and collecting hosting fees via Azure/AWS. Llama is the vehicle. Muse Spark's closure is a strategic pivot (against Claude, GPT closure pressure and rising training costs), not a return to roots—but it does leave "will Llama stay open?" as an open question.
+
+
+### Sub-lines & Ecosystem: A Table of All Llama Models
+Llama runs multiple sub-lines beyond the general main line:
+
+| Sub-line | Representative | Latest Status (2026-08) |
+|---|---|---|
+| General main line | Llama 3.1/3.3 → Llama 4 Scout/Maverick | Open weights, Community License |
+| Code Llama | Code Llama 34B/70B | Independent iteration ended, capability merged into main line |
+| Vision-language | Llama 3.2 Vision 11B/90B → Llama 4 native multimodal | Vision became native main-line capability |
+| Lightweight edge | Llama 3.2 1B/3B | Phone, edge devices |
+| Safety tooling | Purple Llama | Open safety evaluation framework |
+
+Two trends in this table:
+
+**Capability consolidated into the main line.** Code Llama independent iteration ended—same playbook as Qwen and DeepSeek consolidating sub-lines. Once general models' specialist capability was strong enough, maintaining standalone sub-lines no longer paid. Vision took a different path: not cut, but turned into native capability via early fusion.
+
+**Ecosystem breadth is the hidden moat.** Llama's real moat isn't a single model but **ecosystem**. Llama.cpp, Ollama, vLLM, Hugging Face Transformers all first-class; fine-tuning community's preferred base; most local AI desktop apps run Llama by default. That "runs everywhere" penetration makes Llama the de facto standard for open inference.
+
+Final reminder: model suffixes (Scout/Maverick/Behemoth) don't guarantee downloadable weights (Behemoth never released). Check license and release status for self-host, not the suffix.
+
+## Family evolution
+
+### Family Evolution Timeline
 | Version | Date | Max Size | Key Milestones |
 |---|---|---|---|
 | Llama 1 | 2023-02 | 65B | First open LLM, catalyzed open ecosystem |
@@ -46,19 +86,10 @@ For how to read the benchmark numbers cited here, see our [AI model evaluation s
 
 Three years, nine milestones. Llama's through-line: **from small to large, from text-only to multimodal, from open to (partly) closed**. Llama 4 is the inflection—both the open peak and likely the last major open Llama.
 
-## Two Product Lines: Open Weights for Ecosystem, Closed Muse Spark for Flagship
+## Architecture and training trade-offs
 
-To understand Llama's 2026 moves, split it into two parallel lines—like Qwen and Meta, open-first then recently closing:
-
-**Open-Weight Line** (HuggingFace / Ollama / llama.cpp): Every generation from Llama 1 through Llama 4, fully downloadable, fine-tunable, self-hostable. This line owns ecosystem—Ollama, vLLM, llama.cpp all first-class; fine-tuning community's preferred base; nearly every local AI desktop app (LM Studio, Jan, GPT4All) runs Llama out of the box.
-
-**Closed-Flagship Line** (Muse Spark): Only appeared April 2026, with Meta's announcement calling Llama 4 Maverick "our previous generation"—marking the flagship's shift from open to closed. This line never releases weights; future updates are Meta-only.
-
-The turning point: Meta (ex-Facebook) has, since establishing FAIR in 2013, used "open source" as core strategy—not by selling model API (unlike OpenAI and Anthropic), but by enhancing social products and collecting hosting fees via Azure/AWS. Llama is the vehicle. Muse Spark's closure is a strategic pivot (against Claude, GPT closure pressure and rising training costs), not a return to roots—but it does leave "will Llama stay open?" as an open question.
-
-## Architecture: Three Key Designs of Llama 4
-
-### MoE: Only 17B Active Per Step
+### Architecture: Three Key Designs of Llama 4
+#### MoE: Only 17B Active Per Step
 
 Llama 4 is Meta's first fully Mixture-of-Experts family. Maverick example:
 
@@ -71,16 +102,59 @@ Sparsity:        ~24:1
 
 Each token hits the shared expert plus one of 128 routed experts. All parameters sit in memory, but only a fraction activates per step—letting a 400B-class model serve on a single H100 host while staying frontier quality. Scout is 17B active / 109B total, 16 experts, designed to fit a single H100 quantized to Int4.
 
-### Native Multimodality: Early Fusion
+#### Native Multimodality: Early Fusion
 
 Llama 4 uses early fusion—pre-training data mixes text and images from the start, not a vision adapter bolted onto a text model after training. Scout and Maverick natively understand images, not just "a text model with a vision add-on."
 
-### 10M Context: Scout's Killer Feature
+#### 10M Context: Scout's Killer Feature
 
 Scout's 10M-token context is the longest of any model (open or closed). A single request can hold an entire codebase, a whole book, or hours of transcript. Caveat: 10M is the documented upper bound; actual usable context depends on hardware and serving stack—after Int4 quantization Scout fits a single H100, but full 10M context still needs more KV-cache memory.
 
-## Llama 4: Scout, Maverick, Behemoth—How to Choose
+## Evaluation and alternatives
 
+### Performance Position
+| Metric | Llama 4 Maverick / Scout | Comparison |
+|---|---|---|
+| SWE-bench and other engineering benchmarks | ~3pp behind | Claude Opus 5 96%, DeepSeek V4 Pro 96.4%—open vs closed flagship gap |
+| Long context (10M) | Scout exclusive | Longest of any model (open or closed); Qwen3.8-Max 1M, Gemini 1M |
+| Cost | Scout $0.08 input cheapest | Maverick $0.27/$0.85 still far below closed flagships (Claude $5/$25, GPT $5/$30) |
+| Multimodality | Maverick native multimodal | Peer to Qwen3-VL and Gemini native multimodal |
+
+Direct comparison:
+
+| Metric | Llama 4 Maverick | Qwen3.8-Max | DeepSeek V4 Pro | Claude Opus 5 |
+|---|---|---|---|---|
+| Total params | 400B | 2.4T | — | — |
+| Active params | 17B | 95B | — | — |
+| Context | 1M | 1M | 1M | 1M |
+| License | Community License | Custom / Apache | MIT | Closed |
+| SWE-bench | ~3pp behind | 67.7% (SWE-Bench Pro) | 96.4% | 96% |
+
+Llama 4 still owns long-context and cost, but trails frontier by ~3pp on engineering benchmarks. On the "openness" spectrum it sits in the "downloadable but conditional" middle—more restrictive than true open (Apache/MIT), more free than fully closed.
+
+
+### Position Against Competitors
+Placing Llama 4 in the 2026 open landscape:
+
+- **vs Qwen**: Qwen3.8-Max (2.4T) total and active params dwarf Maverick, and most Qwen models ship Apache 2.0 for better license certainty. Llama's edge is ecosystem maturity—still ahead on local inference framework support
+- **vs DeepSeek V4**: DeepSeek's MLA architecture is cheaper, pricing more aggressive ($0.28/$0.42); Llama 4 exclusive on 10M context
+- **vs Kimi K3 (2.8T open)**: K3 total params larger, but Llama 4 Scout's 10M context remains the longest
+- **vs Closed (Claude / GPT / Gemini)**: Llama 4 trails ~3pp on SWE-bench and other engineering benchmarks, and Meta has pivoted to closed Muse Spark with uncertain future updates
+- **vs Mistral / GLM**: Llama's ecosystem penetration still leads, but Mistral's license is cleaner (Apache/Modified MIT) and GLM pursues domestic compliance
+
+## Licensing, pricing, and deployment
+
+### License Trap: Open, But Not As Open As You Think
+Llama 4 uses the **Llama 4 Community License**—not OSI-certified open source. Key restrictions:
+
+- Products with **>700M MAU** using Llama 4 must seek separate authorization from Meta (approval at Meta's discretion)
+- Must display "Built with Llama" on the product
+- Has an Acceptable Use Policy
+
+For most enterprises, this is near-open. For mega-platforms (Twitter, Snapchat, etc.), it's a real legal constraint. Compared to Apache 2.0 (most Qwen models) or MIT (GLM-5, DeepSeek), the permissiveness gap is clear—if your deployment depends on license certainty, "downloadable weights" ≠ "freely commercial."
+
+
+### Llama 4: Scout, Maverick, Behemoth—How to Choose
 2026's three naming slots serve distinct roles:
 
 | Item | Llama 4 Scout | Llama 4 Maverick | Llama 4 Behemoth |
@@ -104,69 +178,9 @@ Pricing (via third-party hosts; Meta offers no first-party API):
 
 Scout's $0.08 input is the cheapest of all models; paired with 10M context, it's the value king for long-document work.
 
-### License Trap: Open, But Not As Open As You Think
+## Agent integration and selection
 
-Llama 4 uses the **Llama 4 Community License**—not OSI-certified open source. Key restrictions:
-
-- Products with **>700M MAU** using Llama 4 must seek separate authorization from Meta (approval at Meta's discretion)
-- Must display "Built with Llama" on the product
-- Has an Acceptable Use Policy
-
-For most enterprises, this is near-open. For mega-platforms (Twitter, Snapchat, etc.), it's a real legal constraint. Compared to Apache 2.0 (most Qwen models) or MIT (GLM-5, DeepSeek), the permissiveness gap is clear—if your deployment depends on license certainty, "downloadable weights" ≠ "freely commercial."
-
-### Performance Position
-
-| Metric | Llama 4 Maverick / Scout | Comparison |
-|---|---|---|
-| SWE-bench and other engineering benchmarks | ~3pp behind | Claude Opus 5 96%, DeepSeek V4 Pro 96.4%—open vs closed flagship gap |
-| Long context (10M) | Scout exclusive | Longest of any model (open or closed); Qwen3.8-Max 1M, Gemini 1M |
-| Cost | Scout $0.08 input cheapest | Maverick $0.27/$0.85 still far below closed flagships (Claude $5/$25, GPT $5/$30) |
-| Multimodality | Maverick native multimodal | Peer to Qwen3-VL and Gemini native multimodal |
-
-Direct comparison:
-
-| Metric | Llama 4 Maverick | Qwen3.8-Max | DeepSeek V4 Pro | Claude Opus 5 |
-|---|---|---|---|---|
-| Total params | 400B | 2.4T | — | — |
-| Active params | 17B | 95B | — | — |
-| Context | 1M | 1M | 1M | 1M |
-| License | Community License | Custom / Apache | MIT | Closed |
-| SWE-bench | ~3pp behind | 67.7% (SWE-Bench Pro) | 96.4% | 96% |
-
-Llama 4 still owns long-context and cost, but trails frontier by ~3pp on engineering benchmarks. On the "openness" spectrum it sits in the "downloadable but conditional" middle—more restrictive than true open (Apache/MIT), more free than fully closed.
-
-## Sub-lines & Ecosystem: A Table of All Llama Models
-
-Llama runs multiple sub-lines beyond the general main line:
-
-| Sub-line | Representative | Latest Status (2026-08) |
-|---|---|---|
-| General main line | Llama 3.1/3.3 → Llama 4 Scout/Maverick | Open weights, Community License |
-| Code Llama | Code Llama 34B/70B | Independent iteration ended, capability merged into main line |
-| Vision-language | Llama 3.2 Vision 11B/90B → Llama 4 native multimodal | Vision became native main-line capability |
-| Lightweight edge | Llama 3.2 1B/3B | Phone, edge devices |
-| Safety tooling | Purple Llama | Open safety evaluation framework |
-
-Two trends in this table:
-
-**Capability consolidated into the main line.** Code Llama independent iteration ended—same playbook as Qwen and DeepSeek consolidating sub-lines. Once general models' specialist capability was strong enough, maintaining standalone sub-lines no longer paid. Vision took a different path: not cut, but turned into native capability via early fusion.
-
-**Ecosystem breadth is the hidden moat.** Llama's real moat isn't a single model but **ecosystem**. Llama.cpp, Ollama, vLLM, Hugging Face Transformers all first-class; fine-tuning community's preferred base; most local AI desktop apps run Llama by default. That "runs everywhere" penetration makes Llama the de facto standard for open inference.
-
-Final reminder: model suffixes (Scout/Maverick/Behemoth) don't guarantee downloadable weights (Behemoth never released). Check license and release status for self-host, not the suffix.
-
-## Position Against Competitors
-
-Placing Llama 4 in the 2026 open landscape:
-
-- **vs Qwen**: Qwen3.8-Max (2.4T) total and active params dwarf Maverick, and most Qwen models ship Apache 2.0 for better license certainty. Llama's edge is ecosystem maturity—still ahead on local inference framework support
-- **vs DeepSeek V4**: DeepSeek's MLA architecture is cheaper, pricing more aggressive ($0.28/$0.42); Llama 4 exclusive on 10M context
-- **vs Kimi K3 (2.8T open)**: K3 total params larger, but Llama 4 Scout's 10M context remains the longest
-- **vs Closed (Claude / GPT / Gemini)**: Llama 4 trails ~3pp on SWE-bench and other engineering benchmarks, and Meta has pivoted to closed Muse Spark with uncertain future updates
-- **vs Mistral / GLM**: Llama's ecosystem penetration still leads, but Mistral's license is cleaner (Apache/Modified MIT) and GLM pursues domestic compliance
-
-## What This Means for Agent Developers
-
+### What This Means for Agent Developers
 - **Ultra-long document analysis** → Llama 4 Scout: 10M context + $0.08/MTok, unbeatable value right now
 - **Cost-sensitive enterprise deployment** → Scout / Maverick self-hostable, data never leaves your infra—fits healthcare, finance data-sovereignty needs
 - **Multilingual scenarios** → Llama 4 supports 200 languages (Arabic, Spanish, German, Hindi, etc.)
@@ -175,13 +189,19 @@ Placing Llama 4 in the 2026 open landscape:
 - **Need frontier coding agent** → Llama 4 trails Claude and DeepSeek—pick those instead
 - **Citing benchmarks** → Llama's naming matrix (gen × Scout/Maverick/Behemoth) is easy to confuse with unreleased Behemoth. Always write the full model name plus date, otherwise you're comparing different events
 
-## Overall
+## Limitations and trade-offs
 
+The Community License is not Apache or MIT. Downloadable Llama weights do not provide Muse Spark; evaluate deployment cost and usage terms separately.
+
+### Overall
 Llama's story is "how open source changed an industry." Meta's Llama family proved open models could hit commercial quality, spawning countless Llama-based products worldwide. Llama 4 Scout's 10M context and Maverick's 128-expert MoE remain technical benchmarks for open models; ecosystem penetration (Llama.cpp as the local inference byword) is unmatched.
 
 But 2026's turn is also clear—Meta launched closed Muse Spark, calling Llama 4 Maverick "our previous generation." Two signals: Meta has moved its flagship from open to closed; Llama 4's future updates are uncertain. For agent developers, Llama 4 still owns ultra-long context and cost, but Community License (not OSI open) and Meta's strategic pivot are adoption risks. On the "openness" spectrum, Llama 4 sits "downloadable but conditional"—one more constraint than true open (Apache/MIT), one more freedom than fully closed.
 
----
+
+## Update history
+
+- **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 

@@ -19,11 +19,21 @@ description: Fact-layer verification for a post draft under a category directory
 - 找不到公開影片不代表課程沒有錄影；投影片摘要不代表完整口述或逐字稿。依實際證據回報交付形式與缺口。
 - 報告另列例子查核結果與未驗範圍。事實通過不能證明讀者目標、例子與練習對齊；教學品質交 `post-review`，來源更新也不能稱完成教學改寫。
 
+## 模型家族文章查證（必讀）
+
+查證「AI 模型家族」／「AI Model Families」系列時，先讀 `../post/references/model-family-contract.md`，逐條核對正文及 tldr／版本矩陣／glossary。家族主篇與跨家族比較的格式不同，但資訊揭露要求相同；本 skill 驗事實，不因格式統一就判 Confirmed。
+
+- 模型名稱、精確 model ID、API 端點和託管產品逐一分開；參數、context、模態、工具能力依版本核對。閉源未揭露資訊不可從競品或家族名推算。
+- 評測記錄版本、benchmark／資料集、指標、來源、已知 harness／工具／推理預算／精度。官方自報、第三方與本站實測分別標示；條件不足就限定比較，不憑分數混排。
+- 價格核對供應商、單位、端點、免費額度／付費、資料日期；權重授權、服務條款、使用政策分別查，不把 open-weight 當無條件商用。
+- 矩陣與 tldr 不得放大正文結論。模板沒有資料就寫來源未揭露／待確認，不能生成看似完整的假規格。
+- 只改格式時不得刷新 checked-at 或稱完成全篇查證。報告列出實際核對的 claim、日期、來源及未驗範圍；程式片段未執行不稱實測。
+
 ## 何時用 vs 跟其他 skill 區分
 
 | 工作 | skill |
 |---|---|
-| 標題弱、tldr 沒數字、tags 分裂 | `post-review` |
+| 標題弱、tldr 過於籠統、tags 分裂 | `post-review` |
 | 章節結構亂、缺 `## 參考資料` | `post-review` |
 | 「OpenAI 的 GPT-4 售價 $X」是不是真的 | **`post-verify`** |
 | 「LangGraph 1.x breaking change 是 Y」是不是真的 | **`post-verify`** |
@@ -32,7 +42,7 @@ description: Fact-layer verification for a post draft under a category directory
 
 ## 工具映射
 
-跟 `deep-research` 一樣遵守 Groundlane 邊界；目的不同。公開網頁研究與抓取一律用 Groundlane MCP，不用 `web.run`、WebFetch、Playwright scraping、Exa、Tavily、Firecrawl、Jina 或 Linkup 當 fallback。
+公開網頁研究與抓取預設 Groundlane-first；以當前 AGENTS.md 與使用者指定路徑為準。先搜尋完整 callable inventory。未指定工具時，Groundlane 未掛載或一次 bounded request 整體失敗，可從 inventory 選適合的其他公開網頁 MCP，沒有合適 MCP 才用平台 web search/fetch/open。使用 fallback 簡短揭露實際工具與 Groundlane 失敗，不能稱 Groundlane 驗證；不得傳送 secrets、認證內容或私有資料。禁止退役 `stealth_fetch`、`WebFetch`、`web-fetch`、`fetch_page` 或 `playwright` 抓網頁。使用者指定工具或禁止 fallback 時，指定路徑不可用就回報 blocker。
 
 | 用途 | 首選 |
 |---|---|
@@ -45,7 +55,7 @@ description: Fact-layer verification for a post draft under a category directory
 
 1. **搜尋摘要不能作為 Confirmed 的依據。** Groundlane `web_search` 回傳的片段只能拿來找候選來源。要判 Confirmed，必須對那個來源做過 `web_fetch` 或來源專用 API 抽取。
 2. **抽取驗證用的來源時優先完整讀頁。** 主要來源用 Groundlane `web_fetch`；需要 selector/table 欄位才用 `web_extract`。
-3. **Groundlane 未掛載或未授權要明講。** 先檢查完整 callable tool inventory；如果已掛載但 authorization 失敗，回報 blocker，請使用者依 Groundlane free API / free tier 設定方式完成授權。
+3. **Groundlane 未掛載或請求失敗要明講。** 先檢查完整 callable inventory；依上方邊界使用允許的 fallback。使用者指定 Groundlane-only 時才停在該路徑 blocker，不能用 fallback 冒充成功。
 
 取不到全文的繞路順序 → `../deep-research/references/mcp-tools.md`
 

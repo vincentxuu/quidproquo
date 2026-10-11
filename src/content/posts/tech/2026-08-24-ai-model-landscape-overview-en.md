@@ -8,7 +8,7 @@ type: guide
 tldr: "In 2026, AI models span seven major categories and more than 20 subcategories. This introduction to the AI Model Families series maps use cases to models and models to families, with current rankings and selection advice for each use case."
 description: "A 2026 selection guide covering text generation, reasoning, code, images, video, speech, music, embeddings, reranking, OCR, 3D, translation, agents, and more than 20 AI model use cases."
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 0
 draft: false
 glossary:

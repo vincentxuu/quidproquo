@@ -27,12 +27,52 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-mistral)
 
-In April 2023, three engineers who left Meta and Google DeepMind founded Mistral AI in Paris—Arthur Mensch, Guillaume Lample, and Timothée Lacroix. Valued over $2B within a year as Europe's AI unicorn, their bet was clear: not the largest models, but the most efficient—fewer parameters at near-frontier quality, then European data-sovereignty positioning for enterprise. By 2026, Mistral Medium 3.5 is Europe's strongest open-class multimodal model, Small 4 the 24B efficiency king. This is the sixth family deep-dive in the "AI 模型家族" series, tracing Mistral from Mistral 7B to Medium 3.5 and its August 2026 "European sovereign infrastructure" play.
+In April 2023, three engineers who left Meta and Google DeepMind founded Mistral AI in Paris—Arthur Mensch, Guillaume Lample, and Timothée Lacroix. Valued over $2B within a year as Europe's AI unicorn, their bet was clear: not the largest models, but the most efficient—fewer parameters at near-frontier quality, then European data-sovereignty positioning for enterprise. By 2026, Mistral Medium 3.5 is Europe's strongest open-class multimodal model, Small 4 the 24B efficiency king. This is the sixth family deep-dive in the "AI Model Families" series, tracing Mistral from Mistral 7B to Medium 3.5 and its August 2026 "European sovereign infrastructure" play.
 
 For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-## Family Evolution Timeline
+## Family positioning and model matrix
 
+| Model / line | Positioning | Key difference | Access |
+|---|---|---|---|
+| Mistral Medium 3.5 | Higher-quality tasks | Medium tier | API / weights; terms below |
+| Mistral Small 4 | Efficiency and self-hosting | Small tier | API / weights; terms below |
+| Mistral specialist lines | Code, speech, and other tasks | Task-specific lines | Service or weights vary by line |
+
+
+
+### Two Product Lines: Open Weights for Ecosystem, Regional Inference for Platform
+Understanding Mistral's 2026 moves requires two parallel lines:
+
+**Open-Weight Line** (HuggingFace `mistralai` org): From Mistral 7B and Mixtral to Medium 3.5 (Modified MIT), Small 4 (Apache 2.0), Ministral, and Devstral—all downloadable, fine-tunable, self-hostable. This line owns ecosystem—Apache/Modified MIT is cleaner than Llama 4's Community License, and vLLM, Ollama, llama.cpp all first-class.
+
+**Commercial Platform Line** (la Plateforme API): Large 3 stays API-only; August 2026 upgrades it to "European sovereign infrastructure"—**Regional Endpoints** (GA, customer chooses EU or US, processing stays within chosen region), **Priority Tier** (public beta, SLA and custom rate-limit guarantees), and hosting **third-party open models** (first: Z.ai's GLM-5.2). This line owns revenue and a platform-level moat—expanding "runs Mistral anywhere" into "run anywhere in Europe."
+
+The background: with AI dominated by the US (OpenAI, Anthropic, Google) and China (DeepSeek, Qwen, Kimi), Mistral is the only credible European option. It never chases max parameters; efficiency is the deployment-cost strategy—Small 4 at 24B is best quality and lowest latency at its tier. Not a technical weakness but a **strategic choice**.
+
+
+### Sub-lines & Ecosystem: A Table of All Mistral Models
+| Sub-line | Representative | Latest Status (2026-08) |
+|---|---|---|
+| General flagship (commercial) | Mistral Large 3 | Strongest LLM in Europe, 256K context |
+| General (open) | Mistral Medium 3.5 (Modified MIT) | Agentic coding optimized |
+| Lightweight efficiency | Mistral Small 4 (Apache 2.0) | 24B efficiency king |
+| Edge / on-device | Ministral 3B / 8B / 14B (Apache 2.0) | Phones, embedded |
+| Programming | Devstral Small 2 / Medium | Agentic coding specialist |
+| Reasoning | Magistral (merged into Medium 3.5) | Chain-of-thought |
+| OCR | Mistral OCR | Document understanding, standalone |
+| Speech / vision | Voxtral / Pixtral | Transcription, vision |
+| Consumer product | Le Chat | European ChatGPT |
+
+Two trends:
+
+**Capability concentrating upward.** Magistral already merged into Medium 3.5, no longer standalone—same playbook as Qwen and DeepSeek consolidating sub-lines.
+
+**Platformizing European sovereignty.** The August 2026 announcement upgrades Mistral from "model provider" to "European AI infrastructure": Regional Endpoints + Priority Tier + third-party open models. Lets customers run multiple models under a compliant framework rather than locking to Mistral—binding "open ecosystem" and "European sovereignty" into one pitch.
+
+## Family evolution
+
+### Family Evolution Timeline
 | Version | Date | Size | Key Milestones |
 |---|---|---|---|
 | Mistral 7B | 2023-09 | 7B | First open model, Apache 2.0 |
@@ -48,59 +88,26 @@ For how to read the benchmark numbers cited here, see our [AI model evaluation s
 
 Three years, nine milestones. Mistral's through-line: **start small, win on efficiency, push toward frontier, and build a European-sovereignty moat**.
 
-## Two Product Lines: Open Weights for Ecosystem, Regional Inference for Platform
+## Architecture and training trade-offs
 
-Understanding Mistral's 2026 moves requires two parallel lines:
-
-**Open-Weight Line** (HuggingFace `mistralai` org): From Mistral 7B and Mixtral to Medium 3.5 (Modified MIT), Small 4 (Apache 2.0), Ministral, and Devstral—all downloadable, fine-tunable, self-hostable. This line owns ecosystem—Apache/Modified MIT is cleaner than Llama 4's Community License, and vLLM, Ollama, llama.cpp all first-class.
-
-**Commercial Platform Line** (la Plateforme API): Large 3 stays API-only; August 2026 upgrades it to "European sovereign infrastructure"—**Regional Endpoints** (GA, customer chooses EU or US, processing stays within chosen region), **Priority Tier** (public beta, SLA and custom rate-limit guarantees), and hosting **third-party open models** (first: Z.ai's GLM-5.2). This line owns revenue and a platform-level moat—expanding "runs Mistral anywhere" into "run anywhere in Europe."
-
-The background: with AI dominated by the US (OpenAI, Anthropic, Google) and China (DeepSeek, Qwen, Kimi), Mistral is the only credible European option. It never chases max parameters; efficiency is the deployment-cost strategy—Small 4 at 24B is best quality and lowest latency at its tier. Not a technical weakness but a **strategic choice**.
-
-## Architecture: Mistral's Efficiency Philosophy
-
-### Mixtral's MoE Breakthrough
+### Architecture: Mistral's Efficiency Philosophy
+#### Mixtral's MoE Breakthrough
 
 Mistral's breakout was **Mixtral 8x7B**—only 12.9B active params, yet beating Llama 2 70B on most benchmarks. Design logic: cut experts small, activate few per step; active params determine inference cost, total params determine quality ceiling. That logic carries forward to Mistral Large 3 and Medium 3.5.
 
-### Efficiency First, Not Scale First
+#### Efficiency First, Not Scale First
 
 Mistral never chases max scale. Small 4 is just 24B yet delivers best quality and lowest latency at its tier. Not a weakness but a **strategic choice**: smaller = lower inference cost + faster latency, direct cost advantage for enterprise deployment.
 
-### European Sovereignty: The Real Moat
+#### European Sovereignty: The Real Moat
 
 August 2026, Mistral launched **Regional Endpoints** (GA)—customers choose EU or US; processing stays within the chosen region. Plus **Priority Tier** (public beta) with committed SLA and custom rate limits. Mistral is the **only European AI lab offering both "region-selectable processing" and "SLA guarantees."**
 
 More importantly, the platform now hosts **third-party open models** (first: Z.ai's GLM-5.2), letting customers run multiple models on the same European infra without fragmented deployments. This expands "European sovereignty" from single-model to platform-level commitment.
 
-## Mistral: Medium 3.5 and Small 4—How to Choose
-
-2026's two main generations serve distinct roles:
-
-| Item | Mistral Large 3 (commercial) | Mistral Medium 3.5 | Mistral Small 4 |
-|---|---|---|---|
-| Total params | Undisclosed | 128B | 24B |
-| Active params | — | — | 24B (dense) |
-| Context | 256K | 256K | 128K |
-| License | Commercial API | Modified MIT | Apache 2.0 |
-| Input / Output ($/MTok) | $0.50 / $1.50 | $1.50 / $7.50 | $0.15 / $0.60 |
-| Positioning | Strongest commercial LLM in Europe | Agentic coding specialist | Small-model efficiency king |
-
-Pricing and specs from [Mistral Pricing](https://docs.mistral.ai/inference/pricing) and [Mistral Models Overview](https://docs.mistral.ai/models).
-
-### License Trap: The Boundary Between Open and Commercial
-
-Mistral's licensing is three-tier—clearer than Llama 4's Community License but still with boundaries:
-
-- **Apache 2.0** (truly open): Small 4, entire Ministral line, Devstral—commercial, fine-tune, redistribute freely
-- **Modified MIT** (semi-open): Medium 3.5—few extra restrictions versus standard MIT (check terms), essentially permissive
-- **Commercial closed**: Large 3—API only, no weights
-
-The catch: Mistral's "open" at the Small/Ministral layer is genuine Apache 2.0, cleaner than Llama 4's Community License; but **the strongest model (Large 3) is closed**. Can't self-host the best Mistral—inferior to Qwen3.8-2.4T (weights available, albeit custom license) or DeepSeek V4 on that dimension.
+## Evaluation and alternatives
 
 ### Performance Position
-
 | Metric | Mistral Medium 3.5 / Small 4 | Comparison |
 |---|---|---|
 | Agentic coding | Medium 3.5 optimized for long-horizon agents & programming | Claude Opus 5 96% (SWE-bench Verified), DeepSeek V4 Pro 96.4%—quality gap remains |
@@ -120,28 +127,8 @@ Direct comparison:
 
 Mistral lags on raw quality (SWE-bench especially), but Large 3's $0.50/$1.50 pricing is 1/6 of Claude Sonnet at European-region compliance. Trade-off to weigh.
 
-## Sub-lines & Ecosystem: A Table of All Mistral Models
 
-| Sub-line | Representative | Latest Status (2026-08) |
-|---|---|---|
-| General flagship (commercial) | Mistral Large 3 | Strongest LLM in Europe, 256K context |
-| General (open) | Mistral Medium 3.5 (Modified MIT) | Agentic coding optimized |
-| Lightweight efficiency | Mistral Small 4 (Apache 2.0) | 24B efficiency king |
-| Edge / on-device | Ministral 3B / 8B / 14B (Apache 2.0) | Phones, embedded |
-| Programming | Devstral Small 2 / Medium | Agentic coding specialist |
-| Reasoning | Magistral (merged into Medium 3.5) | Chain-of-thought |
-| OCR | Mistral OCR | Document understanding, standalone |
-| Speech / vision | Voxtral / Pixtral | Transcription, vision |
-| Consumer product | Le Chat | European ChatGPT |
-
-Two trends:
-
-**Capability concentrating upward.** Magistral already merged into Medium 3.5, no longer standalone—same playbook as Qwen and DeepSeek consolidating sub-lines.
-
-**Platformizing European sovereignty.** The August 2026 announcement upgrades Mistral from "model provider" to "European AI infrastructure": Regional Endpoints + Priority Tier + third-party open models. Lets customers run multiple models under a compliant framework rather than locking to Mistral—binding "open ecosystem" and "European sovereignty" into one pitch.
-
-## Position Against Competitors
-
+### Position Against Competitors
 Placing Mistral in the 2026 landscape:
 
 - **vs Llama 4**: Maverick has larger total params (400B vs 128B), but Mistral's license is cleaner (Apache/Modified MIT vs Community License's 700M MAU clause); Llama's ecosystem penetration still leads, but Mistral's European sovereignty is Llama's gap
@@ -149,8 +136,35 @@ Placing Mistral in the 2026 landscape:
 - **vs Claude / GPT**: Quality gap remains (SWE-bench especially), but Mistral Large 3 at $0.50/$1.50 is 1/6 of Claude Sonnet with European data-sovereignty compliance
 - **vs GLM**: GLM pursues open + domestic compliance; Mistral more directly addresses European compliance and multilingual coverage
 
-## What This Means for Agent Developers
+## Licensing, pricing, and deployment
 
+### License Trap: The Boundary Between Open and Commercial
+Mistral's licensing is three-tier—clearer than Llama 4's Community License but still with boundaries:
+
+- **Apache 2.0** (truly open): Small 4, entire Ministral line, Devstral—commercial, fine-tune, redistribute freely
+- **Modified MIT** (semi-open): Medium 3.5—few extra restrictions versus standard MIT (check terms), essentially permissive
+- **Commercial closed**: Large 3—API only, no weights
+
+The catch: Mistral's "open" at the Small/Ministral layer is genuine Apache 2.0, cleaner than Llama 4's Community License; but **the strongest model (Large 3) is closed**. Can't self-host the best Mistral—inferior to Qwen3.8-2.4T (weights available, albeit custom license) or DeepSeek V4 on that dimension.
+
+
+### Mistral: Medium 3.5 and Small 4—How to Choose
+2026's two main generations serve distinct roles:
+
+| Item | Mistral Large 3 (commercial) | Mistral Medium 3.5 | Mistral Small 4 |
+|---|---|---|---|
+| Total params | Undisclosed | 128B | 24B |
+| Active params | — | — | 24B (dense) |
+| Context | 256K | 256K | 128K |
+| License | Commercial API | Modified MIT | Apache 2.0 |
+| Input / Output ($/MTok) | $0.50 / $1.50 | $1.50 / $7.50 | $0.15 / $0.60 |
+| Positioning | Strongest commercial LLM in Europe | Agentic coding specialist | Small-model efficiency king |
+
+Pricing and specs from [Mistral Pricing](https://docs.mistral.ai/inference/pricing) and [Mistral Models Overview](https://docs.mistral.ai/models).
+
+## Agent integration and selection
+
+### What This Means for Agent Developers
 - **European compliance scenarios** → Mistral Large 3: GDPR, AI Act, data never leaves Europe, EU/US region-selectable
 - **High-value agents** → Mistral Small 4: $0.15/$0.60, 128K context, Apache 2.0 self-hostable
 - **Agentic coding** → Mistral Medium 3.5: optimized for long-horizon agents and programming, self-hostable (Modified MIT)
@@ -159,15 +173,21 @@ Placing Mistral in the 2026 landscape:
 - **Need frontier coding** → Mistral trails Claude Opus 5 and DeepSeek V4—pick those instead
 - **Citing benchmarks** → Mistral's naming matrix (gen × Large/Medium/Small × Ministral/Devstral/Magistral) is the most error-prone in the series. Always write the full model name plus date, otherwise you're comparing different events
 
-## Overall
+## Limitations and trade-offs
 
+Efficiency and regional deployment do not remove license differences. Check Apache versus Modified MIT per model, and do not infer flagship capability from small-model cost.
+
+### Overall
 Mistral's story is "how a small company survives between AI giants." Surrounded by OpenAI, Google, Anthropic, and Meta, Mistral found a unique position: **efficiency against scale, European sovereignty against US dominance**.
 
 Mistral Large 3 is Europe's strongest commercial LLM, Small 4 the 24B efficiency king, and Medium 3.5's open model (Modified MIT) lets developers self-host under compliance. But Mistral's challenges are clear: not the largest, cheapest, or highest quality—its competitiveness comes from the "good enough + European sovereignty + high efficiency" combo.
 
 The August 2026 "European sovereign infrastructure" play upgrades Mistral from model provider to platform: Regional Endpoints + SLA + third-party open models. If your scenario needs European compliance, Mistral is the only serious option right now; if it only needs the strongest model or lowest cost, Mistral isn't the first pick. On the "openness" spectrum, Mistral is cleaner than Llama 4 (Apache/Modified MIT vs Community License), but more conservative than Qwen and DeepSeek (strongest model closed).
 
----
+
+## Update history
+
+- **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 

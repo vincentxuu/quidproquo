@@ -41,7 +41,18 @@ glossary:
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
+
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| Gemma 4 E2B／E4B | 手機／離線 | 128K；原生語音輸入 | Apache 2.0 權重；AI Edge |
+| Gemma 4 26B-MoE | 雲端／工作站 | 約 3.8B 啟用；256K | 自架；Workers AI |
+| Gemma 4 31B | 家族品質上限 | 31B | 權重；AI Studio／Gemini API |
+| Gemma 1／2／3／3n | 歷史版本 | 仍使用 Gemma Terms of Use | Gated 權重，條款不同 |
+
+## 家族演化
+
+### 家族演化時間線
 
 | 版本 | 發佈 | 尺寸 | 關鍵事實 |
 |---|---|---|---|
@@ -55,7 +66,25 @@ glossary:
 
 變體只給一句話定位，不展開：[MedGemma](https://deepmind.google/models/gemma/medgemma/)（醫療文字＋影像理解）、[ShieldGemma 2](https://deepmind.google/models/gemma/shieldgemma-2/)（內容安全分類器）、[FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)（邊緣端 function calling）、[EmbeddingGemma](https://ai.google.dev/gemma/docs/embeddinggemma)（300M 端側 embedding）、[PaliGemma](https://ai.google.dev/gemma/docs/paligemma)（視覺語言）。完整的官方變體清單見 [DeepMind Gemma 頁面](https://deepmind.google/models/gemma/)。
 
-## 授權陷阱：Gemma 4 是 Apache 2.0，舊代不是
+## 架構與訓練取捨
+
+既有來源描述 Gemma 3n 的 MatFormer 與選擇性參數啟動，以及 Gemma 4 的稠密／MoE 尺寸；26B MoE 約啟用 3.8B 參數。本文未提供完整訓練資料配方，部署自由不等於訓練透明。
+
+## 評測與競品比較
+
+### 與 Gemini 主篇的分工：閉源旗艦 vs 開源側翼
+
+Gemma 和 Gemini 的關係，一句話就是 Google 版的雙軌：**Gemini 收營收，Gemma 補生態**。詳情見 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini)——閉源旗艦（1M context、原生多模態、$2／$12）只跑在 Google 基礎設施上；Gemma 是給需要自架、微調、資料主權的開發者留的退路，明確不是前沿。Gemma 4 的 Apache 2.0 讓這條退路第一次名副其實，但「開源側翼」的定位沒變：要科學推理最強的模型，還是得回 Gemini 3.1 Pro。
+
+放到開源線的競爭格局裡看：
+
+- **對上 [Qwen](/posts/tech/2026-08-24-ai-model-family-qwen)**：Qwen 尺寸覆蓋最全、HuggingFace 下載量最高，但 2026 年 8 月的 Max 級權重換成了自訂授權而非 Apache 2.0——開源線的「授權純度」現在反而是 Gemma 4 佔優。Qwen 的優勢在中文生態與 Coder／VL 專模型線。
+- **對上 [Llama](/posts/tech/2026-08-24-ai-model-family-llama)**：Llama 4 很可能是最後一個主要的開源 Llama，Meta 重心已轉向閉源的 Muse Spark。開源基本盤正在換莊，Gemma 4 的 Apache 2.0 來得正是時候。
+- **對上 DeepSeek**：MIT 授權＋前沿品質仍是自架 CP 值的天花板；Gemma 的差異化是 Google 血統的多語言覆蓋（含繁中）與端到端的部署矩陣（雲→工作站→手機一條線）。
+
+## 授權、價格與部署
+
+### 授權陷阱：Gemma 4 是 Apache 2.0，舊代不是
 
 這是全文最重要的一節，因為它太容易搞混——連 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini)都曾把 Gemma 開放線一筆寫成 Apache 2.0。精確的切法是：
 
@@ -74,7 +103,7 @@ glossary:
 
 **第三，舊專案不受追溯。** 已經在用的 Gemma 2／3 權重不會因為 Gemma 4 轉授權而自動變成 Apache 2.0。想換授權基礎，得實際把模型換成 Gemma 4 世代並重跑評估——換模型是最容易破 prompt 的地方，JSON 格式指令尤其要重測。
 
-## 部署三分：Workers AI、自架、手機 AI Edge
+### 部署三分：Workers AI、自架、手機 AI Edge
 
 Gemma 4 的尺寸矩陣是按硬體切的：E2B／E4B 走行動端與 IoT（極致的運算／記憶體效率），12B／26B／31B 走「個人電腦上的前沿智慧」。官方說法見 [DeepMind Gemma 頁面](https://deepmind.google/models/gemma/)。部署方式對應分成三條路：
 
@@ -88,7 +117,7 @@ flowchart TD
     D -->|要最強品質| G[AI Studio／Gemini API：31B]
 ```
 
-### 第一路：Workers AI（最省事）
+#### 第一路：Workers AI（最省事）
 
 Cloudflare Workers AI 上核心 Gemma 4 只上了 [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) 這一個：256K context、Vision、Function calling、Reasoning 全開，定價 $0.10／$0.30 per M input／output tokens。MoE 只啟動約 3.8B 參數，所以延遲比前代 12B 稠密模型還好看。本站已經有一篇實戰記錄——[Gemma on Cloudflare Workers AI](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)——從 Gemma 3 遷移到 Gemma 4 的完整過程，含 RAG pipeline 的 prompt 重測經驗。
 
@@ -105,25 +134,17 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 });
 ```
 
-### 第二路：自架（Ollama／vLLM，要主權的人走這條）
+#### 第二路：自架（Ollama／vLLM，要主權的人走這條）
 
 Apache 2.0 的真正價值在這裡：權重可下載，[Ollama](https://ollama.com/library/gemma4)、vLLM、llama.cpp、Hugging Face Transformers 首日就支援。官方數據：未量化的 bfloat16 權重可塞進單張 80GB H100；量化版跑在消費級 GPU 上，撐 IDE  coding 助手與 agent 工作流。需要微調主權、資料不能出內網、或要長期鎖定 checkpoint（託管 API 的版本不透明，會無預警更動），就走這條。
 
-### 第三路：手機 AI Edge（E2B／E4B，另一個戰場）
+#### 第三路：手機 AI Edge（E2B／E4B，另一個戰場）
 
 E2B／E4B 是為離線設計的：128K context（大尺寸線是 256K），全系原生處理影像，E2B／E4B 另有原生語音輸入，140+ 語言。搭配 AICore、ML Kit、LiteRT 在 Android 與 Raspberry Pi、Jetson Orin Nano 等裝置上全離線執行。本站[行動端小模型盤點](/posts/ai/2026-03-31-mobile-small-models)有這條線的對照。一句話：要離線、低延遲、省電，才需要離開雲端 ID 去碰 E2B／E4B。
 
-## 與 Gemini 主篇的分工：閉源旗艦 vs 開源側翼
+## Agent 使用與選型
 
-Gemma 和 Gemini 的關係，一句話就是 Google 版的雙軌：**Gemini 收營收，Gemma 補生態**。詳情見 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini)——閉源旗艦（1M context、原生多模態、$2／$12）只跑在 Google 基礎設施上；Gemma 是給需要自架、微調、資料主權的開發者留的退路，明確不是前沿。Gemma 4 的 Apache 2.0 讓這條退路第一次名副其實，但「開源側翼」的定位沒變：要科學推理最強的模型，還是得回 Gemini 3.1 Pro。
-
-放到開源線的競爭格局裡看：
-
-- **對上 [Qwen](/posts/tech/2026-08-24-ai-model-family-qwen)**：Qwen 尺寸覆蓋最全、HuggingFace 下載量最高，但 2026 年 8 月的 Max 級權重換成了自訂授權而非 Apache 2.0——開源線的「授權純度」現在反而是 Gemma 4 佔優。Qwen 的優勢在中文生態與 Coder／VL 專模型線。
-- **對上 [Llama](/posts/tech/2026-08-24-ai-model-family-llama)**：Llama 4 很可能是最後一個主要的開源 Llama，Meta 重心已轉向閉源的 Muse Spark。開源基本盤正在換莊，Gemma 4 的 Apache 2.0 來得正是時候。
-- **對上 DeepSeek**：MIT 授權＋前沿品質仍是自架 CP 值的天花板；Gemma 的差異化是 Google 血統的多語言覆蓋（含繁中）與端到端的部署矩陣（雲→工作站→手機一條線）。
-
-## 對 Agent 開發者的意義
+### 對 Agent 開發者的意義
 
 - **繁中 RAG 留在 Cloudflare 生態系** → Workers AI 的 `gemma-4-26b-a4b-it`：256K context、$0.10／$0.30，Vision＋Function calling 原生支援，實戰細節見[本站 Gemma 實戰文](/posts/ai/2026-03-27-gemma-3-cloudflare-workers-ai)
 - **要 31B 的品質但不想自架** → AI Studio／Gemini API 的 `gemma-4-31b-it`，Arena 開源榜第三（官方 blog 引用的 4 月數據）
@@ -133,11 +154,17 @@ Gemma 和 Gemini 的關係，一句話就是 Google 版的雙軌：**Gemini 收�
 - **前沿推理／coding** → 這不是 Gemma 的戰場，回 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini)選 3.1 Pro 或 3.8 Flash
 - **授權審查** → 先看 Hugging Face 的 license 標籤（`gemma` vs `apache-2.0`），再看禁止用途政策；舊專案換授權基礎等於換模型，prompt 要重測
 
-## 整體來說
+## 限制與取捨
+
+### 整體來說
 
 Gemma 的故事是「用開放權重（open weights）換生態位」。Google 不指望 Gemma 打贏前沿競賽——那是 Gemini 的工作；Gemma 負責讓 Google 的模型出現在 Google 管不到的地方：別人的雲、自架機房、手機裡。Gemma 4 的 Apache 2.0 把這句話從行銷變成法律事實：此前的 Gemma 嚴格說來是「可下載的專有模型」，現在才是開源。
 
 但限制一樣清楚：31B 再強也不是前沿（Arena 開源榜第三意味著前面還有兩名），64K 級以下的輸出上限、科學推理與 coding 基準都落後 Gemini 3.1 Pro 一大截。如果你的場景要的是最強模型，Gemma 從來不是答案；如果你的場景要的是「夠強、可自架、授權乾淨」，Gemma 4 是 Google 第一次真正給出答案的一代。
+
+## 更新紀錄
+
+- 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

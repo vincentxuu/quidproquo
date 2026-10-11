@@ -6,7 +6,7 @@ type: deep-dive
 tags: [open-source, moe, code-model, benchmark, pricing, china-ai, agentic-coding]
 lang: en
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 14
 tldr: "MiniMax started as a consumer chat app company, then M2.5 scored 80.2% on SWE-bench Verified at 1/10-1/20 the cost of Claude Opus; M3 (456B total / 45.9B active) became the first open-weight model to clear 59% on SWE-bench Pro, with 1M context powered by their novel Sparse Attention mechanism."
 description: "A deep dive into the MiniMax model family: the consumer-AI-to-coding-frontier pivot, M2.5/M2.7/M3 specs and benchmarks, MiniMax Sparse Attention explained, pricing strategy, and where it fits in the open-source ecosystem."
@@ -24,15 +24,15 @@ glossary:
 
 MiniMax didn't start as a model company. It built character chat apps ([Talkie](https://www.talkie-ai.com/)) and video generation tools ([Hailuo AI](https://hailuoai.video/)), earning its spot as one of China's "Six AI Tigers." Then in February 2026, its M2.5 scored 80.2% on [SWE-bench Verified](https://www.swebench.com/) — just 0.6 points behind Claude Opus 4.6 at the time — at one-tenth to one-twentieth the API price. Here's how a chat app company ended up on the coding frontier.
 
-## Company Background
+## Family positioning and model matrix
 
-MiniMax was founded in December 2021 in Shanghai by Yan Junjie, formerly of SenseTime's computer vision team. The name comes from the [Minimax algorithm](https://en.wikipedia.org/wiki/Minimax) — making optimal decisions by accounting for the opponent's best response.
+| Model / product line | Positioning | Key difference | Access |
+|---|---|---|---|
+| M2.5／Lightning | Cost-sensitive coding | Standard and high-throughput variants | MiniMax API |
+| M2.7 | Low-active-parameter coding | About 10B active per token | Specific endpoint not provided in this article |
+| M3 | Long-context multimodal flagship | 456B/45.9B; 1M context | Open weights; MiniMax API |
 
-As of 2025, the company has about 415 employees, revenue of roughly $79 million, and is still unprofitable (operating loss of $1.87 billion). Funding milestones: $600M led by Alibaba in March 2024 ($2.5B valuation), HKEX IPO in January 2026, and another $2B raise in July 2026.
-
-Why would a consumer AI company build coding models? MiniMax's logic: to make AI products (chat, roleplay, video) truly good, the underlying model needs strong reasoning and tool-use capabilities. Coding ability is the foundation of agentic ability — models that write code well tend to use tools well.
-
-## Model Family
+### Model Family
 
 | Model | Released | Architecture | Total Params | Active/Token | Context | Highlight |
 |---|---|---|---|---|---|---|
@@ -41,21 +41,30 @@ Why would a consumer AI company build coding models? MiniMax's logic: to make AI
 | M2.7 | 2026-03 | MoE | — | ~10B | — | Ultra-efficient, SWE-bench 78% |
 | M3 | 2026-06 | MoE + MSA | 456B | 45.9B | 1M | Open-weight flagship |
 
-### M2.5: The Price/Performance Story
+## Family evolution
 
-M2.5's story isn't about having the highest score — it's about **how little it costs to get that score**.
+### Company Background
 
-| Metric | M2.5 | Claude Opus 4.6 (contemporary) |
-|---|---|---|
-| SWE-bench Verified | 80.2% | 80.8% |
-| API price (input / output) | $0.15 / $1.20 per M tokens | ~$15 / $75 per M tokens |
-| Price gap | — | ~10-60× |
+MiniMax was founded in December 2021 in Shanghai by Yan Junjie, formerly of SenseTime's computer vision team. The name comes from the [Minimax algorithm](https://en.wikipedia.org/wiki/Minimax) — making optimal decisions by accounting for the opponent's best response.
 
-Per MiniMax's official claims, "$1 runs continuously for 1 hour at 100 tok/s." Four M2.5 instances running 24/7 for a year cost roughly $10,000.
+As of 2025, the company has about 415 employees, revenue of roughly $79 million, and is still unprofitable (operating loss of $1.87 billion). Funding milestones: $600M led by Alibaba in March 2024 ($2.5B valuation), HKEX IPO in January 2026, and another $2B raise in July 2026.
 
-During training, M2.5 exhibited an interesting **emergent behavior**: the model spontaneously writes architecture specs before coding (a "spec-writing tendency"). This wasn't engineered — it appeared naturally through extensive RL training.
+Why would a consumer AI company build coding models? MiniMax's logic: to make AI products (chat, roleplay, video) truly good, the underlying model needs strong reasoning and tool-use capabilities. Coding ability is the foundation of agentic ability — models that write code well tend to use tools well.
 
-### M3: The Technical Leap
+## Architecture and training trade-offs
+
+### Training Methodology
+
+MiniMax's RL training takes a different path from Ornith's self-improvement loop.
+
+Per MiniMax's official documentation, M2.5 was trained via RL across "over 200,000 complex real-world environments" spanning 10+ languages. These aren't synthetic exercises — they're environments extracted from real software projects where the model attempts to solve problems, with success or failure as the reward signal.
+
+M3 introduces an **interactive user-simulator framework**: it trains collaborative abilities through multi-turn dialogue scenarios using simulated users. Unlike most coding models that train on single-turn problem solving, M3 also learns to interact, ask questions, and iterate on modifications.
+
+
+### M3 architecture
+
+#### M3: The Technical Leap
 
 M3 is MiniMax's largest model and their technical flagship.
 
@@ -63,11 +72,18 @@ Per MiniMax's official technical report, M3's core innovation is **MiniMax Spars
 
 M3 is also a natively multimodal model, accepting text, image, and video inputs.
 
-## Benchmark Comparison
+
+### M2.5 training behavior
+
+During training, M2.5 exhibited an interesting **emergent behavior**: the model spontaneously writes architecture specs before coding (a "spec-writing tendency"). This wasn't engineered — it appeared naturally through extensive RL training.
+
+## Evaluation and alternatives
+
+### Benchmark Comparison
 
 All data from official MiniMax releases.
 
-### M2.5 vs Contemporary Competitors
+#### M2.5 vs Contemporary Competitors
 
 | Benchmark | M2.5 | Claude Opus 4.6 |
 |---|---|---|
@@ -77,7 +93,7 @@ All data from official MiniMax releases.
 
 M2.5 trailed Opus 4.6 by just 0.6 percentage points, at an order-of-magnitude lower cost.
 
-### M3 vs Open/Closed Flagships
+#### M3 vs Open/Closed Flagships
 
 | Benchmark | M3 | GPT-5.5 | Ornith 1.5-397B |
 |---|---|---|---|
@@ -87,19 +103,15 @@ M2.5 trailed Opus 4.6 by just 0.6 percentage points, at an order-of-magnitude lo
 
 M3 was the first open-weight model to surpass GPT-5.5 on SWE-bench Pro. Compared to fellow MoE model [Ornith 1.5-397B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family), the two trade blows on GPQA Diamond but take entirely different technical paths: Ornith uses self-improvement RL, while MiniMax uses massive-scale environment RL.
 
-### M2.7: The Overlooked Efficiency Play
+#### M2.7: The Overlooked Efficiency Play
 
 M2.7 deserves a mention: activating only ~10B parameters per token, it scores 78% on SWE-bench Verified — in the same range as Ornith 1.5-35B-A3B's 79%, though with higher activation (10B vs 3B). Both are competing on the same "use MoE to minimize inference cost" track.
 
-## Training Methodology
+## Licensing, pricing, and deployment
 
-MiniMax's RL training takes a different path from Ornith's self-improvement loop.
+The price table below retains the original MiniMax API rates per million tokens; this format edit does not establish a new pricing snapshot. This article has not compiled M3 weight-license clauses or all deployment requirements, so access to weights alone is insufficient for a licensing decision.
 
-Per MiniMax's official documentation, M2.5 was trained via RL across "over 200,000 complex real-world environments" spanning 10+ languages. These aren't synthetic exercises — they're environments extracted from real software projects where the model attempts to solve problems, with success or failure as the reward signal.
-
-M3 introduces an **interactive user-simulator framework**: it trains collaborative abilities through multi-turn dialogue scenarios using simulated users. Unlike most coding models that train on single-turn problem solving, M3 also learns to interact, ask questions, and iterate on modifications.
-
-## Pricing Strategy
+### Pricing Strategy
 
 MiniMax's pricing is its sharpest differentiator.
 
@@ -111,9 +123,30 @@ MiniMax's pricing is its sharpest differentiator.
 
 The gap versus closed-source flagships ranges from 10× to 60×. This pricing makes "running your coding agent on MiniMax" a serious option for many teams — especially for batch processing scenarios requiring high API call volumes.
 
-## Is It Worth Watching?
 
-**Yes, for three reasons:**
+### M2.5 cost comparison
+
+#### M2.5: The Price/Performance Story
+
+M2.5's story isn't about having the highest score — it's about **how little it costs to get that score**.
+
+| Metric | M2.5 | Claude Opus 4.6 (contemporary) |
+|---|---|---|
+| SWE-bench Verified | 80.2% | 80.8% |
+| API price (input / output) | $0.15 / $1.20 per M tokens | ~$15 / $75 per M tokens |
+| Price gap | — | ~10-60× |
+
+Per MiniMax's official claims, "$1 runs continuously for 1 hour at 100 tok/s." Four M2.5 instances running 24/7 for a year cost roughly $10,000.
+
+## Agent integration and selection
+
+For high-volume coding or batch jobs, evaluate M2.5 cost first; use Lightning when throughput matters, and M3 when long-context or multimodal input is required. Official benchmark scores do not establish your host loop: compare task completion, tool failures, latency, and actual token bills on the same workload.
+
+## Limitations and trade-offs
+
+### Selection rationale and reservations
+
+**Three reasons to evaluate it:**
 
 1. **Cost structure proof-of-concept** — M2.5 proved that frontier coding doesn't require frontier pricing. For dev teams, a 10× cost difference doesn't just save money — it shifts which use cases are economically viable
 2. **MSA's engineering significance** — 1M context isn't new, but achieving it at 1/20th the compute is. If MSA's quality trade-offs are as minimal as MiniMax claims, this architectural direction is worth tracking
@@ -125,6 +158,10 @@ The gap versus closed-source flagships ranges from 10× to 60×. This pricing ma
 - M3 is open-weight but training data and code are not released — not fully open-source
 - Benchmark scores are self-reported; large-scale independent reproductions are ongoing
 - Geopolitical risks around Chinese AI companies are a factor for some use cases
+
+## Update history
+
+- 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
 

@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Sora's February 2024 preview shocked the industry, but the landscape reversed in two and a half years: OpenAI closed the consumer Sora app in April 2026 and scheduled its API for retirement on September 24; Veo 3.1 became the narrative default with native audio and Flow; Kling 3.0 became a unified multimodal model with $240M annualized revenue; and Runway Gen-4.5 briefly led Artificial Analysis in a November 2025 snapshot while defending the professional market through enterprise workflows. This guide compares four families by generation, specifications, pricing, and use case."
 description: "A deep guide to video-generation families: Sora 1-to-2 and retirement, Veo 2-to-3.1 with native audio and Flow, Kling 1.0-to-3.0 commercialization, Runway Gen-3-to-Gen-4.5 enterprise positioning, specifications, prices, and selection for marketing, film, and batch generation."
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 18
 draft: false
 glossary:
@@ -84,6 +84,10 @@ Three approaches coexist. OpenAI uses visible plus verifiable provenance: Sora d
 The story has three acts. Sora defined the category with a preview but did not win the market. Veo reset the minimum standard with native audio and forced everyone to follow within a year. Kling proved a Chinese short-video ecosystem could turn a video model into a money machine, while Runway showed that professional workflows retain customers better than a leaderboard lead. The next dividing line is already visible: world models such as Runway GWM-1 and Google's Genie line, plus open weights such as H3 and Wan, are moving the contest from who makes the prettiest clip to who can simulate a world—and who can be deployed independently.
 
 ---
+
+## Update history
+
+- 2026-10-11: Normalized series metadata and end-section ordering; retained the existing comparison hierarchy, sources, and dates. No fresh fact-check was performed.
 
 ## References
 

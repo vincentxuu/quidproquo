@@ -22,7 +22,21 @@ glossary:
 
 Nous Research 的起源不是某個創辦人的車庫，而是一群開源 LLM 社群的研究者自發聚在一起。2023 年由 Jeffrey Quesnelle、Karan Malhotra、Shivani Mitra 和社群暱稱 Teknium 的研究者共同成立，從鬆散的研究社群變成一間公司。他們的主張很明確：AI 不應該有過度的安全護欄，使用者有權決定模型該回答什麼。這個哲學讓他們在開源社群有了忠實追隨者，也讓他們成為爭議的焦點。
 
-## 不預訓練的策略
+## 家族定位與版本矩陣
+
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| Hermes 4 | 混合推理／對話 | 14B／70B／405B；可切換思考 | Hugging Face 權重；基底授權 |
+| NousCoder-14B | 程式碼 RL | Qwen3-14B 基底 | Hugging Face；Apache 2.0 |
+| Hermes Agent | 模型無關工作流 | 框架，並非模型版本 | GitHub；可接其他模型 |
+
+## 家族演化
+
+Hermes 4 於 2025 年 8 月發布，NousCoder-14B 在 2026 年 1 月接續推出；家族從混合推理延伸到可重現的 coding RL，Hermes Agent 則提供獨立於模型的工作流。
+
+## 架構與訓練取捨
+
+### 不預訓練的策略
 
 跟 [Ornith（DeepReinforce）](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)一樣，Nous Research 不自己從頭預訓練基礎模型。他們站在 Meta 的 Llama 和阿里的 Qwen 肩膀上，把資源集中在 fine-tuning 和強化學習。
 
@@ -33,11 +47,24 @@ Nous Research 的起源不是某個創辦人的車庫，而是一群開源 LLM �
 
 這套流程讓他們用相對少的運算資源產出高品質的模型。
 
-## Hermes 4：混合推理模型
+### Hermes 4：混合推理模型
 
 Hermes 4 於 2025 年 8 月發布，基於 Llama 3.1，有 14B、70B 和 405B 三個規模。旗艦 405B 用 192 張 NVIDIA B200 訓練，總計 71,616 GPU 小時。訓練資料包含 350 萬條推理樣本和 160 萬條非推理樣本。
 
 它的特色是**混合推理模式**——可以開關「思考」功能。開啟時走長鏈推理（類似 o1），關閉時走一般對話。
+
+### NousCoder-14B：24K 樣本的效率示範
+
+2026 年 1 月發布的 [NousCoder-14B](https://huggingface.co/NousResearch/NousCoder-14B) 基於 Qwen3-14B，用 execution-reward RL 訓練。最引人注目的數字不是分數本身，而是**訓練規模**：只用了 24,000 個樣本。
+
+更重要的是，NousCoder-14B 是**完全可重現**的——訓練程式碼、資料集、benchmark 工具鏈全部公開。在多數團隊只釋出權重的環境下，這是難得的透明度。
+
+## 評測與競品比較
+
+Hermes 4 405B 的成績採推理模式；NousCoder-14B 以 LiveCodeBench v6 Pass@1 對照 Qwen3-14B 基底。任務與尺寸不同，這兩張表不能合成單一家族排名。
+
+
+### Hermes 4 推理模式結果
 
 Hermes 4 405B 的成績（推理模式）：
 
@@ -50,17 +77,30 @@ Hermes 4 405B 的成績（推理模式）：
 
 RefusalBench 的差距值得注意：Hermes 4 回答了 57.1% 的請求，而 GPT-4o 和 Claude Sonnet 4 只回答了約 17%。這反映的是 Nous 的核心哲學——減少不必要的拒答。這個數字是優點還是風險，取決於你的使用場景和對 AI 安全的看法。
 
-## NousCoder-14B：24K 樣本的效率示範
 
-2026 年 1 月發布的 [NousCoder-14B](https://huggingface.co/NousResearch/NousCoder-14B) 基於 Qwen3-14B，用 execution-reward RL 訓練。最引人注目的數字不是分數本身，而是**訓練規模**：只用了 24,000 個樣本。
+### NousCoder-14B 程式碼比較
 
 | Benchmark | NousCoder-14B | Qwen3-14B（基底） | 提升 |
 |---|---|---|---|
 | LiveCodeBench v6 | **67.87%** Pass@1 | ~60.79% | +7.08% |
 
-更重要的是，NousCoder-14B 是**完全可重現**的——訓練程式碼、資料集、benchmark 工具鏈全部公開。在多數團隊只釋出權重的環境下，這是難得的透明度。
+## 授權、價格與部署
 
-## Hermes Agent：比模型更大的生態系
+本篇未整理各模型的託管 API 價格與硬體預算；框架授權與模型繼承的權重授權要分開審查。
+
+### 授權與限制
+
+授權是 Nous 的弱點之一。因為不自己預訓練，模型的授權繼承自基底模型：
+
+- **Hermes 4**：跟隨 Llama 3.1 的社群授權——開源，但月活超過 7 億的應用需要向 Meta 申請額外授權
+- **NousCoder-14B**：跟隨 Qwen3 的 Apache 2.0 授權——完全開放
+- **Hermes Agent 框架**：開源
+
+跟 Ornith 的 MIT 全開放比起來，Hermes 4 的授權限制（來自 Llama 3.1）在大規模部署時需要注意。
+
+## Agent 使用與選型
+
+### Hermes Agent：比模型更大的生態系
 
 Nous 真正的護城河可能不是模型，而是 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 框架。截至 2026 年 8 月，它有 **236,000 個 GitHub stars**（全球第 19 名）、超過 3,000 位貢獻者，是 2026 年成長最快的開源 agent 框架。
 
@@ -74,19 +114,11 @@ Hermes Agent 的設計哲學：
 
 這個框架的成功讓 Nous 從「做模型的小團隊」變成「有生態系的平台」。即使他們的模型在 benchmark 上不是最高分，龐大的使用者社群也為他們提供了持續的影響力。
 
-## 授權與限制
+## 限制與取捨
 
-授權是 Nous 的弱點之一。因為不自己預訓練，模型的授權繼承自基底模型：
+### 選用理由與保留條件
 
-- **Hermes 4**：跟隨 Llama 3.1 的社群授權——開源，但月活超過 7 億的應用需要向 Meta 申請額外授權
-- **NousCoder-14B**：跟隨 Qwen3 的 Apache 2.0 授權——完全開放
-- **Hermes Agent 框架**：開源
-
-跟 Ornith 的 MIT 全開放比起來，Hermes 4 的授權限制（來自 Llama 3.1）在大規模部署時需要注意。
-
-## 值不值得關注
-
-**值得，原因不只一個：**
+**選用時可考慮的理由：**
 
 1. **訓練效率**——24K 樣本做出的 NousCoder-14B 比基底模型強 7%，而且完全可重現。這證明「有好的 RL 框架，資料量不是決定性的」
 2. **生態系**——Hermes Agent 236K stars 不是虛的。模型可以被替換，生態系不容易被取代
@@ -97,6 +129,10 @@ Hermes Agent 的設計哲學：
 - Uncensored 模型在面對惡意使用時缺乏防護，不適合面向一般使用者的產品
 - 模型授權繼承自基底，不如 Ornith（MIT）或 DeepSeek（MIT）乾淨
 - 團隊規模約 30-50 人，長期維護能力是未知數
+
+## 更新紀錄
+
+- 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

@@ -29,7 +29,18 @@ glossary:
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列第十三篇家族深度介紹。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
+
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| FLUX.2 klein | 高吞吐圖像 | 4B／9B；授權分尺寸 | 權重或 API |
+| FLUX.2 dev | 本地研究 | 32B；模型商用需另查授權 | 開放權重 |
+| FLUX.2 pro／flex／max | 託管圖像生成／編輯 | 品質、低階控制與 grounding 分工 | BFL API |
+| FLUX 3 Video | 影片生成 | 每秒計價，獨立評測待驗證 | BFL API |
+
+## 家族演化
+
+### 家族演化時間線
 
 | 版本 | 發佈 | 關鍵事實 |
 |---|---|---|
@@ -47,7 +58,9 @@ glossary:
 
 兩年的劇本很清楚：先用開放權重搶下社群——[FLUX.2-dev](https://huggingface.co/black-forest-labs/FLUX.2-dev) 單月下載約 65 萬，上一代 dev 累計超過三千萬——再用 API 分層把商業收入做出來。Sacra 估計其年化營收在 2025 年 8 月已達約 $9,600 萬；同年 9 月，Meta 簽下一紙 $140M 的多年合約。
 
-## 五層子線與架構：同一個骨幹切五刀
+## 架構與訓練取捨
+
+### 五層子線與架構：同一個骨幹切五刀
 
 FLUX 家族的命名邏輯是「同一個骨幹，按速度與控制粒度切片」：
 
@@ -59,7 +72,18 @@ FLUX 家族的命名邏輯是「同一個骨幹，按速度與控制粒度切片
 
 架構上值得記住三件事。第一，FLUX 不是傳統 U-Net 擴散，而是 rectified flow transformer——文字與影像 patch 在同一個 transformer 堆疊裡互相 attend，這讓「文字渲染準」從 FLUX.1 起就是招牌。第二，FLUX.2 把文字編碼器換成 Mistral 3 24B VLM，等於天生具備視覺語言理解，10 張參考圖的多引用編輯才做得動。第三，共享調變參數加上 guidance 蒸餾，讓負面提示詞在 FLUX 上技術上不可行——從 SD 遷移過來的人要先改掉這個習慣。
 
-## 授權陷阱：開放是分層的，不是二元的
+## 評測與競品比較
+
+下方圖像榜單快照與 FLUX 3 Video 的官方勝率是不同任務。本篇未整理共同條件下的獨立影片比較，不能把兩者當成同一份評測。
+
+
+### 圖像榜單快照
+
+榜單位置要看快照。2025 年 12 月的 LMArena 文生圖快照裡，GPT Image 還領先 FLUX.2 [pro] 一個百分點以上；到 2026 年中的快照，兩者已接近同級（[Artificial Analysis 圖像榜](https://artificialanalysis.ai/image/leaderboard/text-to-image)可看現值）。開放權重的 [dev] 入場 ELO 約 1,149（社群轉載的 2025-12 快照），是西方開放權重模型中最靠前的——同一份榜上排更高的是中國的 Hunyuan Image 3.0，同樣開放權重；編輯榜各快照則落在約 1,200–1,250 區間。
+
+## 授權、價格與部署
+
+### 授權陷阱：開放是分層的，不是二元的
 
 BFL 的雙軌策略比「開源 vs 閉源」複雜得多，實際是三層：
 
@@ -69,7 +93,7 @@ BFL 的雙軌策略比「開源 vs 閉源」複雜得多，實際是三層：
 
 對比競爭格局：Midjourney、Ideogram、Google Imagen 從頭到尾無權重；Qwen-Image 主線掛 Apache 2.0 但新版已轉閉源。FLUX 是目前唯一「每一代都保證有一顆可自架的開放權重旗艦」的主流圖像家族——只是那顆旗艦多半是非商用授權。另外訓練資料構成至今未公開，版權風險得自己評估。
 
-## 定價與競品對照
+### 定價與競品對照
 
 API 以 credit 計費（1 credit = $0.01），FLUX.2 按**百萬像素**計價，首 MP 之後遞減（[官方定價](https://docs.bfl.ml/quick_start/pricing)）：
 
@@ -84,9 +108,9 @@ API 以 credit 計費（1 credit = $0.01），FLUX.2 按**百萬像素**計價�
 
 放到競品尺上：Google Imagen 4 Standard 約 $0.04/張、Ultra 約 $0.06；OpenAI GPT Image 約 $0.04/張；Midjourney 走 $30/月訂閱制不賣單張；Grok Imagine 圖像 $0.02 起。FLUX 的價格帶橫跨 $0.014–$0.07，等於一家公司同時覆蓋「最便宜可用」到「最高品質」兩端。
 
-榜單位置要看快照。2025 年 12 月的 LMArena 文生圖快照裡，GPT Image 還領先 FLUX.2 [pro] 一個百分點以上；到 2026 年中的快照，兩者已接近同級（[Artificial Analysis 圖像榜](https://artificialanalysis.ai/image/leaderboard/text-to-image)可看現值）。開放權重的 [dev] 入場 ELO 約 1,149（社群轉載的 2025-12 快照），是西方開放權重模型中最靠前的——同一份榜上排更高的是中國的 Hunyuan Image 3.0，同樣開放權重；編輯榜各快照則落在約 1,200–1,250 區間。
+## Agent 使用與選型
 
-## 學到的事：Agent 開發者的選型建議
+### 學到的事：Agent 開發者的選型建議
 
 - **高吞吐／互動式生成**（聊天內插圖、草稿迭代）→ klein 4B：$0.014、亞秒延遲、Apache 2.0 可自架兜底，量產成本敏感場景的首選。
 - **正式產出／品牌素材** → pro：$0.03 的品質價格比目前沒有對手，4MP 大圖約 $0.075（首 MP 之後半價遞減）。
@@ -98,6 +122,14 @@ API 以 credit 計費（1 credit = $0.01），FLUX.2 按**百萬像素**計價�
 整體來說，FLUX 的故事是「出走者用開放權重重建話語權」。Stability AI 留下的開源社群被原班人馬接走，BFL 再用分層授權把社群信任換成企業合約——Adobe、Canva、Meta 都在客戶名單上。2026 年的賭注更大：Self-Flow 把圖像、影片、音訊、機器人動作壓進同一組權重——「A model that only learns images can only generate images」，Rombach 受訪時說的這句話，是他們給整個行業下的戰帖。開放權重這條護城河守不守得住 FLUX 3 世代，是接下來一年最值得盯的事。
 
 ---
+
+## 限制與取捨
+
+主要限制是產出商用與模型商用部署的差別：dev 權重不能直接當成自架營業的許可。本篇未核對完整訓練資料構成，FLUX 3 Video 的官方說法仍需獨立驗證；先按延遲、控制與 grounding 需求選 klein、pro 或 max，再決定是否提高成本。
+
+## 更新紀錄
+
+- 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

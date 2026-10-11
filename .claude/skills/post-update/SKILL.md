@@ -1,6 +1,6 @@
 ---
 name: post-update
-description: 'Update an existing Markdown post under a category directory in src/content/posts/ on quidproquo.cc — fix typos, refresh outdated info, add missing references, append an "更新紀錄" section, or rewrite a paragraph — while preserving the original slug, file path, and frontmatter `date`. Use when user says 更新文章 / 修一下 / 補資料 / 補參考資料 / 補充 / 翻新 / 改錯字 / refresh post / update post and references an existing post by URL, slug, filename, or title keyword. Do NOT use to create a brand new post — use the `post` skill instead.'
+description: 'Update an existing Markdown post under a category directory in src/content/posts/ on quidproquo.cc — fix typos, refresh outdated info, add missing references, append an "更新紀錄" section, or rewrite a paragraph — while preserving the original slug, file path, and frontmatter `date`. Use when user says 更新文章 / 修一下 / 補資料 / 補參考資料 / 補充 / 翻新 / 改錯字 / refresh post / update post / 統一模型家族格式 and references an existing post by URL, slug, filename, or title keyword. Do NOT use to create a brand new post — use the `post` skill instead.'
 ---
 
 # post-update skill
@@ -22,6 +22,14 @@ description: 'Update an existing Markdown post under a category directory in src
 ```bash
 node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<category>/<檔名>.md
 ```
+
+## 模型家族文章更新（必讀）
+
+更新「AI 模型家族」／「AI Model Families」系列時，先讀 `../post/references/model-family-contract.md`，確認本篇角色。家族主篇按共同 H2 排列與版本矩陣整理；總覽、語音／影片跨家族篇保留比較型結構。使用者已核准批次統一時，直接完成核准範圍，不在每組中英稿重問一次。
+
+格式整理與事實更新分開：搬段落保留仍成立的數字、來源、程式碼與舊更新紀錄，修正受影響的跨節指代；不能把今天寫成資料查證日期。`date`、slug、lang、category、series.order 不動；`series.name` 按規格語言化，並確認系列 registry 支援兩個名稱。重寫矩陣／tldr 是再一次宣稱，對照正文與原有來源；涉及新版本、價格、能力或授權的改動先走 post-verify。
+
+中英同步整理。更新紀錄放參考資料前，明示本次重組範圍與是否重新核對事實。同系列完整導覽交給網站元件，有語意的跨篇轉手連結保留。執行 `node .agents/skills/post/scripts/check-model-family-format.mjs <中英檔案...>`，並逐篇讀接縫與選型結論，不能只靠段落數對齊交付。
 
 ## 何時用 post-update vs 重發新文章
 
@@ -49,13 +57,13 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
    ```
    找到多個候選 → 列出讓使用者挑，**不要自己選**。
 
-2. **確認改動範圍**：把使用者要改的點列成 bullets，跑回去確認再動手。範圍模糊就要回去問——大改與小改的處理方式不同。
+2. **確認改動範圍**（使用者已核准的範圍直接執行，不重問）：把使用者要改的點列成 bullets，跑回去確認再動手。範圍模糊就要回去問——大改與小改的處理方式不同。
 
 3. **保留不動的東西**：
    - 檔名（`YYYY-MM-DD-<slug>.md`）
    - frontmatter `date`（原始發文日期，**不是**今天）
    - frontmatter `category`（除非使用者明確說要搬分類）
-   - frontmatter `lang`、`series`
+   - frontmatter `lang`、`series`（模型家族只依專用規格調整系列顯示名稱，order 不動）
    可以動的：`title`、`tags`、`tldr`、`description`、`type`、`difficulty`、`pinned`、`draft`、`glossary`、文章內容。
 
 4. **記錄更新**（預設行為）：
@@ -91,6 +99,7 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
 
 9. **驗證**（按順序跑，全綠才算完成）：
    ```bash
+   pnpm verify
    pnpm check:references
    pnpm lint
    pnpm astro check

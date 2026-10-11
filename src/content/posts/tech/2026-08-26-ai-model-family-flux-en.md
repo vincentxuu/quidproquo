@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "FLUX is Black Forest Labs' image-model family. The Stable Diffusion team launched it in August 2024 with a 12B rectified-flow transformer. Two years later it spans klein 4B ($0.014 and the only current Apache-2.0 model) / 9B, pro ($0.03), flex ($0.05), max ($0.07 with live web grounding), and open-weight 32B dev. FLUX 3 extends Self-Flow to video, synchronized audio, and robot actions. This guide covers the FLUX.1-to-FLUX 3 evolution, three-tier licensing, and model selection."
 description: "A complete guide to Black Forest Labs' FLUX family: its 2024–2026 timeline, rectified-flow transformer architecture, schnell/dev/pro through FLUX.2 klein/max, noncommercial licensing traps, per-image pricing, competitors including Midjourney and Imagen, and FLUX 3 video and robotics."
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 16
 draft: false
 glossary:
@@ -29,7 +29,18 @@ In August 2024, four German researchers who had left Stability AI—Robin Rombac
 
 For benchmark interpretation, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This is the thirteenth family deep dive in the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en).
 
-## Family Evolution Timeline
+## Family positioning and model matrix
+
+| Model / product line | Positioning | Key difference | Access |
+|---|---|---|---|
+| FLUX.2 klein | High-throughput images | 4B/9B; licenses differ by size | Weights or API |
+| FLUX.2 dev | Local research | 32B; commercial model use requires license review | Open weights |
+| FLUX.2 pro／flex／max | Hosted image generation/editing | Quality, low-level controls, and grounding | BFL API |
+| FLUX 3 Video | Video generation | Per-second billing; independent evaluation pending | BFL API |
+
+## Family evolution
+
+### Family Evolution Timeline
 
 | Version | Release | Key facts |
 |---|---|---|
@@ -47,7 +58,9 @@ For benchmark interpretation, see the [AI Model Evaluation Sources Guide](/posts
 
 The playbook is clear: win the community with open weights—[FLUX.2-dev](https://huggingface.co/black-forest-labs/FLUX.2-dev) saw about 650,000 downloads in a month and its predecessor exceeded 30 million lifetime—then monetize through API tiers. Sacra estimated $96M annualized revenue by August 2025; Meta signed a $140M multiyear contract in September.
 
-## Five Product Lines and One Backbone
+## Architecture and training trade-offs
+
+### Five Product Lines and One Backbone
 
 FLUX slices one backbone by speed and control:
 
@@ -59,7 +72,18 @@ FLUX slices one backbone by speed and control:
 
 Three architectural facts matter. FLUX uses a rectified-flow transformer rather than a U-Net diffusion model; text and image patches attend inside one transformer stack, making accurate text rendering a signature from FLUX.1 onward. FLUX.2 replaces its text encoder with the Mistral 3 24B VLM, enabling visual-language understanding and editing across ten reference images. Shared modulation parameters plus guidance distillation make negative prompts technically unavailable, so users migrating from Stable Diffusion must change that habit.
 
-## Licensing Trap: Openness Is Tiered, Not Binary
+## Evaluation and alternatives
+
+The image leaderboard snapshots below are distinct from FLUX 3 Video win-rate claims, which are official figures. This article has not assembled an independent video comparison under common conditions.
+
+
+### Image leaderboard snapshots
+
+Leaderboard position depends on the snapshot. In December 2025 LMArena, GPT Image led FLUX.2 pro by more than one percentage point; by mid-2026 they were near peers. [Artificial Analysis](https://artificialanalysis.ai/image/leaderboard/text-to-image) shows the current table. Open-weight dev entered around 1,149 ELO in a community-reposted December 2025 snapshot, the highest Western open-weight model; China's open-weight Hunyuan Image 3.0 ranked higher. Editing snapshots put it around 1,200–1,250.
+
+## Licensing, pricing, and deployment
+
+### Licensing Trap: Openness Is Tiered, Not Binary
 
 - **Apache-2.0:** FLUX.1 schnell and FLUX.2 klein 4B. Commercial use, self-hosting, and modification are permitted without a revenue threshold.
 - **FLUX Non-Commercial License:** FLUX.1 dev, Kontext dev, FLUX.2 dev, and klein 9B. Weights are downloadable and **generated output may be sold**. The restriction applies to the model: commercial hosted service or training a competing model is prohibited. Commercial self-hosting requires BFL's Builder license, starting at 10,000 images/month and negotiated above that. The trap concerns deployment, not selling output.
@@ -67,7 +91,7 @@ Three architectural facts matter. FLUX uses a rectified-flow transformer rather 
 
 Midjourney, Ideogram, and Google Imagen provide no weights; Qwen-Image's main line uses Apache-2.0, but newer releases have closed. FLUX is the only major image family promising a self-hostable weight release every generation, although it is usually noncommercial. Training-data composition remains undisclosed, so users must assess copyright risk themselves.
 
-## Pricing and Competitors
+### Pricing and Competitors
 
 BFL bills in credits, one credit equaling $0.01. FLUX.2 bills by the **megapixel**, with declining prices after the first MP ([official pricing](https://docs.bfl.ml/quick_start/pricing)):
 
@@ -82,9 +106,9 @@ BFL bills in credits, one credit equaling $0.01. FLUX.2 bills by the **megapixel
 
 Google Imagen 4 Standard is about $0.04/image and Ultra $0.06; OpenAI GPT Image about $0.04; Midjourney sells a $30/month subscription rather than per-image API access; Grok Imagine starts at $0.02. FLUX spans $0.014–$0.07, covering both the least expensive usable tier and the highest-quality end.
 
-Leaderboard position depends on the snapshot. In December 2025 LMArena, GPT Image led FLUX.2 pro by more than one percentage point; by mid-2026 they were near peers. [Artificial Analysis](https://artificialanalysis.ai/image/leaderboard/text-to-image) shows the current table. Open-weight dev entered around 1,149 ELO in a community-reposted December 2025 snapshot, the highest Western open-weight model; China's open-weight Hunyuan Image 3.0 ranked higher. Editing snapshots put it around 1,200–1,250.
+## Agent integration and selection
 
-## Lessons: Selection for Agent Developers
+### Lessons: Selection for Agent Developers
 
 - **High-throughput or interactive drafts:** klein 4B—$0.014, subsecond, Apache-2.0 self-hosting fallback.
 - **Final and brand assets:** pro. At $0.03, its quality/price ratio is hard to beat; a 4MP image costs about $0.075 because later megapixels are half-price.
@@ -96,6 +120,14 @@ Leaderboard position depends on the snapshot. In December 2025 LMArena, GPT Imag
 Overall, FLUX is a story of defectors rebuilding influence through open weights. The original Stable Diffusion team inherited its open community, then converted community trust into enterprise contracts with Adobe, Canva, and Meta through tiered licensing. The 2026 bet is larger: Self-Flow puts images, video, audio, and robot actions into one set of weights. “A model that only learns images can only generate images,” Rombach said. Whether open weights remain a moat in the FLUX 3 generation is the question to watch over the next year.
 
 ---
+
+## Limitations and trade-offs
+
+The key constraint is the distinction between commercial outputs and commercial model deployment: dev weights do not automatically authorize a hosted business. This article has not established training-data composition, and FLUX 3 Video claims still need independent validation. Choose klein, pro, or max by latency, control, and grounding requirements before escalating cost.
+
+## Update history
+
+- 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
 

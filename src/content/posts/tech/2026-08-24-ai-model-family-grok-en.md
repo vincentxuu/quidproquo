@@ -29,8 +29,47 @@ On March 17, 2024, xAI dropped 314B-parameter [Grok-1](https://github.com/xai-or
 
 For how to read the benchmarks cited here, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is the eleventh family deep dive in the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-## Family Timeline
+## Family positioning and model matrix
 
+| Model / line | Positioning | Key difference | Access |
+|---|---|---|---|
+| Grok reasoning line | Reasoning and agents | Exact versions below | Commercial service; historical weights have separate terms |
+| Grok image line | Image generation | Separate media line | Service access detailed below |
+| Grok terminal line | Terminal workflows | Tool product is distinct from model | Product access detailed below |
+
+
+
+### Three Sub-Lines: Reasoning, Image, Terminal
+Grok is often treated as "a chat model" but now spans three sub-lines targeting different rivals:
+
+**Reasoning/chat** (Grok 1 → 4.6 + 4 Fast): xAI's main battle. [Grok 3](https://x.ai/blog/grok-3) scaled reasoning with RL at unprecedented scale (10× compute on Colossus, seconds-to-minutes thinking, backtracking); [Grok 4](https://x.ai/news/grok-4) pushed Heavy (parallel test-time compute) for leaderboard wins; [Grok 4 Fast](https://x.ai/news/grok-4-fast) trades 2M context and 40% fewer thinking tokens for a 98% price cut — the "price-to-intelligence king."
+
+**Image/video** (Imagine): [grok-imagine-image](https://docs.x.ai/docs/models/grok-imagine-image-2.0) ($0.02), [image-quality](https://docs.x.ai/docs/pricing) ($0.05), [image-2.0](https://docs.x.ai/docs/models/grok-imagine-image-2.0) ($0.04), [video](https://docs.x.ai/docs/pricing) ($0.05/sec) and [video 1.5](https://docs.x.ai/docs/pricing) ($0.08/sec). The [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) image ELO places [Grok Imagine 2.0](https://arena.ai/leaderboard/text-to-image) in the top five, but xAI's own announcement and leaderboard details were Cloudflare-blocked during verification — cite LMArena/Artificial Analysis with dates.
+
+**Terminal coding** (Build / Code Fast): [Grok Build](https://github.com/xai-org/grok-build) is xAI's coding agent harness — fullscreen TUI, mouse-interactive, extensible — with three run modes: interactive, headless (`grok -p "prompt" --output-format streaming-json` for CI/scripting), and embedded in editors via [ACP](https://docs.x.ai/build/overview). The harness is [Apache 2.0](https://github.com/xai-org/grok-build/blob/main/LICENSE); the model behind it is [Grok 4.6](https://docs.x.ai/build/overview#use-grok-46-on-the-api) ([grok-build-0.1 / grok-code-fast-1](https://docs.x.ai/docs/models/grok-build-0.1), 256K, $1/$2).
+
+
+### Sub-Lines and Ecosystem
+| Sub-line | Representative | Positioning |
+|---|---|---|
+| Flagship reasoning | Grok 4.6 500K | Strongest reasoning, four tunable levels, $2/$6 |
+| Long value | Grok 4 Fast 2M | 2M, 98% price delta, SOTA price-to-intelligence |
+| 1M flagship | Grok 4.3 / 4.20 1M | 1M, $1.25/$2.50, 20% batch discount |
+| Light reasoning | Grok Code Fast 1 / Build 0.1 256K | Terminal/editor coding, $1/$2 |
+| Image | Imagine image / image-quality / 2.0 | $0.02/$0.05/$0.04 per image |
+| Video | Imagine video / 1.5 | $0.05/$0.08 per second |
+| Terminal agent | Grok Build | TUI + headless + ACP, Apache 2.0 harness |
+| Open weight | Grok-1 314B | Only open weight, Apache 2.0, 8K |
+
+Two observations:
+
+**Distribution is Grok's most underrated lever.** Built into X, on grok.com, in Tesla vehicles, on [Amazon Bedrock](https://aws.amazon.com/bedrock) (community-reported as live Aug 2026; not listed on xAI's site at writing — verify against AWS announcements) — Grok's reach does not rely on leaderboards but on the Elon distribution system. That is why xAI can trade "faster iteration, lower price" for catch-up.
+
+**Build's openness is harness openness.** [xai-org/grok-build](https://github.com/xai-org/grok-build) (26k stars) and [grok-build-plugin-cc](https://github.com/xai-org/grok-build-plugin-cc) open-source the harness and Claude Code plugin; the model still goes through the [xAI API](https://docs.x.ai/docs/models/grok-4.6). For agent builders, Build's value is an auditable, forkable harness — not a self-hostable model.
+
+## Family evolution
+
+### Family Timeline
 | Version | Release | Context | Key fact |
 |---|---|---|---|
 | xAI founded | 2023-07-12 | — | Led by Elon Musk, anchored by the Memphis Colossus supercomputer |
@@ -50,42 +89,20 @@ For how to read the benchmarks cited here, see the [AI Model Evaluation Sources 
 
 Two and a half years, 13 milestones. The through-line is "catch up with compute and distribution" — Colossus doubling each generation, context from 8K to 2M, and distribution via X / grok.com / Tesla / Bedrock to put the model where users already are.
 
-## Three Sub-Lines: Reasoning, Image, Terminal
+## Architecture and training trade-offs
 
-Grok is often treated as "a chat model" but now spans three sub-lines targeting different rivals:
-
-**Reasoning/chat** (Grok 1 → 4.6 + 4 Fast): xAI's main battle. [Grok 3](https://x.ai/blog/grok-3) scaled reasoning with RL at unprecedented scale (10× compute on Colossus, seconds-to-minutes thinking, backtracking); [Grok 4](https://x.ai/news/grok-4) pushed Heavy (parallel test-time compute) for leaderboard wins; [Grok 4 Fast](https://x.ai/news/grok-4-fast) trades 2M context and 40% fewer thinking tokens for a 98% price cut — the "price-to-intelligence king."
-
-**Image/video** (Imagine): [grok-imagine-image](https://docs.x.ai/docs/models/grok-imagine-image-2.0) ($0.02), [image-quality](https://docs.x.ai/docs/pricing) ($0.05), [image-2.0](https://docs.x.ai/docs/models/grok-imagine-image-2.0) ($0.04), [video](https://docs.x.ai/docs/pricing) ($0.05/sec) and [video 1.5](https://docs.x.ai/docs/pricing) ($0.08/sec). The [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) image ELO places [Grok Imagine 2.0](https://arena.ai/leaderboard/text-to-image) in the top five, but xAI's own announcement and leaderboard details were Cloudflare-blocked during verification — cite LMArena/Artificial Analysis with dates.
-
-**Terminal coding** (Build / Code Fast): [Grok Build](https://github.com/xai-org/grok-build) is xAI's coding agent harness — fullscreen TUI, mouse-interactive, extensible — with three run modes: interactive, headless (`grok -p "prompt" --output-format streaming-json` for CI/scripting), and embedded in editors via [ACP](https://docs.x.ai/build/overview). The harness is [Apache 2.0](https://github.com/xai-org/grok-build/blob/main/LICENSE); the model behind it is [Grok 4.6](https://docs.x.ai/build/overview#use-grok-46-on-the-api) ([grok-build-0.1 / grok-code-fast-1](https://docs.x.ai/docs/models/grok-build-0.1), 256K, $1/$2).
-
-## Architecture: MoE Start, Colossus and RL Scaling
-
-### Grok-1's MoE Starting Point
+### Architecture: MoE Start, Colossus and RL Scaling
+#### Grok-1's MoE Starting Point
 
 [Grok-1's Model Specifications](https://github.com/xai-org/grok-1) (`model.py`) specify: 8 experts, 2 active per token, 64 layers, 48 Q-heads / 8 KV-heads, embedding 6,144, SentencePiece 131,072, RoPE, 8-bit/activation sharding. At 314B total it was among the largest open MoEs at the time, but 8K context already looks cramped next to the later 128K/1M.
 
-### Colossus and Reasoning Scaling
+#### Colossus and Reasoning Scaling
 
 xAI's narrative spine is compute. [Grok 3](https://x.ai/blog/grok-3) claims RL at "unprecedented scale" with 10× prior compute on Colossus; [Grok 4](https://x.ai/news/grok-4) adds 200K-GPU Colossus, 6× compute efficiency, 10× Grok 3 reasoning compute. This explains Grok's iteration speed — not an architectural ambush but pushing RL and test-time compute to the limit (Heavy trades parallel compute for scores).
 
-## Pricing and Performance: How to Choose
-
-### API Pricing (per million tokens, from [docs.x.ai](https://docs.x.ai/docs/pricing))
-
-| Model | Context | Input (<200K) | Cached | Output (<200K) | Input (≥200K) | Output (≥200K) | Reasoning levels |
-|---|---|---|---|---|---|---|---|
-| Grok 4.6 | 500K | $2.00 | $0.50 | $6.00 | $4.00 | $12.00 | low/medium/high/xhigh (default high) |
-| Grok 4.5 | 500K | $2.00 | $0.30 | $6.00 | $4.00 | $12.00 | Same |
-| Grok 4.3 / 4.20 (reasoning/non-reasoning/multi-agent) | 1M | $1.25 | $0.20 | $2.50 | $2.50 | $5.00 | — (20% batch discount) |
-| Grok Build 0.1 (Code Fast 1) | 256K | $1.00 | $0.20 | $2.00 | $2.00 | $4.00 | reasoning |
-| Grok 4 Fast | 2M | — (anchored to 4.5/4.6, 98% delta) | — | — | — | — | Unified reasoning/non-reasoning |
-
-Two details: **above 200K tokens the price doubles** (both input and output); **20% batch discount** applies only to 4.3/4.20. Long-context workloads must be priced at the doubled rate.
+## Evaluation and alternatives
 
 ### Performance Position (xAI official releases; third-party boards cited with dates)
-
 | Metric | Grok 4 ([official](https://x.ai/news/grok-4)) | Grok 3 ([official](https://x.ai/blog/grok-3)) | Reference (in-series) |
 |---|---|---|---|
 | HLE (Humanity's Last Exam) | 44.4% Heavy / 38.6% (full set, with Python+search) | — | DeepSeek V4 Pro undisclosed; see Claude/GPT family posts |
@@ -98,46 +115,8 @@ Grok 4 Fast's official comparison ([Grok 4 Fast](https://x.ai/news/grok-4-fast))
 
 The site's daily Grok 4.6 note ([Grok 4.6 daily](https://quidproquo.cc/posts/daily/2026-08-20-ai-agent-daily)): GDPVal-AA v2 1753 Elo (field high) but hard-core coding (DeepSWE, Terminal-Bench) still behind GPT-5.6 Sol Max — consistent with the family post's "strong distribution, still chasing on hard engineering" framing.
 
-### How to Choose
 
-- **Strongest reasoning with 500K** → Grok 4.6 (high/xhigh), watch the >200K doubling.
-- **Value with 2M long docs** → Grok 4 Fast — 40% fewer thinking tokens, 98% cheaper, keeping 85%+ GPQA.
-- **Terminal coding agent** → Grok Build (Apache 2.0 harness) + grok-build-0.1 / 4.6 API, with headless/ACP.
-- **Image/video generation** → Imagine image $0.02–$0.05 / video $0.05–$0.08/sec by quality tier.
-- **Local self-host** → Only Grok-1 (314B, Apache 2.0); everything after is closed API.
-
-## Licensing Traps: Open Only Once
-
-Grok has the sharpest licensing cliff in the series:
-
-- **Grok-1**: [Apache 2.0](https://github.com/xai-org/grok-1), commercially usable, self-hostable, modifiable — but 8K context and 2024 architecture, no longer frontier.
-- **Grok 1.5 / 2 / 3 / 4 / 4 Fast / 4.5 / 4.6**: Closed API, no weight downloads. License is [xAI Terms of Service](https://x.ai/legal/terms-of-service).
-- **Grok Build harness**: [Apache 2.0](https://github.com/xai-org/grok-build/blob/main/LICENSE) — harness open, model closed. You can self-host the harness, not the model.
-- **Grok Imagine**: API-billed, no weights.
-
-Comparison: Qwen (mostly Apache 2.0), DeepSeek (MIT), Gemma (Apache 2.0, 2B–27B), Llama 4 (Community License, downloadable), Mistral (Apache/Modified MIT) all offer commercially self-hostable weights; only Grok-1 is self-hostable in the Grok family, two generations behind the current frontier.
-
-## Sub-Lines and Ecosystem
-
-| Sub-line | Representative | Positioning |
-|---|---|---|
-| Flagship reasoning | Grok 4.6 500K | Strongest reasoning, four tunable levels, $2/$6 |
-| Long value | Grok 4 Fast 2M | 2M, 98% price delta, SOTA price-to-intelligence |
-| 1M flagship | Grok 4.3 / 4.20 1M | 1M, $1.25/$2.50, 20% batch discount |
-| Light reasoning | Grok Code Fast 1 / Build 0.1 256K | Terminal/editor coding, $1/$2 |
-| Image | Imagine image / image-quality / 2.0 | $0.02/$0.05/$0.04 per image |
-| Video | Imagine video / 1.5 | $0.05/$0.08 per second |
-| Terminal agent | Grok Build | TUI + headless + ACP, Apache 2.0 harness |
-| Open weight | Grok-1 314B | Only open weight, Apache 2.0, 8K |
-
-Two observations:
-
-**Distribution is Grok's most underrated lever.** Built into X, on grok.com, in Tesla vehicles, on [Amazon Bedrock](https://aws.amazon.com/bedrock) (community-reported as live Aug 2026; not listed on xAI's site at writing — verify against AWS announcements) — Grok's reach does not rely on leaderboards but on the Elon distribution system. That is why xAI can trade "faster iteration, lower price" for catch-up.
-
-**Build's openness is harness openness.** [xai-org/grok-build](https://github.com/xai-org/grok-build) (26k stars) and [grok-build-plugin-cc](https://github.com/xai-org/grok-build-plugin-cc) open-source the harness and Claude Code plugin; the model still goes through the [xAI API](https://docs.x.ai/docs/models/grok-4.6). For agent builders, Build's value is an auditable, forkable harness — not a self-hostable model.
-
-## Competitive Position
-
+### Competitive Position
 Grok in the 2026 landscape:
 
 - **vs. GPT-5.6**: GPT still leads on hard agentic boards (SWE-bench Verified / Terminal-Bench / BrowseComp); Grok chases with 2M/500K and lower pricing
@@ -147,8 +126,41 @@ Grok in the 2026 landscape:
 - **vs. Qwen3.8 / Kimi K3 / GLM-5.3**: All three ship 1T+ open weights; Grok has no equivalent open flagship — its differentiation is Imagine and Build breadth
 - **vs. open small models**: No Phi/Gemma/Ornith-equivalent open small line; edge/local is not Grok's lane
 
-## What This Means for Agent Builders
+## Licensing, pricing, and deployment
 
+### API Pricing (per million tokens, from [docs.x.ai](https://docs.x.ai/docs/pricing))
+| Model | Context | Input (<200K) | Cached | Output (<200K) | Input (≥200K) | Output (≥200K) | Reasoning levels |
+|---|---|---|---|---|---|---|---|
+| Grok 4.6 | 500K | $2.00 | $0.50 | $6.00 | $4.00 | $12.00 | low/medium/high/xhigh (default high) |
+| Grok 4.5 | 500K | $2.00 | $0.30 | $6.00 | $4.00 | $12.00 | Same |
+| Grok 4.3 / 4.20 (reasoning/non-reasoning/multi-agent) | 1M | $1.25 | $0.20 | $2.50 | $2.50 | $5.00 | — (20% batch discount) |
+| Grok Build 0.1 (Code Fast 1) | 256K | $1.00 | $0.20 | $2.00 | $2.00 | $4.00 | reasoning |
+| Grok 4 Fast | 2M | — (anchored to 4.5/4.6, 98% delta) | — | — | — | — | Unified reasoning/non-reasoning |
+
+Two details: **above 200K tokens the price doubles** (both input and output); **20% batch discount** applies only to 4.3/4.20. Long-context workloads must be priced at the doubled rate.
+
+
+### Licensing Traps: Open Only Once
+Grok has the sharpest licensing cliff in the series:
+
+- **Grok-1**: [Apache 2.0](https://github.com/xai-org/grok-1), commercially usable, self-hostable, modifiable — but 8K context and 2024 architecture, no longer frontier.
+- **Grok 1.5 / 2 / 3 / 4 / 4 Fast / 4.5 / 4.6**: Closed API, no weight downloads. License is [xAI Terms of Service](https://x.ai/legal/terms-of-service).
+- **Grok Build harness**: [Apache 2.0](https://github.com/xai-org/grok-build/blob/main/LICENSE) — harness open, model closed. You can self-host the harness, not the model.
+- **Grok Imagine**: API-billed, no weights.
+
+Comparison: Qwen (mostly Apache 2.0), DeepSeek (MIT), Gemma (Apache 2.0, 2B–27B), Llama 4 (Community License, downloadable), Mistral (Apache/Modified MIT) all offer commercially self-hostable weights; only Grok-1 is self-hostable in the Grok family, two generations behind the current frontier.
+
+## Agent integration and selection
+
+### How to Choose
+- **Strongest reasoning with 500K** → Grok 4.6 (high/xhigh), watch the >200K doubling.
+- **Value with 2M long docs** → Grok 4 Fast — 40% fewer thinking tokens, 98% cheaper, keeping 85%+ GPQA.
+- **Terminal coding agent** → Grok Build (Apache 2.0 harness) + grok-build-0.1 / 4.6 API, with headless/ACP.
+- **Image/video generation** → Imagine image $0.02–$0.05 / video $0.05–$0.08/sec by quality tier.
+- **Local self-host** → Only Grok-1 (314B, Apache 2.0); everything after is closed API.
+
+
+### What This Means for Agent Builders
 - **Long reasoning** → Grok 4 Fast (2M) or Grok 4.6 (500K) — watch the >200K doubling; 4.3/4.20's 1M + batch discount suits off-peak batches
 - **Terminal coding** → Grok Build (Apache 2.0 harness) + grok-build-0.1/4.6 — headless for CI, ACP for editors, competing head-on with Claude Code
 - **Image/video generation** → Imagine ($0.02–$0.08) — same account, same API, same distribution as text reasoning
@@ -167,13 +179,19 @@ Pragmatic mix-and-match:
 | Complex agentic orchestration | Claude Opus 5 / GPT-5.6 Sol | Agentic stability still ahead of Grok |
 | Local deployment | Qwen3.8-27B / Gemma 3 27B | No current open Grok flagship |
 
-## Overall
+## Limitations and trade-offs
 
+Historically released weights do not make every current Grok self-hostable. Reasoning, image, and terminal products require separate capability and billing assumptions.
+
+### Overall
 Grok's story is "catch up with distribution and compute." xAI proved good faith by open-sourcing 314B, then bet everything on Colossus RL scaling and distribution through X / Tesla / Bedrock — the model as a traffic entry point for the Elon system. By 2026 Grok is no longer a single model but a quartet: 4.6 at 500K, 4 Fast at 2M, Imagine for images, Build for the terminal.
 
 The price is openness and the hard-coding gap. No open flagship, Build opens the harness not the model; HLE/ARC-AGI highlights aside, it still trails GPT-5.6 and Claude on SWE-bench / Terminal-Bench engineering boards. That defines Grok's pragmatic fit: **the default inside its distribution, the long-context value king, the second choice for terminal-native agents** — not a replacement for the strongest coding model.
 
----
+
+## Update history
+
+- **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 

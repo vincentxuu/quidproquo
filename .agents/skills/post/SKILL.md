@@ -1,11 +1,17 @@
 ---
 name: post
-description: Convert a conversation, notes, or experience into a structured Markdown post under a category directory in src/content/posts/ on quidproquo.cc. Use when user says 寫成文章 / 記錄一下 / 寫成介紹文 / 寫成深入介紹 / write post / deep dive, or pastes notes/transcripts and asks to publish. Do NOT use to edit an already-existing post — use the `post-update` skill instead.
+description: Convert a conversation, notes, or experience into a structured Markdown post under a category directory in src/content/posts/ on quidproquo.cc. Use when user says 寫成文章 / 記錄一下 / 寫成介紹文 / 寫成深入介紹 / write post / deep dive, or asks for a new model-family introduction, or pastes notes/transcripts and asks to publish. Do NOT use to edit an already-existing post — use the `post-update` skill instead.
 ---
 
 # post skill
 
 把任何內容轉換成結構化的雙語 Markdown（zh-TW + en），存到 `src/content/posts/<category>/`，通過格式驗證。**每篇文章一定產出中英兩個檔案，這是一個步驟不是兩個。**
+
+## 模型家族文章（必讀）
+
+介紹「AI 模型家族」／「AI Model Families」系列時，先讀 `references/model-family-contract.md`，辨識家族主篇、總覽／跨家族比較、每日模型卡。家族主篇使用 `templates/model-family.md`；這份專用規格優先於下方一般介紹文骨架。開頭先回答選型問題，版本矩陣放前面，架構解說依家族特色展開。無資料就明示來源未揭露，不用空泛文字或猜測湊格式。
+
+兩版同步寫，中文與英文採各自系列名稱；模型／端點、權重授權／服務條款、官方自報／第三方／本站實測分清楚。新增價格、模型版本、日期或評測先查官方來源；模板的核對日期只有真正查證才填。寫完執行 `node .agents/skills/post/scripts/check-model-family-format.mjs <中英檔案...>`，再跑既有品質閘門。glossary 依需要選填，不能因詞彙欄位而發明新宣稱。
 
 ## 觸發方式 → 模板對應
 
@@ -13,6 +19,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 |---|---|---|
 | 「寫成文章」「記錄一下」「write post」 | `templates/tech-post.md` | 踩坑 / 問題解決 |
 | 「寫成介紹文」「寫成深入介紹」「deep dive」 | `templates/tech-deep-dive.md` | 工具 / 技術 / 架構介紹 |
+| 「模型家族介紹」「新增模型家族」 | `templates/model-family.md` | 家族主篇（先讀專用規格） |
 | 其他分類 | `templates/general-post.md` | 自由結構 |
 
 ## 支援的分類
@@ -29,7 +36,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 文章照讀者問題排，不照工作量排。研究時讀了多少、查了多少，是過程，不是文章的形狀。
 
-介紹文（導讀、工具介紹、課程介紹）固定骨架：
+模型家族依上方專用規格；其他介紹文（導讀、工具介紹、課程介紹）固定骨架：
 
 1. 是什麼
 2. 給誰／先備知識
@@ -85,7 +92,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 | `lang` | `zh-TW` | `en` |
 | `title` / `tldr` / `description` | 中文 | 自然英文（不是機翻） |
 | 跨語言連結 | `> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
-| 其餘 frontmatter | 相同 | 相同 |
+| 其餘 frontmatter | 相同 | 相同；系列顯示名稱依已登錄的語言名，模型家族按專用規格 |
 
 英文版規則：
 - code block 不動（只翻中文註解）
@@ -112,6 +119,8 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 ### 5. 補齊 glossary
 
+模型家族依專用規格判斷是否需要，選填不是必修；不能為填欄位增加未核對的宣稱。
+
 - 先查 `src/lib/glossary/terms.ts` 是否已有定義
 - 跨文章通用 → 補到 `terms.ts`（含中英雙語）
 - 僅限這篇 → 補到 frontmatter `glossary` 欄位
@@ -119,6 +128,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 ### 6. 驗證（兩個檔案都要通過）
 
 ```bash
+pnpm verify
 pnpm check:references
 pnpm lint
 pnpm astro check

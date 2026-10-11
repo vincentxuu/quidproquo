@@ -26,7 +26,27 @@ glossary:
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
+
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| Laguna XS 2.1 | 本機迭代 | 33B／3B，256K context | OpenMDW-1.1 權重；託管端點 |
+| Laguna S 2.1 | 長程 coding | 118B／8B，1M context | 權重；OpenRouter 免費／付費端點 |
+| M.1／XS.2 | 前代對照 | 歷史版本，不與現行混讀 | 官方歷史模型文件 |
+
+### 兩種尺寸，一種哲學
+
+看懂 Laguna 要先接受它的預設：**模型不是拿來聊天的，是拿來在 agent harness 裡跑幾百步的**。官方文件對 [M.1](https://docs.poolside.ai/release-notes/models) 和 [XS.2](https://docs.poolside.ai/release-notes/models) 寫了同一句話：放在 [Poolside Agent 工作流](https://docs.poolside.ai/cli/pool) 裡用，不要當純聊天模型。S 2.1 和 XS 2.1 也一樣，支援的模式都是 Agentic + Chat，但最佳表現都在自家 [pool](https://poolside.ai/get-started) 這個 terminal coding agent 裡。
+
+**XS 線（跑本機）**：[XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) 是 33B 總參數、3B 啟動，256K context（精確值 262,144）。官方說法是「compact enough to run on a Mac with 36 GB of RAM」，[Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) 上 BF16 之外還有 FP8、NVFP4、INT4，外加 [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) 草稿模型，實測吞吐翻倍。定價沿用 XS.2 的 $0.10 / $0.20 / $0.05 每 1M input / output / cache-read tokens。
+
+**S 線（撐長程）**：[S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) 是 118B 總參數、8B 啟動，1M context（精確值 1,048,576）。官方定位是「Frontier-class reasoning at mid-size cost」，小到能塞進一台 [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1)，強到在 Terminal-Bench 2.1 贏過一票 500B 以上的開源模型。[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1) 上免費端點給 256K context，付費專屬端點才給完整 1M，價格是 $0.10 / $0.20 / $0.01（2026-07 公告）。
+
+兩個尺寸都不支援 vision，純文字進文字出。這不是疏忽，是刻意：Laguna 把所有複雜度都押在「讀 repo、改檔、跑測試、驗證」的迴圈上。
+
+## 家族演化
+
+### 家族演化時間線
 
 | 時間 | 版本 | 關鍵事實 |
 |---|---|---|
@@ -37,17 +57,9 @@ glossary:
 
 三個月、三個模型。Laguna 的主線很清楚：**先用 M.1 / XS.2 把 harness、資料、訓練迴圈的弱點暴露出來，再用 XS 2.1 驗證改良版 recipe，最後把整套搬到 S 2.1 放大**。官方自己在 [S 2.1 發佈文](https://poolside.ai/blog/introducing-laguna-s-2-1) 裡寫：「under nine weeks from the start of training to this post」，靠的是 [Model Factory](https://poolside.ai/blog/introducing-laguna-s-2-1) 這個內部訓練平台，下一個更大的 Laguna 在發文前一週已經開始預訓練。
 
-## 兩種尺寸，一種哲學
+## 架構與訓練取捨
 
-看懂 Laguna 要先接受它的預設：**模型不是拿來聊天的，是拿來在 agent harness 裡跑幾百步的**。官方文件對 [M.1](https://docs.poolside.ai/release-notes/models) 和 [XS.2](https://docs.poolside.ai/release-notes/models) 寫了同一句話：放在 [Poolside Agent 工作流](https://docs.poolside.ai/cli/pool) 裡用，不要當純聊天模型。S 2.1 和 XS 2.1 也一樣，支援的模式都是 Agentic + Chat，但最佳表現都在自家 [pool](https://poolside.ai/get-started) 這個 terminal coding agent 裡。
-
-**XS 線（跑本機）**：[XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) 是 33B 總參數、3B 啟動，256K context（精確值 262,144）。官方說法是「compact enough to run on a Mac with 36 GB of RAM」，[Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) 上 BF16 之外還有 FP8、NVFP4、INT4，外加 [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) 草稿模型，實測吞吐翻倍。定價沿用 XS.2 的 $0.10 / $0.20 / $0.05 每 1M input / output / cache-read tokens。
-
-**S 線（撐長程）**：[S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) 是 118B 總參數、8B 啟動，1M context（精確值 1,048,576）。官方定位是「Frontier-class reasoning at mid-size cost」，小到能塞進一台 [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1)，強到在 Terminal-Bench 2.1 贏過一票 500B 以上的開源模型。[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1) 上免費端點給 256K context，付費專屬端點才給完整 1M，價格是 $0.10 / $0.20 / $0.01（2026-07 公告）。
-
-兩個尺寸都不支援 vision，純文字進文字出。這不是疏忽，是刻意：Laguna 把所有複雜度都押在「讀 repo、改檔、跑測試、驗證」的迴圈上。
-
-## 架構：同一份 laguna recipe
+### 架構：同一份 laguna recipe
 
 S 2.1 和 XS 2.1 共用同一個 `laguna` 架構，差別只有規模。按 [S 2.1 model card](https://huggingface.co/poolside/Laguna-S-2.1) 和 [XS 2.1 model card](https://huggingface.co/poolside/Laguna-XS-2.1) 的寫法：
 
@@ -59,7 +71,7 @@ S 2.1 和 XS 2.1 共用同一個 `laguna` 架構，差別只有規模。按 [S 2
 
 S 2.1 的 BF16 權重約 236GB，多卡才跑得動；量化版把門檻往下拉。XS 2.1 則把 KV cache 量化到 FP8，單卡和 Mac 都能跑。這是 MoE 的標準取捨：**總參數決定記憶體下限，啟動參數決定每次推理的成本**。
 
-## 訓練：同一份資料，差在後訓練
+### 訓練：同一份資料，差在後訓練
 
 S 2.1 最值得玩味的一句話在發佈文裡：「trained on exactly the same pre-training data as XS 2.1」。從 XS 2.1 到 S 2.1 的差別是規模、訓練 code 修 bug、小 recipe 調整，不是新資料。S 2.1 預訓練始於 2026-05-22，用 4,096 張 NVIDIA H200 跑了 60 天，[官網](https://www.poolside.ai/models) 標示訓練量是 30T tokens（XS 2.1 是 15T）。它也是 Poolside 第一個 RL 全程用 FP8 精度跑的模型。
 
@@ -69,7 +81,9 @@ S 2.1 最值得玩味的一句話在發佈文裡：「trained on exactly the sam
 
 思考模式的開關就是證據：S 2.1 只有 `off` 和 `max` 兩檔（預設 max），max 把 Terminal-Bench 2.1 從 60.4% 拉到 70.2%，DeepSWE 從 16.5% 拉到 40.4%。代價是均值完成 token 從 80K 漲到 129K（TB 2.1）、99K 漲到 249K（DeepSWE）。官方承認的限制也很坦白：第三方 harness 的 tool schema 稍有不同就可能沿用記憶中的舊格式、JSON 陣列參數容易轉義錯誤、數學題會想太久。
 
-## 家族矩陣與選型
+## 評測與競品比較
+
+### 家族矩陣與選型
 
 | 面向 | XS.2（前代） | M.1（前代） | XS 2.1（現行小） | S 2.1（現行大） |
 |---|---|---|---|---|
@@ -99,13 +113,7 @@ resp = client.chat.completions.create(
 print(resp.choices[0].message.content)
 ```
 
-## 開源策略與生態
-
-Laguna 家族現行兩款都掛 [OpenMDW-1.1](https://openmdw.ai/)， fully permissive，商用不用另外要授權。S 2.1 首日就給 BF16、FP8、INT4、NVFP4，官方另做 GGUF 和 MLX 轉換；XS 2.1 則是 BF16、FP8、NVFP4、INT4。M.1 時代還是 Apache 2.0，2.1 世代全面切到 OpenMDW，這是跟著 [NVIDIA 和 Linux Foundation](https://poolside.ai/blog/introducing-laguna-xs-2-1) 的方向走。
-
-部署生態是首日齊全派：[vLLM](https://github.com/vllm-project/vllm)、[SGLang](https://github.com/sgl-project/sglang)、[Ollama](https://ollama.com/library/laguna-s-2-1)（`ollama run laguna-s-2.1`）、llama.cpp、MLX、NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559)，外加 [Baseten](https://www.baseten.co/library/laguna-s-21/)、[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1)、[Vercel AI Gateway](https://vercel.com/ai-gateway/models?q=laguna)。Agent 側則進了 [Kilo](https://kilocode.ai)、[Hermes Agent](https://hermes-agent.nousresearch.com/)、pi、[OpenCode](https://opencode.ai/)、[OpenClaw](https://openclaw.ai/) 和 [Cline](https://cline.bot/)。每個發佈分數都有完整 trajectory 公開在 [trajectories.poolside.ai](https://trajectories.poolside.ai/)，這點比多數只貼數字的廠商有誠意。
-
-## 與競品的位置
+### 與競品的位置
 
 拿官方 2026-07-21 的表來看，S 2.1 的位置是「**體重外最能打**」：
 
@@ -115,19 +123,36 @@ Laguna 家族現行兩款都掛 [OpenMDW-1.1](https://openmdw.ai/)， fully perm
 
 XS 2.1 的對位則是 30B 級：SWE-bench Verified 70.9% 贏過 Cohere North Mini Code（67.6%），但輸給 Qwen3.6-35B-A3B（73.4%）和 Claude Haiku 4.5（73.3%）；Terminal-Bench 2.0 37.5% 贏過 Haiku（29.8%），輸給 Qwen（51.5%）和 GPT-5.4 Nano（46.3%）。結論和官方一致：同體重帶頭，但越級打怪仍有天花板。
 
-## 對 Agent 開發者的意義
+## 授權、價格與部署
+
+### 開源策略與生態
+
+Laguna 家族現行兩款都掛 [OpenMDW-1.1](https://openmdw.ai/)， fully permissive，商用不用另外要授權。S 2.1 首日就給 BF16、FP8、INT4、NVFP4，官方另做 GGUF 和 MLX 轉換；XS 2.1 則是 BF16、FP8、NVFP4、INT4。M.1 時代還是 Apache 2.0，2.1 世代全面切到 OpenMDW，這是跟著 [NVIDIA 和 Linux Foundation](https://poolside.ai/blog/introducing-laguna-xs-2-1) 的方向走。
+
+部署生態是首日齊全派：[vLLM](https://github.com/vllm-project/vllm)、[SGLang](https://github.com/sgl-project/sglang)、[Ollama](https://ollama.com/library/laguna-s-2-1)（`ollama run laguna-s-2.1`）、llama.cpp、MLX、NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559)，外加 [Baseten](https://www.baseten.co/library/laguna-s-21/)、[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1)、[Vercel AI Gateway](https://vercel.com/ai-gateway/models?q=laguna)。Agent 側則進了 [Kilo](https://kilocode.ai)、[Hermes Agent](https://hermes-agent.nousresearch.com/)、pi、[OpenCode](https://opencode.ai/)、[OpenClaw](https://openclaw.ai/) 和 [Cline](https://cline.bot/)。每個發佈分數都有完整 trajectory 公開在 [trajectories.poolside.ai](https://trajectories.poolside.ai/)，這點比多數只貼數字的廠商有誠意。
+
+## Agent 使用與選型
+
+### 對 Agent 開發者的意義
 
 如果你在做**長程 coding agent**（多檔修改、跑測試、自己驗證）：S 2.1 是目前開源裡少數為「幾百步還不放棄」調校的模型。記得開 thinking、保留 reasoning、用 pool 或相容 harness 跑，否則 DeepSWE 那種任務會從 40.4% 掉回 16.5%。
 
 如果你在做**本機或低成本 agent**（筆電 demo、離線環境、高速迭代）：XS 2.1 是更合理的起點。36GB Mac 能跑、Ollama 一行指令、DFlash 翻倍吞吐，63.1% 的 Multilingual 在 33B 級夠用。
 
+
+## 限制與取捨
+
 不適合：要 vision（全家族純文字）、要可調 effort（S 2.1 只有 off / max，沒有 low / mid / high）、要第三方 harness 零磨合（已知會有人格分裂式的 schema 記憶問題，靠 harness 拒絕後重試解決）。
 
-## 整體來說
+### 整體來說
 
 Laguna 的賭注不是「更大的預訓練」，而是「**更會工作的行為**」——驗證、回溯、撐住。S 2.1 證明同一份資料換個後訓練和訓練迴圈，就能從 XS 級跳到越級挑戰 500B 以上的榜單。下一步官方已經預告：更大的 Laguna 正在預訓練，方向是把這套「撐住」的能力連同規模一起放大。
 
 後續觀察重點有兩個：S 2.1 的 1M context 在真實 repo（不是 benchmark 沙箱）裡能撐幾步才發散；以及 OpenMDW-1.1 的開放策略能否換來夠多的第三方 harness 適配，把那幾個已知的 tool-call 毛病修掉。
+
+## 更新紀錄
+
+- 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

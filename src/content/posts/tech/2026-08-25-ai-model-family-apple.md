@@ -31,24 +31,17 @@ glossary:
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
 
-| 版本 | 時間 | 關鍵事實 |
-|---|---|---|
-| AFM 第一代 | 2024-06 | ~3B on-device dense + server model，LoRA adapter 切任務，Apple Intelligence 首發 |
-| 技術報告 | 2024-07 | arXiv 2407.21075，首次公開跟 GPT-4、Llama-3-70B 等的 benchmark 比較 |
-| PCC 發佈 | 2024-10 | Private Cloud Compute 上線，安全研究者可驗證所有正式環境軟體 |
-| AFM 第二代 | 2025-06 | Server model 換 PT-MoE 架構，Foundation Models framework 首次開放給開發者 |
-| IFP 論文 | 2025-01 | arXiv 2501.02086，Instruction-Following Pruning 技術發表 |
-| AFM 3 | 2026-06 | 五個模型、IFP 稀疏架構、與 Google 合作、PCC 延伸到 NVIDIA GPU |
-| PCC on Google Cloud | 2026-06 | NVIDIA Confidential Computing + Intel TDX + Google Titan，業界首個第三方硬體 confidential inference pipeline |
-| Framework 開源宣布 | 2026-06 | 承諾「later this summer」開源，companion package 已在 GitHub（Apache-2.0） |
-| PCC 免費額度 | 2026-08 | Small Business Program 開發者（下載 < 200 萬）可免費使用 PCC 雲端模型 |
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| AFM 3 Core / Core Advanced | 裝置端任務 | Dense／IFP 稀疏 | Foundation Models framework |
+| AFM 3 Cloud / Cloud Pro | 雲端推理 | PCC；雲端參數未公開 | Foundation Models framework／PCC |
+| ADM 3 Cloud | 影像生成與編輯 | Diffusion | PCC |
 
-三代、九個里程碑。Apple 的演化主線不是「做最強通用模型」，而是**把模型深度整合進 OS，用隱私架構當護城河**。每一代的技術決策——LoRA adapter 動態切換、IFP 稀疏架構、PCC stateless computation——都是為了這個策略服務。
 
-## 五個模型：兩層 on-device、三層雲端
 
+### 五個模型：兩層 on-device、三層雲端
 AFM 3（2026 年 6 月）是目前的最新世代，根據 [Apple Machine Learning Research](https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models) 的技術文章，家族由五個模型組成：
 
 | 模型 | 參數量 | 架構 | 部署 | 定位 |
@@ -63,15 +56,33 @@ Apple **只公開了 on-device 模型的參數量**，三個雲端模型的參�
 
 跟其他家族的差異一眼就能看出：**沒有定價表**。Apple 不像 OpenAI、Anthropic、Google 那樣賣 API token——AFM 只能透過 Foundation Models framework 在 Apple 平台上使用，目前沒有獨立的 API 定價。符合資格的小型開發者（App Store Small Business Program + 下載 < 200 萬）可以[免費使用 PCC 雲端模型](/posts/ai/2026-08-25-apple-pcc-free-afm3)。
 
-## 架構：三代的技術演進
+## 家族演化
 
-### 第一代：LoRA Adapter 切任務（2024）
+### 家族演化時間線
+| 版本 | 時間 | 關鍵事實 |
+|---|---|---|
+| AFM 第一代 | 2024-06 | ~3B on-device dense + server model，LoRA adapter 切任務，Apple Intelligence 首發 |
+| 技術報告 | 2024-07 | arXiv 2407.21075，首次公開跟 GPT-4、Llama-3-70B 等的 benchmark 比較 |
+| PCC 發佈 | 2024-10 | Private Cloud Compute 上線，安全研究者可驗證所有正式環境軟體 |
+| AFM 第二代 | 2025-06 | Server model 換 PT-MoE 架構，Foundation Models framework 首次開放給開發者 |
+| IFP 論文 | 2025-01 | arXiv 2501.02086，Instruction-Following Pruning 技術發表 |
+| AFM 3 | 2026-06 | 五個模型、IFP 稀疏架構、與 Google 合作、PCC 延伸到 NVIDIA GPU |
+| PCC on Google Cloud | 2026-06 | NVIDIA Confidential Computing + Intel TDX + Google Titan，業界首個第三方硬體 confidential inference pipeline |
+| Framework 開源宣布 | 2026-06 | 承諾「later this summer」開源，companion package 已在 GitHub（Apache-2.0） |
+| PCC 免費額度 | 2026-08 | Small Business Program 開發者（下載 < 200 萬）可免費使用 PCC 雲端模型 |
+
+三代、九個里程碑。Apple 的演化主線不是「做最強通用模型」，而是**把模型深度整合進 OS，用隱私架構當護城河**。每一代的技術決策——LoRA adapter 動態切換、IFP 稀疏架構、PCC stateless computation——都是為了這個策略服務。
+
+## 架構與訓練取捨
+
+### 架構：三代的技術演進
+#### 第一代：LoRA Adapter 切任務（2024）
 
 第一代的核心設計是用同一個 ~3B base model 疊加多個 **LoRA adapter**，每個 adapter 只有幾十 MB（rank 16），負責特定任務——摘要、改寫、通知分類。Adapter 可以動態載入、快取、切換，讓一個小模型「當場變身」成不同專家。
 
 壓縮策略很激進：混合 2-bit/4-bit 量化（平均 3.7 bits-per-weight），搭配 LoRA accuracy-recovery adapter 補回量化損失。訓練框架用 Apple 自研的開源 [AXLearn](https://github.com/apple/axlearn)（基於 JAX/XLA）。
 
-### 第二代：PT-MoE + Foundation Models Framework（2025）
+#### 第二代：PT-MoE + Foundation Models Framework（2025）
 
 Server model 從 dense 換成 **Parallel-Track Mixture-of-Experts（PT-MoE）**，Apple 自創的 MoE 變體。On-device 模型擴展到 15 個語言、新增影像理解。
 
@@ -81,7 +92,7 @@ Server model 從 dense 換成 **Parallel-Track Mixture-of-Experts（PT-MoE）**�
 - **Tool calling**：實作 Swift `Tool` protocol，framework 自動處理平行/序列 tool call 的 call graph
 - Apple 明確定位：「It is not designed to be a chatbot for general world knowledge.」
 
-### 第三代：IFP 稀疏架構 + Gemini 蒸餾（2026）
+#### 第三代：IFP 稀疏架構 + Gemini 蒸餾（2026）
 
 **IFP（Instruction-Following Pruning）** 是 AFM 3 最重要的技術突破。原始論文（[arXiv 2501.02086](https://arxiv.org/abs/2501.02086)）2025 年 1 月發表，AFM 3 Core Advanced 是第一個量產部署。
 
@@ -91,8 +102,8 @@ Server model 從 dense 換成 **Parallel-Track Mixture-of-Experts（PT-MoE）**�
 
 **Gemini 的角色**是 teacher signal，不是 runtime model。Apple SVP Craig Federighi 說「The amount of the Google Assistant we use is none」，Apple AI VP Amar Subramanya 說模型是「custom builds for Apple Silicon, trained using proprietary data, and refined using outputs from Gemini frontier models」。Apple 在正式環境沒有跑 Gemini，Gemini 的輸出被用於 post-training 蒸餾精煉。
 
-## Private Cloud Compute：Apple 的安全護城河
 
+### Private Cloud Compute：Apple 的安全護城河
 PCC 不只是「Apple 的雲端推論服務」——它是理解 Apple AI 策略的關鍵。根據 [Apple Security Research](https://security.apple.com/blog/private-cloud-compute)，PCC 從 2024 年第一天就建立在五大安全保證上：
 
 1. **Stateless computation**：使用者資料處理完立即刪除，不留 log
@@ -105,8 +116,9 @@ PCC 不只是「Apple 的雲端推論服務」——它是理解 Apple AI 策略
 
 2026 年 PCC [延伸到 Google Cloud](https://security.apple.com/blog/expanding-pcc)——不是單純靠 confidential computing，而是在 NVIDIA Confidential Computing + Intel TDX + Google Titan 之上疊加 Apple 自有的軟體安全層，維持完整的五大保證。Apple 稱這是業界第一個在第三方硬體上達到這種安全層級的 confidential inference pipeline。
 
-## Benchmark：只跟自己比
+## 評測與競品比較
 
+### Benchmark：只跟自己比
 Apple 的 benchmark 策略跟系列裡所有其他家族都不同——**從第二代起就不再公開跟外部模型比較**。
 
 唯一一次正面比較是第一代（2024）的技術報告：
@@ -132,8 +144,8 @@ Apple 的 benchmark 策略跟系列裡所有其他家族都不同——**從第�
 
 Apple 的立場似乎是：我們不是在做通用 LLM，我們做的是整合進 OS 的功能，所以用功能面的人工評估比 benchmark 分數更有意義。這讓外部開發者無法把 AFM 跟 GPT / Claude / Gemini / DeepSeek 做直接比較。
 
-## 跟競品的位置
 
+### 跟競品的位置
 Apple Foundation Models 在這個系列裡是最特殊的存在——它跟其他九個家族的比較維度完全不同：
 
 | 維度 | Apple AFM | Claude | GPT | Gemini | DeepSeek |
@@ -155,8 +167,9 @@ Apple Foundation Models 在這個系列裡是最特殊的存在——它跟其�
 
 3. **On-device 是主場**。其他家族把 on-device 當實驗（Gemini Nano）或完全不做。Apple 把最創新的技術（IFP 稀疏架構）投在 on-device 模型上，因為這是它的差異化核心。
 
-## 授權與取用方式
+## 授權、價格與部署
 
+### 授權與取用方式
 AFM 是**完全封閉的**——沒有開放權重、沒有獨立 API、沒有可下載的模型檔。使用方式只有一條路：
 
 1. 加入 Apple Developer Program（$99/年）
@@ -167,8 +180,9 @@ Framework 預計今年開源，屆時 server-side Swift 也能使用同一套 AP
 
 **Apple 允許第三方模型接入**：透過 `LanguageModel` protocol，Claude 和 Gemini 已經可以在同一套 framework 裡使用。Anthropic 已發布 Apache-2.0 的 Swift 套件。
 
-## 開發者怎麼選：什麼時候用 AFM
+## Agent 使用與選型
 
+### 開發者怎麼選：什麼時候用 AFM
 **適合用 AFM 的場景：**
 - iOS/macOS 限定的 App，不需要跨平台
 - 隱私是核心賣點（醫療、金融、兒童 App）
@@ -183,6 +197,14 @@ Framework 預計今年開源，屆時 server-side Swift 也能使用同一套 AP
 - 需要自架或有資料主權合規要求但不在 Apple 生態內
 
 **務實的混合模式：** on-device AFM 處理免費離線任務，`LanguageModel` protocol 接 Claude/Gemini 處理複雜任務，保留切換 provider 的彈性。
+
+## 限制與取捨
+
+AFM 以 Apple 平台為前提，不適合直接當成跨平台 API。雲端參數未揭露，第二代以後的自家偏好評估也無法直接換成其他家族排行榜。
+
+## 更新紀錄
+
+- **2026-10-11**：依家族共同格式重組章節，補上由既有內容整理的矩陣。沿用原有版本、價格與來源日期，未進行新一輪事實查證。
 
 ## 參考資料
 

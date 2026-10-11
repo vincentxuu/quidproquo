@@ -19,18 +19,15 @@ draft: false
 
 怎麼讀文中引用的跑分，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。想看模型在整體版圖的位置，見[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)。其中 v2-late 的細節另有一篇：[pplx-embed-v2-late 導讀](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction)。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
 
-| 時間 | 型號 | 關鍵事實 |
-|---|---|---|
-| 2026-02-11 | 技術報告 | [arXiv:2602.11151](https://arxiv.org/abs/2602.11151) 先於模型發表 |
-| 2026-02-26 | pplx-embed-v1、pplx-embed-context-v1 | 0.6B 與 4B 各兩個，共四個型號；MIT 授權、同步上架 API |
-| 2026-09-30 | pplx-embed-v2-context-9b-preview | 9B 上下文嵌入預覽版，與 turbopuffer 合作；權重在 Hugging Face，API 尚未提供 |
-| 2026-10-07 | pplx-embed-v2-late-0.6b／9b | 多向量、文字加圖片；權重 MIT，API 計畫中 |
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| pplx-embed-v1 | 單向量語意搜尋 | 0.6B／4B，INT8／binary | MIT 權重；Perplexity API |
+| pplx-embed-context | 帶全文脈絡的 chunk | v1 與 9B v2 預覽分開 | v1 API；v2 預覽權重 |
+| pplx-embed-v2-late | 多向量／頁面圖片檢索 | 0.6B／9B；MaxSim | MIT 權重；API 計畫中 |
 
-注意 v2 目前只有 context 與 late 兩條線。dense 單向量的 v2 還沒出：官方在 late 的發表文裡寫「正在訓練下一代 dense 嵌入模型」，之後才會陸續上 API。所以今天要做一般語意搜尋，手上能用的仍是 v1。
-
-## 三條線，三種問題
+### 三條線，三種問題
 
 | | v1（dense） | context（v1／v2 預覽） | v2-late（late interaction） |
 |---|---|---|---|
@@ -42,22 +39,45 @@ draft: false
 | 評分 | 餘弦相似度 | 餘弦相似度 | MaxSim |
 | API（2026-10-09 查） | 有 | v1 有、v2 預覽沒有 | 沒有，計畫中 |
 
-價格取自 [Perplexity API 文件](https://docs.perplexity.ai/docs/embeddings/quickstart)（2026-10-09 查詢），每百萬 token：
+## 家族演化
 
-| 型號 | 價格 |
-|---|---|
-| pplx-embed-v1-0.6b | $0.004 |
-| pplx-embed-v1-4b | $0.03 |
-| pplx-embed-context-v1-0.6b | $0.008 |
-| pplx-embed-context-v1-4b | $0.05 |
+### 家族演化時間線
 
-## v1：用擴散預訓練把 decoder 改成 encoder
+| 時間 | 型號 | 關鍵事實 |
+|---|---|---|
+| 2026-02-11 | 技術報告 | [arXiv:2602.11151](https://arxiv.org/abs/2602.11151) 先於模型發表 |
+| 2026-02-26 | pplx-embed-v1、pplx-embed-context-v1 | 0.6B 與 4B 各兩個，共四個型號；MIT 授權、同步上架 API |
+| 2026-09-30 | pplx-embed-v2-context-9b-preview | 9B 上下文嵌入預覽版，與 turbopuffer 合作；權重在 Hugging Face，API 尚未提供 |
+| 2026-10-07 | pplx-embed-v2-late-0.6b／9b | 多向量、文字加圖片；權重 MIT，API 計畫中 |
+
+注意 v2 目前只有 context 與 late 兩條線。dense 單向量的 v2 還沒出：官方在 late 的發表文裡寫「正在訓練下一代 dense 嵌入模型」，之後才會陸續上 API。所以今天要做一般語意搜尋，手上能用的仍是 v1。
+
+## 架構與訓練取捨
+
+### v1：用擴散預訓練把 decoder 改成 encoder
 
 v1 的起點是一個不尋常的選擇。多數強的嵌入模型建在 decoder-only 語言模型上，token 只能看到前面的字。Perplexity 的做法是從 Qwen3（0.6B 與 4B）出發，拿掉因果遮罩，用擴散去噪目標在約 2,500 億 token、30 種語言上繼續預訓練，把它改成雙向 encoder，再做對比學習。官方的消融實驗說，這讓檢索任務多了大約 1 個百分點。
 
 後面是三段對比訓練：pair 訓練、contextual 訓練（產出 context 型號）、用難負例的 triplet 訓練；最終的 v1 是把 contextual 與 triplet 兩個 checkpoint 做球面線性插值合併出來。量化是訓練的一部分，不是事後壓縮：訓練期間就用 straight-through 估計讓向量以 INT8 運作，儲存比 FP32 小 4 倍；binary 版小 32 倍，4B 的掉分在 1.6 個百分點內，0.6B 是 2 到 4 個百分點。
 
 另一個設計取捨：**不需要 instruction 前綴**。官方的理由是前綴雖然能帶來約 2% 到 3% 的提升，但索引與查詢的前綴不一致會悄悄拖垮檢索，所以直接放棄。
+
+### context 線：從「金標準段落」到「答案加佐證」
+
+context 這條線處理的是 chunking 的老問題：段落被切出來以後，指涉、標題、定義都掉了。做法是 late chunking，整份文件一次過模型，之後才在 chunk 範圍內做池化，每個 chunk 向量都看過全文。
+
+v2 預覽版的改動在訓練監督。傳統做法用 LLM 標一個「金標準段落」，其他段落全當負例，連提供佐證的段落也算。v2 預覽版改用 Perplexity 自家的查詢感知上下文壓縮模型當老師：它對文件每個 token 給相關性分數，再聚合成 chunk 分數，讓嵌入模型學到「答案段落加佐證段落」。起點是內部的 9B ColBERT 模型，用約 430 個資料集、50 多種語言訓練，發佈的是多個 checkpoint 權重平均的 model soup。
+
+### v2-late：每個 token 一個向量，也能搜圖片
+
+v2-late 的架構與評測在[專篇](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction)裡有完整分析，這裡只放它在家族裡的位置。它是三條線中唯一用多向量的：基底換成 Qwen3.5，先訓練 18B teacher，再蒸餾成 9B 與 0.6B，並讓兩個尺寸共用同一個向量空間，所以能用 9B 建索引、0.6B 查詢。訓練資料 1.86 億個查詢—文件對，來自 594 個資料集、46 種語言。
+
+## 評測與競品比較
+
+各產品線保留的評測分別涵蓋官方 MTEB 檢索、ConTEB、非公開 context-bench，以及搭配 Gemini 3.5 Flash 的 MADQA。這些是不同檢索流程，應在同任務內比較並拿自己的文件驗證，不能合成一張排名。
+
+
+### v1 檢索結果
 
 官方跑分（皆自家公布）：
 
@@ -69,11 +89,8 @@ v1 的起點是一個不尋常的選擇。多數強的嵌入模型建在 decoder
 
 MTEB 上的差距只有 0.06 個百分點，等於打平，v1 的賣點其實是「INT8 下打平，所以儲存便宜」。
 
-## context 線：從「金標準段落」到「答案加佐證」
 
-context 這條線處理的是 chunking 的老問題：段落被切出來以後，指涉、標題、定義都掉了。做法是 late chunking，整份文件一次過模型，之後才在 chunk 範圍內做池化，每個 chunk 向量都看過全文。
-
-v2 預覽版的改動在訓練監督。傳統做法用 LLM 標一個「金標準段落」，其他段落全當負例，連提供佐證的段落也算。v2 預覽版改用 Perplexity 自家的查詢感知上下文壓縮模型當老師：它對文件每個 token 給相關性分數，再聚合成 chunk 分數，讓嵌入模型學到「答案段落加佐證段落」。起點是內部的 9B ColBERT 模型，用約 430 個資料集、50 多種語言訓練，發佈的是多個 checkpoint 權重平均的 model soup。
+### Context 評測與儲存
 
 評測是這條線最需要小心讀的地方：
 
@@ -85,21 +102,30 @@ v2 預覽版的改動在訓練監督。傳統做法用 LLM 標一個「金標準
 
 儲存方面有個實用數字：預覽版輸出 1024 維 INT8，每個向量 1 KB，在 chunk 檢索平均分上略高於 voyage-context-4 的 2048 維 float32（8 KB）。這只算向量本身，不含索引。
 
-使用注意（來自[模型卡](https://huggingface.co/perplexity-ai/pplx-embed-v2-context-9b-preview)）：
 
-- 這是預覽版，權重與介面可能不向後相容，**預覽版的向量不要和未來正式版混用**。
-- 查詢要用 `encode_queries`，文件 chunk 用 `encode`；兩者前綴不同，用錯「悄悄降低檢索品質」。
-- 向量是未正規化的 INT8，要用餘弦相似度比較。
-- 需要 `transformers>=5.4.0` 與 `trust_remote_code=True`。
-- 模型卡沒有明寫授權；二手報導說是 MIT，這點我沒有在一手頁面確認，用之前請自己看 Hugging Face 頁面的授權欄。
-
-## v2-late：每個 token 一個向量，也能搜圖片
-
-v2-late 的架構與評測在[專篇](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction)裡有完整分析，這裡只放它在家族裡的位置。它是三條線中唯一用多向量的：基底換成 Qwen3.5，先訓練 18B teacher，再蒸餾成 9B 與 0.6B，並讓兩個尺寸共用同一個向量空間，所以能用 9B 建索引、0.6B 查詢。訓練資料 1.86 億個查詢—文件對，來自 594 個資料集、46 種語言。
+### Late interaction 結果與成本
 
 要記住的取捨只有一個：它是三條線裡**儲存成本最高**的，換來的是頁面圖片檢索與 agent 場景的準確度。MADQA 92.4% 是自家測試、搭配 Gemini 3.5 Flash，細節看專篇。
 
-## 選型矩陣
+## 授權、價格與部署
+
+v1 dense 與 context 的 Perplexity API 費率保留在下方價格快照（2026-10-09 快照）；v2 context 預覽與 v2-late 需走權重。預覽版授權未在既有一手頁面確認，部署時要分開檢查權重條款與託管 API 可用性。
+
+
+### API 價格快照
+
+價格取自 [Perplexity API 文件](https://docs.perplexity.ai/docs/embeddings/quickstart)（2026-10-09 查詢），每百萬 token：
+
+| 型號 | 價格 |
+|---|---|
+| pplx-embed-v1-0.6b | $0.004 |
+| pplx-embed-v1-4b | $0.03 |
+| pplx-embed-context-v1-0.6b | $0.008 |
+| pplx-embed-context-v1-4b | $0.05 |
+
+## Agent 使用與選型
+
+### 選型矩陣
 
 | 你的情況 | 建議 | 理由 |
 |---|---|---|
@@ -112,11 +138,28 @@ v2-late 的架構與評測在[專篇](/posts/ai/2026-10-09-pplx-embed-v2-late-mu
 
 站內其他選型參考：[BGE-M3 嵌入模型選型](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)、[ColPali 視覺文件檢索](/posts/ai/2026-09-03-colpali-visual-document-retrieval)。
 
-## 整體來說
+
+### Context 預覽版使用注意
+
+使用注意（來自[模型卡](https://huggingface.co/perplexity-ai/pplx-embed-v2-context-9b-preview)）：
+
+- 這是預覽版，權重與介面可能不向後相容，**預覽版的向量不要和未來正式版混用**。
+- 查詢要用 `encode_queries`，文件 chunk 用 `encode`；兩者前綴不同，用錯「悄悄降低檢索品質」。
+- 向量是未正規化的 INT8，要用餘弦相似度比較。
+- 需要 `transformers>=5.4.0` 與 `trust_remote_code=True`。
+- 模型卡沒有明寫授權；二手報導說是 MIT，這點我沒有在一手頁面確認，用之前請自己看 Hugging Face 頁面的授權欄。
+
+## 限制與取捨
+
+### 整體來說
 
 pplx-embed 這個名字下其實是三種不同的賭注：v1 賭「INT8 原生加無前綴」讓單向量夠便宜；context 賭「chunk 要帶全文、而且要學佐證不只學答案」；late 賭「索引貴一點，換 agent 與圖片檢索的準度」。三條線共通點是 Perplexity 自己的搜尋流量當作評測依據，優點是貼近真實查詢，缺點是最醒目的基準（PPLXQuery、PPLX-Q2I、context-bench）外人都拿不到。
 
 後續要看三件事：v2 dense 什麼時候出、有沒有補上 API；context 預覽版何時轉正式版，以及 context-bench 以外有沒有第三方復現；late 技術報告發表後，92.4% 能不能被獨立重現。在那之前，要上正式環境就選有 API 與穩定版本的 v1，其他兩條線當評測候選。
+
+## 更新紀錄
+
+- 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

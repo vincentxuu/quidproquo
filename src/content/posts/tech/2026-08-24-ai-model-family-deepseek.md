@@ -26,8 +26,38 @@ glossary:
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的第一篇家族深度介紹。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
 
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| V4 Flash 0731 | 高吞吐分類、提取、摘要 | 13B 活躍參數 | API；MIT 權重 |
+| V4 Pro 0813 | 明確的 coding 修復 | 49B 活躍參數 | API；MIT 權重 |
+| R1 / R1-0528 | 長鏈推理 | 獨立推理線與蒸餾版 | 開放權重 |
+
+
+
+### 兩條主線：通用線 vs 推理線
+DeepSeek 的模型分成兩條平行演進的主線：
+
+**通用線**（V1 → V2 → V3 → V3.2 → V4）：針對一般對話、coding、工具呼叫做最佳化，核心目標是效率和成本。從 V2 開始確立 MLA + MoE 架構，V3 把訓練成本壓到 2.788M H800 GPU 小時（同級模型中最低），V4 把 context window 拉到 1M 並分出 Flash/Pro 雙版本。
+
+**推理線**（R1 → R1-0528）：專攻長鏈思考。R1 的突破在 R1-Zero——這個模型完全用強化學習訓練，沒有任何 SFT 資料，卻自發展現出推理能力。這證明了推理可以單純從獎勵訊號中湧現。之後 DeepSeek 把推理能力蒸餾回 Qwen 和 Llama 架構的小模型，讓社群也能用小模型跑推理。
+
+早期的 DeepSeek-Coder 是獨立的程式碼模型線，但從 V3 開始併入通用線——V3 本身的 coding 能力已經強到不需要分開訓練。類似的情況也發生在 DeepSeek-Math 和 Prover 系列，數學推理能力逐步整合進主線模型。
+
+
+### 子線與生態系
+DeepSeek 除了主線之外，還有幾條值得注意的支線：
+
+- **DeepSeek-Coder / Coder-V2**：早期的專用程式碼模型，從 V3 起併入通用線。如果你看到有人還在用 DeepSeek-Coder，它已經被 V4 取代
+- **DeepSeek-Math / Prover**：數學推理專線，已演化到 V2 版本，專攻數學證明
+- **DeepSeek-OCR**：獨立的視覺 OCR 模型，MIT 授權，HuggingFace 3,347 likes。不依賴 V4 架構
+- **V4-Flash-Vision-Exp**：2026 年 8 月 21 日發佈的實驗性多模態模型，基於 Flash（不是 Pro），圖片以最多 384 tokens 編碼。標記為 experimental，不建議用於 production
+- **R1 蒸餾版**：DeepSeek 把 R1 的推理能力蒸餾到 Qwen 和 Llama 架構的小模型上（1.5B 到 70B），讓社群可以在消費級硬體上跑推理模型。這可能是 R1 對開源生態影響最大的貢獻
+
+## 家族演化
+
+### 家族演化時間線
 | 版本 | 發佈 | 總參數 | 活躍參數 | Context | 關鍵創新 |
 |---|---|---|---|---|---|
 | DeepSeek LLM 67B | 2024-01 | 67B | 67B (Dense) | 4K | Llama-2 架構複製起點 |
@@ -45,21 +75,12 @@ glossary:
 
 兩年半、12 個里程碑。每一代都不只是「更大」，而是帶著明確的架構改進。V2 是轉折點——MLA 和 DeepSeekMoE 在那一代定型，之後的每一代都在這個基礎上疊加。
 
-## 兩條主線：通用線 vs 推理線
+## 架構與訓練取捨
 
-DeepSeek 的模型分成兩條平行演進的主線：
-
-**通用線**（V1 → V2 → V3 → V3.2 → V4）：針對一般對話、coding、工具呼叫做最佳化，核心目標是效率和成本。從 V2 開始確立 MLA + MoE 架構，V3 把訓練成本壓到 2.788M H800 GPU 小時（同級模型中最低），V4 把 context window 拉到 1M 並分出 Flash/Pro 雙版本。
-
-**推理線**（R1 → R1-0528）：專攻長鏈思考。R1 的突破在 R1-Zero——這個模型完全用強化學習訓練，沒有任何 SFT 資料，卻自發展現出推理能力。這證明了推理可以單純從獎勵訊號中湧現。之後 DeepSeek 把推理能力蒸餾回 Qwen 和 Llama 架構的小模型，讓社群也能用小模型跑推理。
-
-早期的 DeepSeek-Coder 是獨立的程式碼模型線，但從 V3 開始併入通用線——V3 本身的 coding 能力已經強到不需要分開訓練。類似的情況也發生在 DeepSeek-Math 和 Prover 系列，數學推理能力逐步整合進主線模型。
-
-## 架構創新：為什麼 DeepSeek 這麼便宜
-
+### 架構創新：為什麼 DeepSeek 這麼便宜
 DeepSeek 的定價是業界最低（V4 Flash output $0.28/1M tokens，約 Claude Opus 的 1/90），但品質不差。這不是犧牲品質換價格，而是兩項架構創新帶來的結構性成本優勢。
 
-### MLA：把記憶體瓶頸壓縮 93%
+#### MLA：把記憶體瓶頸壓縮 93%
 
 標準的多頭注意力（MHA）在推論時有一個痛點：每處理一個 token，就要把之前所有 token 的 Key 和 Value 向量存起來（KV cache）。128 個注意力頭、每個頭 128 維，一個 token 要存 32,768 個浮點數。當 context 拉長到數萬或數十萬 token 時，KV cache 佔的記憶體比模型本身還大。
 
@@ -69,7 +90,7 @@ MLA（Multi-head Latent Attention）的解法很直覺：既然每個頭的 K �
 
 這也是 DeepSeek 能提供 1M context 且價格不爆炸的原因。傳統架構下，1M context 的 KV cache 會吃掉數十 GB 記憶體；MLA 把它壓到可控範圍。
 
-### DeepSeekMoE：671B 參數只啟用 37B
+#### DeepSeekMoE：671B 參數只啟用 37B
 
 傳統的 Mixture of Experts 用 8 個大專家，每次選 1-2 個。DeepSeek 反過來做——把專家切得非常細：
 
@@ -82,7 +103,7 @@ MLA（Multi-head Latent Attention）的解法很直覺：既然每個頭的 K �
 
 V3 還引入了**去輔助損失的負載平衡**。傳統 MoE 用一個額外的損失函數懲罰不平衡的專家分配，但這個懲罰會干擾主要的訓練目標。DeepSeek 改用動態偏置（bias）——某個專家過載就降低它的偏置，空閒就提高，完全不影響主要損失函數。
 
-### 工程層面的降本
+#### 工程層面的降本
 
 架構創新之外，DeepSeek 在工程上也做了極致的最佳化：
 
@@ -92,51 +113,9 @@ V3 還引入了**去輔助損失的負載平衡**。傳統 MoE 用一個額外�
 
 V3 的 671B 參數只用了 2.788M H800 GPU 小時完成訓練——這個數字在同級模型中低得驚人。對比之下，同期的其他 600B+ 模型通常需要十倍以上的算力。
 
-## V4 Pro vs V4 Flash：怎麼選
+## 評測與競品比較
 
-V4 有兩個版本，選錯會浪費錢或犧牲品質。以下是截至 2026 年 8 月的完整比較：
-
-| 項目 | V4 Flash 0731 | V4 Pro 0813 |
-|---|---|---|
-| 總參數 | 284B | 1.6T |
-| 活躍參數 | 13B | 49B |
-| Context | 1M | 1M |
-| 定價 input ($/1M tokens) | $0.14 | $0.435（離峰）/ $1.32（尖峰）|
-| 定價 output ($/1M tokens) | $0.28 | $0.87（離峰）/ $3.96（尖峰）|
-| Cache hit input | $0.0028 | $0.003625 |
-| [SWE-bench Verified](https://www.swebench.com) | 79% | 96.4%（[Vals AI](https://vals.ai) 獨立測試）|
-| [LiveBench](https://livebench.ai) global | 74.17 | 77.44 |
-| LiveBench agentic coding | 46.77 | 54.95 |
-| Terminal-Bench 2.1 | 82.7 | — |
-| SimpleQA-Verified | 34.1 | 57.9 |
-| MRCR 1M（長 context 檢索）| 78.7 | 83.5 |
-| 並行數限制 | 2,500 | 500 |
-| 開源權重 | ✓（167GB，MIT）| ✓（893GB，MIT）|
-| Vision | ✓（experimental）| ✗ |
-
-### 怎麼選
-
-- **如果你的場景是高吞吐量的分類、提取、摘要** → Flash。$0.14/1M input、2,500 並行、13B 活躍參數，成本和延遲都是最優選
-- **如果你在做 coding agent 修 bug** → Pro。SWE-bench Verified 96.4% 幾乎追平 Claude Opus 5（97.0%），但 output 定價只有 Opus 的 1/28
-- **如果你需要精準的事實回答** → Pro。SimpleQA-Verified 57.9 vs Flash 34.1（+24pp），BrowseComp 83.4 vs 73.2（+10pp）
-- **如果你需要長文精準檢索** → Pro。MRCR 1M 83.5 vs 78.7
-- **如果你要本地部署** → Flash。167GB MIT 授權，社群有 57+ 量化版本。Pro 的 893GB 在大多數硬體上不可行
-- **如果你在做多步驟自主 Agent** → 注意 agentic 分數。Flash 的 LiveBench agentic coding 46.77、Pro 54.95，都落後 Claude Opus 5 的 65.20 約 10-20pp
-
-一個反直覺的事實：V4 Flash 0731 的 post-training 更新讓它在所有 9 項 agentic benchmark 上反超了（舊版的）Pro preview。DeepSWE 從 7.3% 跳到 54.4%，架構完全沒變，只改了 post-training。這說明 post-training 的重要性可能不亞於 pre-training。Pro 0813 GA 版本縮小了部分差距，但 Flash 在多數 agentic 任務上仍然有競爭力。
-
-## 子線與生態系
-
-DeepSeek 除了主線之外，還有幾條值得注意的支線：
-
-- **DeepSeek-Coder / Coder-V2**：早期的專用程式碼模型，從 V3 起併入通用線。如果你看到有人還在用 DeepSeek-Coder，它已經被 V4 取代
-- **DeepSeek-Math / Prover**：數學推理專線，已演化到 V2 版本，專攻數學證明
-- **DeepSeek-OCR**：獨立的視覺 OCR 模型，MIT 授權，HuggingFace 3,347 likes。不依賴 V4 架構
-- **V4-Flash-Vision-Exp**：2026 年 8 月 21 日發佈的實驗性多模態模型，基於 Flash（不是 Pro），圖片以最多 384 tokens 編碼。標記為 experimental，不建議用於 production
-- **R1 蒸餾版**：DeepSeek 把 R1 的推理能力蒸餾到 Qwen 和 Llama 架構的小模型上（1.5B 到 70B），讓社群可以在消費級硬體上跑推理模型。這可能是 R1 對開源生態影響最大的貢獻
-
-## 跟競品的位置
-
+### 跟競品的位置
 把 V4 Pro 放到前端模型的座標系裡看：
 
 | 指標 | DeepSeek V4 Pro 0813 | Claude Opus 5 | GPT-5.6 Sol |
@@ -151,21 +130,71 @@ DeepSeek 除了主線之外，還有幾條值得注意的支線：
 
 一篇 [Codersera 的分析](https://codersera.com/blog/deepseek-v4-pro-0813-guide-2026/)精準總結了這個定位：「V4 Pro 是 patch-fixing specialist，不是 autonomous agent。」如果你的 pipeline 是「給一個明確的 bug，修好它」，DeepSeek 幾乎跟 Claude 一樣強；如果你需要 agent 自己規劃多步驟、自己決定用什麼工具，Claude 和 GPT 仍然領先。
 
-## 對 Agent 開發者的意義
+### V4 Flash 0731 與 V4 Pro 0813：評測結果
 
+以下比較定價表同一組版本的評測結果，分開看 coding、事實回答與長文本檢索；價格與部署需求另列於「授權、價格與部署」。
+
+| 項目 | V4 Flash 0731 | V4 Pro 0813 |
+|---|---|---|
+| [SWE-bench Verified](https://www.swebench.com) | 79% | 96.4%（[Vals AI](https://vals.ai) 獨立測試）|
+| [LiveBench](https://livebench.ai) global | 74.17 | 77.44 |
+| LiveBench agentic coding | 46.77 | 54.95 |
+| Terminal-Bench 2.1 | 82.7 | — |
+| SimpleQA-Verified | 34.1 | 57.9 |
+| MRCR 1M（長 context 檢索）| 78.7 | 83.5 |
+
+## 授權、價格與部署
+
+以下比較分開看託管 API 與 MIT 授權權重：Flash 權重為 167GB、Pro 為 893GB。權重的 MIT 授權不取代託管供應商的服務條款；本文未完整列出後者。
+
+### V4 Pro vs V4 Flash：怎麼選
+V4 有兩個版本，選錯會浪費錢或犧牲品質。以下是截至 2026 年 8 月的規格、價格與部署比較；評測結果見「評測與競品比較」的 Flash／Pro 表：
+
+| 項目 | V4 Flash 0731 | V4 Pro 0813 |
+|---|---|---|
+| 總參數 | 284B | 1.6T |
+| 活躍參數 | 13B | 49B |
+| Context | 1M | 1M |
+| 定價 input ($/1M tokens) | $0.14 | $0.435（離峰）/ $1.32（尖峰）|
+| 定價 output ($/1M tokens) | $0.28 | $0.87（離峰）/ $3.96（尖峰）|
+| Cache hit input | $0.0028 | $0.003625 |
+| 並行數限制 | 2,500 | 500 |
+| 開源權重 | ✓（167GB，MIT）| ✓（893GB，MIT）|
+| Vision | ✓（experimental）| ✗ |
+
+## Agent 使用與選型
+
+### 怎麼選
+- **如果你的場景是高吞吐量的分類、提取、摘要** → Flash。$0.14/1M input、2,500 並行、13B 活躍參數，成本和延遲都是最優選
+- **如果你在做 coding agent 修 bug** → Pro。SWE-bench Verified 96.4% 幾乎追平 Claude Opus 5（97.0%），但 output 定價只有 Opus 的 1/28
+- **如果你需要精準的事實回答** → Pro。SimpleQA-Verified 57.9 vs Flash 34.1（+24pp），BrowseComp 83.4 vs 73.2（+10pp）
+- **如果你需要長文精準檢索** → Pro。MRCR 1M 83.5 vs 78.7
+- **如果你要本地部署** → Flash。167GB MIT 授權，社群有 57+ 量化版本。Pro 的 893GB 在大多數硬體上不可行
+- **如果你在做多步驟自主 Agent** → 注意 agentic 分數。Flash 的 LiveBench agentic coding 46.77、Pro 54.95，都落後 Claude Opus 5 的 65.20 約 10-20pp
+
+一個反直覺的事實：V4 Flash 0731 的 post-training 更新讓它在所有 9 項 agentic benchmark 上反超了（舊版的）Pro preview。DeepSWE 從 7.3% 跳到 54.4%，架構完全沒變，只改了 post-training。這說明 post-training 的重要性可能不亞於 pre-training。Pro 0813 GA 版本縮小了部分差距，但 Flash 在多數 agentic 任務上仍然有競爭力。
+
+
+### 對 Agent 開發者的意義
 - **如果你在做 coding agent 的 bug fix pipeline** → V4 Pro 的 SWE-bench 96.4% 幾乎追平 Claude Opus，成本只有 1/28。對「已知有 bug，修好它」這類明確任務，這是目前最好的價效比
 - **如果你在做高吞吐量處理** → V4 Flash，$0.14/1M input，2,500 並行上限。分類、提取、摘要這些任務不需要旗艦級品質
 - **如果你要自架模型** → V4 Flash 167GB MIT 授權，vLLM 和 SGLang 都支援，社群有 57+ 量化版。這是目前最實際的開源自架選項
 - **如果你要 Agent 做多步驟自主任務** → DeepSeek 的 agentic 分數仍落後 Claude/GPT 約 10pp。考慮混用：用 DeepSeek 處理明確的子任務，用 Claude 做頂層編排
 - **MLA 對架構選型的意義** → 1M context + 低價讓「全文塞進去取代 RAG」成為更多場景的可行策略。如果你的文件總量在 1M token 以內，直接塞進 context 可能比建 RAG pipeline 更簡單、更準
 
-## 整體來說
+## 限制與取捨
 
+Flash 的低成本不代表自主規劃同樣可靠；Pro 的 893GB 權重也不是一般硬體的部署選項。實驗性 Vision 版本不宜直接作正式環境預設。
+
+### 整體來說
 DeepSeek 證明了一件事：前端模型的競爭力可以來自聰明的架構，而非單純的算力堆疊。MLA 和 DeepSeekMoE 不是權宜之計——它們是真正的技術創新，解決了推論成本的結構性問題。V4 Flash 的 post-training 故事（DeepSWE 從 7.3% 跳到 54.4%，架構完全不變）則說明 post-training 的重要性可能被低估了。
 
 對 Agent 開發者來說：Flash 處理量、Pro 處理精度、agentic 任務跟 Claude/GPT 混用。這不是「選一個模型打天下」的時代——而是「每個任務選最適合的模型」的時代。
 
----
+
+## 更新紀錄
+
+- **2026-10-11**：依家族共同格式重組章節，補上由既有內容整理的矩陣。沿用原有版本、價格與來源日期，未進行新一輪事實查證。
 
 ## 參考資料
 

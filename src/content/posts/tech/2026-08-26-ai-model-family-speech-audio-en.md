@@ -8,7 +8,7 @@ type: deep-dive
 tldr: "Speech models split into two lines. Whisper led ASR: its MIT-licensed 1.55B model drove transcription cost toward zero in September 2022; after v2, v3, and turbo cut the decoder from 32 layers to four, OpenAI moved to closed gpt-4o-transcribe. In TTS, ElevenLabs grew to an $11B valuation and $500M ARR, while Kokoro (82M, Apache-2.0) and Chatterbox preserved self-hosting. Speech-to-speech Realtime APIs are now rewriting live conversation."
 description: "A guide to speech model families: Whisper v1/v2/v3/turbo and WER, closed gpt-4o-transcribe, ElevenLabs v3/Flash/Scribe pricing and funding, open Kokoro/XTTS/Chatterbox, and the move to Realtime API and Gemini Live."
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 17
 draft: false
 glossary:
@@ -106,6 +106,10 @@ Two traps: XTTS v2's CPML has no commercial licensing path after Coqui's closure
 In four years, Whisper made listening free infrastructure, ElevenLabs turned speaking into a $500M-ARR business, and the next contest moved to speech-to-speech: whoever fits latency inside the natural rhythm of conversation owns the next interaction layer.
 
 ---
+
+## Update history
+
+- 2026-10-11: Normalized series metadata and end-section ordering; retained the existing comparison hierarchy, sources, and dates. No fresh fact-check was performed.
 
 ## References
 

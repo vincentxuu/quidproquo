@@ -30,24 +30,17 @@ In August 2026, Zhipu AI released **GLM-5.3** — same base model, but pure post
 
 For how to read the benchmark numbers cited here, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is the eighth family deep-dive in the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
 
-## Family Evolution Timeline
+## Family positioning and model matrix
 
-| Version | Released | Key facts |
-|---|---|---|
-| GLM-130B | 2022-07 | 130B dense model, ICLR 2023 paper, open-source starting point |
-| ChatGLM / ChatGLM-6B | 2023-03 | Aligned version; the 6B open release ignited the community |
-| ChatGLM2 / 3 | 2023 H2 | Context expansion, function calling, agent capability |
-| GLM-4 series | 2024 | 10T+ tokens pretraining, All Tools autonomous tool selection |
-| GLM-4.5 | 2025-07 | 355B MoE (32B active), then open-source MoE SOTA |
-| **GLM-5** | 2026-02 | **744B MoE (40B active), trained on Huawei Ascend, MIT license** |
-| GLM-5.1 | 2026-05 | Built for long-horizon agent tasks; runs 8 hours standalone |
-| GLM-5.2 | 2026-06 | 1M lossless context, open-source coding SOTA |
-| **GLM-5.3** | 2026-08 | **same base as 5.2, coding +50%, CyberGym 84.5%** |
+| Model / line | Positioning | Key difference | Access |
+|---|---|---|---|
+| GLM-5.3 | Primary selection | Version comparisons below | Commercial API / open weights; terms below |
+| GLM open-weight line | Self-hosting and data sovereignty | Open-model ecosystem | Model weights |
+| GLM specialist lines | Multimodal and specialist tasks | Task-specific lines | Access varies by model |
 
-Four years, eight generations. The first act was "academic accumulation becomes product"; the second is **open-source weights and commercial API formally splitting into two tracks** — the same dual track as Qwen, but GLM's open weights have consistently stayed on the most permissive license, MIT.
 
-## Two Product Lines: Open Weights for Ecosystem, Commercial API for Revenue
 
+### Two Product Lines: Open Weights for Ecosystem, Commercial API for Revenue
 To read GLM's 2026 moves, split it into two parallel tracks:
 
 **Open-source line** (HuggingFace `zai-org` / `ZhipuAI`): each generation from GLM-4.5 to GLM-5.3 ships checkpoints under **MIT**, unrestricted for commercial use, fine-tuning, and self-hosting. This line owns the ecosystem — vLLM, llama.cpp, and SGLang all support it, and the fine-tuning community treats it as a trusted open base.
@@ -56,63 +49,8 @@ To read GLM's 2026 moves, split it into two parallel tracks:
 
 One key difference: GLM-5.3's **weights open about two weeks after the API** (around 2026-08-22), and only after safety evaluation and hardening. This mirrors Qwen3.8-Max's "release first, open later"节奏, but GLM's open license is clean MIT — unlike Qwen's flagship, which switched to a custom license.
 
-## Architecture: Why Huawei Chips Can Train a Frontier Model
 
-### GLM Autoregressive Blank-Infilling
-
-GLM was never a standard left-to-right language model; it uses a **blank-infilling objective** (span corruption) to unify understanding and generation. This let one model do both cloze-style comprehension and generation. The 2022 GLM-130B earned ICLR attention on this architecture, and ChatGLM and GLM-5 all inherit it.
-
-### MoE: Only 40B Active Out of 744B
-
-GLM-5 is a 744B total-parameter MoE that activates only 40B per inference. This serves frontier quality on a single high-end host while pushing inference cost to 1/5–1/8 of closed models. GLM-5.2/5.3 keep the same base; all capability jumps come from post-training, not scaling up the model.
-
-### Slime RL: Making Agents Use Tools
-
-Zhipu's agent edge is **Slime RL** — a process-verification framework. It doesn't just check the final answer; it tracks step by step whether the model's tool calls in the agent loop are correct. This drives GLM-5-Turbo's tool-call accuracy to 99.32%, a strong option for agentic scenarios.
-
-### Huawei Ascend: Frontier Training Without NVIDIA
-
-GLM-5 was trained entirely on **Huawei Ascend** chips — not a single NVIDIA GPU. In the context of geopolitics and supply chains, this is a signal: the training infrastructure for Chinese frontier models is decoupling. Whether Ascend's training efficiency can keep pace with NVIDIA's iterations long-term remains open, but GLM-5 already proves "non-US hardware can train a frontier model."
-
-## GLM-5.3: How to Choose
-
-GLM-5.3 is a post-training upgrade of one base, but Zhipu maintains several SKUs:
-
-| Item | GLM-5.3 (API) | GLM-5.2 | GLM-5.1 | GLM-5-Turbo |
-|---|---|---|---|---|
-| Base | 744B MoE (40B active) | same | same | same (agent-tuned) |
-| Context | 1M | 1M | 1M | 1M |
-| Positioning | strongest general + coding + security | prior strongest | long-horizon agent | stable agent / low cost |
-| License | commercial API | commercial API | commercial API | commercial API |
-| Open weights | MIT (2 weeks later) | MIT (released) | MIT (released) | MIT (released) |
-| Pricing | ~$0.42 / $2.10 per 1M tokens (same as 5.2) | same | same | lower |
-
-Pricing is GLM-5-era commercial API reference; 5.3 explicitly inherits 5.2 pricing.
-
-### License Trap: MIT Is Genuinely Open, But Frontier Ability Lives in the API and the Time Lag
-
-GLM's open license is among the cleanest in the series — **MIT**, more permissive than Llama 4's Community License (700M MAU clause) and Qwen3.8-Max's custom terms. For deployments needing license certainty, this is a real advantage.
-
-Two buts:
-
-- **Weight release lag**: GLM-5.3 weights open ~2 weeks after the API, after safety hardening. "Latest ability today + weights in your hands" is impossible — use the API, or wait two weeks.
-- **Deployment responsibility for security ability**: GLM-5.3's CyberGym ability has been used on real codebases (reportedly 2,436 vulnerabilities found). Once open-sourced, this double-edged capability is the deployer's responsibility. If your use involves red-teaming / vuln discovery, assess compliance risk yourself.
-
-### Performance Position
-
-| Metric | GLM-5.3 | Comparison |
-|---|---|---|
-| Artificial Analysis Intelligence Index | **60** (open-source #1, tied) | tied with Kimi K3; Claude Fable 5 / GPT-5.6 Sol tier |
-| CyberGym | **84.5%** | Mythos 5 83.8% / GPT-5.6 Sol 83.6% (Z.ai self-reported) |
-| ExploitBench | 54.4% | Mythos 5 78% / GPT-5.6 Sol 76.5% (trails) |
-| Terminal-Bench 3.0 | open-source SOTA | #1 among open models |
-| Agents' Last Exam | open-source SOTA | #1 among open models |
-| Z.ai Code Bench | +50% vs 5.2 | internal benchmark |
-
-Three honest buts: CyberGym / ExploitBench are Z.ai self-reported, pending independent replication; on ExploitBench (deeper into the exploitation chain) GLM-5.3 still trails closed flagships clearly; the Intelligence Index 60 ties Kimi K3, but both still trail Claude Fable 5 and GPT-5.6 Sol overall.
-
-## Sub-lines and Ecosystem: A Table of GLM's Model Range
-
+### Sub-lines and Ecosystem: A Table of GLM's Model Range
 Beyond the general line, Zhipu runs several sub-lines:
 
 | Sub-line | Representative | Latest status (2026-08) |
@@ -130,8 +68,58 @@ Two trends:
 
 **Open license stays permissive throughout.** Unlike Qwen's flagship moving to custom terms and Llama 4's Community License, GLM's open weights have stayed MIT. This makes it especially persuasive for enterprise deployments needing license certainty — particularly geo-sensitive, must-self-host scenarios.
 
-## Position Against Competitors
+## Family evolution
 
+### Family Evolution Timeline
+| Version | Released | Key facts |
+|---|---|---|
+| GLM-130B | 2022-07 | 130B dense model, ICLR 2023 paper, open-source starting point |
+| ChatGLM / ChatGLM-6B | 2023-03 | Aligned version; the 6B open release ignited the community |
+| ChatGLM2 / 3 | 2023 H2 | Context expansion, function calling, agent capability |
+| GLM-4 series | 2024 | 10T+ tokens pretraining, All Tools autonomous tool selection |
+| GLM-4.5 | 2025-07 | 355B MoE (32B active), then open-source MoE SOTA |
+| **GLM-5** | 2026-02 | **744B MoE (40B active), trained on Huawei Ascend, MIT license** |
+| GLM-5.1 | 2026-05 | Built for long-horizon agent tasks; runs 8 hours standalone |
+| GLM-5.2 | 2026-06 | 1M lossless context, open-source coding SOTA |
+| **GLM-5.3** | 2026-08 | **same base as 5.2, coding +50%, CyberGym 84.5%** |
+
+Four years, eight generations. The first act was "academic accumulation becomes product"; the second is **open-source weights and commercial API formally splitting into two tracks** — the same dual track as Qwen, but GLM's open weights have consistently stayed on the most permissive license, MIT.
+
+## Architecture and training trade-offs
+
+### Architecture: Why Huawei Chips Can Train a Frontier Model
+#### GLM Autoregressive Blank-Infilling
+
+GLM was never a standard left-to-right language model; it uses a **blank-infilling objective** (span corruption) to unify understanding and generation. This let one model do both cloze-style comprehension and generation. The 2022 GLM-130B earned ICLR attention on this architecture, and ChatGLM and GLM-5 all inherit it.
+
+#### MoE: Only 40B Active Out of 744B
+
+GLM-5 is a 744B total-parameter MoE that activates only 40B per inference. This serves frontier quality on a single high-end host while pushing inference cost to 1/5–1/8 of closed models. GLM-5.2/5.3 keep the same base; all capability jumps come from post-training, not scaling up the model.
+
+#### Slime RL: Making Agents Use Tools
+
+Zhipu's agent edge is **Slime RL** — a process-verification framework. It doesn't just check the final answer; it tracks step by step whether the model's tool calls in the agent loop are correct. This drives GLM-5-Turbo's tool-call accuracy to 99.32%, a strong option for agentic scenarios.
+
+#### Huawei Ascend: Frontier Training Without NVIDIA
+
+GLM-5 was trained entirely on **Huawei Ascend** chips — not a single NVIDIA GPU. In the context of geopolitics and supply chains, this is a signal: the training infrastructure for Chinese frontier models is decoupling. Whether Ascend's training efficiency can keep pace with NVIDIA's iterations long-term remains open, but GLM-5 already proves "non-US hardware can train a frontier model."
+
+## Evaluation and alternatives
+
+### Performance Position
+| Metric | GLM-5.3 | Comparison |
+|---|---|---|
+| Artificial Analysis Intelligence Index | **60** (open-source #1, tied) | tied with Kimi K3; Claude Fable 5 / GPT-5.6 Sol tier |
+| CyberGym | **84.5%** | Mythos 5 83.8% / GPT-5.6 Sol 83.6% (Z.ai self-reported) |
+| ExploitBench | 54.4% | Mythos 5 78% / GPT-5.6 Sol 76.5% (trails) |
+| Terminal-Bench 3.0 | open-source SOTA | #1 among open models |
+| Agents' Last Exam | open-source SOTA | #1 among open models |
+| Z.ai Code Bench | +50% vs 5.2 | internal benchmark |
+
+Three honest buts: CyberGym / ExploitBench are Z.ai self-reported, pending independent replication; on ExploitBench (deeper into the exploitation chain) GLM-5.3 still trails closed flagships clearly; the Intelligence Index 60 ties Kimi K3, but both still trail Claude Fable 5 and GPT-5.6 Sol overall.
+
+
+### Position Against Competitors
 Place GLM-5.3 in the August 2026 open-source landscape:
 
 - **vs Kimi K3 (2.8T open weights)**: both tied at 60 on the Intelligence Index (open-source #1). K3 is bigger (2.8T vs 744B), but GLM's MIT license is cleaner and its Chinese/agent ecosystem more mature
@@ -139,8 +127,34 @@ Place GLM-5.3 in the August 2026 open-source landscape:
 - **vs DeepSeek V4**: DeepSeek's price ($0.28/$0.42) and MLA cost structure are more aggressive; GLM's edge is agent tool-call accuracy (99.32%) and security benchmarks
 - **vs Claude / GPT frontier**: GLM-5.3 locally surpasses on CyberGym, but trails on composite (SWE-bench, ExploitBench) while pricing 7–10x cheaper
 
-## What This Means for Agent Developers
+## Licensing, pricing, and deployment
 
+### License Trap: MIT Is Genuinely Open, But Frontier Ability Lives in the API and the Time Lag
+GLM's open license is among the cleanest in the series — **MIT**, more permissive than Llama 4's Community License (700M MAU clause) and Qwen3.8-Max's custom terms. For deployments needing license certainty, this is a real advantage.
+
+Two buts:
+
+- **Weight release lag**: GLM-5.3 weights open ~2 weeks after the API, after safety hardening. "Latest ability today + weights in your hands" is impossible — use the API, or wait two weeks.
+- **Deployment responsibility for security ability**: GLM-5.3's CyberGym ability has been used on real codebases (reportedly 2,436 vulnerabilities found). Once open-sourced, this double-edged capability is the deployer's responsibility. If your use involves red-teaming / vuln discovery, assess compliance risk yourself.
+
+
+### GLM-5.3: How to Choose
+GLM-5.3 is a post-training upgrade of one base, but Zhipu maintains several SKUs:
+
+| Item | GLM-5.3 (API) | GLM-5.2 | GLM-5.1 | GLM-5-Turbo |
+|---|---|---|---|---|
+| Base | 744B MoE (40B active) | same | same | same (agent-tuned) |
+| Context | 1M | 1M | 1M | 1M |
+| Positioning | strongest general + coding + security | prior strongest | long-horizon agent | stable agent / low cost |
+| License | commercial API | commercial API | commercial API | commercial API |
+| Open weights | MIT (2 weeks later) | MIT (released) | MIT (released) | MIT (released) |
+| Pricing | ~$0.42 / $2.10 per 1M tokens (same as 5.2) | same | same | lower |
+
+Pricing is GLM-5-era commercial API reference; 5.3 explicitly inherits 5.2 pricing.
+
+## Agent integration and selection
+
+### What This Means for Agent Developers
 - **Complex coding agent** → GLM-5.3: Terminal-Bench 3.0 / Agents' Last Exam open-source SOTA, Z.ai Code Bench +50% vs 5.2
 - **Security / vuln scanning** → GLM-5.3: CyberGym 84.5% open-source #1, but self-assess red-team compliance
 - **High-stability tool calls** → GLM-5-Turbo: 99.32% tool-call accuracy, Chinese-native, fits long agent chains
@@ -148,15 +162,21 @@ Place GLM-5.3 in the August 2026 open-source landscape:
 - **Need cheapest API** → DeepSeek V4 Flash is cheaper; GLM's edge is agent stability, not pure price
 - **Need ultra-long context** → Kimi K3's 1M context and 2.8T params are bigger, but GLM's 1M lossless is enough for most
 
-## Overall
+## Limitations and trade-offs
 
+Domestic chips and open weights describe a deployment direction, not a performance guarantee in every environment. Assess English coding, toolchains, and hardware against the comparisons retained below.
+
+### Overall
 GLM's story is "an open-source frontier grown from an academic lab." From Tsinghua KEG's GLM-130B to today's 744B open-source flagship trained entirely on Huawei Ascend, Zhipu walked a different path from Silicon Valley — not NVIDIA compute, but architecture (GLM blank-infilling), training framework (Slime RL), and license (MIT) as the moat.
 
 August 2026's GLM-5.3 is a turning point: it proves **post-training can dramatically lift a fixed base's frontier ability without scaling the model every time**. CyberGym 84.5% beating Mythos 5 and GPT-5.6 Sol turns "open-source model does security" from slogan to measurable benchmark.
 
 What's worth remembering is the license: on the "open-source" spectrum, GLM sits at the cleanest end — MIT, commercial-use OK, fine-tune OK, self-host OK, no MAU clause, no custom restrictions. For enterprises needing license certainty (especially geo- and compliance-bound scenarios), GLM is currently among the most worry-free options in the open-source camp.
 
----
+
+## Update history
+
+- **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 

@@ -31,29 +31,17 @@ glossary:
 
 這是[AI 模型家族](/series/ai)系列的第八篇，追蹤 Cohere 從語言模型新創到企業 RAG 套件的完整演化。怎麼解讀文中引用的 benchmark，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)；快速對照 20 多種用途的模型選型，見[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)。
 
-## 家族演化時間線
+## 家族定位與版本矩陣
 
-| 版本 | 發佈 | 關鍵事實 |
-|---|---|---|
-| Cohere 成立 | 2019 | 多倫多，Aidan Gomez（Transformer 論文共同作者）與 Nick Frosst、Ivan Zhang 共同創立 |
-| Command（初代） | 2022–2023 | 早期生成模型，$1.00/$2.00 定價，奠定 API 基礎 |
-| Command R | 2024-03-11 | 首個 RAG 專用模型，128K context，$0.50/$1.50 |
-| Command R+ | 2024-04 | 旗艦 104B 參數，128K context，$3.00/$15.00，複雜 RAG 與多步驟 tool use |
-| Command R+ 08-2024 | 2024-08 | 大幅更新版，吞吐量 +50%、延遲 -25%，降價至 $2.50/$10.00 |
-| Aya 101 | 2024-02 | 13B、101 種語言、Apache 2.0 開源 |
-| Aya 23 | 2024-05 | 8B/35B、23 種語言、CC BY-NC 4.0 |
-| Aya Expanse | 2024-12-05 | 8B（8K）/32B（128K）、23 種語言、CC BY-NC 4.0，API $0.50/$1.50 |
-| Command A | 2025-03-13 | 111B、256K context、兩張 GPU 即可跑，吞吐量較 R+ 08-2024 高 150% |
-| Embed v4.0 | 2025 | 圖文混合（文字+圖片+PDF）、128K、可變維度 256–1536 |
-| Rerank v3.5 / v4 | 2025 | v3.5 單一多語言 4K；v4 Fast/Pro 32K、支援半結構化 JSON/YAML |
-| North / Compass | 2025 | 企業工作平台 North + 智慧搜尋 Compass |
-| North Mini Code | 2025 | 首個 agentic coding MoE：30B 總參數 / 3B 活躍，256K context，Apache 2.0 |
-| Transcribe | 2025 | 語音辨識模型，含阿拉伯語微調版 |
+| 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
+|---|---|---|---|
+| Command A | 企業 RAG 生成 | 帶引用回答與工具使用 | API／私有部署 |
+| Embed v4 / Rerank v4 | RAG 檢索與精排 | 向量與 search unit 分開計費 | API／部署選項見正文 |
+| Aya 101 / Aya 23 / Expanse | 多語言研究 | 語言覆蓋與授權分代 | Apache 2.0／CC BY-NC 4.0 依版本 |
 
-六年、四次世代跳躍。Cohere 的節奏不是「每季發一個更大模型」，而是「每條線各自演進、最後在 North 平台合流」。
 
-## 四支柱：為什麼 Cohere 不只是 LLM 公司
 
+### 四支柱：為什麼 Cohere 不只是 LLM 公司
 多數家族只有一條主線（Qwen 拚全尺寸覆蓋、DeepSeek 拚 MoE 效率、Claude 拚 Agent）。Cohere 同時維護四條：
 
 **Command（生成）**：對話、RAG grounded generation、多步驟 tool use。從 R 到 R+ 再到 A，每一代都在「如何更省算力做 RAG」上加碼——Command A 用 111B 達到對手更大模型的品質，且只要兩張 A100/H100。
@@ -66,59 +54,8 @@ glossary:
 
 這四塊的組合拳是 Cohere 唯一的護城河：別家需要你自己拼 OpenAI + BGE + Jina + NLLB，Cohere 給你一整套、同一家計費、同一套私有部署。
 
-## 架構：為什麼叫 RAG 原生
 
-### Grounded generation 與引用
-
-Command R/R+/A 從訓練階段就針對「給定文件、產生帶引用回答」最佳化。模型會在回答中標註資訊來源，而不是自由發揮。這對企業知識庫問答至關重要——法務、客服、金融場景不能接受無來源的答案。
-
-### 多步驟 tool use
-
-Command R+ 起支援 multi-step tool use：模型可以在一個回應週期內順序呼叫多個工具，並用前一步的結果決定下一步。這是 Agent 的基礎能力，Cohere 在 2024 年就把它做成 R+ 的主打，而非事後外掛。Command A 在此之上強調「少做不必要的工具呼叫」——實務上，亂呼工具比不呼工具更昂貴。
-
-### 效率優先的設計
-
-Command A 的技術賣點不是參數量，而是效率：111B 參數、256K context、只需兩張 GPU，吞吐量較前代 R+ 08-2024 高 150%。Cohere 官方說法是「on par or better than GPT-4o and DeepSeek-V3 across agentic enterprise tasks, with significantly greater efficiency」（[Command A 發佈文](https://cohere.com/blog/command-a)）。對需要私有部署的企業而言，「兩張卡就能跑旗艦」比「多 2% benchmark」更實際。
-
-## Embed v4 與 Rerank v4：怎麼選
-
-### Embed：從雙軌到統一
-
-| 項目 | Embed v4.0 | Embed v3.0（完整版） | Embed v3.0（輕量版） |
-|---|---|---|---|
-| 模態 | 文字 + 圖片 + 混合 PDF | 文字 | 文字 |
-| 維度 | 256 / 512 / 1024 / 1536（預設 1536） | 1024 | 384 |
-| Context | 128K tokens | 512 tokens | 512 tokens |
-| 語言 | 單一多語言（100+） | 英文 / 多語言分開 | 英文 / 多語言分開 |
-| 距離度量 | Cosine / Dot / Euclidean | Cosine | Cosine |
-| 量化 | float / int8 / uint8 / binary | float | float |
-
-v4.0 的兩個關鍵升級：**多模態輸入**（直接嵌圖片和 PDF，不需先轉文字）與**可變維度**（依場景選 256 維省儲存或 1536 維保品質）。舊版 512 tokens 的 context 在長文件場景是硬傷，v4.0 拉到 128K 後可直接嵌整份文件。
-
-定價：Embed 無公開的每 token 單價，採企業議價；[Model Vault](https://cohere.com/pricing) 獨佔實例為 Small $4/小時（$2,500/月）、Medium $5/小時（$3,250/月）。
-
-### Rerank：從 4K 到 32K
-
-| 項目 | Rerank v4 Pro / Fast | Rerank v3.5 | Rerank v3.0 |
-|---|---|---|---|
-| 語言 | 單一多語言 | 單一多語言 | 英文 / 多語言分開 |
-| Context | 32K | 4K | 4K |
-| 半結構化 | 支援 JSON/YAML/表格 | — | — |
-| 計費 | 每 search unit（1 query + 100 docs） | 同左 | 同左 |
-| 超長文件 | 自動切 chunk（>510 tokens） | 同左 | 同左 |
-
-v4 的核心差異是**半結構化資料**：企業文件常混雜表格、JSON、YAML，v4 Pro/Fast 能直接對這類內容打分，不需先轉純文字。Context 從 4K 拉到 32K 後，可一次精排更長的文件。
-
-Model Vault 定價：Rerank 3.5 與 Rerank 4 Fast Medium 皆 $5/小時（$3,250/月），Rerank 4 Pro Large $10/小時（$6,500/月）。
-
-### 一句話選型
-
-- **新專案直接上 v4**：Embed v4.0 + Rerank v4 Pro 是目前組合，多模態與 32K 精排覆蓋最廣。
-- **成本敏感**：Rerank 4 Fast 與 Pro 同價（Medium 皆 $5/小時），選 Pro 即可；Embed 可用 512 維而非 1536 維，儲存與延遲皆減半。
-- **已用 v3**：v3.0 的英文/多語言分流在 v3.5/v4 已統一，升級可簡化整合。
-
-## Aya：101 種語言到 23 種的收斂
-
+### Aya：101 種語言到 23 種的收斂
 | 版本 | 參數 | 語言數 | Context | 授權 | API 定價 |
 |---|---|---|---|---|---|
 | Aya 101 | 13B（mT5-xxl） | 101 | — | Apache 2.0 | —（權重下載） |
@@ -130,8 +67,8 @@ Aya 的演化呈現收斂：從 101 種語言的大而全，到 23 種核心語�
 
 23 種語言清單：阿拉伯語、中文（簡/繁）、捷克語、荷蘭語、英語、法語、德語、希臘語、希伯來語、印地語、印尼語、義大利語、日語、韓語、波斯語、波蘭語、葡萄牙語、羅馬尼亞語、俄語、西班牙語、土耳其語、烏克蘭語、越南語。與 Command A 支援的 23 種完全一致。
 
-## North、Compass 與子線
 
+### North、Compass 與子線
 Cohere 在模型之外疊了兩層平台：
 
 **[North](https://cohere.com/north)**：企業級 AI 工作平台，整合 Command、Embed、Rerank、文件連接器與 Agent 工作流。定位類似「企業內部的 ChatGPT + RAG + 自動化」，強調私有、安全、可接現有系統。**[Compass](https://cohere.com/compass)**：智慧搜尋與探索系統，偏文件發現與洞察挖掘。
@@ -157,10 +94,88 @@ Cohere 在模型之外疊了兩層平台：
 
 **平台化是雙面刃。** North 把四支柱打包成一站式方案，對已有 Cohere 部署的企業是加分；但對只想用 Embed 或 Rerank 的團隊，North 的存在感可能造成「是否被綁定」的疑慮。實務上，Embed/Rerank/Command 皆可單獨透過 API 使用，不強制經 North。
 
-## 定價與部署
+## 家族演化
+
+### 家族演化時間線
+| 版本 | 發佈 | 關鍵事實 |
+|---|---|---|
+| Cohere 成立 | 2019 | 多倫多，Aidan Gomez（Transformer 論文共同作者）與 Nick Frosst、Ivan Zhang 共同創立 |
+| Command（初代） | 2022–2023 | 早期生成模型，$1.00/$2.00 定價，奠定 API 基礎 |
+| Command R | 2024-03-11 | 首個 RAG 專用模型，128K context，$0.50/$1.50 |
+| Command R+ | 2024-04 | 旗艦 104B 參數，128K context，$3.00/$15.00，複雜 RAG 與多步驟 tool use |
+| Command R+ 08-2024 | 2024-08 | 大幅更新版，吞吐量 +50%、延遲 -25%，降價至 $2.50/$10.00 |
+| Aya 101 | 2024-02 | 13B、101 種語言、Apache 2.0 開源 |
+| Aya 23 | 2024-05 | 8B/35B、23 種語言、CC BY-NC 4.0 |
+| Aya Expanse | 2024-12-05 | 8B（8K）/32B（128K）、23 種語言、CC BY-NC 4.0，API $0.50/$1.50 |
+| Command A | 2025-03-13 | 111B、256K context、兩張 GPU 即可跑，吞吐量較 R+ 08-2024 高 150% |
+| Embed v4.0 | 2025 | 圖文混合（文字+圖片+PDF）、128K、可變維度 256–1536 |
+| Rerank v3.5 / v4 | 2025 | v3.5 單一多語言 4K；v4 Fast/Pro 32K、支援半結構化 JSON/YAML |
+| North / Compass | 2025 | 企業工作平台 North + 智慧搜尋 Compass |
+| North Mini Code | 2025 | 首個 agentic coding MoE：30B 總參數 / 3B 活躍，256K context，Apache 2.0 |
+| Transcribe | 2025 | 語音辨識模型，含阿拉伯語微調版 |
+
+六年、四次世代跳躍。Cohere 的節奏不是「每季發一個更大模型」，而是「每條線各自演進、最後在 North 平台合流」。
+
+## 架構與訓練取捨
+
+### 架構：為什麼叫 RAG 原生
+#### Grounded generation 與引用
+
+Command R/R+/A 從訓練階段就針對「給定文件、產生帶引用回答」最佳化。模型會在回答中標註資訊來源，而不是自由發揮。這對企業知識庫問答至關重要——法務、客服、金融場景不能接受無來源的答案。
+
+#### 多步驟 tool use
+
+Command R+ 起支援 multi-step tool use：模型可以在一個回應週期內順序呼叫多個工具，並用前一步的結果決定下一步。這是 Agent 的基礎能力，Cohere 在 2024 年就把它做成 R+ 的主打，而非事後外掛。Command A 在此之上強調「少做不必要的工具呼叫」——實務上，亂呼工具比不呼工具更昂貴。
+
+#### 效率優先的設計
+
+Command A 的技術賣點不是參數量，而是效率：111B 參數、256K context、只需兩張 GPU，吞吐量較前代 R+ 08-2024 高 150%。Cohere 官方說法是「on par or better than GPT-4o and DeepSeek-V3 across agentic enterprise tasks, with significantly greater efficiency」（[Command A 發佈文](https://cohere.com/blog/command-a)）。對需要私有部署的企業而言，「兩張卡就能跑旗艦」比「多 2% benchmark」更實際。
+
+
+### Embed：從雙軌到統一
+| 項目 | Embed v4.0 | Embed v3.0（完整版） | Embed v3.0（輕量版） |
+|---|---|---|---|
+| 模態 | 文字 + 圖片 + 混合 PDF | 文字 | 文字 |
+| 維度 | 256 / 512 / 1024 / 1536（預設 1536） | 1024 | 384 |
+| Context | 128K tokens | 512 tokens | 512 tokens |
+| 語言 | 單一多語言（100+） | 英文 / 多語言分開 | 英文 / 多語言分開 |
+| 距離度量 | Cosine / Dot / Euclidean | Cosine | Cosine |
+| 量化 | float / int8 / uint8 / binary | float | float |
+
+v4.0 的兩個關鍵升級：**多模態輸入**（直接嵌圖片和 PDF，不需先轉文字）與**可變維度**（依場景選 256 維省儲存或 1536 維保品質）。舊版 512 tokens 的 context 在長文件場景是硬傷，v4.0 拉到 128K 後可直接嵌整份文件。
+
+定價：Embed 無公開的每 token 單價，採企業議價；[Model Vault](https://cohere.com/pricing) 獨佔實例為 Small $4/小時（$2,500/月）、Medium $5/小時（$3,250/月）。
+
+
+### Rerank：從 4K 到 32K
+| 項目 | Rerank v4 Pro / Fast | Rerank v3.5 | Rerank v3.0 |
+|---|---|---|---|
+| 語言 | 單一多語言 | 單一多語言 | 英文 / 多語言分開 |
+| Context | 32K | 4K | 4K |
+| 半結構化 | 支援 JSON/YAML/表格 | — | — |
+| 計費 | 每 search unit（1 query + 100 docs） | 同左 | 同左 |
+| 超長文件 | 自動切 chunk（>510 tokens） | 同左 | 同左 |
+
+v4 的核心差異是**半結構化資料**：企業文件常混雜表格、JSON、YAML，v4 Pro/Fast 能直接對這類內容打分，不需先轉純文字。Context 從 4K 拉到 32K 後，可一次精排更長的文件。
+
+Model Vault 定價：Rerank 3.5 與 Rerank 4 Fast Medium 皆 $5/小時（$3,250/月），Rerank 4 Pro Large $10/小時（$6,500/月）。
+
+## 評測與競品比較
+
+### 跟競品的位置
+把 Cohere 放回 2026 年的格局：
+
+- **對上 OpenAI（GPT-5.6 + text-embedding-3）**：GPT 在通用品質與生態上領先，但 Cohere 的 Embed/Rerank 為 RAG 專門最佳化，且提供引用 grounded generation。需要「可追溯的企業問答」時 Cohere 更省事。
+- **對上 BGE-M3 / Jina（開源檢索）**：BGE-M3（MIT、36M 下載）與 Jina Reranker v3.5 是開源 RAG 的預設組合，可自架、成本低。Cohere Embed v4/Rerank v4 的優勢是多模態、32K、半結構化與企業支援，而非純分數。
+- **對上 Qwen / DeepSeek（開源生成）**：兩家提供可商用自架權重（Apache 2.0/MIT），Cohere Command 無此選項；但 Cohere 的多步驟 tool use 與 grounded RAG 在企業場景更成熟。
+- **對上 Claude / Gemini（閉源生成）**：Claude Opus 5 與 Gemini 3 在 coding 與推理上領先 Cohere；Cohere 的差異化是「生成+檢索+重排」的一站式與私有部署，而非單點品質。
+- **對上 NLLB / SeamlessM4T（多語言/翻譯）**：Aya 101 的 101 語言覆蓋與 NLLB-200 同級，且為指令跟隨模型（可加上下文翻譯）；Aya Expanse 則在 23 種語言內提供更強的生成品質。
+
+一句話定位：**如果你要的是「一個/chat/completions 端點」，Cohere 不是首選；如果你要的是「一套能私有部署的 RAG 流水線」，Cohere 是少數能一次給齊的家族。**
+
+## 授權、價格與部署
 
 ### API 定價（每百萬 tokens）
-
 | 模型 | Input | Output | 備註 |
 |---|---|---|---|
 | Command R 03-2024 | $0.50 | $1.50 | 已標 deprecated（2025-09-15） |
@@ -173,8 +188,8 @@ Cohere 在模型之外疊了兩層平台：
 
 來源：[Cohere Pricing](https://cohere.com/pricing) 與 [Command A 文件](https://docs.cohere.com/docs/command-a)。
 
-### 私有部署
 
+### 私有部署
 Cohere 提供兩種私有化路徑，均為 Kubernetes 容器化部署，支援 AWS/Azure/GCP/OCI：
 
 - **Private Deployments**：跑在客戶自有環境（on-prem 或隔離 VPC），資料不出境。
@@ -182,8 +197,8 @@ Cohere 提供兩種私有化路徑，均為 Kubernetes 容器化部署，支援 
 
 Model Vault 按實例時數計費，Embed 與 Rerank 的 Vault 定價見上節表格。Command 系列的 Vault 定價需洽業務。
 
-### 授權陷阱
 
+### 授權陷阱
 Cohere 的授權分三層，選型前必須看清：
 
 - **API（Command/Embed/Rerank）**：商用 API，按量計費，無權重下載。資料主權敏感場景需走 Private Deployment，而非「下載權重自架」。
@@ -192,20 +207,15 @@ Cohere 的授權分三層，選型前必須看清：
 
 對比系列其他家族：Qwen（Apache 2.0/自訂）、DeepSeek（MIT）、Llama 4（Community License）、Mistral（Apache/Modified MIT）皆有可商用自架權重；Cohere 的旗艦生成與檢索模型**沒有**可商用自架權重，私有化必須透過官方部署方案。
 
-## 跟競品的位置
+## Agent 使用與選型
 
-把 Cohere 放回 2026 年的格局：
+### 一句話選型
+- **新專案直接上 v4**：Embed v4.0 + Rerank v4 Pro 是目前組合，多模態與 32K 精排覆蓋最廣。
+- **成本敏感**：Rerank 4 Fast 與 Pro 同價（Medium 皆 $5/小時），選 Pro 即可；Embed 可用 512 維而非 1536 維，儲存與延遲皆減半。
+- **已用 v3**：v3.0 的英文/多語言分流在 v3.5/v4 已統一，升級可簡化整合。
 
-- **對上 OpenAI（GPT-5.6 + text-embedding-3）**：GPT 在通用品質與生態上領先，但 Cohere 的 Embed/Rerank 為 RAG 專門最佳化，且提供引用 grounded generation。需要「可追溯的企業問答」時 Cohere 更省事。
-- **對上 BGE-M3 / Jina（開源檢索）**：BGE-M3（MIT、36M 下載）與 Jina Reranker v3.5 是開源 RAG 的預設組合，可自架、成本低。Cohere Embed v4/Rerank v4 的優勢是多模態、32K、半結構化與企業支援，而非純分數。
-- **對上 Qwen / DeepSeek（開源生成）**：兩家提供可商用自架權重（Apache 2.0/MIT），Cohere Command 無此選項；但 Cohere 的多步驟 tool use 與 grounded RAG 在企業場景更成熟。
-- **對上 Claude / Gemini（閉源生成）**：Claude Opus 5 與 Gemini 3 在 coding 與推理上領先 Cohere；Cohere 的差異化是「生成+檢索+重排」的一站式與私有部署，而非單點品質。
-- **對上 NLLB / SeamlessM4T（多語言/翻譯）**：Aya 101 的 101 語言覆蓋與 NLLB-200 同級，且為指令跟隨模型（可加上下文翻譯）；Aya Expanse 則在 23 種語言內提供更強的生成品質。
 
-一句話定位：**如果你要的是「一個/chat/completions 端點」，Cohere 不是首選；如果你要的是「一套能私有部署的 RAG 流水線」，Cohere 是少數能一次給齊的家族。**
-
-## 對 Agent 開發者的意義
-
+### 對 Agent 開發者的意義
 - **RAG 流水線一站式** → Embed v4（召回）+ Rerank v4 Pro（精排）+ Command A（生成帶引用）是 Cohere 設計的黃金組合，同一家 API、同一套私有部署。
 - **多步驟 Agent** → Command A/R+ 的 multi-step tool use 支援順序工具呼叫，適合「搜尋→讀文件→計算→回覆」這類工作流。
 - **多語言 Agent** → Aya Expanse 32B（128K）可處理跨語言文件，或用 Aya 101（Apache 2.0）自架多語言分類/翻譯。
@@ -224,13 +234,19 @@ Cohere 的授權分三層，選型前必須看清：
 | 複雜 coding agent | Claude Opus 5 / DeepSeek V4 Pro + Cohere Rerank | 生成用最強模型，檢索用 Cohere 精排 |
 | 需私有部署的 Agent | Cohere Private Deployment / Model Vault | 資料不出境，SOC 2/HIPAA/GDPR |
 
-## 整體來說
+## 限制與取捨
 
+Aya 23／Expanse 的非商用授權不能因同屬 Cohere 就沿用 Aya 101 的 Apache 條件。生成、embedding 和 rerank 的成本與能力也不是同一指標。
+
+### 整體來說
 Cohere 證明了另一種生存策略：不跟 OpenAI、Anthropic 拚「最強聊天模型」，而是把 RAG 的每一環都做成產品。當對手提供一個端點時，Cohere 提供一條流水線——Embed 召回、Rerank 精排、Command 生成、Aya 跨語言，全部可在私有環境中運行。
 
 代價是開放度。旗艦生成與檢索模型沒有可商用的開源權重，Aya 的開放也從 Apache 2.0 退至 CC BY-NC。Cohere 的「開放」是研究開放，而非部署開放。選 Cohere 前，先確認你需要的是「一套能買的 RAG 基礎設施」而非「一組能自架的權重」——這一行比 benchmark 分數更重要。
 
----
+
+## 更新紀錄
+
+- **2026-10-11**：依家族共同格式重組章節，補上由既有內容整理的矩陣。沿用原有版本、價格與來源日期，未進行新一輪事實查證。
 
 ## 參考資料
 

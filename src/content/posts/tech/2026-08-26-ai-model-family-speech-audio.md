@@ -62,7 +62,7 @@ glossary:
 | Series D | 2026-02-04 | [$500M @ $11B 估值](https://elevenlabs.io/blog/series-d)，Sequoia 領投；累計融資 $781M |
 | ARR 破 $500M | 2026-05 | [NVentures（NVIDIA）、BlackRock 加入延伸輪](https://siliconangle.com/2026/05/05/elevenlabs-adds-high-profile-investors-annualized-revenue-tops-500m/)；5/7 全線降價（TTS −55%） |
 
-ElevenLabs 的打法不是單點最強，而是全家桶：v3 做表現力上限（audio tags 可以直接在腳本裡寫舞台指示）、Multilingual v2 做長文、Flash v2.5 做即時（40,000 字元單次上限，是 v3 的八倍）、Scribe 反攻 ASR、再加 Agents 平台、音效與音樂。值得注意的是它的品質並非無敵——[Artificial Analysis 語音競技場](https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice)上 Eleven v3 已掉出前十（Provider Voice 板目前約第 14），卻是最貴的模型之一（每百萬字元 $100）：你付的是工作流整合費，不是不可挑戰的品質差距。
+ElevenLabs 的策略不是單點最強，而是全家桶：v3 做表現力上限（audio tags 可以直接在腳本裡寫舞台指示）、Multilingual v2 做長文、Flash v2.5 做即時（40,000 字元單次上限，是 v3 的八倍）、Scribe 反攻 ASR、再加 Agents 平台、音效與音樂。值得注意的是它的品質並非無敵——[Artificial Analysis 語音競技場](https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice)上 Eleven v3 已掉出前十（Provider Voice 板目前約第 14），卻是最貴的模型之一（每百萬字元 $100）：你付的是工作流整合費，不是不可挑戰的品質差距。
 
 開源陣營這邊，格局在 2025 年被一個 82M 的小模型改寫：
 
@@ -110,6 +110,10 @@ Kokoro 的意義不在榜單而在證明：「幾百小時乾淨授權資料 + 8
 一句話總結這個家族四年：Whisper 把「聽」變成免費基建，ElevenLabs 把「說」變成一門 $500M ARR 的生意，而真正的下一戰在 speech-to-speech——誰能把延遲壓進人類對話的自然節奏，誰就收編下一代的互動介面。
 
 ---
+
+## 更新紀錄
+
+- 2026-10-11：統一系列名稱與文末順序，保留跨家族比較層級、既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 

@@ -8,7 +8,7 @@ lang: en
 tldr: "pplx-embed is the embedding family Perplexity has been releasing since February 2026, in three lines: v1 single-vector (0.6B/4B, API at $0.004/$0.03 per 1M tokens), context embeddings (v1 plus a 9B v2 preview), and v2-late multi-vector (0.6B/9B, searches PDF page images directly). They solve different problems; v2 does not replace v1."
 description: "A guide to Perplexity's pplx-embed model family: the February-to-October 2026 timeline, how the single-vector, contextual and late-interaction lines differ in architecture and training, current API pricing and licensing, and a selection matrix by document type and budget."
 series:
-  name: "AI 模型家族"
+  name: "AI Model Families"
   order: 25
 draft: false
 ---
@@ -19,18 +19,15 @@ On October 7, 2026, Perplexity released [pplx-embed-v2-late](https://www.perplex
 
 For how to read the benchmark numbers quoted here, see the [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). For where models sit overall, see the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en). The v2-late details have their own post: [pplx-embed-v2-late explained](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en).
 
-## Timeline
+## Family positioning and model matrix
 
-| Date | Model | Key facts |
-|---|---|---|
-| 2026-02-11 | Technical report | [arXiv:2602.11151](https://arxiv.org/abs/2602.11151) appears before the models |
-| 2026-02-26 | pplx-embed-v1, pplx-embed-context-v1 | 0.6B and 4B of each, four checkpoints; MIT license, API on day one |
-| 2026-09-30 | pplx-embed-v2-context-9b-preview | 9B contextual preview, built with turbopuffer; weights on Hugging Face, no API yet |
-| 2026-10-07 | pplx-embed-v2-late-0.6b / 9b | Multi-vector, text plus images; MIT weights, API planned |
+| Model / product line | Positioning | Key difference | Access |
+|---|---|---|---|
+| pplx-embed-v1 | Single-vector semantic retrieval | 0.6B/4B; INT8/binary | MIT weights; Perplexity API |
+| pplx-embed-context | Chunks with full-document context | v1 separate from the 9B v2 preview | v1 API; v2 preview weights |
+| pplx-embed-v2-late | Multi-vector/page-image retrieval | 0.6B/9B; MaxSim | MIT weights; API planned |
 
-v2 currently has only the context and late lines. There is no v2 dense model yet: the late announcement says Perplexity is "currently training the next generation of our dense embedding models" and will roll them out on the API progressively. For ordinary semantic search today, v1 is what you can actually use.
-
-## Three lines, three problems
+### Three lines, three problems
 
 | | v1 (dense) | context (v1 / v2 preview) | v2-late |
 |---|---|---|---|
@@ -42,22 +39,45 @@ v2 currently has only the context and late lines. There is no v2 dense model yet
 | Scoring | Cosine | Cosine | MaxSim |
 | API (checked 2026-10-09) | Yes | v1 yes, v2 preview no | No, planned |
 
-Prices from the [Perplexity API docs](https://docs.perplexity.ai/docs/embeddings/quickstart), checked 2026-10-09, per 1M tokens:
+## Family evolution
 
-| Model | Price |
-|---|---|
-| pplx-embed-v1-0.6b | $0.004 |
-| pplx-embed-v1-4b | $0.03 |
-| pplx-embed-context-v1-0.6b | $0.008 |
-| pplx-embed-context-v1-4b | $0.05 |
+### Timeline
 
-## v1: turning a decoder into an encoder with diffusion pretraining
+| Date | Model | Key facts |
+|---|---|---|
+| 2026-02-11 | Technical report | [arXiv:2602.11151](https://arxiv.org/abs/2602.11151) appears before the models |
+| 2026-02-26 | pplx-embed-v1, pplx-embed-context-v1 | 0.6B and 4B of each, four checkpoints; MIT license, API on day one |
+| 2026-09-30 | pplx-embed-v2-context-9b-preview | 9B contextual preview, built with turbopuffer; weights on Hugging Face, no API yet |
+| 2026-10-07 | pplx-embed-v2-late-0.6b / 9b | Multi-vector, text plus images; MIT weights, API planned |
+
+v2 currently has only the context and late lines. There is no v2 dense model yet: the late announcement says Perplexity is "currently training the next generation of our dense embedding models" and will roll them out on the API progressively. For ordinary semantic search today, v1 is what you can actually use.
+
+## Architecture and training trade-offs
+
+### v1: turning a decoder into an encoder with diffusion pretraining
 
 v1 starts from an unusual choice. Most strong embedding models sit on decoder-only language models, where a token only sees what precedes it. Perplexity starts from Qwen3 (0.6B and 4B), removes the causal mask, and continues pretraining with a diffusion denoising objective on about 250 billion tokens across 30 languages, producing a bidirectional encoder before contrastive training. Its ablations credit this with roughly one percentage point on retrieval.
 
 Three contrastive stages follow: pair training, contextual training (which yields the context models) and triplet training with mined hard negatives. The final v1 model merges the contextual and triplet checkpoints by spherical linear interpolation. Quantization is part of training rather than a post-hoc step: embeddings run as INT8 throughout with straight-through estimation, cutting storage 4x against FP32; binary cuts it 32x, with a drop under 1.6 points at 4B and 2 to 4 points at 0.6B.
 
 Another trade-off: **no instruction prefix**. The model card says prefixes can add 2% to 3% on benchmarks but make indexing brittle when index-time and query-time prefixes drift apart, so they were left out.
+
+### The context line: from the "gold passage" to answer plus evidence
+
+This line targets the old chunking problem: once a passage is cut out, its references, headings and definitions are gone. The method is late chunking: encode the whole document in one pass, then pool within chunk boundaries, so every chunk vector has seen the full text.
+
+The v2 preview changes the supervision. The usual recipe has an LLM label one "gold passage" and treats every other chunk as a negative, including chunks that carry supporting evidence. The preview instead uses Perplexity's query-aware context compression model as a teacher: it scores each document token for relevance, those scores are aggregated into chunk scores, and the embedding model learns to retrieve the answer chunk together with its support. It starts from an in-house 9B ColBERT model, trains on about 430 datasets in more than 50 languages, and ships as a model soup averaged over several checkpoints.
+
+### v2-late: a vector per token, and images
+
+The architecture and evaluation of v2-late are covered in [the dedicated post](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en); here is only its place in the family. It is the one multi-vector line: a Qwen3.5 base, an 18B teacher distilled into 9B and 0.6B students, and a shared embedding space so a 9B index can be queried by the 0.6B. Training data is 186 million query–document pairs from 594 datasets in 46 languages.
+
+## Evaluation and alternatives
+
+The retained line-specific results distinguish official MTEB retrieval, ConTEB, private context-bench, and MADQA with Gemini 3.5 Flash. They measure different retrieval pipelines, so compare within each task and validate against your own documents; do not merge them into one ranking.
+
+
+### v1 retrieval results
 
 Reported results (all self-published):
 
@@ -69,11 +89,8 @@ Reported results (all self-published):
 
 On MTEB the gap is 0.06 points, effectively a tie. v1's pitch is parity at INT8, which makes storage cheap.
 
-## The context line: from the "gold passage" to answer plus evidence
 
-This line targets the old chunking problem: once a passage is cut out, its references, headings and definitions are gone. The method is late chunking: encode the whole document in one pass, then pool within chunk boundaries, so every chunk vector has seen the full text.
-
-The v2 preview changes the supervision. The usual recipe has an LLM label one "gold passage" and treats every other chunk as a negative, including chunks that carry supporting evidence. The preview instead uses Perplexity's query-aware context compression model as a teacher: it scores each document token for relevance, those scores are aggregated into chunk scores, and the embedding model learns to retrieve the answer chunk together with its support. It starts from an in-house 9B ColBERT model, trains on about 430 datasets in more than 50 languages, and ships as a model soup averaged over several checkpoints.
+### Context evaluation and storage
 
 This is the line whose evaluation needs the most careful reading:
 
@@ -85,21 +102,30 @@ This is the line whose evaluation needs the most careful reading:
 
 One practical storage figure: the preview emits 1024-dim INT8 vectors at 1 KB each and slightly beats voyage-context-4's 2048-dim float32 (8 KB) on average chunk-retrieval score. That counts vectors only, not the rest of the index.
 
-Usage notes from the [model card](https://huggingface.co/perplexity-ai/pplx-embed-v2-context-9b-preview):
 
-- It is a preview; weights and interface may change without backward compatibility, so **do not mix preview embeddings with a future release**.
-- Use `encode_queries` for queries and `encode` for document chunks; they use different prefixes and the wrong call "silently degrades retrieval quality".
-- Embeddings are unnormalized INT8; compare with cosine similarity.
-- It needs `transformers>=5.4.0` and `trust_remote_code=True`.
-- The model card does not state a license. Secondary coverage says MIT, which I did not confirm on a primary page; check the license field on Hugging Face before use.
-
-## v2-late: a vector per token, and images
-
-The architecture and evaluation of v2-late are covered in [the dedicated post](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en); here is only its place in the family. It is the one multi-vector line: a Qwen3.5 base, an 18B teacher distilled into 9B and 0.6B students, and a shared embedding space so a 9B index can be queried by the 0.6B. Training data is 186 million query–document pairs from 594 datasets in 46 languages.
+### Late-interaction result and cost
 
 The trade-off to remember: it has the **highest storage cost** of the three lines, in exchange for page-image retrieval and agent-style accuracy. The MADQA 92.4% is a self-run test with a Gemini 3.5 Flash agent; the dedicated post has the conditions.
 
-## Selection matrix
+## Licensing, pricing, and deployment
+
+v1 dense and context have Perplexity API pricing in the price snapshot below (snapshot: 2026-10-09); v2 context preview and v2-late require weights. The preview license was not confirmed in the cited first-party page. Separate weight licensing from hosted API availability before deployment.
+
+
+### API price snapshot
+
+Prices from the [Perplexity API docs](https://docs.perplexity.ai/docs/embeddings/quickstart), checked 2026-10-09, per 1M tokens:
+
+| Model | Price |
+|---|---|
+| pplx-embed-v1-0.6b | $0.004 |
+| pplx-embed-v1-4b | $0.03 |
+| pplx-embed-context-v1-0.6b | $0.008 |
+| pplx-embed-context-v1-4b | $0.05 |
+
+## Agent integration and selection
+
+### Selection matrix
 
 | Your situation | Pick | Why |
 |---|---|---|
@@ -112,11 +138,28 @@ The trade-off to remember: it has the **highest storage cost** of the three line
 
 Related reading on this site: [BGE-M3 embedding model selection](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en) and [ColPali visual document retrieval](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en).
 
-## Bottom line
+
+### Context preview usage
+
+Usage notes from the [model card](https://huggingface.co/perplexity-ai/pplx-embed-v2-context-9b-preview):
+
+- It is a preview; weights and interface may change without backward compatibility, so **do not mix preview embeddings with a future release**.
+- Use `encode_queries` for queries and `encode` for document chunks; they use different prefixes and the wrong call "silently degrades retrieval quality".
+- Embeddings are unnormalized INT8; compare with cosine similarity.
+- It needs `transformers>=5.4.0` and `trust_remote_code=True`.
+- The model card does not state a license. Secondary coverage says MIT, which I did not confirm on a primary page; check the license field on Hugging Face before use.
+
+## Limitations and trade-offs
+
+### Bottom line
 
 Under one name, pplx-embed is three bets. v1 bets that native INT8 and no instruction prefix make single vectors cheap enough. The context line bets that chunks must carry document context and learn evidence, not just answers. The late line bets that a pricier index buys image retrieval and agent accuracy. What they share is Perplexity's own search traffic as the yardstick, which is close to real queries but means the most prominent benchmarks (PPLXQuery, PPLX-Q2I, context-bench) are not available to outsiders.
 
 Three things to watch: when a v2 dense model ships and whether it reaches the API; when the context preview becomes a final release and whether anyone outside turbopuffer replicates the results; and whether the late technical report lets others reproduce 92.4%. Until then, production workloads belong on v1 with its API and stable versions, and the other two lines are evaluation candidates.
+
+## Update history
+
+- 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
 
