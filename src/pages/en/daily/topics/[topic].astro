@@ -60,7 +60,7 @@ const relatedTopics = topic.relatedTopics
           <div class="timeline-entry">
             <span class="timeline-date">{paper.digestDate}</span>
             <div class="timeline-content">
-              <a href={`/en/posts/${paper.digestSlug}-en`} class="paper-title">{paper.title}</a>
+              <a href={`/posts/${paper.digestSlug}-en`} class="paper-title">{paper.title}</a>
               <span class={`priority priority-${paper.readPriority}`}>
                 {paper.readPriority === 'must-read' ? 'Must Read' : paper.readPriority === 'skim' ? 'Skim' : 'Skip'}
               </span>

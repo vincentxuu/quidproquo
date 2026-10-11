@@ -6,13 +6,12 @@ type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-memory]
 lang: zh-TW
 description: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：**多代理系統的安全規範，在執行過程中能維持住嗎"
-tldr: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：**多代理系統的安全規範，在執行過程中能維持住嗎？**
-2605.10481 命名了一個新失效模式——「約束漂移」（constraint drift）：系統設計時寫好的安全限制，會在代理人傳遞、記憶讀寫、工具呼叫過程中悄悄弱化，到輸出端時早已走樣。2605.07728（SARC）提出架構解法：把規範編譯成四個可執行卡關點，嵌進代理人執行迴圈，不再依賴 prompt 提醒，已開源。2605.13851 則用心理學實驗發現：當多代理系統的協調者是「隱形的」，整個系統的保護性行為會顯著下降——這對主流 orchestrator-based 架"
+tldr: "今天三篇圍繞 2026 年 agent 平台最迫切的問題：**多代理系統的安全規範，在執行過程中能維持住嗎？** 2605.10481 命名了一個新失效模式——「約束漂移」（constraint drift）：系統設計時寫好的安全限制，會在代理人傳遞、記憶讀寫、工具呼叫過程中悄悄弱化，到輸出端時早已走樣。2605.07728（SARC）提出架構解法：把規範編譯成四個可執行卡關點，嵌進代理人執行迴圈，不再依賴 prompt 提醒，已開源。2605.13851 則用心理學實驗發現：當多代理系統的協調者是「隱形的」，整個系統的保護性行為會顯著下降——這對主流 orchestrator-based 架"
 series:
   name: "AI Agent Arxiv Digest"
   order: 1
 ---
-> 🌏 [English version](/en/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
+> 🌏 [English version](/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 

@@ -11,7 +11,7 @@ series:
   order: 39
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach-en)
+> 🌏 [English version](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach-en)
 
 ## 事件概述
 

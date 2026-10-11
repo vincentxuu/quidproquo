@@ -13,7 +13,7 @@ description: "Morning Brew 創辦人 Alex Lieberman 與 Austin Rief 的完整成
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-morning-brew-dorm-to-media-empire-en)
+> 🌏 [English version](/posts/career/2026-08-26-morning-brew-dorm-to-media-empire-en)
 
 2015 年，兩個密西根大學的學生覺得華爾街日報太無聊了。他們的解法不是寫更深的分析，而是用朋友聊天的口吻把商業新聞重新講一遍。五年後，這份「五分鐘讀完今天商業大事」的免費電子報被 Insider Inc. 以 $75M 收購，年營收後來突破 $70M。
 

@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
+> 🌏 [English version](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
 
 ## 變更摘要
 

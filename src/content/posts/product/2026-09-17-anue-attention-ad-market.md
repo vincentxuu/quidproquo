@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-anue-attention-ad-market-en)
+> 🌏 [English version](/posts/product/2026-09-17-anue-attention-ad-market-en)
 
 想像捷運站出口有人免費發財經雜誌。讀者沒付錢，採訪、編輯和發行卻都有成本。帳單最後寄給誰？通常是想接觸投資人的銀行、券商、基金公司與其他品牌。
 

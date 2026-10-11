@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-02-benchmark-arena-agent-en)
+> 🌏 [English version](/posts/daily/2026-10-02-benchmark-arena-agent-en)
 
 ## 異動摘要
 

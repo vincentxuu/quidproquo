@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-01-funding-comp-ai-en)
+> 🌏 [English version](/posts/daily/2026-10-01-funding-comp-ai-en)
 
 ## 融資資訊
 

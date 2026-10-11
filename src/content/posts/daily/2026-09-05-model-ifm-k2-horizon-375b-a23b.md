@@ -15,7 +15,7 @@ glossary:
     def: "阿布達比 MBZUAI 旗下 Institute of Foundation Models（IFM）開發的全開源基礎模型系列，涵蓋 0.9B 至 375B 六種規模，連訓練中繼 checkpoint 與資料配方都公開"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
+> 🌏 [English version](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
 
 ## 模型資訊
 

@@ -22,7 +22,7 @@ glossary:
     context: "本講把它和「惡意使用者」分開：這裡使用者是無辜的，攻擊者是內容的提供者。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en)
+> 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en)
 
 **影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
 

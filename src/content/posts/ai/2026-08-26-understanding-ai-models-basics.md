@@ -13,7 +13,7 @@ description: "AI 模型基本概念入門：token 是什麼、context window 為
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-basics-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-basics-en)
 
 你打開 ChatGPT，打一句「幫我寫一封請假信」，幾秒後回覆就出來了。這中間到底發生了什麼事？
 

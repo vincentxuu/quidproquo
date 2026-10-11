@@ -63,7 +63,7 @@ The finding worth remembering is criteria drift: you need criteria to grade outp
 
 ## Where it sits in the course
 
-After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's report accounts for data and method. [Week 6](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en) covered the data flywheel; Week 7 supplies the other half — scores that don't fool you. Write the 4-tuple now and half of HW2's task definition is done.
+After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's report accounts for data and method. [Week 6](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en) covered the data flywheel; Week 7 supplies the other half — scores that don't fool you. Write the 4-tuple now and half of HW2's task definition is done.
 
 ## This week's course materials
 
@@ -79,6 +79,6 @@ After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's
 
 ## References
 
-- On this site: [Week 6: the data flywheel](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 6: the data flywheel](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Yang et al., SWE-smith](https://arxiv.org/abs/2504.21798), [Shankar et al., Who Validates the Validators?](https://arxiv.org/abs/2404.12272), [Zhu et al., Establishing Best Practices for Building Rigorous Agentic Benchmarks](https://arxiv.org/abs/2507.02825)

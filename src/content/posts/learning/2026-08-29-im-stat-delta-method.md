@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 31 篇：Delta method 怎
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-delta-method-en)
+> [English version](/posts/learning/2026-08-29-im-stat-delta-method-en)
 
 很多統計量本身不難估，難的是你真正想報告的量常常是它的函數。你可能先估出一個比例，再想報告 log odds；先估出兩個平均，再想報告 ratio；先算 precision 和 recall，再想報告 F1。這些量都不是單純平均數。
 

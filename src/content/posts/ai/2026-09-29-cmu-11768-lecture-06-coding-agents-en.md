@@ -31,9 +31,9 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-Lecture 6 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the Domains module with coding agents (see the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en) for the full map), taught by Graham Neubig. He starts by noting that most of the room already uses coding agents daily, so there is no need to explain what they do; this lecture is about **how you build one** and what that takes.
+Lecture 6 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the Domains module with coding agents (see the [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en) for the full map), taught by Graham Neubig. He starts by noting that most of the room already uses coding agents daily, so there is no need to explain what they do; this lecture is about **how you build one** and what that takes.
 
-He splits "AI that writes code" into three levels: writing a snippet (a single completion), modifying a repository (changing several files at once), and doing software development (the whole lifecycle of requirements, implementation, review, deployment, and maintenance). Every agent has three ingredients — prompt, tools, LLM. Prompting was covered in the previous lectures ([L4 Skills and Memory](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) and [L5 Planning](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)), so this one focuses on the other two: how a model learns to code, and which tools the agent should get.
+He splits "AI that writes code" into three levels: writing a snippet (a single completion), modifying a repository (changing several files at once), and doing software development (the whole lifecycle of requirements, implementation, review, deployment, and maintenance). Every agent has three ingredients — prompt, tools, LLM. Prompting was covered in the previous lectures ([L4 Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) and [L5 Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)), so this one focuses on the other two: how a model learns to code, and which tools the agent should get.
 
 This post follows the lecture's order through seven parts: training code models, evaluating generated code, the agentic coding loop, toolset design, evaluating and training coding agents, frontend development, and development tasks beyond the inner loop. The final section, on models that predict code behavior, ran out of class time; I cover it from the slides.
 
@@ -83,7 +83,7 @@ Language coverage is also a pre-training decision. StarCoderBase is 15.5B parame
 
 Mid-training turns a general model into a code model by continuing training. [Code Llama](https://arxiv.org/abs/2308.12950) took Llama 2 and trained on 500B more tokens, at 7B, 13B, and 34B (a later revision of the paper adds a 70B model trained on 1T tokens). The mixture has to be chosen empirically: [Qwen2.5-Coder](https://arxiv.org/abs/2409.12186) tried 100% code and got reasonable code scores (49.8) but MATH fell to 10.3 and MMLU to 42.8; with a 70/20/10 code/text/math mix, code dropped only slightly (48.3) while MATH and MMLU recovered to 33.2 and 62.9. Note: the slide labels the all-code MMLU as 23.8, but in the paper's Table 3 23.8 is the GSM8K column and MMLU is 42.8; this post follows the paper. Nobody uses a model only for code anymore, so general ability cannot be sacrificed.
 
-Long context matters especially for code, because you want context from the whole codebase. The naive approach concatenates every file in a repo, but most reasonable codebases exceed a million tokens, and Google's monorepo reportedly has billions of lines. A better approach concatenates related files along directories or the dependency graph. Qwen2.5-Coder trains from 8K to 32K, then uses YaRN to reach 128K (positional extrapolation was covered in [L3 Context Management](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)). Validation uses cross-file completion, infilling, and checks that short-context ability did not regress.
+Long context matters especially for code, because you want context from the whole codebase. The naive approach concatenates every file in a repo, but most reasonable codebases exceed a million tokens, and Google's monorepo reportedly has billions of lines. A better approach concatenates related files along directories or the dependency graph. Qwen2.5-Coder trains from 8K to 32K, then uses YaRN to reach 128K (positional extrapolation was covered in [L3 Context Management](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)). Validation uses cross-file completion, infilling, and checks that short-context ability did not regress.
 
 ### Infilling: seeing both sides of the gap
 
@@ -192,7 +192,7 @@ Neubig flagged a terminology trap: SWE-bench's "harness" means **the evaluation 
 A runnable task needs three things: a starting state (files, dependencies, test command), an issue (requested behavior and a reproduction), and checks (the bug fails before, the repair restores behavior). If you can generate these at scale, you can do RL on them. Validate the environment itself before collecting trajectories.
 
 - [SWE-Gym](https://arxiv.org/abs/2412.21139) (Neubig's group): extends SWE-bench from an evaluation set into training environments, substantially improving a previously weak 32B model; sampling many candidates and picking with a learned verifier scales inference-time compute for further gains.
-- [R2E-Gym](https://arxiv.org/abs/2504.07164): RL for multi-step repair. Search, edit, and test actions are all training targets, but the reward is only terminal — repaired or not. The slide names the cost: **when a late failure happens, you cannot tell which earlier decision was wrong** (credit assignment, expanded in [L9 RL Basics](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)).
+- [R2E-Gym](https://arxiv.org/abs/2504.07164): RL for multi-step repair. Search, edit, and test actions are all training targets, but the reward is only terminal — repaired or not. The slide names the cost: **when a late failure happens, you cannot tell which earlier decision was wrong** (credit assignment, expanded in [L9 RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)).
 - [SWE-smith](https://arxiv.org/abs/2504.21798): a real PR per task is expensive, so inject bugs instead. Start from an executable baseline, mutate code but not tests, keep mutations that make tests fail. The example reverts `if value is None` to `if not value`, turning four passing tests into three passes and one failure. The idea resembles mutation testing from software engineering. Upside: nearly unlimited data. Downside: the bugs are not necessarily natural.
 - Multiple languages: [Multi-SWE-bench](https://arxiv.org/abs/2504.02605) and [SWE-bench Multilingual](https://www.swebench.com/multilingual.html) extend the format. The only logistical difficulty is differing conventions (`pyproject.toml` / `package.json` / `Cargo.toml`; `pytest` / `npm test` / `cargo test`), which coding agents now handle easily.
 
@@ -204,7 +204,7 @@ As noted above, when the editing format a model expects differs from what a harn
 
 > Harness = prompts + tools + agent loop + context management
 
-One set of weights is plugged into OpenHands, OpenCode, Codex, and others; the task check is always "patch → tests → reward," and all trajectories and rewards update the same model. Examples are [Nemotron 3 Super](https://arxiv.org/abs/2604.12374) (which implements OpenCode and Codex agent classes inside OpenHands, reusing one harness while varying tools and prompts) and [Nemotron 3 Ultra](https://arxiv.org/abs/2606.15007) (at least two harnesses per task distribution) and [Polar](https://arxiv.org/abs/2605.24220) (native harnesses call a shared model API proxy). That definition is exactly what the next post, [Assignment 1](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en), has you build by hand.
+One set of weights is plugged into OpenHands, OpenCode, Codex, and others; the task check is always "patch → tests → reward," and all trajectories and rewards update the same model. Examples are [Nemotron 3 Super](https://arxiv.org/abs/2604.12374) (which implements OpenCode and Codex agent classes inside OpenHands, reusing one harness while varying tools and prompts) and [Nemotron 3 Ultra](https://arxiv.org/abs/2606.15007) (at least two harnesses per task distribution) and [Polar](https://arxiv.org/abs/2605.24220) (native harnesses call a shared model API proxy). That definition is exactly what the next post, [Assignment 1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en), has you build by hand.
 
 ## 6. Frontend development
 
@@ -258,14 +258,14 @@ The slides leave four open questions: do predictions actually lead to better dec
 
 ## Where it sits in the course
 
-L6 is the first Domain lecture after the Capabilities module, landing the pieces from the first five lectures (tools, context management, skills, planning) on the most mature application. The next post, [Assignment 1](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en), has you hand-write a ReAct harness that fixes SWE-bench tasks, using this lecture's harness definition, editing-tool trade-offs, and SWE-bench grading. [L7 Computer Use Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en) (JY Koh) picks up the browser agents from the frontend section; [L8 SFT](/en/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) and L9 RL Basics expand on the recurring "execution results as reward."
+L6 is the first Domain lecture after the Capabilities module, landing the pieces from the first five lectures (tools, context management, skills, planning) on the most mature application. The next post, [Assignment 1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en), has you hand-write a ReAct harness that fixes SWE-bench tasks, using this lecture's harness definition, editing-tool trade-offs, and SWE-bench grading. [L7 Computer Use Agents](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en) (JY Koh) picks up the browser agents from the frontend section; [L8 SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) and L9 RL Basics expand on the recurring "execution results as reward."
 
 ## Further reading
 
-- On this site: [Reading Stanford CS329Z Week 9: coding agents](/en/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en) (SWE-agent's ACI and the OpenHands platform)
-- On this site: [Edit tool trade-offs in coding agents](/en/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
-- On this site: [Toolset design philosophy in coding agents](/en/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy-en)
-- On this site: [The verification gate in coding agents](/en/posts/ai/2026-08-25-coding-agent-verification-gate-en)
+- On this site: [Reading Stanford CS329Z Week 9: coding agents](/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en) (SWE-agent's ACI and the OpenHands platform)
+- On this site: [Edit tool trade-offs in coding agents](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
+- On this site: [Toolset design philosophy in coding agents](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy-en)
+- On this site: [The verification gate in coding agents](/posts/ai/2026-08-25-coding-agent-verification-gate-en)
 
 ## Update Log
 

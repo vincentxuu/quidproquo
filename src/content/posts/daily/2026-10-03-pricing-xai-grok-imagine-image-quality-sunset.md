@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
+> 🌏 [English version](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
 
 ## 變更摘要
 

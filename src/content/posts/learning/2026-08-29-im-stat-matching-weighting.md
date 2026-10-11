@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 46 篇：Matching 和 wei
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-matching-weighting-en)
+> [English version](/posts/learning/2026-08-29-im-stat-matching-weighting-en)
 
 上一篇談因果推論時，關鍵字是可比性。隨機實驗用 randomization 建立可比性；觀察資料沒有這個保障，所以要靠設計和假設補上。
 

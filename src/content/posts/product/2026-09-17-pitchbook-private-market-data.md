@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-pitchbook-private-market-data-en)
+> 🌏 [English version](/posts/product/2026-09-17-pitchbook-private-market-data-en)
 
 想像老師要做一張全校座位表，手上卻只有活動照片、零散點名單，以及學生自己填的資料。電腦可以先猜「照片裡的 Amy 是否就是點名單上的 Amy」，再交給人核對。確認身分後，還要記下她在哪一班、參加哪個社團，以及何時轉班。
 

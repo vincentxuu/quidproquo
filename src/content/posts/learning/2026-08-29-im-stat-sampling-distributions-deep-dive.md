@@ -13,7 +13,7 @@ description: "抽樣分配深入導讀：樣本平均、樣本比例、樣本變
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-sampling-distributions-deep-dive-en)
+> [English version](/posts/learning/2026-08-29-im-stat-sampling-distributions-deep-dive-en)
 
 很多推論公式看起來像突然出現：平均數信賴區間、比例檢定、卡方檢定、t 檢定。其實它們都在回答同一個問題：如果我們重複抽樣，每次都算同一個統計量，這個統計量會怎麼分布？
 

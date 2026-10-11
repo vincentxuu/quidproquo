@@ -96,7 +96,7 @@ CompactRAG   One-shot       O(1)       Medium      Drastically fewer
 
 ## Relationship with Agentic RAG
 
-Multi-hop retrieval is a subset of [Agentic RAG](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en). An Agentic RAG agent loop naturally supports multi-round retrieval — the agent can autonomously decide "not enough information, search again," and multi-hop is the structured application of this capability.
+Multi-hop retrieval is a subset of [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en). An Agentic RAG agent loop naturally supports multi-round retrieval — the agent can autonomously decide "not enough information, search again," and multi-hop is the structured application of this capability.
 
 The difference: multi-hop frameworks typically have explicit reasoning structures (sub-question decomposition, reasoning chains), while Agentic RAG is more general — an agent may decide to re-retrieve for various reasons, not just multi-hop reasoning.
 
@@ -104,7 +104,7 @@ According to [arXiv:2501.09136](https://arxiv.org/abs/2501.09136) (Agentic RAG S
 
 ## Relationship with GraphRAG
 
-[GraphRAG](/en/posts/ai/2026-03-12-graph-rag-en) naturally supports multi-hop: knowledge graphs encode entities and relations as nodes and edges, and traversing edges is hopping. Finding "Company A's CEO's other board positions" requires just two graph hops.
+[GraphRAG](/posts/ai/2026-03-12-graph-rag-en) naturally supports multi-hop: knowledge graphs encode entities and relations as nodes and edges, and traversing edges is hopping. Finding "Company A's CEO's other board positions" requires just two graph hops.
 
 But graph construction cost is high — entity extraction, relation extraction, and graph construction are all needed, and graph coverage depends on construction quality. According to [arXiv:2509.09713](https://arxiv.org/abs/2509.09713), in scenarios with many documents but unclear relational structure (e.g., news articles), text-based multi-hop retrieval is more practical.
 
@@ -157,6 +157,6 @@ The core consideration for choosing a framework: if hop count is fixed and predi
 - [HotpotQA — A Dataset for Diverse, Explainable Multi-hop QA](https://hotpotqa.github.io/)
 - [arXiv:2401.15391 — MultiHop-RAG: Benchmarking RAG for Multi-Hop Queries](https://arxiv.org/abs/2401.15391) (2024)
 - [arXiv:2501.09136 — Agentic RAG Survey](https://arxiv.org/abs/2501.09136) (2025)
-- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en)
-- [GraphRAG: Turning Knowledge into Graphs for LLM Reasoning](/en/posts/ai/2026-03-12-graph-rag-en)
-- [Self-RAG: Letting the Model Decide Whether to Retrieve with Reflection Tokens](/en/posts/ai/2026-09-03-self-rag-reflection-tokens-en)
+- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+- [GraphRAG: Turning Knowledge into Graphs for LLM Reasoning](/posts/ai/2026-03-12-graph-rag-en)
+- [Self-RAG: Letting the Model Decide Whether to Retrieve with Reflection Tokens](/posts/ai/2026-09-03-self-rag-reflection-tokens-en)

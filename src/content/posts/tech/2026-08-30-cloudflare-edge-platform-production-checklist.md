@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist-en)
 
 Cloudflare app 最常見的上線問題，不一定是 code 寫錯。很多時候是 routing、DNS、方案限制、維護頁、同 zone Worker 呼叫、native module、log retention 這些「部署邊界」沒有先想清楚。`wrangler deploy` 成功，只代表 Worker 被上傳，不代表 production path 已經完整；deployment checklist 要另外看。
 

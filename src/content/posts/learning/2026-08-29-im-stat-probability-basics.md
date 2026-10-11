@@ -13,7 +13,7 @@ description: "統計學機率基礎導讀：如何分辨事件、條件機率、
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-probability-basics-en)
+> [English version](/posts/learning/2026-08-29-im-stat-probability-basics-en)
 
 機率題最常見的錯，是題目視角看反。你以為題目在問「模型抓到垃圾信的機率」，它其實在問「被模型判成垃圾信之後，這封信真的垃圾的機率」。前者是從真實狀態看模型輸出，後者是從模型輸出反推真實狀態。
 

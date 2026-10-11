@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-03-tool-upnote-mcp-en)
+> 🌏 [English version](/posts/daily/2026-09-03-tool-upnote-mcp-en)
 
 ## 工具資訊
 

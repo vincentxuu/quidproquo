@@ -29,7 +29,7 @@ glossary:
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 12 of [Reading CMU 11-868 LLM Systems](/en/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The previous post covered [data parallelism](/en/posts/ai/2026-09-30-cmu11868-data-parallel-training-en): every GPU holds a full model copy and gets a slice of the data. This post covers the case data parallelism can't handle: **one full copy of the model doesn't fit on a single GPU.**
+> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 12 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The previous post covered [data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en): every GPU holds a full model copy and gets a slice of the data. This post covers the case data parallelism can't handle: **one full copy of the model doesn't fit on a single GPU.**
 
 These two lectures are Week 10 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus): "Distributed Model Training III" on 3/16 ([L16 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-16-model-parallel-83b41612547620ee0e172caa1ee448ed.pdf), 36 pages) and "Large models with Mixture-of-Expert" on 3/18 ([L17 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-17-MoE-3aa3125f9ccdd4bb7109ef077fbe9260.pdf), 38 pages). Lei Li teaches both. The official syllabus lists no public recording links, so everything below comes from the slides and the readings on the Syllabus. Page numbers are PDF pages; the numbers printed in the slide corners run one to three higher in the second half of both decks.
 
@@ -134,7 +134,7 @@ This post covers the modeling side (router formulas, [Switch Transformer](https:
 - Each layer activates different experts (page 9)
 - Counting parameters (page 10): Mixtral 8x7B is 47B, not 56B, because only the FFNs are experts; attention and embeddings are shared
 
-For the modeling side of MoE, see the site's [CS336 attention and MoE guide](/en/posts/ai/2026-08-22-cs336-attention-moe-en) and [Why the MoE architecture wins](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en).
+For the modeling side of MoE, see the site's [CS336 attention and MoE guide](/posts/ai/2026-08-22-cs336-attention-moe-en) and [Why the MoE architecture wins](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en).
 
 ### The mechanism: expert parallelism
 
@@ -204,11 +204,11 @@ Page 31 names two libraries DeepSeek released: [DeepEP](https://github.com/deeps
 
 ## Further reading
 
-- Previous in series: [L14–L15 Distributed training and data parallelism](/en/posts/ai/2026-09-30-cmu11868-data-parallel-training-en)
-- Next in series: [L18 ZeRO: memory optimization for distributed training](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
-- Hands-on for this lecture: [HW5: data parallelism and pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
-- On this site: [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
-- On this site: [CS336 attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en), [Why the MoE architecture wins](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
+- Previous in series: [L14–L15 Distributed training and data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en)
+- Next in series: [L18 ZeRO: memory optimization for distributed training](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
+- Hands-on for this lecture: [HW5: data parallelism and pipeline parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
+- On this site: [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+- On this site: [CS336 attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en), [Why the MoE architecture wins](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
 
 ## Update Log
 

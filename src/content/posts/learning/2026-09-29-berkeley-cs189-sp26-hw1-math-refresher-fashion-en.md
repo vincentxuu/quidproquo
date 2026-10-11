@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). HW1 was posted in the week of Lec 3 (Jan 27) alongside Discussion 1, and it is due **Friday, Feb 20, 11:59 PM**, the day after the [Lec 7–10 linear regression block](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) ends.
+This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). HW1 was posted in the week of Lec 3 (Jan 27) alongside Discussion 1, and it is due **Friday, Feb 20, 11:59 PM**, the day after the [Lec 7–10 linear regression block](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) ends.
 
 HW1 is titled "AGI, Everywhere, All at Once," but the content is practical. It checks two things:
 
@@ -50,7 +50,7 @@ The [syllabus](https://eecs189.org/sp26/syllabus/) says every homework has two p
 
 There are three Gradescope assignments: the written PDF goes to "HW1 Write-Up," and each notebook is zipped and submitted to "HW1.1 Coding" and "HW1.2 Coding."
 
-**Access level**: the problem PDF, the LaTeX template, and both notebooks open without a login, so the problems themselves are A3 (see the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). You cannot get Gradescope, the hidden tests, official solutions, or Ed. Outside readers can work every problem but have to verify correctness themselves.
+**Access level**: the problem PDF, the LaTeX template, and both notebooks open without a login, so the problems themselves are A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). You cannot get Gradescope, the hidden tests, official solutions, or Ed. Outside readers can work every problem but have to verify correctness themselves.
 
 ## Written part: ten math warm-ups
 
@@ -83,9 +83,9 @@ Problem 6 looks like algebra practice, but it is backpropagation in miniature: a
 | 9 | Cancer screening (3 pts) | Sensitivity 90%, false-positive rate 3%, prevalence 0.1%; find the posterior probability of disease given a positive test |
 | 10 | Follower Counts (3 pts) | 420 people seated randomly in a circle with distinct follower counts; find the expected number who have more followers than both neighbors |
 
-Each has one key move. Problem 7 turns a conditional probability into a ratio of areas. Problem 8 translates "D > t" into "none of the other 19 points may fall inside a certain arc." Problem 9 is Bayes' theorem, covered in the probability review in [Lec 4](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). Problem 10 is linearity of expectation with indicator variables.
+Each has one key move. Problem 7 turns a conditional probability into a ratio of areas. Problem 8 translates "D > t" into "none of the other 19 points may fall inside a certain arc." Problem 9 is Bayes' theorem, covered in the probability review in [Lec 4](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). Problem 10 is linearity of expectation with indicator variables.
 
-Pause after you finish problem 9. When prevalence is very low, a positive result from a decent test can mean something quite different from what intuition says. This base-rate issue comes back in another form in [Lec 11–12](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en) on evaluating classifiers.
+Pause after you finish problem 9. When prevalence is very low, a positive result from a decent test can mean something quite different from what intuition says. This base-rate issue comes back in another form in [Lec 11–12](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en) on evaluating classifiers.
 
 ## Coding Part 1 (HW1.1): from DataFrames to tensor puzzles
 
@@ -102,7 +102,7 @@ The notebook's own grading table totals 39 points. The structure:
 | Problem 4: augmentation with transformation matrices | 4a–4j | Horizontal flip, shift, blur, rotation, the gaps rotation leaves and bilinear interpolation, composing transforms, then augmenting test images and evaluating the classifier |
 | Problem 5: Tensor Puzzles | 5a–5e | Using only broadcasting, indexing, arithmetic, and comparisons, write sum, outer product, diag, triu, and vstack in one line (< 80 characters) |
 
-Problem 2's K-means connects straight back to [Lec 4](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). Problem 4 is the scaled-up version of written problem 4: still moving pixels with a matrix, but now rotated pixels no longer land on the grid, which is why bilinear interpolation comes in.
+Problem 2's K-means connects straight back to [Lec 4](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). Problem 4 is the scaled-up version of written problem 4: still moving pixels with a matrix, but now rotated pixels no longer land on the grid, which is why bilinear interpolation comes in.
 
 Problem 5's rules are strict: no `torch.sum`, `view`, `reshape`, or `unsqueeze`. It forces you to really understand broadcasting: two dimensions line up only when they are equal or one of them is 1. You will lean on this constantly when writing autograd and Transformers later.
 
@@ -160,14 +160,14 @@ The official files disagree in one place. The grading table at the top of HW1.2 
 
 On this site:
 
-- Background for the probability problems: [Stanford CS109 Lecture 3: Bayes' theorem](/en/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en), [Lecture 5: random variables and expectation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-05-random-variables-expectation-en)
-- The regression derivations: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
-- Series entry point: [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
+- Background for the probability problems: [Stanford CS109 Lecture 3: Bayes' theorem](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en), [Lecture 5: random variables and expectation](/posts/learning/2026-08-22-stanford-cs109-lecture-05-random-variables-expectation-en)
+- The regression derivations: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
+- Series entry point: [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
 
 ## Series navigation
 
-- Previous: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
-- Next: [Lec 11–12: classification, generative classifiers, logistic regression, and ROC](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+- Previous: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
+- Next: [Lec 11–12: classification, generative classifiers, logistic regression, and ROC](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
 
 ## Update Log
 

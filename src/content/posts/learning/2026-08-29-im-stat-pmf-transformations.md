@@ -13,7 +13,7 @@ description: "Joint PMF 與變數轉換入門：從 2x2 機率表、marginal、c
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-pmf-transformations-en)
+> [English version](/posts/learning/2026-08-29-im-stat-pmf-transformations-en)
 
 聯合分布題最常錯在漏格。你看到題目問 `P(X + Y = 1)`，很容易只想到 `(1,0)`，忘記 `(0,1)` 也會讓 `X + Y` 等於 1。PMF 轉換題真正卡住的地方，通常是原本所有可能的格子沒有列乾淨。
 

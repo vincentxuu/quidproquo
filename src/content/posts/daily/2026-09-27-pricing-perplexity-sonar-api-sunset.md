@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
+> 🌏 [English version](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
 
 ## 變更摘要
 

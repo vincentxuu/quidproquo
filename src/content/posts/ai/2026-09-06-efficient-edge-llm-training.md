@@ -13,7 +13,7 @@ description: "「從零訓練一個 LLM」系列 order 8：OpenELM 的非均勻�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en)
+> 🌏 [English version](/posts/ai/2026-09-06-efficient-edge-llm-training-en)
 
 這個系列前幾篇的專案各自追求一種極致：[YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining) 省資料、[OLMo 3 與 LLM360](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) 省不透明、[Apertus 與 LLM-jp](/posts/ai/2026-09-06-national-multilingual-llm-training) 追主權。這篇的兩個專案問的是另一個問題：**同樣的參數預算，能不能花得更精準**。Apple 的 [OpenELM](https://huggingface.co/apple/OpenELM) 用 layer-wise scaling 讓每層拿不同份量的參數，1.08B 參數在 LLM360 平均分數上贏過吃了兩倍 tokens 的 [OLMo](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm)；清大團隊的 [MiniCPM](https://github.com/OpenBMB/MiniCPM) 則把同樣的問題延伸到多模態——訓一個能跑在手機上的 GPT-4V 等級模型。
 

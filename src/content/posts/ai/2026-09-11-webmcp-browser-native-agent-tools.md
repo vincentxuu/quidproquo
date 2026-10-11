@@ -10,7 +10,7 @@ description: "深入解析 WebMCP 的兩種 API（Declarative HTML 標註 / Impe
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-11-webmcp-browser-native-agent-tools-en)
+> 🌏 [English version](/posts/ai/2026-09-11-webmcp-browser-native-agent-tools-en)
 
 AI agent 要跟網頁互動，現在的方法都不太行。截圖辨識每張圖消耗數千 token，改版就壞；DOM 解析碰上廣告和 tracking script 一團亂；額外建一個後端 MCP server 又是另一層維護成本。WebMCP 的思路不同：讓網站**主動宣告**自己能做什麼，agent 不用猜，直接呼叫。
 

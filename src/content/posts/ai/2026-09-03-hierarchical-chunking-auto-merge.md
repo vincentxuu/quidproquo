@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en)
+> 🌏 [English version](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en)
 
 RAG 系統的 chunk 大小是一個永恆的取捨：切小了 embedding 精準但送進 LLM 的片段缺乏上下文，切大了上下文完整但 embedding 被不相關內容稀釋。依 [Firecrawl 的 2026 年 chunking 建議](https://www.firecrawl.dev/blog/best-chunking-strategies-rag)，固定 400-600 token chunk 配 15% overlap 加 cross-encoder reranking 仍然是產業基線——但這條基線在 chunk 大小上做的是折衷，不是解決。
 

@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-digitimes-supply-chain-intelligence-en)
+> 🌏 [English version](/posts/product/2026-09-16-digitimes-supply-chain-intelligence-en)
 
 菜市場的價格牌，走進去就看得到。真正值錢的消息是：明天哪一攤會缺貨、哪個盤商剛調價、隔壁市場已經有人搶貨。知道得夠早，餐廳老闆就能先換菜單，盤商也能先調度庫存。
 

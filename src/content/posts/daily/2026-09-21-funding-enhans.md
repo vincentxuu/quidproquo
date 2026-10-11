@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-21-funding-enhans-en)
+> 🌏 [English version](/posts/daily/2026-09-21-funding-enhans-en)
 
 ## 融資資訊
 

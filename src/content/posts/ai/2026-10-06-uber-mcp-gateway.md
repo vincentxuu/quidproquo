@@ -19,7 +19,7 @@ glossary:
     context: "Uber 的 AutoCrawler 從 IDL registry 讀出 API，自動轉成 MCP tool。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-06-uber-mcp-gateway-en)
+> 🌏 [English version](/posts/ai/2026-10-06-uber-mcp-gateway-en)
 
 如果你的公司有幾十個團隊各自做 [MCP](/posts/ai/2026-03-22-mcp-model-context-protocol) server，每個 server 各自處理認證、權限、log，這篇是 Uber 給的一份答案。Uber 工程部落格〈[Designing MCP Gateway](https://www.uber.com/us/en/blog/designing-mcp-gateway/)〉描述他們把所有 MCP 流量收進一個 gateway，目前託管 800 多個 MCP server、5,000 多個 tool。看完你能判斷：自家要不要做 gateway，以及哪幾個設計值得直接抄。
 

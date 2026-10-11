@@ -11,7 +11,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
+> 🌏 [English version](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
 
 ## 事件概述
 

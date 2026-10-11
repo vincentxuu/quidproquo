@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-16-tool-edgar-mcp-en)
+> 🌏 [English version](/posts/daily/2026-09-16-tool-edgar-mcp-en)
 
 ## 工具資訊
 

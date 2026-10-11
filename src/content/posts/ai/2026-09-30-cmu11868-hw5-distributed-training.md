@@ -21,7 +21,7 @@ glossary:
     context: "HW5 Problem 2.2 的 Pipe 模組把輸入切成 micro-batch 後依時脈排程計算。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
+> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

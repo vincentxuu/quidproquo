@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek 開發的旗艦大型語言模型家族，分 Flash（輕量）與 Pro（旗艦）兩線，2026 年起加入實驗性多模態分支"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp-en)
+> 🌏 [English version](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp-en)
 
 ## 模型資訊
 

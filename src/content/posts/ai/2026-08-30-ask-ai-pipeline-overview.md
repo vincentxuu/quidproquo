@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-pipeline-overview-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-pipeline-overview-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配〈[RAG 的三個世代：從 Naive 到 Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution)〉與〈[Modular RAG Pipeline：把 RAG 設計成可組合的 DAG](/posts/ai/2026-03-12-modular-rag-pipeline-architecture)〉。
 

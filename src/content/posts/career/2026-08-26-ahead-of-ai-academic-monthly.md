@@ -13,7 +13,7 @@ description: "Ahead of AI 創辦人 Sebastian Raschka 的完整成長歷程：�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-ahead-of-ai-academic-monthly-en)
+> 🌏 [English version](/posts/career/2026-08-26-ahead-of-ai-academic-monthly-en)
 
 AI 電子報領域的多數成功案例都在追頻率——日更、五分鐘摘要、每天一張圖。Sebastian Raschka 反過來做：每月一到兩篇，每篇讀完要 30–90 分鐘，主題是 LLM 架構論文的深度拆解。四年後，他的 Ahead of AI 有 20 萬+訂閱者，而他從來沒有接過一筆贊助。
 

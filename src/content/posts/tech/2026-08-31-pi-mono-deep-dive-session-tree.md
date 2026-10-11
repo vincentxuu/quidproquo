@@ -13,7 +13,7 @@ description: "深入 pi-coding-agent SessionManager：樹狀會話結構的持�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree-en)
 
 ## TL;DR
 

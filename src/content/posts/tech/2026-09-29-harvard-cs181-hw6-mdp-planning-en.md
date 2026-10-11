@@ -26,7 +26,7 @@ glossary:
 
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `img_input/gridworld.png`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the [2026 Lecture 21 MDP slides](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view), all opened on 2026-09-29. The slide link comes from a topic cell in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but there are no public recording links listed for the corresponding lectures and no homework solutions. This post gives no answers and does not publish convergence counts or final policies.
 
-This is part 13 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 2)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en), dealt with HMMs, where the state evolves on its own and you only watch. Here the agent starts making decisions.
+This is part 13 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 2)](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en), dealt with HMMs, where the state evolves on its own and you only watch. Here the agent starts making decisions.
 
 ## Course video sources
 
@@ -142,13 +142,13 @@ Part 5 rewards a second look at the story. The robot's task is "collect two part
 
 Posts on this site that approach the same ideas from another angle; they don't replace this one:
 
-- [CS221 Lecture 7: MDPs I: Putting Uncertainty into State Transitions](/en/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en)
-- [CS188 MDPs and Reinforcement Learning: From Value Iteration to Q-Learning](/en/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
-- [CMU 07-280 Lecture 21: How Bellman Equations Solve Markov Decision Processes](/en/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes-en)
+- [CS221 Lecture 7: MDPs I: Putting Uncertainty into State Transitions](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en)
+- [CS188 MDPs and Reinforcement Learning: From Value Iteration to Q-Learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
+- [CMU 07-280 Lecture 21: How Bellman Equations Solve Markov Decision Processes](/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes-en)
 
 ## Next
 
-This problem assumes you have `get_transition_prob`. The next part, [HW6 (Part 4): Q-learning Swingy Monkey and Embedded EthiCS](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en), removes that assumption: the agent doesn't know the rules and must learn by trial and error.
+This problem assumes you have `get_transition_prob`. The next part, [HW6 (Part 4): Q-learning Swingy Monkey and Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en), removes that assumption: the agent doesn't know the rules and must learn by trial and error.
 
 ## Update Log
 

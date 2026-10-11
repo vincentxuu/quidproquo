@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-08-funding-vocca-en)
+> 🌏 [English version](/posts/daily/2026-10-08-funding-vocca-en)
 
 ## 融資資訊
 

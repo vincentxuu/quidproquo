@@ -13,7 +13,7 @@ description: "深入 pi-telemetry 廠商中立遙測契約：Schema-first 設計
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry-en)
 
 ## TL;DR
 

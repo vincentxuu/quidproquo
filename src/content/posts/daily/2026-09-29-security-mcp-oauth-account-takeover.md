@@ -11,7 +11,7 @@ series:
   order: 41
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-29-security-mcp-oauth-account-takeover-en)
+> 🌏 [English version](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover-en)
 
 ## 事件概述
 

@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
+> 🌏 [English version](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
 
 ## 變更摘要
 

@@ -16,7 +16,7 @@ additionalSeries:
     order: 25
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns-en)
+> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns-en)
 
 AI app 很容易把資料放錯地方。conversation 放 D1、完整 transcript 放 D1、PDF 放 D1、embedding metadata 放 D1、工具輸出也放 D1，最後 database 變成檔案櫃。另一種常見錯法是把所有東西都丟 R2，結果要查狀態、分 tenant、做報表時，每一步都要掃 object。
 

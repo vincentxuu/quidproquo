@@ -28,7 +28,7 @@ This path fits readers who:
 - Need to design background jobs, durable workflows, cache, origin protection, email, and form protection together.
 - Want to know when Workers is not enough and Browser Run or Containers becomes useful.
 
-If the main question is LLMs, RAG, agents, memory, sandboxes, or model gateways, read the [Cloudflare AI Stack](/en/posts/ai/2026-08-30-cloudflare-ai-stack-overview-en) path instead.
+If the main question is LLMs, RAG, agents, memory, sandboxes, or model gateways, read the [Cloudflare AI Stack](/posts/ai/2026-08-30-cloudflare-ai-stack-overview-en) path instead.
 
 ## Reading Order
 

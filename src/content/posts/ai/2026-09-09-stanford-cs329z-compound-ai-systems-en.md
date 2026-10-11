@@ -22,7 +22,7 @@ draft: false
 
 The first lecture of [CS329Z](https://cs329z.stanford.edu/) (Sep 23, Foundations & Landscape) assigns exactly one anchor reading: [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) (BAIR Blog, 2024), led by Matei Zaharia with ten co-authors across Berkeley, Stanford, and Databricks. Opening with this piece states the whole course's position: the class makes no bets on what the next big model will unlock. It cares about one thing — engineering the best possible system out of today's parts. The three keywords of lecture one, decomposition, data, and evaluation, all grow out of this post.
 
-This guide follows the post's own argument: the definition, why systems are unavoidable, then its three design questions, three hard challenges, and four emerging directions. At the end I connect each section back to the course — what [HW1 actually asks you to hand in](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) is essentially the hands-on version of this article.
+This guide follows the post's own argument: the definition, why systems are unavoidable, then its three design questions, three hard challenges, and four emerging directions. At the end I connect each section back to the course — what [HW1 actually asks you to hand in](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) is essentially the hands-on version of this article.
 
 ## Course video sources
 
@@ -112,7 +112,7 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 ## References
 
 - Lecture slides: [Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
-- On this site: [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z: Engineering AI Agents, official site with schedule and deadlines](https://cs329z.stanford.edu/)
 - Source: [Zaharia et al., The Shift from Models to Compound AI Systems, BAIR Blog (2024)](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
 - Frameworks: [DSPy](https://dspy.ai/), [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/)

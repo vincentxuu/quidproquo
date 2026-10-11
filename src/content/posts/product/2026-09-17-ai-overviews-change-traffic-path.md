@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-ai-overviews-change-traffic-path-en)
+> 🌏 [English version](/posts/product/2026-09-17-ai-overviews-change-traffic-path-en)
 
 以前搜尋像圖書館目錄員：告訴你書在哪裡，你得走到書架前讀。AI 摘要像代讀員：先翻過幾本書，把答案整理在櫃台，再決定附哪些書目。
 

@@ -123,7 +123,7 @@ With all four gaps filled, the slides' summary grid reads: the BrowseComp family
 
 ### The inference loop
 
-The slides first unpack one inference: the model generates `<think>` reasoning → generates a `<tool>search(...)</tool>` call → the search runs → retrieved text is appended to the context → the model continues reasoning with the new evidence → it produces an `<answer>` with citations. This is the tool-calling loop from [L2](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en); the only differences are that the tool is search and the output is a cited long answer.
+The slides first unpack one inference: the model generates `<think>` reasoning → generates a `<tool>search(...)</tool>` call → the search runs → retrieved text is appended to the context → the model continues reasoning with the new evidence → it produces an `<answer>` with citations. This is the tool-calling loop from [L2](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en); the only differences are that the tool is search and the output is a cited long answer.
 
 ### A three-stage recipe: mid-training, SFT, RL
 
@@ -155,7 +155,7 @@ A better starting point carries through SFT. The paper tries three SFT datasets,
 
 For short-answer questions, correctness can be the reward directly. [Search-R1](https://arxiv.org/abs/2503.09516) (arXiv:2503.09516) uses only final-answer exact match as its reward. The slides' illustration (the question and rewards are the slides' own): the policy searches and reasons on one question, three sampled trajectories answer Herbert Simon, Allen Newell, and Allen Newell, matching against the known answer gives rewards 0, 1, 1, and those rewards update the policy.
 
-The slides' update rule is GRPO from [DeepSeekMath](https://arxiv.org/abs/2402.03300) (the Search-R1 paper tries both PPO and GRPO): compare attempts within a group for the same question, raise the probability of those above the group average and lower those below. [L9](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) covered the basic RL objective (maximize expected reward); GRPO in detail is the topic of [L11](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en).
+The slides' update rule is GRPO from [DeepSeekMath](https://arxiv.org/abs/2402.03300) (the Search-R1 paper tries both PPO and GRPO): compare attempts within a group for the same question, raise the probability of those above the group average and lower those below. [L9](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) covered the basic RL objective (maximize expected reward); GRPO in detail is the topic of [L11](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en).
 
 <details>
 <summary>The GRPO objective (as shown on the slides)</summary>
@@ -328,21 +328,21 @@ The final slide:
 
 ## Where it sits in the course
 
-L10 is the third lecture of the Domains module, placed in the middle of the Training module: [L8](/en/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) covered SFT and L9 RL basics before it, while [L11](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) covers advanced RL algorithms and L12 RL systems after it. So the modeling half of this lecture is essentially a worked application of L8 and L9 — data synthesis, rejection-filtered SFT, RLVR, and GRPO, all landed on a search agent.
+L10 is the third lecture of the Domains module, placed in the middle of the Training module: [L8](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) covered SFT and L9 RL basics before it, while [L11](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) covers advanced RL algorithms and L12 RL systems after it. So the modeling half of this lecture is essentially a worked application of L8 and L9 — data synthesis, rejection-filtered SFT, RLVR, and GRPO, all landed on a search agent.
 
-It also sets up [Assignment 2 (Eval)](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en). A2 asks students to write a validator for a data-visualization agent and runs into the same problems this lecture's evaluation section lists: more than one valid answer, unreliable similarity, and LM judges that need auditing. DR Tulu shows the next step: once the grader is good enough, it becomes the RL reward.
+It also sets up [Assignment 2 (Eval)](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en). A2 asks students to write a validator for a data-visualization agent and runs into the same problems this lecture's evaluation section lists: more than one valid answer, unreliable similarity, and LM judges that need auditing. DR Tulu shows the next step: once the grader is good enough, it becomes the RL reward.
 
 ## Further reading
 
-For the series overview, see [the course overview post](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en).
+For the series overview, see [the course overview post](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
 Related posts on this site to read alongside the lecture:
 
-- [Deep Research Landscape: Taxonomy of 80+ Implementations, Roadmap, and Trade-offs](/en/posts/ai/2026-09-19-deep-research-survey-overview-en)
-- [How to Build a Deep Research Agent: Multi-Turn Search Planning, Conflict Resolution, and Verifiable Conclusions](/en/posts/ai/2026-06-04-autonomous-deep-research-agent-en)
-- [From Search Results to Reliable Citations: URL Deduplication, Source Tiers, and Claim-Source Mapping](/en/posts/ai/2026-08-22-search-results-reliable-citations-en)
-- [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
-- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
+- [Deep Research Landscape: Taxonomy of 80+ Implementations, Roadmap, and Trade-offs](/posts/ai/2026-09-19-deep-research-survey-overview-en)
+- [How to Build a Deep Research Agent: Multi-Turn Search Planning, Conflict Resolution, and Verifiable Conclusions](/posts/ai/2026-06-04-autonomous-deep-research-agent-en)
+- [From Search Results to Reliable Citations: URL Deduplication, Source Tiers, and Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations-en)
+- [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)
+- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
 
 ## Update Log
 

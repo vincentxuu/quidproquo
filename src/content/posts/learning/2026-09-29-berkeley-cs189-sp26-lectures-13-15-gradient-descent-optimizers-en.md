@@ -18,11 +18,11 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
+This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 The earlier lectures on linear and logistic regression were about *what* to minimize. Starting with Lec 13, the course asks *how* to minimize it. The answer is gradient descent: take a small step against the gradient and repeat until convergence. These two lectures deal with three questions. How big can a step be before training diverges? What do you do when the landscape is flat or badly skewed? And what if the dataset is too large to compute a full gradient at every step?
 
-On the schedule, Lec 13 (3/3) and Lec 15 (3/10) sit on either side of Lec 14 (MLE/MAP). This series combines the two optimization lectures into one post and covers Lec 14 in the [next one](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
+On the schedule, Lec 13 (3/3) and Lec 15 (3/10) sit on either side of Lec 14 (MLE/MAP). This series combines the two optimization lectures into one post and covers Lec 14 in the [next one](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
 
 ## Course video sources
 
@@ -58,7 +58,7 @@ Content check: verified against the video transcripts (2026-10-10; mostly spot s
 | Discussion 6 | — | [PDF](https://drive.google.com/file/d/1FFNxd-TEkK53m8s-eHfN9V6xXsoSqMHa/view), [Solutions](https://drive.google.com/file/d/1gfUeWtTRnIXlj_H8pnL3BSl4THOriQQG/view), [Walkthrough](https://youtube.com/playlist?list=PL-ysCubq-Sa-JYWlXIx1NaT7fp5djA_gc) | — |
 | Discussion 7 | — | [PDF](https://drive.google.com/file/d/1SloZ3iTpq9qEJ-0uWhQtcdT0fhZh5VVH/view), [Solutions](https://drive.google.com/file/d/16jrdhv1s9cgvaU76tTZdVFIA_zE1sgWf/view), [Walkthrough](https://youtube.com/playlist?list=PL-ysCubq-Sa-ueQ6jkjrrr-qiTlBmv0zd) | — |
 
-I opened every link in this table without logging in on 2026-09-29. On this site's [A0–A3 scale](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en), this stretch of the course is A3: slides, recordings, and discussions with solutions are all available. What you can't get is the in-class Slido Q&A, and the "demo notebook" the slides refer to, which isn't in the Notes folders.
+I opened every link in this table without logging in on 2026-09-29. On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this stretch of the course is A3: slides, recordings, and discussions with solutions are all available. What you can't get is the in-class Slido Q&A, and the "demo notebook" the slides refer to, which isn't in the Notes folders.
 
 Two small details. The first page of `lec13.pdf` says "Lecture 12", but the content matches the Lec 13 topic on the schedule, so it looks like reused slides with an old header. And the second half of `lec15.pdf` largely repeats `lec13.pdf`: the Hessian, momentum, Adam, and SGD sections are nearly identical. What's new is the hand-worked example Dimakis opens with. If you're short on time, read Lec 13 in full and only the opening of Lec 15.
 
@@ -133,7 +133,7 @@ The slides put "Training = Learning = Fitting = Optimizing" on one line to stres
 
 After opening both worksheets, here is how the problems line up with the lectures:
 
-- **Discussion 6** (same week as Lec 13) actually wraps up logistic regression. It asks you to show that the log-odds are linear in x, to show that maximizing the likelihood is equivalent to minimizing cross-entropy, and to work through the likelihood ratio test (the Neyman–Pearson lemma, including the form of the test in the Gaussian case). This extends the [previous post on Lec 11–12](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en) and sets up the cross-entropy discussion in Lec 16.
+- **Discussion 6** (same week as Lec 13) actually wraps up logistic regression. It asks you to show that the log-odds are linear in x, to show that maximizing the likelihood is equivalent to minimizing cross-entropy, and to work through the likelihood ratio test (the Neyman–Pearson lemma, including the form of the test in the Gaussian case). This extends the [previous post on Lec 11–12](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en) and sets up the cross-entropy discussion in Lec 16.
 - **Discussion 7** (same week as Lec 15) opens with gradient descent itself. For over-parameterized least squares with d > n, starting from θ₀ = 0, show that the gradient descent limit is the minimum Euclidean norm solution, `Xᵀ(XXᵀ)⁻¹y`. The second problem shows that the area under the ROC curve equals the probability that a random positive example scores higher than a random negative one.
 
 Spend real time on the first problem of Discussion 7. It shows that gradient descent doesn't just find *a* solution; it prefers a particular one. That idea comes back later when the course discusses generalization and double descent.
@@ -144,10 +144,10 @@ In [Fall 2026](https://eecs189.org/fa26/) (Norouzi / Gonzalez), the matching mat
 
 ## Further reading
 
-- Another treatment of the same material: [CMU 11-785 on gradient descent](/en/posts/ai/2026-08-22-cmu-11785-04-gradient-descent-en), [loss surfaces and momentum](/en/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum-en), [SGD and second-order methods](/en/posts/ai/2026-08-22-cmu-11785-07-sgd-second-order-en), [optimizers and regularization](/en/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en)
-- Classic ML for comparison: [Stanford CS229 guide](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
+- Another treatment of the same material: [CMU 11-785 on gradient descent](/posts/ai/2026-08-22-cmu-11785-04-gradient-descent-en), [loss surfaces and momentum](/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum-en), [SGD and second-order methods](/posts/ai/2026-08-22-cmu-11785-07-sgd-second-order-en), [optimizers and regularization](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en)
+- Classic ML for comparison: [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 
-Previous: [Lec 11–12: classification and logistic regression](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en). Next: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
+Previous: [Lec 11–12: classification and logistic regression](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en). Next: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
 
 ## Things you can do tonight
 

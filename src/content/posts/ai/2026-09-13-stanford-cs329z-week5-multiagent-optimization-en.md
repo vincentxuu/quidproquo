@@ -24,7 +24,7 @@ When one model cannot crack a problem, the instinct is to bring more models and 
 
 But anyone who has sat through meetings knows the meeting itself costs something. Who speaks first, who writes the conclusion, who owns the mistake — none of it is free. Model meetings work the same way, except quieter: the upstream agent's hallucination becomes the downstream agent's trusted fact. Monday (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://arxiv.org/abs/2308.08155) (COLM 2024): a framework that turns meeting rules into programs.
 
-Wednesday (Oct 21, Optimization) asks a different question: solo or meeting, a system improves in exactly three places. Prompts (the instructions), weights (the brain), inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
+Wednesday (Oct 21, Optimization) asks a different question: solo or meeting, a system improves in exactly three places. Prompts (the instructions), weights (the brain), inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
 
 ## Course video sources
 
@@ -75,13 +75,13 @@ The weight axis has no anchor this week; LoRA, distillation, and RLHF directions
 
 ## Closing HW1: three things before submission
 
-First, freeze the skeleton. Once [Week 4](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en) fixed the [ReAct](https://arxiv.org/abs/2210.03629) loop's shape and the memory tiers, stop touching them — a frozen runnable version is your control group. Second, complete the harness: HW1 wants more than a pipeline that searches email — it wants tools, a terminal, memory, and a human in the loop. Fill whichever piece is missing first, and after each one rerun the same email question set against the frozen version. Third, write three lines of error analysis: which kinds of questions fail most, whether failures land in retrieval or reasoning, and where the human checkpoint caught a mistake.
+First, freeze the skeleton. Once [Week 4](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en) fixed the [ReAct](https://arxiv.org/abs/2210.03629) loop's shape and the memory tiers, stop touching them — a frozen runnable version is your control group. Second, complete the harness: HW1 wants more than a pipeline that searches email — it wants tools, a terminal, memory, and a human in the loop. Fill whichever piece is missing first, and after each one rerun the same email question set against the frozen version. Third, write three lines of error analysis: which kinds of questions fail most, whether failures land in retrieval or reasoning, and where the human checkpoint caught a mistake.
 
 **What to do**: budget the last ten days — two to freeze the skeleton, five to complete the harness piece by piece with comparisons, three for error analysis and cleanup. Move one axis per day: prompts today, compute tomorrow, splitting agents only the day after. Failures from mixed tuning cannot be written up.
 
 ## Where it sits in the course
 
-One week remains after Week 5: a guest lecture plus Data for Agentic Systems in Week 6, [HW2 out on 10/26](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), HW1 due 10/30. Multi-agent error propagation returns in Week 8's safety and guardrails — injection attacks and sandboxes are the same bill. The three axes feed straight into the quarter project: every iteration before demo day is the same three-way choice. Week 4 fixed the loop's shape, Week 5 decides how many copies of it run and where effort goes. Read in order, HW1 is the final exam covering these five weeks.
+One week remains after Week 5: a guest lecture plus Data for Agentic Systems in Week 6, [HW2 out on 10/26](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), HW1 due 10/30. Multi-agent error propagation returns in Week 8's safety and guardrails — injection attacks and sandboxes are the same bill. The three axes feed straight into the quarter project: every iteration before demo day is the same three-way choice. Week 4 fixed the loop's shape, Week 5 decides how many copies of it run and where effort goes. Read in order, HW1 is the final exam covering these five weeks.
 
 ## This week's course material
 
@@ -98,7 +98,7 @@ One week remains after Week 5: a guest lecture plus Data for Agentic Systems in 
 
 ## References
 
-- On this site: [Week 4: ReAct and memory](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en), [Week 3: tools and DSPy](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 4: ReAct and memory](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en), [Week 3: tools and DSPy](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Wu et al., AutoGen, COLM 2024](https://arxiv.org/abs/2308.08155), [Snell et al., Scaling LLM Test-Time Compute Optimally, ICLR 2025](https://arxiv.org/abs/2408.03314), [Agrawal et al., GEPA, arXiv 2025 (ICLR 2026 Oral)](https://arxiv.org/abs/2507.19457)
 - Tools: [AutoGen](https://github.com/microsoft/autogen), [GEPA](https://github.com/gepa-ai/gepa)

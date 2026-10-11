@@ -10,7 +10,7 @@ description: "從實作角度拆解 AI Agent 對話介面的元件設計：strea
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-agent-chat-ui-component-design-en)
+> 🌏 [English version](/posts/ai/2026-09-19-agent-chat-ui-component-design-en)
 
 ## 為什麼 Agent 對話 UI 跟普通聊天不同
 

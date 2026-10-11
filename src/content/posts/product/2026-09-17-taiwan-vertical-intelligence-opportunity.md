@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity-en)
+> 🌏 [English version](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity-en)
 
 把一個產業想成很長的夜市。遊客看到攤位今天賣什麼，後台的送貨員、房東與水電師傅卻知道哪一區突然缺料、哪種設備開始排隊、哪個攤商準備擴店。
 

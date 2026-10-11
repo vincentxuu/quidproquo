@@ -46,7 +46,7 @@ What this means for practitioners: when evaluating an agent platform going forwa
 
 ### Technical Progress
 
-Today's [Arxiv Digest](/en/posts/daily/2026-09-16-ai-agent-arxiv-digest-en) features three papers that all puncture the same assumption — that a good-looking score means an agent system is trustworthy: 57.5% of conversations LLM judges rated "satisfied" actually failed the task; swapping harnesses without swapping the model shows no stable advantage yet costs more; and a one-shot debugging judge stops searching too early and misses the real root cause.
+Today's [Arxiv Digest](/posts/daily/2026-09-16-ai-agent-arxiv-digest-en) features three papers that all puncture the same assumption — that a good-looking score means an agent system is trustworthy: 57.5% of conversations LLM judges rated "satisfied" actually failed the task; swapping harnesses without swapping the model shows no stable advantage yet costs more; and a one-shot debugging judge stops searching too early and misses the real root cause.
 
 **IBM Research**: Published a reproducibility framework on Hugging Face examining whether agents can consistently reproduce the same successful outcome after completing a task — directly useful for teams pushing agents into production. ([source](https://huggingface.co/blog/ibm-research/altk-evolve-consistency))
 
@@ -112,15 +112,15 @@ Australia unveiled an AI Action Plan that avoids a single dedicated AI law, inst
 
 **Euclyd**: The Dutch inference-chip startup raised over €200M in a Series A co-led by Samsung Electronics, with its first systems not shipping to customers until 2028. ([source](https://dutchstartup.ai/en/news/euclyd-raises-200-million-for-a-chip-nobody-can-buy-yet))
 
-**AlphaPai**: The Shanghai institutional investment-research workstation closed its third funding round in a year, a $50M Series B bringing cumulative funding to $92M — see [today's funding brief](/en/posts/daily/2026-09-16-funding-alphapai-en).
+**AlphaPai**: The Shanghai institutional investment-research workstation closed its third funding round in a year, a $50M Series B bringing cumulative funding to $92M — see [today's funding brief](/posts/daily/2026-09-16-funding-alphapai-en).
 
-**Jack & Jill**: The London-based dual-sided agent recruiting startup raised a $40M Series A led by Air Street Capital — see [today's funding brief](/en/posts/daily/2026-09-16-funding-jack-and-jill-en).
+**Jack & Jill**: The London-based dual-sided agent recruiting startup raised a $40M Series A led by Air Street Capital — see [today's funding brief](/posts/daily/2026-09-16-funding-jack-and-jill-en).
 
 ### Tools & Ecosystem
 
-**alibaba/open-code-review**: Alibaba open-sourced a code review CLI combining a "deterministic engine + LLM agent" hybrid architecture, beating pure Claude Code review on Precision/F1 at the same model while using only 1/9 the tokens — today's #1 on GitHub Trending. See [today's GitHub Digest](/en/posts/daily/2026-09-16-ai-agent-github-digest-en).
+**alibaba/open-code-review**: Alibaba open-sourced a code review CLI combining a "deterministic engine + LLM agent" hybrid architecture, beating pure Claude Code review on Precision/F1 at the same model while using only 1/9 the tokens — today's #1 on GitHub Trending. See [today's GitHub Digest](/posts/daily/2026-09-16-ai-agent-github-digest-en).
 
-**edgar-mcp**: An MCP server connecting to SEC EDGAR that lets agents precisely read a single section of a 10-K instead of the entire 300-page filing. See [today's tool recommendation](/en/posts/daily/2026-09-16-tool-edgar-mcp-en).
+**edgar-mcp**: An MCP server connecting to SEC EDGAR that lets agents precisely read a single section of a 10-K instead of the entire 300-page filing. See [today's tool recommendation](/posts/daily/2026-09-16-tool-edgar-mcp-en).
 
 **Amazon Bedrock AgentCore**: Added a managed OAuth consent portal, demonstrating GitHub and Slack authorization-code flows and letting teams inspect end-user authorization activity via CloudTrail. ([source](https://aws.amazon.com/blogs/machine-learning/manage-end-user-oauth-consent-for-ai-agents-with-amazon-bedrock-agentcore/))
 
@@ -136,13 +136,13 @@ Australia unveiled an AI Action Plan that avoids a single dedicated AI law, inst
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-16](/en/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-16](/en/posts/daily/2026-09-16-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-16: ML System Design](/en/posts/daily/2026-09-16-ai-interview-daily-en)
-- 📄 [Funding Brief｜AlphaPai Series B $50M](/en/posts/daily/2026-09-16-funding-alphapai-en)
-- 📄 [Funding Brief｜Jack & Jill Series A $40M](/en/posts/daily/2026-09-16-funding-jack-and-jill-en)
-- 📄 [Product Builder Interview Prep — 2026-09-16: Strategy & Execution](/en/posts/daily/2026-09-16-product-builder-interview-daily-en)
-- 📄 [Tool Recommendation｜edgar-mcp](/en/posts/daily/2026-09-16-tool-edgar-mcp-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-16: ML System Design](/posts/daily/2026-09-16-ai-interview-daily-en)
+- 📄 [Funding Brief｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai-en)
+- 📄 [Funding Brief｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill-en)
+- 📄 [Product Builder Interview Prep — 2026-09-16: Strategy & Execution](/posts/daily/2026-09-16-product-builder-interview-daily-en)
+- 📄 [Tool Recommendation｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp-en)
 
 ## Tomorrow's Watch
 
@@ -156,11 +156,11 @@ I used to think agent security risk mainly came from "being attacked by outside 
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-09-16](/en/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
-- [AI Agent GitHub Digest — 2026-09-16](/en/posts/daily/2026-09-16-ai-agent-github-digest-en)
-- [Funding Brief｜AlphaPai Series B $50M](/en/posts/daily/2026-09-16-funding-alphapai-en)
-- [Funding Brief｜Jack & Jill Series A $40M](/en/posts/daily/2026-09-16-funding-jack-and-jill-en)
-- [Tool Recommendation｜edgar-mcp](/en/posts/daily/2026-09-16-tool-edgar-mcp-en)
+- [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest-en)
+- [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest-en)
+- [Funding Brief｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai-en)
+- [Funding Brief｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill-en)
+- [Tool Recommendation｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp-en)
 - [Salesforce launches Agentforce 360 with seven named AI agents and an AI Control Plane](https://itbrief.asia/story/salesforce-launches-ai-agents-for-business-workflows)
 - [Salesforce unveils Koa, a CRM reasoning model built on NVIDIA Nemotron 3 Super](https://finance.yahoo.com/technology/ai/articles/salesforce-unveils-koa-ai-model-144329125.html)
 - [Google DeepMind ships Gemini 3.8 Live with parallel-reasoning voice mode](https://aichatdaily.com/ai-models/google-deepmind-ships-gemini-3-8-live-parallel)

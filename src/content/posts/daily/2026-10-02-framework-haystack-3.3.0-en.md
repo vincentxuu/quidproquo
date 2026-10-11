@@ -93,5 +93,5 @@ I used to assume CJK tokenization issues would have been solved long ago in a fr
 
 - [Haystack v3.3.0 — GitHub Release](https://github.com/deepset-ai/haystack/releases/tag/v3.3.0)
 - [deepset-ai/haystack — GitHub](https://github.com/deepset-ai/haystack)
-- [Haystack v3.1.0 — previous framework update](/en/posts/daily/2026-08-26-framework-haystack-3.1.0-en)
+- [Haystack v3.1.0 — previous framework update](/posts/daily/2026-08-26-framework-haystack-3.1.0-en)
 - [CVE-2026-63374 / GHSA-82r6-8w77-94w6 — anyio security advisory](https://github.com/advisories/GHSA-82r6-8w77-94w6)

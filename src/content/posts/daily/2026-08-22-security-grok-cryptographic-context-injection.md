@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-22-security-grok-cryptographic-context-injection-en)
+> 🌏 [English version](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection-en)
 
 ## 事件概述
 

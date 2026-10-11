@@ -33,7 +33,7 @@ glossary:
     context: "本講開場的刪信事故，就是壓縮時弄丟了「先問我再動手」這條指示。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

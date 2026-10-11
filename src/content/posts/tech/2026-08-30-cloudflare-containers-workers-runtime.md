@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-containers-workers-runtime-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-containers-workers-runtime-en)
 
 Workers 很適合 HTTP API、edge rendering、webhook、lightweight background jobs、資料存取 glue code。但它不是萬用 runtime。只要你需要完整 filesystem、特定 binary、比較大的 memory/disk、平行 CPU core、或已經包好的 container image，單純 Workers 就會開始彆扭。
 

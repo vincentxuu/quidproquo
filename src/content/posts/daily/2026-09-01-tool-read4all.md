@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-01-tool-read4all-en)
+> 🌏 [English version](/posts/daily/2026-09-01-tool-read4all-en)
 
 ## 工具資訊
 

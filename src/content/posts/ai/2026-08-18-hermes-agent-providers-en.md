@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-providers)
 
-Post 3 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 3 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 Hermes's provider list is long past the point of usefulness — the official table runs 40-plus rows of first-class providers alone: Nous Portal, OpenRouter, Anthropic, Gemini, Bedrock, Vertex, Azure Foundry, z.ai/GLM, Kimi, MiniMax, Xiaomi MiMo, Tencent TokenHub, DeepSeek, plus self-hosted paths through Ollama, vLLM, SGLang, llama.cpp, and LM Studio. The list isn't worth discussing and grows every month. **The billing semantics and the fallback behavior are what actually bite.** That's all this post covers.
 
@@ -120,7 +120,7 @@ The most common self-hosted failure is in the troubleshooting table too: "custom
 
 Only three decisions in this layer actually matter: **which pocket the money comes from** (subscription overage versus per-token API versus one unified subscription), **which model does the grunt work** (don't leave auxiliary on auto), and **where you land when the primary breaks** (fallback is one-shot survival). The rest is a list, it expires, and it lives in the [official providers page](https://hermes-agent.nousresearch.com/docs/integrations/providers).
 
-Next: [the Nous Tool Gateway](/en/posts/ai/2026-08-18-hermes-agent-tool-gateway) — one subscription in place of Firecrawl, FAL, OpenAI TTS, and Browser Use accounts.
+Next: [the Nous Tool Gateway](/posts/ai/2026-08-18-hermes-agent-tool-gateway-en) — one subscription in place of Firecrawl, FAL, OpenAI TTS, and Browser Use accounts.
 
 ## References
 

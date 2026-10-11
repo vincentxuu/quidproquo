@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 52 篇：ML/AI 評估報�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-ml-ai-evaluation-report-en)
+> [English version](/posts/learning/2026-08-29-im-stat-ml-ai-evaluation-report-en)
 
 這一系列從平均、變異、分布、檢定、迴歸一路走到實驗設計、因果、缺資料、Monte Carlo 和可重現流程。最後要落到一件事：你能不能把統計證據寫成一份可決策的 ML/AI 評估報告。
 

@@ -13,7 +13,7 @@ description: "統計學初學者看到資料不要先算平均。這篇教你先
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-data-types-descriptive-statistics-en)
+> [English version](/posts/learning/2026-08-29-im-stat-data-types-descriptive-statistics-en)
 
 很多統計題的第一個陷阱，不在計算，而在資料型態。題目給你一串數字，你以為一定要算平均；題目給你一張表，你以為只是在數人數；題目給你模型正確率，你以為那就是模型能力。資料型態一旦判錯，後面選公式通常也會跟著錯。
 

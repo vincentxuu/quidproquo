@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-gateway-cron)
 
-Post 8 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 8 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 The gateway is how Hermes delivers on "not tied to your laptop": one resident process holds every platform connection and keeps conversation continuity across them. Once the agent is resident and scheduling its own work, the question changes from "is it pleasant to use" to "what does it do while nobody's watching."
 
@@ -81,7 +81,7 @@ The gateway turns "resident agent" from a concept into a service you operate, an
 
 One practical addition: **before going live, read `hermes pairing list` and `hermes cron list` once each.** The first tells you who can reach this agent, the second tells you what it does when you're not looking. Those two lists describe the system more accurately than any config file.
 
-Next: [the security model](/en/posts/ai/2026-08-18-hermes-agent-security) — approvals, deny rules, and prompt injection.
+Next: [the security model](/posts/ai/2026-08-18-hermes-agent-security-en) — approvals, deny rules, and prompt injection.
 
 ## References
 

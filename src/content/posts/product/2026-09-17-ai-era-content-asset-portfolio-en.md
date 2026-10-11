@@ -92,8 +92,8 @@ The AI era does not eliminate articles. It eliminates the excuse to count articl
 
 ## Series navigation
 
-- Previous: [Which content models face the most AI risk?](/en/posts/product/2026-09-17-content-model-ai-exposure-defense-en)
-- Start: [How AI summaries change the traffic path](/en/posts/product/2026-09-17-ai-overviews-change-traffic-path-en)
+- Previous: [Which content models face the most AI risk?](/posts/product/2026-09-17-content-model-ai-exposure-defense-en)
+- Start: [How AI summaries change the traffic path](/posts/product/2026-09-17-ai-overviews-change-traffic-path-en)
 
 ## References
 

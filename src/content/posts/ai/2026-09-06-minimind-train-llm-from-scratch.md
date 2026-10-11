@@ -13,7 +13,7 @@ description: "深度解析 MiniMind 開源專案：從 Pretrain 到 Agentic RL �
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
+> 🌏 [English version](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
 
 多數人接觸 LLM 的路徑停在推理和微調：用 [LoRA](https://arxiv.org/abs/2106.09685) 在現有大模型上跑幾個 epoch，就覺得「用過」大模型了。[MiniMind](https://github.com/jingyaogong/minimind) 走的是另一條路——從零開始，用 3 塊人民幣的成本和一張 RTX 3090 約 2 小時的時間，把 Pretrain、SFT、LoRA、DPO、PPO、GRPO、CISPO、Agentic RL、知識蒸餾全部走一遍，所有核心演算法用 PyTorch 原生實作，不依賴 `transformers`、`trl`、`peft` 的高階抽象。這篇拆解它的設計邏輯、訓練流程與限制。
 

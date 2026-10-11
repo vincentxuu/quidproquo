@@ -13,7 +13,7 @@ description: "「從零訓練一個 LLM」系列 order 7：瑞士 Apertus 與日
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en)
+> 🌏 [English version](/posts/ai/2026-09-06-national-multilingual-llm-training-en)
 
 這個系列到目前為止的專案有個共同點：動機是學習（MiniMind）、資料效率（YuLan-Mini）或研究透明性（OLMo、LLM360）。這篇的兩個專案動機不同——**語言主權與法規合規**。當你關心的語言在英語圈的訓練資料裡只占不到 1%，等現成模型改善你的語言是不切實際的；當你受 EU AI Act 約束，你需要的不是最強的模型，而是能說清楚每個訓練資料來源的模型。
 

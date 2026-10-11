@@ -16,7 +16,7 @@ additionalSeries:
     order: 22
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-cloudflare-agents-runtime-en)
+> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-agents-runtime-en)
 
 很多「agent app」其實只是 HTTP endpoint 加上一段 while loop：收到訊息、呼叫模型、選工具、再回覆。demo 很快，但產品一上線就會碰到同一批問題：使用者斷線怎麼辦？同一個 user 的 session 要怎麼找回？工具呼叫跑到一半失敗怎麼恢復？WebSocket、email、Slack、webhook 這些入口要怎麼接到同一個狀態？
 

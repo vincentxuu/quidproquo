@@ -13,7 +13,7 @@ description: "深入 pi-ai 模型生態系統：Model Catalog 從官方 API 自�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-model-catalog-oauth-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-model-catalog-oauth-en)
 
 ## TL;DR
 

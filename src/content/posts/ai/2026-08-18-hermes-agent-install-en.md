@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-install)
 
-Post 2 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 2 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 Installation rarely deserves a whole post. It does here, because *how* you install Hermes decides whether upstream will help you when it breaks. The official [Platform Support](https://hermes-agent.nousresearch.com/docs/getting-started/platform-support) page is unusually blunt about this — read it first, not last.
 
@@ -139,7 +139,7 @@ So "I already backed up with profile export" is not true. That is not a full bac
 
 The one judgment to keep from this chapter: **find your platform's tier before you invest**. Intel Mac, pip installs, and AUR are dead ends today, while Termux and Nix are "works, don't depend on it." Flags change; when you need an exact list, go to the [CLI Commands Reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands).
 
-Next up: [model providers, routing, fallback, and credential pools](/en/posts/ai/2026-08-18-hermes-agent-providers).
+Next up: [model providers, routing, fallback, and credential pools](/posts/ai/2026-08-18-hermes-agent-providers-en).
 
 ## References
 

@@ -32,7 +32,7 @@ glossary:
 
 > **This post is written from the slides; I'll add the video when it's published.** As of 2026-10-10, the [official schedule](https://www.cmu-agents.com/#/schedule) lists only [slides](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf) for Lecture 12 (Oct 1), with no recording. Everything below comes from the slides, not from what the lecturer said; where the slides are silent and I'm interpreting, I say so.
 
-Lecture 12 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/), given by [Apurva Gandhi](https://apga.github.io/), closes the training module. The previous two lectures ([9](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en), [11](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)) covered algorithms: how to compute advantages, how to clip ratios. This one asks a different question: **an algorithm is one line of math on paper, so what does the system look like when it runs on hundreds of GPUs?**
+Lecture 12 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/), given by [Apurva Gandhi](https://apga.github.io/), closes the training module. The previous two lectures ([9](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en), [11](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)) covered algorithms: how to compute advantages, how to clip ratios. This one asks a different question: **an algorithm is one line of math on paper, so what does the system look like when it runs on hundreds of GPUs?**
 
 If you only want a small RL experiment, the first half (two workloads, optimizations on each side) is enough. If you are building a training platform, the design choices in the second half are the point.
 
@@ -54,7 +54,7 @@ But those operations are really **two workloads with opposite profiles**:
 
 | | Sampling | Training (forward_backward) |
 |---|---|---|
-| Engine | Inference engine, e.g. [vLLM](/en/posts/ai/2026-03-14-vllm-inference-engine-en), SGLang | Trainer engine, e.g. Megatron, FSDP2 |
+| Engine | Inference engine, e.g. [vLLM](/posts/ai/2026-03-14-vllm-inference-engine-en), SGLang | Trainer engine, e.g. Megatron, FSDP2 |
 | Shape of compute | Decode-heavy, one token after another | Prefill-style, whole sequence in parallel |
 | Gradients | None | Autograd |
 | Typical optimizations | KV cache, prefix cache, continuous batching, speculative decoding | Activation checkpointing, prefix sharing, sample packing |
@@ -125,7 +125,7 @@ Should rollouts go from the inference engine to the trainer as strings or as tok
 
 ### Async RL
 
-Long trajectories leave GPUs idle in synchronous training. Async RL splits GPUs into training and inference groups and overlaps rollouts with weight updates. The slides note agentic RL is often rollout-bound, so you can give inference more GPUs, e.g. 3:1. Two costs: data goes stale and needs off-policy correction (the importance sampling from [Lecture 11](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)), and the inference engine must support continuous batching and **in-flight weight updates**.
+Long trajectories leave GPUs idle in synchronous training. Async RL splits GPUs into training and inference groups and overlaps rollouts with weight updates. The slides note agentic RL is often rollout-bound, so you can give inference more GPUs, e.g. 3:1. Two costs: data goes stale and needs off-policy correction (the importance sampling from [Lecture 11](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)), and the inference engine must support continuous batching and **in-flight weight updates**.
 
 For the latter, SGLang's pause modes are the example: `abort` drops in-flight requests, `retract` pulls them back, and `in_place` pauses without changing request state, though a later cache flush fails because running requests still rely on those KV entries. Inference frameworks are evolving to meet RL's needs.
 
@@ -181,8 +181,8 @@ The slides end with a table, which I've reorganized as "what you see → what to
 
 ## Going deeper
 
-- Inference side on this site: [vLLM inference engine](/en/posts/ai/2026-03-14-vllm-inference-engine-en), [CMU 11-868: serving at scale and KV cache](/en/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
-- Algorithm side: [Lecture 11: advanced RL algorithms](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
+- Inference side on this site: [vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en), [CMU 11-868: serving at scale and KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
+- Algorithm side: [Lecture 11: advanced RL algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
 - Async RL system: [AReaL](https://arxiv.org/abs/2505.24298)
 
 ## Changelog
@@ -195,5 +195,5 @@ The slides end with a table, which I've reorganized as "what you see → what to
 - [Lecture 12 slides: Reinforcement Learning Systems](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)
 - [Apurva Gandhi's website](https://apga.github.io/)
 - [Fu et al., 2025. AReaL: A Large-Scale Asynchronous Reinforcement Learning System for Language Reasoning](https://arxiv.org/abs/2505.24298)
-- [Lecture 9: RL basics](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)
-- [Lecture 11: advanced RL algorithms](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
+- [Lecture 9: RL basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)
+- [Lecture 11: advanced RL algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)

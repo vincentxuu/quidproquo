@@ -13,7 +13,7 @@ description: "Embedding 入門：從 one-hot 到 dense vector、cosine similarit
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-embedding-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-embedding-en)
 
 上一篇我們知道模型會先把文字切成 token。但 token 只是切法——模型拿到一串 token 之後，要怎麼「理解」它們？
 

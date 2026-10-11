@@ -20,7 +20,7 @@ glossary:
     def: "MoE 中的一組 FFN 參數。每個 expert 可以理解為一個「專家子網路」，模型會根據輸入選擇性地啟用其中幾個"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
+> 🌏 [English version](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
 
 2026 年的前沿開源模型有一個共同點：幾乎都是 MoE。[Ornith 1.5-35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 用 3B 啟用量打贏 31B dense 模型、[MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) 用 456B 總量但只啟用 45.9B、DeepSeek V4 Pro 是 1.6T 總量但 49B 啟用、Qwen3.8 最大版本是 2.4T 總量但 95B 啟用。依 [DeepInfra 的分析](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop)，MoE 已經「從研究好奇心變成前沿模型的主流架構」。這篇用實際案例拆解 MoE 為什麼贏、什麼時候不該用。
 

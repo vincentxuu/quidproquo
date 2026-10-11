@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut-en)
+> 🌏 [English version](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut-en)
 
 ## 變更摘要
 

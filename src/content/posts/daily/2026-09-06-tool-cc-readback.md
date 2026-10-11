@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-06-tool-cc-readback-en)
+> 🌏 [English version](/posts/daily/2026-09-06-tool-cc-readback-en)
 
 ## 工具資訊
 

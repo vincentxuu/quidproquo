@@ -88,7 +88,7 @@ cp src/content/posts/<category>/YYYY-MM-DD-<zh-slug>.md \
 
 zh-TW 版（原文）開頭加：
 ```markdown
-> 🌏 [English version](/en/posts/<category>/<en-slug>)
+> 🌏 [English version](/posts/<category>/<en-slug>)
 ```
 
 en 版開頭加：

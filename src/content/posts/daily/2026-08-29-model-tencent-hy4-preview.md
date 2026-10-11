@@ -15,7 +15,7 @@ glossary:
     def: "騰訊開發的大型語言模型家族，Hy 系列（如 Hy3、Hy4）是其最新一代開源旗艦模型代號"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
+> 🌏 [English version](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
 
 ## 模型資訊
 

@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous entry (3.0.2)](/en/posts/daily/2026-08-31-framework-agno-3.0.2-en) covered Agno publishing its own Agents/Teams/Toolkits as MCP tools. 3.0.5 goes back to fix something more fundamental: the data-integrity contract of Knowledge (RAG) ingestion. Until now, Agno had a dangerous default — if a single chunk's embedding call failed, the whole piece of content could still end up marked `completed`, and you'd only find out the index was incomplete when a query came back missing an answer. 3.0.5 makes that failure visible: `ContentStatus` gains a `partial` state meaning "partially indexed, searchable but incomplete," and embedders now raise on failure instead of silently returning an empty result. For any downstream logic that treated Knowledge's `completed` status as "this data can be trusted," that status has effectively been lying until now.
+[The previous entry (3.0.2)](/posts/daily/2026-08-31-framework-agno-3.0.2-en) covered Agno publishing its own Agents/Teams/Toolkits as MCP tools. 3.0.5 goes back to fix something more fundamental: the data-integrity contract of Knowledge (RAG) ingestion. Until now, Agno had a dangerous default — if a single chunk's embedding call failed, the whole piece of content could still end up marked `completed`, and you'd only find out the index was incomplete when a query came back missing an answer. 3.0.5 makes that failure visible: `ContentStatus` gains a `partial` state meaning "partially indexed, searchable but incomplete," and embedders now raise on failure instead of silently returning an empty result. For any downstream logic that treated Knowledge's `completed` status as "this data can be trusted," that status has effectively been lying until now.
 
 ## Key Changes
 
@@ -114,4 +114,4 @@ I used to think RAG correctness issues mostly came from retrieval ranking or chu
 - [Agno v3.0.5 — GitHub Release](https://github.com/agno-agi/agno/releases/tag/v3.0.5)
 - [agno-agi/agno — GitHub](https://github.com/agno-agi/agno)
 - [Agno v3.0.4 — GitHub Release (previous version)](https://github.com/agno-agi/agno/releases/tag/v3.0.4)
-- [Agno 3.0.2 — previous framework update](/en/posts/daily/2026-08-31-framework-agno-3.0.2-en)
+- [Agno 3.0.2 — previous framework update](/posts/daily/2026-08-31-framework-agno-3.0.2-en)

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 47 篇：時間序列為�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-time-series-en)
+> [English version](/posts/learning/2026-08-29-im-stat-time-series-en)
 
 前面的因果推論在問：比較對象能不能比。時間序列換了一個限制：資料有順序。今天的流量、銷售、模型錯誤率、GPU 成本，通常都和昨天有關。你把資料隨機打散，評估結果可能看起來漂亮，但那是因為你偷看了未來。
 

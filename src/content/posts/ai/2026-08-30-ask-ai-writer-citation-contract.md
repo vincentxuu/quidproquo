@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-writer-citation-contract-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-writer-citation-contract-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配〈[RAG Prompt Engineering：System Prompt 和 Context 怎麼設計](/posts/ai/2026-03-12-rag-prompt-engineering)〉。
 

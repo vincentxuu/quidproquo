@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 4 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026 (9/2). The schedule lists it as "Motion Planning: RRT"; the slides are titled "Classical Planning II and Motion Planning". The first half finishes GraphPlan and relaxation heuristics, which live in the [previous post on Lecture 3](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en). This post covers only the second half: **how do you plan when the state is continuous and cannot be enumerated?**
+This is Lecture 4 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026 (9/2). The schedule lists it as "Motion Planning: RRT"; the slides are titled "Classical Planning II and Motion Planning". The first half finishes GraphPlan and relaxation heuristics, which live in the [previous post on Lecture 3](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en). This post covers only the second half: **how do you plan when the state is continuous and cannot be enumerated?**
 
 The previous lecture's world was made of finitely many facts; it could be huge, but it was finite. Joint angles on a robot arm or a game character's coordinates are real numbers, so there are infinitely many states and BFS cannot even finish the first layer. This lecture's answer: stop enumerating and start sampling.
 
@@ -42,7 +42,7 @@ Checked on 2026-10-10.
 - The site assigns AIMA Ch. 26.5. This post does not draw on the textbook
 - There is no pre-reading for this lecture
 
-**Access level**: slides, all three demos, and the recitation solutions are public, and the matching HW2 programming assignment ships starter code and a local autograder, so this part reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale.
+**Access level**: slides, all three demos, and the recitation solutions are public, and the matching HW2 programming assignment ships starter code and a local autograder, so this part reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale.
 
 ## From discrete to continuous: configuration space
 
@@ -133,12 +133,12 @@ The summary slide: RRT is not optimal; RRT\* considers minimal path cost as samp
 ## Recitation and homework mapping
 
 - **Recitation 2 §6**: a fully hand-computed warehouse robot (12 × 10 m bay, two obstacles, ε = 2.0, goal bias 0.10): C-space dimension, nearest neighbor, steering, collision checks, goal test, path extraction, and behavior under changed parameters. One line from §6.4 is worth remembering: switch to a six-joint arm and not a single line of the algorithm changes, only the distance metric and the collision checker.
-- **HW2 programming Q2–Q7**: implement segment checking, nearest node, RRT, best parent, rewire, and RRT\* in `rrt.py`, then watch the Among Us crewmate and the Robot Cook arm plan for themselves. Details in the [HW2 guide](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en).
+- **HW2 programming Q2–Q7**: implement segment checking, nearest node, RRT, best parent, rewire, and RRT\* in `rrt.py`, then watch the Among Us crewmate and the Robot Cook arm plan for themselves. Details in the [HW2 guide](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en).
 
 ## Related reading
 
 - The slides' "Beyond RRT" page points to Wikipedia's list of RRT variants; the lecture does not go further.
-- For path search on a discrete grid, see the [07-280 Lecture 2 guide](/en/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en). RRT\*'s `cost + c` comparison is the same intuition as UCS's `g(n)`, only on a randomly grown tree.
+- For path search on a discrete grid, see the [07-280 Lecture 2 guide](/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en). RRT\*'s `cost + c` comparison is the same intuition as UCS's `g(n)`, only on a randomly grown tree.
 
 ## Things to do tonight
 
@@ -149,9 +149,9 @@ The summary slide: RRT is not optimal; RRT\* considers minimal path cost as samp
 
 ## Series navigation
 
-- Previous: [Lecture 3 guide: Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)
-- Next: [HW2 guide: Classical and Motion Planning, from robot-cook PDDL to RRT* to graphing LPs](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
-- Series overview: [CMU 07-380 Fall 2026 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [Lecture 3 guide: Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)
+- Next: [HW2 guide: Classical and Motion Planning, from robot-cook PDDL to RRT* to graphing LPs](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
+- Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

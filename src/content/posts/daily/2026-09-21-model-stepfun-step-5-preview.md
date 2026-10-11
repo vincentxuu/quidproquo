@@ -17,7 +17,7 @@ glossary:
     def: "第三方評測機構 Artificial Analysis 綜合多項 benchmark 算出的模型智能分數，常用於跨廠商模型的橫向比較"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-21-model-stepfun-step-5-preview-en)
+> 🌏 [English version](/posts/daily/2026-09-21-model-stepfun-step-5-preview-en)
 
 ## 模型資訊
 

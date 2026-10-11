@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-cloudflare-ai-stack-overview-en)
+> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-ai-stack-overview-en)
 
 做 AI app 時，模型只是其中一塊。真正麻煩的是周邊：provider key、gateway、RAG、向量索引、文件同步、agent session、tool 權限、browser、sandbox、memory、observability、成本控制。你可以每一塊都接一個外部服務，也可以把很多 infra 收斂到 Cloudflare。
 

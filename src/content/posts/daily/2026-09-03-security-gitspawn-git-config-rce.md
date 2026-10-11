@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-03-security-gitspawn-git-config-rce-en)
+> 🌏 [English version](/posts/daily/2026-09-03-security-gitspawn-git-config-rce-en)
 
 ## 事件概述
 

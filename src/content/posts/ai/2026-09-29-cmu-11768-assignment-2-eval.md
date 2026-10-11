@@ -25,7 +25,7 @@ glossary:
     context: "A2 Part 3 要求把學生自己出的視覺化任務包成 Harbor 任務。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

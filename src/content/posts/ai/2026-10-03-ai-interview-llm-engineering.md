@@ -44,7 +44,7 @@ glossary:
     context: "本文用它說明 guardrails 為什麼要設計在模型之外。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
 
 這是「AI Engineer 面試準備」系列的第 15 篇，整理面試常被問到的 LLM 工程問題：何時微調而不是做 RAG、RLHF／DPO／GRPO 的差別、推論加速、取樣參數、評估陷阱、guardrails 與 [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications) 的 LLM Top 10，以及幻覺的成因。
 

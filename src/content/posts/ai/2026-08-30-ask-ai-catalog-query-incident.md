@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-catalog-query-incident-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-catalog-query-incident-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [Query Classification](/posts/ai/2026-03-12-query-classification-adaptive-routing) 與 [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop)。
 

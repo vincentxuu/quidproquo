@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-10-funding-arena-en)
+> 🌏 [English version](/posts/daily/2026-10-10-funding-arena-en)
 
 ## 融資資訊
 

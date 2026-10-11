@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-retrieval-evaluation-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-retrieval-evaluation-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [RAG 評估框架與工具選型](/posts/ai/2026-03-12-rag-evaluation-frameworks) 與 [RAG A/B 測試](/posts/ai/2026-03-12-rag-ab-testing)。
 

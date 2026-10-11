@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en)
 
 Cloudflare 很容易被理解成 CDN 或 DNS 服務，但如果你真的把產品搬上去，看到的會是一套 app platform：[Workers](https://developers.cloudflare.com/workers/) 跑程式，[D1](https://developers.cloudflare.com/d1/) 放 SQL 資料，[KV](https://developers.cloudflare.com/kv/) 做全球 key-value，[R2](https://developers.cloudflare.com/r2/) 放 object，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 處理狀態和協調，再加上 Queues、Workflows、Cache Rules、Smart Shield、Images、Email Service、Turnstile、Observability、Browser Run、Containers。
 

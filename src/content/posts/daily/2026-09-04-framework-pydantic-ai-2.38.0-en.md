@@ -95,4 +95,4 @@ My first read was that "adding a custom event system" is just another debug hook
 - [PR #8021 — Add gemini-3.8-flash model](https://github.com/pydantic/pydantic-ai/pull/8021)
 - [PR #7989 — Add Claude Fable 5.1 and Claude Mythos 5.1 support](https://github.com/pydantic/pydantic-ai/pull/7989)
 - [PR #6153 — Add VLLMProvider for vLLM servers](https://github.com/pydantic/pydantic-ai/pull/6153)
-- [Framework Update | Pydantic AI 2.36.0 (previously tracked: @durable_operation)](/en/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0-en)
+- [Framework Update | Pydantic AI 2.36.0 (previously tracked: @durable_operation)](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0-en)

@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-06-funding-onebyzero-en)
+> 🌏 [English version](/posts/daily/2026-10-06-funding-onebyzero-en)
 
 ## 融資資訊
 

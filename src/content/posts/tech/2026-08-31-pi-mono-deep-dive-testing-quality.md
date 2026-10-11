@@ -13,7 +13,7 @@ description: "深入 pi-mono 品質保證體系：Faux Provider 模擬 LLM 回�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-testing-quality-en)
 
 ## TL;DR
 

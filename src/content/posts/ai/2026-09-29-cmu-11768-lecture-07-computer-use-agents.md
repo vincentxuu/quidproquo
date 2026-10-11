@@ -30,7 +30,7 @@ glossary:
     context: "長時程任務幾乎拿不到滿分，靠 rubric 才有非零訊號。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

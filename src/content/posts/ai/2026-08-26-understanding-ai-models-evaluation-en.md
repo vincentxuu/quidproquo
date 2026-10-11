@@ -38,7 +38,7 @@ Model evaluation falls into roughly three tiers, each serving a different purpos
 
 ### 1. Perplexity: The Model's Internal Score
 
-In [part 4](/en/posts/ai/2026-08-26-understanding-ai-models-loss-function-en) on loss functions, we introduced perplexity. It measures how "confused" a model is when predicting the next token — a perplexity of 10 means the model is, on average, hesitating among 10 choices.
+In [part 4](/posts/ai/2026-08-26-understanding-ai-models-loss-function-en) on loss functions, we introduced perplexity. It measures how "confused" a model is when predicting the next token — a perplexity of 10 means the model is, on average, hesitating among 10 choices.
 
 The upside of perplexity: you don't need a separate test set; any text will do. But it has a fundamental limitation: **it only tells you how well the model predicts text, not whether it can solve math, write code, or answer history questions**. A model with very low perplexity might simply be great at predicting common sentence patterns while still failing at reasoning tasks.
 
@@ -111,7 +111,7 @@ HellaSwag is a textbook example. A few years ago it was a key differentiator, bu
 
 ## Next Up
 
-Now we know how to evaluate models. But so far, every model we've discussed was trained once and then deployed. In practice, there's one more critical step: [fine-tuning](/en/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en) — taking a pre-trained model and adjusting it with specific data so it specializes in a particular domain.
+Now we know how to evaluate models. But so far, every model we've discussed was trained once and then deployed. In practice, there's one more critical step: [fine-tuning](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en) — taking a pre-trained model and adjusting it with specific data so it specializes in a particular domain.
 
 ## References
 

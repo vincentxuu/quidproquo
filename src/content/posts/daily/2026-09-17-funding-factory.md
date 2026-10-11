@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-17-funding-factory-en)
+> 🌏 [English version](/posts/daily/2026-09-17-funding-factory-en)
 
 ## 融資資訊
 

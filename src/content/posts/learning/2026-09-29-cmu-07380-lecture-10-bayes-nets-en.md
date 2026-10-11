@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 10 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Graphical Models: Bayes Nets** (9/28). The [previous post on Lec9 generative models](/en/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en) built `p(x|y)` with Naive Bayes and GDA, then used Bayes' theorem to recover the class. That approach rests on a strong conditional-independence assumption. This lecture asks the general question: once there are many variables and the joint distribution is too big to store, how do you draw a picture of which variables are related, and split the distribution into small tables?
+This is Lecture 10 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Graphical Models: Bayes Nets** (9/28). The [previous post on Lec9 generative models](/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en) built `p(x|y)` with Naive Bayes and GDA, then used Bayes' theorem to recover the class. That approach rests on a strong conditional-independence assumption. This lecture asks the general question: once there are many variables and the joint distribution is too big to store, how do you draw a picture of which variables are related, and split the distribution into small tables?
 
 The short answer: **a Bayes net is a directed acyclic graph with one "given its parents" conditional probability table per node, and the joint distribution is the product of those tables. Every edge left out of the graph is an independence assumption.**
 
@@ -40,7 +40,7 @@ When I rechecked the course site on 2026-09-29, the Lec10 row of the schedule ha
 
 So this post **does not describe what happened in lecture**. It only guides the published pre-reading. The schedule marks Lec10 "No d-separation", and this post stays away from d-separation too. It will be updated once the slides appear.
 
-Access level: the course as a whole is A2 (in progress). Lec10 currently has pre-reading notes plus an interactive demo, with no slides, recitation or homework, which is thin even for A2. The checkpoint (due 9/27) lives on Canvas and is CMU-only. The levels are defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en).
+Access level: the course as a whole is A2 (in progress). Lec10 currently has pre-reading notes plus an interactive demo, with no slides, recitation or homework, which is thin even for A2. The checkpoint (due 9/27) lives on Canvas and is CMU-only. The levels are defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Official materials and scope
 
@@ -199,9 +199,9 @@ It only demonstrates computing one joint entry, not queries. For queries, go bac
 
 Per the schedule, the next lecture, Lec11 (9/30), is **Approximate Inference: likelihood weighted sampling and Gibbs**. The site currently lists only the 15-281 [Likelihood Sampling Demo](https://www.cs.cmu.edu/~15281-f25/demos/likelihoodSamplingDemo) and [Gibbs Demo](https://www.cs.cmu.edu/~15281-f25/demos/gibbsDemo), with no 07-380 slides or notes yet. The three-step recipe here is exact inference: build the whole joint, then look things up. With many variables that stops being feasible, which is the problem the next lecture tackles with sampling.
 
-This is the last lecture covered by the [stage 1 recap](/en/posts/learning/2026-09-29-cmu-07380-stage-1-certainty-optimization-en), which ties the first ten lectures together from logic and planning through optimization to probability.
+This is the last lecture covered by the [stage 1 recap](/posts/learning/2026-09-29-cmu-07380-stage-1-certainty-optimization-en), which ties the first ten lectures together from logic and planning through optimization to probability.
 
-Further reading: MLE foundations are in [07-280 Lecture 16](/en/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en); the course's overall positioning is in the [07-380 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
+Further reading: MLE foundations are in [07-280 Lecture 16](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en); the course's overall positioning is in the [07-380 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
 
 ## Things to do tonight
 

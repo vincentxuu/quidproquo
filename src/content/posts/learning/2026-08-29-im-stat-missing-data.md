@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 49 篇：缺資料不只�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-missing-data-en)
+> [English version](/posts/learning/2026-08-29-im-stat-missing-data-en)
 
 前面談多變量分析時，我們假設資料表裡每個欄位都有值。真實資料很少這麼乾淨。問卷有人不填收入，App log 會漏事件，醫療資料會少檢驗值，LLM 評估資料也可能缺標註或缺人工複核。
 

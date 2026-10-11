@@ -16,7 +16,7 @@ additionalSeries:
     order: 24
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-cloudflare-secrets-store-ai-gateway-byok-en)
+> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-secrets-store-ai-gateway-byok-en)
 
 AI app 很快就會長出一堆 secret：OpenAI key、Anthropic key、Gemini key、webhook secret、GitHub token、internal API token、tenant 專用 provider key。如果每個 Worker 各自放一份，rotation、權限、環境分離和 audit 都會變得混亂。
 

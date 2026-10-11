@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Sol 是旗艦 Astra 之下、鎖定日常複雜工作的中價位分支"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
+> 🌏 [English version](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
 
 ## 模型資訊
 

@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-09-funding-rein-security-en)
+> 🌏 [English version](/posts/daily/2026-10-09-funding-rein-security-en)
 
 ## 融資資訊
 

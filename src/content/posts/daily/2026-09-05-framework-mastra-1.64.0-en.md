@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous entry (1.63.0)](/en/posts/daily/2026-08-29-framework-mastra-1.63.0-en) fixed the mismatch between traces and native logs. This release tackles a different production pain point: **how expensive sandbox cold starts are**. Until now, every code session or workspace-backed agent had to re-clone and rebuild a repo from scratch each time a sandbox spun up, and that wait landed directly in user-perceived latency. 1.64 introduces reusable sandbox templates that let a sandbox start from an image that's already cloned and built — with background rebuilds and configurable resource sizing — effectively swapping "build the house every time" for "have a model home ready to move into." The same release also collapses `workingDirectory`, previously defined inconsistently per sandbox provider (Docker, E2B, Vercel, Railway...), into one unified option, cutting the mental overhead of re-checking "where does this provider actually default to" every time you switch.
+[The previous entry (1.63.0)](/posts/daily/2026-08-29-framework-mastra-1.63.0-en) fixed the mismatch between traces and native logs. This release tackles a different production pain point: **how expensive sandbox cold starts are**. Until now, every code session or workspace-backed agent had to re-clone and rebuild a repo from scratch each time a sandbox spun up, and that wait landed directly in user-perceived latency. 1.64 introduces reusable sandbox templates that let a sandbox start from an image that's already cloned and built — with background rebuilds and configurable resource sizing — effectively swapping "build the house every time" for "have a model home ready to move into." The same release also collapses `workingDirectory`, previously defined inconsistently per sandbox provider (Docker, E2B, Vercel, Railway...), into one unified option, cutting the mental overhead of re-checking "where does this provider actually default to" every time you switch.
 
 ## Key Changes
 
@@ -91,4 +91,4 @@ I used to think sandbox templating was just an infrastructure detail — pre-bak
 
 - [Mastra @mastra/core@1.64.0 — GitHub Release](https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fcore%401.64.0)
 - [mastra-ai/mastra — GitHub](https://github.com/mastra-ai/mastra)
-- [Mastra @mastra/core@1.63.0 — previous framework update](/en/posts/daily/2026-08-29-framework-mastra-1.63.0-en)
+- [Mastra @mastra/core@1.63.0 — previous framework update](/posts/daily/2026-08-29-framework-mastra-1.63.0-en)

@@ -14,22 +14,22 @@ series:
 
 > 🌏 [English version](/posts/tech/2026-09-06-docling-document-parsing-en)
 
-把複雜文件轉成 LLM 讀得懂的東西，不是只有一條路。我們已經在這個系列走過轉換層（[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)）、抽取層（[PyMuPDF / pdfplumber / Tika 那組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)）、解析層的三家比較（[MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)、Marker、Docling）與掃描實測（[10 種工具丟進考古題](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)），最後用 [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) 說明為什麼固定管線不夠。這篇把焦點放在解析層裡最容易被低估的一個：**Docling**。
+把複雜文件轉成 LLM 讀得懂的東西，不是只有一條路。我們已經在這個系列走過轉換層（[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)）、抽取層（[PyMuPDF / pdfplumber / Tika 那組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)）、解析層的三家比較（[MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)、Marker、Docling）與掃描實測（[10 種工具丟進考古題](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)），最後用 [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) 說明為什麼固定管線不夠。這篇把焦點放在解析層裡最容易被低估的一個：**Docling**。
 
-[Docling](https://github.com/docling-project/docling) 是由 **IBM Research Zurich** 開始、現由 **Linux Foundation AI & Data** 治理的開源文件解析標準庫（`MIT License`，`v2.100.0` 於 2026-06-09 發布，`66.1k` stars、`4.8k` forks）。它與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 屬於同一解析層（處理掃描件、複雜版面、表格與公式），但設計取捨完全不同：**Docling 的核心價值不在於「把文字完整保留為 Markdown」，而在於「把文件解析標準化為可交換、可組合、可導出專用格式的結構化資料」**。這對需要將解析結果直接餵入結構化資料庫、需要專用 XML 導出（專利、學術文章、財報）、或需要避免商業授權限制（純 MIT、無商業門檻）的場景來說，是明確且不可替代的選擇。
+[Docling](https://github.com/docling-project/docling) 是由 **IBM Research Zurich** 開始、現由 **Linux Foundation AI & Data** 治理的開源文件解析標準庫（`MIT License`，`v2.100.0` 於 2026-06-09 發布，`66.1k` stars、`4.8k` forks）。它與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 屬於同一解析層（處理掃描件、複雜版面、表格與公式），但設計取捨完全不同：**Docling 的核心價值不在於「把文字完整保留為 Markdown」，而在於「把文件解析標準化為可交換、可組合、可導出專用格式的結構化資料」**。這對需要將解析結果直接餵入結構化資料庫、需要專用 XML 導出（專利、學術文章、財報）、或需要避免商業授權限制（純 MIT、無商業門檻）的場景來說，是明確且不可替代的選擇。
 
 ## 它想解決什麼
 
 Docling 的官方定位很直接：把複雜文件（`PDF`、`DOCX`、`PPTX`、`XLSX`、`HTML`、`EPUB`、`Apple Pages`、影片、音訊、電子郵件、`XBRL` 財報等）轉成機器可讀的結構化資料，並在過程中保留版面結構、表格語意、公式表示、圖文關聯，以及掃描文件的可讀性。與一般 OCR 工具（只提取文字、不保留結構）不同，Docling 把解析拆成**可替換、可除錯的多階段 pipeline**（版面偵測 → 區塊分類 → 閱讀順序 → 內容識別），每階段可單獨替換引擎、可只跑部分階段、可用不同模型（純規則引擎或 `VlmPipeline`）處理同一階段。
 
-這讓它的適用場景與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 有明顯分界：
+這讓它的適用場景與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 有明顯分界：
 
 - **需要結構化 JSON 而非 Markdown 作為核心輸出時**（例如直接餵入結構化資料庫、需要 `DocLang` 或專用 XML 導出時），Docling 是明確選擇。
 - **需要處理影片（`MP4`/`AVI`/`MOV`/`MKV`/`WebM`）的 ASR 轉錄與代表性幀、或音訊（`WAV`/`MP3`）解析時**，Docling 是目前解析層中少數原生支援的工具（MinerU 不支援影片/音訊作為輸入）。
-- **需要純 MIT 授權、無商業使用門檻、無強制標識義務時**（與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的自訂協議形成對比），Docling 提供更低的商業部署門檻。
+- **需要純 MIT 授權、無商業使用門檻、無強制標識義務時**（與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的自訂協議形成對比），Docling 提供更低的商業部署門檻。
 - **需要將解析結果導出為專用格式（`USPTO` 專利、`JATS` 學術文章、`XBRL` 財報、`DocTags` 標註）而非通用 Markdown 時**，Docling 提供原生支援，MinerU 則無此功能。
 
-簡單來說：如果你的痛點是「把複雜文件變成結構化資料，並且這個資料要能直接交換、導出專用格式、或在商業場景中自由部署」，Docling 是解析層裡最直接的工具；如果你的痛點是「把文件完整保留為 Markdown 讓人與 LLM 都讀得懂，並且需要強大的掃描修復與公式/表格語意保留」，那 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 仍然是更對症的選擇。兩者不是替代關係，而是**同一解析層內不同取捨路徑的互補選項**。
+簡單來說：如果你的痛點是「把複雜文件變成結構化資料，並且這個資料要能直接交換、導出專用格式、或在商業場景中自由部署」，Docling 是解析層裡最直接的工具；如果你的痛點是「把文件完整保留為 Markdown 讓人與 LLM 都讀得懂，並且需要強大的掃描修復與公式/表格語意保留」，那 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 仍然是更對症的選擇。兩者不是替代關係，而是**同一解析層內不同取捨路徑的互補選項**。
 
 ## 核心能力（已驗證：官方文件 + GitHub 原始碼 + LICENSE 檔案 + 版本發行紀錄）
 
@@ -42,7 +42,7 @@ Docling 的官方定位很直接：把複雜文件（`PDF`、`DOCX`、`PPTX`、`
 - **多媒體與通訊**：影片（`MP4`、`AVI`、`MOV`、`MKV`、`WebM`，含 ASR 轉錄與代表性關鍵幀提取）、音訊（`WAV`、`MP3`，ASR 轉錄）、電子郵件（`EML`、`MSG`）、`WebVTT` 字幕、`Box Notes`。
 - **專用與財報格式**：`XBRL`（`eXtensible Business Reporting Language`，財報文件）、`DocLang`（結構化文件描述標準）。
 
-與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的輸入範圍（`PDF`、圖像、`DOCX`、`PPTX`、`XLSX`，不含影片/音訊/電子郵件/ODF/XBRL/DocLang）相比，Docling 的格式廣度明顯更廣，這是解析層內「格式深度」與 MinerU「結構語意保留深度」的明確分界。
+與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的輸入範圍（`PDF`、圖像、`DOCX`、`PPTX`、`XLSX`，不含影片/音訊/電子郵件/ODF/XBRL/DocLang）相比，Docling 的格式廣度明顯更廣，這是解析層內「格式深度」與 MinerU「結構語意保留深度」的明確分界。
 
 ### 核心輸出（已驗證：官方文件 `Reference` / `Output File Format` + `README` 功能清單）
 
@@ -52,23 +52,23 @@ Docling 的官方定位很直接：把複雜文件（`PDF`、`DOCX`、`PPTX`、`
 
 ### 解析引擎：Pipeline 式與可替換階段（已驗證：官方文件 `Usage` + `README` 功能清單）
 
-- **可替換階段**（已驗證）：解析流程拆為多階段（版面偵測 → 區塊分類 → 閱讀順序 → 內容識別：`OCR` / 表格結構 / 公式 / 圖像描述），每階段可替換引擎（例如用不同 `OCR` 引擎、不同 `VLM` 模型、不同表格識別演算法）、可只執行部分階段（例如只做版面偵測而不做內容識別）、可單獨除錯（每階段輸出可獨立檢查）。這與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `Hybrid`（`effort` 參數控制解析深度、同一引擎內調整強度，不可替換階段引擎）形成根本差異：Docling 的可替換性更高，適合需要精細控制每階段行為、需要在不同場景下使用不同引擎組合的工程場景。
-- **純 CPU 與 GPU 加速**（已驗證）：支援純 `CPU` 環境運作（預設 `pipeline` 路徑），同時支援 `GPU`（`CUDA`）、`NPU`（`CANN`）、`MPS`（Apple Silicon）加速。與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的「高精度解析建議 `GPU`、純 `CPU` 可行但明顯變慢」類似，但 Docling 的 `VlmPipeline`（`GraniteDocling`）為明確的高精度 `GPU` 路徑，而預設 `pipeline` 為低資源消耗路徑。
+- **可替換階段**（已驗證）：解析流程拆為多階段（版面偵測 → 區塊分類 → 閱讀順序 → 內容識別：`OCR` / 表格結構 / 公式 / 圖像描述），每階段可替換引擎（例如用不同 `OCR` 引擎、不同 `VLM` 模型、不同表格識別演算法）、可只執行部分階段（例如只做版面偵測而不做內容識別）、可單獨除錯（每階段輸出可獨立檢查）。這與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `Hybrid`（`effort` 參數控制解析深度、同一引擎內調整強度，不可替換階段引擎）形成根本差異：Docling 的可替換性更高，適合需要精細控制每階段行為、需要在不同場景下使用不同引擎組合的工程場景。
+- **純 CPU 與 GPU 加速**（已驗證）：支援純 `CPU` 環境運作（預設 `pipeline` 路徑），同時支援 `GPU`（`CUDA`）、`NPU`（`CANN`）、`MPS`（Apple Silicon）加速。與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的「高精度解析建議 `GPU`、純 `CPU` 可行但明顯變慢」類似，但 Docling 的 `VlmPipeline`（`GraniteDocling`）為明確的高精度 `GPU` 路徑，而預設 `pipeline` 為低資源消耗路徑。
 
 ### VlmPipeline 與模型選項（已驗證：官方文件 + `README` + `PyPI` 版本資訊）
 
-- **`VlmPipeline` 選項**（已驗證）：提供基於 `VLM` 的高精度解析路徑，預設綁定 `GraniteDocling`（`258M` 參數的視覺語言模型，由 IBM 開發）。與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `vlm-engine`（通用引擎介面，可接 `vLLM`/`LMDeploy`/`mlx` 生態系的不同 `VLM` 模型）不同：Docling 的 `VlmPipeline` 為固定模型選項（`GraniteDocling`），而 `MinerU` 的 `vlm-engine` 為通用引擎介面（支援多種 `VLM`）。這意味著在需要「固定、可重現、高精度的 `VLM` 解析結果」時，Docling 的 `GraniteDocling` 提供明確的模型鎖定；在需要「靈活替換不同 `VLM`」時，`MinerU` 的 `vlm-engine` 更適合。
-- **版本快速演進**（已驗證）：`v2.100.0`（2026-06-09）為本次驗證時的最新版本，`CHANGELOG.md` 記錄詳細（含影片解析、`ODF`、`XBRL`、影片 `ASR`、圖表理解等新功能）。與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `3.3`（2026-06-11）與 `3.4`（2026-06-18）同月發行、功能快速擴展的趨勢一致，這支持「功能邊界會隨版本變化」的結論（已在 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 文章中應用同樣措辭，本篇可同步引用作為系列對比）。
+- **`VlmPipeline` 選項**（已驗證）：提供基於 `VLM` 的高精度解析路徑，預設綁定 `GraniteDocling`（`258M` 參數的視覺語言模型，由 IBM 開發）。與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `vlm-engine`（通用引擎介面，可接 `vLLM`/`LMDeploy`/`mlx` 生態系的不同 `VLM` 模型）不同：Docling 的 `VlmPipeline` 為固定模型選項（`GraniteDocling`），而 `MinerU` 的 `vlm-engine` 為通用引擎介面（支援多種 `VLM`）。這意味著在需要「固定、可重現、高精度的 `VLM` 解析結果」時，Docling 的 `GraniteDocling` 提供明確的模型鎖定；在需要「靈活替換不同 `VLM`」時，`MinerU` 的 `vlm-engine` 更適合。
+- **版本快速演進**（已驗證）：`v2.100.0`（2026-06-09）為本次驗證時的最新版本，`CHANGELOG.md` 記錄詳細（含影片解析、`ODF`、`XBRL`、影片 `ASR`、圖表理解等新功能）。與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `3.3`（2026-06-11）與 `3.4`（2026-06-18）同月發行、功能快速擴展的趨勢一致，這支持「功能邊界會隨版本變化」的結論（已在 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 文章中應用同樣措辭，本篇可同步引用作為系列對比）。
 
 ### 部署、服務與整合（已驗證：官方文件 `Usage` / `Quickstart` / `Integrations` + `README` 功能清單）
 
-- **本機與容器部署**（已驗證）：`pip install docling`、`uv` 安裝、`Dockerfile` 提供、支援 `macOS`/`Linux`/`Windows`（`x86_64` 與 `arm64`）。與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `brew`/`curl` 安裝腳本與 `Docker` 支援類似，但 Docling 未提到專用的 `brew` 安裝路徑（僅 `pip` 與 `Docker`），且 `Python 3.9` 已於 `v2.70.0` 後棄用（需 `3.10+`），這是部署限制上的明確差異。
-- **服務部署**（已驗證）：`docling-serve`（`API server`，提供 `REST API` 服務）、`MCP server`（與 `LangChain`/`LlamaIndex`/`Crew AI`/`Haystack` 的原生整合介面）。與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `FastAPI`（`mineru-api`）與線上 `API`（`mineru.net`）類似，但 Docling 的 `MCP server` 為明確標註的原生功能（`MinerU` 未在主文件中明確提到 `MCP` 整合，僅在生態系中提及）。
+- **本機與容器部署**（已驗證）：`pip install docling`、`uv` 安裝、`Dockerfile` 提供、支援 `macOS`/`Linux`/`Windows`（`x86_64` 與 `arm64`）。與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `brew`/`curl` 安裝腳本與 `Docker` 支援類似，但 Docling 未提到專用的 `brew` 安裝路徑（僅 `pip` 與 `Docker`），且 `Python 3.9` 已於 `v2.70.0` 後棄用（需 `3.10+`），這是部署限制上的明確差異。
+- **服務部署**（已驗證）：`docling-serve`（`API server`，提供 `REST API` 服務）、`MCP server`（與 `LangChain`/`LlamaIndex`/`Crew AI`/`Haystack` 的原生整合介面）。與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的 `FastAPI`（`mineru-api`）與線上 `API`（`mineru.net`）類似，但 Docling 的 `MCP server` 為明確標註的原生功能（`MinerU` 未在主文件中明確提到 `MCP` 整合，僅在生態系中提及）。
 - **Agent 整合**（已驗證）：原生支援 `LangChain`、`LlamaIndex`、`Crew AI`、`Haystack`（官方文件 `Integrations` 列出完整清單）。與 `MinerU` 的 `Agent SDK` 整合（`BAT` 文章中提及的 `Claude Code Agent` 整合路徑）形成對比：Docling 的整合為標準化的框架介面（`LangChain`/`LlamaIndex` 等），而 `MinerU` 的整合更偏向特定 `Agent` 工具（如 `BAT` 的 `Electron` 桌面整合）。
 
 ### 與替代方案比較（已驗證：現有系列文章 `layout-ocr.md`、`anydoc-rust-document-markdown.md`、`benchmark.md`、`three-layers.md` 的引用數據，結合本次驗證的新資訊）
 
-與系列現有文章中提到的解析層工具（[MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)、`Marker`、`PaddleOCR`、`Tesseract`、`GLM-OCR`）的定位差異（已在 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 文章的比較表中應用同樣的「功能定位比較，非基準效能排名」註腳，本篇可同步引用並補充 `Docling` 的特定差異）：
+與系列現有文章中提到的解析層工具（[MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)、`Marker`、`PaddleOCR`、`Tesseract`、`GLM-OCR`）的定位差異（已在 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 文章的比較表中應用同樣的「功能定位比較，非基準效能排名」註腳，本篇可同步引用並補充 `Docling` 的特定差異）：
 
 | 工具 / 方案 | 授權 | 核心輸出 | 解析引擎特點 | 格式廣度 | 主要差異點（與 Docling 對比） |
 |---|---|---|---|---|---|
@@ -93,9 +93,9 @@ Docling 的官方定位很直接：把複雜文件（`PDF`、`DOCX`、`PPTX`、`
 
 ### 整體取捨（已驗證：與系列現有文章對比 + 本次驗證的新資訊）
 
-`Docling` 的核心價值不在於「取代所有解析工具」，而在於**把文件解析標準化為可交換、可組合、可導出專用格式、且授權純粹（純 `MIT`、無商業門檻）的結構化資料基礎設施**。對只需要快速文字提取、或只需要 `Markdown` 作為 `LLM` 讀取輸入的場景，`Docling` 可能過於複雜（多階段管線、專用 `XML` 導出、結構化 `JSON` 為核心）；但對需要將解析結果直接餵入結構化資料庫、需要專用格式導出（專利、學術文章、財報）、需要處理影片/音訊/電子郵件等多模態輸入、或需要避免自訂授權商業限制的場景，它提供了與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 完全不同、且明確互補的取捨路徑。
+`Docling` 的核心價值不在於「取代所有解析工具」，而在於**把文件解析標準化為可交換、可組合、可導出專用格式、且授權純粹（純 `MIT`、無商業門檻）的結構化資料基礎設施**。對只需要快速文字提取、或只需要 `Markdown` 作為 `LLM` 讀取輸入的場景，`Docling` 可能過於複雜（多階段管線、專用 `XML` 導出、結構化 `JSON` 為核心）；但對需要將解析結果直接餵入結構化資料庫、需要專用格式導出（專利、學術文章、財報）、需要處理影片/音訊/電子郵件等多模態輸入、或需要避免自訂授權商業限制的場景，它提供了與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 完全不同、且明確互補的取捨路徑。
 
-如果你正在建構一個需要大量文件預處理、需要結構化資料交換、需要多格式輸入（含影片/音訊）、或需要純 `MIT` 授權以確保商業部署自由度的知識系統，`Docling` 值得花時間試用一週（`pip install docling`、`docling --pipeline vlm --vlm-model granite_docling ...`），確認它對你的文件類型與精度需求的實際表現，再與 [MinerU](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的取捨（`Markdown` 為核心、強大掃描修復、自訂協議）做並列比較，決定是否納入長期流程或作為系列內的互補選項。
+如果你正在建構一個需要大量文件預處理、需要結構化資料交換、需要多格式輸入（含影片/音訊）、或需要純 `MIT` 授權以確保商業部署自由度的知識系統，`Docling` 值得花時間試用一週（`pip install docling`、`docling --pipeline vlm --vlm-model granite_docling ...`），確認它對你的文件類型與精度需求的實際表現，再與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) 的取捨（`Markdown` 為核心、強大掃描修復、自訂協議）做並列比較，決定是否納入長期流程或作為系列內的互補選項。
 
 ## 參考資料
 
@@ -106,7 +106,7 @@ Docling 的官方定位很直接：把複雜文件（`PDF`、`DOCX`、`PPTX`、`
 - [Docling Technical Report — arXiv](https://arxiv.org/abs/2408.09869) — 技術報告（`Docling` 內部運作、解析引擎設計、結構化輸出原理、基準測試方法論），可作為深入理解解析層設計哲學的權威來源
 - [DocTags — arXiv 2503.11576](https://arxiv.org/abs/2503.11576) — `DocTags` 結構化標註標準論文（`Docling` 專用 `XML` 導出格式之一），可驗證專用格式導出的技術基礎
 - [文件解析實戰系列 — 系列總覽](/series/document-parsing) — 本篇所屬系列（`文件解析實戰`，`order: 9`），系列內現有 8 篇專文（含本篇），涵蓋轉換層（`anydoc`、`MarkItDown`）、抽取層（`pdf-text-extraction-libraries`）、解析層框架（`three-layers`）、解析層工具比較（`layout-ocr`）、掃描實測（`scanned-pdf-ocr-benchmark`）、`Agentic Parsing`（`agentic-parsing-document-agents`）、解析層：`MinerU` 工具介紹（本篇前一篇）
-- [MinerU — 工具介紹](/en/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) — 系列內解析層互補選項（`MinerU` 自訂協議、`Markdown` 為核心、強大 `OCR` 與掃描修復），與本篇形成授權（`MIT` vs 自訂協議）、輸出核心（`JSON`/專用 `XML` vs `Markdown`）、格式廣度（影片/音訊/電子郵件/財報 vs 無）、解析模式（可替換階段 `pipeline` vs `Hybrid` `effort` 參數）的明確對比
+- [MinerU — 工具介紹](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en) — 系列內解析層互補選項（`MinerU` 自訂協議、`Markdown` 為核心、強大 `OCR` 與掃描修復），與本篇形成授權（`MIT` vs 自訂協議）、輸出核心（`JSON`/專用 `XML` vs `Markdown`）、格式廣度（影片/音訊/電子郵件/財報 vs 無）、解析模式（可替換階段 `pipeline` vs `Hybrid` `effort` 參數）的明確對比
 - [Docling — 官方網站](https://docling.ai/) — 線上體驗、產品定位、社群連結（`Discord`、`WeChat`、`ModelScope` `Demo`、`Colab` `Demo`、`HuggingFace` `Space`）、`OpenSSF Best Practices` 認證、`PyPI` 下載統計
 - [Docling Agent — GitHub (docling-project/docling-agent)](https://github.com/docling-project/docling-agent) — `Agent` 整合專案（`doclang` 為預設容器），可驗證 `Agent` 整合的實際實現與部署模式
 - [Docling Eval — GitHub (docling-project/docling-eval)](https://github.com/docling-project/docling-eval) — 評估框架（可驗證解析準確度與效能的基準測試方法，與 `post-verify` 的基準七問對應）

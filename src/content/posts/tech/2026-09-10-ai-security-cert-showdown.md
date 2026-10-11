@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en)
+> 🌏 [English version](/posts/tech/2026-09-10-ai-security-cert-showdown-en)
 
 2025 年 8 月 ISACA 推出 AAISM，2026 年 2 月 CompTIA 上線 SecAI+，4 月 GIAC 開賣 GASAE，7 月再加 GAIPS——18 個月內四大認證機構各自押寶 AI 安全。依 [Practical DevSecOps 的市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)，2025/10 至 2026/3 之間，要求 AI 技能的資安職缺比例從 14.2% 翻倍到 28.5%。需求在那裡，但哪張證照真的教你東西？
 

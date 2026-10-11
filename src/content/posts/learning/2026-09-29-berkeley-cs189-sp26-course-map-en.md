@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-[Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) is Berkeley's intro machine learning course. The catch is that a search turns up more than one CS189. Shewchuk taught Spring 2025. Norouzi and Gonzalez taught Fall 2025 and are teaching Fall 2026. Listgarten and Dimakis taught Spring 2026. The four semesters differ in lecture order, textbook and homework. The [order 1 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) in this series was written before the Spring 2026 site came back online. This post takes stock of the versions again and decides which semester the lecture and homework guides will follow.
+[Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) is Berkeley's intro machine learning course. The catch is that a search turns up more than one CS189. Shewchuk taught Spring 2025. Norouzi and Gonzalez taught Fall 2025 and are teaching Fall 2026. Listgarten and Dimakis taught Spring 2026. The four semesters differ in lecture order, textbook and homework. The [order 1 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) in this series was written before the Spring 2026 site came back online. This post takes stock of the versions again and decides which semester the lecture and homework guides will follow.
 
 The short answer: **from this post on, every lecture and homework guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis).** It is the only version that currently publishes lecture videos, slides and discussions with solutions, plus homework all the way down to the notebooks.
 
@@ -36,7 +36,7 @@ Checked: 2026-10-10.
 
 ## The four versions side by side
 
-I opened every official page below without logging in on 2026-09-29. The ratings use the A0–A3 scale from this site's [global course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only the listing is visible, A1 means the syllabus is visible, A2 means materials are partly open, and A3 means you can self-study the course.
+I opened every official page below without logging in on 2026-09-29. The ratings use the A0–A3 scale from this site's [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only the listing is visible, A1 means the syllabus is visible, A2 means materials are partly open, and A3 means you can self-study the course.
 
 | Version | Instructors | What you can get without logging in | Gaps | Rating |
 |---|---|---|---|---|
@@ -135,15 +135,15 @@ Each post in this series ends with a "Fall 2026 counterpart" line. Once the seme
 
 The series follows the official Spring 2026 order, with each homework guide placed after the lectures it covers:
 
-- Next: [Lec 1–3: ML problem framing, data tools, terminology and techniques](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
-- After that: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians and GMMs](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
+- Next: [Lec 1–3: ML problem framing, data tools, terminology and techniques](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
+- After that: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians and GMMs](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 - Then, in order: linear regression, HW1, classification and logistic regression, gradient descent, MLE/MAP with a midterm self-check, HW2, neural networks, HW3, CNNs, Transformers, HW4, LLMs and self-supervised learning, the closing lectures, and finally the optional HW5.
 
 ## Further reading
 
-- [Berkeley AI/ML course map](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en): where CS189 sits among Berkeley's courses
-- [Stanford CS109 probability guide](/en/posts/learning/2026-08-21-stanford-cs109-probability-en): a route for catching up on probability
-- [Stanford CS229 guide](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another math-heavy intro ML course to compare against
+- [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en): where CS189 sits among Berkeley's courses
+- [Stanford CS109 probability guide](/posts/learning/2026-08-21-stanford-cs109-probability-en): a route for catching up on probability
+- [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another math-heavy intro ML course to compare against
 
 ## Update Log
 

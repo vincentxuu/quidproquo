@@ -13,7 +13,7 @@ description: "假設檢定入門：H0/H1、alpha、p 值、t 檢定、第一型�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-hypothesis-testing-en)
+> [English version](/posts/learning/2026-08-29-im-stat-hypothesis-testing-en)
 
 假設檢定最容易學成一串按鍵：題目給平均數、標準差、樣本數，算出 t 值，再查 p 值。這樣可以拿到一部分分數，但遇到申論、判讀或 ML/AI 模型比較時，很快就會卡住。真正要先處理的是題目本身：你有沒有把它改寫成一個可以被資料挑戰的說法？
 

@@ -10,7 +10,7 @@ description: "記錄一次 Vision API PDF 解析從效能瓶頸到併發優化�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws-en)
+> 🌏 [English version](/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws-en)
 
 ## TL;DR
 

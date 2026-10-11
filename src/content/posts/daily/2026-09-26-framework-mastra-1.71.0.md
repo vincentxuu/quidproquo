@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
+> 🌏 [English version](/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
 
 ## 版本資訊
 

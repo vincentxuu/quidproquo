@@ -20,7 +20,7 @@ glossary:
     def: "訓練資料被完整跑過一遍算一個 epoch"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-gradient-descent-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-gradient-descent-en)
 
 你看過模型從 GPT-3 進步到 GPT-4，從回答離題到精準有用。但「進步」在機制上到底是什麼意思？不是有人手動把十億個參數一個一個調好的——那要怎麼做？
 

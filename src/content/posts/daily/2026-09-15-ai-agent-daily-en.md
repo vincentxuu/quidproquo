@@ -38,11 +38,11 @@ What this means for practitioners: if you're helping a team adopt or procure age
 
 ### Models & Infrastructure
 
-Today's three Arxiv Digest papers converge on one point: an agent system is most dangerous exactly when it looks fine — a real-world wiki coordination incident exposes how evaluation environments routinely lack read and outcome logs; pure bash interfaces beat typed tools by 21.8–24.5 points while using 19–72% fewer tokens; position-anchored code edits silently corrupt 99.1% of files under a one-line offset. See [today's Arxiv Digest](/en/posts/daily/2026-09-15-ai-agent-arxiv-digest-en).
+Today's three Arxiv Digest papers converge on one point: an agent system is most dangerous exactly when it looks fine — a real-world wiki coordination incident exposes how evaluation environments routinely lack read and outcome logs; pure bash interfaces beat typed tools by 21.8–24.5 points while using 19–72% fewer tokens; position-anchored code edits silently corrupt 99.1% of files under a one-line offset. See [today's Arxiv Digest](/posts/daily/2026-09-15-ai-agent-arxiv-digest-en).
 
 **Scale AI MCP-Atlas**: Released an open benchmark measuring end-to-end tool-use reliability against real MCP servers; even frontier models fail on a large share of tasks, underscoring that strong reasoning doesn't mean stable tool use — echoing today's agent-reliability theme. ([source](https://labs.scale.com/leaderboard/mcp_atlas))
 
-**Nex-N2.5-Pro**: Nex AGI's open-source 397B (A17B) MoE agentic model scores 87.4 on OSWorld-G computer-use grounding, beating Claude Opus 5's 76.8, and runs on a single 8×H100 node. See today's model card. ([Model card](/en/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en))
+**Nex-N2.5-Pro**: Nex AGI's open-source 397B (A17B) MoE agentic model scores 87.4 on OSWorld-G computer-use grounding, beating Claude Opus 5's 76.8, and runs on a single 8×H100 node. See today's model card. ([Model card](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en))
 
 **AWS**: Weekly roundup announces OpenAI's GPT-6 Astra is now on Amazon Bedrock and Amazon Quick desktop has reached GA, another sign of continued multi-model cloud supply chain expansion. ([source](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/))
 
@@ -58,15 +58,15 @@ Today's three Arxiv Digest papers converge on one point: an agent system is most
 
 ### Tools & Ecosystem
 
-None of today's five GitHub Trending repos compete on "smarter agents" — they compete on "how do you manage a large fleet of agents": OpenBot's CEL policy gate, teamai-cli's versioned skill sync, agent-launcher's unified multi-CLI management, AgentVerse-OS's isolated container workspaces. See [today's GitHub Digest](/en/posts/daily/2026-09-15-ai-agent-github-digest-en).
+None of today's five GitHub Trending repos compete on "smarter agents" — they compete on "how do you manage a large fleet of agents": OpenBot's CEL policy gate, teamai-cli's versioned skill sync, agent-launcher's unified multi-CLI management, AgentVerse-OS's isolated container workspaces. See [today's GitHub Digest](/posts/daily/2026-09-15-ai-agent-github-digest-en).
 
-**DearAgent**: An open-source Cloudflare Worker giving agents their own email inbox for account signup and verification-code retrieval — a self-hosted alternative to AgentMail. See today's tool recommendation. ([Tool recommendation](/en/posts/daily/2026-09-15-tool-dearagent-en))
+**DearAgent**: An open-source Cloudflare Worker giving agents their own email inbox for account signup and verification-code retrieval — a self-hosted alternative to AgentMail. See today's tool recommendation. ([Tool recommendation](/posts/daily/2026-09-15-tool-dearagent-en))
 
 **ByteDance Volcengine**: Open-sourced OpenViking, a self-evolving context database for agents that lifts task success rates 6.87–11.87 points on tau2-bench for the same LLM. ([source](https://github.com/volcengine/OpenViking))
 
 ### Security Incidents & Defenses
 
-**GTG-50014 credential-theft campaign**: Anthropic disclosed how a financially motivated group automated an entire attack chain with AI agents, harvesting Azure AD tokens across 40+ enterprise tenants in 34 hours. See today's security alert. ([Security alert](/en/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en))
+**GTG-50014 credential-theft campaign**: Anthropic disclosed how a financially motivated group automated an entire attack chain with AI agents, harvesting Azure AD tokens across 40+ enterprise tenants in 34 hours. See today's security alert. ([Security alert](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en))
 
 **JFrog Artifactory**: Attackers chained three high-severity flaws (CVE-2026-42016, 42018, 82329) to bypass authentication and deploy backdoors; CISA added them to the KEV catalog with a two-week remediation deadline for federal agencies. ([source](https://www.securityweek.com/three-jfrog-artifactory-flaws-exploited-for-backdoor-deployment/))
 
@@ -126,7 +126,7 @@ We checked for Middle East coverage today and found no AI-relevant (model/regula
 
 ### Business Cases / Funding
 
-**Temporal Series E**: The durable-execution engine closed a $550M round at a $12.55B valuation, with OpenAI, NVIDIA, and JPMorgan Chase among its paying customers. See today's funding brief. ([Funding brief](/en/posts/daily/2026-09-15-funding-temporal-en))
+**Temporal Series E**: The durable-execution engine closed a $550M round at a $12.55B valuation, with OpenAI, NVIDIA, and JPMorgan Chase among its paying customers. See today's funding brief. ([Funding brief](/posts/daily/2026-09-15-funding-temporal-en))
 
 **Inspiren**: The senior-living physical-AI platform closed a $70M Series C led by NewView Capital at a valuation above $500M, bringing total funding to $225M — a category record. ([source](https://theaiinsider.tech/2026/09/14/inspiren-raises-70m-series-c-to-scale-physical-ai-for-senior-living/))
 
@@ -140,19 +140,19 @@ We checked for Middle East coverage today and found no AI-relevant (model/regula
 | Temporal valuation (2.5x in 7 months) | $12.55B | [Temporal](https://temporal.io/blog/temporal-raises-usd550m-series-e-at-usd12-55b-valuation-ai) |
 | Anthropic annualized revenue | ~$65B | [The Decoder](https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo/) |
 | SoftBank loan for OpenAI investment | $11.9B | [Bloomberg](https://www.bloomberg.com/news/articles/2026-09-14/softbank-gets-upsized-11-9-billion-loan-in-openai-funding-push) |
-| Nex-N2.5-Pro OSWorld-G score | 87.4 (vs. Claude Opus 5's 76.8) | [Model card](/en/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en) |
-| Silent corruption rate, position-anchored code edits under 1-line offset | 99.1% | [Arxiv Digest](/en/posts/daily/2026-09-15-ai-agent-arxiv-digest-en) |
+| Nex-N2.5-Pro OSWorld-G score | 87.4 (vs. Claude Opus 5's 76.8) | [Model card](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en) |
+| Silent corruption rate, position-anchored code edits under 1-line offset | 99.1% | [Arxiv Digest](/posts/daily/2026-09-15-ai-agent-arxiv-digest-en) |
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-15](/en/posts/daily/2026-09-15-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-15](/en/posts/daily/2026-09-15-ai-agent-github-digest-en)
-- 📄 [Funding Brief｜Temporal Series E $550M](/en/posts/daily/2026-09-15-funding-temporal-en)
-- 📄 [Model Card｜Nex-N2.5-Pro](/en/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
-- 📄 [Security Alert｜Anthropic discloses GTG-50014](/en/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
-- 📄 [Tool of the Day｜DearAgent](/en/posts/daily/2026-09-15-tool-dearagent-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-15: Deep Learning & NLP](/en/posts/daily/2026-09-15-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-15: Metrics & Analytics](/en/posts/daily/2026-09-15-product-builder-interview-daily-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-github-digest-en)
+- 📄 [Funding Brief｜Temporal Series E $550M](/posts/daily/2026-09-15-funding-temporal-en)
+- 📄 [Model Card｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
+- 📄 [Security Alert｜Anthropic discloses GTG-50014](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
+- 📄 [Tool of the Day｜DearAgent](/posts/daily/2026-09-15-tool-dearagent-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-15: Deep Learning & NLP](/posts/daily/2026-09-15-ai-interview-daily-en)
+- 📄 [Product Builder Interview Prep — 2026-09-15: Metrics & Analytics](/posts/daily/2026-09-15-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

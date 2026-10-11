@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-04-tool-shipstores)
+> 🌏 [English version](/posts/daily/2026-10-04-tool-shipstores-en)
 
 ## 工具資訊
 

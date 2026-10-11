@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-08-tool-jmeter-mcp-server-en)
+> 🌏 [English version](/posts/daily/2026-09-08-tool-jmeter-mcp-server-en)
 
 ## 工具資訊
 

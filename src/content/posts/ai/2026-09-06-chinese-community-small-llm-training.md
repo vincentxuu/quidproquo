@@ -13,7 +13,7 @@ description: "介紹中文社群從零訓練小模型的開源路線：baby-llam
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en)
+> 🌏 [English version](/posts/ai/2026-09-06-chinese-community-small-llm-training-en)
 
 上一篇（[Karpathy 的 nanochat](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)）代表英文圈的從零訓練路線；這篇看中文圈。選了三個定位互補的專案：[baby-llama2-chinese](https://github.com/DLLXW/baby-llama2-chinese)（教科書式 Llama2 複現）、[ChatLM-mini-Chinese](https://github.com/charent/ChatLM-mini-Chinese)（資源下限最低）、[Steel-LLM](https://github.com/zhanshijinwat/Steel-LLM)（個人煉 1B 的完整紀錄）。
 

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 38 篇：GLM 怎麼依資
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-generalized-linear-models-en)
+> [English version](/posts/learning/2026-08-29-im-stat-generalized-linear-models-en)
 
 前面看過線性迴歸和 logistic regression。它們表面上很不一樣：一個處理連續數值，一個處理 0/1 分類；一個用平方誤差，一個用 likelihood / cross entropy。但放進 GLM，兩者其實是同一個家族裡的不同成員。
 

@@ -12,7 +12,7 @@ series:
   order: 23
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-07-tool-okf-agent-memory-en)
+> 🌏 [English version](/posts/daily/2026-09-07-tool-okf-agent-memory-en)
 
 ## 工具資訊
 

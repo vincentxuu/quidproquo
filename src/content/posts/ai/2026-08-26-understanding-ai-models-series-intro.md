@@ -13,7 +13,7 @@ description: "「認識 AI 模型」系列導讀：18 篇從 token、embedding�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-series-intro-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-series-intro-en)
 
 你不需要理解模型，也能用 API 生成文字。就像你不需要懂引擎，也能開車。
 

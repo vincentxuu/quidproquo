@@ -15,7 +15,7 @@ glossary:
     def: "中國電信人工智慧科技有限公司開發的大型語言模型家族，前身為 TeleChat，Xing4.0 是最新一代"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b-en)
+> 🌏 [English version](/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b-en)
 
 ## 模型資訊
 

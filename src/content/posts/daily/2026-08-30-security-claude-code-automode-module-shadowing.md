@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing-en)
+> 🌏 [English version](/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing-en)
 
 ## 事件概述
 

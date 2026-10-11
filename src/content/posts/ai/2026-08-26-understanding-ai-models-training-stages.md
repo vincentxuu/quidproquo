@@ -20,7 +20,7 @@ glossary:
     def: "Direct Preference Optimization，直接偏好最佳化——不需要額外訓練 reward model，直接用偏好資料調整模型權重"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-training-stages-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-training-stages-en)
 
 你打開 ChatGPT，問「如何寫一封道歉信？」，它回你一封結構清楚、語氣得體的範例信。感覺很自然——但回想前幾篇的內容：模型的核心能力只是「預測下一個 token」。一台只會補完文字的機器，怎麼變成一個會回答問題的助理？
 

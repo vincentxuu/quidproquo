@@ -13,7 +13,7 @@ description: "Daily Dose of Data Science 創辦人 Avi Chawla 的完整成長歷
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en)
+> 🌏 [English version](/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en)
 
 Avi Chawla 用四年時間，把一個人的 Substack 電子報做成 20 萬+訂閱的 AI 學習平台。他的起點不是什麼精心規劃的創業——而是一個被迫放棄碩士學位後的「那接下來要幹嘛」。
 

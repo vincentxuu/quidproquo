@@ -111,7 +111,7 @@ Agents open and close environments constantly, so the slides list four requireme
 
 Local options differ in boundary: Docker and Apptainer are containers sharing the host kernel; QEMU is a virtual machine running its own guest kernel. The slides' guidance: Docker is the default for local development; Apptainer fits shared clusters and runs as your user without root; QEMU is for running a complete guest operating system.
 
-Related implementation notes on this site: [OpenClaw sandbox](/en/posts/ai/2026-03-28-openclaw-sandbox-en), [Cloudflare Sandboxes](/en/posts/ai/2026-08-22-cloudflare-sandboxes-en), [Daytona agent sandbox](/en/posts/ai/2026-08-22-daytona-agent-sandbox-en).
+Related implementation notes on this site: [OpenClaw sandbox](/posts/ai/2026-03-28-openclaw-sandbox-en), [Cloudflare Sandboxes](/posts/ai/2026-08-22-cloudflare-sandboxes-en), [Daytona agent sandbox](/posts/ai/2026-08-22-daytona-agent-sandbox-en).
 
 ## Credentials: identity and authority
 
@@ -191,7 +191,7 @@ When events are rare, even a 1% false-positive rate makes more than half the ale
 
 ## Going deeper
 
-- On this site: [prompt injection and trust boundaries](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en), [safety for authenticated web agents](/en/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
+- On this site: [prompt injection and trust boundaries](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en), [safety for authenticated web agents](/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
 - Readings the official schedule lists for this lecture: [AgentDojo](https://arxiv.org/abs/2406.13352v3), [ToolEmu](https://arxiv.org/abs/2309.15817v2), [AgentHarm](https://arxiv.org/abs/2410.09024), [OpenAgentSafety](https://arxiv.org/abs/2507.06134v2), [Monitoring Reasoning Models for Misbehavior](https://arxiv.org/abs/2503.11926)
 
 ## Changelog

@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous entry (3.0.5)](/en/posts/daily/2026-09-02-framework-agno-3.0.5-en) fixed Knowledge ingestion's data-integrity contract. 3.0.6 goes back to fix the deployment model of MCP serving itself. Until now, MCP servers — including Agno's own AgentOS MCP endpoint — defaulted to session-based: once a client connects, its session state is pinned to a specific process, so scaling to multiple replicas meant either routing every request from the same client to the same machine via session affinity, or building your own session-sharing layer. 3.0.6 adds `MCPConfig(stateless=True)`, which serves `/mcp` without tracking session state at all — any replica can answer any request. That means horizontally scaling an MCP server can finally look like any stateless HTTP API behind a load balancer, with no sticky routing required. The same release also teaches `MCPTools` to negotiate the MCP protocol version (`protocol_mode="auto"`), following the sessionless negotiation capability added in this year's 2026-07-28 spec, connecting the client-side and server-side statelessness together.
+[The previous entry (3.0.5)](/posts/daily/2026-09-02-framework-agno-3.0.5-en) fixed Knowledge ingestion's data-integrity contract. 3.0.6 goes back to fix the deployment model of MCP serving itself. Until now, MCP servers — including Agno's own AgentOS MCP endpoint — defaulted to session-based: once a client connects, its session state is pinned to a specific process, so scaling to multiple replicas meant either routing every request from the same client to the same machine via session affinity, or building your own session-sharing layer. 3.0.6 adds `MCPConfig(stateless=True)`, which serves `/mcp` without tracking session state at all — any replica can answer any request. That means horizontally scaling an MCP server can finally look like any stateless HTTP API behind a load balancer, with no sticky routing required. The same release also teaches `MCPTools` to negotiate the MCP protocol version (`protocol_mode="auto"`), following the sessionless negotiation capability added in this year's 2026-07-28 spec, connecting the client-side and server-side statelessness together.
 
 ## Key Changes
 
@@ -87,4 +87,4 @@ I used to assume MCP servers inherently needed session affinity to scale horizon
 - [agno-agi/agno — GitHub](https://github.com/agno-agi/agno)
 - [Agno v3.0.5 — GitHub Release (previous version)](https://github.com/agno-agi/agno/releases/tag/v3.0.5)
 - [MCP 2026-07-28 — Specification Release](https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28)
-- [Agno 3.0.5 — previous framework update](/en/posts/daily/2026-09-02-framework-agno-3.0.5-en)
+- [Agno 3.0.5 — previous framework update](/posts/daily/2026-09-02-framework-agno-3.0.5-en)

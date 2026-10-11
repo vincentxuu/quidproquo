@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-fugle-information-to-trading-en)
+> 🌏 [English version](/posts/product/2026-09-17-fugle-information-to-trading-en)
 
 想像一間店免費借你看地圖和路況，還讓你把常走的路存起來。等你真的要出發，它不自己開車載你，而是把介面接到有執照的運輸公司。會寫程式的人，還能付費取得路況 API，自己做導航工具。
 

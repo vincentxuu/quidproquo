@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-24-tool-localmem-mcp-en)
+> 🌏 [English version](/posts/daily/2026-08-24-tool-localmem-mcp-en)
 
 ## 工具資訊
 

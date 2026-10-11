@@ -13,7 +13,7 @@ description: "拆解 OpenAI Agents SDK、Anthropic Memory Tool 與 Managed Agent
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-cloud-platform-memory-apis-en)
+> 🌏 [English version](/posts/ai/2026-09-19-cloud-platform-memory-apis-en)
 
 你要在自己的 agent 裡加記憶，不想從零造輪子。五家主要雲平台在 2025–2026 年都推出了記憶相關的 API，但「記憶」在每家手上長得不一樣——有的給你一個檔案系統讓 agent 自己讀寫，有的幫你自動抽取事實再用向量檢索，有的只給你一個 session 物件讓你自己決定怎麼存。
 

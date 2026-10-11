@@ -22,13 +22,13 @@ draft: false
 
 The usual way to put an agent on the web is to start headless Chrome and drive it with [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/). It works, but each Chrome process easily takes 200 MB of memory, so a hundred concurrent agents need a machine of their own. [Obscura](https://github.com/h4ckf0r0day/obscura) takes a different route: instead of wrapping Chrome, it is a browser engine written from scratch in Rust. It embeds V8 to run JavaScript and exposes the Chrome DevTools Protocol (CDP), so existing Puppeteer and Playwright scripts connect by changing one endpoint.
 
-In its August 2026 [engineering post on Kitesurf](https://blog.cloudflare.com/kitesurf/), Cloudflare wrote that the first prototype of its own agent browser was a port of Obscura to Workers. The site's [September 13 daily report](/en/posts/daily/2026-09-13-ai-agent-daily-en) mentioned only its MCP server in a single line. This post covers the rest: how it is built, how to use it, how to read its numbers, and where it should not be trusted yet.
+In its August 2026 [engineering post on Kitesurf](https://blog.cloudflare.com/kitesurf/), Cloudflare wrote that the first prototype of its own agent browser was a port of Obscura to Workers. The site's [September 13 daily report](/posts/daily/2026-09-13-ai-agent-daily-en) mentioned only its MCP server in a single line. This post covers the rest: how it is built, how to use it, how to read its numbers, and where it should not be trusted yet.
 
 The short version: Obscura suits high-volume agent work that mostly extracts text and DOM. It does not suit work that needs pixel-exact rendering or the full Web API surface. It is an independent engine that is still changing fast, not a replacement for Chromium.
 
 ## What it is: a new engine, not a wrapper
 
-Most "browser tools for agents" put an interface on top of Chromium. [Browser Use](/en/posts/ai/2026-08-21-browser-use-complete-guide-en) is an agent task loop, [Browserbase](/en/posts/ai/2026-08-22-browserbase-browser-infrastructure-en) is hosted Chrome infrastructure, and [Playwright MCP](https://github.com/microsoft/playwright-mcp) wraps Playwright as MCP tools. Underneath, all of them still run real Chrome.
+Most "browser tools for agents" put an interface on top of Chromium. [Browser Use](/posts/ai/2026-08-21-browser-use-complete-guide-en) is an agent task loop, [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en) is hosted Chrome infrastructure, and [Playwright MCP](https://github.com/microsoft/playwright-mcp) wraps Playwright as MCP tools. Underneath, all of them still run real Chrome.
 
 Obscura replaces that layer. It implements its own DOM tree, HTML parsing, networking, cookies, and CSS layout and paint. Only the JavaScript engine comes from outside: V8, through [deno_core](https://github.com/denoland/deno_core). The project describes itself in one line:
 
@@ -147,7 +147,7 @@ Two points for readers to weigh:
 - **The docs contradict each other.** The README says fingerprints are randomized per session, while the stealth docs say a single stable profile is the default and rotation is opt-in, because "one IP cycling through different identities is itself a signal." For actual behavior, go by the latter.
 - **Every sponsor is a proxy vendor.** All four sponsors on the README are residential or mobile proxy services, complete with discount codes. That says nothing about the code, but it does mean the project's commercial incentives point toward getting past blocks, which is worth factoring in.
 
-Getting past a site's bot protection can violate its terms of service. Obscura offers `--obey-robots` to respect robots.txt, but it is off by default; whether to turn it on, and which sites to fetch, is on the user. The site's post on [handing authenticated sites to agents](/en/posts/ai/2026-08-22-authenticated-web-agent-safety-en) covers permission boundaries in more depth.
+Getting past a site's bot protection can violate its terms of service. Obscura offers `--obey-robots` to respect robots.txt, but it is off by default; whether to turn it on, and which sites to fetch, is on the user. The site's post on [handing authenticated sites to agents](/posts/ai/2026-08-22-authenticated-web-agent-safety-en) covers permission boundaries in more depth.
 
 ## Security boundaries
 
@@ -161,7 +161,7 @@ But [SECURITY.md](https://github.com/h4ckf0r0day/obscura/blob/main/SECURITY.md) 
 
 ## Compared with the alternatives
 
-| | Obscura | [Lightpanda](https://github.com/lightpanda-io/browser) | headless Chrome + Playwright | [Browserbase](/en/posts/ai/2026-08-22-browserbase-browser-infrastructure-en) |
+| | Obscura | [Lightpanda](https://github.com/lightpanda-io/browser) | headless Chrome + Playwright | [Browserbase](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en) |
 |---|---|---|---|---|
 | Engine | Custom (Rust) + V8 | Custom (Zig) + V8 | Chromium | Hosted Chromium |
 | Deployment | Single binary / Docker | Single binary / Docker | Install Chrome yourself | Cloud API |
@@ -214,7 +214,7 @@ The risks are just as clear: it is an independent engine still merging fixes dai
 - [web-platform-tests — GitHub](https://github.com/web-platform-tests/wpt)
 - [Puppeteer](https://pptr.dev/)
 - [Playwright](https://playwright.dev/)
-- [Browser Use Complete Guide: The Agent Loop Behind Browser Automation](/en/posts/ai/2026-08-21-browser-use-complete-guide-en)
-- [Browserbase: Turning Agent Browsers into Operable Infrastructure](/en/posts/ai/2026-08-22-browserbase-browser-infrastructure-en)
-- [Giving an Agent Access to Logged-In Websites: Sessions, Permissions, and Automation Boundaries](/en/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
-- [AI Daily — 2026-09-13](/en/posts/daily/2026-09-13-ai-agent-daily-en)
+- [Browser Use Complete Guide: The Agent Loop Behind Browser Automation](/posts/ai/2026-08-21-browser-use-complete-guide-en)
+- [Browserbase: Turning Agent Browsers into Operable Infrastructure](/posts/ai/2026-08-22-browserbase-browser-infrastructure-en)
+- [Giving an Agent Access to Logged-In Websites: Sessions, Permissions, and Automation Boundaries](/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
+- [AI Daily — 2026-09-13](/posts/daily/2026-09-13-ai-agent-daily-en)

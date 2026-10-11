@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-answer-engine-content-commoditization-en)
+> 🌏 [English version](/posts/product/2026-09-17-answer-engine-content-commoditization-en)
 
 想像兩家餐廳。一家把公開食譜重抄成漂亮卡片；另一家有自己的食材、廚房、主廚手感和熟客。代讀員很容易把第一家的卡片濃縮成三步驟，卻不能只靠念摘要替你吃完第二家的晚餐。
 

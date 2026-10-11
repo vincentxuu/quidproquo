@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-content-selling-four-models-en)
+> 🌏 [English version](/posts/product/2026-09-16-content-selling-four-models-en)
 
 把內容生意想成一座市場。有人把研究報告賣給公司採購，也有人靠自己的名字讓讀者每週回來。平台蓋好攤位、收銀機和會員系統，向創作者收費；免費內容則像地圖，把人帶到旁邊的工具或服務。
 

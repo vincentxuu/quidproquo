@@ -23,7 +23,7 @@ glossary:
     context: "網站 2.4 節的模擬器用它說明 batch size 1 的 decode 為什麼永遠卡在頻寬那一側。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-learn-inference-interactive-guide-en)
+> 🌏 [English version](/posts/ai/2026-09-29-learn-inference-interactive-guide-en)
 
 「訓練教會模型它知道什麼。推論是那之後的一切——每一次有人使用它，而帳單真正落在這裡。」這是 [Learn Inference](https://learn-inference.com/) 首頁的第一段話。
 

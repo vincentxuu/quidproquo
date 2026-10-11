@@ -70,7 +70,7 @@ The most common beginner confusion is treating these as one thing:
 
 The three are fully orthogonal. You can type in Telegram, run commands in a Modal cloud sandbox, and infer on your own vLLM. Which also means: when something breaks, first ask which layer broke. The official debugging order — `hermes doctor` → `hermes model` → `hermes setup` → `hermes sessions list` → `hermes gateway status` — is layer-by-layer elimination.
 
-[Post 5](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends) covers layer 2; [post 3](/en/posts/ai/2026-08-18-hermes-agent-providers) covers layer 3.
+[Post 5](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en) covers layer 2; [post 3](/posts/ai/2026-08-18-hermes-agent-providers-en) covers layer 3.
 
 ## On OpenClaw: a migration path, not a succession
 
@@ -78,7 +78,7 @@ The first version of this post called Hermes "the official successor to OpenClaw
 
 What is true: Hermes ships `hermes claw migrate`, and `hermes setup` auto-detects `~/.openclaw` and offers to import. It carries over SOUL.md, MEMORY.md/USER.md entries, user-created skills, the command allowlist, messaging settings, and allowlisted API keys. But OpenClaw is a separate project by a separate team and is still being developed. The README's own community section links [HermesClaw](https://github.com/AaronWong1999/hermesclaw), a bridge whose stated purpose is running "Hermes Agent and OpenClaw on the same WeChat account" — which would be pointless if one had replaced the other.
 
-Migration details, and what does *not* come across, are in [post 10](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration). For OpenClaw itself, this site has a [full documentation series](/en/posts/ai/2026-03-28-openclaw-overview).
+Migration details, and what does *not* come across, are in [post 10](/posts/ai/2026-08-18-hermes-agent-openclaw-migration-en). For OpenClaw itself, this site has a [full documentation series](/posts/ai/2026-03-28-openclaw-overview-en).
 
 ## Where the line sits versus Claude Code and LangGraph
 
@@ -105,16 +105,16 @@ Read that table carefully. Claude Code having no learning loop is a trade-off, n
 | # | Topic |
 |---|---|
 | 1 | This post |
-| 2 | [Install and upgrade](/en/posts/ai/2026-08-18-hermes-agent-install): native Windows, Termux, Nix, rollback |
-| 3 | [Model providers](/en/posts/ai/2026-08-18-hermes-agent-providers): OAuth subscriptions, routing, fallback, key pools |
-| 4 | [Nous Tool Gateway](/en/posts/ai/2026-08-18-hermes-agent-tool-gateway): one subscription instead of four accounts |
-| 5 | [Seven terminal backends](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends): isolation levels and the state-sync trap |
-| 6 | [Memory and skills](/en/posts/ai/2026-08-18-hermes-agent-memory-skills): write approval, security scanning, Skills Hub |
-| 7 | [Tools, MCP, plugins](/en/posts/ai/2026-08-18-hermes-agent-tools-plugins): toolsets and `execute_code` |
-| 8 | [Gateway and scheduling](/en/posts/ai/2026-08-18-hermes-agent-gateway-cron): platforms and cron delivery |
-| 9 | [Security model](/en/posts/ai/2026-08-18-hermes-agent-security): approvals, deny rules, prompt injection |
-| 10 | [Migrating from OpenClaw](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration): what moves and what doesn't |
-| 11 | [Research and batch runs](/en/posts/ai/2026-08-18-hermes-agent-batch-research): trajectory generation, API server, Python library |
+| 2 | [Install and upgrade](/posts/ai/2026-08-18-hermes-agent-install-en): native Windows, Termux, Nix, rollback |
+| 3 | [Model providers](/posts/ai/2026-08-18-hermes-agent-providers-en): OAuth subscriptions, routing, fallback, key pools |
+| 4 | [Nous Tool Gateway](/posts/ai/2026-08-18-hermes-agent-tool-gateway-en): one subscription instead of four accounts |
+| 5 | [Seven terminal backends](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en): isolation levels and the state-sync trap |
+| 6 | [Memory and skills](/posts/ai/2026-08-18-hermes-agent-memory-skills-en): write approval, security scanning, Skills Hub |
+| 7 | [Tools, MCP, plugins](/posts/ai/2026-08-18-hermes-agent-tools-plugins-en): toolsets and `execute_code` |
+| 8 | [Gateway and scheduling](/posts/ai/2026-08-18-hermes-agent-gateway-cron-en): platforms and cron delivery |
+| 9 | [Security model](/posts/ai/2026-08-18-hermes-agent-security-en): approvals, deny rules, prompt injection |
+| 10 | [Migrating from OpenClaw](/posts/ai/2026-08-18-hermes-agent-openclaw-migration-en): what moves and what doesn't |
+| 11 | [Research and batch runs](/posts/ai/2026-08-18-hermes-agent-batch-research-en): trajectory generation, API server, Python library |
 
 ### What this series does not cover
 

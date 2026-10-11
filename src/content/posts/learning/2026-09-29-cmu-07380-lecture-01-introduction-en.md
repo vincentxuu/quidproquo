@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 1 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026. The whole-course map lives in the [series overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en). This post covers only Lec1: what the slides say, how the Schedule and Policies on the course site group the 26 lectures into modules, and which materials you can reach from outside CMU.
+This is Lecture 1 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026. The whole-course map lives in the [series overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en). This post covers only Lec1: what the slides say, how the Schedule and Policies on the course site group the 26 lectures into modules, and which materials you can reach from outside CMU.
 
 Everything below follows the course site as fetched on 2026-09-29. The site marks its schedule `Subject to change`, so dates and topics may still move.
 
@@ -149,7 +149,7 @@ For prerequisites, the site asks for 07-280 plus one probability course, each wi
 2. Using the "doing well under uncertainty" definition, write one line for each of three AI systems you know: which kind of uncertainty it faces (hidden information, noise, hard to model, combinatorial explosion).
 3. Before Lec2, read the [PR1 Propositional Logic notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf). The course puts syntax and model checking in the pre-reading, and Lec2 starts straight from algorithms.
 
-Next: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Previous: [series overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
+Next: [Lecture 2 guide: Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Previous: [series overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
 
 ## Update Log
 
@@ -164,6 +164,6 @@ Next: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-
 - [07-380 Lecture 1: Introduction (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction.pdf)
 - [07-380 Lecture 1: Introduction (inked pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction_inked.pdf)
 - [John McCarthy, What is Artificial Intelligence?](http://www-formal.stanford.edu/jmc/whatisai/whatisai.html)
-- [CMU 07-380 Fall 2026 series overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- [CMU 07-380 Fall 2026 series overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 - [CMU 07-280 Lecture 1 guide](/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction-en)
 - [Global AI/CS course map: the A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en)

@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-09-funding-nous-research-en)
+> 🌏 [English version](/posts/daily/2026-10-09-funding-nous-research-en)
 
 ## 融資資訊
 

@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> [English version](/en/posts/daily/2026-08-19-security-ai-mind-virus-persistent-memory-propagation-en)
+> [English version](/posts/daily/2026-08-19-security-ai-mind-virus-persistent-memory-propagation-en)
 
 ## 事件概述
 

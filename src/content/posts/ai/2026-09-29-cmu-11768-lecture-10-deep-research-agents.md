@@ -26,7 +26,7 @@ glossary:
     context: "BrowseComp-Plus 在固定語料裡刻意放進這類文件。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

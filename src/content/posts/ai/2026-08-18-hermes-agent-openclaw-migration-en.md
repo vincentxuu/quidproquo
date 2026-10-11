@@ -15,9 +15,9 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-openclaw-migration)
 
-Post 10, the last in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 10, the last in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
-Restating the correction from [the opener](/en/posts/ai/2026-08-18-hermes-agent-intro): **Hermes is not OpenClaw's successor.** They are separate projects by separate teams and OpenClaw continues on its own path. `hermes claw migrate` is a one-way move, not a merger. For OpenClaw itself, this site has a [full documentation series](/en/posts/ai/2026-03-28-openclaw-overview).
+Restating the correction from [the opener](/posts/ai/2026-08-18-hermes-agent-intro-en): **Hermes is not OpenClaw's successor.** They are separate projects by separate teams and OpenClaw continues on its own path. `hermes claw migrate` is a one-way move, not a merger. For OpenClaw itself, this site has a [full documentation series](/posts/ai/2026-03-28-openclaw-overview-en).
 
 ## Three commands, one principle
 
@@ -53,7 +53,7 @@ Workspace paths fall back to `workspace.default/` and `workspace-main/`, because
 
 That first row deserves attention: **the two systems have fundamentally different resource models** — one counts seconds, the other counts turns — so `timeoutSeconds / 10` is an estimate, not an equivalence. Check `agent.max_turns` after migrating.
 
-Read the last row carefully too: OpenClaw's "auto" maps to **approvals off** in Hermes semantics. If you assume approvals are still guarding you post-migration, they aren't — set it back to `smart` per [the security post](/en/posts/ai/2026-08-18-hermes-agent-security).
+Read the last row carefully too: OpenClaw's "auto" maps to **approvals off** in Hermes semantics. If you assume approvals are still guarding you post-migration, they aren't — set it back to `smart` per [the security post](/posts/ai/2026-08-18-hermes-agent-security-en).
 
 MCP servers (including `tools.include`/`exclude` filters), TTS settings (searched across three possible locations in priority order), browser CDP config, session-reset policy, timezone, and human delay all have mappings.
 
@@ -135,4 +135,4 @@ Every fact in this series was checked against the upstream docs as of August 202
 - [Hermes Agent — Import from Other Agents](https://hermes-agent.nousresearch.com/docs/user-guide/import-from-other-agents)
 - [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs/)
 - [Hermes Agent on GitHub](https://github.com/NousResearch/hermes-agent)
-- [On this site: the OpenClaw documentation series](/en/posts/ai/2026-03-28-openclaw-overview)
+- [On this site: the OpenClaw documentation series](/posts/ai/2026-03-28-openclaw-overview-en)

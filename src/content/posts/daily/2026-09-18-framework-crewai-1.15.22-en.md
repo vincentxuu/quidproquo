@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous release covered here (1.15.18)](/en/posts/daily/2026-08-28-framework-crewai-1.15.18-en) promoted conversational Flow to a stable API; the in-between releases, 1.15.19 through 1.15.21, were pure bug-fix versions with no article of their own. 1.15.22 brings back something worth writing about. The core addition is `llm_overlay`: which model an agent role uses has historically been hardcoded at the moment you create the agent. `llm_overlay` lets you decide, at the context layer, which model a given role should route to for this particular run — far lighter weight than re-instantiating an agent, and useful for multi-agent deployments that want to switch models dynamically based on task difficulty, cost, or latency. The other thread running through this release is CrewAI Platform integration work — an application catalog, setup-time validation, deployment-failure logging — the more operational side of the project, reflecting that CrewAI's SaaS platform is advancing in step with the open-source framework.
+[The previous release covered here (1.15.18)](/posts/daily/2026-08-28-framework-crewai-1.15.18-en) promoted conversational Flow to a stable API; the in-between releases, 1.15.19 through 1.15.21, were pure bug-fix versions with no article of their own. 1.15.22 brings back something worth writing about. The core addition is `llm_overlay`: which model an agent role uses has historically been hardcoded at the moment you create the agent. `llm_overlay` lets you decide, at the context layer, which model a given role should route to for this particular run — far lighter weight than re-instantiating an agent, and useful for multi-agent deployments that want to switch models dynamically based on task difficulty, cost, or latency. The other thread running through this release is CrewAI Platform integration work — an application catalog, setup-time validation, deployment-failure logging — the more operational side of the project, reflecting that CrewAI's SaaS platform is advancing in step with the open-source framework.
 
 ## Key Changes
 
@@ -83,5 +83,5 @@ I used to assume that "switching models" in a multi-agent framework should be a 
 
 - [CrewAI 1.15.22 — GitHub Release](https://github.com/crewAIInc/crewAI/releases/tag/1.15.22)
 - [crewAIInc/crewAI — GitHub](https://github.com/crewAIInc/crewAI)
-- [CrewAI 1.15.18 — previous framework update](/en/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
+- [CrewAI 1.15.18 — previous framework update](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
 - [Full Changelog: 1.15.21...1.15.22](https://github.com/crewAIInc/crewAI/compare/1.15.21...1.15.22)

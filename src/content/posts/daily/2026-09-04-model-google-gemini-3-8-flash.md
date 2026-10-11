@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 開發的大型語言模型家族，Flash 為其中主打速度與成本效益的分支"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
+> 🌏 [English version](/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
 
 ## 模型資訊
 

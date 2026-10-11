@@ -91,7 +91,7 @@ I used to think prompt caching was just a per-provider SDK parameter that the fr
 
 - [Pydantic AI v2.55.0 — GitHub Release](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0)
 - [pydantic/pydantic-ai — GitHub](https://github.com/pydantic/pydantic-ai)
-- [Pydantic AI v2.53.0 — previous framework update](/en/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0-en)
+- [Pydantic AI v2.53.0 — previous framework update](/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0-en)
 - [PR #8337: Add the `Conversation` object](https://github.com/pydantic/pydantic-ai/pull/8337)
 - [PR #7560: Unified cross-provider `Caching` capability](https://github.com/pydantic/pydantic-ai/pull/7560)
 - [PR #10047: Extend Anthropic caching to instructions/tool definitions](https://github.com/pydantic/pydantic-ai/pull/10047)

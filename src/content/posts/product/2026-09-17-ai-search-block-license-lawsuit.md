@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-ai-search-block-license-lawsuit-en)
+> 🌏 [English version](/posts/product/2026-09-17-ai-search-block-license-lawsuit-en)
 
 想像你開了一間圖書館。封鎖像門禁：決定下一位訪客能不能進門。它可以擋住辨識得到的人，卻不能叫回昨天已經抄走的書，也不會自動讓門外的人願意付錢。
 

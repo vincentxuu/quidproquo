@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-cb-insights-research-to-workflow-en)
+> 🌏 [English version](/posts/product/2026-09-17-cb-insights-research-to-workflow-en)
 
 想像一間超市每天在門口提供試吃。試吃讓路人知道廚師會不會做菜。真正讓餐廳持續付錢的，是後面的中央廚房：有人挑食材、清洗、分裝、貼標籤，還能準時送進餐廳的冰箱。
 

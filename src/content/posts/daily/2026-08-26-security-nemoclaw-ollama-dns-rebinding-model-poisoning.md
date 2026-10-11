@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
+> 🌏 [English version](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
 
 ## 事件概述
 

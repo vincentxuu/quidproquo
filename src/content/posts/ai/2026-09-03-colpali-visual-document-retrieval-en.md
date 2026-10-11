@@ -31,7 +31,7 @@ ColPali's premise: **instead of patching each step, skip the entire pipeline**.
 
 ## How ColPali Works
 
-ColPali (Faysse et al., ICLR 2025) takes the late interaction mechanism from [ColBERT](/en/posts/ai/2026-03-12-colbert-late-interaction-en) and moves it from text tokens to image patches.
+ColPali (Faysse et al., ICLR 2025) takes the late interaction mechanism from [ColBERT](/posts/ai/2026-03-12-colbert-late-interaction-en) and moves it from text tokens to image patches.
 
 ### The Pipeline
 
@@ -146,7 +146,7 @@ Text-heavy documents ──────────────── Table/char
     └─ Header Propagation (header fix)    └─ Skip text entirely
 ```
 
-- If documents are mostly text with occasional tables → [Header Propagation](/en/posts/ai/2026-03-12-chunking-strategies-en) + [Contextual Retrieval](/en/posts/ai/2026-03-12-contextual-retrieval-en) suffice
+- If documents are mostly text with occasional tables → [Header Propagation](/posts/ai/2026-03-12-chunking-strategies-en) + [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en) suffice
 - If documents are heavily tables, charts, and scans → ColPali is currently the most effective approach
 - Mixed corpora → route by document type to different pipelines
 
@@ -181,6 +181,6 @@ The most likely future isn't "ColPali replaces everything" but rather **routing 
 - [Sentence Transformers v6 MultiVectorEncoder — Hugging Face Blog](https://huggingface.co/blog/multi-vector-encoder)
 - [Visual RAG vs OCR: ColPali for PDF Tables and Charts — Particula](https://particula.tech/blog/visual-rag-vs-ocr-colpali-pdf-tables-charts)
 - [An Overview of Late Interaction Retrieval Models — Weaviate](https://weaviate.io/blog/late-interaction-overview)
-- [ColBERT: The Third Way in Vector Search](/en/posts/ai/2026-03-12-colbert-late-interaction-en)
-- [Chunking Strategies: How Splitting Determines Whether RAG Finds the Answer](/en/posts/ai/2026-03-12-chunking-strategies-en)
-- [Contextual Retrieval: Adding "What This Chunk Is About" to Every Chunk](/en/posts/ai/2026-03-12-contextual-retrieval-en)
+- [ColBERT: The Third Way in Vector Search](/posts/ai/2026-03-12-colbert-late-interaction-en)
+- [Chunking Strategies: How Splitting Determines Whether RAG Finds the Answer](/posts/ai/2026-03-12-chunking-strategies-en)
+- [Contextual Retrieval: Adding "What This Chunk Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en)

@@ -13,7 +13,7 @@ description: "統計學初學者常把章節讀成公式表。這篇用考題與
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-what-statistics-solves-en)
+> [English version](/posts/learning/2026-08-29-im-stat-what-statistics-solves-en)
 
 很多人第一次讀統計學，會把它讀成公式清單。平均數一條公式，變異數一條公式，信賴區間一條公式，p 值又一條公式。這種讀法有一個問題：公式越背越多，題目卻沒有變清楚。
 

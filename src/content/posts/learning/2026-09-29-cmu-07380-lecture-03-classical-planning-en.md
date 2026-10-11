@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Classical Planning** (8/31). [HW1](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) had the agent use logic to decide which squares were safe and A\* to decide how to get there. This lecture asks the next question: if *changing the world* also needs reasoning, where does logic break down, and what representation lets us write it down?
+This is Lecture 3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Classical Planning** (8/31). [HW1](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) had the agent use logic to decide which squares were safe and A\* to decide how to get there. This lecture asks the next question: if *changing the world* also needs reasoning, where does logic break down, and what representation lets us write it down?
 
 The short version: **planning is not a new problem, it is the same search problem with a different state representation.** Once states are factored, a planner can read the action descriptions and compute its own heuristic, without a human staring at the puzzle.
 
@@ -37,12 +37,12 @@ Checked on 2026-10-10.
 ## Official materials and scope
 
 - [Lec3 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec3_Classical_Planning_inked.pdf): pre-reading polls, SATPlan, STRIPS, Blocks world, PDDL, state-space search, and the start of GraphPlan
-- The **first half** of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): GraphPlan mutexes, backward search, the delete-relaxed planning graph, Fast Forward, Fast Downward. The motion-planning half is covered in the [next post on RRT](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
+- The **first half** of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): GraphPlan mutexes, backward search, the delete-relaxed planning graph, Fast Forward, Fast Downward. The motion-planning half is covered in the [next post on RRT](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
 - [PR2 Planning pre-reading notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Planning.pdf) (checkpoint due 8/30)
 - [Recitation 2](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26.pdf) and its [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) (9/4): successor-state axioms, GraphPlan vocabulary, the Crane problem, h<sub>max</sub>/h<sub>add</sub>
 - The site assigns AIMA Ch. 11.1-3. This post does not draw on the textbook; it only lists the range
 
-**Access level**: slides, notes, recitation, and solutions for this lecture are all public, so this part reaches A3 (enough to self-study). Canvas checkpoint questions are CMU-only. The course as a whole is still A2 (in progress); the grading scale is defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en).
+**Access level**: slides, notes, recitation, and solutions for this lecture are all public, so this part reaches A3 (enough to self-study). Canvas checkpoint questions are CMU-only. The course as a whole is still A2 (in progress); the grading scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## The problem carried over: logic cannot easily say "change"
 
@@ -168,12 +168,12 @@ Check it yourself: both subgoals need the same "toasted bread" fact, so h<sub>ad
 
 - **Recitation 2 §1**: the successor-state axiom form, plus a set of true/false `|=` questions. Parts (d)–(f) are the ones worth doing: when the left side has no models, the entailment holds vacuously.
 - **Recitation 2 §2–4**: which assumption GraphPlan relaxes (several non-mutex actions at once), the mutex vocabulary, and the first two planning-graph levels of the Crane problem.
-- **HW2 written Problem 1** (10 pts) and **programming Q1** (robot-cook PDDL) use this lecture directly. How they are graded and how to run the autograder is in the [HW2 guide](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en).
+- **HW2 written Problem 1** (10 pts) and **programming Q1** (robot-cook PDDL) use this lecture directly. How they are graded and how to run the autograder is in the [HW2 guide](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en).
 
 ## Related reading
 
-- The foundation of state-space search and A\*: [07-280 Lecture 2 guide](/en/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en). What is new here is that the heuristic is derived automatically from the problem description.
-- SAT solvers and backtracking: [07-280 Lecture 4 CSP guide](/en/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en). SATPlan hands planning to exactly this kind of solver.
+- The foundation of state-space search and A\*: [07-280 Lecture 2 guide](/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en). What is new here is that the heuristic is derived automatically from the problem description.
+- SAT solvers and backtracking: [07-280 Lecture 4 CSP guide](/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en). SATPlan hands planning to exactly this kind of solver.
 - Appendix B of the pre-reading has a table that places classical planning on a wider map alongside search, MDPs, and RL. It is not in the slides, but it is useful if you have finished 07-280.
 
 ## Things to do tonight
@@ -181,13 +181,13 @@ Check it yourself: both subgoals need the same "toasted bread" fact, so h<sub>ad
 1. Work out Poll 2 by hand: with 4 blocks, how many ground atoms does `on(block1, block2)` have? Then decide whether `on(x, x)` should be excluded.
 2. Trace the six-step plan in §2.6 of the notes with `Result(s, a)`, checking at each step that the precondition is a subset of the state.
 3. Without the solutions, draw S<sub>0</sub>–A<sub>0</sub>–S<sub>1</sub> for the Crane problem in Recitation 2, and find one interference, one inconsistent-effects pair, and one inconsistent-support pair.
-4. Install `unified-planning[fast-downward]` and run the planner on the Blocks world files shipped with HW2 until it prints the six-step plan (commands in the [HW2 guide](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)).
+4. Install `unified-planning[fast-downward]` and run the planner on the Blocks world files shipped with HW2 until it prints the six-step plan (commands in the [HW2 guide](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)).
 
 ## Series navigation
 
-- Previous: [HW1 guide: Logic and the Hybrid Wumpus Agent](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en)
-- Next: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
-- Series overview: [CMU 07-380 Fall 2026 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [HW1 guide: Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en)
+- Next: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
+- Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

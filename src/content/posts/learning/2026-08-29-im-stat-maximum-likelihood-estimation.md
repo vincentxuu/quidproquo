@@ -13,7 +13,7 @@ description: "Maximum Likelihood Estimation 入門：likelihood、log likelihood
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-maximum-likelihood-estimation-en)
+> [English version](/posts/learning/2026-08-29-im-stat-maximum-likelihood-estimation-en)
 
 Method of Moments 用 summary 對 summary。MLE 換了一個問法：如果模型分布已經選好，哪個參數讓目前這批資料看起來最合理？
 

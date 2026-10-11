@@ -16,7 +16,7 @@ additionalSeries:
     order: 13
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-observability-analytics-engine-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-observability-analytics-engine-en)
 
 把網站或 app 搬到 Cloudflare 後，第一個問題通常是「怎麼跑」。下一個問題很快就會變成：「出事時我要去哪裡看？」Workers 沒有一台你可以 SSH 進去的機器，也沒有傳統 VM 上的 `/var/log`。你看到的是 distributed runtime、edge request、binding call、queue consumer、Durable Object、Email handler、AI Gateway call、R2/KV/D1 操作。
 

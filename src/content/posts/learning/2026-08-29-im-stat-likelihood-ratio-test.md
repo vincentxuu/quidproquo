@@ -13,7 +13,7 @@ description: "Likelihood ratio test 入門：full model、restricted model、nes
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-likelihood-ratio-test-en)
+> [English version](/posts/learning/2026-08-29-im-stat-likelihood-ratio-test-en)
 
 MLE 幫你在一個模型裡找到最合理的參數。Likelihood Ratio Test，簡稱 LRT，往前問一步：如果有一個比較簡單的受限模型，和一個比較自由的完整模型，多出來的彈性有沒有真的讓資料合理很多？
 

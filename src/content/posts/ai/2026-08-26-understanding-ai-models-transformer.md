@@ -18,7 +18,7 @@ glossary:
     def: "多頭注意力——同時用多組不同的 Q/K/V 去捕捉不同類型的關係（語法、語意、指代等）"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-transformer-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-transformer-en)
 
 ## 場景：「it」指的是誰？
 

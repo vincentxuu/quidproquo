@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-20-model-xai-grok-4-6-en)
+> 🌏 [English version](/posts/daily/2026-08-20-model-xai-grok-4-6-en)
 
 ## 模型資訊
 

@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-one-person-media-company-overview-en)
+> 🌏 [English version](/posts/career/2026-08-26-one-person-media-company-overview-en)
 
 2014 年，Ben Thompson 從台北一間公寓開始全職經營 Stratechery，靠每月 $15 的訂閱費養活自己。那時候 Substack 還不存在，「一個人靠寫電子報維生」聽起來像是開玩笑。
 

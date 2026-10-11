@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-free-content-side-monetization-en)
+> 🌏 [English version](/posts/product/2026-09-16-free-content-side-monetization-en)
 
 想像夜市老闆免費送一小杯湯。那杯湯不是憑空變出來的：食材、攤位和人力都要錢。老闆願意送，是因為有些人喝完會買整碗，也可能順手買滷味；若大家只拿試喝就離開，排隊再長也不是好生意。
 

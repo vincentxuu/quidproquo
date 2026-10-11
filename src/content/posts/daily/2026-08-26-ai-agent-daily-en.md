@@ -41,7 +41,7 @@ What this means for practitioners: if you're building Agent products that requir
 
 ### Models & Infrastructure
 
-**Wan3.0**: Alibaba Cloud's Tongyi Wanxiang released its latest video generation model — supports single-pass 30-second generation and document/presentation/spreadsheet inputs, priced ~50% cheaper than Google Veo 3.1, but now closed-source API-only. See [Model Card](/en/posts/daily/2026-08-26-model-alibaba-wan3-0).
+**Wan3.0**: Alibaba Cloud's Tongyi Wanxiang released its latest video generation model — supports single-pass 30-second generation and document/presentation/spreadsheet inputs, priced ~50% cheaper than Google Veo 3.1, but now closed-source API-only. See [Model Card](/posts/daily/2026-08-26-model-alibaba-wan3-0-en).
 
 **IBM Granite 4.2**: The IBM Granite team published architecture and training details for the new Granite 4.2 series on Hugging Face. ([source](https://huggingface.co/blog/ibm-granite/granite-4-2))
 
@@ -49,11 +49,11 @@ What this means for practitioners: if you're building Agent products that requir
 
 ### Coding Agent Track
 
-**Vercel Connect**: Now GA — lets agents use runtime short-lived OIDC credentials instead of long-lived tokens, adds fine-grained RBAC and audit logs, directly targeting credential leakage as the most common agent deployment pain point. ([source](https://vercel.com/blog/the-end-of-credential-sprawl-for-agents)) Today's GitHub Digest also covers the same Labs team's minimal coding agent CLI `vercel-labs/fx` — see [GitHub Digest](/en/posts/daily/2026-08-26-ai-agent-github-digest).
+**Vercel Connect**: Now GA — lets agents use runtime short-lived OIDC credentials instead of long-lived tokens, adds fine-grained RBAC and audit logs, directly targeting credential leakage as the most common agent deployment pain point. ([source](https://vercel.com/blog/the-end-of-credential-sprawl-for-agents)) Today's GitHub Digest also covers the same Labs team's minimal coding agent CLI `vercel-labs/fx` — see [GitHub Digest](/posts/daily/2026-08-26-ai-agent-github-digest-en).
 
 ### Security Incidents
 
-**NemoClaw DNS Rebinding Model Poisoning**: NVIDIA NemoClaw was exploited because it binds Ollama to 0.0.0.0 — an attacker only needs a developer to visit a malicious webpage to tamper with the model's chat template and inject persistent instructions that even the agent's own system prompt can't override. See [Security Alert](/en/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning).
+**NemoClaw DNS Rebinding Model Poisoning**: NVIDIA NemoClaw was exploited because it binds Ollama to 0.0.0.0 — an attacker only needs a developer to visit a malicious webpage to tamper with the model's chat template and inject persistent instructions that even the agent's own system prompt can't override. See [Security Alert](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en).
 
 ### Regulation & Governance
 
@@ -72,7 +72,7 @@ Sharp unveiled the second-generation character for its companion AI robot "Poket
 
 ### Deals / Funding / M&A
 
-- **Stability AI**: Closed $76M Series B with Universal, Warner, and Sony — the first time all three major labels directly invested — bringing total funding to $232M. See [Funding Brief](/en/posts/daily/2026-08-26-funding-stability-ai).
+- **Stability AI**: Closed $76M Series B with Universal, Warner, and Sony — the first time all three major labels directly invested — bringing total funding to $232M. See [Funding Brief](/posts/daily/2026-08-26-funding-stability-ai-en).
 - **Fractile**: Valuation jumped to $6.5B after Anthropic chip supply deal — see deep dive above.
 - **Toyota North America**: Used LangChain Deep Agents and LangSmith to cut agent deployment from 6 months with 6 engineers to 4 days with 1 engineer; 50+ agents now running in production. ([source](https://www.langchain.com/blog/how-toyota-north-america-put-enterprise-ai-on-the-balance-sheet-with-deep-agents-and-langsmith))
 - **Google Cloud**: Launched Gemini Enterprise for financial services with built-in financial research agents and 50+ specialized skills; Deutsche Bank is the design partner. ([source](https://www.prnewswire.com/news-releases/google-cloud-launches-gemini-enterprise-for-financial-services-302859186.html))
@@ -87,13 +87,13 @@ Sharp unveiled the second-generation character for its companion AI robot "Poket
 
 Today's Arxiv Digest features three papers all plugging trust gaps during agent runtime — COTA uses a tiny comparator that doesn't need to solve the task for real-time intervention, CAS uses conformal prediction to calibrate search agent confidence, and AID-Guard uses stateful authorization to block approved actions from replaying. See [Arxiv Digest](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en).
 
-**Haystack 3.1.0**: Adds CompactionHook for context compression and AgentTool for multi-agent delegation, while patching multiple pipeline deserialization RCE vulnerabilities. See [Framework Update](/en/posts/daily/2026-08-26-framework-haystack-3.1.0).
+**Haystack 3.1.0**: Adds CompactionHook for context compression and AgentTool for multi-agent delegation, while patching multiple pipeline deserialization RCE vulnerabilities. See [Framework Update](/posts/daily/2026-08-26-framework-haystack-3.1.0-en).
 
-**Agno v3.0.0**: Major release requiring database migration — Runs data moved to a dedicated table, reducing write amplification from O(N^2) to O(N). See [GitHub Digest](/en/posts/daily/2026-08-26-ai-agent-github-digest).
+**Agno v3.0.0**: Major release requiring database migration — Runs data moved to a dedicated table, reducing write amplification from O(N^2) to O(N). See [GitHub Digest](/posts/daily/2026-08-26-ai-agent-github-digest-en).
 
 ## Tools & Ecosystem
 
-Today's GitHub Digest covers OpenHuman (local-first personal memory brain, early beta already at 37K stars) and OpenBot (wraps agents as review-before-act digital coworkers) — see [GitHub Digest](/en/posts/daily/2026-08-26-ai-agent-github-digest). Today's Tool Pick agent-manager provides a tmux TUI for managing multiple coding agent sessions — see [Tool Pick](/en/posts/daily/2026-08-26-tool-agent-manager).
+Today's GitHub Digest covers OpenHuman (local-first personal memory brain, early beta already at 37K stars) and OpenBot (wraps agents as review-before-act digital coworkers) — see [GitHub Digest](/posts/daily/2026-08-26-ai-agent-github-digest-en). Today's Tool Pick agent-manager provides a tmux TUI for managing multiple coding agent sessions — see [Tool Pick](/posts/daily/2026-08-26-tool-agent-manager-en).
 
 **Microsoft Agent Lightning v1.0.1**: First official Skill release, installable by Claude Code, Codex, and GitHub Copilot for systematically tuning other agents' prompts, tools, and model settings. ([source](https://github.com/microsoft/agent-lightning/releases/tag/v1.0.1))
 
@@ -114,12 +114,12 @@ Today's GitHub Digest covers OpenHuman (local-first personal memory brain, early
 ## Today's Digests
 
 - 📄 [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-26](/en/posts/daily/2026-08-26-ai-agent-github-digest)
-- 📄 [Model Card | Wan3.0](/en/posts/daily/2026-08-26-model-alibaba-wan3-0)
-- 📄 [Security Alert | NVIDIA NemoClaw DNS Rebinding Model Poisoning](/en/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning)
-- 📄 [Framework Update | Haystack 3.1.0](/en/posts/daily/2026-08-26-framework-haystack-3.1.0)
-- 📄 [Funding Brief | Stability AI Series B $76M](/en/posts/daily/2026-08-26-funding-stability-ai)
-- 📄 [Tool Pick | agent-manager](/en/posts/daily/2026-08-26-tool-agent-manager)
+- 📄 [AI Agent GitHub Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-github-digest-en)
+- 📄 [Model Card | Wan3.0](/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
+- 📄 [Security Alert | NVIDIA NemoClaw DNS Rebinding Model Poisoning](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
+- 📄 [Framework Update | Haystack 3.1.0](/posts/daily/2026-08-26-framework-haystack-3.1.0-en)
+- 📄 [Funding Brief | Stability AI Series B $76M](/posts/daily/2026-08-26-funding-stability-ai-en)
+- 📄 [Tool Pick | agent-manager](/posts/daily/2026-08-26-tool-agent-manager-en)
 
 ## Tomorrow's Watch
 

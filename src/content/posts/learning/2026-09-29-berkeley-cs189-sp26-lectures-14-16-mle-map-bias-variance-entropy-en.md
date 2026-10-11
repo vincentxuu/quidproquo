@@ -18,9 +18,9 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
+This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
-The [previous post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en) was about how to minimize a loss. This one asks where those losses come from. Two things you have already seen come back from a new angle:
+The [previous post](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en) was about how to minimize a loss. This one asks where those losses come from. Two things you have already seen come back from a new angle:
 
 - **Ridge regression**: introduced as least squares plus `λ‖w‖²`. Lec 14 shows it is exactly the MAP estimate under a Gaussian prior on the weights.
 - **The logistic regression loss**: introduced as maximum likelihood. Lec 16 recasts it as cross-entropy, a measure in bits of how far apart two distributions are.
@@ -60,7 +60,7 @@ Content check: verified against the video transcripts (2026-10-10; mostly spot s
 | Lec 16 (3/12) | Entropy, Information and Logistic Regression | [Notes folder](https://drive.google.com/drive/folders/1_Lc-MtkVryhi1nhB_BRCKhkKuJFOVkz-): `lec16.pdf` (66 pages); [recording](https://www.youtube.com/watch?v=ArSadC8hY-Q) | 2.5.1 (entropy), 2.5.5 (KL), 5.3.1, 5.4.3–5.4.4 |
 | Midterm (3/17, 7–9pm) | 6 problems + Honor Code, 56 points, 110 minutes | [Exam sp26-midterm.pdf](https://drive.google.com/file/d/1KZFOxAYg4RYP_xzf5-OnjqVvZQ82Quw5/view), [solutions sp26-midterm-sol.pdf](https://drive.google.com/file/d/1VCTJML71X_RZevsNpdsuy9IlFKl9QrxR/view), [walkthrough playlist](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-oUudIQgL4uTjsiR-UWBlI) (6 videos, Problems 1–6) | — |
 
-Both midterm PDFs sit in the past-exams folder linked from the [Resources page](https://eecs189.org/sp26/resources/) (under `midterm/exams` and `midterm/solutions`). The same folder also has the Fall 2025 midterm and practice midterm. I opened all of these links without logging in on 2026-09-29. On this site's [A0–A3 scale](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en), this stretch is A3, with the bonus of a real exam that comes with solutions. What you can't get is the in-class Slido interaction and the midterm grade distribution.
+Both midterm PDFs sit in the past-exams folder linked from the [Resources page](https://eecs189.org/sp26/resources/) (under `midterm/exams` and `midterm/solutions`). The same folder also has the Fall 2025 midterm and practice midterm. I opened all of these links without logging in on 2026-09-29. On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this stretch is A3, with the bonus of a real exam that comes with solutions. What you can't get is the in-class Slido interaction and the midterm grade distribution.
 
 ## Lec 14: MLE, MAP, and ridge
 
@@ -106,7 +106,7 @@ Then comes a checklist of five questions for reading a paper:
 4. What are the inputs and outputs of the method?
 5. What are its limitations?
 
-The slides note that the first four can usually be found in the introduction. This section maps directly onto the [HW2 paper questions](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en), so read these pages before starting the homework.
+The slides note that the first four can usually be found in the introduction. This section maps directly onto the [HW2 paper questions](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en), so read these pages before starting the homework.
 
 ## Lec 16: entropy through compression
 
@@ -157,10 +157,10 @@ A suggested self-check:
 
 ## Further reading
 
-- Probability background: [Stanford CS109 on the Beta distribution](/en/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution-en), [information theory](/en/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory-en), [maximum likelihood estimation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en), [logistic regression](/en/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en)
-- Classic ML for comparison: [Stanford CS229 guide](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
+- Probability background: [Stanford CS109 on the Beta distribution](/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution-en), [information theory](/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory-en), [maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en), [logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en)
+- Classic ML for comparison: [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 
-Previous: [Lec 13 & 15: convergence, momentum, Adam, SGD](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en). Next: [HW2 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en).
+Previous: [Lec 13 & 15: convergence, momentum, Adam, SGD](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en). Next: [HW2 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en).
 
 ## Things you can do tonight
 

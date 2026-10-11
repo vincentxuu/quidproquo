@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-b2b-intelligence-business-en)
+> 🌏 [English version](/posts/product/2026-09-16-b2b-intelligence-business-en)
 
 想像公司準備買一座新工廠。主管桌上有幾百篇新聞、供應商簡報、試算表和會議筆記。資料很多，真正困難的卻是：哪一則訊號可信、哪些公司值得先談、各部門要用什麼標準選，以及半年後怎麼解釋當初的決定。
 

@@ -11,7 +11,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
+> 🌏 [English version](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
 
 ## 事件概述
 

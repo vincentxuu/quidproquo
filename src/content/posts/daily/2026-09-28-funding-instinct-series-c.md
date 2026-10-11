@@ -12,7 +12,7 @@ series:
   order: 54
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-28-funding-instinct-series-c-en)
+> 🌏 [English version](/posts/daily/2026-09-28-funding-instinct-series-c-en)
 
 ## 融資資訊
 

@@ -30,7 +30,7 @@ This path fits readers who:
 - Want agents to use browsers, sandboxes, MCP, email, Slack, and webhooks.
 - Want to decide where memory, conversations, artifacts, and eval traces should live.
 
-If the main problem is normal website/app deployment, cache, storage, email, Turnstile, or Containers, read [Cloudflare Edge Platform](/en/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en).
+If the main problem is normal website/app deployment, cache, storage, email, Turnstile, or Containers, read [Cloudflare Edge Platform](/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en).
 
 ## Reading Order
 

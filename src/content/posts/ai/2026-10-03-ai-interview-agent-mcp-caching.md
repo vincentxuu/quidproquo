@@ -40,7 +40,7 @@ glossary:
     definition: "A2A 中描述一個 agent 能力、端點與驗證方式的 JSON 文件，讓其他 agent 能先發現它再發起協作；v1.0 起可簽章。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
 
 面試問到 Agent，多半不是要你背框架名字，而是看你能不能把一條鏈講通：模型怎麼表達「我要呼叫工具」、輸出怎麼保證程式讀得懂、工具多到塞不進 prompt 怎麼辦、記憶放哪、成本怎麼壓。這篇是「AI Engineer 面試準備」系列的第 13 篇，把這些常見題目串成同一條脈絡：先講 Agent 迴圈，再拆 Structured Output 與 Function Calling，接著處理工具規模與記憶，最後收在 MCP、A2A 與 Prompt Caching。
 

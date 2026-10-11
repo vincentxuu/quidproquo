@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 42 篇：Nonparametric me
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-nonparametric-methods-en)
+> [English version](/posts/learning/2026-08-29-im-stat-nonparametric-methods-en)
 
 很多人第一次聽到 nonparametric methods，會以為意思是「沒有參數」。這個理解太直。更好的說法是：模型或檢定不把資料先鎖進少數固定參數描述的分布裡。
 

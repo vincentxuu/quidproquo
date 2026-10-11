@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark，用真實 GitHub issue 測量模型解決軟體工程問題能力的標準測試集"
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-26-minimax-model-family-en)
+> 🌏 [English version](/posts/tech/2026-08-26-minimax-model-family-en)
 
 MiniMax 不是一家模型公司——至少一開始不是。它做的是角色聊天 App（[Talkie](https://www.talkie-ai.com/)）和影片生成（[Hailuo AI](https://hailuoai.video/)），是中國「AI 六小虎」之一。但在 2026 年 2 月，它發布的 M2.5 在 [SWE-bench Verified](https://www.swebench.com/) 拿到 80.2%，跟當時的 Claude Opus 4.6 只差 0.6 個百分點——API 價格卻只有十分之一到二十分之一。這篇整理 MiniMax 怎麼從聊天機器人跨到 coding 前沿的。
 

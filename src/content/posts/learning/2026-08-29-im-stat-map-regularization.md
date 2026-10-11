@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 34 篇：MAP 為什麼會
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-map-regularization-en)
+> [English version](/posts/learning/2026-08-29-im-stat-map-regularization-en)
 
 Bayesian inference 給你整個 posterior，但實務上有時只需要一個代表性答案。MAP，maximum a posteriori estimate，就是 posterior 最大的參數值。
 

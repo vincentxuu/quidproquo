@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-free-tools-seo-compounding-en)
+> 🌏 [English version](/posts/product/2026-09-17-free-tools-seo-compounding-en)
 
 文章像食譜。第一次做菜時，你從頭讀到尾；下次可能只回來確認水量。免費計算器則像廚房秤：每次換食材或份量，都會重新拿出來使用。食譜在解釋，秤在完成一個反覆出現的工作。
 

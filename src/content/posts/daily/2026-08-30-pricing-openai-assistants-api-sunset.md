@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
+> 🌏 [English version](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
 
 ## 變更摘要
 

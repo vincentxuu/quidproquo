@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 40 篇：變數選擇怎�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-variable-selection-en)
+> [English version](/posts/learning/2026-08-29-im-stat-variable-selection-en)
 
 變數選擇看起來像是在問「哪些 predictor 要放進模型」。真正困難的是另一件事：你怎麼知道自己選到的是穩定訊號，而不是訓練資料裡剛好漂亮的噪音？
 

@@ -17,7 +17,7 @@ glossary:
     def: "Reinforcement Learning for Calibrated Decisions，TypeSafe AI 自創的訓練方法，優化目標是「答案的機率是否誠實反映實際正確率」，而非 RLHF 的人類偏好或 RLVR 的可驗證獎勵"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-19-model-typesafe-ai-jev-en)
+> 🌏 [English version](/posts/daily/2026-09-19-model-typesafe-ai-jev-en)
 
 ## 模型資訊
 

@@ -46,7 +46,6 @@ export function buildKnownPostRoutes(posts: CloudPost[]): Set<string> {
   const routes = new Set<string>()
   for (const post of posts) {
     routes.add(`/posts/${post.slug}`)
-    routes.add(`/en/posts/${post.slug}`)
   }
   return routes
 }

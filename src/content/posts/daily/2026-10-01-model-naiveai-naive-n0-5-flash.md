@@ -15,7 +15,7 @@ glossary:
     def: "北京新創 NaiveAI（清華大學戴吉峰創立）開源模型系列首作，主打訓練與推理流程由 AI 系統自主設計、人類把關方向"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
+> 🌏 [English version](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
 
 ## 模型資訊
 

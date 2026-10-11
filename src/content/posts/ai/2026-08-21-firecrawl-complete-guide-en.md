@@ -153,7 +153,7 @@ The main Firecrawl project is licensed under [AGPL-3.0](https://github.com/firec
 | Structured extraction | Managed JSON mode and agent | Bring a model; support varies by service | CSS and LLM strategies live in code |
 | Best fit | Shared API with less infrastructure work | Source and infrastructure control | Extraction policy controlled in a Python codebase |
 
-The [Crawl4AI complete guide](/en/posts/ai/2026-08-21-crawl4ai-complete-guide) shows the code-first alternative: CSS-first extraction, LLM fallback, browser configuration, and extraction strategy can all be tested with the application. Firecrawl Cloud instead turns retrieval into a shared service across languages and agents. For a small set of known URLs, Crawl4AI is often more direct. For a shared API, asynchronous jobs, site crawling, and managed infrastructure, Firecrawl can exchange credits for operations time.
+The [Crawl4AI complete guide](/posts/ai/2026-08-21-crawl4ai-complete-guide-en) shows the code-first alternative: CSS-first extraction, LLM fallback, browser configuration, and extraction strategy can all be tested with the application. Firecrawl Cloud instead turns retrieval into a shared service across languages and agents. For a small set of known URLs, Crawl4AI is often more direct. For a shared API, asynchronous jobs, site crawling, and managed infrastructure, Firecrawl can exchange credits for operations time.
 
 A useful first decision is small and repeatable: choose 20 fixed URLs and record Firecrawl status, Markdown, and credit use; run the same set through the crawler you already operate. Compare missing pages, latency, manual intervention, and operations time—not merely whether both produced Markdown.
 
@@ -167,4 +167,4 @@ A useful first decision is small and repeatable: choose 20 fixed URLs and record
 - [Open source or Firecrawl Cloud](https://docs.firecrawl.dev/contributing/open-source-or-cloud)
 - [Self-hosting Firecrawl](https://docs.firecrawl.dev/contributing/self-host)
 - [Firecrawl AGPL-3.0 license](https://github.com/firecrawl/firecrawl/blob/main/LICENSE)
-- [On this site: Crawl4AI Complete Guide](/en/posts/ai/2026-08-21-crawl4ai-complete-guide)
+- [On this site: Crawl4AI Complete Guide](/posts/ai/2026-08-21-crawl4ai-complete-guide-en)

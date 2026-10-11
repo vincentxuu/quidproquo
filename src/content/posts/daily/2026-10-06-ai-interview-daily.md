@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-06-ai-interview-daily-en)
+> 🌏 [English version](/posts/daily/2026-10-06-ai-interview-daily-en)
 
 ## 今日主題
 

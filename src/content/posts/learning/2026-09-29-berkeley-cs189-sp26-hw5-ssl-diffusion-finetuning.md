@@ -23,7 +23,7 @@ glossary:
     context: "HW5 的 diffusion 理論題要證明加噪過程的密度和對應的向量場滿足它，這是 flow matching 能成立的基礎。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -23,7 +23,7 @@ glossary:
     context: "Lec 27 把它和 SFT、RL 並列為三種用環境改進 agent 的方式，特別適合只能用閉源模型的情況。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

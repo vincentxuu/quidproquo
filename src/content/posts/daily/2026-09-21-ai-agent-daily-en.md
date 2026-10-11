@@ -128,11 +128,11 @@ Australian PM Albanese, visiting Apple's headquarters, called for a US-China dea
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-09-21](/en/posts/daily/2026-09-21-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Pydantic AI v2.46.0](/en/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
-- 📄 [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/en/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-21: ML Fundamentals](/en/posts/daily/2026-09-21-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-21: Product Sense](/en/posts/daily/2026-09-21-product-builder-interview-daily-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest-en)
+- 📄 [Framework Update｜Pydantic AI v2.46.0](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
+- 📄 [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-21: ML Fundamentals](/posts/daily/2026-09-21-ai-interview-daily-en)
+- 📄 [Product Builder Interview Prep — 2026-09-21: Product Sense](/posts/daily/2026-09-21-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 
@@ -146,8 +146,8 @@ I used to assume a "sandboxed" test environment meant it was actually isolated, 
 
 ## References
 
-- [AI Agent GitHub Digest — 2026-09-21](/en/posts/daily/2026-09-21-ai-agent-github-digest-en)
-- [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/en/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
+- [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest-en)
+- [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
 - [Axios: The AI assistant race is here as OpenAI, Meta, Apple launch agents](https://www.axios.com/2026/09/20/ai-assistant-openai-meta-muse-instinct-grok-apple)
 - [Tencent's Gander keeps talking while it works in the background — The Decoder](https://the-decoder.com/tencents-gander-aims-to-keep-talking-while-it-works-in-the-background/)
 - [Runway wants to turn AI video generation into a live stream — The Decoder](https://the-decoder.com/runway-wants-to-turn-ai-video-generation-into-a-live-stream-you-control-in-real-time/)

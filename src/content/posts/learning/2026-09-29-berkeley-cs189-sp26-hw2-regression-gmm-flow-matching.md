@@ -14,7 +14,7 @@ description: "Berkeley CS189 Spring 2026 Homework 2 導讀：十題的結構與�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

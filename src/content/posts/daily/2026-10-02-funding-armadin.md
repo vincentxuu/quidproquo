@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-02-funding-armadin-en)
+> 🌏 [English version](/posts/daily/2026-10-02-funding-armadin-en)
 
 ## 融資資訊
 

@@ -15,7 +15,7 @@ glossary:
     def: "Meta 的多模態 AI 模型家族，涵蓋 Spark（文字／多模態 LLM）、Glimmer（本地端 agentic 模型）與 Voice（語音感知模型）等產品線"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
+> 🌏 [English version](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
 
 ## 模型資訊
 

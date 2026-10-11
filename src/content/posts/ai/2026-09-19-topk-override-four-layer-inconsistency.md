@@ -10,7 +10,7 @@ description: "一個 RAG 工具的 top_k 設定在 AI 助理平台的四層架�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-topk-override-four-layer-inconsistency-en)
+> 🌏 [English version](/posts/ai/2026-09-19-topk-override-four-layer-inconsistency-en)
 
 ## TL;DR
 

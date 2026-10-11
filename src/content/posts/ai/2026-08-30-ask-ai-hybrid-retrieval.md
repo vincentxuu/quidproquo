@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-hybrid-retrieval-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-hybrid-retrieval-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配〈[Hybrid Search：用 BM25 + 向量搜尋彌補彼此的盲區](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)〉、〈[RRF：RAG 系統裡多路結果怎麼合併](/posts/ai/2026-03-12-rrf-multi-source-fusion)〉與〈[CRAG：檢索失敗時，自動放寬條件重試](/posts/ai/2026-03-12-corrective-rag-crag)〉。
 

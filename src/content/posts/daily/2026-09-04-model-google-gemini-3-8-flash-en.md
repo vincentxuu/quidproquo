@@ -81,4 +81,4 @@ I'd assumed the only lever vendors have for passing along the cost of a model up
 - [Gemini API pricing — Google AI for Developers](https://ai.google.dev/gemini-api/docs/pricing)
 - [DataCamp: Gemini 3.8 Flash — Features, Benchmarks, and Pricing](https://www.datacamp.com/blog/gemini-3-8-flash-cyber)
 - [Shattered.io: Gemini 3.8 Flash Cyber — Google Gates Access, 2.6x Patches](https://shattered.io/gemini-3-8-flash-cyber-fairwind-program-2026/)
-- [This site's earlier post: Model Card｜Gemini 3.7 Flash](/en/posts/daily/2026-08-16-model-google-gemini-3-7-flash-en)
+- [This site's earlier post: Model Card｜Gemini 3.7 Flash](/posts/daily/2026-08-16-model-google-gemini-3-7-flash-en)

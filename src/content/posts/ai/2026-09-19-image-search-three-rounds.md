@@ -10,7 +10,7 @@ description: "記錄一次 RAG 圖片檢索從「搜不到」到「搜得準」�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-image-search-three-rounds-en)
+> 🌏 [English version](/posts/ai/2026-09-19-image-search-three-rounds-en)
 
 ## TL;DR
 

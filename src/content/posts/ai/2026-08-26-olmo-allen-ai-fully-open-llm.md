@@ -10,7 +10,7 @@ description: "Allen AI OLMo 模型家族深入介紹：從 Dolma 資料集到 OL
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
+> 🌏 [English version](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
 
 Llama 開源了權重，Mistral 開源了權重和部分架構細節，但它們的訓練資料都是黑箱。OLMo 把這最後一塊也打開了——你不只能用這個模型，還能看到它是怎麼被訓練出來的，用了哪些資料，每一個中間 checkpoint 長什麼樣子。
 

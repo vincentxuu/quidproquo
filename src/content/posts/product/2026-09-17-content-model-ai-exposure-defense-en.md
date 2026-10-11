@@ -94,7 +94,7 @@ Under this framework, the most exposed layer is text with no original signal, di
 
 ## Series navigation
 
-- Next: [Which content assets are still worth building in the AI era](/en/posts/product/2026-09-17-ai-era-content-asset-portfolio-en)
+- Next: [Which content assets are still worth building in the AI era](/posts/product/2026-09-17-ai-era-content-asset-portfolio-en)
 
 ## References
 

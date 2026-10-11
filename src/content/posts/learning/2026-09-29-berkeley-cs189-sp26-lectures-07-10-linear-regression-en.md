@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers the second half of Lecture 7 through Lecture 10 (Feb 10–19). The [previous post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) ended with the Gaussian mixture log-likelihood, which has no closed-form maximizer. This block switches to supervised learning, and the first model is linear regression.
+This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers the second half of Lecture 7 through Lecture 10 (Feb 10–19). The [previous post](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) ended with the Gaussian mixture log-likelihood, which has no closed-form maximizer. This block switches to supervised learning, and the first model is linear regression.
 
 Linear regression itself is not hard. The hard part is that these four lectures ask you to hold three views at once:
 
@@ -69,7 +69,7 @@ Discussions:
 
 The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*. For Lec 8 the schedule lists 1.2.2–1.2.6, 2.1.3, 2.3.4, 2.6.2, 4.1.1–4.1.4, 4.1.6, 9.2, 9.2.2, and Appendix A.3 (matrix derivatives). Lec 10 adds 9.2.2 on lasso and 5.3 on generative classifiers. The book's website hosts a free-to-use online version.
 
-**Access level**: the PDFs and videos for all four lectures, plus the problems, solutions, and walkthroughs for both discussions, open without a Berkeley login. This block is A3 (see the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale). What you cannot get is Ed and the live sections.
+**Access level**: the PDFs and videos for all four lectures, plus the problems, solutions, and walkthroughs for both discussions, open without a Berkeley login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale). What you cannot get is Ed and the live sections.
 
 Two small things you will notice: the Lec 8 and Lec 9 PDFs still say "Lecture 7" on their title slides, so go by the lecture numbers on the schedule. The Lec 9 title slide also announces that typos in the Lec 8 geometry slides were fixed and re-posted, so use the version currently on Drive.
 
@@ -200,7 +200,7 @@ A one-line summary: **ridge shrinks all coefficients together; lasso sets some o
 
 Lec 8, 9, and 10 all end with the same thought experiment: a house-price model has small cross-validated error on a huge dataset. Is it guaranteed to be that accurate in the future? The accompanying slide quotes a November 2021 *Wall Street Journal* report on a company's home-flipping losses. The point is that correlation is not causation, and once the data distribution shifts, validation error stops predicting the future.
 
-The second half of the Lec 10 PDF already starts classification (discriminative vs. generative, Gaussian Discriminant Analysis). That material is covered in the [Lec 11–12 post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en).
+The second half of the Lec 10 PDF already starts classification (discriminative vs. generative, Gaussian Discriminant Analysis). That material is covered in the [Lec 11–12 post](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en).
 
 ## Discussion 3–4
 
@@ -221,7 +221,7 @@ Problem 1's positive definiteness is exactly the background for "when is AᵀA i
 
 Try problems 1 and 3 on your own first, then compare against the Lec 8 derivation and the official solutions. Once those two are second nature, you no longer need to memorize the normal equations or the ridge closed form.
 
-The MAP derivation for lasso and the bias-variance decomposition appear in Discussion 5, which this series covers in the [Lec 11–12 post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en).
+The MAP derivation for lasso and the bias-variance decomposition appear in Discussion 5, which this series covers in the [Lec 11–12 post](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en).
 
 ## What to do tonight
 
@@ -236,14 +236,14 @@ The MAP derivation for lasso and the bias-variance decomposition appear in Discu
 
 On this site:
 
-- The same derivations told differently: [Stanford CS229 notes, chapter 1: linear regression](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en) and [chapter 9: regularization and model selection](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
-- The probability behind MLE: [Stanford CS109 Lecture 19: maximum likelihood estimation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
-- Series entry points: [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
+- The same derivations told differently: [Stanford CS229 notes, chapter 1: linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en) and [chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
+- The probability behind MLE: [Stanford CS109 Lecture 19: maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
+- Series entry points: [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 
 ## Series navigation
 
-- Previous: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians, and GMMs](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
-- Next: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+- Previous: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians, and GMMs](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
+- Next: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
 
 ## Update Log
 

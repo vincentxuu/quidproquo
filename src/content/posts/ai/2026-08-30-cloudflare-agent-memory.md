@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-cloudflare-agent-memory-en)
+> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-agent-memory-en)
 
 Agent 做久了，遲早會碰到「它要記得什麼」這個問題。使用者偏好、團隊規則、專案狀態、客服歷史、上次做過的決策、還沒完成的 follow-up，這些都不適合每次塞進 prompt，也不該全部混進文件檢索。
 

@@ -23,7 +23,7 @@ glossary:
     context: "Lec 22 用它說明為什麼影像與文字需要位置編碼。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

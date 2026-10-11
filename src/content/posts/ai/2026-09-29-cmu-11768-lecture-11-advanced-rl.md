@@ -30,7 +30,7 @@ glossary:
     context: "本講最後一段：它讓學生在自己會犯錯的地方拿到老師的密集指導。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
 
 **影片狀態：待確認：尚未核對到對應錄影。** [影片來源與說明](#課程影片來源)
 

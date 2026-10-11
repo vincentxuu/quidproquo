@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-26-tool-agent-manager-en)
+> 🌏 [English version](/posts/daily/2026-08-26-tool-agent-manager-en)
 
 ## 工具資訊
 

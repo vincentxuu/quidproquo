@@ -10,7 +10,7 @@ description: "整理 2025-2026 年 LLM 輔助軟體開發流程的學術論文�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-llm-dev-workflow-landscape-en)
+> 🌏 [English version](/posts/ai/2026-09-03-llm-dev-workflow-landscape-en)
 
 2026 年的數據已經清楚：AI 讓寫 code 變快，但讓整個開發流程變慢。依 Faros AI 追蹤 22,000 名開發者的數據，任務產出升 33.7%，code review 時間卻暴增 441.5%。LinearB 分析 810 萬個 PR 得到類似結論：開發者自覺快 20%，實測慢 19%。這篇整理四輪研究的結果，畫出當前 LLM 開發流程的全景。
 

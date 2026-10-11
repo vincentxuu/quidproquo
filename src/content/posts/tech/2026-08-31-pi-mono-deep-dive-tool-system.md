@@ -13,7 +13,7 @@ description: "深入 pi-coding-agent 工具系統：從定義到執行的完整�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system-en)
 
 ## TL;DR
 

@@ -33,7 +33,7 @@ Pre-launch checks:
 - When one same-zone Worker calls another, is it using a service binding, or does the Custom Domain behavior allow the fetch?
 - After deleting a Custom Domain, should the associated Advanced Certificate be removed too?
 
-Related post: [The Correct Way to Bind Custom Domains to Cloudflare Workers](/en/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en).
+Related post: [The Correct Way to Bind Custom Domains to Cloudflare Workers](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en).
 
 ## 2. Design Maintenance Pages Before Incidents
 
@@ -49,7 +49,7 @@ Pre-launch checks:
 - Does the maintenance page avoid depending on the origin being maintained?
 - Will status pages, health checks, or monitoring misread a maintenance response?
 
-Related post: [Maintenance Page on Cloudflare Free Plan: Custom Error Pages Do Not Work, Use a Worker](/en/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en).
+Related post: [Maintenance Page on Cloudflare Free Plan: Custom Error Pages Do Not Work, Use a Worker](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en).
 
 ## 3. Workers Limits Shape the Architecture
 
@@ -84,7 +84,7 @@ Pre-launch checks:
 - Does local development resemble production runtime closely enough?
 - Are adapter versions and Cloudflare compatibility date pinned?
 
-Related post: [Astro + Cloudflare Workers: Native Modules Can Break Prerender Routes Too](/en/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en).
+Related post: [Astro + Cloudflare Workers: Native Modules Can Break Prerender Routes Too](/posts/tech/debug/2026-03-13-astro-cloudflare-native-module-en).
 
 ## 5. Turn on Observability Before the Incident
 
@@ -98,7 +98,7 @@ Pre-launch checks:
 - Does Analytics Engine store only usage/latency/error metrics rather than sensitive data?
 - Do Browser Run, Containers, and Email Service have their own usage events?
 
-Series post: [How to Use Cloudflare Observability: Workers Logs, Traces, and Analytics Engine](/en/posts/tech/2026-08-30-cloudflare-observability-analytics-engine-en).
+Series post: [How to Use Cloudflare Observability: Workers Logs, Traces, and Analytics Engine](/posts/tech/2026-08-30-cloudflare-observability-analytics-engine-en).
 
 ## 6. Estimate Cost by Service Combination
 

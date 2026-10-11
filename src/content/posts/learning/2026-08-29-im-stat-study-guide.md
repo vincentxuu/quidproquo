@@ -13,7 +13,7 @@ description: "給統計學初學者的讀書起點：如何從考試題型出發
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-study-guide-en)
+> [English version](/posts/learning/2026-08-29-im-stat-study-guide-en)
 
 你如果是為了研究所考試開始讀統計學，最容易走錯的路，是第一天就打開考古題，看到一題信賴區間就背信賴區間，看到一題卡方就背卡方。這樣短期好像有進度，因為每晚都多背了幾個公式；到真正寫題目時，反而不知道第一步要判斷什麼。
 

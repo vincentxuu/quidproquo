@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
+> 🌏 [English version](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
 
 ## 變更摘要
 

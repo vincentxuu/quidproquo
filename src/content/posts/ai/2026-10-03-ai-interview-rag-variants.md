@@ -43,7 +43,7 @@ glossary:
         url: "https://arxiv.org/abs/2402.07867"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
 
 RAG（Retrieval-Augmented Generation，檢索增強生成）是 AI Engineer 面試裡很常被問到的題目，而且很少只問一句。常見的追問是四件事：原理與優勢、最具代表性的應用場景與挑戰、有哪些 RAG 技術變體、RAG 解不了什麼。
 

@@ -39,7 +39,7 @@ glossary:
 
 Lecture 1 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Aug 25, 2026; [recording](https://www.youtube.com/watch?v=UwfjzyLnvMg), [slides](https://www.cmu-agents.com/slides/lecture-01-agents.pdf)) comes in two halves. In the first, Daniel Fried strips an agent down to its minimum: a language model plus a loop that executes tools. In the second, Graham Neubig asks the next question: writing the loop isn't hard, so how do you make it actually work? His answer is a map of "six capabilities × two paths," and the course schedule is laid out along that map.
 
-This post follows the lecture in order: the opening successes and failures, the definition of an agent, the three steps from language model to agent, the six capabilities, the training-versus-harness trade-off, the five components of an agent system, and the course's learning objectives. Format, grading, and assignment details are in the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en).
+This post follows the lecture in order: the opening successes and failures, the definition of an agent, the three steps from language model to agent, the six capabilities, the training-versus-harness trade-off, the five components of an agent system, and the course's learning objectives. Format, grading, and assignment details are in the [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
 ## Course video sources
 
@@ -257,7 +257,7 @@ The slide lists five learning objectives:
 4. Reason about safety and reliability trade-offs
 5. Pursue an open research question in agents
 
-The first three correspond to the three individual assignments (harness, evaluation, RL training), which take up roughly the first half of the semester; the second half is a team research project (the slides and the lecture say teams of 2–3; the website's grading table says 2–4, while its policy section still says 2–3 — see the series overview). The semester runs through agent capabilities, domains, training, frameworks and safety, and interaction, ending with guest lectures and poster presentations. Prerequisite, grading, AI-tool policy, and slack-day details are in the [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en); assignment dates on the slides were tentative, so go by the website.
+The first three correspond to the three individual assignments (harness, evaluation, RL training), which take up roughly the first half of the semester; the second half is a team research project (the slides and the lecture say teams of 2–3; the website's grading table says 2–4, while its policy section still says 2–3 — see the series overview). The semester runs through agent capabilities, domains, training, frameworks and safety, and interaction, ending with guest lectures and poster presentations. Prerequisite, grading, AI-tool policy, and slack-day details are in the [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en); assignment dates on the slides were tentative, so go by the website.
 
 ## Three things to do tonight
 
@@ -290,12 +290,12 @@ Long context. Keeping every memory in context affects efficiency, not just accur
 
 ## Further reading
 
-- On this site: [The Model Is a Component, the Harness Is the System](/en/posts/ai/2026-08-10-model-component-harness-system-en), the same line of argument as "agents are systems"
-- On this site: [From Prompt to Harness: The Three Evolutions of AI Engineering](/en/posts/ai/2026-03-28-harness-engineering-evolution-en)
-- On this site: [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/en/posts/ai/2026-03-24-context-engineering-guide-en), a primer for lecture 3
-- On this site: [The OpenClaw Agent Loop](/en/posts/ai/2026-03-28-openclaw-agent-loop-en), how the loop behind the opening incident is written
-- On this site: [Reading Stanford CS329Z](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), which also has you build a harness from scratch but doesn't touch training
-- On this site: [CME295 Lecture 7: Agentic LLMs](/en/posts/ai/2026-09-29-cme295-agentic-llms-en), the same ground from the RAG and function-calling angle
+- On this site: [The Model Is a Component, the Harness Is the System](/posts/ai/2026-08-10-model-component-harness-system-en), the same line of argument as "agents are systems"
+- On this site: [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en)
+- On this site: [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en), a primer for lecture 3
+- On this site: [The OpenClaw Agent Loop](/posts/ai/2026-03-28-openclaw-agent-loop-en), how the loop behind the opening incident is written
+- On this site: [Reading Stanford CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), which also has you build a harness from scratch but doesn't touch training
+- On this site: [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en), the same ground from the RAG and function-calling angle
 
 ## Update Log
 

@@ -41,7 +41,7 @@ The part worth reading closely is Pi Durable. Earendil's reasoning: Pi was desig
 
 ## It Stores More Than the Conversation
 
-Ordinary session persistence stores the transcript. If an agent is killed while analyzing file 64 of 100, it comes back knowing only that it was asked to analyze 100 files. It does not know whether the first 64 actually finished or whether the last tool call succeeded. (Another post on this site, [session persistence and crash recovery in coding agents](/en/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en), compares how different agents write transcripts and where their crash windows are.)
+Ordinary session persistence stores the transcript. If an agent is killed while analyzing file 64 of 100, it comes back knowing only that it was asked to analyze 100 files. It does not know whether the first 64 actually finished or whether the last tool call succeeded. (Another post on this site, [session persistence and crash recovery in coding agents](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en), compares how different agents write transcripts and where their crash windows are.)
 
 Pi Durable makes everything the harness runs a task. In the official wording, "every step of a run is a task that stores a checkpoint before it moves on." The built-in tasks are one per model request, one per tool call, and one for compaction, and extensions can define their own. After a restart, a new process opens the same storage, finds the unfinished tasks, and continues each from its last checkpoint.
 
@@ -146,5 +146,5 @@ Agent "memory" used to mean what the agent said. Pi Durable also stores how far 
 - [earendil-works/pi (GitHub)](https://github.com/earendil-works/pi)
 - [Pi — Cloudflare Agents docs](https://developers.cloudflare.com/agents/harnesses/pi)
 - [Run the Pi Durable harness on Cloudflare with the Agents SDK — Cloudflare Changelog (2026-10-02)](https://developers.cloudflare.com/changelog/post/2026-10-02-pi-harness)
-- [Learning Agent Design from Mature Coding Agents (19): Session Persistence and Crash Recovery](/en/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
-- [The Model Is a Component, the Harness Is the System](/en/posts/ai/2026-08-10-model-component-harness-system-en)
+- [Learning Agent Design from Mature Coding Agents (19): Session Persistence and Crash Recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
+- [The Model Is a Component, the Harness Is the System](/posts/ai/2026-08-10-model-component-harness-system-en)

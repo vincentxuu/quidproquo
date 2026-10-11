@@ -52,11 +52,11 @@ Moltworker is the only one that has not moved in three months. Check its status 
 
 > OpenClaw will live in a foundation as an open source project that OpenAI will continue to support.
 
-Steinberger put it more bluntly himself: he wanted to change the world, not build a big company. The project now sits in an independent foundation with OpenAI sponsoring it. Its asset is the ecosystem — ClawHub, the largest skill marketplace in the space, and the widest channel coverage (I took apart its almost-everything-is-a-plugin install model in [the channels overview](/en/posts/ai/2026-03-28-openclaw-channels-overview)).
+Steinberger put it more bluntly himself: he wanted to change the world, not build a big company. The project now sits in an independent foundation with OpenAI sponsoring it. Its asset is the ecosystem — ClawHub, the largest skill marketplace in the space, and the widest channel coverage (I took apart its almost-everything-is-a-plugin install model in [the channels overview](/posts/ai/2026-03-28-openclaw-channels-overview-en)).
 
 **Hermes Agent** is the other pole. Nous Research shipped it on 2026-02-25 — the official releases page describes it as "An autonomous agent that lives on your server, remembers what it learns, and gets more capable the longer it runs" — under MIT. Its core bet is not breadth but a **closed learning loop**: the agent curates its own memory, spins completed complex tasks into skills, improves those skills during use, and uses SQLite FTS5 over past sessions plus LLM summarisation for cross-session recall.
 
-(I covered the memory and skill machinery in [a separate post](/en/posts/ai/2026-08-18-hermes-agent-memory-skills); its sandbox backends carry a counterintuitive side effect, namely that [switching to a sandbox turns off dangerous-command approval](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends).)
+(I covered the memory and skill machinery in [a separate post](/posts/ai/2026-08-18-hermes-agent-memory-skills-en); its sandbox backends carry a counterintuitive side effect, namely that [switching to a sandbox turns off dangerous-command approval](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en).)
 
 The detail worth noticing is that Hermes ships `hermes claw migrate` — it detects `~/.openclaw` and imports SOUL.md, memories, skills and the command allowlist. The challenger made "move off the incumbent" a first-class feature. Stranger still, both use the same SKILL.md standard, so Hermes treats ClawHub as one of its own install sources: OpenClaw's marketplace feeds its largest competitor.
 
@@ -242,9 +242,9 @@ People and market:
 
 Related on this site:
 
-- [Reading the OpenClaw Docs — series overview](/en/posts/ai/2026-03-28-openclaw-overview)
-- [OpenClaw Channels Overview: who can trigger vs what the model sees](/en/posts/ai/2026-03-28-openclaw-channels-overview)
-- [OpenClaw access control: SecretRef is not process isolation](/en/posts/ai/2026-03-28-openclaw-auth-secrets)
-- [Hermes Agent: an introduction](/en/posts/ai/2026-08-18-hermes-agent-intro)
-- [Hermes Agent's memory and skills: a system that rewrites itself](/en/posts/ai/2026-08-18-hermes-agent-memory-skills)
-- [Hermes Agent's seven terminal backends: switching to a sandbox turns off dangerous-command approval](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends)
+- [Reading the OpenClaw Docs — series overview](/posts/ai/2026-03-28-openclaw-overview-en)
+- [OpenClaw Channels Overview: who can trigger vs what the model sees](/posts/ai/2026-03-28-openclaw-channels-overview-en)
+- [OpenClaw access control: SecretRef is not process isolation](/posts/ai/2026-03-28-openclaw-auth-secrets-en)
+- [Hermes Agent: an introduction](/posts/ai/2026-08-18-hermes-agent-intro-en)
+- [Hermes Agent's memory and skills: a system that rewrites itself](/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
+- [Hermes Agent's seven terminal backends: switching to a sandbox turns off dangerous-command approval](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en)

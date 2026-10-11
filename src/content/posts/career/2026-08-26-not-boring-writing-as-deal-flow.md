@@ -13,7 +13,7 @@ description: "Not Boring 創辦人 Packy McCormick 的完整歷程：從 Duke �
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-not-boring-writing-as-deal-flow-en)
+> 🌏 [English version](/posts/career/2026-08-26-not-boring-writing-as-deal-flow-en)
 
 Packy McCormick 用六年時間，把一封寫給幾百人的電子報變成一個橫跨內容創作（content creation）和創投的飛輪——creator economy 裡最不尋常的案例之一。他沒有創過公司、沒有技術背景、沒有 VC 經歷——起點是岳母家的地下室，妻子懷孕中，剛從一間快燒完錢的新創離職。
 

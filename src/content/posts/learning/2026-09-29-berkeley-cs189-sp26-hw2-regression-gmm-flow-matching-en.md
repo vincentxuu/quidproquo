@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
+This guide follows the public materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). The series starts at the [Berkeley CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 Homework 2 was released on 2/24, the same day as Lec 11, and was due **Friday 3/13 at 11:59 PM PT**, four days before the midterm. It reaches further than the lectures had at that point. The early problems review linear regression and MLE/MAP; the last two push GMMs forward into robust clustering and a generative model, flow matching.
 
@@ -46,7 +46,7 @@ The schedule's HW2 Assignment link points to a [Drive folder](https://drive.goog
 
 You submit a single PDF to the Gradescope "HW2 Write-Up" assignment, starting each problem on a new page. HW2 has no notebook or coding part. The syllabus says each homework has a Part 1 Warmup and a Part 2 Main, but the HW2 folder shows no such split.
 
-On this site's [A0–A3 scale](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en), the problems themselves are fully public, so an outside learner can work through all of them. What you can't get is official solutions, Gradescope grading, or the Ed discussion.
+On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the problems themselves are fully public, so an outside learner can work through all of them. What you can't get is official solutions, Gradescope grading, or the Ed discussion.
 
 ## The ten problems at a glance
 
@@ -76,7 +76,7 @@ The assignment says up front that this problem is about reading research papers 
 - **e. Method details:** What is a Bradley–Terry coefficient and how does Arena use it for scoring? And why does Section 4 of the paper say Bradley–Terry is better for statistical estimation than the original Elo? The hint: Elo is an online metric updated after each battle, while Bradley–Terry fits all match outcomes at once. The problem also points to [Bertrand et al.](https://arxiv.org/abs/2206.12301) on Elo failing to capture transitive structure.
 - **f. Limitations:** of Chatbot Arena itself, and of human-preference benchmarks in general. (Discussion)
 
-The end of [Lec 14](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en) already demonstrates this reading approach, including "the first four questions can usually be answered from the introduction" and "Bradley–Terry is essentially logistic regression". Reading those slides first will save you time.
+The end of [Lec 14](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en) already demonstrates this reading approach, including "the first four questions can usually be answered from the introduction" and "Bradley–Terry is essentially logistic regression". Reading those slides first will save you time.
 
 After the problem there's an ungraded page of "Other Practical Resources" that recommends Kaggle's entry-level Titanic competition and four related ones: LMSYS Chatbot Arena, WSDM Cup Multilingual Chatbot Arena, LLM Detect AI-Generated Text, and LLM Classification and Fine-Tuning.
 
@@ -98,7 +98,7 @@ At 42 points this is the heaviest problem in the assignment, inspired by the Neu
 2. **Robust k-means** (c–e; 23 points). Each point may carry an error term, and the objective becomes a weighted squared error over inliers only, with the constraint that inliers carry exactly 1 − α of the probability mass. You build the Lagrangian, optimize pointwise, find the optimal center, and finally show, for two overlapping 1D Gaussians, that the hard boundary pushes the center away from the true mean with strictly positive bias.
 3. **A GMM with a uniform background** (f, g; 7 points). Alongside two Gaussians with a shared covariance, a uniform component models outliers. You write the posterior responsibility γ₁(x) and prove that γ₁(x) → 0 as a point moves to infinity in any direction, explaining how the uniform term stabilizes the denominator.
 
-The storyline runs from geometric k-means to probabilistic GMMs, in the same order as [Lec 4–7](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). For the Lagrangian part, the problem links the Wikipedia article on Lagrange multipliers; Bishop's Appendix C also covers them.
+The storyline runs from geometric k-means to probabilistic GMMs, in the same order as [Lec 4–7](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en). For the Lagrangian part, the problem links the Wikipedia article on Lagrange multipliers; Bishop's Appendix C also covers them.
 
 ## Problem 10, Watch Me Flow Dat: flow matching is MLE
 
@@ -118,10 +118,10 @@ The [Fall 2026](https://eecs189.org/fa26/) schedule lists Homework 2 on Friday 9
 
 ## Further reading
 
-- Probability background: [Stanford CS109 on the Beta distribution](/en/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution-en), [maximum likelihood estimation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
-- Classic ML for comparison: [Stanford CS229 guide](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
+- Probability background: [Stanford CS109 on the Beta distribution](/posts/learning/2026-08-22-stanford-cs109-lecture-14-beta-distribution-en), [maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
+- Classic ML for comparison: [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 
-Previous: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en). Next: [Lec 17–18: neural networks and backpropagation](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en).
+Previous: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en). Next: [Lec 17–18: neural networks and backpropagation](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en).
 
 ## Things you can do tonight
 

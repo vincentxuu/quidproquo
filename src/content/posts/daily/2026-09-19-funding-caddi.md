@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-19-funding-caddi-en)
+> 🌏 [English version](/posts/daily/2026-09-19-funding-caddi-en)
 
 ## 融資資訊
 

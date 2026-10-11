@@ -29,7 +29,7 @@ The issue isn't chunking itself — it's that the same chunk must serve two conf
 
 Using a single chunk size for both roles inherently makes a fixed tradeoff between precision and completeness — and the optimal tradeoff point shifts with document type and query type.
 
-[Parent Document Retriever](/en/posts/ai/2026-03-12-chunking-strategies-en) was the first-generation solution: search with small chunks, retrieve the associated large chunk when there's a hit. But it only has two levels with fixed granularity. Hierarchical Chunking extends this concept to multiple levels.
+[Parent Document Retriever](/posts/ai/2026-03-12-chunking-strategies-en) was the first-generation solution: search with small chunks, retrieve the associated large chunk when there's a hit. But it only has two levels with fixed granularity. Hierarchical Chunking extends this concept to multiple levels.
 
 ## Hierarchical Chunking Design
 
@@ -129,8 +129,8 @@ Haystack's `HierarchicalDocumentSplitter` uses `block_sizes` (descending order) 
 | Method | Stage modified | Needs LLM | Storage multiplier | What it solves |
 |--------|---------------|-----------|-------------------|---------------|
 | **Hierarchical + Auto-Merge** | Retrieval | No | ~3× | Chunk size dilemma |
-| [Contextual Retrieval](/en/posts/ai/2026-03-12-contextual-retrieval-en) | Ingestion | Yes (per chunk) | ~1.1× | Chunk isolation |
-| [Late Chunking](/en/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en) | Embedding | No | 1× | Chunk isolation |
+| [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en) | Ingestion | Yes (per chunk) | ~1.1× | Chunk isolation |
+| [Late Chunking](/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en) | Embedding | No | 1× | Chunk isolation |
 | Parent Document Retriever | Retrieval | No | ~2× | Chunk size dilemma (two levels only) |
 
 **vs Contextual Retrieval**: Contextual Retrieval uses LLM to add context per chunk (costs money, adds latency); Hierarchical relies on structural design with no LLM. They can be stacked — do Contextual Retrieval first to improve leaf node embedding quality, then use Auto-Merge to solve the size dilemma.
@@ -143,7 +143,7 @@ Haystack's `HierarchicalDocumentSplitter` uses `block_sizes` (descending order) 
 
 1. **Increased storage**: Three-level indexing requires storing raw text for all levels (~3× baseline). The leaf node vector index stays the same size, but text storage grows.
 2. **Threshold tuning needed**: 50% is a reasonable default, but the optimal value depends on document structure and query type. HiChunk's adaptive threshold is the right direction but adds complexity.
-3. **Doesn't fix embedding quality**: If leaf node embeddings are poor (e.g., table chunks missing headers), Hierarchical Chunking won't help — it affects retrieval granularity, not search precision. For that, combine with [Header Propagation or Table-Aware Chunking](/en/posts/ai/2026-03-12-chunking-strategies-en).
+3. **Doesn't fix embedding quality**: If leaf node embeddings are poor (e.g., table chunks missing headers), Hierarchical Chunking won't help — it affects retrieval granularity, not search precision. For that, combine with [Header Propagation or Table-Aware Chunking](/posts/ai/2026-03-12-chunking-strategies-en).
 4. **Requires re-indexing**: Migrating from flat chunking means re-chunking, building the tree, and re-embedding all leaf nodes.
 
 ## Overall
@@ -152,7 +152,7 @@ Hierarchical Chunking + Auto-Merge is one of the few RAG improvements that needs
 
 LlamaIndex and Haystack both have it built in — no need to build from scratch. If your system already has a two-level Parent Document Retriever architecture, migrating to multi-level + Auto-Merge is a small change.
 
-Consider stacking [Contextual Retrieval](/en/posts/ai/2026-03-12-contextual-retrieval-en) to further improve leaf node embedding quality, or combining with [Cross-Encoder Reranking](/en/posts/ai/2026-03-12-cross-encoder-reranking-en) for more precise filtering before merging. But even standalone, the structural design alone delivers the 12.7% evidence recall improvement reported in HiChunk — at zero additional LLM cost, that's a solid return.
+Consider stacking [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en) to further improve leaf node embedding quality, or combining with [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en) for more precise filtering before merging. But even standalone, the structural design alone delivers the 12.7% evidence recall improvement reported in HiChunk — at zero additional LLM cost, that's a solid return.
 
 ## References
 
@@ -163,7 +163,7 @@ Consider stacking [Contextual Retrieval](/en/posts/ai/2026-03-12-contextual-retr
 - [Haystack — Improving Retrieval with Auto-Merging](https://haystack.deepset.ai/blog/improve-retrieval-with-auto-merging)
 - [Haystack — AutoMergingRetriever Documentation](https://docs.haystack.deepset.ai/docs/automergingretriever)
 - [Firecrawl — Best Chunking Strategies for RAG in 2026](https://www.firecrawl.dev/blog/best-chunking-strategies-rag)
-- [Chunking Strategies: How Splitting Decides Whether RAG Finds the Answer](/en/posts/ai/2026-03-12-chunking-strategies-en) (site)
-- [Contextual Retrieval: Adding "What This Chunk Is About" to Every Chunk](/en/posts/ai/2026-03-12-contextual-retrieval-en) (site)
-- [Cross-Encoder Reranking: Putting the Most Relevant Documents on Top](/en/posts/ai/2026-03-12-cross-encoder-reranking-en) (site)
-- [Late Chunking and Contextual Retrieval](/en/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en) (site)
+- [Chunking Strategies: How Splitting Decides Whether RAG Finds the Answer](/posts/ai/2026-03-12-chunking-strategies-en) (site)
+- [Contextual Retrieval: Adding "What This Chunk Is About" to Every Chunk](/posts/ai/2026-03-12-contextual-retrieval-en) (site)
+- [Cross-Encoder Reranking: Putting the Most Relevant Documents on Top](/posts/ai/2026-03-12-cross-encoder-reranking-en) (site)
+- [Late Chunking and Contextual Retrieval](/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en) (site)

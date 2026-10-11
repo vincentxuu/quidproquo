@@ -11,7 +11,7 @@ series:
   order: 42
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain-en)
+> 🌏 [English version](/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain-en)
 
 ## 事件概述
 

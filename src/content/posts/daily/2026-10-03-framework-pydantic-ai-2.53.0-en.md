@@ -86,7 +86,7 @@ I used to think of a concurrency limiter as a simple counter problem: take a slo
 - [Pydantic AI v2.53.0 Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.53.0)
 - [Security Advisory GHSA-6fqq-452j-qhrp](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-6fqq-452j-qhrp)
 - [Pydantic AI GitHub](https://github.com/pydantic/pydantic-ai)
-- [Pydantic AI v2.52.0 — previous framework update](/en/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0-en)
+- [Pydantic AI v2.52.0 — previous framework update](/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0-en)
 - [PR #9478: Fix ConcurrencyLimitedModel cross-task release vulnerability](https://github.com/pydantic/pydantic-ai/pull/9478)
 - [PR #9041: Add ToolCallJudge](https://github.com/pydantic/pydantic-ai/pull/9041)
 - [PR #8370: Expose repair_messages as a public API](https://github.com/pydantic/pydantic-ai/pull/8370)

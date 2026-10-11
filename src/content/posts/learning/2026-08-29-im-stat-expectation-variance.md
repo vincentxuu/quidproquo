@@ -13,7 +13,7 @@ description: "統計學期望值與變異數導讀：如何計算 E[X]、E[X^2]�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-expectation-variance-en)
+> [English version](/posts/learning/2026-08-29-im-stat-expectation-variance-en)
 
 期望值和變異數常被一起教，所以初學者容易把它們混成「平均和分散」。這樣講沒有錯，但太粗。考試和 ML/AI 評估真正需要的是：期望值告訴你長期中心，變異數告訴你結果會不會晃。
 

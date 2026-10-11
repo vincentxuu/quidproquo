@@ -13,7 +13,7 @@ description: "卡方檢定入門：適合度、獨立性、expected count、自�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-chi-square-independence-en)
+> [English version](/posts/learning/2026-08-29-im-stat-chi-square-independence-en)
 
 卡方題一出現，很多人會先找表格、找自由度、套 `sum (O - E)^2 / E`。這些都會用到，但真正的第一步是判斷題目在問哪一種「次數」問題。
 

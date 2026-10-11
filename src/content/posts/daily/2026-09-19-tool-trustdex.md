@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-19-tool-trustdex-en)
+> 🌏 [English version](/posts/daily/2026-09-19-tool-trustdex-en)
 
 ## 工具資訊
 

@@ -15,7 +15,7 @@ draft: false
 
 > [中文版](/posts/ai/2026-09-06-litgpt-from-scratch-framework)
 
-The first eight posts in this series were all about *training a specific model*: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) training a 64M teaching model, [YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) a 21B one, [OLMo 3](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) a 32B one. This post switches dimensions — instead of the model, look at the training skeleton. [LitGPT](https://github.com/Lightning-AI/litgpt) (Lightning AI, ~13,600 stars at the time of writing) ships no flagship model of its own; instead it rewrites 20+ mainstream LLMs — Llama 3, Qwen2.5, Phi 4, Gemma 2 — from scratch, and wraps them in a complete command-line flow: `litgpt pretrain` / `finetune` / `evaluate` / `serve`. If you want to get hands-on after reading the earlier posts but don't want to hand-write every line, this is the middle path.
+The first eight posts in this series were all about *training a specific model*: [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) training a 64M teaching model, [YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) a 21B one, [OLMo 3](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) a 32B one. This post switches dimensions — instead of the model, look at the training skeleton. [LitGPT](https://github.com/Lightning-AI/litgpt) (Lightning AI, ~13,600 stars at the time of writing) ships no flagship model of its own; instead it rewrites 20+ mainstream LLMs — Llama 3, Qwen2.5, Phi 4, Gemma 2 — from scratch, and wraps them in a complete command-line flow: `litgpt pretrain` / `finetune` / `evaluate` / `serve`. If you want to get hands-on after reading the earlier posts but don't want to hand-write every line, this is the middle path.
 
 ## Framework vs. project: a new dimension for this series
 
@@ -28,7 +28,7 @@ The lineage matters too. LitGPT grew out of Lit-LLaMA, a 2023 reproduction of LL
 
 ## Design philosophy: no abstraction, but not a toy
 
-Three checkmarks from the README are worth quoting verbatim: "From scratch implementations ✅ No abstractions ✅ Beginner friendly," and for debugging, "Easy debugging with no abstraction layers and single file implementations." Compare with the [transformers](https://github.com/huggingface/transformers) Trainer: there, the model hides between configs and callbacks, and debugging means stepping through layers to reach real code. In LitGPT every model is a single-file implementation and the training script reads top to bottom — [CS336](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) keeps stressing "understand what you train," and LitGPT makes that the default.
+Three checkmarks from the README are worth quoting verbatim: "From scratch implementations ✅ No abstractions ✅ Beginner friendly," and for debugging, "Easy debugging with no abstraction layers and single file implementations." Compare with the [transformers](https://github.com/huggingface/transformers) Trainer: there, the model hides between configs and callbacks, and debugging means stepping through layers to reach real code. In LitGPT every model is a single-file implementation and the training script reads top to bottom — [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) keeps stressing "understand what you train," and LitGPT makes that the default.
 
 "No abstraction" is easy to misread as "you build the wheels yourself." In practice it's the opposite: the distributed and performance infrastructure is already wired in — FSDP (PyTorch's native fully-sharded data parallelism), [Flash Attention 2](https://github.com/Dao-AILab/flash-attention) (Dao-AILab's kernels), 4-bit / 8-bit quantization ([bitsandbytes](https://github.com/TimDettmers/bitsandbytes)), and LoRA / QLoRA / Adapter. None of these are LitGPT inventions; the increment is that they're connected — flipping `--devices 8` gets you multi-GPU instead of hand-rolling DDP.
 
@@ -64,8 +64,8 @@ Framework routes are routinely dismissed as toys. LitGPT's counter-evidence is [
 
 ## Limits: a training skeleton, not a research framework
 
-- **No RLHF / GRPO.** The README's workflows are pretrain, finetune (with LoRA / QLoRA / Adapter), evaluate, and serve. Preference optimization means writing it yourself — ironically, [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) hand-wrote DPO, PPO, and GRPO.
-- **Data pipelines are on you.** LitGPT provides data modules (TextFiles, LitData); cleaning, deduplication, and mixture ratios — the data curation covered in the [YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) post — do not happen automatically.
+- **No RLHF / GRPO.** The README's workflows are pretrain, finetune (with LoRA / QLoRA / Adapter), evaluate, and serve. Preference optimization means writing it yourself — ironically, [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) hand-wrote DPO, PPO, and GRPO.
+- **Data pipelines are on you.** LitGPT provides data modules (TextFiles, LitData); cleaning, deduplication, and mixture ratios — the data curation covered in the [YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) post — do not happen automatically.
 - **Monitoring is on you.** Loggers can be wandb / tensorboard / csv, but there's no OLMo-style culture of public training logs and intermediate checkpoints: LitGPT hands you the buttons, not the operating records.
 - **Evaluation is borrowed.** `litgpt evaluate` wraps EleutherAI's [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness); the evaluation capability isn't LitGPT's own. That's sound design (no reinventing evaluation), but keep the two projects straight when reading eval docs.
 
@@ -75,14 +75,14 @@ Three routes from this series now sit side by side: MiniMind is "hand-write ever
 
 ## Overall
 
-The series can close in one sentence: if you want to understand every line, read [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en); if you want understanding *and* a real model, use LitGPT; if you're deciding whether to spend the money at all, go back to the [decision framework in order 6](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en). The previous post looked at efficient and edge models — [OpenELM and MiniCPM](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en); this one hands you the tool, limits included: no RLHF, bring your own data pipeline, wire up your own monitoring. It's a skeleton, not a full meal. Returning to the series' bias notes (skewed toward English- and Chinese-sphere GitHub star projects, no non-Transformer architectures), LitGPT's supported models do include multilingual implementations like BSC's [Salamandra](https://github.com/langtech-bsc/salamandra) — a rare exception. The next post, [Running MiniMind on RunPod](/en/posts/ai/2026-09-06-run-minimind-on-runpod-en), is the series' only hands-on entry — no architecture talk, just renting a machine and chatting with your own model.
+The series can close in one sentence: if you want to understand every line, read [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en); if you want understanding *and* a real model, use LitGPT; if you're deciding whether to spend the money at all, go back to the [decision framework in order 6](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en). The previous post looked at efficient and edge models — [OpenELM and MiniCPM](/posts/ai/2026-09-06-efficient-edge-llm-training-en); this one hands you the tool, limits included: no RLHF, bring your own data pipeline, wire up your own monitoring. It's a skeleton, not a full meal. Returning to the series' bias notes (skewed toward English- and Chinese-sphere GitHub star projects, no non-Transformer architectures), LitGPT's supported models do include multilingual implementations like BSC's [Salamandra](https://github.com/langtech-bsc/salamandra) — a rare exception. The next post, [Running MiniMind on RunPod](/posts/ai/2026-09-06-run-minimind-on-runpod-en), is the series' only hands-on entry — no architecture talk, just renting a machine and chatting with your own model.
 
 ## References
 
 - [LitGPT GitHub (README: 20+ models, workflows, project highlights)](https://github.com/Lightning-AI/litgpt)
 - [LitGPT official docs: Pretrain LLMs with LitGPT](https://lightning.ai/docs/litgpt/tutorials/pretrain)
 - [TinyLlama GitHub (acknowledgments: built upon lit-gpt)](https://github.com/jzhang38/TinyLlama)
-- [MiniMind: Train an LLM from scratch for 3 RMB (series order 1, EN)](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
+- [MiniMind: Train an LLM from scratch for 3 RMB (series order 1, EN)](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
 - [LM Evaluation Harness (EleutherAI)](https://github.com/EleutherAI/lm-evaluation-harness)
 - [NeurIPS 2023 LLM Efficiency Challenge](https://llm-efficiency-challenge.github.io)
 - [Flash Attention (Dao-AILab)](https://github.com/Dao-AILab/flash-attention)

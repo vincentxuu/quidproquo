@@ -11,7 +11,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en)
+> 🌏 [English version](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en)
 
 ## 事件概述
 

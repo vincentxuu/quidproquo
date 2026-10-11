@@ -18,7 +18,7 @@ glossary:
     def: "Monthly Active Users，月活躍使用者數，Llama License 用 7 億 MAU 作為免費商用的門檻"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-open-source-ai-licensing-guide-en)
+> 🌏 [English version](/posts/ai/2026-08-26-open-source-ai-licensing-guide-en)
 
 當一個 AI 模型說自己「開源」，它可能是 MIT 授權隨你用，也可能是「權重公開但超過 7 億使用者要另外談」。這兩者的差距，比「免費」跟「付費」還大。這篇整理 2026 年主流 AI 模型授權的實際差異，讓你在部署前知道自己踩在哪條線上。
 

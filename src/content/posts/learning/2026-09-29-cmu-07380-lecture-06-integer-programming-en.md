@@ -20,7 +20,7 @@ draft: false
 
 This is Lecture 6 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Discrete Optimization: ILP** (9/14). The title slide reads "Linear and Integer Programming," and the instructors are Pat Virtue and Mohammad Salameh.
 
-[Lec5](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) ended with this result: the optimum of an LP sits at a vertex of the feasible region, so checking boundary intersections is enough. This lecture sells stir-fry by the bowl and boba by the glass, so the variables must be integers. Vertices rarely land on integer grid points, and last lecture's guarantee is gone.
+[Lec5](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) ended with this result: the optimum of an LP sits at a vertex of the feasible region, so checking boundary intersections is enough. This lecture sells stir-fry by the bowl and boba by the glass, so the variables must be integers. Vertices rarely land on integer grid points, and last lecture's guarantee is gone.
 
 The answer is **branch and bound**. Pretend the integer constraint isn't there and solve the LP for an optimistic bound. If the result isn't integral, split the problem in two and keep going.
 
@@ -43,7 +43,7 @@ Checked on 2026-10-10.
 - [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): the site labels Recitation 4 (9/18) "ILP and PCA," and it shares this PDF with Recitation 3. This post uses Problem 2, Baymax's Factory, and Problem 3, Cargo Plane, and mentions Problem 4, CSP as IP, and Problem 5, 4-Queens
 - Lec6 has no pre-reading notes, and the site lists no assigned reading for it
 
-**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The official syllabus lists no public recording links, and the Canvas checkpoint is CMU-only.
+**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The official syllabus lists no public recording links, and the Canvas checkpoint is CMU-only.
 
 ## The starting question: what breaks when you add x ∈ ℤᴺ
 
@@ -65,7 +65,7 @@ There is also a Notation Alert slide: `x*_IP = argmin` is the optimal **point**,
 
 ## Relaxation: the same idea as an A\* heuristic
 
-Next to the relaxation slide the lecture asks, "Remember heuristics?" That points back to [07-280 heuristic search](/en/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en): loosen the original problem's constraints and get an optimistic estimate that is cheap to compute. The previous module's [Lec3 guide](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) used the same trick when it dropped delete effects to build planning heuristics.
+Next to the relaxation slide the lecture asks, "Remember heuristics?" That points back to [07-280 heuristic search](/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en): loosen the original problem's constraints and get an optimistic estimate that is cheap to compute. The previous module's [Lec3 guide](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) used the same trick when it dropped delete effects to build planning heuristics.
 
 In IP, what gets loosened is `x ∈ ℤᴺ`. The LP value `y*_LP` is never worse than the true integer optimum, so it is an admissible lower bound.
 
@@ -130,13 +130,13 @@ This is the recitation's most complete branch and bound problem. One ounce of me
 - **Part 3**: fractional medicine but whole bandages makes it a MILP, and you only branch on bandages
 - **Part 4**: both LP and IP can have infinitely many optimal solutions, for example when the cost vector is perpendicular to a constraint boundary that passes through infinitely many integer points
 
-**Cargo Plane** in the same recitation is really an LP modeling problem (12 variables, 10 constraints), and the point is to state assumptions such as splittable cargo. Problems 4 and 5 rewrite the [07-280 CSP](/en/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en) floor-assignment problem and 4-Queens as IPs. 4-Queens uses 0/1 variables, which makes it a binary IP.
+**Cargo Plane** in the same recitation is really an LP modeling problem (12 variables, 10 constraints), and the point is to state assumptions such as splittable cargo. Problems 4 and 5 rewrite the [07-280 CSP](/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en) floor-assignment problem and 4-Queens as IPs. 4-Queens uses 0/1 variables, which makes it a binary IP.
 
 ## Homework
 
 - **HW3 programming**, [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization): Q5 (7 pts) implements branch and bound in `solveIP`, reusing your Q3 LP solver; Q6 (2 pts) models a campus food-distribution problem as an IP; Q7 (3 pts) generalizes it to M providers and N communities
 - Two implementation notes on the assignment page are worth copying down: test integrality with a 1e-12 tolerance, since `floor` alone is not enough; and push a **fresh** constraint list for each branch instead of mutating one already on the queue
-- **HW3 written** Q1 is Bayes the Bat's portfolio IP (12 pts); see the [HW3 guide](/en/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en). HW3 is due 10/1, and this series does not post solutions
+- **HW3 written** Q1 is Bayes the Bat's portfolio IP (12 pts); see the [HW3 guide](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en). HW3 is due 10/1, and this series does not post solutions
 
 ## Things to do tonight
 
@@ -146,9 +146,9 @@ This is the recitation's most complete branch and bound problem. One ounce of me
 
 ## Series navigation
 
-- Previous: [Lecture 5: Linear Programming, and Why the Optimum Sits at a Vertex](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
-- Next: [Lecture 7: Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA](/en/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en)
-- Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [Lecture 5: Linear Programming, and Why the Optimum Sits at a Vertex](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
+- Next: [Lecture 7: Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en)
+- Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

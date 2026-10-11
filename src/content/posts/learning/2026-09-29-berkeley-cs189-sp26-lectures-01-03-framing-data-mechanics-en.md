@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For why this semester, see the previous post, the [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en).
+This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For why this semester, see the previous post, the [version map](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en).
 
 Most machine learning courses start deriving algorithms in week one. CS189 Spring 2026 does the opposite. One slide in [Lecture 1](https://drive.google.com/file/d/1dGqaqLlUbR6eW81MOIpW3U2JueI_dspt/view?usp=sharing) says it outright: "Teach ML Backwards". First you learn when to use ML, how to frame the problem, how to prepare data, and how to train and evaluate. The algorithmic details come later. The first three lectures open the course this way, and by the end you'll have the tools HW1 needs.
 
@@ -167,14 +167,14 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 
 ## Series navigation
 
-- Previous: [Three versions of CS189: Spring 2026 as the base, Spring 2025 as the classic, Fall 2026 in progress](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
-- Next: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians and GMMs](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
+- Previous: [Three versions of CS189: Spring 2026 as the base, Spring 2025 as the classic, Fall 2026 in progress](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
+- Next: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians and GMMs](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 
 ## Further reading
 
-- [Stanford CS109 L3: Bayes' theorem](/en/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en): background for the Discussion 1 probability question
-- [Stanford CS229 notes Ch. 1: linear regression](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en): how another course starts from linear models
-- [CMU 11-785 L1: introduction](/en/posts/ai/2026-08-22-cmu-11785-01-introduction-en): the same basics from a deep learning angle
+- [Stanford CS109 L3: Bayes' theorem](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en): background for the Discussion 1 probability question
+- [Stanford CS229 notes Ch. 1: linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en): how another course starts from linear models
+- [CMU 11-785 L1: introduction](/posts/ai/2026-08-22-cmu-11785-01-introduction-en): the same basics from a deep learning angle
 
 ## Update Log
 

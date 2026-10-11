@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-09-tool-bankmcp-en)
+> 🌏 [English version](/posts/daily/2026-09-09-tool-bankmcp-en)
 
 ## 工具資訊
 

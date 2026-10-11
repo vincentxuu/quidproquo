@@ -38,7 +38,7 @@ Checked on 2026-10-10.
 
 ## First: which year are your final materials from?
 
-The first 14 posts in this series followed the [2026 hw0–hw6](/en/posts/tech/2026-08-27-harvard-cs181-overview-en) through the semester. This last post does two things: it checks the second half against the official materials, and it fills in the practical that 2026 dropped.
+The first 14 posts in this series followed the [2026 hw0–hw6](/posts/tech/2026-08-27-harvard-cs181-overview-en) through the semester. This last post does two things: it checks the second half against the official materials, and it fills in the practical that 2026 dropped.
 
 There are four final-related PDFs under the course site's `static/` folder. No HTML page links to them right now, so open them straight from the repo directory:
 
@@ -56,19 +56,19 @@ The left column follows the checklist's own order. The right columns map it to l
 
 | Checklist section | 2026 counterpart | Status |
 |---|---|---|
-| 1 Regression (incl. Bayesian linear regression, posterior predictive) | W1–2; [HW0](/en/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en), [HW1](/en/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) | Both years; no separate Bayesian lecture on the 2026 schedule |
-| 2 Classification (logistic, GD, perceptron, Naive Bayes) | W3; [HW2](/en/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en) | Both years |
-| 3 Neural Networks & Model Selection | W2, W4–5; [HW3](/en/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en) | Both years |
+| 1 Regression (incl. Bayesian linear regression, posterior predictive) | W1–2; [HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en), [HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) | Both years; no separate Bayesian lecture on the 2026 schedule |
+| 2 Classification (logistic, GD, perceptron, Naive Bayes) | W3; [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en) | Both years |
+| 3 Neural Networks & Model Selection | W2, W4–5; [HW3](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en) | Both years |
 | 4 SVMs | W4 Richer Features, S4 Kernel methods; HW3 kernel problem | Partial: no SVM lecture title in 2026 |
-| 5 Clustering (K-means, HAC) | W9; [HW5 clustering and PCA](/en/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en) | Both years |
+| 5 Clustering (K-means, HAC) | W9; [HW5 clustering and PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en) | Both years |
 | 6 Mixture Models & Topic Models (EM) | No matching lecture; the HW4 VAE uses the ELBO | 2025 only |
 | 7 Dimensionality reduction (PCA, SVD) | W9; HW5 | Both years |
 | 8 Graphical models & Bayes nets | No matching lecture | 2025 only |
-| 9 HMMs (forward-backward, Viterbi, Kalman) | W11; [HW6 HMM and Kalman](/en/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en) | Both years |
-| 10 MDPs (VI, PI) | W12; [HW6 MDPs](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en) | Both years |
-| 11 RL (SARSA, Q-learning) | W12–13; [HW6 Q-learning](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en) | Both years |
+| 9 HMMs (forward-backward, Viterbi, Kalman) | W11; [HW6 HMM and Kalman](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en) | Both years |
+| 10 MDPs (VI, PI) | W12; [HW6 MDPs](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en) | Both years |
+| 11 RL (SARSA, Q-learning) | W12–13; [HW6 Q-learning](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en) | Both years |
 
-Going the other way, 2026 taught several topics the checklist never mentions: CNNs, autoencoders and VAEs ([HW4](/en/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)), [Transformers](/en/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en), [decision trees and random forests](/en/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en), [contrastive learning and GANs](/en/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en), and [autoregressive models](/en/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en).
+Going the other way, 2026 taught several topics the checklist never mentions: CNNs, autoencoders and VAEs ([HW4](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)), [Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en), [decision trees and random forests](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en), [contrastive learning and GANs](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en), and [autoregressive models](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en).
 
 **How to use the table**:
 
@@ -124,17 +124,17 @@ The data is in the repo's [`practical/data`](https://github.com/harvard-ml-cours
 
 ## Where to go next
 
-- **Harvard's next course**: The [Harvard AI/ML course map](/en/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) explains that CS1820 (Planning and Learning Methods in AI) is not a sequel to CS1810. It approaches AI through search, planning, games, and uncertainty. When that post was checked, the Fall 2026 offering was only at **A0**, with no self-study materials.
-- **A peer ML course from another angle**: [Berkeley CS189 Spring 2025](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) publishes its homework and past exams. [Stanford CS229](/en/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) is heavier on derivations.
-- **Toward deep learning and LLMs**: CS181 only opens the door on Transformers and autoregressive decoding. Continue with [Stanford CS224N](/en/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en).
-- **Toward reinforcement learning**: hw6's MDPs and Q-learning are the starting point. [CMU 07-280](/en/posts/ai/2026-08-22-cmu-07280-course-overview-en) takes you all the way to AlphaZero.
-- **Finding other courses**: The [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en) grades each course A0–A3 by how far you can self-study it.
+- **Harvard's next course**: The [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en) explains that CS1820 (Planning and Learning Methods in AI) is not a sequel to CS1810. It approaches AI through search, planning, games, and uncertainty. When that post was checked, the Fall 2026 offering was only at **A0**, with no self-study materials.
+- **A peer ML course from another angle**: [Berkeley CS189 Spring 2025](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) publishes its homework and past exams. [Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) is heavier on derivations.
+- **Toward deep learning and LLMs**: CS181 only opens the door on Transformers and autoregressive decoding. Continue with [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en).
+- **Toward reinforcement learning**: hw6's MDPs and Q-learning are the starting point. [CMU 07-280](/posts/ai/2026-08-22-cmu-07280-course-overview-en) takes you all the way to AlphaZero.
+- **Finding other courses**: The [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) grades each course A0–A3 by how far you can self-study it.
 
 ## Series navigation
 
-- Previous: [HW6 (4): Q-learning on Swingy Monkey + Embedded EthiCS](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
-- Back to the start: [Harvard CS181 overview](/en/posts/tech/2026-08-27-harvard-cs181-overview-en)
-- First-half counterpart: [Midterm checkpoint](/en/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
+- Previous: [HW6 (4): Q-learning on Swingy Monkey + Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
+- Back to the start: [Harvard CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+- First-half counterpart: [Midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
 
 ## Update Log
 

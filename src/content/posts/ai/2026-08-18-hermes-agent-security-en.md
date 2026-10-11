@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-security)
 
-Post 9 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 9 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 For an agent that runs commands, writes files, browses the web, and answers messaging platforms, the security model isn't a feature — it's the precondition for using it at all. Hermes covers this layer more thoroughly than most, and more usefully, **upstream states what it protects against and what it doesn't**.
 
@@ -35,7 +35,7 @@ approvals:
 | `manual` | Always prompt on dangerous commands |
 | `off` | No checks at all — equivalent to `--yolo` |
 
-Note the defaults for `cron_mode` and `single_query_mode`: **headless contexts default to `deny`** — a scheduled job or a `-q` query that hits a dangerous command is blocked so the agent has to find another path, rather than auto-approved. It's the same posture as the `blocked_config` behavior from [the gateway post](/en/posts/ai/2026-08-18-hermes-agent-gateway-cron): **when nobody is watching, the default is not to act.**
+Note the defaults for `cron_mode` and `single_query_mode`: **headless contexts default to `deny`** — a scheduled job or a `-q` query that hits a dangerous command is blocked so the agent has to find another path, rather than auto-approved. It's the same posture as the `blocked_config` behavior from [the gateway post](/posts/ai/2026-08-18-hermes-agent-gateway-cron-en): **when nobody is watching, the default is not to act.**
 
 The 300-second approval timeout is fail-closed too: no answer means denied.
 
@@ -96,7 +96,7 @@ And the most honest paragraph in the whole security page:
 
 > Write guards apply to `write_file` and `patch` only. The `terminal` tool runs as the same OS user and can still `cat` or overwrite denied paths via shell commands.
 
-**Write protection prevents accidents, not malice.** Under the same OS user, a shell always routes around it. The only real boundary is an [isolated backend](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends).
+**Write protection prevents accidents, not malice.** Under the same OS user, a shell always routes around it. The only real boundary is an [isolated backend](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en).
 
 There's also a useful display feature: `display.file_mutation_verifier` (on by default) appends a file-mutation footer to each turn, and the docs say plainly that when the model claims an edit succeeded and the verifier disagrees, **trust the verifier**. That's a direct answer to models reporting false success.
 
@@ -112,7 +112,7 @@ Home networks and LAN-only Ollama endpoints have a global opt-out for legitimate
 
 **Context-file injection protection** scans `AGENTS.md`, `.cursorrules`, and `SOUL.md` for instructions to ignore prior instructions, suspicious keywords hidden in HTML comments, attempts to read `.env` / `credentials` / `.netrc`, credential exfiltration via `curl`, and invisible Unicode (zero-width spaces, bidirectional overrides). A hit blocks the whole file with a `[BLOCKED: …]` notice.
 
-That one matters enormously in the "clone a repo and run the agent" workflow — **the `AGENTS.md` in that repo is text someone else wrote, and it goes into your system prompt.** The same scanning applies to [memory entries](/en/posts/ai/2026-08-18-hermes-agent-memory-skills), for the same reason.
+That one matters enormously in the "clone a repo and run the agent" workflow — **the `AGENTS.md` in that repo is text someone else wrote, and it goes into your system prompt.** The same scanning applies to [memory entries](/posts/ai/2026-08-18-hermes-agent-memory-skills-en), for the same reason.
 
 ## Checkpoints: opt-in since v2
 
@@ -127,10 +127,10 @@ The mechanism is worth a look: a single shared **shadow git repository** under `
 Set the strength by who's watching:
 
 - **Local, interactive, you're present**: defaults are fine (smart approvals, local backend), plus a few `approvals.deny` entries for things you never want to see.
-- **Resident on messaging platforms**: turn on [write approval for memory and skills](/en/posts/ai/2026-08-18-hermes-agent-memory-skills), move to the Docker backend (remembering that this disables dangerous-command approval and makes the container the boundary), and block your internal network with `website_blocklist`.
+- **Resident on messaging platforms**: turn on [write approval for memory and skills](/posts/ai/2026-08-18-hermes-agent-memory-skills-en), move to the Docker backend (remembering that this disables dangerous-command approval and makes the container the boundary), and block your internal network with `website_blocklist`.
 - **Fully unattended**: keep `cron_mode: deny`, set `tirith_fail_open: false`, tighten `HERMES_WRITE_SAFE_ROOT`, and treat an isolated backend as mandatory.
 
-Last in the series: [migrating from OpenClaw](/en/posts/ai/2026-08-18-hermes-agent-openclaw-migration).
+Last in the series: [migrating from OpenClaw](/posts/ai/2026-08-18-hermes-agent-openclaw-migration-en).
 
 ## References
 

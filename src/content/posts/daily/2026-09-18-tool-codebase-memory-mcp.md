@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
+> 🌏 [English version](/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
 
 ## 工具資訊
 

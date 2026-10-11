@@ -119,7 +119,7 @@ The website lists four CMU courses with overlapping content, none by much:
 | [11-891 Neural Code Generation](https://cmu-codegen.github.io/f2025/) | About two weeks on code generation agents |
 | [11-777 Multimodal ML](https://cmu-mmml.github.io/) | About one week on GUI agents |
 
-In terms of courses this site has already covered: [Stanford CS329Z](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) also has you build an agent harness from scratch, but it focuses on systems engineering and evaluation and doesn't touch training; [Stanford CS336](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) teaches you to train a language model from scratch — exactly the experience 11-768 requires. 11-768 sits between them: it takes your ability to train models and points it at agents that use tools and act in environments.
+In terms of courses this site has already covered: [Stanford CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) also has you build an agent harness from scratch, but it focuses on systems engineering and evaluation and doesn't touch training; [Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) teaches you to train a language model from scratch — exactly the experience 11-768 requires. 11-768 sits between them: it takes your ability to train models and points it at agents that use tools and act in environments.
 
 ## How to read this series
 
@@ -130,22 +130,22 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 | Part | Maps to | Topic | Status |
 |---|---|---|---|
 | 0 | — | Series overview | This post |
-| 1 | L1 | [What Is an Agent?](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) | Published |
-| 2 | L2 | [Tool Use](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) | Published |
-| 3 | L3 | [Context Management for Long-Context Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) | Published |
-| 4 | L4 | [Skills and Memory](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) | Published |
-| 5 | L5 | [Planning, Task Decomposition, Multi-Agent Coordination](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en) | Published |
-| 6 | L6 | [Coding Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) | Published |
-| 7 | A1 | [Assignment 1: Harness](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) | Published |
-| 8 | L7 | [Computer Use Agents (JY Koh)](/en/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en) | Published |
-| 9 | L8 | [SFT (Yueqi Song)](/en/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) | Published |
-| 10 | L9 | [RL Basics](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) | Published |
-| 11 | L10 | [Deep Research Agents (Akari Asai)](/en/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published |
-| 12 | L11 | [Advanced RL Algorithms](/en/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video pending) |
-| 13 | L12 | [RL Systems (Apurva Gandhi)](/en/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video pending) |
-| 14 | A2 | [Assignment 2: Eval](/en/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en) | Published |
-| 15 | L13 | [Agent Safety: sandboxes, credentials, monitoring, evaluation](/en/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en) | Published (from slides; video pending) |
-| 16 | L14 | [OpenHands](/en/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en) | Published (from slides; video pending) |
+| 1 | L1 | [What Is an Agent?](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) | Published |
+| 2 | L2 | [Tool Use](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) | Published |
+| 3 | L3 | [Context Management for Long-Context Agents](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) | Published |
+| 4 | L4 | [Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) | Published |
+| 5 | L5 | [Planning, Task Decomposition, Multi-Agent Coordination](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en) | Published |
+| 6 | L6 | [Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) | Published |
+| 7 | A1 | [Assignment 1: Harness](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) | Published |
+| 8 | L7 | [Computer Use Agents (JY Koh)](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents-en) | Published |
+| 9 | L8 | [SFT (Yueqi Song)](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) | Published |
+| 10 | L9 | [RL Basics](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en) | Published |
+| 11 | L10 | [Deep Research Agents (Akari Asai)](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents-en) | Published |
+| 12 | L11 | [Advanced RL Algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en) | Published (from slides; video pending) |
+| 13 | L12 | [RL Systems (Apurva Gandhi)](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en) | Published (from slides; video pending) |
+| 14 | A2 | [Assignment 2: Eval](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval-en) | Published |
+| 15 | L13 | [Agent Safety: sandboxes, credentials, monitoring, evaluation](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en) | Published (from slides; video pending) |
+| 16 | L14 | [OpenHands](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en) | Published (from slides; video pending) |
 | 17 | L15 | LangGraph | Awaiting course release |
 | 18 | L16 | Observability & Monitoring (Eric Wallace) | Awaiting course release |
 | 19 | L17 | Agents and the Future of Work (Zora Wang) | Awaiting course release |
@@ -159,7 +159,7 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 
 Material status as of 2026-10-10: L1–L10 have slides and recordings, L11–L14 have slides only, nothing from L15 on is public yet, and the Assignment 3 repo is not public either (due Oct 29).
 
-If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
+If you only plan to read a few, start with [lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
 
 ## Update Log
 
@@ -174,5 +174,5 @@ If you only plan to read a few, start with [lecture 1](/en/posts/ai/2026-09-29-c
 - [Lecture 1 recording](https://www.youtube.com/watch?v=UwfjzyLnvMg)
 - [cmu-agents/assignment-1](https://github.com/cmu-agents/assignment-1) (Assignment 1: Build an Agent Harness)
 - [cmu-agents/assignment-2](https://github.com/cmu-agents/assignment-2) (Assignment 2: Evaluating a Data-Visualization Agent)
-- On this site: [Reading Stanford CS329Z](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
-- On this site: [Reading Stanford CS336](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
+- On this site: [Reading Stanford CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)

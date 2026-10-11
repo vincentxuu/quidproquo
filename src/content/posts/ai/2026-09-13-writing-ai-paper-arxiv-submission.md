@@ -8,7 +8,7 @@ tldr: "綜合 arXiv 官方指引、NeurIPS Reproducibility Checklist、REFORMS �
 description: "寫一篇 AI 論文並投上 arXiv 需要跨越多少關卡？從論文結構與實驗設計、RE-FORMS 與 NeurIPS 雙檢查清單、arXiv 的 2026 年 endorsement 新制與分類選擇、五大頂會（NeurIPS/ICML/ICLR/CVPR/ACL）的 arXiv 預印本政策差異，到 rebuttal 策略與 camera-ready 準備。本文以最新官方來源為基礎，整理一套從寫到投的完整決策框架。"
 draft: false
 ---
-> 🌏 [English version](/en/posts/ai/2026-09-13-writing-ai-paper-arxiv-submission)
+> 🌏 [English version](/posts/ai/2026-09-13-writing-ai-paper-arxiv-submission-en)
 
 ## TL;DR
 

@@ -13,7 +13,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en)
+> 🌏 [English version](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction-en)
 
 如果你的知識庫有一堆帶表格和圖表的 PDF，現在多了一個可以自己架的選項：不跑 OCR，直接把整頁當圖片建索引。Perplexity 在 2026 年 10 月 7 日發表 [`pplx-embed-v2-late`](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector)，兩個模型（0.6B、9B）權重都放在 Hugging Face，授權是 MIT。這篇回答兩個問題：它到底改了什麼、值不值得為它動現有的 RAG 管線。
 

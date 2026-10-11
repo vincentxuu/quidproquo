@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-HW1 in [CMU 07-380](https://www.cs.cmu.edu/~07380/) was due 9/3 and has two parts: online questions on Gradescope and a programming assignment, [Logic and the Hybrid Wumpus Agent](https://www.cs.cmu.edu/~07380/assignments/logic_plan/). This post covers only the programming part: what it asks for, which idea from [Lecture 2](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en) each question needs, and how to run the autograder on your own machine.
+HW1 in [CMU 07-380](https://www.cs.cmu.edu/~07380/) was due 9/3 and has two parts: online questions on Gradescope and a programming assignment, [Logic and the Hybrid Wumpus Agent](https://www.cs.cmu.edu/~07380/assignments/logic_plan/). This post covers only the programming part: what it asks for, which idea from [Lecture 2](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en) each question needs, and how to run the autograder on your own machine.
 
 Two things up front:
 
@@ -181,7 +181,7 @@ The local autograder does not record grades. Official submission means uploading
 2. Play one game on `-l wumpusClassic` yourself. For every step, write down which readings prove the next square safe. That is what Q5 automates.
 3. Before Q2, write out on paper which clauses `atMostOne` needs for three literals, then think about how the clause count grows for four or ten.
 
-Previous: [Lecture 2 guide: Logical Agents](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Next: [Lecture 3 guide: Classical Planning](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en).
+Previous: [Lecture 2 guide: Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Next: [Lecture 3 guide: Classical Planning](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en).
 
 For how this family of Pacman assignments evolved, see the [Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
 

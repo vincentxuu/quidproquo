@@ -11,7 +11,7 @@ series:
   order: 36
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-23-security-maxkb-agent-shell-rce-en)
+> 🌏 [English version](/posts/daily/2026-09-23-security-maxkb-agent-shell-rce-en)
 
 
 ## 事件概述

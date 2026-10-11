@@ -45,7 +45,7 @@ flowchart TB
   H --> M(("LLM"))
 ```
 
-The vocabulary is young. In June 2025, Shopify CEO Tobi Lütke [said he preferred "context engineering" over "prompt engineering"](https://simonwillison.net/2025/jun/27/context-engineering/), and Andrej Karpathy [backed the term in his own post](https://x.com/karpathy/status/1937902205765607626). Anthropic's engineering team wrote in [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) that they see context engineering as the natural progression of prompt engineering. The word "harness" spread in February 2026 after an OpenAI article, covered below. For another take on the progression, see the site's [From Prompt to Harness: The Three Evolutions of AI Engineering](/en/posts/ai/2026-03-28-harness-engineering-evolution-en).
+The vocabulary is young. In June 2025, Shopify CEO Tobi Lütke [said he preferred "context engineering" over "prompt engineering"](https://simonwillison.net/2025/jun/27/context-engineering/), and Andrej Karpathy [backed the term in his own post](https://x.com/karpathy/status/1937902205765607626). Anthropic's engineering team wrote in [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) that they see context engineering as the natural progression of prompt engineering. The word "harness" spread in February 2026 after an OpenAI article, covered below. For another take on the progression, see the site's [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en).
 
 | Layer | Core question | What it governs | Typical failure | First fix |
 |---|---|---|---|---|
@@ -84,7 +84,7 @@ Third, separate "valid" from "correct" when specifying format. OpenAI's [Structu
 
 Chain-of-thought also has a zero-example form: [Kojima et al.](https://arxiv.org/abs/2205.11916) found that appending "Let's think step by step" beats standard zero-shot prompting on several reasoning tasks.
 
-A solid prompt roughly contains role, background, task and constraints, examples, output format, and reasoning guidance, though not every prompt needs all six. Anthropic's advice runs the other way: [start with a minimal prompt](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and add instructions and examples only for failures you actually observe. For the iteration workflow, read the site's [Prompt Engineering in Practice](/en/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en). For versioning prompt changes against evals, see [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/en/posts/ai/2026-08-25-coding-agent-prompt-versioning-en). Prompt design for RAG is covered in [RAG Prompt Engineering](/en/posts/ai/2026-03-12-rag-prompt-engineering-en).
+A solid prompt roughly contains role, background, task and constraints, examples, output format, and reasoning guidance, though not every prompt needs all six. Anthropic's advice runs the other way: [start with a minimal prompt](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and add instructions and examples only for failures you actually observe. For the iteration workflow, read the site's [Prompt Engineering in Practice](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en). For versioning prompt changes against evals, see [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning-en). Prompt design for RAG is covered in [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en).
 
 **How to answer in an interview**
 
@@ -115,7 +115,7 @@ At any moment, an agent's context usually holds these parts:
 | Examples | Few-shot input and output pairs | Stuffed with edge cases |
 | Long-term memory | Preferences and conclusions kept across sessions | Stale or poisoned |
 
-[LangChain](https://blog.langchain.com/context-engineering-for-agents/) also offers a coarser three-way split into instructions, knowledge, and tool feedback, which is easy to remember. The site's [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/en/posts/ai/2026-03-24-context-engineering-guide-en) has the full diagrams and examples.
+[LangChain](https://blog.langchain.com/context-engineering-for-agents/) also offers a coarser three-way split into instructions, knowledge, and tool feedback, which is easy to remember. The site's [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en) has the full diagrams and examples.
 
 ### How poor design breaks things
 
@@ -147,7 +147,7 @@ flowchart LR
 ```
 
 1. **Dynamic assembly.** Context is not a static template. It is the output of code that runs before the main LLM call and decides, per task, what to include.
-2. **Retrieval, reranking, compression.** Fetch candidates, use a reranker to keep the few most useful snippets, and summarize into key points when needed. The site's [RAG Evaluation Frameworks and Tool Selection](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en) shows how to measure this stage.
+2. **Retrieval, reranking, compression.** Fetch candidates, use a reranker to keep the few most useful snippets, and summarize into key points when needed. The site's [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) shows how to measure this stage.
 3. **On-demand retrieval.** In the [just-in-time approach](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) Anthropic describes, an agent holds lightweight identifiers such as file paths or queries and loads data through tools only when needed. The cost is speed compared with precomputed retrieval, and the design has to teach the model how to look.
 4. **Compression and pruning.** Long tasks can use compaction (summarize, then restart the window), structured notes, and subagents. Anthropic's compaction keeps architectural decisions and unresolved issues and drops redundant tool output. The hard part is choosing what to keep, because over-aggressive compaction loses details whose importance only shows up later.
 5. **Isolation.** In LangChain's write, select, compress, isolate framework, isolation means giving multiple agents clean windows or keeping large objects in a sandbox and returning only a summary.
@@ -168,7 +168,7 @@ What separates this work from traditional software engineering is the non-determ
 
 ### OpenAI's case and Böckeler's grouping
 
-In February 2026, OpenAI's Ryan Lopopolo published [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/). By OpenAI's own account (not independently audited), a team used Codex to build an internal product of roughly one million lines of code in about five months, with around 1,500 pull requests and zero hand-written lines. The article describes the engineer's job as designing environments, specifying intent, and building feedback loops. The site has a full walkthrough: [OpenAI Wrote a Million Lines with Codex: Harness Engineering in Practice](/en/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first-en).
+In February 2026, OpenAI's Ryan Lopopolo published [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/). By OpenAI's own account (not independently audited), a team used Codex to build an internal product of roughly one million lines of code in about five months, with around 1,500 pull requests and zero hand-written lines. The article describes the engineer's job as designing environments, specifying intent, and building feedback loops. The site has a full walkthrough: [OpenAI Wrote a Million Lines with Codex: Harness Engineering in Practice](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first-en).
 
 Birgitta Böckeler's [first-thoughts memo](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html) on Fowler's site grouped the OpenAI team's harness into three categories. She notes in the text that this grouping is her interpretation, not headings from OpenAI's article:
 
@@ -194,7 +194,7 @@ Combining OpenAI's account, Böckeler's frameworks, and the site's own write-ups
 | Observability | Tracing, logs, cost and latency |
 | Session management | Multi-turn state, checkpoint and resume |
 
-The site's [Advanced Harness Engineering Patterns](/en/posts/ai/2026-03-30-harness-engineering-patterns-en) covers the Tool Registry, Guard System, and Checkpoint-Resume. [Anthropic's Harness Design](/en/posts/ai/2026-03-28-anthropic-harness-design-en) and [Phil Schmid on the Agent Harness](/en/posts/ai/2026-03-28-phil-schmid-agent-harness-en) offer two more angles, and [The Model Is a Component, the Harness Is the System](/en/posts/ai/2026-08-10-model-component-harness-system-en) collects conclusions from several companies.
+The site's [Advanced Harness Engineering Patterns](/posts/ai/2026-03-30-harness-engineering-patterns-en) covers the Tool Registry, Guard System, and Checkpoint-Resume. [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design-en) and [Phil Schmid on the Agent Harness](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) offer two more angles, and [The Model Is a Component, the Harness Is the System](/posts/ai/2026-08-10-model-component-harness-system-en) collects conclusions from several companies.
 
 Preprints on the topic have appeared since 2026. Evidence strength varies, and an interview citation should say so:
 
@@ -229,7 +229,7 @@ Start with the definition: a harness is the engineering wrapped around a non-det
 
 Maiorano's results give a concrete example of "not a single metric": on FiQA in an SLA-first scenario, gpt-4.1-mini [led on readiness and faithfulness](https://arxiv.org/abs/2603.27355) while gpt-5.2 paid a substantial latency cost. The same paper's ticket-routing experiments show regression gates consistently rejecting unsafe prompt variants. This is a single-author result, good for illustrating design thinking and not for generalizing.
 
-The most common follow-up on mixed scoring is whether LLM-as-judge can be trusted. It carries biases, so calibrate against human labels, fix the rubric, and add deterministic checks for critical items. The site's [How to Rigorously Compare an Agent Before and After a Change](/en/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en) covers golden-set sizing, judge bias, and statistical tests, and [Self-Reflection + LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en) covers letting a model evaluate itself. On tooling, see [Promptfoo](/en/posts/ai/2026-08-22-promptfoo-llm-evaluation-en), [Braintrust](/en/posts/ai/2026-08-22-braintrust-llm-evaluation-en), and [Arize Phoenix](/en/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en). For observability, there is the [Langfuse guide](/en/posts/ai/2026-03-26-langfuse-llm-observability-guide-en) and [Agent Observability: From OTel Traces to Catching Hallucinations, Tool Misuse, and Infinite Loops](/en/posts/ai/2026-06-04-agent-observability-failure-detection-en).
+The most common follow-up on mixed scoring is whether LLM-as-judge can be trusted. It carries biases, so calibrate against human labels, fix the rubric, and add deterministic checks for critical items. The site's [How to Rigorously Compare an Agent Before and After a Change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en) covers golden-set sizing, judge bias, and statistical tests, and [Self-Reflection + LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en) covers letting a model evaluate itself. On tooling, see [Promptfoo](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en), [Braintrust](/posts/ai/2026-08-22-braintrust-llm-evaluation-en), and [Arize Phoenix](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en). For observability, there is the [Langfuse guide](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en) and [Agent Observability: From OTel Traces to Catching Hallucinations, Tool Misuse, and Infinite Loops](/posts/ai/2026-06-04-agent-observability-failure-detection-en).
 
 ### The risks of having no evaluation
 
@@ -238,7 +238,7 @@ Without evaluation, risk does not arrive as one explosion. It accumulates where 
 - **Silent regression.** You change a prompt to fix one problem and quietly break three other cases. It is the signature risk of LLM development, because outputs are non-deterministic and traditional assertions miss it.
 - **Hallucination reaching users.** Nobody measures groundedness, so wrong answers go straight to users.
 - **Drift.** A provider updates the model or users' questions shift, and yesterday's passing cases fail today. Only continuous evaluation reveals it.
-- **Security and privacy.** Prompt injection and leakage of sensitive data. The site's [Agent Security: Prompt Injection and Trust Boundaries](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en) covers layered defenses.
+- **Security and privacy.** Prompt injection and leakage of sensitive data. The site's [Agent Security: Prompt Injection and Trust Boundaries](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en) covers layered defenses.
 - **Cascading failure.** When output feeds other automation, one error amplifies into an operational incident, so high-risk flows need human confirmation.
 - **Compliance and accountability.** Without records and tests you cannot show how the system behaves at its limits.
 
@@ -268,7 +268,7 @@ Stage by stage, each one should answer what it blocks, how, and at what cost:
 3. **Evaluation gate.** Run the frozen golden set with deterministic checks first and LLM-as-judge for semantics. Run each case several times and look at the pass rate rather than a single right-or-wrong. Set explicit thresholds, block the PR below them, and post the diff against main. Frameworks such as [DeepEval](https://github.com/confident-ai/deepeval), which works in a pytest style, or the Promptfoo mentioned above, fit here.
 4. **Pre-production.** Beyond staging, use shadow deployment (mirror traffic without returning results to users), canary, and A/B, plus human spot checks. This stage measures latency and cost.
 5. **Production monitoring.** Online sampled scoring, drift detection, anomaly alerts, and user feedback collection.
-6. **Feeding back.** Tag bad cases and add them to the golden set so every incident becomes a permanent test. The site's [AI-Native SDLC Playbook L9](/en/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals-en) applies this idea to CI for agent configuration.
+6. **Feeding back.** Tag bad cases and add them to the golden set so every incident becomes a permanent test. The site's [AI-Native SDLC Playbook L9](/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals-en) applies this idea to CI for agent configuration.
 
 Model selection belongs in the same flow. Weight readiness by scenario (cost-first, risk-first, latency-first) instead of chasing a single top score.
 
@@ -291,7 +291,7 @@ The trade-off across the three layers fits on one line: the further out you go, 
 
 ## Questions that keep showing up in public question banks
 
-These questions come from seven public question banks (compared in [post 11 of this series](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en)), keeping the ones that repeat across banks plus a few newer question types that map onto sections of this article. "Independent sources" only counts overlap between banks. It says nothing about how often a question appears in real interviews, and the amitshekhar and pallavi banks cite no sources, so this article does not use their company tags. Only question titles and links to where they appear are listed here, with no answers reproduced.
+These questions come from seven public question banks (compared in [post 11 of this series](/posts/ai/2026-09-30-ai-engineer-interview-resources-en)), keeping the ones that repeat across banks plus a few newer question types that map onto sections of this article. "Independent sources" only counts overlap between banks. It says nothing about how often a question appears in real interviews, and the amitshekhar and pallavi banks cite no sources, so this article does not use their company tags. Only question titles and links to where they appear are listed here, with no answers reproduced.
 
 | Question | Independent sources | Question-bank links | Where it fits in this article |
 |---|---|---|---|
@@ -326,11 +326,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ## Other Posts in This Series
 
-- [RAG Variants](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- [Agents, MCP, and Prompt Caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- [LLM Engineering](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- [ML and Transformer Basics](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
-- [System Design, Coding, and Behavioral](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- [RAG Variants](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- [Agents, MCP, and Prompt Caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- [LLM Engineering](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- [ML and Transformer Basics](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- [System Design, Coding, and Behavioral](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## References
 
@@ -391,23 +391,23 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ### Related posts on this site
 
-- [From Prompt to Harness: The Three Evolutions of AI Engineering](/en/posts/ai/2026-03-28-harness-engineering-evolution-en)
-- [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/en/posts/ai/2026-03-24-context-engineering-guide-en)
-- [Prompt Engineering in Practice](/en/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
-- [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/en/posts/ai/2026-08-25-coding-agent-prompt-versioning-en)
-- [RAG Prompt Engineering](/en/posts/ai/2026-03-12-rag-prompt-engineering-en)
-- [RAG Evaluation Frameworks and Tool Selection](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
-- [OpenAI Wrote a Million Lines with Codex: Harness Engineering in Practice](/en/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first-en)
-- [Advanced Harness Engineering Patterns](/en/posts/ai/2026-03-30-harness-engineering-patterns-en)
-- [Anthropic's Harness Design](/en/posts/ai/2026-03-28-anthropic-harness-design-en)
-- [Phil Schmid on the Agent Harness](/en/posts/ai/2026-03-28-phil-schmid-agent-harness-en)
-- [The Model Is a Component, the Harness Is the System](/en/posts/ai/2026-08-10-model-component-harness-system-en)
-- [AI-Native SDLC Playbook L9: Continuous Evaluation in CI](/en/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals-en)
-- [How to Rigorously Compare an Agent Before and After a Change](/en/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
-- [Self-Reflection + LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
-- [Promptfoo Deep Dive](/en/posts/ai/2026-08-22-promptfoo-llm-evaluation-en)
-- [Braintrust: LLM Evaluation as a Loop from Dataset to Production](/en/posts/ai/2026-08-22-braintrust-llm-evaluation-en)
-- [Arize Phoenix Observability and Evaluation](/en/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en)
-- [Langfuse Complete Guide](/en/posts/ai/2026-03-26-langfuse-llm-observability-guide-en)
-- [Agent Observability: From OTel Traces to Catching Hallucinations, Tool Misuse, and Infinite Loops](/en/posts/ai/2026-06-04-agent-observability-failure-detection-en)
-- [Agent Security: Prompt Injection and Trust Boundaries](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en)
+- [From Prompt to Harness: The Three Evolutions of AI Engineering](/posts/ai/2026-03-28-harness-engineering-evolution-en)
+- [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en)
+- [Prompt Engineering in Practice](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
+- [Prompt Versioning: One Word Can Drop an Eval from 5/5 to 0/5](/posts/ai/2026-08-25-coding-agent-prompt-versioning-en)
+- [RAG Prompt Engineering](/posts/ai/2026-03-12-rag-prompt-engineering-en)
+- [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
+- [OpenAI Wrote a Million Lines with Codex: Harness Engineering in Practice](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first-en)
+- [Advanced Harness Engineering Patterns](/posts/ai/2026-03-30-harness-engineering-patterns-en)
+- [Anthropic's Harness Design](/posts/ai/2026-03-28-anthropic-harness-design-en)
+- [Phil Schmid on the Agent Harness](/posts/ai/2026-03-28-phil-schmid-agent-harness-en)
+- [The Model Is a Component, the Harness Is the System](/posts/ai/2026-08-10-model-component-harness-system-en)
+- [AI-Native SDLC Playbook L9: Continuous Evaluation in CI](/posts/ai/2026-09-12-ai-native-sdlc-playbook-09-ci-evals-en)
+- [How to Rigorously Compare an Agent Before and After a Change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
+- [Self-Reflection + LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+- [Promptfoo Deep Dive](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en)
+- [Braintrust: LLM Evaluation as a Loop from Dataset to Production](/posts/ai/2026-08-22-braintrust-llm-evaluation-en)
+- [Arize Phoenix Observability and Evaluation](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en)
+- [Langfuse Complete Guide](/posts/ai/2026-03-26-langfuse-llm-observability-guide-en)
+- [Agent Observability: From OTel Traces to Catching Hallucinations, Tool Misuse, and Infinite Loops](/posts/ai/2026-06-04-agent-observability-failure-detection-en)
+- [Agent Security: Prompt Injection and Trust Boundaries](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en)

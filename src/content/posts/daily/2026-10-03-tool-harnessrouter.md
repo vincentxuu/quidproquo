@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-03-tool-harnessrouter)
+> 🌏 [English version](/posts/daily/2026-10-03-tool-harnessrouter-en)
 
 ## 工具資訊
 

@@ -12,7 +12,7 @@ series:
   order: 51
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-26-funding-cyera-en)
+> 🌏 [English version](/posts/daily/2026-09-26-funding-cyera-en)
 
 ## 融資資訊
 

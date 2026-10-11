@@ -30,7 +30,7 @@ glossary:
     context: "本篇 harness 層的最後一塊，也是作業 A1 Part 2 要實作的東西。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

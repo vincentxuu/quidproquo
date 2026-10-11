@@ -15,7 +15,7 @@ glossary:
     def: "小米自研的大型語言模型家族，涵蓋 Pro／Flash／UltraSpeed 等不同規格版本"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
+> 🌏 [English version](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
 
 ## 模型資訊
 

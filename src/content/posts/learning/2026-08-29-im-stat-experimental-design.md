@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 43 篇：實驗設計怎�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-experimental-design-en)
+> [English version](/posts/learning/2026-08-29-im-stat-experimental-design-en)
 
 很多統計錯誤在資料被收集以前就已經埋下。分組不公平、實驗單位不清楚、主要指標事後才挑、干擾因素沒有控制，再漂亮的 p-value 都救不了結論。
 

@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-substack-ten-percent-discovery-en)
+> 🌏 [English version](/posts/product/2026-09-17-substack-ten-percent-discovery-en)
 
 想像一座會替攤商拉客的市集。它不收固定租金，而是每碗麵都抽 10%，包括老闆自己從家鄉帶來的熟客。市集提供人潮、會員卡與存好的信用卡，陌生人確實更容易下單；但要判斷划不划算，得數市集新增了多少會留下來的客人，不能只看今天攤位前有多少人。
 

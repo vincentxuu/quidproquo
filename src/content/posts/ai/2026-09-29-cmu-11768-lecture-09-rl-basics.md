@@ -26,7 +26,7 @@ glossary:
     context: "本講把它列為 SFT 的第三個缺口，on-policy RL 讓模型在訓練時就面對自己的錯。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

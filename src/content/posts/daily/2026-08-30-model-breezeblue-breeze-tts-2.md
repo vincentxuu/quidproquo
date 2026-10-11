@@ -15,7 +15,7 @@ glossary:
     def: "BreezeBlue 開發的即時互動語音（text-to-speech）模型家族，主打語音設計、語音導演與低延遲串流"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
+> 🌏 [English version](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
 
 ## 模型資訊
 

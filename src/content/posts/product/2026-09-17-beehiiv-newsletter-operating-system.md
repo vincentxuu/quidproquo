@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en)
+> 🌏 [English version](/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en)
 
 一般電子報工具像一台印刷機：你寫好內容，它負責寄出去。[Beehiiv](https://www.beehiiv.com/) 想做的是整間報社的控制室。創作者可以在同一個地方寫信、看讀者從哪裡進來、請讀者推薦朋友，也能和其他刊物互推、買進新訂閱者、接廣告，再把免費讀者轉成付費會員。
 

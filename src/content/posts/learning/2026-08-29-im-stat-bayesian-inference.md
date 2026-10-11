@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 33 篇：Bayesian inferen
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-bayesian-inference-en)
+> [English version](/posts/learning/2026-08-29-im-stat-bayesian-inference-en)
 
 前面幾篇都站在頻率派推論的角度：參數固定、樣本會變，所以我們用抽樣分布、信賴區間和檢定來處理不確定性。Bayesian inference 換了一個問法：看到資料之後，我對未知參數的信念應該怎麼更新？
 

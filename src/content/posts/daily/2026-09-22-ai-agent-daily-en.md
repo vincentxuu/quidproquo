@@ -22,7 +22,7 @@ series:
 
 I think today's most important signal isn't which model got cheaper or which round got bigger — it's that the hidden cost of "verifying authorization" is being repriced, and three independent sources confirmed it on the same day.
 
-Through the lens of transaction costs: today's three Arxiv Digest papers each puncture a different free-seeming trust signal — "someone reviewed it," "the model is smart enough," "I hit cancel." Loopjacking proves the action a human approves and the action a system actually executes can be two different things. APort Vault runs 226,000 evaluations to show that what stops an agent from making an unauthorized payment isn't a smarter model but a deterministic policy check before the tool call. Authorization Revocation points out that "cancellation," under delegation and asynchronous execution, may not actually end authorization at all. Full methods and numbers are in today's [Arxiv Digest](/en/posts/daily/2026-09-22-ai-agent-arxiv-digest-en). Together, these three papers say the same thing: cheap trust signals never actually pay off the verification cost — they just defer it to the moment of execution, when no one is usually watching.
+Through the lens of transaction costs: today's three Arxiv Digest papers each puncture a different free-seeming trust signal — "someone reviewed it," "the model is smart enough," "I hit cancel." Loopjacking proves the action a human approves and the action a system actually executes can be two different things. APort Vault runs 226,000 evaluations to show that what stops an agent from making an unauthorized payment isn't a smarter model but a deterministic policy check before the tool call. Authorization Revocation points out that "cancellation," under delegation and asynchronous execution, may not actually end authorization at all. Full methods and numbers are in today's [Arxiv Digest](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en). Together, these three papers say the same thing: cheap trust signals never actually pay off the verification cost — they just defer it to the moment of execution, when no one is usually watching.
 
 Today's AWS AgentCore disclosure turns that abstract argument into a live case. The Identity vault encrypts credentials at rest and in transit, but downstream services still need a plaintext credential to authenticate — and that "decrypted, in use" state had no additional isolation at all. Attackers used an indirect prompt injection hidden in a support ticket to trigger the default-enabled shell tool, read the harness's main-process memory, and pulled out a plaintext JWT to replay externally. AWS's response — "allowedTools scoping is the customer's responsibility" — isn't technically wrong, but it proves the verification cost was systematically pushed down to every deployer to patch themselves, rather than being built into the default configuration. Gartner even predicts that by 2027, 40% of enterprises will downgrade or shut down autonomous agents over governance gaps — the hidden cost of verification gets collected eventually; the only question is who pays first.
 
@@ -42,11 +42,11 @@ For Taiwan/Chinese-speaking builders: if your agent has human-in-the-loop review
 
 ### Technical Progress
 
-**Today's Arxiv Digest**: Three papers puncture the same assumption from different angles — that a human reviewing, a model judging, or hitting cancel means an agent's authorization boundary is safe. Loopjacking reproduces review failures in real products; APort Vault runs 226,000 evaluations to show that a deterministic policy layer before the tool call, not a smarter model, stops runaway payments; Authorization Revocation argues "cancel" may not count as real revocation under delegation and asynchronous execution. Full methods, numbers, and limitations are in today's [Arxiv Digest](/en/posts/daily/2026-09-22-ai-agent-arxiv-digest-en).
+**Today's Arxiv Digest**: Three papers puncture the same assumption from different angles — that a human reviewing, a model judging, or hitting cancel means an agent's authorization boundary is safe. Loopjacking reproduces review failures in real products; APort Vault runs 226,000 evaluations to show that a deterministic policy layer before the tool call, not a smarter model, stops runaway payments; Authorization Revocation argues "cancel" may not count as real revocation under delegation and asynchronous execution. Full methods, numbers, and limitations are in today's [Arxiv Digest](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en).
 
 ### Tools & Ecosystem
 
-**GitHub Digest highlights**: None of today's five trending projects is a new framework — all five patch "who's accountable for what the agent does." Microsoft open-sourced agent-governance-toolkit (6,303 stars), enforcing tool-call interception in code rather than prompts; ai-memory lets long-term memory travel across 20+ coding-agent CLIs; anthropics/financial-services ships the same financial-vertical agents as both a Cowork plugin and Managed Agents API templates. Full list in today's [GitHub Digest](/en/posts/daily/2026-09-22-ai-agent-github-digest-en).
+**GitHub Digest highlights**: None of today's five trending projects is a new framework — all five patch "who's accountable for what the agent does." Microsoft open-sourced agent-governance-toolkit (6,303 stars), enforcing tool-call interception in code rather than prompts; ai-memory lets long-term memory travel across 20+ coding-agent CLIs; anthropics/financial-services ships the same financial-vertical agents as both a Cowork plugin and Managed Agents API templates. Full list in today's [GitHub Digest](/posts/daily/2026-09-22-ai-agent-github-digest-en).
 
 **Cloudflare Python Workers**: Reached general availability, letting developers run Python web frameworks and AI orchestration libraries natively on the Workers runtime, with direct D1, R2, and Workers AI integration — no JavaScript glue code required. ([source](https://blog.cloudflare.com/python-workers-ga/))
 
@@ -58,7 +58,7 @@ For Taiwan/Chinese-speaking builders: if your agent has human-in-the-loop review
 
 ### Security Incidents
 
-**AWS AgentCore Harness credential leak**: Unit 42 disclosed that the default-enabled shell tool can read plaintext credentials decrypted from the Identity vault; AWS closed the case as customer configuration responsibility. Full details in today's [Security Alert](/en/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en).
+**AWS AgentCore Harness credential leak**: Unit 42 disclosed that the default-enabled shell tool can read plaintext credentials decrypted from the Identity vault; AWS closed the case as customer configuration responsibility. Full details in today's [Security Alert](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en).
 
 **OpenAI internal code breach**: Researchers chained an AI-generated exploit with an OpenAI sign-in flaw to gain employee-account and internal code access, showing AI-assisted penetration testing can now chain multiple weaknesses automatically. ([source](https://www.securityweek.com/ai-built-exploit-and-sign-in-flaw-opened-path-to-internal-openai-code/))
 
@@ -108,11 +108,11 @@ For Taiwan/Chinese-speaking builders: if your agent has human-in-the-loop review
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-22](/en/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-22](/en/posts/daily/2026-09-22-ai-agent-github-digest-en)
-- 🛡️ [Security Alert｜AWS AgentCore Shell Tool Credential Exfiltration — 2026-09-22](/en/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-22: Deep Learning & NLP](/en/posts/daily/2026-09-22-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-22: Metrics & Analytics](/en/posts/daily/2026-09-22-product-builder-interview-daily-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest-en)
+- 🛡️ [Security Alert｜AWS AgentCore Shell Tool Credential Exfiltration — 2026-09-22](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
+- 📄 [AI Engineer Interview Daily — 2026-09-22: Deep Learning & NLP](/posts/daily/2026-09-22-ai-interview-daily-en)
+- 📄 [Product Builder Interview Daily — 2026-09-22: Metrics & Analytics](/posts/daily/2026-09-22-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 
@@ -126,8 +126,8 @@ I used to think "authorization verification" was a one-time architectural decisi
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-09-22](/en/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
-- [AI Agent GitHub Digest — 2026-09-22](/en/posts/daily/2026-09-22-ai-agent-github-digest-en)
+- [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
+- [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest-en)
 - [Antitrust lawsuit filed against Anthropic, OpenAI, SpaceXAI and Google](https://apnews.com/article/antitrust-lawsuit-ai-slowdown-anthropic-openai-spacexai-google-960af4308161eaf4ed13c383b0ce1c1b)
 - [UN science panel: no assurance humans will keep control over AI agents](https://the-decoder.com/un-science-panel-says-there-is-no-assurance-humans-will-keep-control-over-ai-agents/)
 - [xAI launches Grok 4.7 at bargain prices](https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/)

@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-27-tool-pgbot)
+> 🌏 [English version](/posts/daily/2026-08-27-tool-pgbot-en)
 
 ## 工具資訊
 

@@ -15,7 +15,7 @@ draft: false
 
 > [中文版](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining)
 
-"Open-source LLM" covers wildly different things. Llama released weights only; [OLMo](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) opened the training data too; and the two projects in this piece—Ai2's OLMo 3 and MBZUAI's LLM360—push one level further: they open the **training process itself**, including per-stage checkpoints, training logs, and even the exact order of training data. We already covered the OLMo family's overall story ([OLMo: the only language model family that opens its training data](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)); this piece focuses on OLMo 3 and LLM360, the two "open the process" routes.
+"Open-source LLM" covers wildly different things. Llama released weights only; [OLMo](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) opened the training data too; and the two projects in this piece—Ai2's OLMo 3 and MBZUAI's LLM360—push one level further: they open the **training process itself**, including per-stage checkpoints, training logs, and even the exact order of training data. We already covered the OLMo family's overall story ([OLMo: the only language model family that opens its training data](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)); this piece focuses on OLMo 3 and LLM360, the two "open the process" routes.
 
 ## The openness spectrum: weights are just the starting point
 
@@ -24,7 +24,7 @@ Ranking today's mainstream release practices into three tiers makes the boundari
 | Tier | What is released | Examples |
 |---|---|---|
 | Open weights | Final model weights | [Llama](https://www.llama.com/), Mistral |
-| Fully open | Weights + training data + training code | [OLMo](https://allenai.org/blog/olmo3), [Marin](/en/posts/ai/2026-08-24-marin-535b-hero-run-en), Apertus |
+| Fully open | Weights + training data + training code | [OLMo](https://allenai.org/blog/olmo3), [Marin](/posts/ai/2026-08-24-marin-535b-hero-run-en), Apertus |
 | 360° open | Plus intermediate checkpoints, training logs, data order | [LLM360](https://github.com/LLM360), OLMo 3 |
 
 This spectrum is not a single standard anyone invented; the community stacked it up piece by piece. Eleuther AI's [Pythia](https://github.com/EleutherAI/pythia) released 143 intermediate checkpoints back in 2023, proving the value; LLM360 proposed "360° open" at the end of that year, folding data order and logs into the definition; BLOOM showed how to publish a training process with the [BLOOM Book](https://huggingface.co/spaces/bigscience/bloom-book). OLMo 3's increment is not inventing any of these—it is applying the whole package to a **flagship-quality** model, treatment previously reserved for small models.
@@ -77,7 +77,7 @@ Honest answer: most people don't. For inference, RAG, even ordinary fine-tuning,
 
 ## Overall
 
-The previous piece, [YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), showed how far data quality can push a small model; the two projects here show another kind of extreme—turning the training process itself into a public, researchable asset. OLMo 3 proves fully open and flagship performance can advance together (the first fully open 32B thinking model), and K2 proves that the full training run of a 65B model can be completely reproducible. For anyone training a model from scratch, they are the most complete reference answers available; as for when to just use an off-the-shelf model instead, the next piece, [When to train an LLM from scratch](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en), closes out the series.
+The previous piece, [YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), showed how far data quality can push a small model; the two projects here show another kind of extreme—turning the training process itself into a public, researchable asset. OLMo 3 proves fully open and flagship performance can advance together (the first fully open 32B thinking model), and K2 proves that the full training run of a 65B model can be completely reproducible. For anyone training a model from scratch, they are the most complete reference answers available; as for when to just use an off-the-shelf model instead, the next piece, [When to train an LLM from scratch](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en), closes out the series.
 
 ## References
 
@@ -87,5 +87,5 @@ The previous piece, [YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficie
 - [LLM360 K2: Building a 65B 360-Open-Source Large Language Model from Scratch (arXiv:2501.07124)](https://arxiv.org/abs/2501.07124)
 - [LLM360 GitHub organization (k2-train, k2-data-prep, and more)](https://github.com/LLM360)
 - [OLMo 3 models & data collection (Hugging Face)](https://huggingface.co/collections/allenai/olmo-3)
-- [OLMo: the only language model family that opens its training data (site post)](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
-- [How Stanford Marin trains its 535B MoE (site post)](/en/posts/ai/2026-08-24-marin-535b-hero-run-en)
+- [OLMo: the only language model family that opens its training data (site post)](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en)
+- [How Stanford Marin trains its 535B MoE (site post)](/posts/ai/2026-08-24-marin-535b-hero-run-en)

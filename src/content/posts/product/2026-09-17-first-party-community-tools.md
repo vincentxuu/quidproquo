@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-first-party-community-tools-en)
+> 🌏 [English version](/posts/product/2026-09-17-first-party-community-tools-en)
 
 想像你在夜市租攤位。路過的人潮是市場帶來的；你不能把整條街搬走。有人同意留下聯絡方式，像把電話寫進你的顧客簿。幾位常客開始彼此交換心得，才有了社群。你再送他們一把會保存尺寸的量尺，讓他們下次回來繼續量，這才像工具。
 

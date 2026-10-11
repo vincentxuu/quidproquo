@@ -21,7 +21,7 @@ glossary:
     context: "本文指 Cursor 的兩天到場試用，以及其他公司的長時間 take-home。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en)
+> 🌏 [English version](/posts/ai/2026-09-30-ai-engineer-interview-resources-en)
 
 [pallavi-shekhar/ai-engineering-interview-questions-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) 這個 repo 在 2026 年 9 月 19 日建立，9 天後就有 1.5k 顆星。它整理了 35 間公司、約 600 題「真實面試題」，但全檔沒有任何一題附出處。這不是個案：這次盤點的 12 個熱門 AI 面試 repo，只有 2 個替題目或面試流程附上可點的來源。
 

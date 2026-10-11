@@ -15,7 +15,7 @@ glossary:
     def: "Cloudflare 自研的開源決策模型家族，以 Qwen 為骨幹後訓練、非自回歸架構，一次前向傳遞就能對多個型別化問題輸出機率分佈"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-03-model-cloudflare-clef-en)
+> 🌏 [English version](/posts/daily/2026-10-03-model-cloudflare-clef-en)
 
 ## 模型資訊
 

@@ -24,9 +24,9 @@ glossary:
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 14 of [Reading CMU 11-868 LLM Systems](/en/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The handout and repo are described as seen on 2026-09-30. The homework site is shared across semesters and may be changed for Fall 2026.
+> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 14 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The handout and repo are described as seen on 2026-09-30. The homework site is shared across semesters and may be changed for Fall 2026.
 
-This assignment puts parts 11 through 13 into practice: [data parallelism](/en/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) (L14–L15) and [pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) (first half of L16). [ZeRO from the previous post](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en) isn't part of it; you run ZeRO through DeepSpeed in HW6.
+This assignment puts parts 11 through 13 into practice: [data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) (L14–L15) and [pipeline parallelism](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) (first half of L16). [ZeRO from the previous post](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en) isn't part of it; you run ZeRO through DeepSpeed in HW6.
 
 ## Course video sources
 
@@ -112,10 +112,10 @@ Also, the last commit on main is dated 2026-04-30, so it still reflects spring. 
 
 ## Further reading
 
-- Previous in series: [L18 ZeRO: memory optimization for distributed training](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
-- Next in series: [L19–L20 Model quantization](/en/posts/ai/2026-09-30-cmu11868-model-quantization-en)
-- Previous assignment: [HW4: fused CUDA kernels for Softmax and LayerNorm](/en/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en); next assignment: [HW6: DeepSpeed ZeRO + LoRA training, SGLang inference](/en/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
-- On this site: [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+- Previous in series: [L18 ZeRO: memory optimization for distributed training](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
+- Next in series: [L19–L20 Model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
+- Previous assignment: [HW4: fused CUDA kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en); next assignment: [HW6: DeepSpeed ZeRO + LoRA training, SGLang inference](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
+- On this site: [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 
 ## Update Log
 

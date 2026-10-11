@@ -17,7 +17,7 @@ description: "帶讀 Stanford CS329Z Week 11 主讀物 Shaikh 等人的 General 
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-18-stanford-cs329z-week11-proactive-demos-en)
+> 🌏 [English version](/posts/ai/2026-09-18-stanford-cs329z-week11-proactive-demos-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

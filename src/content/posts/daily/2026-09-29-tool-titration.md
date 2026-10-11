@@ -12,7 +12,7 @@ series:
   order: 39
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-29-tool-titration-en)
+> 🌏 [English version](/posts/daily/2026-09-29-tool-titration-en)
 
 ## 工具資訊
 

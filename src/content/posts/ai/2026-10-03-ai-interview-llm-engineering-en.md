@@ -94,7 +94,7 @@ flowchart TD
   F --> B
 ```
 
-One security point is easy to miss: [OWASP LLM02:2026](https://raw.githubusercontent.com/GenAI-Security-Project/GenAI-LLM-Top10/main/2026/final/LLM02_SensitiveInformationDisclosure.md) notes that fine-tuned models and their LoRA adapters are easier to extract training data from than a base model of the same size, because adapters memorize rare samples with high fidelity. For a fuller decision discussion, see the on-site [RAG vs Fine-tuning](/en/posts/ai/2026-03-12-rag-vs-fine-tuning-en) and [Fine-tuning vs RAG guide](/en/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en).
+One security point is easy to miss: [OWASP LLM02:2026](https://raw.githubusercontent.com/GenAI-Security-Project/GenAI-LLM-Top10/main/2026/final/LLM02_SensitiveInformationDisclosure.md) notes that fine-tuned models and their LoRA adapters are easier to extract training data from than a base model of the same size, because adapters memorize rare samples with high fidelity. For a fuller decision discussion, see the on-site [RAG vs Fine-tuning](/posts/ai/2026-03-12-rag-vs-fine-tuning-en) and [Fine-tuning vs RAG guide](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en).
 
 **How to answer**
 
@@ -152,7 +152,7 @@ R1-Zero's pass@1 on AIME 2024 rose from 15.6% to 71.0%. These are arXiv v1 numbe
 | DPO | A fixed preference dataset | Simple, stable, offline | Once the policy changes the data is no longer on-policy, so Tülu 3 generated extra on-policy preference data |
 | GRPO + RLVR | Answers verified by a program | No critic and no reward model; objective reward | Only works in domains with verifiable answers |
 
-For background, read the on-site [CS336 SFT and RLHF notes](/en/posts/ai/2026-08-22-cs336-sft-rlhf-en) and [Deep RL and RLHF](/en/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en).
+For background, read the on-site [CS336 SFT and RLHF notes](/posts/ai/2026-08-22-cs336-sft-rlhf-en) and [Deep RL and RLHF](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en).
 
 **How to answer**
 
@@ -189,7 +189,7 @@ flowchart LR
   TB --> P3["Physical block 3"]
 ```
 
-[vLLM](/en/posts/ai/2026-03-14-vllm-inference-engine-en) delivers 2 to 4 times the throughput of the existing systems the paper compares against at similar latency, and the gain grows with longer sequences and larger models. A larger block size lets the kernel process more positions in parallel but wastes more to fragmentation. On whether to self-host, see [the vLLM self-hosting decision](/en/posts/ai/2026-08-21-vllm-self-host-decision-en).
+[vLLM](/posts/ai/2026-03-14-vllm-inference-engine-en) delivers 2 to 4 times the throughput of the existing systems the paper compares against at similar latency, and the gain grows with longer sequences and larger models. A larger block size lets the kernel process more positions in parallel but wastes more to fragmentation. On whether to self-host, see [the vLLM self-hosting decision](/posts/ai/2026-08-21-vllm-self-host-decision-en).
 
 ### Scheduling: let finished requests leave the batch immediately
 
@@ -208,7 +208,7 @@ Quantization lowers the bit width of weights (sometimes activations too) in exch
 | [LLM-QAT](https://arxiv.org/abs/2305.17888) | QAT | Finds that PTQ breaks down below 8 bits; distills with data the model generates itself and quantizes the KV cache too |
 | [FP8 formats](https://arxiv.org/abs/2209.05433) | Data type for training and inference | Defines the E4M3 and E5M2 encodings; matches 16-bit quality when training language models up to 175B parameters |
 
-The trade-off is simple: PTQ is cheap and training-free, and 8 bits is usually enough; QAT costs extra training but buys quality at low bit widths. There is no primary-source number for actual INT4 versus FP8 speedups across hardware, so in an interview say "it depends on the hardware and kernel implementation." Further reading: [quantization and inference optimization](/en/posts/ai/2026-08-26-understanding-ai-models-quantization-en), [TurboQuant+ KV cache compression](/en/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression-en), and the [CS336 inference notes](/en/posts/ai/2026-08-22-cs336-inference-en).
+The trade-off is simple: PTQ is cheap and training-free, and 8 bits is usually enough; QAT costs extra training but buys quality at low bit widths. There is no primary-source number for actual INT4 versus FP8 speedups across hardware, so in an interview say "it depends on the hardware and kernel implementation." Further reading: [quantization and inference optimization](/posts/ai/2026-08-26-understanding-ai-models-quantization-en), [TurboQuant+ KV cache compression](/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression-en), and the [CS336 inference notes](/posts/ai/2026-08-22-cs336-inference-en).
 
 ### Speculative decoding
 
@@ -250,7 +250,7 @@ Human-written text is not the highest-probability text. The paper found that the
 - **Tasks tightly constrained by the input, such as translation and summarization**: the paper says beam search is usually used, though overly large beams still have problems.
 - **Open-ended generation such as creative writing and dialogue**: top-p (roughly 0.9 to 0.95) with moderate temperature; too low a temperature falls back into repetition, and the paper notes that sampling temperatures below 0.9 greatly increase repetition.
 
-If asked whether temperature 0 guarantees fully deterministic output, there is no primary source here, so say "usually" and do not present it as a guarantee. For another angle on how sampling fails, see the [CMU 07-280 n-gram sampling notes](/en/posts/ai/2026-08-22-cmu-07280-lecture-18-ngram-sampling-en).
+If asked whether temperature 0 guarantees fully deterministic output, there is no primary source here, so say "usually" and do not present it as a guarantee. For another angle on how sampling fails, see the [CMU 07-280 n-gram sampling notes](/posts/ai/2026-08-22-cmu-07280-lecture-18-ngram-sampling-en).
 
 **How to answer**
 
@@ -264,7 +264,7 @@ Evaluation has three common traps: test questions leaking into training data, sy
 
 Benchmark Data Contamination (BDC) means a model unintentionally ingests benchmark information from its training data, so the score reflects memorization instead of ability; this [survey](https://arxiv.org/abs/2406.04244) gives a full overview. The most convincing experiment is [GSM1k](https://arxiv.org/abs/2405.00332): researchers hand-wrote a fresh set of problems matched to GSM8k in style and difficulty, and leading models lost up to 8% accuracy on the new problems, with several model families showing systematic overfitting.
 
-Detection techniques such as n-gram overlap and memorization probes were read only at the survey-abstract level here. The approach that can be stated with confidence is to write a fresh problem set from the same distribution and compare the accuracy gap, which is exactly what GSM1k did. More context in the [CS224N benchmark notes](/en/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en) and [How to read a model scorecard](/en/posts/ai/2026-08-26-understanding-ai-models-evaluation-en).
+Detection techniques such as n-gram overlap and memorization probes were read only at the survey-abstract level here. The approach that can be stated with confidence is to write a fresh problem set from the same distribution and compare the accuracy gap, which is exactly what GSM1k did. More context in the [CS224N benchmark notes](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en) and [How to read a model scorecard](/posts/ai/2026-08-26-understanding-ai-models-evaluation-en).
 
 ### LLM-as-judge: credible, but biased
 
@@ -272,7 +272,7 @@ The [MT-Bench and LLM-as-a-Judge paper](https://arxiv.org/abs/2306.05685) found 
 
 Later work quantified the bias. [Large Language Models are not Fair Evaluators](https://arxiv.org/abs/2305.17926) found that merely swapping the order in which answers appear can flip the ranking: with ChatGPT as the judge, Vicuna-13B beat ChatGPT on 66 of 80 questions. [LLM Evaluators Recognize and Favor Their Own Generations](https://arxiv.org/abs/2404.13076) shows that GPT-4 and Llama 2 can tell their own outputs from others', and the stronger the self-recognition, the stronger the self-preference.
 
-There are established ways to calibrate. [FairEval](https://arxiv.org/abs/2305.17926) proposes three: write several pieces of evaluation evidence before scoring, aggregate across multiple orderings, and hand hard cases with judge disagreement to humans. MT-Bench first measures judge-human agreement with human annotation before deciding whether the judge can be used at scale; in practice that means sampling human labels to check how often the judge agrees with people. Further reading: [Self-Reflection + LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en), [RAG evaluation frameworks](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en), and the [CS329Z judge and guardrails notes](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en).
+There are established ways to calibrate. [FairEval](https://arxiv.org/abs/2305.17926) proposes three: write several pieces of evaluation evidence before scoring, aggregate across multiple orderings, and hand hard cases with judge disagreement to humans. MT-Bench first measures judge-human agreement with human annotation before deciding whether the judge can be used at scale; in practice that means sampling human labels to check how often the judge agrees with people. Further reading: [Self-Reflection + LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en), [RAG evaluation frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en), and the [CS329Z judge and guardrails notes](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en).
 
 ### Two metrics you must be able to compute
 
@@ -351,7 +351,7 @@ Tools and research that fit each layer:
 - **Architecture layer**: [CaMeL](https://arxiv.org/abs/2503.18813) (Google) builds a protective layer outside the LLM that extracts control flow and data flow from the trusted user query so untrusted data cannot affect program flow; on the agent benchmark used in the paper it solves 77% of tasks with provable security, slightly below the undefended system.
 - **Least privilege**: [OWASP LLM03:2026](https://raw.githubusercontent.com/GenAI-Security-Project/GenAI-LLM-Top10/main/2026/final/LLM03_ExcessiveAgency.md) names the root causes of Excessive Agency as too much functionality, too many permissions, and too much autonomy. The remedy is to avoid open-ended tools such as running a shell or fetching arbitrary URLs, use fine-grained tools with strict input schemas, and run them with the user's own permissions.
 
-For RAG and agent settings, see [RAG Guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en), [agent security and trust boundaries](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en), and [security at the harness layer](/en/posts/ai/2026-08-10-agent-security-harness-layer-en).
+For RAG and agent settings, see [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails-en), [agent security and trust boundaries](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en), and [security at the harness layer](/posts/ai/2026-08-10-agent-security-harness-layer-en).
 
 **How to answer**
 
@@ -373,7 +373,7 @@ The [survey by Huang et al.](https://arxiv.org/abs/2311.05232) organizes halluci
 
 ### Mitigations
 
-1. **RAG**: [Lewis et al.](https://arxiv.org/abs/2005.11401) attach an updatable, provenance-carrying non-parametric memory to the generator. For how RAG itself fails, see [common RAG failure modes](/en/posts/ai/2026-03-12-rag-failure-modes-en).
+1. **RAG**: [Lewis et al.](https://arxiv.org/abs/2005.11401) attach an updatable, provenance-carrying non-parametric memory to the generator. For how RAG itself fails, see [common RAG failure modes](/posts/ai/2026-03-12-rag-failure-modes-en).
 2. **Chain-of-Verification**: [CoVe](https://arxiv.org/abs/2309.11495) has the model draft an answer, plan verification questions and answer them independently, and then produce a verified answer; experiments show it reduces hallucination.
 3. **Sampling consistency**: [SelfCheckGPT](https://arxiv.org/abs/2303.08896) is a zero-resource, black-box check: facts the model truly knows stay consistent across samples, while hallucinated ones contradict each other.
 4. **System layer**: OWASP LLM07:2026 calls for answers grounded in authoritative, current sources, a Claim-Check-Act pattern that separates generation from execution and verifies claims before acting, groundedness and consistency checks rather than confidence alone, and human approval for high-impact actions.
@@ -390,7 +390,7 @@ The seven topics share one framework: locate which layer the bottleneck or risk 
 
 ## Questions that keep showing up in public question banks
 
-These are LLM-engineering questions that repeat across the seven public question banks compared in [post 11 of this series](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en), with questions of the same meaning merged into one row. "Independent sources" only counts overlap between banks; it says nothing about how often a question comes up in real interviews, and the amitshekhariitbhu and pallavi banks cite no sources, so this post does not use their company tags. Only question titles and links to their original location are listed; no answers are reproduced.
+These are LLM-engineering questions that repeat across the seven public question banks compared in [post 11 of this series](/posts/ai/2026-09-30-ai-engineer-interview-resources-en), with questions of the same meaning merged into one row. "Independent sources" only counts overlap between banks; it says nothing about how often a question comes up in real interviews, and the amitshekhariitbhu and pallavi banks cite no sources, so this post does not use their company tags. Only question titles and links to their original location are listed; no answers are reproduced.
 
 | Question | Independent sources | Question-bank links | Where it is covered |
 |---|---|---|---|
@@ -423,11 +423,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ## Other Posts in the Series
 
-- [RAG variants](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- [Agents, MCP, and caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- [Prompt, context, and harness](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- [ML and Transformer basics](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
-- [System design, coding, and behavioral interviews](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- [RAG variants](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- [Agents, MCP, and caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- [Prompt, context, and harness](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- [ML and Transformer basics](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- [System design, coding, and behavioral interviews](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## References
 
@@ -501,9 +501,9 @@ Question-bank sources:
 
 On-site further reading:
 
-- [RAG vs Fine-tuning](/en/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
-- [vLLM: from PagedAttention to a production inference engine](/en/posts/ai/2026-03-14-vllm-inference-engine-en)
-- [Quantization and inference optimization](/en/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
-- [RAG Guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en)
-- [RAG evaluation frameworks](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
-- [Common RAG failure modes](/en/posts/ai/2026-03-12-rag-failure-modes-en)
+- [RAG vs Fine-tuning](/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
+- [vLLM: from PagedAttention to a production inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
+- [Quantization and inference optimization](/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
+- [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails-en)
+- [RAG evaluation frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
+- [Common RAG failure modes](/posts/ai/2026-03-12-rag-failure-modes-en)

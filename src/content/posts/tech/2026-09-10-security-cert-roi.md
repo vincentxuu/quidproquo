@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-10-security-cert-roi-en)
+> 🌏 [English version](/posts/tech/2026-09-10-security-cert-roi-en)
 
 考證照是投資，不是集郵。這篇用真實數據把三張經典資安證照的投入和回報攤開來算：考試費多少、準備要多久、維護成本怎麼算、薪資溢價有多少。
 

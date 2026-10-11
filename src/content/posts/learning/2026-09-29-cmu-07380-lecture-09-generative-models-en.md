@@ -50,7 +50,7 @@ Limits: the slides' text layer holds only titles, equations, and poll questions.
 
 ## The question carried forward: Bayes rule's second use
 
-[Lecture 8 on MAP](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en) already wrote Bayes rule two ways. Last time used the "data and parameters" form. This time it's "inputs and outputs":
+[Lecture 8 on MAP](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en) already wrote Bayes rule two ways. Last time used the "data and parameters" form. This time it's "inputs and outputs":
 
 ```text
 p(y|x) = p(x|y) p(y) / p(x)
@@ -155,7 +155,7 @@ Why is smoothing necessary? I checked the unsmoothed version against the workshe
 
 The solution reports `P(Y=1|x) ≈ 0.118`. **When I checked it, I found a small slip.** The solution's table gives `P(tomorrow=0|Y=0) = 5/6`, but the product line uses 3/6. Recomputing with 5/6 gives `P(Y=0, x) ≈ 0.00567` and a spam probability of about 0.074. The conclusion stands: the email is not spam, and its spam probability is no longer 0. Working it by hand is the fastest way to check whether you really understand Naive Bayes.
 
-Recitation 5 makes two more points. As α grows, the conditional distributions approach uniform. And for a Bernoulli, Laplace smoothing is equivalent to a Beta prior, so it is an example of "generative + MAP," the bottom-right cell of the 2×2 table in [Lecture 8](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en).
+Recitation 5 makes two more points. As α grows, the conditional distributions approach uniform. And for a Bernoulli, Laplace smoothing is equivalent to a Beta prior, so it is an example of "generative + MAP," the bottom-right cell of the 2×2 table in [Lecture 8](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en).
 
 ## Gaussian Discriminant Analysis: continuous features
 
@@ -176,11 +176,11 @@ Mitchell's chapter proves a neat result. Under one variant of Gaussian Naive Bay
 
 When the assumptions fail, they diverge. Mitchell cites Ng and Jordan (2002): Gaussian Naive Bayes parameter estimates converge in roughly log n examples (n is the feature dimension), while logistic regression needs on the order of n. On several datasets, Naive Bayes wins when data is scarce and logistic regression wins when data is plentiful. That is the empirical version of the slide's "generative: stronger assumptions, less data."
 
-Background for the discriminative side: [07-280 Lecture 9 on logistic regression](/en/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression-en). The MLE derivation is in [07-280 Lecture 16](/en/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en).
+Background for the discriminative side: [07-280 Lecture 9 on logistic regression](/posts/ai/2026-08-22-cmu-07280-lecture-09-logistic-regression-en). The MLE derivation is in [07-280 Lecture 16](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en).
 
 ## Next: Naive Bayes is really a graph
 
-Before Naive Bayes, the slides review the definitions of independence and conditional independence. That isn't a detour. Naive Bayes can be drawn as a directed graph with Y pointing to every X, which makes it a Bayes Net of one specific shape. The next post, [Lecture 10 on Bayes Nets](/en/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en), generalizes this special case. The previous post is the [HW3 guide](/en/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en).
+Before Naive Bayes, the slides review the definitions of independence and conditional independence. That isn't a detour. Naive Bayes can be drawn as a directed graph with Y pointing to every X, which makes it a Bayes Net of one specific shape. The next post, [Lecture 10 on Bayes Nets](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en), generalizes this special case. The previous post is the [HW3 guide](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en).
 
 ## Things to do tonight
 
@@ -203,4 +203,4 @@ Before Naive Bayes, the slides review the definitions of independence and condit
 - [cat_dog_sampling.ipynb (Google Drive)](https://drive.google.com/file/d/17O6w49maTydc_4zmeYW6vUpedW1lS5dF/view?usp=drive_link)
 - [discriminant_analysis.ipynb (Google Drive)](https://drive.google.com/file/d/1895ysOVVlDl1IGV2OjN9Ow14szP7hRh6/view?usp=drive_link)
 - [Tom Mitchell, Generative and Discriminative Classifiers: Naive Bayes and Logistic Regression](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)
-- [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)

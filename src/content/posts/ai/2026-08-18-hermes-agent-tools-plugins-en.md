@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-tools-plugins)
 
-Post 7 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 7 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 This layer carries a problem common to every modern agent: **the more tools you attach, the more tokens you burn before doing any work.** Hermes handles it more thoroughly than most frameworks, which makes it worth studying on its own.
 
@@ -23,7 +23,7 @@ This layer carries a problem common to every modern agent: **the more tools you 
 
 Tools are grouped into toolsets that can be enabled or disabled per platform via `hermes tools`. The high-level categories: web (`web_search`, `web_extract`), terminal and files (`terminal`, `process`, `read_file`, `patch`), browser (`browser_navigate`, `browser_snapshot`, `browser_vision`), media (`vision_analyze`, `image_generate`, `text_to_speech`), agent orchestration (`todo`, `clarify`, `execute_code`, `delegate_task`), memory (`memory`, `session_search`), automation (`cronjob`), and integrations (Home Assistant, MCP).
 
-A reminder from [the opener](/en/posts/ai/2026-08-18-hermes-agent-intro): the README says 40+ tools while the architecture page says 70+ tools and 28 toolsets. For exact counts go to the Built-in Tools Reference, not to any blog post.
+A reminder from [the opener](/posts/ai/2026-08-18-hermes-agent-intro-en): the README says 40+ tools while the architecture page says 70+ tools and 28 toolsets. For exact counts go to the Built-in Tools Reference, not to any blog post.
 
 ## Tool Search: schemas on demand
 
@@ -126,7 +126,7 @@ Also worth remembering: **not every extension needs Python.** TTS/STT backends a
 
 If you keep one thing from this post: **decide the context cost before attaching MCP servers.** Per-server filtering and Tool Search are two different gates — the first is you choosing what's exposed, the second is the system choosing when schemas load. Skip both and you pay 30K tokens before asking a question.
 
-Next: [the gateway and scheduled automation](/en/posts/ai/2026-08-18-hermes-agent-gateway-cron).
+Next: [the gateway and scheduled automation](/posts/ai/2026-08-18-hermes-agent-gateway-cron-en).
 
 ## References
 

@@ -13,7 +13,7 @@ description: "深度解析 YuLan-Mini：資料清理管線與課程設計、訓�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en)
+> 🌏 [English version](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en)
 
 如果說上一篇的 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch) 回答的是「一個人、一張卡能不能走完訓練流程」，這篇的 [YuLan-Mini](https://github.com/RUC-GSAI/YuLan-Mini) 回答的是另一個問題：**一個大學實驗室、幾十張卡，能不能訓出接近工業水準的模型**。答案是能——2.42B 參數、只用 1.08T tokens 預訓練，MATH-500 拿 37.8 分、HumanEval pass@1 64.0 分，對比訓練量 7T 到 18T tokens 的 Qwen2、Qwen2.5 同級模型，在數學與程式這兩項反而是 YuLan-Mini 領先（依[技術報告](https://arxiv.org/abs/2412.17743)論文自己的評測）。論文其後獲 ACL 2025 Main Conference Oral。
 

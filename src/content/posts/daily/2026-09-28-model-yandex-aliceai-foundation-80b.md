@@ -15,7 +15,7 @@ glossary:
     def: "Yandex 的 AI 助理產品，AliceAI-Foundation 是支撐其未來統一推理模型的實驗性 base model"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
+> 🌏 [English version](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
 
 ## 模型資訊
 

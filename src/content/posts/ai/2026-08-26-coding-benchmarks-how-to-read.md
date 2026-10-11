@@ -18,7 +18,7 @@ glossary:
     def: "模型只跑一次就答對的比例，不允許重試——比 Pass@5 或 Best-of-N 更嚴格"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-coding-benchmarks-how-to-read-en)
+> 🌏 [English version](/posts/ai/2026-08-26-coding-benchmarks-how-to-read-en)
 
 每次有新模型發布，你都會看到一串數字：SWE-bench 86%、Terminal-Bench 68.5%、DeepSWE 56。但這些數字代表什麼？為什麼同一個模型在不同報告裡分數不一樣？哪些 benchmark 容易被灌水？這篇是給「想看懂模型公告但不想讀論文」的人寫的解碼指南。
 

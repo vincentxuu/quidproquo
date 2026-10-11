@@ -15,7 +15,7 @@ draft: false
 
 > [中文版](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)
 
-Every route this series walked can be seen through one lens: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) at $0.40, [nanochat at $100](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), the Chinese community's small models, YuLan-Mini squeezing value from every token, and the industrially fully-open OLMo 3 and LLM360 — plus the national, efficiency, and framework routes that followed. This post collapses them into one question: **which route should you take — or none at all.**
+Every route this series walked can be seen through one lens: [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) at $0.40, [nanochat at $100](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), the Chinese community's small models, YuLan-Mini squeezing value from every token, and the industrially fully-open OLMo 3 and LLM360 — plus the national, efficiency, and framework routes that followed. This post collapses them into one question: **which route should you take — or none at all.**
 
 ## The cost ladder
 
@@ -42,7 +42,7 @@ Ask what you actually want:
 
 **Research requiring transparency** → OLMo 3 or LLM360. Weights, data, every checkpoint, training logs, all open. If you need to trace a model output back to its training data, this is the only route that can.
 
-**Train production models** → use mature frameworks like verl and Llama-Factory, building on public recipes from [OLMo](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) and Marin. Don't rewrite a trainer.
+**Train production models** → use mature frameworks like verl and Llama-Factory, building on public recipes from [OLMo](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) and Marin. Don't rewrite a trainer.
 
 ## When not to train
 
@@ -57,7 +57,7 @@ From-scratch pretraining in 2026 resembles building your own PC: enormous learni
 
 ## The takeaway
 
-Recapping the spectrum: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) pushed the entry bar down to where anyone can run it; Karpathy's nanochat shows the industrial-grade floor one person can maintain; the Chinese community projects prove the data ecosystem matters more than the architecture; YuLan-Mini takes data efficiency to its limit; OLMo and LLM360 define the ceiling of "fully open." These routes don't replace each other — they answer different questions. The only mistake to avoid is running a flagship with toy-project expectations, or dismissing educational projects because they can't do flagship work.
+Recapping the spectrum: [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) pushed the entry bar down to where anyone can run it; Karpathy's nanochat shows the industrial-grade floor one person can maintain; the Chinese community projects prove the data ecosystem matters more than the architecture; YuLan-Mini takes data efficiency to its limit; OLMo and LLM360 define the ceiling of "fully open." These routes don't replace each other — they answer different questions. The only mistake to avoid is running a flagship with toy-project expectations, or dismissing educational projects because they can't do flagship work.
 
 ## References
 
@@ -70,4 +70,4 @@ Recapping the spectrum: [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-fr
 - [LLM360 K2 paper](https://arxiv.org/pdf/2501.07124)
 - [SmolLM3 — Hugging Face](https://huggingface.co/HuggingFaceTB/SmolLM3-3B)
 - [Self-Training a Small LLM From Scratch (2026 Guide)](https://codersera.com/blog/self-training-small-llm-complete-guide-2026/)
-- Series posts: [order 0 intro](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en), [order 2 Karpathy lineage](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), [order 3 Chinese community routes](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en), [order 4 YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), [order 5 fully-open flagships](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en), [order 7 national teams](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en), [order 8 efficiency/edge](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en), [order 9 training framework](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
+- Series posts: [order 0 intro](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en), [order 2 Karpathy lineage](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), [order 3 Chinese community routes](/posts/ai/2026-09-06-chinese-community-small-llm-training-en), [order 4 YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en), [order 5 fully-open flagships](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en), [order 7 national teams](/posts/ai/2026-09-06-national-multilingual-llm-training-en), [order 8 efficiency/edge](/posts/ai/2026-09-06-efficient-edge-llm-training-en), [order 9 training framework](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 53 篇：讀完 53 篇後
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-series-map-next-steps-en)
+> [English version](/posts/learning/2026-08-29-im-stat-series-map-next-steps-en)
 
 讀到這裡，你不會「學完所有統計學」。統計學很大，後面還有數理統計、因果圖、Bayesian computation、時間序列模型、實驗設計專書、ML theory。這 53 篇的目標比較務實：讓初學者從考試基本題走到 ML/AI 評估，遇到新題型時知道怎麼拆。
 

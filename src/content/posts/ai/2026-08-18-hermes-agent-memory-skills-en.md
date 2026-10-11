@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-memory-skills)
 
-Post 6 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 6 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 This is the layer Hermes bets hardest on, and the only one where things happen without you configuring anything. The clearest way to hold it is as three containers: **small memory that's always present**, **large skills loaded on demand**, and **unlimited history you have to go looking for**.
 
@@ -32,7 +32,7 @@ Three behaviors to internalize:
 
 **It does not auto-compact.** When a write would exceed the cap, the `memory` tool returns an error and the agent must consolidate or remove entries in the same turn before retrying. `replace` is bound by the same rule — swapping a short entry for a longer one can still overflow.
 
-**It's a frozen snapshot.** Memory loads at session start and is injected into the system prompt, then **never changes mid-session**. Entries the agent adds are persisted to disk immediately but don't reach the system prompt until the next session. That's deliberate: it preserves the LLM prefix cache (the same economics as the one-hour prompt cache from [the providers post](/en/posts/ai/2026-08-18-hermes-agent-providers)). Tool responses always show live state.
+**It's a frozen snapshot.** Memory loads at session start and is injected into the system prompt, then **never changes mid-session**. Entries the agent adds are persisted to disk immediately but don't reach the system prompt until the next session. That's deliberate: it preserves the LLM prefix cache (the same economics as the one-hour prompt cache from [the providers post](/posts/ai/2026-08-18-hermes-agent-providers-en)). Tool responses always show live state.
 
 **It's scanned before acceptance.** Entries are checked for prompt-injection, credential-exfiltration, and SSH-backdoor patterns, and anything containing invisible Unicode is blocked outright. The reason is hard-edged: these strings go into the system prompt.
 
@@ -113,7 +113,7 @@ To see what the agent has actually learned, `hermes journey` (or `/journey`) plo
 
 Self-improvement isn't one switch; it's four or five separately tunable mechanisms whose defaults all lean toward "automatic." That's the right default for exploratory use on a personal laptop. The moment this agent starts answering messaging platforms, running schedules, and touching your files, **turn `write_approval` on and run the curator's dry-run once** — that's how you find out what it learned this week.
 
-Next: [tools, MCP, and plugins](/en/posts/ai/2026-08-18-hermes-agent-tools-plugins), including how they keep 3,300 MCP tools from eating the context window.
+Next: [tools, MCP, and plugins](/posts/ai/2026-08-18-hermes-agent-tools-plugins-en), including how they keep 3,300 MCP tools from eating the context window.
 
 ## References
 

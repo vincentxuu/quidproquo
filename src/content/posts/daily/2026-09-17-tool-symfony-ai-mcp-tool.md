@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
+> 🌏 [English version](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
 
 ## 工具資訊
 

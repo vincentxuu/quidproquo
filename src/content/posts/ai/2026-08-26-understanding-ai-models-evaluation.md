@@ -18,7 +18,7 @@ glossary:
     def: "LMSys 維護的匿名模型對戰平台，真人盲測投票產生 Elo 排名，是目前最抗操弄的 LLM 評估方式"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-evaluation-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-evaluation-en)
 
 每次有新模型發布，你一定會看到一張表格：一堆縮寫排成行列，每格填著百分比數字，然後發布者把自己最高的那幾格用粗體標出來。「我們在 MMLU 上拿了 90.2%！」「GSM8K 達到 95.1%！」
 

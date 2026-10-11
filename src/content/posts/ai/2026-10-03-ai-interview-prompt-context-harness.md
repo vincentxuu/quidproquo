@@ -24,7 +24,7 @@ glossary:
     definition: "改了某處（常見是 prompt）之後，原本答對的其他案例悄悄變錯，卻沒有任何報錯或告警。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
 
 LLM 應用的面試常把一串問題連著問：Prompt Engineering 為什麼重要、Context Engineering 跟它差在哪、Harness Engineering 又是什麼、沒有評估會出什麼事、團隊要怎麼把 LLM 開發接上 CI/CD。這些題目看起來分散，其實在問同一件事：**模型出錯時，你知道該從哪一層下手嗎？**
 

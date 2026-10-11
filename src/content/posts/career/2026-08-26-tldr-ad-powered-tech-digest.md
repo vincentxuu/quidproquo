@@ -13,7 +13,7 @@ description: "TLDR 創辦人 Dan Ni 的完整成長歷程：從 Jane Street 量�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-tldr-ad-powered-tech-digest-en)
+> 🌏 [English version](/posts/career/2026-08-26-tldr-ad-powered-tech-digest-en)
 
 2018 年 8 月，Dan Ni 在密蘇里州父母家的地下室，用每天 50 美元的 Reddit 和 Quora 廣告預算，開始寄一封「五分鐘讀完科技新聞」的電子報。第一個月，1,000 個人訂閱了。
 

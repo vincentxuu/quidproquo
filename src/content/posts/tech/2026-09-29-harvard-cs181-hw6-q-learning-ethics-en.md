@@ -27,7 +27,7 @@ glossary:
 
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `p3src/`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the 2026 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) and [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) slides, all opened on 2026-09-29. The slide links come from topic cells in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but the April 23 Embedded EthiCS session appears on the schedule only as "see recording", with no public link, and no 2026 slides or module page could be found. That session is **A0**: this post does not guess at what it covered.
 
-This is part 14 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 3)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), planned in a Gridworld with known transitions. This part drops "known": the agent learns while it plays.
+This is part 14 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 3)](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), planned in a Gridworld with known transitions. This part drops "known": the agent learns while it plays.
 
 ## Course video sources
 
@@ -158,14 +158,14 @@ In the [Embedded EthiCS @ Harvard](https://embeddedethics.seas.harvard.edu/cs-18
 
 Posts on this site that approach the same ideas from another angle; they don't replace this one:
 
-- [CS221 Lecture 8: MDPs II: Learning Q-Values Without a Transition Model](/en/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
-- [CS188 MDPs and Reinforcement Learning: From Value Iteration to Q-Learning](/en/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
-- [CMU 07-280 Lecture 22: Q-learning When Dynamics Are Unknown](/en/posts/ai/2026-08-22-cmu-07280-lecture-22-reinforcement-learning-en)
+- [CS221 Lecture 8: MDPs II: Learning Q-Values Without a Transition Model](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
+- [CS188 MDPs and Reinforcement Learning: From Value Iteration to Q-Learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
+- [CMU 07-280 Lecture 22: Q-learning When Dynamics Are Unknown](/posts/ai/2026-08-22-cmu-07280-lecture-22-reinforcement-learning-en)
 - [Deep Reinforcement Learning: Putting RLHF Back in the RL Framework](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf) (CS230, picks up Lecture 23's deep RL; zh-TW only)
 
 ## Next
 
-HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/en/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en), uses the official final checklist and practice problems to consolidate the second half of the term.
+HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en), uses the official final checklist and practice problems to consolidate the second half of the term.
 
 ## Update Log
 

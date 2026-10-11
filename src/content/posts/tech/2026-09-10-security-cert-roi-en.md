@@ -17,7 +17,7 @@ series:
 
 Certifications are investments, not collectibles. This post lays out the real numbers for three classic security certifications: what they cost, how long to prepare, what maintenance looks like, and how much salary uplift to expect.
 
-Parts 1 and 2 of this series already mapped the [full certification landscape](/en/posts/tech/2026-09-10-security-cert-landscape-en) and the [AI security cert showdown](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en). This post focuses on the three you're most likely to take first: Security+, AWS Security Specialty, and CISSP.
+Parts 1 and 2 of this series already mapped the [full certification landscape](/posts/tech/2026-09-10-security-cert-landscape-en) and the [AI security cert showdown](/posts/tech/2026-09-10-ai-security-cert-showdown-en). This post focuses on the three you're most likely to take first: Security+, AWS Security Specialty, and CISSP.
 
 ## At a glance
 

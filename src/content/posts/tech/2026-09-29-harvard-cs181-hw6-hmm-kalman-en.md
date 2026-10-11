@@ -27,7 +27,7 @@ glossary:
 
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, due 2026-05-01), the [Section 9 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf), and the [2026 Lecture 20 HMM slides](https://drive.google.com/file/d/1XDSCd8VexNwnGeVoThc73RSYU-sez7mc/view), all opened on 2026-09-29. The Google Drive links to the lecture slides sit inside the topic cells of the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ); the CSV export drops them, the xlsx export keeps them. The course as a whole is **A3**, but there are no public recording links listed for the corresponding lectures, no homework solutions, and Gradescope requires enrollment. Neither the 2026 slides nor Section 9 **mention the Kalman filter**; the continuous-state material appears only in the homework.
 
-This is part 12 of the [Harvard CS181 weekly guide](/en/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 1)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en), covered autoregressive models, which model the observed sequence directly. This part takes the other view of sequences: an unseen state is moving behind the observations.
+This is part 12 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 1)](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en), covered autoregressive models, which model the observed sequence directly. This part takes the other view of sequences: an unseen state is moving behind the observations.
 
 ## Course video sources
 
@@ -48,10 +48,10 @@ The [HW6 problem set](https://github.com/harvard-ml-courses/cs181-s26-homeworks/
 
 | Part | Problem | Points |
 |---|---|---|
-| [HW6 (Part 1)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en) | Problem 4 Autoregressive Models | 20 |
+| [HW6 (Part 1)](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en) | Problem 4 Autoregressive Models | 20 |
 | This post | Problem 1 Hidden Markov Models | 15 |
-| [HW6 (Part 3)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en) | Problem 2 Policy and Value Iteration | 15 |
-| [HW6 (Part 4)](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en) | Problem 3 Reinforcement Learning, Problem 5 Embedded Ethics | 20 + 10 |
+| [HW6 (Part 3)](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en) | Problem 2 Policy and Value Iteration | 15 |
+| [HW6 (Part 4)](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en) | Problem 3 Reinforcement Learning, Problem 5 Embedded Ethics | 20 + 10 |
 
 ## What the problem asks: you can't see the state, only noisy readings
 
@@ -149,12 +149,12 @@ The 2024 term's [Lecture 19 scribe notes](https://harvard-ml-courses.github.io/c
 
 Posts on this site that approach the same ideas from another angle; they don't replace this one:
 
-- [LQR, DDP, and LQG: From Linear Control to Uncertainty](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg-en) (CS229 notes; the multi-dimensional Kalman filter's role in control)
-- [CS221 Lecture 14: Bayesian Networks III: From Counts and Smoothing to EM](/en/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en)
+- [LQR, DDP, and LQG: From Linear Control to Uncertainty](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg-en) (CS229 notes; the multi-dimensional Kalman filter's role in control)
+- [CS221 Lecture 14: Bayesian Networks III: From Counts and Smoothing to EM](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en)
 
 ## Next
 
-In an HMM the state just evolves on its own. The next part, [HW6 (Part 3): Policy Iteration and Value Iteration for MDPs](/en/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), lets an agent choose actions, so transitions start to depend on what you do. The 2026 [Lecture 21 slides](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view) open with exactly this contrast: the HMM's `p(z_{t+1} | z_t)` becomes the MDP's `p(s_{t+1} | s_t, a_t)`.
+In an HMM the state just evolves on its own. The next part, [HW6 (Part 3): Policy Iteration and Value Iteration for MDPs](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), lets an agent choose actions, so transitions start to depend on what you do. The 2026 [Lecture 21 slides](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view) open with exactly this contrast: the HMM's `p(z_{t+1} | z_t)` becomes the MDP's `p(s_{t+1} | s_t, a_t)`.
 
 ## Update Log
 

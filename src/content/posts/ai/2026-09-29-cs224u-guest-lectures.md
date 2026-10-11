@@ -26,7 +26,7 @@ glossary:
     context: "第二場講座用它把 GPT-2 Small 的訓練時鐘從 6.01 天壓到 3.37 天。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cs224u-guest-lectures-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cs224u-guest-lectures-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

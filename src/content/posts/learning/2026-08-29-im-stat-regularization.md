@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 41 篇：Ridge、Lasso、
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-regularization-en)
+> [English version](/posts/learning/2026-08-29-im-stat-regularization-en)
 
 前面看過 MAP 之後，regularization 就不再只是「工程上讓模型穩一點」的技巧。它可以被理解成一種明確的偏好：除非資料真的有足夠證據，否則不要讓參數跑得太極端。
 

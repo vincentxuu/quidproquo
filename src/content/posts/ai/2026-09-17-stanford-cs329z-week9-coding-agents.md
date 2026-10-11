@@ -16,7 +16,7 @@ description: "帶讀 Stanford CS329Z Week 9 兩大主讀物：SWE-agent 的 ACI 
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

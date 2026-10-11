@@ -6,8 +6,7 @@ type: digest
 tags: [ai-agent, arxiv, daily, multi-agent, agent-framework, agent-memory]
 lang: en
 description: "Three papers on the most pressing question for agent platforms in 2026: can safety constraints in multi-agent systems actually hold up during execution?"
-tldr: "Three papers on the most pressing question for agent platforms in 2026: can safety constraints in multi-agent systems actually hold up during execution?
-2605.10481 names a new failure mode — 'constraint drift': safety rules written at design time silently weaken as they pass through agent delegation, memory read/write, and tool calls, arriving at the output already distorted. 2605.07728 (SARC) proposes an architectural fix: compile regulations into four enforceable checkpoints embedded in the agent execution loop — no more relying on prompt reminders — and is open-sourced. 2605.13851 uses psychology experiments to show that when a multi-agent system's coordinator is invisible, the system's protective behaviors drop significantly — a direct design warning for mainstream orchestrator-based architectures."
+tldr: "Three papers on the most pressing question for agent platforms in 2026: can safety constraints in multi-agent systems actually hold up during execution? 2605.10481 names a new failure mode — 'constraint drift': safety rules written at design time silently weaken as they pass through agent delegation, memory read/write, and tool calls, arriving at the output already distorted. 2605.07728 (SARC) proposes an architectural fix: compile regulations into four enforceable checkpoints embedded in the agent execution loop — no more relying on prompt reminders — and is open-sourced. 2605.13851 uses psychology experiments to show that when a multi-agent system's coordinator is invisible, the system's protective behaviors drop significantly — a direct design warning for mainstream orchestrator-based architectures."
 series:
   name: "AI Agent Arxiv Digest"
   order: 1

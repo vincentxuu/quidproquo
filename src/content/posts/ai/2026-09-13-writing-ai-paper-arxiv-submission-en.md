@@ -377,6 +377,6 @@ The core proposition: **The NeurIPS Reproducibility Checklist is your minimum ba
 - [Ten Simple Rules for Writing a Response to Reviewers — William Stafford Noble (PLOS CB, 2017)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005730)
 - [Writing Rebuttals — Niklas Elmqvist (Medium, 2016)](https://medium.com/@elmqvist/writing-rebuttals-bb73e5f44a6e)
 - [How to Write a Rebuttal Letter — Matt Might](http://matt.might.net/articles/how-to-rebut/)
-- [Site: How to Read arXiv Papers: Methodology and Tool Landscape](/en/posts/ai/2026-05-23-how-to-read-arxiv-papers)
-- [Site: arXiv Paper Quality Assessment Guide](/en/posts/ai/2026-05-28-arxiv-paper-quality-guide)
+- [Site: How to Read arXiv Papers: Methodology and Tool Landscape](/posts/ai/2026-05-23-how-to-read-arxiv-papers-en)
+- [Site: arXiv Paper Quality Assessment Guide](/posts/ai/2026-05-28-arxiv-paper-quality-guide-en)
 - [Site: How Others Use LLMs for Writing](/posts/ai/2026-05-10-llm-writing-pipeline-learnings) (zh-TW only)

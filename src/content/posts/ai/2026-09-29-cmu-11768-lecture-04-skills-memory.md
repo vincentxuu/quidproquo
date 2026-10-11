@@ -26,7 +26,7 @@ glossary:
     context: "本篇的記憶方法大多從軌跡出發，再決定要保留多少細節。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

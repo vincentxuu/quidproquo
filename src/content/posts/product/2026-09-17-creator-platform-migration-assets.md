@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-creator-platform-migration-assets-en)
+> 🌏 [English version](/posts/product/2026-09-17-creator-platform-migration-assets-en)
 
 想像你從夜市搬到自己的店面。桌椅可以上卡車，熟客通訊錄也許能抄走；但原本的位置、人潮、隔壁攤商的介紹，以及客人已經設定好的付款方式，不會自動跟著走。
 

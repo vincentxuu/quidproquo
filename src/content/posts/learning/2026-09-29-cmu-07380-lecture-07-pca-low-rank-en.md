@@ -20,7 +20,7 @@ draft: false
 
 This is Lecture 7 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Low Rank Optimization: PCA** (9/16). The topic column on the course site reads "PCA (LoRA)." It is the last lecture in the Optimization module.
 
-In the previous two lectures ([Lec5 LP](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en), [Lec6 IP](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)), the constraints were linear inequalities. Here the constraint becomes "rank at most r" and the objective becomes squared error. The problem looks different, but the approach is the same: write it as an optimization problem, then find the structure of the solution.
+In the previous two lectures ([Lec5 LP](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en), [Lec6 IP](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)), the constraints were linear inequalities. Here the constraint becomes "rank at most r" and the objective becomes squared error. The problem looks different, but the approach is the same: write it as an optimization problem, then find the structure of the solution.
 
 The short answer: **PCA's two usual definitions, minimizing reconstruction error and maximizing projected variance, have the same argmin.** The solution is the eigenvectors of the covariance matrix, which are also the right singular vectors in the SVD of the data matrix.
 
@@ -45,7 +45,7 @@ Checked on 2026-10-10.
 - [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf), Problem 6, PCA Walkthrough (Recitation 4, 9/18)
 - Assigned reading: [Bishop, *Pattern Recognition and Machine Learning*](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) §12.1 (covers both the 12.1.1 maximum-variance and 12.1.2 minimum-error derivations); Murphy §12.2; the [LoRA paper (Hu et al., 2021)](https://arxiv.org/abs/2106.09685)
 
-**Access level**: slides, notes, Desmos, the notebook, and the recitation with solutions are all available outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Two exceptions: the Murphy link goes through CMU's EBSCO library access and needs a campus login, so I did not read it; and the site has no lecture recordings.
+**Access level**: slides, notes, Desmos, the notebook, and the recitation with solutions are all available outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Two exceptions: the Murphy link goes through CMU's EBSCO library access and needs a campus login, so I did not read it; and the site has no lecture recordings.
 
 ## The starting question: what is low-rank optimization
 
@@ -147,7 +147,7 @@ Once filled in, step 4's plot is the slide's "Reduced along 1st principal compon
 
 ## Homework
 
-**HW3 written** Q3 PCA is worth 9 points. The Warm-Up (2 pts) asks you to draw the first and second principal components on given 2-D plots. The Computation part (7 pts) uses 6 points in 5 dimensions: decide whether the data is centered, write the SVD's three matrices and their dimensions, find the first principal component, and give the variance and reconstruction error after projecting to 1-D. The ideas match Recitation Problem 6, just in higher dimensions and via SVD; see the [HW3 guide](/en/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en). HW3 is due 10/1, and this series does not post solutions.
+**HW3 written** Q3 PCA is worth 9 points. The Warm-Up (2 pts) asks you to draw the first and second principal components on given 2-D plots. The Computation part (7 pts) uses 6 points in 5 dimensions: decide whether the data is centered, write the SVD's three matrices and their dimensions, find the first principal component, and give the variance and reconstruction error after projecting to 1-D. The ideas match Recitation Problem 6, just in higher dimensions and via SVD; see the [HW3 guide](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en). HW3 is due 10/1, and this series does not post solutions.
 
 ## Connection: LoRA's low rank is the same idea
 
@@ -157,7 +157,7 @@ The site attaches the [LoRA paper](https://arxiv.org/abs/2106.09685) to this lec
 - Compare the lecture's opening definition: `BA` is a matrix of rank at most r, the same kind of object as PCA's rank-K approximation
 - The difference: PCA solves for the best low-rank approximation in one eigendecomposition. LoRA doesn't approximate a known matrix; it treats `B` and `A` as parameters and trains them with gradient descent on the downstream task
 
-Two other posts on this site cover LoRA from the implementation side: [CS224N Tinker and LoRA](/en/posts/ai/2026-08-22-cs224n-tinker-lora-en) and [MIT 6.S191 Lab 3 LoRA fine-tuning](/en/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation-en).
+Two other posts on this site cover LoRA from the implementation side: [CS224N Tinker and LoRA](/posts/ai/2026-08-22-cs224n-tinker-lora-en) and [MIT 6.S191 Lab 3 LoRA fine-tuning](/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation-en).
 
 ## Things to do tonight
 
@@ -167,9 +167,9 @@ Two other posts on this site cover LoRA from the implementation side: [CS224N Ti
 
 ## Series navigation
 
-- Previous: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
-- Next: [Lecture 8: MAP, How Priors Enter Estimation and Why It Equals Regularization](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en)
-- Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
+- Next: [Lecture 8: MAP, How Priors Enter Estimation and Why It Equals Regularization](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en)
+- Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

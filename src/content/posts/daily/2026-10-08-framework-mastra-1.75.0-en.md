@@ -96,7 +96,7 @@ I used to think of observability and memory as two cleanly separate subsystems i
 
 - [Mastra @mastra/core@1.75.0 — GitHub Release](https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fcore%401.75.0)
 - [mastra-ai/mastra — GitHub](https://github.com/mastra-ai/mastra)
-- [Mastra @mastra/core@1.74.0 — previous framework update](/en/posts/daily/2026-10-06-framework-mastra-1.74.0-en)
+- [Mastra @mastra/core@1.74.0 — previous framework update](/posts/daily/2026-10-06-framework-mastra-1.74.0-en)
 - [PR #25791: storage.querySpans() single-span query API](https://github.com/mastra-ai/mastra/pull/25791)
 - [PR #25735: aggregateTraces() token/cost measures](https://github.com/mastra-ai/mastra/pull/25735)
 - [PR #25009: Semantic Recall self-embedding vector store support](https://github.com/mastra-ai/mastra/pull/25009)

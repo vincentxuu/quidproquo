@@ -15,7 +15,7 @@ glossary:
     def: "Zhipu AI（智譜，國際品牌 Z.ai）開發的開源大型語言模型家族"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
+> 🌏 [English version](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
 
 ## 模型資訊
 

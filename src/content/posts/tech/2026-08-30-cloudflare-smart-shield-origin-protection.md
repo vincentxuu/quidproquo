@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection-en)
 
 [Cache Rules](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy) 回答的是「什麼東西可以 cache、cache 多久、cache key 怎麼定」。[Cloudflare Smart Shield](https://developers.cloudflare.com/smart-shield/) 回答的是另一個問題：當 cache miss、突發流量、全球訪客和 origin connection 一起來時，怎麼讓 origin 少扛一點？
 

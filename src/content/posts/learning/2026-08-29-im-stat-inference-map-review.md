@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 35 篇：估計、檢定�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-inference-map-review-en)
+> [English version](/posts/learning/2026-08-29-im-stat-inference-map-review-en)
 
 第二層學到這裡，很多人會有一種混亂感：點估計、standard error、信賴區間、假設檢定、likelihood、LRT、Bayes、bootstrap 都看過了，可是一拿到題目，還是不知道要先從哪裡下手。
 

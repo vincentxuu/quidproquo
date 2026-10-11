@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce-en)
+> 🌏 [English version](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce-en)
 
 ## 事件概述
 

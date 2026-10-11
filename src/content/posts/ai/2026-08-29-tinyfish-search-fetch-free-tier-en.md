@@ -113,7 +113,7 @@ TinyFish splits browsing from automation as a business model. Browsing is free w
 
 If your agent is still answering from model memory or relying on custom Playwright scripts for basic document lookup, Search and Fetch are a low-cost default retrieval layer.
 
-> This article is part of the "搜尋與爬取實戰" series. For a broader free-tier comparison, see [Free Search, Scraping, and Browser APIs: How to Choose](/en/posts/ai/2026-08-21-free-search-scraping-tools-en), which compares quotas, reset rules, and overage behavior across providers.
+> This article is part of the "搜尋與爬取實戰" series. For a broader free-tier comparison, see [Free Search, Scraping, and Browser APIs: How to Choose](/posts/ai/2026-08-21-free-search-scraping-tools-en), which compares quotas, reset rules, and overage behavior across providers.
 
 ---
 

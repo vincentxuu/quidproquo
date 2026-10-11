@@ -15,7 +15,7 @@ draft: false
 
 > [中文版](/posts/ai/2026-09-06-chinese-community-small-llm-training)
 
-The previous post covered [Karpathy's nanochat](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), representing the English-speaking world's from-scratch route; this one looks at the Chinese community. I picked three projects with complementary positioning: [baby-llama2-chinese](https://github.com/DLLXW/baby-llama2-chinese) (a textbook Llama2 reproduction), [ChatLM-mini-Chinese](https://github.com/charent/ChatLM-mini-Chinese) (the lowest resource floor), and [Steel-LLM](https://github.com/zhanshijinwat/Steel-LLM) (a complete personal record of forging a 1B model).
+The previous post covered [Karpathy's nanochat](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en), representing the English-speaking world's from-scratch route; this one looks at the Chinese community. I picked three projects with complementary positioning: [baby-llama2-chinese](https://github.com/DLLXW/baby-llama2-chinese) (a textbook Llama2 reproduction), [ChatLM-mini-Chinese](https://github.com/charent/ChatLM-mini-Chinese) (the lowest resource floor), and [Steel-LLM](https://github.com/zhanshijinwat/Steel-LLM) (a complete personal record of forging a 1B model).
 
 A bias note first: this series focuses on star GitHub projects from the English- and Chinese-speaking communities; the only retired cases discussed are research-purpose Pythia / TinyLlama; non-English non-Chinese communities (such as Japan's LLM-jp) and non-Transformer architectures (RWKV / Mamba families) are out of scope.
 
@@ -49,7 +49,7 @@ Compare [MiniMind](https://github.com/jingyaogong/minimind)'s self-trained 6,400
 
 ## Honest evaluation
 
-[MiniMind](https://github.com/jingyaogong/minimind)'s README (see [the series' first deep dive](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)) ran a side-by-side comparison involving two of these projects, and the results pull no punches:
+[MiniMind](https://github.com/jingyaogong/minimind)'s README (see [the series' first deep dive](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)) ran a side-by-side comparison involving two of these projects, and the results pull no punches:
 
 - **baby-llama2-chinese ranked last in the subjective test**. MiniMind's author fed four small models' answers to GPT-5.4 as judge (100-point scale): minimind-3-moe scored 68, ChatLM-mini 62, minimind-3 61, and baby-llama2-chinese 21. On the Yangtze River question it answered "China is one of the longest cities in the world", and its code answer was entirely non-functional. To be fair, this is a small-sample subjective test — but baby-llama2's own README shows continuation samples (a "Little Prince" prompt) that likewise reveal weak basic language ability.
 - **ChatLM-mini has solid knowledge but weak code**. It scored highest on factual accuracy in that round (25/30 on the accuracy dimension): gravity correctly attributed to Newton with the 1687 *Principia* cited, the Yangtze's source and provinces all correct. But code scored 3/20 — an inverted conditional made the function unusable — and it refused the summarization task outright.
@@ -63,7 +63,7 @@ But this route was never about products. All three projects were positioned from
 
 ## Overall
 
-The first bottleneck in Chinese from-scratch training was never architecture — it was corpus and tokenizer: corpora you assemble and clean yourself, a vocab choice between training small and inheriting large, and an ecosystem built on Baidu Netdisk, Zhihu, and ModelScope. For the smallest-resource full pipeline, ChatLM's 4GB VRAM floor is the easiest entry; for corpus engineering, read baby-llama2; for how one person forges a 1B model, Steel-LLM's write-ups are the most complete record available. If data efficiency itself is your research question, the next post on [YuLan-Mini](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) pushes "train stronger with less data" much further; and whether you should train from scratch at all is the question the [series finale](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) answers.
+The first bottleneck in Chinese from-scratch training was never architecture — it was corpus and tokenizer: corpora you assemble and clean yourself, a vocab choice between training small and inheriting large, and an ecosystem built on Baidu Netdisk, Zhihu, and ModelScope. For the smallest-resource full pipeline, ChatLM's 4GB VRAM floor is the easiest entry; for corpus engineering, read baby-llama2; for how one person forges a 1B model, Steel-LLM's write-ups are the most complete record available. If data efficiency itself is your research question, the next post on [YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) pushes "train stronger with less data" much further; and whether you should train from scratch at all is the question the [series finale](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) answers.
 
 ## References
 
@@ -76,4 +76,4 @@ The first bottleneck in Chinese from-scratch training was never architecture —
 - [BELLE GitHub](https://github.com/LianjiaTech/BELLE)
 - [MiniMind GitHub](https://github.com/jingyaogong/minimind)
 - [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
-- [On this site: MiniMind: Train an LLM From Scratch for $0.40](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
+- [On this site: MiniMind: Train an LLM From Scratch for $0.40](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)

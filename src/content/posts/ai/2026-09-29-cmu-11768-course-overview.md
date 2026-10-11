@@ -13,7 +13,7 @@ description: "CMU 11-768 AI Agents（Fall 2026）系列導讀：課程定位、�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

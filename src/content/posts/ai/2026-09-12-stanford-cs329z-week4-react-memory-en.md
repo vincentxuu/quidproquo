@@ -24,7 +24,7 @@ Picture hiring a research assistant with two failure modes: one sits at the desk
 
 Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Memory & Multi-Agent) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
 
-For orientation: [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
+For orientation: [Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
 
 ## Course video sources
 
@@ -69,9 +69,9 @@ Each experiment targets one pain point. In multi-session dialogue, baseline GPT-
 
 ## Where it sits in the course
 
-Week 4 bridges both directions. Looking back, it gives [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: an agent is a ReAct loop plus tiered memory. Looking ahead, Wednesday's second half on multi-agent collaboration (roles, communication, emergent behavior) previews Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
+Week 4 bridges both directions. Looking back, it gives [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s workflow-versus-agent distinction a runnable shape: an agent is a ReAct loop plus tiered memory. Looking ahead, Wednesday's second half on multi-agent collaboration (roles, communication, emergent behavior) previews Week 5 — and the ReAct paper's closing note, that humans can steer an agent live by editing its Thoughts, is exactly where human-in-the-loop collaboration begins, and it is the hook HW1 asks you to leave open for a human.
 
-On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loop shape fixed, memory design fixed, which leaves the next two weeks for wiring in the terminal, adding the human-in-the-loop step, running evaluations, and writing error analysis. The assignment bans frameworks throughout, so [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)'s DSPy stays in lecture, where you can see how it abstracts the parts you are writing by hand. Recall the Week 1 thesis — systems beat models. This week's two papers are that sentence as working drawings.
+On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loop shape fixed, memory design fixed, which leaves the next two weeks for wiring in the terminal, adding the human-in-the-loop step, running evaluations, and writing error analysis. The assignment bans frameworks throughout, so [Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)'s DSPy stays in lecture, where you can see how it abstracts the parts you are writing by hand. Recall the Week 1 thesis — systems beat models. This week's two papers are that sentence as working drawings.
 
 ## This week's course-material map
 
@@ -91,7 +91,7 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 
 ## References
 
-- On this site: [Week 3: plug tools in, swap frameworks up](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Week 2: workflows versus agents](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 3: plug tools in, swap frameworks up](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Week 2: workflows versus agents](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Yao et al., ReAct, ICLR 2023](https://arxiv.org/abs/2210.03629), [Packer et al., MemGPT, ICLR 2024](https://arxiv.org/abs/2310.08560), [Wei et al., Chain-of-Thought](https://arxiv.org/abs/2202.03629)
 - Projects and data: [ReAct project page](https://react-lm.github.io/), [MemGPT research site](https://research.memgpt.ai/), [ALFWorld](https://alfworld.github.io/), [WebShop](https://webshop-pnlp.github.io/), [FEVER](https://fever.ai/), [HotpotQA](https://hotpotqa.github.io/)

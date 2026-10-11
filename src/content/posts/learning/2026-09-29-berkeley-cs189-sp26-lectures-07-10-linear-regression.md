@@ -14,7 +14,7 @@ description: "Berkeley CS189 Spring 2026（Listgarten／Dimakis）Lecture 7 後�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

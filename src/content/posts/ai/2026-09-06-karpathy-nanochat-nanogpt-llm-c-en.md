@@ -27,7 +27,7 @@ Three repos from the same author in sequence, and the positioning differences ma
 | [llm.c](https://github.com/karpathy/llm.c) | Pretraining only | A CPU can run the reference build | PyTorch replaced with pure C/CUDA |
 | [nanochat](https://github.com/karpathy/nanochat) | Full stack, tokenizer to WebUI | 8×H100 node (~$24/hr) | Train your own ChatGPT in one evening |
 
-nanochat's README opens by calling it "the simplest experimental harness for training LLMs", designed for a single GPU node and covering all major LLM stages: tokenization, pretraining, finetuning, evaluation, and inference. Compared with [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en), covered earlier in this series, the differences are threefold: **resource scale** (MiniMind runs on one 3090; nanochat assumes an 8×H100 node), **industrial-grade pretraining** (nanochat directly adopts 2025 state-of-the-art practice — the [Muon](https://github.com/KellerJordan/Muon) optimizer, Flash Attention 3, value embeddings — rather than simplifying for pedagogy), and **teaching focus** (MiniMind collapses every PO algorithm into one objective function; nanochat teaches "how an entire product line runs").
+nanochat's README opens by calling it "the simplest experimental harness for training LLMs", designed for a single GPU node and covering all major LLM stages: tokenization, pretraining, finetuning, evaluation, and inference. Compared with [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en), covered earlier in this series, the differences are threefold: **resource scale** (MiniMind runs on one 3090; nanochat assumes an 8×H100 node), **industrial-grade pretraining** (nanochat directly adopts 2025 state-of-the-art practice — the [Muon](https://github.com/KellerJordan/Muon) optimizer, Flash Attention 3, value embeddings — rather than simplifying for pedagogy), and **teaching focus** (MiniMind collapses every PO algorithm into one objective function; nanochat teaches "how an entire product line runs").
 
 ## nanochat: one speedrun.sh through the full stack
 
@@ -86,7 +86,7 @@ Its lasting influence came through two channels: [modded-nanoGPT](https://github
 
 The three nano repos are three answers to the same question: **what does the smallest readable version of LLM training look like**. nanoGPT answers the model and training loop (~300 lines × 2), llm.c answers kernels and hardware (taking PyTorch apart), and nanochat answers the whole pipeline — tokenizer, pretraining, SFT, RL, inference, WebUI — plus a scaling dial and a report card. The shared trade-off across all three is "readability over configurability": no giant config objects, no model factories; changing something means changing code.
 
-The audience splits into three tiers too: start with nanoGPT (or the Zero to Hero videos) to understand GPT training for the first time; read llm.c for GPUs and kernels; rent an 8×H100 and run the nanochat speedrun to watch every stage's numbers move. This site's [2026 AI courses guide](/en/posts/ai/2026-07-10-ai-courses-2026-guide-en) files nanochat under "strictly a project rather than a course, but the learning density of reading the code is high" — an assessment I agree with.
+The audience splits into three tiers too: start with nanoGPT (or the Zero to Hero videos) to understand GPT training for the first time; read llm.c for GPUs and kernels; rent an 8×H100 and run the nanochat speedrun to watch every stage's numbers move. This site's [2026 AI courses guide](/posts/ai/2026-07-10-ai-courses-2026-guide-en) files nanochat under "strictly a project rather than a course, but the learning density of reading the code is high" — an assessment I agree with.
 
 But keep the caveats in view: all three repos live in English-language corpora and the H100 ecosystem, a full order of magnitude above MiniMind's single-GPU route, and they are not the only answer. The Chinese community grew its own low-cost routes, which the next post covers; and when training from scratch is actually worth it — versus just fine-tuning — is the question the final post takes up.
 
@@ -104,5 +104,5 @@ But keep the caveats in view: all three repos live in English-language corpora a
 - [FineWeb-EDU (official Hugging Face introduction)](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1)
 - [DCLM paper (source of the CORE metric, arXiv:2406.11794)](https://arxiv.org/abs/2406.11794)
 - [Chinchilla scaling law (arXiv:2203.15556)](https://arxiv.org/abs/2203.15556)
-- [MiniMind: train an LLM from scratch for 3 RMB (this series, order 1)](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
+- [MiniMind: train an LLM from scratch for 3 RMB (this series, order 1)](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
 - [Zero to Hero video series](https://karpathy.ai/zero-to-hero.html)

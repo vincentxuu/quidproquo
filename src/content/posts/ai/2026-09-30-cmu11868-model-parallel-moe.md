@@ -25,7 +25,7 @@ glossary:
     context: "L17 指出 expert parallelism 需要快速的 all-to-all，其延遲隨裝置數線性增加。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

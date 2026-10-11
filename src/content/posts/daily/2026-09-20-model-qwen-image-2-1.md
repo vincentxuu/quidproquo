@@ -17,7 +17,7 @@ glossary:
     def: "Red-Green-Blue-Alpha，在色彩通道外多一層透明度（Alpha）資訊，讓圖片可以有部分或完全透明的區域，方便後續疊圖合成"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-20-model-qwen-image-2-1-en)
+> 🌏 [English version](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
 
 ## 模型資訊
 

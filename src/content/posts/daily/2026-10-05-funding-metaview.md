@@ -12,7 +12,7 @@ series:
   order: 66
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-05-funding-metaview-en)
+> 🌏 [English version](/posts/daily/2026-10-05-funding-metaview-en)
 
 ## 融資資訊
 

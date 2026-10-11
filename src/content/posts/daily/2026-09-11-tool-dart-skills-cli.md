@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-11-tool-dart-skills-cli-en)
+> 🌏 [English version](/posts/daily/2026-09-11-tool-dart-skills-cli-en)
 
 ## 工具資訊
 

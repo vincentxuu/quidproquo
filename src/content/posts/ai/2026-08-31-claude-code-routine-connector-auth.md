@@ -18,7 +18,7 @@ glossary:
     definition: "claude.ai 上連接的 MCP server，分為 Anthropic 官方託管與使用者自架兩種。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-31-claude-code-routine-connector-auth-en)
+> 🌏 [English version](/posts/ai/2026-08-31-claude-code-routine-connector-auth-en)
 
 ## TL;DR
 

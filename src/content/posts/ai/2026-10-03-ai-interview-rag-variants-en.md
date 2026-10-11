@@ -19,7 +19,7 @@ glossary:
     context: "Used here to explain why Adaptive-RAG and Agentic RAG support multi-step retrieval."
     links:
       - label: "On this site: Multi-hop Retrieval"
-        url: "/en/posts/ai/2026-09-03-multi-hop-retrieval-rag-en"
+        url: "/posts/ai/2026-09-03-multi-hop-retrieval-rag-en"
   - term: "reflection token"
     aliases: ["reflection tokens"]
     definition: "Special tokens that Self-RAG trains the model to emit during generation, marking whether to retrieve, whether retrieved text is relevant, and whether the answer is supported."
@@ -90,7 +90,7 @@ The survey by Gao et al., [Retrieval-Augmented Generation for Large Language Mod
 | Traceable | The answer can point to its source document so readers can check it |
 | Domain adaptation | Connect private company data and the model can answer things it never saw in pretraining |
 
-"RAG is cheaper than fine-tuning" only holds depending on data volume and update frequency, so do not state it as a given. The trade-off is covered in [RAG vs Fine-tuning: It's Not Either/Or](/en/posts/ai/2026-03-12-rag-vs-fine-tuning-en).
+"RAG is cheaper than fine-tuning" only holds depending on data volume and update frequency, so do not state it as a given. The trade-off is covered in [RAG vs Fine-tuning: It's Not Either/Or](/posts/ai/2026-03-12-rag-vs-fine-tuning-en).
 
 **How to answer**
 
@@ -106,16 +106,16 @@ The challenges also line up with each stage of the pipeline:
 
 | Challenge | The concrete problem | Further reading |
 |---|---|---|
-| Chunking | Too small loses context; too large lets noise in | [Chunking Strategies](/en/posts/ai/2026-03-12-chunking-strategies-en) |
-| Retrieval quality | Vector search returns passages that look similar but are irrelevant; exact strings such as proper nouns and error codes slip past semantic models | [Hybrid Search](/en/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), [Cross-Encoder Reranking](/en/posts/ai/2026-03-12-cross-encoder-reranking-en) |
-| Multi-hop questions | The answer is spread over several documents and one retrieval cannot gather it | [Multi-hop Retrieval](/en/posts/ai/2026-09-03-multi-hop-retrieval-rag-en) |
-| Data freshness | If the store is not updated, answers go stale | [RAG Common Failure Modes](/en/posts/ai/2026-03-12-rag-failure-modes-en) |
-| Access control | Different roles may see different documents; filter at retrieval time, not by masking after generation | [RAG Guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en) |
-| Evaluation | Retrieval and generation fail separately, so measure them separately to know where the problem is | [RAG Evaluation Frameworks](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en) |
+| Chunking | Too small loses context; too large lets noise in | [Chunking Strategies](/posts/ai/2026-03-12-chunking-strategies-en) |
+| Retrieval quality | Vector search returns passages that look similar but are irrelevant; exact strings such as proper nouns and error codes slip past semantic models | [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), [Cross-Encoder Reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en) |
+| Multi-hop questions | The answer is spread over several documents and one retrieval cannot gather it | [Multi-hop Retrieval](/posts/ai/2026-09-03-multi-hop-retrieval-rag-en) |
+| Data freshness | If the store is not updated, answers go stale | [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en) |
+| Access control | Different roles may see different documents; filter at retrieval time, not by masking after generation | [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails-en) |
+| Evaluation | Retrieval and generation fail separately, so measure them separately to know where the problem is | [RAG Evaluation Frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) |
 
 Evaluation deserves one more sentence. [Ragas](https://arxiv.org/abs/2309.15217) splits RAG evaluation into dimensions: whether retrieval finds relevant and focused passages, whether the LLM uses them faithfully, and the quality of the generation itself, all without needing human-annotated ground truth. Saying "measure retrieval and generation separately" is a stronger answer than just "use Ragas".
 
-The most dangerous failure is a silent retrieval error: the retriever returns irrelevant passages, the model composes a fluent answer anyway, and the user cannot tell. A real case is on this site: [10% of Conversations Were Making Things Up](/en/posts/ai/2026-09-19-retriever-silent-failure-en).
+The most dangerous failure is a silent retrieval error: the retriever returns irrelevant passages, the model composes a fluent answer anyway, and the user cannot tell. A real case is on this site: [10% of Conversations Were Making Things Up](/posts/ai/2026-09-19-retriever-silent-failure-en).
 
 **How to answer**
 
@@ -123,7 +123,7 @@ The representative scenario is an enterprise knowledge base and support bot, bec
 
 ## The Variant Map: Start With the Evolution, Then See What Each One Patches
 
-Gao et al. group RAG into [Naive RAG, Advanced RAG and Modular RAG paradigms](https://arxiv.org/abs/2312.10997), and this site has a dedicated piece on that line: [Three Generations of RAG: From Naive to Modular](/en/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en). The nine techniques interviewers usually ask about hang off that line:
+Gao et al. group RAG into [Naive RAG, Advanced RAG and Modular RAG paradigms](https://arxiv.org/abs/2312.10997), and this site has a dedicated piece on that line: [Three Generations of RAG: From Naive to Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en). The nine techniques interviewers usually ask about hang off that line:
 
 ```mermaid
 flowchart TD
@@ -148,7 +148,7 @@ All three answer one question: when should we look things up, can what we found 
 
 [Self-RAG](https://arxiv.org/abs/2310.11511) (Asai et al.) trains a single LM to emit special reflection tokens during generation, judging whether to retrieve, whether retrieved passages are relevant, and whether its own answer is supported. The paper reports that Self-RAG, even at just 7B and 13B sizes, [outperforms](https://arxiv.org/abs/2310.11511) [ChatGPT](https://chatgpt.com/) and retrieval-augmented Llama2-chat on open-domain QA, reasoning and fact-verification tasks.
 
-The cost is in training: the judgment is fine-tuned into the model, so it only works on models you can train and does not drop onto API-only closed models. For the mechanics, see [Self-RAG: Teaching the Model to Decide When to Retrieve](/en/posts/ai/2026-09-03-self-rag-reflection-tokens-en).
+The cost is in training: the judgment is fine-tuned into the model, so it only works on models you can train and does not drop onto API-only closed models. For the mechanics, see [Self-RAG: Teaching the Model to Decide When to Retrieve](/posts/ai/2026-09-03-self-rag-reflection-tokens-en).
 
 ### CRAG: a separate retrieval evaluator
 
@@ -162,13 +162,13 @@ The cost is in training: the judgment is fine-tuned into the model, so it only w
 
 Two details earn interview points. First, the evaluator is small: [about 0.77B parameters, against a 7B Llama-2 as the Self-RAG critic](https://arxiv.org/html/2401.15884v3). Second, the Ambiguous branch is deliberate: the authors found that with only Correct and Incorrect actions, [results were easily affected by the evaluator's accuracy](https://arxiv.org/html/2401.15884v3), and adding a middle ground eased that dependence.
 
-The limits are plain too: the Incorrect path relies on an external search engine, and the ceiling of the whole system is the judgment of that evaluator. This site discusses the issue in [Three Shapes of RAG and the Evaluator Paradox](/en/posts/ai/2026-08-10-rag-graph-agentic-variants-en). For implementation, see [CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty](/en/posts/ai/2026-03-12-corrective-rag-crag-en).
+The limits are plain too: the Incorrect path relies on an external search engine, and the ceiling of the whole system is the judgment of that evaluator. This site discusses the issue in [Three Shapes of RAG and the Evaluator Paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en). For implementation, see [CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty](/posts/ai/2026-03-12-corrective-rag-crag-en).
 
 ### Adaptive-RAG: route by question difficulty
 
 [Adaptive-RAG](https://arxiv.org/abs/2403.14403) (Jeong et al., NAACL 2024) is about efficiency: simple questions do not need retrieval, while complex multi-step ones need more than a single retrieval. It trains a smaller LM as a classifier to predict how complex an incoming question is, then switches among three strategies: no retrieval, single-step retrieval, and iterative multi-step retrieval.
 
-The bottleneck is easy to see: if the classifier errs, simple questions get forced into multi-step retrieval (waste) and complex ones get single-step retrieval (no answer). The multi-step case is essentially the [multi-hop retrieval](/en/posts/ai/2026-09-03-multi-hop-retrieval-rag-en) problem from the table above.
+The bottleneck is easy to see: if the classifier errs, simple questions get forced into multi-step retrieval (waste) and complex ones get single-step retrieval (no answer). The multi-step case is essentially the [multi-hop retrieval](/posts/ai/2026-09-03-multi-hop-retrieval-rag-en) problem from the table above.
 
 **How to answer**
 
@@ -184,7 +184,7 @@ Vector retrieval assumes the answer sits in a few nearby passages. When the ques
 
 It builds its index in two stages: an LLM first derives an entity knowledge graph from the documents, then pre-generates community summaries for groups of closely related entities (the output of [community detection](https://arxiv.org/abs/2404.16130)). At query time each community summary produces a partial answer, and the partial answers are summarized into the final one. On datasets in the million-token range, the paper reports [better comprehensiveness and diversity than a conventional RAG baseline](https://arxiv.org/abs/2404.16130) for global questions.
 
-The cost is just as clear: the index relies on an LLM for extraction and summarization, which is far more expensive than plain chunking and embedding. For selection and cost comparison, see [GraphRAG: Structuring Knowledge as a Graph for Relationship-Based Reasoning](/en/posts/ai/2026-03-12-graph-rag-en) and [Which Graph RAG to Choose](/en/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en).
+The cost is just as clear: the index relies on an LLM for extraction and summarization, which is far more expensive than plain chunking and embedding. For selection and cost comparison, see [GraphRAG: Structuring Knowledge as a Graph for Relationship-Based Reasoning](/posts/ai/2026-03-12-graph-rag-en) and [Which Graph RAG to Choose](/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en).
 
 ### KG-RAG: using an existing knowledge graph
 
@@ -202,7 +202,7 @@ Both change the index. Graph RAG has an LLM extract entities and relations from 
 
 Offline, load all relevant documents into the long context at once and [precompute the key-value cache](https://arxiv.org/html/2412.15605v1); online, reuse that cache directly, with no retrieval step. The paper argues this removes retrieval latency and reduces document-selection errors, and it scopes the approach to [knowledge bases small enough to load whole](https://arxiv.org/abs/2412.15605).
 
-The conditions are therefore clear: a limited knowledge base, infrequent updates, and latency sensitivity. Conversely, when the knowledge base outgrows the context window CAG is out, and any knowledge update forces the cache to be recomputed. Even when it fits, information inside a long context is not guaranteed to be used, which comes back later. For a different take on rethinking retrieval units with long context, read [LongRAG](/en/posts/ai/2026-03-15-longrag-long-context-retrieval-en).
+The conditions are therefore clear: a limited knowledge base, infrequent updates, and latency sensitivity. Conversely, when the knowledge base outgrows the context window CAG is out, and any knowledge update forces the cache to be recomputed. Even when it fits, information inside a long context is not guaranteed to be used, which comes back later. For a different take on rethinking retrieval units with long context, read [LongRAG](/posts/ai/2026-03-15-longrag-long-context-retrieval-en).
 
 **How to answer**
 
@@ -220,13 +220,13 @@ Concretely: which retriever should be used (vector, SQL, graph, web search)? Was
 
 One useful way to read it: in an agentic framework, the three "add judgment" variants above become steps the agent can call, so Agentic RAG is closer to an umbrella framework than a peer algorithm. (That is a reading of the landscape, not a conclusion from the paper.)
 
-The cost lives here too. The survey itself lists open problems including [evaluation, coordination, memory management, efficiency and governance](https://arxiv.org/abs/2501.09136); in engineering terms, multiple LLM calls raise latency and cost, and a flow that is no longer fixed is harder to debug. To go further on this site, read [Agentic RAG: Letting the LLM Decide When to Search Again](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en).
+The cost lives here too. The survey itself lists open problems including [evaluation, coordination, memory management, efficiency and governance](https://arxiv.org/abs/2501.09136); in engineering terms, multiple LLM calls raise latency and cost, and a flow that is no longer fixed is harder to debug. To go further on this site, read [Agentic RAG: Letting the LLM Decide When to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en).
 
 ### Reasoning RAG
 
 Reasoning RAG is often presented in interviews as a standalone technique, but its basis is a survey: Liang et al., [Reasoning RAG via System 1 or System 2](https://arxiv.org/abs/2506.10408). It observes that static-pipeline RAG struggles with complex reasoning and dynamic retrieval, so the field has shifted toward Reasoning Agentic RAG. The survey sorts methods into [two groups](https://arxiv.org/abs/2506.10408): predefined reasoning, which keeps fixed modular pipelines and strengthens the reasoning inside them, and agentic reasoning, where the model orchestrates tools itself at inference time.
 
-So the difference from Adaptive-RAG is this: Adaptive-RAG picks how many retrieval steps by question difficulty, while Reasoning RAG is about how reasoning and retrieval interleave. When you answer, do not describe it as a single algorithm; "a category of approaches in this direction" is more accurate. For more depth, see [Agentic / Reasoning RAG](/en/posts/ai/2026-08-25-agentic-reasoning-rag-en).
+So the difference from Adaptive-RAG is this: Adaptive-RAG picks how many retrieval steps by question difficulty, while Reasoning RAG is about how reasoning and retrieval interleave. When you answer, do not describe it as a single algorithm; "a category of approaches in this direction" is more accurate. For more depth, see [Agentic / Reasoning RAG](/posts/ai/2026-08-25-agentic-reasoning-rag-en).
 
 **How to answer**
 
@@ -246,7 +246,7 @@ Agentic RAG lets an agent decide dynamically which retriever to use, how many ro
 | Agentic RAG | Decisions | An agent plans retrieval dynamically | Many sources, complex questions | Latency, cost and debugging difficulty |
 | Reasoning RAG | Decisions | Reasoning and retrieval interleave | Questions needing multi-step reasoning | A category of approaches; implementations vary widely |
 
-The full ten-generation evolution and a selection guide are in [The Complete Guide to RAG System Patterns](/en/posts/ai/2026-03-14-rag-patterns-complete-guide-en).
+The full ten-generation evolution and a selection guide are in [The Complete Guide to RAG System Patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en).
 
 **How to answer**
 
@@ -262,11 +262,11 @@ The two surveys by Gao et al. and [Fan et al. (KDD 2024)](https://arxiv.org/abs/
 
 **3. Nobody arbitrates contradictory documents.** When two documents in the store contradict each other, retrieval cares about relevance, not truth. The practical fix is to add metadata such as version, effective date and source tier, then filter or rank on it at retrieval time, rather than hoping the model sorts it out.
 
-**4. Limits of the model itself.** Retrieved content still has to fit in the context, and [Lost in the Middle](https://arxiv.org/abs/2307.03172) (Liu et al., TACL 2024) found that models do best when relevant information sits at the start or end of the input and [degrade significantly](https://arxiv.org/abs/2307.03172) when it is in the middle of a long context, even for models explicitly built for long context. So retrieving more is not using better: pass fewer passages and put the key ones at the edges. This belongs to overall context design; see [Context Engineering](/en/posts/ai/2026-03-24-context-engineering-guide-en).
+**4. Limits of the model itself.** Retrieved content still has to fit in the context, and [Lost in the Middle](https://arxiv.org/abs/2307.03172) (Liu et al., TACL 2024) found that models do best when relevant information sits at the start or end of the input and [degrade significantly](https://arxiv.org/abs/2307.03172) when it is in the middle of a long context, even for models explicitly built for long context. So retrieving more is not using better: pass fewer passages and put the key ones at the edges. This belongs to overall context design; see [Context Engineering](/posts/ai/2026-03-24-context-engineering-guide-en).
 
 **5. Freshness.** Unless the knowledge base updates in real time, RAG cannot answer what is happening "now", such as live stock prices. There are two remedies: make the index update incrementally, or, as CRAG does, fall back to web search when needed.
 
-**6. The knowledge base is an attack surface.** [PoisonedRAG](https://arxiv.org/abs/2402.07867) demonstrated [knowledge poisoning](https://arxiv.org/abs/2402.07867): by injecting just five malicious texts per target question into a knowledge base of millions of texts, an attacker reached a 90% attack success rate, and the defenses the paper evaluated were insufficient. [SafeRAG](https://arxiv.org/abs/2501.18636) is a benchmark built specifically to evaluate RAG security, starting from the same observation: RAG brings in external, unverified knowledge, so attackers can attack the model by manipulating that knowledge. Because retrieved text goes straight into the prompt, the attack surface also includes documents that smuggle in prompt injection. Defenses are covered in [RAG Guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en).
+**6. The knowledge base is an attack surface.** [PoisonedRAG](https://arxiv.org/abs/2402.07867) demonstrated [knowledge poisoning](https://arxiv.org/abs/2402.07867): by injecting just five malicious texts per target question into a knowledge base of millions of texts, an attacker reached a 90% attack success rate, and the defenses the paper evaluated were insufficient. [SafeRAG](https://arxiv.org/abs/2501.18636) is a benchmark built specifically to evaluate RAG security, starting from the same observation: RAG brings in external, unverified knowledge, so attackers can attack the model by manipulating that knowledge. Because retrieved text goes straight into the prompt, the attack surface also includes documents that smuggle in prompt injection. Defenses are covered in [RAG Guardrails](/posts/ai/2026-03-12-rag-guardrails-en).
 
 **How to answer**
 
@@ -274,15 +274,15 @@ RAG fixes "the model does not know", not "the model cannot think". Six things it
 
 ## Three Follow-Up Backups
 
-**"How do you choose between RAG and fine-tuning?"** Use RAG when knowledge changes often and you need traceability; use fine-tuning to change style, format or behavior; the two can be combined. The full comparison is in [RAG vs Fine-tuning](/en/posts/ai/2026-03-12-rag-vs-fine-tuning-en).
+**"How do you choose between RAG and fine-tuning?"** Use RAG when knowledge changes often and you need traceability; use fine-tuning to change style, format or behavior; the two can be combined. The full comparison is in [RAG vs Fine-tuning](/posts/ai/2026-03-12-rag-vs-fine-tuning-en).
 
-**"How do you evaluate RAG?"** Measure retrieval and generation separately. For retrieval, look at recall and ranking; for generation, check whether it stays faithful to the retrieved content and answers the question. Ragas is one tool, and [RAG Evaluation Frameworks and Tool Selection](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en) compares others.
+**"How do you evaluate RAG?"** Measure retrieval and generation separately. For retrieval, look at recall and ranking; for generation, check whether it stays faithful to the retrieved content and answers the question. Ragas is one tool, and [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) compares others.
 
 **"Why not use CAG for everything?"** The knowledge base has to be small enough to fit in the context window, and any update means recomputing the cache; at larger scale or with frequent updates, retrieval remains the more practical choice.
 
 ## Questions that keep showing up in public question banks
 
-This section pulls together the RAG and retrieval questions that repeat across the 7 public GitHub interview banks compared in [part 11 of the series](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en), merging questions that mean the same thing into one. The "independent sources" count only measures overlap between the banks; it says nothing about how often a question comes up in real interviews. The amitshekhar and pallavi banks cite no sources for their questions, so this post does not use their company labels, and it lists only the questions and links to where they appear, with no answers reproduced.
+This section pulls together the RAG and retrieval questions that repeat across the 7 public GitHub interview banks compared in [part 11 of the series](/posts/ai/2026-09-30-ai-engineer-interview-resources-en), merging questions that mean the same thing into one. The "independent sources" count only measures overlap between the banks; it says nothing about how often a question comes up in real interviews. The amitshekhar and pallavi banks cite no sources for their questions, so this post does not use their company labels, and it lists only the questions and links to where they appear, with no answers reproduced.
 
 | Question | Independent sources | Bank links | Where it fits in this post |
 |---|---|---|---|
@@ -316,11 +316,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 Other parts of the "AI Engineer Interview Prep" series:
 
-- [Agents, MCP and Caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- [Prompt, Context and Harness](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- [LLM Engineering in Practice](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- [ML and Transformer Basics](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
-- [System Design, Coding and Behavioral Interviews](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- [Agents, MCP and Caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- [Prompt, Context and Harness](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- [LLM Engineering in Practice](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- [ML and Transformer Basics](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- [System Design, Coding and Behavioral Interviews](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## References
 
@@ -344,15 +344,15 @@ Papers
 
 On this site
 
-- [Three Generations of RAG: From Naive to Modular](/en/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en)
-- [The Complete Guide to RAG System Patterns](/en/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
-- [Self-RAG: Teaching the Model to Decide When to Retrieve](/en/posts/ai/2026-09-03-self-rag-reflection-tokens-en)
-- [CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty](/en/posts/ai/2026-03-12-corrective-rag-crag-en)
-- [Which Graph RAG to Choose](/en/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en)
-- [Agentic RAG: Letting the LLM Decide When to Search Again](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en)
-- [RAG Common Failure Modes](/en/posts/ai/2026-03-12-rag-failure-modes-en)
-- [RAG vs Fine-tuning: It's Not Either/Or](/en/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
-- [RAG Evaluation Frameworks and Tool Selection](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
+- [Three Generations of RAG: From Naive to Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en)
+- [The Complete Guide to RAG System Patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
+- [Self-RAG: Teaching the Model to Decide When to Retrieve](/posts/ai/2026-09-03-self-rag-reflection-tokens-en)
+- [CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty](/posts/ai/2026-03-12-corrective-rag-crag-en)
+- [Which Graph RAG to Choose](/posts/ai/2026-08-25-graphrag-lightrag-hipporag-en)
+- [Agentic RAG: Letting the LLM Decide When to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+- [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en)
+- [RAG vs Fine-tuning: It's Not Either/Or](/posts/ai/2026-03-12-rag-vs-fine-tuning-en)
+- [RAG Evaluation Frameworks and Tool Selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 
 Question banks
 

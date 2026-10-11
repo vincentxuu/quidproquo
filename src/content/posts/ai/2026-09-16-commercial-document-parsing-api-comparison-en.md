@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison)
 
-The first seven posts in this series covered open-source tools exclusively: from the [three-layer staircase](/en/posts/ai/2026-08-06-document-parsing-three-layers-en) selection framework, through [MarkItDown](/en/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/en/posts/ai/2026-08-06-anydoc-rust-document-markdown-en) at the conversion layer, [PyMuPDF / pdfplumber](/en/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) at the extraction layer, [MinerU / Marker / Docling](/en/posts/ai/2026-08-06-document-parsing-layout-ocr-en) at the parsing layer, to [Agentic Parsing](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en) for agent-driven tool selection. The conclusion was always the same: **pick the right layer first, then pick the tool**.
+The first seven posts in this series covered open-source tools exclusively: from the [three-layer staircase](/posts/ai/2026-08-06-document-parsing-three-layers-en) selection framework, through [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en) at the conversion layer, [PyMuPDF / pdfplumber](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) at the extraction layer, [MinerU / Marker / Docling](/posts/ai/2026-08-06-document-parsing-layout-ocr-en) at the parsing layer, to [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) for agent-driven tool selection. The conclusion was always the same: **pick the right layer first, then pick the tool**.
 
 But enterprise scenarios create three forces that push you from open source toward commercial APIs:
 
@@ -146,7 +146,7 @@ And general-purpose VLMs have three problems specialized parsers don't:
 
 ### The Practical Approach: Multi-Model Routing
 
-The smartest approach isn't either/or — it's routing: standard pages go through specialized parsers (Cohere / Mistral OCR), complex pages (charts, handwriting, unusual layouts) upgrade to Gemini 3.8 Flash or Sonnet 5, and only the truly difficult cases justify Opus 5 / GPT-5.5. This aligns perfectly with [Agentic Parsing](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en) — let an agent choose the route based on page characteristics rather than one-size-fits-all.
+The smartest approach isn't either/or — it's routing: standard pages go through specialized parsers (Cohere / Mistral OCR), complex pages (charts, handwriting, unusual layouts) upgrade to Gemini 3.8 Flash or Sonnet 5, and only the truly difficult cases justify Opus 5 / GPT-5.5. This aligns perfectly with [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) — let an agent choose the route based on page characteristics rather than one-size-fits-all.
 
 Per Unstructured's analysis, specialized pipelines' advantage isn't a better model but three layers of wrapping: optimized prompting + post-processing + output enforcement. In other words, if you're willing to build those three layers yourself, using a general VLM as the underlying engine is viable — but at that point you're essentially building your own specialized parser.
 
@@ -221,7 +221,7 @@ List prices are just the starting point. Actual costs can differ by 10× dependi
 | Google OCR | $150 |
 | AWS Textract DetectText | $150 |
 
-All five are nearly identical. This scenario shouldn't use commercial APIs at all — [extraction-layer](/en/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) `pymupdf4llm` handles it at zero cost. If you insist on using VLMs: Gemini 3.8 Flash costs $300/month, Claude Sonnet 5 costs $900/month — 2–6× the price for the same job, plus hallucination risk.
+All five are nearly identical. This scenario shouldn't use commercial APIs at all — [extraction-layer](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) `pymupdf4llm` handles it at zero cost. If you insist on using VLMs: Gemini 3.8 Flash costs $300/month, Claude Sonnet 5 costs $900/month — 2–6× the price for the same job, plus hallucination risk.
 
 ### Scenario B: Mixed Documents with Tables
 
@@ -283,7 +283,7 @@ Don't have one → commercial API, outsource the reliability burden.
 ### 2. Document Diversity
 
 Uniform format (all the same type of invoice) → Big Three cloud prebuilt models, one API call yields structured fields.
-Highly heterogeneous (contracts, financial reports, tech manuals mixed together) → LlamaParse Agentic or open-source with [Agentic Parsing](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en) for custom routing.
+Highly heterogeneous (contracts, financial reports, tech manuals mixed together) → LlamaParse Agentic or open-source with [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) for custom routing.
 
 ### 3. Output Requirements
 
@@ -296,7 +296,7 @@ Need both → chain two tools, or use Reducto (outputs both Markdown and JSON).
 Data can't leave the country → Azure / AWS / Google regional deployments, or Cohere's Model Vault private deployment.
 Need SOC 2 / HIPAA → Big Three clouds have them natively; Cohere and LlamaParse depend on enterprise plans.
 
-### Decision Tree (extending [Part 1](/en/posts/ai/2026-08-06-document-parsing-three-layers-en))
+### Decision Tree (extending [Part 1](/posts/ai/2026-08-06-document-parsing-three-layers-en))
 
 ```
 Does your document need the parsing layer?
@@ -353,13 +353,13 @@ Regardless of which provider you choose, run through at least these six items be
 
 ## Relationship to Visual RAG
 
-[ColPali](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en) takes a completely different path: skip text parsing entirely and do patch-level embedding directly on PDF page images. Table structure is 100% preserved, but BM25 is unusable and storage is ~100× larger.
+[ColPali](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en) takes a completely different path: skip text parsing entirely and do patch-level embedding directly on PDF page images. Table structure is 100% preserved, but BM25 is unusable and storage is ~100× larger.
 
 Commercial APIs and ColPali aren't competitors — they serve different pipeline stages:
 
 - **Need text semantic search** → use commercial API or open-source parser to convert to text → embedding → vector search
 - **Table-heavy, complex layouts, need visual grounding** → ColPali does image-based retrieval directly
-- **Both** → use [Agentic Parsing](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en) to have the agent dynamically select routes by page type
+- **Both** → use [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) to have the agent dynamically select routes by page type
 
 ## The Bottom Line
 
@@ -369,7 +369,7 @@ The most counterintuitive finding: **general VLMs can already crack the top five
 
 The core selection question isn't "which is best?" but "do you need transcription or comprehension?" Transcription → specialized parser. Comprehension → VLM. Both → multi-model routing. Only after that decision do volume, team capability, and compliance requirements come into play.
 
-There's still no silver bullet, just as [every post in this series](/en/posts/ai/2026-08-06-document-parsing-three-layers-en) has concluded. But now you have a more complete decision tree — starting from three routes and arriving at a concrete choice.
+There's still no silver bullet, just as [every post in this series](/posts/ai/2026-08-06-document-parsing-three-layers-en) has concluded. But now you have a more complete decision tree — starting from three routes and arriving at a concrete choice.
 
 ## References
 
@@ -388,9 +388,9 @@ There's still no silver bullet, just as [every post in this series](/en/posts/ai
 - [Azure AI Document Intelligence Pricing](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/)
 - [Google Cloud Document AI Pricing](https://cloud.google.com/document-ai/pricing)
 - [Document Parsing Unveiled: Techniques, Challenges, and Prospects (arXiv:2410.21169)](https://arxiv.org/abs/2410.21169)
-- [The Three-Layer Staircase of Document Parsing](/en/posts/ai/2026-08-06-document-parsing-three-layers-en) (Series Part 1)
-- [The Parsing Layer: When Structure Must Be Inferred](/en/posts/ai/2026-08-06-document-parsing-layout-ocr-en) (Series Part 5)
-- [Scanned PDF Benchmark: 10 Parsers Tested](/en/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark-en) (Series Part 6)
-- [Agentic Parsing: Let Agents Decide How to Parse](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en) (Series Part 7)
-- [ColPali: Skip OCR, Retrieve Documents as Images](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
-- [Table Serialization: How to Convert Tables to Text for RAG](/en/posts/ai/2026-09-03-table-serialization-rag-en)
+- [The Three-Layer Staircase of Document Parsing](/posts/ai/2026-08-06-document-parsing-three-layers-en) (Series Part 1)
+- [The Parsing Layer: When Structure Must Be Inferred](/posts/ai/2026-08-06-document-parsing-layout-ocr-en) (Series Part 5)
+- [Scanned PDF Benchmark: 10 Parsers Tested](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark-en) (Series Part 6)
+- [Agentic Parsing: Let Agents Decide How to Parse](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) (Series Part 7)
+- [ColPali: Skip OCR, Retrieve Documents as Images](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
+- [Table Serialization: How to Convert Tables to Text for RAG](/posts/ai/2026-09-03-table-serialization-rag-en)

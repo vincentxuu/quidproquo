@@ -15,7 +15,7 @@ glossary:
     def: "Anthropic 開發的大型語言模型家族，Fable/Mythos 是繼 Opus 之後的最新旗艦分級"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
+> 🌏 [English version](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
 
 ## 模型資訊
 

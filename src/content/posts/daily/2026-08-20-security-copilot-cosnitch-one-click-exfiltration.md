@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration-en)
+> 🌏 [English version](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration-en)
 
 ## 事件概述
 

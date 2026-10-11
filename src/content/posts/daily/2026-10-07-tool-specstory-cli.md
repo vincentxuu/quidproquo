@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-07-tool-specstory-cli)
+> 🌏 [English version](/posts/daily/2026-10-07-tool-specstory-cli-en)
 
 ## 工具資訊
 

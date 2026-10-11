@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass-en)
+> 🌏 [English version](/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass-en)
 
 ## 事件概述
 

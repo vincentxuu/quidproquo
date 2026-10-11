@@ -14,7 +14,7 @@ description: "Berkeley CS189 版本地圖：為什麼選 Spring 2026 當底本�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
