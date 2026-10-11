@@ -633,3 +633,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-12 封存：daily-digest-funding 2026-10-09 條目（progress.txt 行數上限）
 
 - **daily-digest-funding 2026-10-09**：三組 Groundlane 查詢（通用融資／Agent 融資／官方新聞稿站）交叉比對後選出三筆皆有 2+ 獨立來源確認的事件：**Manus**（watchlist F1 既有公司，拆夥 Meta 後首輪獨立募資 $500M+，Boyu Capital／IDG Capital 共同領投，Reuters／CNBC／TechCrunch 三方確認）、**Rein Security**（Agent runtime 安全 Series A $25M，Glilot Capital／Sienna Venture Capital 共同領投，PRNewswire 官方稿＋Calcalist／TokenPost 新聞確認，建議加入 watchlist B7）、**Nous Research**（開源 Hermes Agent Series B $90M、估值 $1.5B，Robot Ventures 領投，TechCrunch＋官方部落格確認，建議加入 watchlist B2）。三篇皆中英雙版已建立並互相連結，series order 77/78/79（接續 10-08 melius 的 76）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（三篇新檔 0 warning）、`check:lang-parity`（2602 組全過）、`check:tw`（0 blocking，新檔僅既有「信號」B 級引述原文 WARN）、`check:series-order`（77/78/79 無撞號）皆 0 blocking；已將 09-21 Ask AI 優化舊條目移至 `docs/progress-archive.md`；待 commit／push。
+
+## 2026-10-12 封存：課程導讀統一 2026-10-11 條目（progress.txt 行數上限）
+
+- **課程導讀統一 2026-10-11**：48 系列／1602 篇標題與來源順序全數檢查；1600 舊標題已改、逐系列代表審查及已確認缺陷中英修正完成；17 回歸、獨立審稿通過，最新 main worktree /tmp/quidproquo-course-final；未提交／發佈。
