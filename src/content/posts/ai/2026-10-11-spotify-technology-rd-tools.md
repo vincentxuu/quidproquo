@@ -52,12 +52,12 @@ Spotify 稱 Portal 與 Xirp 共用一個脈絡層與 agent runtime，這部分�
 
 | 產品 | 做什麼 | 現況（依官方頁面） |
 |---|---|---|
-| [Backstage](https://backstage.io/) 與付費外掛 | 開源的開發者入口框架；Spotify 另賣 Insights、Soundcheck、RBAC、Skill Exchange 四個外掛 | 框架開源；外掛為商業產品 |
+| [Backstage](https://backstage.io/) 與付費外掛 | Apache-2.0 授權的開源開發者入口框架，CNCF 孵化專案，GitHub 約 3.5 萬星（2026-10-11 查詢）；Spotify 另賣 Insights、Soundcheck、RBAC、Skill Exchange 四個外掛 | 框架開源；外掛為商業產品 |
 | [Portal by Spotify](https://portal.spotify.com/) | 建在 Backstage 上的內部開發者平台，把系統目錄、擁有者與規範整理成工程師和 agent 都能讀的「單一事實來源」 | 2024 年起販售；官方未在本次文章列價格 |
 | [Xirp](https://xirp.spotify.com/) | 管理多個 coding agent 工作階段的桌面 App | beta，只支援 macOS |
 | [Confidence](https://confidence.spotify.com/) | A/B 測試、feature flag 與實驗平台 | 有免費方案與公開定價；官網列出「300+ 團隊每天出貨」（Spotify 自述） |
 
-這裡要修正一個常見的說法：官方網站列的第四項是「Plugins for Backstage」，不是 Backstage 本身。Backstage 是免費的開源框架，要付費的是 Spotify 在它之上做的外掛和 Portal。
+這裡要修正一個常見的說法：官方網站列的第四項是「Plugins for Backstage」，不是 Backstage 本身。Backstage 是 Apache-2.0 授權的免費開源框架（[GitHub 倉庫](https://github.com/backstage/backstage)與[官網](https://backstage.io/)皆已核對），要付費的是 Spotify 在它之上做的外掛和 Portal。
 
 ## Xirp：讓多個 agent 共用同一份記憶
 
@@ -110,3 +110,5 @@ Confidence 的[官網](https://confidence.spotify.com/)是 JavaScript 渲染，�
 - [Xirp 文件：總覽](https://backstage.spotify.com/docs/xirp)
 - [Xirp 文件：Xirp and Portal](https://backstage.spotify.com/docs/xirp/xirp-and-portal)
 - [Backstage（開源專案）](https://backstage.io/)
+- [Backstage GitHub 倉庫](https://github.com/backstage/backstage)
+- [Spotify for Backstage（外掛）](https://backstage.spotify.com/)

@@ -52,12 +52,12 @@ Spotify says Portal and Xirp share one context layer and one agent runtime. That
 
 | Product | What it does | Status (per official pages) |
 |---|---|---|
-| [Backstage](https://backstage.io/) and paid plugins | Open source developer-portal framework; Spotify also sells Insights, Soundcheck, RBAC and Skill Exchange plugins | Framework is open source; plugins are commercial |
+| [Backstage](https://backstage.io/) and paid plugins | Apache-2.0 open source developer-portal framework, a CNCF incubation project, about 35k GitHub stars (checked 2026-10-11); Spotify also sells Insights, Soundcheck, RBAC and Skill Exchange plugins | Framework is open source; plugins are commercial |
 | [Portal by Spotify](https://portal.spotify.com/) | Internal developer platform built on Backstage; catalogs systems, ownership and standards as one source of truth for engineers and agents | Sold since 2024; no price in this announcement |
 | [Xirp](https://xirp.spotify.com/) | Desktop app for managing multiple coding-agent sessions | Beta, macOS only |
 | [Confidence](https://confidence.spotify.com/) | A/B testing, feature flags and experimentation | Free plan and public pricing; site lists "300+ teams shipping daily" (Spotify's own figure) |
 
-One correction to a common summary: the fourth item on the official site is "Plugins for Backstage," not Backstage itself. Backstage is free and open source; what costs money is what Spotify built on top of it.
+One correction to a common summary: the fourth item on the official site is "Plugins for Backstage," not Backstage itself. Backstage is free and Apache-2.0 licensed (checked against its [GitHub repo](https://github.com/backstage/backstage) and [site](https://backstage.io/)); what costs money is what Spotify built on top of it.
 
 ## Xirp: several agents, one shared memory
 
@@ -110,3 +110,5 @@ If you already run Backstage, Spotify's set is the smoothest upgrade path, since
 - [Xirp docs: overview](https://backstage.spotify.com/docs/xirp)
 - [Xirp docs: Xirp and Portal](https://backstage.spotify.com/docs/xirp/xirp-and-portal)
 - [Backstage (open source project)](https://backstage.io/)
+- [Backstage GitHub repository](https://github.com/backstage/backstage)
+- [Spotify for Backstage (plugins)](https://backstage.spotify.com/)
