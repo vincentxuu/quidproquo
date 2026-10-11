@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: ["spotify", "backstage", "coding-agent", "ai-agent", "developer-platform", "mcp"]
 lang: zh-TW
-tldr: "Spotify 在 2026-10-07 把 Confidence、Portal、Xirp 與 Backstage 外掛併成「Spotify Technology」對外賣；核心賭注是 AI 讓寫程式變便宜後，瓶頸會移到判斷，而組織的共用脈絡是資產。目前沒有公開價格與營收，Xirp 仍是只支援 macOS 的 beta。"
+tldr: "Spotify 在 2026-10-07 把 Confidence、Portal、Xirp 與 Backstage 外掛併成「Spotify Technology」對外賣；核心賭注是 AI 讓寫程式變便宜後，瓶頸會移到判斷，而組織的共用脈絡是資產。營收未揭露；Confidence 有公開定價與免費方案，Xirp 仍是只支援 macOS 的 beta。"
 description: "整理 Spotify Technology 四條產品線各自做什麼、怎麼接在一起、哪些已經能用，以及公司自己的說法有哪些還沒被外部驗證。"
 draft: false
 ---
@@ -27,7 +27,7 @@ Singer 在文中先回答了他每天被問的問題：Spotify 為什麼要做�
 
 新的只有品牌。Singer 的說法是「在加碼，不是在試水」。順帶一提，這個品牌名跟盧森堡的上市公司 Spotify Technology S.A. 無關，官方文末特別註明了這點。
 
-這很容易讓人聯想到 Amazon 把內部機房變成 AWS。這個類比是我們的，不是 Spotify 說的，而且差別很大：TechCrunch 指出 Spotify 沒有在財報中揭露這塊業務的營收，官網也沒有價格，只有聯絡業務的表單。所以現在還看不出它是一條新的收入來源，還是一個更大的品牌包裝。
+這很容易讓人聯想到 Amazon 把內部機房變成 AWS。這個類比是我們的，不是 Spotify 說的，而且差別很大：TechCrunch 指出 Spotify 沒有在財報中揭露這塊業務的營收，Spotify Technology 官網沒有價格，只有聯絡業務的表單（Confidence 自己的網站有公開定價，見下一節）。所以現在還看不出它是一條新的收入來源，還是一個更大的品牌包裝。
 
 ## 賭注：執行變便宜，判斷變貴
 
@@ -55,7 +55,7 @@ Spotify 稱 Portal 與 Xirp 共用一個脈絡層與 agent runtime，這部分�
 | [Backstage](https://backstage.io/) 與付費外掛 | 開源的開發者入口框架；Spotify 另賣 Insights、Soundcheck、RBAC、Skill Exchange 四個外掛 | 框架開源；外掛為商業產品 |
 | [Portal by Spotify](https://portal.spotify.com/) | 建在 Backstage 上的內部開發者平台，把系統目錄、擁有者與規範整理成工程師和 agent 都能讀的「單一事實來源」 | 2024 年起販售；官方未在本次文章列價格 |
 | [Xirp](https://xirp.spotify.com/) | 管理多個 coding agent 工作階段的桌面 App | beta，只支援 macOS |
-| [Confidence](https://confidence.spotify.com/) | A/B 測試、feature flag 與實驗平台 | 官網列出「300+ 團隊每天出貨」（Spotify 自述） |
+| [Confidence](https://confidence.spotify.com/) | A/B 測試、feature flag 與實驗平台 | 有免費方案與公開定價；官網列出「300+ 團隊每天出貨」（Spotify 自述） |
 
 這裡要修正一個常見的說法：官方網站列的第四項是「Plugins for Backstage」，不是 Backstage 本身。Backstage 是免費的開源框架，要付費的是 Spotify 在它之上做的外掛和 Portal。
 
@@ -71,13 +71,25 @@ Xirp 是四個產品裡跟 coding agent 最直接相關的一個。依[官方文
 
 具體流程大概是這樣：工程師在目錄中選一個服務，Xirp 根據目錄裡的 `backstage.io/source-location` 註記找到對應的 repo，開出 worktree，agent 開工前先被指示讀過專案概覽；做完之後，可以把這次的對話紀錄上傳到 Workspace，下一個人或下一個 agent 就不必重新摸索。
 
+## Confidence：四個產品裡最容易先試的一個
+
+Confidence 的[官網](https://confidence.spotify.com/)是 JavaScript 渲染，我一開始只讀到首頁的幾個數字；改用會等頁面載入的抓取方式後，才讀到完整內容。以下依官網與文件，查詢日期 2026-10-11：
+
+- **做什麼**：A/B 測試（內建 sequential testing 與 CUPED 變異數縮減）、feature flag、漸進式 rollout，指標直接在你自己的資料倉儲裡計算，支援 Snowflake、BigQuery、Databricks 與 Redshift。沒有倉儲的團隊可以用 Confidence Cloud，由它代管。
+- **價格公開**：[定價頁](https://confidence.spotify.com/pricing)寫明 Free 方案每月 75,000 點數、feature flag 與席位不限；Growth 方案每月 449 美元起（75 萬點數）；Enterprise 為客製報價。1 點數等於一個月內被放進實驗的一位不重複使用者。
+- **資料怎麼流動**：[文件](https://confidence.spotify.com/docs/data-warehouse-native)說明它需要倉儲的讀寫權限，但可以只授權相關資料表；它自己快取的是指標的彙總結果，不是底層資料。
+- **還在 beta 或預覽的**：Analytics、Confidence Agent、Session Replay 標示為 beta；[Confidence Loop](https://confidence.spotify.com/blog/confidence-loop)（把使用者訊號整理成觀察、問題、調查與改善，並讓團隊選擇自動化到哪一步）目前只對設計夥伴開放早期預覽。
+- **合規**：定價頁寫明獨立的 Confidence 產品正在進行第一次 SOC 2 Type II 查核，預計 2026 年 12 月完成。
+
+如果你想先看這家的東西到底好不好用，這是門檻最低的一個：免費方案不需要信用卡，也不需要聯絡業務。
+
 ## 限制與還沒被驗證的部分
 
 - **Xirp 是 beta**：官方文件有警告說功能與畫面可能快速變動，目前只支援 macOS。
 - **記憶要靠手動**：工作階段上傳到 Workspace 在 beta 範圍內是手動的，不是自動累積。
 - **Portal 是前提**：沒有 Portal，Xirp 只是一個管理多 agent 的桌面工具；「組織記憶」的賣點得先導入 Portal 與 Backstage 目錄，這本身是一筆不小的成本。
 - **數字都是賣方自述**：7.77 億月活、300 多個團隊、「Proven at Spotify」都出自 Spotify 自己。我沒有找到第三方對這些工具效果的評測，也沒有實際試用過。
-- **沒有價格與營收**：官網不公開價格，TechCrunch 也提到營收未揭露。
+- **價格只有一部分公開**：我只確認到 Confidence 有公開定價；Portal、Xirp 與 Backstage 外掛我沒有查到公開價格（Spotify Technology 官網只有聯絡業務）。營收則如 TechCrunch 所說未揭露。
 - **「判斷變成瓶頸」是論點，不是量測結果**：官方文章沒有附數據說明導入後決策品質改善多少。
 
 ## 整體來說
@@ -91,6 +103,9 @@ Xirp 是四個產品裡跟 coding agent 最直接相關的一個。依[官方文
 - [Spotify is getting more serious about selling enterprise software（TechCrunch，2026-10-08）](https://techcrunch.com/2026/10/08/spotify-is-getting-more-serious-about-selling-enterprise-software/)
 - [Portal by Spotify](https://portal.spotify.com/)
 - [Confidence by Spotify](https://confidence.spotify.com/)
+- [Confidence 定價頁](https://confidence.spotify.com/pricing)
+- [Confidence 文件：Warehouse-Native Confidence](https://confidence.spotify.com/docs/data-warehouse-native)
+- [Confidence Loop（Confidence 部落格，2026-09-30）](https://confidence.spotify.com/blog/confidence-loop)
 - [Xirp 官網](https://xirp.spotify.com/)
 - [Xirp 文件：總覽](https://backstage.spotify.com/docs/xirp)
 - [Xirp 文件：Xirp and Portal](https://backstage.spotify.com/docs/xirp/xirp-and-portal)
