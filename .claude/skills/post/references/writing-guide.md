@@ -81,7 +81,7 @@ flowchart TB
 
 - 站上在瀏覽器端渲染（`src/pages/posts/[...slug].astro` 的 mermaid script）：`base` 主題加一組寫死的淺色／深色色票（`lightThemeVariables`／`darkThemeVariables`），切換深淺色時重新渲染。
 - 圖裡不要寫 `classDef`、`style`、`linkStyle` 的顏色，也避免用 `%%{init}%%` 另設主題；自訂顏色不會跟著深淺色切換。
-- 色票要改，就改那個 script，並與 `PostLayout.astro` 的 `--brand`／`--info`／`--warning`／`--text` 同步（程式註解要求手動同步，本節撰寫時未逐值核對）。
+- 色票要改，就改那個 script，並與 `src/styles/tokens.css` 的 `--brand-*`／`--info-*`／`--warning-*`／`--text-*`／`--bg-*`／`--border` 同步（mermaid 的 themeVariables 只收寫死的 hex，要手動對照；2026-10-11 已逐值核對，淺色與深色皆一致）。
 - 結果是所有節點同色，所以**意義不能靠顏色表達**：用線型（實線＝來源寫明的依賴，虛線＝選配或未驗證）、`subgraph` 外框（分組）和節點文字區分。
 
 **手機寬度：**

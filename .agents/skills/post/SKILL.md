@@ -80,7 +80,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 | 路徑 | `YYYY-MM-DD-<slug>.md` | `YYYY-MM-DD-<slug>-en.md` |
 | `lang` | `zh-TW` | `en` |
 | `title` / `tldr` / `description` | 中文 | 自然英文（不是機翻） |
-| 跨語言連結 | `> 🌏 [English version](/en/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
+| 跨語言連結 | `> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
 | 其餘 frontmatter | 相同 | 相同 |
 
 英文版規則：
