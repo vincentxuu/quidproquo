@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據清大資工高宏宇教授《[自然語言處理](https://github.com/IKMLab/NTHU_Natural_Language_Processing)》Fall 2025（114-1）的 [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf)。這份投影片共 125 頁，本篇只涵蓋第 1–60 頁，到「From Retrievers to QA」那一頁為止；後半段在 [下一篇](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)。檔名雖然寫 W11，在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) 裡掛的是 W10 列，錄影是 [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4) 與 [Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)；W10 列的 Topics 欄寫「Decoding Strategies and Evaluations」，那是課綱模板，和實際投影片對不起來。**兩支錄影各講到投影片第幾頁，本文沒有看片確認。**事實於 2026-09-30 核對。存取等級 **A3**：投影片與錄影都公開。
 
@@ -39,7 +39,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
@@ -56,6 +56,8 @@ title: Week 10 Thu.
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 幻覺與兩條緩解路線
 
@@ -188,7 +190,7 @@ GTR 分兩階段訓練：
 
 ## 自學怎麼用這一講
 
-1. 先看 [Week 10 Tue. 錄影](https://www.youtube.com/watch?v=VHkMHSkJ4I4)，對照投影片第 1–42 頁（幻覺到 SimCSE）。
+1. 投影片第 1–42 頁（幻覺到 SimCSE）可以搭配 [Week 10 Tue. 錄影](https://www.youtube.com/watch?v=VHkMHSkJ4I4) 看，但這兩支 W10 錄影都沒有字幕，講到第幾頁無法確認；字幕能證實的是 [W11 週二錄影](https://www.youtube.com/live/chIewpk4-q0)，它講的正是同一批檢索器內容（TF-IDF、BM25、Sentence-BERT、SimCSE、DPR、GTR）。
 2. 用 scikit-learn 的 `TfidfVectorizer` 對投影片那兩句話跑一次，看能不能重現表上的數字（投影片引用的是 [tsmatz 的 notebook](https://github.com/tsmatz/nlp-tutorials/blob/master/01_sparse_vector.ipynb)）。
 3. 用 [sentence-transformers](https://www.sbert.net/) 載入一個 bi-encoder 和一個 cross-encoder，拿投影片的中文例子（跑步／慢跑／看 Netflix）比分數，再比速度。
 4. 本系列的 [RAG 實作與 HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4) 會用到這裡的 embedding 與檢索概念。
@@ -205,6 +207,8 @@ GTR 分兩階段訓練：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：嘗試依字幕核對影片內容。Week 10 Tue. 與 Thu. 的 YouTube 頁面都沒有字幕，無法核對，因此沒有加內容核對記號；「自學怎麼用這一講」改成不再指定錄影對應頁數，並註明 W11 週二的字幕可證實講的是同一批檢索器內容。
 
 ## 參考資料
 

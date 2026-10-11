@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This guide covers HW4 of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 10 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous part, [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en), explained how a model knows token order. This assignment has you train a decoder-only Transformer yourself, on images instead of text.
 
@@ -38,7 +38,7 @@ Access level: the spec, sample code and dataset are all public, which makes this
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=QrqdoGf35Iw
@@ -50,6 +50,10 @@ Original videos: [Video: ML 2026 Spring HW4 -- Training Transformers](https://ww
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## The task: an image as a sequence of tokens
 
@@ -130,6 +134,8 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
 
 ## References
 

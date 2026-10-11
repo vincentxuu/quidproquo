@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 9 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en), and the first post on [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). It covers Techniques Lecture 1, Linear Support Vector Machine, and Lecture 2, Dual Support Vector Machine.
 
@@ -40,23 +40,25 @@ The lectures are taught in Mandarin; the slides are in English.
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=A-GxGCCAIrg
-title: T1-1
+title: Course Introduction
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=8hak0XngnV0
-title: T1-2
+title: Large-Margin Separating Hyperplane
 ```
 
-Original videos: [T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[T1-2](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+Original videos: [Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Picking up from Foundations: the transform bill is still unpaid
 
@@ -216,8 +218,8 @@ The slides include reference answers. Derive first, then check.
 
 | Section | Video | Slides |
 |---|---|---|
-| Course Introduction | [T1-1](https://www.youtube.com/watch?v=A-GxGCCAIrg) | 201 |
-| Large-Margin Separating Hyperplane | [T1-2](https://www.youtube.com/watch?v=8hak0XngnV0) | 201 |
+| Course Introduction | [Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg) | 201 |
+| Large-Margin Separating Hyperplane | [Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0) | 201 |
 | Standard Large-Margin Problem | [T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs) | 201 |
 | Support Vector Machine | [T1-4](https://www.youtube.com/watch?v=FAm70y081o4) | 201 |
 | Reasons behind Large-Margin Hyperplane | [T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA) | 201 |
@@ -252,6 +254,7 @@ Series navigation: previous, [Validation and three learning principles](/posts/a
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures in the official playlists.
 
 ## References
 

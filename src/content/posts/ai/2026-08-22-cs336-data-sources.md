@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-data-sources-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**，2026 年 5 月 11 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py)。本文整理課程內容，不構成法律意見。
 
@@ -23,14 +23,16 @@ draft: false
 
 ## 課程影片來源
 
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 13（Data：sources, datasets）。字幕涵蓋 Common Crawl／WARC、robots.txt、paywall、著作權與 fair use、license 與 Creative Commons、Wikipedia、GitHub、Stack Exchange、Project Gutenberg、影子圖書館與相關訴訟、BERT／GPT-2 WebText／GPT-3／The Pile／C4 等資料集沿革。逐句未比對，正文無需修改。
 
 ```youtube
 url: https://www.youtube.com/watch?v=-qm0ln33G24
-title: CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
 ```
 
-原始影片：[CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
 
 課程與錄影入口：
 
@@ -78,6 +80,8 @@ BERT 使用 Wikipedia 與 BooksCorpus，GPT-2 以 Reddit outbound links 建 WebT
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。主題與主要概念皆見於字幕，無需修改正文。
 
 ## 參考資料
 

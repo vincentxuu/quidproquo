@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source years:** slides and assignments are from Spring 2026; the recordings are from Spring 2025 (YouTube). The two may differ. This post follows the 2026 slides and uses the recording only as a supplement.
 >
@@ -36,14 +36,16 @@ The first 35 slides are actually about GANs, which [the previous post](/posts/ai
 
 ## Course video sources
 
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 14 (length 1:12:08; speaker Justin Johnson per the video description). The transcript covers GANs and the discriminator, StyleGAN, rectified flow / flow matching, classifier-free guidance, latent diffusion and video diffusion models (Sora, Veo), matching the article's topic. DDPM, DC-GAN and similar names do not appear in the transcript; those details come from the slides and assignment. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
 
 ```youtube
 url: https://www.youtube.com/watch?v=Edr4uZFh4EE
-title: YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2
 ```
 
-Original videos: [YouTube: CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
 
 Course and recording entries:
 
@@ -224,6 +226,8 @@ Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-gl
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Spring 2025 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic and lecture number match, and the sampled concepts appear in the transcript. The article makes no specific video claims that needed correcting, so only the check note was added.
 
 ## References
 

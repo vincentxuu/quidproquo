@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的 Lab 1：[`labs/lab_one.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_one.ipynb) 與官方解答 [`solutions/lab_one_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_one_complete.ipynb)（branch `2026`），對照[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) Algorithm 1–2、Example 6 與 Remark 20。2026-09-30 核對。本文只說明每題在考什麼，不貼完整解答。
 
@@ -32,12 +32,13 @@ glossary:
 [第 1 講](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)給了兩條更新式：Euler 和 Euler–Maruyama。Lab 1 要你把它們寫成程式，然後拿來看三種 SDE 的行為。整份 lab 不訓練任何神經網路，向量場都是手寫的，目的是讓你先對「模擬一條 SDE」有手感。
 
 ## 課程影片來源
-
-請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 開始前
 
@@ -144,6 +145,7 @@ dX_t = ½ σ² ∇log p(X_t) dt + σ dW_t
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
 
 ## 參考資料
 

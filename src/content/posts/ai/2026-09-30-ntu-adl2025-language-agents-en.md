@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 14 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) taught this lecture on 11/10, and the [course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) marks the week as Virtual. It is the last row on the course page with slides attached; the next three rows (Knowledge / Multimodality, Personalization, Reasoning) have titles only.
 
@@ -39,7 +39,7 @@ There is no homework for this lecture. Slides and videos are public, with no ext
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=R0YBJve0NoI
@@ -56,6 +56,10 @@ Original videos: [ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)]
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (11.1 and 11.2) were read. 11.1: the supportive and sceptical voices on agents (Bill Gates, Andrew Ng, Sam Altman, and "just an LLM wrapper"), the general definition of perceiving and acting, rational agents maximizing utility, the internal actions and self-reflection of a language agent, the logical / neural / language agent comparison on expressiveness, reasoning and adaptability, and the three key concepts (reasoning, memory, planning). 11.2: reasoning updating short-term memory (the context window), CoT intermediate steps, the robot-cooking-without-salt example, ReAct's reasoning plus acting with human-editable thoughts, reasoning enlarging the action space and making decisions harder, and LLMs relying on reasoning priors from pretraining. All match the corresponding sections. The article's version note is also supported: 11.1 opens by saying "this is the second-to-last class of the semester", consistent with the 2024/12/04 description, so these are Fall 2024 recordings rather than the 2025/11/10 lecture itself. 11.3 to 11.5 are not embedded, and the memory, planning and multi-agent sections were not compared against transcripts.
 
 ## What an agent is, and what language agents add
 
@@ -163,6 +167,8 @@ Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 11.1 and 11.2 match the article, and the version note holds (the video calls itself the second-to-last class, so it is a 2024 recording).
 
 ## References
 

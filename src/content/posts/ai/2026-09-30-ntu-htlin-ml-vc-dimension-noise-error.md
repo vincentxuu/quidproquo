@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 4 篇，接續[訓練與測試：成長函數與 break point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)。範圍是[《機器學習基石》](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 7 講 The VC Dimension 與第 8 講 Noise and Error，是「Why Can Machines Learn?」的收尾。
 
@@ -49,7 +49,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=XxPB9GlJEUk
@@ -66,6 +66,8 @@ title: VC Dimension of Perceptrons
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 第一部分：VC 維度
 
@@ -216,6 +218,7 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
 
 ## 參考資料
 

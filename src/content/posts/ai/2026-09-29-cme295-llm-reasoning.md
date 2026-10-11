@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 6 講「LLM reasoning」（2025 年 11 月 7 日）。主要來源是 [148 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf)，錄影在[這裡](https://www.youtube.com/watch?v=k5Fh-UgTuCo)。本文只根據投影片寫，投影片沒寫的部分會標出來源論文。
 
@@ -42,18 +42,23 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: 2025 版第 6 講錄影
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
 ```
 
-原始影片：[2025 版第 6 講錄影](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 6 講 LLM Reasoning（頁面日期 2025-11-07，長 1:47:10）；章節是 reasoning models、benchmarks、pass@k、用 RL 擴展、GRPO、GRPO 與 PPO 比較、length bias、DAPO／Dr. GRPO、DeepSeek R1 配方，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 第一步：先寫推理，再寫答案
 
@@ -244,7 +249,7 @@ flowchart LR
 
 ## 2026 版改了什麼
 
-2026 版投影片目前只釋出第 1 講，以下只能對照 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單：
+2026 版目前只上架第 1、2 講的投影片與錄影（2026-10-10 查看；第 3 講投影片已上、錄影未上），以下只能對照 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單：
 
 - **RL 獨立成一整講**：2026 第 4 講「Reinforcement learning with LLMs」依序是數學記號、reward design、policy gradient、限制、用 PPO 做偏好對齊（RLHF）、用 GRPO 做推理（RLVR）、on-policy distillation。2025 版把 PPO 和 GRPO 拆在第 5、6 兩講，各自只給直覺；2026 版看起來會從 policy gradient 一路推上來
 - **推理併進訓練講**：2026 第 3 講「LLM training」把 Reasoning 列成其中一項，旁邊是 on-policy distillation 和「distillation to smaller models」。本講最後那段 R1-Distill，在 2026 版應該會落在這一講
@@ -272,6 +277,9 @@ flowchart LR
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：修正過時的上架說法，2026 版已上架第 1、2 講。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 6 講，主題與日期皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 

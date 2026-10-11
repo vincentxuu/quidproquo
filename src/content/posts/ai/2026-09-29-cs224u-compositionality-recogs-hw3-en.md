@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/), the last on-campus version with a fully public site. The main materials are the Compositionality and (Re)COGS sections of the [Advanced behavioral evaluation slides](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf), the [Assignment 3 overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-hw3-overview-2023.pdf), [hw_recogs.ipynb](https://github.com/cgpotts/cs224u/blob/main/hw_recogs.ipynb), and screencasts 24, 27, and 28 of the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp). The notebook in the repo today carries the version string Spring 2024; I note where it differs from 2023. Every fact was checked against official materials on 2026-09-29. Access grade **A3**: the questions, data, trained model, unit tests, and screencasts are all public. What you can't get is the Gradescope autograder and the bake-off leaderboard.
 
@@ -34,19 +34,21 @@ The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-unde
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=g5zwxUqBzN8
-title: Screencast 27: Compositionality
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=tOh-1GYaDl8
-title: Screencast 28: COGS and ReCOGS
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
 ```
 
-Original videos: [Screencast 27: Compositionality](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Screencast 28: COGS and ReCOGS](https://www.youtube.com/watch?v=tOh-1GYaDl8)、[Screencast 24: Homework 3 overview (XCS224U, Spring 2023)](https://www.youtube.com/watch?v=e73Ch08XhX0)
+Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8), [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
+
+Content check: verified against the video transcript (2026-10-10): Video 27 (Compositionality) and video 28 (COGS and ReCOGS) were compared item by item with their transcripts: the compositionality principle and example, the caveat on 'infinite', systematicity and the mean apple pie example, the history, the COGS task and variable-numbering conventions, split categories, the all-zero columns, bigram frequencies, decoupling length from recursion (variable 45 vs 46), the PP-modifier hypothesis and three rewrites, ReCOGS's three modifications, and the four conceptual questions. All match. The post also cites the Homework 3 overview video (video 24, not embedded); its transcript could not be retrieved, so three claims drawn from it are marked as unchecked.
 
 Course and recording entries:
 
@@ -168,7 +170,7 @@ The whole assignment has one rule, stated at the top of the notebook and again i
 
 **Q1 is pure data analysis, no model training.** The overview slides give the spoiler outright: Charlie is only a theme in train and only an agent in gen; Lina is only an agent in train and only a theme in gen.
 
-**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest. In [screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0), Potts says the tokenizer was meant to be a homework question, but writing it was so painful for him that he decided to just provide it.
+**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest. In [screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0), Potts says the tokenizer was meant to be a homework question, but writing it was so painful for him that he decided to just provide it. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
 Q2 uses this trained model to continue the Q1 analysis, and you see for yourself that a very good model makes most of its mistakes on exactly the names that appear in unfamiliar positions.
 
@@ -178,9 +180,9 @@ Q2's scoring function, `recogs_exact_match`, follows three rules, each with an e
 - Conjunct order doesn't matter: `dog ( 4 ) AND happy ( 4 )` equals `happy ( 7 ) AND dog ( 7 )`
 - Consistency of variable names does matter: `dog ( 4 ) AND happy ( 4 )` does not equal `dog ( 4 ) AND happy ( 7 )`
 
-**Q3 switches to in-context learning.** The screencast warns that large language models produce LFs that look plausible at a glance, yet the evaluation can score them 0. The task demands exact correctness; "roughly right" doesn't count.
+**Q3 switches to in-context learning.** The screencast warns that large language models produce LFs that look plausible at a glance, yet the evaluation can score them 0. The task demands exact correctness; "roughly right" doesn't count. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
-**Q4, the original system**: the overview slides suggest a DSPy program, further training of the course model, fine-tuning a pretrained model, training from scratch, or even a symbolic solver. The notebook includes T5 starter code; the screencast notes that T5 used directly will translate your sentences into German, so it needs fine-tuning on ReCOGS first.
+**Q4, the original system**: the overview slides suggest a DSPy program, further training of the course model, fine-tuning a pretrained model, training from scratch, or even a symbolic solver. The notebook includes T5 starter code; the screencast notes that T5 used directly will translate your sentences into German, so it needs fine-tuning on ReCOGS first. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
 
 **Q5, the bake-off**: add a `prediction` column to `cs224u-recogs-test-unlabeled.tsv`, save it as `cs224u-recogs-bakeoff-entry.tsv`, and upload.
 
@@ -211,6 +213,8 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Videos 27 and 28 match their transcripts; three claims taken from the cited but unembedded video 24, whose transcript was unavailable, are now marked as unchecked.
 
 ## References
 

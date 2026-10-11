@@ -31,7 +31,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-imitation-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source year**: based on the Spring 2026 [02_cs224r_imitation_2026 slides](https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf) (2026-04-03). The companion video is the [Spring 2025 L2 recording (supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M). The title matches, but the slides were revised for 2026, so details may differ. This is post 2 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -58,9 +58,13 @@ title: Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)
 
 Original videos: [Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L2 Imitation Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers expressive policy distributions (mixtures and diffusion), compounding errors and DAgger-style online interventions; flow matching does not appear in the transcript, so the post's flow-matching material comes from the 2026 slides, not this video. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Problem one: the mean is not the answer
 
@@ -224,6 +228,8 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L2 and the topic matches; flow matching is absent from the transcript, so that section is 2026-slide material.
 
 ## References
 

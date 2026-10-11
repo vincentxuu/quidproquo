@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide is based on ADL Fall 2025 (114-1, 2025/09/01–12/15).** It is post 18, the last one, in the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The lecture posts only link to the recitations; the recitation content lives here.
 
@@ -39,7 +39,7 @@ This post answers one question: **the lectures teach the principles, so what han
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=zuiACAhRUzA
@@ -56,6 +56,10 @@ Original videos: [ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)](ht
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the two embedded PyTorch recitation videos (Tutorial 17:45, Debugging 11:46) have no obtainable YouTube transcript, so their spoken content was not checked; what the article says about them comes from the TA Colab. Metadata confirmed: both were uploaded on 2023-09-07 with a description dated 2023/09/07 and "Lectured by Yen-Ting Lin", matching the article's "2023 Fall, taught by Yen-Ting Lin". The other recitation videos in the article, including the Deployment video summarized from auto-captions, are not embedded and were not rechecked this time.
 
 ## The big picture
 
@@ -251,6 +255,8 @@ Series overview: [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/po
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Tried to check the two PyTorch recitation videos against transcripts, but neither has one, so the content was not checked; recording date and lecturer were confirmed to match the article.
 
 ## References
 

@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 [CS 224V](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog) is a three- to four-unit autumn course in Stanford's CS department, and for the 2026–2027 academic year its title is **Agentic AI**. Go back one year and the same course number reads *Conversational Virtual Assistants with Deep Learning*. The [2025–2026 ExploreCourses entry](https://explorecourses.stanford.edu/search?q=CS+224V&view=catalog&academicYear=20252026) still carries the old name, and the description attached to it had run three years without a single edit. The rename so far lives only in ExploreCourses — the course website's own title is still the old one.
 
@@ -28,11 +28,15 @@ This piece was written after reading the course site, four academic years of Exp
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -135,6 +139,7 @@ To get a feel for the whole spine first, read four decks in order: Introduction 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official site says recordings are on Canvas and opening the entry confirmed the sign-in wall; the public Fall 2024 playlist has no lecture that definitely matches, so nothing is embedded and the status is now sign-in required.
 
 ## References
 

@@ -28,11 +28,13 @@ This post was written after opening four academic-year entries on ExploreCourses
 
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+The official course site (cs228.stanford.edu, which redirects to ermongroup.github.io/cs228 and is headed Winter 2023-24; read live on 2026-10-10) links its Lecture Videos to an external tool on canvas.stanford.edu; I opened it and was redirected to the Stanford login page, confirming that a course account is required. A web search found no public YouTube or OCW release of this course, so nothing is embedded and no other course’s videos are passed off as its recordings.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs228.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -175,6 +177,7 @@ If you can explain that to yourself, you can follow every inference algorithm in
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Opened the official site’s Lecture Videos link live and confirmed it redirects to the Canvas login page; no public release was found, so the status stays sign-in required and the source note now reflects the live check.
 
 ## References
 

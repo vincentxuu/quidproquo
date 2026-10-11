@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 16 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en) and covers Lecture 12, "Multi-Task and Goal-Conditioned RL," on May 8, 2026. HW3 was due at 9 pm the same day.
 
@@ -37,7 +37,7 @@ Official sources used:
 
 Access level is **A3**: the slides download anonymously, and the 2026 recordings live only on Canvas.
 
-Companion video (**supplementary**): [Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw) (about 70 minutes). The first half of [the 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) is still wrapping up model-based RL (synthetic data generation and when to use model-based RL), so the start of the recording probably covers that too. This post follows the 2026 slides.
+Companion video (**supplementary**): [Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw) (about 70 minutes). The first half of [the 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) is still wrapping up model-based RL (synthetic data generation and when to use model-based RL), and I confirmed in the transcript that the recording opens by finishing model-based RL (synthetic data generation and when to use model-based RL) before moving to multi-task. This post follows the 2026 slides.
 
 ## Course video sources
 
@@ -50,9 +50,13 @@ title: Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)
 
 Original videos: [Spring 2025 Lecture 12: Multi-Task RL (YouTube, supplementary)](https://www.youtube.com/watch?v=qNdsI_4AQJw)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L12 Multi-Task RL transcript and searched keywords (not a word-by-word comparison). The video is L12 and the speaker is Chelsea Finn. It opens by saying it will finish model-based RL first (synthetic data generation with a learned model, and when to use model-based RL), and only then covers multi-task imitation and RL, task identifiers, goal-conditioned RL and hindsight relabeling, which matches the post's statement that the first part wraps up model-based RL. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Why learn many tasks at once
 
@@ -213,6 +217,8 @@ Series navigation: previous [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-mod
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video is Spring 2025 L12; the transcript confirms the first part wraps up model-based RL, so the post's hedged "probably" became a confirmed statement.
 
 ## References
 

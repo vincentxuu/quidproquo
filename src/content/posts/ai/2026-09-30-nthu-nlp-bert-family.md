@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-bert-family-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 8 篇，上一篇是 [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)。
 
@@ -34,7 +34,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=U5HypcXrIgY
@@ -51,6 +51,10 @@ title: Week 6 Thu.
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 6 Thu. 字幕讀完，Week 6 Tue. 字幕只讀前段（約 12,000 字）後再以關鍵字搜尋其餘部分，屬部分核對。Week 6 Tue. 講 ELMo（biLM、兩層與加權串接）、MLM 的 15% 與 80/10/10、NSP 與 [CLS]／[SEP]、微調做法、BERT-base／large 規格與 64 TPU 4 天、RoBERTa／SpanBERT／領域 BERT，並開始介紹 T5；Week 6 Thu. 回顧 T5 並接著講 BART、GPT-1 到 GPT-3、in-context learning、scaling laws 與 MoE。文章本身以投影片為主、沒有對影片內容下具體說法，與字幕沒有衝突，不需修改。
 
 ## 起點：同一個 record，兩種意思
 
@@ -249,6 +253,8 @@ GPT-4 那一列的參數量要保留看待：[GPT-4 技術報告](https://arxiv.
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片的主題與講次相符，文章未對影片內容下具體說法，無需修改。
 
 ## 參考資料
 

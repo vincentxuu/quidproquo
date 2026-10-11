@@ -15,18 +15,35 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 6, “Support vector machines,” on printed pages 60–78 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of any quarter's recordings.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=lDwow4aOrtg
+title: Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8NYoQiRANpg
+title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+Original videos: [Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=lDwow4aOrtg); [Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. For roughly its first two thirds, Lecture 6 (about 81 minutes) is still finishing Naive Bayes (Laplace smoothing, event models for text); it starts introducing SVMs after about 55% and reaches the functional and geometric margin and the optimal margin classifier at about 70%, ending with a preview of kernels. Lecture 7 (about 80 minutes) opens with the optimal margin classifier's optimization problem and the representer theorem, spends its body on kernels (see Chapter 5) and has the L1 soft-margin SVM near the end. Neither transcript covers the chapter's Lagrange duality derivation, KKT conditions or SMO (Lecture 6 never mentions Lagrange; neither mentions SMO), so those sections rest on the notes alone; together the videos match only the first half of the chapter (margins, the max-margin optimization) and the idea of soft margin.
 
 ## From correct classification to distance from the boundary
 
@@ -87,6 +104,8 @@ On separable two-dimensional data, draw the maximum-margin line, both margin bou
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The two videos cover only the margin and optimization part of this chapter (Lecture 6 is mostly Naive Bayes first); the duality derivation, KKT and SMO are not in either transcript and rest on the notes alone.
 
 ## References
 

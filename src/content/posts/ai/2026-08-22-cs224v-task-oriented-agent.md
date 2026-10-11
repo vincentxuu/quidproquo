@@ -14,7 +14,7 @@ description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態�
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224v-task-oriented-agent-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
@@ -22,11 +22,24 @@ description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態�
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（9 月 30 日，任務導向 agent）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 3 講（約 1 小時 29 分），主題是結合知識檢索與任務執行的對話 agent，字幕有任務導向 agent 與 dialogue、逐格填 slot 的多輪對話、Genie worksheet（宣告式程式語言）、課程註冊與訂餐廳等例子，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。原文把這支影片的標題寫成「Building a task-oriented agent」並加引號，字幕與影片頁面找不到這個標題，已改成不加引號的主題描述。
+
+```youtube
+url: https://www.youtube.com/watch?v=DqHRDUdIhpw
+title: CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon
+```
+
+原始影片：[CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon](https://www.youtube.com/watch?v=DqHRDUdIhpw)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## Agenda：從對話狀態到完整 runtime
 
@@ -135,6 +148,8 @@ Worksheet 不是零成本抽象。每個 domain 都要定義 fields、relations�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方站寫明錄影在 Canvas（需登入）；找到 Fall 2024 公開的同主題講次，附為相關補充影片，Fall 2025 原講次錄影未確認。
+- 2026-10-10：依字幕核對影片內容。影片主題相符（任務導向 agent、Genie worksheet）；影片來源段把影片標題「Building a task-oriented agent」改成不加引號的主題描述，其餘只加標記。
 
 ## 參考資料
 

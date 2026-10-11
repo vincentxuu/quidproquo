@@ -15,17 +15,34 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [官方課表](https://rail.eecs.berkeley.edu/deeprlcourse/)的 L11–18 依序涵蓋 Variational Inference、VI in RL、Control as Inference、LLM RL、兩講 Model-Based RL 與兩講 Offline RL。看似四個題目，其實都在問：資料、模型與最佳化目標不完整時，agent 能依靠什麼訊號學習？
 
 ## 課程影片來源
 
-Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（播放清單「CS 185/285: Deep Reinforcement Learning (Spring 2026)」，27 支，2026-08-15 起公開）。講次編號與官方投影片清單一致，這些錄影對應本文涵蓋的講次。課程 syllabus 仍寫錄影在 bCourses、課站也仍連到 Fall 2023 播放清單，但觀看這些錄影不需要它們。此處嵌入其中兩講，其餘請見播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=62V4ailxwEs
+title: CS 185/285 (Spring 2026): Lecture 11, Variational Inference
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=u2Ug046R0xk
+title: CS 185/285 (Spring 2026): Lecture 17, Offline Reinforcement Learning
+```
+
+原始影片：[CS 185/285 (Spring 2026): Lecture 11, Variational Inference](https://www.youtube.com/watch?v=62V4ailxwEs)、[CS 185/285 (Spring 2026): Lecture 17, Offline Reinforcement Learning](https://www.youtube.com/watch?v=u2Ug046R0xk)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Lecture 11 字幕完整講 latent variable model、expected log likelihood、用近似後驗推 ELBO（Jensen 不等式）、entropy 與 KL divergence 的關係，並說明 EM 是特例，也提到 flow matching policy、model-based RL 與 RLHF 中潛在變數的用途；Lecture 17 字幕講 offline RL 的核心難題 distributional shift，介紹 policy constraint（含 KL 方向的討論，actor-critic 加 BC）與 pessimism。與本文「推論觀點」「offline RL 的 OOD action」相符；HW4／HW5 的具體演算法（GRPO、IQL、FQL 等）影片字幕沒有討論。
 
 ## L11–14：把控制看成推論
 
@@ -50,6 +67,8 @@ Offline RL 不能再向環境收集資料，核心困難是 out-of-distribution 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片是 Lecture 11 與 17，內容與本文相符；HW 演算法不在影片內。
 
 ## 參考資料
 

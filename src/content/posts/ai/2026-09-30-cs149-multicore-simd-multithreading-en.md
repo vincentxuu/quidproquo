@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **This post is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** The source is the [108-slide Lecture 2 deck](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore1/02_basicarch.pdf) (also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)). The Fall 2025 recording isn't public, so the 2023 L2 recording serves as a supplement. This is post 2 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en); the previous post is [L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en).
 
@@ -44,18 +44,20 @@ Several later slides use GPUs as examples. This series saves GPUs for [post 9, L
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=CKmNpAO5rS4
-title: CS149 2023 Lecture 2 video (YouTube)
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
 ```
 
-Original videos: [CS149 2023 Lecture 2 video (YouTube)](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 2 - A Modern Multi-Core Processor” (1:16:13). The captions cover parallelizing the sinx example with pthreads, SIMD and divergent branches, instruction-level parallelism (ILP), and the exercise of using several hardware threads to hide load latency and reach 100% utilization, matching this post's topic. I also found the claim that the final stretch of the 2023 video belongs to the next post does not match the captions: the video ends on thread utilization and hardware multithreading, with the speaker saying memory and superscalar come next time, and there is no A[i] × B[i] bandwidth example in the captions. This has been corrected. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Opening review
 
@@ -230,7 +232,7 @@ The deck ends with a set of bonus slides that build step by step from a simple s
 The 2023 [Lecture 2 video](https://www.youtube.com/watch?v=CKmNpAO5rS4) (about 1 hour 16 minutes) covers the same lecture. I compared the text of the [2023 L2 slides](https://gfxcourses.stanford.edu/cs149/fall23content/media/multicore/02_basicarch_xX3ssOi.pdf) (103 slides) with the 2025 deck (108 slides). The `sinx` example, the three ideas, SIMD divergence, and the thread-utilization exercise are the same. There are two differences:
 
 - **The opening.** The 2025 deck adds the review slides from L1 on memory, latency, stalls, caches, and the energy cost of data movement, plus the Apple M1 example.
-- **The ending.** The last few slides of the 2023 L2 already start the bandwidth example: load A[i], load B[i], compute A[i] × B[i], store into C[i], and ask whether that suits a throughput-oriented parallel processor. The 2025 course moves this to L3, so the final stretch of the 2023 video belongs to the next post in this series.
+- **The ending.** The last few slides of the 2023 L2 deck already start the bandwidth example: load A[i], load B[i], compute A[i] × B[i], store into C[i], and ask whether that suits a throughput-oriented parallel processor. The 2025 course moves this to L3. The 2023 video itself does not reach that example, though: its captions end on the thread-utilization exercise, with the speaker saying memory and superscalar come next time.
 
 ## Things to do tonight
 
@@ -245,6 +247,8 @@ The 2023 [Lecture 2 video](https://www.youtube.com/watch?v=CKmNpAO5rS4) (about 1
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Corrected the claim that the end of the 2023 video starts the bandwidth example: the video actually ends on the hardware-multithreading utilization exercise, and the bandwidth example exists only in the 2023 slides.
 
 ## References
 

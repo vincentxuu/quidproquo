@@ -15,18 +15,30 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 21, printed pages 258–265, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It preserves the central derivations, intuition, and limits of REINFORCE and PPO without copying every proof line by line.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video below comes from Stanford Online's public CS229 Spring 2026 recordings; it is a related supplement, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. On YouTube this video is titled "Lecture 20: GMM (EM), PCA", but its transcript is the final lecture's policy-gradient wrap-up, PPO and reinforcement-learning training for long chain-of-thought reasoning: it fits this chapter, not its title. The previously embedded "Lecture 16: Basic Concept in RL, Policy Gradient" turned out, by transcript, to cover attention variants, in-context learning and SFT, so it was replaced. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=J7CossjMvEg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. The transcript revisits policy gradient (reward, baseline), introduces PPO (probability ratio, clipping), then GRPO and RL training for long chain-of-thought reasoning; REINFORCE-to-PPO matches this chapter, while GRPO and the reasoning-training part appear only in the video.
 
 ## REINFORCE does not require environment formulas
 
@@ -100,6 +112,8 @@ Take two length-three trajectories with per-step rewards \((2,3,5)\) and \((1,1,
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. The embedded Lecture 16 video was actually about attention variants, in-context learning and SFT, so it was replaced by J7CossjMvEg, whose transcript is policy gradient wrap-up, PPO and RLVR (its YouTube title says GMM/PCA).
 
 ## References
 

@@ -15,25 +15,36 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-word-vectors-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 2 講排在 2026 年 1 月 8 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf)的 agenda 有六段：word2vec 介紹、目標函數梯度、最佳化基礎、以計數捕捉詞義，以及詞向量評估；開頭另有簡短課務說明。這堂的目標很具體：能把詞義理解成高維實數向量，並讀懂 embedding 論文。
 
 ## 課程影片來源
 
-本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影。
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
 
 ```youtube
 url: https://www.youtube.com/watch?v=DzpHeXVSC5I
-title: CS224N Spring 2024 Lecture 1: Intro and Word Vectors
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 1 - Intro and Word Vectors
 ```
 
-原始影片：[CS224N Spring 2024 Lecture 1: Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+```youtube
+url: https://www.youtube.com/watch?v=nBor4jfWetQ
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 2 - Word Vectors and Language Models
+```
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 1 - Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 2 - Word Vectors and Language Models](https://www.youtube.com/watch?v=nBor4jfWetQ)
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是 2024 年春季 Lecture 1 與 Lecture 2（分別約 80 與 79 分鐘）和本文（以 Winter 2026 Lecture 2 投影片為準）的主題關係，不是 2026 課堂錄影。Lecture 1 前段是課程說明與語言、詞義的討論（WordNet、one-hot 向量的缺點、distributional semantics），約 69% 起進入 Word2Vec 的目標函數、window、softmax 與梯度推導，對應本文前兩節。Lecture 2 先回顧梯度下降與 SGD，再講 skip-gram 與 CBOW、negative sampling，約 15–30% 用 GloVe 向量在 notebook 示範 analogy，約 45–50% 講 co-occurrence 矩陣與 SVD，之後是 GloVe 模型、詞向量評估（intrinsic／extrinsic、人類相似度判斷）、一詞多義（polysemy，約 73–80%），結尾轉到神經網路分類，對應本文 negative sampling、count-based／SVD 與評估各節。字幕沒有出現 PMI 的推導，也沒有談詞向量與現代 embedding table 的關係、如何讀 embedding paper 或 notebook 的具體練習，本文那幾節只依 Winter 2026 投影片與本站補充，不是影片內容。
 
 ## 從「詞典裡的節點」改成「上下文中的位置」
 
@@ -140,6 +151,8 @@ Winter 2026 錄影不公開。本文只依 Lecture 2 投影片與官方列出的
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2024 年 Lecture 1、2 涵蓋 Word2Vec 目標函數、negative sampling、co-occurrence／SVD、GloVe、評估與一詞多義，與本文主線相符；PMI、現代 embedding table 等節影片未涵蓋，標明非影片內容。
 
 ## 參考資料
 

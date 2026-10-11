@@ -18,17 +18,33 @@ draft: false
 
 > 🌏 [English version](/posts/tech/2026-09-24-mit-67960-ps1-mlp-backprop-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) [Homework 1](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_hw1_pdf/) 是課程的第一個編程作業，核心目標：**從零實作 MLP 的前向與反向傳播，理解自動微分的底層機制**。這篇文章完整走查 HW1 的每個考點，提供可直接執行的 NumPy 參考實作與 PyTorch 驗證腳本。
 
 ## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：Homework 1 本身沒有專屬錄影。下方兩支是 OCW 的相關公開影片：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 PyTorch Tutorial。它們是背景補充，不是 HW1 的逐題講解。
 
-請由 MIT OCW Fall 2024 官方錄影列表按主題選擇；總覽、作業或主題整理不預設對應單一講次。
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o5gPABcGZwc
+title: PyTorch Tutorial
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[PyTorch Tutorial](https://www.youtube.com/watch?v=o5gPABcGZwc)
 
 課程與錄影入口：
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
-- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01、Lec 02 的字幕，並讀了 PyTorch Tutorial 的字幕全文（該支字幕直接讀取，未另存檔）；三支都確實是相關背景而非 HW1 逐題講解，原「影片時間戳（相關講義）」標題誤導，已改為「相關講義影片」並依字幕補上各支實際內容（相對位置、無精確時間碼）。
 
 ## HW1 題目架構概覽
 
@@ -288,11 +304,13 @@ if __name__ == "__main__":
 | `dW1` shape 不對 | 矩陣乘法順序反了 | `dz1.T @ x` 不是 `x.T @ dz1` |
 | ReLU 梯度全零 | `z1 <= 0` 全負、死神經元 | 檢查初始化、考慮 LeakyReLU |
 
-## 影片時間戳（相關講義）
+## 相關講義影片（依字幕，不含時間碼）
 
-- [Lec 01: Introduction](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/) (YouTube: `6FkRvTtUc-o`) — MLP 架構概覽
-- [Lec 02: How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/) (YouTube: `vidCX_dMCu0`) — 反向傳播推導、鏈式法則
-- [PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/) (YouTube: `o5gPABcGZwc`) — Autograd 基礎操作
+- [Lec 01: Introduction](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/) (YouTube: `6FkRvTtUc-o`，Sara Beery 主講) — 約 40%–80% 介紹神經網路與 MLP 的基本構件（損失、優化、ReLU 等非線性、層層堆疊）；前段是課程規則與深度學習的歷史。
+- [Lec 02: How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/) (YouTube: `vidCX_dMCu0`，Sara Beery 主講) — 約 45%–70% 是反向傳播與鏈式法則（含線性層的反向傳播等於轉置權重的前向運算）。
+- [PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/) (YouTube: `o5gPABcGZwc`，Jamie Meindl 主講，約 29 分鐘) — 張量建立與操作、autograd（`.backward()` 與 `torch.no_grad()`）、SGD 與 Adam 優化器、`nn.Linear` 與 `nn.Sequential`、一個簡單的訓練迴圈。
+
+三支影片都不是 HW1 的逐題講解；上面的位置是依字幕相對位置估算的「約」，不是精確時間碼。
 
 ## 擴充練習：自己加上這些功能
 
@@ -305,6 +323,8 @@ if __name__ == "__main__":
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。HW1 沒有專屬錄影，改附 OCW 的 Lec 02 與 PyTorch Tutorial 作為相關補充影片，狀態改為「僅附相關補充影片；原講次錄影未確認」。
+- 2026-10-10：依字幕核對影片內容。三支相關影片的字幕已核對，標題改為「相關講義影片」，補上各支實際內容（無精確時間碼）。
 
 ## 參考資料
 

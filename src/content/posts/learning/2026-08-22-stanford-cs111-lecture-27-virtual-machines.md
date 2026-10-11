@@ -21,7 +21,7 @@ draft: false
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
 
 課程與錄影入口：
 
@@ -95,6 +95,7 @@ data center 原本常為 isolation 讓每台 machine 跑一個 application，但
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時確認登入牆屬實，同學期也沒有公開錄影，狀態不變。
 - 2026-08-22：依 Lecture 27 官方 PDF 重寫 VM abstraction、trap-and-emulate、virtual I/O、memory virtualization 與 usage，並完成相鄰 artifact SHA 稽核。
 
 ## 參考資料

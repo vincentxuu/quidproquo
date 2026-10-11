@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據台大陳縕儂《深度學習之應用》（ADL）**Fall 2025（114-1，2025/09/01–12/15）**。主要材料是 9/01 那週的 [Sequence Modeling 投影片](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_SeqModel.pdf)（66 頁），以及課程頁連到的四支分段影片 [3.1](https://youtu.be/215BxEbYrCs)、[3.2](https://youtu.be/eVA_WTW4gXE)、[3.3](https://youtu.be/e9Ef3dZcvjw)、[3.4](https://youtu.be/MyKrovk8tLM)。詞嵌入的彈性補充另用 [Fall 2022 的 Word Embeddings 投影片](https://www.csie.ntu.edu.tw/~miulab/f111-adl/doc/220929_WordEmbeddings.pdf)。事實皆於 2026-09-30 打開官方材料核對。整門課的存取分級是 **A2**：講課端的講義與影片都公開，缺口在作業端（HW2、HW3 只有說明影片），細節見[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)。這一講本身沒有缺口。
 
@@ -36,7 +36,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=215BxEbYrCs
@@ -53,6 +53,10 @@ title: ADL 3.2: Language Modeling 語言模型
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：3.2 讀了字幕（15 分鐘）：recognize speech 的例子、smoothing 的 0.0001 問題、neural LM 的 cat／dog 自動平滑、RNN 權重共用（10 個詞用 10 次）、RNN 是 Transformer 前一步，皆與文章說法相符。文中另外提到但沒嵌入的 3.3、3.4 也讀了字幕：BPTT 與訓練很久、0.9 連乘趨近 0、clipping、France／French 與 gating、雙向 RNN 不能偷看答案、詞向量平均足夠做金融分類、序列輸出等於一連串分類、tagging 優先、HW1 用 Transformer，皆相符。嵌入的 3.1 這支 YouTube 沒有可取得的字幕，內容未逐字核對（文章未對 3.1 的口述內容下具體說法，只核對到標題、日期 2025-09-01 與長度 22:04）。
 
 ## 詞要怎麼放進電腦
 
@@ -186,6 +190,8 @@ RNN 的做法是沿時間軸展開（Unfold）。輸入是 init、x₁、x₂…
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：依字幕核對影片內容。3.2 字幕與文章說法相符；3.1 取不到字幕，未核對內容。
 
 ## 參考資料
 

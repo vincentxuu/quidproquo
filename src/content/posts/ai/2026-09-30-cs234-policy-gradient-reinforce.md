@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 投影片與作業；錄影是 Spring 2024 公開版。** 這是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列第 7 篇，接續 [DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)。
 
@@ -41,7 +41,7 @@ glossary:
 - [第 5 講投影片](https://web.stanford.edu/class/cs234/slides/lecture5post.pdf)第 22–61 頁（策略梯度、score function、REINFORCE、baseline 開頭）
 - [第 6 講投影片](https://web.stanford.edu/class/cs234/slides/lecture6post.pdf)第 9–23 頁（baseline 推導、vanilla PG、actor-critic）
 - 指定閱讀 [Sutton & Barto 第二版](http://incompleteideas.net/book/the-book-2nd.html)第 13 章
-- 2024 公開錄影的[影片 05〈Policy Search 1〉](https://www.youtube.com/watch?v=L6OVEmV3NcE)與[影片 06〈Policy Search 2〉](https://www.youtube.com/watch?v=8PwvNQ5WS-o)。依 YouTube 章節，影片 05 從 policy gradient、likelihood ratio 講到 REINFORCE 與 baseline，影片 06 前半接著講 baseline 推導與 actor-critic。
+- 2024 公開錄影的[影片 05〈Policy Search 1〉](https://www.youtube.com/watch?v=L6OVEmV3NcE)與[影片 06〈Policy Search 2〉](https://www.youtube.com/watch?v=8PwvNQ5WS-o)。依字幕，影片 05 從 policy gradient、likelihood ratio 講到 REINFORCE 與 baseline，影片 06 前半接著講 baseline 推導與 actor-critic。
 
 存取等級 **A3**，缺口同系列其他篇：2026 錄影只在 Canvas、課堂小測的即時結果與 Ed 討論不公開。
 
@@ -65,6 +65,10 @@ title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
 
 - [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 5「Policy Search 1」（約 61K 字元）依序是策略梯度、likelihood ratio／score function、REINFORCE 與 baseline，開頭附近也提到 ChatGPT 與 PPO；Lecture 6「Policy Search 2」（約 66K 字元）前段接著講 baseline 與 actor-critic，後段轉到單調改進與 PPO。與本文主題一致；「YouTube 章節」改為「字幕」。
 
 ## 為什麼不繼續學價值就好
 
@@ -230,6 +234,8 @@ vanilla PG 每批資料只走一步梯度就丟掉，而且步長很難選。L6 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題一致；「YouTube 章節」改為「字幕」。
 
 ## 參考資料
 

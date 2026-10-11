@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。作業 notebook 在 [GitHub repo](https://github.com/cgpotts/cs224u) 仍可取得，事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：題目、資料、單元測試、原創系統規則與 overview 錄影都公開，足以自學；拿不到的是 Gradescope 自動評分、bake-off 排行榜與助教的結果報告。
 
@@ -44,14 +44,16 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=PzvvtyK0QOk
-title: 作業一 overview 錄影（XCS224U, Spring 2023）
+title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off
 ```
 
-原始影片：[作業一 overview 錄影（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+
+內容核對：已依字幕核對（2026-10-10）：已依 Homework 1 Overview: Bake Off 字幕逐項對照：作業節奏相同的開場、背景材料建議、三份資料與 mystery 句子、測試集 honor code 與『sin』的說法、單元測試、Q1／Q2 各 task 與 background 先做的建議、原創系統規則與原創性評分、START／STOP COMMENT 與文字描述的用意、bake-off 的 prediction 欄與檔名，以及結尾的助教回顧報告，皆吻合。資料載入相容性、配分數字與運算資源屬 notebook／網頁內容，不在影片內，未以字幕驗證。
 
 課程與錄影入口：
 
@@ -172,6 +174,8 @@ SST 那一側的風險看起來比較小：`SetFit/sst5` 在 Hub 上是純資料
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對記號。
 
 ## 參考資料
 

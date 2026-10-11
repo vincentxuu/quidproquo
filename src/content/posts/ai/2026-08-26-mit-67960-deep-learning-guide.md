@@ -24,12 +24,15 @@ draft: false
 本文要回答四件事：這門課教什麼、三位講師怎麼分工、21 講的主題怎麼接起來，以及兩個版本各自能讓你走到哪裡。查證範圍是 Fall 2025 官方課站與 MIT OCW Fall 2024 的完整 schedule、grading 與 policies。我沒有逐份打開每個投影片 PDF 檢查內頁；以下對各講內容的描述來自官網自己的摘要文字。
 
 ## 課程影片來源
-
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。
 
 課程與錄影入口：
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：本篇沒有嵌入影片，只核對文中關於影片的說法：讀了 Lec 01–18 共 18 支講課影片的字幕與影片說明（Lec 19 以後未讀），確認 Fall 2024 的講者是 Isola、Bernstein、Beery 三位（Beery 並非 2025 才加入），原「Fall 2024 由 Isola 與 Bernstein 合授」漏了 Beery，已更正。
 
 ## 先判斷它是不是你要的課
 
@@ -51,7 +54,7 @@ draft: false
 
 Beery 拍板「怎麼把模型訓練起來、部署到真世界」：開場兩講的訓練基礎、CNN、Transformer、OOD 泛化、transfer learning，最後一堂 evaluation。He 負責「模型內部發生什麼」：序列建模、三種 representation learning、生成模型的四講，以及壓軸的 Applying Deep Learning to Your Problems。Khattab 承接理論與 LLM 一側：逼近理論、泛化理論，還有他本行的 neural information retrieval。foundation models 從 pre-training 到 post-training 三講，加上 inference-time algorithms，也都在他手上。
 
-這個陣容本身就有故事。Kaiming He 是 ResNet 作者；Omar Khattab 是 [ColBERT](https://arxiv.org/abs/2004.12832) 與 DSPy 的作者。Fall 2024 這門課還由 Phillip Isola 與 Jeremy Bernstein 合授，換血之後課綱明顯往 LLM 與檢索靠——foundation models 三講和 inference-time algorithms 都是新的。
+這個陣容本身就有故事。Kaiming He 是 ResNet 作者；Omar Khattab 是 [ColBERT](https://arxiv.org/abs/2004.12832) 與 DSPy 的作者。Fall 2024 這門課由 Phillip Isola、Jeremy Bernstein 與 Sara Beery 合授（OCW 影片說明：Beery 主講 Lec 01、02、04、10、12、17、18，Isola 主講 Lec 05、06、08、09、11、14、15、16，Bernstein 主講 Lec 03、07、13），換血之後課綱明顯往 LLM 與檢索靠——foundation models 三講和 inference-time algorithms 都是新的。
 
 ## 21 講的主題地圖
 
@@ -155,6 +158,8 @@ OCW 版公開的東西很完整：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方入口，各講錄影列在官方頁，逐講影片附在各講文章；狀態維持「僅附官方入口或錄影清單」。
+- 2026-10-10：依字幕核對影片內容。更正 Fall 2024 講者（補上 Sara Beery），並註明各講主講人。
 
 ## 參考資料
 

@@ -102,6 +102,7 @@ N-gram 和 autoregressive transformer 都把 sequence probability 拆成逐 toke
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
 
 ## 參考資料
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/20 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 6 篇。上一篇是 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)。前幾篇都在談 agent：[OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy) 會把一大段 system prompt 塞在你的每一句話前面，[Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering) 則在處理 context 放不下的問題。這一篇換到模型內部：**輸入動輒上萬、十萬 token 的時候，生成為什麼會慢，又能怎麼變快？**
 
@@ -36,7 +36,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=vXb2QYOUzl4
@@ -48,6 +48,10 @@ title: 影片：加快語言模型生成速度 (1/2)：Flash Attention
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 vXb2QYOUzl4（49:39）字幕全文已讀。核對 Prefill／Decode 與三種代價的評估框架、倉庫／工作台比喻（80GB 是倉庫、工作台僅十幾 MB）、分塊與「工作台不能放與 L 成正比的東西」、online softmax 修正項 exp(d1−d2)、跳過 attention weight 的 O 修正式、Hugging Face 無法讀 attention weight、Colab 數值差約 10 的負 7 次方、序列 4096 約快 8 至 9 倍、長序列 CUDA OOM，皆與字幕一致。發現一處不一致：字幕中老師口述真實模型示範為 Yi-34B，本文原寫 gemma-3-4b-it，已改為並列兩種說法並只寫趨勢；Colab 存檔輸出與投影片頁碼無法由影片驗證。
 
 ## 先備：這堂課假設你已經懂 Transformer
 
@@ -153,7 +157,7 @@ Colab 裡做了三件事：
 
 - **數值驗證**：隨機產生 q、k、v（B=4、H=8、L=256、D=64），兩種算法的最大差異在 10 的負 7 次方左右。
 - **速度比較**：序列長度從 64 到 4096，A100 上長度 4096 時 Flash Attention 約快 9 倍（Colab 存檔輸出是 9.49x）。
-- **真實模型**：用 `google/gemma-3-4b-it`，`attn_implementation` 設成 `eager`（不用 Flash Attention）或 `sdpa`，餵一段重複很多次的長字串、只生成 1 個 token。講課時序列短的時候兩者差不多，因為模型裡還有大量 feed-forward 與 embedding 的計算；把字串拉長後 Flash Attention 才明顯比較快。再拉長十倍，就直接 CUDA out of memory。
+- **真實模型**：Colab 存檔程式碼寫的是 `google/gemma-3-4b-it`（影片字幕裡老師口述的是 Yi-34B，兩者不一致，以下只寫趨勢），`attn_implementation` 設成 `eager`（不用 Flash Attention）或 `sdpa`，餵一段重複很多次的長字串、只生成 1 個 token。講課時序列短的時候兩者差不多，因為模型裡還有大量 feed-forward 與 embedding 的計算；把字串拉長後 Flash Attention 才明顯比較快。再拉長十倍，就直接 CUDA out of memory。
 
 老師特別指出，這次爆掉的不是工作台，是倉庫。倉庫再大也有極限，而**為什麼序列太長會撐爆倉庫**，就是下一堂 KV Cache 的主題。
 
@@ -169,13 +173,15 @@ Colab 裡做了三件事：
 
 可以確認：講義第 1–28 頁的結構與文字、影片的逐字字幕（YouTube 上的 zh-TW 字幕）、範例 Colab 的程式與存檔輸出、引用論文的標題（在 arXiv 核對過）。
 
-不能確認：字幕裡把示範模型說成另一個名字，本文以 Colab 程式碼的 `google/gemma-3-4b-it` 為準。講課當場的秒數與 Colab 存檔輸出不一致（存檔裡最長的那次沒有 OOM），因此真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，文字依字幕轉述。
+不能確認：真實模型示範用的是哪一個模型。字幕裡老師口述的是 Yi-34B，Colab 存檔程式碼寫的是 `google/gemma-3-4b-it`，兩者不一致，本文不下定論，只寫趨勢。講課當場的秒數與 Colab 存檔輸出不一致（存檔裡最長的那次沒有 OOM），因此真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，文字依字幕轉述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)｜下一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。真實模型示範的模型名稱字幕（Yi-34B）與 Colab 程式碼（gemma-3-4b-it）不一致，已改為並列說明；其餘與字幕相符。
 
 ## 參考資料
 

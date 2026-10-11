@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-overview-tokenization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization**, taught by Percy Liang on March 30, 2026. Its primary source is the official executable lecture, [`lecture_01.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_01.py), rather than a reconstruction from videos of an earlier offering.
 
@@ -23,14 +23,16 @@ The lecture does two things. First, it asks why anyone should build a language m
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Overview, Tokenization). The captions open with Percy introducing the teaching staff and cover the course motivation, the bitter lesson and efficiency, mechanics/mindset/intuitions, the history from BERT to API models, and byte-level BPE (256 byte values, merges). Not checked line by line; no body changes needed.
 
 ```youtube
 url: https://www.youtube.com/watch?v=JuoVZkPBiKk
-title: CS336 Spring 2026 Lecture 1: Overview, Tokenization
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
 
 Course and recording entries:
 
@@ -98,6 +100,8 @@ This lecture has a Spring 2026 schedule entry, a complete executable lecture, an
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers the May 8 lecture "模型的自我成長 - 1" (Self-Improving, part 1) of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 15 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). The previous post is [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en). The lecture before that, [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en), asked whether a model can fix its own mistakes. This one goes a level deeper: **can a model get better without humans?**
 
@@ -36,7 +36,7 @@ Official materials: the slides [Self-Improving.pdf](https://speech.ee.ntu.edu.tw
 
 ## Course video sources
 
-Video sources were checked against the official course page. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=s06mSAGN4gM
@@ -48,6 +48,10 @@ Original videos: [Video: Is AI about to cross the Rubicon? How far away is self-
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video s06mSAGN4gM (1:03:44) was read in full. Checked I. J. Good and the Rubicon allusion with the "60% by end of 2028" claim, "self-improvement as humans gradually letting go", the three steps of machine learning, using self-corrected answers as labels (Constitutional AI), Eureka/REvolve/RF-Agent and the catching-ball example, the dopamine analogy, RLHF/RLAIF, the verbalized/ensemble/certainty loss types, TENT, SUTA (Lin Guan-Ting, 2022), the two observations from Unsupervised RLVR, TTT, the missing entropy-gradient term (Huang Wei-Ping), Absolute Zero/R-Zero and the proposer-solver-verifier loop, the step 15/30/45 results and the Qwen 0.6B/1.7B/4B curves, the Oh-no moment, SPICE/R-Few, PostTrainBench (one H100, ten hours, 200k examples cut to 20k), the scores of 51 and 18, the cheating behaviors, weak-to-strong and Anthropic's April experiment, and "May 2026: still at the riverbank"; all match the transcript and no errors were found. The Opus 4.5 / Gemma3-4B-Base model details, arXiv IDs and slide page numbers come from the slides and are not read out in the transcript, so they cannot be verified from the video.
 
 ## Prerequisite: the three steps of machine learning
 
@@ -222,6 +226,8 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-over
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

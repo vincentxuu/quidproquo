@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 11 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 7, Capabilities vs. Safety (October 16, 2025), with guest lecturer Joel Becker of [METR](https://metr.org/).
 
@@ -43,18 +43,23 @@ What actually happened in the video needs saying up front. Becker's talk covered
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=fuRmxFZ-umE
-title: L7 lecture video (YouTube)
+title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
 ```
 
-Original videos: [L7 lecture video (YouTube)](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+Original videos: [AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 7: Lab vs Field: Guest lecture by Joel Becker” (2:01:36) and confirmed the logistics (November 2, December 3, November 20), no student experiment, nothing special about 50% (best statistical power), the geometric mean, the 2029–2030 versus 2027 extrapolations and “reading the tea leaves”, the Sonnet 4.5 30-hour Q&A, the open-source developer RCT (16 issues, Cursor, hourly pay, forecasts around 40%, under 44% acceptance), the 22–25 age group in Canaries, and Boaz saying at the end there was no time for RSPs and the Preparedness Framework. The post said the 40-hour threshold was set by “a very smart colleague by intuition”, which is not in the captions and has been removed; the example-task table comes from the slides and is not read out in the captions.
 
 ## Official materials and access
 
@@ -106,7 +111,7 @@ Examples from the slides, using GPT-5:
 | Build a classifier to identify monkey species from audio files | 5.6 hrs | ✓ |
 | Write a very efficient kernel | 8 hrs | ✗ |
 
-Becker is candid about the arbitrary choices. Nothing is special about 50%; it is where there are the most positive and negative examples, so statistical power is best, and it matches prior literature. Human time is the geometric mean of successful baseliners' completion times. As for the bar METR uses to flag potentially dangerous capability, a 40-hour time horizon at 50% reliability, he says a very smart colleague at METR came up with it as a guess, and he is very open to better ways of setting it.
+Becker is candid about the arbitrary choices. Nothing is special about 50%; it is where there are the most positive and negative examples, so statistical power is best, and it matches prior literature. Human time is the geometric mean of successful baseliners' completion times. As for the bar METR uses to flag potentially dangerous capability, a 40-hour time horizon at 50% reliability, he says there is a lot of arbitrariness here: a different threshold would correspond to a different human time length, one of the “skeletons hidden in the closet.”
 
 Two good questions came up. Boaz asked whether human time predicting model success so well is a property of these benchmarks or a general phenomenon. Becker said it is an empirical regularity observed in many places, with no strong prior theory. A student asked whether long tasks are just short tasks chained together. Boaz added that if a 16-hour task were 16 one-hour tasks in sequence, success should fall off exponentially, like 2 to the minus 16, rather than follow a logistic in log time. Becker mentioned that Toby Ord has a post fitting METR's data with a model where each agent has a constant failure rate per unit of time.
 
@@ -261,6 +266,8 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed the claim, not found in the captions, that a colleague set the 40-hour threshold by intuition; the other spot-checked claims match the captions.
 
 ## References
 

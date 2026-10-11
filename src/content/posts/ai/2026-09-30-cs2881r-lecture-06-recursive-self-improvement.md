@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 10 篇，對應官方第 6 講 Recursive Self-Improvement（2025 年 10 月 9 日）。
 
@@ -37,18 +37,23 @@ glossary:
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=wzep3Rnv6iw
-title: L6 講課錄影（YouTube）
+title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
 ```
 
-原始影片：[L6 講課錄影（YouTube）](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+原始影片：[AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 6: Recursive Self Improvement》（2:29:32）的完整自動字幕：確認 Boaz 請 GPT-5 外推 METR 曲線、Chad Jones 的 GDP 圖與「週末聊過」、十人經濟體的例子（字幕沒有念出 Baumol 之名）、智慧函數與 p 值的奇點討論、學生的多 agent 實驗（LangGraph、Inspect、Kaggle）、各桌五分鐘估 X、250 倍與 2,000 倍的倍率、新宗教玩笑、Windows 3.1 與 OpenAI 章程；字幕沒有二元樹 0.916 等實驗數字與 Lifland／Jurkovic 的估計，這些來自週摘要與投影片。學生實驗的位置原寫精確時間，字幕無時間碼，已改為約略位置。
 
 ## 用到的官方材料與存取狀態
 
@@ -132,7 +137,7 @@ Boaz 把 AI 的投入拆成三項：算力、演算法點子、資料。為了�
 
 ## 學生實驗：把 agent 組成樹，能不能解更難的任務
 
-錄影約 1:02–1:34 是一組四人的實驗報告，LessWrong 摘要也整理了結果。他們的問題是：如果一個模型能解難度 K 的任務，把多個模型組合起來，能不能解任意難度的任務？這對 RSI 的意義是，實驗室可能用組織結構、而不只是單一更強的模型，來加速 AI 研發。
+錄影約 1:00 起、約 35 分鐘（位置依字幕估算）是一組四人的實驗報告，LessWrong 摘要也整理了結果。他們的問題是：如果一個模型能解難度 K 的任務，把多個模型組合起來，能不能解任意難度的任務？這對 RSI 的意義是，實驗室可能用組織結構、而不只是單一更強的模型，來加速 AI 研發。
 
 設定：
 
@@ -217,6 +222,8 @@ AI 2027 的起飛階段依序是：superhuman coder 讓研發加速約 5 倍，s
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。學生實驗的精確時間改為約略位置；實驗數字與作者估計來自週摘要與投影片，影片未驗證。
 
 ## 參考資料
 

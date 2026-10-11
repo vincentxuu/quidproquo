@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 9 篇，對應 [Fall 2024 課程頁](https://hanlab.mit.edu/courses/2024-fall-65940)上的 **Lecture 8：Neural Architecture Search (Part II)**，2024 年 10 月 1 日上課，講者 Song Han。材料有兩份，都公開：
 
@@ -40,19 +40,22 @@ glossary:
 存取等級沿用[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級：Fall 2024 是 **A3 足以自學**。**Fall 2026 對照**：截至 2026-09-30，[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)只放出 L1–L6，第 8 講的投影片與錄影還是空連結，所以本篇只用 Fall 2024。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=5ty12mNV4Sg
-title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II（YouTube）
+title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 8 - Neural Architecture Search Part II（YouTube）](https://www.youtube.com/watch?v=5ty12mNV4Sg)
+原始影片：[EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=5ty12mNV4Sg)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結並用關鍵字定位各段：影片依序是 hardware-aware NAS／ProxylessNAS（約前 15–27%）、Once-for-All（約 40–50%）、zero-shot NAS（約 64–66%）、NAAS（約 68–71%）、應用（約 80% 之後），講次與主題和本文相符。原文的「ProxylessNAS 到 OFA 那段」只有投影片頁碼，已補上它在影片中的相對位置。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 上一篇留下的問題：搜尋空間與策略有了，每個候選怎麼打分？
 
@@ -191,11 +194,13 @@ OFA 的訓練順序是「先大後小」，逐步打開四個可變維度：
 
 這一講的觀念馬上會在 **[Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas)** 落地：你會拿到一個 OFA 方式訓練好的 MCUNetV2 super network，自己實作 efficiency predictor（MACs 與 peak memory）與 accuracy predictor，再寫 random search 與 evolutionary search。下一講 **[L9 知識蒸餾](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)** 則換一個方向：架構定了之後，怎麼讓小模型訓練得更好。
 
-如果只有一個小時：先看錄影裡 ProxylessNAS 到 OFA 那段（投影片第 16–73 頁），這是 Lab 3 直接用到的部分；zero-shot 與 NAAS 可以之後再補。
+如果只有一個小時：先看錄影裡 ProxylessNAS 到 OFA 那段（投影片第 16–73 頁；在錄影裡約從前 15% 到一半多一點），這是 Lab 3 直接用到的部分；zero-shot 與 NAAS 排在錄影後半（約 64–71%），可以之後再補。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L8 影片主題與講次相符；為「只有一小時」的建議補上 ProxylessNAS 到 OFA 在影片中的大致位置。
 
 ## 參考資料
 

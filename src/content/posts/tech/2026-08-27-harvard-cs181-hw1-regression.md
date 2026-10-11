@@ -132,6 +132,7 @@ curl -O https://raw.githubusercontent.com/harvard-ml-courses/cs181-s26-homeworks
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
 - **2026-09-30**：依官方 `hw1_release.tex` 重寫題目段落。原文誤寫為 OLS／RBF kernel／MLP 三題，實際是 kNN & Kernels、Geometric Least Squares、Basis Regression、Probabilistic View & Regularization 四題；同步更正資料筆數與年代描述、Jouzel et al. 2007 的出處，移除沒有來源的 MLP 與 PyTorch 內容。
 - **2026-09-29**：截止日依 s26 `hw1_release.tex` 更正為 2026-02-13；「與後續週的銜接」改為連到系列實際文章，題目依各份 `.tex` 標題。
 

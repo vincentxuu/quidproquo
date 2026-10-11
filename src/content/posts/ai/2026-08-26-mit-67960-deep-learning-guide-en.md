@@ -24,12 +24,15 @@ This is not, however, a fully open course. Problem sets are released through [Gr
 This post answers four questions: what the course teaches, how the three instructors divide it, how the 21 lectures connect, and how far an outside learner can get using two free textbooks. My verification covered the complete Fall 2025 schedule, grading section, and policies on the official site; I did not open every slide deck to audit its inner pages, so descriptions of individual lectures come from the official site's own summaries.
 
 ## Course video sources
-
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
 - [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): this post embeds no video, so only its statements about the videos were checked: I read the transcripts and descriptions of the 18 lecture videos Lec 01–18 (Lec 19 onward not read) and confirmed that the Fall 2024 lecturers were Isola, Bernstein and Beery (Beery did not only join in 2025); the old "taught by Isola and Bernstein" omitted Beery and was corrected.
 
 ## First, decide if this is your course
 
@@ -51,7 +54,7 @@ The 21 lectures split evenly among the three instructors, and the division is no
 
 Beery owns "how you train models and ship them into the real world": the opening training fundamentals, CNNs, Transformers, OOD generalization, transfer learning, and a closing lecture on evaluation. He handles "what happens inside the model": sequence modeling, three flavors of representation learning, four lectures of generative modeling, and the finale on applying deep learning to your own problems. Khattab carries theory and the LLM side: approximation theory, generalization theory, similarity-based retrieval (his own neural information retrieval specialty), plus pre-training, scaling laws, post-training as three foundation-model lectures, and inference-time algorithms.
 
-The lineup itself tells a story. Kaiming He is the author of ResNet; Omar Khattab created [ColBERT](https://arxiv.org/abs/2004.12832) and DSPy. In Fall 2024 the course was still taught by Phillip Isola and Jeremy Bernstein; after the 2025 handover the syllabus visibly shifted toward LLMs and retrieval — the foundation-model block and inference-time algorithms are new.
+The lineup itself tells a story. Kaiming He is the author of ResNet; Omar Khattab created [ColBERT](https://arxiv.org/abs/2004.12832) and DSPy. In Fall 2024 the course was taught by Phillip Isola, Jeremy Bernstein and Sara Beery (per the OCW video descriptions: Beery gave Lec 01, 02, 04, 10, 12, 17 and 18; Isola gave Lec 05, 06, 08, 09, 11, 14, 15 and 16; Bernstein gave Lec 03, 07 and 13); after the 2025 handover the syllabus visibly shifted toward LLMs and retrieval — the foundation-model block and inference-time algorithms are new.
 
 ## A topic map of the 21 lectures
 
@@ -130,6 +133,8 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
+- 2026-10-10: Checked the video content against its transcript. Corrected the Fall 2024 lecturers (added Sara Beery) and noted who gave which lecture.
 
 ## References
 

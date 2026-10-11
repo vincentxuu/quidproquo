@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > **Version note**: This post covers Lab 3 of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) (IAP 2026). Problems come from [`labs/lab_three.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_three.ipynb) in [eje24/iap-diffusion-labs (branch 2026)](https://github.com/eje24/iap-diffusion-labs/tree/2026), checked against the official solutions in [`solutions/lab_three_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_three_complete.ipynb). Theory references point to [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5–6. Access level A3: problems, solutions, notes, and recordings are all public; what's missing is grading feedback. Checked 2026-09-30.
 
@@ -40,12 +40,13 @@ The first two labs did unconditional generation on 2D toy distributions. Lab 3 u
 So finish L3B and L4 before opening this lab.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Getting it, doing it, checking your answers
 
@@ -221,6 +222,7 @@ One thing worth computing yourself: this latent holds 128×4×4 = 2048 numbers, 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

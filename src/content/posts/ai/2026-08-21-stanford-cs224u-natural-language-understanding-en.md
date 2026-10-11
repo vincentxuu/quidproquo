@@ -30,7 +30,7 @@ It does **not** do a paper-by-paper close reading, and it does not cover the cou
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the 50-video Spring 2023 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
 
 Course and recording entries:
 
@@ -237,3 +237,4 @@ Each part marks what isn't available: the Canvas quizzes, classroom recordings, 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: Added "Series contents", linking parts 2–17 and noting what isn't public. Re-queried ExploreCourses through the same XML interface on 29 and 30 September 2026: the 2026-27 `<sections>` element is now empty (the Spring lecture and discussion sections are gone). The tldr, the hard-facts section, and the appendix were revised to match.
+- 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.

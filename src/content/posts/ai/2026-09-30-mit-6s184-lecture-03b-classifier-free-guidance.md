@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 的[講義](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §5（pp.34–40）、[Slides 3](https://diffusion.csail.mit.edu/2026/docs/20260123_Lecture_03.pdf) 的 Classifier-free guidance 段落，以及[第 3B 講錄影](https://www.youtube.com/watch?v=8oWZ1bHwyRI)（39 分鐘）。公式、Remark、Algorithm 編號都照講義。存取等級 A3：講義、slides、錄影、lab 與官方解答都公開；lab 評分只給 MIT 修課生。2026-09-30 核對。
 
@@ -37,19 +37,22 @@ glossary:
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
-title: 第 3B 講錄影：Classifier-free Guidance (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
 ```
 
-原始影片：[第 3B 講錄影：Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：整支字幕（約 39 分鐘）讀完：vanilla guidance、classifier guidance 的 Bayes 推導、classifier-free guidance 與空 token、訓練時以約 20% 機率丟掉 label、取樣、w≥4 與 w<1 的討論、兩次網路呼叫使效率減半、文獻導覽延到下週。本文對影片的說法大致成立。唯一的小誤差：學生問的是 w<1，「負方向會避開 prompt」是講者自己接著提的，已改正。影片裡講者沒有報姓名，只有影片頻道與課程說明列出 Peter Holderrieth；第 1 講才有講者自我介紹。
 
 ## 先統一用詞：guided 不是 conditional
 
@@ -206,7 +209,7 @@ w>1 時，`X_1` 的分佈**不再**是 `p_data(·|y)`。講義說 CFG 主要是�
 
 - **這是整門課第一次「超出」資料分佈。** 之前所有東西都是為了從資料分佈取樣。講者提到，拿現代模型的生成圖去量圖文對齊度，可能比網路上隨機的真實圖文配對還高。網路資料本來就有錯的 caption，模型反而在這件事上做得比資料好。
 - **代價是多樣性。** 他把 CFG 描述成把分佈往「最能代表這個條件」的眾數擠。slides 有一張示意圖：guidance 越強，分佈越集中。w 拉太高，圖會過度飽和，除了「最像貓的貓」以外的變化都消失。
-- **w<1 也可以**，效果是減弱 prompt。有學生問負方向，講者說大概就是「避開」那個 prompt。
+- **w<1 也可以**，效果是減弱 prompt（這是學生問的）。講者接著補充，往相反方向（負的權重）大概就是「避開」那個 prompt。
 
 講義和 slides 都拿 Stable Diffusion 3 當例子。Slides 3 寫 SD3 的 guidance scale 約 4.0；講義 §6.3 寫 SD3 取樣用 2.0–5.0 之間的權重。講義 Figure 13 也展示了 MNIST 在 w=1.0、2.0、4.0 的差別，並說 [Lab 3](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion) 你會自己做出類似的圖。
 
@@ -241,6 +244,8 @@ w>1 時，`X_1` 的分佈**不再**是 `p_data(·|y)`。講義說 CFG 主要是�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L3B 逐項對照字幕，修正「有學生問負方向」為學生問 w<1、講者自己補充負方向。
 
 ## 參考資料
 

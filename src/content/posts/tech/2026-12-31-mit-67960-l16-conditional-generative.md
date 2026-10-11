@@ -27,15 +27,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-12-31-mit-67960-l16-conditional-generative-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 16）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=zaMcHuJwe1w
@@ -48,6 +47,10 @@ title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
 
 - [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 16 字幕（Phillip Isola，1:21:31）：影片是條件生成（開場預告「conditional models」），涵蓋條件分佈與預測問題（約 10%–36%）、條件 GAN 與 cVAE（約 50%–58%、73%–77%）、text-to-image 與 U-Net 去噪器（約 71%–84%），以及配對／非配對影像翻譯（約 89%–99%）；字幕沒有 classifier／classifier-free guidance，已在該節加註為本站補充。
 
 ## 從「生成」到「條件生成」
 
@@ -87,6 +90,8 @@ q(z | x, y),   p(x | z, y),   p(z)
 ELBO 變成 `E_q[log p(x|z,y)] − KL(q(z|x,y) ‖ p(z))`。實務上 `y` 可類別 one-hot、文字 embedding、座標等。這是後來 text-to-image VAE / 影像修復（inpainting）變體的基礎。
 
 ## 擴散時代的條件控制
+
+> 影片對照：Lec 16 字幕沒有出現 Classifier Guidance／Classifier-Free Guidance；影片講的是把條件（例如文字）當作輸入餵給 denoiser、generator 或 discriminator 這個通用做法。以下 guidance 的細節是本站補充。
 
 擴散模型把生成拆成「反覆去噪」（L14 提過），條件生成有兩條主流路線：
 
@@ -130,6 +135,8 @@ x_{t−1} ← x_t − γ · ∇_{x_t} log p(y | x_t) + 噪聲
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。在擴散條件控制一節加註：影片沒有講 classifier／classifier-free guidance。
 
 ## 參考資料
 

@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS229: Machine Learning](https://cs229.stanford.edu/) 是 Stanford 電腦科學系的機器學習主課，三到四學分，跨掛在統計系底下叫 STATS 229。它不是「AI 概論」，也不是「深度學習」——它是把監督式學習、非監督式學習、學習理論、強化學習這四塊的**數學推導**攤開來走一遍的那門課。
 
@@ -28,13 +28,24 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+本文是整門課的導讀，不對應單一講次。下方附公開播放清單中的 Spring 2026 第 1 講（Introduction）作為相關補充。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=DATnpGoGhM8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
 
 課程與錄影入口：
 
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2026 Lecture 1（約 37 分鐘），由 Tengyu Ma 主講，字幕內容為課程簡介：先修、AI 工具政策、機器學習定義（1959 與 Tom Mitchell 1998）、監督／非監督／強化學習的分類，以及 LLM 與擴散模型的預告；它是整門課的開場，與本文「課程層級導讀」的定位相符，本文對這支影片本身沒有更細的說法。文中引用的 Lecture 14 開場白、attention 變體那堂的引言與 Lecture 16/18/20 的內容描述來自其他影片，不是這支，本次未重讀。
 
 ## 這門課的硬事實
 
@@ -183,6 +194,8 @@ draft: false
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。公開的 Spring 2026 播放清單（17 支）確實存在；本文是課程層級導讀，故嵌入第 1 講作為相關補充。
+- 2026-10-10：依字幕核對影片內容。確認嵌入的 Lecture 1 主題相符；其他講次的引述不在這支影片內，未重讀。
 
 ## 參考資料
 

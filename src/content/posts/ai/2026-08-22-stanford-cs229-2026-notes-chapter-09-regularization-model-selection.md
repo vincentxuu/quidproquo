@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 9 章（印刷頁 137–145）的逐章導讀，依官方主講義整理，**不是某一季 CS229 錄影的內容重建**。本篇沿著「怎麼控制有效複雜度」這條主脊，說明顯式正規化、隱式偏好、交叉驗證與 Bayesian MAP 的關係。
 
@@ -23,12 +23,24 @@ draft: false
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=llnEgyyuYkQ
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice](https://www.youtube.com/watch?v=llnEgyyuYkQ)
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 6（約 78 分鐘），字幕依序講 overfitting／underfitting、bias-variance 分解、正規化（L2、L1 與範數懲罰，約 50–75%）、貝氏觀點「正規化是在編碼先驗」（只有一句，約 55%）、double descent，最後約 90% 才講 train／dev／test、k-fold cross-validation 與 hyperband；主題與本章大致相符。隱式正規化只在 double descent 之後以「optimizer 的 implicit bias」帶過幾句，沒有展開；MAP 推導與 weight decay 的等價沒有在字幕中推導，這兩節主要依講義。
 
 ## 顯式正規化是兩個目標的交易
 
@@ -79,6 +91,8 @@ $$
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本章相符；隱式正規化與 MAP 在影片中只是幾句帶過，標明主要依講義。
 
 ## 參考資料
 

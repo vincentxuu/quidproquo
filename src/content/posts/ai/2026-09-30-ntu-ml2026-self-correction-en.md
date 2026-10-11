@@ -15,13 +15,13 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-correction)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers the 4/24 lecture "How to educate a model (2): Self-Correction" from [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 13 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slides [Self-Correction.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Correction.pdf) (65 pages, plus a pptx) and the video [AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://youtu.be/m3i2mk5hs8U) (in Chinese). Access is **A3**: slides and recording are both public.
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=m3i2mk5hs8U
@@ -33,6 +33,10 @@ Original videos: [Video: AI 能自我修正嗎？從 decoding、workflow 到 rea
 Course and recording entries:
 
 - [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video m3i2mk5hs8U (1:27:42) was read in full. Checked the three-route framing, error detection from representations and TruthX (heard as "True Facts" in the captions), contrastive decoding as (1+α)z−αz⁻ with an extra pass per token, the Obama/GPT-2 Small example, DoLa (logit lens, built into Hugging Face, first author a former lab project student), LayerCD, ICD "dumbing-down" prompts, CAD with the black-banana and surfboard examples, the audio version, MTI (reusing KV Cache, "Output Error", 62% to 72%, worse with other words), VISTA/ACG, the two intuitions for "check again" and the caveat that critiquing is not necessarily easier than generating, the conclusions of Can LLMs Correct Themselves and RefineBench, the confidence-level/critique-score formula and the effect of instruction wording, the two verification figures and the majority-vote baseline (the transcript says about 100x or more compute for 3.8%; the post's 128x is the slide figure), the Hillary Clinton birthplace example, ReVISE's two stages, the distribution shift when directly teaching correction, RLVR, the cost of thinking, K^(T+1) and the 6-bit parity example, and the pass@k debate and The Debate on RLVR; all match the transcript and no errors were found. The specific CL/CS table numbers, paper IDs and slide page numbers come from the slides and cannot be verified from the transcript.
 
 ## The question: can a model fix itself when nobody points out the error?
 
@@ -202,6 +206,8 @@ Series navigation: Previous [HW5: Finetuning without Forgetting](/posts/ai/2026-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
 
 ## References
 

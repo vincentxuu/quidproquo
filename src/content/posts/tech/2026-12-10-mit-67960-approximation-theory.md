@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-12-10-mit-67960-approximation-theory-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 03）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Jeremy Bernstein** 授課，選讀含 *Deep Learning Theory Notes*（第 2、5 節）。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
@@ -45,6 +44,10 @@ title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
 
 - [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 03 Approximation Theory 字幕（Jeremy Bernstein，1:22:42）：影片以「該擴寬度還是加深度」開場，主體是用 ReLU 單元疊出矩形／三角函數的萬能近似構造（約 28%–60%）、維度與寬度的關係，以及深度的角色（約 61%–80%）；Barron 定理只被帶過一次，已在該節加註為本站補充。
 
 ## 一個最根本的問題
 
@@ -65,6 +68,8 @@ f̂(x) = Σ_{k=1}^{K} a_k · σ(w_kᵀ x + b_k)
 但重點在**「只要夠寬」**——到底要多寬？這正是下一節的關鍵。
 
 ## Barron 定理：繞開維度災難
+
+> 影片對照：Lec 03 字幕只在約 55% 處提到 Barron 定理是眾多逼近結果之一（用到函數的傅立葉表示），沒有展開推導；本節的細節是本站補充。
 
 萬能近似定理的證明是「存在性」的，沒有告訴你需要的寬度 `K`。悲觀地看，對一般函數，`K` 可能隨輸入維度 `d` **指數爆炸**——這就是所謂的維度災難。
 
@@ -112,6 +117,8 @@ print("final MSE:", loss.item())
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。在 Barron 定理一節加註：影片只帶過一次，細節為本站補充。
 
 ## 參考資料
 

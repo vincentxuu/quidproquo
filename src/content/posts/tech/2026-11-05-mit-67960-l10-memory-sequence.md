@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-11-05-mit-67960-l10-memory-sequence-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Sara Beery** 授課，必讀材料為 *RNNs* 講義與 *RNN Stability Analysis / LSTMs*。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=IiHknRHA-Gk
@@ -45,6 +44,10 @@ title: MIT 6.7960 Fall 2024 — Lec 10. Architectures: Memory
 
 - [MIT OCW — Lec 10. Architectures: Memory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec10_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 10 字幕（Sara Beery，1:13:28）：影片講 RNN 的記憶與遞歸（約 15%–40%）、梯度消失／爆炸（約 42%–48%）、LSTM 與門控（約 43%–56%），後段（約 78%–86%）講 attention，與文章主題一致；字幕沒有出現 GRU，GRU 的內容是本站補充。
 
 ## 為什麼序列需要「記憶」
 
@@ -113,6 +116,8 @@ Transformer（見 L08）直接用 attention 讓任意兩個時間步 **O(1)** �
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。影片主題與文章一致；註明字幕未提 GRU。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

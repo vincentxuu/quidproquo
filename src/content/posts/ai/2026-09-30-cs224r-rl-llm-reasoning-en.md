@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source term**: Based on the Spring 2026 [10_cs224r_rl_for_llms_reasoning_2026 slides](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf) (scheduled 2026-05-01). The speaker for the [Spring 2025 L10 recording](https://www.youtube.com/watch?v=O2VpNnwB4lM) was Aviral Kumar (per the [2025 archive page](https://cs224r.stanford.edu/spring_2025/)). That's a **different speaker** from 2026, so the video can't stand in for this lecture and serves only as background. This is post 13 in the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series.
 
@@ -47,9 +47,13 @@ title: Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker,
 
 Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)](https://www.youtube.com/watch?v=O2VpNnwB4lM)
 
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L10 RL for LLM Reasoning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Aviral Kumar, and the topic matches this post. The speaker is Aviral Kumar (per the video description and transcript), matching the post's statement that the 2026 speaker differs and the video is background only; the transcript covers RL for LLM reasoning, process rewards, and PPO extending to GRPO, and says outright that CQL is not covered in this lecture. This post follows the 2026 slides; the video is supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The main argument: scaling gets a new dimension
 
@@ -159,6 +163,8 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Speaker and lecture number both match the post's statements; nothing needed correcting.
 
 ## References
 

@@ -37,11 +37,14 @@ This post answers three questions: where the materials are, what you can actuall
 
 ## Course video sources
 
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This post spans several lectures; pick videos by topic and lecture from the official recording index. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10: it has lecture recordings for Lectures 1–4 and 6–12, student experiment videos for Lectures 5 and 8, the Lecture 8 opening video, and the final-project oral presentations. Lecture 5 has no guest-lecture recording. The same playlist also holds Fall 2026 Lectures 1 and 3, which belong to a different semester and are not used in this series.
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Where the site is: an old ML theory seminar URL
 
@@ -165,6 +168,7 @@ One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 
 ## References
 

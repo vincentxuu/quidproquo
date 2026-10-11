@@ -32,6 +32,12 @@ draft: false
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+2026-10-10 已即時對照官方 MOOC 頁與兩份播放清單（基石 65 支、技法 65 支）；本文是總覽，沒有單一對應講次，因此不嵌入影片。
+
+查核日期：2026-10-10。
 
 ## 兩門 MOOC：七個問題、32 講、130 支影片
 
@@ -173,6 +179,7 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。補上兩份官方播放清單連結；總覽文不嵌入單支影片。
 
 ## 參考資料
 

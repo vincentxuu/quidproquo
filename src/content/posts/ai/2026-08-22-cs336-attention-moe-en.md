@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-attention-moe)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 4: Attention alternatives and mixture of experts**, taught by Tatsunori Hashimoto on April 8, 2026. Its primary source is the official [`lecture_04.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf).
 
@@ -23,14 +23,16 @@ The lecture places two topics together that are often discussed separately: atte
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (Attention Alternatives). The captions cover linear attention, Mamba, delta-rule recurrent models, sparse attention with a lightweight indexer (DeepSeek DSA), MoE and routers, load balancing, router z-loss, upcycling, shared experts, MLA and multi-token prediction. Not checked line by line; no body changes needed.
 
 ```youtube
 url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
-title: CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 4: Attention Alternatives, Mixture of Experts](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
 
 Course and recording entries:
 
@@ -94,6 +96,8 @@ This lecture has a Spring 2026 schedule entry and a complete official PDF. This 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

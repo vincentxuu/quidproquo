@@ -87,6 +87,7 @@ After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 
 ## References
 

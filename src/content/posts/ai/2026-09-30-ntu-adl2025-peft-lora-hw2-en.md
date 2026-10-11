@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 10 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). The course is ADL Fall 2025 (NTU semester 114-1, 2025/09/01–12/15). The course page puts LLM Adaptation on the same day as Post-Training (9/22). That week's TA recitation is LLM LoRA Training, and the homework column shows HW 2.
 
@@ -32,7 +32,7 @@ This is post 10 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=ii2kMoUyNOs
@@ -49,6 +49,10 @@ Original videos: [ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) (YouT
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The 7.5 transcript was read (19 minutes): full fine-tuning being too expensive, the motivation for efficient adaptation, Adapter (h plus delta h, plug and play, storage savings, less overfitting), LoRA's low-rank update and its comparison with Adapter, prompt tuning as parameter-efficient tuning, and the Mao et al. conclusion that no single method is best all match the article. The video also announces that HW2 is LoRA tuning and that there is a two-week break, which does not conflict with the article's "LLM tuning and prompt tuning" description of HW2. The GPT-3 175B experiment, slide page numbers and the LoRA formula in the article come from the slides and the paper; the video does not go through them item by item. The embedded HW2 briefing video (13:05, uploaded 2025-10-06, unlisted) has no obtainable transcript, so only the description line and length were confirmed and its content was not checked, which matches the article's own note that the video has no captions.
 
 ## The problem: full fine-tuning is too expensive
 
@@ -138,6 +142,8 @@ Next: [RAG and HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 7.5 matches the article; the HW2 briefing video has no transcript, so its content was not checked.
 
 ## References
 

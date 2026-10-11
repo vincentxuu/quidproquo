@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 材料是 Lecture 2 的 [108 頁投影片](https://gfxcourses.stanford.edu/cs149/fall25content/media/multicore1/02_basicarch.pdf)（也有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)）；Fall 2025 錄影不公開，2023 年的 L2 錄影作為補充。這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列的第 2 篇，上一篇是 [L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)。
 
@@ -44,18 +44,20 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=CKmNpAO5rS4
-title: CS149 2023 Lecture 2 錄影（YouTube）
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
 ```
 
-原始影片：[CS149 2023 Lecture 2 錄影（YouTube）](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 2 - A Modern Multi-Core Processor》（1:16:13）。字幕涵蓋用 pthread 平行化 sinx 例子、SIMD 與條件分支發散、指令層級平行（ILP）、以及用多個硬體執行緒蓋住 load 延遲並把利用率拉到 100% 的練習，主題與本文一致。另發現「2023 影片的最後一段屬於下一篇」的說法與字幕不符：影片結尾停在執行緒利用率與硬體多執行緒，講者說下次再接記憶體與 superscalar，字幕沒有 A[i]×B[i] 的頻寬例子，已更正。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 開場複習
 
@@ -230,7 +232,7 @@ int y = A[x];
 2023 年的 [Lecture 2 錄影](https://www.youtube.com/watch?v=CKmNpAO5rS4)（約 1 小時 16 分）對應同一講。我比對了 [2023 年的 L2 投影片](https://gfxcourses.stanford.edu/cs149/fall23content/media/multicore/02_basicarch_xX3ssOi.pdf)（103 頁）與 2025 版（108 頁）的文字：`sinx` 例子、三個想法、SIMD 發散、執行緒利用率練習都一樣。差異有兩處：
 
 - **開場不同。** 2025 版開頭多了複習 L1 的記憶體、延遲、stall、cache 與資料搬移能耗那幾頁，也多了 Apple M1 的例子。
-- **結尾不同。** 2023 版 L2 的最後幾頁已經開始講「讀 A[i]、讀 B[i]、算 A[i] × B[i]、存回 C[i]」這個頻寬例子，並問它適不適合跑在吞吐量導向的平行處理器上。2025 版把這部分移到 L3，所以 2023 影片的最後一段，內容屬於本系列的下一篇。
+- **結尾不同。** 2023 版 L2 投影片的最後幾頁已經開始講「讀 A[i]、讀 B[i]、算 A[i] × B[i]、存回 C[i]」這個頻寬例子，並問它適不適合跑在吞吐量導向的平行處理器上。2025 版把這部分移到 L3。但 2023 影片本身沒有講到這個例子：字幕最後停在執行緒利用率練習，講者說下次再接記憶體與 superscalar。
 
 ## 今晚可以做的事
 
@@ -245,6 +247,8 @@ int y = A[x];
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。更正「2023 影片最後一段已經開始講頻寬例子」的說法：影片實際結尾是硬體多執行緒的利用率練習，頻寬例子只存在於 2023 投影片。
 
 ## 參考資料
 

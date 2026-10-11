@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from the Fall 2025 (114-1) edition of Prof. Hung-Yu Kao's [Natural Language Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing) course at National Tsing Hua University. The deck has 125 pages; this post covers only pages 1–60, up to the "From Retrievers to QA" slide, and the rest is in the [next post](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en). The filename says W11, but in the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) it sits in the W10 row, with recordings [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4) and [Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4) (in Mandarin). The W10 Topics column says "Decoding Strategies and Evaluations"; it's a syllabus template that doesn't match the slides. **I did not watch the recordings to confirm where each one stops in the deck.** Facts checked on 2026-09-30. Access grade **A3**: slides and recordings are public.
 
@@ -39,7 +39,7 @@ This post answers one question: **LLMs make up answers, so how do you find the r
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
@@ -56,6 +56,8 @@ Original videos: [Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4)、[
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Hallucination and two ways to mitigate it
 
@@ -188,7 +190,7 @@ This part ends with [BEIR](https://arxiv.org/abs/2104.08663), a heterogeneous be
 
 ## How to self-study this lecture
 
-1. Watch the [Week 10 Tue. recording](https://www.youtube.com/watch?v=VHkMHSkJ4I4) alongside slides 1–42 (hallucination through SimCSE).
+1. Slides 1–42 (hallucination through SimCSE) can be read alongside the [Week 10 Tue. recording](https://www.youtube.com/watch?v=VHkMHSkJ4I4), but both W10 recordings have no captions, so where each one stops cannot be confirmed; what the captions do confirm is the [W11 Tuesday recording](https://www.youtube.com/live/chIewpk4-q0), which covers the same retriever material (TF-IDF, BM25, Sentence-BERT, SimCSE, DPR, GTR).
 2. Run scikit-learn's `TfidfVectorizer` on the slides' two sentences and see whether you can reproduce the table (the slides cite [tsmatz's notebook](https://github.com/tsmatz/nlp-tutorials/blob/master/01_sparse_vector.ipynb)).
 3. Load a bi-encoder and a cross-encoder with [sentence-transformers](https://www.sbert.net/), score the slides' running / jogging / Netflix example, and compare speed.
 4. The series post on the [RAG lab and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en) builds on the embedding and retrieval ideas here.
@@ -205,6 +207,8 @@ One thing to do tonight: take a RAG system you work on and write three queries t
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Tried to check the video content against transcripts. The YouTube pages of Week 10 Tue. and Thu. have no captions, so they could not be checked and no content-check note was added; the "How to study" step no longer assigns slide pages to a recording, and notes that the W11 Tuesday captions confirm it covers the same retriever material.
 
 ## References
 

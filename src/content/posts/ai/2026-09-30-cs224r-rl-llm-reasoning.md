@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：依據 Spring 2026 的 [10_cs224r_rl_for_llms_reasoning_2026 投影片](https://cs224r.stanford.edu/slides/10_cs224r_rl_for_llms_reasoning_2026.pdf)（課表日期 2026-05-01）。[Spring 2025 L10 錄影](https://www.youtube.com/watch?v=O2VpNnwB4lM)的講者是 Aviral Kumar（見 [2025 封存頁](https://cs224r.stanford.edu/spring_2025/)），和 2026 **講者不同**，內容不能對等引用，只能當背景。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 13 篇。
 
@@ -47,9 +47,13 @@ title: Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，�
 
 原始影片：[Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）](https://www.youtube.com/watch?v=O2VpNnwB4lM)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L10 RL for LLM Reasoning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Aviral Kumar、主題與本文相符。講者為 Aviral Kumar（頁面描述與字幕皆如此），與本文「2026 講者不同、只能當背景」的說法相符；字幕談 LLM 推理的 RL、process reward、PPO 延伸到 GRPO，並明說這一講不講 CQL。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 主線：scaling 多了一個維度
 
@@ -159,6 +163,8 @@ B：取樣 N 次（N = 1, 4, 16, 64），取多數決
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。講者與講次皆與本文說法相符，沒有需修正之處。
 
 ## 參考資料
 

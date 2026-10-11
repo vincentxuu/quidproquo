@@ -19,7 +19,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基建。週三（11/11）談 Agent Safety 與 Guardrails。週五 paper video 到期，季度專案進入最後彩排。
 
@@ -31,11 +31,14 @@ Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基�
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 三種 grader：先選對工具再談自動化
 
@@ -132,6 +135,7 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-12：補上 AutoLibra、CDI、prompt injection 與 RSP 四篇延伸閱讀的實質導讀，並標明 RSP 的歷史版本邊界。
+- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 

@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) 2025 秋季版。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列第 3 篇，對應官方第 2 講「Modern LLM Training」（2025 年 9 月 11 日）。上一篇 [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment) 讓你親手把一個小模型訓練歪；這一篇退一步問：正式的訓練流程長什麼樣，安全訓練插在哪裡？
 
@@ -37,18 +37,23 @@ Barak 開場先聲明：他在 OpenAI 不做 pretraining、RL 或推理模型，
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=GXggPt_gqiI
-title: Lecture 2 錄影：LLM 訓練流程與安全訓練（Modern LLM training and safety training）
+title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
 ```
 
-原始影片：[Lecture 2 錄影：LLM 訓練流程與安全訓練（Modern LLM training and safety training）](https://www.youtube.com/watch?v=GXggPt_gqiI)
+原始影片：[AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 2- Modern LLM training and safety training》（2:23:02）的完整自動字幕：抽查並確認 emoji 獎勵駭客例子、Bourgain 與「Tim G」兩種「token 難度」、DeepSeekMath 的 pass@1 對 pass@4、思考鏈監控與 position paper（字幕沒給出處）、5% 作弊比例、safe completion 與 OpenAI／Anthropic 互評、「保護奶奶餅乾食譜」的比喻，以及學生的人設實驗（Einstein 與 Mozart），未發現需要更正的說法。
 
 ## 直覺先行：這一講只需要記住一件事
 
@@ -208,6 +213,8 @@ Barak 的講評比結果更值得記：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。抽查的說法都能在字幕找到，未發現需要更正的地方。
 
 ## 參考資料
 

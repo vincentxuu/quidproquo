@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：依據 Spring 2026 的 [02_cs224r_imitation_2026 投影片](https://cs224r.stanford.edu/slides/02_cs224r_imitation_2026.pdf)（2026-04-03）。配套影片是 [Spring 2025 L2 錄影（補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)，標題相同，但投影片已改成 2026 版，細節可能不同。本文是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列的第 2 篇。
 
@@ -59,9 +59,13 @@ title: Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L2 Imitation Learning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 mixture／diffusion 形式的表達力 policy、compounding errors 與 DAgger 式的線上介入；字幕沒有出現 flow matching，所以本文 flow matching 的段落來自 2026 投影片，不是影片。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 第一個問題：平均值不是答案
 
@@ -225,6 +229,8 @@ print("落在平均值附近 ±0.2 的示範比例:", np.mean(np.abs(a - a.mean(
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L2，主題相符；字幕未出現 flow matching，該段屬 2026 投影片內容。
 
 ## 參考資料
 

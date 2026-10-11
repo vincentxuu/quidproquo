@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 8 章（印刷頁 115–136）的逐章導讀。本文依 Tengyu Ma 與 Andrew Ng 編寫的官方主講義整理，**不是任何一學期錄影或課堂進度的重建**；目標是抓住推導主脊，不重製每一個證明。
 
@@ -23,12 +23,24 @@ draft: false
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=iVOxMcumR4A
+title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+原始影片：[Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=iVOxMcumR4A)
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季由 Anand Avati 帶的 Friday discussion section（不是 Andrew Ng 的主課），字幕內容為 bias-variance、approximation／estimation error、ERM、一致收斂（union bound、Hoeffding）與 VC dimension，主題與本章相符；字幕沒有提到本章的雙降（double descent），該段僅依講義。
 
 ## 從偏差與變異拆開測試誤差
 
@@ -81,6 +93,8 @@ $$
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 1 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本章相符，補註這是 2018 年 discussion section，且不含雙降。
 
 ## 參考資料
 

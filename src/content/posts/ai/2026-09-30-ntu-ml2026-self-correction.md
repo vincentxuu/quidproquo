@@ -15,13 +15,13 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 4/24「如何教育模型 (2)：Self-Correction」。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 13 篇。用到的官方材料是講義 [Self-Correction.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Correction.pdf)（65 頁，另有 pptx）與影片 [AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://youtu.be/m3i2mk5hs8U)。存取等級是 **A3**：投影片與錄影都公開。
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=m3i2mk5hs8U
@@ -33,6 +33,10 @@ title: 影片：AI 能自我修正嗎？從 decoding、workflow 到 reasoning �
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 m3i2mk5hs8U（1:27:42）字幕全文已讀。核對三條路線的分法、representation 偵測錯誤與 TruthX（字幕誤聽為 True Facts）、contrastive decoding 的 (1+α)z−αz⁻ 與每個 token 都要多跑一次、歐巴馬／GPT-2 Small 例子、DoLa（logit lens、Hugging Face 內建、第一作者為實驗室前專題生）、LayerCD、ICD 降智咒語、CAD 與黑色香蕉／衝浪板例子、音訊版、MTI（借用 KV Cache、Output Error、62% 到 72%、換字變差）、VISTA／ACG、再檢查一下的兩個直覺與批判不一定比生成容易的但書、Can LLMs Correct Themselves 與 RefineBench 的結論、confidence level 與 critic score 公式及指令用詞影響、verification 的兩張圖與 majority vote baseline（字幕說約 100 倍以上算力換 3.8%，文中寫 128 倍為投影片數字）、希拉蕊出生地例子、ReVISE 兩階段、直接教修正的分佈偏移、RLVR、cost of thinking、K^(T+1) 與 6 位元 parity 例子、pass@k 之爭與 The Debate on RLVR，皆與字幕一致，未發現錯誤。CL／CS 表的具體數字、各論文編號與投影片頁碼屬講義內容，字幕無法驗證。
 
 ## 問題：沒人提醒時，模型能不能自己改
 
@@ -202,6 +206,8 @@ workflow 每題都硬插一句反思，不管答案對錯都逼模型多想。re
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
 
 ## 參考資料
 

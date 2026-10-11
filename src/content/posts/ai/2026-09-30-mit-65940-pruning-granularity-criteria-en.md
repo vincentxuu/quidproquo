@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > This is post 2 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series, based on the Fall 2024 edition. The previous post covered how to measure model size and compute. This one starts actually making models smaller.
 
@@ -39,19 +39,22 @@ Official materials covered here:
 All page numbers are PDF page numbers.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=EjsB0WgIfUM
-title: Lecture 3 video (Fall 2024)
+title: EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 3 video (Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
+Original videos: [EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and ending and spot-checked the middle: the definition of pruning, granularity (fine-grained up to channel level), magnitude criteria, Taylor/second-order criteria, APoZ, batch-norm scaling factors (network slimming), fine-tuning learning rate and epochs, and why over-parameterization helps optimization. Topics and lecture number match this post. The captions do not contain the term “fine-grained” verbatim, so the exact category names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why start with pruning
 
@@ -213,6 +216,8 @@ Open the [Fall 2024 Lab 1](https://colab.research.google.com/drive/1Fagq3JQBzCiz
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L3 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

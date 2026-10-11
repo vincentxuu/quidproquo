@@ -41,12 +41,14 @@ glossary:
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
 
 課程與錄影入口：
 
 - [2025 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 場景：從模擬搬到真機，換成從預訓練模型出發
 
@@ -257,6 +259,7 @@ flow matching 在 [HW1](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。重查官方頁與公開播放清單，沒有對應的公開錄影，狀態維持不變。
 
 ## 參考資料
 

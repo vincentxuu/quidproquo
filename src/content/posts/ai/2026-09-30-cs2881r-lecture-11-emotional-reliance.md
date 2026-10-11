@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 11 月 13 日講次、[第 11 講錄影](https://youtu.be/GNvEjP1DfIs)（YouTube 標題「Lecture 11: Mental Health and Emotional Attachment」，約 1 小時 13 分），以及課站列出的閱讀清單。事實皆於 2026-09-30 打開官方材料核對；錄影內容依 YouTube 自動字幕整理。**本講材料**：錄影與閱讀清單公開；沒有投影片，實驗欄寫「To be determined」，但錄影裡有兩組學生實驗。課站本講的條列（監管途徑、致命自主武器、大規模監控等）與講題 Emotional Reliance 對不上，看起來是從別講複製過來的，本文**不引用那串條列**。整門課的存取分級見[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
@@ -34,18 +34,23 @@ glossary:
 
 ## 課程影片來源
 
-影片連結已與本文採用版本的官方課程頁核對。
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
 
 ```youtube
 url: https://www.youtube.com/watch?v=GNvEjP1DfIs
-title: Lecture 11: Mental Health and Emotional Attachment（錄影）
+title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
 ```
 
-原始影片：[Lecture 11: Mental Health and Emotional Attachment（錄影）](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+原始影片：[AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 11: Mental Health and Emotional Attachment》（1:13:22）的完整自動字幕：確認兩組學生實驗在影片前約三分之一（約前 33 分鐘），之後 Boaz 講情感依賴，模擬器／最佳化器的說法出現在約 39–43 分鐘、橋的測試在最後，未發現需要更正的說法；錄影時間「0:33」改為「約 0:33」。
 
 ## 這一講的材料
 
@@ -154,7 +159,7 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 
 ## 自學怎麼做
 
-1. 先看錄影 0:33 之後 Boaz 的部分，再回頭看兩組學生實驗。先有「模擬器／最佳化器」的框架，實驗結果比較容易讀出意義。
+1. 先看錄影約 0:33 之後 Boaz 的部分，再回頭看兩組學生實驗。先有「模擬器／最佳化器」的框架，實驗結果比較容易讀出意義。
 2. 讀 Moore et al. 時，對照第二組學生實驗：他們從論文裡挑了哪兩條治療準則當評分依據？換成你會挑哪一條？
 3. 讀 OpenAI 公告時，把它的三個類別對照 The Typing Cure 使用者抱怨的「被拒絕感」：更嚴的安全行為和更好的支持，在哪裡會衝突？
 
@@ -169,6 +174,8 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。段落順序與約略位置與字幕相符；錄影時間「0:33」改為「約 0:33」。
 
 ## 參考資料
 

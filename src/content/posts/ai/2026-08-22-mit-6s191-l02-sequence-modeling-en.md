@@ -15,24 +15,27 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l02-sequence-modeling)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 2 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Sequence Modeling: From RNNs to Attention**. It Addresses data where order changes meaning—text, audio, and time series—and connects directly to music generation in Lab 1. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=d02VkQ9MP44
-title: Lecture 2 official video
+title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
 ```
 
-Original videos: [Lecture 2 official video](https://www.youtube.com/watch?v=d02VkQ9MP44)
+Original videos: [MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
 
 Course and recording entries:
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the RNN recurrent state, next-word prediction, tokenization/embedding, backpropagation through time, vanishing/exploding gradients, a mention of LSTM, music generation (the Schubert unfinished symphony, tied to Lab 1) and attention with query/key/value, matching this note.
 
 ## What to take away
 
@@ -62,6 +65,8 @@ Take a short ABC score and manually form input/next-character pairs before openi
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The topic and speaker match; nothing needed correcting.
 
 ## References
 

@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on slides 60–125 of [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, plus the Chinese caption tracks of the [W11 Tuesday](https://www.youtube.com/live/chIewpk4-q0) and [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) recordings. The lectures are in Mandarin. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and recordings are public. This unit has no assignment of its own; the hands-on part is in [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
@@ -35,7 +35,7 @@ glossary:
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=chIewpk4-q0
@@ -53,6 +53,10 @@ Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both W11 transcripts (Tuesday and Thursday) were read through. The table rows hold: Tuesday announces the term-project topic change, then covers TF-IDF, BM25, why CLS is unreliable, Siamese / Sentence-BERT, SimCSE, DPR and GTR, and ends at the retriever/reader boundary; Thursday opens with the term-project checkpoint and peer review and announces that HW4 is delayed a week, then covers ORQA / ICT / REALM, and ends on the RAG paper with the rest promised for next week. The professor remarks the post relays (the ICT remark and the warning about fine-tuning your own encoder, REALM being hard to train, the comment on the RAG paper) are all found. The Thursday split originally said "19 minutes"; the captions carry no timestamps, so it now says "about 20". Nothing from REPLUG onward is covered in either video, so that part remains slide-only.
+
 ## Where this picks up, and what the recordings cover
 
 The [previous post](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) finished the retriever story, from BM25 to DPR. All of it was about finding the right passage. Slide 60, "From Retrievers to QA," asks a new question: once you have the passage, who reads it, how, and what happens if you train the whole pipeline together? Its example asks what year Oppenheimer was born. The LLM without retrieval says 1967, which is actually the year he died. With a Wikipedia passage attached, it says 1904. The slide also notes that the generator is called the "reader," because QA is a reading-comprehension task.
@@ -62,7 +66,7 @@ The recordings need a word first. In the [2025 schedule](https://github.com/IKML
 | Recording | Length | Content (from captions) |
 |---|---|---|
 | [W11 Tuesday](https://www.youtube.com/live/chIewpk4-q0) (2025-11-11) | 1:42:39 | A term-project topic change, then retrievers: BoW, TF-IDF, BM25, whether CLS is enough, Siamese networks, SimCSE, DPR, GTR. It stops at the retriever/reader boundary |
-| [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) (2025-11-13) | 48:53 | The first 19 minutes cover term-project checkpoints and peer-review rules, and announce that HW4 is pushed back a week. From about minute 20: ORQA, ICT, REALM. The last few minutes start the RAG paper, with the rest promised for next week |
+| [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) (2025-11-13) | 48:53 | The first 20 minutes or so cover term-project checkpoints and peer-review rules, and announce that HW4 is pushed back a week. From about minute 20: ORQA, ICT, REALM. The last few minutes start the RAG paper, with the rest promised for next week |
 
 So the first three sections below, from BERT reading comprehension to the RAG paper, can be checked against a recording. Slides 76–125, from REPLUG onward, are not covered in either W11 recording. The W12 Tuesday recording ([XGWuVpVTwTQ](https://www.youtube.com/live/XGWuVpVTwTQ)) is the likeliest continuation, but it has no caption track and I could not confirm its content. The second half of this post relies on the slides alone.
 
@@ -171,6 +175,8 @@ One thing to try tonight: take a RAG system or ChatGPT conversation you already 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against the transcripts. Both W11 videos agree with the post; the "19 minutes" split in the Thursday description now reads "about 20" (the captions carry no timestamps).
 
 ## References
 

@@ -52,6 +52,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): The transcript runs about 78 minutes (lecturer Fried); I read the opening and main passages and keyword-checked each spoken or in-class claim the article relays: the number-guessing game and Wordle analogy, the three SFT gaps, the remark that RL removed repetition loops, the POMDP answer, ReST and the three cold-start options, REINFORCE and his Deal or No Deal anecdote, the 95% baseline intuition, the visualizations, GRPO group size of about 8 (with Apurva to say more), the unbiasedness answer, clipping and KL deferred to Neubig's lecture, "many implementations calling themselves GRPO drop the std division", and the value model sharing a backbone with the policy; all supported and no changes were needed. This is a sampled, keyword-based check, not a line-by-line comparison of the whole transcript; slide equations and paper details (Williams 1992, DeepSeekMath settings, etc.) are not in the transcript, and the "Sept 22" date is not stated in the video.
+
 ## The setup: guess a number between 1 and 16
 
 One example runs through the entire lecture. The environment hides an integer from 1 to 16 and the agent gets four guesses. After a wrong guess the environment replies "higher" or "lower." A correct guess ends the episode with reward 1; running out of guesses gives reward 0.
@@ -385,6 +387,7 @@ Further reading on this site (the same algorithms from other angles; not a subst
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. Sampled and keyword-checked; no changes needed.
 
 ## References
 

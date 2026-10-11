@@ -97,6 +97,7 @@ Create eight noisy `(x,y)` points and fit degree-1, degree-3, and degree-7 polyn
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
 
 ## References
 

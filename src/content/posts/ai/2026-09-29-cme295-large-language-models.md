@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
 
@@ -42,18 +42,28 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 3 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 2 講「Large Language Models」所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Q5baLehv5So
-title: 2025 版第 3 講錄影
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
 ```
 
-原始影片：[2025 版第 3 講錄影](https://www.youtube.com/watch?v=Q5baLehv5So)
+```youtube
+url: https://www.youtube.com/watch?v=GaIeu3npx04
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Q5baLehv5So 是 Autumn 2025 第 3 講（2025-10-10，1:48:45，與本文相符），章節是 MoE、解碼（greedy／beam／sampling／temperature）、guided decoding、prompting、in-context learning、CoT／self-consistency、KV cache、PagedAttention／MLA，與本文各「旋鈕」章節一致。GaIeu3npx04 是 Autumn 2026 第 2 講 Large Language Models（1:43:14），字幕確實是 LLM 講次（MoE、RoPE、sliding window、GQA、temperature、guided decoding、context rot、prompting）；注意頁面描述的章節表是複製自第 1 講，與實際內容不符，字幕為準。發現並修正：本文原說 prompting／in-context learning／CoT／self-consistency 從 2026 課表消失、guided decoding 無法判斷，但 2026 第 2 講字幕結尾有短短帶過前四者，guided decoding 也有講。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 什麼東西算 LLM
 
@@ -224,12 +234,12 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 ## 2026 版改了什麼
 
-2026 版目前只釋出第 1 講的投影片，對應本講的第 2 講排在 10 月 2 日上課，以下只根據 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單比對：
+2026 版對應本講的是第 2 講（10 月 2 日上課），[2026 課表](https://cme295.stanford.edu/syllabus/)已附該講投影片與錄影（上方第二支）。以下只根據課表的主題清單比對，沒有逐頁比對 2026 投影片：
 
 - **這一講被併進 2026 版第 2 講「Large Language Models」**。那一講的清單是 Transformer model families、LLM definition and architecture、Mixture of experts、MHA/MQA/GQA、RoPE、context length、temperature、sampling strategies。也就是說，2025 的第 2 講和第 3 講前半合成一講。
-- **prompting、in-context learning、chain of thought、self-consistency 從課表消失**。2026 版沒有任何一講的主題清單列出它們。
+- **prompting、in-context learning、chain of thought、self-consistency 沒有獨立列在課表，但仍在 2026 第 2 講結尾短短帶過**。課表的主題清單沒有列出它們；我讀了第 2 講錄影的字幕，結尾幾分鐘講了 context window 與 context rot、不改權重的 prompting／in-context learning（並說 few-shot 越來越少用）、chain of thought 與 self-consistency，後兩者只點到，說要留到之後的 reasoning 講次。
 - **推論加速搬到新的一整講**。2026 版第 5 講「LLM systems」列了 inference optimizations、KV caching、speculative decoding、Flash Attention 等，2025 版這講最後一段的內容應該會在那裡展開，課前預寫版見本系列 [order 10](/posts/ai/2026-09-29-cme295-llm-systems)。
-- guided decoding 在 2026 課表上沒有出現，但課表只列大主題，無法判斷它是被刪掉還是併在 sampling 底下講。
+- guided decoding 在 2026 課表上沒有出現，但第 2 講錄影的字幕有講：用語法限制每一步可選的 token，讓輸出（例如 JSON）保證合法。所以它是併在解碼這段底下，沒有被刪掉。KV cache、speculative decoding、Flash Attention 則沒有在這支影片的字幕出現，與「推論加速搬到第 5 講」的推測一致。
 
 ## 自我檢測
 
@@ -254,6 +264,9 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 2025 播放清單與官方 2026 課表，第 3 講（2025）與第 2 講（2026）的影片 ID 相符，並補上 2026 版第 2 講錄影。
+- 2026-10-10：修正過時的錄影說法。2026 版第 2 講的投影片與錄影已上架，改寫「只釋出第 1 講」的敘述。
+- 2026-10-10：依字幕核對影片內容。發現 2026 第 2 講錄影其實有講 prompting／ICL／CoT／self-consistency（結尾）與 guided decoding，已修正「2026 版 消失／無法判斷」的說法；其餘與本文相符。
 
 ## 參考資料
 

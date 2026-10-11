@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-long-context-llm)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024.** It is post 19 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series.
 
@@ -39,19 +39,22 @@ glossary:
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "Long Context LLM" (Lecture 15, November 3). As of 2026-09-30 its slides and video are not up yet.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=kgTWKjbnrBA
-title: Lecture 15 recording (YouTube)
+title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
 ```
 
-Original videos: [Lecture 15 recording (YouTube)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
+Original videos: [EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: RoPE and context length (fine-tuning from 2k to 32k), LongLoRA, lost-in-the-middle and needle-in-a-haystack evaluation, StreamingLLM's attention sink, DuoAttention, Quest, and Mamba/SSMs with hybrid architectures. Topics and lecture number match this post. The WorldModelBench announcement on slides 75–78 does not appear in the captions, which fits the note in this post that those pages are unrelated to the lecture. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## What this lecture is about
 
@@ -196,6 +199,8 @@ Page 68 splits an LLM's work into two kinds: communication between tokens (atten
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The L15 video matches the topic and lecture number; the spot check found no contradictions, so the body text is unchanged.
 
 ## References
 

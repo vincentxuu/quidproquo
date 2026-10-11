@@ -67,7 +67,7 @@ Courses in this tier are the best candidates for single-course guides because an
 
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) publishes slides on post-training, RAG, reasoning, and agents, along with three assignments and a project brief. The missing piece is video. The semester's YouTube playlist exists, but anonymous access returns `UNPLAYABLE`, matching the course site's Berkeley-login notice. The material supports a reading guide; it does not support the claim that the current recordings are public. The [CS288 guide series](/posts/learning/2026-08-22-berkeley-cs288-overview-en) was written within exactly that boundary.
 
-[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) publishes slides for twenty-five lectures, five assignments, and GitHub starter code. Current recordings sit in bCourses. The official site also links older public recordings, so a defensible guide should analyze the 2026 material and place historical video in a separate alternative-resources box with the year shown. The [CS285 guide series](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) follows that principle.
+[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) publishes slides for twenty-five lectures, five assignments, and GitHub starter code. The lecture recordings are public too, on the RAIL YouTube channel's 2026 playlist; Ed, Gradescope, and office hours stay enrolled-only. The official site also links older Fall 2023 recordings, so a defensible guide should treat the 2026 material and recordings as canonical and place historical video in a separate alternative-resources box with the year shown. The [CS285 guide series](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) follows that principle.
 
 The [MIT 6.7960](https://deeplearning6-7960.github.io/) site has switched to Fall 2026, with slides posted as the semester progresses, and Fall 2025 has moved under "Previous years." Both semesters share the same gap: assignments go out through Gradescope and recordings sit in MIT Canvas. This series labels it A2: enough for a deep reading of course design, not enough to promise the enrolled experience. That is why the site's [6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en) uses the Fall 2024 OCW edition, which has complete recordings, and labels the year.
 
@@ -170,6 +170,7 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Fixed an outdated recording statement. CS285 lecture recordings are public on the RAIL YouTube channel, not only in bCourses.
 - 2026-10-05: Added an "AI security courses" section covering current AI security courses and access levels at Stanford, CMU, Berkeley, and MIT, plus the three fully self-studiable courses in Taiwan and abroad.
 - 2026-10-01: "Where this series stands" now includes six new series: Stanford CS224R, CS234, CS149, MIT 6.5940, CMU 10-423, and Harvard CS2881R.
 - 2026-09-30 (3): Added the [other Taiwanese schools map](/posts/learning/2026-09-30-taiwan-ai-course-map-en); "Where this series stands" now includes four Mandarin course series: NTU ADL, Hsuan-Tien Lin, NTHU NLP, and NCCU Generative AI.

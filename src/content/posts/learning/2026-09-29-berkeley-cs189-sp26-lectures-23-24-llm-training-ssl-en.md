@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): Lecture 23, [LLM Training And Applications](https://drive.google.com/drive/folders/1GP3T4TwZeXV2L28LUY6a0ei6rtcnQ3TJ) (4/16, `lec23.pdf`, 63 pages, [video](https://www.youtube.com/watch?v=m13yELgj02c)); Lecture 24, [Self-Supervised Learning](https://drive.google.com/drive/folders/1BVcz-ohHf6J8mtzVHnTTDw55M7JQZmbL) (4/21, `lec24.pdf`, 77 pages, [video](https://www.youtube.com/watch?v=iGcer6b6mp8)); and [Discussion 11](https://drive.google.com/file/d/11WJr0gQUuMON1ub34DSUhSMsDl8GuM06/view) (with [solutions](https://drive.google.com/file/d/11KGelwaG_trTVtxBHPgkUFrG_BhlZE7E/view) and a [walkthrough video](https://youtube.com/playlist?list=PL-ysCubq-Sa9h8mIf8s2L-vL68rx8_hx8)). All of them open without a login, and the course rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
@@ -33,7 +33,7 @@ These two lectures come after [Lec 21–22: Transformers](/en/posts/learning/202
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=m13yELgj02c
@@ -50,10 +50,15 @@ Original videos: [Lecture 23 recording: LLM Training And Applications](https://w
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 23 video (m13yELgj02c, about 74 minutes) covers classification from the last token, GPT-3's scale, the "capital of California" next-token example, masked attention, the Llama architecture, and pretraining on 15.6T tokens; post-training (SFT, LoRA, RLHF, DPO) is only named at the start and in passing and is not developed, and Vicuna, RAG, chain-of-thought, agents, and the H100 GPU-hour figure could not be found in the transcript and appear only in the slides. The Lecture 24 video (iGcer6b6mp8, about 76 minutes) is indeed self-supervised learning: rotation prediction, colorization, super-resolution, clustering, transfer learning with a frozen feature extractor versus fine-tuning, and CLIP with zero-shot classification; autoencoders, inpainting, jigsaw puzzles, relative position, and SimCLR could not be found in the transcript, so those table rows appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## What I read, and the limits
 
-What I actually opened and read: the text layer of both slide PDFs, the Discussion 11 problems and solutions, and the titles of the two recordings. Many figures in the slides (architecture diagrams, generated samples, heat maps) have no text layer, so I only relay what is written on the slides. I did not watch the recordings minute by minute.
+What I actually opened and read: the text layer of both slide PDFs, the Discussion 11 problems and solutions, and the titles of the two recordings. Many figures in the slides (architecture diagrams, generated samples, heat maps) have no text layer, so I only relay what is written on the slides. The auto-generated transcripts of both recordings were spot-checked on 2026-10-10 (see the content check above), but this post still follows the slides.
 
 **One oddity in the assigned reading**: both the schedule page and the last page of `lec23.pdf` list Chapter 10 of Bishop's *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)* for Lec 23. But according to Springer's table of contents, Chapter 10 is [Convolutional Networks](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_10), and Transformers is [Chapter 12](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_12). I list the reading as the course gives it and don't renumber it on their behalf; if you want LLM-related material, go straight to Chapter 12. The Lec 24 slides say "some content in Chapter 11," whose title is [Structured Distributions](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_11). I did not read the chapter's sections, so I can't confirm which parts correspond.
 
@@ -102,6 +107,8 @@ If a position could attend to later tokens, it would simply see the answer. So a
 
 ### Post-training: GPT on its own can't chat
 
+(The recording's transcript only names these methods without developing them; what follows is from the slides.)
+
 The deck splits ChatGPT into Chat + Generative + Pretrained + Transformer, then points out that "one thing is still missing": a model that has only been pretrained continues text; it doesn't follow instructions. Ask it "What is attorney client privilege?" and it may continue with "Provide a concise answer using an example from class.", because that looks like the next line of a homework prompt.
 
 | Method | What the slides emphasize |
@@ -116,6 +123,8 @@ The deck splits ChatGPT into Chat + Generative + Pretrained + Transformer, then 
 The DPO row deserves a pause: the deck notes that the Bradley-Terry model appeared in HW2. HW2's paper questions read Chatbot Arena, so MLE from the first half of the semester gets used once more here.
 
 ### At inference: prompting, retrieval, reasoning, tools
+
+(This part is not in the recording's transcript; what follows is from the slides.)
 
 The last section covers ways to improve capability without changing the weights: zero-shot and in-context learning, RAG (retrieve relevant documents first and splice them into the prompt), and chain-of-thought. The deck uses the question "How many numbers from 1 to 50 have a perfect-square factor other than 1?" to show a reasoning model's long thinking: partway through it notices double counting, switches to inclusion-exclusion, checks itself, and then answers. Finally, agents: the LLM decides whether to call tools such as search, a calculator, or email, puts the tool output back into the history, and decides the next step. The deck calls this ReAct.
 
@@ -137,6 +146,8 @@ The deck presents transfer learning as what self-supervision is *for*:
 These are cells 5f and 5g in HW4.2. The deck also lists three difficulties of self-supervision: choosing a pretext task that suits the application, the lack of a gold standard to compare learned representations against, and the lack of a single objective like test accuracy.
 
 ### Generative pretext tasks: predict part of the input
+
+(In the transcript I could confirm only colorization and super-resolution; the other rows, and the discriminative tasks below other than rotation and clustering, appear only in the slides.)
 
 | Approach | Fake task | What the slides emphasize |
 |---|---|---|
@@ -192,6 +203,8 @@ Put the two lectures together: a decoder-only transformer first does next-token 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their topics; the post-training and inference sections and most pretext tasks appear only in the slides, and the reading-scope note was updated accordingly.
 
 ## References
 

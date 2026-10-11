@@ -50,6 +50,12 @@ No dedicated public lecture recording was verified for this article. Use the off
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
+
+Checked: 2026-10-10.
 
 ## What the homework looks like
 
@@ -207,6 +213,7 @@ Lecture guides matching each assignment: [L1–L3](/posts/ai/2026-09-30-ntu-htli
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlists hold lecture videos only, no homework walkthrough; status unchanged.
 
 ## References
 

@@ -109,7 +109,7 @@ CS288 也不該直接排在 CS188 後面。Spring 2026 的課程準備說明要�
 | **CS C182/282A, Fall 2025** | **A2** | syllabus、schedule、多份 assignment PDF／code | 當期影片限校內；部分 lecture resources 不完整 |
 | **CS180/280A, Fall 2025** | **A3** | slides、readings、討論與解答、五個 programming projects | 刻意不錄影；無 project solutions／評分 |
 | **EECS183/283A, Fall 2025** | **A2** | 完整主題表與多數 slides | assignments、starter code、解答、影片 |
-| **CS185/285, Spring 2026** | **A3** | 25 份 lecture decks、9 份 discussions、五份 HW、starter code、final projects | 當期錄影與學生算力 |
+| **CS185/285, Spring 2026** | **A3** | 25 份 lecture decks、9 份 discussions、五份 HW、starter code、final projects | Ed、Gradescope、課堂互動與助教時間；HW4、HW5 的學生算力（講課錄影已公開在 RAIL YouTube） |
 | **CS288, Spring 2026** | **A3** | 17+ 份 slides、三份 assignments、starter repos、final project docs | 當期錄影、隱藏測試、solutions |
 | **CS C280, Spring 2026** | **A3** | 24 份 slides、HW0–3、project | 無影片；Ed、Gradescope、CMT |
 
@@ -183,6 +183,7 @@ Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口�
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：修正過時的錄影說法。CS185/285 表格列改為講課錄影已公開在 RAIL YouTube 頻道，受限的是 Ed、Gradescope 與助教時間。
 - 2026-09-30：CS189 Spring 2026 課站已重新上線，改判 A3 並補進盤點表；Spring 2025 的正式錄影需 bCourses 登入，移除「影片公開」的說法；連到擴寫後的 CS189 導讀系列。
 - 2026-08-22：依 CS C280 官方背景要求，把 CS C182 補回進階視覺自學路線。
 

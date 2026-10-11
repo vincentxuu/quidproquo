@@ -30,6 +30,8 @@ Course and recording entries:
 
 - [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
 
+Checked: 2026-10-10.
+
 ## Version decision: Spring 2026 is latest-complete
 
 Spring 2026 is the latest completed offering whose 28 content lectures can each be matched to slides and official recordings. Relative links in the [official lecture table](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html) sometimes omit `./` or contain spaces, so the series records resolved URLs instead of guessing paths from article pages.
@@ -85,6 +87,7 @@ The pilot covers Lectures 1–4. It will be reviewed for complete agenda coverag
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The live official lecture table lists a YouTube recording for each of the 28 lectures; this overview covers several lectures, so it keeps the index link only.
 
 ## References
 

@@ -18,24 +18,29 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-17-harvard-cs50ai-w03-optimization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
 ## Course video sources
 
-Uses the lecture recording currently linked by the official Week 3 page.
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 3 lecture recording is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=qK46ET1xk2A
-title: CS50 AI Week 3 — official lecture recording
+title: Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020
 ```
 
-Original videos: [CS50 AI Week 3 — official lecture recording](https://www.youtube.com/watch?v=qK46ET1xk2A)
+Original videos: [Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=qK46ET1xk2A)
 
 Course and recording entries:
 
 - [CS50 AI Week 3 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/3/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The overall order holds, but "sideways moves" and min-conflicts never appear in the transcript, and local beam search gets a single sentence; node consistency (before AC-3) and the least-constraining-value heuristic do appear and were added. The transcript never mentions the Crossword project; it comes from the course site. The original exact timecodes (ending at 1:30:00 for a 1:44:45 video) could not be verified and are now approximate values estimated from the transcript.
 
 ## TL;DR
 
@@ -45,15 +50,17 @@ Week 3 solves optimization problems: local search (hill climbing, random restart
 
 YouTube: [Week 3 Optimization (2020 recording)](https://www.youtube.com/watch?v=qK46ET1xk2A)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:44:45. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–08:00 | Optimization problem definition: objective function, state space, neighbors |
-| 08:00–22:00 | Local search: Hill Climbing, Sideways moves, Random Restart, Local Beam Search |
-| 22:00–38:00 | Simulated Annealing: temperature parameter, worse-move acceptance probability, cooling schedule, convergence guarantee |
-| 38:00–52:00 | Linear programming intro: objective, constraints, simplex method concept |
-| 52:00–1:08:00 | Constraint Satisfaction Problems (CSP): variables, domains, constraints, consistency, solutions |
-| 1:08:00–1:22:00 | AC-3 arc consistency algorithm, backtracking search, MRV (Minimum Remaining Values), Degree heuristic, Least Constraining Value |
-| 1:22:00–1:30:00 | Project intro: Crossword (CSP + backtracking for crossword generation) |
+| ~0–8 | Optimization and local search: state-space landscape, objective/cost function, global and local extrema (hospital placement example) |
+| ~8–31 | Hill climbing and variants: steepest-ascent, stochastic, first-choice, random restart, local beam search, and flat regions |
+| ~31–39 | Simulated annealing and the traveling salesman problem |
+| ~39–53 | Linear programming: linear objective and constraints; the simplex method is only named |
+| ~53–77 | Constraint satisfaction problems: variables, domains, constraints, node consistency, arc consistency and AC-3 |
+| ~77–95 | Backtracking search, interleaved with inference (maintaining arc consistency) |
+| ~95–104 | Ordering heuristics: MRV, degree heuristic, least-constraining value, and the wrap-up |
 
 > Full transcript: [Week 3 Notes](https://cs50.harvard.edu/ai/2020/notes/3/)
 
@@ -301,6 +308,8 @@ style50 generate.py
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Removed items and the project introduction not found in the transcript; timecodes are now approximate values estimated from the transcript.
 
 ## References
 

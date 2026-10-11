@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 10 篇，範圍是[機器學習技法](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 3 講 Kernel Support Vector Machine 與第 4 講 Soft-Margin Support Vector Machine。
 
@@ -38,23 +38,25 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=oOi7kqUTqxw
-title: T3-1
+title: Kernel Trick
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Fb-WSBvsPak
-title: T3-2
+title: Polynomial Kernel
 ```
 
-原始影片：[T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+原始影片：[Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 上一篇停在哪
 
@@ -182,8 +184,8 @@ Gaussian soft-margin SVM 至少有 (C, γ) 兩個參數，投影片三張圖（C
 
 | 小節 | 影片 | 投影片 |
 |---|---|---|
-| Kernel Trick | [T3-1](https://www.youtube.com/watch?v=oOi7kqUTqxw) | 203 |
-| Polynomial Kernel | [T3-2](https://www.youtube.com/watch?v=Fb-WSBvsPak) | 203 |
+| Kernel Trick | [Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw) | 203 |
+| Polynomial Kernel | [Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak) | 203 |
 | Gaussian Kernel | [T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8) | 203 |
 | Comparison of Kernels | [T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE) | 203 |
 | Motivation and Primal | [T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A) | 204 |
@@ -226,6 +228,7 @@ Gaussian soft-margin SVM 至少有 (C, γ) 兩個參數，投影片三張圖（C
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
 
 ## 參考資料
 

@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-11-19-mit-67960-l12-representation-similarity)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Sara Beery**; the required reading is the same *Representation Learning* as L11, with optional *Alignment and Uniformity* and contrastive-learning essays.
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=yUh1fEGGdl4
@@ -45,6 +44,10 @@ Course and recording entries:
 
 - [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 12 transcript (Sara Beery, 1:16:20): the video covers metric learning, contrastive learning and InfoNCE, alignment and uniformity (about 59%–68%) and hard negatives, matching the article; SimCLR does not appear in the transcript and is only a reference in this article.
 
 ## When reconstruction is not enough: define "similarity" directly
 
@@ -122,6 +125,8 @@ Next lecture (L13) takes the theoretical view: why the architecture's inductive 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 

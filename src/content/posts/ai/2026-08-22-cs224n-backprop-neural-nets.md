@@ -15,18 +15,29 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-backprop-neural-nets-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 3 講排在 2026 年 1 月 13 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf)標題是 Neural Network Foundations，agenda 則列出詞向量評估回顧、神經網路介紹、矩陣微積分與反向傳播。這堂不是泛泛介紹深度學習；它要建立後面所有模型共用的訓練語言。
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=HnliVHU2g9U
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network
+```
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network](https://www.youtube.com/watch?v=HnliVHU2g9U)
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Manning 授課影片（約 73 分鐘）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕涵蓋神經元即小型 logistic 單元、矩陣微積分與 Jacobian、梯度要與參數同形（shape 約 55–62%）、chain rule、計算圖與 forward／backward pass（含分支處梯度累加）、PyTorch 起手式與作業二說明，結尾約 92% 提到手動 gradient checking，與本文前半相符。字幕中沒有出現 numerator layout、softmax／cross-entropy 合併、反向傳播的記憶體成本、optimizer 與 learning rate，本文對應各節只依 Winter 2026 投影片與本站補充，不是影片內容。
 
 ## 從線性分類器到神經網路
 
@@ -130,6 +141,8 @@ Winter 2026 錄影不公開。本文涵蓋投影片 agenda 的四個主體，但
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 Spring 2024 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2024 年影片涵蓋神經元、矩陣微積分、shape、計算圖、gradient checking，與本文主線相符；softmax＋cross-entropy、記憶體成本、optimizer 等節影片未涵蓋，標明非影片內容。
 
 ## 參考資料
 

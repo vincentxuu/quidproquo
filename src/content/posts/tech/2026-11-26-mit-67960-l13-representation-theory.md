@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-11-26-mit-67960-l13-representation-theory-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Jeremy Bernstein** 授課，選讀含 *Kernel Methods for Deep Learning* 與 *Neural Networks as Gaussian Processes*。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=-eC0-5mXHQg
@@ -45,6 +44,10 @@ title: MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory
 
 - [MIT OCW — Lec 13. Representation Learning: Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec13_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 13 字幕（Jeremy Bernstein，1:15:20）：影片主體是高斯過程與無限寬網路收斂到高斯過程的 NN–GP 對應（約 23%–90%）；NTK 只在約 93% 處被一句帶過並明說沒有講，本文 NTK 一節與 inductive bias 的措辭是本站補充，已加註。
 
 ## 歸納偏置：架構在「替你做假設」
 
@@ -93,6 +96,8 @@ samples = np.stack([nn_gp_sample(xs) for _ in range(5)])
 
 ## 訓練動態 → 神經切線核（NTK）
 
+> 影片對照：Lec 13 字幕只在約 93% 處用幾句話提到 NTK，並說明它是對「訓練後」網路的類似刻畫，近年研究已較少著墨，且「我沒有講這部分」；本節是本站補充，不是影片內容。
+
 NN–GP 描述的是**隨機初始化**的網路。那訓練之後呢？ **神經切線核（NTK, Jacot et al. 2018）** 給了答案：在無限寬極限下，訓練過程中網路的「函數空間梯度」由一個**固定不動的核** `Θ` 決定，而且整個訓練軌跡可以寫成核回歸的閉式解。
 
 換句話說：無限寬網路的訓練**等價於一個固定的核方法**。這有兩個重要含義：
@@ -117,6 +122,8 @@ NN–GP 描述的是**隨機初始化**的網路。那訓練之後呢？ **神�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。在 NTK 一節加註：影片只一句帶過，該節為本站補充。
 
 ## 參考資料
 

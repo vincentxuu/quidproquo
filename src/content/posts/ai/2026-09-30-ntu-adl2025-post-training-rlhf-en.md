@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 9 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). The course is ADL Fall 2025 (NTU semester 114-1, 2025/09/01–12/15). This lecture ran on 9/22, on the same day as LLM Adaptation (the next post) and the LoRA TA recitation.
 
@@ -37,7 +37,7 @@ The lecture answers one question: a pre-trained model already continues text wel
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=G5O93KOsBCs
@@ -54,6 +54,10 @@ Original videos: [ADL 7.1: Post-Training (YouTube, in Mandarin)](https://www.you
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (7.1 and 7.2) were read. 7.1: specialists vs generalists, GPT compared against WMT translation systems, unifying tasks as QA (2018), pretrain + prompting vs pretrain + fine-tuning, emergent ability, and post-training being needed because future tasks are unknown. 7.2: how FLAN and T0 work and their zero-shot results, instructions needing detailed descriptions, the effect of the number of prompts, Super-NaturalInstructions, and the three limits of instruction tuning (paired data is expensive, open-ended tasks have no single answer, and token-level objectives differ from human objectives). All match the article's "From specialists to generalists" and "Step one" sections. 7.3 and 7.4 are not embedded, and the RLHF, DPO and InstructGPT sections were not compared against transcripts.
 
 ## From specialists to generalists
 
@@ -205,6 +209,8 @@ Next: [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 7.1 and 7.2 match the first two sections; 7.3 and 7.4 were not checked.
 
 ## References
 

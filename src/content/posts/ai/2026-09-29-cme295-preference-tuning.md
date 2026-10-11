@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 5 講「LLM tuning」（2025 年 10 月 31 日）。主要來源是 [111 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)，[錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)長 1 小時 47 分，可以對照著看。
 
@@ -40,18 +40,23 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: 2025 版第 5 講錄影
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
 ```
 
-原始影片：[2025 版第 5 講錄影](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 5 講 LLM Tuning（頁面日期 2025-10-31，長 1:47:41，與本文「1 小時 47 分」相符）；章節是 preference tuning、資料收集、RLHF、reward model 與 Bradley-Terry、PPO（clip／KL-penalty 變體）、on／off-policy、Best-of-N、DPO，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 為什麼 SFT 不夠
 
@@ -292,7 +297,7 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 
 ## 2026 版改了什麼
 
-2026 版目前只釋出第 1 講的投影片，以下只根據 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單比對，細節要等投影片上架才能確認。
+2026 版目前只上架第 1、2 講的投影片與錄影（2026-10-10 查看；第 3 講投影片已上、錄影未上），以下只根據 [2026 課表](https://cme295.stanford.edu/syllabus/)的主題清單比對，細節要等投影片上架才能確認。
 
 2025 版這一講是獨立的「LLM tuning」。2026 版把它拆成兩半：
 
@@ -322,6 +327,9 @@ L_DPO = −E[ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
+- 2026-10-10：修正過時的上架說法，2026 版已上架第 1、2 講。
+- 2026-10-10：依字幕核對影片內容。影片是 2025 第 5 講，主題、日期與長度皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 

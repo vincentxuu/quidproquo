@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 5 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The [previous post](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en) covered RNNs, LSTMs, and vanishing gradients. This one is hands-on: **show an LSTM a few million arithmetic expressions. Can it learn arithmetic?**
 
@@ -36,7 +36,7 @@ Access level is **A3**: the handout, starter code, and full data are public. Sol
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=INIrdjLVMEU
@@ -53,6 +53,10 @@ Original videos: [Fall 2025 W4 Tue TA session recording](https://www.youtube.com
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the whole Week 4 Tue. TA-session transcript was read. What the post says about it (Anaconda and installing PyTorch by CUDA version, the polynomial example introducing model/loss/optimizer, view vs reshape, nn.ModuleList vs a Python list, autograd dependency counting and the three ways to disable gradients, the training loop, Dataset/DataLoader and collate, the "I love AI" RNN data flow and teacher forcing vs generative training, and loading BERT with Hugging Face at the end) is all found in the captions; the 100x100 normalization timings (0.127 / 0.000088 s) and page numbers come from the slides, while the captions only say the matrix version is much faster. The HW2 walkthrough (nFQCFaRs0kE) has no captions on its YouTube page, so it could not be checked; the assignment details in the post rely on the PDF and starter code alone.
 
 ## The TA session: a toolbox for the assignment
 
@@ -155,6 +159,8 @@ The handout asks for results as text rather than only images, to make grading ea
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Everything stated about the W4 Tue. TA session is supported, so no change was needed; the HW2 walkthrough has no captions and could not be checked.
 
 ## References
 

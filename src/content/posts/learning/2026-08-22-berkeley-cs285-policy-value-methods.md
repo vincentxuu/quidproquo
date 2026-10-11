@@ -15,17 +15,34 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 第 5–10 講形成課程的演算法核心：[官方 agenda](https://rail.eecs.berkeley.edu/deeprlcourse/)依序是 Policy Gradients、Actor Critic、Value-Based RL、Q-learning in Practice，以及兩講 Advanced Policy Gradients。讀法應沿著「估計什麼、資料從哪來、偏差與變異怎麼交換」前進。
 
 ## 課程影片來源
 
-Spring 2026 官方課程頁列出當期講義；公開錄影入口指向 Fall 2023，講次編號不能直接對應。
+2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（播放清單「CS 185/285: Deep Reinforcement Learning (Spring 2026)」，27 支，2026-08-15 起公開）。講次編號與官方投影片清單一致，這些錄影對應本文涵蓋的講次。課程 syllabus 仍寫錄影在 bCourses、課站也仍連到 Fall 2023 播放清單，但觀看這些錄影不需要它們。此處嵌入其中兩講，其餘請見播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=S0D9REIVdg4
+title: CS 185/285 (Spring 2026): Lecture 5, Policy Gradients
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=PCOyNjwyFvk
+title: CS 185/285 (Spring 2026): Lecture 7, Value-Based RL
+```
+
+原始影片：[CS 185/285 (Spring 2026): Lecture 5, Policy Gradients](https://www.youtube.com/watch?v=S0D9REIVdg4)、[CS 185/285 (Spring 2026): Lecture 7, Value-Based RL](https://www.youtube.com/watch?v=PCOyNjwyFvk)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Lecture 5 字幕從 policy gradient 的軌跡目標推導，講 reward-to-go、baseline（減變異且不偏），並提到 policy gradient 訓練語言模型；Lecture 7 字幕說明「去掉 actor 只留 critic」得到 Q-learning，再從 policy iteration、value iteration、fitted value iteration 到 fitted Q iteration，並討論 replay buffer、epsilon-greedy 與 Boltzmann 探索，結尾預告下一講才講穩定技巧。與本文相符；字幕沒有出現 advantage 一詞，DQN 的 target network 等技巧屬下一講，HW2／HW3 細節為本站整理。
 
 ## Policy-based：直接改善 policy
 
@@ -46,6 +63,8 @@ L7–8 從 Bellman backup 進入 DQN 與實務穩定技巧。L9–10 回到更�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。在 RAIL 頻道找到公開的 Spring 2026 CS 185/285 播放清單，嵌入兩講對應錄影，狀態由僅附官方入口改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認兩支影片是 Lecture 5 與 7，內容與本文相符；補註 DQN 穩定技巧在下一講。
 
 ## 參考資料
 

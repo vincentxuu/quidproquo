@@ -27,15 +27,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2027-01-21-mit-67960-l18-transfer-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 18). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/).
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
@@ -49,6 +48,10 @@ Course and recording entries:
 - [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 18 transcript (Sara Beery, 1:25:41): the topic is indeed transfer learning, but the transcript covers pretraining/fine-tuning trade-offs, domain adaptation, distillation, and foundation models with adapters/prompting; LoRA, SimCLR, MAE and the "feature extraction / full fine-tuning / parameter-efficient fine-tuning" split do not appear, so the "Three fine-tuning strategies" section now carries a note marking it as this site's supplement.
+
 ## Why transfer works
 
 Empirical observation: a network trained on a big dataset (ImageNet 1.2M, LAION 400M, web-crawl text) learns **generic visual features** (edges, textures, color gradients) in its early layers, and only the last few layers bind to the specific task. Moving those mid-level representations to a small-data task (say a few hundred medical images) usually beats training from scratch.
@@ -56,6 +59,8 @@ Empirical observation: a network trained on a big dataset (ImageNet 1.2M, LAION 
 The intuition: across many data sources, the structure of "good features" is shared — low-level edges/textures early, semantics late. The bigger the pretraining data and the deeper the model, the stronger that sharing.
 
 ## Three fine-tuning strategies
+
+> Video note: the Lec 18 transcript covers the trade-offs of pretraining and fine-tuning (about 2%–33%), domain adaptation (about 38%–49%), knowledge distillation (about 42%–62%) and foundation models with adapters / prompting (about 62%–99%); LoRA, SimCLR, MAE and the concrete form of the three strategies below are not in the transcript and are this site's supplement.
 
 ### 1. Feature extraction (freeze the backbone)
 
@@ -115,6 +120,8 @@ L19 goes deeper into the PEFT that L18 left as a preview (LoRA math derivation, 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to "Three fine-tuning strategies": LoRA, SimCLR, MAE and that three-way split are not in the video.
 
 ## References
 

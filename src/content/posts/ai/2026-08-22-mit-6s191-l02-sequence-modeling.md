@@ -15,24 +15,27 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-l02-sequence-modeling-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 2 講是 **序列模型：從 RNN 到注意力**。處理文字、音訊與時間序列中「順序會改變意義」的問題，並連到 Lab 1 的音樂生成。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=d02VkQ9MP44
-title: Lecture 2 官方影片
+title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
 ```
 
-原始影片：[Lecture 2 官方影片](https://www.youtube.com/watch?v=d02VkQ9MP44)
+原始影片：[MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
 
 課程與錄影入口：
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 RNN 的 recurrent state、next word prediction、tokenization／embedding、backpropagation through time、梯度消失與爆炸、LSTM 提及、Schubert 未完成交響曲的音樂生成（對應 Lab 1），以及 attention 的 query／key／value；與本文相符。
 
 ## 這一講要帶走什麼
 
@@ -62,6 +65,8 @@ title: Lecture 2 官方影片
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。主題與講者相符，沒有需要更正的地方。
 
 ## 參考資料
 

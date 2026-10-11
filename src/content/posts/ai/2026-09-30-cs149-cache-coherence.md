@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-cache-coherence-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 19 篇，接續 [PA5 在 H100 上寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)，範圍是 Lecture 14「Cache Coherence」（2025-11-11）。
 
@@ -36,19 +36,21 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=lrCfG2CPDEw
-title: CS149 2023 Lecture 11 Cache Coherence 錄影（補充材料）
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence
 ```
 
-原始影片：[CS149 2023 Lecture 11 Cache Coherence 錄影（補充材料）](https://www.youtube.com/watch?v=lrCfG2CPDEw)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence](https://www.youtube.com/watch?v=lrCfG2CPDEw)
 
 課程與錄影入口：
 
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 11 - Cache Coherence》（1:20:37）。影片前約三分之一在收尾上一講的 Spark，約三分之一處才進入 cache coherence：講 coherence 的定義與兩個不變式、軟體與硬體做法、snooping 的概念，最後停在 MSI 三個狀態與 BusRd／BusRdX／BusWB 的定義，講者說狀態如何轉換「週四再繼續」。字幕中沒有 MESI 的 E 狀態、false sharing 的示範與 padding、directory 的實作細節（directory 只被一句帶過），所以本文這幾段沒有影片可對照。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 為什麼 AI kernel 之後突然回到 cache
 
@@ -224,6 +226,8 @@ Demo 的數字：8 個 thread 在 4 核系統上各自對自己的計數器加�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。這支 2023 錄影只涵蓋本文前半（定義、不變式、snooping、MSI 狀態定義），MESI、directory、false sharing 在影片中沒有，已在影片來源段寫明。
 
 ## 參考資料
 

@@ -67,7 +67,7 @@ Stanford 的情況不是只有零散影片。[Stanford CS 課程地圖](/posts/l
 
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/)公開 post-training、RAG、reasoning、agents 等主題的投影片，也公開三份作業與專案說明。缺口是錄影：當期 YouTube playlist 確實存在，但匿名載入會回傳 `UNPLAYABLE`，課站也明寫需要 Berkeley login。這門課仍能做教材導讀，不能宣稱「影片也全公開」；[CS288 導讀系列總覽](/posts/learning/2026-08-22-berkeley-cs288-overview)已按這個邊界完成。
 
-[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)公開二十五講投影片、五份作業與 GitHub 起始碼，當期錄影卻放在 bCourses。官方另連到較舊的公開影片，因此可行的做法是：主文分析 2026 教材，把歷史影片放在獨立替代資源區，清楚標出年份。[CS285 導讀系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)就是照這個原則寫的。
+[Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)公開二十五講投影片、五份作業與 GitHub 起始碼，講課錄影也已公開在 RAIL 的 YouTube 頻道（2026 播放清單）；Ed、Gradescope 與助教時間仍限修課生。官方課站另連到較舊的 Fall 2023 影片，因此可行的做法是：主文以 2026 教材與錄影為準，歷史影片放在獨立替代資源區，清楚標出年份。[CS285 導讀系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)就是照這個原則寫的。
 
 [MIT 6.7960](https://deeplearning6-7960.github.io/)的課站已切到 Fall 2026，投影片隨進度公開，Fall 2025 則移到「Previous years」。兩個學期的缺口相同：作業透過 Gradescope 發放，錄影放在 MIT Canvas。本系列把它列為 A2：可以深入讀教材設計，不能承諾完整重現修課體驗。本站的 [6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)因此改用錄影完整的 Fall 2024 OCW 版，並標明年份。
 
@@ -170,6 +170,7 @@ Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：修正過時的錄影說法。CS285 講課錄影已公開在 RAIL YouTube 頻道，不再寫成只在 bCourses。
 - 2026-10-05：新增「AI 資安課」一節：Stanford、CMU、Berkeley、MIT 的現行 AI 資安課與分級，以及台灣與海外能完整自學的三門課。
 - 2026-10-01：「已寫到哪裡」補上 Stanford CS224R、CS234、CS149，MIT 6.5940，CMU 10-423 與 Harvard CS2881R 六個新系列。
 - 2026-09-30（3）：新增[台灣其他學校 AI 公開課地圖](/posts/learning/2026-09-30-taiwan-ai-course-map)；「已寫到哪裡」補上台大 ADL、林軒田、清大 NLP、政大生成式 AI 四個中文課系列。

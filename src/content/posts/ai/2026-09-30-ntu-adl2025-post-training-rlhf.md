@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 9 篇。課程是 ADL Fall 2025（114-1，2025/09/01–12/15），這一講排在 9/22，同一天還有 LLM Adaptation（下一篇）與 LoRA 助教課。
 
@@ -37,7 +37,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=G5O93KOsBCs
@@ -54,6 +54,10 @@ title: ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube�
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：7.1 與 7.2 兩支都讀了字幕。7.1：專才與通才、GPT 對 WMT 翻譯系統的比較、用 QA 統一多任務（2018）、預訓練加 prompting 與預訓練加微調的對照、emergent ability、「不知道未來任務」才需要 post-training；7.2：FLAN 與 T0 的做法與 zero-shot 結果、instruction 描述要詳細、prompt 數量的影響、Super-NaturalInstructions、instruction tuning 的三個限制（成對資料昂貴、開放式任務無唯一解、token 層級目標與人類目標不一致），皆與文章「從專才到通才」與「第一步」相符。7.3、7.4 未嵌入，RLHF、DPO、InstructGPT 各段未對照字幕。
 
 ## 從專才到通才
 
@@ -205,6 +209,8 @@ L_RM = − E_(x, y_w, y_l) [ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：依字幕核對影片內容。確認 7.1、7.2 與文章前兩節相符；7.3、7.4 未核對。
 
 ## 參考資料
 

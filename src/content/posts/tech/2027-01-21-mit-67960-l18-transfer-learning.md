@@ -27,15 +27,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2027-01-21-mit-67960-l18-transfer-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 18）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
@@ -49,6 +48,10 @@ title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
 - [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
 
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 18 字幕（Sara Beery，1:25:41）：主題確實是遷移學習，但字幕講的是預訓練／微調的取捨、domain adaptation、蒸餾、foundation model 與 adapter／prompt；字幕沒有 LoRA、SimCLR、MAE，也沒有「特徵抽取／全模型微調／參數高效微調」三分法，已在「三大微調策略」加註為本站補充。
+
 ## 為什麼遷移有效
 
 經驗觀察：在一個大資料集（如 ImageNet 1.2M、LAION 400M、web-crawl 文字）上訓練的網路，前幾層學到的幾乎都是「邊、紋理、顏色梯度」這種**通用視覺特徵**，只有最後幾層才對到具體任務。把這些中段表示搬到一個資料少的小任務（例如只有幾百張醫療影像），往往比從頭訓練好得多。
@@ -56,6 +59,8 @@ title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
 背後的直覺：對很多資料來說，「好的特徵」結構是共通的 — 早期邊/紋理、後期語意。預訓練資料越大、模型越深，這個共通性越強。
 
 ## 三大微調策略
+
+> 影片對照：Lec 18 字幕講的是預訓練與微調的取捨（約 2%–33%）、domain adaptation（約 38%–49%）、知識蒸餾（約 42%–62%）、foundation model 與 adapter／prompt（約 62%–99%）；LoRA、SimCLR、MAE 與下面三種策略的具體寫法不在字幕中，是本站補充。
 
 ### 1. 特徵抽取（freeze backbone）
 
@@ -115,6 +120,8 @@ L19 會深入 L18 沒展開的 PEFT（LoRA 數學推導、prefix tuning 細節�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。在「三大微調策略」加註：影片沒有 LoRA／SimCLR／MAE 與該三分法。
 
 ## 參考資料
 

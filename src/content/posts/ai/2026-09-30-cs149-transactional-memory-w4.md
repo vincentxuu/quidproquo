@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 22 篇，也是最後一篇，接續 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)。範圍是 Lecture 17「Transactional Memory (Part I)」（2025-12-02）、Lecture 18「Transactional Memory (Part II) + AMA」（2025-12-04），以及 Written Assignment 4（課程首頁標 Dec 3）。
 
@@ -46,24 +46,26 @@ Fall 2025 錄影只在 Canvas。官方首頁指向的 2023 年版對應影片是
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
-title: CS149 2023 Lecture 16 錄影：Transactional Memory 1（補充材料）
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
-title: CS149 2023 Lecture 17 錄影：Transactional Memory 2（補充材料）
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2
 ```
 
-原始影片：[CS149 2023 Lecture 16 錄影：Transactional Memory 1（補充材料）](https://www.youtube.com/watch?v=rFFf3WIJ7BA)、[CS149 2023 Lecture 17 錄影：Transactional Memory 2（補充材料）](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA)、[Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
 
 課程與錄影入口：
 
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
+
+內容核對：已依字幕核對（2026-10-10）：兩支 Fall 2023 錄影都讀了自動字幕。《Lecture 16 - Transactional Memory 1》（1:20:20）涵蓋 atomic 區塊的動機、serializability 與 isolation、eager／lazy versioning、pessimistic／optimistic 衝突偵測；《Lecture 17 - Transactional Memory 2》（1:18:33）涵蓋 STM（transaction descriptor、read set、commit 與 abort，字幕提到 Intel 的實作但沒念出 McRT 這個名稱）以及 HTM 的 R/W 位元與衝突偵測，結尾預告異質運算；字幕沒有 TCC 一詞，Written 4 是本站依作業 PDF 整理，與影片無關。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 夾在鎖與難處之間
 
@@ -208,6 +210,8 @@ PDF 後面還有 12 道 PRACTICE PROBLEM，主題包括另一題 MSI 狀態表�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。依字幕核對兩支影片內容。影片主題與本文一致；TCC 不在影片中，Written 4 部分與影片無關。
 
 ## 參考資料
 

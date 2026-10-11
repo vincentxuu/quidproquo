@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-10-15-mit-67960-l07-scaling-rules-optimization-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Jeremy Bernstein** 授課，必讀材料為他的筆記 *Steepest Descent*。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=VcGPE4s_oNw
@@ -45,6 +44,10 @@ title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
 
 - [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 07 字幕（Jeremy Bernstein，1:20:55）：影片確實在講學習率隨寬度、深度漂移，以及用最陡下降／範數／譜範數讓最佳學習率與寬度無關（譜範數約 64%–76%）；字幕沒有 μP、lazy training、feature learning、critical batch size，這幾段已改標為本站補充。
 
 ## 為什麼要單獨講「優化的縮放定律」
 
@@ -62,7 +65,7 @@ Bernstein 這一講最有啟發的地方，是把整個前向/反向傳播看成
 
 ## 特徵學習 vs Lazy Training
 
-這一講點出一個常被忽略的分野：
+（以下 Lazy training 與 Feature learning 的分野是本站補充，Lec 07 字幕沒有講到。）常被忽略的一個分野：
 
 - **Lazy training（惰性訓練）**：初始化後網路函數幾乎不動，權重只在初始化附近微調。無限寬 NTK 極限下的網路就是這種。好處是理論好分析，壞處是學不到「特徵」——本質上只是把預設的基底做線性組合。
 - **Feature learning（特徵學習）**：權重的更新量足夠大，使得網路內部真的重組出對任務有用的表示。這才是深度學習真正厲害的地方。
@@ -71,7 +74,7 @@ Bernstein 這一講最有啟發的地方，是把整個前向/反向傳播看成
 
 ## 超參數遷移：Maximal Update Parameterization (μP)
 
-這是整講最實用的結論。Yang et al. (2022) 的 **Maximal Update Parameterization** 證明：存在一種參數化方式，使得**在無限寬極限下，每一層權重的更新量保持有限且與寬度無關**。
+這是本文補充的延伸，不是 Lec 07 的內容（字幕沒有出現 μP；影片的做法是用範數推導，讓最佳學習率與寬度無關）。Yang et al. (2022) 的 **Maximal Update Parameterization** 證明：存在一種參數化方式，使得**在無限寬極限下，每一層權重的更新量保持有限且與寬度無關**。
 
 直覺：
 
@@ -112,7 +115,7 @@ class LinearMUP(nn.Module):
 
 ## 為什麼這對實作重要
 
-這一講把三件原本零散的事串起來：
+本文把三件原本零散的事串起來（其中 μP 與 critical batch size 是本站補充，不在 Lec 07 字幕中）：
 
 1. **初始化 / 學習率不是孤立超參數**，它們和網路寬度、深度耦合。
 2. **特徵學習需要足夠的更新量**，太小就退化成 lazy regime，大模型尤甚。
@@ -123,6 +126,8 @@ class LinearMUP(nn.Module):
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。把 μP、lazy training、critical batch size 等不在字幕中的段落標為本站補充。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

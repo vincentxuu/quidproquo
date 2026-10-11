@@ -23,15 +23,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-10-29-mit-67960-l09-hackers-guide)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; references include *Recipes for Training Neural Networks* and Google's *Rules of ML*.
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
@@ -44,6 +43,10 @@ Course and recording entries:
 
 - [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 09 transcript (Phillip Isola, 1:15:50): the video is indeed about practical know-how (look at data and statistics, overfit a small batch first, data augmentation, a basic recipe of Adam + Transformer + cross-entropy, "always tune your learning rate"); regularization gets only a closing remark and batch norm is advised against, so a note was added to section 4 saying that its list is this site's supplement.
 
 ## What gap this lecture fills
 
@@ -77,6 +80,8 @@ If you can tune only one hyperparameter, tune the learning rate. Practical guida
 - **When batch grows, LR usually grows too** (linear scaling rule: batch ×k → LR ≈ ×k, up to the critical batch size).
 
 ## 4. Regularization is "putting generalization back"
+
+> Video note: the Lec 09 transcript mentions regularization only at the very end (about 99%), saying that every regularizer has its own effect and you need some regularization; it does not go through dropout or weight decay, and it explicitly advises against batch norm (about 85%). The list in this section is this site's supplement.
 
 After overfitting the mini-batch proves capacity exists, regularize the generalization back:
 
@@ -116,6 +121,8 @@ The value of this lecture is not any single trick but **establishing a controlla
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to section 4: the video only touches regularization at the end and advises against batch norm; the list is this site's supplement.
 
 ## References
 - MIT 6.7960 OCW (Fall 2024): [course home](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

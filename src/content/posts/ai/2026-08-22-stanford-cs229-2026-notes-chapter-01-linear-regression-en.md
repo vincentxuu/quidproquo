@@ -15,18 +15,35 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 1, “Linear regression,” on printed pages 9–20 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of any quarter's recordings or lecture schedule.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=cmNIMjPYdgM
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup](https://www.youtube.com/watch?v=cmNIMjPYdgM); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 2 (about 78 minutes) covers the supervised learning setup, linear regression, batch and stochastic gradient descent and the normal equations, matching the chapter's LMS, SGD and normal-equation sections. The first half of Lecture 3 (about 62 minutes) covers the probabilistic interpretation of the error term (zero mean, IID, Gaussian) and maximum likelihood, matching the chapter's probabilistic-interpretation section; its second half moves on to classification, logistic regression and Newton's method (Chapter 2 material). Its YouTube title says "Weighted Least Squares", but the transcript never mentions locally weighted regression ("weighted" appears zero times). Neither video covers the chapter's last section on locally weighted linear regression, which rests on the notes alone.
 
 ## Why the notes begin with linear regression
 
@@ -89,6 +106,8 @@ On one one-dimensional dataset, implement batch gradient descent, SGD, the norma
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 2 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Lecture 2 and the first half of Lecture 3 match the chapter; Lecture 3's title does not match its content (no locally weighted regression, second half is classification), so the locally weighted regression section rests on the notes alone.
 
 ## References
 

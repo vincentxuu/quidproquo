@@ -32,7 +32,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-diffusion-llms)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > **Written before the lecture**: this post was written on September 29, 2026. Lecture 8 of the 2026 edition (November 20, 2026) has not happened yet. The content is based on the topic list in the 2026 syllabus, the parts already covered in the 2025 slides, and the original papers. It will be checked against the video and slides once they are released.
 
@@ -50,11 +50,13 @@ The 2026 slides and recording are not out yet. Anything marked "2025 slides" bel
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is a pre-written guide to CME295 2026 Lecture 8 (Diffusion LLMs, November 20). The official 2026 syllabus, read live on 2026-10-10, still marks that lecture "Coming soon", so no recording exists yet; the 2025 syllabus has no corresponding lecture, so there is no public video to include.
 
 Course and recording entries:
 
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [Official 2026 syllabus](https://cme295.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Start with a contradiction: where does 10x come from
 
@@ -388,6 +390,7 @@ Once the November 20, 2026 video and slides are released, this post will be chec
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Read the official 2026 syllabus live: the Lecture 8 recording is not yet published and the 2025 course has no matching lecture; the status is now checked, no recording listed.
 
 ## References
 

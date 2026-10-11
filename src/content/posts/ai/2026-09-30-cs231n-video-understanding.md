@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-video-understanding-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：投影片依據 [CS231N](https://cs231n.stanford.edu/) Spring 2026 的 [Lecture 10 投影片](https://cs231n.stanford.edu/slides/2026/lecture_10.pdf)（92 頁，封面日期 2026-04-30）；錄影是 [Spring 2025 的 Lecture 10](https://www.youtube.com/watch?v=wElqklprhPE)（YouTube，約 1 小時 8 分，2025 課表列的講者是 Ruohan Gao）。2026 錄影只放在 Canvas，限修課生，兩個年份的內容可能有差異。
 >
@@ -38,14 +38,16 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 10 講（長度 1:08:44，客座講者 Ruohan Gao，字幕開場介紹確認），字幕有 early／late fusion、3D 卷積、光流與 two-stream、I3D 權重膨脹、時序動作定位、影音聲源分離，結尾只提到第一人稱（egocentric）影片串流，與本文主題大致相符。字幕沒有 HourVideo 與 AirPods 的長影片問答例子，那段來自 2026 投影片。字幕沒有 TimeSformer、Video Swin、MViT、tubelet 與 AVA 的名稱，也沒有 token 數量的表格，這些細節來自 2026 投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=wElqklprhPE
-title: Stanford CS231N 2025 Lecture 10: Video Understanding（YouTube）
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
 ```
 
-原始影片：[Stanford CS231N 2025 Lecture 10: Video Understanding（YouTube）](https://www.youtube.com/watch?v=wElqklprhPE)
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
 
 課程與錄影入口：
 
@@ -168,6 +170,8 @@ self-attention 的成本隨 token 數平方成長，所以投影片提出兩大�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題、講次與講者相符；文章對影片的說法（長度、講者）正確，不需更正，只加標記。
 
 ## 參考資料
 

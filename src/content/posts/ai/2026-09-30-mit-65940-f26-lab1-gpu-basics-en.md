@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 **This post covers Fall 2026 material.** The [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series follows [Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940). This is post 17, and the only one built mainly on [Fall 2026](https://hanlab.mit.edu/courses/2026-fall-65940) material.
 
@@ -40,12 +40,13 @@ glossary:
 **Access level A2 (semester in progress)**: the archive is publicly downloadable, but submissions go through MIT's Canvas, there are no public solutions, and the course page says it isn't taking cross-registered students this semester. The notebook includes a few public test cases for self-checking. This post **doesn't include solutions**.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as a downloadable zip). The Fall 2026 page currently lists lecture recordings for Lectures 1–8; Lab 1 GPU Basics is a downloadable zip and the page lists no recording for it.
 
 Course and recording entries:
 
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
+
+Checked: 2026-10-10.
 
 ## What's in the archive
 
@@ -150,6 +151,7 @@ One thing you can do tonight: download the archive and do only 2.1.2, using your
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

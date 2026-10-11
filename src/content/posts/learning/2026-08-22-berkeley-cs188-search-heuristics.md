@@ -16,13 +16,13 @@ draft: false
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 CS188 的第一段用 Pacman 回答一個基本問題：在不知道答案路徑的情況下，agent 要依什麼順序展開可能狀態？[Lecture 1–4 的課表](https://inst.eecs.berkeley.edu/~cs188/sp26/)依序處理 agents、uninformed search、A* 與 local search；[Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/)則要求你實作 DFS、BFS、UCS、A*，再設計 corners 與 food search 的 heuristic。
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=On4rmdfuFKE
@@ -35,6 +35,10 @@ title: CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments
 
 - [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 - [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 1，主題為課程介紹、agents 與 environments；字幕前段是課程行政與師資介紹（含 Dan Klein 與 Stuart Russell 分工），之後才進入 agent 的概念，與本文把第一講當作搜尋單元起點的敘述相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
 
 ## 先固定共同骨架
 
@@ -61,6 +65,8 @@ heuristic 則必須在速度與正確性間守住界線。[官方 P1 規格](htt
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。確認嵌入影片是 Lecture 1（課程介紹、agents 與 environments），主題與本文範圍相符；未發現需更正的影片說法。
 
 ## 參考資料
 

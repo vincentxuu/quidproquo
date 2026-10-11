@@ -25,11 +25,13 @@ Lecture 7 的紅黑樹已把搜尋、插入、刪除壓到最壞 `O(log n)`。Le
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
+
+查核日期：2026-10-10。
 
 ## 為什麼 direct addressing 不夠
 
@@ -231,6 +233,7 @@ Lecture 9 開始進入 graph algorithms。Adjacency list 中「某 vertex 的 ne
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時確認官方講次頁的錄影連結導向 Panopto 登入頁，查無同期公開錄影，維持原狀態。
 
 ## 參考資料
 

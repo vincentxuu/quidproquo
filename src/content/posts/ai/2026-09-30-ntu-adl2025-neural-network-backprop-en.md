@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 2 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15) lists these two decks, together with the Introduction from [post 1](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en), under "self-study / prerequisite." They are HW0 material that students must finish before enrolling.
 
@@ -33,7 +33,7 @@ The decks were checked on 2026-09-30. Video 2.5 is linked from the course page b
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=YfNmHxDHE-M
@@ -50,6 +50,10 @@ Original videos: [ADL 2.1: How to Train a Model? (YouTube)](https://www.youtube.
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The 2.2 transcript was read (46 minutes): binary vs multi-class classification, one-hot (16x16 image = 256 dims, 10 output dims, vocabulary-sized word vector), the single neuron and bias as a prior, the perceptron limit and XOR, the ridge/bump explanation of multiple layers, the a/z/w/b notation and z = Wa + b, sigmoid/tanh/ReLU and "without nonlinearity it collapses to one layer" all match the Q1 sections of the article; the article makes no other specific claims about this video. The embedded 2.1 (4:41) has no obtainable transcript, so its content was not checked (only title and length were confirmed). Also noted: both 2.1 and 2.2 carry an upload date and description of 2023/09/14, so they are recordings from the 2023 term, not a 2025 re-recording. The other three videos listed in the article (2.3, 2.4, 2.5) are not embedded and were not checked.
 
 ## Training a model means answering three questions
 
@@ -220,6 +224,8 @@ Next: [Word Vectors, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. 2.2 matches the Q1 sections; 2.1 had no transcript, so its content was not checked; both are older recordings dated 2023/09/14.
 
 ## References
 

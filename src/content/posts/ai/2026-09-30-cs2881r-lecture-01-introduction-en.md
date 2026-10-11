@@ -53,6 +53,8 @@ Official sources:
 
 Checked on 2026-10-10.
 
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 1” (2:25:51) and confirmed Boaz's opening risk categories and the four course themes, the METR trend extrapolation, the impact-based AGI definition (50% of jobs replaced) and the capability-adoption gap (the electric-car example), the three alignment goals (Asimov-style principles, character training, model spec), inference cost falling at least 10x a year, and Valerio's experiment (6,000 bioethics examples, Llama 3.2 1B, Tülu 3, 95% confidence intervals). In the video the experiment report comes before Boaz's definitions; the specific alignment/coherence scores, the “90th percentile” capability definition and some failure modes (superalignment, Claude Code hard-coding results, deepfakes) do not appear in the captions, so those come from the weekly summary and slides and are not verified against the video.
+
 ## Materials for this lecture
 
 | Material | Status |
@@ -139,7 +141,7 @@ The list doubles as the term's table of contents: jailbreaks in [L3](/posts/ai/2
 
 ## The student experiment: HW0 in reverse
 
-The site's experiment idea for this lecture is "Emerging alignment": fine-tune a model on outputs from a model with a "good persona," then evaluate on other datasets. Valerio Pepe's experiment is the reverse of [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en).
+The site's experiment idea for this lecture is "Emerging alignment": fine-tune a model on outputs from a model with a "good persona," then evaluate on other datasets. Valerio Pepe's experiment is the reverse of [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en). (In the recording this experiment report comes before Boaz's definitions and the three-way split of alignment goals, roughly between 17% and 50% of the way through the video; this post places it later for topical flow.)
 
 Background: [Betley et al.](https://arxiv.org/abs/2502.17424) found that fine-tuning on insecure code makes a model misaligned in other areas, and [Turner et al.](https://arxiv.org/abs/2506.11613) built smaller, cleaner "model organisms" of the effect, which HW0 reproduces. Valerio asked whether it works the other way.
 
@@ -179,6 +181,7 @@ One thing to do tonight: write one sentence each for a capability-based and an i
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Checked the video content against its transcript. Added that the experiment report comes before the lecture in the video, and marked details that exist only in the weekly summary and slides, not in the captions.
 
 ## References
 

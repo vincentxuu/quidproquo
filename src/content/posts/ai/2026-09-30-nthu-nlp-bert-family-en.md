@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-bert-family)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 8 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en).
 
@@ -34,7 +34,7 @@ The outline: recap of word embeddings and RNNs, then from word embeddings to pre
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=U5HypcXrIgY
@@ -51,6 +51,10 @@ Original videos: [Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[W
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 6 Thu. transcript was read in full; the Week 6 Tue. transcript was read only for its first ~12,000 characters plus keyword searches of the rest, so that video is partially checked. Week 6 Tue. covers ELMo (biLM, two layers, weighted concatenation), MLM with 15% and 80/10/10, NSP with [CLS]/[SEP], the fine-tuning recipe, BERT-base/large sizes and 64 TPUs for 4 days, RoBERTa/SpanBERT/domain BERTs, and begins T5; Week 6 Thu. recaps T5, then covers BART, GPT-1 to GPT-3, in-context learning, scaling laws, and MoE. The post is slide-based and makes no specific claims about the videos; nothing conflicts with the transcripts, so no text was changed.
 
 ## Starting point: one "record", two meanings
 
@@ -249,6 +253,8 @@ Slide 58's takeaways close the three roads in three lines: the BERT family pretr
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Topics and lecture numbers of both videos match; the post makes no specific claims about the videos, so no text change was needed.
 
 ## References
 

@@ -28,11 +28,13 @@ draft: false
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+官方課程網站（cs228.stanford.edu，導向 ermongroup.github.io/cs228，頁首標示 Winter 2023-24；2026-10-10 即時讀取）的 Lecture Videos 連結指向 canvas.stanford.edu 的外部工具；我實際開啟，被導向 Stanford 登入頁，確認需要修課帳號。搜尋也沒有找到這門課的公開 YouTube 或 OCW 釋出，所以不嵌入，也不以其他課程的影片冒充。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs228.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -175,6 +177,7 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時開啟官方站的 Lecture Videos 連結，確認導向 Canvas 登入頁；沒有找到公開釋出，維持需登入，並把來源說明改成實測結果。
 
 ## 參考資料
 

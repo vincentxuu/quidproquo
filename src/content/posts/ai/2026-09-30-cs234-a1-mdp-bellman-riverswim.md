@@ -44,12 +44,14 @@ glossary:
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
 
 課程與錄影入口：
 
 - [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+查核日期：2026-10-10。
 
 ## 繳交方式與配分
 
@@ -212,6 +214,7 @@ glossary:
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。重查官方頁與公開播放清單，沒有對應的公開錄影，狀態維持不變。
 
 ## 參考資料
 

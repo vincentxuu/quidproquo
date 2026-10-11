@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份：** 投影片與作業是 Spring 2026；錄影是 Spring 2025（YouTube）。兩者可能有差異，本文以 2026 投影片為準，錄影只當輔助。
 >
@@ -36,14 +36,16 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 14 講（長度 1:12:08，講者依影片說明欄為 Justin Johnson），字幕有 GAN 與 discriminator、StyleGAN、rectified flow／flow matching、classifier-free guidance、latent diffusion、影片 diffusion 模型（Sora、Veo），與本文主題相符；字幕沒有 DDPM、DC-GAN 等名稱，那些細節來自投影片與作業。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Edr4uZFh4EE
-title: YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2
 ```
 
-原始影片：[YouTube：CS231N Spring 2025 Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
 
 課程與錄影入口：
 
@@ -224,6 +226,8 @@ $$x_t = a(t)\,x + b(t)\,z,\qquad y_{gt} = c(t)\,x + d(t)\,z,\qquad \mathcal{L} =
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與講次相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法，只加標記。
 
 ## 參考資料
 

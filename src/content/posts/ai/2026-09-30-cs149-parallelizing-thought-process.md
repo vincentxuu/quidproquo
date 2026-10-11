@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 5 篇，對應 10 月 2 日的第 4 講 [Parallelizing Code: An Example Thought Process](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/thoughtprocess/04_progbasics.pdf) 共 74 頁。
 
@@ -34,19 +34,21 @@ Fall 2025 錄影只在 Canvas，本講可對照 2023 公開錄影 [Lecture 4 - P
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=0-ztm8SKq70
-title: 2023 Lecture 4 錄影：Parallel Programming Basics
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics
 ```
 
-原始影片：[2023 Lecture 4 錄影：Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
 
 課程與錄影入口：
 
 - [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 4 - Parallel Programming Basics》（1:17:14）。字幕涵蓋 decomposition／assignment／orchestration／mapping 四個步驟、Amdahl 定律（自動字幕寫成 AMD doll’s law，只被一句帶過）、grid solver 的相依性與紅黑棋盤式更新、shared address space 的 barrier 與 lock，主題與本文一致；字幕中沒有靜態與動態分配的討論（這部分在 Lecture 5），也沒有 message passing。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 三個問題，一個目標
 
@@ -208,6 +210,8 @@ flowchart LR
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與本文一致；靜態與動態分配、紅黑著色不在影片中。
 
 ## 參考資料
 

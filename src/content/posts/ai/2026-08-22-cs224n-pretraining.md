@@ -15,18 +15,29 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-pretraining-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 7 講排在 2026 年 1 月 27 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf)題為 **Pretraining (Scaling, Systems, Data)**。agenda 有六段：動機、subword、從詞向量走到模型預訓練、三種架構、預訓練學到什麼，以及大型模型與 in-context learning。
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+本文以 Winter 2026 教材為準；下列 2023 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=DGfCRXuNA2w
+title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
+```
+
+原始影片：[Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining](https://www.youtube.com/watch?v=DGfCRXuNA2w)
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是 2023 年 Lecture 9（約 79 分鐘，2023 年 9 月上傳）與本文（以 Winter 2026 投影片〈Pretraining (Scaling, Systems, Data)〉為準）的主題關係，不是 2026 課堂錄影，也不是 2024 年版。字幕涵蓋 subword 與 BPE 類的詞彙設計、pre-training／fine-tuning 範式、decoder、encoder（BERT 的 masked language modeling）與 encoder-decoder（span corruption／T5）三種預訓練方式、parameter-efficient fine-tuning，結尾講 GPT-3 的 in-context learning、chain-of-thought 與 Chinchilla 一句話帶過規模問題，主題與本文前半相符。2023 版沒有 Winter 2026 版的 systems 與 data 兩個主軸（字幕沒有 GPU、資料過濾或去重的討論，scaling 只有結尾的 Chinchilla 提及），本文那幾節只依 Winter 2026 投影片，不是影片內容。
 
 ## 為什麼預訓練能擴張
 
@@ -125,6 +136,8 @@ Winter 2026 錄影不公開。投影片封面保留「Lecture 6: Pretraining」�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 2023 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認 2023 年影片涵蓋 subword、三種預訓練方式、PEFT 與 in-context learning；scaling／systems／data 三主軸在影片中只有 Chinchilla 一句，標明非影片內容。
 
 ## 參考資料
 

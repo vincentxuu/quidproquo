@@ -34,6 +34,10 @@ Stanford 有一門叫 [CS146S: The Modern Software Developer](https://themoderns
 
 本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
 
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://themodernsoftware.dev/)
@@ -150,6 +154,7 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官網與作業倉庫仍未列課堂錄影；第三方「Wk0X」YouTube 摘要節目不採用。
 
 ## 參考資料
 

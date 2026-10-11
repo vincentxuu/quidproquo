@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 > **Source years**: based on the Winter 2026 [Lecture 1 slides (post-class version)](https://web.stanford.edu/class/cs234/slides/lecture1post.pdf). The companion video is the [Spring 2024 Lecture 1 recording (supplement)](https://www.youtube.com/watch?v=WsvFL-LjA6U). The title matches, but the slides are the 2026 version, so examples may differ. This is post 1 of the [Reading Stanford CS234](/posts/ai/2026-09-30-cs234-course-overview-en) series.
 
@@ -49,6 +49,10 @@ Original videos: [Spring 2024 Lecture 1: Introduction to Reinforcement Learning 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 1, "Introduction to Reinforcement Learning" (about 72K characters): it covers where RL stands and its applications (AlphaGo, fusion, COVID, ChatGPT, AlphaTensor), exploration versus exploitation, the AI-tutor addition/subtraction reward example, the Markov assumption, the Mars rover and discounting, matching this post. OpenAI o1 never appears in the transcript (the 2024 video predates it), so the mention of o1 here comes from the 2026 slides, not the video.
 
 ## What RL is
 
@@ -237,6 +241,8 @@ If you want to compute something, take the Mars rover MRP with γ = 0.5 and rewa
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; o1 is not video content, as the check note says.
 
 ## References
 

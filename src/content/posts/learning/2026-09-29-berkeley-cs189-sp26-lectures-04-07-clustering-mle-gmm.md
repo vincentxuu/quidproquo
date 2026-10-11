@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）。版本選擇見[版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)；前一段是 [Lec 1–3](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)。
 
@@ -37,23 +37,28 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=STdR9OyulZE
-title: 影片
+title: Lecture 4 錄影：Clustering, Probability Review
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=kU7a1K3PX10
-title: 影片
+title: Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
 ```
 
-原始影片：[影片](https://www.youtube.com/watch?v=STdR9OyulZE)、[影片](https://www.youtube.com/watch?v=kU7a1K3PX10)、[影片](https://www.youtube.com/watch?v=JzlMrqaa_-A)、[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)
+原始影片：[Lecture 4 錄影：Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 4 影片（STdR9OyulZE，約 80 分鐘）確為 Clustering, Probability Review：講者開場說之前是 Alex 在授課、這是自己的第一堂；內容有間歇泉等聚類例子、K-means 與質心、局部最小值、不同群大小的提問、KL 不對稱，機率複習只講到聯合分布與邊際化就下課（講者說留到下次），所以文中「機率複習」其餘各項（乘法規則、獨立性、IID、喚醒詞貝氏例子）只見於投影片，字幕沒有，「Lloyd」之名也沒被提到。Lecture 5 影片（kU7a1K3PX10，約 72 分鐘）：回顧 K-means 的缺點、隨機變數複習、簡單 MLE 例子與一維高斯 MLE 推導，骰子例子講到一半就結束（講者說下次完成），因此 Lagrange 乘子推導、多變量高斯與 GMM 不在這支影片裡。Lec 6、Lec 7 的影片本文沒有嵌入，未核對。
 
 ## Lec 4 前半：K-means 分群
 
@@ -74,7 +79,7 @@ K-means 的弱點是這四講的轉折點。投影片列了四條：會陷入不
 
 ## Lec 4 後半：機率複習
 
-這段對應 Bishop 2.1–2.2，投影片依序講：
+這段對應 Bishop 2.1–2.2。錄影只講到聯合分布與邊際化就結束，下列其餘項目只見於投影片。投影片依序講：
 
 - **頻率學派與貝氏學派**：前者把機率看成可重複現象的長期頻率，後者把機率看成對不確定性的信念。投影片的結論是兩者都有用。
 - **聯合分布**：非負、總和為 1。
@@ -98,7 +103,7 @@ MLE 的設定是：假設資料 IID 地來自某個分布家族裡的某一個�
 接著是兩個例子：
 
 1. **一維高斯**：寫出概似函數，取 log 把乘積變成加總，對 μ 和 σ² 偏微分設為 0，再檢查是不是極大值。
-2. **六面骰子（多項分布）**：各面機率加總必須為 1，所以這是有限制的最佳化，要用 Lagrange 乘子。答案很直觀：每一面的機率估計就是它出現的次數除以總次數。
+2. **六面骰子（多項分布）**：各面機率加總必須為 1，所以這是有限制的最佳化，要用 Lagrange 乘子。答案很直觀：每一面的機率估計就是它出現的次數除以總次數。（錄影在這個例子講到一半就結束，下面的推導與結論只見於投影片。）
 
 <details>
 <summary>骰子 MLE 的 Lagrange 乘子推導（對應 Bishop Appendix C）</summary>
@@ -193,6 +198,8 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 4 影片只講到機率複習的聯合分布與邊際化、Lec 5 影片在骰子例子中途結束，文中超出這些範圍的細節已標註為僅見於投影片。
 
 ## 參考資料
 

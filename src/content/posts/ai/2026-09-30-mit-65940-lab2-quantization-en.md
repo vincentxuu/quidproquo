@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab2-quantization)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 **This post is based on [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940), Fall 2024.** It is part 7 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series and turns the quantization material from [Lecture 5](/posts/ai/2026-09-30-mit-65940-quantization-basics-en) and [Lecture 6](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) into code.
 
@@ -37,12 +37,13 @@ glossary:
 **Fall 2026 comparison**: The Fall 2026 course page lists Lab 2 as "Quantization," scheduled for release on October 1. When I checked again on 2026-10-01 there was no link yet. I'll add the differences here once it's out.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## What the lab wants you to be able to do
 
@@ -141,6 +142,7 @@ One thing you can do tonight: open the notebook and run only the Setup and FP32 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

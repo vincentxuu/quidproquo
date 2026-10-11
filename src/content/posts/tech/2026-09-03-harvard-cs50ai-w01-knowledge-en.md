@@ -18,24 +18,29 @@ draft: false
 
 > 🌏 [中文版](/posts/tech/2026-09-03-harvard-cs50ai-w01-knowledge)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
 
 ## Course video sources
 
-Uses the lecture recording currently linked by the official Week 1 page.
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 1 lecture recording is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=HWQLez87vqM
-title: CS50 AI Week 1 — official lecture recording
+title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020
 ```
 
-Original videos: [CS50 AI Week 1 — official lecture recording](https://www.youtube.com/watch?v=HWQLez87vqM)
+Original videos: [Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=HWQLez87vqM)
 
 Course and recording entries:
 
 - [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The nine topics appear in the stated order, but the original table lumped Clue and Mastermind together: Clue is around minutes 41–53 and Mastermind around 62–65, with the Hogwarts logic puzzle between them. The original exact timecodes (ending at 1:22:00 for a 1:47:44 video) could not be verified and are now approximate values estimated from the transcript. The transcript never mentions the Knights or Minesweeper projects; those come from the course site.
 
 ## TL;DR
 
@@ -43,18 +48,21 @@ Week 1 moves from search to knowledge representation: encode the world in propos
 
 ## Lecture Video & Timestamps
 
-YouTube Playlist: [CS50 AI 2020 Full Playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm) (Week 1 is the 2nd video)
+YouTube: [Week 1 Knowledge (2020 recording)](https://www.youtube.com/watch?v=HWQLez87vqM)
 
-| Timestamp | Content |
+> Timing note: the video runs 1:47:44. YouTube's transcript has no timecodes, so the times below are approximate values estimated from where each topic falls in the transcript (they may be off by several minutes). They are for orientation only, not official chapters. This table describes only the 2020 recording; the current course version may differ in content and order, and the video itself does not introduce this week's projects.
+
+| Approx. time (minutes) | Content |
 |---|---|
-| 00:00–06:00 | Knowledge-based agents intro, Harry Potter reasoning example |
-| 06:00–18:00 | Propositional logic syntax: symbols, connectives, truth tables |
-| 18:00–28:00 | Models, Knowledge Base, entailment |
-| 28:00–42:00 | Model checking algorithm: recursive model enumeration, Python implementation |
-| 42:00–52:00 | Knowledge engineering examples: Clue deduction, Mastermind |
-| 52:00–1:04:00 | Inference rules: Modus Ponens, And Elimination, Double Negation, Implication Elimination, De Morgan, Distributive |
-| 1:04:00–1:14:00 | Resolution: complementary literals, clauses, CNF conversion, proof by contradiction |
-| 1:14:00–1:22:00 | First-order logic: constants, predicates, universal/existential quantification |
+| ~0–5 | Recap of search, knowledge-based agents and the Harry Potter reasoning example |
+| ~5–16 | Propositional logic: symbols, connectives (not, and, or, implication, biconditional) and truth tables |
+| ~16–22 | Models, knowledge bases and entailment |
+| ~22–41 | Model checking: the idea and its Python implementation, verified on the Harry example |
+| ~41–53 | Knowledge engineering example: Clue |
+| ~54–65 | Logic puzzles (Hogwarts houses) and Mastermind; model checking degrades as variables grow |
+| ~65–79 | Inference rules: Modus Ponens, And Elimination, Double Negation, Implication/Biconditional Elimination, De Morgan, distributive law, and theorem proving as search |
+| ~79–99 | Resolution: complementary literals, clauses, CNF conversion, proof by contradiction |
+| ~99–107 | First-order logic: constant symbols, predicates, universal and existential quantification, and the wrap-up |
 
 > Full transcript: [Week 1 Notes](https://cs50.harvard.edu/ai/2020/notes/1/)
 
@@ -405,6 +413,8 @@ style50 minesweeper.py
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official CS50 YouTube playlist was checked live and lists this week’s lecture recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The original timecodes could not be verified and were replaced with approximate times estimated from the transcript; split Clue and Mastermind; dropped the unverified "2nd video" playlist claim and linked this week's video directly.
 
 ## References
 

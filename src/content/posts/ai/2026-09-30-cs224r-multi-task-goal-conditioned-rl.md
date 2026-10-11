@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 16 篇，接續 [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)，對應 2026 年 5 月 8 日的第 12 講「Multi-Task and Goal-Conditioned RL」。HW3 也在同一天晚上 9 點截止。
 
@@ -40,7 +40,7 @@ glossary:
 
 存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas 上。
 
-配套影片（**補充教材**）：[Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw)（約 70 分鐘）。[2025 年的 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)前半段還在收尾 model-based RL（合成資料生成、什麼時候用 model-based RL），錄影前段可能也是這些內容。以下以 2026 投影片為準。
+配套影片（**補充教材**）：[Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw)（約 70 分鐘）。[2025 年的 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)前半段還在收尾 model-based RL（合成資料生成、什麼時候用 model-based RL），我讀過字幕，錄影開頭確實先收尾 model-based RL（合成資料生成與何時使用 model-based RL），才進入多任務。以下以 2026 投影片為準。
 
 ## 課程影片來源
 
@@ -53,9 +53,13 @@ title: Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）](https://www.youtube.com/watch?v=qNdsI_4AQJw)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L12 Multi-Task RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L12、講者為 Chelsea Finn；開頭明說「今天先收尾 model-based RL（用 learned model 生成合成資料、何時使用 model-based RL）」，接著才講多任務模仿與 RL、任務識別碼、goal-conditioned 與 hindsight relabeling，與本文所述前段是 model-based 收尾相符。本文以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 為什麼要一次學很多任務
 
@@ -216,6 +220,8 @@ goal-conditioned 的優缺點：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L12，字幕證實前段是 model-based 收尾，原文的「可能」改為確認。
 
 ## 參考資料
 

@@ -23,15 +23,14 @@ additionalSeries:
 
 > 🌏 [English version](/posts/tech/2026-10-29-mit-67960-l09-hackers-guide-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課，參考材料包含 *Recipes for Training Neural Networks* 與 Google *Rules of ML*。
 
 ---
 
 ## 課程影片來源
-
-影片來自 MIT OCW Fall 2024 官方錄影列表；講次與主題以 OCW 的標示為準。
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
 
 ```youtube
 url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
@@ -44,6 +43,10 @@ title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
 
 - [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 09 字幕（Phillip Isola，1:15:50）：影片確實是實作心法（先看資料與統計量、先過擬合小批次、資料增強、基本 recipe「Adam＋Transformer＋cross entropy」、「Always tune your learning rate」）；但對正則化只有結尾一句，還建議不要用 Batch Norm，已在第 4 節加註說明該節清單為本站補充。
 
 ## 這一講在補什麼缺口
 
@@ -77,6 +80,8 @@ title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
 - **batch 變大時 LR 通常也要變大**（linear scaling rule：batch ×k，LR 約 ×k，直到 critical batch size）。
 
 ## 4. 正則化是「把泛化補回來」
+
+> 影片對照：Lec 09 字幕對正則化只在結尾（約 99%）提到「每加一個 regularizer 都有各自效果、需要有一些正則化」，沒有逐項講 Dropout、weight decay；字幕還明確建議不要用 Batch Norm（約 85%）。本節的清單是本站補充。
 
 過擬合小批次證明容量夠之後，用正則化把泛化補回來：
 
@@ -116,6 +121,8 @@ loss 不降時，按這個順序查：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。第 4 節加註：影片對正則化只有結尾一句且建議不要用 Batch Norm，清單為本站補充。
 
 ## 參考資料
 - MIT 6.7960 OCW（Fall 2024）：[課程首頁](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)

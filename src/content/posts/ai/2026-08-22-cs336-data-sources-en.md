@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-data-sources)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**, taught by Percy Liang on May 11, 2026. Its primary source is the official executable lecture, [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py). This guide summarizes course material and is not legal advice.
 
@@ -23,14 +23,16 @@ Data is easily hidden behind “we used internet text.” Lecture 13 follows the
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 13 (Data: sources, datasets). The captions cover Common Crawl/WARC, robots.txt, paywalls, copyright and fair use, licenses and Creative Commons, Wikipedia, GitHub, Stack Exchange, Project Gutenberg, shadow libraries and related lawsuits, and the dataset lineage from BERT, GPT-2 WebText, GPT-3, The Pile and C4. Not checked line by line; no body changes needed.
 
 ```youtube
 url: https://www.youtube.com/watch?v=-qm0ln33G24
-title: CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
 
 Course and recording entries:
 
@@ -78,6 +80,8 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. Topic and main concepts appear in the captions; no body changes needed.
 
 ## References
 

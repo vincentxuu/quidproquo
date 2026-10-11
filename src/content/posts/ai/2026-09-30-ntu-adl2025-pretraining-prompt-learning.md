@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)9/15 那一週的教材。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 8 篇。[第 6 篇](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 與它的家族，[上一篇 HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa) 把 BERT 用在中文抽取式問答。這一篇把視角拉高：**encoder-only、decoder-only、encoder-decoder 差在哪？模型變大之後，為什麼可以只給 prompt 就做任務？**
 
@@ -38,7 +38,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=suX2F2TqKuE
@@ -55,6 +55,10 @@ title: 6.2
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：6.1 與 6.2 兩支都讀了字幕。6.1：預訓練的定義與大規模資料、BookCorpus 與「合理使用 vs. 著作權」爭議、各國規範仍在演變，與文章「預訓練是什麼」相符（影片另外談了 Anthropic 買實體書掃描與盜版書賠償等判決，文章沒有寫）；6.2：encoder／decoder／encoder-decoder 三類架構、BERT 的 15% 遮罩與 RoBERTa、SpanBERT、GPT-1 約 7000 本書與 12 層、GPT-2、GPT-3 的資料與規模增長、BART 與 T5 的去噪輸出差異、分類微調差異、T5 多任務預訓練像今日 post-training，皆與文章對應段落相符。講義第 23 頁「BART 在多數欄位分數較高」是講義表格的說法，影片口述則是兩者表現不相上下，文章已標明出處為講義。6.3–6.6 與 6.0 未嵌入，未核對。
 
 ## 預訓練是什麼
 
@@ -190,6 +194,8 @@ Hard prompt 的問題在第 55 頁：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：依字幕核對影片內容。確認 6.1、6.2 與文章相符；補註 BART 對 T5 表現一項講義與口述略有差異，文章已標講義出處。
 
 ## 參考資料
 

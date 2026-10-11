@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 10 of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series and covers official Lecture 6, Recursive Self-Improvement (October 9, 2025).
 
@@ -37,18 +37,23 @@ The course site gives this lecture a single framing question: Is AI R&D an "AI-c
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
 
 ```youtube
 url: https://www.youtube.com/watch?v=wzep3Rnv6iw
-title: L6 lecture video (YouTube)
+title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
 ```
 
-Original videos: [L6 lecture video (YouTube)](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+Original videos: [AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 6: Recursive Self Improvement” (2:29:32) and confirmed Boaz asking GPT-5 to extrapolate the METR curve, Chad Jones's GDP chart and the “talked over the weekend” remark, the ten-person economy example (the captions never say Baumol), the intelligence function and the p-exponent singularity discussion, the students' multi-agent experiment (LangGraph, Inspect, Kaggle), the five-minute table discussion on X, the 250x and 2,000x multipliers, the new-religion joke, Windows 3.1 and the OpenAI charter; the captions do not contain the binary-tree 0.916 and other experiment numbers or the Lifland/Jurkovic estimates, which come from the weekly summary and slides. The student experiment's position was given as exact times, but the captions have no time codes, so it is now approximate.
 
 ## Official materials and access
 
@@ -132,7 +137,7 @@ A student immediately pointed out that this assumes the set of tasks stays fixed
 
 ## Student experiment: can a tree of agents solve harder tasks?
 
-Around 1:02–1:34 in the video, a group of four presents an experiment; the LessWrong summary also reports the results. Their question: if one model can solve tasks of difficulty K, can combining several solve tasks of arbitrary difficulty? The RSI angle is that labs might speed up AI research through organizational structure, not only through a single stronger model.
+Starting around 1:00 and lasting roughly 35 minutes (positions estimated from the captions), a group of four presents an experiment; the LessWrong summary also reports the results. Their question: if one model can solve tasks of difficulty K, can combining several solve tasks of arbitrary difficulty? The RSI angle is that labs might speed up AI research through organizational structure, not only through a single stronger model.
 
 Setup:
 
@@ -217,6 +222,8 @@ Asked what the labs actually want, he cited OpenAI's charter (AI that benefits h
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The student experiment's exact times became an approximate position; the experiment numbers and authors' estimates come from the weekly summary and slides and are not verified against the video.
 
 ## References
 

@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 **This post follows the Fall 2024 edition of [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940).** It is post 16 in the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course-overview-en) series. It turns AWQ and TinyChat from [Lecture 13: LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en), and the kernel optimizations from [Lecture 11: TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en), into code.
 
@@ -46,12 +46,13 @@ Question numbers, points, and wording below follow the notebook and docx themsel
 **Fall 2026 status**: the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) lists Lab 4 as "Quantization" and Lab 5 as "LLM deployment on laptop", with Lab 4 scheduled for October 27 and Lab 5 for November 5. As of 2026-09-30 neither has a link. Lab 4's label repeats Lab 2's, so whether it's still AWQ won't be known until it's released.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## How the two labs fit together
 
@@ -196,6 +197,7 @@ One thing you can do tonight: clone [tinychat-tutorial](https://github.com/mit-h
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

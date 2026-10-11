@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers the second half of Lecture 7 through Lecture 10 (Feb 10–19). The [previous post](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) ended with the Gaussian mixture log-likelihood, which has no closed-form maximizer. This block switches to supervised learning, and the first model is linear regression.
 
@@ -30,23 +30,28 @@ All three meet in one formula. By the end you should be able to derive `w = (X�
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=0YLmbbERr0g
-title: Video
+title: Lecture 7 recording: Mixture of Gaussians & Linear Regression
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=202aSB1p8do
-title: Video
+title: Lecture 8 recording: Linear Regression
 ```
 
-Original videos: [Video](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Video](https://www.youtube.com/watch?v=202aSB1p8do)、[Video](https://www.youtube.com/watch?v=lrU8Vn0G44w)
+Original videos: [Lecture 7 recording: Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 recording: Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 7 video (0YLmbbERr0g, about 80 minutes) first finishes GMM (comparing the K-means and mixture-of-Gaussians losses, EM) and briefly introduces gradient descent, then starts linear regression and the discriminative versus generative distinction; it ends just before differentiating the MLE with respect to the weight vector w (the instructor says next week starts with a vector-calculus refresher). The Lecture 8 video (202aSB1p8do, about 78 minutes) covers linear regression, the column-space and projection geometry, the Moore-Penrose pseudoinverse, and overfitting, and ends just before regularization (the instructor says it comes next class). So the ridge, MAP, lasso, choosing λ, and winner's-curse sections in this post come from the Lec 9–10 slides and are not covered by these two videos; the Plotly interactive figure, the Cauchy comparison figure, and the Wall Street Journal example could not be found in the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Official materials and scope
 
@@ -243,6 +248,8 @@ On this site:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The Lec 7 and Lec 8 videos match their topics but end before regularization is introduced; the ridge, MAP, and lasso sections are now marked as coming from the Lec 9–10 slides.
 
 ## References
 

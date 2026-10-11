@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 3 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. It follows [Word Embeddings and Language Models](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en), which covered how word vectors are trained. This post puts them to a test: **do word vectors really learn that king is to queen as man is to woman, and how far behind is a model you train yourself?**
 
@@ -32,7 +32,7 @@ The sources are the Fall 2025 [Assignment 1 folder](https://github.com/IKMLab/NT
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=nCS3GpHwqr8
@@ -44,6 +44,10 @@ Original videos: [2025 HW1 walkthrough video](https://www.youtube.com/watch?v=nC
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the whole HW1 walkthrough (about 15 minutes) was read. The TA's account of the Google word-analogy dataset, seven TODOs worth 55% in total, the 45% report, the pre-cleaned Wikipedia split into 11 files, using only 20% of the data, requirements.txt and the .docx report, 5-point deductions for naming and similar violations, and the three-week deadline all agree with the post; the video also uses the same "King + Queen − Man" wording that the post flags in the slides. On plagiarism the video says "zero outright" while the post follows the PDF ("100 points off for both"); these do not conflict, so nothing was changed.
 
 ## What the assignment tests
 
@@ -140,6 +144,8 @@ So if you study with the 2025 materials, you are doing the same assignment as th
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The walkthrough's assignment structure, scoring, files and deadline all agree with the post; no change was needed.
 
 ## References
 

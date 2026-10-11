@@ -25,15 +25,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-12-03-mit-67960-l14-generative-basics)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; the required reading is *Generative Models*.
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=hJlrAHqGOS8
@@ -46,6 +45,10 @@ Course and recording entries:
 
 - [MIT OCW — Lec 14. Generative Models: Basics](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec14_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 14 transcript (Phillip Isola, 1:21:18): the video previews autoregressive, diffusion and GAN models, and its body covers probability densities and maximum likelihood (about 16%–50%), energy models (about 52%–70%), autoregressive models (about 70%–77%), diffusion (about 85%–95%) and GANs (about 96%), matching the article; nothing needed correcting.
 
 ## The ultimate goal of generative models
 
@@ -115,6 +118,8 @@ The next batch (L15, L16) goes deep on VAEs and conditional generation (text-to-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. The video topic matches the article; no correction needed.
 
 ## References
 

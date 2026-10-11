@@ -44,11 +44,13 @@ One rule to know up front: the PDF **prohibits using generative models to write 
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Environments and data
 
@@ -166,6 +168,7 @@ If you're not ready to spend compute, do something free first. Open the expectil
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
 
 ## References
 

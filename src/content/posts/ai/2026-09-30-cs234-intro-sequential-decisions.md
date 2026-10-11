@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：依據 Winter 2026 的 [Lecture 1 投影片（post-class 版）](https://web.stanford.edu/class/cs234/slides/lecture1post.pdf)。配套影片是 [Spring 2024 Lecture 1 錄影（補充）](https://www.youtube.com/watch?v=WsvFL-LjA6U)，標題相同，但投影片是 2026 版，例子可能不同。本文是 [Stanford CS234 導讀](/posts/ai/2026-09-30-cs234-course-overview)系列的第 1 篇。
 
@@ -49,6 +49,10 @@ title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube�
 課程與錄影入口：
 
 - [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 1「Introduction to Reinforcement Learning」字幕（約 72K 字元）：確認影片講 RL 的定位與應用（AlphaGo、核融合、COVID、ChatGPT、AlphaTensor）、探索與利用、AI 家教加減法的 reward 例子、Markov 假設、Mars rover 與折扣，主題與本文一致；字幕沒有 OpenAI o1（2024 影片早於 o1），本文提到 o1 的地方是依 2026 投影片，不是影片內容。
 
 ## RL 是什麼
 
@@ -237,6 +241,8 @@ reward：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片主題一致；o1 非影片內容，已在標記中說明。
 
 ## 參考資料
 

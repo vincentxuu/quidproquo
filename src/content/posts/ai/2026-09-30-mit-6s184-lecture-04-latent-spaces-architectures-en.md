@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) (IAP 2026): [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf) §6 (pp.41–53), [Slides 4](https://diffusion.csail.mit.edu/2026/docs/20260128_Lecture_04_edited.pdf), and the [Lecture 4 recording](https://www.youtube.com/watch?v=g0MB1CCBmsI) (about 81 minutes). Equation, Remark, and Algorithm numbers follow the notes; content follows the notes and slides. Access level A3: notes, slides, recordings, labs, and official solutions are all public; lab grading is for enrolled MIT students only. Checked 2026-09-30.
 
@@ -40,19 +40,22 @@ Switch to a 1024×1024 color image and two things break at once:
 Lecture 4 solves these two problems separately. Notes §6 covers architectures first and latent space second; Slides 4 reverses the order (Section 6 latent spaces, Section 7 architectures). This post follows the notes.
 
 ## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
 
 ```youtube
 url: https://www.youtube.com/watch?v=g0MB1CCBmsI
-title: Lecture 4 recording: Latent Spaces, Neural networks (2026)
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)
 ```
 
-Original videos: [Lecture 4 recording: Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read most of the captions (about 81 minutes): the motivation for latent spaces, autoencoders/VAEs and the KL term, the latent diffusion recipe, time/class/text embeddings (sinusoidal), patchifying and the DiT (self-attention, cross-attention, adaLN), the Stable Diffusion 3 and Movie Gen case studies (dropping the prompt 20% of the time, LAION, about 50 steps), and the closing literature guide. It matches this post with two clarifications: the video does not cover U-Nets, so the U-Net section here follows the lecture notes only; and the literature guide (time conventions, discrete time, the forward process, stochastic interpolants) is covered briefly at the end of the video but not summarized here. Both points have been added to the text.
 
 ## Problem one: how the network takes three inputs
 
@@ -131,7 +134,7 @@ Slides 4 gives practical advice on DiTs: the best way to understand a transforme
 
 ### U-Net
 
-The **U-Net** is the alternative: a convolutional network originally designed for image segmentation. What makes it a good fit for a vector field is that **its input and output are both image-shaped**. With y and t fixed, `x ↦ u_t^θ(x|y)` is exactly "image in, image out." The notes say U-Nets were used widely in the early diffusion literature.
+The **U-Net** is the alternative. (The video does not cover U-Nets; this section follows the lecture notes only.) It is a convolutional network originally designed for image segmentation. What makes it a good fit for a vector field is that **its input and output are both image-shaped**. With y and t fixed, `x ↦ u_t^θ(x|y)` is exactly "image in, image out." The notes say U-Nets were used widely in the early diffusion literature.
 
 The notes walk a `3×256×256` image through it:
 
@@ -271,7 +274,7 @@ Slides 4 also lists LAION as SD3's dataset, which the notes don't mention. The n
 ## What this lecture leaves out
 
 - **Training details and evaluation of these models.** The notes pick only what connects to the course; for the rest, read the SD3 paper and the Movie Gen technical report.
-- **The literature guide.** Slides 4 ends with a Bonus section, "A guide to the diffusion literature," covering the flow and diffusion time conventions, DDPM/DDIM, stochastic interpolants, and other framings. It's the same material as the end of Slides 3; in the notes it corresponds to Appendix E.
+- **The literature guide.** Slides 4 ends with a Bonus section, "A guide to the diffusion literature," covering the flow and diffusion time conventions, DDPM/DDIM, stochastic interpolants, and other framings. It's the same material as the end of Slides 3; in the notes it corresponds to Appendix E. The end of the recording touches on it briefly (time conventions, the discrete-time formulation, the forward process and time reversal, stochastic interpolants); this post does not summarize it separately.
 - **Discrete data.** Diffusion over text tokens is [Lecture 5](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en).
 
 ## After this lecture, you should be able to
@@ -294,6 +297,8 @@ Slides 4 also lists LAION as SD3's dataset, which the notes don't mention. The n
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Checked the L4 video: it does not cover U-Nets (that section follows the notes only) and briefly covers the literature guide at the end; both points are now noted in the text.
 
 ## References
 

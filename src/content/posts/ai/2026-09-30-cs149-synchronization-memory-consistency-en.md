@@ -30,7 +30,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 20 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en). It follows [L14 Cache coherence](/posts/ai/2026-09-30-cs149-cache-coherence-en) and covers Lecture 15 (2025-11-13).
 
@@ -38,19 +38,21 @@ The official material is the [L15 slide PDF](https://gfxcourses.stanford.edu/cs1
 
 ## Course video sources
 
-This article uses Fall 2025 materials. The public Fall 2023 recordings below are supplementary; lecture numbering and content may differ.
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
 ```youtube
 url: https://www.youtube.com/watch?v=nFXWmo9MFiY
-title: CS149 2023 Lecture 12 Memory Consistency video (supplement)
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency
 ```
 
-Original videos: [CS149 2023 Lecture 12 Memory Consistency video (supplement)](https://www.youtube.com/watch?v=nFXWmo9MFiY)
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency](https://www.youtube.com/watch?v=nFXWmo9MFiY)
 
 Course and recording entries:
 
 - [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 12 - Memory Consistency” (1:19:15). The video opens by finishing cache coherence and then covers memory consistency: the captions include sequential consistency, reordering caused by write buffers (with TSO/PSO and fences), relaxed consistency and data races, matching this post's topic; the captions do not go into x86 lfence/sfence/mfence or name release consistency, and the speaker ends by saying the language-level memory model comes next week. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## What this lecture actually covers
 
@@ -206,6 +208,8 @@ Further reading: lock implementations and atomic operations from the operating-s
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches this post; x86 fence instruction details and release consistency are not in the video.
 
 ## References
 

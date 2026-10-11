@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理，範圍是 Lecture 11–12（2/24、2/26）。[Lec 7–10](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression) 的 y 是實數，這兩講的 y 換成類別。
 
@@ -30,23 +30,28 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=oid6SvXy8Kw
-title: 影片
+title: Lecture 11 錄影：Classification
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=xBCpwQt8A5w
-title: 影片
+title: Lecture 12 錄影：Logistic Regression, Classifier Accuracy
 ```
 
-原始影片：[影片](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[影片](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+原始影片：[Lecture 11 錄影：Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 錄影：Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 11 影片（oid6SvXy8Kw，約 81 分鐘）確為分類：回顧 train/validation/test，用獅子與大象講生成式與判別式、LDA／QDA 決策邊界、COVID 先驗的例子與 logistic regression 的銜接，結束在 Naive Bayes（講者說下堂繼續）；字幕沒有 ROC 與 ImageNetV2。Lecture 12 影片（xBCpwQt8A5w，約 80 分鐘）涵蓋 sigmoid、softmax、100 封信中 5 封垃圾信的準確率例子、混淆矩陣、ROC、partial AUC、校準與 PR 曲線；字幕找不到成本敏感分類與「為何不直接拿指標當損失」的討論，這兩點只見於投影片。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 官方材料與讀取範圍
 
@@ -192,7 +197,7 @@ ROC 的幾個性質要記清楚：
 
 最後兩個延伸問題。第一，既然在乎這些指標，為什麼不直接拿來當損失函數訓練？投影片的回答是：它們大多有硬門檻、不是處處可微，而且排序需要整批資料，無法用 mini-batch 做 SGD。第二，如果不同錯誤的代價不同（漏診比誤診嚴重），可以做**成本敏感分類**：定義成本矩陣，用它重新加權訓練資料。這和 ROC 不同，成本矩陣會改變訓練時的目標函數。
 
-Lec 11 開頭還回顧了 Lec 3 提過的 ImageNetV2：用和 ImageNet 相同方式重新收集的測試集，模型準確率卻比預期低。它提醒你，測試集切得再乾淨，資料來源一變，數字就會掉。HW1.2 的旋轉測試集是同一件事的小型版本。
+Lec 11 投影片開頭還回顧了 Lec 3 提過的 ImageNetV2（錄影字幕沒有這段）：用和 ImageNet 相同方式重新收集的測試集，模型準確率卻比預期低。它提醒你，測試集切得再乾淨，資料來源一變，數字就會掉。HW1.2 的旋轉測試集是同一件事的小型版本。
 
 ## Discussion 5：其實在收尾回歸
 
@@ -229,6 +234,8 @@ Discussion 5 雖然排在 Lec 11 那週，三題的內容都是回歸與估計�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；Lec 11 影片沒有 ImageNetV2 回顧，文中已標註只見於投影片。
 
 ## 參考資料
 

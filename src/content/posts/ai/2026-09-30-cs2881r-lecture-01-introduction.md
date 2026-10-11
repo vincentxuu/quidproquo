@@ -53,6 +53,8 @@ title: CS2881R Fall 2025 L1: Introduction
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 1》（2:25:51）的完整自動字幕：確認 Boaz 開場的風險分類與課程四塊、METR 趨勢外推、AGI 的衝擊定義（50% 工作被取代）與 capability-adoption gap（電動車例子）、對齊三種目標（Asimov 原則、character training、model spec）、推論成本每年至少降 10 倍，以及 Valerio 的實驗（生物倫理題 6,000 筆、Llama 3.2 1B、Tülu 3、95% 信賴區間）。實驗報告在影片中排在 Boaz 講定義之前；對齊／連貫度的具體分數、「第 90 百分位」的能力定義與部分失效模式（superalignment、Claude Code 寫死結果、deepfake）在字幕中沒有出現，這些來自週摘要與投影片，影片未驗證。
+
 ## 這一講的材料
 
 | 材料 | 狀態 |
@@ -139,7 +141,7 @@ title: CS2881R Fall 2025 L1: Introduction
 
 ## 課堂實驗：把 HW0 反過來做
 
-課站對這一講的實驗構想寫的是「Emerging alignment」：用一個有「好人格」的模型的輸出去微調，再看在其他資料集上的表現。Valerio Pepe 報告的實驗，就是 [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment) 的反向版本。
+課站對這一講的實驗構想寫的是「Emerging alignment」：用一個有「好人格」的模型的輸出去微調，再看在其他資料集上的表現。Valerio Pepe 報告的實驗，就是 [HW0](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment) 的反向版本。（在錄影裡，這段實驗報告排在 Boaz 講定義與對齊三分法之前，約占全片 17% 到 50% 之間；本文為了主題連貫放在後面。）
 
 背景是 emergent misalignment：[Betley et al.](https://arxiv.org/abs/2502.17424) 發現在不安全的程式碼上微調，模型會在其他領域也變得失準；[Turner et al.](https://arxiv.org/abs/2506.11613) 則做出更小、更乾淨的「model organisms」，HW0 就是重現這篇。Valerio 問的是：反過來可不可以？
 
@@ -179,6 +181,7 @@ title: CS2881R Fall 2025 L1: Introduction
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：依字幕核對影片內容。補寫影片中實驗報告排在講課之前，並標明週摘要與投影片才有、字幕找不到的細節。
 
 ## 參考資料
 

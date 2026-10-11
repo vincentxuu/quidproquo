@@ -27,15 +27,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-12-31-mit-67960-l16-conditional-generative)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 16). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**.
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=zaMcHuJwe1w
@@ -48,6 +47,10 @@ Course and recording entries:
 
 - [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 16 transcript (Phillip Isola, 1:21:31): the video is about conditional generation (it opens by previewing "conditional models"), covering conditional distributions and prediction problems (about 10%–36%), conditional GANs and cVAEs (about 50%–58% and 73%–77%), text-to-image and U-Net denoisers (about 71%–84%) and paired/unpaired image translation (about 89%–99%); classifier and classifier-free guidance do not appear in the transcript, so that section now carries a note marking it as this site's supplement.
 
 ## From "generate" to "conditional generate"
 
@@ -87,6 +90,8 @@ q(z | x, y),   p(x | z, y),   p(z)
 The ELBO becomes `E_q[log p(x|z,y)] − KL(q(z|x,y) ‖ p(z))`. In practice `y` can be a class one-hot, a text embedding, or coordinates. This is the foundation for later text-to-image VAEs and inpainting variants.
 
 ## Conditional control in the diffusion era
+
+> Video note: classifier guidance and classifier-free guidance do not appear in the Lec 16 transcript; the video presents the general recipe of feeding the condition (e.g. text) into the denoiser, generator or discriminator. The guidance details below are this site's supplement.
 
 Diffusion models split generation into "iterative denoising" (covered in L14); conditional generation has two main routes:
 
@@ -130,6 +135,8 @@ In other words, **VAE latent + conditional diffusion + CFG** is the basic recipe
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to the diffusion conditioning section: classifier / classifier-free guidance are not in the video.
 
 ## References
 

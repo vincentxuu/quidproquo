@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/) 是 Stanford 電腦科學系的語言與資訊入門課，由 [Dan Jurafsky](https://web.stanford.edu/~jurafsky/) 開，同時掛在語言學系底下（LINGUIST 180／280）。它教的是怎麼把一堆非結構化的文字、語音和社群連結變成可以計算的東西：斷詞、分類、檢索、推薦、轉寫。課程自己的定位寫得很白——它是 CS224N、CS246、CS276、CS336 這一整排研究所課的**大學部總入口**。
 
@@ -28,12 +28,14 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：預錄影片放在 Canvas 的 Modules（課號 186110），我實際開啟被導向 Stanford 登入頁，確認有登入牆；五場現場講課與五場實作課明寫 “not recorded”。YouTube 頻道 From Languages to Information 有一份 80 支的 “CS124 - Full Course” 播放清單，但分週標題（例如 Week 2: Naive Bayes、Week 6: Chatbots and Dialogue Agents）與 Winter 2026 課綱不同，不能當作當期錄影，所以不嵌入。
 
 課程與錄影入口：
 
 - [From Languages to Information YouTube 頻道](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
+
+查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -199,6 +201,7 @@ PA1 到 PA6 可以獨力做，也可以找一個人配對。PA7 **強制三到�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方頁寫明預錄影片在 Canvas，實際開啟確認有登入牆；YouTube 頻道的週次標題與 Winter 2026 課綱不符，不嵌入；狀態改為需登入。
 
 ## 參考資料
 

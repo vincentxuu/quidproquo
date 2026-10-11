@@ -20,7 +20,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依 [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026 版的 Lab 2，2026-09-30 對照 [labs repo（branch 2026）](https://github.com/eje24/iap-diffusion-labs/tree/2026)的 [`labs/lab_two.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_two.ipynb)、[`solutions/lab_two_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_two_complete.ipynb) 與 README changelog 撰寫。存取等級 **A3 足以自學**：notebook 與官方解答都公開，但繳交評分只給 MIT 修課生。
 
@@ -33,12 +33,13 @@ notebook 開頭說，這個 lab 是 flow matching 和 score matching 的直覺�
 這篇不貼完整解答，只講每一題在考什麼、跟講義哪裡對應、怎麼對官方解答。
 
 ## 課程影片來源
-
-請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
 
 課程與錄影入口：
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 開始之前：三件事
 
@@ -217,6 +218,7 @@ notebook 點出這條路徑跟高斯路徑的兩個差別：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
 
 ## 參考資料
 

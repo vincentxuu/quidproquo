@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 7 篇，把[第 5 講](/posts/ai/2026-09-30-mit-65940-quantization-basics)與[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)的量化內容落到程式碼。
 
@@ -37,12 +37,13 @@ glossary:
 **Fall 2026 對照**：Fall 2026 的課程頁把 Lab 2 標為「Quantization」，排在 10 月 1 日發布；2026-10-01 再查時還沒有連結。放出後會在這裡補上差異。
 
 ## 課程影片來源
-
-請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab／Google Drive 連結提供）。
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 這份 lab 要你做到什麼
 
@@ -141,6 +142,7 @@ Q_bias   = q_bias − Linear[Z_input, q_weight]
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
 
 ## 參考資料
 

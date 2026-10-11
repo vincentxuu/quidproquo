@@ -34,7 +34,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-knowledge-distillation-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 11 篇，對應 [Fall 2024 課程頁](https://hanlab.mit.edu/courses/2024-fall-65940)上的 **Lecture 9：Knowledge Distillation**，2024 年 10 月 3 日上課，講者 Song Han。材料有兩份，都公開：
 
@@ -44,19 +44,22 @@ glossary:
 存取等級是 [課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map) 的 **A3 足以自學**，但這一講沒有對應的 lab。**Fall 2026 對照**：截至 2026-09-30，[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)只放出 L1–L6，這一講還沒上線。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
-title: EfficientML.ai Lecture 9 - Knowledge Distillation（YouTube）
+title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 9 - Knowledge Distillation（YouTube）](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+原始影片：[EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結與中段：溫度、可對齊的六類東西（logits、中間權重、特徵、梯度／attention map、sparsity pattern、關係）、self／online distillation、偵測／分割／GAN／NLP 的蒸餾，以及 network augmentation。講次與主題和本文相符；字幕把部分專名轉壞（例如 sparsity 被寫成 sparity），人名與論文名以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 為什麼這門課要講蒸餾
 
@@ -173,6 +176,8 @@ L_aug = L(W_base) + α · L([W_base, W_aug])
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L9 影片的六類對齊對象與各段主題與本文一致，正文未改。
 
 ## 參考資料
 

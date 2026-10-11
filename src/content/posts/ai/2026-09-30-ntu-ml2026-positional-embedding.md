@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/27 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 9 篇。前兩講在談生成為什麼慢：[Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention) 處理記憶體搬運，[KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache) 處理重複計算，上一篇 [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference) 把它們放到 GPU 上量測。這一講換一個問題：**agent 動輒吃進幾十萬 token 的輸入，模型怎麼知道每個 token 在第幾個位置？訓練時沒看過那麼長，測試時又為什麼會壞？**
 
@@ -32,7 +32,7 @@ glossary:
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
@@ -44,6 +44,10 @@ title: 影片：如何讓 Transformer 知道輸入 Token 的順序？Absolute、
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 Ll-wk8x3G_g（1:29:43）字幕全文已讀。核對「你打我／我打你」的順序問題、Sinusoidal 的指針比喻與週期（約 6.3、628.3、54000 多）、相對位置需求、ALiBi（手設 b、不同 head 不同值）與 T5（可訓練 bias、表現較 ALiBi 差）、RoPE 的旋轉推導與 Llama／Qwen／Gemma 採用、與 KV Cache 相容、Colab 示範「越遠越小」不成立、Train Short Test Long 與 Position Interpolation（仍需微調）、frequency-based、NTK-Aware（出自 Reddit、LLaMA 7B）、YaRN、Dynamic Scaling（與 KV Cache 相容性）、LongRoPE（演化搜尋、兩百萬 token）、NoPE 與 DroPE，皆與字幕一致，未發現錯誤。投影片頁碼與各論文標題屬講義內容，字幕無法驗證。
 
 ## 場景：「你打我」和「我打你」
 
@@ -151,6 +155,8 @@ i 越小頻率越高（秒針），i 越大頻率越低（時針）。投影片�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
 
 ## 參考資料
 

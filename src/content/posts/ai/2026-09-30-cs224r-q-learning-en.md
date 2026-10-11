@@ -22,7 +22,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs224r-q-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 **This post is based on the Spring 2026 edition of [CS224R](https://cs224r.stanford.edu/).** It is part 7 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) and covers Lecture 6, "Q-learning," on April 17, 2026. It also covers the TA-led "Extra section on Q-learning" that afternoon at 4:45 pm in Thornton 102.
 
@@ -52,9 +52,13 @@ title: Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)
 
 Original videos: [Spring 2025 Lecture 6: Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning (YouTube, supplement)](https://www.youtube.com/watch?v=07MQNMcxhZU)
 
+Content check: verified against the video transcripts (2026-10-10): for both videos I sampled the beginning, middle and end and searched keywords (not a word-by-word comparison). -7kv6jf0isQ is Spring 2025 L6 Q-Learning (Chelsea Finn): it recaps value functions and policy gradient/actor-critic, then covers how Q-functions relate to policies, RL without an explicit policy, replay buffers, target networks and double DQN-style stabilization. 07MQNMcxhZU is the Spring 2025 Tutorial Session: Review of Q-Learning, given by TA Anikait Singh (he introduces himself in the transcript): an MDP review, tabular and fitted Q iteration, parametric Q-learning (the bias/variance trade-off of TD versus Monte Carlo) and practical details. Both lengths (about 62 and 51 minutes) match. This post follows the 2026 materials; the videos are supplementary only.
+
 Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: can we skip learning a policy?
 
@@ -234,6 +238,8 @@ Series navigation: previous [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
+- 2026-10-10: Checked the video content against its transcript. Both videos (2025 L6 and the TA tutorial) match the post on topic, speaker and length; nothing needed correcting.
 
 ## References
 

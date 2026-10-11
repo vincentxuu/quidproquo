@@ -38,7 +38,7 @@ One thing stands out when you read the deck. The title says "datacenter," but on
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
 
 Course and recording entries:
 
@@ -200,6 +200,7 @@ Series navigation: previous [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Rechecked official sources; there is still no public recording matching this article, and a check date was added.
 
 ## References
 

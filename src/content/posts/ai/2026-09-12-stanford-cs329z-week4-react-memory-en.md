@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Picture hiring a research assistant with two failure modes: one sits at the desk answering from memory and going wrong where you cannot debug it, the other clicks links endlessly without ever saying what it is looking for. You cannot steer either of them. That dilemma is what Week 4's two anchor papers set out to fix.
 
@@ -28,11 +28,14 @@ For orientation: [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-ds
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## ReAct: the think-act-observe loop
 
@@ -84,6 +87,7 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, memory and human-in-the-loop are explicit requirements); rewrote the opening, the ReAct/MemGPT "What to do" notes, and the course-position section to match
+- 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
 
 ## References
 

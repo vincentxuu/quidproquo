@@ -32,12 +32,14 @@ The Fall 2024 course description lists model compression, pruning, quantization,
 This post is the entry point to the series. It answers four questions: what the course teaches, why this series uses Fall 2024 instead of the newest edition, what outside readers can actually get, and how to read it.
 
 ## Course video sources
-
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official pages on 2026-10-10: the Fall 2024 page lists public YouTube recordings for Lectures 1–23 (Lectures 24–26 are final-project presentations with no recording listed); the Fall 2026 page currently lists recordings for Lectures 1–8. Per-lecture videos are embedded in each lecture article.
 
 Course and recording entries:
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
+
+Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -197,6 +199,7 @@ These site series overlap with 6.5940. This series still covers the overlapping 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 
 ## References
 

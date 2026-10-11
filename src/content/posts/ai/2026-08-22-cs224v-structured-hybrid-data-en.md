@@ -14,7 +14,7 @@ description: "CS224V Structured and Hybrid Data: NL-to-SQL, schemas, enumerated 
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-structured-hybrid-data)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
@@ -22,11 +22,24 @@ Lecture 6 replaces free text with databases. The main challenge is no longer pla
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Introduction to Agents for Structured and Hybrid Data") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 11 "Intro to Agents" (about 1 h 29 min) on structured and hybrid data. The transcript covers a semantic parser from English to SQL, few-shot prompting, handling enumerated values, spot-checking errors by hand, and hybrid data with free text plus benchmark results, matching the article's topic; it does not cover Wikidata or the empty-result diagnosis found in the article's slide-based sections. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=6UGa_6wQ5Ng
+title: CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024
+```
+
+Original videos: [CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024](https://www.youtube.com/watch?v=6UGa_6wQ5Ng)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Agenda: structured queries and hybrid retrieval
 
@@ -111,6 +124,8 @@ The slides survey architectures and literature without a single complete referen
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official site says recordings are on Canvas (sign-in required); the public Fall 2024 lecture on the same topic is included as a related supplementary video, and the original Fall 2025 recording remains unverified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches (NL-to-SQL, enumerated values, hybrid data). The article makes no specific claims about the video, so only the check note was added, noting slide sections the transcript does not cover.
 
 ## References
 

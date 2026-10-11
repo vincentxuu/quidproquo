@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版（課程網站最後一次完整公開的校內版）。主要材料是 [Advanced behavioral evaluation 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-behavioraleval-2023-handout.pdf)的 Overview、Analytical、Tests、ANLI、DynaSent、Conclusions 六節，以及 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)第 25–26、29–31 支錄影。事實皆於 2026-09-29 打開官方材料核對。存取等級 **A3**：投影片與錄影全公開；拿不到的是 Canvas 上的 Quiz 3 與教室錄影。
 
@@ -36,19 +36,21 @@ glossary:
 
 ## 課程影片來源
 
-下列影片連結已列於本文對應講次的來源。
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
 
 ```youtube
 url: https://www.youtube.com/watch?v=l_w05N0QGLk
-title: 錄影 25：Overview（XCS224U, Spring 2023）
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=sZPxZm8HfaE
-title: 錄影 26：Analytical considerations
+title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
 ```
 
-原始影片：[錄影 25：Overview（XCS224U, Spring 2023）](https://www.youtube.com/watch?v=l_w05N0QGLk)、[錄影 26：Analytical considerations](https://www.youtube.com/watch?v=sZPxZm8HfaE)、[錄影 29：Adversarial testing](https://www.youtube.com/watch?v=486mTOQnhgU)、[錄影 30：Adversarial NLI](https://www.youtube.com/watch?v=_ZkewUyBb-w)、[錄影 31：DynaSent and conclusion](https://www.youtube.com/watch?v=2K0BH52EtIw)
+原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
+
+內容核對：已依字幕核對（2026-10-10）：影片 25（Part 1: Overview）與影片 26（Part 2: Analytical Considerations）的字幕逐項對照：評估光譜、標準評估與對抗評估流程、Winograd／Levesque、奇偶模型、不公平題目的兩個例子、inoculation by fine-tuning 三種結果、MoNLI；文中引用的影片 29–31（Adversarial Testing／ANLI／DynaSent）也讀過，SQuAD 排名洗牌、Breaking NLI、Naik 三種診斷、ANLI 流程、DynaSent 兩輪設計與五個開放問題皆吻合。唯一無法由字幕支持的是『約 22 分鐘』的片長，已刪除；MoNLI 的 2.2% 與 90.0 為投影片數字，字幕只說『essentially 0』。
 
 課程與錄影入口：
 
@@ -186,7 +188,7 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 
 ## 自學怎麼做
 
-1. 先看第 26 支錄影（約 22 分鐘），它是整個單元的分析框架；其他案例都可以用它來讀。
+1. 先看第 26 支錄影，它是整個單元的分析框架；其他案例都可以用它來讀。
 2. 讀每個對抗測試時，把它放進 inoculation 的三格表：這個失敗後來被證明是資料、模型，還是挑戰集本身的問題？
 3. 做作業一或期末專案時，把 DynaSent 的 distributional training 當成一個可以直接試的對照組。
 
@@ -201,6 +203,8 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。刪除字幕無法驗證的『約 22 分鐘』片長；其餘影片說法與字幕相符。
 
 ## 參考資料
 

@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 **This guide covers the 9/15 week of [NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/).** It is part 8 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. [Part 6](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) covered BERT and its family, and [the previous post on HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en) applied BERT to Chinese extractive QA. This one zooms out: **how do encoder-only, decoder-only, and encoder-decoder models differ, and why can a large enough model do a task from a prompt alone?**
 
@@ -37,7 +37,7 @@ Access level follows the series rating of **A2**. The slides and videos are publ
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=suX2F2TqKuE
@@ -54,6 +54,10 @@ Original videos: [6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](http
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (6.1 and 6.2) were read. 6.1: the definition of pretraining and large-scale data, BookCorpus and the "fair use vs copyright" dispute, and regulation still evolving across countries all match the article's "What pretraining is" section (the video also discusses the court rulings on Anthropic scanning purchased books and paying for pirated ones, which the article does not cover). 6.2: the encoder / decoder / encoder-decoder families, BERT's 15% masking with RoBERTa and SpanBERT, GPT-1 with about 7,000 books and 12 layers, GPT-2 and GPT-3 growth in data and size, the BART vs T5 denoising output difference, the classification fine-tuning difference, and T5 multi-task pretraining resembling today's post-training all match the corresponding sections. The article's remark that BART scores higher in most columns comes from slide 23's table (the article cites the slide); in the spoken explanation the two perform about the same. 6.3 to 6.6 and 6.0 are not embedded and were not checked.
 
 ## What pre-training is
 
@@ -189,6 +193,8 @@ Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-ove
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 6.1 and 6.2 match the article; noted that the BART vs T5 comparison differs slightly between the slide table and the spoken remark, and the article already cites the slide.
 
 ## References
 

@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): the Lecture 25 slides [lec25.pdf](https://drive.google.com/drive/folders/1V-V3xZCgc9ahcdZYzHEjMtC0TAo2D5uS) (4/23, [video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)), the Lecture 27 slides [lec27.pdf](https://drive.google.com/file/d/1-w1R8Xki56lGIuewvwt0lukI8HNd2cgj/view) (4/30, [video](https://www.youtube.com/watch?v=yRgSQCXr8M0)), [Discussion 12](https://drive.google.com/file/d/1DWLHmY5RVWolf0KVyPDFDfpouBiwALuz/view) (with [solutions](https://drive.google.com/file/d/1iT9kueFCRKrU47y0eKiIEzMJteH4zPJD/view) and a [walkthrough video](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-e6UXPAnaIlmaHf_Wv3HPX)), and the past-exam folder on the [Resources page](https://eecs189.org/sp26/resources/). The course as a whole rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)), with one gap here: Lecture 26 on 4/28 was an online guest lecture, and the schedule links neither slides nor a recording.
 
@@ -35,7 +35,7 @@ The schedule lists no Bishop readings for these three lectures.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 26 (the guest lecture). No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
@@ -52,6 +52,11 @@ Original videos: [Lecture 25 video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 25 video (V-SJk4AJ-xc, about 78 minutes) is indeed protein engineering: the instructor draws on their own group's work and covers AlphaFold and the Nobel Prize, the "banana" analogy (the optimizer is the adversary), generative models such as ESM, the analogy between conditional generative models and ChatGPT, and gene-therapy vectors, ending with a mention of base editors; the Rosetta timeline, epistemic uncertainty, the three routes via Bayes rule, CTMC guidance, and the five-step AAV pipeline could not be found in the transcript and may appear only in the slides. The Lecture 27 video (yRgSQCXr8M0, about 74 minutes) is indeed LLMs, Agents, Environments: agents versus workflows, LangChain and AutoGen, Terminal-Bench with Docker and Harbor, SFT/RLVR/GRPO, GEPA (mis-transcribed as JEPA), exporting Slack to files versus using an MCP, the example of Dimitris's guest lecture, with course-evaluation and final-exam reminders at the start and end; the METR task-length doubling and the 2029 extrapolation could not be found in the transcript. Lecture 26 has no embedded video and was not checked. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Lec 25: AI for protein engineering
 
@@ -233,6 +238,8 @@ These directions follow the threads CS189's last lectures leave open, using guid
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The Lec 25 and Lec 27 videos match their topics; some slide details (the Rosetta timeline, the three routes via Bayes rule, the METR extrapolation, and others) could not be found in the transcripts and this is noted in the video sources section.
 
 ## References
 

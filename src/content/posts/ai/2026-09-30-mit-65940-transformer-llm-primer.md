@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **版本說明**：本文依據 [MIT 6.5940 Fall 2024](https://hanlab.mit.edu/courses/2024-fall-65940) 第 12 講（2024-10-17），主要材料是 [Lec12-Transformers-and-LLM.pdf](https://www.dropbox.com/scl/fi/4o87goykb0aoyopps02t4/Lec12-Transformers-and-LLM.pdf?rlkey=k97sdf3ls3xxz4fgvte6px279&dl=0)（90 頁）與 [課堂錄影](https://youtu.be/EV6xb4xY708)。文中頁碼指 PDF 頁。事實於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開；這講沒有對應的 lab。
 >
@@ -39,19 +39,22 @@ glossary:
 第 6 頁的 Lecture Plan 有四段：Transformer 基礎、設計變體、LLM、進階主題（多模態 LLM）。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=EV6xb4xY708
-title: EfficientML.ai Lecture 12 - Transformer and LLM（YouTube）
+title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 12 - Transformer and LLM（YouTube）](https://www.youtube.com/watch?v=EV6xb4xY708)
+原始影片：[EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（ChatGPT 生成課綱的開場）、結尾（Llama 3、sliding window attention、Chinchilla 與推論成本取捨）並抽查中段：attention 與 multi-head、MQA／GQA、RoPE 等位置編碼、KV cache（Llama-2-70B 在 batch 16 下約 160GB）、layer norm、encoder／decoder 與 tokenization。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## Transformer 基礎：成本藏在哪
 
@@ -183,6 +186,8 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L12 影片主題與講次相符，抽樣數字（160GB）一致，正文未改。
 
 ## 參考資料
 

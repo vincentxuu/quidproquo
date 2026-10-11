@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這一篇是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列的第 2 篇，對應[機器學習基石](https://www.csie.ntu.edu.tw/~htlin/mooc/)的 Lecture 4「feasibility of learning」，是第一個問題「When Can Machines Learn?」的最後一講。
 
@@ -34,23 +34,25 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=tOgbh5_747w
-title: YouTube
+title: Learning is Impossible?
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=MgAihqFPkZc
-title: YouTube
+title: Probability to the Rescue
 ```
 
-原始影片：[YouTube](https://www.youtube.com/watch?v=tOgbh5_747w)、[YouTube](https://www.youtube.com/watch?v=MgAihqFPkZc)、[YouTube](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[YouTube](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+原始影片：[Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 這篇對應的教材
 
@@ -194,6 +196,7 @@ print("Hoeffding bound:", 2 * np.exp(-2 * 0.3**2 * N))
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方播放清單的講次相符。
 
 ## 參考資料
 

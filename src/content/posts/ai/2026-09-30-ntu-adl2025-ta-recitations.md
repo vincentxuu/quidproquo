@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **本文依據 ADL Fall 2025（114-1，2025/09/01–12/15）。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列的第 18 篇，也是最後一篇。講課篇只放助教課連結，助教課的內容集中在這裡講。
 
@@ -39,7 +39,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=zuiACAhRUzA
@@ -56,6 +56,10 @@ title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的兩支 PyTorch 助教影片（Tutorial 17:45、Debugging 11:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章對這兩支的說法來自助教 Colab。確認的中介資料：兩支都是 2023-09-07 上傳，說明欄寫 2023/09/07、Lectured by Yen-Ting Lin 林彥廷，與文章「2023 年秋季、林彥廷講授」一致。文中其他助教影片（含依自動字幕整理的 Deployment）未嵌入，這次未重新核對。
 
 ## 先看全貌
 
@@ -251,6 +255,8 @@ title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：嘗試依字幕核對兩支 PyTorch 助教影片，但取不到字幕，內容未核對；確認錄製日期與講者與文章一致。
 
 ## 參考資料
 

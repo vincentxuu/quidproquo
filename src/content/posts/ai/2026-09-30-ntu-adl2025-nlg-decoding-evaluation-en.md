@@ -26,7 +26,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is post 12 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) taught this lecture on 10/27, right after the midterm break. The [course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) marks that week as Virtual.
 
@@ -42,7 +42,7 @@ There is no homework attached to this lecture. The series-wide [access grade](/p
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=1d9WhPS6gv8
@@ -59,6 +59,10 @@ Original videos: [ADL 9.1: Natural Language Generation (YouTube, in Mandarin)](h
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (9.1 and 9.2) were read. 9.1: NLG tasks, conditional LM, teacher forcing, exposure bias and "one wrong step, all wrong", scheduled sampling (including the image-captioning experiment), and why LLMs skip scheduled sampling given their data volume. 9.2: greedy not being globally optimal, beam search and the beam-size trade-off (including the "What do you do for a living?" example), the long-tail problem of sampling and the white-rabbit example, top-k, the dynamic set of nucleus sampling, temperature not being a decoding algorithm, and why the full probability distribution should not be fed as the next input (the happy-laugh / sad-cry example). All match the article, and no video claim needed correcting. The article's version note is also confirmed: both videos were uploaded on 2025-10-27 while the description says 2023/10/26 and credits Hung-Yi Lee for the slides. 9.3 to 9.5 are not embedded and were not checked; the BLEU, ROUGE, perplexity, LLM-Eval and RL for NLG sections rest on the slides.
 
 ## From language models to conditional LMs
 
@@ -200,6 +204,8 @@ Next: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/202
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
+- 2026-10-10: Checked the video content against its transcript. Confirmed 9.1 and 9.2 match the article; the version note (uploaded 2025-10-27, description dated 2023/10/26) is accurate.
 
 ## References
 

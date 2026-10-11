@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [CS229: Machine Learning](https://cs229.stanford.edu/) is Stanford CS's main machine learning course, three to four units, cross-listed with statistics as STATS 229. It is not an AI survey and it is not a deep learning course. It is the course that walks through the **mathematical derivations** behind supervised learning, unsupervised learning, learning theory, and reinforcement learning.
 
@@ -28,13 +28,24 @@ This piece was written after reading through the notes PDF chapter by chapter, p
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is a course-level guide, not a single lecture. The video below, Spring 2026 Lecture 1 (Introduction), is a related supplement from the public Stanford Online playlist. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=DATnpGoGhM8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
 
 Course and recording entries:
 
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Stanford CS229 Machine Learning, Spring 2026 playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2026 Lecture 1 (about 37 minutes) taught by Tengyu Ma; the transcript is the course introduction: prerequisites, the AI tools policy, definitions of machine learning (1959 and Tom Mitchell 1998), the supervised/unsupervised/reinforcement taxonomy and previews of LLMs and diffusion models. It fits the article as a course-level overview, and the article makes no finer claims about this video. The Lecture 14 opening, the attention-variants quote and the descriptions of Lectures 16/18/20 come from other videos, not this one, and were not re-read here.
 
 ## The hard facts
 
@@ -182,6 +193,8 @@ The one-line version: **old recordings with new notes, assignments with the star
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The public Spring 2026 playlist (17 videos) is live; embedded Lecture 1 as a related supplement for this course-level article.
+- 2026-10-10: Checked the video content against its transcript. The embedded Lecture 1 matches the topic; quotes from other lectures are not in this video and were not re-read.
 
 ## References
 

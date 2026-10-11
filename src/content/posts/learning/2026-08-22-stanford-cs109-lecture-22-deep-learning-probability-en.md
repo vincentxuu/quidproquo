@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-22-deep-learning-probability)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is article 23 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 22: Deep Learning** (Jul 30), taught by Chris Gregg. It follows the official [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture22-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture22-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture22-LLMPrompts.pdf).
 
@@ -23,15 +23,25 @@ This remains **L2**. The four-page worksheet has P1–P7 plus an optional multi-
 
 ## Course video sources
 
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage’s Videos link redirects to Stanford Canvas login and requires course access. The official recording entry is linked rather than a public player.
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=MSfI6TTgyl4
+title: Stanford CS109 I Deep Learning I 2022 I Lecture 25
+```
+
+Original videos: [Stanford CS109 I Deep Learning I 2022 I Lecture 25](https://www.youtube.com/watch?v=MSfI6TTgyl4)
 
 Official sources:
 
 - [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
 - [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
 - [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
 
-Checked on 2026-10-10.
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 25, "Deep Learning" (about 80K characters): the video presents a neural network as stacked logistic regressions trained with the sigmoid, MLE and the chain rule, matching this lecture's topic. Softmax is only mentioned briefly at the end (switching to softmax and a multinomial loss), and the word backpropagation never appears in the transcript, so the P2 softmax section and the layer-by-layer backprop hand calculations in P5 and P6 are not video content; there is also no calibration problem.
 
 ## P1: Calibration and baselines
 
@@ -100,6 +110,8 @@ Finally compare logistic regression and networks by expressive power, parameter 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the 2022 Stanford Online public recording on the same topic; the Summer 2026 original is behind Canvas sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The video topic matches; softmax is only mentioned briefly, and backpropagation and the worksheet problems are not video content, as the check note says.
 
 ## References
 

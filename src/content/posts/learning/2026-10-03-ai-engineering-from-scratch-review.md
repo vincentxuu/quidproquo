@@ -25,6 +25,8 @@ glossary:
 
 > 🌏 [English version](/posts/learning/2026-10-03-ai-engineering-from-scratch-review-en)
 
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
+
 [AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) 是 GitHub 上一套免費、MIT 授權的開源 AI 工程課程。作者 Rohit Ghumare 是 DevRel 出身，[個人網站](https://rohitghumare.com/)列有 Docker Captain、CNCF Ambassador、Google Developer Expert 等頭銜。整套課有 20 個 phase、523 堂，從線性代數排到多 agent 系統與 AI 安全，repo 約有 6.3 萬顆星（2026-10-03 查詢）。
 
 它的做法是「先手刻、再用框架」：每個演算法先用 NumPy 或標準函式庫寫出小版本，再用 PyTorch 之類的框架做同一件事。讀完不只會呼叫 API，也看得懂框架底下在做什麼。
@@ -140,8 +142,19 @@ Phase 19 的專案與軌道分法出自 [README 的 Phase 19 說明](https://git
 - **想學 MCP**：讀 Phase 13 新版那幾課，並開著[官方規格](https://modelcontextprotocol.io/specification/2026-07-28)對照。
 - **想對照大學課程的作業與考試回饋**：參考本站的[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)與 [Berkeley CS189 版本地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)。
 
+## 課程影片來源
+
+已核對課程 GitHub repo 的 README（2026-10-10 即時查看）：課程以文字課程與程式碼為主，頁面沒有列出講課錄影連結（README 內出現的 video 都是課程主題，如影片生成、影片理解）。這項結論只限官方公開頁面。
+
+官方來源：
+
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
+
+查核日期：2026-10-10。
+
 ## 更新紀錄
 
+- 2026-10-10：補上影片狀態，核對課程 repo 未列講課錄影。
 - 2026-10-03：改寫成課程介紹文。新增課程結構、各 phase 內容地圖、適合對象與時數、Phase 1 第 5 課走讀與搭配資源；審查發現縮成「學之前要知道的限制」，移除審查流程圖、宣稱與實際的落差表與長錯誤清單；星數更新為 6.3 萬。
 
 ## 參考資料

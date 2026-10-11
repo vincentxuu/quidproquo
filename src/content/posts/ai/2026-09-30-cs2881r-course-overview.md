@@ -37,11 +37,14 @@ glossary:
 
 ## 課程影片來源
 
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對：有第 1–4、6–12 講的講課錄影、第 5 與第 8 講的學生實驗影片、第 8 講的開場錄影與期末口頭報告；第 5 講沒有客座講課錄影。同一播放清單也混有 Fall 2026 的第 1、3 講，那是另一個學期，本系列不使用。
 
 課程與錄影入口：
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 課站在哪裡：網址沿用舊的 ML theory seminar
 
@@ -165,6 +168,7 @@ HW0 頁自己也說，去年的講課和筆記可以參考，但領域變化快�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方播放清單，沒有對應本篇的錄影，狀態維持僅附官方入口。
 
 ## 參考資料
 

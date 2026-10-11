@@ -26,17 +26,17 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **This guide is based on the public Fall 2025 (114-1) materials of [Prof. Hung-Yu Kao's Natural Language Processing course at NTHU](https://github.com/IKMLab/NTHU_Natural_Language_Processing).** It is part 10 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. The previous part is [the Hugging Face BERT tutorial and HW3 multi-output learning](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en).
 
 The official materials are the slides [W5_decoding.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W5_decoding.pdf) (63 pages, titled "Decoding Strategies and Evaluations for Natural Language Generation") and the [Week 7 Tue.](https://www.youtube.com/live/NtPrXea8qSE) recording (about 98 minutes, in Mandarin).
 
-First, which recording to watch. The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) puts this deck and the Hugging Face tutorial in the same W7 row, and its Topics column ("Python for text tutorial") is a syllabus template that doesn't match the content. I read the captions for Week 7 Tue.: it runs from the opening on decoding all the way to MMLU, and the professor closes with "that's it for decoding and evaluation today." [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) that week plays the Hugging Face tutorial (frames at minutes 5, 25, and 50 show the tutorial slides), which the previous part covers. For this unit, W7 Tue. alone is enough.
+First, which recording to watch. The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) puts this deck and the Hugging Face tutorial in the same W7 row, and its Topics column ("Python for text tutorial") is a syllabus template that doesn't match the content. I read the captions for Week 7 Tue.: it runs from the opening on decoding all the way to MMLU, and the professor closes with "that's it for decoding and evaluation today." [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) that week plays the Hugging Face tutorial (this video has no captions; frames at minutes 5, 25, and 50 show the tutorial slides, so its content could not be checked against a transcript, though in the Tuesday captions the professor announces that Thursday is the TA session), which the previous part covers. For this unit, W7 Tue. alone is enough.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=NtPrXea8qSE
@@ -53,6 +53,10 @@ Original videos: [Week 7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)、[W
 Course and recording entries:
 
 - [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Week 7 Tue. transcript through; the quoted remarks (greedy results being "rigid", top-k/top-p missing from the slides and explained orally with the 0.9/0.8 defaults and the 0.6+0.2 example, beam size defaulting to 2 with "three would already be impressive", the MMLU and ACL remarks, and the closing line about decoding and evaluation) all appear, and the professor announces that Thursday is the TA session. The Week 7 Thu. YouTube page has no captions, so its content could not be checked; "it is the TA session" rests on frame captures and Tuesday's announcement.
 
 ## The setup: training has answers, testing doesn't
 
@@ -182,6 +186,8 @@ On MMLU, the professor notes that such datasets basically provide no training da
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Everything stated about Week 7 Tue. is supported; Week 7 Thu. has no captions and is marked as not verifiable.
 
 ## References
 

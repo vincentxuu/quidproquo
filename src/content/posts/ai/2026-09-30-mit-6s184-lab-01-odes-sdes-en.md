@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > **Version note**: This post covers Lab 1 of [MIT 6.S184](https://diffusion.csail.mit.edu/2026/index.html) IAP 2026: [`labs/lab_one.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/labs/lab_one.ipynb) and the official solution [`solutions/lab_one_complete.ipynb`](https://github.com/eje24/iap-diffusion-labs/blob/2026/solutions/lab_one_complete.ipynb) (branch `2026`), cross-referenced with Algorithms 1–2, Example 6, and Remark 20 of the [lecture notes](https://diffusion.csail.mit.edu/2026/docs/lecture_notes.pdf). Checked on 2026-09-30. It explains what each question tests and does not reproduce full solutions.
 
@@ -32,12 +32,13 @@ glossary:
 [Lecture 1](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en) gave two update rules, Euler and Euler–Maruyama. Lab 1 has you turn them into code and use them to watch three kinds of SDEs. No neural network is trained anywhere in this lab; every vector field is written by hand. The point is to get a feel for simulating an SDE before anything is learned.
 
 ## Course video sources
-
-Use the official course entry to check the lecture covered by this article; a directly embeddable public recording for this article has not been verified in this update.
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
 
 Course and recording entries:
 
 - [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Before you start
 
@@ -144,6 +145,7 @@ The lab ends with a short derivation in two parts:
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”
 
 ## References
 

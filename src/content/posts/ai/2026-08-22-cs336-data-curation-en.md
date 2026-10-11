@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs336-data-curation)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This post covers **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**, taught by Percy Liang on May 13, 2026. Its primary source is the official executable lecture, [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py).
 
@@ -23,14 +23,16 @@ Lecture 13 finds raw sources. This lecture decides what enters the token stream.
 
 ## Course video sources
 
-The video below is the corresponding Spring 2026 lecture published by Stanford Online.
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 14 (Data, day two). The captions cover language ID, quality classifiers (fastText), toxicity filtering, hash and near duplicates (MinHash, Jaccard), mixing, epoch caps, regression-based mixing, teacher-generated reasoning data and synthetic SWE tasks. The captions only discuss toxicity filtering, not PII or adult-content categories, so that sentence now marks those as site additions; the rest was not compared line by line.
 
 ```youtube
 url: https://www.youtube.com/watch?v=5sxHosTLPF8
-title: CS336 Spring 2026 Lecture 14: Data
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
 ```
 
-Original videos: [CS336 Spring 2026 Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
 
 Course and recording entries:
 
@@ -41,7 +43,7 @@ Course and recording entries:
 
 Raw web data passes through format parsing, language identification, and main-text extraction before handling short pages, templates, ads, code ratios, repeated symbols, and low-quality prose. Heuristics are cheap and interpretable. Classifiers capture more complex signals but amplify the preferences of their reference dataset.
 
-Safety and privacy filters search for personal information, malicious material, adult content, and policy categories. False negatives retain risky content; false positives can systematically remove dialects, communities, or sensitive topics. Thresholds require source-level evaluation, not only a global retention rate.
+The video covers toxicity filtering (a classifier trained on the Jigsaw toxic comments data); personal information, adult content, and other policy categories are site additions not covered in the video. False negatives retain risky content; false positives can systematically remove dialects, communities, or sensitive topics. Thresholds require source-level evaluation, not only a global retention rate.
 
 A reliable pipeline preserves filter reasons and scores per document rather than emitting only a cleaned corpus. This supports threshold changes, bias analysis, and tracing back to provenance.
 
@@ -78,6 +80,8 @@ This lecture has a Spring 2026 schedule entry and a complete executable artifact
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
+- 2026-10-10: Checked the video content against its transcript. The captions only cover toxicity filtering; PII and adult-content categories are now marked as site additions.
 
 ## References
 

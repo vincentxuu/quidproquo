@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 想像你請一個助理查資料：他要嘛坐在位子上憑記憶硬答，要嘛悶頭一直點連結卻從不說明在找什麼。前者答錯時你無從除錯，後者失控時你不知他要去哪。這個兩難，就是 Week 4 兩篇主讀物要解決的事。
 
@@ -28,11 +28,14 @@ draft: false
 
 ## 課程影片來源
 
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## ReAct：想、做、看的交錯迴圈
 
@@ -84,6 +87,7 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-09-29：HW1 改版（不再分 Part A／Part B、語料換成企業 email、記憶與人類介入納入作業要求），同步改寫開頭、ReAct／MemGPT 的「怎麼做」與課程位置段落
+- 2026-10-10：重查影片狀態。官方 Logistics 頁寫明錄影需登入課程 Canvas，實際開啟入口確認有登入牆，也沒有找到公開錄影；狀態改為需登入。
 
 ## 參考資料
 

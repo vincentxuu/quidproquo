@@ -24,11 +24,15 @@ draft: false
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：Spring 2026 官方 YouTube 播放清單（25 支講課）可公開觀看；Spring 2025 的正式講課錄影放在 bCourses，開啟後導向 CalNet 登入頁，公開的只有 Google Drive 上的 screen-only 備份錄影；Fall 2026 不在這次查核範圍。
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+查核日期：2026-10-10。
 
 ## 四個版本並排看
 
@@ -144,6 +148,7 @@ Spring 2025 的講課 notes 和整本 `machlearn.pdf` 都能匿名下載，作�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。確認 Spring 2026 播放清單公開、Spring 2025 正式錄影需 CalNet 登入；本篇為總覽，狀態維持僅附官方入口。
 
 ## 參考資料
 

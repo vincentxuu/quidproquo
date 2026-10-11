@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs149-locality-communication-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 7 篇，接續 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)，範圍是 Lecture 6「Program Optimization 2: Locality and Communication」（2025-10-09）。PDF 內的標題多了一個詞：「Locality, Communication, and Contention」。
 
@@ -37,19 +37,21 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Fall 2025 教材為準；下列 Fall 2023 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
 
 ```youtube
 url: https://www.youtube.com/watch?v=Mhdny2JNhmc
-title: CS149 2023 Lecture 6 錄影（補充材料）
+title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention
 ```
 
-原始影片：[CS149 2023 Lecture 6 錄影（補充材料）](https://www.youtube.com/watch?v=Mhdny2JNhmc)
+原始影片：[Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention](https://www.youtube.com/watch?v=Mhdny2JNhmc)
 
 課程與錄影入口：
 
 - [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
 - [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 6 - Performance Optimization II: Locality, Communication, and Contention》（1:17:25）。字幕涵蓋 message passing 的 send/recv 與死鎖、grid solver、blocking、arithmetic intensity、inherent 與 artifactual communication、contention，並以 roofline 收尾，主題與本文一致；NUMA 與 high watermark 在字幕中沒有出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 共享位址空間只是抽象
 
@@ -224,6 +226,8 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Fall 2023 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題與本文一致；NUMA 與 high watermark 不在影片中。
 
 ## 參考資料
 

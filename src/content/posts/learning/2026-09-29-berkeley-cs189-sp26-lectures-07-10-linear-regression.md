@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）整理，範圍是 Lecture 7 後半到 Lecture 10（2/10–2/19）。[上一篇](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)停在 Gaussian mixture 的 log-likelihood 沒有封閉解；這一段換到監督式學習，第一個模型就是線性回歸。
 
@@ -30,23 +30,28 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=0YLmbbERr0g
-title: 影片
+title: Lecture 7 錄影：Mixture of Gaussians & Linear Regression
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=202aSB1p8do
-title: 影片
+title: Lecture 8 錄影：Linear Regression
 ```
 
-原始影片：[影片](https://www.youtube.com/watch?v=0YLmbbERr0g)、[影片](https://www.youtube.com/watch?v=202aSB1p8do)、[影片](https://www.youtube.com/watch?v=lrU8Vn0G44w)
+原始影片：[Lecture 7 錄影：Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 錄影：Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 7 影片（0YLmbbERr0g，約 80 分鐘）前段收尾 GMM（K-means 與混合高斯的損失比較、EM）、簡介梯度下降，後段開始線性回歸與判別式／生成式的區分，結束在對權重向量 w 做 MLE 求導之前（講者說下週先複習向量微積分）。Lecture 8 影片（202aSB1p8do，約 78 分鐘）講線性回歸、欄空間與投影的幾何、Moore-Penrose 偽逆與過擬合，結束在要引入正則化之前（講者說下堂再講）。因此文中 ridge、MAP、lasso、λ 的選擇與 winner's curse 等段落來自 Lec 9–10 的投影片，這兩支影片沒有涵蓋；Plotly 互動圖、Cauchy 對比圖與華爾街日報例子在字幕中找不到。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 官方材料與讀取範圍
 
@@ -243,6 +248,8 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 7、Lec 8 影片主題與講次相符，但影片在引入正則化前就結束，ridge／MAP／lasso 相關段落已標明來自 Lec 9–10 投影片。
 
 ## 參考資料
 

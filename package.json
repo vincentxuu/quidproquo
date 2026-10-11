@@ -23,6 +23,7 @@
     "check:chat-style": "node scripts/check-chat-style.mjs",
     "check:series-order": "node scripts/check-series-order.mjs",
     "check:lang-parity": "node scripts/check-lang-parity.mjs",
+    "check:course-videos": "node scripts/check-course-videos.mjs",
     "check:links": "node scripts/check-external-links.mjs",
     "check:seo-smoke": "node scripts/check-seo-smoke.mjs",
     "check:glossary": "node scripts/check-glossary-coverage.mjs",

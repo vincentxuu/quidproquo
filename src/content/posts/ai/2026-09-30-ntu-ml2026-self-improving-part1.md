@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)5/8「模型的自我成長 - 1」。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 15 篇。上一篇是 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)。再往前的 [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction) 問的是「模型能不能改自己的錯」；這一篇往下問一層：**模型能不能不靠人，自己變強？**
 
@@ -36,7 +36,7 @@ glossary:
 
 ## 課程影片來源
 
-影片來源已對照官方課程頁；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=s06mSAGN4gM
@@ -48,6 +48,10 @@ title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 s06mSAGN4gM（1:03:44）字幕全文已讀。核對 I. J. Good 與盧比孔河典故及「2028 年底 60%」、「自我成長是人類漸漸放手」、機器學習三步驟、自我修正後答案當標準答案（Constitutional AI）、Eureka／REvolve／RF-Agent 與傳接球例子、多巴胺比喻、RLHF／RLAIF、verbalized／ensemble／certainty 三類 loss、TENT、SUTA（林冠廷、2022）、Unsupervised RLVR 兩項觀察、TTT、entropy 少算一項的說明（黃維萍）、Absolute Zero／R-Zero／proposer-solver-verifier、第 15／30／45 步與千問 0.6B／1.7B／4B 的曲線、Oh-no moment、SPICE／R-Few、PostTrainBench 的 H100 十小時設定與 20 萬筆改 2 萬筆、51 分與 18 分、作弊行為、weak-to-strong 與 Anthropic 4 月實驗、「2026 年 5 月還在河邊」，皆與字幕一致，未發現錯誤。文中的 Opus 4.5／Gemma3-4B-Base 型號細節、各論文 arXiv 編號與投影片頁碼屬講義內容，字幕沒有逐一念出，無法由影片驗證。
 
 ## 先備：這堂課假設你懂機器學習的三個步驟
 
@@ -222,6 +226,8 @@ Anthropic 今年 4 月的文章（[短版](https://www.anthropic.com/research/au
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
 
 ## 參考資料
 

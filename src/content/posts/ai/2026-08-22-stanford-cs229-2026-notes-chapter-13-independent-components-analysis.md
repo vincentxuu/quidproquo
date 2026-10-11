@@ -15,18 +15,35 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 13 章（印刷頁 173–178）的逐章導讀，依官方主講義整理，**不是某一季錄影或課程進度的重建**。本章以 cocktail party problem 為主脊：多支麥克風錄到多個說話者的線性混合，能否只靠觀測把來源拆回來？
 
 ## 課程影片來源
 
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方附 Autumn 2018 公開錄影作為舊版補充，未把單支影片當成本章逐段來源。
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=dyb_cFywuik
+title: Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=YQA9lLdLig8
+title: Lecture 16 - Independent Component Analysis & RL | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+原始影片：[Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018](https://www.youtube.com/watch?v=dyb_cFywuik)、[Lecture 16 - Independent Component Analysis & RL | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=YQA9lLdLig8)
 
 課程與錄影入口：
 
-- [CS229 Autumn 2018 官方錄影（舊版補充）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。2018 年秋季 Lecture 15（約 79 分鐘）約前 80% 是 PCA，後 20% 才開始 ICA：雞尾酒會問題、混合矩陣，以及「不知道哪個是 s1／s2」與正負號兩種無法恢復的資訊，與本章前兩節相符。Lecture 16（約 78 分鐘）前約 60% 接著講 ICA：來源若是高斯則有旋轉模糊、無法做 ICA，密度轉換須乘上 W 的行列式，再以最大概似推導演算法，與本章後三節相符；約 62% 之後轉去強化學習的 MDP（屬第 19 章）。兩支都是 2018 年的講法，不是 2026 版講義的逐段來源。
 
 ## 從混合矩陣到解混矩陣
 
@@ -85,6 +102,8 @@ $$
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 YouTube 有主題相符的公開播放清單（Spring 2026 或舊版 Autumn 2018），已嵌入 2 支相關補充影片。
+- 2026-10-10：依字幕核對影片內容。確認 Lecture 15 後 20% 與 Lecture 16 前 60% 與本章相符，其餘為 PCA 與 MDP。
 
 ## 參考資料
 

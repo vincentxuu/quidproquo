@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the October 23 session of the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site. The main materials are [Boaz Barak's opening video](https://youtu.be/8NL1NAMrJxY) (10 minutes) and his 9-slide deck, the guest slides of [Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) and [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc), and the student experiment's [video](https://youtu.be/JXvHJheHE10), [GitHub](https://github.com/ItamarRocha/scheming-exp8), and [LessWrong post](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu). **The site lists no recording of the two guest talks, and the official 2025 YouTube playlist (checked 2026-10-01) has only Boaz's 10-minute opening and the student experiment for this session**, so this post describes the guest content from slide text only and does not fill in what the speakers said aloud. All facts were checked against these materials on 2026-09-30. This lecture on its own rates **A2**: the opening video, three slide decks, and the full student experiment are public, but the recordings of the main talks are not.
 
@@ -36,18 +36,23 @@ glossary:
 
 ## Course video sources
 
-Recording links have been checked against the official course page for the edition used by this article.
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10. For Lecture 8 the playlist lists only Boaz Barak’s roughly 10-minute opening video and the student experiment video; the two guest talks have no recording.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8NL1NAMrJxY
-title: Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)
+title: AI Safety (CS 2881) Lecture 8: Scheming
 ```
 
-Original videos: [Boaz Barak, AI Safety (CS 2881) Lecture 8: Scheming (YouTube opening video)](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+Original videos: [AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
 
 Course and recording entries:
 
 - [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full captions of “Lecture 8: Scheming” (10:17; the description says the guest lectures were not captured) and confirmed the definition and list of bad behaviors, “low-compute training cannot undo high-compute training” and “neither obscurity nor stupidity works”, the systemic versus idiosyncratic misalignment contrast (hallucination, 0.1% of traffic), the misalignment cone, using the same weights as actor and monitor, instrumental convergence, and the hand-off to Mario. The captions never say Jonathan Swift's name, so the post now says “a famous saying”.
 
 ## Start with a scene
 
@@ -69,7 +74,7 @@ He starts with a loose definition of bad behavior: the prompt says A (or the mod
 
 Then come two ideas he calls intuitions he isn't sure are true:
 
-1. **Low-compute training can't undo what high-compute training put in.** He adapts Jonathan Swift's line that you cannot reason a person out of a position he did not reason himself into: if heavy training gave a model some bad tendency, a short round of safety training is just lipstick.
+1. **Low-compute training can't undo what high-compute training put in.** He adapts a famous saying (the captions do not name its source) that you cannot reason a person out of a position he did not reason himself into: if heavy training gave a model some bad tendency, a short round of safety training is just lipstick.
 2. **An alignment strategy can't rely on the model being weak.** The slide leaves a blank: "If your alignment strategy relies on the model not ______, then you need another alignment strategy," with candidates such as knowing about misalignment, being capable of hacking or lying, knowing alignment methods, and being situationally aware. He closes with an old security lesson: security by obscurity doesn't work, and neither does "security by stupidity."
 
 Next is the lecture's most important distinction:
@@ -211,6 +216,8 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. The video is only Boaz's opening and matches the post; the captions do not name Jonathan Swift, so that was reworded.
 
 ## References
 

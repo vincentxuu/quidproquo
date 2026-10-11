@@ -15,17 +15,18 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-lab3-lora-evaluation-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 官方 2026 repo](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) 的 Lab 3 是 **Lab 3：LoRA 微調與 LLM-as-a-Judge 評估**。以 LFM2-1.2B 建立 chat template 與生成流程，用 LoRA 做風格調適，再透過 OpenRouter 與 Opik 組合 judge workflow。本文固定使用 2026 branch，避免 master 後續更新造成內容漂移。
 
 ## 課程影片來源
-
-請由官方課程入口核對本文對應講次；本次未核實可直接嵌入的該篇公開錄影。
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由官方 GitHub notebook提供）。
 
 課程與錄影入口：
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
 
 ## 開始前
 
@@ -53,6 +54,7 @@ draft: false
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
 
 ## 參考資料
 

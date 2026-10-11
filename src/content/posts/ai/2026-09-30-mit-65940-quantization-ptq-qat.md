@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [MIT 6.5940](https://hanlab.mit.edu/courses/2024-fall-65940) Fall 2024。** 這是 [MIT 6.5940 導讀](/posts/ai/2026-09-30-mit-65940-course-overview)系列第 6 篇，接續[第 5 講：量化 I](/posts/ai/2026-09-30-mit-65940-quantization-basics)。
 
@@ -39,19 +39,22 @@ glossary:
 **Fall 2026 對照**：Fall 2026 的[第 6 講投影片](https://www.dropbox.com/scl/fi/4zry0dea0hrykoa2aoqp0/Lec06-Quantization-II.pdf?rlkey=cb7gol6t8jcrb8kyyxpxwjzfb&dl=0)（80 頁）與[錄影](https://www.youtube.com/watch?v=_sHTMuOQY5A)已經上線。Lecture Plan 五項一字不差。逐頁比對只少了兩頁：一頁重複的線性量化回顧，以及 HAQ 在 edge／cloud 硬體上的位元分配圖（F24 第 80 頁）。
 
 ## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
 
 ```youtube
 url: https://www.youtube.com/watch?v=wrcgWm_nUeE
-title: EfficientML.ai Lecture 6 - Quantization Part II（MIT 6.5940, Fall 2024）
+title: EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)
 ```
 
-原始影片：[EfficientML.ai Lecture 6 - Quantization Part II（MIT 6.5940, Fall 2024）](https://www.youtube.com/watch?v=wrcgWm_nUeE)
+原始影片：[EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wrcgWm_nUeE)
 
 課程與錄影入口：
 
 - [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：per-tensor 與 per-channel 量化、group 量化、裁切離群值（clipping）的校準方法、PTQ 與 QAT、straight-through estimator、二值／三值網路與 XNOR／popcount、混合精度（HAQ）。主題與講次和本文相符；字幕轉壞了 AdaRound、VS-Quant 等專名，這些名稱以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 上一講留下的問題
 
@@ -238,6 +241,8 @@ g_W = ∂L/∂W = ∂L/∂Q(W)
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時核對官方課程頁，講次與影片連結一致且影片公開，狀態改為「已附影片」。
+- 2026-10-10：依字幕核對影片內容。L6 影片主題與講次相符，抽樣未發現與本文矛盾，正文未改。
 
 ## 參考資料
 

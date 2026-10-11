@@ -18,7 +18,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs221-ai-principles)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [CS221: Artificial Intelligence: Principles and Techniques](https://stanford-cs221.github.io/) is Stanford CS's introduction to AI. It runs twice a year, carries a 200-level number, and is the entry point to the whole AI track. It teaches search, Markov decision processes, games, Bayesian networks and logic. Deep learning is one lecture.
 
@@ -28,11 +28,23 @@ What follows covers the hard facts, how the course defines AI, the four-layer sp
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+This article is a course-level guide, not a single lecture. The video below, Autumn 2025 Lecture 1 (course overview), is a related supplement; each lecture has its own guide article in this series. The official playlist is public and lists all 20 lectures.
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
 
 Course and recording entries:
 
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
 - [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the whole transcript (1:06:26). This is Percy Liang's first lecture of Autumn 2025: he says it is his 14th year at Stanford and 13th time teaching the course, with quite large changes this year; it covers the definition and brief history of AI, the four abilities perceive/reason/act/learn under resource constraints (computation and data), expressing algorithms as tensors, the learning-by-doing philosophy of the homeworks, and a preview of AI's societal issues, matching this article's description of the course. The transcript does not discuss the dropped constraint-satisfaction material, the lecture repo, or assignment and grading details; those claims rest on welcome.py and the official pages, not this video.
 
 ## The hard facts
 
@@ -188,6 +200,8 @@ For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official playlist is public with 20 lectures; embedded Lecture 1 as a related supplement because this is a course-level article.
+- 2026-10-10: Checked the video content against its transcript. Read the whole transcript; it matches the article's description of the course; noted that the dropped constraint-satisfaction material, lecture repo and assignment/grading claims rest on other sources, not this video.
 
 ## References
 

@@ -28,7 +28,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 13 篇。ADL Fall 2025（114-1，2025/09/01–12/15）在 11/03 上這一講，[課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的同一列還有「Final Project Announcement」與助教課 LLM Deployment，這一週是實體課（Physical）。
 
@@ -51,7 +51,7 @@ glossary:
 
 ## 課程影片來源
 
-以下沿用本文已列出的課程影片來源；尚未逐支重新驗證可播放狀態，不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=3BAFtBS27UI
@@ -68,6 +68,10 @@ title: ADL 10.2: Model Safety（YouTube）
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 10.1（24:53）與 10.2（23:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章的內容依講義頁碼，沒有把任何說法歸給影片口述。兩支的上傳日是 2025-11-06、說明欄寫 2025/11/03，並註明投影片取材自 Stanford 與 CMU 課程。
 
 ## Bias → Fairness
 
@@ -190,6 +194,8 @@ title: ADL 10.2: Model Safety（YouTube）
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
+- 2026-10-10：嘗試依字幕核對 10.1、10.2，但兩支都取不到字幕，內容未核對；文章未改動。
 
 ## 參考資料
 

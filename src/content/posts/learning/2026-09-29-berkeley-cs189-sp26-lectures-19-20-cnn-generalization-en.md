@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): the Lecture 19 slides [lec19.pdf](https://drive.google.com/drive/folders/12L6CYQ-h128-bzFPU1RvX1aJnFvWQ6Hi) (4/2, [video](https://www.youtube.com/watch?v=-4PpBUsB_S4)), the Lecture 20 slides [lec20.pdf](https://drive.google.com/drive/folders/1Ocw82WCz2SiUEDY9uofdfyZuPX4GrfOw) (4/7, [video](https://www.youtube.com/watch?v=4LrCyN7URuY)), and [Discussion 9](https://drive.google.com/file/d/1Aa40Z2Ufa91YBNAlhfwsHG2JCT23T2SA/view) (with [solutions](https://drive.google.com/file/d/16n2T86Vx2bneCubkQ7b52MV8c8wwFUyF/view) and a [walkthrough video](https://www.youtube.com/playlist?list=PL-ysCubq-Sa8dQDvhNbABwFT3JWWBTRAW)). All of them are available without a login, and the course rates A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
@@ -40,7 +40,7 @@ Assigned reading (Bishop, [Deep Learning: Foundations and Concepts](https://www.
 
 ## Course video sources
 
-These recordings correspond to the material discussed here. No unverified timestamp is supplied.
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=-4PpBUsB_S4
@@ -57,6 +57,11 @@ Original videos: [Lecture 19 video](https://www.youtube.com/watch?v=-4PpBUsB_S4)
 Course and recording entries:
 
 - [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 19 video (-4PpBUsB_S4, about 80 minutes) starts from vanishing gradients and covers the O(N·L²) cost of finite differences, initialization and the symmetry problem of all-zero weights, batch normalization with its moving averages at inference, and the input-scale problem (meters versus millimeters); the later part starts CNNs (templates and edge detection) and ends with an edge-detection demo, before pooling. The Lecture 20 video (4LrCyN7URuY, about 71 minutes) covers pooling and local invariance, receptive fields, weight sharing, VGG and ResNet, a single held-out validation set replacing cross-validation, transfer learning with frozen layers, early stopping, dropout, and double descent. The exact He-initialization coefficient, the Nakkiran paper name, and Discussion 9 rely on the slides only and were not checked item by item against the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Lec 19, first part: finishing backprop
 
@@ -173,6 +178,8 @@ Both problems in Discussion 9 are reused from Fall 2025 discussions (labeled F25
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recordings, so the status is now Videos included.
+- 2026-10-10: Checked the video content against its transcript. Both videos match their lecture topics; the Lec 19 video ends before pooling, which is covered in the Lec 20 video.
 
 ## References
 

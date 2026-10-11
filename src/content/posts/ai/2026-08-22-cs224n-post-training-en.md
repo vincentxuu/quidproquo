@@ -15,18 +15,29 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-post-training)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 8 on January 29, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf), **Post-training (RLHF, SFT, DPO)**, covers instruction fine-tuning, RLHF, InstructGPT/ChatGPT, limitations of RL and reward modeling, DPO, and human preference data versus AI feedback.
 
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below.
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=35X6zlhoCy4
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma
+```
+
+Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma](https://www.youtube.com/watch?v=35X6zlhoCy4)
 
 Course and recording entries:
 
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 10 (about 80 minutes; the YouTube title credits Archit Sharma, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers prompting, instruction fine-tuning (SFT), preference data and a reward model using summarization as the running example (including Bradley-Terry), why a KL penalty to the initial model is added, and then the DPO derivation (after about 70%), matching this article's main line. The speaker says the course does not assume reinforcement-learning background and does not go into PPO/REINFORCE (no proximal or policy-gradient derivation in the transcript), so the PPO objective section rests on the Winter 2026 slides alone; there is also no discussion of AI feedback, Constitutional AI or LLM-as-judge, so the "human and AI feedback" and quality-control sections are likewise not video content.
 
 ## Next-token prediction is not user assistance
 
@@ -93,6 +104,8 @@ Winter 2026 recordings are not public. The deck cover retains a stale “Lecture
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. The 2024 video covers SFT, reward models, the KL penalty and DPO, matching the article's main line; PPO details and AI feedback are not in the video and are marked as not video content.
 
 ## References
 

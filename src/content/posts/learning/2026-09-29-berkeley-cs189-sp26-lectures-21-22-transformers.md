@@ -25,7 +25,7 @@ glossary:
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成。第 21 講（4/9）和第 22 講（4/14）共用同一份 119 頁的講義 [Lecture 21 Attention and Transformers](https://drive.google.com/file/d/17Jb-uJK9KaI0lytfHUN95LztVAMLX0Pt/view)，兩堂各有一支錄影（[Lec 21](https://www.youtube.com/watch?v=mqaFEvi5rWE)、[Lec 22](https://www.youtube.com/watch?v=syp1pSf_DYY)）。配套的是 [Discussion 10](https://drive.google.com/file/d/16H_chNl76tHPrRUkf6T1G0pQaM1W0eKm/view)，附[解答](https://drive.google.com/file/d/1QV5d9Mr2XAaYv7QAT_6ttZ37CKBRCdfu/view)和 [walkthrough 影片](https://youtube.com/playlist?list=PL-ysCubq-Sa8nZKoYa7TbLsNlBgXQ3xQR)。以上都能匿名打開，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
@@ -35,7 +35,7 @@ glossary:
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=mqaFEvi5rWE
@@ -52,10 +52,15 @@ title: Lecture 22 錄影：Transformers (ctnd.)
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 21 影片（mqaFEvi5rWE，約 76 分鐘）確為 Transformers 第一講：感受野、TF-IDF（football 的例子）、RNN 與看圖說話（COCO）、soft 與 hard attention、location-based 與 content-based addressing；字幕找不到 Bahdanau 論文與 REINFORCE 的說法，這些只見於講義。Lecture 22 影片（syp1pSf_DYY，約 70 分鐘）從 content-based attention 起講 self-attention、PyTorch 實作、軟性字典與 bank／river 的例子，講到「好的位置編碼要提供唯一表示」就結束；多頭、LayerNorm、殘差只簡短帶過，GQA、class token、KV cache 與可學習對正弦位置編碼的比較在字幕中找不到，只見於講義。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 讀取範圍與限制
 
-我實際打開並讀過的：講義 PDF 的文字層（119 頁）、Discussion 10 題目與解答、兩支錄影的標題。講義裡很多圖（CNN 感受野、看圖說話的注意力熱圖、正弦位置編碼的曲線）沒有文字層，我只轉述投影片上有字的部分。錄影我沒有逐分鐘看完，所以不寫「老師在課堂上說了什麼」。
+我實際打開並讀過的：講義 PDF 的文字層（119 頁）、Discussion 10 題目與解答、兩支錄影的標題。講義裡很多圖（CNN 感受野、看圖說話的注意力熱圖、正弦位置編碼的曲線）沒有文字層，我只轉述投影片上有字的部分。兩支錄影的自動字幕已於 2026-10-10 抽樣比對（見上方「內容核對」），但本文仍以講義為準，不寫「老師在課堂上說了什麼」。
 
 講義在第 58 頁附近有一張「Stopped Here」，註明 content-based attention 移到 Lec 22 講。下面依這個切點分兩段。
 
@@ -219,6 +224,8 @@ Discussion 10 只有兩題，題號旁標著「F25 Dis10」，代表題目沿用
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。兩支影片主題與講次相符；Lec 22 影片在位置編碼開頭結束，多頭／GQA／KV cache 等僅見於講義，並更新「讀取範圍與限制」的說明。
 
 ## 參考資料
 

@@ -24,6 +24,8 @@ glossary:
 
 > 🌏 [中文版](/posts/learning/2026-10-03-ai-engineering-from-scratch-review)
 
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
+
 [AI Engineering from Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) is a free, MIT-licensed AI engineering course on GitHub. Its author, Rohit Ghumare, comes from developer relations; [his site](https://rohitghumare.com/) lists titles such as Docker Captain, CNCF Ambassador, and Google Developer Expert. The course has 20 phases and 523 lessons, running from linear algebra to multi-agent systems and AI safety, and the repo has about 63,000 stars (checked 2026-10-03).
 
 Its method is "build it by hand, then use the framework." Each algorithm first gets a small version in NumPy or the standard library, then the same thing runs through a framework such as PyTorch. By the end you can do more than call an API: you can see what the framework does underneath.
@@ -142,6 +144,20 @@ I had AI agents read the notes lesson by lesson, run the code, and then adversar
 ## Update log
 
 - 2026-10-03: Rewritten as a course introduction. Added the course structure, a content map of every phase, who it suits and how long it takes, a Phase 1 lesson 5 walkthrough, and pairing advice. The audit findings shrank into "Limits to know before you start"; the audit flowchart, the claims-versus-reality table, and the long error list were removed. Star count updated to 63k.
+
+## Course video sources
+
+Checked the course repository README (viewed live on 2026-10-10): the course is text and code, and the page lists no lecture recordings (every "video" in the README is a course topic such as video generation or video understanding). This conclusion applies to the official public page only.
+
+Official source:
+
+- [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
+
+Checked: 2026-10-10.
+
+## Changelog
+
+- 2026-10-10: Added video status after checking that the course repository lists no lecture recordings.
 
 ## References
 

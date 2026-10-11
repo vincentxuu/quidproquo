@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 > **來源年份**：投影片依據 Spring 2026 的 [lecture_6.pdf](https://cs231n.stanford.edu/slides/2026/lecture_6.pdf)；錄影依據 Spring 2025 的 [YouTube L6](https://www.youtube.com/watch?v=aVJy4O5TOk8)。兩者可能有差異，下面會標出。本文是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列第 7 篇，接在 [L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)之後。
 
@@ -45,14 +45,16 @@ glossary:
 
 ## 課程影片來源
 
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 6 講（長度 1:11:07），字幕開場 Zane Durante 自我介紹為這堂的講者，內容有 LayerNorm（BatchNorm 只在開頭帶過）、Dropout、激活函數、AlexNet／VGG／ResNet、初始化、資料擴增、遷移學習與超參數，與本文主題相符；字幕沒有 GoogLeNet 與 Cutout。本文說的「2026 投影片沒有專門講 BatchNorm 的頁面」與錄影只簡短帶過 BatchNorm 相容。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
 
 ```youtube
 url: https://www.youtube.com/watch?v=aVJy4O5TOk8
-title: Stanford CS231N Spring 2025 Lecture 6: CNN Architectures（YouTube）
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures
 ```
 
-原始影片：[Stanford CS231N Spring 2025 Lecture 6: CNN Architectures（YouTube）](https://www.youtube.com/watch?v=aVJy4O5TOk8)
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures](https://www.youtube.com/watch?v=aVJy4O5TOk8)
 
 課程與錄影入口：
 
@@ -244,6 +246,8 @@ y = γ (x − μ) / σ + β
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方來源只有 Spring 2025 版錄影，狀態改為僅附相關補充影片，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。影片主題、講次與講者相符，抽樣核對的概念都在字幕出現；文章對影片沒有需要更正的具體說法，只加標記。
 
 ## 參考資料
 

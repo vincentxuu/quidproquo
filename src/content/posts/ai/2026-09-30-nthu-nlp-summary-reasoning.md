@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 **本文依據清大高宏宇《自然語言處理》Fall 2025（114-1）的官方教材。** 這是 [清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 18 篇，接續 [RAG 助教課＋HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)。
 
@@ -25,7 +25,7 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=_hzMv789JQ8
@@ -38,7 +38,9 @@ title: Week 14 Tue.
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
 
-## 一張時間軸：這門課從哪裡走到哪裡
+查核日期：2026-10-10。
+
+## 一張里程碑圖：這門課從哪裡走到哪裡
 
 Course_summary 的第二頁是一條 NLP 里程碑時間軸，和學期第一堂 [Syllabus](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf) 裡用的是同一張圖。左端是 2000 年前後的 bag of words、vector space、TF-IDF 與 parsing tree，接著是 Bengio 的 neural probabilistic language model 與 2013 年 Google 的 word2vec。2018 年之後標為「Transformer Era」：GPT、BERT、GPT-2、GPT-3，最後是 2022–2024 年的 InstructGPT、ChatGPT 與 LLMs。
 
@@ -168,6 +170,8 @@ Fall 2026 的 [Syllabus-115](https://github.com/IKMLab/NTHU_Natural_Language_Pro
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：嘗試依字幕核對影片內容，但 W14 錄影沒有字幕（只取得標題、約 77 分鐘長度等頁面資料），因此沒有加內容核對記號；文內本來就只依投影片、不對照影片內容，維持不變。另把「一張時間軸」小節標題改成「一張里程碑圖」：它指的是 NLP 歷史里程碑圖，不是影片時間戳，避免與影片時間戳混淆。
 
 ## 參考資料
 

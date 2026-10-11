@@ -16,7 +16,7 @@ draft: false
 
 > 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的公開教材。系列入口是 [Berkeley CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
@@ -26,7 +26,7 @@ draft: false
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=1EAoNdjsOZw
@@ -43,6 +43,11 @@ title: Lecture 15 錄影：Learning with Gradient Descent
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 13 影片（1EAoNdjsOZw，約 77 分鐘；標題的「Conv.」是 Convergence 的縮寫）以房價回歸為例從頭講梯度下降（導數到梯度、Kaggle 測試集、凸函數、一維二次函數上的學習率與收斂條件、mini-batch），但字幕沒有 Hessian 特徵分解推導、momentum、Adam，文中這些段落來自 lec13.pdf 投影片與手寫稿，不是這支影片。Lecture 15 影片（6zV_GGgUa0Y，約 77 分鐘）確為 Learning with Gradient Descent：用 w1、w2、b 三個參數的線性模型與小資料表算損失與梯度，並講 momentum、AdaGrad、Adam 與 mini-batch SGD，講者開場說補了額外內容幫大家串起教材。字幕未自報講者姓名，講者歸屬（含「Dimakis 的手算練習」）未驗證。
 
 ## 教材在哪、能拿到什麼
 
@@ -153,6 +158,8 @@ batch size 怎麼選，講義的取捨表是：
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影都在清單中，狀態改為已附影片。
+- 2026-10-10：依字幕核對影片內容。Lec 13 影片只涵蓋梯度下降基礎、凸函數、學習率與 mini-batch，Hessian、momentum、Adam 在 Lec 15 影片才出現；文中相關段落已標明來源。
 
 ## 參考資料
 

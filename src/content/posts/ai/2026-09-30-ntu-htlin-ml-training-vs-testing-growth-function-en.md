@@ -37,7 +37,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 This is part 3 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) series. It follows [Is Learning Feasible? Hoeffding and Learning Beyond the Data](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en). It covers Lecture 5, Training versus Testing, and Lecture 6, Theory of Generalization, from [Machine Learning Foundations](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they open the course's second big question: "Why Can Machines Learn?"
 
@@ -54,11 +54,11 @@ Official materials used:
 
 ## Course video sources
 
-These course video sources were already documented in this article. Playback has not been reverified for each video; no timestamp is supplied.
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
 
 ```youtube
-url: https://www.youtube.com/watch?v=6FWRijsmLtE
-title: Caltech Lecture 6 (Yaser Abu-Mostafa)
+url: https://www.youtube.com/watch?v=oAW0_j8_l3Y
+title: Effective Number of Lines
 ```
 
 ```youtube
@@ -66,11 +66,15 @@ url: https://www.youtube.com/watch?v=4aIAxH8eBMs
 title: Recap and Preview
 ```
 
-Original videos: [Caltech Lecture 6 (Yaser Abu-Mostafa)](https://www.youtube.com/watch?v=6FWRijsmLtE)、[Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
+Original videos: [Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
+
+Optional English companion (a different course, Caltech Learning from Data; not embedded): [Caltech Lecture 6 (Yaser Abu-Mostafa)](https://www.youtube.com/watch?v=6FWRijsmLtE)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## L6 is optional, so here is how this post handles it
 
@@ -236,6 +240,7 @@ Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/202
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Replaced the embedded Caltech lecture (a different course) with Lin's own "Effective Number of Lines"; the Caltech video stays as a text link.
 
 ## References
 

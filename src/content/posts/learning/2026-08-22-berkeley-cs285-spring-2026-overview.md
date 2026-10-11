@@ -6,8 +6,8 @@ tags: [cs285, berkeley, deep-reinforcement-learning, self-study, ai-course]
 lang: zh-TW
 type: guide
 difficulty: 深度
-tldr: "Spring 2026 CS185/285 公開 25 講投影片、9 組討論課資料、5 份作業與 starter code；當期錄影在 bCourses，HW4 預設 H100，不能把它包裝成零成本公開課。"
-description: "整理 Berkeley CS185/285 Spring 2026 的公開教材、六篇導讀路線、先修條件、錄影限制與作業運算成本。"
+tldr: "Spring 2026 CS185/285 公開 25 講投影片、9 組討論課資料、5 份作業與 starter code；講課錄影已公開在 RAIL YouTube 頻道，但 Ed、Gradescope 與助教時間仍限修課生，HW4 預設 H100，不能把它包裝成零成本公開課。"
+description: "整理 Berkeley CS185/285 Spring 2026 的公開教材、六篇導讀路線、先修條件、錄影來源與作業運算成本。"
 series:
   name: "Berkeley CS285 Spring 2026 導讀"
   order: 1
@@ -15,19 +15,31 @@ series:
 
 > 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 
-**影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [Berkeley CS185/285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/) 是 Sergey Levine 開設的深度強化學習課。公開頁面列出 25 講投影片、9 組 discussion section、5 份作業與兩個預設期末專案；[starter code](https://github.com/berkeleydeeprlcourse/homework_spring2026) 也能匿名下載。這是一門能實際跟做的 A3 教材型課程，但不是完整公開課。
 
-關鍵缺口是影片。[syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 明寫 Spring 2026 錄影位於 bCourses Media Gallery，校外自學者通常無法存取。[官方 resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)列出的 Fall 2023 公開錄影只能當歷史替代資源；主線仍以 2026 投影片、section 與作業為準。
+影片方面，Spring 2026 講課錄影已公開在 RAIL 的 YouTube 頻道（播放清單，27 支）。官方 [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) 與[課站首頁](https://rail.eecs.berkeley.edu/deeprlcourse/)尚未同步，仍寫錄影在 bCourses、並連到 Fall 2023 播放清單；[resources 頁](https://rail.eecs.berkeley.edu/deeprlcourse/resources/)的 Fall 2023 錄影只能當歷史替代資源。主線以 2026 投影片、section 與作業為準，錄影依講次編號對照。
 
 ## 課程影片來源
 
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支，2026-08-15 起公開）；課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。請依講次編號從播放清單挑選錄影。
+
+課程總覽附上第 1 講錄影作為入門補充（開場介紹，44 分鐘；已依字幕核對內容是開場與課程介紹）：
+
+```youtube
+url: https://www.youtube.com/watch?v=DD8APgTEix4
+title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
+```
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：第 1 講字幕（取得的部分只到講課中段，約講到 Bitter Lesson 的 learning 與 search 為止）涵蓋機器人抓取的開場例子、課程行政（先修、作業、考試、期末專案）、什麼是 RL、與監督式學習在 IID 假設上的差異、各種應用，以及 Sutton 的 The Bitter Lesson；作為入門補充與本文總覽相符。
 
 ## 六篇怎麼讀
 
@@ -52,13 +64,17 @@ HW1、HW2 適合 CPU 起步。[HW3](https://rail.eecs.berkeley.edu/deeprlcourse/
 
 ## 這系列不會假裝補回缺少的課堂
 
-沒有 bCourses，就少了教師口頭說明、即時修正、Ed 討論、Gradescope 回饋與助教 office hours。文章會解釋投影片與作業之間的結構，卻不會虛構講者說過什麼，也不會把 Fall 2023 影片標成 2026。
+錄影補回了教師的口頭說明，但校外自學者仍拿不到 Ed 討論、Gradescope 回饋、課堂互動與助教 office hours（這些在 bCourses 與修課系統內）。文章會解釋投影片與作業之間的結構，不會虛構講者說過什麼，也不會把 Fall 2023 影片標成 2026。
 
 自學完成標準也因此改成可驗證的產物：一份推導筆記、一個通過小型環境的實作、一張跨 seed 結果表，以及一段失敗分析。這比「看完 25 講」更接近課程真正要求的能力。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：修正過時的錄影說法。講課錄影已公開在 RAIL YouTube 頻道，bCourses 仍有的是 Ed、Gradescope、課堂互動與助教時間；tldr、description 與正文同步改寫。
+- 2026-10-10：重查影片狀態。找到 RAIL 頻道公開的 Spring 2026 播放清單並補上連結；本篇沒有單一講次，狀態維持僅附官方入口。
+- 2026-10-10：總覽嵌入 Spring 2026 第 1 講錄影，狀態改為相關補充影片，與其他課程總覽的做法一致。
+- 2026-10-10：依字幕核對影片內容。第 1 講影片已讀字幕，確認是開場與課程介紹；把先前「未讀字幕」的註記更新為已核對。
 
 ## 參考資料
 

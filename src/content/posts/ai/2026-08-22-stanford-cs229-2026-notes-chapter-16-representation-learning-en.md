@@ -15,18 +15,35 @@ series:
 
 > 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 16, printed pages 196–201, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a guide to the notes, not a reconstruction of a particular quarter's recordings. It preserves the central objectives, evaluation logic, and system dependencies without claiming to reproduce every proof.
 
 ## Course video sources
 
-This article follows the 2026 notes by chapter; chapter numbers are not video lecture numbers. The Autumn 2018 recordings below are older supplementary material, not a verified chapter-by-chapter video source.
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=_kREM2UAiJ8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lNTajqxxOn4
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning](https://www.youtube.com/watch?v=_kREM2UAiJ8), [Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss](https://www.youtube.com/watch?v=lNTajqxxOn4)
 
 Course and recording entries:
 
-- [CS229 Autumn 2018 official recordings (older supplementary offering)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
 - [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 12 (about 76 minutes) opens by saying it will finish diffusion before moving to foundation models: roughly the first 45% is the diffusion wrap-up, and from about 47% it covers pre-training, embeddings, zero-shot/few-shot use, fine-tuning and LoRA, matching only the chapter's first section on reusing representations. Lecture 13 (about 61 minutes) is the real match for this chapter: it goes from supervised pre-training and contrastive learning (the positive/negative-sample loss) to semantic search (embedding similarity, nearest neighbors) and, from about 87%, retrieval-augmented generation (putting retrieved documents into the LLM's context without changing its parameters, and the trade-offs). However, Lecture 13's YouTube title is "LLMs, Next-Word Prediction Loss" while its transcript never mentions next-token, autoregressive or transformer, so the title does not match the content. Only Lecture 12 was embedded before, and Lecture 13 has been added.
 
 ## Why representations transfer
 
@@ -82,6 +99,8 @@ Design a 100-query retrieval evaluation set. Define Recall@5 and NDCG@5, then pl
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Found a public CS229 playlist with matching topics (Spring 2026 and/or the older Autumn 2018) and embedded 1 related supplementary video(s).
+- 2026-10-10: Checked the video content against its transcript. Only Lecture 12 (first half is the diffusion wrap-up) was embedded; Lecture 13 was added because its transcript is contrastive learning, semantic search and RAG, matching the chapter (its YouTube title "LLMs, Next-Word Prediction Loss" does not match its content).
 
 ## References
 

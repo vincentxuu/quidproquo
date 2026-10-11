@@ -24,7 +24,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 **本文依據 [CS224R](https://cs224r.stanford.edu/) Spring 2026 版。** 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 18 篇，接續 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)，對應 2026 年 5 月 20 日（第 8 週週三）的第 15 講「Hierarchical RL and IL」。2026 年的 14 號沒有講課，那一天（5 月 15 日）是期中考。
 
@@ -48,9 +48,13 @@ title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
 
 原始影片：[Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）](https://www.youtube.com/watch?v=iKWYLSVAtfM)
 
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L15 Hierarchical RL and IL 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到高層／低層 policy、人類介入的 DAgger 式修正、用影像編輯模型產生子目標、最後接到 hierarchical RL，與本文主題一致。本文敘述以 2026 投影片為準，影片只當補充。
+
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：把好幾個行為串起來
 
@@ -216,6 +220,8 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
+- 2026-10-10：依字幕核對影片內容。影片是 Spring 2025 L15，主題相符（約 70 分鐘亦相符），沒有需修正之處。
 
 ## 參考資料
 

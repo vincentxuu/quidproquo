@@ -15,18 +15,29 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs224n-transformers-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 5 講排在 2026 年 1 月 20 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf)的 agenda 先收完前一講的消失梯度與機器翻譯，再走過 recurrence 到 attention、self-attention、完整 Transformer，最後談成果、缺點與變體。這是本季的架構分水嶺：後面預訓練、後訓練、agent 與推理都預設你已經懂這裡。
 
 ## 課程影片來源
 
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。
+本文以 Winter 2026 教材為準；下列 2023 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=LWMzyfvuehA
+title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers
+```
+
+原始影片：[Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers](https://www.youtube.com/watch?v=LWMzyfvuehA)
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 2023 年 Lecture 8，字幕內容為 self-attention、position 表示、multi-head、residual 與 layer norm、encoder／decoder 架構與 attention 的二次方成本，主題與本文相符；但它是 2023 年的課，細節與 Winter 2026 投影片不必然一致。
 
 ## 為什麼要離開 recurrence
 
@@ -129,6 +140,8 @@ Winter 2026 錄影不公開。本文完整覆蓋投影片的六段 agenda，但�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。改為僅附相關補充影片：嵌入 2023 同主題公開錄影，Winter 2026 原講次錄影需登入、未能取得。
+- 2026-10-10：依字幕核對影片內容。確認影片主題與本文相符，註明是 2023 年版本。
 
 ## 參考資料
 

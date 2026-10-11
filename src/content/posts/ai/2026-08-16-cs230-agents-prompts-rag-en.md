@@ -15,30 +15,35 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-16-cs230-agents-prompts-rag)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > [The previous post](/posts/ai/2026-08-16-cs230-ai-project-strategy-en) covered deciding which pipeline stage to fix. This one runs the whole vertical axis from prompt to multi-agent.
 
 This post covers **[Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)** (2025/11/11, Kian Katanforoosh, 1 hour 50 minutes).
 
-It's **the most-watched lecture in the series** at 460,000 views, three times the second place. And in 2024 it was a one-line title under Lecture 9, "RAG and AI Agents," **with no slides**; in 2025 it expanded into a full 110-minute session. That change alone is a miniature of where the center of gravity has moved.
+It is one of the most-watched lectures in the series (about 511,000 views on the page on 2026-10-10, behind Lecture 1 at about 731,000). And in 2024 it was a one-line title under Lecture 9, "RAG and AI Agents," **with no slides**; in 2025 it expanded into a full 110-minute session. That change alone is a miniature of where the center of gravity has moved.
 
 (**This lecture overlaps heavily with three existing series on this site: [The Agent Production Line](/en/series/agent), [AI Agent Systems](/en/series/ai-agent-systems), and [The RAG Techniques Compendium](/en/series/rag-techniques).** This post covers the lecture content in full and points at the site's deeper treatments where they overlap.)
 
 ## Course video sources
 
-The videos below are the recordings linked for the topics covered in this article.
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 8 (1:49:54, matching "1 hour 50 minutes"; the captions open with "another lecture for CS230…beyond LLM"). Checked item by item against the captions, all appear: Microsoft's 2016 Twitter bot pulled after 16 hours, the Altman-Musk propaganda-machine spat, needle in a haystack (the Bible), BCG's jagged frontier and "falling asleep at the wheel", centaur/cyborg, the view on "prompt engineer" roles, reflection and chain of thought, the Jane prompt template, splitting the conversation into chapters after eight turns, chaining as the most popular technique, Prompt Fu (Promptfoo) running five LLMs side by side, avoiding fine-tuning and the Slack fine-tuning joke (attributed in the captions to Ross Lazerowitz's experiment), HyDE and chunking, the refund agentic comparison, working vs long-term memory and the three-second cost, MCP, deterministic vs fuzzy, the human-in-the-loop appeal, the McKinsey credit-risk case, LLM traces, objective/subjective evaluation, multi-agent parallelism and reuse, the smart-home fridge example, architecture search, the baby analogy, and "I don't want to teach you the 17th RAG optimization". One correction: "the most-watched lecture, 460,000 views, three times the second place" does not hold; the page showed about 511,000 views on 2026-10-10, behind Lecture 1 at about 731,000.
 
 ```youtube
 url: https://www.youtube.com/watch?v=k1njvbBmfsw
-title: Lecture 8: Agents, Prompts, and RAG
+title: Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG
 ```
 
-Original videos: [Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG](https://www.youtube.com/watch?v=k1njvbBmfsw)
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
 
 ## Opening: two axes
 
@@ -349,6 +354,8 @@ What's genuinely worth taking from this lecture, and isn't on the site, is three
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Checked live against the Stanford Online CS230 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
+- 2026-10-10: Checked the video content against its transcript. Main claims and quotes matched the captions; corrected the view-count ranking and multiple.
 
 ## References
 

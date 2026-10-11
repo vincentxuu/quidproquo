@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > **本文依據[清大高宏宇教授「自然語言處理」](https://github.com/IKMLab/NTHU_Natural_Language_Processing) Fall 2025（114-1）的公開教材。** 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列的第 9 篇，上一篇是 [ELMo、BERT、T5、BART、GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family)。
 
@@ -32,27 +32,29 @@ glossary:
 - 助教課投影片 [huggingface_tutorial_bert.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/huggingface_tutorial_bert.pdf)（43 頁，封面日期 2024/10/22）
 - 對應 notebook [bert-huggingface.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/bert-huggingface.ipynb)
 - 作業說明 [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf)（24 頁）與起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
-- 錄影：助教課 [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) 與 HW3 說明影片 [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)
+- 錄影：助教課 [自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw) 與 HW3 說明影片 [自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI)
 
 ## 課程影片來源
 
-影片連結對應本文教材；此處不提供未核對的時間跳轉。
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=VErSpYgZGiw
-title: VErSpYgZGiw
+title: 自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=Fe1roWMVdUI
-title: Fe1roWMVdUI
+title: 自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）
 ```
 
-原始影片：[VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw)、[Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+原始影片：[自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw)、[自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 錄影與週次：先把對照關係理清楚
 
@@ -60,9 +62,9 @@ title: Fe1roWMVdUI
 
 | 錄影 | YouTube 標題與頁面資訊 | 內容 |
 |---|---|---|
-| [VErSpYgZGiw](https://www.youtube.com/watch?v=VErSpYgZGiw) | 「Week 8 Tue. [助教課]」，沒有 [Fall 2025] 標記，上傳日期 2024-10-21，約 89 分鐘，說明寫「Hugging Face BERT講解」 | 2024 年錄的助教課 |
-| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | 「[Fall 2025] … Week 7 Thu.」，約 56 分鐘 | 我在第 5、25、50 分鐘截圖，畫面都是這份助教投影片（第 2、16、30 頁） |
-| [Fe1roWMVdUI](https://www.youtube.com/watch?v=Fe1roWMVdUI) | 「[Fall 2025] … Week 8 Thu. - Assignment 3」，約 15 分鐘 | HW3 說明 |
+| [自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw) | 「Week 8 Tue. [助教課]」，沒有 [Fall 2025] 標記，上傳日期 2024-10-21，約 89 分鐘，說明寫「Hugging Face BERT講解」 | 2024 年錄的助教課（沒有字幕，內容未用字幕核對） |
+| [W7 Thu. 4qDUML9TeHM](https://www.youtube.com/live/4qDUML9TeHM) | 「[Fall 2025] … Week 7 Thu.」，約 56 分鐘 | 我在第 5、25、50 分鐘截圖，畫面都是這份助教投影片（第 2、16、30 頁）；沒有字幕，內容未用字幕核對 |
+| [自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI) | 「[Fall 2025] … Week 8 Thu. - Assignment 3」，約 15 分鐘 | HW3 說明（沒有字幕，內容未驗證） |
 
 教授在 [W7 Tue.](https://www.youtube.com/live/NtPrXea8qSE) 下課前說，助教課「因為內容是沒有變的」，會播放預錄影片，助教同時在線上回答問題。這和投影片封面的 2024 日期、錄影的 2024 上傳日對得起來。所以要看助教課，VErSpYgZGiw 和 W7 Thu. 擇一即可；W7 Thu. 是否整支都在播放同一段錄影，我沒有逐分鐘確認。
 
@@ -196,6 +198,9 @@ notebook 裡那一格寫的是 `num_labels=3`，但 IMDb 是二元分類，`comp
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
+- 2026-10-10：嘗試依字幕核對影片內容，但助教課影片（VErSpYgZGiw）與 HW3 說明影片都沒有字幕，只核對到頁面資料（標題、長度、說明「Hugging Face BERT講解」、上傳日 2024-10-21），因此沒有加內容核對記號；順手把助教課影片名稱裡不實的「Fall 2025」改成「2024 年錄影」。
+- 2026-10-10：嘗試依字幕核對影片內容。助教課 VErSpYgZGiw 與 HW3 說明影片 Fe1roWMVdUI 的 YouTube 頁面都沒有字幕，內容無法核對，因此沒有加內容核對記號；W7 Tue. 字幕證實教授確實說助教課不重錄、改播預錄並由助教線上答疑，另在 Week 8 Thu.（講 GPT-3 那支）的字幕中，教授提到作業 3 的細節見助教另錄的影片。
 
 ## 參考資料
 

@@ -14,7 +14,7 @@ description: "CS224V Evaluation of Task-Oriented Agents: architecture comparison
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224v-task-agent-evaluation)
 
-**Video status: Official entry or recording index only.** [Source details](#course-video-sources)
+**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-Worksheet2.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
@@ -22,11 +22,15 @@ Lecture 4 asks how “reliable” can be measured. Natural responses and accurat
 
 ## Course video sources
 
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding.
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Agenda: architecture before measurement
 
@@ -123,6 +127,7 @@ The slides summarize evaluation but do not publish complete user transcripts, an
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The official site says recordings are on Canvas and opening the entry confirmed the sign-in wall; the public Fall 2024 playlist has no lecture that definitely matches, so nothing is embedded and the status is now sign-in required.
 
 ## References
 

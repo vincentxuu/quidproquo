@@ -24,15 +24,14 @@ additionalSeries:
 
 > 🌏 [中文版](/posts/tech/2026-12-10-mit-67960-approximation-theory)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 03). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; optional reading includes *Deep Learning Theory Notes* (sections 2 and 5).
 
 ---
 
 ## Course video sources
-
-The recording comes from the official MIT OCW Fall 2024 gallery; lecture numbering and topics follow OCW.
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
 
 ```youtube
 url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
@@ -45,6 +44,10 @@ Course and recording entries:
 
 - [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
 - [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 03 Approximation Theory transcript (Jeremy Bernstein, 1:22:42): the video opens with "scale width or depth?", and its body builds universal approximation from ReLU units (rectangles and triangle functions, about 28%–60%), the role of dimension and width, and the role of depth (about 61%–80%); Barron's theorem is mentioned only once, so that section now carries a note that its details are this site's supplement.
 
 ## The most fundamental question
 
@@ -65,6 +68,8 @@ such that `‖f − f̂‖` is arbitrarily small. This theorem (Cybenko 1989; Ho
 The catch is in **"provided it is wide enough"** — how wide exactly? That is the next point.
 
 ## Barron's Theorem: Escaping the Curse of Dimensionality
+
+> Video note: the Lec 03 transcript only mentions Barron's theorem at about 55%, as one of many approximation results (it uses the Fourier representation of the function) and does not derive it; the details in this section are this site's supplement.
 
 The universal approximation proof is *existential*; it does not tell you the required width `K`. Pessimistically, for general functions `K` can grow **exponentially with input dimension `d`** — the curse of dimensionality.
 
@@ -112,6 +117,8 @@ Sweep the hidden width from 8 to 1024 and you will see the fit go from underfitt
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Live-checked the official course page: lecture numbers and recording links match and the videos are public, so the status is now “Videos included.”
+- 2026-10-10: Checked the video content against its transcript. Added a note to the Barron section: the video mentions it only once; the details are this site's supplement.
 
 ## References
 

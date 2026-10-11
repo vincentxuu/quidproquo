@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [English version](/posts/ai/2026-08-22-cs336-data-curation-en)
 
-**影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**，2026 年 5 月 13 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py)。
 
@@ -23,14 +23,16 @@ Lecture 13 找 raw sources；這一講決定哪些內容真正進入 token strea
 
 ## 課程影片來源
 
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 14（Data，第二天）。字幕涵蓋 language ID、品質分類器（fastText）、toxicity filtering、hash／near duplicates（MinHash、Jaccard）、mixing、epoch cap、regression-based mixing、teacher 產生的 reasoning 資料與 SWE 合成任務。字幕只講到 toxicity filtering，沒有 PII、成人內容等類別，已把該句改為標明本站補充；其餘逐句未比對。
 
 ```youtube
 url: https://www.youtube.com/watch?v=5sxHosTLPF8
-title: CS336 Spring 2026 Lecture 14: Data
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
 ```
 
-原始影片：[CS336 Spring 2026 Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
 
 課程與錄影入口：
 
@@ -41,7 +43,7 @@ title: CS336 Spring 2026 Lecture 14: Data
 
 Raw web 先做格式解析、語言辨識與正文抽取，再處理極短頁面、模板、廣告、程式碼比例、重複符號與低品質文字。Heuristic filters 便宜可解釋；classifier 可學到更複雜品質訊號，卻會把 reference dataset 的偏好放大。
 
-安全與隱私 filtering 會找 PII、惡意內容、成人內容與其他政策類別。False negative 讓風險內容留下，false positive 則可能系統性移除特定方言、社群或敏感議題。門檻需要分來源評估，不能只報全域保留率。
+影片講到 toxicity filtering（以 Jigsaw toxic comments 資料訓練分類器）；PII、成人內容等其他政策類別為本站補充（影片未涵蓋）。False negative 讓風險內容留下，false positive 則可能系統性移除特定方言、社群或敏感議題。門檻需要分來源評估，不能只報全域保留率。
 
 最可靠的管線保留每份 document 的 filter reasons 與 scores，而不是只輸出一個刪除後 corpus。這讓後續能重調 threshold、分析偏差並回到原始 provenance。
 
@@ -78,6 +80,8 @@ Software-engineering data 更難。可從 GitHub PR 建真實 tasks、讓模型�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
+- 2026-10-10：依字幕核對影片內容。字幕只講 toxicity filtering；PII、成人內容等類別改標為本站補充。
 
 ## 參考資料
 

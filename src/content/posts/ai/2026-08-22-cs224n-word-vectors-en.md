@@ -15,25 +15,36 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-22-cs224n-word-vectors)
 
-**Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
+**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 2 on January 8, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture02-wordvecs.pdf) covers word2vec, objective-function gradients, optimization basics, count-based representations, and evaluation, after brief course logistics. Its concrete goal is to understand word meaning as a high-dimensional real vector and to read embedding papers.
 
 ## Course video sources
 
-This article uses Winter 2026 materials. The Spring 2024 recording below is supplementary material on the same topic, not a Winter 2026 lecture recording.
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
 
 ```youtube
 url: https://www.youtube.com/watch?v=DzpHeXVSC5I
-title: CS224N Spring 2024 Lecture 1: Intro and Word Vectors
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 1 - Intro and Word Vectors
 ```
 
-Original videos: [CS224N Spring 2024 Lecture 1: Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+```youtube
+url: https://www.youtube.com/watch?v=nBor4jfWetQ
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 2 - Word Vectors and Language Models
+```
+
+Original videos:
+- [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 1 - Intro and Word Vectors](https://www.youtube.com/watch?v=DzpHeXVSC5I)
+- [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 2 - Word Vectors and Language Models](https://www.youtube.com/watch?v=nBor4jfWetQ)
 
 Course and recording entries:
 
 - [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the Spring 2024 Lectures 1 and 2 (about 80 and 79 minutes) relate to this article, which is based on the Winter 2026 Lecture 2 slides; they are not the 2026 classroom recordings. Lecture 1 opens with course logistics and a discussion of language and word meaning (WordNet, the drawbacks of one-hot vectors, distributional semantics) and from about 69% moves into the Word2Vec objective, the window, softmax and the gradient derivation, matching this article's first two sections. Lecture 2 first reviews gradient descent and SGD, then skip-gram and CBOW and negative sampling, demos analogies with GloVe vectors in a notebook (about 15 to 30%), covers co-occurrence matrices and SVD around 45 to 50%, then the GloVe model, evaluating word vectors (intrinsic versus extrinsic, human similarity judgments) and polysemy (about 73 to 80%), and ends by turning to neural-network classification, matching the article's negative sampling, count-based/SVD and evaluation sections. The transcripts contain no PMI derivation and nothing on how word vectors relate to modern embedding tables, how to read an embedding paper or the specific notebook exercises, so those sections rest on the Winter 2026 slides and this site's own additions, not on the videos.
 
 ## From dictionary nodes to positions in context
 
@@ -108,6 +119,8 @@ Winter 2026 recordings are not public. This account uses the Lecture 2 deck and 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. Switched to related supplementary video: embedded the Spring 2024 public recording on the same topic; the Winter 2026 original is behind sign-in and could not be verified.
+- 2026-10-10: Checked the video content against its transcript. Spring 2024 Lectures 1 and 2 cover the Word2Vec objective, negative sampling, co-occurrence/SVD, GloVe, evaluation and polysemy, matching the article's main line; PMI and modern embedding tables are not in the videos and are marked as not video content.
 
 ## References
 

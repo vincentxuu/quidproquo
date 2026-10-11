@@ -54,6 +54,8 @@ title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
 
 查核日期：2026-10-10。
 
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 79 分鐘），逐項核對文章轉述的 Neubig 說法與課堂問答：單步模型三能力、預訓練與資料清洗（StarCoder、授權、truffleHog）、tokenizer 與空白、語言偏好（Python／React）、中訓練（Code Llama、Qwen2.5-Coder 配比與 YaRN 長度）、infilling、diff／CI／執行軌跡資料、BLEU 到執行評測與測試品質問題、效率與註解問答、localize–edit–verify、Agentless、bash 單工具與 85–90% 工具呼叫的回答、search/replace 格式與 Gemini 編輯格式問題、SWE-bench 與 SWE-Gym／SWE-smith／持續更新的資料集、多 harness 訓練、前端與 GLM 5.2 的觀察、外迴圈任務與微軟 15% 調查、結尾沒講完 code world model；皆有依據。修正兩處：「InCoder 允許 token 跨空白、少約 40%」是台下另一人回答、Neubig 複述，不是 Neubig 自己的說法；Agentless 第一作者在字幕裡被稱為 assistant professor（非 associate）。逐篇論文的精確數字（EvalPlus、AlphaCode、Aider 等）屬論文，字幕未涵蓋。
+
 ## 一、會寫程式的模型
 
 先講單步模型：給一個 prompt，一次吐出程式，還不是 agent。要做到這件事，模型需要三種能力：懂程式語言本身（語法、API、慣用寫法）、會**編輯**（同時參考前後文修改程式，而不是每次重寫）、會**推理**（從規格推到行為）。Neubig 特別點出推理：程式和數學是推理模型最成功的兩個應用，因為兩者都相對容易驗證答案對不對。
@@ -73,7 +75,7 @@ title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
 
 tokenizer 也要為程式調整。原則有兩條：保留空白（空格、tab、換行都承載語法），並把高頻的空白串壓成單一 token，不然 16 格縮排就要花 16 個 token。投影片展示了 [StarCoder2 tokenizer](https://huggingface.co/bigcode/starcoder2-3b/blob/main/tokenizer.json) 實際把 `↵····return` 切成「換行加三格空白」與「空格加 return」兩個 token。本文下載這份 tokenizer 實測，結果相同；換行加 16 格縮排也只佔一個 token。
 
-課堂上有人問要不要讓 token 跨越空白合併。Neubig 的回答是：可以，他們在 InCoder 就這樣做過（課堂上他口頭說少約 40%；[InCoder 論文](https://arxiv.org/abs/2204.05999)附錄 A.4 的數字是：允許 token 跨空白（換行除外）後，編碼訓練語料所需的 token 數比 GPT-2 的 byte-level BPE 少 45%）；但會出怪錯。例如 `import numpy as np` 可能變成單一 token，使用者停在 `import numpy as` 時模型就補不下去，得回溯或做約束解碼。
+課堂上有人問要不要讓 token 跨越空白合併。台下有人（字幕沒標說話者，從內容看應是做過 InCoder 的 Fried）回答可以，InCoder 就這樣做過，Neubig 複述了這個答案（口頭說少約 40%；[InCoder 論文](https://arxiv.org/abs/2204.05999)附錄 A.4 的數字是：允許 token 跨空白（換行除外）後，編碼訓練語料所需的 token 數比 GPT-2 的 byte-level BPE 少 45%）；但會出怪錯。例如 `import numpy as np` 可能變成單一 token，使用者停在 `import numpy as` 時模型就補不下去，得回溯或做約束解碼。
 
 語言選擇也是預訓練的決定。StarCoderBase 是 15.5B 參數、1T token、80 多種語言，結果符合直覺：資料越多的語言表現越好。他順帶聊到模型的語言偏好——不指定語言時，做儀表板會給你 React，其他幾乎都是 Python。他自己把資料管線改寫成 Rust 之後，模型下一次寫新程式還是回到 Python，得一直提醒。他推測原因有二：Python 簡潔好寫，而且 RL 階段多半是用 Python 直譯器訓練的。
 
@@ -151,7 +153,7 @@ pass@k = E[ 1 − C(n−c, k) / C(n, k) ]
 
 投影片用一個小例子貫穿：設定裡的 `retries` 設成 0，結果變成 3。定位階段用 `rg 'retries'` 找到 `return config.get("retries") or 3`，再跑單元測試重現 `AssertionError: 3 != 0`，看出原因是 0 是 falsy。重點是「修條件，不是修測試」。編輯成 `3 if value is None else value`，最後跑整組測試，確認 missing、None、zero、positive 四種情況都過，沒有引入回歸。
 
-Neubig 也介紹了不用 agent 的替代路線 [Agentless](https://arxiv.org/abs/2407.01489)（第一作者是 Chunqiu Steven Xia。Neubig 課堂上說他是 CMU 新進的 associate professor；[CMU 計算機學院 2026 新進教師名單](https://scsbusinessoffice.cs.cmu.edu/new-faculty/2026.html)列的職稱是 Software and Societal Systems Department 的 Assistant Professor，這裡依官方頁面）：固定的三段流程——先預測要改哪些檔案，再縮到類別與函式，再縮到具體行，最後用單步模型生出 patch。他說這條路線有一段時間出奇地有效，他當時在做 coding agent，看到不少模型用這套固定流程反而比 agent 好。原因是模型被大量訓練去做單步解題，卻還沒被好好訓練去做工具呼叫與驗證迴圈。現在大家都用 agent 了，但這段歷史說明：**agent 的優勢要靠模型訓練撐起來**。
+Neubig 也介紹了不用 agent 的替代路線 [Agentless](https://arxiv.org/abs/2407.01489)（第一作者是 Chunqiu Steven Xia。Neubig 課堂上說他是 CMU 新進的 assistant professor，與 [CMU 計算機學院 2026 新進教師名單](https://scsbusinessoffice.cs.cmu.edu/new-faculty/2026.html)列的 Software and Societal Systems Department Assistant Professor 一致）：固定的三段流程——先預測要改哪些檔案，再縮到類別與函式，再縮到具體行，最後用單步模型生出 patch。他說這條路線有一段時間出奇地有效，他當時在做 coding agent，看到不少模型用這套固定流程反而比 agent 好。原因是模型被大量訓練去做單步解題，卻還沒被好好訓練去做工具呼叫與驗證迴圈。現在大家都用 agent 了，但這段歷史說明：**agent 的優勢要靠模型訓練撐起來**。
 
 ## 四、工具組：只給 bash 夠不夠
 
@@ -268,6 +270,7 @@ L6 是 Capabilities 模組之後的第一個 Domain，把前五講的零件（�
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：依字幕核對影片內容。修正兩處：InCoder 跨空白 token 的說話者，以及 Agentless 作者的職稱。
 
 ## 參考資料
 

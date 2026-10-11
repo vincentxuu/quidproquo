@@ -35,6 +35,10 @@ title: Lecture 22 official YouTube recording
 
 - [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
 
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Lecture 22 影片（約 80 分鐘，YouTube 標題為「Variational Autoencoders」）的字幕涵蓋生成問題、latent variable、encoder／decoder、KL、ELBO 與 reparameterization（取樣不可微分的處理），結尾預告下一講 diffusion；與本文所述主題相符。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
+
 ## 這一講處理什麼
 
 這講的中心是latent variable、ELBO、KL 項與 reparameterization trick。讀的時候要把「模型或演算法的定義」、「它最佳化的目標」與「實際計算怎麼流動」分開記。前者說明允許哪些函數，第二項說明訓練偏好什麼結果，最後一項才決定記憶體、速度與數值穩定性。
@@ -66,6 +70,8 @@ title: Lecture 22 official YouTube recording
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-10-10：重查影片狀態。即時比對官方講課表，嵌入影片與該講官方 YouTube 連結一致；播放未逐支確認。
+- 2026-10-10：依字幕核對影片內容。未發現影片與本文主題不符之處。
 
 ## 參考資料
 

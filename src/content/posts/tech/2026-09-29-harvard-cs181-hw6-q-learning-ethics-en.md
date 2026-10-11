@@ -23,7 +23,7 @@ glossary:
 
 > 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics)
 
-**Video status: The schedule mentions a recording, but no public link has been obtained.** [Source details](#course-video-sources)
+**Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `p3src/`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the 2026 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) and [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) slides, all opened on 2026-09-29. The slide links come from topic cells in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but the April 23 Embedded EthiCS session appears on the schedule only as "see recording", with no public link, and no 2026 slides or module page could be found. That session is **A0**: this post does not guess at what it covered.
 
@@ -170,6 +170,7 @@ HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-10-10: Rechecked video status. The April 23 cell reads “see recording” as plain text in the public schedule export; no openable link could be retrieved, so the status uses the standard “no corresponding link listed” wording.
 
 ## References
 
