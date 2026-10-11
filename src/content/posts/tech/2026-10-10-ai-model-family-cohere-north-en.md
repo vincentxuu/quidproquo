@@ -7,22 +7,25 @@ tags: [cohere, north, agentic-coding, sparse-moe, programming]
 lang: en
 tldr: "Cohere's North series marks its first agentic coding model family. North Mini Code (30B total / 3B active sparse MoE) is purpose-built for code generation and automated development, with 256K context and free access via OpenRouter as `north-mini-code:free`."
 description: "Deep dive into Cohere North's design philosophy, architecture, differences from the Command series, and how to use the free tier for coding tasks."
-draft: true
+draft: false
+series:
+  name: "AI 模型家族"
+  order: 27
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-cohere-north)
 
-[Cohere](https://cohere.com/)'s **North** series, launched in 2026, marks a major strategic shift from "RAG / embeddings / general conversation" to **Agentic Coding**. **North Mini Code** is the family's first public model: a 30B total / 3B active parameter sparse MoE designed for code generation, testing, and automated development. It is available for free on OpenRouter as `cohere/north-mini-code:free`, giving developers direct access to Cohere's coding agent capabilities.
+[Cohere](https://cohere.com/)'s **North** series, launched in 2026, adds a model line focused on **Agentic Coding**. **North Mini Code** is the family's first public model: a 30B total / 3B active parameter sparse MoE designed for code generation, testing, and automated development. It is available for free on OpenRouter as `cohere/north-mini-code:free`, giving developers direct access to Cohere's coding agent capabilities.
 
 ---
 
 ## Background: from RAG to Agentic Coding
 
-Cohere originally held a significant share of the enterprise RAG market with the Command series (Command R, Command R+, Command A) and the Embed series. But the 2026 strategic pivot is clear: **no longer just "providing models," but providing "executable coding agents."** The North series is the productized proof of that pivot.
+Command and Embed serve enterprise language and embedding workloads; North Mini Code focuses on agentic coding. This product distinction does not establish that Cohere has abandoned RAG or changed its entire corporate strategy. Cohere also offers a North enterprise agent platform; the platform and North Mini Code model are separate products.
 
 | Cohere series | Primary positioning | Representative models |
 |---|---|---|
-| **Command / Embed** | RAG, embeddings, general conversation | Command A, Embed v3 |
+| **Command / Embed** | RAG, embeddings, general conversation | Command A, Embed |
 | **North** (new) | Agentic Coding | **North Mini Code** (30B/3B sparse MoE) |
 
 ---
@@ -42,45 +45,34 @@ Cohere originally held a significant share of the enterprise RAG market with the
 
 ---
 
-## Design philosophy
+## Architecture and the agent loop
 
-This section interprets the model positioning; its wording is not a verbatim statement from the vendor.
+The official model card identifies North Mini Code as a decoder-only sparse MoE Transformer, with sliding-window and global attention. It was post-trained using supervised fine-tuning followed by reinforcement learning with verifiable rewards for agentic coding. The 3B active footprint describes computation per token; the full weights still need to fit in the deployment's memory.
 
-**"Coding is not generation, but a verifiable chain of operations."** Cohere's North series was designed from the ground up with the following assumptions:
+The model accepts text and emits text, including reasoning and tool-call requests. Supply tool descriptions as JSON schemas. The application executes requested tools and returns their results; a model response alone cannot run a test, edit a repository, or inspect a terminal.
 
-- Code generation must be **executable**, not merely syntactically correct text
-- Development agents need **multi-step tool chains**: read existing code → propose modifications → run tests → verify results → generate reports
-- Code quality verification must be **built-in**: the model should be able to check for compilation errors, test failures, and logical inconsistencies on its own
+The model card recommends retaining the generated thinking content across agent steps. A local deployment also needs matching reasoning and tool-call parsers. Use the current official recipe rather than assuming that any OpenAI-compatible server will parse the output correctly.
 
-North Mini Code's sparse MoE design lets it maintain the capacity of 30B total parameters with only 3B active, delivering low-latency coding responses suitable for interactive coding assistants and batch automated development pipelines.
+## Access and a first request
 
----
+OpenRouter currently lists `cohere/north-mini-code:free`. Cohere's own documentation identifies its API model as `north-mini-code-1-0`, describes free trial and production access until rate limits are reached, and points to Model Vault for production use. The open weights are available under Apache 2.0; an API's account limits and data terms are separate from the weights' license.
 
-## Core capabilities
+```python
+import os
+from openai import OpenAI
 
-The model generates text and tool-call requests. The host application must provide tools, execute requests, return results, and manage state, audit logs, and concurrency. Workflow examples below describe applications built around the model; a standalone chat request does not execute those workflows.
+client = OpenAI(
+    api_key=os.environ["OPENROUTER_API_KEY"],
+    base_url="https://openrouter.ai/api/v1",
+)
+response = client.chat.completions.create(
+    model="cohere/north-mini-code:free",
+    messages=[{"role": "user", "content": "Write a Python palindrome checker and unit tests."}],
+)
+print(response.choices[0].message.content)
+```
 
-| Capability | Description |
-|---|---|
-| **Code generation** | Generates functions, classes, and test cases across multiple languages (Python, TypeScript, Go, Java, etc.) |
-| **Automated testing** | Generates unit tests based on code structure, then executes tests and analyzes results |
-| **Refactoring & optimization** | Refactors existing code per instructions, optimizing performance, readability, and security |
-| **Documentation & explanation** | Generates docstrings, READMEs, and API documentation |
-| **Cross-file reasoning** | Analyzes dependencies across multiple files simultaneously within 256K context, enabling cross-file modifications |
-
----
-
-## Differences from the Cohere Command series
-
-| Aspect | Command series | North series |
-|---|---|---|
-| **Positioning** | General conversation, RAG, enterprise knowledge | Agentic Coding |
-| **Architecture** | Dense / standard Transformer | Sparse MoE |
-| **Context** | 128K–200K | 256K |
-| **Unique strengths** | Long-document understanding, embedding search | Coding agents, tool chains, verifiable output |
-| **Free tier** | Some Command models have trial credits | `north-mini-code:free` directly available |
-
----
+This text-generation example does not execute the proposed tests. For an agent evaluation, supply a repository and sandbox, then record the diff, actual test output, number of tool turns, and elapsed time. Compare models using the same task and harness.
 
 ## Ideal use cases
 
@@ -88,34 +80,36 @@ The model generates text and tool-call requests. The host application must provi
 |---|---|
 | **Interactive coding assistant** | Developers get real-time coding suggestions, refactoring, and test generation in the IDE |
 | **Batch automated development** | Automated test generation, legacy code refactoring, documentation updates |
-| **Code review & security** | Automated security vulnerability detection, dependency freshness checks, code quality analysis |
+| **Code review & security** | Proposes security, dependency, and quality findings for independent verification |
 | **Education & learning** | Learning programming languages, understanding existing codebase structure |
 
 ---
 
-## Limitations and caveats
+## Limits and tradeoffs
 
-- **Coding-focused, not general conversation**: North Mini Code underperforms Command / other general models on general chat, creative writing, and mathematical reasoning
-- **Free endpoint volatility**: OpenRouter `:free` has queue limits; production environments should upgrade to Cohere's paid endpoints
-- **Privacy**: OpenRouter free endpoints may collect prompts; for sensitive code, use Cohere's official platform
+Treat coding specialization as positioning, not proof that the model underperforms every general model on chat or mathematics. Security review and successful refactoring need actual tests and human inspection. A long context window does not guarantee that every dependency is understood.
 
----
+Free endpoints have account limits and changing availability. Check your provider's data-retention terms before sending private code; neither “free” nor “official platform” establishes a privacy guarantee. Local open-weight deployment gives control over execution, but requires sufficient hardware and compatible parsers.
+
+## Update history
+
+- 2026-10-11: Checked the official model card and API documentation; added open-weight and API access details and removed unsupported market-share, strategy, and comparative-performance claims.
 
 ## References
 
 - [Cohere official](https://cohere.com/)
 - [Cohere North Mini Code on OpenRouter](https://openrouter.ai/cohere/north-mini-code:free)
-- [OpenRouter Cohere model documentation](https://openrouter.ai/docs/models/cohere/north-mini-code)
-- [Cohere North series announcement](https://cohere.com/blog/north-series)
+- [North Mini Code official model card](https://huggingface.co/CohereLabs/North-Mini-Code-1.0)
+- [Cohere North Mini Code documentation](https://docs.cohere.com/docs/north-mini-code-1.0)
+- [North enterprise agent platform](https://cohere.com/north)
 
 ---
 
 ## Related posts
 
-- [OpenRouter: Unified API](https://openrouter.ai/)
-- [Cohere Command series introduction](https://cohere.com/blog/command-r-plus)
-- [LLM inference free-tier comparison](https://opencode.ai/docs/zen/)
+- [Cohere](/posts/tech/2026-08-24-ai-model-family-cohere-en)
+- [Apodex](/posts/tech/2026-10-10-ai-model-family-apodex-en)
 
 ---
 
-*Last updated: 2026-10-10. Cohere North is a new series; specs and free-tier policies may change with version updates. Always refer to official documentation.*
+*Last updated: 2026-10-11. Cohere North is a new series; specs and free-tier policies may change with version updates. Always refer to official documentation.*

@@ -5,160 +5,107 @@ category: tech
 type: deep-dive
 tags: [meituan, longcat, moe, open-weight, agentic-coding, sparse-attention]
 lang: en
-tldr: "LongCat is Meituan's open-source LLM family. LongCat-2.0 (released 2026-06-30) has 1.6T total parameters, ~48B active, 1M context with LongCat Sparse Attention and N-gram Embedding, purpose-built for long-context reasoning, agentic coding, and repo-level understanding. MIT licensed."
-description: "Deep dive into LongCat's architecture evolution (Flash → 2.0), LongCat Sparse Attention, N-gram Embedding module, integration with mainstream agent harnesses, performance benchmarks, and comparisons with peer models."
-draft: true
+tldr: "LongCat-Flash and LongCat-2.0 are Meituan open-weight MoE models. This guide explains dynamic compute, LSA, long context, tool use, and the difference between model specifications and hosted endpoints."
+description: "LongCat family guide: Flash and 2.0 architecture, MIT weight licensing, agent responsibilities, endpoint parameters, and deployment tradeoffs."
+draft: false
+series:
+  name: "AI 模型家族"
+  order: 30
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-longcat)
 
-[Meituan](https://www.meituan.com/)'s **LongCat** series is one of the most closely watched open-weight model families today. From **LongCat-Flash (560B)** to **LongCat-2.0 (1.6T)**, LongCat is purpose-built for long-context reasoning, agentic coding, repo-level understanding, and automated task execution. LongCat-2.0 was released under the MIT license on 2026-06-30, after previously being quietly tested on OpenRouter under the codename "**Owl Alpha**," where its usage briefly topped the leaderboard.
+Meituan's **LongCat** is an open-weight language model family. LongCat-Flash allocates computation dynamically through MoE; LongCat-2.0 emphasizes long context, code understanding, and multi-step tool use. Model specifications, hosted endpoint limits, and application behavior are separate parts of the selection decision.
 
----
+## From Flash to 2.0
 
-## Family overview
+The following specifications come from the [official Flash model card](https://huggingface.co/meituan-longcat/LongCat-Flash-Chat) and [2.0 model card](https://huggingface.co/meituan-longcat/LongCat-2.0), checked on October 11, 2026.
 
-| Version | Total parameters | Active parameters | Context | Core positioning | Release date |
-|---|---|---|---|---|---|
-| **LongCat-Flash** | 560B | ~27B (18.6B–31.3B) | 128K | Efficient agentic coding | 2025 |
-| **LongCat-2.0** | 1.6T | ~48B (33B–56B) | 1M (native) | Long-context reasoning + agentic coding | 2026-06-30 |
+| Model | Total parameters | Active parameters per token | Official context | Focus |
+|---|---|---|---|---|
+| LongCat-Flash-Chat | 560B | About 27B on average, dynamically allocated | 128K | Non-thinking chat, coding, and tool use |
+| LongCat-2.0 | 1.6T | About 48B | 1M | Long context, repository edits, and agent workflows |
 
-> ⚠️ LongCat-2.0's 1M context window is **native** — trained from the ground up, not achieved through extrapolation. Training data included 30T+ tokens, with hundreds of billions of tokens at the 1M-token context length.
+Active parameters describe computation per token, not the storage required for the full model. Deploying a 1.6T MoE still requires planning for all weights, expert placement, context caches, and concurrent requests.
 
----
+The 2.0 card states that training includes 1M-context data. That supports the claim of long-context training; it does not guarantee complete recall of an entire repository or unchanged accuracy on every long document.
 
-## Architecture evolution: from Flash to 2.0
+## Why the architecture looks this way
 
-LongCat-2.0 introduces three **orthogonal** architectural improvements on top of LongCat-Base, each independently enabled or disabled:
+### Flash: allocate computation where it is needed
 
-### 1. LongCat Sparse Attention (LSA)
+Flash uses zero-computation experts to vary the compute budget with context. Shortcut-connected MoE creates more room to overlap computation and communication. Communication can remain a bottleneck even after sparse computation reduces arithmetic work.
 
-LSA is an evolution of DeepSeek Sparse Attention, designed to make 1M-context training and inference feasible on real hardware:
+### 2.0: reduce long-context indexing costs
 
-- **Lighter indexer** accelerates long-context processing without sacrificing model quality
-- Resolves the quadratic scoring costs and memory fragmentation that plague fine-grained sparse mechanisms
-- Unlike LongCat-Flash's Multi-head Latent Attention (MLA), LSA is purpose-built for extreme-length contexts
+LongCat Sparse Attention (LSA) addresses expensive sparse-attention indexing and fragmented memory access through three designs:
 
-### 2. N-gram Embedding module
+- **Streaming-aware Indexing** combines contiguous access with dynamic token selection.
+- **Cross-Layer Indexing** reuses indexing results across neighboring layers.
+- **Hierarchical Indexing** filters blocks before selecting individual tokens from candidates.
 
-- Extends the embedding space along dimensions **completely orthogonal** to the MoE expert layout
-- Adds approximately **135 billion parameters** via a 5-gram token combination framework
-- Expands the embedding space by roughly **100×**, improving the model's ability to represent rare tokens and long-range dependencies
+These are three improvements **within LSA**. LSA, N-gram Embedding, and dynamic MoE should not be presented as the official three independently switchable modules.
 
-### 3. Dynamic token-level compute allocation
+2.0 also inherits **N-gram Embedding** from Flash-Lite, expanding parameters in sparse dimensions outside MoE. Its role is representation capacity. It is neither a search index nor persistent task memory for the host application.
 
-- The MoE layout is purpose-built for **coding, reasoning, and interactive tasks** — not generic chatbot performance
-- Each token dynamically receives different compute allocation, improving parameter efficiency
+## Model capabilities and the agent's responsibilities
 
----
+The official card describes integration with harnesses such as Claude Code, OpenClaw, and Hermes, alongside code understanding, repository-level edits, and automated tasks. This describes the integration direction; it does not establish compatibility with every harness version or project.
 
-## Core capabilities
+The model generates text and tool-call requests. The host must provide tools, execute requests, return results, and manage state, permissions, and audit logs. A coding workflow needs file-reading, editing, and test tools, followed by validation on a real repository.
 
-The model generates text and tool-call requests. The host application must provide tools, execute requests, return results, and manage state, audit logs, and concurrency. Workflow examples below describe applications built around the model; a standalone chat request does not execute those workflows.
+Start by asking the model to explain dependencies across files. Next, request a small feature change, review the diff, run tests, and record tool failures. Loading a repository into context cannot replace these checks.
 
-| Capability | Description |
-|---|---|
-| **Agentic Coding** | Deeply integrated with mainstream agent harnesses (Claude Code, OpenClaw, Hermes); strong performance on code understanding, repo-level edits, automated task execution, and agentic workflows |
-| **Long-context reasoning** | 1M native context, suitable for processing entire codebases, long research reports, legal documents |
-| **Repo-level understanding** | Cross-file dependency analysis, large codebase structural comprehension |
-| **Tool calling** | Supports `tools` and `tool_choice` function calling; does not support `response_format` (JSON output is not enforced) |
-| **Multilingual** | Chinese and English code and natural language processing |
+## Reading performance reports
 
----
+The 2.0 card lists Terminal-Bench, SWE-bench, and BrowseComp results. Meituan states that unstarred scores were measured in-house, while starred comparison scores were taken from other models' official reports. This is not an independently rerun leaderboard with identical settings for every model.
 
-## Performance benchmarks
+Check the harness, tool permissions, reasoning budget, and success criteria before drawing comparisons. For a product, measure passing repository edits, correct tool arguments, recovery from failures, and total task cost. The vendor table does not establish an across-the-board win over other families.
 
-LongCat-2.0's performance on agentic coding and general agent benchmarks:
+## Licensing, endpoints, and an example
 
-| Benchmark | LongCat-2.0 | Gemini 3.1 Pro | GPT-5.5 | Claude Opus 4.6 | Claude Opus 4.8 |
-|---|---|---|---|---|---|
-| **Terminal-Bench 2.1** | 70.8 | 70.7 | 73.8 | — | 78.9 |
-| **SWE-bench Pro** | 59.5 | 54.2 | 58.6 | 57.3 | 69.2 |
-| **SWE-bench Multilingual** | 77.3 | 76.9 | — | 77.8 | 84.8 |
-| **FORTE** | 73.2 | 70.3 | 77.8 | 73.2 | 77.2 |
-| **BrowseComp** | 79.9 | 85.9 | 84.4 | 84.0 | 84.3 |
+The Flash card places weights and source code under MIT. The 2.0 card places model weights under MIT and states that it grants no rights to Meituan trademarks or patents. Retain the notices required by the license; MIT does not mean there are no obligations.
 
-Other benchmarks: IFEval 90.0, GPQA-diamond 88.9, RWSearch 78.8.
+At this check, [OpenRouter's 2.0 endpoint data](https://openrouter.ai/api/v1/models/meituan/longcat-2.0/endpoints) lists `meituan/longcat-2.0`, `tools`, and `tool_choice`, but not `response_format`. That describes the endpoint's supported parameters at the time, rather than a permanent restriction on every deployment. Check live endpoint data for pricing.
 
-> 💡 LongCat-2.0 scores 77.3 on SWE-bench Multilingual, above Gemini 3.1 Pro (76.9) and below Claude Opus 4.6 (77.8). The source lists no comparable GPT-5.5 score. LongCat scores are vendor evaluations; competitor scores in these coding rows are cited from their official reports.
+This minimal HTTP example requires your own API key. No paid inference call was made for this article:
 
----
+```bash
+curl https://openrouter.ai/api/v1/chat/completions \
+  -H "Authorization: Bearer ${OPENROUTER_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"meituan/longcat-2.0","messages":[{"role":"user","content":"Explain the dependency between these two modules."}]}'
+```
 
-## Training hardware: domestic chip cluster
+If JSON is required, check whether the provider supports enforced structured output. Asking for JSON in a prompt cannot guarantee its format. The host still needs parsing, schema validation, and error handling.
 
-LongCat-2.0's pre-training and large-scale deployment were completed entirely on a **50,000-card domestic AI ASIC superpod cluster**:
+## Deployment and selection
 
-- This is the largest known LLM trained entirely on Chinese domestic chips
-- Training stability was a key challenge: keeping a large-scale cluster stable enough to finish pre-training, not merely launching a single large run
-- LongCat-Flash inference, by contrast, uses H800 GPUs
+The 2.0 card provides GPU and NPU deployment paths: SGLang's cookbook for GPU, and SGLang-FluentLLM for NPU. It also states that training and large-scale deployment use AI ASIC superpods. That does not restrict users to the same hardware or establish a market conclusion about chip supply chains.
 
----
-
-## License and access
-
-| Item | Details |
-|---|---|
-| **License** | MIT (subject to its license terms) |
-| **OpenRouter** | `meituan/longcat-2.0`, $0.30/M input, $1.20/M output; Cache Read $0.006/M |
-| **Hugging Face** | `meituan-longcat/LongCat-2.0` (FP8 / INT8 versions available) |
-| **API** | [longcat.chat](https://longcat.chat/) offers Token Pack flash-sale pricing |
-| **Local deployment** | Requires large GPU clusters (1.6T MoE); FP8/INT8 versions reduce hardware requirements |
-
-> 💡 OpenRouter lists $0.30/M input, $1.20/M output, and $0.006/M cache reads at the time of this check; provider pricing can change.
-
----
-
-## Version comparison and selection guide
-
-| Need | Recommended version | Reason |
+| Need | Starting candidate | What to validate |
 |---|---|---|
-| Strongest agentic coding + 1M context | **LongCat-2.0** | 1.6T total params, LSA, N-gram Embedding, native 1M context |
-| High-throughput everyday coding | **LongCat-Flash** | 560B is lighter; 128K context suffices for most scenarios |
-| Extreme context (entire book / entire repo) | **LongCat-2.0** | 1M native training, not extrapolated |
+| Existing Flash tool workflow | LongCat-Flash-Chat | Chat template, tool parsing, and sufficient context |
+| Long documents and cross-file changes | LongCat-2.0 | Retrieval accuracy under long input and passing edits |
+| Self-hosting | Official deployment guides | Full weights, memory, concurrency, and framework support |
 
----
-
-## Ideal use cases
-
-| Use case | Description |
-|---|---|
-| **Repo-level editing** | Analyze an entire codebase within 1M context, perform cross-file modifications |
-| **Agentic coding agent** | Integrated with Claude Code / OpenClaw / Hermes for multi-step development tasks |
-| **Long-document analysis** | Process complete research reports, legal documents, technical specifications |
-| **Multilingual code** | Chinese and English code understanding and generation |
-| **Automated tasks** | Tool calling + multi-step reasoning |
-
----
-
-## Limitations and caveats
-
-- **JSON output not enforced**: `response_format` is not supported; JSON output must be ensured through prompt formatting
-- **Local deployment barrier**: 1.6T MoE requires large GPU clusters; recommend using OpenRouter or Hugging Face hosted versions
-- **Community validation ongoing**: LongCat-2.0 was released less than half a year ago; architecture and performance claims still need validation outside Meituan's own environment
-- **Chip supply chain risk**: Heavy reliance on Chinese domestic AI chips; future supply may be affected by policy changes
-
----
+LongCat trades a large sparse model for long-context and agent capabilities. Hosted APIs reduce the self-hosting burden, but endpoint support and task success still require validation. Start with a testable workflow before expanding adoption.
 
 ## Related posts
 
-- [Cohere North: Cohere's First Agentic Coding Family](/posts/tech/2026-10-10-ai-model-family-cohere-north-en)
-- [NVIDIA Nemotron Series](/posts/tech/2026-10-10-ai-model-family-nemotron-en)
-- [Apodex: Long-horizon Research Model](/posts/tech/2026-10-10-ai-model-family-apodex-en)
-- [Liquid AI: Compact Reasoning Model](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
-- [Dots Studio Dots: Open-weight MoE Model Family](/posts/tech/2026-10-10-ai-model-family-dots-studio-en)
+- [NVIDIA Nemotron family](/posts/tech/2026-10-10-ai-model-family-nemotron-en)
+- [Cohere North family](/posts/tech/2026-10-10-ai-model-family-cohere-north-en)
+- [Apodex family](/posts/tech/2026-10-10-ai-model-family-apodex-en)
+- [Liquid AI family](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
+- [Dots family](/posts/tech/2026-10-10-ai-model-family-dots-studio-en)
 
----
+## Update history
+
+- 2026-10-11: Reworked architecture, deployment, and capability boundaries using official cards and endpoint data; removed unverified dates, hardware counts, and ranking conclusions; published the draft.
 
 ## References
 
-- [LongCat-2.0 official announcement](https://longcat.chat/blog/longcat-2.0)
-- [Hugging Face: meituan-longcat/LongCat-2.0](https://huggingface.co/meituan-longcat/LongCat-2.0)
-- [OpenRouter: LongCat 2.0](https://openrouter.ai/meituan/longcat-2.0)
-- [Reuters: China's Meituan says new AI model trained on domestic chips](https://www.reuters.com/world/china/chinas-meituan-says-new-ai-model-trained-domestic-chips-2026-06-30/)
-- [Geopolitechs: LongCat-2.0 — China's Most Unexpected AI Model](https://www.geopolitechs.org/p/longcat-20-chinas-most-unexpected)
-- [VentureBeat: Meituan open sources LongCat-2.0](https://venturebeat.com/technology/meituan-open-sources-longcat-2-0-the-1-6t-near-frontier-agentic-coding-model-thats-been-leading-openrouter-trained-entirely-on-chips)
-- [MarkTechPost: Meituan Releases LongCat-2.0](https://www.marktechpost.com/2026/07/05/meituan-releases-longcat-2-0-a-1-6t-parameter-open-moe-model-with-native-1m-context-and-longcat-sparse-attention)
-
----
-
-*Last updated: 2026-10-10. LongCat-2.0 is a newly released model; specs and policies may change. Always refer to official documentation.*
+- [Official LongCat-Flash-Chat model card](https://huggingface.co/meituan-longcat/LongCat-Flash-Chat)
+- [Official LongCat-2.0 model card and deployment links](https://huggingface.co/meituan-longcat/LongCat-2.0)
+- [OpenRouter LongCat-2.0 endpoint data](https://openrouter.ai/api/v1/models/meituan/longcat-2.0/endpoints)
+- [Official LongCat repository](https://github.com/meituan-longcat/LongCat-2.0)

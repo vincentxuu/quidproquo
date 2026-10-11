@@ -1,163 +1,111 @@
 ---
-title: "Liquid AI LFM: Compact Reasoning and Long-Context Agent Workflows"
+title: "Liquid AI LFM: On-Device Reasoning and Agent Workflows"
 date: 2026-10-10
 category: tech
 type: deep-dive
 tags: [liquid-ai, lfm, reasoning, agent-workflow, rag, long-context, compact-model]
 lang: en
-tldr: "Liquid AI's LFM 2.5 series is a compact reasoning model (2.6B parameters) optimized for agent workflows, data extraction, RAG, and long-context processing, supporting up to 65K tokens of context for fast-response scenarios."
-description: "Deep dive into Liquid AI LFM series architecture, reasoning capabilities, long-context handling, agent workflow design, and deployment integration."
-draft: true
+tldr: "LFM2.5-2.6B is an on-device hybrid reasoning model; checkpoint and OpenRouter context limits differ, with license and data terms to check before deployment."
+description: "Liquid AI LFM2.5-2.6B architecture, training, tools, deployment choices, and differences between checkpoint and hosted endpoint limits."
+series:
+  name: "AI 模型家族"
+  order: 29
+draft: false
 ---
 
 > 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
 
-[Liquid AI](https://liquid.ai/) develops the **LFM (Liquid Foundation Model)** series — compact reasoning models designed for high-efficiency inference, long-context processing, and agent workflows. The latest version is **LFM 2.5-2.6B** (`liquid/lfm-2.5-2.6b`, including a `:free` variant), with a **65K token context window** and only **2.6B parameters**, available free on OpenRouter as `liquid/lfm-2.5-2.6b:free`.
+Liquid AI’s LFM family emphasizes efficient deployment. This guide focuses on **LFM2.5-2.6B**, a text reasoning model for on-device and agent workloads, available as downloadable weights and through OpenRouter. A small model can make narrowly defined tasks easier to deploy and control, but quality still needs evaluation on your data.
 
----
+Checked on October 11, 2026 against the official model card, release article, and platform page. The key integration detail is that **the checkpoint and hosted endpoint advertise different context limits**.
 
-## Core positioning: compact, fast, long-context
+## Separate the checkpoint from the endpoint
 
-| Spec | Value |
-|------|-------|
-| **Model** | LFM 2.5-2.6B |
-| **Parameters** | 2.6B |
-| **Context** | 65,536 tokens |
-| **Architecture** | Compact reasoning model (Liquid AI proprietary) |
-| **Trainer** | **Liquid AI** |
-| **Access** | OpenRouter (`:free`), Liquid AI official platform |
-| **Ideal use** | Agent workflows, RAG, data extraction, batch processing, long-document analysis |
+| Item | Verified description |
+|---|---|
+| Checkpoint | `LiquidAI/LFM2.5-2.6B` |
+| Parameters | Model card: 2.69B; product name: 2.6B |
+| Official context | 131,072 tokens |
+| OpenRouter free endpoint context | 65,536 tokens |
+| OpenRouter maximum output | 8,192 tokens |
+| Modality | This checkpoint is text-only |
+| Architecture | Hybrid short convolutions and grouped-query attention |
+| Weight license | LFM Open License v1.0 |
 
-> ⚠️ Liquid AI officially advises **avoiding LFM for agentic coding tasks**. The model is not optimized for complex multi-file refactoring, automated test generation, or architecture design.
+The [official card](https://huggingface.co/LiquidAI/LFM2.5-2.6B) describes the model’s larger window; [OpenRouter](https://openrouter.ai/liquid/lfm-2.5-2.6b:free) describes its endpoint limit. We have not established that either listing is erroneous. Treat them separately: respect API limits when calling the endpoint, and check checkpoint and runtime settings when self-hosting.
 
----
+LFM2, LFM2.5, Instruct, Thinking, vision, and audio variants are not interchangeable. Text-only here describes this checkpoint. The [LFM2.5-1.2B-Instruct card](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct) lists vision and audio members, so that restriction cannot be generalized to the entire family.
 
-## Training and design philosophy
+## Architecture and training
 
-Liquid AI's core philosophy: **"small model, big efficiency"** — using efficient architecture and training strategies to achieve near-100B-level quality with tens of billions of parameters, while maintaining low latency and cost.
+Liquid positions LFM2.5 as a hybrid family for on-device deployment. This checkpoint combines short convolutions with attention and receives post-training for agent tasks. Deployment conditions and tool interaction are explicit design targets, rather than assumptions inferred from parameter count.
 
-LFM training priorities:
+The [release article](https://www.liquid.ai/blog/lfm2-5-2-6b) and model card describe a context-extension stage and a post-training sequence comprising supervised fine-tuning, teacher specialization, on-policy distillation, and agentic reinforcement learning. The context should therefore not be described as having no later extension. These are vendor descriptions; we have not independently reproduced training or performance results.
 
-- **Inference efficiency first**: model architecture optimized to reduce unnecessary computation steps during inference
-- **Native long-context support**: 65K context is built into the training data distribution (long documents, multi-turn tool interactions), not just post-hoc extension
-- **Agent workflow alignment**: training data includes extensive multi-step tool use, data extraction, RAG retrieval, and synthesis pipelines
+The card describes a model that reasons before answering. Reasoning generation consumes the output budget, so a small parameter count alone does not promise a short wait. Record input and output lengths, quantization, hardware, and concurrency when evaluating latency.
 
----
+## Suitable workloads
 
-## Core capabilities
+Officially recommended areas include agent workflows, tool use, extraction, RAG, and long context. Start with bounded tasks whose answers have sources: extracting fields from documents, answering over retrieved passages, or summarizing existing records.
 
-The model generates text and tool-call requests. The host application must provide tools, execute requests, return results, and manage state, audit logs, and concurrency. Workflow examples below describe applications built around the model; a standalone chat request does not execute those workflows.
+The official card advises against agentic coding and knowledge-heavy tasks. That is a checkpoint selection limitation, not proof that every family member cannot program. Nor does it establish that creative writing is unsuitable.
 
-### 1. Agent workflow optimization
-- **Multi-turn tool calling**: supports sequential tool operations within a single conversation, updating reasoning state at each step
-- **Low-latency response**: 2.6B parameters yield much faster inference than large models, ideal for interactive agents
-- **Memory and context management**: 65K window holds full conversation history, retrieval results, and intermediate reasoning traces, reducing truncation errors
+Compare with larger general models on your own task suite, measuring field accuracy, tool argument errors, grounded citations, and end-to-end latency. Use other candidates for complex cross-file coding workloads rather than predicting quality from size alone.
 
-### 2. Data extraction and RAG
-- **Structured extraction**: pulls structured information (tables, fields, relationships) from unstructured text (PDFs, web pages, reports)
-- **Long-document RAG**: simultaneously handles long-form documents (books, research reports, legal texts) and external knowledge retrieval
-- **Multilingual support**: English-focused with basic understanding of Chinese, Japanese, and European languages
+## Tool use requires an execution host
 
-### 3. Batch processing and automation
-- **High throughput**: small parameter count allows multiple concurrent instances on a single GPU, ideal for batch document processing, data cleaning, and report generation
-- **Predictable latency**: inference time scales linearly with input length, making timeout and retry strategies easy in automated pipelines
+The documented loop supplies function definitions, receives model calls, executes them in the host, and returns results with the `tool` role. A prompt does not automatically give the model CSV access, Pandas execution, or database write access.
 
----
+For quarterly revenue analysis, the host can read CSV data, validate columns, and perform calculations before the model explains the results. Reproducible code and source fields make calculations easier to inspect than asking the model to calculate unaided. This is an application design recommendation, not a workflow tested here.
 
-## Recommended and not recommended scenarios
+## API trial
 
-### ✅ Recommended
+Use the actual OpenRouter model ID below. Your application supplies the input text:
 
-| Scenario | Description |
-|----------|-------------|
-| **Interactive data assistant** | Answer questions over long documents or databases with fast retrieval and synthesis |
-| **Automated report generation** | Generate structured reports from raw data (CSV, APIs, files) |
-| **RAG system core** | Serve as the synthesis engine for retrieved context fragments |
-| **Lightweight agent proxy** | Run smart agents on resource-constrained environments (edge, low-cost cloud) |
-| **Multi-step data cleaning** | Read, validate, transform, output data with full operation logging |
-
-### ❌ Not recommended
-
-| Scenario | Reason |
-|----------|--------|
-| **Complex agentic coding** | Liquid AI explicitly advises against using for automated coding; complex multi-file refactoring and test generation perform poorly |
-| **High-precision reasoning** | 2.6B parameters fall short of large reasoning models for complex math proofs and deep logical deduction |
-| **Creative content** | Style is practical and direct, not suited for poetry, fiction, or brand storytelling |
-| **Multimodal tasks** | Text-only input; does not process images, audio, or video directly |
-
----
-
-## Deployment and access
-
-### OpenRouter (free)
 ```python
-client = openai.OpenAI(
+import os
+from openai import OpenAI
+
+client = OpenAI(
     api_key=os.environ["OPENROUTER_API_KEY"],
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
 )
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model="liquid/lfm-2.5-2.6b:free",
-    messages=[{"role":"user","content":"..."}]
+    messages=[{"role": "user", "content": "Extract dates and events from the following text as JSON: ..."}],
+    max_tokens=1024,
 )
-```
-- Subject to OpenRouter `:free` policies (20 RPM; daily quotas vary by spend)
-- Good for development, testing, and low-frequency batch tasks
-
-### Liquid AI official platform
-- Full LFM versions (larger parameter variants), enterprise APIs, private deployment
-- Dedicated SDK, long-context optimized endpoints, batch inference
-- Pay-per-token pricing; see [Liquid AI docs](https://liquid.ai/)
-
-### Local deployment
-- Partial open weights available; deploy via vLLM or SGLang
-- Plan memory from the deployment framework, weight format, context length, and concurrency.
-
----
-
-## Typical example
-
-```python
-task = "Extract quarterly revenue data for the past 5 years from the provided CSV, " \
-       "calculate year-over-year growth, and flag anomalous quarters (growth < -10% or > +50%). " \
-       "Output: 1) cleaned data table, 2) anomaly flags with possible explanations, 3) reproducible Python script."
+print(response.choices[0].message.content)
 ```
 
-With host-provided tools and an execution loop, an application can build this workflow:
-1. Read CSV and understand column structure
-2. Execute data cleaning and calculations through Pandas tools supplied by the host
-3. Flag anomalies and propose explanations (seasonality, one-time events, market shifts)
-4. Generate a reproducible analysis script and structured report
+The endpoint explicitly states that **prompts and outputs may be retained and used to train Liquid models**. Free access does not imply no retention, and a generic routing option should not be assumed to override provider terms. Resolve handling requirements before sending sensitive data. Local inference also requires checking whether surrounding tools send data externally.
 
----
+## Local deployment and licensing
 
-## Limitations and caveats
+The official card lists Transformers, vLLM, SGLang, llama.cpp, MLX, and LM Studio, with GGUF, ONNX, and MLX variants. Choose a runtime and checkpoint format for your hardware, start with small inputs, and increase context and concurrency gradually. Weight size is not a limit on total process memory.
 
-| Limitation | Note |
-|------------|------|
-| **Not a coding expert** | Complex multi-file refactoring, large project architecture design perform poorly; pair with specialized coding models |
-| **Not a creative model** | Style is practical and direct; not suited for poetry, literature, or brand copywriting |
-| **Parameter scale limit** | 2.6B falls short on deep reasoning (math proofs, philosophical argumentation) |
-| **Free endpoint volatility** | OpenRouter `:free` has queues and occasional 503s; use paid API for production |
-| **Privacy** | OpenRouter free endpoints may collect prompts; use official platform or enable ZDR for sensitive data |
+Weights use **LFM Open License v1.0**, not Apache or MIT. Read [this checkpoint’s LICENSE](https://huggingface.co/LiquidAI/LFM2.5-2.6B/blob/main/LICENSE), particularly commercial limitations and redistribution obligations. The release article uses broader promotional language, while the actual license contains a commercial limitation. We therefore do not describe commercial use as unrestricted. Ask the provider to resolve ambiguity affecting your intended use.
 
----
+## Start evaluating
+
+| Stage | Action |
+|---|---|
+| Document RAG | Test questions with source passages and check citations |
+| Extraction | Compare fields and null values with human labels |
+| Tool workflows | Validate function names, arguments, and recovery |
+| Local deployment | Fix hardware and quantization; measure latency and memory |
+| Integration | Check endpoint limits, data terms, and weight license |
+
+LFM2.5-2.6B offers a route to local tool workflows. Adoption depends on passing evaluations with your tasks, data, and hardware.
+
+## Update log
+
+- 2026-10-11: Rechecked architecture and training against official sources, separated checkpoint and API context limits, added data-retention and license restrictions, and removed unmeasured performance comparisons before publication.
 
 ## References
 
-- [Liquid AI official site](https://liquid.ai/)
-- [LFM on OpenRouter](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
-- [OpenRouter LFM docs](https://openrouter.ai/docs/models/liquid/lfm-2.5-2.6b)
-
----
-
-## Related posts
-
-- [OpenRouter: Unified API and multi-provider routing](/posts/ai/2026-08-22-openrouter-model-routing-en)
-- [OpenCode and Zen Gateway](/posts/ai/2026-04-02-agent-cli-opencode-en)
-- [LLM inference free-tier comparison (2026-05)](/posts/ai/2026-05-09-llm-inference-free-tier-comparison-en)
-- [Apodex: Long-horizon research model](/posts/tech/2026-10-10-ai-model-family-apodex-en)
-- [Dots Studio: Large-context MoE model](/posts/tech/2026-10-10-ai-model-family-dots-studio-en)
-
----
-
-*Last updated: 2026-10-10. Model specs, free tier policies, and access options may change; always verify against official docs.*
+- [Liquid AI: LFM2.5-2.6B release and training](https://www.liquid.ai/blog/lfm2-5-2-6b)
+- [Official LFM2.5-2.6B model card](https://huggingface.co/LiquidAI/LFM2.5-2.6B)
+- [LFM2.5-2.6B weight license](https://huggingface.co/LiquidAI/LFM2.5-2.6B/blob/main/LICENSE)
+- [LFM2.5-1.2B-Instruct and family members](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct)
+- [OpenRouter: LFM2.5-2.6B endpoint limits and data terms](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)

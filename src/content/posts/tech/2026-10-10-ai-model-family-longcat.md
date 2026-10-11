@@ -5,160 +5,107 @@ category: tech
 type: deep-dive
 tags: [meituan, longcat, moe, open-weight, agentic-coding, sparse-attention]
 lang: zh-TW
-tldr: "LongCat 是美團（Meituan）開發的開源 LLM 模型家族。最新版 LongCat-2.0（2026-06-30 發布）擁有 1.6T 總參數、約 48B 活躍參數、1M 上下文，採用 LongCat Sparse Attention 與 N-gram Embedding 架構，專為長上下文推理、agentic coding、repo-level 理解設計，以 MIT 授權開源。"
-description: "深入介紹 LongCat 模型家族的架構演進（Flash → 2.0）、LongCat Sparse Attention、N-gram Embedding 模組、與主流 agent harness 的整合、效能基準、以及與同量級模型的比較。"
-draft: true
+tldr: "LongCat-Flash 與 LongCat-2.0 是美團的開放權重 MoE 模型。本文依官方模型卡說明動態計算、LSA、長上下文與工具使用，並區分模型規格和託管端點限制。"
+description: "LongCat 模型家族：Flash 與 2.0 的架構差異、MIT 權重授權、agent 分工、端點參數與部署取捨。"
+draft: false
+series:
+  name: "AI 模型家族"
+  order: 30
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-longcat-en)
 
-[美團（Meituan）](https://www.meituan.com/) 的 **LongCat** 系列是目前最受注目的開源模型家族之一。從 **LongCat-Flash（560B）** 到 **LongCat-2.0（1.6T）**，LongCat 專為長上下文推理、agentic coding、repo-level 理解與自動化任務執行而設計。LongCat-2.0 在 2026-06-30 以 MIT 授權發布，此前曾以 "**Owl Alpha**" 代號在 OpenRouter 上安靜測試，使用率一度登上排行榜頂端。
+美團的 **LongCat** 是開放權重語言模型家族。LongCat-Flash 用動態 MoE 分配每個 token 的計算量；LongCat-2.0 則把重點推向長上下文、程式碼理解與多步工具使用。選擇時，應把模型規格、託管端點限制與實際工作流分開看。
 
----
+## 從 Flash 到 2.0
 
-## 系列概述
+以下規格依[官方 Flash 模型卡](https://huggingface.co/meituan-longcat/LongCat-Flash-Chat)與[2.0 模型卡](https://huggingface.co/meituan-longcat/LongCat-2.0)整理，查核日期為 2026-10-11。
 
-| 版本 | 總參數 | 活躍參數 | 上下文 | 核心定位 | 發布日期 |
-|---|---|---|---|---|---|
-| **LongCat-Flash** | 560B | ~27B（18.6B–31.3B） | 128K | 高效 agentic coding | 2025 |
-| **LongCat-2.0** | 1.6T | ~48B（33B–56B） | 1M（native） | 長上下文推理 + agentic coding | 2026-06-30 |
+| 模型 | 總參數 | 每 token 活躍參數 | 官方上下文 | 重點 |
+|---|---|---|---|---|
+| LongCat-Flash-Chat | 560B | 平均約 27B，依輸入動態變動 | 128K | 非 thinking 聊天、程式碼與工具使用 |
+| LongCat-2.0 | 1.6T | 約 48B | 1M | 長上下文、程式碼庫修改與 agent 工作流 |
 
-> ⚠️ LongCat-2.0 的 1M 上下文是 **native** 訓練得來，不是靠外插法（extrapolation）達成。訓練資料包含 30T+ tokens，其中數百億 tokens 為 1M token 上下文長度。
+「活躍參數較少」描述每個 token 需要的計算，不能直接拿來估算整份權重的儲存成本。部署 1.6T MoE，仍須考慮完整權重、專家配置、上下文快取與並行請求。
 
----
+2.0 官方模型卡指出，訓練包含 1M 上下文資料。這支持它經過長上下文訓練，但不能推出它會完整記住整個程式碼庫，或處理任意長文都能保持相同準確率。
 
-## 架構演進：從 Flash 到 2.0
+## 架構為什麼這樣設計
 
-LongCat-2.0 在 LongCat-Base 的基礎上做了三項正交（orthogonal）的架構改進，每個模組可獨立啟用或關閉：
+### Flash：把計算留給需要的 token
 
-### 1. LongCat Sparse Attention（LSA）
+Flash 的動態計算機制使用 zero-computation experts，依上下文分配專家計算量；Shortcut-connected MoE 則增加計算與通訊重疊的空間。這是大型 MoE 的工程重點：節省計算後，跨裝置通訊仍可能成為瓶頸。
 
-LSA 是 DeepSeek Sparse Attention 的進化版，目標是讓 1M 上下文的訓練與推論在硬體上可行：
+### 2.0：降低長上下文索引成本
 
-- 透過 **更輕量的 indexer** 加速長上下文處理，同時不犧牲模型品質
-- 解決 fine-grained sparse mechanism 的二次方評分成本與記憶體碎片問題
-- 與 LongCat-Flash 使用的 Multi-head Latent Attention（MLA）不同，LSA 是專門為極長上下文設計的稀疏注意力機制
+LongCat Sparse Attention（LSA）針對稀疏注意力的索引成本與零碎記憶體存取，組合三個設計：
 
-### 2. N-gram Embedding 模組
+- **Streaming-aware Indexing**：結合連續存取與動態選取 token，改善記憶體讀取方式。
+- **Cross-Layer Indexing**：相鄰層重用索引結果，減少重複索引。
+- **Hierarchical Indexing**：先做區塊級粗篩，再從候選區塊選 token。
 
-- 在 MoE expert layout 完全正交的維度上擴展 embedding space
-- 透過 5-gram token 組合框架，增加約 **135B 參數**
-- 將 embedding space 擴展約 **100 倍**，提升模型對長上下文與 rare token 的表達能力
+這三項是 **LSA 內部的改進**，不應把 LSA、N-gram Embedding 與動態 MoE 統稱為官方所說的三個可獨立開關模組。
 
-### 3. 動態 token-level compute allocation
+2.0 也沿用 Flash-Lite 的 **N-gram Embedding**，在 MoE 以外的稀疏維度擴展參數。其角色是增加表示容量；它不是搜尋索引，也不會替主程式持久保存任務進度。
 
-- MoE layout 專為 **coding、推理、互動任務** 設計，而非通用聊天機器人
-- 每個 token 可動態分配不同的計算量，提升參數效率
+## 模型能力與 agent 的分工
 
----
+官方模型卡列出 Claude Code、OpenClaw、Hermes 等 harness 的整合方向，以及程式碼理解、跨檔案修改與自動化任務。這是應用整合的定位，不能保證所有 harness 版本或所有專案都能直接使用。
 
-## 核心能力
+模型產生文字與工具呼叫請求；主程式要提供工具、執行請求、回傳結果，並管理狀態、權限與稽核紀錄。需要它修改程式碼時，至少提供讀檔、修改檔案與測試工具，再用實際 repo 驗證。
 
-模型產生文字與工具呼叫請求；主程式須提供工具、執行請求、回傳結果，並管理狀態、稽核紀錄與並行工作。以下工作流描述的是圍繞模型建立的應用，單次聊天請求不會自行執行完整流程。
+一個可落地的試用順序是：先讓模型解釋跨檔案依賴，再要求修改一個小功能，最後檢查 diff、執行測試並記錄工具失敗。把整個 repo 塞進上下文，不能取代這些檢查。
 
-| 能力 | 說明 |
-|---|---|
-| **Agentic Coding** | 深度整合 Claude Code、OpenClaw、Hermes 等主流 agent harness，在程式碼理解、repo-level edits、自動化任務執行、agentic workflows 上表現出色 |
-| **長上下文推理** | 1M native 上下文，適合處理整個程式碼庫、長篇研究報告、法律文件 |
-| **Repo-level 理解** | 跨檔案依賴分析、大型程式碼庫結構理解 |
-| **工具調用** | 支援 `tools` 與 `tool_choice` function calling；但不支援 `response_format`（JSON 輸出不被強制） |
-| **多語言** | 中英文程式碼與自然語言處理 |
+## 怎麼讀效能報告
 
----
+2.0 模型卡列出 Terminal-Bench、SWE-bench、BrowseComp 等結果。官方註明，未加星號的分數由美團內部評測，加星號的對照分數引用其他模型官方報告。這不是所有模型都由獨立第三方以同一設定重跑的排行榜。
 
-## 效能基準
+選型時，應核對 harness、工具權限、推理預算與成功判定。對自己產品更有用的測量是：跨檔案修改能否通過測試、工具參數是否正確、失敗後能否恢復，以及完成任務的總成本。本文不把廠商表格推成「全面勝過」其他家族的結論。
 
-LongCat-2.0 在 Agentic Coding 與 General Agent 基準上的表現：
+## 授權、端點與範例
 
-| Benchmark | LongCat-2.0 | Gemini 3.1 Pro | GPT-5.5 | Claude Opus 4.6 | Claude Opus 4.8 |
-|---|---|---|---|---|---|
-| **Terminal-Bench 2.1** | 70.8 | 70.7 | 73.8 | — | 78.9 |
-| **SWE-bench Pro** | 59.5 | 54.2 | 58.6 | 57.3 | 69.2 |
-| **SWE-bench Multilingual** | 77.3 | 76.9 | — | 77.8 | 84.8 |
-| **FORTE** | 73.2 | 70.3 | 77.8 | 73.2 | 77.2 |
-| **BrowseComp** | 79.9 | 85.9 | 84.4 | 84.0 | 84.3 |
+Flash 模型卡將權重與原始碼列為 MIT；2.0 模型卡將模型權重列為 MIT，並說明不授予美團商標或專利使用權。使用時仍要保留授權所要求的聲明，不能把 MIT 等同於沒有任何義務。
 
-其他基準：IFEval 90.0、GPQA-diamond 88.9、RWSearch 78.8。
+[OpenRouter 的 2.0 端點資料](https://openrouter.ai/api/v1/models/meituan/longcat-2.0/endpoints)在本次查核列出 `meituan/longcat-2.0` 與 `tools`、`tool_choice`，沒有列出 `response_format`。這描述當時端點支援的參數，不是所有部署方式永久相同的模型限制。價格請以呼叫當下的端點資料為準。
 
-> 💡 LongCat-2.0 的 SWE-bench Multilingual 分數為 77.3，高於 Gemini 3.1 Pro（76.9），低於 Claude Opus 4.6（77.8）；來源未列出可比較的 GPT-5.5 分數。LongCat 分數由美團自行評測，這些編碼項目的對照模型分數則引用各模型官方報告。
+以下是對該路由的最小 HTTP 範例，需自行設定 API key；本文未進行付費推理呼叫：
 
----
+```bash
+curl https://openrouter.ai/api/v1/chat/completions \
+  -H "Authorization: Bearer ${OPENROUTER_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"meituan/longcat-2.0","messages":[{"role":"user","content":"Explain the dependency between these two modules."}]}'
+```
 
-## 訓練硬體：國產晶片集群
+需要 JSON 時，要先確認供應商是否支援強制結構化輸出。只在 prompt 寫「請回 JSON」不足以保證格式；主程式仍須解析、驗證 schema 並處理錯誤。
 
-LongCat-2.0 的預訓練與大規模部署皆在 **5 萬張國產 AI ASIC superpod** 集群上完成：
+## 部署與選擇
 
-- 這是目前已知最大規模、完全使用中國國產晶片訓練的 LLM
-- 訓練穩定性是關鍵挑戰：如何讓大規模集群穩定完成預訓練，而非單純啟動單一大型 run
-- LongCat-Flash 的推論則使用 H800 GPU
+2.0 官方列出 GPU 與 NPU 部署路徑，GPU 指向 SGLang cookbook，NPU 指向 SGLang-FluentLLM。官方也表示其訓練與大規模部署使用 AI ASIC superpods；這不代表使用者只能用該硬體部署，也不應推成晶片供應鏈的市場結論。
 
----
-
-## 授權與存取
-
-| 項目 | 說明 |
-|---|---|
-| **授權** | MIT（須遵守授權條款） |
-| **OpenRouter** | `meituan/longcat-2.0`，$0.30/M input、$1.20/M output；Cache Read $0.006/M |
-| **Hugging Face** | `meituan-longcat/LongCat-2.0`（FP8 / INT8 版本） |
-| **API** | [longcat.chat](https://longcat.chat/) 提供 Token Pack  Flash Sale 方案 |
-| **本地部署** | 需大量 GPU 叢集（1.6T MoE）；FP8/INT8 版本可降低硬體需求 |
-
-> 💡 本次查詢時，OpenRouter 列出的價格為 input $0.30/M、output $1.20/M，cache read 則為 $0.006/M；供應商價格可能調整。
-
----
-
-## 版本對照與選擇建議
-
-| 需求 | 建議版本 | 原因 |
+| 需求 | 可先評估 | 驗證重點 |
 |---|---|---|
-| 最強 agentic coding + 1M 上下文 | **LongCat-2.0** | 1.6T 總參數、LSA、N-gram Embedding、native 1M 上下文 |
-| 高吞吐日常 coding | **LongCat-Flash** | 560B 更輕量、128K 上下文已足夠大多數場景 |
-| 極限上下文（整本書/整個 repo） | **LongCat-2.0** | 1M native 訓練，非外插法 |
+| 已使用 Flash 的工具流程 | LongCat-Flash-Chat | 既有 chat template、工具解析與上下文是否足夠 |
+| 長文件與跨檔案修改 | LongCat-2.0 | 長輸入下的檢索正確率、修改是否通過測試 |
+| 自建服務 | 官方部署指引 | 完整權重、記憶體、並行與推論框架支援 |
 
----
-
-## 適用場景
-
-| 場景 | 說明 |
-|---|---|
-| **Repo-level editing** | 在 1M 上下文內分析整個程式碼庫，進行跨檔案修改 |
-| **Agentic coding agent** | 整合 Claude Code / OpenClaw / Hermes，執行多步驟開發任務 |
-| **長文檔分析** | 處理完整研究報告、法律文件、技術規格 |
-| **多語言程式碼** | 中英文程式碼理解與生成 |
-| **自動化任務** | Tool calling + 多步推理 |
-
----
-
-## 限制與注意
-
-- **JSON 輸出不被強制**：不支援 `response_format`，需要 JSON 輸出時需在 prompt 格式上自行確保
-- **本地部署門檻極高**：1.6T MoE 需大量 GPU 叢集；建議使用 OpenRouter 或 Hugging Face 託管版本
-- **社群驗證中**：LongCat-2.0 發表不到半年，架構與效能聲明尚需社群在美團以外的環境驗證
-- **晶片供應鏈風險**：高度依賴中國國產 AI 晶片，未來供應可能受政策影響
-
----
+LongCat 的取捨是以大型稀疏模型換取長上下文與 agent 能力；託管 API 可以降低自建門檻，但仍要驗證端點支援與任務成功率。值得先從一個可測試的工作流開始，再決定是否擴大使用。
 
 ## 同系列文章
 
-- [Cohere North：Cohere 首個 Agentic Coding 家族](/posts/tech/2026-10-10-ai-model-family-cohere-north)
 - [NVIDIA Nemotron 系列](/posts/tech/2026-10-10-ai-model-family-nemotron)
-- [Apodex：長時程研究模型](/posts/tech/2026-10-10-ai-model-family-apodex)
-- [Liquid AI：緊湊推理模型](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
-- [Dots Studio Dots：開放權重 MoE 模型家族](/posts/tech/2026-10-10-ai-model-family-dots-studio)
+- [Cohere North 模型家族](/posts/tech/2026-10-10-ai-model-family-cohere-north)
+- [Apodex 模型家族](/posts/tech/2026-10-10-ai-model-family-apodex)
+- [Liquid AI 模型家族](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
+- [Dots 模型家族](/posts/tech/2026-10-10-ai-model-family-dots-studio)
 
----
+## 更新紀錄
+
+- 2026-10-11：依官方模型卡與端點資料重寫架構、部署及能力邊界，移除未完成查證的日期、硬體數量與排行推論，完成草稿發布。
 
 ## 參考資料
 
-- [LongCat-2.0 官方介紹](https://longcat.chat/blog/longcat-2.0)
-- [Hugging Face: meituan-longcat/LongCat-2.0](https://huggingface.co/meituan-longcat/LongCat-2.0)
-- [OpenRouter: LongCat 2.0](https://openrouter.ai/meituan/longcat-2.0)
-- [Reuters: China's Meituan says new AI model trained on domestic chips](https://www.reuters.com/world/china/chinas-meituan-says-new-ai-model-trained-domestic-chips-2026-06-30/)
-- [Geopolitechs: LongCat-2.0 — China's Most Unexpected AI Model](https://www.geopolitechs.org/p/longcat-20-chinas-most-unexpected)
-- [VentureBeat: Meituan open sources LongCat-2.0](https://venturebeat.com/technology/meituan-open-sources-longcat-2-0-the-1-6t-near-frontier-agentic-coding-model-thats-been-leading-openrouter-trained-entirely-on-chinese-chips)
-- [MarkTechPost: Meituan Releases LongCat-2.0](https://www.marktechpost.com/2026/07/05/meituan-releases-longcat-2-0-a-1-6t-parameter-open-moe-model-with-native-1m-context-and-longcat-sparse-attention)
-
----
-
-*最後更新：2026-10-10。LongCat-2.0 為新發表模型，規格與政策會隨版本更新；請以官方文件為準。*
+- [LongCat-Flash-Chat 官方模型卡](https://huggingface.co/meituan-longcat/LongCat-Flash-Chat)
+- [LongCat-2.0 官方模型卡與部署入口](https://huggingface.co/meituan-longcat/LongCat-2.0)
+- [OpenRouter LongCat-2.0 端點資料](https://openrouter.ai/api/v1/models/meituan/longcat-2.0/endpoints)
+- [LongCat 官方程式碼庫](https://github.com/meituan-longcat/LongCat-2.0)

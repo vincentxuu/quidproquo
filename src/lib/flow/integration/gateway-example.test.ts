@@ -6,7 +6,7 @@ import { loadFlow } from '../dsl/load'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const fixtureYamlPath = join(__dirname, '../../../../openspec/changes/agent-flow/fixtures/deep-research.example.yaml')
+const fixtureYamlPath = join(__dirname, '../../../../flows/deep-research.yaml')
 
 describe('gateway example regression', () => {
   it('parses deep-research.example.yaml without errors', () => {

@@ -5,186 +5,127 @@ category: tech
 type: deep-dive
 tags: [nvidia, nemotron, moe, open-weight, reasoning, multimodal, agentic]
 lang: zh-TW
-tldr: "NVIDIA Nemotron 是 NVIDIA 開發的開放權重混合推理模型家族，涵蓋 Ultra（550B）、Super（120B）、Lightning（30B）、Nano（30B-A3B 多模態推理）等版本。最新版提供 1M 上下文、前沿推理與多模態能力，並以免費端點在 OpenRouter 提供。"
-description: "深入介紹 NVIDIA Nemotron 系列的架構演進、各版本差異（Ultra / Super / Lightning / Nano）、開源授權、推理與多模態能力、以及如何在 OpenRouter 免費端點使用。"
-draft: true
+tldr: "Nemotron 涵蓋文字推理、多模態理解與安全分類；Ultra、Super、Lightning、Nano Omni 及 Content Safety 的架構、上下文與授權不同。本文區分官方模型規格與 API 端點限制。"
+description: "NVIDIA Nemotron 家族選型：混合 MoE、Nano Omni 音訊與視覺、Content Safety、各型號授權，以及免費端點與本地部署取捨。"
+draft: false
+series:
+  name: "AI 模型家族"
+  order: 31
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-nemotron-en)
 
-[NVIDIA](https://www.nvidia.com/) 的 **Nemotron** 系列是目前開放權重模型中最具規模與推理深度的之一。從 **Nemotron-3 Ultra（550B）** 到 **Nemotron-3.5 Lightning（30B）**，再到專為多模態推理設計的 **Nemotron-3 Nano Omni（30B-A3B）**，Nemotron 涵蓋了從旗艦推理到輕量代理的完整光譜。這些模型以 **混合專家（MoE）** 與 **混合 Transformer-Mamba 架構** 為核心，並在 OpenRouter 以免費模型（`:free`）形式提供，讓開發者能直接使用最強推理能力。
+**NVIDIA Nemotron** 包含文字推理、多模態理解與內容安全模型。它不是單一架構或單一授權的產品：Ultra、Super、Lightning、Nano Omni 與 Content Safety 各自有不同角色。選型的第一步，是確認需要的是產生答案、理解影音，還是判斷輸入與輸出是否符合安全政策。
 
----
+## 家族概覽：模型規格與 API 限制要分開
 
-## 系列概述
+以下依 NVIDIA 官方模型卡與 OpenRouter 端點資料整理，查核日期為 2026-10-11。
 
-| 版本 | 模型 ID（OpenRouter 免費） | 參數量 | 上下文 | 核心定位 | 訓練組織 |
-|---|---|---|---|---|---|
-| **Nemotron-3 Ultra** | `nvidia/nemotron-3-ultra-550b-a55b:free` | 55B active / 550B total | 1M | 最強推理與編排 | **NVIDIA** |
-| **Nemotron-3 Super** | `nvidia/nemotron-3-super-120b-a12b:free` | 12B active / 120B total | 262K | 多代理複雜應用 | **NVIDIA** |
-| **Nemotron-3.5 Lightning** | `nvidia/nemotron-3.5-lightning:free` | 3B active / 30B total | 1M | 高吞吐快速款 | **NVIDIA** |
-| **Nemotron-3 Nano Omni** | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | 30B-A3B | 256K | 多模態子代理（文字/圖像/影片） | **NVIDIA** |
-| **Nemotron-3.5 Content Safety** | `nvidia/nemotron-3.5-content-safety:free` | 4B | 128K | 內容安全守門（多模態 guardrail） | **NVIDIA** |
+| 模型 | 官方總／活躍參數 | 官方上下文 | OpenRouter 免費路由上下文 | 角色 |
+|---|---|---|---|---|
+| Nemotron 3 Ultra | 550B／55B | 1M | 1,000,000 | 大型文字推理 |
+| Nemotron 3 Super | 120B／12B | 1M | 262,144 | 文字推理、工具使用、多代理應用 |
+| Nemotron 3.5 Lightning | 30B／3B | 1M | 1,000,000 | 效率與本地推論 |
+| Nemotron 3 Nano Omni | 模型卡列 31B／約 3B，名稱保留 30B-A3B | 256K | 256,000 | 文字、圖像、音訊、影片理解 |
+| Nemotron 3.5 Content Safety | 4B，dense 模型 | 128K | 128,000 | 文字與單張圖像的安全分類 |
 
-> ⚠️ **Nemotron 3 系列的免費端點** 在 OpenRouter 以 `:free` 後綴提供。這些不是「老舊模型的免費版」，而是 **NVIDIA 最新發表的旗艦模型**，作为引流與收集使用回饋的策略。免費額度受 OpenRouter 限制（20 RPM / 日配額 50–1000 RPD），超限需付費或儲值提升配額。
+Super 的「模型支援 1M」與「免費 API 限制約 262K」可以同時成立。不能把供應商端點的限制寫成模型的訓練上限；實際呼叫仍以所選端點為準。
 
----
+Nano Omni 的官方卡列出音訊輸入，因此它不只有圖像與影片能力。模型卡的 31B 規格與路由名稱的 30B-A3B 也應一起交代，避免把名稱當成精確參數計數。
 
-## 架構演進：從 Transformer 到混合 Transformer-Mamba
+## 架構差異
 
-NVIDIA 在 Nemotron 系列中採用 **混合 Transformer-Mamba 架構**，結合 Transformer 的自注意力機制與 Mamba 的狀態空間模型（SSM）效率，實現了在長上下文（1M tokens）與高參數量（550B）下的可擴展推理。
+### Ultra 與 Super：混合架構、LatentMoE 與 MTP
 
-| 版本 | 架構特點 | 設計重點 |
-|---|---|---|
-| **Nemotron-3 Ultra** | 混合 Transformer-Mamba MoE（55B active / 550B total） | 最強推理、1M 上下文、前沿代理編排能力 |
-| **Nemotron-3 Super** | 混合 Transformer-Mamba MoE（12B active / 120B total） | 多代理場景下的高效率，120B 參數但僅 12B 啟動 |
-| **Nemotron-3.5 Lightning** | MoE（3B active / 30B total） | 極高吞吐量，適合大規模批次處理 |
-| **Nemotron-3 Nano Omni** | 多模態 MoE（30B-A3B） | 接受文字、圖像、影片輸入，作為企業代理系統的感知子代理 |
+Ultra 與 Super 結合 Mamba、Attention 與 MoE。官方還列出 **LatentMoE** 與 **Multi-Token Prediction（MTP）**：前者是專家架構設計，後者支援 speculative decoding。這些設計著重推論效率，但不能在沒有相同硬體、輸入長度與並行設定時，直接推成實際服務一定快幾倍。
 
----
+### Lightning：較小的活躍計算量
 
-## 核心能力
+3.5 Lightning 同樣是 Mamba-2、MoE、Attention 混合架構。官方 NVFP4 模型卡提供單 GPU 與不同硬體的部署路徑，也列出 DSpark、MTP、DFlash 等推測解碼方法。選擇它可先從本地 agent 或子代理工作流評估，延遲仍須在自己的請求與硬體上測量。
 
-模型產生文字與工具呼叫請求；主程式須提供工具、執行請求、回傳結果，並管理狀態、稽核紀錄與並行工作。以下工作流描述的是圍繞模型建立的應用，單次聊天請求不會自行執行完整流程。
+### Nano Omni 與 Content Safety：不同的任務
 
-### 1. 前沿推理（Reasoning）
-- **Nemotron-3 Ultra** 是 NVIDIA 目前開源的最強推理模型之一，專為多步邏輯推理、數學證明、複雜規劃而設計
-- 1M 上下文允許一次處理整本書籍、完整研究報告、長篇法律文件
-- 支援工具調用、外部知識檢索、結構化輸出
+Nano Omni 在語言模型骨幹之外使用視覺與語音編碼器，輸出是文字，可用於會議影音摘要、文件理解與 GUI 工作流。它沒有因此變成影片生成模型。
 
-### 2. 多代理編排（Agentic Orchestration）
-- **Nemotron-3 Super（120B）** 專為多代理系統設計：可用於由主程式安排多個子代理的複雜任務
-- 支援多步工具鏈：搜尋 → 計算 → 驗證 → 報告生成
-- 適合企業級 agent 系統、智慧客服、複雜工作流自動化
+Content Safety 則由 Google **Gemma-3-4B-it** 微調而來，採 dense Transformer 與視覺編碼器。它接受 prompt、可選圖像、可選回答及自訂安全政策，回傳安全標籤。這不是 MoE 推理家族的另一個尺寸，也不能保證應用自動符合所有政策。
 
-### 3. 高吞吐快速推理
-- **Nemotron-3.5 Lightning（30B）** 以極小的活躍參數（3B）提供快速回應
-- 適合需要大量並發請求的場景：批次文檔處理、即時分析、RAG 系統核心
+## 工具使用與多代理分工
 
-### 4. 多模態感知（Multimodal Perception）
-- **Nemotron-3 Nano Omni** 接受文字、圖像、影片輸入
-- 設計為「企業代理系統的感知與上下文子代理」：接受多模態輸入後輸出結構化理解，供主代理進一步推理
-- 適合需要視覺理解的場景：產品檢測、醫學影像分析、文件掃描理解
+模型產生文字與工具呼叫請求；主程式要提供工具、執行請求、回傳結果，並管理狀態、權限、稽核紀錄與並行工作。Super 的多代理定位不代表一次聊天呼叫會自行啟動其他代理。
 
-### 5. 內容安全守門（Content Safety）
-- **Nemotron-3.5 Content Safety** 是一個 4B 參數的多模態 guardrail 模型
-- 微調自 Google Gemma-3-4B，專門 moderating 輸入與輸出（文字與圖像）
-- 可用於構建安全的 AI 應用：自動過濾有害內容、確保輸出合規
+例如文件處理流程，可以由 Nano Omni 先讀取影音或掃描文件，主程式再把文字交給 Super 做推理，最後交給 Content Safety 做指定政策的分類。這是應用設計建議，仍須驗證各階段的輸出、格式與錯誤處理。
 
----
+## 開放權重不代表整個家族共用授權
 
-## 版本對照與選擇建議
-
-| 需求 | 建議版本 | 免費端點 ID | 原因 |
-|---|---|---|---|
-| 最強推理 + 1M 上下文 | Nemotron-3 Ultra | `nemotron-3-ultra-550b-a55b:free` | 55B active，前沿推理能力 |
-| 多代理編排 + 128K–262K | Nemotron-3 Super | `nemotron-3-super-120b-a12b:free` | 12B active，實用編排效能 |
-| 高吞吐快速批次 | Nemotron-3.5 Lightning | `nemotron-3.5-lightning:free` | 3B active，極快 |
-| 多模態子代理 + 256K | Nemotron-3 Nano Omni | `nemotron-3-nano-omni-30b-a3b-reasoning:free` | 文字/圖像/影片輸入 |
-| 內容安全過濾 | Nemotron-3.5 Content Safety | `nemotron-3.5-content-safety:free` | Guardrail 專用 |
-
----
-
-## 適用場景
-
-### ✅ 推薦
-
-| 場景 | 說明 |
+| 模型 | 官方模型卡所列條款 |
 |---|---|
-| **複雜多步推理** | 數學證明、邏輯推導、複雜規劃、預測建模 |
-| **長文檔分析** | 1M 上下文可一次處理整本書籍、長篇報告、完整法庭證據 |
-| **多代理系統** | 企業級 agent 編排、智慧客服、複雜工作流 |
-| **高吞吐批次處理** | 大規模文檔清洗、資料提取、報告生成 |
-| **多模態感知** | 需要視覺理解的代理系統（產品檢測、醫學影像、文件掃描） |
-| **內容安全過濾** | 建構安全 AI 應用，自動過濾輸入與輸出 |
+| Nemotron 3 Super／文字 Nano | NVIDIA Nemotron Open Model License |
+| Nemotron 3.5 Lightning | OpenMDW-1.1 |
+| Nemotron 3 Nano Omni | NVIDIA Open Model Agreement |
+| Nemotron 3.5 Content Safety | OpenMDW-1.1、Gemma Terms of Use 與 Gemma Prohibited Use Policy |
 
-### ❌ 不推薦
+下載特定 checkpoint 時，要讀它自己的條款。模型權重與 NIM 容器也可能有不同條款；Super 模型卡就分別列出模型授權與 NIM 軟體條款。不能用一個家族的「開放」標籤代替逐項核對。
 
-| 場景 | 原因 |
+## OpenRouter 路由與範例
+
+本次端點資料列出以下免費路由；「目錄存在」與「即時推理成功」是不同證據，本文沒有實際呼叫模型：
+
+| 模型 | 完整路由 ID |
 |---|---|
-| **簡單對話/客服** | 過度設計，應選更輕量模型（如 Nemotron-3.5 Lightning 或 Gemma 4） |
-| **即時低延遲聊天** | Ultra/Super 推理時間較長；Lightning 雖快但仍不如專用快速模型 |
-| **純創意寫作** | 不是文學創作專用模型，風格實用與推理導向 |
-| **本地小 GPU** | Ultra/Super 需要大規模 GPU（或 GPU 集群）；免費端點已由 NVIDIA 託管 |
+| Ultra | `nvidia/nemotron-3-ultra-550b-a55b:free` |
+| Super | `nvidia/nemotron-3-super-120b-a12b:free` |
+| Lightning | `nvidia/nemotron-3.5-lightning:free` |
+| Nano Omni | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` |
+| Content Safety | `nvidia/nemotron-3.5-content-safety:free` |
 
----
+Nano Omni 的端點在查核時顯示非正常服務狀態，因此不能承諾該免費路由當下可用。使用前要重查供應商狀態；免費額度、資料使用政策與服務承諾也應查閱當前條款。
 
-## 部署與存取方式
+下面示範呼叫 Super；需自行設定 API key，並由應用處理限流、錯誤與回答驗證：
 
-### OpenRouter（免費）
-```python
-import os
-import openai
-client = openai.OpenAI(
-    api_key=os.environ["OPENROUTER_API_KEY"],
-    base_url="https://openrouter.ai/api/v1"
-)
-# Ultra
-resp = client.chat.completions.create(
-    model="nvidia/nemotron-3-ultra-550b-a55b:free",
-    messages=[{"role":"user","content":"..."}]
-)
-# Super
-resp = client.chat.completions.create(
-    model="nvidia/nemotron-3-super-120b-a12b:free",
-    messages=[{"role":"user","content":"..."}]
-)
-# Lightning
-resp = client.chat.completions.create(
-    model="nvidia/nemotron-3.5-lightning:free",
-    messages=[{"role":"user","content":"..."}]
-)
+```bash
+curl https://openrouter.ai/api/v1/chat/completions \
+  -H "Authorization: Bearer ${OPENROUTER_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"nvidia/nemotron-3-super-120b-a12b:free","messages":[{"role":"user","content":"Explain the assumptions in this technical proposal."}]}'
 ```
-- 免費額度受 OpenRouter `:free` 政策（20 RPM / 50–1000 RPD）
-- 生產存取請查閱 NVIDIA NIM 最新條款與付費供應商方案；試用額度與資格可能調整。
 
-### NVIDIA NIM（官方平台）
-- 試用額度須以 NVIDIA 帳號中顯示的最新條件為準。
-- 速率限制須查閱 NVIDIA 帳號的最新條件，可能依服務與帳號而異。
-- 模型最完整：Nemotron-3 Ultra、Super、Lighting、Nano、Content Safety 全部可用
-- 免費 credits 用於開發/原型，不供生產 SLA
-- 需 NVIDIA 帳號與 API Key
+端點支援的 `tools`、結構化輸出或模態不一定相同。安全分類模型尤其不應直接套用通用 agent 的工具呼叫範例。
 
-### OpenWeights / 本地部署
-- NVIDIA 提供部分 Nemotron 模型的開源權重下載（依模型而定）
-- GPU 資源須依權重格式、模型總大小、上下文與並行需求規劃，請查閱官方部署指引。
-- 官方建議使用 **NVIDIA TensorRT-LLM** 或 **vLLM** 進行推理優化
+## 選擇與驗證
 
----
+| 需求 | 可先評估 | 要量測什麼 |
+|---|---|---|
+| 複雜文字推理 | Ultra／Super | 自己任務的正確率、完成成本、推理預算 |
+| 本地或大量子代理工作 | Lightning | 實際硬體記憶體、並行與延遲 |
+| 文件、影音理解 | Nano Omni | 輸入格式、長度、轉錄與圖表理解 |
+| 自訂內容安全政策 | Content Safety | 誤判、漏判、政策覆蓋與分類格式 |
 
-## 限制與注意事項
+官方評測可用來建立評估方向，不能取代自己的驗收集。NVIDIA 模型卡提供測試設定與部分可重現流程；比較分數前，要先確認工具、harness、推理預算及精度格式一致。
 
-| 限制 | 說明 |
-|---|---|
-| **免費端點浮動** | OpenRouter `:free` 有排隊、限流、偶發 503；判定前至少重試一輪 |
-| **推理時間長** | Ultra（550B）單發可達數十秒至數分鐘；Lightning（30B）較快但仍不如專用快速模型 |
-| **多模態限制** | 只有 Nano Omni 支援圖像/影片；Ultra/Super/Lightning 為文字輸入 |
-| **隱私** | OpenRouter 免費端點預設可能收集 prompt；敏感資料使用 NVIDIA NIM 付費端點或啟用 ZDR |
-| **資源需求高** | 本地部署 Ultra 需要大規模 GPU 集群；免費端點已由 NVIDIA 託管，無需自建 |
+自建服務還要規劃完整權重、上下文快取與並行記憶體。量化權重可能降低記憶體需求，但必須依對應模型卡與硬體部署配方驗證。把活躍參數直接當成總記憶體需求，會低估 MoE 部署成本。
 
----
-
-## 參考資料
-
-- [NVIDIA Nemotron 3 Ultra 官方](https://research.nvidia.com/labs/nemotron/Nemotron-3-Ultra/)
-- [NVIDIA NIM 模型目錄](https://build.nvidia.com/)
-- [OpenRouter Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)
-- [OpenRouter Nemotron 3 Super](https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b:free)
-- [OpenRouter Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
-- [OpenRouter Nemotron 3 Nano Omni](https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free)
-- [NVIDIA NIM Pricing / Rate Limits](https://build.nvidia.com/)
-
----
+Nemotron 的價值在於多種任務角色與部署路徑。先挑符合任務的型號，再核對端點和授權，比直接把最大模型當成所有工作的答案更實際。
 
 ## 同系列文章
 
-- [OpenRouter：統一 API 與多供應商路由](/posts/ai/2026-08-22-openrouter-model-routing)
-- [OpenCode 與 Zen Gateway 介紹](/posts/ai/2026-04-02-agent-cli-opencode)
-- [LLM 推論服務免費額度比較（2026-05 版）](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)
-- [Apodex：長程研究模型](/posts/tech/2026-10-10-ai-model-family-apodex)
-- [Liquid AI：緊湊推理模型](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
-- [Dots Studio Dots：開放權重混合推理模型](/posts/tech/2026-10-10-ai-model-family-dots-studio)
+- [LongCat 模型家族](/posts/tech/2026-10-10-ai-model-family-longcat)
+- [Cohere North 模型家族](/posts/tech/2026-10-10-ai-model-family-cohere-north)
+- [Apodex 模型家族](/posts/tech/2026-10-10-ai-model-family-apodex)
+- [Liquid AI 模型家族](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
+- [Dots 模型家族](/posts/tech/2026-10-10-ai-model-family-dots-studio)
 
----
+## 更新紀錄
 
-*最後更新：2026-10-10。模型規格、免費額度與存取方式會隨平台政策變動，請以官方文件為準。*
+- 2026-10-11：核對官方模型卡與端點，區分 Super 模型與 API 上下文、補 Nano Omni 音訊及參數說明，修正各型號授權與免費路由可用性，完成草稿發布。
+
+## 參考資料
+
+- [NVIDIA Nemotron 3 Ultra 官方介紹](https://research.nvidia.com/labs/nemotron/Nemotron-3-Ultra/)
+- [Nemotron 3 Super 官方模型卡](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16)
+- [Nemotron 3 Nano 官方模型卡](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16)
+- [Nemotron 3.5 Lightning 官方模型卡](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4)
+- [Nemotron 3 Nano Omni 官方模型卡](https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16)
+- [Nemotron 3.5 Content Safety 官方模型卡](https://huggingface.co/nvidia/Nemotron-3.5-Content-Safety)
+- [NVIDIA Nemotron Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/)
+- [OpenRouter Super 端點資料](https://openrouter.ai/api/v1/models/nvidia/nemotron-3-super-120b-a12b:free/endpoints)
+- [OpenRouter Nano Omni 端點資料](https://openrouter.ai/api/v1/models/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free/endpoints)

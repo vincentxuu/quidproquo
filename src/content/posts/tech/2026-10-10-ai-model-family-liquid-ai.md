@@ -1,168 +1,111 @@
 ---
-title: "Liquid AI LFM：緊湊推理與長上下文的 Agent 工作流模型"
+title: "Liquid AI LFM：裝置端推理與 Agent 工作流"
 date: 2026-10-10
 category: tech
 type: deep-dive
 tags: [liquid-ai, lfm, reasoning, agent-workflow, rag, long-context, compact-model]
 lang: zh-TW
-tldr: "Liquid AI 的 LFM 2.5 系列是一個緊湊的推理模型（2.6B 參數），專為 agent 工作流、資料提取、RAG 與長上下文處理優化。支援高達 65K tokens 的上下文，適合需要快速響應與低延遲的場景。"
-description: "深入介紹 Liquid AI LFM 系列的架構、推理能力、長上下文處理、Agent 工作流設計原則，以及如何與現有系統整合部署。"
-draft: true
+tldr: "LFM2.5-2.6B 是裝置端 hybrid 推理模型；官方權重與 OpenRouter 端點的上下文限制不同，部署前也要核對授權與資料條款。"
+description: "解析 Liquid AI LFM2.5-2.6B 的架構、訓練、工具流程、部署選項，以及 checkpoint 和託管端點的規格差異。"
+series:
+  name: "AI 模型家族"
+  order: 29
+draft: false
 ---
 
 > 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-liquid-ai-en)
 
-[Liquid AI](https://liquid.ai/) 開發的 **LFM（Liquid Foundation Model）** 系列是專為高效推理、長上下文與 agent 工作流設計的緊湊模型。最新版本為 **LFM 2.5-2.6B**（`liquid/lfm-2.5-2.6b`，含 `:free` 變體），擁有 **65K tokens** 的上下文窗口，僅 **2.6B 參數**，在 OpenRouter 上以 `liquid/lfm-2.5-2.6b:free` 提供免費存取。
+Liquid AI 的 LFM 是以高效部署為主軸的模型家族。本文聚焦 **LFM2.5-2.6B**：它是面向裝置端與 agent 工作流的文字推理模型，可下載權重，也可從 OpenRouter 試用。小模型的價值是把明確範圍的任務放進較容易掌控的部署環境；答案品質仍要用自己的資料測試。
 
----
+本文於 2026-10-11 核對官方模型卡、發布文章與平台頁。最容易踩到的差異是：**官方 checkpoint 與託管端點的上下文上限不同**，不能把其中一個數字套到整個家族。
 
-## 核心定位：緊湊、快速、長上下文
+## 先分清楚模型與端點
 
-| 項目 | 規格 |
+| 項目 | 查核結果 |
 |---|---|
-| **模型名稱** | LFM 2.5-2.6B |
-| **參數量** | 2.6B |
-| **上下文窗口** | 65,536 tokens |
-| **架構** | 緊湊推理模型（Liquid AI 自研架構） |
-| **訓練組織** | **Liquid AI** |
-| **存取方式** | OpenRouter（`:free`）、Liquid AI 官方平台 |
-| **適用場景** | Agent 工作流、RAG、資料提取、批次處理、長文檔分析 |
+| 官方 checkpoint | `LiquidAI/LFM2.5-2.6B` |
+| 模型卡參數 | 2.69B；產品名稱採 2.6B |
+| 官方上下文 | 131,072 tokens |
+| OpenRouter 免費端點上下文 | 65,536 tokens |
+| OpenRouter 最大輸出 | 8,192 tokens |
+| 輸入型態 | 此 checkpoint 為文字模型 |
+| 架構 | 短卷積與 grouped-query attention 組成的 hybrid 架構 |
+| 權重授權 | LFM Open License v1.0 |
 
-> ⚠️ Liquid AI 官方建議 **避免將 LFM 用於 agentic coding（自動化編碼任務）**。該模型在複雜多步編碼任務上的表現不如專為編碼優化的模型（如 Poolside Laguna、Cohere North Mini Code）。
+[官方模型卡](https://huggingface.co/LiquidAI/LFM2.5-2.6B)列出較大的模型上下文；[OpenRouter 頁](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)則列出該端點接受的限制。這不是本文已判定的資料錯誤，而是接入時要分開處理的規格：呼叫 API 時遵守端點限制，自架時再依 checkpoint 與框架配置確認。
 
----
+LFM2、LFM2.5 與 Instruct、Thinking、視覺、音訊變體也不能互換。本文的文字限定描述只適用此 checkpoint；[LFM2.5-1.2B-Instruct 模型卡](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct)另列視覺與音訊成員，並不表示整個 LFM 家族都只能處理文字。
 
-## 訓練與設計哲學
+## 設計哲學與訓練
 
-本文將 Liquid AI 的模型定位理解為 **「小模型、大效能」**——透過高效的模型架構與訓練策略，讓數十億參數的模型達到接近百億級模型的推理品質，同時保持低延遲與低成本。
+官方把 LFM2.5 定位為適合裝置端部署的 hybrid 家族。這個 checkpoint 把短卷積與 attention 結合，並經過針對 agent 任務的後訓練。它與純粹把大型雲端模型縮小的選型思路不同：部署條件與工具互動是設計目標的一部分。
 
-LFM 系列的訓練重點：
+[發布文章](https://www.liquid.ai/blog/lfm2-5-2-6b)與模型卡都描述了上下文擴展階段，以及 supervised fine-tuning、教師專門化、on-policy distillation、agentic reinforcement learning 的後訓練流程。不能再把長上下文說成「沒有後期擴展」。這些是廠商公開的訓練描述，本文沒有獨立重現訓練或效能測試。
 
-- **推理效率優先**：模型在設計階段就優化了推理路徑的計算複雜度，減少不必要的計算步驟
-- **長上下文原生支援**：65K context window 並非後期擴展，而是訓練階段就納入長文檔、長對話、多輪工具交互的資料分布
-- **Agent 工作流對齊**：訓練資料包含大量的多步工具調用、資料提取任務、RAG 檢索與綜合流程，讓模型對「工具 → 觀察 → 推理」的循環有原生理解
+模型卡將它描述為會先推理再回答的模型。推理輸出仍會占用生成預算，因此小參數量不能單獨保證短等待時間。量測時應記錄輸入長度、輸出長度、量化、硬體與並行量。
 
----
+## 適合哪些工作
 
-## 核心能力
+官方推薦的方向是 agent 工作流、工具使用、資料提取、RAG 與長上下文。可以先試範圍明確、答案有來源的工作，例如從內部文件提取欄位、依檢索片段回答問題，或查詢既有資料後產生摘要。
 
-模型產生文字與工具呼叫請求；主程式須提供工具、執行請求、回傳結果，並管理狀態、稽核紀錄與並行工作。以下工作流描述的是圍繞模型建立的應用，單次聊天請求不會自行執行完整流程。
+官方同時不建議 agentic coding 與知識密集型任務。這應解讀為此模型的選型限制，不能擴大成「整個家族不會寫程式」，也沒有理由再自行推論它不適合創意寫作。
 
-### 1. Agent 工作流優化
-- **多輪工具調用**：支援在單一對話中執行多步工具操作（讀取、查詢、計算、寫入），並在每一步後更新推理狀態
-- **低延遲響應**：2.6B 參數使推理速度遠快於大型模型，適合需要快速回饋的互動式 agent
-- **記憶與上下文管理**：65K 窗口可容納完整的對話歷史、檢索結果與中間推理軌跡，減少上下文截斷導致的錯誤
+與大型通用模型比較時，先設計一組你需要的任務，而不是拿參數量猜品質。可以檢查欄位提取正確率、工具參數錯誤、答案引用與端到端延遲；複雜跨檔案編碼工作則另選候選模型。
 
-### 2. 資料提取與 RAG
-- **結構化資料提取**：從非結構化文本（PDF、網頁、報告）提取結構化資訊（表格、欄位、關係）
-- **長文檔 RAG**：可同時處理長篇文檔（書籍、研究報告、法律文件）與外部知識庫檢索，綜合生成準確回答
-- **多語言支援**：支援英語為主，對中文、日文、歐洲語言有基本理解能力（非專門優化）
+## 工具使用需要主程式
 
-### 3. 批次處理與自動化
-- **高吞吐量**：小參數量允許在單一 GPU 上運行多個並發實例，適合批量文檔處理、資料清洗、報告生成
-- **可預測延遲**：實際延遲需依輸入長度與部署環境量測，便於在自動化管線中設定超時與重試策略
+官方工具流程是先提供函式定義，模型產生呼叫，主程式執行，再把結果以 `tool` 角色回傳。模型不會因為收到一段指令就自動取得 CSV、執行 Pandas 或寫入資料庫。
 
----
+例如季度營收分析可以先由主程式讀 CSV、驗證欄位與執行計算，再讓模型解釋計算結果。把數值計算放在可重現的程式裡，並保留每個來源欄位，比要求模型直接心算更容易檢查。此例是應用設計建議，本文沒有實測這條工作流。
 
-## 適用場景與不適用場景
+## API 試用
 
-### ✅ 推薦場景
+以下使用 OpenRouter 的實際模型 ID。輸入內容應先由你的應用提供：
 
-| 場景 | 說明 |
-|---|---|
-| **互動式資料助理** | 使用者詢問長文檔或資料庫，模型快速檢索並綜合回答 |
-| **自動化報告生成** | 從原始資料（CSV、API、文件）生成結構化分析報告 |
-| **RAG 系統核心** | 作為檢索結果的綜合與推理引擎，處理長上下文檢索片段 |
-| **輕量 Agent 代理** | 在資源受限環境（邊緣設備、低成本雲實例）運行的智慧代理 |
-| **多步資料清洗管線** | 逐步讀取、驗證、轉換、輸出資料，並記錄每步操作 |
-
-### ❌ 不推薦場景
-
-| 場景 | 原因 |
-|---|---|
-| **複雜 agentic coding** | Liquid AI 官方明確建議不要用於自動化編碼；複雜多文件重構、測試生成、架構設計表現不佳 |
-| **高精度數學推理** | 2.6B 參數在複雜數學證明、多步邏輯推導上不如大型推理模型（如 NVIDIA Nemotron Ultra、Thinking Machines Inkling） |
-| **創意內容生成** | 非專為創意寫作、詩歌、小說設計，風格較為實用和直接 |
-| **多模態任務** | 僅支援文本輸入，不支援圖像、音頻、影片直接處理 |
-
----
-
-## 部署與存取方式
-
-### OpenRouter（免費）
 ```python
 import os
-import openai
-client = openai.OpenAI(
+from openai import OpenAI
+
+client = OpenAI(
     api_key=os.environ["OPENROUTER_API_KEY"],
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
 )
-resp = client.chat.completions.create(
+response = client.chat.completions.create(
     model="liquid/lfm-2.5-2.6b:free",
-    messages=[{"role": "user", "content": "..."}]
+    messages=[{"role": "user", "content": "請從以下文字提取日期與事件，以 JSON 回覆：..."}],
+    max_tokens=1024,
 )
-```
-- 免費額度受 OpenRouter `:free` 政策限制
-- 適合開發測試、低頻批次任務
-
-### Liquid AI 官方平台
-- 完整版 LFM 模型（含更大參數版本）、企業 API、私有部署選項
-- 提供專用 SDK、長上下文優化接口、批量推理端點
-- 定價採按 token 計費，詳見 [Liquid AI 官方文件](https://liquid.ai/)
-
-### 本地部署
-- Liquid AI 提供部分模型的開源權重下載（需確認授權），可透過 vLLM、SGLang 進行本地推理
-- 記憶體需求須依部署框架、權重格式、上下文長度與並行需求規劃。
-
----
-
-## 典型使用範例
-
-```python
-task = """
-從提供的 CSV 檔案中提取過去 5 年的季度營收資料，
-計算年增長率（YoY），並標記異常季度（增長率低於 -10% 或高於 +50%）。
-輸出：1) 清理後的資料表，2) 異常標記與可能原因分析，3) 可重現的 Python 腳本。
-"""
+print(response.choices[0].message.content)
 ```
 
-在主程式提供工具、執行模型的工具呼叫並回傳結果後，可建立以下工作流：
-1. 讀取 CSV 並理解欄位結構
-2. 透過主程式提供的 Pandas 工具執行資料清洗與計算
-3. 標記異常並提出可能解釋（季節性、一次性事件、市場變化）
-4. 生成可重現的分析腳本與結構化報告
+這個端點明確提示 **prompt 與輸出可能被保留並用於訓練 Liquid 模型**。不能假設免費存取等於資料不留存，也不能假設開啟某個通用路由選項就能改掉供應商條款。敏感資料的處理方式應先確認；若選擇本地推理，仍要檢查周邊工具是否向外傳資料。
 
----
+## 本地部署與授權
 
-## 限制與注意事項
+官方列出 Transformers、vLLM、SGLang、llama.cpp、MLX 與 LM Studio 等路徑，並提供 GGUF、ONNX、MLX 格式。先選硬體對應的 runtime 與權重，再用小輸入測試，逐步增加上下文與並行量；模型大小不是整個程序的記憶體上限。
 
-| 限制 | 說明 |
+權重使用 **LFM Open License v1.0**，不能當成 Apache 或 MIT。下載前要閱讀 [此 checkpoint 的 LICENSE](https://huggingface.co/LiquidAI/LFM2.5-2.6B/blob/main/LICENSE)，尤其是商用限制與散布義務。發布文章使用了較寬鬆的宣傳措辭，但實際授權檔包含商用限制；本文以授權檔提醒讀者，不能直接宣稱無限制商用。若文件與預定用途有歧義，應向供應商確認。
+
+## 如何開始評估
+
+| 階段 | 具體動作 |
 |---|---|
-| **非編碼專家** | 複雜多文件重構、大型專案架構設計表現有限；建議搭配專用編碼模型 |
-| **非創意模型** | 風格實用直接，不適合詩歌、文學創作、品牌文案 |
-| **參數規模限制** | 2.6B 在深度推理（數學證明、哲學論證）上不如大型模型 |
-| **免費端點浮動** | OpenRouter `:free` 有排隊與可用性波動；生產環境建議使用付費 API |
-| **隱私** | OpenRouter 免費端點預設可能收集 prompt；敏感資料使用官方平台或啟用 ZDR |
+| 文件 RAG | 準備有來源段落的題目，檢查答案引用 |
+| 資料提取 | 用人工標註文件核對欄位與空值 |
+| 工具工作流 | 驗證函式名稱、參數與重試行為 |
+| 本地部署 | 固定硬體與量化，記錄延遲與記憶體 |
+| 正式接入 | 核對端點限制、資料條款與權重授權 |
 
----
+LFM2.5-2.6B 的吸引力在於可以把工具工作流帶到本地環境。要不要採用，仍取決於它能否在你的任務、資料與硬體上通過評估。
+
+## 更新紀錄
+
+- 2026-10-11：以官方來源重核架構與訓練，區分 checkpoint 與 API 上下文，補資料留存及授權限制，移除未實測效能比較後發布。
 
 ## 參考資料
 
-- [Liquid AI 官方網站](https://liquid.ai/)
-- [LFM on OpenRouter](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
-- [OpenRouter LFM 文件](https://openrouter.ai/docs/models/liquid/lfm-2.5-2.6b)
-- [Liquid AI 開源模型與 SDK](https://github.com/LiquidAI)
-
----
-
-## 同系列文章
-
-- [OpenRouter：統一 API 與多供應商路由](/posts/ai/2026-08-22-openrouter-model-routing)
-- [OpenCode 與 Zen Gateway 介紹](/posts/ai/2026-04-02-agent-cli-opencode)
-- [LLM 推論服務免費額度比較（2026-05 版）](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)
-- [Apodex：長程研究與可驗證推理模型](/posts/tech/2026-10-10-ai-model-family-apodex)
-- [Dots Studio：大上下文 MoE 模型](/posts/tech/2026-10-10-ai-model-family-dots-studio)
-
----
-
-*最後更新：2026-10-10。模型規格、免費額度與存取方式會隨平台政策變動，請以官方文件為準。*
+- [Liquid AI：LFM2.5-2.6B 發布與訓練](https://www.liquid.ai/blog/lfm2-5-2-6b)
+- [LFM2.5-2.6B 官方模型卡](https://huggingface.co/LiquidAI/LFM2.5-2.6B)
+- [LFM2.5-2.6B 權重授權](https://huggingface.co/LiquidAI/LFM2.5-2.6B/blob/main/LICENSE)
+- [LFM2.5-1.2B-Instruct 與家族成員](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct)
+- [OpenRouter：LFM2.5-2.6B 端點限制與資料條款](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
