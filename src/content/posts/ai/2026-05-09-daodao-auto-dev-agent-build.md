@@ -70,7 +70,7 @@ Critic 第一輪更嚴：5 維度 0 PASS / 2 WEAK / 3 FAIL，12 條改進。重�
 
 Critic 第二輪：5/5 PASS、12/12 improvements resolved。
 
-### v3 → v5：使用者反饋驅動的兩次擴充
+### v3 → v5：使用者回饋驅動的兩次擴充
 
 v3 把 Architect 兩個 must-fix 併入後，本來打算 ship。但使用者說：「好像還有一種情境是人工介入開發的」——這引發 v4，加 4 個 label（`manual` / `human-driving` / `stop-after-plan` / `automation:hold`）+ Label 優先序 + Race handling。
 

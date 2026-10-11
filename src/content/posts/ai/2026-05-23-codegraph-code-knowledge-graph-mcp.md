@@ -113,7 +113,7 @@ README 裡有兩段話表面上打架，理解它們的調和點，才真的懂�
 
 **vs LSP（Serena）**：這是讀者最常問的「跟 LSP 有什麼不同？」[Serena](https://github.com/oraios/serena)（21k+ stars）走 Language Server Protocol，是**即時、型別感知**的查詢，能做精準 rename、跨檔 reference、symbol 編輯；代價是每個語言要裝對應 language server（CI/容器環境負擔重），且每次查詢都重打 LSP、不存關係。CodeGraph 是**預先算好、持久化**的 AST 圖 + FTS5：查詢快、self-contained、跨語言同一張圖，但 reference resolution 的深度（別名、繼承、型別收窄）不如活的 language server。一句話：要做大規模型別精準的重構選 LSP/Serena；要快速探索 + 低成本問答選圖。
 
-**vs embedding RAG-on-code**：像 Codanna 從 doc comment 生 embedding 做概念搜尋、或本站介紹過的 [Graphify](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase)（tree-sitter AST + LLM 語意分析，號稱省 71.5 倍 token）。CodeGraph 不碰向量也不碰 LLM 摘要，換取確定性與零 API 成本，放棄了「概念相似」搜尋（問「找驗證邏輯」不會自動命中沒寫到關鍵字的程式）。賽道上同類 MCP（GitNexus、code-graph-rag-mcp、code-review-graph）都在打「token 省 8–120 倍」的訴求；CodeGraph 的差異化是「有公開、端到端、可被質疑的 benchmark」+ 高頻迭代 + 多 agent 支援，甚至已經有人把它用 Rust 重寫成 `codemap`。
+**vs embedding RAG-on-code**：像 Codanna 從 doc comment 生 embedding 做概念搜尋、或本站介紹過的 [Graphify](/posts/ai/2026-04-10-graphify-knowledge-graph-codebase)（tree-sitter AST + LLM 語意分析，號稱省 71.5 倍 token）。CodeGraph 不碰向量也不碰 LLM 摘要，換取確定性與零 API 成本，放棄了「概念相似」搜尋（問「找驗證邏輯」不會自動命中沒寫到關鍵字的程式）。領域上同類 MCP（GitNexus、code-graph-rag-mcp、code-review-graph）都在打「token 省 8–120 倍」的訴求；CodeGraph 的差異化是「有公開、端到端、可被質疑的 benchmark」+ 高頻迭代 + 多 agent 支援，甚至已經有人把它用 Rust 重寫成 `codemap`。
 
 ## 限制與已知問題
 

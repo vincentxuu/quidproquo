@@ -71,9 +71,9 @@ Goldman 全球資產與財富管理主管 Marc Nachmann 在 CNBC 上說了一句
 兩種都有。可以這樣理解這個堆疊：
 
 - **底層作業系統（Palantir 的護城河）**：Palantir 真正強的不是 AI，是 **Ontology** —— 把企業內混亂、孤立的資料變成結構化、可治理、可被 AI 安全操作的「數位分身」。
-- **頂層智能引擎（OpenAI/Anthropic 的核心優勢）**：最強的推理與生成模型。
+- **頂層智慧引擎（OpenAI/Anthropic 的核心優勢）**：最強的推理與生成模型。
 
-理論上兩者互補，許多最複雜的部署應該是 Palantir Ontology + OpenAI/Anthropic 模型。但隨著 OpenAI 和 Anthropic 透過 FDE 越來越深入企業流程，他們必然會蠶食 Palantir 原本的「實作層」收入。Palantir 過去靠 FDE 守住的高毛利，現在會直接被新對手用相同打法挑戰。
+理論上兩者互補，許多最複雜的部署應該是 Palantir Ontology + OpenAI/Anthropic 模型。但隨著 OpenAI 和 Anthropic 透過 FDE 越來越深入企業流程，他們必然會蠶食 Palantir 原本的「實作層」收入。Palantir 過去靠 FDE 守住的高毛利，現在會直接被新對手用相同做法挑戰。
 
 ## 對市場意味著什麼
 

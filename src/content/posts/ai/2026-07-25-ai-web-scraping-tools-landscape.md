@@ -64,7 +64,7 @@ glossary:
 
 Browser-MCP（~7k stars）把瀏覽器操作暴露成 MCP tools，適合直接接進 Claude 或 LLM agent 的工作流程。
 
-想深入了解純視覺路線的取捨，可以看站內的 [Midscene.js 深度分析](/posts/ai/2026-05-23-midscene-vision-ui-automation)——同賽道但選了「只看截圖、不碰 DOM」的極端路線，連 DOM 動作模式都在 v1.0 移除了。
+想深入了解純視覺路線的取捨，可以看站內的 [Midscene.js 深度分析](/posts/ai/2026-05-23-midscene-vision-ui-automation)——同領域但選了「只看截圖、不碰 DOM」的極端路線，連 DOM 動作模式都在 v1.0 移除了。
 
 ## 文件轉檔：不爬取，只轉格式
 
