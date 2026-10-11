@@ -27,7 +27,7 @@ glossary:
     context: "L6 後半的評測與訓練環境幾乎都沿用它的題目格式。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-agent-memory-engineering-series-intro-en)
+> 🌏 [English version](/posts/ai/2026-09-19-agent-memory-engineering-series-intro-en)
 
 你用 Claude Code 寫了一下午的程式，順手讓它記住「這個 repo 的測試要用 pytest 不要用 unittest」。隔天打開新 session，它又問你要用什麼測試框架。
 

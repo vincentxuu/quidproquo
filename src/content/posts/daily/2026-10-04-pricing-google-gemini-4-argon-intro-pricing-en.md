@@ -26,7 +26,7 @@ Google announced Gemini 4 Argon on 2026-09-30. The pricing sits in the body of t
 | Output | $10.00/1M tokens | $20.00/1M tokens | ↑100% | Not announced (no end date) |
 | Cached input (95% off input) | $0.10/1M tokens | $0.20/1M tokens | ↑100% | Not announced (no end date) |
 
-Google's own footnote reads: "After the introductory period expires, the price of $4 per 1M input tokens and $20 per 1M output tokens will apply." No date, no window like "within a few months." That's the opposite of what OpenAI did the same week with GPT-5.6 Sol's promo price, which the pricing page states explicitly expires 2026-11-21 (see our [09-28 pricing watch](/en/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
+Google's own footnote reads: "After the introductory period expires, the price of $4 per 1M input tokens and $20 per 1M output tokens will apply." No date, no window like "within a few months." That's the opposite of what OpenAI did the same week with GPT-5.6 Sol's promo price, which the pricing page states explicitly expires 2026-11-21 (see our [09-28 pricing watch](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
 
 ## Cost projection
 

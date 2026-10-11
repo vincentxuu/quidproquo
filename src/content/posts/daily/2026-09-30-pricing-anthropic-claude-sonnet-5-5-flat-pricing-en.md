@@ -29,7 +29,7 @@ Anthropic launched Claude Sonnet 5.5 on 2026-09-29 with a headline that reads "c
 | Batch input | $1.00/1M tokens | $1.00/1M tokens | 0% | 2026-09-29 |
 | Batch output | $5.00/1M tokens | $5.00/1M tokens | 0% | 2026-09-29 |
 
-The flat rate across the board is itself the story worth noting: Anthropic chose to position Sonnet 5.5 as "do more at the same price point," rather than compete on rate cuts the way OpenAI did with GPT-6 Sol/Luna (see [our 09-28 pricing writeup](/en/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
+The flat rate across the board is itself the story worth noting: Anthropic chose to position Sonnet 5.5 as "do more at the same price point," rather than compete on rate cuts the way OpenAI did with GPT-6 Sol/Luna (see [our 09-28 pricing writeup](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
 
 ## Cost math
 
@@ -61,7 +61,7 @@ Current flagship pricing (input/output, USD per 1M tokens, standard short-contex
 | Claude Haiku 4.5 | $1.00 | $5.00 | Anthropic's cheapest general-purpose model |
 | GPT-6 Sol | $2.00 | $10.00 | Matched Sonnet-tier pricing since its 09-22 launch |
 | **Claude Sonnet 5.5 (new)** | **$2.00** | **$10.00** | Rate-for-rate tie with GPT-6 Sol — the fight is now over token efficiency, not price |
-| Claude Opus 5.5 | $4.00 | $20.00 | Launched 09-22, 20% below Opus 5 (see [our 09-25 model card](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)) |
+| Claude Opus 5.5 | $4.00 | $20.00 | Launched 09-22, 20% below Opus 5 (see [our 09-25 model card](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)) |
 
 With Sonnet 5.5, Anthropic and OpenAI are now going head-to-head at the exact same $2/$10 price point: GPT-6 Sol got there by cutting 50% off its predecessor's promotional rate, while Sonnet 5.5 got there by holding price flat and claiming fewer tokens per task. Two different routes to the same conclusion — both vendors are now competing on total cost per task rather than the sticker price per token. That means the number worth watching going forward is less "$/1M tokens on the rate card" and more "how many tokens did this task actually burn."
 

@@ -96,7 +96,7 @@ I used to assume framework breaking changes were mostly about adding features or
 
 - [Agno v3.0.10 — GitHub Release](https://github.com/agno-agi/agno/releases/tag/v3.0.10)
 - [agno-agi/agno — GitHub](https://github.com/agno-agi/agno)
-- [Agno v3.0.6 — previous framework update](/en/posts/daily/2026-09-05-framework-agno-3.0.6-en)
+- [Agno v3.0.6 — previous framework update](/posts/daily/2026-09-05-framework-agno-3.0.6-en)
 - [PR #10210: harden CodingTools run_shell against interpreter RCE](https://github.com/agno-agi/agno/pull/10210)
 - [PR #10220: run CodingTools restricted shell without a shell](https://github.com/agno-agi/agno/pull/10220)
 - [PR #10083: detect public MCP access alongside JWT REST auth](https://github.com/agno-agi/agno/pull/10083)

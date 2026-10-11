@@ -13,7 +13,7 @@ description: "深入 pi-ai 套件：統一多供應商 LLM API 的架構設計�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-pi-ai-unified-llm-api-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-pi-ai-unified-llm-api-en)
 
 ## TL;DR
 

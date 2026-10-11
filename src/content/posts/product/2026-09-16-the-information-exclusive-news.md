@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-the-information-exclusive-news-en)
+> 🌏 [English version](/posts/product/2026-09-16-the-information-exclusive-news-en)
 
 球賽結束後，比數到處都看得到。真正能改變決策的，是比賽開始前就知道主力不會上場，而且消息可靠到讓你敢重新排陣容。
 

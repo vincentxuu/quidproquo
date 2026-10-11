@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-31-tool-sovereign-mcp-en)
+> 🌏 [English version](/posts/daily/2026-08-31-tool-sovereign-mcp-en)
 
 ## 工具資訊
 

@@ -13,7 +13,7 @@ description: "深入 pi-tui 終端機 UI 函式庫：從底層渲染管線到高
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture-en)
 
 ## TL;DR
 

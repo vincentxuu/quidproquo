@@ -10,7 +10,7 @@ description: "深入拆解 abi/screenshot-to-code 的 Agent 架構：engine.py �
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-29-screenshot-to-code-agent-architecture-en)
+> 🌏 [English version](/posts/ai/2026-08-29-screenshot-to-code-agent-architecture-en)
 
 [screenshot-to-code](https://github.com/abi/screenshot-to-code) 是一個 GitHub 上有 74,500+ stars 的開源專案，能把截圖、Mockup、甚至螢幕錄影轉成前端程式碼。但它不是丟一張圖進 LLM 就拿到 HTML——核心是一個有 tool-calling 能力的 AI Agent，自己決定要裁切素材、產圖、截圖驗證還是修正程式碼，最多跑 30 輪。
 

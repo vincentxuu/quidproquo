@@ -13,7 +13,7 @@ description: "「從零訓練一個 LLM」系列總結：從 3 元到 65B 的成
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en)
+> 🌏 [English version](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en)
 
 這個系列走過的每條路線都可以用同一個透鏡看：3 塊錢的 [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)、[100 美元的 nanochat](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c)、中文社群的小模型、榨乾每 token 價值的 YuLan-Mini、以及工業級全透明的 OLMo 3 與 LLM360。加上後續的國家級、效率與框架路線。這篇收斂成一個問題：**你該走哪條路，或者根本不走。**
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-batch-research)
 
-Post 11 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 11 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 The first ten posts covered how to use Hermes. This one answers a different question: **why does Nous Research, a lab that trains models, put this much effort into a personal agent?**
 
@@ -102,9 +102,9 @@ Benchmark datasets often need different environments, declared inline in the JSO
 {"prompt": "Set up a Node.js Express server", "image": "node:20-alpine", "cwd": "/app"}
 ```
 
-This works with the Docker, Modal, and Singularity backends (see [the terminal backends post](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends)), and images are **verified as accessible before each prompt runs** — far better than discovering a typo'd image name at prompt 800.
+This works with the Docker, Modal, and Singularity backends (see [the terminal backends post](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en)), and images are **verified as accessible before each prompt runs** — far better than discovering a typo'd image name at prompt 800.
 
-On cost, the docs are direct: batch runs spin up many concurrent agent sessions, each making model and tool calls. That's exactly where [the subscription approach](/en/posts/ai/2026-08-18-hermes-agent-tool-gateway) earns its keep — a stable cost-per-trajectory beats juggling rate limits across five vendor accounts.
+On cost, the docs are direct: batch runs spin up many concurrent agent sessions, each making model and tool calls. That's exactly where [the subscription approach](/posts/ai/2026-08-18-hermes-agent-tool-gateway-en) earns its keep — a stable cost-per-trajectory beats juggling rate limits across five vendor accounts.
 
 ## RL: Atropos
 
@@ -137,7 +137,7 @@ Three practical notes:
 
 - **Always set `quiet_mode=True`.** The docs flag this with a warning: without it, CLI spinners and progress indicators pollute your application's output.
 - Control permissions with `enabled_toolsets` or `disabled_toolsets`. The docs' rule of thumb is a good one: **use `enabled_toolsets` for a minimal locked-down agent (a research bot with web search only), and `disabled_toolsets` when you want most capabilities minus specific ones (no terminal in a shared environment).**
-- Installation matches [the install post](/en/posts/ai/2026-08-18-hermes-agent-install): clone, `uv sync`, run with `uv run python your_app.py`. **Hermes publishes no supported wheel or sdist for `requirements.txt` installs**, so "pip install it into my project" isn't an available path.
+- Installation matches [the install post](/posts/ai/2026-08-18-hermes-agent-install-en): clone, `uv sync`, run with `uv run python your_app.py`. **Hermes publishes no supported wheel or sdist for `requirements.txt` installs**, so "pip install it into my project" isn't an available path.
 
 ## The takeaway
 
@@ -145,7 +145,7 @@ If you just want a chat agent, skip this post. But it answers the question the s
 
 Which also suggests an evaluation angle: **when product needs and research needs conflict, which way does this project lean?** Today they're aligned — a better agent produces better data — but it's worth keeping in view.
 
-Back to [the series opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Back to [the series opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 ## References
 

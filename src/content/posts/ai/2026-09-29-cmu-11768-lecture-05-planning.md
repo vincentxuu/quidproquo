@@ -25,7 +25,7 @@ glossary:
     context: "本篇用它解釋長時程任務為什麼一個暫時的錯誤會一路傳下去。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

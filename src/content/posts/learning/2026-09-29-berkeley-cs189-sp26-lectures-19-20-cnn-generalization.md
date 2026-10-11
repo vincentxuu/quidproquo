@@ -23,7 +23,7 @@ glossary:
     context: "Lec 20 用它對照前半學期的 bias-variance tradeoff，並引用 Nakkiran 等人（ICLR 2020）的實驗。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

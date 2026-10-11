@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
+> 🌏 [English version](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
 
 ## 變更摘要
 

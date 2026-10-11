@@ -21,7 +21,7 @@ draft: false
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
-Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
+Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with an in-class hands-on building a RAG pipeline from scratch. Together they are the blueprint for the first stage of [HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
 ## Course video sources
 
@@ -68,7 +68,7 @@ The Week 2 connection is operational. In the RAG exercise, do not stop at “ret
 
 ## RAG: the recipe for a first compound system
 
-[Last week](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en) argued the systems era is here; this week hands over the recipe. The RAG paper's problem statement is precise: big models store knowledge in parameters and fine-tune well, yet remain weak at *retrieving and manipulating* that knowledge — with provenance and knowledge updates unsolved. The fix is parametric plus non-parametric memory: a seq2seq model ([BART](https://arxiv.org/abs/1910.13461)) over a dense Wikipedia index, reached through a neural retriever ([DPR](https://arxiv.org/abs/2004.04906)).
+[Last week](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en) argued the systems era is here; this week hands over the recipe. The RAG paper's problem statement is precise: big models store knowledge in parameters and fine-tune well, yet remain weak at *retrieving and manipulating* that knowledge — with provenance and knowledge updates unsolved. The fix is parametric plus non-parametric memory: a seq2seq model ([BART](https://arxiv.org/abs/1910.13461)) over a dense Wikipedia index, reached through a neural retriever ([DPR](https://arxiv.org/abs/2004.04906)).
 
 Two formulations: RAG-Sequence conditions the whole generation on one retrieved set, RAG-Token may consult different passages per token. Jeopardy generation shows the difference best: answers often fuse two unrelated facts, so the Token variant reads one document for the first half and switches for the second.
 
@@ -119,7 +119,7 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's han
 ## References
 
 - Lecture slides: [LLMs for Builders — Lecture 02](https://web.stanford.edu/class/cs329z/slides/lecture02.pdf); [RAG — Lecture 03](https://web.stanford.edu/class/cs329z/slides/lecture03.pdf)
-- On this site: [Reading Stanford CS329Z Week 1: stop tuning only the model](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Reading Stanford CS329Z Week 1: stop tuning only the model](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Anthropic, Building Effective Agents (2024)](https://www.anthropic.com/engineering/building-effective-agents), [Anthropic, Effective Context Engineering for AI Agents (2025)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), [Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020](https://arxiv.org/abs/2005.11401), [Khattab & Zaharia, ColBERT, SIGIR 2020](https://arxiv.org/abs/2004.12832)
 - Tools: [litellm docs](https://docs.litellm.ai/), [MCP specification](https://modelcontextprotocol.io/)

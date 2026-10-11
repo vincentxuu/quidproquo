@@ -11,7 +11,7 @@ series:
   order: 40
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal-en)
+> 🌏 [English version](/posts/daily/2026-09-28-security-siyuan-mcp-path-traversal-en)
 
 ## 事件概述
 

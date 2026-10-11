@@ -18,7 +18,7 @@ glossary:
     definition: "looplane 用來分類工具的標籤（read、search、command、diff、plain），決定要不要把工具歸進群組。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-coding-agent-tui-tool-result-no-flicker-en)
+> 🌏 [English version](/posts/ai/2026-09-06-coding-agent-tui-tool-result-no-flicker-en)
 
 Coding agent 的 TUI 裡，工具執行結果的渲染是最容易出 bug 的地方。使用者回報 looplane 的畫面會「閃一下然後消失」，但只有事後靜態截圖，沒有閃爍當下的影像。這篇記錄從逐幀重現開始，確認了兩個獨立的閃爍機制，再比對 [Claude Code](https://github.com/anthropics/claude-code)、[Codex CLI](https://github.com/openai/codex)、[OpenCode](https://github.com/sst/opencode)、[Pi](https://github.com/badlogic/pi-mono) / [OMP](https://github.com/can1357/oh-my-pi) 四個專案的做法，歸納出「不閃爍」的兩條共同規則。
 

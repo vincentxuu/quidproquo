@@ -13,7 +13,7 @@ description: "Lenny Rachitsky 的完整成長歷程：從烏克蘭移民家庭�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-lennys-newsletter-pm-community-king-en)
+> 🌏 [English version](/posts/career/2026-08-26-lennys-newsletter-pm-community-king-en)
 
 Lenny Rachitsky 用六年時間，把一個人的 Substack 電子報做成產品管理圈最有影響力的媒體品牌——120 萬訂閱、Podcast 單集 10-20 萬下載、4 萬人 Slack 社群、年度實體大會秒殺完售。他沒有請過一個正職員工。
 

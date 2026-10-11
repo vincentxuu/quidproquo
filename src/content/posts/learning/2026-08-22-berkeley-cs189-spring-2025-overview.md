@@ -14,7 +14,7 @@ description: "Berkeley CS189 系列入口：Spring 2025／Spring 2026／Fall 202
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
+> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

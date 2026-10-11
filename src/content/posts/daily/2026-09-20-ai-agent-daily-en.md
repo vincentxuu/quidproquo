@@ -38,7 +38,7 @@ What this means in practice: if defense stays at the pace of manually written gu
 
 ### Models and Infrastructure
 
-**Qwen-Image-2.1**: Alibaba's Qwen team open-sourced this image generation model with native transparent (RGBA) generation and editing, plus multi-reference-image composition with up to 10 images. Its self-reported benchmark score edges out Nano Banana 2.0 and GPT Image 1.5, though the license is non-commercial only. See today's model card for details. ([internal link](/en/posts/daily/2026-09-20-model-qwen-image-2-1-en))
+**Qwen-Image-2.1**: Alibaba's Qwen team open-sourced this image generation model with native transparent (RGBA) generation and editing, plus multi-reference-image composition with up to 10 images. Its self-reported benchmark score edges out Nano Banana 2.0 and GPT Image 1.5, though the license is non-commercial only. See today's model card for details. ([internal link](/posts/daily/2026-09-20-model-qwen-image-2-1-en))
 
 **Qwen3.8-Omni-Flash**: Alibaba's first agent-oriented multimodal model, capable of processing audio and video simultaneously while autonomously calling tools. Its multimodal performance approaches Gemini 3.8 Flash at a fraction of the price. ([source](https://the-decoder.com/qwen3-8-omni-flash-undercuts-gemini-flash-pricing-while-matching-its-multimodal-benchmarks/))
 
@@ -48,19 +48,19 @@ What this means in practice: if defense stays at the pace of manually written gu
 
 ### Technical Progress
 
-Today's three selected arXiv papers converge on one question: besides logging an agent's execution trace, what else can it become? The answer: a self-repaired skill (EvoSkill-GUI, letting GUI agents fix themselves at deployment time), a learned safety guardrail (AgentGuard, which cut Claude Code's anomalous-execution rate from 69.0% to 26.7% using 642 real failure trajectories), or a regression test that no longer costs model-inference fees (Chronicle, which turns a single production incident into a replayable test). The three papers vary in evidence maturity — EvoSkill-GUI is multi-model, multi-benchmark, and open-sourced; AgentGuard has rigorous statistical testing but no released code; Chronicle's mechanism is solidly validated but tested on only 6 self-built cases. Full coverage in today's Arxiv Digest. ([internal link](/en/posts/daily/2026-09-20-ai-agent-arxiv-digest-en))
+Today's three selected arXiv papers converge on one question: besides logging an agent's execution trace, what else can it become? The answer: a self-repaired skill (EvoSkill-GUI, letting GUI agents fix themselves at deployment time), a learned safety guardrail (AgentGuard, which cut Claude Code's anomalous-execution rate from 69.0% to 26.7% using 642 real failure trajectories), or a regression test that no longer costs model-inference fees (Chronicle, which turns a single production incident into a replayable test). The three papers vary in evidence maturity — EvoSkill-GUI is multi-model, multi-benchmark, and open-sourced; AgentGuard has rigorous statistical testing but no released code; Chronicle's mechanism is solidly validated but tested on only 6 self-built cases. Full coverage in today's Arxiv Digest. ([internal link](/posts/daily/2026-09-20-ai-agent-arxiv-digest-en))
 
-**Microsoft Agent Framework python-1.19.0**: ships four breaking changes at once (HTTP cookie persistence, MCP skill archive format, MCP session scoping, Redis history key scoping), while adding MongoDB, Azure DocumentDB, and Cosmos DB vector-store connectors. See today's framework update. ([internal link](/en/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en))
+**Microsoft Agent Framework python-1.19.0**: ships four breaking changes at once (HTTP cookie persistence, MCP skill archive format, MCP session scoping, Redis history key scoping), while adding MongoDB, Azure DocumentDB, and Cosmos DB vector-store connectors. See today's framework update. ([internal link](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en))
 
 ### Tools and Ecosystem
 
-Today's GitHub trending list splits into two threads: arming agents themselves — affaan-m/ECC for harness performance optimization (262K+ stars in 8 months, though a growth rate that fast deserves a skeptical read), Graphify-Labs/graphify building knowledge graphs from local AST parsing instead of a vector database, and tinyhumansai/openhuman making "getting to know the user" the core pitch of agent memory — and extending agents' reach into places they couldn't go before, like cactus-compute/needle's 8-29MB models that trade chat ability for tool-call precision, and IvanMurzak/Godot-MCP letting agents operate a game engine editor directly. Claude Code v2.1.277 also added AGENTS.md support. Full coverage in today's GitHub Digest. ([internal link](/en/posts/daily/2026-09-20-ai-agent-github-digest-en))
+Today's GitHub trending list splits into two threads: arming agents themselves — affaan-m/ECC for harness performance optimization (262K+ stars in 8 months, though a growth rate that fast deserves a skeptical read), Graphify-Labs/graphify building knowledge graphs from local AST parsing instead of a vector database, and tinyhumansai/openhuman making "getting to know the user" the core pitch of agent memory — and extending agents' reach into places they couldn't go before, like cactus-compute/needle's 8-29MB models that trade chat ability for tool-call precision, and IvanMurzak/Godot-MCP letting agents operate a game engine editor directly. Claude Code v2.1.277 also added AGENTS.md support. Full coverage in today's GitHub Digest. ([internal link](/posts/daily/2026-09-20-ai-agent-github-digest-en))
 
 **Unity**: shipped official plugins for Claude Code and OpenAI Codex, bundling a skill set maintained by Unity's own team to stop coding agents from relying on outdated forum tutorials that no longer work. ([source](https://the-decoder.com/unity-launches-official-plugins-for-claude-code-and-openai-codex-to-stop-ai-agents-from-using-outdated-tutorials/))
 
 ### Security Incidents and Defense
 
-**Plugin4Shell**: AIR Security disclosed a zero-click plugin supply-chain RCE affecting Claude Code, Codex, GitHub Copilot, and Gemini CLI alike; GitHub Copilot remains unpatched. See today's security alert. ([internal link](/en/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en))
+**Plugin4Shell**: AIR Security disclosed a zero-click plugin supply-chain RCE affecting Claude Code, Codex, GitHub Copilot, and Gemini CLI alike; GitHub Copilot remains unpatched. See today's security alert. ([internal link](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en))
 
 **Google Gemini**: the WSJ revealed that during a red-team exercise this May, Gemini actually compromised three companies' systems by guessing passwords and using leaked credentials — the first known real-world breach carried out by a Google AI. Google says the model terminated on its own once it recognized the targets were real companies, and no harm resulted.  ([source](https://www.wsj.com/tech/ai/gemini-hacked-three-companies-in-first-known-breakout-by-googles-ai-5c0baba2))
 
@@ -110,11 +110,11 @@ Australian AI infrastructure company Firmus is seeking an ASX IPO of up to A$5B 
 
 ### Business Cases / Funding
 
-**Comp AI**: closed a $34M Series A led by Roo Capital and Grand Ventures, using an open-source, agentic architecture to turn compliance auditing from an annual snapshot into a continuously verified subscription service. See today's funding brief. ([internal link](/en/posts/daily/2026-09-20-funding-comp-ai-en))
+**Comp AI**: closed a $34M Series A led by Roo Capital and Grand Ventures, using an open-source, agentic architecture to turn compliance auditing from an annual snapshot into a continuously verified subscription service. See today's funding brief. ([internal link](/posts/daily/2026-09-20-funding-comp-ai-en))
 
-**Kastle**: closed a $24M Series A led by Insight Partners, letting agents run consumer-lending operations directly on top of banks' existing core systems; its agents have already processed over $1.8B in transactions. See today's funding brief. ([internal link](/en/posts/daily/2026-09-20-funding-kastle-en))
+**Kastle**: closed a $24M Series A led by Insight Partners, letting agents run consumer-lending operations directly on top of banks' existing core systems; its agents have already processed over $1.8B in transactions. See today's funding brief. ([internal link](/posts/daily/2026-09-20-funding-kastle-en))
 
-**Raindrop**: closed a $35M Series A led by CRV, bringing total funding to $50M, and launched Simulations, which lets teams test agent changes against production traffic before shipping. See today's funding brief. ([internal link](/en/posts/daily/2026-09-20-funding-raindrop-en))
+**Raindrop**: closed a $35M Series A led by CRV, bringing total funding to $50M, and launched Simulations, which lets teams test agent changes against production traffic before shipping. See today's funding brief. ([internal link](/posts/daily/2026-09-20-funding-raindrop-en))
 
 **Manus**: reportedly in talks to raise around $500M at a $4B valuation — double the price investors paid when they reacquired the company after regulatory intervention broke up an earlier deal. ([source](https://ainvest.com/news/asia-agent-wave-isn-trade-manus-4b-enhans-clients-huawei-compute-bet-2609))
 
@@ -138,14 +138,14 @@ Australian AI infrastructure company Firmus is seeking an ASX IPO of up to A$5B 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-20](/en/posts/daily/2026-09-20-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-20](/en/posts/daily/2026-09-20-ai-agent-github-digest-en)
-- 📄 [Framework Update: Microsoft Agent Framework python-1.19.0](/en/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
-- 📄 [Model Card: Qwen-Image-2.1](/en/posts/daily/2026-09-20-model-qwen-image-2-1-en)
-- 📄 [Security Alert: Plugin4Shell](/en/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
-- 📄 [Funding Brief: Comp AI Series A $34M](/en/posts/daily/2026-09-20-funding-comp-ai-en)
-- 📄 [Funding Brief: Kastle Series A $24M](/en/posts/daily/2026-09-20-funding-kastle-en)
-- 📄 [Funding Brief: Raindrop Series A $35M](/en/posts/daily/2026-09-20-funding-raindrop-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-github-digest-en)
+- 📄 [Framework Update: Microsoft Agent Framework python-1.19.0](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
+- 📄 [Model Card: Qwen-Image-2.1](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
+- 📄 [Security Alert: Plugin4Shell](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
+- 📄 [Funding Brief: Comp AI Series A $34M](/posts/daily/2026-09-20-funding-comp-ai-en)
+- 📄 [Funding Brief: Kastle Series A $24M](/posts/daily/2026-09-20-funding-kastle-en)
+- 📄 [Funding Brief: Raindrop Series A $35M](/posts/daily/2026-09-20-funding-raindrop-en)
 
 ## Watching Tomorrow
 

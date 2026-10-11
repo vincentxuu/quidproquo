@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-29-ai-agent-github-digest-en)
+> 🌏 [English version](/posts/daily/2026-08-29-ai-agent-github-digest-en)
 
 ## 今日亮點
 

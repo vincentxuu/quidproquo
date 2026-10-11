@@ -13,7 +13,7 @@ description: "台大資管統計考古題拆題方法：如何使用 114–115 �
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-ntu-past-papers-walkthrough-en)
+> [English version](/posts/learning/2026-08-29-im-stat-ntu-past-papers-walkthrough-en)
 
 考古題很有用，也很容易被誤用。你可以用它練作答速度、題型辨識、公式代入和語境結論；但如果手上只有 114、115 兩年題目，就不能把它說成完整命題範圍。兩年資料最多只能告訴你「這些題型出現過」，不能保證未來只考這些。
 

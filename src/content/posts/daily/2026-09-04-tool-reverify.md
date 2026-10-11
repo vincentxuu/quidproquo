@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-04-tool-reverify-en)
+> 🌏 [English version](/posts/daily/2026-09-04-tool-reverify-en)
 
 ## 工具資訊
 

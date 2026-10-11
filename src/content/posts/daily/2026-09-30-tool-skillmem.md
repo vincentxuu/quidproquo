@@ -12,7 +12,7 @@ series:
   order: 40
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-30-tool-skillmem-en)
+> 🌏 [English version](/posts/daily/2026-09-30-tool-skillmem-en)
 
 ## 工具資訊
 

@@ -13,7 +13,7 @@ description: "隨機樣本、統計量與抽樣分布入門：iid、樣本平均
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-random-samples-statistics-en)
+> [English version](/posts/learning/2026-08-29-im-stat-random-samples-statistics-en)
 
 第二層從一個很容易混淆的地方開始：樣本、統計量、抽樣分布。第一層你已經會用樣本平均、樣本比例、標準誤、信賴區間和檢定。現在要回頭問：這些從樣本算出來的數字，為什麼可以拿來推母體？
 

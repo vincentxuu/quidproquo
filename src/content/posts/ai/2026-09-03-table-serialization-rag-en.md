@@ -127,8 +127,8 @@ Table processing in RAG involves three independent decision points:
 ```
 
 - **Serialization** decides the format (this article): Markdown, JSON, key-value, natural language
-- **Chunking** decides how to split (see [Chunking Strategies](/en/posts/ai/2026-03-12-chunking-strategies-en)): Table-Aware Chunking (STC) uses rows as the atomic unit; Header Propagation prepends headers to every chunk
-- **Query** decides the path (see [Text-to-SQL Router](/en/posts/ai/2026-03-12-text-to-sql-router-en)): when tables are structured enough with a schema, Text2SQL is far more precise than serialization + RAG. RAG suits tables embedded in unstructured documents without a DB connection
+- **Chunking** decides how to split (see [Chunking Strategies](/posts/ai/2026-03-12-chunking-strategies-en)): Table-Aware Chunking (STC) uses rows as the atomic unit; Header Propagation prepends headers to every chunk
+- **Query** decides the path (see [Text-to-SQL Router](/posts/ai/2026-03-12-text-to-sql-router-en)): when tables are structured enough with a schema, Text2SQL is far more precise than serialization + RAG. RAG suits tables embedded in unstructured documents without a DB connection
 
 The three are independent but their effects compound. Changing serialization format alone yields a 16-point improvement (CSV → Markdown-KV); adding metadata prepend and header propagation amplifies the gains.
 
@@ -176,6 +176,6 @@ But format isn't the only variable. Gomm & Hulsebos's research shows that metada
 - [Improving Agents — Which Table Format Do LLMs Understand Best?](https://www.improvingagents.com/blog/toon-benchmarks)
 - [KX — Mastering RAG: Precision Techniques for Table-Heavy Documents](https://kx.com/blog/mastering-rag-precision-techniques-for-table-heavy-documents)
 - [Anyscale — Integrating RAG with Structured Data](https://docs.anyscale.com/rag/structured-data)
-- [Chunking Strategies](/en/posts/ai/2026-03-12-chunking-strategies-en) — Table chunking (STC, Header Propagation)
-- [Text-to-SQL Router](/en/posts/ai/2026-03-12-text-to-sql-router-en) — Precise queries skip RAG
-- [ColPali: Document Retrieval Without OCR](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en) — Visual alternative
+- [Chunking Strategies](/posts/ai/2026-03-12-chunking-strategies-en) — Table chunking (STC, Header Propagation)
+- [Text-to-SQL Router](/posts/ai/2026-03-12-text-to-sql-router-en) — Precise queries skip RAG
+- [ColPali: Document Retrieval Without OCR](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en) — Visual alternative

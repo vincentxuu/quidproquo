@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
+> 🌏 [English version](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)
 
 ## 變更摘要
 

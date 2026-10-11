@@ -13,7 +13,7 @@ description: "統計學常見分布導讀：如何判斷 Bernoulli、Binomial、
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-common-distributions-en)
+> [English version](/posts/learning/2026-08-29-im-stat-common-distributions-en)
 
 很多人讀分布時，會把每個分布讀成一張公式卡。Bernoulli 的平均是 p，Binomial 的平均是 np，Poisson 的平均是 lambda，Normal 有 mu 和 sigma。公式背完了，題目一換敘述，還是不知道該用哪個。
 

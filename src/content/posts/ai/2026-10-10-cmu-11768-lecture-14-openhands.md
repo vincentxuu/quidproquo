@@ -13,7 +13,7 @@ description: "導讀 CMU 11-768 AI Agents 第 14 講 OpenHands（依投影片撰
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en)
+> 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands-en)
 
 **影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
 

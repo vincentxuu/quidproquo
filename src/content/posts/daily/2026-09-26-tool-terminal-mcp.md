@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-26-tool-terminal-mcp-en)
+> 🌏 [English version](/posts/daily/2026-09-26-tool-terminal-mcp-en)
 
 ## 工具資訊
 

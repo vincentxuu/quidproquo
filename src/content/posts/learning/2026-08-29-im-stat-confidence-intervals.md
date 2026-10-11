@@ -13,7 +13,7 @@ description: "信賴區間入門：從平均數 t 區間、比例區間、正確
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-confidence-intervals-en)
+> [English version](/posts/learning/2026-08-29-im-stat-confidence-intervals-en)
 
 考試寫到信賴區間時，很多人會很快把答案寫成 `xbar ± t* s / sqrt(n)`，上下界也算得出來。問題通常出在下一行：題目要你解釋，或要你比較兩個估計結果時，你才發現自己其實只背了外型。
 

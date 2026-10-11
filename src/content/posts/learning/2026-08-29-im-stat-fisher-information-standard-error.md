@@ -13,7 +13,7 @@ description: "Fisher information 入門：score、curvature、observed informati
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-fisher-information-standard-error-en)
+> [English version](/posts/learning/2026-08-29-im-stat-fisher-information-standard-error-en)
 
 MLE 找出讓資料最合理的參數，但考試和實務很快會追問下一句：這個估計值有多穩？如果 likelihood 在最大值附近很尖，參數稍微偏離就讓資料變得很不合理，估計通常比較精準。若 likelihood 在附近很平，很多參數看起來都差不多合理，估計就比較不穩。
 

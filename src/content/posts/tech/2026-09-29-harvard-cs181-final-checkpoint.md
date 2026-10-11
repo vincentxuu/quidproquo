@@ -13,7 +13,7 @@ description: "Harvard CS1810 Spring 2026 期末檢核：final checklist 十一�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en)
+> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

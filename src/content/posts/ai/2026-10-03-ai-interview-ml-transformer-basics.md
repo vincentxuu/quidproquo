@@ -50,7 +50,7 @@ glossary:
         url: "https://arxiv.org/abs/1812.11118"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
 
 面試問到 [Transformer](https://arxiv.org/abs/1706.03762)，很少是要你重畫一次論文的架構圖，真正拉開差距的是後面那一串追問：為什麼 attention 要除以 √d_k、[RoPE](https://arxiv.org/abs/2104.09864) 怎麼讓內積只剩相對距離、[Adam](https://arxiv.org/abs/1412.6980) 和 [AdamW](https://arxiv.org/abs/1711.05101) 到底差在哪、AUC 很高為什麼還不能上線。這些問題的答案都在機制裡，背結論撐不過第二個「為什麼」。
 

@@ -15,7 +15,7 @@ glossary:
     def: "新加坡新創 Sapiens AI（創辦人 Bruce Yang）旗下的商業品牌，以單一 omni-modal API 同時提供文字、圖像、影片模型"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
+> 🌏 [English version](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
 
 ## 模型資訊
 

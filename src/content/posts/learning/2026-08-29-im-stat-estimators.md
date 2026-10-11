@@ -13,7 +13,7 @@ description: "估計量入門：分清估計量與估計值，手算 bias、vari
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-estimators-en)
+> [English version](/posts/learning/2026-08-29-im-stat-estimators-en)
 
 估計量這個詞很容易讓初學者覺得抽象。其實你每天都在用估計量：用樣本平均估母體平均、用樣本比例估真正轉換率、用 validation accuracy 估模型未來表現。估計量是一個規則；估計值是這個規則套到某一批資料後得到的數字。
 

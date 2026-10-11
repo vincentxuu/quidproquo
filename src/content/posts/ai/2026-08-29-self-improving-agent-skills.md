@@ -10,7 +10,7 @@ description: "整理 Anthropic 與 Warp 公開文章中的 self-improving agents
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-29-self-improving-agent-skills-en)
+> 🌏 [English version](/posts/ai/2026-08-29-self-improving-agent-skills-en)
 
 [Anthropic 在 2026-08-26 發的 Warp 案例](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)，表面上是在講「self-improving agents」。但我覺得真正值得看的是另一件事：Warp 沒有把學習理解成讓 Agent 自己改一大包 prompt，也沒有把每次人類糾正都塞進記憶。它把團隊判斷力變成一個可以 review、可以回滾、可以累積的檔案變更。
 

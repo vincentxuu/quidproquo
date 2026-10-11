@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-26-funding-island-en)
+> 🌏 [English version](/posts/daily/2026-09-26-funding-island-en)
 
 ## 融資資訊
 

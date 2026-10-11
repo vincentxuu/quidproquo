@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-02-security-metr-api-key-theft-en)
+> 🌏 [English version](/posts/daily/2026-09-02-security-metr-api-key-theft-en)
 
 ## 事件概述
 

@@ -22,7 +22,7 @@ glossary:
     context: "HW6 Problem 1 處理的是一維、狀態轉移為恆等的特例。"
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en)
+> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

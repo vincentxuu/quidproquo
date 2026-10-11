@@ -14,7 +14,7 @@ description: "CMU 07-380 Fall 2026 Lecture 10 Bayes Nets 的 pre-reading 導讀�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en)
+> 🌏 [English version](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

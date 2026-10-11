@@ -24,7 +24,7 @@ glossary:
 
 On July 21, 2026, [Poolside](https://www.poolside.ai/models) released [Laguna S 2.1](https://poolside.ai/blog/introducing-laguna-s-2-1) — a 118B-total, 8B-active MoE with 1M context, scoring 70.2% on [Terminal-Bench 2.1](https://trajectories.poolside.ai/) and 40.4% on [DeepSWE](https://trajectories.poolside.ai/?benchmark=deep-swe). It went from the start of training to the launch post in under nine weeks, on exactly the same pre-training data as the small model from two months earlier. This is the twenty-first family deep-dive in the "AI 模型家族" series, tracing Laguna from the [M.1 / XS.2](https://poolside.ai/blog/introducing-laguna-s-2-1) dual release through XS 2.1 to S 2.1.
 
-For how to read benchmark numbers in this post, see the [AI model evaluation sources guide](/en/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI model landscape overview](/en/posts/tech/2026-08-24-ai-model-landscape-overview-en) series.
+For how to read benchmark numbers in this post, see the [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) series.
 
 ## Family timeline
 

@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-content-acquisition-cac-ltv-en)
+> 🌏 [English version](/posts/product/2026-09-17-content-acquisition-cac-ltv-en)
 
 想像用一只破洞水桶接水。內容把訪客倒進桶裡，有些人不是你要的客群，從第一個洞流走；有人留下 email，卻沒有完成第一次關鍵操作；有人付費，幾週後又取消。水龍頭看起來很大，最後留在桶底的水可能很少。
 

@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-12-tool-mcp-bi-en)
+> 🌏 [English version](/posts/daily/2026-09-12-tool-mcp-bi-en)
 
 ## 工具資訊
 

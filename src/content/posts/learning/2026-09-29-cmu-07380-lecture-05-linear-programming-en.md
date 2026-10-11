@@ -18,9 +18,9 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 5 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Continuous Optimization: LP** (9/9). The [previous post on HW2](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) closed out the planning module. This lecture opens a new module, "Optimization."
+This is Lecture 5 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: **Continuous Optimization: LP** (9/9). The [previous post on HW2](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) closed out the planning module. This lecture opens a new module, "Optimization."
 
-In [07-280 Lecture 8](/en/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en) we learned gradient descent: a smooth objective, no constraints, follow the slope downhill. LP is the opposite case. The objective is linear, so its gradient is the same everywhere and never reaches zero. What decides the answer is a set of **linear constraints**. Walking downhill just takes you to the edge of the feasible region, and the question becomes: which point on that edge?
+In [07-280 Lecture 8](/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en) we learned gradient descent: a smooth objective, no constraints, follow the slope downhill. LP is the opposite case. The objective is linear, so its gradient is the same everywhere and never reaches zero. What decides the answer is a set of **linear constraints**. Walking downhill just takes you to the edge of the feasible region, and the question becomes: which point on that edge?
 
 The short answer: **if an LP has a finite optimum, the set of optimal points always includes at least one vertex.** A solver only has to check the intersections of constraint boundaries, not the whole plane.
 
@@ -44,7 +44,7 @@ Checked on 2026-10-10.
 - [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): this post uses only Problem 1 (vertex enumeration vs. simplex) and Cargo Plane. Recitation 3 (9/11, also the day of Quiz 1) and Recitation 4 (9/18) share this one PDF
 - Assigned reading: [Boyd & Vandenberghe, *Convex Optimization*](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) §2.2.1 hyperplanes and halfspaces, §2.2.4 polyhedra, §4.3–4.3.1 linear programs and examples (the first example in §4.3.1 is the diet problem)
 
-**Access level**: all of the above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The site has no lecture recordings, and the Canvas checkpoint and Quiz 1 are CMU-only.
+**Access level**: all of the above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The site has no lecture recordings, and the Canvas checkpoint and Quiz 1 are CMU-only.
 
 ## The starting question: from a word problem to solver input
 
@@ -128,18 +128,18 @@ I computed this from the slide's `A` and `b`; it is not an official solution. Fo
 
 Two vertices tie. That is because `c = [1, 0.5]` is exactly 1/100 of the calorie row `[100, 50]`. The cost contours run parallel to the calorie-min boundary, so the whole edge from (12, 16) to (17.5, 5) is optimal. This matches Recitation Problem 2, part 4: an LP can have infinitely many optimal solutions when the cost vector is perpendicular to a constraint boundary. Vertex enumeration still returns the correct optimal value; it just reports one of the vertices.
 
-The branch and bound example in [the next lecture](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en) uses `c = [1, 0.6]`. With that cost, the unique optimal vertex is (17.5, 5), with cost 20.5.
+The branch and bound example in [the next lecture](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en) uses `c = [1, 0.6]`. With that cost, the unique optimal vertex is (17.5, 5), with cost 20.5.
 
 ## Recitation and homework
 
 - **Recitation Problem 1**: given a picture of a feasible region, describe the two algorithms using vertices, intersections, and neighbors, then run simplex from point B and from point C. The solutions end at E and D, which are equally good. The lesson: where simplex stops depends on where it starts, but the optimal value does not
 - **Cargo Plane**: 4 cargoes × 3 compartments, 12 variables and 10 constraints, so `A` is a sparse 10×12 matrix. The solutions spell out the modeling assumptions, such as cargo being splittable and compartments being fillable. The orange-and-pineapple follow-up asks for a graph with cost contours; the answer is 9 boxes of oranges and 5 of pineapples for 105 gold pieces
-- **HW2 written** Q2 Bayes the Bat (8 pts), Q3 Graphing LPs (6 pts), and Q4 Feasible Regions (9 pts) all drill this lecture's modeling and graphing. See the [HW2 guide](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
+- **HW2 written** Q2 Bayes the Bat (8 pts), Q3 Graphing LPs (6 pts), and Q4 Feasible Regions (9 pts) all drill this lecture's modeling and graphing. See the [HW2 guide](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
 - **HW3 programming**, [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization), Q1–Q3 has you write the three steps of vertex enumeration: find intersections, filter feasible ones, pick the best. HW3 is due 10/1, and this series does not post solutions
 
 ## Connections
 
-- LP fits naturally after [07-280 CSPs](/en/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en). The slides write a CSP as "any `x` that satisfies the constraints"; an LP picks the cheapest such `x`
+- LP fits naturally after [07-280 CSPs](/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en). The slides write a CSP as "any `x` that satisfies the constraints"; an LP picks the cheapest such `x`
 - The slides ask, next to the LP form, whether linear regression or neural-net training is an LP. Squared error is not a linear objective, and neural nets are further still. That is the line between LP and general optimization (`fᵢ(x) ≤ 0`)
 - The site also links the [15-281 Fall 2025 LP course notes](https://www.cs.cmu.edu/~15281-f25/coursenotes/linearprog/index.html) as a second explanation
 
@@ -151,9 +151,9 @@ The branch and bound example in [the next lecture](/en/posts/learning/2026-09-29
 
 ## Series navigation
 
-- Previous: [HW2 guide: Classical and Motion Planning, from Robot-Cook PDDL to RRT\* to Graphing LPs](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
-- Next: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
-- Series overview: [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [HW2 guide: Classical and Motion Planning, from Robot-Cook PDDL to RRT\* to Graphing LPs](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
+- Next: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
+- Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

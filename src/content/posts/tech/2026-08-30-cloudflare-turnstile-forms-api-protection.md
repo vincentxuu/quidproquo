@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-turnstile-forms-api-protection-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-turnstile-forms-api-protection-en)
 
 公開表單和公開 API 很快就會遇到同一個問題：你想讓真人能送出留言、登入、註冊、訂閱 newsletter、提交 waitlist，卻不想讓 bot 把 endpoint 當免費寫入管道。[Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) 是 Cloudflare 的 CAPTCHA 替代方案，重點不在叫使用者選紅綠燈，而是用一組 client-side challenges 判斷瀏覽器與訪客風險，再產生一個後端必須驗證的 token。
 

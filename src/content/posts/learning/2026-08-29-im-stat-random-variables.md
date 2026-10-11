@@ -13,7 +13,7 @@ description: "統計學隨機變數導讀：如何分辨 PMF、PDF、CDF，計�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-random-variables-en)
+> [English version](/posts/learning/2026-08-29-im-stat-random-variables-en)
 
 前一篇談機率時，我們把題目拆成事件：信件是不是真的垃圾、模型有沒有判成垃圾、兩件事是否獨立。這一篇要往前走一步。很多統計題不只問事件會不會發生，而是問一個數值會是多少、落在哪個區間、超過某個門檻的機率有多大。
 

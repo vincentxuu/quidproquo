@@ -15,7 +15,7 @@ additionalSeries:
     order: 23
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-29-cloudflare-ai-search-guide-en)
+> 🌏 [English version](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en)
 
 如果每個 Agent 都要會搜尋，你會先蓋向量索引、再寫切分與同步管線，最後自己兜 BM25 與融合邏輯——還是直接要一個原語？[Cloudflare AI Search](https://developers.cloudflare.com/ai-search/) 就是後者。前身叫 [AutoRAG](https://blog.cloudflare.com/introducing-autorag-on-cloudflare/)，現在定位是 managed search primitive。建一個 instance、餵資料、直接用自然語言查。底層的 [R2](https://developers.cloudflare.com/r2/)、[Vectorize](https://developers.cloudflare.com/vectorize/)、[Workers AI](https://developers.cloudflare.com/workers-ai/) 都被包起來。這篇把資料怎麼進、索引怎麼跑、檢索怎麼調、Worker 怎麼接一次講清楚，讓你判斷何時用託管、何時自己組。
 

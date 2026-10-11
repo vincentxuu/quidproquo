@@ -36,12 +36,12 @@ The same goal can cost six orders of magnitude differently: budget, parameter sc
 
 | Project | Size | Budget | Data | Positioning | Series part |
 |---|---|---|---|---|---|
-| [MiniMind](https://github.com/jingyaogong/minimind) | 64M | ~$0.4 / ~2h on one 3090 | full-stage Qwen3-style data | full-pipeline tutorial (PreTrain→SFT→RL) | [1](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) |
-| [nanochat](https://github.com/karpathy/nanochat) (same lineage as [llm.c](https://github.com/karpathy/llm.c)) | GPT-2/GPT-3-small territory | ~$100 / ~4h on 8×H100; $300 = GPT-2 grade; $1,000/41h ≈ GPT-3-small | public data + time-to-GPT-2 racing | minimal, single-node | [2](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en) |
-| Chinese community: [baby-llama2-chinese](https://github.com/DLLXW/baby-llama2-chinese), [ChatLM-mini-Chinese](https://github.com/charent/ChatLM-mini-Chinese), [Steel-LLM](https://github.com/zhanshijinwat/Steel-LLM) | 0.2B–1B | 4GB VRAM to 8×H800 | mostly Chinese corpora | Chinese-first teaching and long-run testing | [3](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en) |
-| [YuLan-Mini](https://github.com/RUC-GSAI/YuLan-Mini) | 2.4B | academic (1.08T tokens) | data recipe + full W&B logs | data-efficiency research (ACL 2025 Oral) | [4](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) |
-| [OLMo 3](https://huggingface.co/allenai/Olmo-3-1125-32B) (2025-11) | 7B / 32B (incl. Think 32B reasoning model) | industrial | Dolma 3, ~6T tokens | stage checkpoints, Apache 2.0 | [5](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) |
-| [LLM360 K2](https://github.com/LLM360/k2-train) | 65B | industrial | 1.4T tokens | fully reproducible | [5](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) |
+| [MiniMind](https://github.com/jingyaogong/minimind) | 64M | ~$0.4 / ~2h on one 3090 | full-stage Qwen3-style data | full-pipeline tutorial (PreTrain→SFT→RL) | [1](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) |
+| [nanochat](https://github.com/karpathy/nanochat) (same lineage as [llm.c](https://github.com/karpathy/llm.c)) | GPT-2/GPT-3-small territory | ~$100 / ~4h on 8×H100; $300 = GPT-2 grade; $1,000/41h ≈ GPT-3-small | public data + time-to-GPT-2 racing | minimal, single-node | [2](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en) |
+| Chinese community: [baby-llama2-chinese](https://github.com/DLLXW/baby-llama2-chinese), [ChatLM-mini-Chinese](https://github.com/charent/ChatLM-mini-Chinese), [Steel-LLM](https://github.com/zhanshijinwat/Steel-LLM) | 0.2B–1B | 4GB VRAM to 8×H800 | mostly Chinese corpora | Chinese-first teaching and long-run testing | [3](/posts/ai/2026-09-06-chinese-community-small-llm-training-en) |
+| [YuLan-Mini](https://github.com/RUC-GSAI/YuLan-Mini) | 2.4B | academic (1.08T tokens) | data recipe + full W&B logs | data-efficiency research (ACL 2025 Oral) | [4](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) |
+| [OLMo 3](https://huggingface.co/allenai/Olmo-3-1125-32B) (2025-11) | 7B / 32B (incl. Think 32B reasoning model) | industrial | Dolma 3, ~6T tokens | stage checkpoints, Apache 2.0 | [5](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) |
+| [LLM360 K2](https://github.com/LLM360/k2-train) | 65B | industrial | 1.4T tokens | fully reproducible | [5](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) |
 | [SmolLM3](https://huggingface.co/HuggingFaceTB/SmolLM3-3B) | 3B | 11.2T tokens (full recipe published 2025-07) | testing the data ceiling of small models | —(covered in parts 5–6) | — |
 
 A few numbers worth remembering: Karpathy spent roughly $43,000 training GPT-2 in 2019; nanochat's "time to GPT-2" speedrun has squeezed that to the ~$100 level in under 4 hours (the early-2026 official record is ~$48 / 2 hours; spot pricing varies). YuLan-Mini reaches parity or better than 7–18T-token baselines on math and code with 1.08T tokens. SmolLM3 shows a 3B model can ingest 11.2T tokens without saturating — TinyLlama's 1.1B eating 3T without saturation was the precedent.
@@ -70,7 +70,7 @@ Framed as a matrix, you can see which dimensions this series has a dedicated par
 
 - **GitHub-star-selected population**: selection leans heavily toward English and Chinese circles (GitHub's star mechanism inherently favors large language markets), so projects from non-English, non-mainstream communities are easily missed — [LLM-jp](https://huggingface.co/llm-jp) has a complete Japanese ecosystem and high openness but did not make the cut on stars and mindshare alone. This is a known gap in this survey. **(Update)**: this gap has been closed by part 7 — the two national-scale cases, Apertus and LLM-jp, are now part of the series.
 - **Retired cases are only research-oriented Pythia/TinyLlama**: "retired" here means "finished the job and got overtaken," not failed. Pythia's 154 checkpoints remain tools for studying learning dynamics; TinyLlama delivered the experiment "a 1B model trained on 3T tokens." Including them shows that obsolescence in this category usually means someone did something to completion.
-- **Architecturally one-sided**: every selection is a Transformer. RWKV and Mamba-style non-attention sequence models were once hot alternative paths but aren't part of the "fully open pipeline" selection here (or the main toolchains didn't follow) — for alternatives, [CS336: Attention, MoE, and Mamba](/en/posts/ai/2026-08-22-cs336-attention-moe-en) on this site is an existing match.
+- **Architecturally one-sided**: every selection is a Transformer. RWKV and Mamba-style non-attention sequence models were once hot alternative paths but aren't part of the "fully open pipeline" selection here (or the main toolchains didn't follow) — for alternatives, [CS336: Attention, MoE, and Mamba](/posts/ai/2026-08-22-cs336-attention-moe-en) on this site is an existing match.
 
 ## The arc (11 posts)
 
@@ -83,21 +83,21 @@ English → Chinese → academic data-efficiency ──→ industrial transparen
 | order | Article | Main thread |
 |---|---|---|
 | 0 | This introduction | selection criteria, cost spectrum, bias |
-| 1 | [MiniMind: train an LLM from scratch for $0.4](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) (published) | full-pipeline teaching at the $0.4 grade |
-| 2 | [Karpathy: nanochat, nanoGPT, and llm.c](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en) | minimalism and the time-to-GPT-2 race |
-| 3 | [Chinese community small-model training](/en/posts/ai/2026-09-06-chinese-community-small-llm-training-en) | data-first floor experience for Chinese |
-| 4 | [YuLan-Mini: data-efficient pretraining](/en/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) | 1.08T vs larger budgets: recipe and ablations |
-| 5 | [OLMo 3 and LLM360: fully open pretraining](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) | checkpoint-grade transparency and full reproducibility |
-| 6 | [When to train an LLM from scratch](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) | decision framework: fine-tuning vs RAG, and when NOT to |
-| 7 | [National-team training: Apertus and LLM-jp](/en/posts/ai/2026-09-06-national-multilingual-llm-training-en) | language sovereignty and the compliance route |
-| 8 | [Efficiency and edge: OpenELM and MiniCPM](/en/posts/ai/2026-09-06-efficient-edge-llm-training-en) | per-parameter performance and multimodal deployment |
-| 9 | [The from-scratch framework: LitGPT](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en) | abstraction-free from-scratch scaffolding |
-| 10 | [Running MiniMind on RunPod](/en/posts/ai/2026-09-06-run-minimind-on-runpod-en) | the only hands-on post: from renting a machine to chatting |
+| 1 | [MiniMind: train an LLM from scratch for $0.4](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) (published) | full-pipeline teaching at the $0.4 grade |
+| 2 | [Karpathy: nanochat, nanoGPT, and llm.c](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en) | minimalism and the time-to-GPT-2 race |
+| 3 | [Chinese community small-model training](/posts/ai/2026-09-06-chinese-community-small-llm-training-en) | data-first floor experience for Chinese |
+| 4 | [YuLan-Mini: data-efficient pretraining](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining-en) | 1.08T vs larger budgets: recipe and ablations |
+| 5 | [OLMo 3 and LLM360: fully open pretraining](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en) | checkpoint-grade transparency and full reproducibility |
+| 6 | [When to train an LLM from scratch](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) | decision framework: fine-tuning vs RAG, and when NOT to |
+| 7 | [National-team training: Apertus and LLM-jp](/posts/ai/2026-09-06-national-multilingual-llm-training-en) | language sovereignty and the compliance route |
+| 8 | [Efficiency and edge: OpenELM and MiniCPM](/posts/ai/2026-09-06-efficient-edge-llm-training-en) | per-parameter performance and multimodal deployment |
+| 9 | [The from-scratch framework: LitGPT](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en) | abstraction-free from-scratch scaffolding |
+| 10 | [Running MiniMind on RunPod](/posts/ai/2026-09-06-run-minimind-on-runpod-en) | the only hands-on post: from renting a machine to chatting |
 
 ## How to read this
 
 - **Hands-on readers**: parts 1 (MiniMind) → 2 (Karpathy) → 3 (Chinese community). Run the README once and you will have first-hand experience with training "your own" model from scratch.
-- **Research readers**: parts 4 → 5. For a solid theoretical base, first read the [CS336 overview](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) — the reference course of this series — then come back for the cost and openness reality.
+- **Research readers**: parts 4 → 5. For a solid theoretical base, first read the [CS336 overview](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) — the reference course of this series — then come back for the cost and openness reality.
 - **Decision-makers / budget holders**: read part 6's decision framework first, then backfill the cases you need.
 - **Policy / compliance angle**: part 7. How non-English communities trade national-scale collaboration and data governance for sovereignty and legitimacy, with RWKV as the architecture contrast.
 - **Efficiency / deployment angle**: part 8. If you want to train from scratch under tight parameter budgets or for multimodal edge scenarios, OpenELM and MiniCPM are the loadout.
@@ -107,7 +107,7 @@ Each part is self-contained, but the arc's order follows the graduation of cost 
 
 ## Bottom line
 
-The two ends of this spectrum answer different questions: MiniMind proves "cheap can teach," OLMo 3 / LLM360 prove "expensive can verify" — the common denominator is openness, just with different objects (code vs data + logs). The first published part is [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en); the rest climb the cost ladder, and the last part re-examines "when not to spend this money at all." The site's [CS336 series](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) and [OLMo: full openness](/en/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) give you the theoretical base and the previous generation's full picture; [Marin's 535B hero run](/en/posts/ai/2026-08-24-marin-535b-hero-run-en) shows another viable route for an individual pushing the limit. Any order works, but we suggest starting with [MiniMind](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) — it's the only one you can start on tonight.
+The two ends of this spectrum answer different questions: MiniMind proves "cheap can teach," OLMo 3 / LLM360 prove "expensive can verify" — the common denominator is openness, just with different objects (code vs data + logs). The first published part is [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en); the rest climb the cost ladder, and the last part re-examines "when not to spend this money at all." The site's [CS336 series](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) and [OLMo: full openness](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm-en) give you the theoretical base and the previous generation's full picture; [Marin's 535B hero run](/posts/ai/2026-08-24-marin-535b-hero-run-en) shows another viable route for an individual pushing the limit. Any order works, but we suggest starting with [MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) — it's the only one you can start on tonight.
 
 ## References
 

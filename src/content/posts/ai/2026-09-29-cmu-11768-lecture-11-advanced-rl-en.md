@@ -360,11 +360,11 @@ References listed for this lecture on the official schedule (most also appear on
 
 Further reading on this site (other angles on the same algorithms; not a substitute for this lecture):
 
-- [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
-- [CS336 Lecture 15: SFT Teaches Imitation; RLHF Begins Direct Preference Optimization](/en/posts/ai/2026-08-22-cs336-sft-rlhf-en)
-- [Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame](/en/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) (CS230)
-- [CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO](/en/posts/ai/2026-09-29-cme295-llm-reasoning-en)
-- [CME295 Lecture 5: RLHF and DPO Add the Negative Signal](/en/posts/ai/2026-09-29-cme295-preference-tuning-en)
+- [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)
+- [CS336 Lecture 15: SFT Teaches Imitation; RLHF Begins Direct Preference Optimization](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
+- [Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) (CS230)
+- [CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+- [CME295 Lecture 5: RLHF and DPO Add the Negative Signal](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 
 ## Update Log
 

@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-biggo-finance-ai-content-funnel-en)
+> 🌏 [English version](/posts/product/2026-09-17-biggo-finance-ai-content-funnel-en)
 
 想像一家店把很長的英文財經節目整理成免費中文講義。路過的人不用先買票，就能快速看懂這集談了哪些公司、風險與市場變化。
 

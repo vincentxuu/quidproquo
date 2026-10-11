@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-20-funding-prevalent-ai-en)
+> 🌏 [English version](/posts/daily/2026-08-20-funding-prevalent-ai-en)
 
 ## 融資資訊
 

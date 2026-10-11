@@ -79,7 +79,7 @@ Making the code you write secure by design.
 
 Per [Practical DevSecOps market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), the share of cybersecurity job postings requiring AI skills doubled from 14.2% to 28.5% between October 2025 and March 2026.
 
-Details on the four offensive certifications (COASP, OSAI+, HTB COAE, GOAA) and how to choose among them are in [Part 2](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en).
+Details on the four offensive certifications (COASP, OSAI+, HTB COAE, GOAA) and how to choose among them are in [Part 2](/posts/tech/2026-09-10-ai-security-cert-showdown-en).
 
 ## Comparison table
 

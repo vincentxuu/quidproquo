@@ -10,7 +10,7 @@ description: "從一個真實的 AI Agent 不主動使用搜尋工具的案例�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-18-llm-tool-discovery-en)
+> 🌏 [English version](/posts/ai/2026-09-18-llm-tool-discovery-en)
 
 Agent 有能力做一件事，跟 Agent 知道自己能做這件事，是兩回事。
 

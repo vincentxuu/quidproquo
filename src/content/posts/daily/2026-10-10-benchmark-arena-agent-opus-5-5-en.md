@@ -58,8 +58,8 @@ Having tracked three Agent leaderboard reshuffles in a row now, there's a patter
 
 - [Arena Leaderboard Dataset — Hugging Face (`lmarena-ai/leaderboard-dataset`, primary source)](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset)
 - [Arena (formerly LMSYS) Agent leaderboard](https://arena.ai/leaderboard/agent)
-- [Model Card: Claude Opus 5.5](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
-- [Model Card: Claude Fable 5.1](/en/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
-- [Model Card: GPT-6 Astra](/en/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
-- [Previous piece | Benchmark Watch: Arena Agent leaderboard, Sonnet 5.5 debuts at #3](/en/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
-- [Earlier piece | Benchmark Watch: Arena Agent leaderboard, 09-30 publish](/en/posts/daily/2026-10-02-benchmark-arena-agent-en)
+- [Model Card: Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
+- [Model Card: Claude Fable 5.1](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
+- [Model Card: GPT-6 Astra](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
+- [Previous piece | Benchmark Watch: Arena Agent leaderboard, Sonnet 5.5 debuts at #3](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
+- [Earlier piece | Benchmark Watch: Arena Agent leaderboard, 09-30 publish](/posts/daily/2026-10-02-benchmark-arena-agent-en)

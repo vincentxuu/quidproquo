@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Astra 是目前最新一代旗艦模型"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
+> 🌏 [English version](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
 
 ## 模型資訊
 

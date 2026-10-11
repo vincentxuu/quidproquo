@@ -11,7 +11,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-06-ai-agent-github-digest-en)
+> 🌏 [English version](/posts/daily/2026-10-06-ai-agent-github-digest-en)
 
 ## 今日亮點
 

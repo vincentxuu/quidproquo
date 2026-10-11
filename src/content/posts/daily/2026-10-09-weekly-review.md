@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-09-weekly-review-en)
+> 🌏 [English version](/posts/daily/2026-10-09-weekly-review-en)
 
 ## 本週最重要的 5 件事
 

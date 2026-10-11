@@ -13,7 +13,7 @@ description: "深入 pi-agent-core 的 Agent Loop 核心邏輯（~800 行）。�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-agent-loop-double-while-en)
 
 ## TL;DR
 

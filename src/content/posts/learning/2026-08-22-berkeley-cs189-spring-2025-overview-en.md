@@ -18,9 +18,9 @@ draft: false
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-[Berkeley CS189 Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s25/) is the math-heavy ML entry point at Berkeley. It does not follow [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/); the two are parallel. The [Berkeley AI/ML Course Guide](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) frames them as search/reasoning vs. statistical learning — this post makes CS189 executable.
+[Berkeley CS189 Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s25/) is the math-heavy ML entry point at Berkeley. It does not follow [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/); the two are parallel. The [Berkeley AI/ML Course Guide](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) frames them as search/reasoning vs. statistical learning — this post makes CS189 executable.
 
-**To self-study lecture by lecture with this series, use [Spring 2026](https://eecs189.org/sp26/); for the classic SVM / decision tree / PCA / boosting route, use Spring 2025; to see what next term looks like, watch Fall 2026.** Spring 2026 publishes lecture notes, 25 lecture videos, discussions with solutions, and the HW1–5 handouts, and this series uses it as the base from post 2 onward (see [Three Versions of CS189](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)). Spring 2025 at `people.eecs.berkeley.edu/~jrs/189s25/` keeps 25 lectures of notes, HW1–7, code/data and past exams (A3 in this site's [A0–A3 scale](https://quidproquo.cc/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)); its official recordings are on bCourses and require a login. Fall 2026 at `eecs189.org/fa26` just published a 27-lecture calendar (`Lec01 Introduction + ML Problem Framing` to `Lec27 Closing`), but most decks and assignments are still TBD and the rotating `eecs189.org` domain 302s to the current term, so old URLs can 404.
+**To self-study lecture by lecture with this series, use [Spring 2026](https://eecs189.org/sp26/); for the classic SVM / decision tree / PCA / boosting route, use Spring 2025; to see what next term looks like, watch Fall 2026.** Spring 2026 publishes lecture notes, 25 lecture videos, discussions with solutions, and the HW1–5 handouts, and this series uses it as the base from post 2 onward (see [Three Versions of CS189](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)). Spring 2025 at `people.eecs.berkeley.edu/~jrs/189s25/` keeps 25 lectures of notes, HW1–7, code/data and past exams (A3 in this site's [A0–A3 scale](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map-en)); its official recordings are on bCourses and require a login. Fall 2026 at `eecs189.org/fa26` just published a 27-lecture calendar (`Lec01 Introduction + ML Problem Framing` to `Lec27 Closing`), but most decks and assignments are still TBD and the rotating `eecs189.org` domain 302s to the current term, so old URLs can 404.
 
 ## Course video sources
 
@@ -70,37 +70,37 @@ SVMs, decision trees/random forests, PCA/SVD, boosting and k-d trees are covered
 
 ## Why not chase Fall 2026 directly
 
-`eecs189.org` is a rotating site already 302ing to `/fa26`; prior term URLs can break after the switch (the [Berkeley guide](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) documents 404s). Fall 2026 currently shows a full calendar with many `TBD` decks/HWs. Build the spine on Spring 2026, which has finished and has its materials in place (posts 2–18 of this series), use Fall 2026's 27-lecture order as a reference, and use Spring 2025 for the classic topics.
+`eecs189.org` is a rotating site already 302ing to `/fa26`; prior term URLs can break after the switch (the [Berkeley guide](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) documents 404s). Fall 2026 currently shows a full calendar with many `TBD` decks/HWs. Build the spine on Spring 2026, which has finished and has its materials in place (posts 2–18 of this series), use Fall 2026's 27-lecture order as a reference, and use Spring 2025 for the classic topics.
 
 ## Posts in this series
 
 Spring 2026 has 27 lectures and 5 assignments; this series interleaves lecture blocks and assignments in the official order:
 
 1. This post: series entry point and edition overview
-2. [Three Versions of CS189: Spring 2026 as the Base, Spring 2025 as the Classic, Fall 2026 in Progress](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
-3. [Lec 1–3: ML Problem Framing, Data Tools, Terminology and Techniques](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
-4. [Lec 4–7: K-means, Probability Review, MLE, Multivariate Gaussians and GMMs](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
-5. [Lec 7–10: Linear Regression, the Geometry of Least Squares, and Regularization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
-6. [HW1 Guide: Linear Algebra / Calculus / Probability Warm-up + Fashion Coding](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
-7. [Lec 11–12: Classification, Generative Classifiers, Logistic Regression, and ROC](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
-8. [Lec 13 & 15: Convergence, Momentum, Adam, SGD](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
-9. [Lec 14 & 16: MLE vs MAP, Bias-Variance, Entropy and KL, Plus a Midterm Self-Check](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en)
-10. [HW2 Guide: Chatbot Arena Paper Questions, Regression, MLE/MAP, From GMMs to Flow Matching](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
-11. [Lec 17–18: Depth, Universal Approximation, Activations, and Backpropagation](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
-12. [HW3 Guide: Autograd from Scratch (BearTensor), Newton's Method, and the Information Bottleneck](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en)
-13. [Lec 19–20: Initialization, BatchNorm, CNNs, Early Stopping, and Double Descent](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
-14. [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en)
-15. [HW4 Guide: ResNet/Transformer Paper Questions and Implementing CNN, ResNet, Transformer, DNABERT, and ConvNeXt](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en)
-16. [Lec 23–24: LLM Training and Applications, Self-Supervised Learning](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en)
-17. [Lec 25–27: AI for Protein Engineering, Agents and Environments, and Where to Go Next](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
-18. [HW5 (Optional) Guide: InfoNCE for Biology, Diffusion Theory, LLM Fine-Tuning + Kaggle](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en)
+2. [Three Versions of CS189: Spring 2026 as the Base, Spring 2025 as the Classic, Fall 2026 in Progress](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
+3. [Lec 1–3: ML Problem Framing, Data Tools, Terminology and Techniques](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
+4. [Lec 4–7: K-means, Probability Review, MLE, Multivariate Gaussians and GMMs](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
+5. [Lec 7–10: Linear Regression, the Geometry of Least Squares, and Regularization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
+6. [HW1 Guide: Linear Algebra / Calculus / Probability Warm-up + Fashion Coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+7. [Lec 11–12: Classification, Generative Classifiers, Logistic Regression, and ROC](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+8. [Lec 13 & 15: Convergence, Momentum, Adam, SGD](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
+9. [Lec 14 & 16: MLE vs MAP, Bias-Variance, Entropy and KL, Plus a Midterm Self-Check](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en)
+10. [HW2 Guide: Chatbot Arena Paper Questions, Regression, MLE/MAP, From GMMs to Flow Matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
+11. [Lec 17–18: Depth, Universal Approximation, Activations, and Backpropagation](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
+12. [HW3 Guide: Autograd from Scratch (BearTensor), Newton's Method, and the Information Bottleneck](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en)
+13. [Lec 19–20: Initialization, BatchNorm, CNNs, Early Stopping, and Double Descent](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)
+14. [Lec 21–22: Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en)
+15. [HW4 Guide: ResNet/Transformer Paper Questions and Implementing CNN, ResNet, Transformer, DNABERT, and ConvNeXt](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en)
+16. [Lec 23–24: LLM Training and Applications, Self-Supervised Learning](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en)
+17. [Lec 25–27: AI for Protein Engineering, Agents and Environments, and Where to Go Next](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en)
+18. [HW5 (Optional) Guide: InfoNCE for Biology, Diffusion Theory, LLM Fine-Tuning + Kaggle](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en)
 
 Still unavailable, and only noted as existing in the series: the Spring 2026 final exam and its solutions (the past-exam folder stops at the sp25/fa25 finals), official HW1–4 solutions, the Lec 26 guest lecture (no public materials), and the Lec 1 recording. Once Fall 2026 ends, the series will reassess whether to switch to it as the base.
 
 ## Tonight's starter
 
-1. Read [Three Versions of CS189](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en) and decide between the Spring 2026 main line and the Spring 2025 classic route.
-2. On Spring 2026, open the [Lec 1–3 guide](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en) and label each [HW1](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en) warm-up problem as derivation, data analysis, or programming.
+1. Read [Three Versions of CS189](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en) and decide between the Spring 2026 main line and the Spring 2025 classic route.
+2. On Spring 2026, open the [Lec 1–3 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en) and label each [HW1](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en) warm-up problem as derivation, data analysis, or programming.
 3. If the linear algebra or probability warm-ups stall you, patch fundamentals via CS70 notes or [CS61B](https://fa25.datastructur.es/) before jumping ahead.
 
 ## Update Log
@@ -112,9 +112,9 @@ Still unavailable, and only noted as existing in the series: the Spring 2026 fin
 - [Berkeley CS189 Spring 2026 (eecs189.org/sp26, series base)](https://eecs189.org/sp26/)
 - [Berkeley CS189 Spring 2025 (~jrs, classic route, A3)](https://people.eecs.berkeley.edu/~jrs/189s25/)
 - [Berkeley CS189 Fall 2026 Schedule (eecs189.org/fa26)](https://eecs189.org/fa26/)
-- [Berkeley AI/ML Course Guide: From CS61A to CS288](https://quidproquo.cc/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
-- [Berkeley CS188 Spring 2026 Overview](https://quidproquo.cc/en/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
-- [Global AI/CS Course Map: A0–A3 Levels](https://quidproquo.cc/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+- [Berkeley AI/ML Course Guide: From CS61A to CS288](https://quidproquo.cc/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
+- [Berkeley CS188 Spring 2026 Overview](https://quidproquo.cc/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
+- [Global AI/CS Course Map: A0–A3 Levels](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 - [CS70 Fall 2025](https://fa25.eecs70.org/)
 - [CS61B Fall 2025](https://fa25.datastructur.es/)
 - [CSDIY — Berkeley CS189](https://csdiy.wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CS189/)

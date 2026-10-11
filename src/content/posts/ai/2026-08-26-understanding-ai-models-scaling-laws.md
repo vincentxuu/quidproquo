@@ -20,7 +20,7 @@ glossary:
     def: "DeepMind 2022 年論文提出的 compute-optimal 訓練策略，證明大多數模型太大而訓練不足"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-scaling-laws-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-scaling-laws-en)
 
 GPT-4 據報有超過一兆個參數。Llama 3.1 有 8B、70B、405B 三種大小。為什麼要做這麼多尺寸？為什麼不直接做最大的就好？
 

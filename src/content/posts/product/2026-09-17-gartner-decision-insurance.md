@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-gartner-decision-insurance-en)
+> 🌏 [English version](/posts/product/2026-09-17-gartner-decision-insurance-en)
 
 想像公司要花一大筆錢買一套所有部門都得用五年的軟體。資訊部門在意整合，資安部門怕資料外洩，財務部門問價格，真正要用的人只想知道會不會更難操作。每個人都有理由，卻沒有共同的地圖。
 

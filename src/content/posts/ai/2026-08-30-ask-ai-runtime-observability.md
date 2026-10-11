@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-runtime-observability-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-runtime-observability-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [RAG Streaming](/posts/ai/2026-03-12-rag-streaming-sse)、[RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing) 與 [Semantic Caching](/posts/ai/2026-03-12-semantic-caching)。
 

@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-10-taiwan-security-cert-ecosystem-en)
+> 🌏 [English version](/posts/tech/2026-09-10-taiwan-security-cert-ecosystem-en)
 
 前三篇畫了[全景地圖](/posts/tech/2026-09-10-security-cert-landscape)、做了 [AI 安全證照橫評](/posts/tech/2026-09-10-ai-security-cert-showdown)、算了[三大經典證照的 ROI](/posts/tech/2026-09-10-security-cert-roi)。這篇收尾，把台灣特有的脈絡講清楚：法規到底要求什麼、哪裡上課、哪裡考試、有沒有在地替代方案。
 

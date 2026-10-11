@@ -34,7 +34,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-Lecture 7 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 15, 2026) is given by guest speaker [JY Koh](https://jykoh.com/). He did his PhD at CMU with Daniel Fried and Ruslan Salakhutdinov, built benchmarks such as [VisualWebArena](https://arxiv.org/abs/2401.13649) and Odysseys, and then spent a year and a half leading a computer use agent team at Meta. This is the second stop in the "Domains" module: [last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) covered coding agents; this one covers **agents that look at the screen and move the mouse**.
+Lecture 7 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 15, 2026) is given by guest speaker [JY Koh](https://jykoh.com/). He did his PhD at CMU with Daniel Fried and Ruslan Salakhutdinov, built benchmarks such as [VisualWebArena](https://arxiv.org/abs/2401.13649) and Odysseys, and then spent a year and a half leading a computer use agent team at Meta. This is the second stop in the "Domains" module: [last lecture](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) covered coding agents; this one covers **agents that look at the screen and move the mouse**.
 
 A computer use agent (CUA) differs from the text agents in earlier lectures at both ends: it takes screenshots in and emits clicks, scrolls, and keystrokes out — working in the same interface as a human. Koh says right away that this makes modeling and evaluation both interesting and painful. The lecture has four parts — what a CUA is, how to evaluate one, what the model looks like, how to train it — plus four open problems. This guide follows the same order.
 
@@ -258,11 +258,11 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 
 ## Further reading
 
-- Same series: [L6 Coding Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en), [L8 SFT](/en/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) (the details behind this lecture's SFT stage)
-- Evaluation design and benchmark contamination: [Stanford CS329Z Week 7](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
-- Background for the RL stage: [CS336 Lecture 16: RLVR and GRPO](/en/posts/ai/2026-08-22-cs336-rlvr-en)
-- SFT basics: [CS336 Lecture 15: SFT and RLHF](/en/posts/ai/2026-08-22-cs336-sft-rlhf-en)
-- Biases of LLM judges: [Self-Reflection and LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+- Same series: [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en), [L8 SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft-en) (the details behind this lecture's SFT stage)
+- Evaluation design and benchmark contamination: [Stanford CS329Z Week 7](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
+- Background for the RL stage: [CS336 Lecture 16: RLVR and GRPO](/posts/ai/2026-08-22-cs336-rlvr-en)
+- SFT basics: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
+- Biases of LLM judges: [Self-Reflection and LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 
 ## Update Log
 

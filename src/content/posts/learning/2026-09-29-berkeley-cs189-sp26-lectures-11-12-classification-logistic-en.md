@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers Lectures 11–12 (Feb 24 and 26). In [Lec 7–10](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) y was a real number; now y is a class label.
+This guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis) and covers Lectures 11–12 (Feb 24 and 26). In [Lec 7–10](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en) y was a real number; now y is a class label.
 
 The slides separate the two tasks in one line: regression tries to "draw a line to trace out the data," classification tries to "draw a line to separate the classes of data." That line is the decision boundary.
 
@@ -62,7 +62,7 @@ Content check: verified against the video transcripts (2026-10-10; mostly spot s
 
 The same week has [Discussion 5](https://drive.google.com/file/d/1I0qfBd1cCc_QUU9wPcfCcEg6-5eCNbCb/view) ([solutions](https://drive.google.com/file/d/1auD6wh7wN9QPGN52bMKZSc1KoSipxrVF/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9TlqqkuL1y7ybVRtrA6l6w)) and the release of HW2 (due Mar 13). The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*, whose website has a free-to-use online version.
 
-**Access level**: both lectures' PDFs and videos, plus Discussion 5's problems, solutions, and walkthrough, open without a login. This block is A3 (see the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
+**Access level**: both lectures' PDFs and videos, plus Discussion 5's problems, solutions, and walkthrough, open without a login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 One overlap to flag up front: the second half of the Lec 10 PDF already covers discriminative vs. generative and GDA, and Lec 11 restarts from the same point and finishes it. The ROC material appears in both the Lec 11 and Lec 12 PDFs. This post is organized by topic rather than split lecture by lecture.
 
@@ -87,7 +87,7 @@ The consequence, per the slides: a discriminative model "spends" all of its para
 
 Despite the word "Discriminant" in its name, the slides stress that GDA is a **generative** model. Each class's p(x | y) is a Gaussian, and p(y) is a Bernoulli (categorical for more classes).
 
-**Estimating the parameters**: MLE. Conditioned on the class, the log-likelihood splits into a separate Gaussian MLE per class, i.e. the mean and covariance of that class's data. That is exactly the derivation from [Lec 5–6](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) and Discussion 3. The slides work the 1D case in full and note that μ̂ₖ does not depend on σₖ, so you can solve for μ first and then σ.
+**Estimating the parameters**: MLE. Conditioned on the class, the log-likelihood splits into a separate Gaussian MLE per class, i.e. the mean and covariance of that class's data. That is exactly the derivation from [Lec 5–6](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en) and Discussion 3. The slides work the 1D case in full and note that μ̂ₖ does not depend on σₖ, so you can solve for μ first and then σ.
 
 The prior p(y) can be set two ways: from the class proportions in the training data (MLE), or by a domain expert. The slides' example is a doctor who knows the prevalence of Crohn's disease. They leave a question open: why use an expert's prior when you have training data? One plausible reason is that the class balance in the training data need not match the balance at deployment.
 
@@ -154,7 +154,7 @@ LL(w) = Σᵢ [ yᵢ log pᵢ + (1 − yᵢ) log(1 − pᵢ) ],   pᵢ = σ(wᵀ
 
 The sigmoid's derivative gives a clean vector form for the gradient. Unlike linear regression, though, setting the gradient to zero **has no closed-form solution**. As the slides put it: just like GMMs (and neural networks later), you need an iterative optimizer such as gradient descent. The multi-class version has a multinomial likelihood, which is why it is also called multinomial regression.
 
-This is the second time the course hits "no closed form." The first was the [GMM](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en), and the proper treatment arrives with gradient descent and optimizers in Lec 13.
+This is the second time the course hits "no closed form." The first was the [GMM](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en), and the proper treatment arrives with gradient descent and optimizers in Lec 13.
 
 ## Evaluating classifiers: why accuracy is not enough
 
@@ -201,7 +201,7 @@ Lec 11's slides also open with a callback to ImageNetV2 from Lec 3 (the recordin
 
 ## Discussion 5: actually wrapping up regression
 
-Although Discussion 5 falls in the week of Lec 11, all three problems are about regression and estimation. They follow on from [Lec 9–10](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en), not from classification:
+Although Discussion 5 falls in the week of Lec 11, all three problems are about regression and estimation. They follow on from [Lec 9–10](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en), not from classification:
 
 1. **ℓ1 regression**: for the intercept-only model y = β + ε, minimize Σ|yᵢ − β|. The official solution shows the minimum is at the median of the yᵢ. Compare it with least squares giving the mean, and you see why the L1 loss is more robust to outliers.
 2. **Linear regression with a Laplace prior**: with Gaussian noise and an independent Laplace(0, b) prior on each βₖ, show that the MAP estimate is equivalent to lasso. The Lec 9–10 slides only state this in one line.
@@ -222,14 +222,14 @@ If you are reading this series in order, do Discussion 5 after this post and bef
 
 On this site:
 
-- The same topics told differently: [Stanford CS229 notes, chapter 2: classification and logistic regression](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en) and [chapter 4: generative learning algorithms](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en)
-- The probability angle: [Stanford CS109 Lecture 20: logistic regression](/en/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en), [Lecture 21: comparing classifiers](/en/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers-en)
-- Series entry points: [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/en/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
+- The same topics told differently: [Stanford CS229 notes, chapter 2: classification and logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en) and [chapter 4: generative learning algorithms](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en)
+- The probability angle: [Stanford CS109 Lecture 20: logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en), [Lecture 21: comparing classifiers](/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers-en)
+- Series entry points: [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 
 ## Series navigation
 
-- Previous: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
-- Next: [Lec 13 & 15: convergence, momentum, Adam, SGD, and learning with GD](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
+- Previous: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+- Next: [Lec 13 & 15: convergence, momentum, Adam, SGD, and learning with GD](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
 
 ## Update Log
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> English version: [TinyFish: Free Search and Fetch Infrastructure for AI Agents](/en/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier-en)
+> English version: [TinyFish: Free Search and Fetch Infrastructure for AI Agents](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier-en)
 
 AI agent 幾乎每個任務都從兩件事開始：找對網址、把頁面讀乾淨。TinyFish 就是為這兩個原語打造的基礎設施——它在 2026 年 5 月把最常用的 Search 與 Fetch 改為對所有開發者與 agent 免費，支援 REST API、MCP、Python/TS SDK、CLI 與 n8n/Dify 等整合，一組 `X-API-Key` 就能用。這篇從工具介紹出發，帶你看懂它在解什麼問題、怎麼設計、怎麼用，以及什麼時候該選它而不是 Firecrawl 或自建 Playwright。
 

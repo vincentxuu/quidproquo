@@ -83,7 +83,7 @@ I used to assume sandbox integrations would each expose their own dedicated API 
 - [Pydantic AI v2.52.0 Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.52.0)
 - [Security Advisory GHSA-v36g-jcw9-x7cw](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v36g-jcw9-x7cw)
 - [Pydantic AI GitHub](https://github.com/pydantic/pydantic-ai)
-- [Pydantic AI v2.46.0 — previous framework update](/en/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
+- [Pydantic AI v2.46.0 — previous framework update](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
 - [PR #6492: Add the Workspace abstraction (`ctx.workspace`)](https://github.com/pydantic/pydantic-ai/pull/6492)
 - [PR #8867: ModalSandboxBackend replaces ModalSandboxSession](https://github.com/pydantic/pydantic-ai/pull/8867)
 - [PR #8869: Add SpritesSandbox (Fly.io)](https://github.com/pydantic/pydantic-ai/pull/8869)

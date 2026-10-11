@@ -33,7 +33,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-30-openai-plugin-extensions-en)
+> 🌏 [English version](/posts/ai/2026-09-30-openai-plugin-extensions-en)
 
 我一直在關注 OpenAI 的 plugin。理由很單純：它一旦做起來，很多軟體的使用方式都會跟著改。2026 年 9 月 29 日的 [OpenAI DevDay 2026](https://openai.com/index/devday-2026-recap/) 果然又有 plugin 的戲，這次叫 **Plugin Extensions**。
 

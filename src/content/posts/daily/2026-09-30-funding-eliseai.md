@@ -12,7 +12,7 @@ series:
   order: 56
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-30-funding-eliseai-en)
+> 🌏 [English version](/posts/daily/2026-09-30-funding-eliseai-en)
 
 ## 融資資訊
 

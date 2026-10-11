@@ -13,7 +13,7 @@ description: "Tokenization 與 BPE 演算法入門：為什麼模型把文字切
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-tokenization-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-tokenization-en)
 
 上一篇講了 token 是模型處理文字的基本單位。但模型到底怎麼決定「哪些字元組成一個 token」？這個過程叫 tokenization，而它直接影響你用 API 要付多少錢。
 

@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-02-benchmark-cursorbench-en)
+> 🌏 [English version](/posts/daily/2026-09-02-benchmark-cursorbench-en)
 
 ## 異動摘要
 

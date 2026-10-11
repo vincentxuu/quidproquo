@@ -18,7 +18,7 @@ glossary:
     def: "測量模型拒絕回答合理請求頻率的 benchmark——分數越高代表模型越少不必要地拒答"
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-26-nous-research-hermes-en)
+> 🌏 [English version](/posts/tech/2026-08-26-nous-research-hermes-en)
 
 Nous Research 的起源不是某個創辦人的車庫，而是一群開源 LLM 社群的研究者自發聚在一起。2023 年由 Jeffrey Quesnelle、Karan Malhotra、Shivani Mitra 和社群暱稱 Teknium 的研究者共同成立，從鬆散的研究社群變成一間公司。他們的主張很明確：AI 不應該有過度的安全護欄，使用者有權決定模型該回答什麼。這個哲學讓他們在開源社群有了忠實追隨者，也讓他們成為爭議的焦點。
 

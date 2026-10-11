@@ -15,7 +15,7 @@ glossary:
     def: "開源串流 MoE 推理框架，用 SSD 專家卸載＋prerouter 預測式路由＋Recover-LoRA 蒸餾，讓大型 MoE 模型能在記憶體有限的裝置（如 Mac mini）上以極小記憶體佔用運行"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
+> 🌏 [English version](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
 
 ## 模型資訊
 

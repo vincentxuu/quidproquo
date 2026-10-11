@@ -29,7 +29,7 @@ glossary:
 
 This guide is based on the [official HW4 folder](https://drive.google.com/drive/folders/1yDuUklNkvyfHm6mhhHFI0KzK93_StWVz) of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). Anyone can list the folder, which holds four files: `hw4_written.pdf`, `hw4_written_student.tex`, `hw4_part1.ipynb`, and `hw4_part2.ipynb`. On the schedule, HW4 is released in the 4/14 row (Lec 22) and is **due Friday 5/1 at 11:59 PM PT**.
 
-It follows [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en). The slides cover only the core of attention; positional encodings, the encoder/decoder, and the details of training and inference are things you build yourself in this assignment.
+It follows [Lec 21–22: Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en). The slides cover only the core of attention; positional encodings, the encoder/decoder, and the details of training and inference are things you build yourself in this assignment.
 
 **This post does not give solutions.** HW1–4 have no public official solutions. I describe only what each question asks, why it is designed that way, and what to watch out for.
 
@@ -153,7 +153,7 @@ The model is torchvision's `convnext_base` (from "[A ConvNet for the 2020s](http
 
 5h asks: which works best, and why? What are its drawbacks? When should you pick one of the other two? 5i lets you listen to the model's predictions, and 5j predicts on 175 test clips and submits to Kaggle.
 
-5e–5g are the same pair of ideas the [Lec 24](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en) slides describe as "freeze the feature extractor and retrain only the classifier" and "initialize from pretrained weights and fine-tune with a small learning rate." You can do the homework before that lecture or after; either order works.
+5e–5g are the same pair of ideas the [Lec 24](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en) slides describe as "freeze the feature extractor and retrain only the classifier" and "initialize from pretrained weights and fine-tune with a small learning rate." You can do the homework before that lecture or after; either order works.
 
 ## How to budget your time
 
@@ -164,8 +164,8 @@ The model is torchvision's `convnext_base` (from "[A ConvNet for the 2020s](http
 ## Going further
 
 - Fall 2026 counterpart: on the [CS189 Fall 2026](https://eecs189.org/fa26/) schedule, Homework 4 is released 10/30, with Part 1 due 11/13 and Part 2 due 11/20. The problems are not public yet, and this post has not checked their content.
-- Guides to other courses on this site that cover the same topic (extensions only; they do not replace this course's content): [CMU 11-785 Lecture 19: Transformer Architectures](/en/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en), [Stanford CME295: Transformer](/en/posts/ai/2026-09-29-cme295-transformer-en).
-- Series navigation: previous, [Lec 21–22: Transformers](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en); next, [Lec 23–24: LLM training and self-supervised learning](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
+- Guides to other courses on this site that cover the same topic (extensions only; they do not replace this course's content): [CMU 11-785 Lecture 19: Transformer Architectures](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en), [Stanford CME295: Transformer](/posts/ai/2026-09-29-cme295-transformer-en).
+- Series navigation: previous, [Lec 21–22: Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en); next, [Lec 23–24: LLM training and self-supervised learning](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: download `hw4_part1.ipynb`, run only up to the "Load the Data" cell to confirm `timm/mini-imagenet` loads, then write 1a's CNN and print the output shape of the last convolution layer.
 

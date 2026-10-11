@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-10-security-cert-landscape-en)
+> 🌏 [English version](/posts/tech/2026-09-10-security-cert-landscape-en)
 
 你寫 AI Agent 平台、串 LLM API、管 AWS IAM，但從來沒考過資安證照。客戶問你「你們有什麼安全認證嗎？」的時候，你答不上來。
 

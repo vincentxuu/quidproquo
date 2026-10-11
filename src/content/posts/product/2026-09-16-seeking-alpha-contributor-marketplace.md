@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-seeking-alpha-contributor-marketplace-en)
+> 🌏 [English version](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace-en)
 
 想像一座投資夜市。它不是一家餐廳雇一百位主廚，而是讓各種攤商進場：有人研究半導體，有人只看高股息，也有人專門找市場忽略的小公司。市場管理員不替每一攤備料，卻要訂規則、檢查招牌，還要把願意逛夜市的人帶進來。
 

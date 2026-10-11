@@ -13,7 +13,7 @@ description: "第一層統計考前複習：30 秒判斷工具、14 天安排、
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-exam-review-en)
+> [English version](/posts/learning/2026-08-29-im-stat-exam-review-en)
 
 考前最怕的通常是混合題。題目可能先講資料收集，再問估計範圍，最後要你做檢定或解釋迴歸表。你如果只靠關鍵字找公式，很容易在第一步就選錯工具。
 

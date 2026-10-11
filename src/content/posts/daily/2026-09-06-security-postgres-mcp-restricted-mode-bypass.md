@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass-en)
+> 🌏 [English version](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass-en)
 
 ## 事件概述
 

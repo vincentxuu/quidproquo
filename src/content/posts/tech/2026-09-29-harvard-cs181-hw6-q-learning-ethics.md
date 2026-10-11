@@ -22,7 +22,7 @@ glossary:
     context: "題目特別推薦讓 ε 隨時間遞減。"
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
+> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

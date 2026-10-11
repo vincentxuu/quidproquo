@@ -14,7 +14,7 @@ description: "Berkeley CS189 Spring 2026（Listgarten／Dimakis）Lecture 11–1
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

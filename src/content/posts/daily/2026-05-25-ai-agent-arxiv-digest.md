@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 1
 ---
-> 🌏 [English version](/en/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
+> 🌏 [English version](/posts/daily/2026-05-25-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 

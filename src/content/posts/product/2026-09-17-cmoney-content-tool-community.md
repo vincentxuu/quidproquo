@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-cmoney-content-tool-community-en)
+> 🌏 [English version](/posts/product/2026-09-17-cmoney-content-tool-community-en)
 
 想像一間免費的投資讀書會。有人分享筆記，有人討論今天哪檔股票異常，也有人追蹤自己信任的老師。讀書會隔壁不是售票亭，而是一間工具行：看盤軟體、選股 App、課程與研究系統都在那裡販售。
 

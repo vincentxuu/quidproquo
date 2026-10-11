@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en)
+> 🌏 [English version](/posts/product/2026-09-17-medium-vocus-platform-distribution-en)
 
 把內容平台想成百貨公司的美食街。你不用自己把路人一個個拉進店裡，百貨會提供地點、推薦櫃位、會員通知與收銀台；代價是顧客先成為百貨會員，再成為你的熟客。
 

@@ -56,7 +56,7 @@ When an interviewer asks about the [Transformer](https://arxiv.org/abs/1706.0376
 
 This post organizes ML fundamentals and Transformer/NLP internals into a talk track you can follow end to end. The first half covers bias-variance, regularization, loss functions, optimizers, evaluation metrics, data leakage and cross-validation; the second half covers self-attention, positional encoding, normalization layers, architecture choices, tokenization, embeddings, long context and MoE. Every section runs concept, then mechanism or comparison, then "How to answer in an interview". Three [numpy](https://numpy.org/) coding exercises close the post, and all the code was actually executed.
 
-This is one post in the "AI Engineer Interview Prep" series. For the big picture, start with the [overview](/en/posts/ai/2026-08-20-ai-engineer-interview-overview-en); the earlier posts on [ML fundamentals](/en/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals-en), [deep learning](/en/posts/ai/2026-08-20-ai-engineer-interview-deep-learning-en) and [NLP and LLMs](/en/posts/ai/2026-08-20-ai-engineer-interview-nlp-llm-en) focus on how these topics are tested and on intuition, while this one adds mechanisms and sources. Paper numbers were checked against the original papers; figures marked "derived" were computed from the formulas and verified with code; claims without a primary source are flagged as such rather than stated as fact.
+This is one post in the "AI Engineer Interview Prep" series. For the big picture, start with the [overview](/posts/ai/2026-08-20-ai-engineer-interview-overview-en); the earlier posts on [ML fundamentals](/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals-en), [deep learning](/posts/ai/2026-08-20-ai-engineer-interview-deep-learning-en) and [NLP and LLMs](/posts/ai/2026-08-20-ai-engineer-interview-nlp-llm-en) focus on how these topics are tested and on intuition, while this one adds mechanisms and sources. Paper numbers were checked against the original papers; figures marked "derived" were computed from the formulas and verified with code; claims without a primary source are flagged as such rather than stated as fact.
 
 ---
 
@@ -85,7 +85,7 @@ flowchart TD
   D --> D1["Add data, augment, regularize more, shrink the model, early stopping"]
 ```
 
-For derivations and sample complexity, see the site's [CS229 notes, chapter 8: generalization](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en).
+For derivations and sample complexity, see the site's [CS229 notes, chapter 8: generalization](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en).
 
 The U-curve is not the whole story. [Belkin et al.](https://arxiv.org/abs/1812.11118) point out that modern neural networks are often trained to exactly fit (interpolate) the training data, which the classical view would call overfitting, yet they frequently keep high accuracy on test data. Their double descent curve contains the classical U inside it: once capacity passes the interpolation point, test performance improves again. Why large models don't overfit badly is often explained as "implicit regularization", but the mechanism is still an open research question.
 
@@ -100,7 +100,7 @@ Overfitting is the model memorizing noise in the training data; regularization l
 - **Dropout**: [Hinton et al.](https://arxiv.org/abs/1207.0580) originally described randomly omitting half of the feature detectors for each training example, which prevents complex co-adaptation among neurons. [PyTorch's implementation](https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html) zeroes elements with probability p during training and scales the output by `1/(1-p)`, so evaluation is just the identity; this is inverted dropout.
 - **Early stopping**: stop when validation loss stops improving. In the simple quadratic-approximation case it is equivalent to L2 regularization (same chapter of the book), at the cost of holding out a validation set.
 
-The Transformer itself uses two of these. The [original paper](https://arxiv.org/abs/1706.03762)'s base model applies dropout of 0.1 to each sub-layer output (before the residual add) and to the sum of embeddings and positional encodings; it also uses label smoothing, which the paper says hurts perplexity but improves accuracy and BLEU. For how regularization fits with model selection, see [CS229 notes, chapter 9](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en).
+The Transformer itself uses two of these. The [original paper](https://arxiv.org/abs/1706.03762)'s base model applies dropout of 0.1 to each sub-layer output (before the residual add) and to the sum of embeddings and positional encodings; it also uses label smoothing, which the paper says hurts perplexity but improves accuracy and BLEU. For how regularization fits with model selection, see [CS229 notes, chapter 9](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en).
 
 The next section covers a classic trap: with Adam, "L2 regularization" and "weight decay" are not the same thing.
 
@@ -247,7 +247,7 @@ flowchart TD
   S2 --> Y["Layer l+1 input"]
 ```
 
-In the diagram, normalization sits at the sub-layer input (Pre-LN), and positional encoding acts only on Q and K; the next two sections cover each. For a gentler introduction, read the site's [Transformer and Attention](/en/posts/ai/2026-08-26-understanding-ai-models-transformer-en) and [CS224N lecture 5](/en/posts/ai/2026-08-22-cs224n-transformers-en); stable defaults for architecture choices are collected in [CS336 lecture 3](/en/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en).
+In the diagram, normalization sits at the sub-layer input (Pre-LN), and positional encoding acts only on Q and K; the next two sections cover each. For a gentler introduction, read the site's [Transformer and Attention](/posts/ai/2026-08-26-understanding-ai-models-transformer-en) and [CS224N lecture 5](/posts/ai/2026-08-22-cs224n-transformers-en); stable defaults for architecture choices are collected in [CS336 lecture 3](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en).
 
 **How to answer in an interview**: Be able to write `softmax(QKᵀ/√d_k)V`, explain the scaling with "variance grows to d_k", and say it is the authors' conjecture. State clearly that the causal mask sets −∞ before softmax. Asked "why project Q, K and V separately?", the common explanation is that it lets the three use different subspaces, but the paper doesn't argue for it specifically, so present it as intuition, not as a result from the paper.
 
@@ -309,7 +309,7 @@ Models don't consume raw strings. Word-level vocabularies are too large and have
 
 The cost problem for Chinese has two layers. The first is bytes: CJK characters take 3 bytes in UTF-8, so when the vocabulary covers them poorly, a byte-level or byte-fallback tokenizer can split one rare character into several tokens in the worst case. The second is cross-language unfairness: [Petrov et al.](https://arxiv.org/abs/2305.15425) found that the same text translated into different languages can differ in tokenized length by up to 15 times, even for tokenizers deliberately trained to be multilingual; [Ahia et al.](https://arxiv.org/abs/2305.13707) point out that APIs bill by token count, so speakers of many languages pay more for worse results.
 
-This post has no reliable primary-source figure for the actual Chinese-versus-English token ratio, so it doesn't give one. The safe approach is to measure your own data with the vendor's token-counting tool or official tokenizer instead of estimating cost from character counts. Token counts also can't be converted across model families, so RAG chunk sizes should be measured with the target model's tokenizer. The site's [Tokenization: the BPE algorithm and why Chinese costs more than English](/en/posts/ai/2026-08-26-understanding-ai-models-tokenization-en), [CS224N lecture 14](/en/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en) and [CS336 lecture 1](/en/posts/ai/2026-08-22-cs336-overview-tokenization-en) go further.
+This post has no reliable primary-source figure for the actual Chinese-versus-English token ratio, so it doesn't give one. The safe approach is to measure your own data with the vendor's token-counting tool or official tokenizer instead of estimating cost from character counts. Token counts also can't be converted across model families, so RAG chunk sizes should be measured with the target model's tokenizer. The site's [Tokenization: the BPE algorithm and why Chinese costs more than English](/posts/ai/2026-08-26-understanding-ai-models-tokenization-en), [CS224N lecture 14](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en) and [CS336 lecture 1](/posts/ai/2026-08-22-cs336-overview-tokenization-en) go further.
 
 **How to answer in an interview**: Say why subwords, then the BPE loop and "the merge count sets vocabulary size". Cover the Chinese cost in two layers (bytes, cross-language gap) and land on "measure your own data".
 
@@ -325,7 +325,7 @@ cos(a, b) = a·b / (‖a‖·‖b‖)
 
 Cosine is not a cure-all, though. [Steck et al.](https://arxiv.org/abs/2403.05440) analytically derive, for regularized linear models, that cosine similarity can yield "arbitrary and therefore meaningless" similarities, and warn against using it blindly. In practice, a vector database's distance metric should match how the embedding model was trained, per the model's documentation (a common engineering practice, not checked against a single primary source).
 
-A common mix-up: attention uses the scaled dot product `QKᵀ/√d_k`, not cosine. For how embeddings are trained, read the site's [Embedding: how models turn text into computable vectors](/en/posts/ai/2026-08-26-understanding-ai-models-embedding-en).
+A common mix-up: attention uses the scaled dot product `QKᵀ/√d_k`, not cosine. For how embeddings are trained, read the site's [Embedding: how models turn text into computable vectors](/posts/ai/2026-08-26-understanding-ai-models-embedding-en).
 
 **How to answer in an interview**: Cosine and dot product coincide when vectors are normalized, which is the safest first sentence. Then add the Steck et al. warning to show you know cosine isn't always meaningful, and finish by saying the metric must match how the embedding model was trained.
 
@@ -356,7 +356,7 @@ bytes/token = 2 × layers × n_kv_heads × head_dim × bytes_per_element
 
 With Mistral 7B's configuration (32 layers, head_dim 128, fp16): full MHA (32 KV heads) is 512 KiB per token, GQA-8 is 128 KiB and MQA is 16 KiB (derived). At a 32K sequence, MHA is about 16 GiB and GQA-8 about 4 GiB.
 
-**Fourth, position interpolation.** The Position Interpolation mentioned earlier can extend a RoPE model's window to 32768. For how the course covers it, see [CS336 lecture 4: Attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en).
+**Fourth, position interpolation.** The Position Interpolation mentioned earlier can extend a RoPE model's window to 32768. For how the course covers it, see [CS336 lecture 4: Attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en).
 
 **How to answer in an interview**: Say O(n²) covers both time and memory, and add that FlashAttention doesn't change the order of the exact arithmetic and saves memory traffic. Cover long context in four groups (hardware, scope, KV cache, position) and work one KV cache number with the formula. Asked "why is the KV cache the bottleneck?", answer that every generated token reads the entire K and V, so decoding is memory-bandwidth bound.
 
@@ -381,7 +381,7 @@ G(x) = Softmax(TopK(x·W_g))       # TopK: logits outside the top K are set to �
 y = Σ_i Softmax(Top2(x·W_g))_i · SwiGLU_i(x)
 ```
 
-Two common traps. First, experts are not "math experts" or "code experts": the Mixtral paper's routing analysis suggests expert selection tracks syntax more than domain, especially in the first and last layers. Second, MoE saves compute, not memory: any token may be routed to any expert, so all 47B parameters must be loaded (inferred from "each token can access 47B"; deployment details such as expert parallelism and offloading were not verified). Total parameters aren't 8×7B because the paper replaces only each layer's feed-forward block with experts, from which it follows that the rest is shared (the abstract doesn't say so word for word). For the longer story, read the site's [Why MoE wins](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en).
+Two common traps. First, experts are not "math experts" or "code experts": the Mixtral paper's routing analysis suggests expert selection tracks syntax more than domain, especially in the first and last layers. Second, MoE saves compute, not memory: any token may be routed to any expert, so all 47B parameters must be loaded (inferred from "each token can access 47B"; deployment details such as expert parallelism and offloading were not verified). Total parameters aren't 8×7B because the paper replaces only each layer's feed-forward block with experts, from which it follows that the rest is shared (the abstract doesn't say so word for word). For the longer story, read the site's [Why MoE wins](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en).
 
 **How to answer in an interview**: Lead with "big capacity, same per-token compute", then use Mixtral's top-2 routing as the example and separate active parameters from total parameters. Give three downsides: memory is still paid in full, load imbalance, and training instability. Describe expert specialization as "closer to syntax than domain", never as domain experts.
 
@@ -676,7 +676,7 @@ Three things you can do tonight:
 
 ## Questions that keep showing up in public question banks
 
-These are questions that recur across the 7 public question banks compared in [part 11 of this series](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en). "Independent sources" only counts overlap between the banks and says nothing about how often a question is asked in real interviews, and the amitshekhar and pallavi banks cite no sources, so this post does not use their company labels. The table lists question titles and links to where each one appears, without reproducing any answers.
+These are questions that recur across the 7 public question banks compared in [part 11 of this series](/posts/ai/2026-09-30-ai-engineer-interview-resources-en). "Independent sources" only counts overlap between the banks and says nothing about how often a question is asked in real interviews, and the amitshekhar and pallavi banks cite no sources, so this post does not use their company labels. The table lists question titles and links to where each one appears, without reproducing any answers.
 
 | Question | Independent sources | Question-bank links | Section in this post |
 |---|---|---|---|
@@ -707,11 +707,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ## Other Posts in the Series
 
-- [RAG variants](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- [Agents, MCP and caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- [Prompt, context and harness](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- [LLM engineering](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- [System design, coding and behavioral interviews](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- [RAG variants](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- [Agents, MCP and caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- [Prompt, context and harness](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- [LLM engineering](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- [System design, coding and behavioral interviews](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## References
 
@@ -774,11 +774,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 **More on this site**
 
-- [AI Engineer interview overview](/en/posts/ai/2026-08-20-ai-engineer-interview-overview-en)
-- [CS229 notes, chapter 8: generalization](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en)
-- [CS229 notes, chapter 9: regularization and model selection](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
-- [CS224N lecture 5: from recurrence to Transformer](/en/posts/ai/2026-08-22-cs224n-transformers-en)
-- [CS224N lecture 14: how tokenization creates multilingual cost gaps](/en/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
-- [CS336 lecture 3: stable defaults for Transformer architecture](/en/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en)
-- [CS336 lecture 4: Attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en)
-- [Why MoE wins](/en/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
+- [AI Engineer interview overview](/posts/ai/2026-08-20-ai-engineer-interview-overview-en)
+- [CS229 notes, chapter 8: generalization](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en)
+- [CS229 notes, chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
+- [CS224N lecture 5: from recurrence to Transformer](/posts/ai/2026-08-22-cs224n-transformers-en)
+- [CS224N lecture 14: how tokenization creates multilingual cost gaps](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
+- [CS336 lecture 3: stable defaults for Transformer architecture](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en)
+- [CS336 lecture 4: Attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en)
+- [Why MoE wins](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)

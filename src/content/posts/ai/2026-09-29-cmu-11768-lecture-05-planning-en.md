@@ -27,7 +27,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-Lecture 5 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 8, 2026, taught by Daniel Fried; [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) covers planning and task decomposition, ending with a first look at multi-agent systems. Fried frames the topic as a trade-off from the start: the more an agent sticks to one plan, the easier it is for a person to understand and control; the more flexible it is, the better it copes with problems that surface mid-task. The whole lecture looks for positions along that axis.
+Lecture 5 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 8, 2026, taught by Daniel Fried; [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en)) covers planning and task decomposition, ending with a first look at multi-agent systems. Fried frames the topic as a trade-off from the start: the more an agent sticks to one plan, the easier it is for a person to understand and control; the more flexible it is, the better it copes with problems that surface mid-task. The whole lecture looks for positions along that axis.
 
 Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-05-planning.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5).
 
@@ -87,7 +87,7 @@ Why does it help? Fried lists candidates: more compute, better context, an exter
 
 - For tasks where you don't trust the agent, reviewing the plan builds trust. Claude Code presents plan mode as a permission mode where only information-gathering actions run first.
 - Planning then executing can cost less in total than greedy execution: a strong model writes the plan and a cheaper model carries it out, and parallel subtasks save time.
-- A plan is a structured record of what's done and what remains, helping the agent track progress. The motivation matches [L3](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)'s context compaction, except a plan is explicit and human-editable.
+- A plan is a structured record of what's done and what remains, helping the agent track progress. The motivation matches [L3](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)'s context compaction, except a plan is explicit and human-editable.
 
 The lecture's working definition:
 
@@ -95,13 +95,13 @@ The lecture's working definition:
 
 Three elaborations:
 
-- **A plan is for this task.** [Last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en)'s skills are reusable guidance across tasks; a plan can be more specific, tied to a particular repository.
+- **A plan is for this task.** [Last lecture](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en)'s skills are reusable guidance across tasks; a plan can be more specific, tied to a particular repository.
 - **A plan organizes future work**, specifying actions or subgoals along with their ordering and dependencies.
 - **A plan is a proposal, not a guarantee.** The user, another model, or interaction with the environment can inspect and revise it. The cost: an agent that can replan is harder to predict.
 
 Fried quotes Mike Tyson: "Everybody has a plan until they get punched in the mouth."
 
-Planning recurs across the course: this lecture covers prompted plans and harness structure; the [Coding Agents lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) covers fixed workflows like Agentless; the two Interaction lectures cover multi-agent communication and human approval; the two Search lectures cover search over plans and revisit this lecture's MACU and RAO.
+Planning recurs across the course: this lecture covers prompted plans and harness structure; the [Coding Agents lecture](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) covers fixed workflows like Agentless; the two Interaction lectures cover multi-agent communication and human approval; the two Search lectures cover search over plans and revisit this lecture's MACU and RAO.
 
 ## Decomposition before acting
 
@@ -347,9 +347,9 @@ Four open problems:
 
 ## Further reading
 
-- [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/en/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en)
-- [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/en/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
-- [Multi-Agent Error Propagation and Recovery](/en/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
+- [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en)
+- [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
+- [Multi-Agent Error Propagation and Recovery](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
 
 ## Update Log
 

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 50 篇：Monte Carlo 怎�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-simulation-monte-carlo-en)
+> [English version](/posts/learning/2026-08-29-im-stat-simulation-monte-carlo-en)
 
 前面大多在學公式和推導。Monte Carlo simulation 換一個角度：當問題算不動、公式近似很麻煩，或流程裡有太多隨機性，就直接重複模擬很多次，看結果分布。
 

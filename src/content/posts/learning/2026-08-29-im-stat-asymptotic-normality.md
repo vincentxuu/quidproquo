@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 30 篇：大樣本近似�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-asymptotic-normality-en)
+> [English version](/posts/learning/2026-08-29-im-stat-asymptotic-normality-en)
 
 統計考試很愛出現一句話：「當樣本數夠大時，可以用常態近似。」這句話方便到危險。它讓很多公式看起來可以統一處理，也讓很多答案在沒有檢查條件時就被寫得太有把握。
 

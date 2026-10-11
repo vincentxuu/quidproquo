@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-content-model-ai-exposure-defense-en)
+> 🌏 [English version](/posts/product/2026-09-17-content-model-ai-exposure-defense-en)
 
 想像四家餐廳都把菜單貼在門口。AI 很容易抄走菜名與價格，卻搬不走廚房、熟客名單、訂位系統和每天新到的食材。
 

@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
+> 🌏 [English version](/posts/daily/2026-09-02-tool-mcp-spend-guard-en)
 
 ## 工具資訊
 

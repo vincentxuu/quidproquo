@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-29-tool-localagents-mcp-en)
+> 🌏 [English version](/posts/daily/2026-08-29-tool-localagents-mcp-en)
 
 ## 工具資訊
 

@@ -29,7 +29,7 @@ glossary:
     context: "A1 Part 3 的 run_python 讓棋局搜尋可以一次跑完數百次 simulate_move。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ description: "Dense Discovery 創辦人 Kai Brach 的完整故事：從網頁設
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-dense-discovery-deliberate-small-en)
+> 🌏 [English version](/posts/career/2026-08-26-dense-discovery-deliberate-small-en)
 
 這個系列的其他九個案例都在追數字——百萬訂閱、千萬營收、被收購的退場價。Kai Brach 的 Dense Discovery 是刻意走反方向的那一個。
 

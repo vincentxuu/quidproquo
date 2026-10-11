@@ -10,7 +10,7 @@ description: "一次 RAG 系統靜默失敗的完整排查：從使用者回報�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-19-retriever-silent-failure-en)
+> 🌏 [English version](/posts/ai/2026-09-19-retriever-silent-failure-en)
 
 ## TL;DR
 

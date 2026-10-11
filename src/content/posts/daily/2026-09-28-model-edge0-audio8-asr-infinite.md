@@ -15,7 +15,7 @@ glossary:
     def: "Edge0 開發的串流語音辨識（ASR）模型系列，Audio8 ASR Infinite 是首個公開釋出的版本"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite-en)
+> 🌏 [English version](/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite-en)
 
 ## 模型資訊
 

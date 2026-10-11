@@ -13,7 +13,7 @@ description: "從使用者視角完整走過 pi CLI 體驗：安裝方式、Inte
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective-en)
 
 ## TL;DR
 

@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-25-funding-chamelio-en)
+> 🌏 [English version](/posts/daily/2026-09-25-funding-chamelio-en)
 
 ## 融資資訊
 

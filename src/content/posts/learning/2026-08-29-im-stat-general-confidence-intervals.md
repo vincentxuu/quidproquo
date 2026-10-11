@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 29 篇：信賴區間不�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-general-confidence-intervals-en)
+> [English version](/posts/learning/2026-08-29-im-stat-general-confidence-intervals-en)
 
 前面算過平均數、比例、迴歸係數的信賴區間。剛開始學的時候，很容易以為信賴區間就是「找到公式、查 t 表、代數字」。考試題如果只問一個平均數，這樣短期也許能拿分；題目一換成 odds ratio、prediction error、accuracy、bootstrap interval，背表格就會失效。
 

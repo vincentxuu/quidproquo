@@ -15,13 +15,13 @@ draft: false
 
 > [中文版](/posts/ai/2026-09-06-run-minimind-on-runpod)
 
-The previous nine installments covered the "whether", "what", and "with what": the [MiniMind design deep-dive](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) (order 1), [LitGPT's framework route](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en) (order 9), and the [decision framework for training from scratch](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) (order 6). This is the only hands-on piece in the series: no architecture talk — rent an RTX 3090 on [RunPod](https://www.runpod.io/) and run [MiniMind](https://github.com/jingyaogong/minimind) end to end: pretrain → SFT → chat with the result.
+The previous nine installments covered the "whether", "what", and "with what": the [MiniMind design deep-dive](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) (order 1), [LitGPT's framework route](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en) (order 9), and the [decision framework for training from scratch](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en) (order 6). This is the only hands-on piece in the series: no architecture talk — rent an RTX 3090 on [RunPod](https://www.runpod.io/) and run [MiniMind](https://github.com/jingyaogong/minimind) end to end: pretrain → SFT → chat with the result.
 
 Set expectations first: **I have not verified this on a rented GPU.** Every command below comes from the MiniMind README and RunPod's official documentation (listed at the end), and the training durations quote the README's own single-3090 measurements. But console UI details, template versions, and download speeds all drift — treat the official docs as the source of truth before you click Deploy.
 
 ## Why RunPod, not AutoDL
 
-The README's "3 yuan" cost table is priced against China's GPU rental market: a 3090 at about 1.3 RMB/hour, so 2.31 hours (pretrain_t2t_mini + sft_t2t_mini, one epoch each) costs about 3 RMB. The usual platform is [AutoDL](https://www.autodl.com/) — [our order 1 analysis](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) notes it has the lowest rates and the smoothest ModelScope/Aliyun pip mirror experience — but signing up requires a Chinese phone number and payment method, which rules out most readers outside China.
+The README's "3 yuan" cost table is priced against China's GPU rental market: a 3090 at about 1.3 RMB/hour, so 2.31 hours (pretrain_t2t_mini + sft_t2t_mini, one epoch each) costs about 3 RMB. The usual platform is [AutoDL](https://www.autodl.com/) — [our order 1 analysis](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en) notes it has the lowest rates and the smoothest ModelScope/Aliyun pip mirror experience — but signing up requires a Chinese phone number and payment method, which rules out most readers outside China.
 
 RunPod has no such gate: email signup, credit card or crypto top-up. The cost is a higher hourly rate. Per RunPod's official [RTX 3090 page](https://www.runpod.io/gpu-models/rtx-3090) (updated 2026-08-27): Secure Cloud $0.5/hr, Community Cloud $0.22/hr. For roughly 2.5 hours, Secure Cloud runs about $1.25 and Community about $0.55 — against AutoDL's 3 RMB (~$0.42), you pay less than a dollar more for not needing a Chinese account.
 
@@ -141,11 +141,11 @@ Honest annotation once more: the steps above were **not verified on real hardwar
 - **Version drift**: the author's environment is CUDA 12.2, Python 3.10.16. RunPod's PyTorch template versions change over time, and `requirements.txt` pins may conflict with the template's bundled torch — if so, trust the template's version and trim requirements rather than reinstalling CUDA.
 - **Download speed**: HuggingFace can be slow from some regions; the CLI in option 1 supports resumable downloads, and ModelScope is a fallback mirror.
 - **Community machines are flaky**: they can be reclaimed; `--from_resume 1` is the safety net. Pay for Secure Cloud if continuity matters.
-- **The ceiling**: don't expect the Zero model to be useful. Its value is a complete pipeline where every line is readable — the "understand what you train" ethos that the [CS336](/en/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) course keeps emphasizing.
+- **The ceiling**: don't expect the Zero model to be useful. Its value is a complete pipeline where every line is readable — the "understand what you train" ethos that the [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en) course keeps emphasizing.
 
 ## The takeaway
 
-The whole path is: sign up → SSH key → launch pod → clone (minus the mirror flag) → fetch two jsonl files → two training commands → one chat command. The actual training code is two lines of `python train_*.py` — that's MiniMind's value as a teaching project: engineering friction is squeezed to nearly zero so your time goes into reading every line under `trainer/`. Returning to the bias note from the series intro — this collection still skews toward English- and Chinese-circle GitHub star projects — international rental platforms like RunPod are what make the reproduction path accessible to readers without Chinese accounts. If you're still deciding whether to spend the money, go back to [order 6's decision framework](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en); the previous installment, [LitGPT](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en), handed you a training skeleton, and this one hands you the machine. For where to go next, the [series overview](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en) maps the remaining stops.
+The whole path is: sign up → SSH key → launch pod → clone (minus the mirror flag) → fetch two jsonl files → two training commands → one chat command. The actual training code is two lines of `python train_*.py` — that's MiniMind's value as a teaching project: engineering friction is squeezed to nearly zero so your time goes into reading every line under `trainer/`. Returning to the bias note from the series intro — this collection still skews toward English- and Chinese-circle GitHub star projects — international rental platforms like RunPod are what make the reproduction path accessible to readers without Chinese accounts. If you're still deciding whether to spend the money, go back to [order 6's decision framework](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en); the previous installment, [LitGPT](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en), handed you a training skeleton, and this one hands you the machine. For where to go next, the [series overview](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en) maps the remaining stops.
 
 ## References
 
@@ -154,6 +154,6 @@ The whole path is: sign up → SSH key → launch pod → clone (minus the mirro
 - [jingyaogong/minimind-3 (HuggingFace model page)](https://huggingface.co/jingyaogong/minimind-3)
 - [RunPod: Rent NVIDIA RTX 3090 GPUs](https://www.runpod.io/gpu-models/rtx-3090)
 - [RunPod docs: Connect to a Pod with SSH](https://docs.runpod.io/pods/configuration/use-ssh)
-- [MiniMind: 用 3 塊錢從零訓練一個 LLM (series order 1, in Chinese)](/en/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
-- [LitGPT framework deep-dive (series order 9)](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
-- [When to train an LLM from scratch (series order 6)](/en/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en)
+- [MiniMind: 用 3 塊錢從零訓練一個 LLM (series order 1, in Chinese)](/posts/ai/2026-09-06-minimind-train-llm-from-scratch-en)
+- [LitGPT framework deep-dive (series order 9)](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
+- [When to train an LLM from scratch (series order 6)](/posts/ai/2026-09-06-when-to-train-llm-from-scratch-en)

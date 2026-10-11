@@ -73,7 +73,7 @@ I used to assume that "compacting conversation history" necessarily meant throwi
 
 - [Agno v3.1.2 — GitHub Release](https://github.com/agno-agi/agno/releases/tag/v3.1.2)
 - [agno-agi/agno — GitHub](https://github.com/agno-agi/agno)
-- [Agno v3.1.0 — previous framework update](/en/posts/daily/2026-10-02-framework-agno-3.1.0-en)
+- [Agno v3.1.0 — previous framework update](/posts/daily/2026-10-02-framework-agno-3.1.0-en)
 - [PR #9873: feat auto compaction with a searchable archive](https://github.com/agno-agi/agno/pull/9873)
 - [PR #10901: feat add support for codex harness external agent](https://github.com/agno-agi/agno/pull/10901)
 - [PR #10527: feat add HyDE query transform](https://github.com/agno-agi/agno/pull/10527)

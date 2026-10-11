@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 36 篇：OLS 的假設壞
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-linear-models-deep-dive-en)
+> [English version](/posts/learning/2026-08-29-im-stat-linear-models-deep-dive-en)
 
 前面已經會算一條簡單迴歸線，也會讀係數、標準誤、t 值、F test 和 R2。第三層要處理比較接近真實資料的問題：OLS 的假設如果不完全成立，迴歸線還能不能用？可以用在哪裡？解釋時要補哪些限制？
 

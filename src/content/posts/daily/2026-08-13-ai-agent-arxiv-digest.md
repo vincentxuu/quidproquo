@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-13-ai-agent-arxiv-digest-en)
+> 🌏 [English version](/posts/daily/2026-08-13-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 

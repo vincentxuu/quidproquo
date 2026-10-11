@@ -18,7 +18,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-28-obscura-rust-headless-browser-en)
+> 🌏 [English version](/posts/ai/2026-09-28-obscura-rust-headless-browser-en)
 
 讓 agent 上網，最常見的做法是開一個 headless Chrome，再用 [Puppeteer](https://pptr.dev/) 或 [Playwright](https://playwright.dev/) 去操作它。這條路很穩，但每個 Chrome 行程動輒吃掉兩百 MB 記憶體，同時開一百個 agent 就是一台機器的事。[Obscura](https://github.com/h4ckf0r0day/obscura) 走另一條路：不包 Chrome，而是用 Rust 從頭寫一個瀏覽器引擎，內嵌 V8 跑 JavaScript，對外講 Chrome DevTools Protocol（CDP），讓現有的 Puppeteer／Playwright 腳本改一行連線位址就能接上。
 

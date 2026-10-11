@@ -13,7 +13,7 @@ series:
   order: 51
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-multi-hop-retrieval-rag-en)
+> 🌏 [English version](/posts/ai/2026-09-03-multi-hop-retrieval-rag-en)
 
 標準 RAG 做一次檢索、一次生成。這對「某個 API 怎麼用」之類的單跳問題夠了，但真實場景的問題常常不是一跳能解的：「A 公司去年營收多少？跟 B 公司比如何？」需要查兩份財報再比較；「這個藥物的副作用機制牽涉哪些蛋白質？」需要串接多篇論文的發現。依 [MuSiQue](https://arxiv.org/abs/2108.00573) 基準的設計，這類問題需要 2-4 個推理跳躍，而且刻意排除了靠捷徑推理就能答對的題目。
 

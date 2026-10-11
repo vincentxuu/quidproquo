@@ -17,7 +17,7 @@ description: "帶讀 Stanford CS329Z Week 8 兩大主題：三種 grader、pairw
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+> 🌏 [English version](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

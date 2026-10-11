@@ -111,16 +111,16 @@ The biggest trap in interview preparation is "practicing a little of everything.
 
 The next post covers the first technical dimension — ML Fundamentals. Not teaching ML from scratch, but organizing a practical framework for "how interviews ask these questions and what a good answer looks like."
 
-For choosing question banks, books, and mock interview platforms, see part 11, [Choosing AI Engineer Interview Resources](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en). It compares the sourcing and freshness of 12 GitHub question banks and collects what companies officially say about using AI in interviews.
+For choosing question banks, books, and mock interview platforms, see part 11, [Choosing AI Engineer Interview Resources](/posts/ai/2026-09-30-ai-engineer-interview-resources-en). It compares the sourcing and freshness of 12 GitHub question banks and collects what companies officially say about using AI in interviews.
 
 To go straight to the common questions, read parts 12–17. They re-slice the first ten dimensions by topic; each explains the mechanism and how to answer, and ends with the questions that repeat across seven public question banks:
 
-- Part 12: [RAG Interview Prep: From the Three-Stage Pipeline to Agentic RAG, and How to Tell Nine Variants Apart](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- Part 13: [AI Agent Interview Prep: From Tool Calling and Memory to MCP and Prompt Caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- Part 14: [Prompt, Context, Harness: The Three Layers, Their Boundaries, and Evaluation Gates](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- Part 15: [LLM Engineering Interview Prep: Fine-Tuning, Alignment, Inference Optimization, Evaluation, and Safety](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- Part 16: [ML Basics and Transformer Internals: From Bias-Variance and AdamW to Attention, RoPE and MoE](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
-- Part 17: [ML/LLM System Design and Coding Interviews: Four Architectures, Three Python Problems, and a STAR Skeleton](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- Part 12: [RAG Interview Prep: From the Three-Stage Pipeline to Agentic RAG, and How to Tell Nine Variants Apart](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- Part 13: [AI Agent Interview Prep: From Tool Calling and Memory to MCP and Prompt Caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- Part 14: [Prompt, Context, Harness: The Three Layers, Their Boundaries, and Evaluation Gates](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- Part 15: [LLM Engineering Interview Prep: Fine-Tuning, Alignment, Inference Optimization, Evaluation, and Safety](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- Part 16: [ML Basics and Transformer Internals: From Bias-Variance and AdamW to Attention, RoPE and MoE](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- Part 17: [ML/LLM System Design and Coding Interviews: Four Architectures, Three Python Problems, and a STAR Skeleton](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## Update Log
 

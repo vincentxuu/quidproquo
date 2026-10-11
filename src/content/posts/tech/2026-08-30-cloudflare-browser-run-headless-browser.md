@@ -16,7 +16,7 @@ additionalSeries:
     order: 9
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser-en)
 
 大部分 Workers 程式只需要 `fetch()`。打 API、讀 JSON、抓 HTML、處理 webhook，這些都不需要真的開瀏覽器。但有些任務只靠 HTTP 會變得很麻煩：截圖、PDF、client-side render 後的頁面、需要 JavaScript 執行的網站、互動式流程測試、或讓 agent 真的操作網頁。
 

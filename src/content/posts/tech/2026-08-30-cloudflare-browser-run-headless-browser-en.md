@@ -85,7 +85,7 @@ Quick Actions are straightforward:
 - Extract links, elements, or structured JSON.
 - Crawl a site and feed the results into another pipeline.
 
-I would usually put Quick Actions behind [Queues](/en/posts/tech/2026-08-22-cloudflare-queues-en), instead of making a user request wait directly on a browser. Browser startup and rendering are naturally slower than a normal API call, so background processing is sturdier.
+I would usually put Quick Actions behind [Queues](/posts/tech/2026-08-22-cloudflare-queues-en), instead of making a user request wait directly on a browser. Browser startup and rendering are naturally slower than a normal API call, so background processing is sturdier.
 
 ## Browser Sessions: Full Browser Control
 
@@ -116,7 +116,7 @@ export default {
 
 The `finally` block matters. The Browser Run limits page explicitly warns that sessions not closed with `browser.close()` keep consuming browser time until idle timeout. The default idle timeout is 60 seconds, and `keep_alive` can extend it up to 10 minutes.
 
-If a browser session should be reused across requests, pair it with [Durable Objects](/en/posts/tech/2026-08-22-cloudflare-durable-objects-en). Durable Objects can store session state, queue operations, and keep one browser from being hit by too many requests. This is also one difference between Browser Run and Containers: Browser Run gives you managed headless Chrome, not an arbitrary Linux runtime.
+If a browser session should be reused across requests, pair it with [Durable Objects](/posts/tech/2026-08-22-cloudflare-durable-objects-en). Durable Objects can store session state, queue operations, and keep one browser from being hit by too many requests. This is also one difference between Browser Run and Containers: Browser Run gives you managed headless Chrome, not an arbitrary Linux runtime.
 
 ## Limits: Plan for Browser Time and Concurrency
 

@@ -13,7 +13,7 @@ description: "深入 pi-mono monorepo 結構：packages/ai、agent、coding-agen
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-monorepo-architecture-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-monorepo-architecture-en)
 
 ## TL;DR
 

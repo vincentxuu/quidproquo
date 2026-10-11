@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-20-funding-raindrop-en)
+> 🌏 [English version](/posts/daily/2026-09-20-funding-raindrop-en)
 
 ## 融資資訊
 

@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount-en)
+> 🌏 [English version](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount-en)
 
 ## 變更摘要
 

@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-seo-to-brand-direct-en)
+> 🌏 [English version](/posts/product/2026-09-17-seo-to-brand-direct-en)
 
 想像你在一座大商場擺攤。SEO 像樓層指示牌：有人搜尋「適合雨天的登山鞋」，指示牌把他帶到你的櫃位。品牌直達則像熟客記得店名，下次會搜尋你的品牌、打開 App，或從收藏的工具回來。
 

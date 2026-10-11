@@ -16,7 +16,7 @@ description: "帶讀 Stanford CS329Z Week 1 主讀物：複合式 AI 系統的�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
+> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

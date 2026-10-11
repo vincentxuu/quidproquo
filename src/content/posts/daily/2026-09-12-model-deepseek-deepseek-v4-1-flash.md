@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek 於 2026 年 9 月推出的新一代模型架構家族，首發的 Flash 版把前代 MoE decoder 換成 Causal Encoder-Decoder，主打更低的 KV cache 與 agentic 任務效能"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
+> 🌏 [English version](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
 
 ## 模型資訊
 

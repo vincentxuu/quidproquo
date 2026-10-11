@@ -20,7 +20,7 @@ glossary:
     def: "llama.cpp 使用的量化模型格式，支援多種量化精度，讓大模型跑在消費級硬體上"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en)
+> 🌏 [English version](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en)
 
 [Ornith 35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) 在 SWE-bench 拿 79.0、[MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family) 拿 80.2%——開源模型在 coding 任務上已經追平閉源。但「模型夠強」跟「我能跑起來」之間還有一段路：選什麼框架、需要什麼 GPU、量化到什麼程度、什麼時候自架比叫 API 划算。這篇是決策指南。
 

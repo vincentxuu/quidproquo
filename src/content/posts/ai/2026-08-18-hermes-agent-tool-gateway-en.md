@@ -15,9 +15,9 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-tool-gateway)
 
-Post 4 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 4 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
-Making an agent genuinely useful usually means maintaining four or five accounts: one for search, one for page extraction, one for image generation, one for voice, one for a cloud browser — each with its own signup, rate limits, billing, and quirks. The Tool Gateway is Nous's answer to that, and the tool-layer extension of the subscription strategy covered in [the previous post](/en/posts/ai/2026-08-18-hermes-agent-providers).
+Making an agent genuinely useful usually means maintaining four or five accounts: one for search, one for page extraction, one for image generation, one for voice, one for a cloud browser — each with its own signup, rate limits, billing, and quirks. The Tool Gateway is Nous's answer to that, and the tool-layer extension of the subscription strategy covered in [the previous post](/posts/ai/2026-08-18-hermes-agent-providers-en).
 
 ## The four categories
 
@@ -86,7 +86,7 @@ The stated positioning is that this is a shortcut rather than lock-in. The way t
 
 The Tool Gateway is a **paid-subscription feature**. Free Nous accounts can use Portal for inference but get no managed tools. The docs also mention a **free tool pool** on some accounts — a small managed-tool allowance the gateway surfaces with an opt-in prompt on first use.
 
-One boundary that gets misread: **Modal, the serverless terminal backend, is not part of the Tool Gateway bundle.** It's an optional add-on under the Nous subscription, configured through `hermes setup terminal` or `config.yaml`. [Post 5](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends) covers that.
+One boundary that gets misread: **Modal, the serverless terminal backend, is not part of the Tool Gateway bundle.** It's an optional add-on under the Nous subscription, configured through `hermes setup terminal` or `config.yaml`. [Post 5](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en) covers that.
 
 If your subscription lapses, gateway-routed tools stop working until you renew or swap direct keys back in via `hermes tools`; Hermes surfaces an error pointing at the portal. Usage breaks down per tool in the Portal dashboard.
 
@@ -111,7 +111,7 @@ The cost is equally clear, and upstream won't state it for you: **you concentrat
 
 My recommendation is to tier by criticality: **keep your own key as a fallback for tools whose failure blocks your work, and route the nice-to-haves (image generation, TTS) through the gateway.** Since switching costs one boolean, that mixed strategy carries almost no maintenance burden.
 
-Next: [the seven terminal backends](/en/posts/ai/2026-08-18-hermes-agent-terminal-backends) — whose machine your commands actually run on.
+Next: [the seven terminal backends](/posts/ai/2026-08-18-hermes-agent-terminal-backends-en) — whose machine your commands actually run on.
 
 ## References
 

@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI 模型 API 參數，可調整推理深度（none／low／medium／high／xhigh／max），效果越高通常延遲與成本也越高"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna-en)
+> 🌏 [English version](/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna-en)
 
 ## 模型資訊
 

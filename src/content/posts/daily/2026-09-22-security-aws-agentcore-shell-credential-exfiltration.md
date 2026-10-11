@@ -11,7 +11,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
+> 🌏 [English version](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
 
 
 ## 事件概述

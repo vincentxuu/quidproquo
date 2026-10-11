@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only-en)
+> 🌏 [English version](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only-en)
 
 ## 變更摘要
 

@@ -13,7 +13,7 @@ description: "深入 pi-mono 遠端會話系統：pi-protocol 定義 JSON-RPC 2.
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-remote-session-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-remote-session-en)
 
 ## TL;DR
 

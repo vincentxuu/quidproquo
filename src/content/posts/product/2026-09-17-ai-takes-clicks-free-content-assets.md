@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-ai-takes-clicks-free-content-assets-en)
+> 🌏 [English version](/posts/product/2026-09-17-ai-takes-clicks-free-content-assets-en)
 
 把搜尋引擎想成圖書館的目錄員。你問一個問題，它告訴你哪本書、哪一頁可能有答案，於是你走到書架前自己讀。
 

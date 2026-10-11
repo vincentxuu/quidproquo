@@ -13,7 +13,7 @@ description: "從註冊 RunPod、開 3090 pod、SSH 連線、下載 minimind_dat
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-run-minimind-on-runpod-en)
+> 🌏 [English version](/posts/ai/2026-09-06-run-minimind-on-runpod-en)
 
 系列前面九篇把「該不該訓」、「訓什麼」、「用什麼工具」都講完了：[MiniMind 的設計解析](/posts/ai/2026-09-06-minimind-train-llm-from-scratch)（order 1）、[LitGPT 的框架路線](/posts/ai/2026-09-06-litgpt-from-scratch-framework)（order 9），以及 [要不要從零訓練的決策框架](/posts/ai/2026-09-06-when-to-train-llm-from-scratch)（order 6）。這篇是整個系列唯一的實作篇：不談架構，直接帶你在 [RunPod](https://www.runpod.io/) 租一張 RTX 3090，把 [MiniMind](https://github.com/jingyaogong/minimind) 的 pretrain → SFT → 對話測試完整跑一遍。
 

@@ -28,7 +28,7 @@ series:
 
 ## Why this release matters
 
-[The last post (1.67.0)](/en/posts/daily/2026-09-17-framework-mastra-1.67.0-en) covered agents that could generate their own workflows and wire up third-party services on their own. 1.69 fills in a different piece of infrastructure: it turns "making a judgment" into a typed primitive that can be traced and consumed directly by a workflow. Safety gating and routing decisions used to mean either an instruction buried in a prompt, or a hand-rolled helper function that calls an LLM and parses JSON back out. Neither approach gives you a consistent interface, and auditing what a given judgment actually evaluated — or how many tokens it burned — is close to impossible. Mastra 1.69's `Classifier` collapses this into a formal component: register it centrally on a `Mastra` instance, and every evaluation automatically opens a `CLASSIFIER_EVALUATION` tracing span. The same Classifier can act as a typed workflow step for branching, or be wrapped in a `ClassifierProcessor` to guard an agent's input, output, and streaming content — and the new processor fails closed by default, blocking a request outright when the judgment call itself fails rather than letting it through. Routing logic and safety policy now share the same piece of infrastructure for the first time, instead of two separate, ad hoc mechanisms.
+[The last post (1.67.0)](/posts/daily/2026-09-17-framework-mastra-1.67.0-en) covered agents that could generate their own workflows and wire up third-party services on their own. 1.69 fills in a different piece of infrastructure: it turns "making a judgment" into a typed primitive that can be traced and consumed directly by a workflow. Safety gating and routing decisions used to mean either an instruction buried in a prompt, or a hand-rolled helper function that calls an LLM and parses JSON back out. Neither approach gives you a consistent interface, and auditing what a given judgment actually evaluated — or how many tokens it burned — is close to impossible. Mastra 1.69's `Classifier` collapses this into a formal component: register it centrally on a `Mastra` instance, and every evaluation automatically opens a `CLASSIFIER_EVALUATION` tracing span. The same Classifier can act as a typed workflow step for branching, or be wrapped in a `ClassifierProcessor` to guard an agent's input, output, and streaming content — and the new processor fails closed by default, blocking a request outright when the judgment call itself fails rather than letting it through. Routing logic and safety policy now share the same piece of infrastructure for the first time, instead of two separate, ad hoc mechanisms.
 
 ## Key Changes
 
@@ -89,7 +89,7 @@ I used to think agent safety gating meant adding a line to the system prompt ask
 
 - [Mastra @mastra/core@1.69.0 — GitHub Release](https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fcore%401.69.0)
 - [mastra-ai/mastra — GitHub](https://github.com/mastra-ai/mastra)
-- [Mastra @mastra/core@1.67.0 — previous framework update](/en/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
+- [Mastra @mastra/core@1.67.0 — previous framework update](/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
 - [PR #24738: Classifier registration API](https://github.com/mastra-ai/mastra/pull/24738)
 - [PR #24747: Classifier as a typed workflow step](https://github.com/mastra-ai/mastra/pull/24747)
 - [PR #24768: `ClassifierProcessor`](https://github.com/mastra-ai/mastra/pull/24768)

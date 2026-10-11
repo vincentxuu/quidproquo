@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-12-framework-temporal-1.32.0-en)
+> 🌏 [English version](/posts/daily/2026-09-12-framework-temporal-1.32.0-en)
 
 ## 版本資訊
 

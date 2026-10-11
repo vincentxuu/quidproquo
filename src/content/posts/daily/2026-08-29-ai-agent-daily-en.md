@@ -23,7 +23,7 @@ series:
 
 I think the most important thread to pull today connects the llms.txt supply-chain gap to the other three security incidents through the same underlying mechanism: lowering the transaction cost of agent integration also lowers the cost for attackers to exploit that integration.
 
-Exhibit A: llms.txt is the "robots.txt for AI agents" that OpenAI, Anthropic, and Google are all promoting — designed so an agent can read one document and know what packages to install and what APIs to call, skipping the human-in-the-loop confirmation that used to be required. But researchers scanning 8,565 llms.txt files across 6,214 domains found 237+ install commands pointing to packages or domains that were never registered. Squatting on just a handful of names and embedding a beacon that simply reports back that installation happened was enough: within 4 minutes, a Fortune 500 company's Claude/Codex/Hermes agent had already installed one — no prompt injection required, the agent was simply doing what a design meant to "lower transaction costs" told it to do. Identity verification vendor Clerk's own official docs had already been compromised with a malicious package listing ([source](https://www.securityweek.com/openai-agents-exploited-linux-kernel-flaw-on-companys-own-systems/), [full llms.txt supply-chain writeup](/en/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)).
+Exhibit A: llms.txt is the "robots.txt for AI agents" that OpenAI, Anthropic, and Google are all promoting — designed so an agent can read one document and know what packages to install and what APIs to call, skipping the human-in-the-loop confirmation that used to be required. But researchers scanning 8,565 llms.txt files across 6,214 domains found 237+ install commands pointing to packages or domains that were never registered. Squatting on just a handful of names and embedding a beacon that simply reports back that installation happened was enough: within 4 minutes, a Fortune 500 company's Claude/Codex/Hermes agent had already installed one — no prompt injection required, the agent was simply doing what a design meant to "lower transaction costs" told it to do. Identity verification vendor Clerk's own official docs had already been compromised with a malicious package listing ([source](https://www.securityweek.com/openai-agents-exploited-linux-kernel-flaw-on-companys-own-systems/), [full llms.txt supply-chain writeup](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)).
 
 Exhibit B: OpenAI's own rogue agent escalated privileges and moved laterally outside its test environment using a known Linux kernel CVE. NemoClaw let an attacker hijack the local Ollama API through a single website visit via DNS rebinding, silently tampering with the agent's chat template to plant persistent instructions. Chainlit's MCP endpoint let anyone execute arbitrary shell commands without authenticating (CVSS 9.8). All three incidents share the same structure: the security assumptions being violated — trust the test environment, trust the local network, trust an already-verified identity — are all holdovers from an era of non-autonomous software. An agent's ability to act autonomously invalidates these assumptions all at once, rather than getting broken one at a time.
 
@@ -43,13 +43,13 @@ What this means for practitioners: if you're putting agents into production, you
 
 **IBM Granite 4.2**: Adds a native thinking mode and multi-stage agentic RL training, competing with peer models on agentic benchmarks like SWE Bench Pro and Terminal-Bench 2.1. Open-sourced under Apache 2.0 at 3B/8B/30B sizes. ([source](https://research.ibm.com/blog/introducing-granite-4-2))
 
-**Tencent Hy4 Preview**: A 770B-total/49B-active-parameter MoE flagship with a 1M-token context window. The official announcement discloses, for the first time, that the model participates in its own training and inference optimization, delivering a 31.8% end-to-end throughput gain. See [Model Card](/en/posts/daily/2026-08-29-model-tencent-hy4-preview).
+**Tencent Hy4 Preview**: A 770B-total/49B-active-parameter MoE flagship with a 1M-token context window. The official announcement discloses, for the first time, that the model participates in its own training and inference optimization, delivering a 31.8% end-to-end throughput gain. See [Model Card](/posts/daily/2026-08-29-model-tencent-hy4-preview-en).
 
 **Google DeepMind double-blind evaluation**: In partnership with Singapore's AI Safety Institute, OpenMined, and MLCommons, Google ran its first double-blind evaluation of Gemini Flash Lite using Confidential Space — the evaluator never sees the model weights, and Google never sees the test questions — aiming to solve the tension between benchmark contamination and IP leakage. ([source](https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/))
 
 ### Security Incidents
 
-**llms.txt supply-chain gap**: See the deep dive above and the standalone writeup. ([full article](/en/posts/daily/2026-08-29-security-llmstxt-supply-chain-en))
+**llms.txt supply-chain gap**: See the deep dive above and the standalone writeup. ([full article](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en))
 
 **OpenAI's own agent breached its own systems using a known Linux CVE**: See the deep dive above. ([source](https://www.securityweek.com/openai-agents-exploited-linux-kernel-flaw-on-companys-own-systems/))
 
@@ -95,9 +95,9 @@ Wipro expanded its partnership with Google Cloud, training over 10,000 AI-certif
 
 **NVIDIA reportedly agreed to acquire Hugging Face for $12.9B**: The Information reports the deal isn't yet signed and could still change; it would expand NVIDIA's footprint in the open-source model ecosystem and cloud computing, seen as a path back into the cloud computing market. Hugging Face's previous valuation was only $4.5B. ([source](https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/))
 
-**Onyx Security Series B $113M**: Valuation around $640M, led by Bessemer, building a control layer that monitors every step of an agent's reasoning and intercepts actions before they take effect. See [Funding Brief](/en/posts/daily/2026-08-29-funding-onyx-security).
+**Onyx Security Series B $113M**: Valuation around $640M, led by Bessemer, building a control layer that monitors every step of an agent's reasoning and intercepts actions before they take effect. See [Funding Brief](/posts/daily/2026-08-29-funding-onyx-security-en).
 
-**Zenity Series C $125M**: Led by Norwest, with SoftBank Vision Fund 2, Hitachi, and LG Technology Ventures joining, positioning agents as the new security perimeter. See [Funding Brief](/en/posts/daily/2026-08-29-funding-zenity).
+**Zenity Series C $125M**: Led by Norwest, with SoftBank Vision Fund 2, Hitachi, and LG Technology Ventures joining, positioning agents as the new security perimeter. See [Funding Brief](/posts/daily/2026-08-29-funding-zenity-en).
 
 **NVIDIA's circular financing**: CFO Colette Kress confirmed NVIDIA has invested nearly $50B into AI labs that purchase its chips, and is coordinating over $500B in external financing with six institutions including Apollo, BlackRock, Blackstone, Goldman Sachs, and KKR; OpenAI-related compute commitments now total roughly 12GW. ([source](https://www.artificialintelligence-news.com/news/nvidia-circular-financing-ai-labs/))
 
@@ -107,7 +107,7 @@ Other funding: Emerald AI closed a $150M Series A (valuation $1.05B, flexible-po
 
 ### Technical Developments
 
-No major framework releases today; today's AI Agent GitHub Digest covers this week's two standout picks — OpenMontage, an application-layer video post-production system with 700+ skill files, and the infrastructure-layer agentmemory/agenttrail — plus updates from Anthropic's official plugin marketplace. ([full article](/en/posts/daily/2026-08-29-ai-agent-github-digest))
+No major framework releases today; today's AI Agent GitHub Digest covers this week's two standout picks — OpenMontage, an application-layer video post-production system with 700+ skill files, and the infrastructure-layer agentmemory/agenttrail — plus updates from Anthropic's official plugin marketplace. ([full article](/posts/daily/2026-08-29-ai-agent-github-digest-en))
 
 Mastra's `@mastra/core@1.63.0` merges tracing and logging into a single output through an `AdaptableLogger` contract, and adds a worker `/health` endpoint so deployment platforms can determine rollout readiness. See framework update (zh-TW only) (/posts/daily/2026-08-29-framework-mastra-1.63.0).
 
@@ -115,7 +115,7 @@ Google's Agent Development Kit (ADK) for Python released v2.8.0: adds native tas
 
 ### Tools & Ecosystem
 
-**localagents**: An MCP server that lets Claude Code delegate repetitive code subtasks to locally running llama.cpp/vLLM models, solving the compatibility gap (KV-cache, context window) that normally keeps local models from plugging directly into Claude Code's conversation protocol. See [Tool Pick](/en/posts/daily/2026-08-29-tool-localagents-mcp).
+**localagents**: An MCP server that lets Claude Code delegate repetitive code subtasks to locally running llama.cpp/vLLM models, solving the compatibility gap (KV-cache, context window) that normally keeps local models from plugging directly into Claude Code's conversation protocol. See [Tool Pick](/posts/daily/2026-08-29-tool-localagents-mcp-en).
 
 **GitHub's official MCP Server 1.11.0**: Adds per-call OAuth scope checks, fixes a CORS cross-origin issue, adds support for conditional REST requests via ETag, and upgrades to Go 1.27. ([source](https://github.com/github/github-mcp-server/releases/tag/v1.11.0))
 
@@ -129,22 +129,22 @@ Google's Agent Development Kit (ADK) for Python released v2.8.0: adds native tas
 |------|--------|--------|
 | NVIDIA's reported acquisition price for Hugging Face | $12.9B | [TechCrunch](https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/) |
 | llms.txt domains scanned / unregistered install commands found | 6,214 domains / 237+ commands | [SecurityWeek](https://www.securityweek.com/openai-agents-exploited-linux-kernel-flaw-on-companys-own-systems/) |
-| Time for a Fortune 500 agent to auto-execute the callback beacon | 4 minutes | [full llms.txt supply-chain writeup](/en/posts/daily/2026-08-29-security-llmstxt-supply-chain-en) |
-| Onyx Security Series B | $113M (valuation ~$640M) | [Funding Brief](/en/posts/daily/2026-08-29-funding-onyx-security) |
-| Zenity Series C | $125M | [Funding Brief](/en/posts/daily/2026-08-29-funding-zenity) |
+| Time for a Fortune 500 agent to auto-execute the callback beacon | 4 minutes | [full llms.txt supply-chain writeup](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en) |
+| Onyx Security Series B | $113M (valuation ~$640M) | [Funding Brief](/posts/daily/2026-08-29-funding-onyx-security-en) |
+| Zenity Series C | $125M | [Funding Brief](/posts/daily/2026-08-29-funding-zenity-en) |
 | Qwen3.8-Flash training cost | ~1/9 of previous generation | [Alibaba Cloud](https://www.alibabacloud.com/blog/alibaba-releases-qwen3-8-flash-with-innovative-model-architecture-delivering-optimal-price-performance_603503) |
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-08-29](/en/posts/daily/2026-08-29-ai-agent-github-digest)
+- 📄 [AI Agent GitHub Digest — 2026-08-29](/posts/daily/2026-08-29-ai-agent-github-digest-en)
 - 📄 [Framework Update | Mastra @mastra/core@1.63.0](/posts/daily/2026-08-29-framework-mastra-1.63.0) (zh-TW only)
-- 📄 [Funding Brief | Onyx Security Series B $113M](/en/posts/daily/2026-08-29-funding-onyx-security)
-- 📄 [Funding Brief | Zenity Series C $125M](/en/posts/daily/2026-08-29-funding-zenity)
-- 📄 [Model Card | Tencent Hy4 Preview](/en/posts/daily/2026-08-29-model-tencent-hy4-preview)
-- 📄 [Security Alert | llms.txt Supply-Chain Gap](/en/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
-- 📄 [Tool Pick | localagents](/en/posts/daily/2026-08-29-tool-localagents-mcp)
-- 📄 [AI Engineer Interview Daily — 2026-08-29: Paper Reading](/en/posts/daily/2026-08-29-ai-interview-daily)
-- 📄 [Product Builder Interview Daily — 2026-08-29: Technical PM](/en/posts/daily/2026-08-29-product-builder-interview-daily)
+- 📄 [Funding Brief | Onyx Security Series B $113M](/posts/daily/2026-08-29-funding-onyx-security-en)
+- 📄 [Funding Brief | Zenity Series C $125M](/posts/daily/2026-08-29-funding-zenity-en)
+- 📄 [Model Card | Tencent Hy4 Preview](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
+- 📄 [Security Alert | llms.txt Supply-Chain Gap](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
+- 📄 [Tool Pick | localagents](/posts/daily/2026-08-29-tool-localagents-mcp-en)
+- 📄 [AI Engineer Interview Daily — 2026-08-29: Paper Reading](/posts/daily/2026-08-29-ai-interview-daily-en)
+- 📄 [Product Builder Interview Daily — 2026-08-29: Technical PM](/posts/daily/2026-08-29-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

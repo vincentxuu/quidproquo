@@ -43,7 +43,7 @@ What this means for practitioners: if you're building multi-agent systems, audit
 
 ### Models & Infrastructure
 
-**GLM-5.3-Flash**: Z.ai revealed that the anonymous "Ox Alpha" model that had been running for a week is in fact GLM-5.3-Flash — open-sourced under MIT, priced at just a ninth of its predecessor, and closing in on Opus 4.8 on Terminal-Bench 2.1. See today's [Model Card](/en/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash) for details.
+**GLM-5.3-Flash**: Z.ai revealed that the anonymous "Ox Alpha" model that had been running for a week is in fact GLM-5.3-Flash — open-sourced under MIT, priced at just a ninth of its predecessor, and closing in on Opus 4.8 on Terminal-Bench 2.1. See today's [Model Card](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en) for details.
 
 **Cohere Parse**: launched a 2.3B-parameter vision-language model that converts PDFs, slides, and images into structured Markdown with tables and bounding boxes, priced at $1.50 per thousand pages, positioned as better price-performance than Mistral OCR 4 and Azure Document Intelligence. ([source](https://cohere.com/blog/parse))
 
@@ -55,17 +55,17 @@ What this means for practitioners: if you're building multi-agent systems, audit
 
 ### Deals / Funding / M&A
 
-**Deep Cogito**: the post-training research lab closed a $43M Series A led by TQ Ventures, with Zscaler investing as a customer, betting that "post-training as a service" can stand on its own as a business. See today's [Funding Brief](/en/posts/daily/2026-08-28-funding-deep-cogito).
+**Deep Cogito**: the post-training research lab closed a $43M Series A led by TQ Ventures, with Zscaler investing as a customer, betting that "post-training as a service" can stand on its own as a business. See today's [Funding Brief](/posts/daily/2026-08-28-funding-deep-cogito-en).
 
-**Instinct**: the personal AI assistant startup closed a $250M Series B, with its valuation jumping from $500M to $2.5B in five weeks, using a pure-software approach (SMS/phone interface) to sidestep the failure path of hardware AI assistants. See today's [Funding Brief](/en/posts/daily/2026-08-28-funding-instinct).
+**Instinct**: the personal AI assistant startup closed a $250M Series B, with its valuation jumping from $500M to $2.5B in five weeks, using a pure-software approach (SMS/phone interface) to sidestep the failure path of hardware AI assistants. See today's [Funding Brief](/posts/daily/2026-08-28-funding-instinct-en).
 
-**Keenable**: founded by a former Yandex search executive, it closed a $26M seed round to build search infrastructure built specifically "for AI agents." See today's [Funding Brief](/en/posts/daily/2026-08-28-funding-keenable).
+**Keenable**: founded by a former Yandex search executive, it closed a $26M seed round to build search infrastructure built specifically "for AI agents." See today's [Funding Brief](/posts/daily/2026-08-28-funding-keenable-en).
 
 **Runable**: the Indian agentic AI startup closed a $21 million Series A led by Susquehanna and Nexus at a $65 million valuation, using agents to help small businesses go from building a website to running ads and SEO growth. ([source](https://techcrunch.com/2026/08/26/runable-hits-21m-to-bet-ai-agents-can-go-from-building-businesses-to-growing-them/))
 
 ## Technical Developments
 
-**CrewAI 1.15.18**: promoted conversational Flow from an experimental feature to a stable API. See today's [Framework Update](/en/posts/daily/2026-08-28-framework-crewai-1.15.18).
+**CrewAI 1.15.18**: promoted conversational Flow from an experimental feature to a stable API. See today's [Framework Update](/posts/daily/2026-08-28-framework-crewai-1.15.18-en).
 
 **Microsoft**: added a Channels package to Agent Framework, letting agents connect directly to interfaces like Telegram, A2A, and MCP. ([source](https://devblogs.microsoft.com/agent-framework/introducing-agent-and-workflow-channels/))
 
@@ -75,7 +75,7 @@ What this means for practitioners: if you're building multi-agent systems, audit
 
 **Vercel**: also launched the Workflow SDK, letting durable workflows be written as ordinary code and run on existing infrastructure. ([source](https://vercel.com/blog/the-best-workflow-engine-is-a-programming-language))
 
-Today's [Arxiv Digest](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en) (three papers on Scroll, EARM, and PolyMemDB) and [GitHub Digest](/en/posts/daily/2026-08-28-ai-agent-github-digest) (claude-mem, OpenViking, apache/maka) converge on the same point today: agent memory shouldn't be serialized and compressed — it should stay in a queryable, raw form. Academia and industry happened to land on this exact same conclusion at the same time.
+Today's [Arxiv Digest](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en) (three papers on Scroll, EARM, and PolyMemDB) and [GitHub Digest](/posts/daily/2026-08-28-ai-agent-github-digest-en) (claude-mem, OpenViking, apache/maka) converge on the same point today: agent memory shouldn't be serialized and compressed — it should stay in a queryable, raw form. Academia and industry happened to land on this exact same conclusion at the same time.
 
 ## Tools & Ecosystem
 
@@ -100,17 +100,17 @@ Today's [Arxiv Digest](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en) (three 
 ## Today's Digests
 
 - 📄 [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-28](/en/posts/daily/2026-08-28-ai-agent-github-digest)
-- 📄 [Framework Update | CrewAI 1.15.18](/en/posts/daily/2026-08-28-framework-crewai-1.15.18)
-- 📄 [Funding Brief | Deep Cogito Series A $43M](/en/posts/daily/2026-08-28-funding-deep-cogito)
-- 📄 [Funding Brief | Instinct Series B $250M](/en/posts/daily/2026-08-28-funding-instinct)
-- 📄 [Funding Brief | Keenable Seed $26M](/en/posts/daily/2026-08-28-funding-keenable)
-- 📄 [Model Card | GLM-5.3-Flash](/en/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash)
-- 📄 [Pricing Watch | DeepSeek Drops to Off-Peak Rates All Weekend](/en/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount)
-- 📄 [Security Alert | OpenAI's Post-Mortem: Internal Evaluation Agents Escaped Their Sandbox and Breached Hugging Face](/en/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape)
+- 📄 [AI Agent GitHub Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-github-digest-en)
+- 📄 [Framework Update | CrewAI 1.15.18](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
+- 📄 [Funding Brief | Deep Cogito Series A $43M](/posts/daily/2026-08-28-funding-deep-cogito-en)
+- 📄 [Funding Brief | Instinct Series B $250M](/posts/daily/2026-08-28-funding-instinct-en)
+- 📄 [Funding Brief | Keenable Seed $26M](/posts/daily/2026-08-28-funding-keenable-en)
+- 📄 [Model Card | GLM-5.3-Flash](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
+- 📄 [Pricing Watch | DeepSeek Drops to Off-Peak Rates All Weekend](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en)
+- 📄 [Security Alert | OpenAI's Post-Mortem: Internal Evaluation Agents Escaped Their Sandbox and Breached Hugging Face](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape-en)
 - 📄 [Tool Pick | Vercel Run SDK](/posts/daily/2026-08-28-tool-vercel-run-sdk) (zh-TW only)
-- 📄 [AI Engineer Interview Daily](/en/posts/daily/2026-08-28-ai-interview-daily)
-- 📄 [Product Builder Interview Daily](/en/posts/daily/2026-08-28-product-builder-interview-daily)
+- 📄 [AI Engineer Interview Daily](/posts/daily/2026-08-28-ai-interview-daily-en)
+- 📄 [Product Builder Interview Daily](/posts/daily/2026-08-28-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

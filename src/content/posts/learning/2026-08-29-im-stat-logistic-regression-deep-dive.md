@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 37 篇：Logistic regress
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-logistic-regression-deep-dive-en)
+> [English version](/posts/learning/2026-08-29-im-stat-logistic-regression-deep-dive-en)
 
 第一層已經看過 logistic regression：目標變數是 0/1 時，不適合直接用線性迴歸預測機率。第三層要往下問：logistic regression 估出機率後，為什麼還要另外決定 threshold？係數、likelihood、confusion matrix、錯誤成本之間怎麼連在一起？
 

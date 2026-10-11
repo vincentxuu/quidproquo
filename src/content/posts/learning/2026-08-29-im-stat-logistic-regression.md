@@ -13,7 +13,7 @@ description: "Logistic regression 入門：從機率、odds、log odds、sigmoid
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-logistic-regression-en)
+> [English version](/posts/learning/2026-08-29-im-stat-logistic-regression-en)
 
 前面幾篇迴歸都在處理數值 outcome：成績、時間、銷售額、分數。可是考試和 ML 專案常遇到另一種問題：會不會流失、是否錄取、是否違約、模型答對或答錯。答案只有 0/1，直接拿線性迴歸預測會出問題，因為直線可能給出小於 0 或大於 1 的「機率」。
 

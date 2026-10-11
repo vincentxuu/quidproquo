@@ -13,7 +13,7 @@ description: "拆解 Karpathy nano 諧系三個專案的定位差異：nanochat 
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en)
+> 🌏 [English version](/posts/ai/2026-09-06-karpathy-nanochat-nanogpt-llm-c-en)
 
 前一篇文章用一張 RTX 3090 和 3 塊人民幣把「從零訓練 LLM」壓到極致；這篇看同一條譜系的另一端：[Andrej Karpathy](https://karpathy.ai/) 從 2022 到 2025 年依序推出的三個專案。
 

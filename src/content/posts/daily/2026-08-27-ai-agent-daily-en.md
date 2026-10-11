@@ -43,13 +43,13 @@ What this means for practitioners: if you're helping an enterprise choose its AI
 
 ### Pricing & API Lifecycle
 
-Google Gemini Enterprise added Flexible Savings Plans (10% off for a 1-year term, 20% off for a 3-year term, non-cancelable) plus off-peak batch discounts — see the full breakdown in today's [Pricing Watch](/en/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en).
+Google Gemini Enterprise added Flexible Savings Plans (10% off for a 1-year term, 20% off for a 3-year term, non-cancelable) plus off-peak batch discounts — see the full breakdown in today's [Pricing Watch](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en).
 
 ### Tools & Ecosystem
 
 Perplexity teamed up with NVIDIA to launch **Portable Computer** — packing the agent harness, orchestrator, and Qwen 3.8 27B/PPLX 27B models into an NVIDIA DGX Spark box, running entirely locally at zero token cost, with billing only kicking in when you escalate to a cloud model. On Terminal Bench 2.1, it scores 59.6 running fully local, 73.0 when escalating to Claude Opus 5 advisor mode ($0.415 per task), and 82.4 for a pure cloud frontier model ($0.65 per task). Currently Linux-only, requiring an NVIDIA RTX GPU with 24GB+ VRAM. ([source](https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs))
 
-Two more tools/ecosystem stories today: a read-only MCP tool that reads Postgres statistics views to generate health reports, [pgbot](/posts/daily/2026-08-27-tool-pgbot) (zh-TW only), and DeepSeek's open-source agent harness dsh hitting nearly 200k stars in a week — see today's [GitHub Digest](/en/posts/daily/2026-08-27-ai-agent-github-digest-en).
+Two more tools/ecosystem stories today: a read-only MCP tool that reads Postgres statistics views to generate health reports, [pgbot](/posts/daily/2026-08-27-tool-pgbot) (zh-TW only), and DeepSeek's open-source agent harness dsh hitting nearly 200k stars in a week — see today's [GitHub Digest](/posts/daily/2026-08-27-ai-agent-github-digest-en).
 
 ### Technical Developments
 
@@ -57,7 +57,7 @@ Today's [Arxiv Digest](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en) covers 
 
 ### Security Incidents
 
-Today's security focus is Check Point's cross-framework audit of six major agent frameworks — see today's [Security Alert](/en/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en). A single SQL injection + deserialization chain in the LangGraph checkpointer achieves unauthorized RCE without calling a single tool.
+Today's security focus is Check Point's cross-framework audit of six major agent frameworks — see today's [Security Alert](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en). A single SQL injection + deserialization chain in the LangGraph checkpointer achieves unauthorized RCE without calling a single tool.
 
 ### Regional Updates
 
@@ -67,28 +67,28 @@ Alibaba launched an international edition of QwenWork today, targeting Asia, the
 
 ### Deals / Funding / M&A
 
-Runable closed a $21M Series A, welding "build a website/app" and "take over day-to-day growth operations" into a single Agent, reaching $2M ARR three weeks after launch. See today's [Funding Brief](/en/posts/daily/2026-08-27-funding-runable-en).
+Runable closed a $21M Series A, welding "build a website/app" and "take over day-to-day growth operations" into a single Agent, reaching $2M ARR three weeks after launch. See today's [Funding Brief](/posts/daily/2026-08-27-funding-runable-en).
 
 ## Key Numbers
 
 | Item | Number | Source |
 |------|--------|--------|
-| Google Gemini Enterprise FSP discount | 1-year ↓10% / 3-year ↓20% (non-cancelable) | [Pricing Watch](/en/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en) |
+| Google Gemini Enterprise FSP discount | 1-year ↓10% / 3-year ↓20% (non-cancelable) | [Pricing Watch](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en) |
 | Thomson Reuters' investment to train the Thomson model | $40M | [PRNewswire](https://www.prnewswire.com/news-releases/thomson-reuters-leverages-its-world-class-data-assets-to-launch-its-own-frontier-model-302857499.html) |
 | Perplexity Portable Computer local vs. cloud coding score | 59.6% (local) → 73.0% (escalate to Claude Opus 5, $0.415/task) → 82.4% (pure cloud, $0.65/task) | [VentureBeat](https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs) |
-| LangGraph security audit findings | 21 issues / 12 CVEs (across six major frameworks) | [Security Alert](/en/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en) |
-| Runable's 3-week ARR | $2M (15-person team) | [Funding Brief](/en/posts/daily/2026-08-27-funding-runable-en) |
+| LangGraph security audit findings | 21 issues / 12 CVEs (across six major frameworks) | [Security Alert](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en) |
+| Runable's 3-week ARR | $2M (15-person team) | [Funding Brief](/posts/daily/2026-08-27-funding-runable-en) |
 
 ## Today's Digests
 
 - 📄 [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-27](/en/posts/daily/2026-08-27-ai-agent-github-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-github-digest-en)
 - 📄 [Framework Update | Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only)
-- 📄 [Funding Brief | Runable Series A $21M](/en/posts/daily/2026-08-27-funding-runable-en)
-- 📄 [Pricing Watch | Google Gemini Enterprise Flexible Billing](/en/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
-- 📄 [Security Alert | LangGraph Checkpointer Post-Injection RCE](/en/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
+- 📄 [Funding Brief | Runable Series A $21M](/posts/daily/2026-08-27-funding-runable-en)
+- 📄 [Pricing Watch | Google Gemini Enterprise Flexible Billing](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
+- 📄 [Security Alert | LangGraph Checkpointer Post-Injection RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
 - 📄 [Tool Pick | pgbot](/posts/daily/2026-08-27-tool-pgbot) (zh-TW only)
-- 📄 [AI Engineer Interview Daily — LLM & Agent Engineering](/en/posts/daily/2026-08-27-ai-interview-daily-en)
+- 📄 [AI Engineer Interview Daily — LLM & Agent Engineering](/posts/daily/2026-08-27-ai-interview-daily-en)
 - 📄 [Product Builder Interview Daily — AI Product Design](/posts/daily/2026-08-27-product-builder-interview-daily) (zh-TW only)
 
 ## Tomorrow's Watch

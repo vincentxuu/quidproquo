@@ -13,7 +13,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
+> 🌏 [English version](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
 
 傳統 RAG pipeline 處理文件的路徑是 OCR → 文字擷取 → chunking → embedding。這條路徑在純文字文件上運作良好，但在表格、圖表、複雜版面的 PDF 上，每一步都在丟失資訊。ColPali 提出一個根本不同的做法：跳過整條文字管線，直接把頁面當圖片處理。
 

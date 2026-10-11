@@ -16,7 +16,7 @@ description: "帶讀 Stanford CS329Z Week 3 兩篇主讀物：MCP 規範的主�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)
+> 🌏 [English version](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -28,7 +28,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-Lecture 4 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 3, 2026, taught by Daniel Fried; [series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) asks one question: once an agent finishes a task, can the next one take fewer wrong turns?
+Lecture 4 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 3, 2026, taught by Daniel Fried; [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en)) asks one question: once an agent finishes a task, can the next one take fewer wrong turns?
 
 The lecture opens with a shopping site. "Add Sony headphones to my wish list" and "find the price range for wireless keyboards" are different tasks, but their first half is identical: go to the store, find the search box, type a query, click search. If the agent spent several steps figuring out how this site's search works the first time, it should just know the second time.
 
@@ -38,7 +38,7 @@ Three questions organize the whole lecture:
 - **Induction**: how can the agent extract it from experience on its own?
 - **Lifecycle**: when should a skill be retrieved, checked, revised, or forgotten?
 
-The [previous lecture (L3)](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) handled context management within a single task; this one handles memory across tasks. Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4).
+The [previous lecture (L3)](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) handled context management within a single task; this one handles memory across tasks. Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4).
 
 ## Course video sources
 
@@ -131,7 +131,7 @@ Fried demonstrates the implementation with the open-source [Hermes Agent](https:
 3. Running `python scripts/run_checks.py src/` in the terminal brings in the script's output; the script's source never enters the context
 4. Only when docstring rules are needed does [skills_tool.py](https://github.com/NousResearch/hermes-agent/blob/main/tools/skills_tool.py) read `references/docstring-style.md`
 
-[Assignment 1](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) asks you to implement exactly this (called `invoke_skill` in the assignment).
+[Assignment 1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) asks you to implement exactly this (called `invoke_skill` in the assignment).
 
 Two points from the Q&A are worth keeping:
 
@@ -362,10 +362,10 @@ The closing slide (not covered in the recording) lays out four tensions: exact e
 
 ## Further reading
 
-- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
-- [The Skill Management Revolution for LLM Agents: From Voyager to MUSE-Autoskill](/en/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
-- [Memory and Skills in Hermes Agent](/en/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
-- [Agent Memory Systems: From RAG to Read-Write Memory](/en/posts/ai/2026-03-19-agent-memory-systems-en)
+- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
+- [The Skill Management Revolution for LLM Agents: From Voyager to MUSE-Autoskill](/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
+- [Memory and Skills in Hermes Agent](/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
+- [Agent Memory Systems: From RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems-en)
 
 ## Update Log
 

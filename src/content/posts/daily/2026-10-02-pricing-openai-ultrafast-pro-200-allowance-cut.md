@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
+> 🌏 [English version](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
 
 ## 變更摘要
 

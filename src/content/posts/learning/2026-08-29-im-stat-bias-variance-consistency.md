@@ -13,7 +13,7 @@ description: "點估計品質導讀：bias、variance、MSE、consistency 的定
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-bias-variance-consistency-en)
+> [English version](/posts/learning/2026-08-29-im-stat-bias-variance-consistency-en)
 
 第 14 篇已經用入門方式看過估計量。這篇往前推一層：如果你有好幾個估計方法，該怎麼判斷哪個比較好？考試常見的判斷標準是 bias、variance、MSE 和 consistency，而不是「這個公式比較熟」。
 

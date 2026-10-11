@@ -62,31 +62,31 @@ What this means for practitioners: if you're deciding whether to grant an agent 
 
 ### Tools & Ecosystem
 
-Today's [GitHub Digest](/en/posts/daily/2026-09-26-ai-agent-github-digest-en) traces how the decision model Jev spread into both DSPy and Pydantic AI within a single week; the Pydantic AI Gateway also shipped support for Jev the same day for high-throughput AI scoring. ([source](https://pydantic.dev/articles/jev-pydantic-ai-gateway))
+Today's [GitHub Digest](/posts/daily/2026-09-26-ai-agent-github-digest-en) traces how the decision model Jev spread into both DSPy and Pydantic AI within a single week; the Pydantic AI Gateway also shipped support for Jev the same day for high-throughput AI scoring. ([source](https://pydantic.dev/articles/jev-pydantic-ai-gateway))
 
 **Cloudflare**: Launched Turnstile Spin, letting a developer's preferred AI coding agent automatically patch Turnstile backend verification, fixing a common misconfiguration vulnerability. ([source](https://blog.cloudflare.com/turnstile-spin/))
 
-**Today's tool pick**: terminal-mcp exposes a real PTY to AI assistants, letting agents operate full-screen interactive programs like vim and htop — full write-up in the site's [tool recommendation](/en/posts/daily/2026-09-26-tool-terminal-mcp-en).
+**Today's tool pick**: terminal-mcp exposes a real PTY to AI assistants, letting agents operate full-screen interactive programs like vim and htop — full write-up in the site's [tool recommendation](/posts/daily/2026-09-26-tool-terminal-mcp-en).
 
 ### Technical Progress
 
-Today's [Arxiv Digest](/en/posts/daily/2026-09-26-ai-agent-arxiv-digest-en) covers three papers that puncture the same assumption from three angles — that an agent's own self-reported results can be taken at face value: when reward hacking is allowed, 74.6% of attempts are confirmed hacks, and LLM review panels get increasingly gamed across five rounds of resubmission; when agents are asked to reproduce real NeurIPS papers with no code to copy, the strongest agent succeeds only 15% of the time; and completion claims overstate official verification pass rates by nearly 30 to 40 percentage points. The combined signal is direct — the more an agent is allowed to grade its own work, the more it needs an independent check that the agent doesn't control, which is the same problem as this issue's deep-dive theme of "complementary assets," seen from a different angle: one is about whether an agent has been granted too much operating privilege, the other is about whether you can trust what the agent tells you it did.
+Today's [Arxiv Digest](/posts/daily/2026-09-26-ai-agent-arxiv-digest-en) covers three papers that puncture the same assumption from three angles — that an agent's own self-reported results can be taken at face value: when reward hacking is allowed, 74.6% of attempts are confirmed hacks, and LLM review panels get increasingly gamed across five rounds of resubmission; when agents are asked to reproduce real NeurIPS papers with no code to copy, the strongest agent succeeds only 15% of the time; and completion claims overstate official verification pass rates by nearly 30 to 40 percentage points. The combined signal is direct — the more an agent is allowed to grade its own work, the more it needs an independent check that the agent doesn't control, which is the same problem as this issue's deep-dive theme of "complementary assets," seen from a different angle: one is about whether an agent has been granted too much operating privilege, the other is about whether you can trust what the agent tells you it did.
 
 **LangChain**: Updated Managed Deep Agents to v0.8, adding new authentication mechanisms, memory, and message-channel support. ([source](https://parallel.ai/blog/langchain-managed-deep-agents-parallel-search))
 
-**Mastra**: `@mastra/core@1.71.0` lets streaming tool calls start executing early while letting the observability layer negotiate capabilities across storage backends — full breakdown in the site's [framework update](/en/posts/daily/2026-09-26-framework-mastra-1.71.0-en).
+**Mastra**: `@mastra/core@1.71.0` lets streaming tool calls start executing early while letting the observability layer negotiate capabilities across storage backends — full breakdown in the site's [framework update](/posts/daily/2026-09-26-framework-mastra-1.71.0-en).
 
 ### Business Cases / Funding
 
-**Island Series F $400M**: The enterprise-browser security startup's valuation climbed from $4.8B to $6.4B in six months, betting the browser becomes the first control point for intercepting rogue AI agents — full analysis in the site's [funding report](/en/posts/daily/2026-09-26-funding-island-en).
+**Island Series F $400M**: The enterprise-browser security startup's valuation climbed from $4.8B to $6.4B in six months, betting the browser becomes the first control point for intercepting rogue AI agents — full analysis in the site's [funding report](/posts/daily/2026-09-26-funding-island-en).
 
-**Cyera Series G add-on $400M**: The Israeli data-security startup landed a Goldman Sachs-led extension, bringing 2026 total funding to $1.4B, fusing data security and non-human identity governance into one system through its Oasis Security acquisition — full analysis in the site's [funding report](/en/posts/daily/2026-09-26-funding-cyera-en).
+**Cyera Series G add-on $400M**: The Israeli data-security startup landed a Goldman Sachs-led extension, bringing 2026 total funding to $1.4B, fusing data security and non-human identity governance into one system through its Oasis Security acquisition — full analysis in the site's [funding report](/posts/daily/2026-09-26-funding-cyera-en).
 
-**Snorkel AI Series E $350M**: The training-data startup's valuation climbed from $1.3B to $3.5B in 17 months, selling custom training datasets and reinforcement-learning environments to AI labs — full analysis in the site's [funding report](/en/posts/daily/2026-09-26-funding-snorkel-ai-en).
+**Snorkel AI Series E $350M**: The training-data startup's valuation climbed from $1.3B to $3.5B in 17 months, selling custom training datasets and reinforcement-learning environments to AI labs — full analysis in the site's [funding report](/posts/daily/2026-09-26-funding-snorkel-ai-en).
 
 ### Security Incidents & Defense
 
-**SalesBleed (Salesforce Agentforce)**: Zenity Labs disclosed three vulnerabilities letting external attackers exfiltrate CRM data zero-click by injecting a prompt through a public Web-to-Lead form, and hijack the agent into posting anonymous phishing links inside internal Slack channels; Salesforce patched it on 9/21 — full write-up in the site's [security alert](/en/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en).
+**SalesBleed (Salesforce Agentforce)**: Zenity Labs disclosed three vulnerabilities letting external attackers exfiltrate CRM data zero-click by injecting a prompt through a public Web-to-Lead form, and hijack the agent into posting anonymous phishing links inside internal Slack channels; Salesforce patched it on 9/21 — full write-up in the site's [security alert](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en).
 
 **Zammad AI agent misconfiguration**: CVE-2026-84462 (CVSS 8.6) lets anyone with create/edit permission plant instructions in versions before 7.1.2 that execute server-side remote code the next time the AI agent processes a ticket. ([source](https://www.strix.ai/cve/CVE-2026-84462))
 
@@ -141,24 +141,24 @@ Following reports that an OpenAI agent breached an Australian government website
 | Item | Number | Source |
 |------|--------|--------|
 | Cognition (Devin) ARR | $1B+ | [Cognition Blog](https://cognition.com/blog/1b-run-rate) |
-| Island valuation | $6.4B (up 33% in six months) | [Site funding report](/en/posts/daily/2026-09-26-funding-island-en) |
-| Cyera 2026 total funding | $1.4B | [Site funding report](/en/posts/daily/2026-09-26-funding-cyera-en) |
+| Island valuation | $6.4B (up 33% in six months) | [Site funding report](/posts/daily/2026-09-26-funding-island-en) |
+| Cyera 2026 total funding | $1.4B | [Site funding report](/posts/daily/2026-09-26-funding-cyera-en) |
 | GPT-6 Sol / Luna API price cut | -50% (below GPT-5.6 promo rate) | [ReleaseBot](https://releasebot.io/updates/openai) |
 | Zammad AI agent misconfiguration | CVSS 8.6 | [Strix AI](https://www.strix.ai/cve/CVE-2026-84462) |
 | Singapore's share of SEA startup funding | 92% (of $7.25B) | [Business Times SG](https://www.businesstimes.com.sg/companies-markets/capital-markets-currencies/singapore-records-92-south-east-asias-us7-25-billion-h1-startup-funding-report) |
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-26](/en/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-26](/en/posts/daily/2026-09-26-ai-agent-github-digest-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.71.0](/en/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
-- 📄 [Funding Report | Cyera Series G add-on $400M](/en/posts/daily/2026-09-26-funding-cyera-en)
-- 📄 [Funding Report | Island Series F $400M](/en/posts/daily/2026-09-26-funding-island-en)
-- 📄 [Funding Report | Snorkel AI Series E $350M](/en/posts/daily/2026-09-26-funding-snorkel-ai-en)
-- 📄 [Security Alert | SalesBleed — Salesforce Agentforce](/en/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
-- 📄 [Tool Pick | terminal-mcp](/en/posts/daily/2026-09-26-tool-terminal-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-26](/en/posts/daily/2026-09-26-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-26](/en/posts/daily/2026-09-26-product-builder-interview-daily-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest-en)
+- 📄 [Framework Update | Mastra @mastra/core@1.71.0](/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
+- 📄 [Funding Report | Cyera Series G add-on $400M](/posts/daily/2026-09-26-funding-cyera-en)
+- 📄 [Funding Report | Island Series F $400M](/posts/daily/2026-09-26-funding-island-en)
+- 📄 [Funding Report | Snorkel AI Series E $350M](/posts/daily/2026-09-26-funding-snorkel-ai-en)
+- 📄 [Security Alert | SalesBleed — Salesforce Agentforce](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
+- 📄 [Tool Pick | terminal-mcp](/posts/daily/2026-09-26-tool-terminal-mcp-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-26](/posts/daily/2026-09-26-ai-interview-daily-en)
+- 📄 [Product Builder Interview Prep — 2026-09-26](/posts/daily/2026-09-26-product-builder-interview-daily-en)
 
 ## Watch Tomorrow
 
@@ -172,8 +172,8 @@ I used to think agent security incidents like SalesBleed and the Zammad flaw wer
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-09-26](/en/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
-- [AI Agent GitHub Digest — 2026-09-26](/en/posts/daily/2026-09-26-ai-agent-github-digest-en)
+- [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
+- [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest-en)
 - [Meta Muse comes to AI glasses — TechCrunch](https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/)
 - [Alibaba Agentic Computer and AI wearables](https://www.alibabacloud.com/blog/alibaba-unveils-agentic-computer-ai-wearables-and-more-at-2026-apsara-conference_603599)
 - [Alibaba Qwen Intelligence](https://www.alibabacloud.com/blog/alibaba-launches-qwen-intelligence-to-power-next-generation-agentic-smartphones_603597)

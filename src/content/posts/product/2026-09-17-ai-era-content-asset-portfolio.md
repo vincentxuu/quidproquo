@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-ai-era-content-asset-portfolio-en)
+> 🌏 [English version](/posts/product/2026-09-17-ai-era-content-asset-portfolio-en)
 
 種果樹的人不會只問哪棵今天結果最多。有些樹供應本季現金，有些長成防風林，有些先養土和灌溉，讓未來能改種別的作物。
 

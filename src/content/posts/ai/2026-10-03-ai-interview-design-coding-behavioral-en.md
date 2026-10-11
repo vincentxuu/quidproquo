@@ -95,21 +95,21 @@ flowchart LR
   E --> H
 ```
 
-For the details of chunking and retrieval, see the site posts on [chunking strategies](/en/posts/ai/2026-03-12-chunking-strategies-en), [hybrid search](/en/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), and [cross-encoder reranking](/en/posts/ai/2026-03-12-cross-encoder-reranking-en).
+For the details of chunking and retrieval, see the site posts on [chunking strategies](/posts/ai/2026-03-12-chunking-strategies-en), [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), and [cross-encoder reranking](/posts/ai/2026-03-12-cross-encoder-reranking-en).
 
 ### Core trade-offs
 
-**Permissions: pre-filter or post-filter.** I apply the ACL as a filter during retrieval instead of dropping unauthorized hits afterwards. Post-filtering lets unauthorized content fill the top-k, so the user gets fewer results and, in the worst case, learns that a document exists. The cost is that the index must stay in sync with ACL changes, so ACL updates travel on their own event stream, processed ahead of content updates, with one more authorization check before generation as insurance. How each vector database implements metadata filtering varies a lot, and I did not verify it product by product; in an interview say "I would measure recall and latency under the filter" rather than inventing numbers. For selection, see the site's [vector database comparison](/en/posts/ai/2026-03-12-vector-database-comparison-en).
+**Permissions: pre-filter or post-filter.** I apply the ACL as a filter during retrieval instead of dropping unauthorized hits afterwards. Post-filtering lets unauthorized content fill the top-k, so the user gets fewer results and, in the worst case, learns that a document exists. The cost is that the index must stay in sync with ACL changes, so ACL updates travel on their own event stream, processed ahead of content updates, with one more authorization check before generation as insurance. How each vector database implements metadata filtering varies a lot, and I did not verify it product by product; in an interview say "I would measure recall and latency under the filter" rather than inventing numbers. For selection, see the site's [vector database comparison](/posts/ai/2026-03-12-vector-database-comparison-en).
 
 **Updates: incremental, not full rebuilds.** Use content hashes to find which chunks changed and redo only those. Deletions use a tombstone (a deletion marker), plus periodic reconciliation so stale versions never get served.
 
-**Evaluation: retrieval and generation separately.** For retrieval look at recall@k and MRR; for generation look at faithfulness and answer relevance. Start with a human-labeled golden set, then scale up with LLM-as-judge. [RAGAS](https://arxiv.org/abs/2309.15217) proposes scoring retrieval and generation along several dimensions without reference answers. The [MT-Bench paper](https://arxiv.org/abs/2306.05685) reports that strong LLM judges agree with human preferences over 80% of the time, and also documents position, verbosity, and self-preference biases, so you still calibrate with periodic human sampling. The site has matching posts on [RAG evaluation frameworks](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en) and [LLM-as-Judge](/en/posts/ai/2026-03-12-self-reflection-llm-as-judge-en).
+**Evaluation: retrieval and generation separately.** For retrieval look at recall@k and MRR; for generation look at faithfulness and answer relevance. Start with a human-labeled golden set, then scale up with LLM-as-judge. [RAGAS](https://arxiv.org/abs/2309.15217) proposes scoring retrieval and generation along several dimensions without reference answers. The [MT-Bench paper](https://arxiv.org/abs/2306.05685) reports that strong LLM judges agree with human preferences over 80% of the time, and also documents position, verbosity, and self-preference biases, so you still calibrate with periodic human sampling. The site has matching posts on [RAG evaluation frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) and [LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en).
 
 ### Monitoring and failure handling
 
-Track four metrics: empty-retrieval rate, citation coverage, thumbs-down rate, and latency percentiles. Pair them with the per-node traces from [RAG observability](/en/posts/ai/2026-03-12-rag-observability-tracing-en), so you can tell whether retrieval or generation broke.
+Track four metrics: empty-retrieval rate, citation coverage, thumbs-down rate, and latency percentiles. Pair them with the per-node traces from [RAG observability](/posts/ai/2026-03-12-rag-observability-tracing-en), so you can tell whether retrieval or generation broke.
 
-On failure, degrade to "return only the relevant document links", and make "no answer found" a legitimate output. One more risk you must raise is indirect injection: documents themselves can carry malicious instructions. [OWASP's LLM01 entry](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) states that neither RAG nor fine-tuning fully eliminates prompt injection, and recommends segregating untrusted content, validating output formats, least privilege, and human approval for high-risk actions. For defenses on the input and output sides, see [RAG guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en).
+On failure, degrade to "return only the relevant document links", and make "no answer found" a legitimate output. One more risk you must raise is indirect injection: documents themselves can carry malicious instructions. [OWASP's LLM01 entry](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) states that neither RAG nor fine-tuning fully eliminates prompt injection, and recommends segregating untrusted content, validating output formats, least privilege, and human approval for high-risk actions. For defenses on the input and output sides, see [RAG guardrails](/posts/ai/2026-03-12-rag-guardrails-en).
 
 ### Wrap-up
 
@@ -170,9 +170,9 @@ flowchart TD
 
 ### Core trade-offs
 
-**Throughput versus latency.** When self-hosting, throughput is mostly bounded by KV cache memory. [PagedAttention](https://arxiv.org/abs/2309.06180), the core of vLLM, manages the KV cache in pages to cut waste, and the paper reports 2 to 4 times higher throughput at similar latency. A second issue is that interleaving prefill and decode causes latency jitter; the chunked prefill proposed in [Sarathi-Serve](https://arxiv.org/abs/2403.02310) tunes exactly that trade-off. For vLLM details, see the site's [vLLM inference engine](/en/posts/ai/2026-03-14-vllm-inference-engine-en) post.
+**Throughput versus latency.** When self-hosting, throughput is mostly bounded by KV cache memory. [PagedAttention](https://arxiv.org/abs/2309.06180), the core of vLLM, manages the KV cache in pages to cut waste, and the paper reports 2 to 4 times higher throughput at similar latency. A second issue is that interleaving prefill and decode causes latency jitter; the chunked prefill proposed in [Sarathi-Serve](https://arxiv.org/abs/2403.02310) tunes exactly that trade-off. For vLLM details, see the site's [vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en) post.
 
-**Two layers of caching.** The first is the provider's prompt cache: put the stable system prompt, tool definitions, and long documents first and the variable content last, because the cache matches on prefixes. Both [Anthropic's prompt caching docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and [OpenAI's prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) work this way. Taking Anthropic as the example, its [rate limit docs](https://platform.claude.com/docs/en/api/rate-limits) say that for most models, tokens read from the cache do not count toward the input TPM limit, so caching saves money and raises effective throughput at once. The second layer is your own response cache, enabled only for repeatable queries with no personal data; hits depend on a semantic similarity threshold, and the risk of false hits has to be measured with evaluation. See the site's [semantic caching](/en/posts/ai/2026-03-12-semantic-caching-en) post.
+**Two layers of caching.** The first is the provider's prompt cache: put the stable system prompt, tool definitions, and long documents first and the variable content last, because the cache matches on prefixes. Both [Anthropic's prompt caching docs](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and [OpenAI's prompt caching guide](https://developers.openai.com/api/docs/guides/prompt-caching) work this way. Taking Anthropic as the example, its [rate limit docs](https://platform.claude.com/docs/en/api/rate-limits) say that for most models, tokens read from the cache do not count toward the input TPM limit, so caching saves money and raises effective throughput at once. The second layer is your own response cache, enabled only for repeatable queries with no personal data; hits depend on a semantic similarity threshold, and the risk of false hits has to be measured with evaluation. See the site's [semantic caching](/posts/ai/2026-03-12-semantic-caching-en) post.
 
 **Routing.** Send easy requests to a small model and hard ones to a large model; this is one of the routing patterns Anthropic lists in [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents). The router itself must be cheap, and online sampling should check for misrouting.
 
@@ -180,7 +180,7 @@ flowchart TD
 
 ### Monitoring and failure handling
 
-On a 429, read `retry-after` and use exponential backoff with jitter. But [Anthropic's rate limit docs](https://platform.claude.com/docs/en/api/rate-limits) call out one exception: a 429 caused by the monthly spend cap carries no `retry-after`, and retrying keeps failing, so degrade or alert instead. The official [SDK retries twice by default](https://platform.claude.com/docs/en/api/errors) and honors `retry-after`; if you write your own retries, follow the same rules, which is what C3 below does. On failure, fall back in order to a backup or smaller model, and rate-limit with a token bucket per tenant so one customer cannot eat the whole quota. The site's [RAG quota system](/en/posts/ai/2026-03-12-rag-token-quota-system-en) shows a dual-limit example.
+On a 429, read `retry-after` and use exponential backoff with jitter. But [Anthropic's rate limit docs](https://platform.claude.com/docs/en/api/rate-limits) call out one exception: a 429 caused by the monthly spend cap carries no `retry-after`, and retrying keeps failing, so degrade or alert instead. The official [SDK retries twice by default](https://platform.claude.com/docs/en/api/errors) and honors `retry-after`; if you write your own retries, follow the same rules, which is what C3 below does. On failure, fall back in order to a backup or smaller model, and rate-limit with a token bucket per tenant so one customer cannot eat the whole quota. The site's [RAG quota system](/posts/ai/2026-03-12-rag-token-quota-system-en) shows a dual-limit example.
 
 Mention cache isolation across tenants too. vLLM's [Automatic Prefix Caching](https://docs.vllm.ai/en/latest/design/prefix_caching/) uses block hashes and offers `cache_salt` to isolate trust groups, so latency differences cannot be used to infer someone else's prompt; [OpenAI's docs](https://developers.openai.com/api/docs/guides/prompt-caching) likewise mention using different keys to prevent cache-hit probing.
 
@@ -247,11 +247,11 @@ flowchart TD
 
 **Degree of autonomy.** Lookups run fully automatically; write actions like refunds get an amount threshold, and anything above it becomes "pending approval" that a human confirms, matching the human approval for high-risk actions that [OWASP](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) recommends. The loop itself needs a maximum step count and a timeout.
 
-**Guardrails.** On input, detect prompt injection and personal data; on output, validate format, amounts, and policy conditions with deterministic code, because you cannot rely on a prompt alone to make the model follow rules. [Anthropic also notes](https://www.anthropic.com/engineering/building-effective-agents) that giving guardrails and the main response to separate model instances tends to work better. Compare the site's [RAG guardrails](/en/posts/ai/2026-03-12-rag-guardrails-en) post.
+**Guardrails.** On input, detect prompt injection and personal data; on output, validate format, amounts, and policy conditions with deterministic code, because you cannot rely on a prompt alone to make the model follow rules. [Anthropic also notes](https://www.anthropic.com/engineering/building-effective-agents) that giving guardrails and the main response to separate model instances tends to work better. Compare the site's [RAG guardrails](/posts/ai/2026-03-12-rag-guardrails-en) post.
 
 **Human handoff.** Triggers include a user request, strong frustration, two failed attempts in a row, low confidence, and sensitive intents. At handoff, pass the conversation summary, the data already retrieved, and the actions already tried so the agent does not ask the customer to repeat everything.
 
-**Tool design and permissions.** Write tool descriptions like a docstring for a new hire, with examples and boundaries; [Anthropic notes](https://www.anthropic.com/engineering/building-effective-agents) that on their [SWE-bench](https://arxiv.org/abs/2310.06770) agent they spent more time optimizing tools than the prompt. Use least privilege: the agent calls tools with the current user's credentials, never a master key. For more agent patterns, see the site's [complete guide to AI agent architecture patterns](/en/posts/ai/2026-03-18-ai-agent-patterns-guide-en).
+**Tool design and permissions.** Write tool descriptions like a docstring for a new hire, with examples and boundaries; [Anthropic notes](https://www.anthropic.com/engineering/building-effective-agents) that on their [SWE-bench](https://arxiv.org/abs/2310.06770) agent they spent more time optimizing tools than the prompt. Use least privilege: the agent calls tools with the current user's credentials, never a master key. For more agent patterns, see the site's [complete guide to AI agent architecture patterns](/posts/ai/2026-03-18-ai-agent-patterns-guide-en).
 
 ### Monitoring and failure handling
 
@@ -310,7 +310,7 @@ flowchart LR
 
 **Three tiers of metrics.** Guardrail metrics (latency, error rate, safety violations) must not get worse; the primary metric (for example task success rate) decides whether to ship; diagnostic metrics (for example retrieval recall, citation rate) explain why.
 
-**Four stages.** Offline evaluation runs a fixed golden set as regression, and nothing ships without passing; shadow traffic lets the new version handle real requests without showing output, so you compare outputs and cost; canary plus A/B assigns users by a stable hash of the user ID so nobody bounces between groups, with sample size and observation window fixed up front and covering a full usage cycle to avoid peeking early; finally ramp up and keep a rollback switch. The site's [RAG A/B testing](/en/posts/ai/2026-03-12-rag-ab-testing-en) post has pipeline-level details.
+**Four stages.** Offline evaluation runs a fixed golden set as regression, and nothing ships without passing; shadow traffic lets the new version handle real requests without showing output, so you compare outputs and cost; canary plus A/B assigns users by a stable hash of the user ID so nobody bounces between groups, with sample size and observation window fixed up front and covering a full usage cycle to avoid peeking early; finally ramp up and keep a rollback switch. The site's [RAG A/B testing](/posts/ai/2026-03-12-rag-ab-testing-en) post has pipeline-level details.
 
 **Reading the results.** First check the sample ratio (SRM); if it is off, assignment has a bug and nothing downstream can be trusted. LLM outputs are noisy, so you need more samples or a paired design; novelty effects make early data look better than it is; comparing several metrics at once needs false-positive control. I give no sample-size numbers; in an interview say "computed from the baseline rate, minimum detectable effect, significance level, and power", and be ready to work a two-proportion test by hand.
 
@@ -318,7 +318,7 @@ flowchart LR
 
 ### Monitoring and failure handling
 
-If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Week 6 reading on the data flywheel](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en).
+If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Week 6 reading on the data flywheel](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en).
 
 ### Wrap-up
 
@@ -956,7 +956,7 @@ The night before, do three things: pick one design question, set a 30-minute tim
 
 ## Questions that keep showing up in public question banks
 
-This section collects questions that recur across [seven public GitHub question banks](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en) and points each one to the part of this post that covers it. "Appears in N banks" only measures overlap between the banks, not how often a question is asked in real interviews; the amitshekhar and pallavi banks cite no sources, so this post does not use their company tags. Only question titles and links are listed here, with no answers reproduced.
+This section collects questions that recur across [seven public GitHub question banks](/posts/ai/2026-09-30-ai-engineer-interview-resources-en) and points each one to the part of this post that covers it. "Appears in N banks" only measures overlap between the banks, not how often a question is asked in real interviews; the amitshekhar and pallavi banks cite no sources, so this post does not use their company tags. Only question titles and links are listed here, with no answers reproduced.
 
 For "independent sources", amit and pal are counted as one source because they appear to be maintained by the same organization and share 26 near-verbatim questions; ks-llm and ks-rag share an author and also count as one, so the maximum is 5. Question wording is a condensed merge of questions that mean the same thing, not a verbatim quote; "Not covered in this post" means no section here addresses it.
 
@@ -1010,11 +1010,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ## Other posts in the series
 
-- Part 12: [RAG Interview Prep: From the Three-Stage Pipeline to Agentic RAG, and How to Tell Nine Variants Apart](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- Part 13: [AI Agent Interview Prep: From Tool Calling and Memory to MCP and Prompt Caching](/en/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
-- Part 14: [Prompt, Context, Harness: The Three Layers, Their Boundaries, and Evaluation Gates](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- Part 15: [LLM Engineering Interview Prep: Fine-Tuning, Alignment, Inference Optimization, Evaluation, and Safety](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- Part 16: [ML Basics and Transformer Internals: From Bias-Variance and AdamW to Attention, RoPE, and MoE](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- Part 12: [RAG Interview Prep: From the Three-Stage Pipeline to Agentic RAG, and How to Tell Nine Variants Apart](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- Part 13: [AI Agent Interview Prep: From Tool Calling and Memory to MCP and Prompt Caching](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching-en)
+- Part 14: [Prompt, Context, Harness: The Three Layers, Their Boundaries, and Evaluation Gates](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- Part 15: [LLM Engineering Interview Prep: Fine-Tuning, Alignment, Inference Optimization, Evaluation, and Safety](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- Part 16: [ML Basics and Transformer Internals: From Bias-Variance and AdamW to Attention, RoPE, and MoE](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
 
 ## References
 

@@ -13,7 +13,7 @@ description: "統計學抽樣、標準誤與中央極限定理導讀：如何理
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-sampling-clt-en)
+> [English version](/posts/learning/2026-08-29-im-stat-sampling-clt-en)
 
 統計學最關鍵的一步，是從樣本走向母體。你手上只有一班學生、一次問卷、一批測試題、一個 benchmark 結果，但題目通常想問更大的東西：長期平均、全體使用者、未來資料、真實模型能力。
 

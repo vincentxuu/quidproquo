@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en)
+> 🌏 [English version](/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en)
 
 想像兩種開店方式。第一種是在百貨公司租櫃位：人潮、收銀與會員系統都有人準備，但招牌、動線與顧客關係要配合百貨規則。第二種是租一間自己的店：門牌、裝潢與會員簿由你決定，收款進自己的帳戶，也得自己處理房租、保全和把客人帶到門口。
 

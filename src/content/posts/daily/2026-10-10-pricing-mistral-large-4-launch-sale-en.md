@@ -26,7 +26,7 @@ When Mistral put its new flagship Large 4 into public preview on 2026-10-06, the
 | Output | $2.09/1M tokens | $4.18/1M tokens | ↑100% | Not announced (no end date) |
 | Cached Input (holds at 10% of input) | $0.07/1M tokens | $0.14/1M tokens | ↑100% | Not announced (no end date) |
 
-The announcement text and model card only show the list price, $1.36/$4.18. The sale price only shows up on Mistral Studio's actual billing screen and OpenRouter's "50% off" tag — neither states when the discount ends. That's the opposite of what OpenAI did with the GPT-5.6 Sol promo on 9/28, which explicitly guaranteed its rate "through 2026-11-21" (see [09-28 Pricing Watch](/en/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
+The announcement text and model card only show the list price, $1.36/$4.18. The sale price only shows up on Mistral Studio's actual billing screen and OpenRouter's "50% off" tag — neither states when the discount ends. That's the opposite of what OpenAI did with the GPT-5.6 Sol promo on 9/28, which explicitly guaranteed its rate "through 2026-11-21" (see [09-28 Pricing Watch](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut-en)).
 
 ## Cost Simulation
 
@@ -81,5 +81,5 @@ Catching Gemini 4 Argon's "no end date" promo last time felt like a one-off quir
 - [Mistral: Introducing Mistral Large 4](https://mistral.ai/news/mistral-large-4)
 - [OpenRouter: Mistral Large 4 API Pricing & Providers](https://openrouter.ai/mistralai/mistral-large-4-0)
 - [Artificial Analysis: Mistral Large 4 Preview — Intelligence, Performance & Price Analysis](https://artificialanalysis.ai/models/mistral-large-4)
-- [This site's earlier coverage: Mistral Large 4 model card](/en/posts/daily/2026-10-07-model-mistral-large-4-en)
-- [This site's earlier coverage: Gemini 4 Argon's no-end-date promo](/en/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
+- [This site's earlier coverage: Mistral Large 4 model card](/posts/daily/2026-10-07-model-mistral-large-4-en)
+- [This site's earlier coverage: Gemini 4 Argon's no-end-date promo](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)

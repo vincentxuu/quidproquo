@@ -13,7 +13,7 @@ description: "Stratechery 創辦人 Ben Thompson 的完整成長歷程：從威�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer-en)
+> 🌏 [English version](/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer-en)
 
 2014 年 4 月，Ben Thompson 從台北一間公寓開始全職經營 Stratechery。那時候 Substack 還要再等四年才會成立，「一個人靠寫電子報維生」在多數人眼裡是不切實際的浪漫。
 

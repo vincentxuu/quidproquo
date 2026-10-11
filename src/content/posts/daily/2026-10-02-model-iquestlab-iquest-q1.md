@@ -15,7 +15,7 @@ glossary:
     def: "新進 AI 實驗室「至知創新研究院」，首作為 agentic coding 用 MoE 模型 IQuest-Q1"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
+> 🌏 [English version](/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
 
 ## 模型資訊
 

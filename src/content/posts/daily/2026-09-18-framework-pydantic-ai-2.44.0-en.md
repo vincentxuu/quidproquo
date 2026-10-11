@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous release (2.42.0)](/en/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en) was a small patch-up version; 2.44 is small too, but different in kind — it's a security release that fixes four separate issues, all reachable through `web_fetch_tool` or OpenTelemetry instrumentation. The standout is a moderate-severity denial-of-service: `web_fetch` ran both its HTML conversion and its charset decoding in superlinear time on the event loop, meaning an attacker only needs to get an agent's `web_fetch` tool to fetch one specially crafted page to stall every agent sharing that process. For any deployment that lets agents browse the web autonomously, this is a fix that bears directly on availability, and it deserves priority over an ordinary feature update.
+[The previous release (2.42.0)](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en) was a small patch-up version; 2.44 is small too, but different in kind — it's a security release that fixes four separate issues, all reachable through `web_fetch_tool` or OpenTelemetry instrumentation. The standout is a moderate-severity denial-of-service: `web_fetch` ran both its HTML conversion and its charset decoding in superlinear time on the event loop, meaning an attacker only needs to get an agent's `web_fetch` tool to fetch one specially crafted page to stall every agent sharing that process. For any deployment that lets agents browse the web autonomously, this is a fix that bears directly on availability, and it deserves priority over an ordinary feature update.
 
 ## Key Changes
 
@@ -88,7 +88,7 @@ I used to assume agent-framework security problems mostly showed up in tool exec
 
 - [Pydantic AI v2.44.0 Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.44.0)
 - [Pydantic AI GitHub](https://github.com/pydantic/pydantic-ai)
-- [Pydantic AI v2.42.0 — previous framework update](/en/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en)
+- [Pydantic AI v2.42.0 — previous framework update](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en)
 - [GHSA-fpf4-vwcp-v4hp: web_fetch superlinear time DoS](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-fpf4-vwcp-v4hp)
 - [GHSA-vmxc-h2x2-jmf3: IPv6 zone identifier bypass](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-vmxc-h2x2-jmf3)
 - [GHSA-22h6-qm39-v87j: domain blocklist comparison bypass](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-22h6-qm39-v87j)

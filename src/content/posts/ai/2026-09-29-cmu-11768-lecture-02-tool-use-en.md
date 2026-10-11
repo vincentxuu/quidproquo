@@ -32,7 +32,7 @@ glossary:
 
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is a Fall 2026 graduate course from Carnegie Mellon's Language Technologies Institute (LTI), taught by Daniel Fried and Graham Neubig. It runs from tools, context, memory, and planning through training, safety, and interaction. Lecture 2 (Aug 27; [slides](https://www.cmu-agents.com/slides/lecture-02-tool-use.pdf), [recording](https://www.youtube.com/watch?v=jXChFB4JSyw)) is Neubig on Tool Use. He opens with a definition: calling tools is the most fundamental thing that separates an agent from a language model.
 
-This lecture is not "how to add a `tools` parameter to your API call." It cuts tool calling open from top to bottom: why models need tools, what a tool call looks like at the token level, how the harness parses and dispatches it, how to guarantee well-formed output, how REST and MCP differ, how to run calls in parallel, and how to evaluate the whole thing. These are exactly the pieces [Assignment 1 (Harness)](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) makes you write by hand. This guide follows the lecture order and flags where each section shows up in A1.
+This lecture is not "how to add a `tools` parameter to your API call." It cuts tool calling open from top to bottom: why models need tools, what a tool call looks like at the token level, how the harness parses and dispatches it, how to guarantee well-formed output, how REST and MCP differ, how to run calls in parallel, and how to evaluate the whole thing. These are exactly the pieces [Assignment 1 (Harness)](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) makes you write by hand. This guide follows the lecture order and flags where each section shows up in A1.
 
 ## Course video sources
 
@@ -96,7 +96,7 @@ Once you go programmatic, you need sandboxing, resource limits, permissions, and
 
 ## Mechanics: a tool call is just tokens
 
-The model never "executes" anything. It emits either a text continuation ("The weather is sunny") or a tool-call continuation (`<tool_call>get_weather(...)`), often both. Remember [ReAct](https://arxiv.org/abs/2210.03629) from [last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)? Today the ReAct loop is no longer separate glue code; it is a single completion containing reasoning tokens, a user-facing message, and tool calls in order. Reasoning is long private thought, the text is a short message for the user, and the tool call is the actual output.
+The model never "executes" anything. It emits either a text continuation ("The weather is sunny") or a tool-call continuation (`<tool_call>get_weather(...)`), often both. Remember [ReAct](https://arxiv.org/abs/2210.03629) from [last lecture](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)? Today the ReAct loop is no longer separate glue code; it is a single completion containing reasoning tokens, a user-facing message, and tool calls in order. Reasoning is long private thought, the text is a short message for the user, and the tool call is the actual output.
 
 The full path:
 
@@ -226,15 +226,15 @@ The schedule lists four:
 
 ## Where it sits in the course
 
-[L1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) borrows Russell and Norvig's definition and frames an agent as a model in a loop that perceives and changes its environment through tools; L2 takes the "tools" part down to the token level. Next, [L3 Context Management](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) deals with the consequence of using tools a lot: tool results take up more than a third of an agent's prompt, and context keeps growing until it no longer fits.
+[L1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) borrows Russell and Norvig's definition and frames an agent as a model in a loop that perceives and changes its environment through tools; L2 takes the "tools" part down to the token level. Next, [L3 Context Management](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) deals with the consequence of using tools a lot: tool results take up more than a third of an agent's prompt, and context keeps growing until it no longer fits.
 
 ## Further reading
 
-- [Reading CMU 11-768: series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en): a map of the whole course and index of posts
-- [Reading Stanford CS329Z Week 3: tools and DSPy](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en): another course on tools and DSPy from a system-design angle
-- [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Invocation](/en/posts/ai/2026-03-22-mcp-model-context-protocol-en)
-- [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/en/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): complements this lecture's REST vs MCP section
-- [Code Mode: Moving Tool Definitions from Context into Code](/en/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en): the CodeAct idea implemented on top of MCP
+- [Reading CMU 11-768: series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en): a map of the whole course and index of posts
+- [Reading Stanford CS329Z Week 3: tools and DSPy](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en): another course on tools and DSPy from a system-design angle
+- [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Invocation](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
+- [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): complements this lecture's REST vs MCP section
+- [Code Mode: Moving Tool Definitions from Context into Code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en): the CodeAct idea implemented on top of MCP
 
 ## Update Log
 

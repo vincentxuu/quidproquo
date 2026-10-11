@@ -44,7 +44,7 @@ Checked: 2026-10-10.
 
 The architecture is four modules. Propose turns observations into propositions, Retrieve pulls related old propositions in as context, Revise updates them as new evidence arrives, and Audit blocks anything the user would not want recorded. Screen understanding runs on [Qwen 2.5 VL](https://github.com/QwenLM/Qwen2.5-VL), proposition reasoning on [Llama 3.3 70B](https://www.llama.com/), both on the open route. The paper deliberately picks open models so data never has to travel to a third-party platform. In the implementation Llama runs on private servers, and only the user can access the propositions.
 
-The examples persuade. The first author's GUM found him a suit-rental spot for a wedding, automatically constrained by his budget. GUM can also complete a prompt's missing context — which section you are writing, which papers you have read — so a bare "help me with this section" just works. That is the same grounding [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s RAG chases, only the source changes from a retrieval index to traces of your computer use.
+The examples persuade. The first author's GUM found him a suit-rental spot for a wedding, automatically constrained by his budget. GUM can also complete a prompt's missing context — which section you are writing, which papers you have read — so a bare "help me with this section" just works. That is the same grounding [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)'s RAG chases, only the source changes from a retrieval index to traces of your computer use.
 
 One set of numbers is worth remembering. In an email-based evaluation, propositions averaged about 76% accuracy, and the most confident ones were all correct. A separate multi-day screen deployment replicated the calibration, and some participants asked to keep running the system afterward.
 
@@ -62,7 +62,7 @@ The Audit module filters observations by [contextual integrity](https://arxiv.or
 
 The paper gives the privacy paradox its own section. The same participants wanted an assistant that remembers enough, yet flinched at seeing their habits written out as propositions. There is no technical fix here, only a tradeoff: the more it remembers, the more it helps — and the more it can get wrong.
 
-This also echoes [Week 1](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)'s systems view. None of GUM's four modules is the model itself; all are engineering around it: observing, auditing, retrieving, revising. Good results are still stacked up by systems — except this time the system is about you.
+This also echoes [Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)'s systems view. None of GUM's four modules is the model itself; all are engineering around it: observing, auditing, retrieving, revising. Good results are still stacked up by systems — except this time the system is about you.
 
 ## Wednesday: three open directions and production reality
 
@@ -76,16 +76,16 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 
 ## Series retrospective: 11 posts and one recess week
 
-1. [Course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en): build from scratch before frameworks, both homeworks and the syllabus git history in full.
-2. [Week 1](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en): stop tuning only the model; good scores are stacked up by compound systems.
-3. [Week 2](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en): separate workflows from agents first, then hand-build a first RAG.
-4. [Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en): MCP standardizes the tool plug, DSPy turns prompts into compilable programs.
-5. [Week 4](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): ReAct fixes the loop as think–act–observe, while [MemGPT](https://arxiv.org/abs/2310.08560) turns memory into OS-style layered structure.
-6. [Week 5](/en/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en): multi-agent collaboration and the three optimization axes — prompts, weights, or inference compute.
-7. [Week 6](/en/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en): the data flywheel spins up as HW2 drops and HW1 comes due.
-8. [Week 7](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en): data selection and benchmark design, with evaluation converging on the 4-tuple.
-9. [Week 8](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en): LLM-as-judge and safety guardrails, where the graders themselves get graded.
-10. [Week 9](/en/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en): interface is performance — SWE-agent proves editor design decides scores, while OpenHands turns sandbox and evaluation into a shared base.
+1. [Course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en): build from scratch before frameworks, both homeworks and the syllabus git history in full.
+2. [Week 1](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en): stop tuning only the model; good scores are stacked up by compound systems.
+3. [Week 2](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en): separate workflows from agents first, then hand-build a first RAG.
+4. [Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en): MCP standardizes the tool plug, DSPy turns prompts into compilable programs.
+5. [Week 4](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): ReAct fixes the loop as think–act–observe, while [MemGPT](https://arxiv.org/abs/2310.08560) turns memory into OS-style layered structure.
+6. [Week 5](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en): multi-agent collaboration and the three optimization axes — prompts, weights, or inference compute.
+7. [Week 6](/posts/ai/2026-09-14-stanford-cs329z-week6-data-flywheel-en): the data flywheel spins up as HW2 drops and HW1 comes due.
+8. [Week 7](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en): data selection and benchmark design, with evaluation converging on the 4-tuple.
+9. [Week 8](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en): LLM-as-judge and safety guardrails, where the graders themselves get graded.
+10. [Week 9](/posts/ai/2026-09-17-stanford-cs329z-week9-coding-agents-en): interface is performance — SWE-agent proves editor design decides scores, while OpenHands turns sandbox and evaluation into a shared base.
 11. Week 10: Thanksgiving Recess; both meetings are canceled with no required or additional readings, so the series does not manufacture an empty guide.
 12. Week 11 (this post): from waiting for orders to acting first, closing with proactive agents and open problems.
 
@@ -105,7 +105,7 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 
 ## References
 
-- On this site: [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [Week 1: stop tuning only the model](/en/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Week 2: workflows versus agents](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Week 3: plug tools in, swap frameworks up](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)
+- On this site: [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), [Week 1: stop tuning only the model](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en), [Week 2: workflows versus agents](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Week 3: plug tools in, swap frameworks up](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Shaikh et al., Creating General User Models from Computer Use, UIST 2025](https://arxiv.org/abs/2505.10831), [Shaikh et al., Learning Next Action Predictors from Human-Computer Interaction](https://arxiv.org/abs/2603.05923), [GUM project page and open-source package](https://generalusermodels.github.io/), [Horvitz, Principles of Mixed-Initiative User Interfaces, CHI 1999](https://dl.acm.org/doi/10.1145/302979.303030)
 - Venue: [UIST 2025](https://uist.acm.org/2025/)

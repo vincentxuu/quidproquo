@@ -26,7 +26,7 @@ glossary:
     context: "agent 軌跡長短差很大，靜態批次會讓大半 GPU 等最長的一條。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en)
+> 🌏 [English version](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems-en)
 
 **影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
 

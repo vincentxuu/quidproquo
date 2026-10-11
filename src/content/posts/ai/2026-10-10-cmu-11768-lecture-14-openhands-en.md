@@ -19,7 +19,7 @@ draft: false
 
 > **This post is written from the slides; I'll add the video when it's published.** As of 2026-10-10, the [official schedule](https://www.cmu-agents.com/#/schedule) lists only [slides](https://www.cmu-agents.com/slides/lecture-14-openhands.pdf) for Lecture 14 (Oct 8), with no recording. Everything below comes from the slides, not from what the lecturer said; where I'm interpreting, I say so.
 
-The framework module of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) has two lectures. The first is [Graham Neubig](https://www.phontron.com/) on [OpenHands](https://github.com/OpenHands/OpenHands), which he leads; the second (Oct 20) is LangGraph. Neubig said in [Lecture 1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) that he works on OpenHands, so this is the author explaining a framework's design.
+The framework module of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) has two lectures. The first is [Graham Neubig](https://www.phontron.com/) on [OpenHands](https://github.com/OpenHands/OpenHands), which he leads; the second (Oct 20) is LangGraph. Neubig said in [Lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) that he works on OpenHands, so this is the author explaining a framework's design.
 
 If you're choosing a framework or writing your own harness, the interesting part isn't what the API looks like but why each part exists: **each design answers a problem a coding agent hit in real use.**
 
@@ -63,9 +63,9 @@ OpenHands factored its shared core into an SDK ([paper](https://arxiv.org/abs/25
 | Remote execution | `DockerWorkspace` runs an Agent Server in a container; same conversation API, remote task and events | Isolation and reproducibility |
 | Confirmation policy | `set_confirmation_policy(AlwaysConfirm())`: pause before an action, wait for a human decision, a rejection leads to a revised plan | Human approval for risky actions |
 
-The last row ties directly to [the previous lecture](/en/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en): a confirmation policy is exactly the pre-execution check. My reading: the SDK makes safety a setting on the conversation instead of something each tool implements itself.
+The last row ties directly to [the previous lecture](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety-en): a confirmation policy is exactly the pre-execution check. My reading: the SDK makes safety a setting on the conversation instead of something each tool implements itself.
 
-[Lecture 3 on context management](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) and [Lecture 4 on skills](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) both have counterparts in this SDK, worth reading side by side.
+[Lecture 3 on context management](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) and [Lecture 4 on skills](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) both have counterparts in this SDK, worth reading side by side.
 
 ## One agent or several
 
@@ -100,7 +100,7 @@ These are paper numbers as relayed on the slides; I didn't check them against th
 
 The slides close with reasons for division of labor: parallel work on independent issues or repos; independent review (patch checking with separate task and permissions); cost control (cheaper models for suitable tasks). Each carries a cost: task boundaries, shared context, coordination.
 
-This echoes [Lecture 5](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en): multi-agent is not the default, it's an option for when you have a reason.
+This echoes [Lecture 5](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en): multi-agent is not the default, it's an option for when you have a reason.
 
 ## Where agents run and which interface
 
@@ -176,7 +176,7 @@ The last section is a research preview: automations accumulate trajectories ever
 
 The results table (held-out tasks; accuracy %, F1 for PR review) shows SkillRefiner above the initial skill on both agent models, for example SpreadsheetBench (LLM-initialized skill, GPT-5.4-mini) from 77.5 to 84.0 and DAPO-Math (MiniMax-M2.7) from 53.5 to 64.0; a few cells are flat against baselines. The slides cite Table 1 of the paper and compare against GEPA and T2S.
 
-I couldn't check this paper against public sources: the link on the slides is an alphaxiv page that looks like an early preprint. Treat this section as the course's research preview, not a verified conclusion. [Lecture 4 on skills and memory](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) is good background for what is being edited here.
+I couldn't check this paper against public sources: the link on the slides is an alphaxiv page that looks like an early preprint. Treat this section as the course's research preview, not a verified conclusion. [Lecture 4 on skills and memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) is good background for what is being edited here.
 
 ## What you can do tonight
 

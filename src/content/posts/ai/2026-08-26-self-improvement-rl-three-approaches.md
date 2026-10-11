@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark，用真實 GitHub issue 測量模型解決軟體工程問題能力的標準測試集"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-self-improvement-rl-three-approaches-en)
+> 🌏 [English version](/posts/ai/2026-08-26-self-improvement-rl-three-approaches-en)
 
 2026 年有一個反直覺的現象：在 coding benchmark 上追平甚至超越閉源頂尖模型的，不是花最多錢預訓練的團隊，而是在後訓練階段把強化學習玩出花的小團隊。[Ornith](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)、[Nous Research](/posts/tech/2026-08-26-nous-research-hermes) 和 [MiniMax](/posts/tech/2026-08-26-minimax-model-family) 走了三條截然不同的 RL 路線，各自做出讓人意外的成績。這篇比較這三條路線的設計哲學、實際做法和各自的強弱。
 

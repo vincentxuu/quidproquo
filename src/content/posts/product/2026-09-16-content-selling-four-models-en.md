@@ -46,25 +46,25 @@ One company can span several models, and one product can move from articles into
 
 ## Path one: enterprises pay for the decision process
 
-The [B2B intelligence guide](/en/posts/product/2026-09-16-b2b-intelligence-business-en) separates reporting, exclusive news, contributor research, private-market data, and procurement frameworks into six product paths. Enterprises pay to identify signals sooner, compare choices with consistent fields, or bring research into existing work; word count is beside the point.
+The [B2B intelligence guide](/posts/product/2026-09-16-b2b-intelligence-business-en) separates reporting, exclusive news, contributor research, private-market data, and procurement frameworks into six product paths. Enterprises pay to identify signals sooner, compare choices with consistent fields, or bring research into existing work; word count is beside the point.
 
 “Decision insurance” is an organizational-purchasing hypothesis, not an explanation for every Gartner customer. A stock move and the arrival of AI answers do not establish causality. The series examines DIGITIMES, The Information, Seeking Alpha, CB Insights, PitchBook, and Gartner at the product layer.
 
 ## Path two: one person turns trust into media
 
-Independent newsletters are not a new subseries here because the site already has the [One-Person Media Company series](/en/posts/career/2026-08-26-one-person-media-company-overview-en). It follows subscription, advertising, community, investing, and services while asking whether the creator has built a reader relationship that supports repeated delivery.
+Independent newsletters are not a new subseries here because the site already has the [One-Person Media Company series](/posts/career/2026-08-26-one-person-media-company-overview-en). It follows subscription, advertising, community, investing, and services while asking whether the creator has built a reader relationship that supports repeated delivery.
 
 This overview keeps independent media as a parent model without repeating creator revenue and subscriber counts. Those figures change quickly and overrepresent visible winners.
 
 ## Path three: what responsibilities does a platform take?
 
-The [creator-platform guide](/en/posts/product/2026-09-16-ugc-platform-creator-economy-en) compares four gates: who brings readers, collects payment, holds data, and operates the system. Substack, Medium, Vocus, Patreon, Ghost, and Beehiiv assign control, growth, and operating cost differently; they do not form a ladder from worst to best.
+The [creator-platform guide](/posts/product/2026-09-16-ugc-platform-creator-economy-en) compares four gates: who brings readers, collects payment, holds data, and operates the system. Substack, Medium, Vocus, Patreon, Ghost, and Beehiiv assign control, growth, and operating cost differently; they do not form a ladder from worst to best.
 
 [Ghost's membership documentation](https://docs.ghost.org/members) says member lists can be exported and native paid subscriptions connect to the publisher's own Stripe account. That supports portability for specific product surfaces. It does not establish frictionless migration of comments, interaction history, automations, and every payment record.
 
 ## Path four: free content acquires customers for another business
 
-The [free-content guide](/en/posts/product/2026-09-16-free-content-side-monetization-en) follows eight paths through advertising, tools, AI content funnels, information-to-transaction journeys, affiliate marketing, and CAC/LTV. The useful test is whether a qualified reader reaches a next step that produces contribution margin, not pageview volume alone.
+The [free-content guide](/posts/product/2026-09-16-free-content-side-monetization-en) follows eight paths through advertising, tools, AI content funnels, information-to-transaction journeys, affiliate marketing, and CAC/LTV. The useful test is whether a qualified reader reaches a next step that produces contribution margin, not pageview volume alone.
 
 An investment page beside an order button does not prove the publisher receives brokerage commission. A free podcast summary does not turn every read into a paid conversion. Commercial relationships, fulfillment parties, and attribution data need separate evidence.
 
@@ -83,7 +83,7 @@ flowchart LR
 
 ## AI search is cross-cutting, not a fifth revenue model
 
-AI search can touch the public text of all four models, but its impact is not equivalent to all traffic disappearing. [Order 0 of the AI Search series](/en/posts/product/2026-09-17-ai-overviews-change-traffic-path-en) separates retrieval, citation, referral requests, on-site sessions, and conversion.
+AI search can touch the public text of all four models, but its impact is not equivalent to all traffic disappearing. [Order 0 of the AI Search series](/posts/product/2026-09-17-ai-overviews-change-traffic-path-en) separates retrieval, citation, referral requests, on-site sessions, and conversion.
 
 [Google's documentation](https://developers.google.com/search/docs/appearance/ai-features) says AI Overviews and AI Mode may use query fan-out and that their traffic is included in Search Console's Web search type. [Cloudflare's crawl-to-refer metric](https://blog.cloudflare.com/ai-search-crawl-refer-ratio-on-radar/) compares HTML crawler requests with HTML requests carrying a platform `Referer`. It is not CTR, and native apps that omit `Referer` can undercount the denominator.
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-09-03-agentic-parsing-document-agents)
 
-Earlier posts in this series covered the [three-layer model](/en/posts/ai/2026-08-06-document-parsing-three-layers-en), [text extraction](/en/posts/ai/2026-08-06-pdf-text-extraction-libraries-en), and [model-based layout analysis](/en/posts/ai/2026-08-06-document-parsing-layout-ocr-en). They all point to the same conclusion: no single fixed pipeline handles every document well. Agentic Parsing hands the "which path to take" decision to an agent.
+Earlier posts in this series covered the [three-layer model](/posts/ai/2026-08-06-document-parsing-three-layers-en), [text extraction](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en), and [model-based layout analysis](/posts/ai/2026-08-06-document-parsing-layout-ocr-en). They all point to the same conclusion: no single fixed pipeline handles every document well. Agentic Parsing hands the "which path to take" decision to an agent.
 
 ## The Fixed Pipeline Bottleneck
 
@@ -80,7 +80,7 @@ Several agentic parsing products are available in 2026:
 
 ## Complementing Visual RAG (ColPali)
 
-[ColPali](/en/posts/ai/2026-03-12-colbert-late-interaction-en) skips text parsing entirely, rendering PDF pages as images and producing patch-level embeddings via vision-language models. Table structure is 100% preserved.
+[ColPali](/posts/ai/2026-03-12-colbert-late-interaction-en) skips text parsing entirely, rendering PDF pages as images and producing patch-level embeddings via vision-language models. Table structure is 100% preserved.
 
 Agentic Parsing takes a different path: keep the text, but let the agent choose the best parsing method.
 
@@ -102,7 +102,7 @@ The core tradeoff in Agentic Parsing is spending more inference cost for higher 
 
 Current limitations are clear: the best ParseBench score is only 84.9%, with no method strong across all five dimensions. Agentic mode costs 10–45× more than Fast mode. Whether to use it depends on document value and diversity — high-value contracts and financial reports justify agent parsing, while high-volume uniform receipts are fine with a fixed pipeline.
 
-The direction is clear: document parsing is shifting from "one pipeline for everything" to "agents dispatching tools by document." This mirrors the evolution of RAG from [fixed retrieval](/en/posts/ai/2026-03-12-corrective-rag-crag-en) to [Agentic RAG](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en).
+The direction is clear: document parsing is shifting from "one pipeline for everything" to "agents dispatching tools by document." This mirrors the evolution of RAG from [fixed retrieval](/posts/ai/2026-03-12-corrective-rag-crag-en) to [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en).
 
 ## References
 
@@ -119,8 +119,8 @@ The direction is clear: document parsing is shifting from "one pipeline for ever
 - [LlamaParse — Document Parsing for LLM and Agent Pipelines](https://developers.llamaindex.ai/llamaparse/parse/guides/tiers/)
 - [LandingAI ADE — Agentic Document Extraction](https://landing.ai/llms/best-document-parsing-apis-2026)
 - [IDP Accelerator — Agentic Document Processing Guide](https://idp-software.com/guides/agentic-document-processing/)
-- [The Three-Layer Model of Document Parsing](/en/posts/ai/2026-08-06-document-parsing-three-layers-en) (internal)
-- [Layout Analysis: When Structure Requires Model Inference](/en/posts/ai/2026-08-06-document-parsing-layout-ocr-en) (internal)
-- [ColBERT and ColPali](/en/posts/ai/2026-03-12-colbert-late-interaction-en) (internal)
-- [CRAG: Automatically Relaxing Conditions on Retrieval Failure](/en/posts/ai/2026-03-12-corrective-rag-crag-en) (internal)
-- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en) (internal)
+- [The Three-Layer Model of Document Parsing](/posts/ai/2026-08-06-document-parsing-three-layers-en) (internal)
+- [Layout Analysis: When Structure Requires Model Inference](/posts/ai/2026-08-06-document-parsing-layout-ocr-en) (internal)
+- [ColBERT and ColPali](/posts/ai/2026-03-12-colbert-late-interaction-en) (internal)
+- [CRAG: Automatically Relaxing Conditions on Retrieval Failure](/posts/ai/2026-03-12-corrective-rag-crag-en) (internal)
+- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en) (internal)

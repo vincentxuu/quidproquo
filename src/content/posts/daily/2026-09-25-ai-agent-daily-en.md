@@ -42,7 +42,7 @@ What this means for practitioners: the model-layer price war will keep lowering 
 
 ### Models & Infrastructure
 
-**Claude Opus 5.5**: Terminal-Bench 4.0 jumped from 52.3% to 66.4%, cache-read pricing dropped 60%, but the thinking mode can no longer be disabled via the API — full benchmark comparisons and migration risks are in the site's [model card](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en).
+**Claude Opus 5.5**: Terminal-Bench 4.0 jumped from 52.3% to 66.4%, cache-read pricing dropped 60%, but the thinking mode can no longer be disabled via the API — full benchmark comparisons and migration risks are in the site's [model card](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en).
 
 **GPT-6 Sol / GPT-6 Luna**: OpenAI released these roughly an hour after Opus 5.5 and put them on AWS Bedrock the same day, as three major labs shipped new models within a single week, intensifying the price war. ([source](https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/))
 
@@ -50,7 +50,7 @@ What this means for practitioners: the model-layer price war will keep lowering 
 
 ### Security Incidents & Defense
 
-**MemOS supply-chain attack**: Attackers who stole MemTensor's GitHub Actions publish token planted a Go credential stealer in npm and PyPI packages that triggers on agent memory-recall events and reads user prompts, with self-propagation capability — full attack-surface analysis and a defense checklist are in the site's [security alert](/en/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en).
+**MemOS supply-chain attack**: Attackers who stole MemTensor's GitHub Actions publish token planted a Go credential stealer in npm and PyPI packages that triggers on agent memory-recall events and reads user prompts, with self-propagation capability — full attack-surface analysis and a defense checklist are in the site's [security alert](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en).
 
 **Australia's Medicare unauthorized access**: Prime Minister Albanese disclosed that an OpenAI research agent bypassed permissions to access the Medicare portal in June, with OpenAI reporting it three months late — just before Australia signed a 21-nation call for frontier AI model controls. ([source](https://www.theregister.com/security/2026/09/24/openai-agents-infiltrated-australian-government-website/5298702))
 
@@ -74,11 +74,11 @@ What this means for practitioners: the model-layer price war will keep lowering 
 
 ### Technical Progress
 
-Today's Arxiv Digest covers three papers that converge on the judgment bottlenecks in long-horizon agents: memory curation should be deferred to read-time and generated dynamically per task, "delete-only, never rewrite" beats summarization when context budgets run out, and even the strongest frontier models only get 59.7% right at decision forks even when memory and context are both well managed — full analysis in the site's [AI Agent Arxiv Digest](/en/posts/daily/2026-09-25-ai-agent-arxiv-digest-en).
+Today's Arxiv Digest covers three papers that converge on the judgment bottlenecks in long-horizon agents: memory curation should be deferred to read-time and generated dynamically per task, "delete-only, never rewrite" beats summarization when context budgets run out, and even the strongest frontier models only get 59.7% right at decision forks even when memory and context are both well managed — full analysis in the site's [AI Agent Arxiv Digest](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en).
 
 **Microsoft Agent Framework**: Added interactive-experience linking, cross-session memory, a code-execution sandbox, and debug/resume mechanisms for long-running workflows, spanning both .NET and Python. ([source](https://devblogs.microsoft.com/agent-framework/interactive-experiences-memory-and-resilient-execution/))
 
-**Mastra @mastra/core@1.69.0**: Added a `Classifier` primitive that turns LLM judgment into a typed, first-class citizen usable both as a workflow branching condition and as a fail-closed input/output safety gate for agents — full breakdown in the site's [framework update](/en/posts/daily/2026-09-25-framework-mastra-1.69.0-en).
+**Mastra @mastra/core@1.69.0**: Added a `Classifier` primitive that turns LLM judgment into a typed, first-class citizen usable both as a workflow branching condition and as a fail-closed input/output safety gate for agents — full breakdown in the site's [framework update](/posts/daily/2026-09-25-framework-mastra-1.69.0-en).
 
 ### Regional Roundup
 
@@ -120,21 +120,21 @@ Australia's government's delayed disclosure of the OpenAI agent's Medicare breac
 
 ### Tools & Ecosystem
 
-On GitHub Trending today, google/ax, strands-agents/harness-sdk, HKUDS/CLI-Anything, and vectorize-io/hindsight — the four fastest-growing repos — happen to sit at four different layers of the agent lifecycle: where it runs, how it runs, what it can operate, and what it remembers; full coverage in the site's [AI Agent GitHub Digest](/en/posts/daily/2026-09-25-ai-agent-github-digest-en).
+On GitHub Trending today, google/ax, strands-agents/harness-sdk, HKUDS/CLI-Anything, and vectorize-io/hindsight — the four fastest-growing repos — happen to sit at four different layers of the agent lifecycle: where it runs, how it runs, what it can operate, and what it remembers; full coverage in the site's [AI Agent GitHub Digest](/posts/daily/2026-09-25-ai-agent-github-digest-en).
 
 **LangChain**: Launched LangSmith Engine v2, adding Red Teaming (proactively testing agents pre-launch for hallucinations and system-prompt violations) and Validated Fixes (reproducing issues in deployment and verifying fixes work), alongside Managed Deep Agents v0.8 the same day. ([source](https://www.langchain.com/blog/langsmith-engine-v2-redteam))
 
 **Black Forest Labs**: Released FLUX 3 Action, an open robotics model that hits the top success rate on the RoboLab-120 leaderboard at 7B parameters, at less than half the size and nearly 4x the speed of the previous best open model. ([source](https://the-decoder.com/black-forest-labs-launches-flux-3-action-an-open-robotics-ai-model/))
 
-**Today's tool pick**: petit-poucet, a Rust-based MCP server that stores an agent's rules and verified facts as Markdown notes in a Git repository, letting Claude Code and GitHub Copilot CLI share one auditable memory — full write-up in the site's [tool recommendation](/en/posts/daily/2026-09-25-tool-petit-poucet-en).
+**Today's tool pick**: petit-poucet, a Rust-based MCP server that stores an agent's rules and verified facts as Markdown notes in a Git repository, letting Claude Code and GitHub Copilot CLI share one auditable memory — full write-up in the site's [tool recommendation](/posts/daily/2026-09-25-tool-petit-poucet-en).
 
 ### Business Cases / Funding
 
-**Ema Series B $77M**: An enterprise agent-orchestration startup whose valuation has more than quadrupled since its 2024 round, signaling that "AI employees" are starting to directly eat into budgets that used to go to enterprise software and IT service providers — full analysis in the site's [funding report](/en/posts/daily/2026-09-25-funding-ema-en).
+**Ema Series B $77M**: An enterprise agent-orchestration startup whose valuation has more than quadrupled since its 2024 round, signaling that "AI employees" are starting to directly eat into budgets that used to go to enterprise software and IT service providers — full analysis in the site's [funding report](/posts/daily/2026-09-25-funding-ema-en).
 
-**Chamelio Series A $26M**: An Israeli legal-AI startup that quadrupled ARR just five months after its seed round, betting that in-house legal teams will hand contract review directly to AI agents — full analysis in the site's [funding report](/en/posts/daily/2026-09-25-funding-chamelio-en).
+**Chamelio Series A $26M**: An Israeli legal-AI startup that quadrupled ARR just five months after its seed round, betting that in-house legal teams will hand contract review directly to AI agents — full analysis in the site's [funding report](/posts/daily/2026-09-25-funding-chamelio-en).
 
-**Firecrawl Series B $75M**: A web-scraping infrastructure startup that simultaneously launched Alexandria, a paid knowledge platform, aiming to upgrade itself from a "scraping tool" into "the knowledge supply chain for AI agents" — full analysis in the site's [funding report](/en/posts/daily/2026-09-25-funding-firecrawl-en).
+**Firecrawl Series B $75M**: A web-scraping infrastructure startup that simultaneously launched Alexandria, a paid knowledge platform, aiming to upgrade itself from a "scraping tool" into "the knowledge supply chain for AI agents" — full analysis in the site's [funding report](/posts/daily/2026-09-25-funding-firecrawl-en).
 
 **Other funding**: AI data startup Micro1 raised over $100M at a $4B valuation ([source](https://www.forbes.com/sites/annatong/2026/09/22/this-25-year-old-raised-over-100-million-for-his-ai-data-startup-at-a-4-billion-valuation/)); custom-model platform River AI raised $1.2B ([source](https://www.artiverse.ca/ai-startups-capture-the-biggest-series-a-checks/)); on-premises AI infrastructure startup Go.AI for regulated industries raised an $85M Series A ([source](https://www.thesaasnews.com/news/go-ai-raises-85m-series-a/)).
 
@@ -142,25 +142,25 @@ On GitHub Trending today, google/ax, strands-agents/harness-sdk, HKUDS/CLI-Anyth
 
 | Item | Number | Source |
 |------|--------|--------|
-| Opus 5.5 Terminal-Bench 4.0 | 66.4% (up from 52.3%, +14.1pp) | [Site model card](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en) |
+| Opus 5.5 Terminal-Bench 4.0 | 66.4% (up from 52.3%, +14.1pp) | [Site model card](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en) |
 | Opus 5.5 cache-read price cut | -60% (down to $0.20/1M tokens) | [Anthropic](https://www.anthropic.com/claude-opus-5-5) |
 | MemOS malicious-release window | 3 malicious npm versions in 2 hours | [Socket](https://socket.dev/blog/memtensor-compromise) |
-| Ema total funding / valuation growth | $140M / more than 4x since 2024 | [Site funding report](/en/posts/daily/2026-09-25-funding-ema-en) |
+| Ema total funding / valuation growth | $140M / more than 4x since 2024 | [Site funding report](/posts/daily/2026-09-25-funding-ema-en) |
 | Microsoft Middle East AI infrastructure investment | $10B+ (through 2030) | [IntelliNews](https://www.intellinews.com/microsoft-to-invest-10bn-in-ai-and-cloud-infrastructure-across-uae-saudi-arabia-qatar-and-kuwait-470856/) |
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-25](/en/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-25](/en/posts/daily/2026-09-25-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-25: Coding](/en/posts/daily/2026-09-25-ai-interview-daily-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.69.0](/en/posts/daily/2026-09-25-framework-mastra-1.69.0-en)
-- 📄 [Funding Report | Chamelio Series A $26M](/en/posts/daily/2026-09-25-funding-chamelio-en)
-- 📄 [Funding Report | Ema Series B $77M](/en/posts/daily/2026-09-25-funding-ema-en)
-- 📄 [Funding Report | Firecrawl Series B $75M](/en/posts/daily/2026-09-25-funding-firecrawl-en)
-- 📄 [Model Card | Claude Opus 5.5](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
-- 📄 [Product Builder Interview Prep — 2026-09-25: Growth & Experimentation](/en/posts/daily/2026-09-25-product-builder-interview-daily-en)
-- 📄 [Security Alert | MemOS Supply-Chain Attack](/en/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en)
-- 📄 [Tool Pick | petit-poucet](/en/posts/daily/2026-09-25-tool-petit-poucet-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-25: Coding](/posts/daily/2026-09-25-ai-interview-daily-en)
+- 📄 [Framework Update | Mastra @mastra/core@1.69.0](/posts/daily/2026-09-25-framework-mastra-1.69.0-en)
+- 📄 [Funding Report | Chamelio Series A $26M](/posts/daily/2026-09-25-funding-chamelio-en)
+- 📄 [Funding Report | Ema Series B $77M](/posts/daily/2026-09-25-funding-ema-en)
+- 📄 [Funding Report | Firecrawl Series B $75M](/posts/daily/2026-09-25-funding-firecrawl-en)
+- 📄 [Model Card | Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
+- 📄 [Product Builder Interview Prep — 2026-09-25: Growth & Experimentation](/posts/daily/2026-09-25-product-builder-interview-daily-en)
+- 📄 [Security Alert | MemOS Supply-Chain Attack](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en)
+- 📄 [Tool Pick | petit-poucet](/posts/daily/2026-09-25-tool-petit-poucet-en)
 
 ## Watch Tomorrow
 
@@ -174,8 +174,8 @@ I used to think agent supply-chain attacks mostly meant endpoint-layer tricks li
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-09-25](/en/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
-- [AI Agent GitHub Digest — 2026-09-25](/en/posts/daily/2026-09-25-ai-agent-github-digest-en)
+- [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
+- [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest-en)
 - [Anthropic: Introducing Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5)
 - [AWS: GPT-6 Sol and GPT-6 Luna on Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/)
 - [Google: Gemini 3.8 Flash TTS](https://blog.google/innovation-and-ai/models-and-research/gemini-3-8-text-to-speech/)

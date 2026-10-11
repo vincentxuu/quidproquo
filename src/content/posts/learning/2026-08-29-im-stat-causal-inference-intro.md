@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 45 篇：因果推論入�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-causal-inference-intro-en)
+> [English version](/posts/learning/2026-08-29-im-stat-causal-inference-intro-en)
 
 前面談 A/B testing 時，最理想的答案是 randomization：把人隨機分到 control 和 treatment，兩組差異就比較能解讀成改動效果。因果推論處理的是更麻煩的場景：你沒有完美實驗，手上只有觀察資料，卻仍然想回答「這件事有沒有造成結果改變」。
 

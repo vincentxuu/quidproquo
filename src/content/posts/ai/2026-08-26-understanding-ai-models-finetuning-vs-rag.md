@@ -20,7 +20,7 @@ glossary:
     def: "災難性遺忘——fine-tuning 時模型學會新知識但忘掉原本會的東西"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag-en)
 
 你有一堆公司內部文件，想讓模型回答相關問題。你面前有兩條路：把資料餵進去重新訓練（fine-tuning），或是在使用者問問題時即時查資料塞給模型（RAG）。
 

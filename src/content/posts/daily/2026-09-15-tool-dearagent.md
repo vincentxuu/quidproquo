@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-15-tool-dearagent-en)
+> 🌏 [English version](/posts/daily/2026-09-15-tool-dearagent-en)
 
 ## 工具資訊
 

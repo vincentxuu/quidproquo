@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For the choice of semester, see the [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en). The previous stretch is [Lec 1–3](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en).
+This post follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). For the choice of semester, see the [version map](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en). The previous stretch is [Lec 1–3](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en).
 
 The first three lectures covered tools and workflow. Lecture 4 is where the course first needs probability, and the jump is steep. In two weeks you go from clustering to maximum likelihood estimation, multivariate Gaussians and mixture models. The thread through these four lectures is clear, though, because each step fixes a weakness of the one before:
 
@@ -185,15 +185,15 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 
 ## Series navigation
 
-- Previous: [Lec 1–3: ML problem framing, data tools, terminology and techniques](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
-- Next: [Lec 7–10: linear regression, the geometry of least squares, regularization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
-- Series entry: [version map](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
+- Previous: [Lec 1–3: ML problem framing, data tools, terminology and techniques](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
+- Next: [Lec 7–10: linear regression, the geometry of least squares, regularization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
+- Series entry: [version map](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)
 
 ## Further reading
 
-- [Stanford CS109 L19: maximum likelihood estimation](/en/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en): another take on MLE
-- [Stanford CS109 L9: the normal distribution](/en/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en): background on the univariate Gaussian
-- [Stanford CS229 notes Ch. 4: generative learning algorithms](/en/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en): multivariate Gaussians used for classification
+- [Stanford CS109 L19: maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en): another take on MLE
+- [Stanford CS109 L9: the normal distribution](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en): background on the univariate Gaussian
+- [Stanford CS229 notes Ch. 4: generative learning algorithms](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en): multivariate Gaussians used for classification
 
 ## Update Log
 

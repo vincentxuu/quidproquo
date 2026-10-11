@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
+> 🌏 [English version](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
 
 ## 事件概述
 

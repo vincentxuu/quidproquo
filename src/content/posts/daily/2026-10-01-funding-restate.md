@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-01-funding-restate-en)
+> 🌏 [English version](/posts/daily/2026-10-01-funding-restate-en)
 
 ## 融資資訊
 

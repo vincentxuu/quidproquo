@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
+> 🌏 [English version](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
 
 ## 變更摘要
 

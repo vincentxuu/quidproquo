@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 的原生多模態影片生成／編輯模型家族，可同時處理文字、圖片、音訊、影片輸入輸出"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
+> 🌏 [English version](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash-en)
 
 ## 模型資訊
 

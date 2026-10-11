@@ -12,7 +12,7 @@ series:
   order: 69
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-06-funding-valon-en)
+> 🌏 [English version](/posts/daily/2026-10-06-funding-valon-en)
 
 ## 融資資訊
 

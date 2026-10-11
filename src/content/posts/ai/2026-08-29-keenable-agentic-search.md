@@ -18,7 +18,7 @@ description: >-
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-29-keenable-agentic-search-en)
+> 🌏 [English version](/posts/ai/2026-08-29-keenable-agentic-search-en)
 
 台灣團隊做 agent 產品時，多半不會第一天就自己養 web index。真正會遇到的問題比較務實：搜尋要接 Brave、Exa、Tavily、Serper/Google wrapper，還是要多放一個新供應商進 provider matrix？
 

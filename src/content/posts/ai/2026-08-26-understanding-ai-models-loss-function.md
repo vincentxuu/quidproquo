@@ -18,7 +18,7 @@ glossary:
     def: "困惑度，cross-entropy loss 的指數形式——perplexity 為 k 表示模型平均在 k 個選項間猶豫"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-loss-function-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-loss-function-en)
 
 你跟 ChatGPT 說「台灣的首都是」，它回答「台北」。你覺得理所當然。但模型怎麼知道「台北」是對的、「高雄」是錯的？更根本的問題是：在訓練階段，模型怎麼知道自己錯了、錯了多少？
 

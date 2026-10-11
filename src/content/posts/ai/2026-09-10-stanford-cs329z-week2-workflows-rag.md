@@ -17,7 +17,7 @@ description: "帶讀 Stanford CS329Z Week 2 兩篇主讀物：Anthropic Building
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)
+> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

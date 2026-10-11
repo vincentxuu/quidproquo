@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-02-funding-flow-engineering-en)
+> 🌏 [English version](/posts/daily/2026-10-02-funding-flow-engineering-en)
 
 ## 融資資訊
 

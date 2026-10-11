@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database-en)
 
 把 API 搬到 [Cloudflare Workers](https://developers.cloudflare.com/workers/) 後，資料庫通常是第一個卡住的地方。你可能已經有一顆 [Postgres](https://www.postgresql.org/) 或 [MySQL](https://www.mysql.com/) 跑在 AWS、GCP、Azure、Neon、Supabase、PlanetScale、RDS、Aurora。應用程式可以跑在全球邊緣，資料庫卻仍在某個 region。
 

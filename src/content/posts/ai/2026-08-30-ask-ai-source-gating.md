@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-30-ask-ai-source-gating-en)
+> 🌏 [English version](/posts/ai/2026-08-30-ask-ai-source-gating-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配〈[Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)〉與〈[RAG Guardrails：在輸入和輸出加一道防線](/posts/ai/2026-03-12-rag-guardrails)〉。
 

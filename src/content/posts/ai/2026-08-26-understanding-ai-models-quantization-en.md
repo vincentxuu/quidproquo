@@ -28,7 +28,7 @@ That's a 17x gap. Now what?
 
 ## Why Models Are So Large
 
-As we covered in the [training](/en/posts/ai/2026-08-26-understanding-ai-models-training-stages-en) article, a model is essentially a massive collection of numbers (weights). Each weight is stored in FP16 or BF16 during training — 2 bytes per number.
+As we covered in the [training](/posts/ai/2026-08-26-understanding-ai-models-training-stages-en) article, a model is essentially a massive collection of numbers (weights). Each weight is stored in FP16 or BF16 during training — 2 bytes per number.
 
 Simple arithmetic:
 
@@ -107,7 +107,7 @@ GGUF is the format defined by llama.cpp and has become the de facto standard for
 
 Quantization solves the "model itself is too large" problem, but there's another major memory consumer during inference: the **KV cache**.
 
-Recall from the [Transformer architecture](/en/posts/ai/2026-08-26-understanding-ai-models-transformer-en) article that the attention mechanism computes relationships between each token and all preceding tokens. If you recomputed every previous token's Key and Value for each new token, inference time would grow quadratically with conversation length — unusably slow.
+Recall from the [Transformer architecture](/posts/ai/2026-08-26-understanding-ai-models-transformer-en) article that the attention mechanism computes relationships between each token and all preceding tokens. If you recomputed every previous token's Key and Value for each new token, inference time would grow quadratically with conversation length — unusably slow.
 
 The solution is the **KV cache**: store the Key and Value vectors for every layer and every token. When generating the next token, you only compute the new token's Query, then run attention against the cached Keys and Values.
 

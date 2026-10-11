@@ -13,7 +13,7 @@ description: "Neyman-Pearson 觀點入門：alpha、beta、power、likelihood ra
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-neyman-pearson-en)
+> [English version](/posts/learning/2026-08-29-im-stat-neyman-pearson-en)
 
 前面學假設檢定時，我們多半從 p-value 進場。Neyman-Pearson 觀點會把焦點拉到另一個地方：檢定其實是一套決策規則。你要先決定哪些資料結果會讓你拒絕 `H0`，再問這套規則在錯誤風險和檢定力之間表現如何。
 

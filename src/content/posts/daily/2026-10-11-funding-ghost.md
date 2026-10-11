@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-11-funding-ghost-en)
+> 🌏 [English version](/posts/daily/2026-10-11-funding-ghost-en)
 
 ## 融資資訊
 

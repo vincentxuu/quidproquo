@@ -13,7 +13,7 @@ description: "「從零訓練一個 LLM」系列導讀：從 MiniMind 的 $0.4 �
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
+> 🌏 [English version](/posts/ai/2026-09-06-train-llm-from-scratch-series-intro-en)
 
 用 API 接 LLM 跟從零把一個 LLM 訓出來，是同一張地圖上的兩端。前者人人都試過；後者在幾年前還是「大廠限定」的活動——動輒上億美元預算、上千張 GPU。[MiniMind](https://github.com/jingyaogong/minimind) 把這條線拉到了約 $0.4（租一張 RTX 3090 兩小時的成本），另一端由 [LLM360 K2](https://github.com/LLM360/k2-train) 用 65B 參數、1.4T tokens 展示了「完全復現」的工業標準。這篇是「從零訓練一個 LLM」系列（11 篇）的導讀：先定義我們選了什麼專案、為什麼，再擺出成本光譜、覆蓋矩陣與偏誤標註，最後是整條學習路徑。
 

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 51 篇：統計與 ML 評
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-reproducible-workflow-en)
+> [English version](/posts/learning/2026-08-29-im-stat-reproducible-workflow-en)
 
 前面學的公式、檢定、模型和模擬，都有一個共同前提：別人要能追到你的結果怎麼來。若報告只貼一張圖或一個 accuracy，沒有資料版本、清理規則、seed、程式和環境，下一次重跑得到不同結果時，沒人知道差異來自哪裡。
 

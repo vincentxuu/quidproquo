@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is Lecture 2 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: Logical Agents. The previous post ([Lecture 1 guide](/en/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en)) noted that the early part of 07-380 stays in a world without uncertainty. This lecture is the first stop: an agent sees a few clues and has to **prove** a square is safe, not guess.
+This is Lecture 2 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: Logical Agents. The previous post ([Lecture 1 guide](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en)) noted that the early part of 07-380 stays in a world without uncertainty. This lecture is the first stop: an agent sees a few clues and has to **prove** a square is safe, not guess.
 
 Everything below follows the course site and materials as fetched on 2026-09-29.
 
@@ -161,7 +161,7 @@ That is all the slides say, and it is all this post says. For this lecture, Alph
 2. **Forward chaining:** given a KB over symbols like P, W, E, S, C, B, G, count how many times the while loop runs and what it returns; then add W and run it again.
 3. **Wumpus World:** mark squares A–H as safe, unsafe or unsure; write pseudocode with a black-box `PL_SATISFIES` that decides "definitely safe / definitely not safe / unsure"; then match game states to code blocks of the Hybrid-Wumpus-Agent pseudocode from AIMA 3rd ed.
 
-That last exercise is a small version of the [HW1](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) programming assignment.
+That last exercise is a small version of the [HW1](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) programming assignment.
 
 One thing to watch in the [Recitation 1 solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26_sol.pdf): the vocabulary list defines a clause as "a conjunction of literals," but both the PR1 notes and the slide vocabulary define a clause as a **disjunction** (OR) of literals. Go with PR1.
 
@@ -183,7 +183,7 @@ One thing to watch in the [Recitation 1 solutions](https://www.cs.cmu.edu/~07380
 2. Without looking at the solutions, trace forward chaining on Recitation 1 part 2 by hand, recording agenda, count and inferred at each step.
 3. Write a DPLL in under 20 lines. Start with early termination and branching only, then add unit clauses, and compare recursion counts on the same CNF.
 
-Previous: [Lecture 1 guide: Introduction](/en/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en). Next: [HW1 guide: Logic and the Hybrid Wumpus Agent](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en).
+Previous: [Lecture 1 guide: Introduction](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en). Next: [HW1 guide: Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en).
 
 ## Update Log
 

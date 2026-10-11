@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-24-model-meta-muse-spark-1-2-en)
+> 🌏 [English version](/posts/daily/2026-08-24-model-meta-muse-spark-1-2-en)
 
 ## 模型資訊
 

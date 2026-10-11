@@ -32,9 +32,9 @@ glossary:
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
-The first assignment in [CMU 11-768 AI Agents](https://www.cmu-agents.com/) ([series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en)) is **Build an Agent Harness**. The [starter code is on GitHub](https://github.com/cmu-agents/assignment-1), it was due Monday, September 14, 2026 (per the [course's Assignments page](https://www.cmu-agents.com/#/assignments)), and it was written by TAs Weiwei Sun and Saujas Vaduguru. The handout opens with a precise definition: a harness is the interface that lets a language model — something that produces probable strings — **observe and act in an environment**. You build that interface from scratch in the [ReAct](https://arxiv.org/abs/2210.03629) framework.
+The first assignment in [CMU 11-768 AI Agents](https://www.cmu-agents.com/) ([series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en)) is **Build an Agent Harness**. The [starter code is on GitHub](https://github.com/cmu-agents/assignment-1), it was due Monday, September 14, 2026 (per the [course's Assignments page](https://www.cmu-agents.com/#/assignments)), and it was written by TAs Weiwei Sun and Saujas Vaduguru. The handout opens with a precise definition: a harness is the interface that lets a language model — something that produces probable strings — **observe and act in an environment**. You build that interface from scratch in the [ReAct](https://arxiv.org/abs/2210.03629) framework.
 
-What makes the assignment interesting is its structure: one `Agent` base class and one ReAct loop have to carry three very different agents. You see firsthand that a harness's skeleton is generic; only the prompts, tools, and observation formats change with the domain. That is exactly the definition on the [L6 Coding Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) slides: Harness = prompts + tools + agent loop + context management.
+What makes the assignment interesting is its structure: one `Agent` base class and one ReAct loop have to carry three very different agents. You see firsthand that a harness's skeleton is generic; only the prompts, tools, and observation formats change with the domain. That is exactly the definition on the [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) slides: Harness = prompts + tools + agent loop + context management.
 
 This post covers only the requirements, architecture, grading, and design trade-offs, and maps each TODO back to concepts from L1–L6. **It gives no solutions** and shows no TODO implementations.
 
@@ -92,15 +92,15 @@ A detail hides in a footnote: some providers reuse tool call IDs like `call_0`, 
 
 ### 1.2 Run the loop
 
-`Agent.run` is [L1](/en/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)'s definition of an agent made concrete: ask the model for reasoning and actions, extract tool calls, execute them, feed back observations, repeat until done. Completion is signaled by setting `Agent.finished`; exceeding `step_limit` (100 steps by default for CodeAgent, 200 for ChessAgent) raises `StepLimitError`. The rubric row also says "text-only recovery": when the model replies with text and no tool call, the loop must not hang or crash, and you have to decide how to steer it back.
+`Agent.run` is [L1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en)'s definition of an agent made concrete: ask the model for reasoning and actions, extract tool calls, execute them, feed back observations, repeat until done. Completion is signaled by setting `Agent.finished`; exceeding `step_limit` (100 steps by default for CodeAgent, 200 for ChessAgent) raises `StepLimitError`. The rubric row also says "text-only recovery": when the model replies with text and no tool call, the loop must not hang or crash, and you have to decide how to steer it back.
 
 ### 1.3 Execute tools
 
 `CodeAgent` has just two tools: `execute` (run a bash command) and `send_message` (report to the user, which also means submitting). This is the bash-only toolset from L6, the same idea as [mini-SWE-agent](https://mini-swe-agent.com/latest/). The starter's `execute` description is worth reading, because it writes L6's lessons straight into the model-facing text: every command runs in a fresh subshell so `cd` does not persist; read files with `head`, `tail`, or `sed -n` rather than printing them whole; edit with `sed -i` or a heredoc.
 
-The hard requirement: **malformed JSON and unknown tools must become recoverable observations the agent can see and correct, not exceptions**. That is the core of [L2 Tool Use](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) — error messages are feedback for the model.
+The hard requirement: **malformed JSON and unknown tools must become recoverable observations the agent can see and correct, not exceptions**. That is the core of [L2 Tool Use](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) — error messages are feedback for the model.
 
-The starter already does one thing for you: any tool output over 10,000 characters keeps 4,900 characters from each end and replaces the middle with "N characters elided; read a narrower range." That is [L3](/en/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)'s observation truncation, and the notice itself nudges the agent's next action.
+The starter already does one thing for you: any tool output over 10,000 characters keeps 4,900 characters from each end and replaces the middle with "N characters elided; read a narrower range." That is [L3](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en)'s observation truncation, and the notice itself nudges the agent's next action.
 
 ### 1.4 Load skills
 
@@ -113,7 +113,7 @@ You implement the simplest form of **progressive disclosure**:
 - Duplicate names and missing or malformed frontmatter raise a clear `ValueError`.
 - The inverse requirement: **with no skills loaded, nothing in the prompt may mention `patch.txt` or give submission instructions**.
 
-This maps directly to [L4 Skills and Memory](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en). The inverse requirement is good design: it forces the submission protocol to live entirely inside the skill instead of being quietly hard-coded in the system prompt.
+This maps directly to [L4 Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en). The inverse requirement is good design: it forces the submission protocol to live entirely inside the skill instead of being quietly hard-coded in the system prompt.
 
 ### 1.5 Fix the bug
 
@@ -156,7 +156,7 @@ This maps to observation design from L2: what a tool returns directly shapes whi
 
 ### 3.3 `simulate_move`
 
-Add a simulation tool that **never touches the live board**: pass a complete six-field [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) to get that position and its legal moves; add a UCI move to get the position after exactly one ply, for either side. It is the smallest version of [L5 Planning](/en/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)'s "roll it out in a model or simulator before committing," and echoes the world models at the end of L6 — except this simulator is exact.
+Add a simulation tool that **never touches the live board**: pass a complete six-field [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) to get that position and its legal moves; add a UCI move to get the position after exactly one ply, for either side. It is the smallest version of [L5 Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)'s "roll it out in a model or simulator before committing," and echoes the world models at the end of L6 — except this simulator is exact.
 
 ### 3.4 `run_python`
 
@@ -219,11 +219,11 @@ The assignment depends on Modal and course-provided model credits; outside the c
 
 ## Further reading
 
-- Previous in series: [L6 Coding Agents](/en/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
-- On this site: [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
-- On this site: [Context compaction in coding agents](/en/posts/ai/2026-08-25-coding-agent-context-compaction-en)
-- On this site: [Code mode in coding agents](/en/posts/ai/2026-08-25-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
-- On this site: [Hooks, skills, and plugins in coding agents](/en/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
+- Previous in series: [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
+- On this site: [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en)
+- On this site: [Context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
+- On this site: [Code mode in coding agents](/posts/ai/2026-08-25-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
+- On this site: [Hooks, skills, and plugins in coding agents](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
 
 ## Update Log
 

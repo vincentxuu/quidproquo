@@ -89,6 +89,6 @@ I used to assume a failed schema migration usually meant "quietly keeps running 
 
 - [Agno v3.1.0 — GitHub Release](https://github.com/agno-agi/agno/releases/tag/v3.1.0)
 - [agno-agi/agno — GitHub](https://github.com/agno-agi/agno)
-- [Agno v3.0.10 — previous framework update](/en/posts/daily/2026-09-17-framework-agno-3.0.10-en)
+- [Agno v3.0.10 — previous framework update](/posts/daily/2026-09-17-framework-agno-3.0.10-en)
 - [PR #10530: feat v3.1 (RBAC authz, filesystem, filesystem table migration)](https://github.com/agno-agi/agno/pull/10530)
 - [PR #10499: Make MCPConfig default and lifecycle tools opt-in](https://github.com/agno-agi/agno/pull/10499)

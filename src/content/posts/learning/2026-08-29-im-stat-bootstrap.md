@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 32 篇：不知道公式�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-bootstrap-en)
+> [English version](/posts/learning/2026-08-29-im-stat-bootstrap-en)
 
 有些統計量很好算，抽樣分布卻很難推。平均數還有熟悉的標準誤公式；中位數、F1、模型 win rate、兩模型分數差、複雜 ratio，就沒有那麼順手。
 

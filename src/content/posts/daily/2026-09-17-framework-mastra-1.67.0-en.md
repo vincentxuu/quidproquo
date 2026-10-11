@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous release (1.65.0)](/en/posts/daily/2026-09-10-framework-mastra-1.65.0-en) was about making trace data queryable, deletable, and tenant-scoped. 1.67 pushes a step further: it starts turning "generating a workflow" and "wiring up a third-party service" — things a human previously had to do by hand — into capabilities the agent itself can perform. The Studio Workflow Builder backend gives the editor a hidden, editor-owned agent that reads and writes persisted workflow definitions directly: a developer describes the desired flow in natural language, and the agent produces a workflow that's actually runnable, not just a code snippet. `@mastra/connect` solves the older problem of "an agent that wants to call a third-party API has to manage its own pile of API keys" by wrapping Mastra Platform's already-connected integrations as agent tools; credentials are injected by the platform's connection proxy and refreshed automatically, and the agent's code never touches the secret itself. Combined with thread ownership transfer and finer-grained background task execution, this release fills in a substantial chunk of the infrastructure needed for multi-agent, multi-thread collaboration.
+[The previous release (1.65.0)](/posts/daily/2026-09-10-framework-mastra-1.65.0-en) was about making trace data queryable, deletable, and tenant-scoped. 1.67 pushes a step further: it starts turning "generating a workflow" and "wiring up a third-party service" — things a human previously had to do by hand — into capabilities the agent itself can perform. The Studio Workflow Builder backend gives the editor a hidden, editor-owned agent that reads and writes persisted workflow definitions directly: a developer describes the desired flow in natural language, and the agent produces a workflow that's actually runnable, not just a code snippet. `@mastra/connect` solves the older problem of "an agent that wants to call a third-party API has to manage its own pile of API keys" by wrapping Mastra Platform's already-connected integrations as agent tools; credentials are injected by the platform's connection proxy and refreshed automatically, and the agent's code never touches the secret itself. Combined with thread ownership transfer and finer-grained background task execution, this release fills in a substantial chunk of the infrastructure needed for multi-agent, multi-thread collaboration.
 
 ## Key Changes
 
@@ -89,7 +89,7 @@ I used to assume the standard way for an agent to call a third-party API was to 
 
 - [Mastra @mastra/core@1.67.0 — GitHub Release](https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fcore%401.67.0)
 - [mastra-ai/mastra — GitHub](https://github.com/mastra-ai/mastra)
-- [Mastra @mastra/core@1.65.0 — previous framework update](/en/posts/daily/2026-09-10-framework-mastra-1.65.0-en)
+- [Mastra @mastra/core@1.65.0 — previous framework update](/posts/daily/2026-09-10-framework-mastra-1.65.0-en)
 - [PR #23493: Studio Workflow Builder backend](https://github.com/mastra-ai/mastra/pull/23493)
 - [PR #23026: per-call background execution dispositions](https://github.com/mastra-ai/mastra/pull/23026)
 - [PR #21986: experimental cross-agent communication tools](https://github.com/mastra-ai/mastra/pull/21986)

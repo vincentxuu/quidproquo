@@ -36,9 +36,9 @@ glossary:
 
 Lecture 3 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 1; [slides](https://www.cmu-agents.com/slides/lecture-03-long-context.pdf), [recording](https://www.youtube.com/watch?v=AiwCCvFW1uE)) is Graham Neubig again. He says he almost titled it "context management for long-context LLMs," since most of the material is general LLM territory. But long context is critical for agents and basic LLM courses often skim it, so he goes into detail and surveys the architectures recent open models use to handle very long contexts.
 
-The problem is easy to state: every tool call from [last lecture](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) grows the history, and the next call sends the whole history to the model again. The lecture asks two questions: can the model **use** input this long (capacity), and can the system **afford** it (efficiency)?
+The problem is easy to state: every tool call from [last lecture](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) grows the history, and the next call sends the whole history to the model again. The lecture asks two questions: can the model **use** input this long (capacity), and can the system **afford** it (efficiency)?
 
-**How to read this post**: the lecture has two layers. The model layer covers attention architectures, position encoding, and training data — the concern of people who build models. The harness layer covers prompt caching and compaction — what anyone writing an agent deals with every day. If you build agents but don't train models, you can skip ahead to "The harness layer." Every model-layer section opens with the intuition and tucks formulas into collapsible blocks. For background on attention and inference, the site's [CS336 Lecture 4: Attention and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en) and [CS336 Lecture 10: Inference](/en/posts/ai/2026-08-22-cs336-inference-en) are good prerequisites.
+**How to read this post**: the lecture has two layers. The model layer covers attention architectures, position encoding, and training data — the concern of people who build models. The harness layer covers prompt caching and compaction — what anyone writing an agent deals with every day. If you build agents but don't train models, you can skip ahead to "The harness layer." Every model-layer section opens with the intuition and tucks formulas into collapsible blocks. For background on attention and inference, the site's [CS336 Lecture 4: Attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en) and [CS336 Lecture 10: Inference](/posts/ai/2026-08-22-cs336-inference-en) are good prerequisites.
 
 ## Course video sources
 
@@ -442,7 +442,7 @@ Against the lecturer's claim: "good tools deliberately avoid dropping the beginn
 
 Neubig told an early OpenHands story. They believed they had built one of the first industrial-grade compaction algorithms and spent about a month tuning it on [SWE-bench](https://www.swebench.com/): no score drop, lots of tokens saved. In production it started doing silly things: opening a new pull request after every compaction because it forgot it had already opened one, so the same feature got five PRs; and forgetting instructions the user added mid-conversation, because the benchmark only had single-message tasks. The lesson: unless your benchmark truly covers every use case, test under real conditions too.
 
-**In [A1](/en/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)**: Part 2 has you implement model-generated working memory in the shared `Agent` (no provider compaction endpoint): summarize only an old prefix, keep the system and task messages verbatim, retain at least the latest complete assistant action with its linked tool observations, then compare token usage with and without compaction and write up the tradeoffs.
+**In [A1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)**: Part 2 has you implement model-generated working memory in the shared `Agent` (no provider compaction endpoint): summarize only an old prefix, keep the system and task messages verbatim, retain at least the latest complete assistant action with its linked tool observations, then compare token usage with and without compaction and write up the tradeoffs.
 
 ## Q&A after class
 
@@ -465,15 +465,15 @@ The schedule lists no required reading for this lecture, only a long reference l
 
 ## Where it sits in the course
 
-[L2](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) taught the agent to use tools; L3 deals with the context blowing up once it does. Next, [L4](/en/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) covers Skills and Memory, which Neubig describes as "an even longer context, across your entire working time."
+[L2](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) taught the agent to use tools; L3 deals with the context blowing up once it does. Next, [L4](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) covers Skills and Memory, which Neubig describes as "an even longer context, across your entire working time."
 
 ## Further reading
 
-- [Reading CMU 11-768: series overview](/en/posts/ai/2026-09-29-cmu-11768-course-overview-en): a map of the whole course and index of posts
-- [CS336 Lecture 4: attention variants and MoE](/en/posts/ai/2026-08-22-cs336-attention-moe-en): prerequisite for this post's model layer
-- [CS336 Lecture 10: inference is about reading less weight and KV cache](/en/posts/ai/2026-08-22-cs336-inference-en): prefill/decode and the KV cache from a systems view
-- [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/en/posts/ai/2026-03-24-context-engineering-guide-en): practical notes for the harness layer
-- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/en/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): another take on MemGPT's external memory
+- [Reading CMU 11-768: series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en): a map of the whole course and index of posts
+- [CS336 Lecture 4: attention variants and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en): prerequisite for this post's model layer
+- [CS336 Lecture 10: inference is about reading less weight and KV cache](/posts/ai/2026-08-22-cs336-inference-en): prefill/decode and the KV cache from a systems view
+- [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en): practical notes for the harness layer
+- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): another take on MemGPT's external memory
 
 ## Update Log
 

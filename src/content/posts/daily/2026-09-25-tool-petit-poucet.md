@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-25-tool-petit-poucet-en)
+> 🌏 [English version](/posts/daily/2026-09-25-tool-petit-poucet-en)
 
 ## 工具資訊
 

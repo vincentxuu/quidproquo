@@ -13,7 +13,7 @@ description: "ANOVA 入門：從多組平均比較、組間與組內變異、F �
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-anova-en)
+> [English version](/posts/learning/2026-08-29-im-stat-anova-en)
 
 三組以上平均數比較時，直覺做法很容易變成一連串兩兩 t 檢定：A 對 B、A 對 C、B 對 C。三組還算少，五組就有十組比較。每一次檢定都有犯第一型錯誤的風險，檢定越做越多，整體誤判的機會也跟著升高。
 

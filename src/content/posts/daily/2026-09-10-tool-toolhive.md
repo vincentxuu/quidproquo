@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-10-tool-toolhive-en)
+> 🌏 [English version](/posts/daily/2026-09-10-tool-toolhive-en)
 
 ## 工具資訊
 

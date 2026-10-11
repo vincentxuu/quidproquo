@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-taiwan-creator-platform-choice-en)
+> 🌏 [English version](/posts/product/2026-09-17-taiwan-creator-platform-choice-en)
 
 想像你要開始賣手作甜點。夜市攤位開張快，旁邊本來就有人逛，但場地規則和人流不由你決定。百貨櫃位多了收銀、會員與宣傳，代價是抽成和更完整的規範。自己的店面能保留招牌、熟客名單與動線，水電、保全、收款和把人帶到門口也都要自己顧。
 

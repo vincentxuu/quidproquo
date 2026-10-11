@@ -14,7 +14,7 @@ description: "CMU 07-380 Fall 2026 Lecture 6 Integer Programming 導讀：IP 與
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
+> 🌏 [English version](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

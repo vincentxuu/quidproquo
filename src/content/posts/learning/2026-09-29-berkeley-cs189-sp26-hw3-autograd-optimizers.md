@@ -23,7 +23,7 @@ glossary:
     context: "HW3 第 3 題以 ridge regression 為例，並比較它與「展開 T 步 GD 再反向傳播」的記憶體成本。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

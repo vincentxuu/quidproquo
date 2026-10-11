@@ -14,7 +14,7 @@ description: "導讀 Berkeley CS189 Spring 2026 Lecture 1–3 與 Discussion 1�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

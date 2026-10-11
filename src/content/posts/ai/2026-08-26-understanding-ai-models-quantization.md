@@ -20,7 +20,7 @@ glossary:
     def: "推論時暫存每個 token 的 Key 和 Value 向量，避免重複計算——對話越長，佔用的 VRAM 越多"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
+> 🌏 [English version](/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
 
 你想在自己的筆電上跑 Llama 3 70B。打開規格一看：700 億個參數，每個參數用 FP16（16-bit 浮點數）儲存，需要 **140GB VRAM**。你的 GPU 有 8GB。
 

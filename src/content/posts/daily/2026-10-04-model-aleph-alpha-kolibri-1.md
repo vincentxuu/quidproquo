@@ -15,7 +15,7 @@ glossary:
     def: "Aleph Alpha 開發的德英雙語 MoE reasoning 模型家族，主打歐洲「主權 AI」（sovereign AI）與受監管產業部署"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
+> 🌏 [English version](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
 
 ## 模型資訊
 

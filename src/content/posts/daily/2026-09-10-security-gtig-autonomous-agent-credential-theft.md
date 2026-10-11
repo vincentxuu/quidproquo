@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft-en)
+> 🌏 [English version](/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft-en)
 
 ## 事件概述
 

@@ -80,7 +80,7 @@ The `official-first` pack deliberately has no built-in allowlist of names that "
 
 ## Comparison With Existing Approaches
 
-TrustDex looks like it solves the same problem as [mcp-guardrail](/en/posts/daily/2026-08-25-tool-mcp-guardrail-en), which we covered earlier, but the timing is different: mcp-guardrail is a persistent proxy sitting between client and server that decides at call time; TrustDex is a one-shot CLI that decides whether the tool should be visible to the agent at all.
+TrustDex looks like it solves the same problem as [mcp-guardrail](/posts/daily/2026-08-25-tool-mcp-guardrail-en), which we covered earlier, but the timing is different: mcp-guardrail is a persistent proxy sitting between client and server that decides at call time; TrustDex is a one-shot CLI that decides whether the tool should be visible to the agent at all.
 
 | | TrustDex | mcp-guardrail (runtime call-interception proxy) | Manual eyeballing of the config |
 |---|---|---|---|
@@ -105,4 +105,4 @@ Tools we've covered before — mcp-guardrail, Sovereign MCP, mcp-spend-guard, ag
 - [grigent/trustdex GitHub repo](https://github.com/grigent/trustdex): full README, covering install steps, the CLI command surface, policy pack behavior, and the trust-store format — the primary source for this article's technical detail.
 - [TrustDex docs/THREAT_MODEL.md](https://raw.githubusercontent.com/grigent/trustdex/main/docs/THREAT_MODEL.md): explicitly lists in-scope and out-of-scope threats, used to verify the protection boundaries described in the Caveats section.
 - [TrustDex package.json](https://raw.githubusercontent.com/grigent/trustdex/main/package.json): used to confirm the MIT license, the Node ≥20 requirement, and the zero-runtime-dependency claim.
-- [mcp-guardrail tool pick (quidproquo)](/en/posts/daily/2026-08-25-tool-mcp-guardrail-en): the comparison point in this article's "Comparison With Existing Approaches" section — also MCP security, but at a different point in time.
+- [mcp-guardrail tool pick (quidproquo)](/posts/daily/2026-08-25-tool-mcp-guardrail-en): the comparison point in this article's "Comparison With Existing Approaches" section — also MCP security, but at a different point in time.

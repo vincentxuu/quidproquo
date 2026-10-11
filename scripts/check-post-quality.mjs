@@ -47,7 +47,6 @@ function buildKnownPostRoutes() {
   for (const file of files) {
     const relative = path.relative(POSTS_ROOT, file).replace(/\\/g, '/').replace(/\.md$/, '');
     routes.add(`/posts/${relative}`);
-    routes.add(`/en/posts/${relative}`);
   }
 
   return routes;

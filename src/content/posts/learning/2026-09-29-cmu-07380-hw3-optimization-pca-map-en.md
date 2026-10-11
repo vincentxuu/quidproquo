@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-HW3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) closes the course's optimization block: [Lecture 5 on LP](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en), [Lecture 6 on integer programming](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en), [Lecture 7 on PCA](/en/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en), plus the just-started [Lecture 8 on MAP](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en). Per the Assignments table on 2026-09-29, it is due **Thursday 10/1 at 11:59 pm**.
+HW3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) closes the course's optimization block: [Lecture 5 on LP](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en), [Lecture 6 on integer programming](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en), [Lecture 7 on PCA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en), plus the just-started [Lecture 8 on MAP](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en). Per the Assignments table on 2026-09-29, it is due **Thursday 10/1 at 11:59 pm**.
 
 The assignment is not yet due, and the course's AI Tools and Collaboration Policy forbids viewing or sharing any artifact that will be submitted (code, pseudocode, diagrams, text). So this guide does only three things: explain what each problem tests, point to the material to review, and flag where people get stuck. **It contains no answers.** Enrolled students should not treat it as a solution source.
 
@@ -44,7 +44,7 @@ The site lists three parts for HW3:
 
 `hw3.zip` contains `hw3.tex`, one `.tex` per problem (`q1_ip`, `q2_ethics`, `q3_pca`, `q4_map`), a collaboration statement `q_collaboration.tex`, and two figures for the PCA problem. I cannot see the online questions, so I skip them.
 
-On this site's [A0–A3 scale](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en), the written and programming parts are both public and come with a local autograder, so an outside learner can practice fully (A3). There are no official solutions, though, and no Gradescope feedback.
+On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the written and programming parts are both public and come with a local autograder, so an outside learner can practice fully (A3). There are no official solutions, though, and no Gradescope feedback.
 
 ## Programming: from vertex enumeration to branch and bound
 
@@ -82,7 +82,7 @@ Pat is packing for Hawaii with a suitcase holding only sunscreen and Tantrum ene
 
 ### Q5: branch and bound
 
-This corresponds to [Lecture 6](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en), and the pseudocode is in the [branch and bound section of the course notes](https://www.cs.cmu.edu/~07380/notes/linearprog/index.html#branchbound). The notes' procedure:
+This corresponds to [Lecture 6](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en), and the pseudocode is in the [branch and bound section of the course notes](https://www.cs.cmu.edu/~07380/notes/linearprog/index.html#branchbound). The notes' procedure:
 
 1. Solve the LP relaxation and push the solution into a priority queue ordered by objective value.
 2. Repeatedly pop the best candidate. If it is all integers, return it. Otherwise pick a non-integer coordinate `x_i` and create two subproblems, `x_i ≤ floor(x_i)` and `x_i ≥ ceil(x_i)`, pushing only the feasible ones.
@@ -114,7 +114,7 @@ python3 autograder.py -t test_cases/q1/test2D_1
 python3 autograder.py -q q1 --no-graphics
 ```
 
-For 2-D test cases, the autograder draws the constraints, the feasible region, and your intersections (shown as ghosts) in a Pacman display, which helps a lot with debugging. The page credits the graphics to UC Berkeley's Pacman AI projects; for how Berkeley CS188 and CMU 15-281 share that material, see [the Pacman project lineage](/en/posts/learning/2026-08-22-pacman-ai-project-lineage-en). Local runs do not record grades. Enrolled students submit `optimization.py` to Gradescope.
+For 2-D test cases, the autograder draws the constraints, the feasible region, and your intersections (shown as ghosts) in a Pacman display, which helps a lot with debugging. The page credits the graphics to UC Berkeley's Pacman AI projects; for how Berkeley CS188 and CMU 15-281 share that material, see [the Pacman project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en). Local runs do not record grades. Enrolled students submit `optimization.py` to Gradescope.
 
 ## Written: four problems, one skill each
 
@@ -129,7 +129,7 @@ Details worth noticing when you read the problems (all are rules stated in the p
 
 - **Problem 1's branch-and-bound table**: each row is one depth of the tree. Branch left with `x_i ≤ ⌊v⌋` and right with `x_i ≥ ⌈v⌉`. If both coordinates are non-integer, branch on x₁ first. Each cell lists all constraints added to the original problem, and an infeasible branch is written as "infeasible." The rules are precise; follow them and don't invent your own format.
 - **Problem 3's SVD**: keep the matrix dimensions as small as possible, and normalize so each column of the left matrix and each row of the right matrix has L2 norm 1, which makes grading easier. First answer whether X is centered. That step affects everything after it.
-- **Problem 4**: the setup has no bias term, each weight is independently `Laplace(0, b)`, and you must write the Gaussian out in full rather than stopping at shorthand like `N(...)`. The [Lecture 8 guide](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en) derives the Gaussian-prior-to-L2 version. The Laplace version has the same structure, except the log gives you an absolute value.
+- **Problem 4**: the setup has no bias term, each weight is independently `Laplace(0, b)`, and you must write the Gaussian out in full rather than stopping at shorthand like `N(...)`. The [Lecture 8 guide](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en) derives the Gaussian-prior-to-L2 version. The Laplace version has the same structure, except the log gives you an absolute value.
 
 Finally there is a collaboration statement: whether you received or gave help, and whether you saw code implementing any part of the assignment. Answer honestly.
 
@@ -143,7 +143,7 @@ Finally there is a collaboration statement: whether you received or gave help, a
 
 The "What Now?" section at the end of the programming page recommends [Google OR-Tools](https://developers.google.com/optimization) and [Gurobi](https://www.gurobi.com/). After you finish your own vertex-enumeration solver, re-solve Q6 with OR-Tools. The gap between a teaching solver and an industrial one becomes very concrete.
 
-The previous post is [Lecture 8 on MAP](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en), and the next is [Lecture 9 on generative models](/en/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en).
+The previous post is [Lecture 8 on MAP](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en), and the next is [Lecture 9 on generative models](/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en).
 
 ## Things to do tonight
 
@@ -165,4 +165,4 @@ The previous post is [Lecture 8 on MAP](/en/posts/learning/2026-09-29-cmu-07380-
 - [07-380 Notes: Linear and Integer Programming (branch and bound)](https://www.cs.cmu.edu/~07380/notes/linearprog/index.html#branchbound)
 - [Vice: Amazon's Cost Saving Routing Algorithm Makes Drivers Walk Into Traffic](https://www.vice.com/en/article/amazons-cost-saving-routing-algorithm-makes-drivers-walk-into-traffic/)
 - [Google OR-Tools](https://developers.google.com/optimization)
-- [CMU 07-380 Fall 2026 Overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)

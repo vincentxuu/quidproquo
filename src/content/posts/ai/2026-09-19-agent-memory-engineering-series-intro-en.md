@@ -37,12 +37,12 @@ This series covers the full design space of agent memory in ten posts.
 |---|---|---|
 | **0 (this post)** | Series guide | Problem framing and reading map |
 | **1** | Four memory types and six design axes | A taxonomy — CoALA's four memory categories and six independent design axes (retrieval mode, write timing, fidelity, write-access ownership, forgetting mechanism, scope) for describing any memory system's design choices |
-| **2** | [Seven Answers to a Full Context Window, and No Consensus](/en/posts/ai/2026-08-21-context-full-seven-answers-en) | Short-term memory (working memory) — comparing context management strategies across Anthropic, Amp, Cursor, Manus, and five other vendors |
+| **2** | [Seven Answers to a Full Context Window, and No Consensus](/posts/ai/2026-08-21-context-full-seven-answers-en) | Short-term memory (working memory) — comparing context management strategies across Anthropic, Amp, Cursor, Manus, and five other vendors |
 | **3** | How six coding agents remember things | Long-term memory, tool side — memory design and trade-offs in Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, and Devin |
 | **4** | Memory APIs across five clouds | Long-term memory, platform side — dissecting OpenAI Agents SDK, Anthropic Managed Agents, Google Memory Bank, AWS AgentCore, and Microsoft Foundry |
 | **5** | Choosing an open-source memory framework | Long-term memory, open-source side — positioning and selection criteria for Mem0, Zep/Graphiti, Letta, LangGraph, LlamaIndex Memory, Cognee, and Supermemory |
-| **6** | [Mem0 Complete Guide](/en/posts/ai/2026-08-22-mem0-agent-memory-en) | Deep dive — representative of the vector-extraction approach, from write pipeline to tenant isolation |
-| **7** | [OpenViking: Agent Memory as a Virtual Filesystem](/en/posts/ai/2026-08-22-openviking-agent-memory-en) | Deep dive — representative of the filesystem approach, three-tier loading averaging 550 tokens per retrieval |
+| **6** | [Mem0 Complete Guide](/posts/ai/2026-08-22-mem0-agent-memory-en) | Deep dive — representative of the vector-extraction approach, from write pipeline to tenant isolation |
+| **7** | [OpenViking: Agent Memory as a Virtual Filesystem](/posts/ai/2026-08-22-openviking-agent-memory-en) | Deep dive — representative of the filesystem approach, three-tier loading averaging 550 tokens per retrieval |
 | **8** | The attack surface of agent memory | Security — SpAIware persistent exfiltration, MINJA conversational injection (>95% success rate), Bedrock memory poisoning, and the two defensive approaches the industry has adopted |
 | **9** | Where agent memory systems are headed in 2026 | Trends — files beating vectors, write access returning to humans, Dreaming as the new keyword, and the reality of broken benchmarks |
 
@@ -59,9 +59,9 @@ This series covers the full design space of agent memory in ten posts.
 
 ## What this series does not cover
 
-- RAG retrieval strategies and chunking details — that is a separate topic; for where personalized RAG intersects with memory, see [RAG Personalization: Learning User Preferences from Conversations](/en/posts/ai/2026-03-12-memory-personalization-en)
+- RAG retrieval strategies and chunking details — that is a separate topic; for where personalized RAG intersects with memory, see [RAG Personalization: Learning User Preferences from Conversations](/posts/ai/2026-03-12-memory-personalization-en)
 - Model-architecture-level memory (Titans, MIRAS, and similar research on building memory modules inside the model) — this series focuses on system-level memory engineering
-- Low-level session persistence (JSONL formats, crash recovery) — that is covered in [Session Persistence and Crash Recovery](/en/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
+- Low-level session persistence (JSONL formats, crash recovery) — that is covered in [Session Persistence and Crash Recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
 
 ## A spoiler
 
@@ -80,8 +80,8 @@ Start with the taxonomy in post 1.
 - [Anthropic — Effective context engineering for AI agents (2025-09)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
 - [OpenAI — Building reliable agents: memory & compaction cookbook (2026-05-01)](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction)
 - [Letta — Context Repositories / Next Phase blog (2026-02/03)](https://www.letta.com/blog)
-- [Seven Answers to a Full Context Window](/en/posts/ai/2026-08-21-context-full-seven-answers-en)
-- [Mem0 Complete Guide](/en/posts/ai/2026-08-22-mem0-agent-memory-en)
-- [OpenViking: Agent Memory as a Virtual Filesystem](/en/posts/ai/2026-08-22-openviking-agent-memory-en)
-- [RAG Personalization: Learning User Preferences from Conversations](/en/posts/ai/2026-03-12-memory-personalization-en)
-- [Session Persistence and Crash Recovery](/en/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
+- [Seven Answers to a Full Context Window](/posts/ai/2026-08-21-context-full-seven-answers-en)
+- [Mem0 Complete Guide](/posts/ai/2026-08-22-mem0-agent-memory-en)
+- [OpenViking: Agent Memory as a Virtual Filesystem](/posts/ai/2026-08-22-openviking-agent-memory-en)
+- [RAG Personalization: Learning User Preferences from Conversations](/posts/ai/2026-03-12-memory-personalization-en)
+- [Session Persistence and Crash Recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)

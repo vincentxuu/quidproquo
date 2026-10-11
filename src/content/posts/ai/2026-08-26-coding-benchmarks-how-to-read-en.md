@@ -48,7 +48,7 @@ Per the [Terminal-Bench 2.1 announcement](https://www.tbench.ai/news/terminal-be
 
 ### Harness-Dependent Score Differences
 
-This is the easiest source of misreadings. Take [Ornith 1.5-35B](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) as an example:
+This is the easiest source of misreadings. Take [Ornith 1.5-35B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) as an example:
 
 | Harness | Terminal-Bench 2.1 Score |
 |---|---|
@@ -67,7 +67,7 @@ Key differences from SWE-bench:
 - **Genuinely hard**: prompts are ~half the length of SWE-bench Pro's, yet solutions require 5.5× more code and ~2× more output tokens
 - **Behavioral verification**: tests check software behavior rather than implementation details
 
-Per the official DeepSWE leaderboard (2026-08-20), the top score is Claude Opus 5 at 74%. [MiniMax M2.5](/en/posts/tech/2026-08-26-minimax-model-family-en) scores 22%, [Ornith 1.5-35B](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) also 22% — while same-class models Qwen3.6-35B and Gemma 4-31B score zero. DeepSWE's discrimination power far exceeds saturated benchmarks.
+Per the official DeepSWE leaderboard (2026-08-20), the top score is Claude Opus 5 at 74%. [MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family-en) scores 22%, [Ornith 1.5-35B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en) also 22% — while same-class models Qwen3.6-35B and Gemma 4-31B score zero. DeepSWE's discrimination power far exceeds saturated benchmarks.
 
 ## Aider Polyglot: The Most Practical Benchmark
 
@@ -81,7 +81,7 @@ SWE-bench tests "here's a bug report, fix it." Aider tests "given existing code,
 
 ## LiveCodeBench: Competitive Programming ≠ Software Engineering
 
-[LiveCodeBench](https://livecodebench.github.io/) uses LeetCode/Codeforces-level competitive programming problems. [Nous Research's NousCoder-14B](/en/posts/tech/2026-08-26-nous-research-hermes-en) scored 67.87% Pass@1 on LiveCodeBench v6.
+[LiveCodeBench](https://livecodebench.github.io/) uses LeetCode/Codeforces-level competitive programming problems. [Nous Research's NousCoder-14B](/posts/tech/2026-08-26-nous-research-hermes-en) scored 67.87% Pass@1 on LiveCodeBench v6.
 
 **Key caveat**: competitive programming and software engineering are different skills. Competitive programming tests algorithm design and edge-case handling; software engineering tests understanding large codebases, cross-file modifications, and test framework interaction. A model strong on LiveCodeBench but weak on SWE-bench is entirely possible.
 
@@ -125,6 +125,6 @@ One final piece of advice: **never judge a model by a single benchmark**. A mode
 - [DeepSWE Paper — arXiv:2607.07946](https://arxiv.org/abs/2607.07946)
 - [Aider Polyglot Leaderboard](https://aider.chat/docs/leaderboards)
 - [Artificial Analysis Terminal-Bench 2.1 Evaluation](https://artificialanalysis.ai/evaluations/terminalbench-v2-1)
-- [Ornith Model Family Deep Dive](/en/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en)
-- [MiniMax Model Family Deep Dive](/en/posts/tech/2026-08-26-minimax-model-family-en)
-- [Nous Research Model Family Deep Dive](/en/posts/tech/2026-08-26-nous-research-hermes-en)
+- [Ornith Model Family Deep Dive](/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en)
+- [MiniMax Model Family Deep Dive](/posts/tech/2026-08-26-minimax-model-family-en)
+- [Nous Research Model Family Deep Dive](/posts/tech/2026-08-26-nous-research-hermes-en)

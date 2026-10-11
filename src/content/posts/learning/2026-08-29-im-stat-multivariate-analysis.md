@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 48 篇：多變量分析�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-multivariate-analysis-en)
+> [English version](/posts/learning/2026-08-29-im-stat-multivariate-analysis-en)
 
 前面學過平均、變異、相關、迴歸。那些工具常把變數一個一個拿出來看。多變量分析處理的是另一種情境：特徵很多，而且它們一起變動。
 

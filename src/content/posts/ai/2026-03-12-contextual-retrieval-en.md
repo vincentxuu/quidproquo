@@ -197,7 +197,7 @@ Contextual Retrieval addresses a root-level problem in RAG systems: chunking des
 
 "Garbage in, garbage out" is the most common cause of RAG system failures. Contextual Retrieval ensures that every chunk entering the index is a **meaningful unit of information**, not just a truncated fragment of text.
 
-An alternative that avoids LLM cost entirely is [Hierarchical Chunking + Auto-Merge](/en/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en): using structural design (multi-granularity indexing + automatic merging) rather than LLM calls to restore context.
+An alternative that avoids LLM cost entirely is [Hierarchical Chunking + Auto-Merge](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge-en): using structural design (multi-granularity indexing + automatic merging) rather than LLM calls to restore context.
 
 ## Changelog
 

@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-11-funding-meticulous-en)
+> 🌏 [English version](/posts/daily/2026-10-11-funding-meticulous-en)
 
 ## 融資資訊
 

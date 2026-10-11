@@ -14,7 +14,7 @@ description: "CMU 07-380 AI & ML II Fall 2026 第一講導讀：Pat Virtue 的�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en)
+> 🌏 [English version](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

@@ -182,4 +182,4 @@ Change `ToolGroupBlock.action_updated()`'s `self.collapsed = True` to a no-op, o
 - [Pi](https://github.com/badlogic/pi-mono) — Coding agent with custom Node.js TUI framework
 - [OMP (Oh-My-Pi)](https://github.com/can1357/oh-my-pi) — Pi fork, same renderCall/renderResult architecture
 - [Textual](https://textual.textualize.io/) — Python TUI framework used by looplane
-- [Learning from Mature Coding Agents (15): From Full-Screen TUI to Semantic Transcript](/en/posts/ai/2026-08-25-coding-agent-tui-to-transcript-en) — Previous TUI post in this series
+- [Learning from Mature Coding Agents (15): From Full-Screen TUI to Semantic Transcript](/posts/ai/2026-08-25-coding-agent-tui-to-transcript-en) — Previous TUI post in this series

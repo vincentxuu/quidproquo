@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-21-tool-session-relay-en)
+> 🌏 [English version](/posts/daily/2026-09-21-tool-session-relay-en)
 
 ## 工具資訊
 

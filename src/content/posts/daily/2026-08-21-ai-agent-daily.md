@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-21-ai-agent-daily-en)
+> 🌏 [English version](/posts/daily/2026-08-21-ai-agent-daily-en)
 
 ## 一句話判斷
 

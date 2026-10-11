@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-16-pricing-deepseek-v4-peak-off-peak-hike-en)
+> 🌏 [English version](/posts/daily/2026-08-16-pricing-deepseek-v4-peak-off-peak-hike-en)
 
 ## 變更摘要
 

@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 44 篇：A/B testing 怎�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-ab-testing-en)
+> [English version](/posts/learning/2026-08-29-im-stat-ab-testing-en)
 
 A/B testing 是統計推論進到產品決策後最常見的形式。你要回答的是：新版平均分數較高，是否真的來自改動？效果有多大？不確定性多高？副作用能不能接受？
 

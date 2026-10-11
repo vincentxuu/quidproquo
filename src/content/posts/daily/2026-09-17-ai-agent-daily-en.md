@@ -22,11 +22,11 @@ series:
 
 I think the most important thing to connect today is that three independent events all prove the same point: the "cheap signals" the industry has been using to skip verification costs are failing all at once.
 
-Forever Security's disclosure of the BragJack attack is the first piece of evidence. Five browser-native AI agents — Chrome, Edge, Comet, Opera Neon, and Claude in Chrome — all used "which domain did this instruction come from" as their trust criterion, the cheapest verification method available. It turned out a browser extension needing only two commonplace permissions could impersonate that trusted source and issue complete instructions to the agent. Chrome and Edge are patched; the other three still have no fix timeline. ([Full BragJack analysis](/en/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en))
+Forever Security's disclosure of the BragJack attack is the first piece of evidence. Five browser-native AI agents — Chrome, Edge, Comet, Opera Neon, and Claude in Chrome — all used "which domain did this instruction come from" as their trust criterion, the cheapest verification method available. It turned out a browser extension needing only two commonplace permissions could impersonate that trusted source and issue complete instructions to the agent. Chrome and Edge are patched; the other three still have no fix timeline. ([Full BragJack analysis](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en))
 
-Today's [Arxiv Digest](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) confirms the same logic from another angle: in a viral agent-skill ecosystem, 77.86% of skills have zero stars and zero comments, yet 85.06% carry evidence of privileged access such as shell or network calls; three security scanners disagree on over 20,000 skills, and their weighted sensitivity is only 22–61% after human adjudication. Stars, downloads, whether a scanner ran at all — these are all cheap signals, and none of them hold up once actually tested.
+Today's [Arxiv Digest](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) confirms the same logic from another angle: in a viral agent-skill ecosystem, 77.86% of skills have zero stars and zero comments, yet 85.06% carry evidence of privileged access such as shell or network calls; three security scanners disagree on over 20,000 skills, and their weighted sensitivity is only 22–61% after human adjudication. Stars, downloads, whether a scanner ran at all — these are all cheap signals, and none of them hold up once actually tested.
 
-That's exactly why Agno v3.0.10 flipped `run_shell` and public MCP access from "on by default" to "explicit opt-in" ([framework update](/en/posts/daily/2026-09-17-framework-agno-3.0.10-en)), and why xAI, OpenAI, and Anthropic jointly endorsed the AEF-1 third-party evaluation standard — once cheap signals can't be trusted, verification cost has to move from "the vendor vouches for itself" to an institutional expense that requires an extra step. The concrete takeaway for Taiwanese enterprises: any team adopting browser-native agents or opening an internal skill marketplace should put an extension allowlist and a privilege-evidence-first review queue on the to-do list now — because the cost of verification doesn't disappear, it only compounds if deferred.
+That's exactly why Agno v3.0.10 flipped `run_shell` and public MCP access from "on by default" to "explicit opt-in" ([framework update](/posts/daily/2026-09-17-framework-agno-3.0.10-en)), and why xAI, OpenAI, and Anthropic jointly endorsed the AEF-1 third-party evaluation standard — once cheap signals can't be trusted, verification cost has to move from "the vendor vouches for itself" to an institutional expense that requires an extra step. The concrete takeaway for Taiwanese enterprises: any team adopting browser-native agents or opening an internal skill marketplace should put an extension allowlist and a privilege-evidence-first review queue on the to-do list now — because the cost of verification doesn't disappear, it only compounds if deferred.
 
 ## Today's Developments
 
@@ -52,33 +52,33 @@ That's exactly why Agno v3.0.10 flipped `run_shell` and public MCP access from "
 
 **Sourcegraph**: Its new Agentic Batch Changes (a coding agent that can modify hundreds to thousands of repos in one pass) adopts outcome-based pricing — charging only for changesets that actually get merged, a rare move toward pay-for-results coding agents. ([source](https://sourcegraph.com/blog/agentic-batch-changes-pricing))
 
-**Factory**: Closed a $200M round, tripling its valuation from a $1.5B Series C to $5B in five months — see [today's funding brief](/en/posts/daily/2026-09-17-funding-factory-en).
+**Factory**: Closed a $200M round, tripling its valuation from a $1.5B Series C to $5B in five months — see [today's funding brief](/posts/daily/2026-09-17-funding-factory-en).
 
 ### Tools & Ecosystem
 
 **Google Home**: Added MCP support, letting third-party AI agents control connected devices directly — initially limited to Google Home Premium Advanced subscribers ($20/month, US only). This is the first mainstream consumer setting where MCP opens a physical-device surface to arbitrary third-party agents. ([source](https://www.theverge.com/tech/996310/google-home-mcp-integration-agentic-ai-smart-home-price-release-date))
 
-**symfony/ai-mcp-tool**: Symfony AI's official MCP client bridge converts remote MCP server tools into Agent-recognized Tool objects with automatic naming prefixes to avoid collisions — see [today's tool recommendation](/en/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en).
+**symfony/ai-mcp-tool**: Symfony AI's official MCP client bridge converts remote MCP server tools into Agent-recognized Tool objects with automatic naming prefixes to avoid collisions — see [today's tool recommendation](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en).
 
 **WSO2 Agent Manager**: Released an Apache 2.0-licensed agent governance tool that can be self-hosted for data sovereignty; WSO2 also joined the Agentic AI Foundation. ([source](https://www.globenewswire.com/news-release/2026/09/15/3362114/0/en/wso2-agent-manager-brings-sovereign-ai-governance-to-enterprise-agent-sprawl.html))
 
 **Alibaba Cloud's RocketMQ-A2A**: A paper proposing an event-stream paradigm for reliable multi-agent collaboration was accepted at ACM FSE 2026. ([source](https://www.alibabacloud.com/blog/rocketmq-a2a-paper-accepted-at-acm-fse-defining-a-reliable-collaboration-paradigm-for-ai-agents_603558))
 
-Today's [GitHub Digest](/en/posts/daily/2026-09-17-ai-agent-github-digest-en) highlights also expand agent "senses" and "memory": Volcengine's open-source OpenViking unifies knowledge, memory, and skills into a virtual filesystem, and Cloudflare's security-audit-skill gained 1,249 stars in a single day — more on that in the security section below.
+Today's [GitHub Digest](/posts/daily/2026-09-17-ai-agent-github-digest-en) highlights also expand agent "senses" and "memory": Volcengine's open-source OpenViking unifies knowledge, memory, and skills into a virtual filesystem, and Cloudflare's security-audit-skill gained 1,249 stars in a single day — more on that in the security section below.
 
 ### Technical Progress
 
-Today's [Arxiv Digest](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) features three papers that puncture the same assumption across training, evaluation, and governance — that a visible signal means it can be trusted: RL-trained tool-calling policies learn to trigger tools from superficial cues, and a single tool-necessity reward almost eliminates the shortcut; a peer-reviewed audit finds the top of the SWE-bench Verified leaderboard can no longer be statistically distinguished.
+Today's [Arxiv Digest](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) features three papers that puncture the same assumption across training, evaluation, and governance — that a visible signal means it can be trusted: RL-trained tool-calling policies learn to trigger tools from superficial cues, and a single tool-necessity reward almost eliminates the shortcut; a peer-reviewed audit finds the top of the SWE-bench Verified leaderboard can no longer be statistically distinguished.
 
 **Microsoft Agent Framework**: Demonstrated turning specialist agents in a multi-agent architecture into skills distributed over MCP, keeping domain-service separation while cutting multi-model overhead. ([source](https://devblogs.microsoft.com/agent-framework/from-specialist-agents-to-distributed-skills-over-mcp/))
 
-**Agno v3.0.10**: Tightened defaults for code execution and public MCP access to explicit opt-in — see [today's framework update](/en/posts/daily/2026-09-17-framework-agno-3.0.10-en).
+**Agno v3.0.10**: Tightened defaults for code execution and public MCP access to explicit opt-in — see [today's framework update](/posts/daily/2026-09-17-framework-agno-3.0.10-en).
 
-**Mastra @mastra/core@1.67.0**: Studio Workflow Builder lets an editor-native agent generate and persist workflow definitions directly; the new `@mastra/connect` package wraps platform integrations as agent tools with credentials injected by the platform — see [today's framework update](/en/posts/daily/2026-09-17-framework-mastra-1.67.0-en).
+**Mastra @mastra/core@1.67.0**: Studio Workflow Builder lets an editor-native agent generate and persist workflow definitions directly; the new `@mastra/connect` package wraps platform integrations as agent tools with credentials injected by the platform — see [today's framework update](/posts/daily/2026-09-17-framework-mastra-1.67.0-en).
 
 ### Business Cases / Funding
 
-**Profound**: The AI-search-visibility platform closed a $180M Series D at a $1.8B valuation, just seven months after its last round — see [today's funding brief](/en/posts/daily/2026-09-17-funding-profound-en).
+**Profound**: The AI-search-visibility platform closed a $180M Series D at a $1.8B valuation, just seven months after its last round — see [today's funding brief](/posts/daily/2026-09-17-funding-profound-en).
 
 **Instinct**: The personal AI assistant startup (Spear Street Technology) is in talks to raise $1B at a $10B valuation, up from a $2.5B valuation in its last round, with user count already past 100,000. ([source](https://www.pymnts.com/startups/2026/instinct-ai-assistant-targets-10-billion-dollar-valuation/))
 
@@ -86,7 +86,7 @@ Today's [Arxiv Digest](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) feat
 
 ### Security Incidents
 
-**BragJack**: Forever Security used a browser extension needing only two commonplace permissions to hijack five browser-native AI agents — Chrome, Comet, Edge, Opera Neon, and Claude in Chrome. The attack isn't prompt injection but a fully forged instruction technique the researchers call "Prompt-Forcing" — see [today's security alert](/en/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en).
+**BragJack**: Forever Security used a browser extension needing only two commonplace permissions to hijack five browser-native AI agents — Chrome, Comet, Edge, Opera Neon, and Claude in Chrome. The attack isn't prompt injection but a fully forged instruction technique the researchers call "Prompt-Forcing" — see [today's security alert](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en).
 
 **CVE-2026-90999**: Sentry Seer has a multi-stage trust-boundary flaw that lets an unauthenticated attacker turn telemetry data into agent-executed code. ([source](https://www.strix.ai/cve/CVE-2026-90999))
 
@@ -144,23 +144,23 @@ Tenable's co-CEO said Australian enterprises broadly don't know how many AI agen
 |------|--------|--------|
 | Factory valuation (in 5 months) | $1.5B → $5B | [Reuters](https://www.reuters.com/business/ai-coding-agent-startup-factory-triples-valuation-5-billion-latest-funding-round-2026-09-15/) |
 | Profound valuation (2 rounds in 7 months) | $1B → $1.8B | [TechCrunch](https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round/) |
-| Share of OpenClaw/ClawHub skills with zero stars/comments | 77.86% | [Arxiv Digest](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) |
-| Cloudflare security-audit-skill stars gained in one day | +1,249 | [GitHub Digest](/en/posts/daily/2026-09-17-ai-agent-github-digest-en) |
+| Share of OpenClaw/ClawHub skills with zero stars/comments | 77.86% | [Arxiv Digest](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en) |
+| Cloudflare security-audit-skill stars gained in one day | +1,249 | [GitHub Digest](/posts/daily/2026-09-17-ai-agent-github-digest-en) |
 | BragJack research bounty total | ~$20,000 | [OffSeq](https://radar.offseq.com/threat/bragjack-20k-in-bounty-rewards-from-anthropic-perplexity-google-microsoft-and-opera-81ed18b31bb595b4) |
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-17](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-17](/en/posts/daily/2026-09-17-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-17](/en/posts/daily/2026-09-17-ai-interview-daily-en)
-- 📄 [Framework Update｜Agno v3.0.10](/en/posts/daily/2026-09-17-framework-agno-3.0.10-en)
-- 📄 [Framework Update｜Mastra @mastra/core@1.67.0](/en/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
-- 📄 [Funding Brief｜Factory $200M, $5B Valuation](/en/posts/daily/2026-09-17-funding-factory-en)
-- 📄 [Funding Brief｜Profound Series D $180M](/en/posts/daily/2026-09-17-funding-profound-en)
-- 📄 [Pricing Watch｜OpenAI GPT-5.5 Retirement](/en/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
-- 📄 [Product Builder Interview Prep — 2026-09-17](/en/posts/daily/2026-09-17-product-builder-interview-daily-en)
-- 📄 [Security Alert｜BragJack Browser AI Agent Hijack](/en/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
-- 📄 [Tool Recommendation｜symfony/ai-mcp-tool](/en/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
+- 📄 [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
+- 📄 [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest-en)
+- 📄 [AI Engineer Interview Prep — 2026-09-17](/posts/daily/2026-09-17-ai-interview-daily-en)
+- 📄 [Framework Update｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10-en)
+- 📄 [Framework Update｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
+- 📄 [Funding Brief｜Factory $200M, $5B Valuation](/posts/daily/2026-09-17-funding-factory-en)
+- 📄 [Funding Brief｜Profound Series D $180M](/posts/daily/2026-09-17-funding-profound-en)
+- 📄 [Pricing Watch｜OpenAI GPT-5.5 Retirement](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement-en)
+- 📄 [Product Builder Interview Prep — 2026-09-17](/posts/daily/2026-09-17-product-builder-interview-daily-en)
+- 📄 [Security Alert｜BragJack Browser AI Agent Hijack](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
+- 📄 [Tool Recommendation｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
 
 ## Tomorrow's Watch
 
@@ -174,14 +174,14 @@ I used to think agent security risk mainly came from "prompt injection" — the 
 
 ## References
 
-- [AI Agent Arxiv Digest — 2026-09-17](/en/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
-- [AI Agent GitHub Digest — 2026-09-17](/en/posts/daily/2026-09-17-ai-agent-github-digest-en)
-- [Framework Update｜Agno v3.0.10](/en/posts/daily/2026-09-17-framework-agno-3.0.10-en)
-- [Framework Update｜Mastra @mastra/core@1.67.0](/en/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
-- [Funding Brief｜Factory](/en/posts/daily/2026-09-17-funding-factory-en)
-- [Funding Brief｜Profound](/en/posts/daily/2026-09-17-funding-profound-en)
-- [Security Alert｜BragJack](/en/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
-- [Tool Recommendation｜symfony/ai-mcp-tool](/en/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
+- [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest-en)
+- [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest-en)
+- [Framework Update｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10-en)
+- [Framework Update｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0-en)
+- [Funding Brief｜Factory](/posts/daily/2026-09-17-funding-factory-en)
+- [Funding Brief｜Profound](/posts/daily/2026-09-17-funding-profound-en)
+- [Security Alert｜BragJack](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack-en)
+- [Tool Recommendation｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
 - [Forever Security — Full BragJack Research](https://forever.security/blog/bragjack-hijacking-5-browsers-via-built-in-ai-assistants)
 - [Claude Cowork and Chat Are Now One Claude](https://claude.com/blog/cowork-is-now-claude)
 - [Cohere and Aleph Alpha Sign Agreement](https://cohere.com/blog/cohere-and-aleph-alpha-sign-agreement)

@@ -28,7 +28,7 @@ series:
 
 ## Why This Release Matters
 
-[The previous post (1.15.17)](/en/posts/daily/2026-08-22-framework-crewai-1.15.17-en) covered how declarative Flows learned to drive conversational mode, while the whole conversational Flow feature still lived under `crewai.experimental` — officially flagged as "behavior may change in future versions." 1.15.18 is the follow-through on that flag: `crewai.flow` now owns the canonical implementation of conversational Flow (`ConversationConfig`, `ConversationState`, `handle_turn`, `stream_turn`, and friends), meaning this API is no longer a "might change any time" experiment but a stable interface the framework commits to maintaining. For projects already using `crewai.experimental.conversational`, this upgrade won't break anything immediately — the old path becomes a compatibility alias pointing at the new module — but it also signals that going forward, official docs and examples will consistently point to `crewai.flow`, and the old path will gradually read as the outdated way to do it.
+[The previous post (1.15.17)](/posts/daily/2026-08-22-framework-crewai-1.15.17-en) covered how declarative Flows learned to drive conversational mode, while the whole conversational Flow feature still lived under `crewai.experimental` — officially flagged as "behavior may change in future versions." 1.15.18 is the follow-through on that flag: `crewai.flow` now owns the canonical implementation of conversational Flow (`ConversationConfig`, `ConversationState`, `handle_turn`, `stream_turn`, and friends), meaning this API is no longer a "might change any time" experiment but a stable interface the framework commits to maintaining. For projects already using `crewai.experimental.conversational`, this upgrade won't break anything immediately — the old path becomes a compatibility alias pointing at the new module — but it also signals that going forward, official docs and examples will consistently point to `crewai.flow`, and the old path will gradually read as the outdated way to do it.
 
 ## Key Changes
 
@@ -93,4 +93,4 @@ The previous post's "Takeaway" guessed the right direction — subclass-only fea
 - [CrewAI 1.15.18 — GitHub Release](https://github.com/crewAIInc/crewAI/releases/tag/1.15.18)
 - [crewAIInc/crewAI — GitHub](https://github.com/crewAIInc/crewAI)
 - [PR #7107 — feat(flow): promote conversational flows to stable](https://github.com/crewAIInc/crewAI/pull/7107)
-- [CrewAI 1.15.17 — previous framework update](/en/posts/daily/2026-08-22-framework-crewai-1.15.17-en)
+- [CrewAI 1.15.17 — previous framework update](/posts/daily/2026-08-22-framework-crewai-1.15.17-en)

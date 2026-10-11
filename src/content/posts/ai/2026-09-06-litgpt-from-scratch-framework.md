@@ -13,7 +13,7 @@ description: "深度解析 LitGPT 框架：20+ 個 LLM 的從零重寫與無抽�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
+> 🌏 [English version](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
 
 系列前八篇講的都是「把某一個模型訓出來」：[MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch) 訓 64M 的教材模型、[YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining) 訓 21B、[OLMo 3](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) 訓 32B。這篇換一個維度——不看模型，看訓練骨架。[LitGPT](https://github.com/Lightning-AI/litgpt)（Lightning AI，截至本文約 13,600 stars）不推出自己的旗艦模型，而是把 Llama 3、Qwen2.5、Phi 4、Gemma 2 等 20+ 個主流 LLM 逐一從零重寫，配上 `litgpt pretrain` / `finetune` / `evaluate` / `serve` 的完整命令列。看完前面幾篇想動手、又不想每一行都自己寫的人，這是中間那條路。
 

@@ -84,10 +84,10 @@ Since 2025 every major vendor has shipped its own agent SDK. For interviews you 
 | [OpenAI Agents SDK](https://openai.com/index/new-tools-for-building-agents) | 2025-03 | Successor to Swarm; core primitives are handoffs, guardrails and tracing |
 | [Google ADK](https://developers.googleblog.com/en/agent-development-kit-easy-to-build-multi-agent-applications) | 2025-04 | Open-source multi-agent toolkit, Python first |
 | [Claude Agent SDK](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | 2025-09 | Renamed from Claude Code SDK; ships subagents and hooks |
-| [LangGraph](https://github.com/langchain-ai/langgraph) | Evolving | Graph state machine with nodes, edges and checkpoints; see the [LangGraph guide](/en/posts/ai/2026-03-27-langgraph-agent-orchestration-en) |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Evolving | Role-based team model; see the [CrewAI guide](/en/posts/ai/2026-08-21-crewai-multi-agent-framework-en) |
+| [LangGraph](https://github.com/langchain-ai/langgraph) | Evolving | Graph state machine with nodes, edges and checkpoints; see the [LangGraph guide](/posts/ai/2026-03-27-langgraph-agent-orchestration-en) |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | Evolving | Role-based team model; see the [CrewAI guide](/posts/ai/2026-08-21-crewai-multi-agent-framework-en) |
 
-More frameworks is not better. The same Anthropic article suggests starting with direct LLM API calls, because frameworks "often create extra layers of abstraction that can obscure the underlying prompts and responses", which makes debugging harder. For a fuller taxonomy, see the [AI Agent patterns guide](/en/posts/ai/2026-03-18-ai-agent-patterns-guide-en); for the different shapes the loop takes, see [agent loop shapes in coding agents](/en/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en).
+More frameworks is not better. The same Anthropic article suggests starting with direct LLM API calls, because frameworks "often create extra layers of abstraction that can obscure the underlying prompts and responses", which makes debugging harder. For a fuller taxonomy, see the [AI Agent patterns guide](/posts/ai/2026-03-18-ai-agent-patterns-guide-en); for the different shapes the loop takes, see [agent loop shapes in coding agents](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en).
 
 **How to answer**
 
@@ -138,7 +138,7 @@ The full flow breaks into six steps:
 
 Why can a model do this at all? Earlier research includes [Toolformer](https://arxiv.org/abs/2302.04761) (a model that teaches itself when to call APIs) and [Gorilla](https://arxiv.org/abs/2305.15334) (a model connected to massive numbers of APIs). Commercial models today are trained on this whole behavior: decide whether a tool is needed, pick one, produce schema-conforming arguments, and fold the result into an answer. How each vendor encodes the call internally (special tokens, for instance) is an implementation detail. Saying "the model is trained to emit a call in a specific format" is enough for an interview.
 
-Can it get the call wrong? Yes. The usual failures are picking the wrong tool, fabricating arguments, or not calling at all. The fixes are engineering ones: write tool descriptions with clear trigger conditions (the site has a breakdown in [why agents have tools but don't use them](/en/posts/ai/2026-09-18-llm-tool-discovery-en)), validate arguments against a strict schema, return clear error messages so the model can self-correct, and add human approval for high-risk tools.
+Can it get the call wrong? Yes. The usual failures are picking the wrong tool, fabricating arguments, or not calling at all. The fixes are engineering ones: write tool descriptions with clear trigger conditions (the site has a breakdown in [why agents have tools but don't use them](/posts/ai/2026-09-18-llm-tool-discovery-en)), validate arguments against a strict schema, return clear error messages so the model can self-correct, and add human approval for high-risk tools.
 
 **How to answer**
 
@@ -146,7 +146,7 @@ Can it get the call wrong? Yes. The usual failures are picking the wrong tool, f
 
 ## Large Tool Sets: Don't Stuff Them All Into the Prompt
 
-Going from a handful of tools to hundreds hits three problems at once: tool definitions eat the context, the chance of picking the wrong tool rises, and latency and cost grow. Research has put numbers on it: in an MCP stress test, [RAG-MCP](https://arxiv.org/abs/2505.03275) raised tool selection accuracy from a 13.62% baseline to 43.13% and cut prompt tokens by more than half. The site's [how to pick the right tool among hundreds](/en/posts/ai/2026-06-04-tool-selection-at-scale-en) collects more evidence on the collapse curve.
+Going from a handful of tools to hundreds hits three problems at once: tool definitions eat the context, the chance of picking the wrong tool rises, and latency and cost grow. Research has put numbers on it: in an MCP stress test, [RAG-MCP](https://arxiv.org/abs/2505.03275) raised tool selection accuracy from a 13.62% baseline to 43.13% and cut prompt tokens by more than half. The site's [how to pick the right tool among hundreds](/posts/ai/2026-06-04-tool-selection-at-scale-en) collects more evidence on the collapse curve.
 
 The shared principle is to decouple tool discovery from generation: narrow the set first instead of handing over everything.
 
@@ -156,8 +156,8 @@ The shared principle is to decouple tool discovery from generation: narrow the s
 | Deferred loading | [Tool Search Tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool): mark definitions `defer_loading: true`, then search and expand on demand | Adds a search round; whether it preserves caching depends on the provider's implementation |
 | Hierarchy and routing | A router picks a domain, then a sub-agent sees only that domain's tools | The router can be wrong, and it adds a call |
 | Shorter descriptions and naming | Compress descriptions, use consistent prefix namespaces | Descriptions that are too short make similar tools harder to tell apart |
-| Code Mode | The model writes code that calls tools; definitions enter context only on import | Needs a sandbox; see [Code Mode](/en/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en) |
-| Multi-agent | Each agent owns a tool group, and an orchestrator dispatches | More coordination and cost; see [orchestration patterns](/en/posts/ai/2026-09-18-multi-agent-orchestration-patterns-en) |
+| Code Mode | The model writes code that calls tools; definitions enter context only on import | Needs a sandbox; see [Code Mode](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en) |
+| Multi-agent | Each agent owns a tool group, and an orchestrator dispatches | More coordination and cost; see [orchestration patterns](/posts/ai/2026-09-18-multi-agent-orchestration-patterns-en) |
 
 Research offers two more routes. [ToolLLM](https://arxiv.org/abs/2307.16789) faces more than 16,000 real-world APIs and relies on retrieval to choose among them. [ToolkenGPT](https://arxiv.org/abs/2305.11554) (NeurIPS 2023 oral) represents each tool as the embedding of a special token, so tools are generated like vocabulary and their descriptions need not sit in the prompt.
 
@@ -169,7 +169,7 @@ One easily missed interaction: tool definitions are part of the cached prefix. P
 
 ## Agent Memory: Short-Term in Context, Long-Term in External Storage
 
-Memory first needs to be split into two layers. Short-term memory is the messages inside the context window, and the problem is that it fills up: common fixes are sliding windows, summary compression and compaction, compared on the site in [context compaction design](/en/posts/ai/2026-08-25-coding-agent-context-compaction-en). Long-term memory lives outside the context and, by content, splits into three kinds:
+Memory first needs to be split into two layers. Short-term memory is the messages inside the context window, and the problem is that it fills up: common fixes are sliding windows, summary compression and compaction, compared on the site in [context compaction design](/posts/ai/2026-08-25-coding-agent-context-compaction-en). Long-term memory lives outside the context and, by content, splits into three kinds:
 
 | Type | What it stores | Typical implementation | Risk |
 |---|---|---|---|
@@ -192,7 +192,7 @@ def maybe_remember(candidate: str, source: str) -> None:
     memory_store.add(candidate, metadata={"source": source, "ts": now()})
 ```
 
-The site has three follow-ups: [Agent Memory systems](/en/posts/ai/2026-03-19-agent-memory-systems-en) on the evolution from read-only RAG to writable memory, [four memory types and six design axes](/en/posts/ai/2026-09-19-agent-memory-taxonomy-en) on the design space, and [the attack surface of agent memory](/en/posts/ai/2026-09-19-agent-memory-attack-surface-en) on why the write gate cannot be skipped.
+The site has three follow-ups: [Agent Memory systems](/posts/ai/2026-03-19-agent-memory-systems-en) on the evolution from read-only RAG to writable memory, [four memory types and six design axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en) on the design space, and [the attack surface of agent memory](/posts/ai/2026-09-19-agent-memory-attack-surface-en) on why the write gate cannot be skipped.
 
 **How to answer**
 
@@ -209,7 +209,7 @@ This question has no standard answer; a strong response is categorized and comes
 | Cost and latency | Every step is one LLM call, and tool results quickly bloat context | Use a workflow when one will do; compress context; Prompt Caching |
 | Observability and evaluation | When something breaks, you cannot tell which step failed | Log every step's reasoning, call and result; build an eval set; separate LLM logic from tool execution logic |
 
-Two underlying ideas deserve an extra sentence. First, graduated autonomy: fully automatic for low-risk operations, human confirmation for high-risk ones, and ask when unsure. Second, prompt injection stems from the model flattening instructions and data into one token stream, with no architectural way to tell them apart, so the countermeasure belongs in permissions and trust boundaries and cannot rest on "reminding the model to be careful"; see [the single crack behind agent security](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en). For observability, see [agent observability and failure detection](/en/posts/ai/2026-06-04-agent-observability-failure-detection-en).
+Two underlying ideas deserve an extra sentence. First, graduated autonomy: fully automatic for low-risk operations, human confirmation for high-risk ones, and ask when unsure. Second, prompt injection stems from the model flattening instructions and data into one token stream, with no architectural way to tell them apart, so the countermeasure belongs in permissions and trust boundaries and cannot rest on "reminding the model to be careful"; see [the single crack behind agent security](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en). For observability, see [agent observability and failure detection](/posts/ai/2026-06-04-agent-observability-failure-detection-en).
 
 For background reading, there is Lilian Weng's [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) and the [survey by Xi et al.](https://arxiv.org/abs/2309.07864). On risk assessment, [Ruan et al.](https://arxiv.org/abs/2309.15817) propose a language-model-emulated sandbox for identifying agent risks without running dangerous tools for real.
 
@@ -229,7 +229,7 @@ flowchart LR
   Host <-->|"A2A: Agent Card, task"| Remote["Another agent: different framework or vendor"]
 ```
 
-They are complementary, not substitutes. In practice the MCP client uses the MCP protocol to fetch the tool list from a server (`tools/list`), hands the definitions to the model, the model uses Function Calling to decide which one to call, and the client sends the call back through MCP to the server to execute and return a result. The site's [protocol layer comparison of MCP, A2A, ACP and Skills](/en/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en) goes deeper; its test is whether the data changes between calls.
+They are complementary, not substitutes. In practice the MCP client uses the MCP protocol to fetch the tool list from a server (`tools/list`), hands the definitions to the model, the model uses Function Calling to decide which one to call, and the client sends the call back through MCP to the server to execute and return a result. The site's [protocol layer comparison of MCP, A2A, ACP and Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en) goes deeper; its test is whether the data changes between calls.
 
 MCP's timeline is easy to get wrong, so this table follows official sources (checked 2026-10):
 
@@ -260,7 +260,7 @@ A2A's timeline is simpler:
 
 Technically, the original design built on HTTP, SSE and JSON-RPC, with an Agent Card (a JSON document) describing an agent's capabilities and endpoint. From v1.0 the data model is separated from the protocol binding, which supports JSON-RPC, gRPC and HTTP/REST, and Agent Cards can be signed.
 
-One last point against over-selling MCP: in local development, a CLI or a direct API call often costs less context than MCP, and what MCP uniquely offers is a tool layer shared across agents. That trade-off is discussed in [MCP vs CLI vs API](/en/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en), with an introduction in the [MCP primer](/en/posts/ai/2026-03-22-mcp-model-context-protocol-en).
+One last point against over-selling MCP: in local development, a CLI or a direct API call often costs less context than MCP, and what MCP uniquely offers is a tool layer shared across agents. That trade-off is discussed in [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en), with an introduction in the [MCP primer](/posts/ai/2026-03-22-mcp-model-context-protocol-en).
 
 **How to answer**
 
@@ -307,7 +307,7 @@ For agent builders, these rules turn directly into actions:
 4. Watch operations that rewrite earlier history: OpenAI's docs note that compaction replaces earlier conversation content and can invalidate the cache from the first changed token onward.
 5. Read the cache read and write token counts in the API's usage fields to confirm the hit rate instead of guessing.
 
-Also keep the layers straight: [Generative Caching](https://arxiv.org/abs/2511.17565) and the site's [semantic caching](/en/posts/ai/2026-03-12-semantic-caching-en) cache similar responses at the application layer, which is a different layer from the provider's prefix caching (which caches KV state). They can stack, but they are not the same thing. For a multi-layer cache design aimed at agents, see [cache design for a ReAct agent](/en/posts/ai/2026-04-03-react-agent-cache-design-en).
+Also keep the layers straight: [Generative Caching](https://arxiv.org/abs/2511.17565) and the site's [semantic caching](/posts/ai/2026-03-12-semantic-caching-en) cache similar responses at the application layer, which is a different layer from the provider's prefix caching (which caches KV state). They can stack, but they are not the same thing. For a multi-layer cache design aimed at agents, see [cache design for a ReAct agent](/posts/ai/2026-04-03-react-agent-cache-design-en).
 
 **How to answer**
 
@@ -321,7 +321,7 @@ Three places tend to cost points in preparation: describing strict mode as guara
 
 ## Questions that keep showing up in public question banks
 
-These questions come from seven public question banks (compared in part 11 of this series, [the 12 question banks for AI engineer interviews](/en/posts/ai/2026-09-30-ai-engineer-interview-resources-en)); only questions that recur across banks and map to a section of this post are kept. "Independent sources" counts overlap between banks, not how often a question comes up in real interviews. The amitshekhar and pallavi banks cite no sources and share 26 near-verbatim questions (likely the same maintainer, so they count as one source), the two KalyanKS banks share an author (also one source), and company tags from those banks are not used here. Only question titles and links to where they appear are listed, with no answers reproduced.
+These questions come from seven public question banks (compared in part 11 of this series, [the 12 question banks for AI engineer interviews](/posts/ai/2026-09-30-ai-engineer-interview-resources-en)); only questions that recur across banks and map to a section of this post are kept. "Independent sources" counts overlap between banks, not how often a question comes up in real interviews. The amitshekhar and pallavi banks cite no sources and share 26 near-verbatim questions (likely the same maintainer, so they count as one source), the two KalyanKS banks share an author (also one source), and company tags from those banks are not used here. Only question titles and links to where they appear are listed, with no answers reproduced.
 
 Link labels: om = ombharatiya/AI-Engineer-Interview-Questions, aeg = alexeygrigorev/ai-engineering-field-guide, AIML = alirezadir/AIMLInterviews, amit = amitshekhariitbhu/ai-engineering-interview-questions, pal = pallavi-shekhar/ai-engineering-interview-questions-company-wise, ks = KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub.
 
@@ -358,11 +358,11 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 ## Other Posts in This Series
 
-- [RAG variants and advanced retrieval](/en/posts/ai/2026-10-03-ai-interview-rag-variants-en)
-- [Prompt, context and harness](/en/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
-- [LLM engineering](/en/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
-- [ML and Transformer basics](/en/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
-- [System design, coding and behavioral interviews](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+- [RAG variants and advanced retrieval](/posts/ai/2026-10-03-ai-interview-rag-variants-en)
+- [Prompt, context and harness](/posts/ai/2026-10-03-ai-interview-prompt-context-harness-en)
+- [LLM engineering](/posts/ai/2026-10-03-ai-interview-llm-engineering-en)
+- [ML and Transformer basics](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+- [System design, coding and behavioral interviews](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 ## References
 
@@ -414,25 +414,25 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 
 **On this site**
 
-- [AI Agent patterns guide](/en/posts/ai/2026-03-18-ai-agent-patterns-guide-en)
-- [Agent loop shapes in coding agents](/en/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
-- [LangGraph guide](/en/posts/ai/2026-03-27-langgraph-agent-orchestration-en)
-- [CrewAI guide](/en/posts/ai/2026-08-21-crewai-multi-agent-framework-en)
-- [Why agents have tools but don't use them](/en/posts/ai/2026-09-18-llm-tool-discovery-en)
-- [Picking the right tool among hundreds](/en/posts/ai/2026-06-04-tool-selection-at-scale-en)
-- [Code Mode](/en/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en)
-- [Multi-agent orchestration patterns](/en/posts/ai/2026-09-18-multi-agent-orchestration-patterns-en)
-- [Context compaction](/en/posts/ai/2026-08-25-coding-agent-context-compaction-en)
-- [Agent Memory systems](/en/posts/ai/2026-03-19-agent-memory-systems-en)
-- [Four memory types and six design axes](/en/posts/ai/2026-09-19-agent-memory-taxonomy-en)
-- [The attack surface of agent memory](/en/posts/ai/2026-09-19-agent-memory-attack-surface-en)
-- [The single crack behind agent security](/en/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en)
-- [Agent observability and failure detection](/en/posts/ai/2026-06-04-agent-observability-failure-detection-en)
-- [The protocol layer: MCP, A2A, ACP, Skills](/en/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
-- [MCP vs CLI vs API](/en/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en)
-- [MCP primer](/en/posts/ai/2026-03-22-mcp-model-context-protocol-en)
-- [Semantic caching](/en/posts/ai/2026-03-12-semantic-caching-en)
-- [Cache design for a ReAct agent](/en/posts/ai/2026-04-03-react-agent-cache-design-en)
+- [AI Agent patterns guide](/posts/ai/2026-03-18-ai-agent-patterns-guide-en)
+- [Agent loop shapes in coding agents](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
+- [LangGraph guide](/posts/ai/2026-03-27-langgraph-agent-orchestration-en)
+- [CrewAI guide](/posts/ai/2026-08-21-crewai-multi-agent-framework-en)
+- [Why agents have tools but don't use them](/posts/ai/2026-09-18-llm-tool-discovery-en)
+- [Picking the right tool among hundreds](/posts/ai/2026-06-04-tool-selection-at-scale-en)
+- [Code Mode](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en)
+- [Multi-agent orchestration patterns](/posts/ai/2026-09-18-multi-agent-orchestration-patterns-en)
+- [Context compaction](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
+- [Agent Memory systems](/posts/ai/2026-03-19-agent-memory-systems-en)
+- [Four memory types and six design axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
+- [The attack surface of agent memory](/posts/ai/2026-09-19-agent-memory-attack-surface-en)
+- [The single crack behind agent security](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries-en)
+- [Agent observability and failure detection](/posts/ai/2026-06-04-agent-observability-failure-detection-en)
+- [The protocol layer: MCP, A2A, ACP, Skills](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
+- [MCP vs CLI vs API](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en)
+- [MCP primer](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
+- [Semantic caching](/posts/ai/2026-03-12-semantic-caching-en)
+- [Cache design for a ReAct agent](/posts/ai/2026-04-03-react-agent-cache-design-en)
 
 **Question banks (source of questions)**
 

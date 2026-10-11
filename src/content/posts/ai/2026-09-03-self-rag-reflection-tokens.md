@@ -10,7 +10,7 @@ description: "Self-RAG 的 reflection token 機制、訓練流程、推理時行
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-self-rag-reflection-tokens-en)
+> 🌏 [English version](/posts/ai/2026-09-03-self-rag-reflection-tokens-en)
 
 RAG 系統有一個根本矛盾：標準 RAG 每次都檢索，浪費在不需要外部知識的 query 上；不檢索又會在需要事實根據時產生幻覺。Self-RAG（Asai et al., ICLR 2024 Oral, top 1%）的解法是把「要不要檢索」這個決定交給模型自己——不靠外部 controller，不靠 pipeline 規則，而是在模型詞彙表裡加入四種 reflection token，讓生成過程本身就包含自我批判。
 

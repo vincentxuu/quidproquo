@@ -13,7 +13,7 @@ description: "從 @oh-my-pi/pi-agent 的公開事件契約拆解 OMP streaming�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-omp-streaming-internals-en)
+> 🌏 [English version](/posts/tech/2026-08-31-omp-streaming-internals-en)
 
 [OMP 內部設計導讀](/posts/tech/2026-08-31-omp-agent-loop-double-while)系列第 16 篇。前面幾篇拆的是 loop、context、TUI 與工具邊界；這篇往下看一個常被簡化成「模型吐字」的介面：stream。
 

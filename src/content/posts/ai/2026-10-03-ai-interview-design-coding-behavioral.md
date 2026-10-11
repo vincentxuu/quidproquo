@@ -37,7 +37,7 @@ glossary:
     context: "本文用它處理知識庫的文件刪除。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 AI Engineer 面試走到最後，考的通常不是你認不認得某個名詞，而是三件事：能不能在白板前把一個系統講完整，能不能在編輯器裡寫出一段會動的程式，能不能用一個真實的故事證明你做過事。這篇是「AI Engineer 面試準備」系列的收尾，把這三件事各給一套可以直接套用的骨架。
 

@@ -29,7 +29,7 @@ glossary:
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 13 of [Reading CMU 11-868 LLM Systems](/en/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The [previous post](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) handled "the model doesn't fit" by splitting layers, matrices, or experts. This one takes a different angle: **don't split the model at all; just remove what data parallelism duplicates.**
+> **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 13 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The [previous post](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) handled "the model doesn't fit" by splitting layers, matrices, or experts. This one takes a different angle: **don't split the model at all; just remove what data parallelism duplicates.**
 
 This is the 3/23 lecture in Week 11 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), "Memory Optimization in Distributed Training." It has one reading: [ZeRO (Rajbhandari et al., SC 2020)](https://arxiv.org/abs/1910.02054). The [L18 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf) run 76 pages; pages 18 through 63 are frame-by-frame animation, each frame adding one step. The official syllabus lists no public recording links, so this post draws on the slides and the paper's abstract. Page numbers are PDF pages.
 
@@ -174,7 +174,7 @@ Pages 71–72 quote the paper's numbers. In theory, 1,024 V100s with 32GB each c
 
 Pages 73–74 combine ZeRO with pipeline and tensor parallelism into 3D parallelism, which stacks this post's method on top of the previous post's.
 
-The summary on page 75: ZeRO cuts memory sharply and is scalable, flexible, and easy to use; the downside is extra communication in some stages, whose impact depends on the interconnect (PCI-E vs. NVLink). Page 76 links the course's [DeepSpeed example notebook](https://github.com/llmsystem/llmsys_code_examples/blob/main/deepspeed_example/DeepSpeed-Example.ipynb). HW6 uses DeepSpeed ZeRO with LoRA to fine-tune Llama-2-7B; see the [HW6 guide](/en/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en).
+The summary on page 75: ZeRO cuts memory sharply and is scalable, flexible, and easy to use; the downside is extra communication in some stages, whose impact depends on the interconnect (PCI-E vs. NVLink). Page 76 links the course's [DeepSpeed example notebook](https://github.com/llmsystem/llmsys_code_examples/blob/main/deepspeed_example/DeepSpeed-Example.ipynb). HW6 uses DeepSpeed ZeRO with LoRA to fine-tune Llama-2-7B; see the [HW6 guide](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en).
 
 ## Try it yourself: three exercises without enrolling
 
@@ -184,9 +184,9 @@ The summary on page 75: ZeRO cuts memory sharply and is scalable, flexible, and 
 
 ## Further reading
 
-- Previous in series: [L16–L17 Model parallelism and MoE](/en/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
-- Next in series: [HW5: data parallelism and pipeline parallelism](/en/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
-- On this site: [CS336 resource accounting](/en/posts/ai/2026-08-22-cs336-resource-accounting-en) (another way to count bytes per parameter), [CS336 parallelism mechanics](/en/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/en/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+- Previous in series: [L16–L17 Model parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+- Next in series: [HW5: data parallelism and pipeline parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
+- On this site: [CS336 resource accounting](/posts/ai/2026-08-22-cs336-resource-accounting-en) (another way to count bytes per parameter), [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 
 ## Update Log
 

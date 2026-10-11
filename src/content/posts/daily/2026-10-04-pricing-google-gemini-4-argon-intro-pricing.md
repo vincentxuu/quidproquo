@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
+> 🌏 [English version](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
 
 ## 變更摘要
 

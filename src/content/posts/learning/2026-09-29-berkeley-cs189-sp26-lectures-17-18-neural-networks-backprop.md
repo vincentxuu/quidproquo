@@ -23,7 +23,7 @@ glossary:
     context: "HW3 的 BearTensor 把它存在 adjoint 欄位。"
 ---
 
-> 🌏 [English version](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
+> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

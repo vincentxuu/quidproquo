@@ -110,7 +110,7 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 
 ## References
 
-- On this site: [Week 5: multi-agent systems and optimization](/en/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en), [CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 5: multi-agent systems and optimization](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en), [CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Course material (Wed Oct 28, What Data Do Agents Need?): the anchor reading is Shankar's flywheel, guided above. The additional reading is [Tan et al.'s survey](https://aclanthology.org/2024.emnlp-main.54/) (EMNLP 2024), which splits model-as-annotator work into annotation generation, annotation assessment, and training on synthetic annotations, with a data-type taxonomy and a learning-strategy review. The synthetic-data section above follows that three-part map.
 - Sources: [Shankar, Data Flywheels for LLM Applications (2024)](https://www.sh-reya.com/blog/ai-engineering-flywheel/), [Tan et al., Large Language Models for Data Annotation and Synthesis, EMNLP 2024](https://arxiv.org/abs/2402.13446), [Shankar et al., Who Validates the Validators, UIST 2024](https://arxiv.org/abs/2404.12272)

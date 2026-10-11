@@ -24,7 +24,7 @@ glossary:
 
 On September 8, 2026, [Nex AGI](https://nex-agi.com/) released [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini) — an open agentic model family spanning 35B to 1.6T, all under Apache-2.0. The eye-catcher is not the biggest one but the middle child: Pro scores 87.4 on [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) computer-use grounding, ahead of [Claude Opus 5](https://www.anthropic.com/) at 76.8, while the Max tops the entire official table on BrowseComp with 92.6. This is the twenty-second family deep-dive in the "AI 模型家族" series, tracing Nex from Nex-N2 to N2.5.
 
-For how to read benchmark numbers in this post, see the [AI model evaluation sources guide](/en/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI model landscape overview](/en/posts/tech/2026-08-24-ai-model-landscape-overview-en) series. For per-model details see the site's two model cards: [Model Card: Nex-N2.5-mini](/en/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en) and [Model Card: Nex-N2.5-Pro](/en/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en).
+For how to read benchmark numbers in this post, see the [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) series. For per-model details see the site's two model cards: [Model Card: Nex-N2.5-mini](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en) and [Model Card: Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en).
 
 ## Family timeline
 
@@ -34,7 +34,7 @@ For how to read benchmark numbers in this post, see the [AI model evaluation sou
 | Pre-2026 | Nex-N2 (mini / Pro) | Previous generation: mini as a 35B-A3B autonomous-agent model, Pro at 397B-A17B; N2-mini's DeepSWE sat at 8.0 — the baseline N2.5 exploded from |
 | 2026-09-08 | Nex-N2.5 (mini / Pro / Max) | Full second generation: mini/Pro continue N2's multimodal foundations with stronger post-training, Max completes full post-training at trillion-parameter scale for the first time |
 
-Nex iterates the same way [Laguna](/en/posts/tech/2026-09-19-ai-model-family-laguna-en) does: **new post-training, not a new base**. Looking further back, the first generation was [Nex-N1](https://github.com/nex-agi/Nex-N1) (Dec 2025, four sizes from 8B to 671B, flagship DeepSeek-V3.1-Nex-N1), with N2 building one layer on top. The official line is that N2.5-mini/Pro continue the [Nex-N2](https://github.com/nex-agi/Nex-N2) multimodal foundations, with gains from wider agent-training environments, task types, and productivity-scenario coverage. The shape of the scores backs it: mini's DeepSWE v1.1 jumps from 8.0 to 36.1 (4.5x), Pro's Terminal-Bench 2.1 from 75.3 to 82.7 (+7.4pp) — same parameters, higher long-horizon success rates.
+Nex iterates the same way [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna-en) does: **new post-training, not a new base**. Looking further back, the first generation was [Nex-N1](https://github.com/nex-agi/Nex-N1) (Dec 2025, four sizes from 8B to 671B, flagship DeepSeek-V3.1-Nex-N1), with N2 building one layer on top. The official line is that N2.5-mini/Pro continue the [Nex-N2](https://github.com/nex-agi/Nex-N2) multimodal foundations, with gains from wider agent-training environments, task types, and productivity-scenario coverage. The shape of the scores backs it: mini's DeepSWE v1.1 jumps from 8.0 to 36.1 (4.5x), Pro's Terminal-Bench 2.1 from 75.3 to 82.7 (+7.4pp) — same parameters, higher long-horizon success rates.
 
 ## Three sizes: mini for volume, Pro for work, Max for the ceiling
 
@@ -58,7 +58,7 @@ That bet explains the entire benchmark shape: everything measuring "how accurate
 
 ## Reasoning control: three levels, one finer than Laguna
 
-N2.5 controls thinking with `reasoning_effort` ([official docs](https://huggingface.co/nex-agi/Nex-N2.5-mini)): `none` answers directly with no trace, `medium` (default) thinks adaptively, `high` always thinks. Compared with [Laguna S 2.1](/en/posts/tech/2026-09-19-ai-model-family-laguna-en), which offers only `off`/`max`, Nex adds one middle setting that lets the model decide.
+N2.5 controls thinking with `reasoning_effort` ([official docs](https://huggingface.co/nex-agi/Nex-N2.5-mini)): `none` answers directly with no trace, `medium` (default) thinks adaptively, `high` always thinks. Compared with [Laguna S 2.1](/posts/tech/2026-09-19-ai-model-family-laguna-en), which offers only `off`/`max`, Nex adds one middle setting that lets the model decide.
 
 The parsers come in two pairs as well: `--reasoning-parser qwen3` for mini/Pro, `--reasoning-parser deepseek-r1` for Max, with function calling uniformly on `--tool-call-parser qwen3_coder`. Recommended sampling is `temperature=0.7`, `top_p=0.95`, `top_k=40` — note the departure from the `temperature=1.0` default of most coding models; align judge conditions before cross-comparing.
 
@@ -98,7 +98,7 @@ Selection logic: **for free computer-use loop experiments — mini; for groundin
 
 All three ship under Apache-2.0, with weights on both [Hugging Face](https://huggingface.co/collections/nex-agi/nex-n25) and [ModelScope](https://modelscope.cn/models/nex-agi/Nex-N2.5-mini) and hosted access via [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini) (mini/Pro on free tiers). Deployment runs on the in-house [sglang fork](https://github.com/nex-agi/Nex-N2.5) (`nexagi/sglang:v0.5.18-nex-patch`), with [vLLM](https://github.com/vllm-project/vllm) and transformers also supported. Against Laguna's OpenMDW-1.1, Apache-2.0 is the more dispute-free commercial license and the easier sell to enterprise legal.
 
-The free-tier play is worth noting: mini and Pro both at $0.00 pushes the "try it" cost to zero. Unlike [Laguna](/en/posts/tech/2026-09-19-ai-model-family-laguna-en), whose free tier caps context at 256K, Nex's free offering is the full model — the price is rate limits, so check OpenRouter's limit docs before scaling.
+The free-tier play is worth noting: mini and Pro both at $0.00 pushes the "try it" cost to zero. Unlike [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna-en), whose free tier caps context at 256K, Nex's free offering is the full model — the price is rate limits, so check OpenRouter's limit docs before scaling.
 
 ## Where it stands against rivals
 

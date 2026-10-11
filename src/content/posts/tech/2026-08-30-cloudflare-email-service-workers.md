@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-email-service-workers-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-email-service-workers-en)
 
 產品一旦有註冊、登入、付款、通知、客服，就會碰到 email。你可以接 SendGrid、Postmark、SES，也可以自己管 SMTP。但如果你的 app 已經跑在 Workers 上，[Cloudflare Email Service](https://developers.cloudflare.com/email-service/) 的吸引力在於少一段外部 infra：HTTP request 進 Worker，資料寫 D1/R2/Queue，交易信直接從 Worker 送出；使用者寄到 `support@` 或 `orders@`，也能 route 到 Worker 做分類、轉寄或自動回覆。
 

@@ -26,7 +26,7 @@ glossary:
     context: "L18 以這個設定算出每個參數約 20 bytes 的記憶體帳。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
+> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

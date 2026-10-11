@@ -13,7 +13,7 @@ description: "兩樣本比較入門：獨立平均數、Welch t、成對比較�
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-two-sample-comparisons-en)
+> [English version](/posts/learning/2026-08-29-im-stat-two-sample-comparisons-en)
 
 兩組資料比較看起來很直覺：A 組平均 78，B 組平均 72，所以 A 比 B 高 6 分。考試通常會再往下追問：「這 6 分相對於抽樣波動有多大？」以及「你有沒有選對比較方式？」
 

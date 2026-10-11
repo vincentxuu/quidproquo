@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-30-cloudflare-images-pipeline-en)
+> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-images-pipeline-en)
 
 圖片一多，網站就會開始長出奇怪的維運工作：縮圖、裁切、WebP/AVIF、retina 尺寸、社群預覽圖、使用者上傳、快取失效、原圖權限。你可以在 build 時先產生所有尺寸，也可以把圖片丟到 S3/R2 再寫一層處理服務。[Cloudflare Images](https://developers.cloudflare.com/images/) 提供第三種路：在 Cloudflare edge 動態轉換、最佳化、快取圖片，必要時連圖片 storage 也交給 Cloudflare。
 

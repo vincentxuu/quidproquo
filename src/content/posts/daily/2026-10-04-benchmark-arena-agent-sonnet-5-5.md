@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
+> 🌏 [English version](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
 
 ## 異動摘要
 

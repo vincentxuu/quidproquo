@@ -17,7 +17,7 @@ glossary:
     def: "蚂蚁集團聯合中金公司開發的金融評測基準，50+ 金融專業人士參與設計，從結果、過程與證據三層面評估答案準確性與可追溯性"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en)
+> 🌏 [English version](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en)
 
 ## 模型資訊
 

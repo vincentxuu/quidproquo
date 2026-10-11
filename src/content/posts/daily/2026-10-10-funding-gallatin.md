@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-10-funding-gallatin-en)
+> 🌏 [English version](/posts/daily/2026-10-10-funding-gallatin-en)
 
 ## 融資資訊
 

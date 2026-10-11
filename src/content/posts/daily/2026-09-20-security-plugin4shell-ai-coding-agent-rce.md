@@ -11,7 +11,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
+> 🌏 [English version](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
 
 ## 事件概述
 

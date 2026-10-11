@@ -13,7 +13,7 @@ description: "pi-mono 是 Mario Zechner 打造的極簡 coding agent monorepo（
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview-en)
+> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview-en)
 
 ## TL;DR
 

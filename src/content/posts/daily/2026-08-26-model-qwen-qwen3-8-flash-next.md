@@ -15,7 +15,7 @@ glossary:
     def: "阿里巴巴通義千問（Tongyi Qianwen）開發的大型語言模型家族"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next-en)
+> 🌏 [English version](/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next-en)
 
 ## 模型資訊
 

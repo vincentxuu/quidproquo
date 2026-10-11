@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0-en)
+> 🌏 [English version](/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0-en)
 
 ## 版本資訊
 

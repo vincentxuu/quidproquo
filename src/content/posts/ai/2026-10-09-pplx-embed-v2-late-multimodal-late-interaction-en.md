@@ -29,7 +29,7 @@ How that differs from the usual options:
 - **Cross-encoders** read query and document together. Most accurate, but one forward pass per candidate, so they are used to rerank a short list.
 - **Late interaction** encodes documents offline and keeps a vector per token. At query time each query token finds its best-matching document token and the maxima are summed. Perplexity's blog places it between cheap dense models and expressive cross-encoders.
 
-Documents can be text or page images. Per the blog, the models can "directly search rendered PDF pages without requiring OCR or parsed text." If you read our [ColPali walkthrough](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en), this is the same line of work; the difference is that text and images share one model, and two sizes interoperate.
+Documents can be text or page images. Per the blog, the models can "directly search rendered PDF pages without requiring OCR or parsed text." If you read our [ColPali walkthrough](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en), this is the same line of work; the difference is that text and images share one model, and two sizes interoperate.
 
 ```mermaid
 flowchart LR
@@ -112,7 +112,7 @@ Wait if:
 - The corpus is clean text and single-vector plus BM25 already works; multi-vector adds storage and operations cost.
 - Storage is tight, or your vector database lacks multi-vector and MaxSim support.
 
-Recommended approach, following our [RAG evaluation notes](/en/posts/ai/2026-03-12-rag-evaluation-frameworks-en): leave the current pipeline alone, run it side by side with this model on 200 real pages and 50 real questions, measure recall and latency, then decide. What you can do tonight:
+Recommended approach, following our [RAG evaluation notes](/posts/ai/2026-03-12-rag-evaluation-frameworks-en): leave the current pipeline alone, run it side by side with this model on 200 real pages and 50 real questions, measure recall and latency, then decide. What you can do tonight:
 
 ```bash
 pip install 'sentence-transformers>=6.0.0' 'transformers>=5.4.0'
@@ -143,5 +143,5 @@ The real novelty is not another ColPali-style model. It is the "9B builds the in
 - [LEAF distillation paper — arXiv:2509.12539](https://arxiv.org/abs/2509.12539)
 - [BrowseComp+ — arXiv:2508.06600](https://arxiv.org/abs/2508.06600)
 - [ViDoRe V3 — arXiv:2601.08620](https://arxiv.org/abs/2601.08620)
-- [ColPali: skip OCR, retrieve documents as images — on this site](/en/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
-- [ColBERT late interaction — on this site](/en/posts/ai/2026-03-12-colbert-late-interaction-en)
+- [ColPali: skip OCR, retrieve documents as images — on this site](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
+- [ColBERT late interaction — on this site](/posts/ai/2026-03-12-colbert-late-interaction-en)

@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-30-funding-atomic-en)
+> 🌏 [English version](/posts/daily/2026-09-30-funding-atomic-en)
 
 ## 融資資訊
 

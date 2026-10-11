@@ -49,12 +49,12 @@ This table includes only differences supported by public documentation and usefu
 
 | Platform | Payments and monetization | Discovery | Confirmed portable pieces | Platform-bound or rebuilt pieces | Operations |
 |---|---|---|---|---|---|
-| [Medium](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | Pooled member payouts; writers do not set each reader's price | Recommendations, topics, Digests, Boost | Account content archive; older email lists available to writers | New email subscribers' addresses are not shared; followers and distribution do not move | Platform |
-| [Vocus](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | TWD payments, invoices, payouts, and member operations | Taiwan-focused site, app, and email distribution | Official documentation confirms order-detail CSV export | No public official evidence found for complete post, member-email, or recurring-payment migration | Platform |
-| [Substack](/en/posts/product/2026-09-17-substack-ten-percent-discovery-en) | 10% platform fee on paid-subscription revenue, plus payment processing | Recommendations, Notes, and its network | Posts, subscriber list, and related statistics | Recommendation traffic stays; billing portability depends on Stripe and the migration path | Platform |
-| [Patreon](/en/posts/product/2026-09-17-patreon-membership-value-ladder-en) | Membership tiers, commerce, and community; new-creator pricing follows official effective-date rules | Free membership, Explore, and recommendations | Relationship Manager and some email data | Recurring authorization, comments, chats, and recommendation graph do not move as a CSV | Platform |
-| [Ghost](/en/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en) | Connects the publisher's Stripe; 0% Ghost transaction fee, but Stripe, hosting, or self-hosting still cost money | Recommendations and Webmention; Ghost 6 adds ActivityPub | Site content, member data, and the publisher's Stripe relationship sit closer to publisher control | Traffic, deliverability reputation, and self-hosting work do not solve themselves | Managed or self-hosted |
-| [Beehiiv](/en/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en) | Tiered SaaS combining paid subscriptions, advertising, and Boosts | Recommendations, Referral, and Ad Network | Official export paths cover posts and subscriber data | Recommendation relationships, ad workflows, automation, analytics, and payment tokens are not fully portable by implication | SaaS platform |
+| [Medium](/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | Pooled member payouts; writers do not set each reader's price | Recommendations, topics, Digests, Boost | Account content archive; older email lists available to writers | New email subscribers' addresses are not shared; followers and distribution do not move | Platform |
+| [Vocus](/posts/product/2026-09-17-medium-vocus-platform-distribution-en) | TWD payments, invoices, payouts, and member operations | Taiwan-focused site, app, and email distribution | Official documentation confirms order-detail CSV export | No public official evidence found for complete post, member-email, or recurring-payment migration | Platform |
+| [Substack](/posts/product/2026-09-17-substack-ten-percent-discovery-en) | 10% platform fee on paid-subscription revenue, plus payment processing | Recommendations, Notes, and its network | Posts, subscriber list, and related statistics | Recommendation traffic stays; billing portability depends on Stripe and the migration path | Platform |
+| [Patreon](/posts/product/2026-09-17-patreon-membership-value-ladder-en) | Membership tiers, commerce, and community; new-creator pricing follows official effective-date rules | Free membership, Explore, and recommendations | Relationship Manager and some email data | Recurring authorization, comments, chats, and recommendation graph do not move as a CSV | Platform |
+| [Ghost](/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en) | Connects the publisher's Stripe; 0% Ghost transaction fee, but Stripe, hosting, or self-hosting still cost money | Recommendations and Webmention; Ghost 6 adds ActivityPub | Site content, member data, and the publisher's Stripe relationship sit closer to publisher control | Traffic, deliverability reputation, and self-hosting work do not solve themselves | Managed or self-hosted |
+| [Beehiiv](/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en) | Tiered SaaS combining paid subscriptions, advertising, and Boosts | Recommendations, Referral, and Ad Network | Official export paths cover posts and subscriber data | Recommendation relationships, ad workflows, automation, analytics, and payment tokens are not fully portable by implication | SaaS platform |
 
 There is deliberately no “best” column. Vocus's local operations, Substack's network, Patreon's membership ladder, Beehiiv's growth workflows, and Ghost's control solve different problems.
 
@@ -75,7 +75,7 @@ flowchart TB
     G -.does not automatically carry.-> F
 ```
 
-A Medium follower is not an exportable email address. A Vocus order-detail export does not prove complete member-email or recurring-payment portability. Even when Substack, Patreon, or Beehiiv exports content or contacts, that does not imply that recommendations, interactions, and payment authorization move intact. Use the [six-layer migration checklist](/en/posts/product/2026-09-17-creator-platform-migration-assets-en) to test each layer.
+A Medium follower is not an exportable email address. A Vocus order-detail export does not prove complete member-email or recurring-payment portability. Even when Substack, Patreon, or Beehiiv exports content or contacts, that does not imply that recommendations, interactions, and payment authorization move intact. Use the [six-layer migration checklist](/posts/product/2026-09-17-creator-platform-migration-assets-en) to test each layer.
 
 ## AI changes workflows and distribution, not the winner by default
 
@@ -102,19 +102,19 @@ flowchart TD
     G --> H
 ```
 
-For a Taiwan-based content business, the [Taiwan creator-platform guide](/en/posts/product/2026-09-17-taiwan-creator-platform-choice-en) turns these gates into a checklist. Do not move the whole audience first. Use test accounts to run a subscription, refund, cancellation, content export, and contact export, then inspect whether the resulting fields can enter the next system.
+For a Taiwan-based content business, the [Taiwan creator-platform guide](/posts/product/2026-09-17-taiwan-creator-platform-choice-en) turns these gates into a checklist. Do not move the whole audience first. Use test accounts to run a subscription, refund, cancellation, content export, and contact export, then inspect whether the resulting fields can enter the next system.
 
 ## Seven case studies, organized by question
 
-1. [Medium and Vocus: what platform distribution costs](/en/posts/product/2026-09-17-medium-vocus-platform-distribution-en)
-2. [Substack: whether the 10% is worth it](/en/posts/product/2026-09-17-substack-ten-percent-discovery-en)
-3. [Patreon: free entry, paid tiers, and migration costs](/en/posts/product/2026-09-17-patreon-membership-value-ladder-en)
-4. [Ghost: domains, members, Stripe, and the right to exit](/en/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en)
-5. [Beehiiv: recommendations, ads, and growth workflows](/en/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en)
-6. [What actually moves: a six-layer migration checklist](/en/posts/product/2026-09-17-creator-platform-migration-assets-en)
-7. [How Taiwan creators can choose platform, SaaS, or self-hosting](/en/posts/product/2026-09-17-taiwan-creator-platform-choice-en)
+1. [Medium and Vocus: what platform distribution costs](/posts/product/2026-09-17-medium-vocus-platform-distribution-en)
+2. [Substack: whether the 10% is worth it](/posts/product/2026-09-17-substack-ten-percent-discovery-en)
+3. [Patreon: free entry, paid tiers, and migration costs](/posts/product/2026-09-17-patreon-membership-value-ladder-en)
+4. [Ghost: domains, members, Stripe, and the right to exit](/posts/product/2026-09-17-ghost-ownership-not-just-hosting-en)
+5. [Beehiiv: recommendations, ads, and growth workflows](/posts/product/2026-09-17-beehiiv-newsletter-operating-system-en)
+6. [What actually moves: a six-layer migration checklist](/posts/product/2026-09-17-creator-platform-migration-assets-en)
+7. [How Taiwan creators can choose platform, SaaS, or self-hosting](/posts/product/2026-09-17-taiwan-creator-platform-choice-en)
 
-This remains the third post in the [Content Selling Business Models](/en/posts/product/2026-09-16-content-selling-four-models-en) series. The update turns the original comparison into the entry point for the seven-part “Who Controls the Creator-Reader Relationship” extension. For individual paid-newsletter case studies, see [One-Person Media Company](/en/posts/career/2026-08-26-one-person-media-company-overview-en).
+This remains the third post in the [Content Selling Business Models](/posts/product/2026-09-16-content-selling-four-models-en) series. The update turns the original comparison into the entry point for the seven-part “Who Controls the Creator-Reader Relationship” extension. For individual paid-newsletter case studies, see [One-Person Media Company](/posts/career/2026-08-26-one-person-media-company-overview-en).
 
 ## Update log
 

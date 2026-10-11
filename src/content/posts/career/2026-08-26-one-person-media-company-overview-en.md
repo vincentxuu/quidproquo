@@ -25,7 +25,7 @@ This series dissects ten cases. This overview maps the landscape — four revenu
 
 | # | Newsletter | Founder | Year | Subscribers | Est. Revenue | One-Line |
 |---|---|---|---|---|---|---|
-| 1 | [Daily Dose of Data Science](/en/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en) | Avi Chawla | 2022 | 200K+ | Six figures+ | Daily 150-word visual curation → paid course platform |
+| 1 | [Daily Dose of Data Science](/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en) | Avi Chawla | 2022 | 200K+ | Six figures+ | Daily 150-word visual curation → paid course platform |
 | 2 | ByteByteGo | Alex Xu | 2022 | 1M+ | $3.5M | Bestselling book → system design visuals → course platform |
 | 3 | The Pragmatic Engineer | Gergely Orosz | 2021 | 1.1M+ | $1.5M+ | Ex-Uber EM → #1 paid tech newsletter on Substack |
 | 4 | TLDR | Dan Ni | 2018 | 5M+ | $10M+ | Side project → pure-ads empire, readers pay nothing |
@@ -137,7 +137,7 @@ This is the deliberately anti-growth case. Not every newsletter needs to become 
 Each subsequent post goes deep on one founder's story, using a consistent framework: background → timeline → content strategy → business model → lessons learned.
 
 Completed:
-- [Daily Dose of Data Science: From a Cancelled Master's to 200K Newsletter Subscribers](/en/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en)
+- [Daily Dose of Data Science: From a Cancelled Master's to 200K Newsletter Subscribers](/posts/career/2026-08-26-daily-dose-of-ds-creator-journey-en)
 
 Upcoming: ByteByteGo, The Pragmatic Engineer, TLDR, Ahead of AI, Stratechery, Morning Brew, The Hustle, Lenny's Newsletter, Not Boring, Dense Discovery.
 

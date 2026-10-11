@@ -13,7 +13,7 @@ description: "從考試到 ML/AI 的統計學導讀第 39 篇：殘差、outlier
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-model-diagnostics-en)
+> [English version](/posts/learning/2026-08-29-im-stat-model-diagnostics-en)
 
 模型 fit 完之後，很多人第一眼只看 R2、accuracy、p-value。這些數字能告訴你模型表面表現，卻不一定告訴你模型在哪裡壞掉。Diagnostics 做的事，就是把錯誤攤開來看。
 

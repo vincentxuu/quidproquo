@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-patreon-membership-value-ladder-en)
+> 🌏 [English version](/posts/product/2026-09-17-patreon-membership-value-ladder-en)
 
 想像一位街頭藝人在表演後放下一頂帽子。喜歡的人可以丟一次零錢，下次還會不會遇見，全靠運氣。Patreon 在帽子旁蓋起一間會員俱樂部。路過的人先免費留下聯絡方式，熟客每月付費進不同房間，鐵粉再買單次商品、參加活動，或把會員資格送給朋友。
 

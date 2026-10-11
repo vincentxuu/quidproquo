@@ -19,7 +19,7 @@ glossary:
     context: "本文用它說明為什麼寄信、付款這類有副作用的動作，重跑前必須靠外部系統去重。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-05-pi-durable-long-running-agents-en)
+> 🌏 [English version](/posts/ai/2026-10-05-pi-durable-long-running-agents-en)
 
 如果你正在做會跑很久的 agent，例如一次分析 100 個檔案、或是在 Slack 裡常駐回答問題，最需要先想清楚的問題是：process 死掉的那一刻，agent 的狀態在哪裡？這篇整理 Earendil 在 2026 年 10 月初發佈的 [Pi 1.0](https://earendil.com/posts/pi-1-0/) 與 [Pi Durable](https://earendil.com/posts/pi-durable/)，說明它存下來的東西跟一般 session 保存差在哪，以及在 Cloudflare 上跑有哪些限制。
 

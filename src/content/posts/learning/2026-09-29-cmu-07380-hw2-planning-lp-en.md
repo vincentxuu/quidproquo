@@ -18,7 +18,7 @@ draft: false
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-This is **HW2** of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026. The site lists it as due 9/18 (Fri) 11:59 pm, which has passed. It ties together the two previous lectures, [Lecture 3](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) on PDDL and GraphPlan and [Lecture 4](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en) on RRT and RRT\*, and the written part also tests linear programming from Lecture 5.
+This is **HW2** of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026. The site lists it as due 9/18 (Fri) 11:59 pm, which has passed. It ties together the two previous lectures, [Lecture 3](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) on PDDL and GraphPlan and [Lecture 4](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en) on RRT and RRT\*, and the written part also tests linear programming from Lecture 5.
 
 The assignment page opens with a short poem that sums up its two levels: first the pancake plan, then a random tree growing around the griddle. *Which actions in what order* is classical planning; *how the arm gets there without hitting anything* is motion planning.
 
@@ -47,7 +47,7 @@ Checked on 2026-10-10.
 
 `hw2.zip` contains `hw2.tex`, one `.tex` per problem, the collaboration statement `q_collaboration.tex`, and under `figures/` the images `graphplan.png` and `feasible_regions.png` plus the plotting starter `plot_graph.py`.
 
-**Access level**: both the programming and written parts can be fully redone outside CMU; only the online questions and official solutions are missing, so this assignment reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en).
+**Access level**: both the programming and written parts can be fully redone outside CMU; only the online questions and official solutions are missing, so this assignment reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Programming: Robot Cook and RRT
 
@@ -81,9 +81,9 @@ You submit only four files: `robot-cook_domain.pddl`, `robot-cook_cook1.pddl`, `
 
 **Q1's design.** The arm holds one tool at a time (ladle or flipper), and each pancake moves from ordered → poured (raw) → flipped → on the flipper → served. The six action names are fixed: `switch`, `fill`, `pour`, `flip`, `lift`, `serve`, and the page's table gives each action's "allowed when" and "afterwards" conditions. Predicates, parameters, and object names are your design, and you must stick to `:strips`. cook1 orders one pancake; cook2 orders two, with the goal of the first on the plate and the second on top of it.
 
-The autograder checks in two layers. First it runs the same optimal planner on your files and compares the sequence of action names (arguments dropped); the page lists the expected sequence for cook1 and says cook2's optimal plan has 12 steps, with two orderings both accepted. Second, it checks rules one at a time: certain short sequences must be impossible (such as pouring from an empty ladle) and others must be possible. The debugging hint on the page is useful: a plan shorter than expected usually means a missing precondition or an effect that gives away too much; a longer plan or no plan usually means a missing effect, an extra precondition, an incomplete `:init`, or a goal that asks too much. That is exactly [Lecture 3](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)'s complete-`:init`, partial-`:goal` rule.
+The autograder checks in two layers. First it runs the same optimal planner on your files and compares the sequence of action names (arguments dropped); the page lists the expected sequence for cook1 and says cook2's optimal plan has 12 steps, with two orderings both accepted. Second, it checks rules one at a time: certain short sequences must be impossible (such as pouring from an empty ladle) and others must be possible. The debugging hint on the page is useful: a plan shorter than expected usually means a missing precondition or an effect that gives away too much; a longer plan or no plan usually means a missing effect, an extra precondition, an incomplete `:init`, or a goal that asks too much. That is exactly [Lecture 3](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)'s complete-`:init`, partial-`:goal` rule.
 
-**Q2–Q7's design.** A configuration is a NumPy array of K numbers, and nothing in `rrt.py` should care what K is: the crewmate is (x, y), the two-link arm is (θ<sub>1</sub>, θ<sub>2</sub>), and `robotCook.py --links 4` gives four dimensions. The page separates two limits that are easy to confuse: `step_limits` caps how far each action may move in each dimension, while `max_edge` is the longest edge RRT will add, and one edge is usually several actions long. That matches the "convert the path to actions" slide in [Lecture 4](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en).
+**Q2–Q7's design.** A configuration is a NumPy array of K numbers, and nothing in `rrt.py` should care what K is: the crewmate is (x, y), the two-link arm is (θ<sub>1</sub>, θ<sub>2</sub>), and `robotCook.py --links 4` gives four dimensions. The page separates two limits that are easy to confuse: `step_limits` caps how far each action may move in each dimension, while `max_edge` is the longest edge RRT will add, and one edge is usually several actions long. That matches the "convert the path to actions" slide in [Lecture 4](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en).
 
 Q7 has a deliberate simplification: `rrt()` stops as soon as a node passes the goal test, for RRT\* as for RRT. The page explains that full RRT\* could keep sampling and rewiring, making the path shorter, which is where asymptotic optimality comes from; the assignment stops at the first goal so both planners return quickly.
 
@@ -126,13 +126,13 @@ Formatting requirements to know up front:
 - `figures/plot_graph.py` is a starter; you modify `plot_graph()` and fill in `compute_unit_length()`
 - Problem 2 explicitly warns you to follow "inequality form as defined in lecture" strictly, including the direction of the inequalities
 
-**Suggested order**: Problem 1 only needs GraphPlan from Lecture 3 and the first half of Lecture 4. Problems 2–4 need LP from Lecture 5, which is the next post in this series, so read the [Lecture 5 guide](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) first and then come back.
+**Suggested order**: Problem 1 only needs GraphPlan from Lecture 3 and the first half of Lecture 4. Problems 2–4 need LP from Lecture 5, which is the next post in this series, so read the [Lecture 5 guide](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) first and then come back.
 
 ## Related reading
 
 - GraphPlan mutex vocabulary, the Crane problem, and h<sub>max</sub>/h<sub>add</sub> are all in the [Recitation 2 solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf); practice there before written Problem 1.
 - The hand-computed RRT is in §6 of the same recitation; working it before Q3 and Q4 is faster than debugging code.
-- The page refers you to Project 0's autograder tutorial, and the bundled `autograder.py`, `testClasses.py`, `grading.py` and friends match the Pacman project family. That lineage is traced in the [Pacman AI project lineage](/en/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
+- The page refers you to Project 0's autograder tutorial, and the bundled `autograder.py`, `testClasses.py`, `grading.py` and friends match the Pacman project family. That lineage is traced in the [Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
 
 ## Things to do tonight
 
@@ -143,9 +143,9 @@ Formatting requirements to know up front:
 
 ## Series navigation
 
-- Previous: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
-- Next: [Lecture 5 guide: Linear Programming](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
-- Series overview: [CMU 07-380 Fall 2026 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+- Previous: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
+- Next: [Lecture 5 guide: Linear Programming](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
+- Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
 
 ## Update Log
 

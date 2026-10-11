@@ -21,11 +21,11 @@ From the perspective of "when to retrieve," RAG techniques form a spectrum:
 | Method | Trigger | Decision Maker | Requires Fine-Tuning |
 |---|---|---|---|
 | Standard RAG | Always retrieve | None (fixed behavior) | No |
-| [CRAG](/en/posts/ai/2026-03-12-corrective-rag-crag-en) | Retry when retrieval quality is low | External evaluator | No |
+| [CRAG](/posts/ai/2026-03-12-corrective-rag-crag-en) | Retry when retrieval quality is low | External evaluator | No |
 | FLARE | Low-confidence tokens during generation | Token probabilities | No |
 | **Self-RAG** | **Model generates [Retrieve] token** | **The model itself** | **Yes** |
-| [Adaptive-RAG](/en/posts/ai/2026-03-12-query-classification-adaptive-routing-en) | External classifier routes by query complexity | External classifier | Yes (classifier) |
-| [Agentic RAG](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en) | Full agent loop | LLM agent | No |
+| [Adaptive-RAG](/posts/ai/2026-03-12-query-classification-adaptive-routing-en) | External classifier routes by query complexity | External classifier | Yes (classifier) |
+| [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en) | Full agent loop | LLM agent | No |
 
 What makes Self-RAG unique is that it **internalizes both the retrieval decision and quality judgment into the model itself**. CRAG is pipeline-level post-processing (intercepting before results reach the LLM). FLARE uses token probabilities as a heuristic. Adaptive-RAG routes through an external classifier. Self-RAG needs none of these—the generated token sequence itself contains the judgments about "should I retrieve" and "how good is my output."
 
@@ -142,5 +142,5 @@ This also reflects the broader trend in adaptive retrieval: the shift from "alwa
 - [FLARE: Active Retrieval Augmented Generation (arXiv:2305.06983, EMNLP 2023)](https://arxiv.org/abs/2305.06983)
 - [LangChain: Self-Reflective RAG with LangGraph](https://www.langchain.com/blog/agentic-rag-with-langgraph)
 - [Atlan: 12 Advanced RAG Techniques (2026)](https://atlan.com/know/advanced-rag-techniques)
-- [CRAG: Auto-Relaxing Filters When Retrieval Fails](/en/posts/ai/2026-03-12-corrective-rag-crag-en)
-- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/en/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+- [CRAG: Auto-Relaxing Filters When Retrieval Fails](/posts/ai/2026-03-12-corrective-rag-crag-en)
+- [Agentic RAG: Letting the LLM Decide Whether to Search Again](/posts/ai/2026-03-12-agentic-rag-react-loop-en)

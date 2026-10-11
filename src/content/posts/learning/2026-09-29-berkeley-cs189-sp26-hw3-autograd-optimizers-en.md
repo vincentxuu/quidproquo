@@ -29,7 +29,7 @@ glossary:
 
 This guide is based on the [official HW3 folder](https://drive.google.com/drive/folders/1M6ii2VAJR63485TaDK0yKhcfT1bHdRIO) of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). It holds three files: the written problems [hw3.pdf](https://drive.google.com/file/d/18EVIcfx9eH3XG7w_S1XEn3QthMNdRTCt/view) (16 pages), the LaTeX template `hw3_student.tex`, and the coding assignment [hw3.ipynb](https://drive.google.com/file/d/17GdkCG486LIoROrwYg-3w0OxP12Azb1d/view). The schedule gives the deadline as **Sunday 4/12, 11:59 PM PT**, and lists HW3 in week 9, the week of the midterm (3/17).
 
-It follows directly from [Lec 17–18 (neural networks and backprop)](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en). In lecture you watched the chain rule run on a computation graph; HW3 has you turn it into a small working PyTorch. In the notebook's own words, you extend the single-variable autograd from lecture to general tensors, mimicking how `torch`'s autograd is implemented.
+It follows directly from [Lec 17–18 (neural networks and backprop)](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en). In lecture you watched the chain rule run on a computation graph; HW3 has you turn it into a small working PyTorch. In the notebook's own words, you extend the single-variable autograd from lecture to general tensors, mimicking how `torch`'s autograd is implemented.
 
 ## Course video sources
 
@@ -83,7 +83,7 @@ The topic is coordinate descent, framed as a special case of SGD: each step pick
 - (c) with step size `1/(L_max·d)`, derive the expected decrease, then add a PL-type condition to get a linear convergence rate;
 - (d)–(f) switch to the quadratic `½wᵀAw − wᵀb`: write the update, compare per-iteration cost, prove `L_max ≤ λ_max(A)`, and compare the total cost of coordinate descent and full GD to reach ε accuracy.
 
-It uses the same toolkit as the GD convergence proof in [Discussion 8](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en): bound the per-step decrease, then get geometric convergence.
+It uses the same toolkit as the GD convergence proof in [Discussion 8](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en): bound the per-step decrease, then get geometric convergence.
 
 ### Problem 3: Differentiating the Differentiator
 
@@ -149,13 +149,13 @@ The optional Q5 is a simplified Muon: approximate the orthogonalization `UVᵀ` 
 1. **Finite-difference check every op.** Lec 18 and Lec 19 both mention checking backprop against finite differences. For each op, generate random inputs and compare `(f(x+ε) − f(x−ε)) / 2ε` with your adjoint.
 2. **Use PyTorch as an oracle.** Build the same graph in `torch` and compare each leaf's `.grad`. Be sure to test a graph that uses one tensor twice (for example `x * x`); that is where a broken multi-path sum shows up.
 3. **Written problem 3(f) checks itself**: it asks you to differentiate the closed form too, and both routes must agree. Problem 4(d)(ii) likewise asks you to verify your identity numerically.
-4. **Discussion 9** (see [order 13](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)) walks through backprop on `f = (x+y)z` with solutions, which makes a good minimal test case for Q2.
+4. **Discussion 9** (see [order 13](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en)) walks through backprop on `f = (x+y)z` with solutions, which makes a good minimal test case for Q2.
 
 ## Further reading and navigation
 
 - Fall 2026 equivalent: on the [CS189 Fall 2026](https://eecs189.org/fa26/) schedule, Homework 3 comes after Lec 13 (backpropagation). Its problems are not linked from the home page, so the contents cannot be compared.
-- Related guides on this site: [CMU 11-785 Lecture 5: backpropagation](/en/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en), [CMU 11-785 Lecture 8: optimizers and regularization](/en/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en), [Stanford CS109 Lecture 18: information theory](/en/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory-en).
-- Series navigation: previous, [Lec 17–18](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en); next, [Lec 19–20: initialization, BatchNorm, CNNs, and generalization](/en/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); series entry, [CS189 overview](/en/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
+- Related guides on this site: [CMU 11-785 Lecture 5: backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en), [CMU 11-785 Lecture 8: optimizers and regularization](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en), [Stanford CS109 Lecture 18: information theory](/posts/learning/2026-08-22-stanford-cs109-lecture-18-information-theory-en).
+- Series navigation: previous, [Lec 17–18](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en); next, [Lec 19–20: initialization, BatchNorm, CNNs, and generalization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: download `hw3.ipynb`, implement only `__add__` and `__mul__` from Q1, build the graph `z = x * y + x`, work out ∂z/∂x = y + 1 by hand, and confirm your graph adds the gradients from both paths.
 

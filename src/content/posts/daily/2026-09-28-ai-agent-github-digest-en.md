@@ -52,7 +52,7 @@ None of today's three rising repos is a new agent framework at its core. All thr
 
 ## Notable Releases
 
-No notable framework release today. Among the watchlist frameworks, [Pydantic AI v2.51.0](https://github.com/pydantic/pydantic-ai/releases/tag/v2.51.0) and [Claude Code v2.1.283](https://github.com/anthropics/claude-code/releases/tag/v2.1.283) were both already covered in [yesterday's digest](/en/posts/daily/2026-09-27-ai-agent-github-digest-en); nothing new landed inside today's 48-hour window.
+No notable framework release today. Among the watchlist frameworks, [Pydantic AI v2.51.0](https://github.com/pydantic/pydantic-ai/releases/tag/v2.51.0) and [Claude Code v2.1.283](https://github.com/anthropics/claude-code/releases/tag/v2.1.283) were both already covered in [yesterday's digest](/posts/daily/2026-09-27-ai-agent-github-digest-en); nothing new landed inside today's 48-hour window.
 
 ## Today's Takeaway
 

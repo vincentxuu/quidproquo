@@ -85,7 +85,7 @@ I used to think of "a tool's input" and "the agent's conversation history" as tw
 
 - [Mastra @mastra/core@1.74.0 — GitHub Release](https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fcore%401.74.0)
 - [mastra-ai/mastra — GitHub](https://github.com/mastra-ai/mastra)
-- [Mastra @mastra/core@1.71.0 — previous framework update](/en/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
+- [Mastra @mastra/core@1.71.0 — previous framework update](/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
 - [PR #25525: agent.getMessages() and Observational Memory History group filtering/paging](https://github.com/mastra-ai/mastra/pull/25525)
 - [PR #25317: Playground UI Field/Fieldset/Form/SearchInput](https://github.com/mastra-ai/mastra/pull/25317)
 - [PR #25694: Vanta remediation pass dependency bumps](https://github.com/mastra-ai/mastra/pull/25694)

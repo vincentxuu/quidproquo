@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-17-affiliate-marketing-unit-economics-en)
+> 🌏 [English version](/posts/product/2026-09-17-affiliate-marketing-unit-economics-en)
 
 想像一位房仲帶你看房。他沒有蓋房子，也不擁有建商的收銀台；他做的是理解你的需求、排除不適合的選項，再把可能成交的客人帶到賣方。成交後，他拿一筆介紹費。
 

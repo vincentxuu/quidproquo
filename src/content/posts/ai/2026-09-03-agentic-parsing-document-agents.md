@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
+> 🌏 [English version](/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
 
 文件解析的前幾篇聊了[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)、[文字抽取](/posts/ai/2026-08-06-pdf-text-extraction-libraries)、[模型推斷結構](/posts/ai/2026-08-06-document-parsing-layout-ocr)。結論都指向同一件事：沒有一條固定 pipeline 能通吃所有文件。這篇要介紹的 Agentic Parsing，就是把「選哪條路」的決策交給 agent。
 

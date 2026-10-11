@@ -84,7 +84,7 @@ Method-wise, the authors collect four hundred ninety-three privacy-sensitive see
 
 The result is a cold splash. Even with privacy-enhancing prompts, GPT-4 leaks sensitive information in just over a quarter of cases. [Llama-3-70B](https://arxiv.org/abs/2407.21783) leaks in nearly four cases in ten. Answering well is not acting well, now with reproducible evidence.
 
-Evals are the mock exam and guardrails are the exam proctors, with four standard pieces in practice. First, injection defense: treat tool outputs and retrieved content as untrusted input, echoing the [MCP spec from Week 3](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en). Second, red-teaming: grow many trajectories from one seed and actively hunt the leakiest path. Third, sandboxing: start every trial from a clean environment so experiments cannot wound the host. Fourth, permission: ask explicit consent before irreversible tool calls.
+Evals are the mock exam and guardrails are the exam proctors, with four standard pieces in practice. First, injection defense: treat tool outputs and retrieved content as untrusted input, echoing the [MCP spec from Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en). Second, red-teaming: grow many trajectories from one seed and actively hunt the leakiest path. Third, sandboxing: start every trial from a clean environment so experiments cannot wound the host. Fourth, permission: ask explicit consent before irreversible tool calls.
 
 ## Attacks evolve: privacy offense and defense in simulation
 
@@ -118,7 +118,7 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 
 ## Where it sits in the course
 
-[Week 7](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en) spreads out the benchmark map, and Week 8 hands over the tools: automated judges guard quality, guardrails guard safety. This mapping follows the official CS329Z schedule, with the paper video due Friday. Monday's three anchors are the eval guide, MT-Bench, and AutoMetrics. Wednesday's three are PrivacyLens, simulation offense-defense, and deanonymization. Once Friday's paper video lands, only Demo Day remains. The judge eval is the project's quality gate, and the guardrail is its on-stage insurance.
+[Week 7](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en) spreads out the benchmark map, and Week 8 hands over the tools: automated judges guard quality, guardrails guard safety. This mapping follows the official CS329Z schedule, with the paper video due Friday. Monday's three anchors are the eval guide, MT-Bench, and AutoMetrics. Wednesday's three are PrivacyLens, simulation offense-defense, and deanonymization. Once Friday's paper video lands, only Demo Day remains. The judge eval is the project's quality gate, and the guardrail is its on-stage insurance.
 
 ## This week's course material
 
@@ -135,7 +135,7 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 
 ## References
 
-- On this site: [Week 7: evals and benchmarks](/en/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en), [Week 3: MCP and DSPy](/en/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 7: evals and benchmarks](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en), [Week 3: MCP and DSPy](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Grace et al., Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Zheng et al., Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena, NeurIPS 2023](https://arxiv.org/abs/2306.05685), [Ryan et al., AutoMetrics](https://arxiv.org/abs/2512.17267), [Zhu et al., AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn), [Shao et al., PrivacyLens, NeurIPS 2024](https://arxiv.org/abs/2409.00138), [Zhang & Yang, Searching for Privacy Risks via Simulation](https://arxiv.org/abs/2508.10880), [Li, Agentic LLMs as Powerful Deanonymizers](https://arxiv.org/abs/2601.05918), [Wen et al., Contextualized Privacy Defense](https://arxiv.org/abs/2603.02983), [OpenAI, Understanding Prompt Injections](https://openai.com/index/prompt-injections/), [Anthropic, Responsible Scaling Policy v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy), [Anthropic, current RSP](https://www.anthropic.com/responsible-scaling-policy)
 - Tools: [FastChat llm_judge](https://github.com/lm-sys/FastChat/tree/main/fastchat/llm_judge), [PrivacyLens](https://github.com/SALT-NLP/PrivacyLens)

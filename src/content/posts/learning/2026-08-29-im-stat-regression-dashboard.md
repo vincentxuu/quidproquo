@@ -13,7 +13,7 @@ description: "迴歸輸出表入門：讀 coef、standard error、t、p-value、
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-regression-dashboard-en)
+> [English version](/posts/learning/2026-08-29-im-stat-regression-dashboard-en)
 
 第一次看到迴歸輸出表，最容易做的事是掃 p-value：小於 0.05 就圈起來，大於 0.05 就跳過。這樣寫考卷很危險，因為迴歸表的每一欄回答的問題不同。`coef` 在講估計效果，`SE` 在講不確定性，`t` 和 p-value 在講單一係數是否明顯偏離 0，`F` 在看整體模型，`R2` 在描述樣本內解釋力。
 

@@ -58,7 +58,7 @@ Broken down, a plugin can currently contain:
 | External services and data | The real systems and permissions | APIs and auth behind the MCP server |
 | UI | How the user **works alongside** the agent | MCP App `ui://` resources + Plugin Extensions entrypoints |
 
-Packaging uses [Agent Plugins 1.0](/en/posts/ai/2026-08-21-agent-plugins-open-standard-en), released in August: a root `plugin.json`, with OpenAI-specific settings under `extensions.com.openai`. The [packaging docs](https://developers.openai.com/plugins/build/plugins) are explicit that UI isn't part of the package format:
+Packaging uses [Agent Plugins 1.0](/posts/ai/2026-08-21-agent-plugins-open-standard-en), released in August: a root `plugin.json`, with OpenAI-specific settings under `extensions.com.openai`. The [packaging docs](https://developers.openai.com/plugins/build/plugins) are explicit that UI isn't part of the package format:
 
 > UI and authentication remain part of the MCP server integration you built in the preceding steps; the plugin manifest connects that integration to the rest of the package.
 
@@ -202,5 +202,5 @@ Following the line API → MCP → Skill → Plugin → Plugin Extensions, the q
 - [MCP Apps launch (2026-01-26) — MCP Blog](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/)
 - [Agent Skills specification](https://agentskills.io/)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
-- [Agent Plugins 1.0: a packaging standard for AI agent extensions](/en/posts/ai/2026-08-21-agent-plugins-open-standard-en)
-- [The protocol layer: what MCP, A2A, ACP, and Skills each solve](/en/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
+- [Agent Plugins 1.0: a packaging standard for AI agent extensions](/posts/ai/2026-08-21-agent-plugins-open-standard-en)
+- [The protocol layer: what MCP, A2A, ACP, and Skills each solve](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)

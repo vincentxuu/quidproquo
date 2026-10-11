@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
+> 🌏 [English version](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
 
 ## 版本資訊
 

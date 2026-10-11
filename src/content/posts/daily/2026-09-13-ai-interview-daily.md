@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-13-ai-interview-daily-en)
+> 🌏 [English version](/posts/daily/2026-09-13-ai-interview-daily-en)
 
 ## 本週行為面試練習
 

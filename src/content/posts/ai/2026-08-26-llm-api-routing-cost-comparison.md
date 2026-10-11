@@ -16,7 +16,7 @@ glossary:
     def: "百萬 token（Million Tokens），LLM API 計價的標準單位"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-08-26-llm-api-routing-cost-comparison-en)
+> 🌏 [English version](/posts/ai/2026-08-26-llm-api-routing-cost-comparison-en)
 
 你想用 Claude Sonnet 5 寫程式。直接打 Anthropic API 是 $2/$10 per MTok。但同一個模型在 [OpenRouter](https://openrouter.ai) 上可能更便宜，在 [AWS Bedrock](https://aws.amazon.com/bedrock/) 上有量折扣，在某些第三方可能有快取優惠。這篇整理 2026 年 8 月的實際價差，幫你選最適合的管道。
 

@@ -15,7 +15,7 @@ draft: false
 
 > 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-terminal-backends)
 
-Post 5 in the series. [Start with the opener](/en/posts/ai/2026-08-18-hermes-agent-intro).
+Post 5 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
 When an agent runs commands, the questions that matter are **whose machine it runs on and who gets hit when it goes wrong**. Hermes abstracts this into a swappable terminal backend — one line of `terminal.backend` — but swapping it changes more than you'd expect.
 
@@ -97,9 +97,9 @@ The backend troubleshooting list is short enough to memorize: Docker → run `do
 
 > When in doubt, set `terminal.backend` back to `local` and verify that commands run there first.
 
-Fall back to local, confirm the command itself works, then add isolation. Same methodology as "keep routing off until the base provider is stable" from [the providers post](/en/posts/ai/2026-08-18-hermes-agent-providers): add one layer at a time.
+Fall back to local, confirm the command itself works, then add isolation. Same methodology as "keep routing off until the base provider is stable" from [the providers post](/posts/ai/2026-08-18-hermes-agent-providers-en): add one layer at a time.
 
-Next: [memory and skills](/en/posts/ai/2026-08-18-hermes-agent-memory-skills) — the part where the agent rewrites itself.
+Next: [memory and skills](/posts/ai/2026-08-18-hermes-agent-memory-skills-en) — the part where the agent rewrites itself.
 
 ## References
 

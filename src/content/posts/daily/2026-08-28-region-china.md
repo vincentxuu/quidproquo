@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-28-region-china-en)
+> 🌏 [English version](/posts/daily/2026-08-28-region-china-en)
 
 ## 區域：中國
 

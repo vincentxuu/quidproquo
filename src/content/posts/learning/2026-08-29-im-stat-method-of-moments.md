@@ -13,7 +13,7 @@ description: "Method of Moments 入門：一階矩、二階矩、Uniform 與 Exp
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-method-of-moments-en)
+> [English version](/posts/learning/2026-08-29-im-stat-method-of-moments-en)
 
 Method of Moments，常簡寫成 MoM，想法很樸素：分布的理論 summary 和參數有關，而樣本 summary 可以從資料算出來。那就把兩邊對起來，解出參數。
 

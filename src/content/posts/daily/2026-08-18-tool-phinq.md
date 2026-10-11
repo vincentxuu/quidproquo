@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-18-tool-phinq-en)
+> 🌏 [English version](/posts/daily/2026-08-18-tool-phinq-en)
 
 ## 工具資訊
 

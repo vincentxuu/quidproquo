@@ -26,7 +26,7 @@ glossary:
     context: "平行呼叫時結果會亂序回來，全靠 call ID 對回去。"
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en)
+> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

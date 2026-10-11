@@ -13,7 +13,7 @@ description: "拆解 OLMo 3 的 model flow 與 LLM360 K2 的 360° 開源：full
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en)
+> 🌏 [English version](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining-en)
 
 「開源 LLM」這四個字涵蓋的東西差距極大。Llama 只開權重；[OLMo](/posts/ai/2026-08-26-olmo-allen-ai-fully-open-llm) 連訓練資料都開。而這篇要談的兩個專案——Ai2 的 OLMo 3 和 MBZUAI 團隊的 LLM360——把透明度再往上推一層：不只開資料，還開**訓練過程本身**。每一階段的 checkpoint、訓練日誌、甚至訓練資料的確切順序，都在公開範圍內。
 

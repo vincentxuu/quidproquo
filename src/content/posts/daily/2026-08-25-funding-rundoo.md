@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-25-funding-rundoo-en)
+> 🌏 [English version](/posts/daily/2026-08-25-funding-rundoo-en)
 
 ## 融資資訊
 

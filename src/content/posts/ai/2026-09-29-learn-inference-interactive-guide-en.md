@@ -40,8 +40,8 @@ How it compares with other ways to learn inference:
 | Resource | Strength | Weakness |
 |---|---|---|
 | The book (PDF) | Complete, carries the author's own judgment | Static; you imagine the numbers |
-| [Stanford CS336's inference lecture](/en/posts/ai/2026-08-22-cs336-inference-en) | Derives from first principles, has assignments | Research-leaning; light on autoscaling and multi-cloud operations |
-| Engine docs like [vLLM](/en/posts/ai/2026-03-14-vllm-inference-engine-en) | Most precise on configuration | Only covers itself, not the trade-off landscape |
+| [Stanford CS336's inference lecture](/posts/ai/2026-08-22-cs336-inference-en) | Derives from first principles, has assignments | Research-leaning; light on autoscaling and multi-cloud operations |
+| Engine docs like [vLLM](/posts/ai/2026-03-14-vllm-inference-engine-en) | Most precise on configuration | Only covers itself, not the trade-off landscape |
 | Learn Inference | Whole landscape plus simulators, free, no signup | Unofficial rewrite; errors are the site's own |
 
 ## Why inference deserves its own study
@@ -113,7 +113,7 @@ Every chapter has an Ask AI box that answers about the page you're on. The [priv
 By role:
 
 - **Application engineers** (calling APIs, building RAG or agents): read chapters 0 and 1, then jump to 5.3 Caching and 7.5 Client code. Something to do tonight: measure TTFT and P99 for your service separately instead of looking only at average latency.
-- **People about to self-host models**: go 2.4 → 3 → 4.3 → 5, playing with each simulator before reading the text. Then pick up our [open-source LLM self-hosting guide](/en/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en) to map the concepts onto real framework choices.
+- **People about to self-host models**: go 2.4 → 3 → 4.3 → 5, playing with each simulator before reading the text. Then pick up our [open-source LLM self-hosting guide](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en) to map the concepts onto real framework choices.
 - **Interview prep**: each of chapter 5's five sections is a common ML system design topic, and the simulator captions work as one-sentence answers.
 
 ## Limits
@@ -132,6 +132,6 @@ By role:
 - [Learn Inference: Privacy](https://learn-inference.com/privacy) — where Ask AI data goes
 - [Learn Inference: 5.2 Speculative decoding](https://learn-inference.com/chapters/techniques/speculative-decoding)
 - [Inference Engineering (Baseten Books)](https://www.baseten.co/inference-engineering/) — the book by Philip Kiely, free download
-- [Stanford CS336: Inference](/en/posts/ai/2026-08-22-cs336-inference-en) — related post on this site
-- [vLLM inference engine](/en/posts/ai/2026-03-14-vllm-inference-engine-en) — related post on this site
-- [Open-source LLM self-hosting guide](/en/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en) — related post on this site
+- [Stanford CS336: Inference](/posts/ai/2026-08-22-cs336-inference-en) — related post on this site
+- [vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en) — related post on this site
+- [Open-source LLM self-hosting guide](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide-en) — related post on this site

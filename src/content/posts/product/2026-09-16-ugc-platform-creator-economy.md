@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/en/posts/product/2026-09-16-ugc-platform-creator-economy-en)
+> 🌏 [English version](/posts/product/2026-09-16-ugc-platform-creator-economy-en)
 
 把創作者平台想成三種做生意的地方。
 

@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en)
+> 🌏 [English version](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en)
 
 ## 變更摘要
 

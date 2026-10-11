@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
+> 🌏 [English version](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
 
 ## 事件概述
 

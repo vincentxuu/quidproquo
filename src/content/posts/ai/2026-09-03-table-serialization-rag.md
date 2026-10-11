@@ -13,7 +13,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-09-03-table-serialization-rag-en)
+> 🌏 [English version](/posts/ai/2026-09-03-table-serialization-rag-en)
 
 表格是結構化資料，但 embedding model 吃的是文字。同一張表格用 Markdown、CSV、JSON、key-value 四種格式序列化，產出的向量會完全不同——而哪種格式讓 RAG 更容易找到正確的 row，目前已經有 benchmark 數據可以參考。
 

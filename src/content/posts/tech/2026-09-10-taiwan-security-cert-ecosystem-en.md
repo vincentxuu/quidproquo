@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/tech/2026-09-10-taiwan-security-cert-ecosystem)
 
-The first three parts mapped the [full landscape](/en/posts/tech/2026-09-10-security-cert-landscape-en), ran the [AI security cert showdown](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en), and crunched the [classic cert ROI](/en/posts/tech/2026-09-10-security-cert-roi-en). This final installment covers what's unique to Taiwan: what regulations actually require, where to train, where to sit exams, and whether local alternatives exist.
+The first three parts mapped the [full landscape](/posts/tech/2026-09-10-security-cert-landscape-en), ran the [AI security cert showdown](/posts/tech/2026-09-10-ai-security-cert-showdown-en), and crunched the [classic cert ROI](/posts/tech/2026-09-10-security-cert-roi-en). This final installment covers what's unique to Taiwan: what regulations actually require, where to train, where to sit exams, and whether local alternatives exist.
 
 ## Regulations: where the push comes from
 
@@ -223,9 +223,9 @@ Taiwan's security certification ecosystem has three defining characteristics:
 
 This is the final post in the "Security Certification Playbook" series. The complete series:
 
-- [Part 1: The Landscape](/en/posts/tech/2026-09-10-security-cert-landscape-en) — 16 certifications mapped with a three-phase roadmap
-- [Part 2: AI Security Cert Showdown](/en/posts/tech/2026-09-10-ai-security-cert-showdown-en) — SecAI+ vs CAISP vs GAIPS vs AAISM
-- [Part 3: ROI Breakdown](/en/posts/tech/2026-09-10-security-cert-roi-en) — Security+ → AWS Security → CISSP investment returns
+- [Part 1: The Landscape](/posts/tech/2026-09-10-security-cert-landscape-en) — 16 certifications mapped with a three-phase roadmap
+- [Part 2: AI Security Cert Showdown](/posts/tech/2026-09-10-ai-security-cert-showdown-en) — SecAI+ vs CAISP vs GAIPS vs AAISM
+- [Part 3: ROI Breakdown](/posts/tech/2026-09-10-security-cert-roi-en) — Security+ → AWS Security → CISSP investment returns
 - **Part 4 (this post)**: Taiwan's ecosystem — regulations, training, exam venues, local resources
 
 ## Update log

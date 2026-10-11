@@ -40,16 +40,16 @@ The schedule's "Module" column splits the first ten lectures into four blocks. T
 
 | Module | Lecture | Date | Guide in this series |
 |---|---|---|---|
-| Introduction | Lec1 Introduction | 8/24 | [Lec1](/en/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en) |
-| Reasoning Under Certainty | Lec2 Logical Agents | 8/26 | [Lec2](/en/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en), [HW1](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) |
-| | Lec3 Planning: PDDL, Relaxations | 8/31 | [Lec3](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) |
-| | Lec4 Motion Planning: RRT | 9/2 | [Lec4](/en/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en), [HW2](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) |
-| Optimization | Lec5 Continuous Optimization: LP | 9/9 | [Lec5](/en/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) |
-| | Lec6 Discrete Optimization: ILP | 9/14 | [Lec6](/en/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en) |
-| | Lec7 Low Rank Optimization: PCA (LoRA) | 9/16 | [Lec7](/en/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en) |
-| Reasoning Under Uncertainty | Lec8 MAP | 9/21 | [Lec8](/en/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en), [HW3](/en/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en) |
-| | Lec9 Generative Models: Naive Bayes, GDA | 9/23 | [Lec9](/en/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en) |
-| | Lec10 Graphical Models: Bayes Nets | 9/28 | [Lec10](/en/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en) (pre-reading edition) |
+| Introduction | Lec1 Introduction | 8/24 | [Lec1](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en) |
+| Reasoning Under Certainty | Lec2 Logical Agents | 8/26 | [Lec2](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en), [HW1](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) |
+| | Lec3 Planning: PDDL, Relaxations | 8/31 | [Lec3](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) |
+| | Lec4 Motion Planning: RRT | 9/2 | [Lec4](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en), [HW2](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) |
+| Optimization | Lec5 Continuous Optimization: LP | 9/9 | [Lec5](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en) |
+| | Lec6 Discrete Optimization: ILP | 9/14 | [Lec6](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en) |
+| | Lec7 Low Rank Optimization: PCA (LoRA) | 9/16 | [Lec7](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en) |
+| Reasoning Under Uncertainty | Lec8 MAP | 9/21 | [Lec8](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en), [HW3](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en) |
+| | Lec9 Generative Models: Naive Bayes, GDA | 9/23 | [Lec9](/posts/learning/2026-09-29-cmu-07380-lecture-09-generative-models-en) |
+| | Lec10 Graphical Models: Bayes Nets | 9/28 | [Lec10](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en) (pre-reading edition) |
 
 On the schedule, the Reasoning Under Uncertainty module runs on through Lec13 (Approximate Inference, HMM / Particle Filtering, GMM / EM), followed by Acting Under Uncertainty (Lec14, Policy Gradient → RLHF) and Generative AI. So this "stage" does not end on a module boundary but at Lec10: the certainty and optimization modules are done, the uncertainty module has finished its first leg, and HW3 wraps up the first half.
 
@@ -71,7 +71,7 @@ flowchart LR
 
 Lec2 has an agent "prove" that a square is safe using propositional logic, with model checking, DPLL and forward chaining as tools. HW1 then turns proof into action: after proving which squares are safe, plan a route with search.
 
-Lec3 makes "how to change the world" something to reason about too. The [Lec3 guide](/en/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) concludes that planning is not a new problem but the same search problem with a different state representation; once PDDL writes down an action's preconditions and effects, relaxation can compute heuristics automatically.
+Lec3 makes "how to change the world" something to reason about too. The [Lec3 guide](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en) concludes that planning is not a new problem but the same search problem with a different state representation; once PDDL writes down an action's preconditions and effects, relaxation can compute heuristics automatically.
 
 Lec4 hits the first wall: a robot arm's state is continuous and cannot be enumerated, so RRT grows a tree by sampling. This is the first place "list everything, then pick" stops working.
 
@@ -93,9 +93,9 @@ All three homeworks have Gradescope online questions (CMU-only); below covers on
 
 | Homework | Due | Programming | Written | Ability tested |
 |---|---|---|---|---|
-| [HW1](/en/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) | 9/3 | [Logic and the Hybrid Wumpus Agent](https://www.cs.cmu.edu/~07380/assignments/logic_plan/), Q1–Q7 | none | Encode world rules as a knowledge base, check entailment with SAT, feed inference into search |
-| [HW2](/en/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) | 9/18 | [Classical and Motion Planning](https://www.cs.cmu.edu/~07380/assignments/planning/): Q1 PDDL, Q2–Q7 RRT / RRT\* | [hw2.pdf](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf): GraphPlan, LP formulation, graphing LPs, feasible regions | Represent one problem two ways (symbolic / continuous); turn a word problem into an LP and plot it |
-| [HW3](/en/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en) | 10/1 | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/): vertex-enumeration LP, branch and bound, formulation problems | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf): integer programming, ethics of delivery routes, PCA, MAP priors and regularization | Write the solvers yourself; compute PCA via SVD; prove a Laplace prior equals L1 regularization |
+| [HW1](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en) | 9/3 | [Logic and the Hybrid Wumpus Agent](https://www.cs.cmu.edu/~07380/assignments/logic_plan/), Q1–Q7 | none | Encode world rules as a knowledge base, check entailment with SAT, feed inference into search |
+| [HW2](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en) | 9/18 | [Classical and Motion Planning](https://www.cs.cmu.edu/~07380/assignments/planning/): Q1 PDDL, Q2–Q7 RRT / RRT\* | [hw2.pdf](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf): GraphPlan, LP formulation, graphing LPs, feasible regions | Represent one problem two ways (symbolic / continuous); turn a word problem into an LP and plot it |
+| [HW3](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map-en) | 10/1 | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/): vertex-enumeration LP, branch and bound, formulation problems | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf): integer programming, ethics of delivery routes, PCA, MAP priors and regularization | Write the solvers yourself; compute PCA via SVD; prove a Laplace prior equals L1 regularization |
 
 Side by side, the abilities stack up layer by layer:
 
@@ -107,7 +107,7 @@ HW4 is tentatively due 10/22 and has not been released; this series does not gue
 
 ## How much is public right now
 
-As of the 2026-09-29 site, the course as a whole is **A2 (in progress)**; the released Lec1–9 stretch is already at A3 level: every lecture has slides (including inked versions), most have pre-reading notes, Recitations 1–5 come with solutions, and HW1–3 have problem PDFs, LaTeX templates, starter code and local autograders. The levels are defined in the [global AI/CS course map](/en/posts/learning/2026-08-21-global-ai-cs-course-map-en).
+As of the 2026-09-29 site, the course as a whole is **A2 (in progress)**; the released Lec1–9 stretch is already at A3 level: every lecture has slides (including inked versions), most have pre-reading notes, Recitations 1–5 come with solutions, and HW1–3 have problem PDFs, LaTeX templates, starter code and local autograders. The levels are defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 Not available yet:
 
@@ -123,7 +123,7 @@ Outside readers can fully redo the slides, pre-readings, recitations and program
 
 The next lecture on the schedule, Lec11 (9/30), is Approximate Inference: likelihood weighted sampling and Gibbs. Lec10's three-step recipe is exact inference and needs the whole joint first; with many variables that becomes infeasible, and sampling exists to handle exactly that.
 
-If you are self-studying along with this series, the math behind Lec2–Lec8 can be backfilled from 07-280: [search and A\*](/en/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en), [CSP and backtracking](/en/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en), [gradient descent](/en/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en), [regularization](/en/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en), [MLE](/en/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en). The course's overall positioning is in the [07-380 overview](/en/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
+If you are self-studying along with this series, the math behind Lec2–Lec8 can be backfilled from 07-280: [search and A\*](/posts/ai/2026-08-22-cmu-07280-lecture-02-heuristic-search-en), [CSP and backtracking](/posts/ai/2026-08-22-cmu-07280-lecture-04-constraint-satisfaction-en), [gradient descent](/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en), [regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en), [MLE](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en). The course's overall positioning is in the [07-380 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
 
 ## Things to do tonight
 

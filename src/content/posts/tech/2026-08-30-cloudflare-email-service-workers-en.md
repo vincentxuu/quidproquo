@@ -75,7 +75,7 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-This API is a good fit for transactional email. For example, after a user submits a login form, a Worker writes a one-time token to D1 and sends a magic link. If sending fails, the event can go to [Queues](/en/posts/tech/2026-08-22-cloudflare-queues-en) for retry or manual review; the user does not need to wait on a slow external email API path.
+This API is a good fit for transactional email. For example, after a user submits a login form, a Worker writes a one-time token to D1 and sends a magic link. If sending fails, the event can go to [Queues](/posts/tech/2026-08-22-cloudflare-queues-en) for retry or manual review; the user does not need to wait on a slow external email API path.
 
 I would still avoid putting bulk newsletters directly in the request path. Even when Email Service can send the message, the product flow should separate synchronous requests from background delivery:
 

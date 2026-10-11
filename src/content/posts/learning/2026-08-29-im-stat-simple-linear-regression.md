@@ -13,7 +13,7 @@ description: "簡單線性迴歸入門：OLS、斜率、截距、殘差、預測
 draft: false
 ---
 
-> [English version](/en/posts/learning/2026-08-29-im-stat-simple-linear-regression-en)
+> [English version](/posts/learning/2026-08-29-im-stat-simple-linear-regression-en)
 
 簡單線性迴歸看起來像國中數學的一條直線，但統計考題要你處理的不是畫線而已。它問的是：當 `X` 改變時，`Y` 的平均值如何改變？這條線能不能拿來預測？預測錯誤要怎麼量？
 

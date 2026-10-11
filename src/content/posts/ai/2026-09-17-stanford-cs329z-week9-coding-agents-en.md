@@ -67,7 +67,7 @@ Failure has a portrait too. About half the failures are wrong implementations: p
 
 The benchmark is a design act of its own. Each exam item is a four-tuple: the issue text, a repository snapshot at one commit, new tests that fail before the fix, and old tests that must pass throughout. The first pair is called `FAIL_TO_PASS`, the second `PASS_TO_PASS`. The agent sees the first two items and never the last two; only passing both suites counts as solved.
 
-The full set mines over two thousand real issues. They come from twelve Python repositories. The [SWE-bench](https://arxiv.org/abs/2310.06770) Lite subset keeps three hundred instances to save money and time. SWE-agent on the [GPT-4](https://arxiv.org/abs/2303.08774) of its day resolves just over twelve percent of the full set. Lite lands near eighteen percent. A retrieval-only [RAG](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en) baseline that never touches code stays under three percent on Lite.
+The full set mines over two thousand real issues. They come from twelve Python repositories. The [SWE-bench](https://arxiv.org/abs/2310.06770) Lite subset keeps three hundred instances to save money and time. SWE-agent on the [GPT-4](https://arxiv.org/abs/2303.08774) of its day resolves just over twelve percent of the full set. Lite lands near eighteen percent. A retrieval-only [RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en) baseline that never touches code stays under three percent on Lite.
 
 ## What to do: set one exam for your own repo
 
@@ -75,7 +75,7 @@ The full set mines over two thousand real issues. They come from twelve Python r
 
 ## Where it sits in the course
 
-[Week 8's judges and guardrails](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en) shipped the tooling; this week writes code with it: ACI for feel, sandbox for safety, tests for correctness. The second homework lands Friday, and project demos are near. A bug-fix agent makes a fine project: ready-made exams, automatic grading, and a demo anyone can read.
+[Week 8's judges and guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en) shipped the tooling; this week writes code with it: ACI for feel, sandbox for safety, tests for correctness. The second homework lands Friday, and project demos are near. A bug-fix agent makes a fine project: ready-made exams, automatic grading, and a demo anyone can read.
 
 ## Course material
 
@@ -92,7 +92,7 @@ Three further readings round out the week. [Anthropic's Claude Code best practic
 
 ## References
 
-- On this site: [Week 8: model judges and safety guardrails](/en/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en), [Week 2: workflows and RAG](/en/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/en/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
+- On this site: [Week 8: model judges and safety guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en), [Week 2: workflows and RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), [Stanford CS329Z course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en)
 - Course: [CS329Z schedule](https://cs329z.stanford.edu/)
 - Sources: [Yang et al., SWE-agent](https://arxiv.org/abs/2405.15793), [Wang et al., OpenHands, ICLR 2025](https://arxiv.org/abs/2407.16741), [Jimenez et al., SWE-bench, ICLR 2024](https://arxiv.org/abs/2310.06770), [Wang et al., CodeAct, ICML 2024](https://arxiv.org/abs/2402.01030), [Muennighoff et al., OctoPack and HumanEvalPack](https://arxiv.org/abs/2308.07124)
 - Tools: [SWE-agent](https://swe-agent.com), [OpenHands](https://github.com/OpenHands/openhands)

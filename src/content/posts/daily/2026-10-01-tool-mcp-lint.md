@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-10-01-tool-mcp-lint-en)
+> 🌏 [English version](/posts/daily/2026-10-01-tool-mcp-lint-en)
 
 ## 工具資訊
 

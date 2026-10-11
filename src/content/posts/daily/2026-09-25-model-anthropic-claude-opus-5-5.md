@@ -17,7 +17,7 @@ glossary:
     def: "評測模型在真實終端機環境中自主執行多步驟指令、除錯、完成任務能力的 benchmark，被視為 agentic coding 的重要指標"
 ---
 
-> 🌏 [English version](/en/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
+> 🌏 [English version](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
 
 ## 模型資訊
 
