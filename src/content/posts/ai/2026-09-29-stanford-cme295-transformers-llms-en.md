@@ -57,6 +57,8 @@ The exam material splits neatly in half: the midterm's four sections, 25 points 
 
 ## The 2026 edition: the instructors name three changes
 
+Following the 2026 edition? The official syllabus now links [Lecture 2: Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04) and its [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf) (checked October 11). Read it alongside [Transformer models and tricks](/posts/ai/2026-09-29-cme295-transformer-tricks-en) and [LLM generation](/posts/ai/2026-09-29-cme295-large-language-models-en): these guides retain the 2025 Lecture 2 and Lecture 3 numbering.
+
 The 2026 edition started on September 25, and the [new syllabus](https://cme295.stanford.edu/syllabus/) again has nine lectures. The Lecture 1 slides include a page titled "Difference with last year's edition" listing three new areas: post-training methods, AI agents, and Diffusion LLMs.
 
 Put the two syllabi side by side, though, and the changes go further than those three items:
@@ -99,7 +101,7 @@ flowchart LR
   A9 --> B9
 ```
 
-- **2025's Lectures 2 and 3 merge into one**: the BERT family, prompting, chain of thought, and self-consistency drop off the syllabus.
+- **2025 Lectures 2 and 3 merge into one lecture**: BERT, prompting, chain of thought, and self-consistency are no longer separate syllabus items. The existing transcript checks in the two guides show that these topics still appear in the 2026 Lecture 2 recording; a shorter syllabus list does not establish that they were removed.
 - **Training splits into two lectures**: material that used to be squeezed into Lectures 4, 5, and 6 is reorganized into "Training" and "Reinforcement learning for LLMs." On-policy distillation is new, and the RL lecture starts from the mathematical notation of policy gradients.
 - **LLM systems is new**: distributed training, KV cache, speculative decoding, FlashAttention, and hardware trade-offs, which the 2025 edition only touched on in the training lecture.
 - **The agent lecture is almost entirely rewritten**: the 2025 syllabus listed RAG, function calling, and ReAct (the slides already had a section each on MCP and A2A); the 2026 syllabus lists tool calling, MCP, memory and retrieval, context compaction, harness optimization, coding agents, skills, and plugins. The last four are the genuinely new topics.
@@ -141,10 +143,14 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-10-11: Added direct links to the 2026 Lecture 2 recording and slides and clarified how it maps to the 2025 guides.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed live that the 2025 playlist has 9 videos and the 2026 syllabus has recordings for Lectures 1 and 2 only; status stays official entry only, with the 2026 syllabus link added.
 
 ## References
+
+- [2026 Lecture 2 recording](https://www.youtube.com/watch?v=GaIeu3npx04)
+- [2026 Lecture 2 slides (PDF)](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)
 
 - [CME 295 course homepage](https://cme295.stanford.edu/)
 - [CME 295 2026 syllabus](https://cme295.stanford.edu/syllabus/)

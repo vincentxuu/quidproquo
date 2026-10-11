@@ -57,6 +57,8 @@ draft: false
 
 ## 2026 版：老師自己說改了三件事
 
+跟 2026 版的讀者，可以直接看[第 2 堂 Large Language Models 錄影](https://www.youtube.com/watch?v=GaIeu3npx04)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)（10 月 11 日已對照官方課表）。本站對應的是[Transformer 模型與技巧](/posts/ai/2026-09-29-cme295-transformer-tricks)和[LLM 生成](/posts/ai/2026-09-29-cme295-large-language-models)兩篇，仍保留 2025 版第 2、3 堂的編號。
+
 2026 版在 9 月 25 日開課，[新課表](https://cme295.stanford.edu/syllabus/)同樣是九講。第 1 講投影片有一頁叫「Difference with last year's edition」，列出三項新內容：後訓練方法、AI agents、Diffusion LLMs。
 
 對照兩份課表，改動比這三項更大：
@@ -99,7 +101,7 @@ flowchart LR
   A9 --> B9
 ```
 
-- **2025 的第 2、3 講併成一講**：BERT 家族和 prompting、chain of thought、self-consistency 從課表上消失。
+- **2025 的第 2、3 講併成一講**：BERT 家族和 prompting、chain of thought、self-consistency 沒有獨立列在課表。兩篇導讀既有的字幕核對結果顯示，2026 第 2 堂錄影仍有帶到這些主題；不能只看課表項目較少，就判定內容被刪除。
 - **訓練拆成兩講**：原本擠在第 4、5、6 講的內容重組成「訓練」和「LLM 的強化學習」。新增了 on-policy distillation，強化學習那講從 policy gradient 的數學記號講起。
 - **新增 LLM 系統**：分散式訓練、KV cache、speculative decoding、FlashAttention 和硬體取捨，2025 版只在訓練那講帶過。
 - **Agent 那講幾乎重寫**：2025 課表列的是 RAG、function calling、ReAct（投影片裡其實已經各有一節講 MCP 和 A2A）；2026 課表改列 tool calling、MCP、記憶與檢索、context compaction、harness 最佳化、coding agent、skills 和 plugins，後四項是真正的新主題。
@@ -141,10 +143,14 @@ flowchart LR
 
 ## 更新紀錄
 
+- 2026-10-11：補上 2026 版第 2 堂錄影與投影片入口，說明與 2025 版導讀的堂次對應。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認 2025 播放清單共 9 支、2026 課表目前只上架第 1、2 講；維持僅附官方入口，補上 2026 課表連結。
 
 ## 參考資料
+
+- [2026 版第 2 堂錄影](https://www.youtube.com/watch?v=GaIeu3npx04)
+- [2026 版第 2 堂投影片（PDF）](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)
 
 - [CME 295 課程首頁](https://cme295.stanford.edu/)
 - [CME 295 2026 版課表](https://cme295.stanford.edu/syllabus/)

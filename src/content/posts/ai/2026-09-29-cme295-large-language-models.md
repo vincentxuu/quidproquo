@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "Stanford CME295 導讀"
   order: 3
-tldr: "CME295 第 3 講先把 LLM 定義成 decoder-only 的下一個 token 預測器，接著用 MoE 說明大模型為什麼每個 token 只用到一部分權重，主體則是生成時能調的旋鈕：greedy、beam search、top-k、top-p、temperature、guided decoding，以及 few-shot、chain of thought、self-consistency 三種 prompting 手法。2026 版把這講併進第 2 講，prompting 那半從課表消失。"
+tldr: "CME295 第 3 講先把 LLM 定義成 decoder-only 的下一個 token 預測器，接著用 MoE 說明大模型為什麼每個 token 只用到一部分權重，主體則是生成時能調的旋鈕：greedy、beam search、top-k、top-p、temperature、guided decoding，以及 few-shot、chain of thought、self-consistency 三種 prompting 手法。2026 版把這講併進第 2 講，prompting 沒有獨立列在課表，但錄影仍有簡短帶到。"
 description: "Stanford CME295 2025 Lecture 3「Large Language Models」導讀：LLM 的定義、MoE 與 routing collapse 的直覺、四種解碼策略與 temperature 公式、guided decoding、context rot、in-context learning、chain of thought、self-consistency，以及 KV cache、PagedAttention、speculative decoding 等推論加速地圖。"
 draft: false
 glossary:
@@ -33,6 +33,8 @@ glossary:
 > 🌏 [English version](/posts/ai/2026-09-29-cme295-large-language-models-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
+如果你跟的是 2026 版，請開啟[第 2 堂錄影](https://www.youtube.com/watch?v=GaIeu3npx04)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)。這堂整合了 2025 版第 2、3 堂的部分主題；本文保留原本的 2025 堂次，版本差異見文末「2026 版改了什麼」。
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 2025 版第 3 講「Large Language Models」（2025 年 10 月 10 日）。主要來源是 [125 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf)，[錄影](https://www.youtube.com/watch?v=Q5baLehv5So)長 1 小時 48 分。本文只根據投影片上的文字與圖寫，課堂口述的補充沒有收進來。
 
@@ -209,7 +211,7 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 
 ## 2026 版改了什麼
 
-2026 版對應本講的是第 2 講（10 月 2 日上課），[2026 課表](https://cme295.stanford.edu/syllabus/)已附該講投影片與錄影（上方第二支）。以下只根據課表的主題清單比對，沒有逐頁比對 2026 投影片：
+2026 版對應本講的是第 2 講（10 月 2 日上課），[2026 課表](https://cme295.stanford.edu/syllabus/)已附該講投影片與錄影（文末影片來源區的第二支）。以下依課表主題清單與 10 月 10 日留下的字幕核對結果比對，沒有逐頁比對 2026 投影片：
 
 - **這一講被併進 2026 版第 2 講「Large Language Models」**。那一講的清單是 Transformer model families、LLM definition and architecture、Mixture of experts、MHA/MQA/GQA、RoPE、context length、temperature、sampling strategies。也就是說，2025 的第 2 講和第 3 講前半合成一講。
 - **prompting、in-context learning、chain of thought、self-consistency 沒有獨立列在課表，但仍在 2026 第 2 講結尾短短帶過**。課表的主題清單沒有列出它們；我讀了第 2 講錄影的字幕，結尾幾分鐘講了 context window 與 context rot、不改權重的 prompting／in-context learning（並說 few-shot 越來越少用）、chain of thought 與 self-consistency，後兩者只點到，說要留到之後的 reasoning 講次。
@@ -263,12 +265,16 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Lan
 
 ## 更新紀錄
 
+- 2026-10-11：補上 2026 版第 2 堂錄影與投影片入口，說明與 2025 版導讀的堂次對應。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 2025 播放清單與官方 2026 課表，第 3 講（2025）與第 2 講（2026）的影片 ID 相符，並補上 2026 版第 2 講錄影。
 - 2026-10-10：修正過時的錄影說法。2026 版第 2 講的投影片與錄影已上架，改寫「只釋出第 1 講」的敘述。
 - 2026-10-10：依字幕核對影片內容。發現 2026 第 2 講錄影其實有講 prompting／ICL／CoT／self-consistency（結尾）與 guided decoding，已修正「2026 版 消失／無法判斷」的說法；其餘與本文相符。
 
 ## 參考資料
+
+- [2026 版第 2 堂錄影](https://www.youtube.com/watch?v=GaIeu3npx04)
+- [2026 版第 2 堂投影片（PDF）](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)
 
 - [CME 295 2025 版課表](https://cme295.stanford.edu/syllabus/2025/)
 - [CME 295 2026 版課表](https://cme295.stanford.edu/syllabus/)

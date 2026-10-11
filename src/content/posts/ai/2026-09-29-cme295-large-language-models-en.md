@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading Stanford CME295"
   order: 3
-tldr: "CME295 Lecture 3 defines an LLM as a decoder-only next-token predictor, uses MoE to explain why a huge model only touches part of its weights per token, and spends most of its time on the knobs you can turn at generation time: greedy, beam search, top-k, top-p, temperature, guided decoding, plus three prompting techniques (few-shot, chain of thought, self-consistency). The 2026 edition folds this lecture into Lecture 2, and the prompting half disappears from the syllabus."
+tldr: "CME295 Lecture 3 defines an LLM as a decoder-only next-token predictor, uses MoE to explain why a huge model only touches part of its weights per token, and spends most of its time on the knobs you can turn at generation time: greedy, beam search, top-k, top-p, temperature, guided decoding, plus three prompting techniques (few-shot, chain of thought, self-consistency). The 2026 edition folds this lecture into Lecture 2, prompting is no longer a separate syllabus item but still gets a brief segment in the recording."
 description: "A guide to Stanford CME295's 2025 Lecture 3, \"Large Language Models\": what counts as an LLM, the intuition behind MoE and routing collapse, four decoding strategies and the temperature formula, guided decoding, context rot, in-context learning, chain of thought, self-consistency, and a map of inference speedups such as KV caching, PagedAttention, and speculative decoding."
 draft: false
 glossary:
@@ -33,6 +33,8 @@ glossary:
 > 🌏 [中文版](/posts/ai/2026-09-29-cme295-large-language-models)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
+
+For the 2026 edition, use the [Lecture 2 recording](https://www.youtube.com/watch?v=GaIeu3npx04) and [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf). It covers topics from both 2025 Lecture 2 and Lecture 3; this guide keeps its original 2025 lecture number. The “What changed in 2026” section explains the comparison.
 
 This post covers Lecture 3, "Large Language Models," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 10, 2025). The main source is the [125-slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf); the [recording](https://www.youtube.com/watch?v=Q5baLehv5So) runs 1 hour 48 minutes. Everything here comes from the text and figures on the slides. Anything said only out loud in class is not included.
 
@@ -209,7 +211,7 @@ MoE and inference speedups are things the model provider does for you. What you 
 
 ## What changed in 2026
 
-The lecture that absorbs this one is 2026 Lecture 2 (held October 2), and the [2026 syllabus](https://cme295.stanford.edu/syllabus/) already lists its slides and recording (the second video above). The comparison below is based only on the syllabus topic lists, not a slide-by-slide read of the 2026 deck:
+The lecture that absorbs this one is 2026 Lecture 2 (held October 2), and the [2026 syllabus](https://cme295.stanford.edu/syllabus/) already lists its slides and recording (the second video in the source section below). The comparison uses the syllabus topic lists and the transcript checks recorded on October 10; it is not a slide-by-slide comparison of the 2026 deck:
 
 - **This lecture is folded into 2026 Lecture 2, "Large Language Models."** Its topic list is Transformer model families, LLM definition and architecture, Mixture of experts, MHA/MQA/GQA, RoPE and variants, context length, temperature, and sampling strategies. In effect, 2025 Lecture 2 and the first half of 2025 Lecture 3 become one lecture.
 - **Prompting, in-context learning, chain of thought, and self-consistency are not listed in the syllabus as separate items, but they still get a short closing segment in 2026 Lecture 2.** The syllabus topic lists do not name them; I read the transcript of the Lecture 2 recording, and its last minutes cover the context window and context rot, prompting and in-context learning without changing weights (noting that few-shot is used less and less), and chain of thought and self-consistency, the latter two only touched on and deferred to the later reasoning lectures.
@@ -263,12 +265,16 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-10-11: Added direct links to the 2026 Lecture 2 recording and slides and clarified how it maps to the 2025 guides.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the 2025 playlist and the official 2026 syllabus; the 2025 Lecture 3 and 2026 Lecture 2 video IDs match, and the 2026 Lecture 2 recording was added.
 - 2026-10-10: Fixed an outdated recording statement. The 2026 Lecture 2 slides and recording are now posted, so the "only Lecture 1 is out" wording was rewritten.
 - 2026-10-10: Checked the video content against its transcript. Found that the 2026 Lecture 2 recording does cover prompting, ICL, CoT and self-consistency (at the end) and guided decoding, and corrected the post's "disappeared / cannot tell" statements; everything else matches.
 
 ## References
+
+- [2026 Lecture 2 recording](https://www.youtube.com/watch?v=GaIeu3npx04)
+- [2026 Lecture 2 slides (PDF)](https://cme295.stanford.edu/slides/fall26-cme295-lecture2.pdf)
 
 - [CME 295 2025 syllabus](https://cme295.stanford.edu/syllabus/2025/)
 - [CME 295 2026 syllabus](https://cme295.stanford.edu/syllabus/)
