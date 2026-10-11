@@ -37,16 +37,29 @@ The post's argument boils down to this line:
 
 Plus a second point: AI makes forgetting expensive. Without shared memory, teams and agents re-learn what the organization already knows, rebuild what exists and retest what was tested, "now at machine speed."
 
-That premise shapes the product set. The four products map to one loop:
+That premise shapes the product set. Spotify draws the four products as one loop: Portal supplies context, Xirp lets agents code with that context, Confidence checks whether what was built worked, and what is learned flows back into the organization's knowledge.
+
+"One loop" is the official narrative, though; the technical dependencies need to be read separately. The diagram below draws only relationships I could find in official docs:
 
 ```mermaid
-flowchart LR
-  P["Portal<br/>org context: architecture, standards, systems"] --> X["Xirp<br/>multiple coding agents working with that context"]
-  X --> C["Confidence<br/>experiments check whether it worked"]
-  C -->|"what was learned"| P
+flowchart TB
+  B["Backstage<br/>open source framework (Apache-2.0)"]
+  PL["Spotify plugins<br/>Insights / Soundcheck / RBAC / Skill Exchange"]
+  P["Portal by Spotify<br/>commercial platform built on Backstage"]
+  X["Xirp<br/>desktop app for multiple coding agents"]
+  C["Confidence<br/>experiments and feature flags on your own warehouse"]
+  B --> PL
+  B --> P
+  P -. "optional: org context over MCP" .-> X
+  C -. "official: same loop; no integration docs found" .- P
 ```
 
-Spotify says Portal and Xirp share one context layer and one agent runtime. That is the vendor's description; I found no independent verification.
+- **Solid lines** are documented dependencies: the plugins install into Backstage; Portal is built on Backstage. The Portal page on the official site lists those four plugins as included.
+- **Portal to Xirp** is optional. The [Xirp docs](https://backstage.spotify.com/docs/xirp/xirp-and-portal) say that without Portal, terminals, agents, Git worktrees, skills and rules all still work; connecting Portal adds catalog context and shared session history.
+- **Confidence is standalone**: it has its own site, pricing and signup, runs on your own warehouse, and needs none of Backstage, Portal or Xirp. In its docs I found only that its CLI lets Claude Code, Cursor and Codex manage flags; I found no data-integration description between Confidence and Portal or Xirp.
+- The official post says these products "share one context layer and one agent runtime." For Portal and Xirp the docs support that; for Confidence I found no independent evidence, and no third-party verification either.
+
+So the more accurate picture: Backstage, Portal, the plugins and Xirp form one dependent product line; Confidence is a second line you can buy alone, and Spotify's claim is that the three together compound.
 
 ## What each product line does
 

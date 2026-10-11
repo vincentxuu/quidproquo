@@ -37,16 +37,29 @@ Singer 在文中先回答了他每天被問的問題：Spotify 為什麼要做�
 
 以及 AI 讓「遺忘」變貴：沒有共用記憶，團隊和 agent 會「以機器的速度」重學組織早就知道的事、重做做過的東西、重測測過的點子。
 
-這是整個產品組合的設計前提。四個產品對應的是同一個循環：
+這是整個產品組合的設計前提。Spotify 把四個產品畫成同一個循環：Portal 提供脈絡，Xirp 讓 agent 帶著脈絡寫程式，Confidence 驗證做出來的東西有沒有用，學到的再回到組織的知識裡。
+
+不過「同一個循環」是官方的敘事，實際的技術依賴要分開看。下圖只畫我在官方文件裡找得到的關係：
 
 ```mermaid
-flowchart LR
-  P["Portal<br/>組織脈絡：架構、規範、系統"] --> X["Xirp<br/>多個 coding agent 帶著脈絡工作"]
-  X --> C["Confidence<br/>實驗驗證做的東西有沒有用"]
-  C -->|"學到的東西"| P
+flowchart TB
+  B["Backstage<br/>開源框架（Apache-2.0）"]
+  PL["Spotify 外掛<br/>Insights／Soundcheck／RBAC／Skill Exchange"]
+  P["Portal by Spotify<br/>建在 Backstage 上的商業平台"]
+  X["Xirp<br/>管理多個 coding agent 的桌面 App"]
+  C["Confidence<br/>實驗與 feature flag，跑在你的資料倉儲上"]
+  B --> PL
+  B --> P
+  P -. "選配：用 MCP 提供組織脈絡" .-> X
+  C -. "官方稱同屬一個循環，未找到技術整合文件" .- P
 ```
 
-Spotify 稱 Portal 與 Xirp 共用一個脈絡層與 agent runtime，這部分是官方自述，外部尚無獨立驗證。
+- **實線**是文件寫明的依賴：外掛是裝在 Backstage 上的；Portal 是建在 Backstage 上的。官網的 Portal 頁面列出內含這四個外掛。
+- **Portal → Xirp** 是選配。[Xirp 文件](https://backstage.spotify.com/docs/xirp/xirp-and-portal)明說沒有 Portal，Xirp 的終端機、agent、Git worktree、skills 與規則照樣能用；接上 Portal 才多出目錄脈絡與共用的工作階段紀錄。
+- **Confidence 是獨立的**：它有自己的網站、定價、註冊流程，跑在你自己的資料倉儲上，不需要 Backstage、Portal 或 Xirp。我在它的文件裡只看到它的 CLI 可以讓 Claude Code、Cursor、Codex 管理 flag，沒有看到它跟 Portal 或 Xirp 之間的資料整合說明。
+- 官方文章說這些產品「共用一個脈絡層與 agent runtime」。對 Portal 與 Xirp 這一對，文件支持這個說法；對 Confidence，我沒有找到獨立的證據，也沒有第三方驗證。
+
+所以比較準確的說法是：Backstage、Portal、外掛與 Xirp 是一條有依賴關係的產品線；Confidence 是另一條，可以單獨買，Spotify 的主張是三者放在一起會互相加成。
 
 ## 四條產品線各自做什麼
 
