@@ -43,15 +43,15 @@ That premise shapes the product set. Spotify draws the four products as one loop
 
 ```mermaid
 flowchart TB
-  B["Backstage<br/>open source framework (Apache-2.0)"]
-  PL["Spotify plugins<br/>Insights / Soundcheck / RBAC / Skill Exchange"]
-  P["Portal by Spotify<br/>commercial platform built on Backstage"]
-  X["Xirp<br/>desktop app for multiple coding agents"]
+  B["Backstage<br/>open source"]
+  PL["Spotify plugins"]
+  P["Portal"]
+  X["Xirp"]
   B --> PL
   B --> P
-  P -. "optional: org context over MCP" .-> X
-  subgraph S2["Standalone: official says same loop, no integration docs found"]
-    C["Confidence<br/>experiments and feature flags on your own warehouse"]
+  P -. "optional" .-> X
+  subgraph S2["Standalone"]
+    C["Confidence"]
   end
 ```
 

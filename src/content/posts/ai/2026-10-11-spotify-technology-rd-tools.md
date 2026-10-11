@@ -10,7 +10,7 @@ description: "整理 Spotify Technology 四條產品線各自做什麼、怎麼�
 draft: false
 ---
 
-> 🌏 [English version](/en/posts/ai/2026-10-11-spotify-technology-rd-tools-en)
+> 🌏 [English version](/posts/ai/2026-10-11-spotify-technology-rd-tools-en)
 
 如果你的團隊正在評估「要不要買一套東西，讓多個 coding agent 共用公司的架構知識」，Spotify 剛好端出一套。2026 年 10 月 7 日，Spotify SVP Tyson Singer 在[工程部落格](https://engineering.atspotify.com/2026/10/introducing-spotify-technology-proven-at-spotify-now-yours)宣布 [Spotify Technology](https://technology.spotify.com/)，把原本零散銷售的內部工具放到同一個品牌下。這篇讀完你能判斷：這四個產品各解決什麼、哪些現在就能試、哪些說法只是賣方的主張。
 
@@ -43,15 +43,15 @@ Singer 在文中先回答了他每天被問的問題：Spotify 為什麼要做�
 
 ```mermaid
 flowchart TB
-  B["Backstage<br/>開源框架（Apache-2.0）"]
-  PL["Spotify 外掛<br/>Insights／Soundcheck／RBAC／Skill Exchange"]
-  P["Portal by Spotify<br/>建在 Backstage 上的商業平台"]
-  X["Xirp<br/>管理多個 coding agent 的桌面 App"]
+  B["Backstage<br/>開源框架"]
+  PL["Spotify 外掛"]
+  P["Portal"]
+  X["Xirp"]
   B --> PL
   B --> P
-  P -. "選配：用 MCP 提供組織脈絡" .-> X
-  subgraph S2["獨立產品：官方稱同屬一個循環，但未找到技術整合文件"]
-    C["Confidence<br/>實驗與 feature flag，跑在你的資料倉儲上"]
+  P -. "選配" .-> X
+  subgraph S2["獨立產品"]
+    C["Confidence"]
   end
 ```
 
