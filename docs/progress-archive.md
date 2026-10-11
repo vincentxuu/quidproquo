@@ -677,3 +677,7 @@ post-verify report: 2026-09-07-marker-document-parsing.md
 ## 2026-10-12 封存：daily-digest-model-card 2026-10-12 條目（progress.txt 行數上限）
 
 - **daily-digest-model-card 2026-10-12**：讀 A1/A2 watchlist＋HF trending API 4 組（text-generation／image-text-to-text／text-to-image／text-to-video）去重到 base model，多數候選為量化重包／uncensored 衍生版或既有家族（Cloudflare clef／LiquidAI d1／autotrust JEV）排除；選出 **Sperid Labs／Iris-3B**（HF 2026-10-05 上架，likes 102→141，昨日 10-10 routine 已標記為候選但因證據較薄改選他家，今日 likes 跨過門檻續查）：3B 像素空間擴散 transformer，不經 VAE 直接輸出像素，GenEval 0.798／DPG-Bench 86.52／OneIG-EN 打平 Qwen-Image；論文（arXiv 2610.09450）誠實揭露負向結果——微調後的深度估計只打平有 VAE 的潛空間模型 FLUX.2 Klein、4 倍影像修復未能超越，核心假設「拿掉 VAE 應帶來下游優勢」未獲驗證。全站 grep 確認未被報導過。中英雙版已建立並互相連結，series order 45（接續 10-10 Youtu-Parsing-Omni 的 44）。`pnpm install --frozen-lockfile` 全新 container 乾淨跑完；`check:references`（新檔 0 warning）、`check:lang-parity`（2649 組全過）、`check:tw`（0 blocking，新檔 0 命中）、`check:series-order`（45 無撞號，僅既有缺號 warning）皆 0 blocking；已將最舊 Recently completed 條目（10-11 課程導讀統一）移至 `docs/progress-archive.md`；待 commit／push。
+
+## 2026-10-12 封存：CMU 11-768 第 12–14 講 2026-10-10 條目（progress.txt 行數上限）
+
+- **CMU 11-768 第 12–14 講 2026-10-10 影片核對**：官網新上架 L12 RL Systems、L13 Agent Safety（原 Sandboxing & Credential Management 改名）、L14 OpenHands 投影片（皆無錄影），新增中英導讀各 3 篇並更新總覽進度表；L10–L14 待影片補充、A3 repo 尚未公開、L15 之後未上架。 同日全站課程影片重查：改讀字幕核對約 360 篇、新增 check:course-videos 與內容核對規則；約 50 篇拿不到字幕仍為標題對應（PR #185）。
