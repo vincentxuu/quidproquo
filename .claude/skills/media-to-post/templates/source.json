@@ -1,0 +1,20 @@
+{
+  "episodeId": "",
+  "sourceUrl": "",
+  "title": "",
+  "publisher": "",
+  "speakers": [],
+  "publishedAt": null,
+  "language": "",
+  "durationSeconds": null,
+  "durationEvidence": "",
+  "retrievedAt": "",
+  "retrievalTool": "",
+  "transcriptUrl": null,
+  "transcriptType": "unknown",
+  "retrievedRanges": [],
+  "truncated": null,
+  "paginationComplete": null,
+  "rightsBasis": "unknown",
+  "requestedDelivery": "article-guide"
+}

@@ -1,4 +1,4 @@
-# quidproquo progress；CME295 2026 第2堂中英來源更新完成
+# quidproquo progress — media-to-post 來源／交接實測完成；原音／畫面待驗；CME295 2026 第2堂中英來源更新完成
 Last updated: 2026-10-11
 - **課程導讀統一 2026-10-11**：48 系列／1602 篇標題與來源順序全數檢查；1600 舊標題已改、逐系列代表審查及已確認缺陷中英修正完成；17 回歸、獨立審稿通過，最新 main worktree /tmp/quidproquo-course-final；未提交／發佈。
 - **YouTube 嵌入限制 2026-10-11**：所有播放器加入 onError fallback，保留原始連結、片段循環與延遲初始化；CS149 GPU/CUDA 中英改觀看卡片。批次 API 查核工具與文件已新增，無 key 可建立清單。38 targeted tests 與 Chromium 模擬 fallback 通過，完整閘門於發布 worktree 執行。

@@ -5,6 +5,8 @@ description: 'Update an existing Markdown post under a category directory in src
 
 # post-update skill
 
+新增或重寫 YouTube／podcast 的論點、引語或導讀時，先跑 `../media-to-post/SKILL.md` 核對來源與範圍，再走本文流程；只補播放器或修連結不用跑整套，也不擴大使用者要求的更新範圍。
+
 更新既有的 quidproquo 文章，但**不破壞**它的身份（slug、檔名、原始發文日期都不動）。
 
 ## 課程文章更新（必讀）
@@ -126,8 +128,8 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
    - `ai-course` 標籤的文章一定要有狀態行。
 3. **已逐講查證的系列，另登錄在 `scripts/config/course-videos.json`**（嚴格模式）：查到錄影填 11 碼 video ID，查過確定還沒有填 `null`，兩種都要更新 `checkedAt`；`null` 的查核 7 天內有效。新增課程文章時同步加一筆。
 4. **「對得上標題」不等於「內容核對過」。** 重查只比對影片 ID、標題、講次，並沒有看內容；文章若對影片內容下了判斷（影片講了什麼、講者說了什麼、時間碼表、`start:` 深連結），必須讀字幕核對，並在 `## 課程影片來源` 段落寫一行 `內容核對：已依字幕核對（日期）：<核對了什麼>。`（英文 `Content check: verified against the video transcript (date): …`）。`check:course-videos` 對含時間戳章節、時間碼表或 `start:` 深連結的文章強制要求這一行。
-   - 取字幕：`firecrawl_scrape` 抓 YouTube watch 頁（`maxAge: 0`、markdown），字幕在 `## Transcript` 之後，是沒有時間碼的自動字幕。
-   - 字幕沒有時間碼，所以精確到分秒的時間點無法驗證：改成「約」並說明是依字幕相對位置估算，或只列主題順序。**不准保留沒驗證的精確時間碼。**
+   - 取字幕：沿用 `../media-to-post/SKILL.md` 的 Groundlane-first 來源流程，記錄實際字幕類型、取得範圍與時間戳，不預設字幕一定是自動產生或沒有時間碼。
+   - 來源沒有時間碼且無法回聽定位時，只列主題順序或段落 ID，不按文字比例估造時間。來源有時間碼時按實際依據核對。**不准保留沒驗證的精確時間碼。**
    - 拿不到字幕就不要加標記，也不要宣稱核對過。
 5. 影片後來才上架、補嵌影片時，在 `## 更新紀錄` 記一行，並同步更新登錄表。
 
