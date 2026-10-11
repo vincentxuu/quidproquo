@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW5 (Optional) Guide: InfoNCE for Biology, Diffusion Theory, LLM Fine-Tuning + Kaggle"
+title: "(Optional) Guide: InfoNCE for Biology, Diffusion Theory, LLM Fine-Tuning + Kaggle | Berkeley CS189 Assignment 5"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, self-supervised-learning, diffusion-models, fine-tuning, homework]
@@ -41,17 +41,6 @@ HW5 exercises each of three threads from [the previous post on Lec 25–27](/pos
 | Notebook | LLM Fine-tuning with Transformers | Prediction CSV for the [Kaggle competition](https://www.kaggle.com/competitions/cs-189-hw-5-sp-26) |
 
 The Deliverables line in `hw5.pdf` mentions only the written PDF. The notebook says test-set details are "provided in the accompanying PDF", but `hw5.pdf` contains no such section; treat the last cells of the notebook as the actual rules.
-
-## Course video sources
-
-No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
 
 ## Written 1: self-supervised learning on biological data
 
@@ -161,6 +150,17 @@ The metric is accuracy. The leaderboard is split into public (50% of the test da
 - Series navigation: previous, [Lec 25–27: proteins, agents, and closing](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en); this is the last post in the series; series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: don't train yet. Run the notebook through Part 3 and note the baseline accuracy; then pull a few dozen general questions from MMLU outside machine learning and make your own "forgetting monitor" set. After every config change, check both numbers, and you'll quickly see what catastrophic forgetting looks like.
+
+## Course video sources
+
+No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

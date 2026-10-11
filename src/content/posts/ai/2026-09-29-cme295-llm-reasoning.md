@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 6 講：reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼"
+title: "reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼｜Stanford CME295 第 6 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ glossary:
 投影片用兩個問題劃出「推理」的邊界。「Stanford 的 Transformer 與 LLM 課程代碼是什麼？」不算推理，記得就答得出來。「這隻熊 2020 年出生，今年幾歲？」才算，因為要先想到「現在是哪一年」，再做一次減法。投影片對推理的暫定定義只有一句：reasoning = ability to solve a problem。
 
 前一講（[第 5 講：偏好對齊](/posts/ai/2026-09-29-cme295-preference-tuning)）用 [PPO](https://arxiv.org/abs/1707.06347) 讓模型說人想聽的話。這一講接著問：同一套 RL 工具，能不能讓模型學會「先想再答」？
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 6 講 LLM Reasoning（頁面日期 2025-11-07，長 1:47:10）；章節是 reasoning models、benchmarks、pass@k、用 RL 擴展、GRPO、GRPO 與 PPO 比較、length bias、DAPO／Dr. GRPO、DeepSeek R1 配方，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 第一步：先寫推理，再寫答案
 
@@ -273,6 +253,26 @@ flowchart LR
 - test-time scaling 的推論端：[CS224N 第 13 講：Speculative Decoding 與 Test-Time Scaling](/posts/ai/2026-08-22-cs224n-reasoning-two)
 - policy gradient、actor-critic 的 RL 基礎：[Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 - 前一講的 PPO 與 DPO：[CME295 第 5 講](/posts/ai/2026-09-29-cme295-preference-tuning)
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 6 講 LLM Reasoning（頁面日期 2025-11-07，長 1:47:10）；章節是 reasoning models、benchmarks、pass@k、用 RL 擴展、GRPO、GRPO 與 PPO 比較、length bias、DAPO／Dr. GRPO、DeepSeek R1 配方，與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

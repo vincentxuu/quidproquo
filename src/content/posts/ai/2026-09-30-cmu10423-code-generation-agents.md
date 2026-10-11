@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L23：程式生成與自主 agent——從 pass@k 到 coding agent 迴圈"
+title: "程式生成與自主 agent——從 pass@k 到 coding agent 迴圈｜CMU 10-423 第 23 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code.pdf)（55 頁）與[課堂手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code-ink.pdf)（55 頁）。手寫版的文字和原版相同，只多了課堂上的紅筆圈畫。講次表這一講沒有列 readings，本文也不自行補上。這門課的存取等級是 **A3**（等級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，所以本篇完全依投影片撰寫。
 
 這一講的問題很實際：**讓模型寫程式、甚至自己動手操作電腦時，要怎麼判斷它做對了，又要怎麼把它組成一個能反覆嘗試的系統？** 投影片分成七段：程式生成的應用、評估、程式模型、程式專屬技巧、tool calling、coding agent、自主 agent。前四段講「模型本身」，後三段講「模型外面那一圈系統」。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 程式生成能做什麼
 
@@ -196,6 +185,17 @@ FIM 是這一段最值得弄懂的技巧。InCoder（2022 年 4 月）的做法�
 延伸閱讀：站上 [CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms) 從 RAG、function calling 講到 agent 迴圈，[CME295 2026 第 6 講：AI Agents](/posts/ai/2026-09-29-cme295-ai-agents) 則談 context 管理與 harness；想把 agent 當成一整門課讀，可以看 [CMU 11-768 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)。
 
 系列導覽：上一篇 [L22 + L26：實務風險與對齊科學](/posts/ai/2026-09-30-cmu10423-risks-alignment)｜下一篇 [L24–L26：語音、影片生成與互動式世界模型](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

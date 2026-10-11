@@ -1,5 +1,5 @@
 ---
-title: "Large Language Models: Tokenization, Transformers, MoE, and SFT"
+title: "Large Language Models: Tokenization, Transformers, MoE, and SFT | Stanford CS229 Chapter 17"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 17, printed pages 202–219, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. The focus is the chain from model to computation to post-training, not a line-by-line reproduction of every proof.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=hHC-SF3utxg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter; one of the two originally embedded videos did not match. Lecture 14 (about 78 minutes) opens by announcing a few lectures on LLMs, then covers tokenization, the autoregressive conditional-probability decomposition, the softmax output, attention and the causal mask, and ends with normalization and residuals, with a mention of the T-squared cost for long sequences; this matches the chapter's first two sections and the start of the long-sequence section. The originally embedded Lecture 13 (YouTube title "LLMs, Next-Word Prediction Loss") is in fact the second half of the representation-learning material (contrastive learning, semantic search, RAG) with no next-token, tokenization or transformer content, so it was replaced here and its content moved to Chapter 16. The replacement carries the YouTube title "Lecture 16: Basic Concept in RL, Policy Gradient", but its transcript covers attention variants (multi-query/grouped-query, KV cache, sliding window), mixture of experts, in-context learning (few-shot, zero-shot) and SFT, matching the chapter's long-sequence and "MoE, prompting and SFT" sections; the title does not match, the content does.
 
 ## From text to an autoregressive probability
 
@@ -100,6 +74,32 @@ Chapter 16 used embeddings for retrieval and RAG. This chapter opens the Transfo
 ## Exercise
 
 For the same 2,048-token prompt, compare what must be recomputed during token-by-token generation with and without a KV cache. Then make a table showing the main resource saved by FlashAttention, GQA, and sliding-window attention—and the bottleneck each does not solve.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=hHC-SF3utxg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter; one of the two originally embedded videos did not match. Lecture 14 (about 78 minutes) opens by announcing a few lectures on LLMs, then covers tokenization, the autoregressive conditional-probability decomposition, the softmax output, attention and the causal mask, and ends with normalization and residuals, with a mention of the T-squared cost for long sequences; this matches the chapter's first two sections and the start of the long-sequence section. The originally embedded Lecture 13 (YouTube title "LLMs, Next-Word Prediction Loss") is in fact the second half of the representation-learning material (contrastive learning, semantic search, RAG) with no next-token, tokenization or transformer content, so it was replaced here and its content moved to Chapter 16. The replacement carries the YouTube title "Lecture 16: Basic Concept in RL, Policy Gradient", but its transcript covers attention variants (multi-query/grouped-query, KV cache, sliding window), mixture of experts, in-context learning (few-shot, zero-shot) and SFT, matching the chapter's long-sequence and "MoE, prompting and SFT" sections; the title does not match, the content does.
 
 ## Update Log
 

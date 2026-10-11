@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 3: An Agent Skill Is a Folder — the Hard Part Is Two Lines of Description"
+title: "An Agent Skill Is a Folder — the Hard Part Is Two Lines of Description | Stanford CS146S Week 3"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the fourth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-cours
 Three topics: what skills are, how SKILL.md plus scripts encode a workflow, and web skills extending agent capability beyond the repo — plus "working effectively from the CLI." The guest is [Lee Robinson](https://leerob.com/cursor), who moved from Vercel to Cursor in July 2025 to work on developer education.
 
 This week did not exist in Fall 2025 — Agent Skills hadn't shipped yet.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## A suspiciously small spec
 
@@ -135,6 +123,18 @@ Point 4 has an easily missed effect: you find out that the context the agent act
 - "Web skills" is the Fall 2026 syllabus's term; the course hasn't defined it yet
 - Implementations of the cross-platform Agent Skills standard vary in maturity; verify portability per client
 - This site's skill counts are a 2026-08-16 snapshot
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS146S 兩版大綱對照：一年之間，這門 AI 開發課改掉了什麼"
+title: "兩版大綱對照：一年之間，這門 AI 開發課改掉了什麼｜Stanford CS146S 課程地圖"
 date: 2026-08-16
 category: ai
 tags:
@@ -29,18 +29,6 @@ draft: false
 Stanford 有一門叫 [CS146S: The Modern Software Developer](https://themodernsoftware.dev/) 的正式學分課，教的不是寫程式，是怎麼指揮 coding agent 寫程式。它在 2025 秋季首開，2026 秋季（9/22 開課）的大綱已經公布——而且**改動幅度大到可以當成一份產業訊號來讀**。
 
 這個系列會照 Fall 2026 的十週逐篇拆。這是第一篇，先把課程本身講清楚，再把兩版大綱擺在一起比。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 這門課的硬事實
 
@@ -150,6 +138,18 @@ Silas Alberti 與 Isaac Evans 兩版都在，但講的東西換了：Alberti 從
 - 課程行銷語言裡的「世界第一門這類課」「10x productivity」、以及電子報宣稱的「trusted by 32K developers globally」都屬於課程自述，沒有獨立第三方查證
 - 兩版大綱的比較是我從課程網站的資料物件逐項對出來的；官方沒有發布 changelog
 - 本系列引用的課堂內容全部來自 Fall 2025 投影片。Fall 2026 開課後那幾堂可能講得不一樣
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

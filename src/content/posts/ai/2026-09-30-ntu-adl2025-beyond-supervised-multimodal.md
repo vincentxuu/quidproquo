@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：超越監督學習與多模態——Auto-Encoder、VAE、Dual Learning、對比學習到 CLIP"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：超越監督學習與多模態——Auto-Encoder、VAE、Dual Learning、對比學習到 CLIP｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -44,30 +44,6 @@ glossary:
 | 14.7 | [Multimodality](https://youtu.be/Q0-8988uEiU) | 像人類一樣能看能聽能說話 | 19:52 | 找不到 |
 
 「對應頁」是本文依主題比對的結果，影片實際放的投影片是不是這幾頁，沒有辦法從公開資訊確認。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=j5XknQ4MGw0
-title: 14.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=rQyhxK-fDyI
-title: 14.2 Auto-Encoder
-```
-
-原始影片：[14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 14.1（21:19）與 14.2（14:40）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，對影片只引用標題、副標、長度與說明欄。這兩支的上傳日是 2025-12-02、說明欄寫 2025/12/01，與文章一致。
 
 ## 為什麼沒標註的資料也有用（第 2–11 頁）
 
@@ -181,6 +157,30 @@ NLP 的例子（第 67–70 頁）：[SimCSE（Gao et al., 2021）](https://arxi
 下一篇是講課以外的支線：[助教課：從 PyTorch 到 LLM 部署](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [對話系統與工具使用](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)｜下一篇 [助教課：從 PyTorch 到 LLM 部署](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=j5XknQ4MGw0
+title: 14.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=rQyhxK-fDyI
+title: 14.2 Auto-Encoder
+```
+
+原始影片：[14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 14.1（21:19）與 14.2（14:40）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，對影片只引用標題、副標、長度與說明欄。這兩支的上傳日是 2025-12-02、說明欄寫 2025/12/01，與文章一致。
 
 ## 更新紀錄
 

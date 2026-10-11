@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 2：先分清 workflow 和 agent，再手刻第一個 RAG"
+title: "先分清 workflow 和 agent，再手刻第一個 RAG｜Stanford CS329Z 第 2 週"
 date: 2026-09-10
 updated: 2026-09-12
 category: ai
@@ -22,17 +22,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先想清楚什麼值得做成 agent，免得一開工就過度工程。週三主讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)：第一個複合系統的完整配方，當天 hands-on 從零刻一條管線。兩篇合起來，[HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 第一段 email 檢索管線的施工圖就齊了。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 先分清：workflow 不是 agent
 
@@ -106,6 +95,17 @@ Week 2 是 HW1 的備料週：作業下週一才發，但週三 hands-on 的 RAG
 - 週一 9/28 LLMs for Builders：主讀物 Anthropic Building Effective Agents、延伸閱讀 [Rajasekaran 等人 Effective Context Engineering for AI Agents（Anthropic, 2025）](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)，本文均已導讀。
 - 週三 9/30 RAG：主讀物 Lewis 等人 RAG、延伸閱讀 [Khattab 等人 ColBERT](https://arxiv.org/abs/2004.12832)，本文均已導讀。
 - 課表原文：[CS329Z 官網 Week 2](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

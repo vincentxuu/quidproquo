@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀：沒模型時怎麼控制——ε-greedy、GLIE、Q-learning 與函數近似"
+title: "沒模型時怎麼控制——ε-greedy、GLIE、Q-learning 與函數近似｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,26 +37,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-cs234-model-free-policy-evaluation) 學會了在沒有模型時估一個**固定**策略的價值。但我們真正要的不是「這個策略值多少」，而是「怎麼找到更好的策略」。這就是 control。
 
 L4 的標題是 **Model Free Control and Function Approximation**，一講裡做了兩件事：先在表格設定下把 policy iteration 搬到沒有模型的世界，再把表格換成參數化的函數。投影片列的讀物是 [Sutton & Barto](http://incompleteideas.net/book/the-book-2nd.html) 5.2–5.4、6.4、6.5、6.7 節，結構參考 David Silver 的第 5、6 講。投影片第 2 頁放的是 Atari 上的 deep RL，先讓你知道這一講的終點在哪。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=b_wvosA70f8
-title: Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」
-```
-
-原始影片：[Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」](https://www.youtube.com/watch?v=b_wvosA70f8)
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 Monte Carlo control 與 GLIE、SARSA、Q-learning、函數近似與 deadly triad，後段才進 DQN，與本文（前半，DQN 留給下一篇）一致；本文逐頁的投影片細節未對照影片，Baird 反例在字幕裡也沒有出現。
 
 ## 把 policy iteration 搬到沒有模型的世界
 
@@ -201,6 +181,26 @@ L4 p.78 的「What You Should Understand」（DQN 那一條留到下一篇）：
 
 - 同一套 Q-learning 在 CS221 的入門講法：[CS221 第 8 講：強化學習與 Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning)
 - 深度 RL 課程裡的 value-based 方法：[Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」
+```
+
+原始影片：[Stanford CS234 Spring 2024 Lecture 4「Q learning and Function Approximation」](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 Monte Carlo control 與 GLIE、SARSA、Q-learning、函數近似與 deadly triad，後段才進 DQN，與本文（前半，DQN 留給下一篇）一致；本文逐頁的投影片細節未對照影片，Baird 反例在字幕裡也沒有出現。
 
 ## 更新紀錄
 

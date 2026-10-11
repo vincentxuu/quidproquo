@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 A1：親手寫一個 agent harness——同一個 ReAct 迴圈，修 bug、壓上下文、下西洋棋"
+title: "親手寫一個 agent harness——同一個 ReAct 迴圈，修 bug、壓上下文、下西洋棋｜CMU 11-768 作業 1"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -38,16 +38,6 @@ glossary:
 這份作業最有意思的地方在於它的結構：只有一個 `Agent` 基底類別、一個 ReAct 迴圈，卻要撐起三種完全不同的 agent。你會親眼看到，harness 的骨架是通用的，隨領域改變的只有 prompt、工具和觀察格式。這正好是 [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents) 投影片上那條定義：Harness = prompts + tools + agent loop + context management。
 
 本篇只講要求、架構、評分與設計取捨，並把每個 TODO 對回 L1–L6 的概念。**不給解答**，也不會貼任何 TODO 的實作。
-
-## 課程影片來源
-
-本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
 
 ## 三個部分怎麼串起來
 
@@ -225,6 +215,16 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 - 站內：[Coding agent 的上下文壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)
 - 站內：[Coding agent 的 code mode](/posts/ai/2026-08-25-coding-agent-code-mode)（程式化工具呼叫的設計取捨）
 - 站內：[Coding agent 的 hooks、skills 與 plugins](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins)
+
+## 課程影片來源
+
+本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 14：segmentation、共享、稀疏位址空間與配置限制"
+title: "segmentation、共享、稀疏位址空間與配置限制｜Stanford CS111 第 14 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 15 篇，對應 **Stanford CS111, Spring 2026, Lecture 14**。2026-04-29 由 Mendel Rosenblum 主講，官方題目是 [Virtual Memory, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/14/Lecture14.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 官方 `Lecture13.pdf` 與 `Lecture14.pdf` 都是 25 頁，SHA-256 同為 `f0aa78c7...e315`，內容逐位元組相同；calendar 卻把 4 月 29 日列為 **Virtual Memory, Continued**。Canvas 錄影不公開，本文不假裝有另一份 deck，只聚焦重複材料後段的 segmentation。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. 為何一組 base/bound 不夠
 
@@ -80,6 +72,14 @@ PDF 沒展開 shared writable memory synchronization。R/W mapping 只回答 per
 Address space 也 rigidly divided：code/data/stack virtual ranges 受 encoding 限制，未用 capacity 不一定可借給另一段，program/toolchain 還得理解 segment identity。
 
 Segmentation 以多 descriptors 修好單一 region 的 protection、growth、sharing，卻保留 fixed-count 與 variable-size placement。下一講 paging 會用 fixed-size pages 和更大的 mapping table處理不連續 frames；本篇到此為止，不提前把 paging 寫回這份重複 PDF。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

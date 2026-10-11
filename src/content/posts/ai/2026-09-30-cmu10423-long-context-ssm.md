@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L19 + L21：長上下文與 State Space／Hybrid 模型——attention 成本隨長度平方成長時的三條路"
+title: "長上下文與 State Space／Hybrid 模型——attention 成本隨長度平方成長時的三條路｜CMU 10-423 第 19 堂／第 21 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[L19 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long.pdf)與[課堂手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long-ink.pdf)（各 40 頁）、[L21 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture21-ssm.pdf)（42 頁，沒有手寫版）。講次表這兩講都沒列 readings，本文只引投影片本身與投影片標註的論文。這門課的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，所以本篇完全依投影片撰寫，課堂口述拿不到。
 
 L19 和 L21 中間隔了一講 L20 推理模型。導讀把它們合成一篇，因為兩講回答的是同一個問題：**attention 的成本隨序列長度平方成長，還有哪些路可走？**
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 先看問題長什麼樣：一段影片就爆掉 context
 
@@ -216,6 +205,17 @@ L21 最後一段是 hybrid 模型。投影片列了三個動機：長上下文�
 延伸閱讀：站上 [CS336 的架構與超參數篇](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)與[推論篇](/posts/ai/2026-08-22-cs336-inference)從自己訓練 LM 的角度談位置編碼與 KV cache；[CMU 11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)從系統角度談分散式訓練與推論。
 
 系列導覽：上一篇 [L17–L18：分散式訓練、FlashAttention 與高效解碼](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)｜下一篇 [L20：推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

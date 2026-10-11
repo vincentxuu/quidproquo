@@ -1,5 +1,5 @@
 ---
-title: "Full Cycle of a DL Project: You Get Two Days to Collect Data"
+title: "Full Cycle of a DL Project: You Get Two Days to Collect Data | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: guide
@@ -20,26 +20,6 @@ draft: false
 > [The previous post](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en) covered how embeddings get trained. This one zooms out to the whole project.
 
 This post covers **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)** (2025/10/07, Andrew Ng, 1 hour 7 minutes). It is mostly live Q&A (in the captions Ng calls his own sketch a "bad drawing", so there was presumably live drawing; whether slides were used cannot be judged from the captions). Ng takes a single case (a face-recognition door system) through the entire lifecycle, putting every decision point to a class vote before giving his answer.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Andrew Ng; the captions open with "the full cycle of a deep learning project", and the 1:07:05 runtime matches the article). Checked item by item against the captions: the two-day deadline and "Tuesday 11:52", at least 50,000 face images, the Siamese network, sampling in cafeterias, the two VAD options (changed-pixel epsilon, about five lines of Python), picking sharp frames, Texas traffic lights, phones inspected by his team's software, the piano and Sherlock Holmes attic analogy, Claude/Gemini for coding, and the re-authentication dashboard all appear. Two fixes: (1) "no slides, whiteboard throughout" cannot be judged from captions (only the speaker calling it a "bad drawing"), so the wording is now neutral; (2) the acquisition amount is garbled in the captions (only "definitely more than tens of millions of dollars" is clear), and the text now says so.
-
-```youtube
-url: https://www.youtube.com/watch?v=MGqQuQEUXhk
-title: Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-Checked: 2026-10-10.
 
 ## Why AI projects aren't like traditional software
 
@@ -246,6 +226,26 @@ Ng makes this analogy himself throughout, but a few threads are worth pulling ou
 **"Blindly grabbing more data isn't a good strategy"** has a modern counterpart: blindly adding more context. The site's [context and memory](/posts/ai/2026-08-10-agent-context-memory-failure-en) post concludes that giving an LLM more information makes it dumber — that's the same principle as Ng's, showing up in a different place.
 
 **The modern version of "my test-set numbers are good" is "my eval numbers are good."** The site's [shipping is where the work starts](/posts/ai/2026-08-10-enterprise-agent-case-studies-en) post is about exactly this: green evals don't mean the system works, and the gap is usually a distribution shift.
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Andrew Ng; the captions open with "the full cycle of a deep learning project", and the 1:07:05 runtime matches the article). Checked item by item against the captions: the two-day deadline and "Tuesday 11:52", at least 50,000 face images, the Siamese network, sampling in cafeterias, the two VAD options (changed-pixel epsilon, about five lines of Python), picking sharp frames, Texas traffic lights, phones inspected by his team's software, the piano and Sherlock Holmes attic analogy, Claude/Gemini for coding, and the re-authentication dashboard all appear. Two fixes: (1) "no slides, whiteboard throughout" cannot be judged from captions (only the speaker calling it a "bad drawing"), so the wording is now neutral; (2) the acquisition amount is garbled in the captions (only "definitely more than tens of millions of dollars" is clear), and the text now says so.
+
+```youtube
+url: https://www.youtube.com/watch?v=MGqQuQEUXhk
+title: Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

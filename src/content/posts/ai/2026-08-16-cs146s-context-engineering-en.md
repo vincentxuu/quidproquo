@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 2: Context Engineering, RePPIT, and MCP's 98.7% Cut"
+title: "Context Engineering, RePPIT, and MCP's 98.7% Cut | Stanford CS146S Week 2"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the third post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 Four listed topics: advanced prompting techniques and when each applies, RePPIT and spec-driven development, MCP fundamentals (servers, clients, tools, transport), and tool ergonomics. The two sessions are "Advanced prompting + agentic dev frameworks" and "Full introduction to MCP and tool-calling."
 
 Start with the biggest signal in this week: **Fall 2025 had a whole session called "Power prompting for LLMs." In Fall 2026 it is the first of four bullets.**
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Why prompting got demoted
 
@@ -189,6 +177,18 @@ The sub-agent line comes with a number: a subagent may burn tens of thousands of
 - The slides describe MCP transports as stdio and SSE; the spec has since evolved
 - "2-3X faster" and "98.7%" come from the framework's author and a tool vendor respectively — both are self-measured
 - MCP's transport specification is still evolving; check current docs before implementing
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

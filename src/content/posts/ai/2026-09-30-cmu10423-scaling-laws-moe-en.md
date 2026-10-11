@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L15–L16: Scaling Laws and Mixture of Experts — How Big Should the Model Be, and How Do You Compute Only Part of It?"
+title: "Scaling Laws and Mixture of Experts — How Big Should the Model Be, and How Do You Compute Only Part of It? | CMU 10-423 Lectures 15–16"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,17 +31,6 @@ glossary:
 Official materials used: the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf) (37 pages; the Querying Transformer half is covered in [part 14](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en), so this post reads only the Scaling Laws section), the [Lecture 16 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe.pdf) and their [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe-ink.pdf), the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), and the practice exam on the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html). I downloaded and checked all of them on 2026-09-30. The schedule lists no readings for these two lectures, so every paper cited here is one the slides cite.
 
 > **Version note**: Both PDFs linked from the March 16 Lecture 16 row have a cover reading "Matt Gormley & Pat Virtue, Mar. 17, 2025", a reminder slide with Spring 2025 HW4 dates, and a 2025 creation date. Spring 2026 reused last year's MoE deck. The Scaling section of L15 is marked "Scaling slides credit: Pat Virtue". Recordings are on CMU's internal Panopto and not visible from outside, so this post relies entirely on the slides.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Why this comes after multimodal models
 
@@ -180,6 +169,17 @@ Confirmed: the text, formulas, and citations on both slide decks; schedule dates
 - The systems side of MoE (expert parallelism, communication): [CMU 11-868 L16–L17: When a Model Won't Fit on One GPU](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 
 Series: Previous: [HW4: Text-to-Image with a Q-Former](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) | Next: [L17–L18: Distributed Training, FlashAttention, and Efficient Decoding](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 10-423 Generative AI: Series Overview — All 26 Lecture Decks and Four Homeworks Are Public, the Videos Stay Behind Panopto"
+title: "Generative AI: From Probabilistic Models to Language and Multimodal Generation | CMU 10-423 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ CMU 10-423 is the generative AI course in Carnegie Mellon's Machine Learning Dep
 The course description is broad. It covers how to build generative models and other large foundation models (transformers for vision and language, diffusion models), how to train them (pre-training, fine-tuning) and adapt them efficiently (adapters, in-context learning), how to scale to massive datasets (multi-GPU and distributed optimization), how to use existing models day to day (generating code, coding with a generative model in the loop), and what can go wrong (bias, hallucination, adversarial attacks, data contamination) along with ways to fight it.
 
 This post answers three questions: what the course teaches, what an outside reader can actually get, and how to study it on your own. Lecture details come in the later posts.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -194,6 +183,17 @@ This course overlaps with several series on this site. Every post in this series
 - The math of diffusion and flow matching: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 - The systems side of LLMs (CUDA, distributed training, serving): [Reading CMU 11-868](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 - Prerequisites: [Reading CMU 10-301](/posts/learning/2026-08-22-cmu-10301-overview-en), [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW4：把 Softmax 與 LayerNorm 寫成 CUDA 融合 kernel"
+title: "把 Softmax 與 LayerNorm 寫成 CUDA 融合 kernel｜CMU 11-868 作業 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,16 +33,6 @@ glossary:
 上一篇講完 LightSeq 怎麼把 Transformer 裡的小運算融合、怎麼改寫 reduction 少一次同步。這份作業把其中兩個 kernel 交給你：attention 裡的 **softmax** 和 **LayerNorm**，前向與反向都要寫。作業頁開頭就說，這些 CUDA 優化來自 [LightSeq](https://arxiv.org/abs/2010.13887) 與 [LightSeq2](https://arxiv.org/abs/2110.05722) 兩篇論文，並「強烈建議」動手前先讀論文和投影片。
 
 本文只講題目結構、配分、依賴、硬體需求與自學時會卡住的地方。**不提供解答，也不貼參考實作。**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 它在課程裡的位置
 
@@ -126,6 +116,16 @@ Problem 3 的 1.1 倍是另一回事。作業頁直接引 **Amdahl 定律**：�
 
 - 用 Triton 寫融合 kernel、以及先 profile 再優化的方法：[CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)
 - 把整個 attention 融合成一個 kernel：本系列的 [FlashAttention 篇](/posts/ai/2026-09-30-cmu11868-flashattention)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

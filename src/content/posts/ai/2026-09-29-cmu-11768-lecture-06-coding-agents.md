@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L6：Coding Agents——從補一行程式到修完整個 repo"
+title: "Coding Agents——從補一行程式到修完整個 repo｜CMU 11-768 第 6 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,25 +36,6 @@ glossary:
 他把「會寫程式的 AI」分成三個層次：寫出一段程式（單次補全）、改一個 repo（同時動多個檔案）、做完整的軟體開發（需求、實作、審查、部署、維護的整個生命週期）。任何 agent 都有三個原料——prompt、工具、LLM。prompt 在前幾堂（[L4 Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory) 與 [L5 Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)）已經談過，這堂專注在後兩者：模型怎麼學會寫程式，agent 又該拿什麼工具。
 
 這篇照課堂順序走七段：程式模型的訓練、生成程式的評測、agentic coding 的迴圈、工具組設計、coding agent 的評測與訓練、前端開發、inner loop 之外的開發任務。最後一段「預測程式行為的模型」課堂上時間不夠沒講，本篇依投影片補上。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 6 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=1BWeH1oOM7k
-title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
-```
-
-原始影片：[CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 79 分鐘），逐項核對文章轉述的 Neubig 說法與課堂問答：單步模型三能力、預訓練與資料清洗（StarCoder、授權、truffleHog）、tokenizer 與空白、語言偏好（Python／React）、中訓練（Code Llama、Qwen2.5-Coder 配比與 YaRN 長度）、infilling、diff／CI／執行軌跡資料、BLEU 到執行評測與測試品質問題、效率與註解問答、localize–edit–verify、Agentless、bash 單工具與 85–90% 工具呼叫的回答、search/replace 格式與 Gemini 編輯格式問題、SWE-bench 與 SWE-Gym／SWE-smith／持續更新的資料集、多 harness 訓練、前端與 GLM 5.2 的觀察、外迴圈任務與微軟 15% 調查、結尾沒講完 code world model；皆有依據。修正兩處：「InCoder 允許 token 跨空白、少約 40%」是台下另一人回答、Neubig 複述，不是 Neubig 自己的說法；Agentless 第一作者在字幕裡被稱為 assistant professor（非 associate）。逐篇論文的精確數字（EvalPlus、AlphaCode、Aider 等）屬論文，字幕未涵蓋。
 
 ## 一、會寫程式的模型
 
@@ -266,6 +247,25 @@ L6 是 Capabilities 模組之後的第一個 Domain，把前五講的零件（�
 - 站內：[Coding agent 的編輯工具取捨](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs)
 - 站內：[Coding agent 的工具組設計哲學](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy)
 - 站內：[Coding agent 的驗證關卡](/posts/ai/2026-08-25-coding-agent-verification-gate)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 6 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=1BWeH1oOM7k
+title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
+```
+
+原始影片：[CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 79 分鐘），逐項核對文章轉述的 Neubig 說法與課堂問答：單步模型三能力、預訓練與資料清洗（StarCoder、授權、truffleHog）、tokenizer 與空白、語言偏好（Python／React）、中訓練（Code Llama、Qwen2.5-Coder 配比與 YaRN 長度）、infilling、diff／CI／執行軌跡資料、BLEU 到執行評測與測試品質問題、效率與註解問答、localize–edit–verify、Agentless、bash 單工具與 85–90% 工具呼叫的回答、search/replace 格式與 Gemini 編輯格式問題、SWE-bench 與 SWE-Gym／SWE-smith／持續更新的資料集、多 harness 訓練、前端與 GLM 5.2 的觀察、外迴圈任務與微軟 15% 調查、結尾沒講完 code world model；皆有依據。修正兩處：「InCoder 允許 token 跨空白、少約 40%」是台下另一人回答、Neubig 複述，不是 Neubig 自己的說法；Agentless 第一作者在字幕裡被稱為 assistant professor（非 associate）。逐篇論文的精確數字（EvalPlus、AlphaCode、Aider 等）屬論文，字幕未涵蓋。
 
 ## 更新紀錄
 

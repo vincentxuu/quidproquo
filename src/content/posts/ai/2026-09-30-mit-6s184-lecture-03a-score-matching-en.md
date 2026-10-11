@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L3A: Score Functions, SDE Sampling, and Score Matching"
+title: "A: Score Functions, SDE Sampling, and Score Matching | MIT 6.S184 Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 The question for this lecture: **what is a score function, and why does learning it (or learning the vector field) let you sample with an SDE?** The answer also explains how diffusion models relate to flow matching.
 
 The time direction is unchanged: **t=0 is noise, t=1 is data**.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=ngC3QnYSVNM
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read most of the second half of the captions: score functions and vector fields being interchangeable, SDE sampling (any σ_t, plus a σ_t²/2 times score correction), the Fokker–Planck proof (marked optional by the lecturer; the captions render it “focal plank”), the difference between flow and diffusion sampling and the “same in theory, different in practice” training and simulation errors, Langevin dynamics as an aside (rendered “long dynamics”), and the closing note on denoising score matching. The content matches this post. The video ends just before CFG starts; the Ornstein–Uhlenbeck remark and theorem numbers follow the lecture notes.
 
 ## Score functions point toward higher probability
 
@@ -271,6 +253,24 @@ On Gaussian paths, what each side learns converts into the other via Proposition
 - Appendix E of the notes (A Guide to the Diffusion Model Literature): discrete vs continuous time, forward processes vs probability paths, the inverted time convention, and how flow matching relates to stochastic interpolants, mapping the literature back onto this course's language
 
 Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | next, [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=ngC3QnYSVNM
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read most of the second half of the captions: score functions and vector fields being interchangeable, SDE sampling (any σ_t, plus a σ_t²/2 times score correction), the Fokker–Planck proof (marked optional by the lecturer; the captions render it “focal plank”), the difference between flow and diffusion sampling and the “same in theory, different in practice” training and simulation errors, Langevin dynamics as an aside (rendered “long dynamics”), and the closing note on denoising score matching. The content matches this post. The video ends just before CFG starts; the Ornstein–Uhlenbeck remark and theorem numbers follow the lecture notes.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 9: Graph Representations, DFS, BFS, and Proofs About Search Order"
+title: "Graph Representations, DFS, BFS, and Proofs About Search Order | Stanford CS161 Lecture 9"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, graph-algorithms, graph-traversal]
@@ -22,16 +22,6 @@ This is article 10 in [Reading Stanford CS161](/en/series/stanford-cs161), cover
 I used the [official Lecture 9 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs), the public notes, and the public slides. The notes develop graph representation, DFS, and BFS. The slides also apply DFS to topological sorting and BFS to bipartiteness. Both applications belong to the lecture agenda even though the notes do not develop them. The official Colab link inherits `winter2025-extra`; I do not use it as evidence of newly authored Winter 2026 material. I did not use the Canvas-only recording.
 
 The point is not to memorize two traversal procedures. Search order leaves different evidence behind. DFS discovery and finish times encode a nested structure. BFS layers encode exact distances measured in edges. The same `O(n+m)` scanning skeleton solves different problems because its frontier discipline and bookkeeping differ.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
-
-Checked: 2026-10-10.
 
 ## First decide how the graph lives in memory
 
@@ -177,6 +167,16 @@ The durable lesson is a proof pattern: state what the traversal metadata means, 
 Take one small graph and trace it three ways. Run DFS under two neighbor orders and compare timestamps. Sort a DAG by decreasing finish time and inspect every edge. Then run BFS, write every `L_i`, and reconstruct a shortest path through parents. Neighbor order changes the trees but not the three core conclusions.
 
 For a stronger bipartite implementation, return more than a boolean. On an equal-color edge, follow parent pointers to a common ancestor and emit the odd cycle. On success, return the coloring. A certificate makes correctness observable. These are practice suggestions, not added Winter 2026 requirements.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

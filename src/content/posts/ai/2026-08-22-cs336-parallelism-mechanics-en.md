@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 7: Build Data, Tensor, and Pipeline Parallelism from Collectives"
+title: "Build Data, Tensor, and Pipeline Parallelism from Collectives | Stanford CS336 Lecture 7"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 7: Parallelism**, taught by Percy Liang on April 20, 2026. Its primary source is the official executable lecture, [`lecture_07.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_07.py).
 
 Single-GPU optimization ends here. When the model, optimizer state, or batch grows further, work must cross devices. Lecture 7 deliberately avoids hiding the mechanics behind a high-level wrapper and instead builds three fundamental parallel strategies from collective operations.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 7 (Parallelism, Percy). The captions cover all-reduce, reduce-scatter, all-gather, broadcast, NCCL, NVLink, InfiniBand, and data/tensor/pipeline parallelism. The earlier Lecture 7/8 swap fix is consistent with the Lecture 8 captions, which open with "last lecture Percy covered…mechanics". Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Communication has a physical hierarchy
 
@@ -80,6 +62,24 @@ The most useful experiment in the executable lecture is to hold tensor size fixe
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact with PyTorch examples for collectives and all three parallel strategies.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 7 (Parallelism, Percy). The captions cover all-reduce, reduce-scatter, all-gather, broadcast, NCCL, NVLink, InfiniBand, and data/tensor/pipeline parallelism. The earlier Lecture 7/8 swap fix is consistent with the Lecture 8 captions, which open with "last lecture Percy covered…mechanics". Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

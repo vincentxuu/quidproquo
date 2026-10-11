@@ -1,5 +1,5 @@
 ---
-title: "CS224R L15：階層式 RL 與模仿學習"
+title: "階層式 RL 與模仿學習｜Stanford CS224R 第 15 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,25 +36,6 @@ glossary:
 存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas 上，修課學生才看得到。
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 15: Hierarchical RL and IL](https://www.youtube.com/watch?v=iKWYLSVAtfM)（約 70 分鐘）。2025 版在 5 月 21 日上，標題和指定閱讀都和 2026 相同，但這是去年的錄影，細節可能和 2026 投影片有出入。以下以 2026 投影片為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=iKWYLSVAtfM
-title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）](https://www.youtube.com/watch?v=iKWYLSVAtfM)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L15 Hierarchical RL and IL 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到高層／低層 policy、人類介入的 DAgger 式修正、用影像編輯模型產生子目標、最後接到 hierarchical RL，與本文主題一致。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：把好幾個行為串起來
 
@@ -216,6 +197,25 @@ g_t 有很多名字：subgoal、subtask、skill、option、high-level action。�
 可以確認：2026 投影片的文字、演算法步驟與圖表標題；課表的日期與指定閱讀；2025 影片的標題與長度；各篇論文的標題（逐一開過 arXiv 頁面）。不能確認：第 13 頁課堂討論的內容、第 34–36 頁長條圖的具體數值與指標、第 23 頁四個業界系統在課堂上被怎麼介紹。2026 投影片的 SuSIE 標題寫作「SuSIE: Subgoal Synthesis via Image Editing」，arXiv 上的標題是「Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models」，兩者是同一篇。
 
 系列導覽：上一篇 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)｜下一篇 [L16 Sim-to-Real 機器人學習](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=iKWYLSVAtfM
+title: Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 15: Hierarchical RL and IL（YouTube，補充）](https://www.youtube.com/watch?v=iKWYLSVAtfM)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L15 Hierarchical RL and IL 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到高層／低層 policy、人類介入的 DAgger 式修正、用影像編輯模型產生子目標、最後接到 hierarchical RL，與本文主題一致。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

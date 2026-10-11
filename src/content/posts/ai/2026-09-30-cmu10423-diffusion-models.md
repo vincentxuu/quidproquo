@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L7：擴散模型入門——從加噪到學會去噪"
+title: "擴散模型入門——從加噪到學會去噪｜CMU 10-423 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,17 +31,6 @@ glossary:
 **系列位置**：上一篇 [L6：生成對抗網路（GAN）](/posts/ai/2026-09-30-cmu10423-gans)｜下一篇 [L8–L9：變分推論、VAE 與擴散模型的 ELBO](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
 
 GAN 能畫圖，但它有一個根本限制：算不出一張圖的機率 p_θ(x)，只能改用對抗遊戲來訓練。L7（2026 年 2 月 4 日）介紹的擴散模型走另一條路：先定義一個「把圖片慢慢變成雜訊」的過程，再訓練一個網路把這個過程倒著走回來。這也是 [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm) 程式題要從零實作的模型。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 先把三種模型放在同一張表上
 
@@ -184,6 +173,17 @@ q(x_{t−1} | x_t, x_0) = N( μ̃_q(x_t, x_0), σ_t² I )
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)與[第 1 講：flow 與擴散模型](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)——用 ODE／SDE 的角度重看擴散模型
 - [CMU 11-785 導讀：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - [Stanford CS231n 導讀：生成模型與擴散](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

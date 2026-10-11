@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L17: Out-of-Distribution Generalization — Distribution Shift, Spurious Correlations, and Three Practical Remedies"
+title: "Out-of-Distribution Generalization — Distribution Shift, Spurious Correlations, and Three Practical Remedies | MIT 6.7960 Lecture 17"
 date: 2026-08-30
 category: tech
 type: guide
@@ -31,25 +31,6 @@ additionalSeries:
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 17). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/).
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=tjD9LIzIIek
-title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 17 transcript (Sara Beery, 1:04:41): the topic is indeed OOD generalization, but the video covers adversarial examples, spurious correlations, performance drops under shifts such as new cameras, distributionally robust optimization and counterfactual diagnosis; the transcript has no covariate/label/concept-shift taxonomy, IRM, domain randomization or test-time adaptation, so the claim that "the lecture breaks shift into three types" did not hold and was changed to "the general literature", and the three remedies now carry a note marking them as this site's supplement.
 
 ## The gap between the i.i.d. assumption and the real world
 
@@ -119,6 +100,25 @@ Run for 1–2 epochs and the model "moves toward the test distribution's feature
 - **Medium shift**: test-time adaptation (unlabeled) or self-training.
 - **Large shift**: domain adaptation (a bit of target-domain data) or even retraining.
 - **Concept shift**: almost only re-labeling — the model layer can't save you.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=tjD9LIzIIek
+title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 17 transcript (Sara Beery, 1:04:41): the topic is indeed OOD generalization, but the video covers adversarial examples, spurious correlations, performance drops under shifts such as new cameras, distributionally robust optimization and counterfactual diagnosis; the transcript has no covariate/label/concept-shift taxonomy, IRM, domain randomization or test-time adaptation, so the claim that "the lecture breaks shift into three types" did not hold and was changed to "the general literature", and the three remedies now carry a note marking them as this site's supplement.
 
 ## Update Log
 

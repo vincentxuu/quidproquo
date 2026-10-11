@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀 L08：檢索增強生成（RAG）的原理及實作——切文字塊、算特徵向量、找最接近的段落塞回 prompt"
+title: "檢索增強生成（RAG）的原理及實作——切文字塊、算特徵向量、找最接近的段落塞回 prompt｜政大蔡炎龍 生成式AI 第 8 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,18 +29,6 @@ glossary:
 用到的官方材料：[錄影 08](https://www.youtube.com/watch?v=JClJEmZub-A)（2025-04-08，約 3 小時 4 分）、投影片 GenAI08（25 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo06a】RAG01_打造向量資料庫`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06a%E3%80%91RAG01_%E6%89%93%E9%80%A0%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.ipynb)、[`【Demo06b】RAG02_打造_RAG_系統`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06b%E3%80%91RAG02_%E6%89%93%E9%80%A0_RAG_%E7%B3%BB%E7%B5%B1.ipynb)、[`【Demo06】用_RAG_打造心靈處方籤機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06%E3%80%91%E7%94%A8_RAG_%E6%89%93%E9%80%A0%E5%BF%83%E9%9D%88%E8%99%95%E6%96%B9%E7%B1%A4%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第八週作業。存取等級 **A3**。
 
 這一講的 notebook 版本落差特別明顯，下文會逐一標出：**repo 目前版本和錄影畫面已經不同**。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-原始影片：[【生成式 AI】08.檢索增強生成(RAG)的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=JClJEmZub-A)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -160,6 +148,18 @@ glossary:
 - 檢索之後，讓模型自己決定要不要再查：[CMU 11-768 AI Agents 導讀](/posts/ai/2026-09-29-cmu-11768-course-overview)
 
 上一篇：[L07 打造自己的對話機器人](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)｜下一篇：[L09 為什麼 2025 是 AI Agents 元年](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+原始影片：[【生成式 AI】08.檢索增強生成(RAG)的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=JClJEmZub-A)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

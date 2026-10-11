@@ -1,5 +1,5 @@
 ---
-title: "Deep Learning: Modules, Backpropagation, and Vectorization"
+title: "Deep Learning: Modules, Backpropagation, and Vectorization | Stanford CS229 Chapter 7"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 7, “Deep learning,” on printed pages 80–113 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of a quarter's deep-learning recordings.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=fRM41w9jzQo
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=ne2ngVAoMG8
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)](https://www.youtube.com/watch?v=fRM41w9jzQo); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)](https://www.youtube.com/watch?v=ne2ngVAoMG8)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 7 (about 80 minutes) reviews the loss and cross entropy, SGD and mini-batches, ReLU and two-layer network notation, then after about 80% residual connections and layer norm, matching the chapter's nonlinearity, MLP and modern-modules sections; Lecture 8 (about 62 minutes) covers backpropagation (chain rule, Jacobians, forward and backward passes), matching the chapter's backpropagation section. The chapter's closing section on vectorization across examples does not appear in the Lecture 8 transcript ("vectorize" and "batch" appear zero times) and rests on the notes alone.
 
 ## From fixed features to learned representations
 
@@ -88,6 +62,32 @@ This chapter reuses Chapter 2's classification losses and extends Chapter 5's re
 ## Self-study exercise
 
 Using only matrix operations, implement a two-layer MLP with a ReLU hidden layer and binary logistic loss. Write forward and backward passes, check every parameter gradient with finite differences, and then convert the per-example version into batch-first vectorized code. Verify that both versions produce matching gradients.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=fRM41w9jzQo
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ne2ngVAoMG8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)](https://www.youtube.com/watch?v=fRM41w9jzQo); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)](https://www.youtube.com/watch?v=ne2ngVAoMG8)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 7 (about 80 minutes) reviews the loss and cross entropy, SGD and mini-batches, ReLU and two-layer network notation, then after about 80% residual connections and layer norm, matching the chapter's nonlinearity, MLP and modern-modules sections; Lecture 8 (about 62 minutes) covers backpropagation (chain rule, Jacobians, forward and backward passes), matching the chapter's backpropagation section. The chapter's closing section on vectorization across examples does not appear in the Lecture 8 transcript ("vectorize" and "batch" appear zero times) and rests on the notes alone.
 
 ## Update Log
 

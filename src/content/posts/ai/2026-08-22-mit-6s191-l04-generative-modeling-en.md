@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 4: Generative Modeling: From Latent Spaces to Diffusion"
+title: "Generative Modeling: From Latent Spaces to Diffusion | MIT 6.S191 Lecture 4"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 4 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Generative Modeling: From Latent Spaces to Diffusion**. It Separates generative from discriminative tasks, organizes VAE and GAN objectives (this lecture's video does not cover diffusion; the speaker defers it to Lecture 6), and leads into Lab 2’s DB-VAE. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=R8V8CbuxryI
-title: MIT 6.S191: Deep Generative Modeling
-```
-
-Original videos: [MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=R8V8CbuxryI)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the transcript covers supervised versus unsupervised learning, density estimation and sample generation, autoencoders, VAEs (mean and variance, KL regularization, reparameterization), GANs (generator and discriminator) and CycleGAN, and says the day's lab uses a VAE to debias face detection. The transcript does not cover diffusion: the speaker says diffusion comes in "tomorrow's lecture six", so this note claiming diffusion and denoising as content of this video did not hold and now points to the Lecture 6 video.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Draw a VAE with encoder, sampling, and decoder; label both loss terms before ope
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=R8V8CbuxryI
+title: MIT 6.S191: Deep Generative Modeling
+```
+
+Original videos: [MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=R8V8CbuxryI)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the transcript covers supervised versus unsupervised learning, density estimation and sample generation, autoencoders, VAEs (mean and variance, KL regularization, reparameterization), GANs (generator and discriminator) and CycleGAN, and says the day's lab uses a VAE to debias face detection. The transcript does not cover diffusion: the speaker says diffusion comes in "tomorrow's lecture six", so this note claiming diffusion and denoising as content of this video did not hold and now points to the Lecture 6 video.
 
 ## Update Log
 

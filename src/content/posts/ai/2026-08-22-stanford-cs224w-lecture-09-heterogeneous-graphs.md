@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 9 講：Heterogenous Graphs：讓節點與關係類型進入 message passing"
+title: "Heterogenous Graphs：讓節點與關係類型進入 message passing｜Stanford CS224W 第 9 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 9 講**，官方日期 2025-10-21。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/09-hetero.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -131,6 +118,19 @@ HGT 為不同 node types 做 query/key/value projections，並讓 relation 影�
 最後建立 schema perturbation test：重新命名 type IDs、改變 dictionary insertion order，但保持語意與 edges 不變，輸出應只按 mapping 對齊而不改；刪除某個 optional node type 時，模型應有明確拒絕或 fallback，而非 silent zero-fill。再加入 training 未見但 schema 已知的低頻 relation，檢查 basis-shared model 與 full relation matrix 的差異。這些測試把「異質圖可以跑」提升成「schema 變動時行為可預測」。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 作業一：用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul"
+title: "用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul｜CMU 11-868 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,16 +39,6 @@ glossary:
 [MiniTorch](https://llmsystem.github.io/llmsystemhomework/) 是整門課七份作業共用的教學框架。作業站說明它源自 Sasha Rush 的教學用框架，本課把它擴充成能跑真正的 CUDA kernel。作業一寫的四個 kernel，後面的作業會一直用下去：作業二的 README 第一步就是把你作業一的 `src/combine.cu` 複製過去。
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 它在課程裡的位置
 
@@ -122,6 +112,16 @@ glossary:
 
 - [Stanford CS336：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)：從硬體角度解釋為什麼記憶體搬運常常比計算更貴
 - [Stanford CS336：Kernel 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)：同樣的 kernel 優化思路，改用 Triton 寫
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：HW1 中文抽取式問答——從四段文字裡找出答案 span"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：HW1 中文抽取式問答——從四段文字裡找出答案 span｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ glossary:
 - 作業說明影片 [ADL 2025 Fall Homework 1](https://youtu.be/DVjBNRHUWc0)（約 24 分 50 秒，2025-09-09 上傳，說明欄：BERT for Chinese Question Answering）。這支影片在課程頁上，但不在 77 支的 2025 Fall 播放清單裡。
 
 **存取狀況**：這是整個 ADL Fall 2025 唯一一份公開完整規格的作業，也是系列定為 **A2** 的主要原因之一。規格、baseline 設定和報告題目都看得到；但資料要從 Kaggle 下載（投影片的 Kaggle 連結是邀請連結，本文沒有打開，不確定現在還能不能下載或提交），程式與報告交到需要台大帳號的 NTU COOL。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=DVjBNRHUWc0
-title: 影片：ADL 2025 Fall Homework 1
-```
-
-原始影片：[影片：ADL 2025 Fall Homework 1](https://www.youtube.com/watch?v=DVjBNRHUWc0)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 HW1 說明影片（24:50，2025-09-09 上傳，非公開連結，說明欄「BERT for Chinese Question Answering」）取不到字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，作業規格依規格投影片，與影片的標題、長度、上傳日與說明欄一致。
 
 ## 任務：兩段式抽取式問答
 
@@ -191,6 +172,25 @@ Q1 直接連回[第 5 篇 Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokeniz
 延伸閱讀：NLP 專案的完整流程（資料、HF 文字分類 Colab）留給本系列最後一篇[助教課](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。站上另一份課程作業導讀可以對照：[CS224U HW2 開放域問答](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)走的是 retrieval＋LLM 路線，和這裡的 BERT 抽取式路線正好形成對比。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [BERT 與它的家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)｜下一篇 [預訓練三大類與 Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=DVjBNRHUWc0
+title: 影片：ADL 2025 Fall Homework 1
+```
+
+原始影片：[影片：ADL 2025 Fall Homework 1](https://www.youtube.com/watch?v=DVjBNRHUWc0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 HW1 說明影片（24:50，2025-09-09 上傳，非公開連結，說明欄「BERT for Chinese Question Answering」）取不到字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，作業規格依規格投影片，與影片的標題、長度、上傳日與說明欄一致。
 
 ## 更新紀錄
 

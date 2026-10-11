@@ -1,5 +1,5 @@
 ---
-title: "CS231N Assignment 1 Guide: kNN, Softmax, Two-Layer and Fully Connected Networks"
+title: "kNN, Softmax, Two-Layer and Fully Connected Networks | Stanford CS231N Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,14 +41,6 @@ glossary:
 The [assignments page](https://cs231n.stanford.edu/assignments.html) describes it as "Image Classification, kNN, Softmax, Fully-Connected Neural Network, Fully-Connected Nets", worth 12% of the grade. On the [2026 schedule](https://cs231n.stanford.edu/schedule.html) it goes out on the day of L2 (April 2) and is due on the day of L6 (April 16). The assignment page gives the deadline as Thursday, April 16, 2026 at 11:59pm Pacific Time.
 
 This post covers each question's goals, which files you touch, and the checkpoints and inline questions the notebooks spell out. **It gives no solutions.** The [Honor Code on the assignments page](https://cs231n.stanford.edu/assignments.html) says it plainly: solutions from past offerings have been posted online, the course knows, and it expects all submitted work to be the student's own.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Goals on the assignment page
 
@@ -178,6 +170,14 @@ One thing you can do tonight: download the starter code, open `cs231n/classifier
 
 - The course as a whole, access gaps, and a 10-week self-study plan: [Reading Stanford CS231N (series overview)](/posts/ai/2026-09-30-cs231n-course-overview-en)
 - The same ideas from another angle: [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en), [CMU 11-785 Lecture 8: Optimizers and Regularization](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

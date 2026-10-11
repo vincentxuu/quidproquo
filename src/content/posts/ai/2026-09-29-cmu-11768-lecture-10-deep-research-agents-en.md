@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L10: How to Evaluate, Train, and Retrieve for Deep Research Agents"
+title: "How to Evaluate, Train, and Retrieve for Deep Research Agents | CMU 11-768 Lecture 10"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -34,25 +34,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is Daniel Fried and Graham Neubig's Fall 2026 course on agents. Its Domains module covers coding agents, then computer use agents, and the third domain is deep research. Lecture 10 (Sep 24) is a guest lecture by [Akari Asai](https://akariasai.github.io/), first author of [OpenScholar](https://arxiv.org/abs/2411.14199) (arXiv:2411.14199, Nature 2026) and joint first author of [DR Tulu](https://arxiv.org/abs/2511.19399) (arXiv:2511.19399, ICML 2026), so half of this lecture is her explaining how she built these systems.
 
 A deep research agent takes a research question that needs many searches and synthesis across many documents, then plans, searches, reflects, searches again, and finally hands back a long answer with citations. The slides split the lecture into three parts: **evaluation** (benchmarks, rubrics, citation support), **modeling** (learning to search and synthesize), and **retrieval** (finding evidence for the agent's next step). This post follows the same order.
-
-## Course video sources
-
-Checked the public recording of CMU 11-768 Fall 2026 Lecture 10 (speaker: Akari Asai); it is published on instructor Graham Neubig's channel, and the title and description match this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=nKUBrXFQBUM
-title: CMU AI Agents 2026: 10. Deep Research
-```
-
-Original video: [CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the first part of the transcript and keyword-searched the rest (video about 72 min, speaker Akari Asai), and checked every figure and statement in the "Q&A and spoken remarks" section (about $3,000–4,000 of search API per RL run, Serper, BM25 and a 4B embedding model, about one hour per rubric, GPT-4.1 rubric generation about 10 points better than Qwen, about 40% at 600 RL steps and about 10 points more with 5% SFT, roughly 20% on BrowseComp without search, blocking Hugging Face, the benchmark recommendations) plus the transcript-visible numbers cited in the body (25% for human experts on BrowseComp, 50% after training, BrowseComp-Plus with about 830 questions and 100k documents, about 80% expert agreement on rubric items, about 15% errors in ResearchQA rubrics); all supported. Slide-only details and paper figures still rest on the slides and papers; the "Sept 24" lecture date is not stated in the video and rests on the official schedule.
 
 ## One search versus many
 
@@ -343,6 +324,25 @@ Related posts on this site to read alongside the lecture:
 - [From Search Results to Reliable Citations: URL Deduplication, Source Tiers, and Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)
 - [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks-en)
+
+## Course video sources
+
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 10 (speaker: Akari Asai); it is published on instructor Graham Neubig's channel, and the title and description match this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=nKUBrXFQBUM
+title: CMU AI Agents 2026: 10. Deep Research
+```
+
+Original video: [CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the first part of the transcript and keyword-searched the rest (video about 72 min, speaker Akari Asai), and checked every figure and statement in the "Q&A and spoken remarks" section (about $3,000–4,000 of search API per RL run, Serper, BM25 and a 4B embedding model, about one hour per rubric, GPT-4.1 rubric generation about 10 points better than Qwen, about 40% at 600 RL steps and about 10 points more with 5% SFT, roughly 20% on BrowseComp without search, blocking Hugging Face, the benchmark recommendations) plus the transcript-visible numbers cited in the body (25% for human experts on BrowseComp, 50% after training, BrowseComp-Plus with about 830 questions and 100k documents, about 80% expert agreement on rubric items, about 15% errors in ResearchQA rubrics); all supported. Slide-only details and paper figures still rest on the slides and papers; the "Sept 24" lecture date is not stated in the video and rests on the official schedule.
 
 ## Update Log
 

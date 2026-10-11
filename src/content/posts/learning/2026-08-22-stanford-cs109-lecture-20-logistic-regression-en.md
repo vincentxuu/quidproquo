@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 20 | Logistic Regression: Derive the gradient from Bernoulli likelihood"
+title: "Logistic Regression: Derive the gradient from Bernoulli likelihood | Stanford CS109 Lecture 20"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 21 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 20: Logistic Regression** (Jul 28), taught by Chris Gregg. It follows the official [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture20-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture20-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture20-LLMPrompts.pdf), and reader.
 
 The lecture remains **L2**. The three-page worksheet has P1–P6 plus an optional MAP challenge. The four-page key omits only the P5 pset7 code solution and fully answers the challenge. The guide has six concepts across three pages. Current slides are unavailable and video is Canvas-gated.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=ILqZWvDWKEc
-title: Stanford CS109 Probability for Computer Scientists I Logistic Regression I 2022 I Lecture 24
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Logistic Regression I 2022 I Lecture 24](https://www.youtube.com/watch?v=ILqZWvDWKEc)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 24, "Logistic Regression" (about 75K characters): it covers how Naive Bayes relates to logistic regression, the sigmoid, the log-likelihood and gradient ascent, matching this lecture. The transcript has no decision boundary or Gaussian prior/MAP material, so those sections in this post are not video content.
 
 ## P1: Poisson MLE warm-up
 
@@ -148,6 +126,28 @@ Work through its six concepts: classification setup, sigmoid, logistic assumptio
 - The worksheet has P1–P6 plus a challenge; the four-page key omits only P5 and answers the challenge.
 - The three-page guide contains six concepts and no extra numbered unit.
 - Current slides are unavailable and video is Canvas-gated; only public artifacts are used.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=ILqZWvDWKEc
+title: Stanford CS109 Probability for Computer Scientists I Logistic Regression I 2022 I Lecture 24
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Logistic Regression I 2022 I Lecture 24](https://www.youtube.com/watch?v=ILqZWvDWKEc)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 24, "Logistic Regression" (about 75K characters): it covers how Naive Bayes relates to logistic regression, the sigmoid, the log-likelihood and gradient ascent, matching this lecture. The transcript has no decision boundary or Gaussian prior/MAP material, so those sections in this post are not video content.
 
 ## Update Log
 

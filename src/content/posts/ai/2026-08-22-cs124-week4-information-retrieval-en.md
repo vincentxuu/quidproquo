@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 4 Information Retrieval: The Indexing and Ranking Layer Beneath RAG"
+title: "Information Retrieval: The Indexing and Ranking Layer Beneath RAG | Stanford CS124 Week 4"
 date: 2026-08-22
 category: ai
 type: deep-dive

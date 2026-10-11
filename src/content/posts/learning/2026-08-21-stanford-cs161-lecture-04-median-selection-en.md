@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 4: How Median of Medians Guarantees Linear-Time Selection"
+title: "How Median of Medians Guarantees Linear-Time Selection | Stanford CS161 Lecture 4"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is post 5 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 4**. Moses Charikar taught it on January 14, 2026. Its official title is [Median and Selection](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection). I used the one-page pre-lecture exercise, nine-page notes, and 66-slide deck. I did not use the Canvas recording, notebook, or concept checks as sources.
 
 Selection takes an array `A` of `n` numbers and an integer `k∈{1,...,n}` and returns the kth smallest value. The direct solution sorts with MergeSort and reads position `k`, taking `O(n log n)`. But if we need one rank, must we discover the complete order of every other element? Lecture 4 says no: deterministic worst-case selection can run in `O(n)`.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)
-
-Checked: 2026-10-10.
 
 ## The minimum already exposes an Ω(n) lower bound
 
@@ -173,6 +163,16 @@ For a self-test, take 25 distinct values, group them by five, circle every group
 Production implementations often prefer random pivots because the code is short and constants are low. Deterministic selection matters when adversarial inputs or latency tails matter more than average throughput. State the threat model first: can an attacker arrange inputs, and is a rare quadratic path acceptable? Then choose the pivot strategy.
 
 Also compare the value of the outputs. If a program will ask for many different ranks, paying `n log n` once to sort may be amortized over later constant-time queries. If it needs one median, linear selection realizes its full advantage. Complexity belongs to the whole workload, not merely to a function name.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

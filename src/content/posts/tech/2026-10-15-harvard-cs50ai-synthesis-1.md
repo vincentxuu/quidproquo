@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI 綜論（一）：從搜尋到語言——七週 AI 知識弧線的完整圖譜"
+title: "綜論（一）：從搜尋到語言——七週 AI 知識弧線的完整圖譜｜Harvard CS50 AI 課程總覽"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,17 +21,6 @@ draft: false
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本系列涵蓋講課影片為 **2020 年春季錄製（Week 0–5）與 2023 年重錄（Week 6）**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準。
-
-## 課程影片來源
-
-本篇是跨週的綜論或總結，沒有單一對應講次；官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對，沒有專屬於本篇的影片，請依主題回到各週講課錄影。
-
-課程與錄影入口：
-
-- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -206,6 +195,17 @@ Week 6: Language        ──►  序列建模、注意力、Transformer 前夜
 - **本篇：綜論一（本文）**(order 8)
 - [綜論二：專案組合比較](/posts/tech/2026-10-22-harvard-cs50ai-synthesis-2) (order 9)
 - [總結：永恆與變遷、下一步](/posts/tech/2026-10-29-harvard-cs50ai-wrapup) (order 10)
+
+## 課程影片來源
+
+本篇是跨週的綜論或總結，沒有單一對應講次；官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對，沒有專屬於本篇的影片，請依主題回到各週講課錄影。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

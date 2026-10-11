@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 6：關中斷、原子指令、spinlock 與阻塞式 lock 的實作"
+title: "關中斷、原子指令、spinlock 與阻塞式 lock 的實作｜Stanford CS111 第 6 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -21,14 +21,6 @@ draft: false
 
 Lecture 6 不再把 lock 當成黑盒子。16 頁投影片先用單核心關中斷建立最小版本，再在多核心環境逐版加入 atomic exchange、spin、block 與 wakeup；每一次修改都修掉一個具體 race，也可能製造下一個。
 
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
-
 ## 逐版追蹤 lock 的不變量
 
 閱讀 v1 到 v5 時，只追三個狀態：guard 是否被持有、lock 本身是否可用、等待者是否已進 queue。真正的難點是「檢查失敗」與「睡眠」之間不能遺失 wakeup；因此後文依版本前進，而不是先套一組通用的機制／政策模板。
@@ -38,7 +30,7 @@ Lecture 6 不再把 lock 當成黑盒子。16 頁投影片先用單核心關中�
 
 投影片先限定單核心：執行緒只會因 trap 或 interrupt 被切換。核心在檢查 `locked`、修改等待佇列之前關中斷，就能讓這段狀態轉移不可被另一個執行緒插入；完成後再開中斷。這不是給應用程式任意使用的 lock 實作，而是核心利用特權機制建立短暫 critical section。
 
-等待路徑最容易出現 lost wakeup。若執行緒先加入 queue、開中斷，之後才呼叫 `blockThread`，另一個核心工作可能在兩步之間 `unlock` 並喚醒它；等原執行緒接著睡下，就再也沒有人喚醒。因此「加入等待佇列並進入 blocked 狀態」必須對 unlock 看起來是一個原子轉移。
+等待路徑最容易出現 lost wakeup。若執行緒先加入 queue、開中斷，之後才呼叫 `blockThread`，中斷可能讓同一核心切換去執行另一個執行緒，後者在兩步之間 `unlock` 並喚醒它；等原執行緒接著睡下，就再也沒有人喚醒。因此「加入等待佇列並進入 blocked 狀態」必須對 unlock 看起來是一個原子轉移。
 
 ## 多核心：atomic exchange 只解決最內層互斥
 
@@ -65,6 +57,14 @@ v5 的組合答案是：本核心先關中斷，再取得跨核心 spinlock；�
 可以用「故障注入」重讀本講：在每個狀態轉換後假設執行緒被切走、行程崩潰或機器斷電，記下外界可能看到什麼。這不是說官方作業一定要求每一種測試，而是把投影片的設計圖轉成可操作的驗證方法。
 
 另一個延伸是畫出機制／政策表。左欄只寫核心提供的能力，右欄寫選擇順序或資源分配的規則。若某一項放不下，通常表示兩個概念還混在一起。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

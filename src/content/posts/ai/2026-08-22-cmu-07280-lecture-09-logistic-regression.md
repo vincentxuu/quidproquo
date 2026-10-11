@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 9：Logistic Regression 如何把分類改寫成機率估計"
+title: "Logistic Regression 如何把分類改寫成機率估計｜CMU 07-280 第 9 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, logistic-regression, classification]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 CMU 07-280 Spring 2026 的第 9 講，官方題名是 **Logistic Regression**，日期為 2026 年 2 月 10 日。這一講把前面的線性迴歸與最佳化接到分類：模型不再硬猜某次事件會不會發生，而是估計事件發生的機率。官方課表未列逐講公開錄影連結，因此本文只依公開講義、pre-reading、Recitation 5 與作業題目整理，不還原課堂口述。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-核心來源是 [Lecture 9 官方 PDF](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec9_Logistic_Regression.pdf)與 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)。練習面以 [Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)核對二元與多類別公式，HW5 則把同一條線接到實際梯度下降實驗。本文不使用 Fall 2026 的課表題名。
 
 ## 承上問題：為什麼不能繼續用一條直線預測 0 或 1
 
@@ -102,6 +88,20 @@ Lecture 10 接著處理另一個限制：決策邊界對原始特徵仍是線性
 ## 今晚可以做的動作
 
 拿三筆二維資料，從 `θ=0` 開始手算兩次 SGD：每次依序寫出 `z`、`p̂`、cross-entropy、`(p̂-y)x` 和更新後的 `θ`。再把其中一筆標籤反轉，觀察哪一個梯度分量變化最大。最後將同一批資料加入 `x1²` 特徵，為 Lecture 10 預備。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+核心來源是 [Lecture 9 官方 PDF](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec9_Logistic_Regression.pdf)與 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)。練習面以 [Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)核對二元與多類別公式，HW5 則把同一條線接到實際梯度下降實驗。本文不使用 Fall 2026 的課表題名。
 
 ## 更新紀錄
 

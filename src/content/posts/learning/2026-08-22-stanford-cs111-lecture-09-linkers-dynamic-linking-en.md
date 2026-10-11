@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 9: Linkers and Dynamic Linking"
+title: "Linkers and Dynamic Linking | Stanford CS111 Lecture 9"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 10 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 9**. Mendel Rosenblum taught the lecture on 2026-04-17; its official title is [Linkers and Dynamic Linking](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 9 marks a course transition. The first third on CPU issues—threads, processes, synchronization, and scheduling—is complete. The next third addresses process memory layout, virtual memory, and paging, before the final third turns to storage and file systems. A linker looks like a compiler tool, but it connects source code to the memory image of a running process.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Main memory and the process-layout questions
 
@@ -117,6 +109,14 @@ A practical debugging order follows the model: verify that a definition exists i
 The lecture delivers a representation pipeline rather than a list of `ld` flags. The compiler lowers source names and structure into assembly. The assembler emits relocatable objects with placeholders. The linker uses section sizes, symbols, and unresolved references to construct an executable. Only the loader turns that executable into a process memory image. Each layer decides only after it has enough information.
 
 Static linking resolves at build time, producing a self-contained but potentially duplicated executable. Dynamic linking defers library placement, enabling sharing while adding runtime contracts for the loader, table, and compatible library. The coming virtual-memory and paging lectures can now explain why two processes both see their own address 0 and how shared code pages can exist beneath those private views.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

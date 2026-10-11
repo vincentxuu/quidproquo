@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 HW1：在 minGPT 加上 RoPE 與 GQA——題目結構、要改的檔案與算力"
+title: "在 minGPT 加上 RoPE 與 GQA——題目結構、要改的檔案與算力｜CMU 10-423 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,17 +20,6 @@ draft: false
 **本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026 版。** 這是 [CMU 10-423 導讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)系列第 4 篇，也是文字單元的收尾。前一篇 [L4：現代 Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa) 講了 RoPE、GQA 與 sliding window 的原理，這一篇看作業怎麼要你把它們做出來。
 
 用到的官方材料：[Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)上的 [hw1.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip)（內含 27 頁的 hw1.pdf、起始碼與 LaTeX 模板）、[Overleaf 唯讀模板](https://www.overleaf.com/read/sdrhkbjjdhwv#8049a1)、1 月 30 日的 [HW1 recitation 投影片](https://docs.google.com/presentation/d/1IpSzQ5dkr3iO0riNfareQiif9J9O684amTBATiybuVk/edit?usp=sharing)（Google Slides，公開），以及課綱的作業規則。**本文只寫題目結構與設定，不附任何解答。**
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 基本資料
 
@@ -190,6 +179,17 @@ hw1.pdf 列了三條路：
 延伸閱讀：想從零寫一個 LM 並自己決定架構，可以看 [Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)；Karpathy 原版的 [minGPT repo](https://github.com/karpathy/minGPT) 也值得對照，看課程版簡化了哪些地方。
 
 系列導覽：上一篇 [L4：預訓練、微調與現代 Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)｜下一篇 [L5：CNN、encoder-only Transformer 與 ViT](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

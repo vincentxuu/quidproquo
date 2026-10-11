@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 9: Graphs, Part I"
+title: "Graphs, Part I | Stanford CS103 Lecture 9"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 11 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 9, Spring 2026 (2026-04-20)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Graphs, Part I**. The lecture abstracts a graph from “objects and their relationships,” then uses two placement problems to motivate vertex covers and independent sets. Its central result is an iff theorem: a set `C` is a vertex cover exactly when its complement `V − C` is an independent set.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)
 
 ## Graphs compress domain stories into relationship structures
 
@@ -166,6 +158,14 @@ Recordings, transcripts, and classroom discussion are not public, so this articl
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt the article from the official Graphs, Part I deck, restoring the formal definitions, complement iff theorem, and both proof directions.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)
 
 ## References
 

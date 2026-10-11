@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 1：Overview：用資源限制定義智慧"
+title: "Overview：用資源限制定義智慧｜Stanford CS221 第 1 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 1**，由 Percy Liang 主講，日期標示為 2025-09-22。閱讀範圍只包括三份公開 executable artifacts：`welcome.py`、`history.py`、`tensors.py`。課程入口在[官方網站](https://stanford-cs221.github.io/autumn2025/)，本講 trace 入口是 [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome)。下文不把 Canvas-only 的課堂互動當證據，也不補寫來源沒有提供的結論。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 1 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 1 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=yaLEGZuIIgE
-title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 1 支）字幕，確認內容涵蓋 AI 定義與資源限制、AI 歷史（Turing、Hebb、perceptron 到 foundation models）、tensors 與 einops，與本文的講次與主題相符，未發現錯配。
 
 ## 這一講的 agenda
 
@@ -144,6 +124,26 @@ Reduction 也可命名：`x.sum(dim=-1)` 等同 `reduce(x, "... hidden -> ...", 
 ## 讀完後的檢查
 
 最後列出能力與 goals、資源限制，再核對 tensor shapes。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 1 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 1 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 1 支）字幕，確認內容涵蓋 AI 定義與資源限制、AI 歷史（Turing、Hebb、perceptron 到 foundation models）、tensors 與 einops，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

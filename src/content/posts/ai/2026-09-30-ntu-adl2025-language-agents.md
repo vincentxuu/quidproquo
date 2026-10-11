@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 11 講：Language Agents 的推理、記憶、規劃與多代理"
+title: "Language Agents 的推理、記憶、規劃與多代理｜台大陳縕儂 深度學習之應用 2025 Fall 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,30 +38,6 @@ glossary:
 **系列位置**：上一篇 [偏見、安全、幻覺與對齊＋期末專題](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)｜下一篇 [Reasoning（影片限定）](/posts/ai/2026-09-30-ntu-adl2025-reasoning)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
 這一講沒有對應作業，講義與影片都公開，沒有額外缺口，系列整體的存取分級是 A2。它要回答的問題是：**大家都在講 agent，它到底是什麼？推理、記憶、規劃、多代理各自解決什麼？**
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=R0YBJve0NoI
-title: ADL 11.1: Language Agents Introduction（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=UO527XuWEzg
-title: ADL 11.2: Reasoning（YouTube）
-```
-
-原始影片：[ADL 11.1: Language Agents Introduction（YouTube）](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning（YouTube）](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory（YouTube）](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning（YouTube）](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems（YouTube）](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：11.1 與 11.2 兩支都讀了字幕。11.1：agent 的支持與質疑聲音（Bill Gates、Andrew Ng、Sam Altman 與「只是 LLM 薄包裝」）、感知與行動的一般定義、理性 agent 最大化效用、language agent 的內部行動與自我反思、logical／neural／language agent 在表達力、推理、適應性的比較、三個關鍵概念（推理、記憶、規劃）；11.2：推理更新短期記憶（context window）、CoT 的中間步驟、機器人煮菜缺鹽的例子、ReAct 的推理加行動與人可編輯 thought、推理擴大行動空間且決策更難、LLM 靠預訓練的推理先驗，皆與文章對應段落相符。文章的「版本提醒」也得到佐證：11.1 開場說「這是這學期的倒數第二堂課」，與說明欄 2024/12/04 一致，是 2024 學期的錄影，不是 2025/11/10 當天的課。11.3–11.5 未嵌入，記憶、規劃、多代理各段未對照字幕。
 
 ## Agent 是什麼，language agent 又多了什麼
 
@@ -165,6 +141,30 @@ title: ADL 11.2: Reasoning（YouTube）
 
 上一篇：[偏見、安全、幻覺與對齊＋期末專題](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 下一篇：[Reasoning（影片限定）](/posts/ai/2026-09-30-ntu-adl2025-reasoning)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=R0YBJve0NoI
+title: ADL 11.1: Language Agents Introduction（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UO527XuWEzg
+title: ADL 11.2: Reasoning（YouTube）
+```
+
+原始影片：[ADL 11.1: Language Agents Introduction（YouTube）](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning（YouTube）](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory（YouTube）](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning（YouTube）](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems（YouTube）](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：11.1 與 11.2 兩支都讀了字幕。11.1：agent 的支持與質疑聲音（Bill Gates、Andrew Ng、Sam Altman 與「只是 LLM 薄包裝」）、感知與行動的一般定義、理性 agent 最大化效用、language agent 的內部行動與自我反思、logical／neural／language agent 在表達力、推理、適應性的比較、三個關鍵概念（推理、記憶、規劃）；11.2：推理更新短期記憶（context window）、CoT 的中間步驟、機器人煮菜缺鹽的例子、ReAct 的推理加行動與人可編輯 thought、推理擴大行動空間且決策更難、LLM 靠預訓練的推理先驗，皆與文章對應段落相符。文章的「版本提醒」也得到佐證：11.1 開場說「這是這學期的倒數第二堂課」，與說明欄 2024/12/04 一致，是 2024 學期的錄影，不是 2025/11/10 當天的課。11.3–11.5 未嵌入，記憶、規劃、多代理各段未對照字幕。
 
 ## 更新紀錄
 

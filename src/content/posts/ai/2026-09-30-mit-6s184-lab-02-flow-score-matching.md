@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 Lab 2：親手寫 flow matching 與 score matching"
+title: "親手寫 flow matching 與 score matching｜MIT 6.S184 實驗 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,15 +31,6 @@ glossary:
 notebook 開頭說，這個 lab 是 flow matching 和 score matching 的直覺式動手導覽。全部在 2D 玩具分佈上跑；Problem 3.1 的訓練格，notebook 說大約要一分鐘。
 
 這篇不貼完整解答，只講每一題在考什麼、跟講義哪裡對應、怎麼對官方解答。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
 
 ## 開始之前：三件事
 
@@ -214,6 +205,15 @@ notebook 點出這條路徑跟高斯路徑的兩個差別：
 - 另一門課的 flow matching 作業：[Berkeley CS189 HW2：回歸、GMM 與 flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
 
 系列導覽：上一篇 [L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)｜下一篇 [L3B：Guidance 與 classifier-free guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS336: The Lectures Are Runnable Python, and From Assignment 2 On You Pay for the GPUs"
+title: "The Lectures Are Runnable Python, and From Assignment 2 On You Pay for the GPUs | Stanford CS336 Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,15 +25,6 @@ draft: false
 In the full [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) it is the only course marked **Application required**, and the only one you cannot finish without spending money. The map post already placed it on the ladder. This post is about what happens once you're inside.
 
 What went into this: the Spring 2026 course site, the source of `lecture_01.py`, the GitHub repo and PDF handout for each of the five assignments, four leaderboard repos, the course AI policy document, and the ExploreCourses and Stanford Online entries. It does **not** include watching the lectures end to end — that is a different order of work. What follows is what the written material can prove.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the Spring 2026 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [CS336 Spring 2026 lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## The hard facts
 
@@ -199,6 +190,15 @@ If you have one afternoon and don't want to write code, open the `lecture_01` tr
 - **Leaderboard numbers**: Assignment 1's in-class table (Spring 2026) budgets "0.75 B200 hours" with a 45-minute cap per run, a naive baseline validation loss of 5.00, and a current leader at 3.03543; the 2025 in-class and global tables both budgeted "1.5 H100 hours." Assignment 2 (Spring 2026) measures one full step on two B200s at batch size 2 and sequence length 32768, against a naive baseline of 10 seconds, with the current leader at 3,837 milliseconds and a rule that the entire measurement run must finish within 10 minutes starting from empty PyTorch/Triton caches.
 - **Units and tuition**: the course page says 5 units, ExploreCourses says 3-5, and the Stanford Online distance version says 5 units, $7,875, 10 weeks, 20–25 hours per week, March 30 to June 10, 2026. All three coexist; this post cites each to its own source rather than picking one.
 - **Not confirmed**: One, the Spring 2026 playlist shows 18 videos while the schedule has 19 session slots (17 regular plus 2 guest lectures) — I did not go video by video to determine which one is missing. Two, I did not test connectivity to Assignment 3's training API (`hyperturing.stanford.edu:8000`); I can only confirm the repo says it needs an eight-digit student ID as the key. Three, actual completion rates, enrollment counts and admission rates for Spring 2026 appear nowhere in the public material.
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the Spring 2026 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [CS336 Spring 2026 lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

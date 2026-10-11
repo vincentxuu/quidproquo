@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS189 Spring 2025 總覽：用 HW1–7 與 code/data 走完的機器學習，用 Fall 2026 看下一學期"
+title: "Spring 2025 總覽：用 HW1–7 與 code/data 走完的機器學習，用 Fall 2026 看下一學期｜Berkeley CS189 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, learning-path]
@@ -21,18 +21,6 @@ draft: false
 [Berkeley CS189 Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s25/) 是 Berkeley 的數學型機器學習入口，不接在 [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) 之後，而是與它平行。[Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)已把兩門課定位為「搜尋／推理」與「統計學習」兩個入口；這篇把 CS189 的自學可行性補到可執行。
 
 核心結論：**想跟著本系列逐講自學，走 [Spring 2026](https://eecs189.org/sp26/)；想走 SVM、決策樹、PCA、boosting 的經典路線，走 Spring 2025；想看下一學期長什麼樣，看 [Fall 2026](https://eecs189.org/fa26)。** Spring 2026 公開講義、25 支講課影片、附解答的 discussion 與 HW1–5 題目，本系列從第 2 篇起以它為底本（版本比較見 [CS189 有三個版本](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)）。Spring 2025 在 `people.eecs.berkeley.edu/~jrs/189s25/` 保留 25 講 lecture notes、HW1–7、code/data 與歷屆考題（本站判 [A3](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map)），正式錄影則放在 bCourses，要登入。Fall 2026 剛在 `eecs189.org/fa26` 公布 27 講行事曆（`Lec01 Introduction + ML Problem Framing` 到 `Lec27 Closing`），但講義與作業多數尚未開放，泛用網址 `eecs189.org` 本身也會隨學期重導向，舊檔有輪替後 404 的前例。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：Spring 2026 官方 YouTube 播放清單（25 支講課）可公開觀看；Spring 2025 的正式講課錄影放在 bCourses，開啟後導向 CalNet 登入頁，公開的只有 Google Drive 上的 screen-only 備份錄影；Fall 2026 不在這次查核範圍。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
-
-查核日期：2026-10-10。
 
 ## 公開到什麼程度
 
@@ -104,6 +92,18 @@ Spring 2026 共 27 講、5 份作業，本系列按官方課序把講次與作�
 1. 先讀 [CS189 有三個版本](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)，決定走 Spring 2026 主線還是 Spring 2025 經典路線。
 2. 走 Spring 2026 的話，打開 [Lec 1–3 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)，順手把 [HW1](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion) 的數學熱身題標出三類：純推導、資料分析、程式實作。
 3. 若熱身題的線代或機率卡住，先回 CS70 notes 或 [CS61B](https://fa25.datastructur.es/) 補基礎，不要跳課。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：Spring 2026 官方 YouTube 播放清單（25 支講課）可公開觀看；Spring 2025 的正式講課錄影放在 bCourses，開啟後導向 CalNet 登入頁，公開的只有 Google Drive 上的 screen-only 備份錄影；Fall 2026 不在這次查核範圍。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+查核日期：2026-10-10。
 
 ## 參考資料
 

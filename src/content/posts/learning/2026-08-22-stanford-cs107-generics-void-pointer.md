@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 11：void * 如何讓 C 擁有泛型，又不假裝型別還在"
+title: "void * 如何讓 C 擁有泛型，又不假裝型別還在｜Stanford CS107 第 11 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 如果替 `int`、`double`、字串 pointer 各寫一份 `swap`，程式很安全，也很快開始重複。若只保留一份函式，它又怎麼知道該搬幾個 bytes、該把位址解讀成哪一種型別？Stanford CS107 Lecture 11 的回答很有 C 的味道：函式不必知道資料的語意，只要 caller 同時交出位址與 byte count。`void *` 抹掉 pointee type，`memcpy` 負責複製 raw bytes，正確性則由介面契約與 caller 共同維持。
 
 這不是「C 也有 Java generics」的輕巧語法糖。型別資訊一旦被擦掉，compiler 能替你做的檢查就變少；錯誤的寬度、錯誤的 cast 或錯誤的 lifetime 都可能順利編譯。本講因此先把上一講的 heap 收尾，再進入 generics：兩部分其實在問同一件事——當語言不替你記住資源與型別，程式設計者要如何把遺失的資訊寫回契約。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -189,6 +181,14 @@ Lecture 11 最重要的不是背五個 library functions，而是看見同一條
 ## 延伸練習
 
 為可成長的 `int` buffer 寫 `append`，以 temporary 接 `realloc` 並列出每條失敗路徑的 owner。再把 typed swap 改成 generic core，記錄 compiler 不再能檢查什麼。最後思考：generic bubble sort 收到 base、元素數量和寬度後，還缺哪項資訊才能決定相鄰元素是否逆序？
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

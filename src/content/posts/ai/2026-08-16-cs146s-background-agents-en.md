@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 8: Once Agents Run in the Cloud, the Bottleneck Moves from Waiting to Reviewing"
+title: "Once Agents Run in the Cloud, the Bottleneck Moves from Waiting to Reviewing | Stanford CS146S Week 8"
 date: 2026-08-16
 category: ai
 tags:
@@ -30,18 +30,6 @@ Three topics: async, cloud-delegated agents; managing fleets of parallel agents;
 This week didn't exist in Fall 2025. A year ago, an agent was something you opened a terminal and watched.
 
 **Disclosure: this post was written by a background agent** — running in an ephemeral cloud container on its own branch, pushing the result when done. The costs and limits below are not speculation.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## The shared parts
 
@@ -103,6 +91,18 @@ The order makes sense: one person managing three background agents is a tooling 
 - Background agent features and pricing move very fast; this post covers shared architecture, not product comparison
 - Fall 2026's guest and materials for this week aren't published
 - Conventions like "one agent, one PR" are young and may look different in a year
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

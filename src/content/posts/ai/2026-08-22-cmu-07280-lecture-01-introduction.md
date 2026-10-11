@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 1 導讀：AI、機器學習與表示學習的共同問題"
+title: "AI、機器學習與表示學習的共同問題｜CMU 07-280 第 1 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 **CMU 07-280 Spring 2026 Lecture 1：Introduction**。它不是一堂把 AI 名詞排成時間線的暖身課。整份投影片反覆追問：當輸入太複雜，不能直接手寫規則時，系統如何建立可用的表示，再據此做預測或行動？
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf)與[Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf)。官方課表未列這一講的公開錄影或逐字稿連結，因此本文只解讀文件，不會補寫講者口述、現場活動結果或問答。
-
-Spring 2026 的題名只有 **Introduction**。Fall 2026 首頁後來加入 alignment 與 safety，不屬於本篇版本。
 
 ## 承上問題：為什麼搜尋與 GPT-2 能放在同一門課
 
@@ -62,10 +46,10 @@ Autoencoder 把同一問題改成可學習系統：輸入影像經 encoder 壓�
 
 ```text
 z1 = h
-z2 = e + 0.25a
+z2 = e
 ```
 
-身高可由 `z1` 完整還原；`z2` 多半能分出眼睛數，也用小數部分記錄觸角。但若 `e=2, a=0` 與 `e=1, a=4` 都被允許，就可能碰撞。這個玩具例子揭示 bottleneck 的代價：低維表示必須選擇保留哪些差異，而訓練目標決定哪些差異會被視為重要。
+這是本站設計的表示練習。身高與眼睛數可由兩個座標還原，觸角則完全沒被編碼：`(e,h,a)=(2,0.5,0)` 與 `(2,0.5,1)` 都變成 `z=(0.5,2)`，decoder 無法區分。先猜它會漏掉哪個特徵，再拿這兩筆輸入核對；答案必須指出觸角不同但座標相同。這個碰撞來自我們選的編碼，不是「兩維必然存不下三種因素」的定理；改用 `z2=e+0.25a`，在這組限定值域內就能保留觸角。
 
 今晚重做時，不必訓練網路。拿十個日常物件，先自行定義兩個座標，再請另一個人只看座標猜物件特徵；猜不回來的部分就是表示丟掉的資訊。
 
@@ -86,6 +70,22 @@ Lecture 1 的 HW0 是 Gradescope online-only，校外無法匿名讀到題面或
 1. 讀 Notation Guide，把不熟的五個符號抄成自己的速查表。
 2. 用「輸入、表示、輸出、好壞標準」四欄重寫一個熟悉的 AI 應用。
 3. 打開 Recitation 1，只做 Tower of Hanoi 的 state 與 action 定義；不要先看 solution。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf)、[Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf)與[Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf)。官方課表未列這一講的公開錄影或逐字稿連結，因此本文只解讀文件，不會補寫講者口述、現場活動結果或問答。
+
+Spring 2026 的題名只有 **Introduction**。Fall 2026 首頁後來加入 alignment 與 safety，不屬於本篇版本。
 
 ## 更新紀錄
 

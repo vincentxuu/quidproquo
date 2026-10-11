@@ -1,5 +1,5 @@
 ---
-title: "CS231N L2: Image Classification, kNN, and Linear Classifiers"
+title: "Image Classification, kNN, and Linear Classifiers | Stanford CS231N Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,23 +29,6 @@ glossary:
 The second [CS231N](https://cs231n.stanford.edu/) lecture was on April 2, the same day A1 went out. The [schedule](https://cs231n.stanford.edu/schedule.html) lists its topics as the data-driven approach, k-nearest neighbor, the algebraic, visual, and geometric viewpoints of linear classifiers, and the softmax loss. The matching official notes are [Image Classification](https://cs231n.github.io/classification/) and [Linear Classification](https://cs231n.github.io/linear-classify/).
 
 The lecture introduces the two simplest classifiers. Neither is good enough in practice, but every later lecture builds on the framework they leave behind: how to split the data, how to compute scores, and how to define a loss.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 2 (length 1:07:01). The transcript covers the semantic gap, the older edge-detection approach, the data-driven approach and nearest neighbors, L1/L2 distance, hyperparameters and cross-validation, the algebraic/visual/geometric views of linear classifiers, and softmax. It has no SVM/hinge loss, consistent with the article saying the 2026 slides only cover softmax. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=pdqofxJeBN8
-title: Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers](https://www.youtube.com/watch?v=pdqofxJeBN8)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The problem: a computer only sees numbers
 
@@ -179,6 +162,23 @@ Besides softmax, the official [Linear Classification](https://cs231n.github.io/l
 - [Reading Stanford CS231N: overview and self-study plan](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 **Series navigation**: Previous: [L1: Where computer vision came from, and where this course is going](/posts/ai/2026-09-30-cs231n-intro-vision-history-en) | Next: [L3: Regularization and optimization](/posts/ai/2026-09-30-cs231n-regularization-optimization-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 2 (length 1:07:01). The transcript covers the semantic gap, the older edge-detection approach, the data-driven approach and nearest neighbors, L1/L2 distance, hyperparameters and cross-validation, the algebraic/visual/geometric views of linear classifiers, and softmax. It has no SVM/hinge loss, consistent with the article saying the 2026 slides only cover softmax. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=pdqofxJeBN8
+title: Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers](https://www.youtube.com/watch?v=pdqofxJeBN8)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

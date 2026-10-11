@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224U: The Course Site Stopped in Spring 2023, but You Can Clone the Whole Thing"
+title: "The Course Site Stopped in Spring 2023, but You Can Clone the Whole Thing | Stanford CS224U Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -27,15 +27,6 @@ Its reputation among self-learners comes less from lecture videos than from its 
 This piece is about what happens once you're inside. How the course divides labor with CS224N, what each of the three assignments asks you to build, what the final-project grading document locks down, and whether a fresh clone still runs **today**.
 
 It does **not** do a paper-by-paper close reading, and it does not cover the course materials inside XCS224U, the paid online version — those live behind a login I don't have. (Updated 26 August 2026: Stanford Online's page now states this course is no longer available as of May 19, 2025, making the free Spring 2023 YouTube recordings the only public record of instruction.)
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the 50-video Spring 2023 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## The hard facts
 
@@ -202,6 +193,15 @@ Each part marks what isn't available: the Canvas quizzes, classroom recordings, 
 - **Assignment points**: all three assignments are 9 + 1 (one point for entering the bake-off), and the original-system question is worth 3 points in each. The bake-off winner gets another 0.5 bonus point; late entries are accepted but forfeit the bonus.
 - **File sizes**: the ColBERTv2 checkpoint is about 406 MB and the course's prebuilt index about 600 MB; both links still downloaded (HTTP 200) on 2026-08-21.
 - **Things I could not confirm**: (1) whether the Spring 2026-27 offering happens at all, and who teaches it — both sections disappeared from the XML by 29 September 2026, with no public explanation. Before that, the ExploreCourses instructor field is empty (re-checked 26 August 2026; CS224N and CS336 instructors are filled in for adjacent quarters, confirming this is an unassigned slot rather than missing data), Potts' teaching page currently goes no further than 2024-25, and the GitHub repo shows no sign of new-term preparation. The circumstantial evidence points to Potts returning: his Linguistics department chair term expired in August 2025 and his Amazon Scholar role ended in December 2024 — one academic year after stepping down, the course is back on the schedule. But this can't be stated as fact. (2) Why the course went three years without an offering — no official page explains it, but the background filled in substantially on 26 August 2026. At the personal level, the department chair term (Sep 2020 – Aug 2025) and the Amazon Scholar role (Oct 2022 – Dec 2024) cover exactly the two skipped years, and since January 2025 he has been co-founder and Chief Scientist of [Bigspin AI](https://bigspin.ai), an AI-agent monitoring startup; his public activity across 2025–26 is all external keynotes and webinars, with zero teaching on record — strong evidence for a shift in focus, though "he won't come back" remains speculation. At the university level, XCS224U's discontinuation wasn't isolated either: after Stanford cut $140M from its budget with layoffs, the [Office of the Vice Provost for Digital Education was shut down outright in January 2026](https://stanforddaily.com/2026/01/18/stanford-digital-education-shuts-doors/) (Stanford Daily), and the paid self-paced course lines were sunset in batches — low-volume products went first, while popular ones like XCS224N are still enrolling. He kept teaching other courses throughout, so "too busy to teach" doesn't hold; an ExploreCourses XML reverse lookup confirms he was personally PI of the last on-campus offering (Spring 2023). (3) Whether people outside Stanford can audit the on-campus class — the Stanford Bulletin's [auditing policy](https://bulletin.stanford.edu/academic-polices/enrollment/auditing) explicitly limits audit to matriculated students, postdocs, visiting scholars, and faculty/staff; outsiders need the paid Permit to Attend route with instructor, department, and Registrar approval — practically speaking, no free seat. On the paid remote side, see below: XCS224U was formally discontinued in May 2025 (the same sweep retired XCS330, while XCS224N is still enrolling), and Stanford Online offers only a generic "periodically sunset" line with no per-course reason. (4) The data-loading problem above, which I inferred from three public documents rather than by building the environment and running it.
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official course page and the 50-video Spring 2023 playlist list per-lecture recordings; this article is a course-level guide that does not map to a single lecture, so only the entries are listed. See the per-lecture guides for the individual recordings. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## References
 

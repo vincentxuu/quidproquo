@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 8: Gradient Descent, SGD, and Learning Rate"
+title: "Gradient Descent, SGD, and Learning Rate | CMU 07-280 Lecture 8"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 8: Optimization**. Lecture 7 had a normal equation for linear regression. This lecture deliberately returns to the objective's shape and builds an update rule that still works when no closed form exists. It is also the direct foundation for later neural networks and backpropagation.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## The inherited question: how to find an argmin without an inverse or closed form
 
@@ -91,6 +77,20 @@ The lecture claims only that SGD is noisy but fast. It does not prove that noise
 1. Recompute the four updates for `J(ω)=ω²` and plot each iterate on the parabola.
 2. Compute one batch gradient for two linear-regression examples, then each single-example gradient.
 3. Write one stopping criterion and a case in which it gives a false sense of convergence.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [Optimization lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## Update Log
 

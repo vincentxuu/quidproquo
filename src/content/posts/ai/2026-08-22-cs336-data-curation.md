@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 14：Filtering、Dedup 與資料混合才把 raw web 變成訓練語料"
+title: "Filtering、Dedup 與資料混合才把 raw web 變成訓練語料｜Stanford CS336 第 14 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**，2026 年 5 月 13 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py)。
 
 Lecture 13 找 raw sources；這一講決定哪些內容真正進入 token stream。Filtering、dedup 與 mixing 常被叫做 preprocessing，實際上每一步都在定義模型會學到的分布。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 14（Data，第二天）。字幕涵蓋 language ID、品質分類器（fastText）、toxicity filtering、hash／near duplicates（MinHash、Jaccard）、mixing、epoch cap、regression-based mixing、teacher 產生的 reasoning 資料與 SWE 合成任務。字幕只講到 toxicity filtering，沒有 PII、成人內容等類別，已把該句改為標明本站補充；其餘逐句未比對。
-
-```youtube
-url: https://www.youtube.com/watch?v=5sxHosTLPF8
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## Filtering 是多個低精度判斷的組合
 
@@ -76,6 +58,24 @@ Software-engineering data 更難。可從 GitHub PR 建真實 tasks、讓模型�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依 filtering、dedup、mixing 與 synthetic data 四部分整理。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 14（Data，第二天）。字幕涵蓋 language ID、品質分類器（fastText）、toxicity filtering、hash／near duplicates（MinHash、Jaccard）、mixing、epoch cap、regression-based mixing、teacher 產生的 reasoning 資料與 SWE 合成任務。字幕只講到 toxicity filtering，沒有 PII、成人內容等類別，已把該句改為標明本站補充；其餘逐句未比對。
+
+```youtube
+url: https://www.youtube.com/watch?v=5sxHosTLPF8
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

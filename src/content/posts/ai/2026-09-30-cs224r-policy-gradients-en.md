@@ -1,5 +1,5 @@
 ---
-title: "CS224R L3: Policy Gradients — Differentiating the Policy Without Knowing How the World Works"
+title: "Policy Gradients — Differentiating the Policy Without Knowing How the World Works | Stanford CS224R Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,26 +32,6 @@ This is part 4 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-cour
 Slide 5 lists just two learning goals: understand the key intuition behind policy gradients, and know how to implement them and when to use them. The same slide notes that this is part of the basis for the default project.
 
 The math load here is heavier than before. The main text keeps to intuition and conclusions, and the derivations sit in collapsible sections.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=KCAOXd4IO9o
-title: Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)
-```
-
-Original videos: [Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)](https://www.youtube.com/watch?v=KCAOXd4IO9o)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L3 Policy Gradients transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers REINFORCE, the log-likelihood gradient, baselines and variance, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: imitation learning's ceiling
 
@@ -201,6 +181,26 @@ That last point is your cue for when to use it. If rewards are sparse, or you ca
 - [CME295: RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en) and [CS336: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en): what policy gradient looks like for language models
 
 **Series navigation**: Previous [HW1: BC, Flow Matching, and DAgger on Flappy Bird](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) | Next [L4: Actor-Critic and Value Estimation](/posts/ai/2026-09-30-cs224r-actor-critic-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=KCAOXd4IO9o
+title: Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)
+```
+
+Original videos: [Spring 2025 Lecture 3: Policy Gradients (YouTube, Stanford Online)](https://www.youtube.com/watch?v=KCAOXd4IO9o)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L3 Policy Gradients transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers REINFORCE, the log-likelihood gradient, baselines and variance, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

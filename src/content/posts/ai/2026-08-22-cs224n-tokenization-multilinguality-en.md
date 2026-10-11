@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 14: How Tokenization Creates Multilingual Cost Gaps"
+title: "How Tokenization Creates Multilingual Cost Gaps | Stanford CS224N Lecture 14"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that lecture 14 was guest-taught by Julie Kallini on February 19, 2026. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture14-guest-julie-tokenization-multilinguality.pdf) has five agenda parts: word/character-byte/subword tokenization, BPE training, spelling and glitch-token cases, multilingual and cross-lingual transfer, fairness, and multilingual tokenizer challenges.
-
-## Course video sources
-
-Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
 
 ## Segmentation decides what the model sees
 
@@ -105,6 +94,17 @@ Hand-run ten merges, train balanced and imbalanced multilingual tokenizers, then
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all five agenda sections in Julie Kallini's deck; live language examples and discussion are not reconstructed.
+
+## Course video sources
+
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

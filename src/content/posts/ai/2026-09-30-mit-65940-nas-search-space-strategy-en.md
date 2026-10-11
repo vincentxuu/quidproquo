@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lecture 7: NAS I — From Hand-Designed Building Blocks to Search Spaces and Search Strategies"
+title: "NAS I — From Hand-Designed Building Blocks to Search Spaces and Search Strategies | MIT 6.5940 Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 **Official materials**: [Lec07-Neural-Architecture-Search-I.pdf](https://www.dropbox.com/scl/fi/hxhjhxonwqyw2hfoywzcp/Lec07-Neural-Architecture-Search-I.pdf?rlkey=o6s5dglazyb2o2nrc897ccppg&dl=0) (76 pages; all page numbers below refer to this PDF) and the [Lecture 7 recording](https://www.youtube.com/watch?v=3W146_T8eCs). Access level **A3**: slides and recording are public, and the hands-on work is in [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en). Everything below follows the slides, checked on 2026-09-30.
 
 **Fall 2026 comparison**: Fall 2026 Lecture 7 is scheduled for October 1. When I checked the course page on 2026-10-01, neither the slides nor the recording were linked yet.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=3W146_T8eCs
-title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 1 due, Lab 2 out) and closing summary and spot-checked the middle: primitive operations and a MAC recap, bottlenecks (the video mentions 2048 channels and 8.5x), grouped convolution and ShuffleNet, Transformers, then NASNet's reduction and normal cells and cell-level/network-level search spaces, judging a search space without training (a good space more easily reaches high FLOPs), and grid/random/RL/gradient/evolutionary search. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Where this lecture sits in the NAS unit
 
@@ -205,6 +187,24 @@ One thing to do tonight: write a ResNet bottleneck and a MobileNetV2 inverted bo
 - First introduction to efficiency metrics and building blocks: [Lectures 1–2 + Lab 0](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
 - Another take on CNN architectures: [CMU 11-785 CNN unit](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en)
 - Transformers from scratch: [CMU 11-785 attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=3W146_T8eCs
+title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 1 due, Lab 2 out) and closing summary and spot-checked the middle: primitive operations and a MAC recap, bottlenecks (the video mentions 2048 channels and 8.5x), grouped convolution and ShuffleNet, Transformers, then NASNet's reduction and normal cells and cell-level/network-level search spaces, judging a search space without training (a good space more easily reaches high FLOPs), and grid/random/RL/gradient/evolutionary search. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

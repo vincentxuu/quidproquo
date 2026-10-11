@@ -1,5 +1,5 @@
 ---
-title: "What's Going On Inside My Model? Where You Look First When It Regresses"
+title: "What's Going On Inside My Model? Where You Look First When It Regresses | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -26,26 +26,6 @@ In 2024 this slot was "closing remarks + AI on the job," running on **2021 slide
 Katanforoosh explains the rename:
 
 > "This lecture used to be called neural network interpretability, but I **broadened the scope**, because there's now a section on frontier models, and **for the models you're playing with out there, the interpretability methods mostly haven't been figured out.**"
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 10 (1:46:54, matching "1 hour 47 minutes"; the speaker is Kian, who says in the first person that he "broadened the scope" of the lecture). Checked item by item against the captions, all appear: the 200-billion-parameter checkpoint regression and MoE routers, saliency using pre-softmax scores, integrated gradients, occlusion (Pomeranian, Afghan hound), GAP and Grad-CAM, gradient ascent (Dalmatian, a crowd of geese, flamingos), dataset search with the top five images, deconvolution and transposed convolution, flipping filters and switches, Zeiler & Fergus and Yosinski, two-layer transformers and induction heads, Chinchilla 70B vs GPT-3 175B, GPT-5 costing "hundreds of millions", n-gram contamination detection and Llama 4, The Pile, non-English tokens rising from 12% to 19%, experience replay, "99% of Python code is already online", and Epoch AI. The article's note that the Epoch figures do not match the paper is the site's own check and was not compared against the captions. No body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
-title: Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-Checked: 2026-10-10.
 
 ## Opening case: you're a model trainer at a frontier lab
 
@@ -332,6 +312,26 @@ You probably aren't training a 200-billion-parameter model. But three things her
 **Three: read benchmarks for relative values only.** This applies directly to reading model release announcements, and he gives the reason — not that vendors falsify, but that **contamination is hard to detect and the capability a benchmark measures may not overlap with your task.**
 
 The last thing worth keeping is his honesty: **this whole methodology currently reaches two layers on transformers.** We understand the internals of the models we use every day far less well than we understand a 2014 convolutional network.
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 10 (1:46:54, matching "1 hour 47 minutes"; the speaker is Kian, who says in the first person that he "broadened the scope" of the lecture). Checked item by item against the captions, all appear: the 200-billion-parameter checkpoint regression and MoE routers, saliency using pre-softmax scores, integrated gradients, occlusion (Pomeranian, Afghan hound), GAP and Grad-CAM, gradient ascent (Dalmatian, a crowd of geese, flamingos), dataset search with the top five images, deconvolution and transposed convolution, flipping filters and switches, Zeiler & Fergus and Yosinski, two-layer transformers and induction heads, Chinchilla 70B vs GPT-3 175B, GPT-5 costing "hundreds of millions", n-gram contamination detection and Llama 4, The Pile, non-English tokens rising from 12% to 19%, experience replay, "99% of Python code is already online", and Epoch AI. The article's note that the Epoch figures do not match the paper is the site's own check and was not compared against the captions. No body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
+title: Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

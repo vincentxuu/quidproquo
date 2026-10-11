@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L16–L17：模型放不進一張卡時，切層、切矩陣，還是切專家"
+title: "模型放不進一張卡時，切層、切矩陣，還是切專家｜CMU 11-868 第 16–17 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,16 +32,6 @@ glossary:
 > **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 的 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列的第 12 篇。上一篇講[資料平行](/posts/ai/2026-09-30-cmu11868-data-parallel-training)：每張卡放一份完整模型、分資料。本篇處理資料平行解決不了的情況：**一份完整模型就放不進一張卡。**
 
 這兩講對應 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 10 週：3/16 的「Distributed Model Training III」（[L16 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-16-model-parallel-83b41612547620ee0e172caa1ee448ed.pdf)，36 頁）與 3/18 的「Large models with Mixture-of-Expert」（[L17 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-17-MoE-3aa3125f9ccdd4bb7109ef077fbe9260.pdf)，38 頁），講者都是 Lei Li。官方課表未列本課公開錄影連結，以下只根據投影片與 Syllabus 列的 reading；頁碼指 PDF 頁碼（兩份投影片角落印的編號在後半段都比 PDF 頁碼大一到三號）。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 先看全貌：三種切法
 
@@ -209,6 +199,16 @@ DeepSpeed-MoE 論文摘要給的整體數字是：推論延遲與成本比既有
 - 本講的實作：[HW5：資料平行與管線平行](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 - 站內：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
 - 站內：[CS336 attention 與 MoE](/posts/ai/2026-08-22-cs336-attention-moe)、[MoE 架構為什麼會贏](/posts/ai/2026-08-26-moe-architecture-why-it-wins)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

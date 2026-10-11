@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L14–L15: Cross-Attention, DiT, Prompt-to-Prompt, and Q-Former"
+title: "Cross-Attention, DiT, Prompt-to-Prompt, and Q-Former | CMU 10-423 Lectures 14–15"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 The recordings live on CMU's Panopto and aren't available outside CMU, so this post relies on the slides alone. The Q-Former part of L15 is almost entirely paper figures with no slide text, so the description below comes from the captions of the BLIP-2, MetaQueries, and Perceiver IO figures the slides reproduce. The schedule lists no readings for these two lectures. I checked every fact against the official materials on 2026-09-30.
 
 The [previous post](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en) said LDM reads the prompt through cross-attention without taking it apart. This post answers: **where in the model does the text condition enter, and why can editing the prompt change only part of the image?**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Cross-attention: queries and keys/values come from different places
 
@@ -215,6 +204,17 @@ The schedule puts Quiz 4 on March 16, covering the text-to-image part of L12 thr
 - Definitions of access grades A0–A3: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: previous [L12–L13: Text-to-image, latent diffusion, and vision-language models](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en) | next [HW4: Text-to-image with a Q-Former](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

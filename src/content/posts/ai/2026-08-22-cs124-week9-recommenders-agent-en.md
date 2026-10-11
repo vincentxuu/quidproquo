@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 9 Collaborative Filtering and LLM Agents: From Movie Similarity to Search and Memory Tools"
+title: "Collaborative Filtering and LLM Agents: From Movie Similarity to Search and Memory Tools | Stanford CS124 Week 9"
 date: 2026-08-22
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 導讀：作業全在 Colab 上，但最大一塊分數自學者拿不到"
+title: "作業全在 Colab 上，但最大一塊分數自學者拿不到｜Stanford CS224W 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,19 +25,6 @@ draft: false
 這門課在中文圈的名聲多半來自 2021 年那套 YouTube 錄影。錄影還在，也還很好，但它跟現在的課表已經對不上了。2021 年的第四堂是 PageRank；現行課表十九堂裡，沒有一堂的標題出現這個字。
 
 這篇是把 2025 年秋季（Aut2526）的一手材料逐份讀過之後寫的。材料包括課程官網、`info.html` 的評分與誠信條款、三份作業 PDF、六份 Colab notebook（全部下載開過）、專案說明文件，以及三堂關鍵課的投影片。**不包含**論文精讀，也不包含 Canvas 後面的東西——那些我拿不到，下面會逐項講清楚。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -230,6 +217,19 @@ Leskovec 名下的公開資源很多，但不是每一項都跟 CS224W 有關。
 - **付費修課的金額**：AI Professional Program 個別報名 1,950 美元一門（XCS224W）；研究生學分的 CS224W 在 Stanford Online 標示學費 6,300 美元。兩者查詢當下皆為 Enrollment Closed，且 XCS224W 沒有列出開課日期，而同一頁上多門姊妹課有。**頁面沒有說明原因。**
 - **DeepSNAP 與 OGB 的維護狀態**：查詢當下 GitHub API 顯示 `snap-stanford/deepsnap` 最後推送於 2025-11-24、`snap-stanford/ogb` 最後推送於 2025-05-06、`pyg-team/pytorch_geometric` 最後推送於 2026-08-17。兩個 repo 都沒有被標記為 archived。
 - **未能確認的三項**：（1）Colab 0 的 Google Drive 連結回 200，但它是 Drive 的檢視頁而非 notebook，我沒有取得它的 cell 內容，上表因此留白；（2）Stanford Online 的兩個 YouTube 播放清單分別是 47 支與 60 支，但我沒有逐支比對確認兩者的差集是什麼；（3）第 16 堂投影片的講者未在投影片上具名，我沒有找到官方頁面說明那堂由誰主講，因此文中沒有寫講者姓名。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

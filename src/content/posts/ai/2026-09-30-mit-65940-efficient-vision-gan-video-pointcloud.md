@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 16–17 講：高效視覺——ViT、GAN、影片與點雲各自在浪費什麼"
+title: "高效視覺——ViT、GAN、影片與點雲各自在浪費什麼｜MIT 6.5940 第 16–17 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,29 +46,6 @@ glossary:
 以下「L16 第 N 頁」「L17 第 N 頁」分別指這兩份 PDF 的頁碼。存取等級 **A3**：投影片與錄影公開，這兩講沒有對應的 lab。2026-09-30 核對。
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)保留「Vision Transformer」（11 月 5 日，第 16 講），但 **GAN、Video、Point Cloud 這一講被拿掉**，第 17、18 講改成 Diffusion Model Part I／II。截至 2026-09-30 這幾講都還沒上線。想學第 17 講的內容，目前只能用 Fall 2024 的材料。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=v0jYDgaVzlk
-title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=o_60Yhb79W8
-title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：L16 讀了開頭（Halloween 與 HART 示範）與結尾總結：ViT 基礎、window attention、EfficientViT 的 linear attention、SparseViT、自監督（對比學習與 MAE）、HART。L17 讀了開頭與結尾並抽查中後段：GAN Compression、AnyCost、DiffAugment、TSM（與 2D／3D CNN 的比較）、PVConv／SPVConv、BEVFusion（影片後段用波士頓街景講相機與 LiDAR 融合到鳥瞰圖）。兩講主題與本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 為什麼這兩講放在一起
 
@@ -213,6 +190,29 @@ return out
 - ViT 與自監督：[CS231N L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)、[CS231N L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 - GAN：[CS231N L13：自迴歸、VAE 與 GAN](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
 - 影片與 3D：[CS231N L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)、[CS231N L15：3D 視覺](/posts/ai/2026-09-30-cs231n-3d-vision)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=v0jYDgaVzlk
+title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o_60Yhb79W8
+title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk)、[EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：L16 讀了開頭（Halloween 與 HART 示範）與結尾總結：ViT 基礎、window attention、EfficientViT 的 linear attention、SparseViT、自監督（對比學習與 MAE）、HART。L17 讀了開頭與結尾並抽查中後段：GAN Compression、AnyCost、DiffAugment、TSM（與 2D／3D CNN 的比較）、PVConv／SPVConv、BEVFusion（影片後段用波士頓街景講相機與 LiDAR 融合到鳥瞰圖）。兩講主題與本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

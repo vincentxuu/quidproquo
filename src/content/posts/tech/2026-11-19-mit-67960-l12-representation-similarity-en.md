@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L12: Representation Learning (Similarity-Based) — Metric Learning, Contrastive, InfoNCE"
+title: "Representation Learning (Similarity-Based) — Metric Learning, Contrastive, InfoNCE | MIT 6.7960 Lecture 12"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Sara Beery**; the required reading is the same *Representation Learning* as L11, with optional *Alignment and Uniformity* and contrastive-learning essays.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=yUh1fEGGdl4
-title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 12 transcript (Sara Beery, 1:16:20): the video covers metric learning, contrastive learning and InfoNCE, alignment and uniformity (about 59%–68%) and hard negatives, matching the article; SimCLR does not appear in the transcript and is only a reference in this article.
 
 ## When reconstruction is not enough: define "similarity" directly
 
@@ -121,6 +102,25 @@ But beware: **too-hard negatives may be false negatives** — e.g., two differen
 - **Where positives come from**: usually data augmentation (crop, color jitter, mask); augmentation strength directly sets which invariances are learned.
 
 Next lecture (L13) takes the theoretical view: why the architecture's inductive bias decides what the representation looks like, and the mysterious correspondence between wide nets and Gaussian processes.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=yUh1fEGGdl4
+title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 12 transcript (Sara Beery, 1:16:20): the video covers metric learning, contrastive learning and InfoNCE, alignment and uniformity (about 59%–68%) and hard negatives, matching the article; SimCLR does not appear in the transcript and is only a reference in this article.
 
 ## Update Log
 

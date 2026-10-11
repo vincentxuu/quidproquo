@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Guide: Seven Weeks, Twelve Projects, and How to Follow a Course Filmed in 2020"
+title: "Seven Weeks, Twelve Projects, and How to Follow a Course Filmed in 2020 | Harvard CS50 AI Topic Guide"
 date: 2026-08-26
 category: ai
 type: guide
@@ -20,17 +20,6 @@ draft: false
 Search for free AI courses and [Harvard CS50's Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/) (CS50 AI below) is always near the top. Taught by [Brian Yu](https://brianyu.me) and [David J. Malan](https://cs.harvard.edu/malan/), it is fully open through OpenCourseWare: seven weeks of video, per-lecture notes, slides, source code, quizzes, and twelve Python projects with autograder feedback. Under the access labels defined in this site's [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map), it is **A3 — sufficient for self-study**: recordings, materials, projects, and the feedback loop are all available to outsiders, and you can go from zero to a certificate without any campus identity.
 
 But "fully public" does not mean "fully current." Open any lecture's download links and the paths read `cdn.cs50.net/ai/2020/spring/` — the videos were filmed in spring 2020. So this guide answers two questions: what do these seven weeks and twelve projects actually involve, and is a course recorded in 2020 still worth following in 2026?
-
-## Course video sources
-
-This post spans several lectures; pick videos by topic and lecture from the official recording index. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10.
-
-Course and recording entries:
-
-- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
-
-Checked: 2026-10-10.
 
 ## Decide whether this is your course
 
@@ -124,13 +113,21 @@ Three steps you can take tonight:
 
 If steps one through three take you three days or fewer, keep going. If reading the spec alone stalls you, do [CS50x](https://cs50.harvard.edu/x) or a year of Python first, then come back.
 
-## Update log
+## Course video sources
 
+This post spans several lectures; pick videos by topic and lecture from the official recording index. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10.
+
+Course and recording entries:
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+Checked: 2026-10-10.
+
+## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-26: Initial version. Recording and assignment version status verified against the official site on August 26, 2026.
-
-## Update Log
 
 - 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 

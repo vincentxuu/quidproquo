@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 HW2: Classical and Motion Planning, from Robot-Cook PDDL to RRT* to Graphing LPs"
+title: "Classical and Motion Planning, from Robot-Cook PDDL to RRT* to Graphing LPs | CMU 07-380 Assignment 2"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, planning, rrt, linear-programming]
@@ -25,29 +25,6 @@ The assignment page opens with a short poem that sums up its two levels: first t
 **This post contains no solutions.** The course has academic-integrity rules, and the programming page states that submissions are checked against each other for logical redundancy. What follows covers what each problem tests, which concept it needs, and how to check your work locally.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#assignments); the site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and scope
-
-| Part | Materials | Access |
-|---|---|---|
-| Programming | [Classical and Motion Planning assignment page](https://www.cs.cmu.edu/~07380/assignments/planning/), [`planning.zip`](https://www.cs.cmu.edu/~07380/assignments/planning/planning.zip) | Public, with local autograder |
-| Written | [`hw2_blank.pdf`](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf), [`hw2.zip`](https://www.cs.cmu.edu/~07380/assignments/hw2.zip) (LaTeX template) | Public |
-| Online | Gradescope | CMU-only |
-| Solutions | — | Not posted on the site |
-
-`hw2.zip` contains `hw2.tex`, one `.tex` per problem, the collaboration statement `q_collaboration.tex`, and under `figures/` the images `graphplan.png` and `feasible_regions.png` plus the plotting starter `plot_graph.py`.
-
-**Access level**: both the programming and written parts can be fully redone outside CMU; only the online questions and official solutions are missing, so this assignment reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Programming: Robot Cook and RRT
 
@@ -146,6 +123,29 @@ Formatting requirements to know up front:
 - Previous: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
 - Next: [Lecture 5 guide: Linear Programming](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
 - Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and scope
+
+| Part | Materials | Access |
+|---|---|---|
+| Programming | [Classical and Motion Planning assignment page](https://www.cs.cmu.edu/~07380/assignments/planning/), [`planning.zip`](https://www.cs.cmu.edu/~07380/assignments/planning/planning.zip) | Public, with local autograder |
+| Written | [`hw2_blank.pdf`](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf), [`hw2.zip`](https://www.cs.cmu.edu/~07380/assignments/hw2.zip) (LaTeX template) | Public |
+| Online | Gradescope | CMU-only |
+| Solutions | — | Not posted on the site |
+
+`hw2.zip` contains `hw2.tex`, one `.tex` per problem, the collaboration statement `q_collaboration.tex`, and under `figures/` the images `graphplan.png` and `feasible_regions.png` plus the plotting starter `plot_graph.py`.
+
+**Access level**: both the programming and written parts can be fully redone outside CMU; only the online questions and official solutions are missing, so this assignment reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Update Log
 

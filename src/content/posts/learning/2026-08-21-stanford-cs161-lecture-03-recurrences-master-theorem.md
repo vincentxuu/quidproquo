@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 3：Master Theorem 怎麼讀懂一棵遞迴樹"
+title: "Master Theorem 怎麼讀懂一棵遞迴樹｜Stanford CS161 第 3 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 有一個來源差異要先交代：component 與投影片都把本講定位為遞迴式、Master Theorem、substitution method；notes 封面卻寫成「Solving Recurrences and the Selection Problem」。正文完全沒有進入 selection，selection 是 Lecture 4 的主題。本文依官方 lecture 標題與材料實際內容寫，不把封面殘留字樣擴成不存在的 agenda。
 
 第二講用完整遞迴樹算 MergeSort。第三講的目標是把那種計算變成可重複使用的方法：先從程式寫出遞迴式，再判斷哪一層工作主導總時間。Master Theorem 是快捷鍵，substitution 則是快捷鍵失效時仍能走的證明路線。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
-
-查核日期：2026-10-10。
 
 ## 遞迴式不是只有等號右邊
 
@@ -238,6 +228,16 @@ Lecture 4 馬上安排一個不能套模板的算法。Median-of-medians 同時�
 實務上遇到不規則 recurrence，可以先做兩件事。第一，把前幾層完整展開，找出每層總工作是否形成幾何級數；第二，猜上界時保留一個可調常數與低階修正項。這兩個動作不保證立即解出答案，但能避免最常見的錯誤：在還沒寫對模型前就搜索一個公式硬套。
 
 Master Theorem 也不是遞迴分析的終點。Akra–Bazzi 等工具能處理更一般的不同尺寸子問題，但不屬 Winter 2026 第三講。若延伸閱讀，應把它視為另一套定理及其條件，而不是把本講的三種 case 任意擴張。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

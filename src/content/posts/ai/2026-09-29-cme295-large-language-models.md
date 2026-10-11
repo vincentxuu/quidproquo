@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 3 講：LLM 生成時的控制旋鈕，從 temperature、top-p 到 chain of thought"
+title: "LLM 生成時的控制旋鈕，從 temperature、top-p 到 chain of thought｜Stanford CME295 第 3 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,31 +39,6 @@ glossary:
 你呼叫任何一家 LLM API，參數欄位裡大概都看過 `temperature`、`top_p`，可能還有要求輸出 JSON 的選項。這些欄位各自在模型的哪一步動手腳，就是這一講的主體。
 
 投影片的目錄分成五段：LLM overview、MoE-based LLMs、Response generation、Prompting strategies、Inference optimizations。本文的重心放在中間三段，也就是「模型生成時你能轉的旋鈕」。MoE 只講直覺，最後一段推論加速只畫地圖，細節都連到站上更完整的篇章。
-
-## 課程影片來源
-
-第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 3 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 2 講「Large Language Models」所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=Q5baLehv5So
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=GaIeu3npx04
-title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Q5baLehv5So 是 Autumn 2025 第 3 講（2025-10-10，1:48:45，與本文相符），章節是 MoE、解碼（greedy／beam／sampling／temperature）、guided decoding、prompting、in-context learning、CoT／self-consistency、KV cache、PagedAttention／MLA，與本文各「旋鈕」章節一致。GaIeu3npx04 是 Autumn 2026 第 2 講 Large Language Models（1:43:14），字幕確實是 LLM 講次（MoE、RoPE、sliding window、GQA、temperature、guided decoding、context rot、prompting）；注意頁面描述的章節表是複製自第 1 講，與實際內容不符，字幕為準。發現並修正：本文原說 prompting／in-context learning／CoT／self-consistency 從 2026 課表消失、guided decoding 無法判斷，但 2026 第 2 講字幕結尾有短短帶過前四者，guided decoding 也有講。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 什麼東西算 LLM
 
@@ -260,6 +235,31 @@ MQA/GQA 在 [第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)已經出
 - in-context learning 從哪裡來：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - 推論優化：[CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference)
 - 本系列下一講：[第 4 講：LLM 訓練](/posts/ai/2026-09-29-cme295-llm-training)；把 chain of thought 訓練進模型裡的做法在[第 6 講：LLM 推理](/posts/ai/2026-09-29-cme295-llm-reasoning)
+
+## 課程影片來源
+
+第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 3 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 2 講「Large Language Models」所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=GaIeu3npx04
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Q5baLehv5So 是 Autumn 2025 第 3 講（2025-10-10，1:48:45，與本文相符），章節是 MoE、解碼（greedy／beam／sampling／temperature）、guided decoding、prompting、in-context learning、CoT／self-consistency、KV cache、PagedAttention／MLA，與本文各「旋鈕」章節一致。GaIeu3npx04 是 Autumn 2026 第 2 講 Large Language Models（1:43:14），字幕確實是 LLM 講次（MoE、RoPE、sliding window、GQA、temperature、guided decoding、context rot、prompting）；注意頁面描述的章節表是複製自第 1 講，與實際內容不符，字幕為準。發現並修正：本文原說 prompting／in-context learning／CoT／self-consistency 從 2026 課表消失、guided decoding 無法判斷，但 2026 第 2 講字幕結尾有短短帶過前四者，guided decoding 也有講。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

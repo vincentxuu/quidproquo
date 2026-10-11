@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L7: Diffusion Models, from Adding Noise to Learning to Remove It"
+title: "Diffusion Models, from Adding Noise to Learning to Remove It | CMU 10-423 Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 **Series**: previous [L6: Generative adversarial networks](/posts/ai/2026-09-30-cmu10423-gans-en) | next [L8–L9: Variational inference, VAEs and the diffusion ELBO](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
 GANs can draw, but they have a basic limitation: they can't compute the probability p_θ(x) of an image, so they are trained with an adversarial game instead. L7 (February 4, 2026) introduces diffusion models, which take a different route. First define a process that slowly turns an image into noise, then train a network to run that process backward. This is also the model you implement from scratch in the [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) programming section.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Three models in one table
 
@@ -183,6 +172,17 @@ Sampling starts from x_T ~ N(0, I) and counts t down from T to 1. At each step t
 - [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) and [Lecture 1: flow and diffusion models](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en), which revisit diffusion through ODEs and SDEs
 - [Reading CMU 11-785: Diffusion models](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - [Reading Stanford CS231n: Generative models and diffusion](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

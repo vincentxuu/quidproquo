@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L13: Theory of Representation — Inductive Biases, Gaussian Processes, and the NN–GP Correspondence"
+title: "Theory of Representation — Inductive Biases, Gaussian Processes, and the NN–GP Correspondence | MIT 6.7960 Lecture 13"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; optional readings include *Kernel Methods for Deep Learning* and *Neural Networks as Gaussian Processes*.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=-eC0-5mXHQg
-title: MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory](https://www.youtube.com/watch?v=-eC0-5mXHQg)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 13. Representation Learning: Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec13_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 13 transcript (Jeremy Bernstein, 1:15:20): the body of the video is Gaussian processes and the NN–GP correspondence of infinitely wide networks (about 23%–90%); the NTK is mentioned in a single passage at about 93% where it is said not to be covered, so the article's NTK section and its inductive-bias framing are this site's supplement, and a note was added.
 
 ## Inductive bias: the architecture "makes assumptions for you"
 
@@ -118,6 +99,25 @@ Do not dismiss this as math gymnastics:
 This lecture closes several loose threads: **inductive bias decides the representation's shape (L13 itself), the infinite-width limit is theoretically analyzable but degenerate (NTK/NN–GP), and the real deep-learning power lives in the finite-width feature-learning regime (L07)**. Together they complete the picture of "why nets learn the way they do".
 
 Next lecture (L14) turns to generative models: from density / energy models to GANs, autoregressive, and diffusion.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=-eC0-5mXHQg
+title: MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 13. Representation Learning: Theory](https://www.youtube.com/watch?v=-eC0-5mXHQg)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 13. Representation Learning: Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec13_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 13 transcript (Jeremy Bernstein, 1:15:20): the body of the video is Gaussian processes and the NN–GP correspondence of infinitely wide networks (about 23%–90%); the NTK is mentioned in a single passage at about 93% where it is said not to be covered, so the article's NTK section and its inductive-bias framing are this site's supplement, and a note was added.
 
 ## Update Log
 

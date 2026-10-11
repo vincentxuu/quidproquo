@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 3 講：Graph Neural Networks：message passing 的第一個完整模型"
+title: "Graph Neural Networks：message passing 的第一個完整模型｜Stanford CS224W 第 3 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 3 講**，官方日期 2025-09-30。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/03-GNN1.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -131,6 +118,19 @@ Neighbor averaging 常隱含 homophily，但真實邊可能連接不同類別。
 本講的交付物是一份 layer trace：對同一張 tiny graph 列出初始 feature、每層 neighbor multiset、aggregate、center combine 與 final prediction。再列出框架設定中的 self-loop、flow direction、aggregation name 與 normalization。只要手算和程式在某層第一次分歧，就停在那層修正；不要用更多 epochs 掩蓋語意錯誤。這份 trace 也是後續判斷 WL 表達限制與 over-smoothing 的基準證據。
 
 第 3 講建立的概念會在後續講次繼續組合。閱讀時保留自己的小圖、符號表與 baseline；每遇到新模型，就問它改了資料、訊息、聚合、更新、目標函數或評估中的哪一項。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

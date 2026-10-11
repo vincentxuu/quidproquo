@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 6：資料飛輪轉起來——HW1 繳交週"
+title: "資料飛輪轉起來——HW1 繳交週｜Stanford CS329Z 第 6 週"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Week 6 是繳交週。週一（10/26）是主題待定的客座演講，同一�
 資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。智慧體每回答一題，就留下一條軌跡：使用者問了什麼、系統走了哪幾步、最後答對還是答錯。把軌跡收好、打上分數，挑好的放回提示當示範，修好的壞例子也放回去。轉完一圈，示範變好、分數變高，下一圈又產出更好的資料。
 
 Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定成功長什麼樣子，監控確保指標沒有跟現實脫鉤，改進負責把學到的東西放回系統。三站吃的是同一批生產資料，只是用途不同。這篇文章沒有新模型也沒有新演算法，談的是工程紀律：怎麼把每一筆生產資料用到極致。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 評估：先看真實輸出，再定指標
 
@@ -106,6 +95,17 @@ Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定
 - 週一 10/26 Guest Lecture：客座場，無指定讀物。
 - 週三 10/28 What Data Do Agents Need?：主讀物 Shankar 資料飛輪（本文已導讀）；延伸閱讀 [Tan 等人資料標註與合成綜述](https://aclanthology.org/2024.emnlp-main.54/)（EMNLP 2024）。該綜述把模型當標註員的工作分成三塊：標註怎麼生成、合成標註怎麼驗收、拿合成標註訓練要注意什麼。另附資料型別的分類與既有學習策略的回顧。本文合成資料一節對應的正是這三分法。
 - 課表原文：[CS329Z 官網 Week 6](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

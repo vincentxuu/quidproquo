@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS124 導讀：課號掛 100，先修寫死四門，而且下一學年整年不開"
+title: "課號掛 100，先修寫死四門，而且下一學年整年不開｜Stanford CS124 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ draft: false
 這門課在 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡是 NLP 分支的第一格。地圖那篇回答的是「它在階梯的哪一層」。這篇要回答的是進去之後會發生什麼事：課表怎麼排、作業長什麼樣、哪一份是分水嶺、沒選到課的人實際拿得到多少。
 
 範圍先講清楚。**這篇不包含逐堂投影片精讀，也不包含錄影內容**——現行這屆的錄影鎖在 Canvas 裡，非選課者拿不到，下面會講清楚拿不到的邊界在哪。本篇的依據是 Winter 2026 的課程網站、[ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+124&view=catalog) 條目、公開的作業 repo，以及教科書網站本身。
-
-## 課程影片來源
-
-官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：預錄影片放在 Canvas 的 Modules（課號 186110），我實際開啟被導向 Stanford 登入頁，確認有登入牆；五場現場講課與五場實作課明寫 “not recorded”。YouTube 頻道 From Languages to Information 有一份 80 支的 “CS124 - Full Course” 播放清單，但分週標題（例如 Week 2: Naive Bayes、Week 6: Chatbots and Dialogue Agents）與 Winter 2026 課綱不同，不能當作當期錄影，所以不嵌入。
-
-課程與錄影入口：
-
-- [From Languages to Information YouTube 頻道](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -197,6 +186,17 @@ PA1 到 PA6 可以獨力做，也可以找一個人配對。PA7 **強制三到�
 - **封存目錄標示與內容不符**：`cs124.1254` 這個目錄按代碼與網頁 title 都標成 Winter 2025，但打開之後裡面是 **Winter 2026 那份頁面的早期草稿**——同樣的「2026–27 不開課」公告、同樣的 1 月 6 日開課日期，只是助教欄還是 TBD、作業還沒放起始碼連結。兩份並排還看得到兩處改動：那份草稿裡 PA7 的名字是 *Chatbot*，正式版改成 *Agent*；榮譽守則也是正式版才加上「像用助教一樣用語言模型」那兩句。`cs124.1204` 也對不上：title 寫 Winter 2021，但課表日期從 3 月 30 日排到 6 月 3 日，助教信箱是 `cs124-spr2021-staff`。**引用 CS124 封存頁時要打開內容核對，不要信目錄代碼。** 本文引用「2021 年那版」時指的是 `cs124.1204` 頁面上的內容，不是它的目錄標籤。
 - **教科書章號的對照**：本文表格裡「今天打開會看到」那一欄，是我把 `slp3/` 主目錄與 `old_aug25/` 的 PDF 各自抓下來、讀第一頁章名比對出來的。主目錄版本頁首標示 Draft of August 19, 2026；`old_aug25/` 版本標示 Draft of August 24, 2025。另外主目錄的 `12.pdf` 仍然存在且可下載，但內容是標示 Draft of January 6, 2026 的 Machine Translation——索引頁上第 12 章列的是「Agents [not written yet]」，沒有給連結。
 - **未確認項目**：（1）YouTube 頻道那批錄影的實際錄製年份，官方頁面沒有標註，本文只依播放清單主題與封存課綱的對應關係描述，不宣稱年份。（2）Winter 2026 各份作業的實際完成率、分數分布與平均投入時數，課程網站沒有公開任何一項，本文沒有這方面的宣稱。（3）2026–27 之後這門課會不會沿用同一份課綱，頁面只寫了不開課與建議修課時程，沒有講之後的內容規劃。
+
+## 課程影片來源
+
+官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：預錄影片放在 Canvas 的 Modules（課號 186110），我實際開啟被導向 Stanford 登入頁，確認有登入牆；五場現場講課與五場實作課明寫 “not recorded”。YouTube 頻道 From Languages to Information 有一份 80 支的 “CS124 - Full Course” 播放清單，但分週標題（例如 Week 2: Naive Bayes、Week 6: Chatbots and Dialogue Agents）與 Winter 2026 課綱不同，不能當作當期錄影，所以不嵌入。
+
+課程與錄影入口：
+
+- [From Languages to Information YouTube 頻道](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

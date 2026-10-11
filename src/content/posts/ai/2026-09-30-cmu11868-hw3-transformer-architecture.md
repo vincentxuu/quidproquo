@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW3：用自己寫的 MiniTorch 做一個 GPT-2，拿去翻德文"
+title: "用自己寫的 MiniTorch 做一個 GPT-2，拿去翻德文｜CMU 11-868 作業 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 前兩份作業做的是地基：[HW1](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming) 寫 map、zip、reduce、matmul 的 CUDA kernel，[HW2](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework) 寫自動微分和一個情感分類器。HW3 第一次把它們組成一個真正的語言模型。
 
 作業頁的開場白只有兩句：在 MiniTorch 上實作 decoder-only 的 GPT-2 架構，拿 IWSLT14 德英翻譯訓練並量測效能。第二句是警告：**Problem 4 的訓練至少要花 10 小時**。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 時程與依賴
 
@@ -139,6 +129,16 @@ glossary:
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)：Recitation 3 的教材，形狀與 mask 的寫法可以對照
 - [CS336 系列總覽](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)：CS336 的作業一也要你從零寫 Transformer LM，但用 PyTorch；11-868 的差別是底下的框架和 kernel 都是你自己寫的
 - [CMU 11-785 Lecture 18：Attention 與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

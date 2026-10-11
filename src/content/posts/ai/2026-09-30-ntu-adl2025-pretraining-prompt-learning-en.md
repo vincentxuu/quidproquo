@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Three Pre-training Families and Prompt Learning — From BERT, GPT, and T5 to Prompts Only Machines Understand"
+title: "Reading NTU ADL 2025 Fall: Three Pre-training Families and Prompt Learning — From BERT, GPT, and T5 to Prompts Only Machines Understand | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,30 +34,6 @@ Official materials used:
 - Extra: [6.0 QA](https://youtu.be/-3mUrFm8lIo) (26:15) in the playlist is an in-class Q&A with no slides.
 
 Access level follows the series rating of **A2**. The slides and videos are public, and there is no new assignment this week (HW2's topic is in [part 10](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en), with only an explainer video).
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=suX2F2TqKuE
-title: 6.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=cnd91AbBQ74
-title: 6.2
-```
-
-Original videos: [6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (6.1 and 6.2) were read. 6.1: the definition of pretraining and large-scale data, BookCorpus and the "fair use vs copyright" dispute, and regulation still evolving across countries all match the article's "What pretraining is" section (the video also discusses the court rulings on Anthropic scanning purchased books and paying for pirated ones, which the article does not cover). 6.2: the encoder / decoder / encoder-decoder families, BERT's 15% masking with RoBERTa and SpanBERT, GPT-1 with about 7,000 books and 12 layers, GPT-2 and GPT-3 growth in data and size, the BART vs T5 denoising output difference, the classification fine-tuning difference, and T5 multi-task pretraining resembling today's post-training all match the corresponding sections. The article's remark that BART scores higher in most columns comes from slide 23's table (the article cites the slide); in the spoken explanation the two perform about the same. 6.3 to 6.6 and 6.0 are not embedded and were not checked.
 
 ## What pre-training is
 
@@ -189,6 +165,30 @@ Not confirmed: the videos were not transcribed, so the instructor's spoken examp
 Further reading on this site: [CS224N Lecture 7: Pretraining](/posts/ai/2026-08-22-cs224n-pretraining-en) covers the same three architectures and in-context learning; [CS336 scaling-law foundations](/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en) goes deeper on Kaplan and Chinchilla; and [CS224U on in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning-en) extends the story through prompt design and DSPy.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [HW1 Chinese Extractive QA](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en) | Next: [Post-training: Instruction Tuning, RLHF, and InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=suX2F2TqKuE
+title: 6.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cnd91AbBQ74
+title: 6.2
+```
+
+Original videos: [6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (6.1 and 6.2) were read. 6.1: the definition of pretraining and large-scale data, BookCorpus and the "fair use vs copyright" dispute, and regulation still evolving across countries all match the article's "What pretraining is" section (the video also discusses the court rulings on Anthropic scanning purchased books and paying for pirated ones, which the article does not cover). 6.2: the encoder / decoder / encoder-decoder families, BERT's 15% masking with RoBERTa and SpanBERT, GPT-1 with about 7,000 books and 12 layers, GPT-2 and GPT-3 growth in data and size, the BART vs T5 denoising output difference, the classification fine-tuning difference, and T5 multi-task pretraining resembling today's post-training all match the corresponding sections. The article's remark that BART scores higher in most columns comes from slide 23's table (the article cites the slide); in the spoken explanation the two perform about the same. 6.3 to 6.6 and 6.0 are not embedded and were not checked.
 
 ## Update Log
 

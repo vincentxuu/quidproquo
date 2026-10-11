@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 11：Scaling law 落地時，learning rate 與 batch 也要一起縮放"
+title: "Scaling law 落地時，learning rate 與 batch 也要一起縮放｜Stanford CS336 第 11 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 11: Scaling — case study and details**，2026 年 5 月 4 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_11.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf)。
 
 Lecture 9 說明 scaling law 的原理；這一講檢查公開團隊實際怎麼做。真正困難的不只是選 model size 與 token count，還要讓 initialization、learning rate、batch size 和 schedule 在規模改變時仍可比較。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 11（Scaling Laws 第二講，講者 Tatsu）。字幕涵蓋 MiniCPM、DeepSeek、Qwen、Llama 的 scaling recipe、WSD 與 cosine schedule、learning rate／batch size grid、μP、IsoFLOPs。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=vTfEyOyzV9E
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 公開 recipe 的共同骨架
 
@@ -78,6 +60,24 @@ Maximum update parameterization（μP）會調整 initialization 與 layer-speci
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依當期投影片的公開 recipe、optimizer scaling 與 μP 段落整理。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 11（Scaling Laws 第二講，講者 Tatsu）。字幕涵蓋 MiniCPM、DeepSeek、Qwen、Llama 的 scaling recipe、WSD 與 cosine schedule、learning rate／batch size grid、μP、IsoFLOPs。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=vTfEyOyzV9E
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

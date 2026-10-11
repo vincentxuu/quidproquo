@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP HW1：用 Google Analogy 考詞向量——預訓練 GloVe 對上自己用 20% Wikipedia 訓練的 Word2Vec"
+title: "用 Google Analogy 考詞向量——預訓練 GloVe 對上自己用 20% Wikipedia 訓練的 Word2Vec｜清大高宏宇 自然語言處理 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 這是[清大高宏宇 自然語言處理 導讀](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)系列第 3 篇，接在[詞向量與語言模型](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)之後。上一篇講詞向量怎麼訓練出來；這一篇把它拿去考試：**詞向量真的學到了「king 之於 queen，如同 man 之於 woman」嗎？自己訓練的會比預訓練的差多少？**
 
 本文依據 [IKMLab 課程 repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing) 裡 Fall 2025 的 [Assignment 1 資料夾](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1)：題目說明 [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf)、起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb)、處理好的 `questions-words.csv`，以及助教的[說明影片](https://youtu.be/nCS3GpHwqr8)（影片標題是「Week 2 Thu. - Assignment 1」，在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)掛在 W2 那一列）。這份作業的存取等級是 **A3**：題目、起始碼、資料都公開，缺的是解答與評分腳本，那些在 NTU COOL 上，校外讀者拿不到。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=nCS3GpHwqr8
-title: 2025 HW1 說明影片
-```
-
-原始影片：[2025 HW1 說明影片](https://www.youtube.com/watch?v=nCS3GpHwqr8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：這支約 15 分鐘的 HW1 說明影片字幕完整讀過。助教講的 Google word analogy 資料集、七個 TODO 合計 55%、報告 45%、助教先清好 Wikipedia 並分成 11 個檔、只取 20% 資料、requirements.txt 與 .docx 報告、檔名等違規各扣 5 分、期限三週，都與文章所述一致；影片說法也與文中指出的投影片「King + Queen − Man」寫法相同。抄襲處分影片說「直接零分」，文章依 PDF 寫「各扣 100 分」，兩者不衝突，維持不變。
 
 ## 作業在考什麼
 
@@ -140,6 +121,25 @@ PDF 第 28 頁列出建議的前處理：去掉非英文詞、去停用詞、lem
 - 本系列下一篇：[Seq2seq、LSTM 與 Attention](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
 - 同主題的英文課：[CS224N 導讀：Word Vectors](/posts/ai/2026-08-22-cs224n-word-vectors)
 - 回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=nCS3GpHwqr8
+title: 2025 HW1 說明影片
+```
+
+原始影片：[2025 HW1 說明影片](https://www.youtube.com/watch?v=nCS3GpHwqr8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：這支約 15 分鐘的 HW1 說明影片字幕完整讀過。助教講的 Google word analogy 資料集、七個 TODO 合計 55%、報告 45%、助教先清好 Wikipedia 並分成 11 個檔、只取 20% 資料、requirements.txt 與 .docx 報告、檔名等違規各扣 5 分、期限三週，都與文章所述一致；影片說法也與文中指出的投影片「King + Queen − Man」寫法相同。抄襲處分影片說「直接零分」，文章依 PDF 寫「各扣 100 分」，兩者不衝突，維持不變。
 
 ## 更新紀錄
 

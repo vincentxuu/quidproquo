@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 10 Guide (Pre-reading Edition): Bayes Nets Break a Joint Distribution into Conditional Probability Tables"
+title: "Bayes Nets Break a Joint Distribution into Conditional Probability Tables | CMU 07-380 Lecture 10"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, bayesian-network, probability]
@@ -24,30 +24,7 @@ The short answer: **a Bayes net is a directed acyclic graph with one "given its 
 
 Based on the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule); the site notes that the schedule is subject to change.
 
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## The gap first: this is the pre-reading edition
-
-When I rechecked the course site on 2026-09-29, the Lec10 row of the schedule had **no slide link**. It lists only the Bayes Net Demo, the PR6 notes, a Canvas checkpoint and optional readings. Guessing the filename from earlier lectures, `lectures/07380_F26_Lec10_Bayes_Nets.pdf` returns 404. The Lec9 slides are named `Lec9-10_Probabilistic_Generative_Models`, but their text has no Bayes net or graphical model section, so they cannot stand in for Lec10 either.
-
-So this post **does not describe what happened in lecture**. It only guides the published pre-reading. The schedule marks Lec10 "No d-separation", and this post stays away from d-separation too. It will be updated once the slides appear.
-
-Access level: the course as a whole is A2 (in progress). Lec10 currently has pre-reading notes plus an interactive demo, with no slides, recitation or homework, which is thin even for A2. The checkpoint (due 9/27) lives on Canvas and is CMU-only. The levels are defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
-
-## Official materials and scope
-
-- [PR6 Bayes Nets pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Bayes_Nets.pdf) (20 pages, v1.0): the main source; all nine sections read
-- [15-281 Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo) (plus a [highres version](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo_highres)): a four-node Cloudy / Sprinkler / Rainy / Wet Grass network
-- Optional readings on the schedule: AIMA Ch. 12.1-5, 13.1-2, and [Jordan Ch. 2.1](http://people.eecs.berkeley.edu/~jordan/prelims/chapter2.pdf). This post does not cite their content
-- The notes assume the probability rules from the [07-280 Probability Background](https://www.cs.cmu.edu/~07280-s26/notes/07280_S26_Notes_Probability_Background.pdf) notes
+> **Source scope (2026-09-29):** This guide uses the published PR6 pre-reading and interactive demo, not an account of the classroom lecture. The schedule did not list a Lecture 10 slide link at that check and explicitly marked “No d-separation”; this article therefore does not teach d-separation. The Canvas checkpoint is limited to enrolled students.
 
 ## The question: a joint distribution answers everything, but you never get one
 
@@ -209,6 +186,23 @@ Further reading: MLE foundations are in [07-280 Lecture 16](/posts/ai/2026-08-22
 2. Using the season table in Section 4, compute `P(T | sun)`: first write the full un-marginalized expression, then redo it with the normalization trick and confirm they match.
 3. Write the alarm network's five CPTs as Python dicts, write a `joint(b,e,a,j,m)` function that looks up one entry per table and multiplies, then use it to compute `P(B | +j,+m)` and see whether you get about 0.284.
 4. In the [Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo), select `+c, −s, +r, +w`, step through, and note which entry each step looks up.
+
+## Official materials and scope
+
+- [PR6 Bayes Nets pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Bayes_Nets.pdf) (20 pages, v1.0): the main source; all nine sections read
+- [15-281 Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo) (plus a [highres version](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo_highres)): a four-node Cloudy / Sprinkler / Rainy / Wet Grass network
+- Optional readings on the schedule: AIMA Ch. 12.1-5, 13.1-2, and [Jordan Ch. 2.1](http://people.eecs.berkeley.edu/~jordan/prelims/chapter2.pdf). This post does not cite their content
+- The notes assume the probability rules from the [07-280 Probability Background](https://www.cs.cmu.edu/~07280-s26/notes/07280_S26_Notes_Probability_Background.pdf) notes
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

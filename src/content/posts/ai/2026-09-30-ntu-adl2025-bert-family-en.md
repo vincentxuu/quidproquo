@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: BERT and Its Family — From the Polysemy Problem to XLNet, RoBERTa, and mBERT"
+title: "Reading NTU ADL 2025 Fall: BERT and Its Family — From the Polysemy Problem to XLNet, RoBERTa, and mBERT | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,30 +34,6 @@ Official materials used:
 - Videos (lectures in Mandarin): [5.2 BERT](https://youtu.be/pSQM-HNHA64) (57:29), [5.3 BERT Variants](https://youtu.be/sqldA6AgV7s) (4:09), [5.4 XLNet](https://youtu.be/Q-bIzFhVweA) (34:06), [5.5 RoBERTa & SpanBERT](https://youtu.be/u6USoD6mRR4) (22:20), [5.6 Multilingual BERT & XLM](https://youtu.be/NAFu7xQKbRE) (12:48)
 
 Access level follows the series rating of **A2**. The slides and videos for this lecture are public. The matching assignment, HW1, is submitted through Kaggle and NTU COOL, so outside readers can only practice from the spec (see [the next post](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)).
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=pSQM-HNHA64
-title: 5.2 BERT
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=sqldA6AgV7s
-title: 5.3 BERT Variants
-```
-
-Original videos: [5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded 5.2 (57:29) and 5.3 (4:09) have no obtainable YouTube transcript, so their spoken content was not checked. The article only cites their titles and lengths and takes everything else from the slides. One extra fact confirmed: both videos carry an upload date and description of 2023/10/12, so they are recordings from the 2023 term, not a 2025 re-recording.
 
 ## The starting point: word vectors ignore polysemy
 
@@ -189,6 +165,30 @@ Not confirmed: the videos were not transcribed, so the instructor's spoken examp
 Further reading on this site: [CS224N Lecture 7: Pretraining](/posts/ai/2026-08-22-cs224n-pretraining-en) covers the three pre-training architectures from another angle, and [CS224U's contextual-representation model families](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en) walks through BERT, RoBERTa, ELECTRA, and others.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Tokenization and BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en) | Next: [HW1 Chinese Extractive QA](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=pSQM-HNHA64
+title: 5.2 BERT
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sqldA6AgV7s
+title: 5.3 BERT Variants
+```
+
+Original videos: [5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded 5.2 (57:29) and 5.3 (4:09) have no obtainable YouTube transcript, so their spoken content was not checked. The article only cites their titles and lengths and takes everything else from the slides. One extra fact confirmed: both videos carry an upload date and description of 2023/10/12, so they are recordings from the 2023 term, not a 2025 re-recording.
 
 ## Update Log
 

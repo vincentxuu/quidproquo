@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L05: Transformers, Explained — Reading Q/K/V, Positional Encoding, and Residuals Through Linear Algebra"
+title: "Transformers, Explained — Reading Q/K/V, Positional Encoding, and Residuals Through Linear Algebra | NCCU Yen-Lung Tsai Generative AI Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,18 +31,6 @@ glossary:
 Two official sources back this post: the [Lecture 5 recording](https://www.youtube.com/watch?v=mhjegVhqb_M) (2025-03-18, 3 h 3 min) and the slide deck [GenAI05 The Mathematics of Transformers](https://drive.google.com/file/d/1Am2WvzkxWNnsXEQVLcPU5NL072GRWyR_/view) (67 pages; the cover reads "The Mathematics of RNNs and Transformers"). On the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025) this week is titled "Transformers 全攻略" ("The Complete Guide to Transformers") and the homework column says "no homework." Access level: **A3**.
 
 > **If you'd rather skip the math**: this is the steepest stretch of the series. Read just the first paragraph of each section and skip the collapsed blocks, or jump straight to [L06 LLM Applications and Ethics](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en). The application lectures that follow won't leave you stuck.
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [Lecture 05: The complete guide to Transformers (YouTube recording, 2025-03-18) (in Mandarin)](https://www.youtube.com/watch?v=mhjegVhqb_M)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week fits
 
@@ -245,6 +233,18 @@ This post stands on its own. For more rigorous or more hands-on versions:
 - Another Mandarin-taught route: [NTU Hung-yi Lee ML 2026 guide](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L04 LLMs Are Simpler Than You Think](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en) | Next: [L06 LLM Applications and Ethics](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [Lecture 05: The complete guide to Transformers (YouTube recording, 2025-03-18) (in Mandarin)](https://www.youtube.com/watch?v=mhjegVhqb_M)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

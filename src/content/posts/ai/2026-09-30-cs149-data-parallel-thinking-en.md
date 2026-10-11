@@ -1,5 +1,5 @@
 ---
-title: "CS149 Lecture 8: Data-Parallel Thinking, Replacing Locks with Map, Scan, and Sort"
+title: "Data-Parallel Thinking, Replacing Locks with Map, Scan, and Sort | Stanford CS149 Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 Up to now the course has taught you to think about parallel programs in terms of what workers do and how to assign work to them. The first slide of Lecture 8 says today is different: **describe algorithms as operations on sequences of data**.
 
 The list on the slide is map, filter, fold/reduce, scan/segmented scan, sort, groupBy, join, and partition/flatten. The claim is a single sentence: these operations have high-performance parallel implementations, so programs written with them often run efficiently on parallel machines. It carries an asterisk: **if you can avoid being bandwidth bound**.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 8 - Data-Parallel Thinking” (1:17:48). The captions cover map and fold/reduce, scan (including the work-efficient version and warp- and block-level CUDA implementations), segmented scan and sparse matrix multiplication, gather/scatter, building a particle grid with sort and histograms, and close with a few sentences on Spark, matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Why so much parallelism
 
@@ -188,6 +170,24 @@ One thing you can do tonight: pick a piece of code you've written that accumulat
 - An assignment that implements map, zip, reduce, and matmul in CUDA: [CMU 11-868 Assignment 1: Writing MiniTorch's map, zip, reduce, and matmul in CUDA](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
 - Why GPUs dread moving data: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - Series overview and the 2023 video mapping (the 2023 Lecture 9 on Spark has no Fall 2025 counterpart): [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 8 - Data-Parallel Thinking” (1:17:48). The captions cover map and fold/reduce, scan (including the work-efficient version and warp- and block-level CUDA implementations), segmented scan and sparse matrix multiplication, gather/scatter, building a particle grid with sort and histograms, and close with a few sentences on Spark, matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

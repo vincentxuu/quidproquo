@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L18: How ZeRO Cuts Data-Parallel Memory — Optimizer State, Gradients, Then Parameters"
+title: "How ZeRO Cuts Data-Parallel Memory — Optimizer State, Gradients, Then Parameters | CMU 11-868 Lecture 18"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,16 +32,6 @@ glossary:
 > **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 13 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The [previous post](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) handled "the model doesn't fit" by splitting layers, matrices, or experts. This one takes a different angle: **don't split the model at all; just remove what data parallelism duplicates.**
 
 This is the 3/23 lecture in Week 11 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), "Memory Optimization in Distributed Training." It has one reading: [ZeRO (Rajbhandari et al., SC 2020)](https://arxiv.org/abs/1910.02054). The [L18 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf) run 76 pages; pages 18 through 63 are frame-by-frame animation, each frame adding one step. The official syllabus lists no public recording links, so this post draws on the slides and the paper's abstract. Page numbers are PDF pages.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The problem: data parallelism saves communication but wastes memory
 
@@ -187,6 +177,16 @@ The summary on page 75: ZeRO cuts memory sharply and is scalable, flexible, and 
 - Previous in series: [L16–L17 Model parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 - Next in series: [HW5: data parallelism and pipeline parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 - On this site: [CS336 resource accounting](/posts/ai/2026-08-22-cs336-resource-accounting-en) (another way to count bytes per parameter), [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

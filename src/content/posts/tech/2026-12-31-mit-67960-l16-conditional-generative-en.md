@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L16: Conditional Generative Models — cGAN, cVAE, and Classifier-Free Guidance"
+title: "Conditional Generative Models — cGAN, cVAE, and Classifier-Free Guidance | MIT 6.7960 Lecture 16"
 date: 2026-08-30
 category: tech
 type: guide
@@ -32,25 +32,6 @@ additionalSeries:
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 16). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=zaMcHuJwe1w
-title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 16 transcript (Phillip Isola, 1:21:31): the video is about conditional generation (it opens by previewing "conditional models"), covering conditional distributions and prediction problems (about 10%–36%), conditional GANs and cVAEs (about 50%–58% and 73%–77%), text-to-image and U-Net denoisers (about 71%–84%) and paired/unpaired image translation (about 89%–99%); classifier and classifier-free guidance do not appear in the transcript, so that section now carries a note marking it as this site's supplement.
 
 ## From "generate" to "conditional generate"
 
@@ -131,6 +112,25 @@ In other words, **VAE latent + conditional diffusion + CFG** is the basic recipe
 - **Prompt not specific enough**: the model collapses to mean-image (a fundamental issue for the VAE family).
 - **y and x misaligned**: in fine-tuning, use LoRA / DreamBooth to "slot" a new concept into the model's condition space.
 - **Controllability vs diversity**: this is the fundamental trade-off in conditional generation; there is no silver bullet.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=zaMcHuJwe1w
+title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 16 transcript (Phillip Isola, 1:21:31): the video is about conditional generation (it opens by previewing "conditional models"), covering conditional distributions and prediction problems (about 10%–36%), conditional GANs and cVAEs (about 50%–58% and 73%–77%), text-to-image and U-Net denoisers (about 71%–84%) and paired/unpaired image translation (about 89%–99%); classifier and classifier-free guidance do not appear in the transcript, so that section now carries a note marking it as this site's supplement.
 
 ## Update Log
 

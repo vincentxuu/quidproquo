@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L10–L11：參數高效微調與 in-context learning——改少量參數，還是只改輸入"
+title: "參數高效微調與 in-context learning——改少量參數，還是只改輸入｜CMU 10-423 第 10–11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 事實皆於 2026-09-30 打開官方材料核對。[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)從 L9 起沒有列 readings，本文只引投影片本身與投影片標注的圖表出處。存取等級 **A3**：投影片、作業與練習考卷公開；課堂錄影在 CMU Panopto，校外看不到。
 
 **系列位置**：上一篇 [HW2：在 AFHQ 貓圖上從零實作 DDPM](/posts/ai/2026-09-30-cmu10423-hw2-ddpm)｜下一篇 [L11–L12：Instruction tuning、RLHF 與 DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 為什麼從影像又回到 LLM
 
@@ -213,6 +202,17 @@ few-shot 可以直接用 ICL 做：先給任務說明，再依序放入訓練資
 - 同一段內容在別門課的講法：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)、[CS224U In-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)
 - LoRA 的訓練成本：[CME295 第 4 講：LLM 訓練的帳單，預訓練、SFT 與 LoRA 各花在哪裡](/posts/ai/2026-09-29-cme295-llm-training)
 - 課程狀態與自學路線：[CMU 10-423 系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

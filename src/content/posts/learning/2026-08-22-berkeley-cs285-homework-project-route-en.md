@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS285 Homework and Final Projects: The CPU, GPU, and H100 Boundary"
+title: "The CPU, GPU, and H100 Boundary | Berkeley CS285 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, gpu, self-study]
@@ -20,17 +20,6 @@ series:
 The public [Spring 2026 starter repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) contains HW1–5 and code for two default final projects under an MIT license. That makes independent implementation possible.
 
 The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) owns the complete public-versus-enrolled access boundary. This article owns compute and project tradeoffs.
-
-## Course video sources
-
-This post covers the homeworks and the final project, with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos). The playlist has lectures and guest talks only, no homework walkthroughs. The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
-- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
-
-Checked: 2026-10-10.
 
 ## Compute ledger
 
@@ -59,6 +48,17 @@ A self-study project can be one baseline, one modification, three seeds, one pri
 ## Delivery boundary
 
 The public path can reproduce a self-evaluated version of the assignments. It cannot claim completion of the Berkeley credit-bearing course. The [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) maintains the full list of video, discussion, grading, and course-support limits.
+
+## Course video sources
+
+This post covers the homeworks and the final project, with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos). The playlist has lectures and guest talks only, no homework walkthroughs. The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

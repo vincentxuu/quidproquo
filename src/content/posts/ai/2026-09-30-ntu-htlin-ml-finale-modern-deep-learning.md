@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T16 Finale：整門課收成三類技巧，再用 Fall 2024 投影片補上現代深度學習"
+title: "Finale：整門課收成三類技巧，再用 Fall 2024 投影片補上現代深度學習｜台大林軒田 機器學習基石與技法 第 16 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,28 +40,6 @@ glossary:
 - Fall 2024 的 [302u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/302u_handout.pdf)、[303u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/303u_handout.pdf)、[mlmai.ics.handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/mlmai.ics.handout.pdf)、[1126_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/1126_handout.pdf)。
 
 **存取等級**：四份 Fall 2024 投影片都能直接下載，但只有投影片，沒有錄影。Fall 2024 的 HW7 在 W14 公布，題目涵蓋到 T12 的 NN，沒有考 302u／303u 的內容，所以這一段是 A2。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=WeLobtIDBzI
-title: Feature Exploitation Techniques
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=En-EyzFipaw
-title: Error Optimization Techniques
-```
-
-原始影片：[Feature Exploitation Techniques](https://www.youtube.com/watch?v=WeLobtIDBzI)、[Error Optimization Techniques](https://www.youtube.com/watch?v=En-EyzFipaw)、[Overfitting Elimination Techniques](https://www.youtube.com/watch?v=b6t22jVVC0s)、[Machine Learning in Practice](https://www.youtube.com/watch?v=jIpwy-mPvIA)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 三個版本的收尾各不相同
 
@@ -204,6 +182,28 @@ Fall 2026 的課程頁寫明有公開同步直播，但直播是否留下完整�
 課程內容到這裡結束。下一篇[基石作業導讀：Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)回頭整理基石部分的作業，之後是[技法作業與期末專題](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)。
 
 延伸閱讀：302u／303u 只是深度學習的入口。想往下走，本站有 [CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview)（其中[動量與損失曲面](/posts/ai/2026-08-22-cmu-11785-06-loss-surfaces-momentum)、[最佳化器與正則化](/posts/ai/2026-08-22-cmu-11785-08-optimizers-regularization)兩講正好接 303u）、[MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)，以及台大另一條路線[李宏毅 ML 2026](/posts/ai/2026-09-30-ntu-ml2026-course-overview)。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=WeLobtIDBzI
+title: Feature Exploitation Techniques
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=En-EyzFipaw
+title: Error Optimization Techniques
+```
+
+原始影片：[Feature Exploitation Techniques](https://www.youtube.com/watch?v=WeLobtIDBzI)、[Error Optimization Techniques](https://www.youtube.com/watch?v=En-EyzFipaw)、[Overfitting Elimination Techniques](https://www.youtube.com/watch?v=b6t22jVVC0s)、[Machine Learning in Practice](https://www.youtube.com/watch?v=jIpwy-mPvIA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

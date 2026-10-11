@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L16–L17: When a Model Won't Fit on One GPU — Split Layers, Matrices, or Experts"
+title: "When a Model Won't Fit on One GPU — Split Layers, Matrices, or Experts | CMU 11-868 Lectures 16–17"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,16 +32,6 @@ glossary:
 > **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 12 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The previous post covered [data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en): every GPU holds a full model copy and gets a slice of the data. This post covers the case data parallelism can't handle: **one full copy of the model doesn't fit on a single GPU.**
 
 These two lectures are Week 10 of the [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus): "Distributed Model Training III" on 3/16 ([L16 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-16-model-parallel-83b41612547620ee0e172caa1ee448ed.pdf), 36 pages) and "Large models with Mixture-of-Expert" on 3/18 ([L17 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-17-MoE-3aa3125f9ccdd4bb7109ef077fbe9260.pdf), 38 pages). Lei Li teaches both. The official syllabus lists no public recording links, so everything below comes from the slides and the readings on the Syllabus. Page numbers are PDF pages; the numbers printed in the slide corners run one to three higher in the second half of both decks.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The big picture: three ways to split
 
@@ -209,6 +199,16 @@ Page 31 names two libraries DeepSeek released: [DeepEP](https://github.com/deeps
 - Hands-on for this lecture: [HW5: data parallelism and pipeline parallelism](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training-en)
 - On this site: [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 - On this site: [CS336 attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en), [Why the MoE architecture wins](/posts/ai/2026-08-26-moe-architecture-why-it-wins-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

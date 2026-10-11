@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 2 講：神經網路與反向傳播"
+title: "神經網路與反向傳播｜台大陳縕儂 深度學習之應用 2025 Fall 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,30 +30,6 @@ draft: false
 | [2.5 Backpropagation 效率地計算大量參數](https://youtu.be/BHgssEwMxsY) | — | Backpropagation 全份 |
 
 講義在 2026-09-30 打開核對。2.5 有掛在課程頁上，但不在 [2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)裡，只照清單看會漏掉；表中的頁碼範圍是依講義裡的章節標題頁對應，不是影片時間軸。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=YfNmHxDHE-M
-title: ADL 2.1: How to Train a Model?（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=AySPuO7vOvA
-title: ADL 2.2: What is a Model?（YouTube）
-```
-
-原始影片：[ADL 2.1: How to Train a Model?（YouTube）](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model?（YouTube）](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean?（YouTube）](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function?（YouTube）](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation（YouTube）](https://www.youtube.com/watch?v=BHgssEwMxsY)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：2.2 讀了字幕（46 分鐘）：二元與多類別分類、one-hot（16×16 圖＝256 維、10 維輸出、詞向量字典大小）、單一神經元與 bias 當先驗、perceptron 的限制與 XOR、多層的 ridge／bump 說明、符號 a／z／w／b 與 z＝Wa+b、sigmoid／tanh／ReLU 與「沒有非線性等同單層」，皆與文章「Q1」各段相符；文章對這支影片沒有其他具體說法。嵌入的 2.1（4:41）取不到字幕，內容未核對，只確認標題與長度。另外補註：2.1、2.2 的 YouTube 上傳日與說明欄都是 2023/09/14，是 2023 學期的錄影，不是 2025 重錄。文中其餘三支（2.3、2.4、2.5）未嵌入，也未核對。
 
 ## 訓練一個模型＝回答三個問題
 
@@ -220,6 +196,30 @@ Backpropagation 講義第 12 頁先分清楚兩個方向：
 
 上一篇：[什麼是機器學習與深度學習](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
 下一篇：[詞向量、語言模型與 RNN](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=YfNmHxDHE-M
+title: ADL 2.1: How to Train a Model?（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=AySPuO7vOvA
+title: ADL 2.2: What is a Model?（YouTube）
+```
+
+原始影片：[ADL 2.1: How to Train a Model?（YouTube）](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model?（YouTube）](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean?（YouTube）](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function?（YouTube）](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation（YouTube）](https://www.youtube.com/watch?v=BHgssEwMxsY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：2.2 讀了字幕（46 分鐘）：二元與多類別分類、one-hot（16×16 圖＝256 維、10 維輸出、詞向量字典大小）、單一神經元與 bias 當先驗、perceptron 的限制與 XOR、多層的 ridge／bump 說明、符號 a／z／w／b 與 z＝Wa+b、sigmoid／tanh／ReLU 與「沒有非線性等同單層」，皆與文章「Q1」各段相符；文章對這支影片沒有其他具體說法。嵌入的 2.1（4:41）取不到字幕，內容未核對，只確認標題與長度。另外補註：2.1、2.2 的 YouTube 上傳日與說明欄都是 2023/09/14，是 2023 學期的錄影，不是 2025 重錄。文中其餘三支（2.3、2.4、2.5）未嵌入，也未核對。
 
 ## 更新紀錄
 

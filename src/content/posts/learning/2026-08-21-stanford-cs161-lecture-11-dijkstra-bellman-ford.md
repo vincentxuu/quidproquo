@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 11：Dijkstra、Bellman–Ford 與鬆弛的兩種秩序"
+title: "Dijkstra、Bellman–Ford 與鬆弛的兩種秩序｜Stanford CS161 第 11 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, shortest-path, graph-algorithms]
@@ -22,16 +22,6 @@ series:
 本文依照[官方 Lecture 11 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)、公開 notes 與 slides PDF 整理。Slides 明說 Dijkstra 會佔大部分時間，Bellman–Ford 只是快速導入，Lecture 12 會再完整處理；notes 則補上 BF 與 amortized analysis 的完整論證。本篇維持這個比重。Canvas-only 錄影未作為來源。官方 component 所列 `lecture11-slides.pptx` 目前缺檔，本文沒有引用它。
 
 Lecture 9 的 BFS 已能算 unweighted shortest paths，因為每條 edge 都讓距離增加一。Weighted graph 改變了順序：edge 少的 path 可能更貴。Dijkstra 與 Bellman–Ford 都使用同一個核心動作——鬆弛（relaxation）——差別是「下一條該鬆弛誰」的秩序，以及那個秩序需要哪些權重前提。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
-
-查核日期：2026-10-10。
 
 ## 問題、符號與鬆弛
 
@@ -188,6 +178,16 @@ Lecture 9 的 BFS 是「所有 edge cost 都是 1」的 shortest-path algorithm�
 可用同一張五點 weighted graph 同時手算兩個演算法。每次 Dijkstra finalization 後記錄「為什麼它不會再變」；每次 BF round 後記錄「已保證正確到幾條 edges」。再加入一條負 edge 與一個負環，分別觀察 guarantee 消失與 distance 不存在。
 
 實作時回傳 distances 之外，也保留 predecessors；若偵測負環，沿 predecessor pointers 回走 n 步再繞一圈，可萃取 cycle certificate。這是本站的延伸練習，不是 Winter 2026 投影片額外要求。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

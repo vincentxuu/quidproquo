@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 5: Neural Networks — Backpropagation, TensorFlow/Keras, CNN & Traffic Sign Classification"
+title: "Neural Networks — Backpropagation, TensorFlow/Keras, CNN & Traffic Sign Classification | Harvard CS50 AI Week 5"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 5 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=J1QD9hLDEDY
-title: Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-Original videos: [Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=J1QD9hLDEDY)
-
-Course and recording entries:
-
-- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The original order (basics, training, TensorFlow, CNN) broadly holds, but many items could not be found in the transcript and were removed: dedicated segments on MSE/cross-entropy (softmax gets one sentence), SGD/Momentum/Adam optimizers, the Functional API, batch normalization, data augmentation, early stopping, the universal approximation theorem, a chain-rule derivation, and a Traffic project introduction. The last stretch of the video (from about minute 85) covers recurrent neural networks, which the original table omitted; it has been added. The transcript never mentions the Traffic project; project descriptions come from the course site. The original exact timecodes (the video runs 1:41:20) could not be verified and are now approximate values estimated from the transcript.
 
 ## TL;DR
 
@@ -331,6 +311,26 @@ style50 traffic.py
 - [ ] Understand CNN `Conv2D` `filters`, `kernel_size`, `padding`, `strides` effects
 - [ ] Understand BatchNormalization, Dropout, Data Augmentation regularization mechanisms
 - [ ] Traffic project passes `check50` clean (test accuracy meets threshold)
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 5 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=J1QD9hLDEDY
+title: Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+Original videos: [Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=J1QD9hLDEDY)
+
+Course and recording entries:
+
+- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The original order (basics, training, TensorFlow, CNN) broadly holds, but many items could not be found in the transcript and were removed: dedicated segments on MSE/cross-entropy (softmax gets one sentence), SGD/Momentum/Adam optimizers, the Functional API, batch normalization, data augmentation, early stopping, the universal approximation theorem, a chain-rule derivation, and a Traffic project introduction. The last stretch of the video (from about minute 85) covers recurrent neural networks, which the original table omitted; it has been added. The transcript never mentions the Traffic project; project descriptions come from the course site. The original exact timecodes (the video runs 1:41:20) could not be verified and are now approximate values estimated from the transcript.
 
 ## Update Log
 

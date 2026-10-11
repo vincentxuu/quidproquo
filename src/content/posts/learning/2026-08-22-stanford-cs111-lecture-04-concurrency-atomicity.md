@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 4：交錯執行、race condition、atomicity 與 critical section"
+title: "交錯執行、race condition、atomicity 與 critical section｜Stanford CS111 第 4 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 5 篇，對應 **Stanford CS111, Spring 2026, Lecture 4**。2026-04-06 由 Mendel Rosenblum 主講，官方題目是 [Concurrency](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/4/Lecture4.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 4 把「每條 thread 都依序執行」與「多條 threads 的全域順序不固定」放在一起。Too Much Milk 不是趣味插曲，而是用三輪失敗方案逼出 race condition、atomicity 與 critical section 的精確定義。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 用反例而不是口號學 concurrency
 
@@ -80,6 +72,14 @@ PDF 只說 Peterson's algorithm 是 symmetric solution，沒有在頁面內給 c
 ## 用 schedule 驗證，不用直覺
 
 任選一個 Too Much Milk 方案，把每次 read、write 與條件判斷排成兩欄，直到產生「重複購買」或「沒人購買」。接著指出需要合併成哪個 atomic region 才能排除該反例；只說「加一把 lock」而無法圈出區域，仍未定位 race。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

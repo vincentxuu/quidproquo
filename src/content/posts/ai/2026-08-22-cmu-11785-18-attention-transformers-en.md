@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 18: Attention and Transformers"
+title: "Attention and Transformers | CMU 11-785 Lecture 18"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 18: Attention and Transformers**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec18.attention.pdf) and [official YouTube recording](https://youtu.be/jL8AnyntOEQ). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=jL8AnyntOEQ
-title: Lecture 18 official YouTube recording
-```
-
-Original videos: [Lecture 18 official YouTube recording](https://www.youtube.com/watch?v=jL8AnyntOEQ)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The Lecture 18 video (about 81 minutes, YouTube title "Sequence to Sequence Models: Attention Models") is mainly about sequence-to-sequence attention (softmax weights, query/key/value, self-attention, positional information), with the Transformer (Vaswani et al., 2017) introduced only briefly later on. The transcript does not mention scaled dot-product attention, so that wording was replaced. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=jL8AnyntOEQ
+title: Lecture 18 official YouTube recording
+```
+
+Original videos: [Lecture 18 official YouTube recording](https://www.youtube.com/watch?v=jL8AnyntOEQ)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The Lecture 18 video (about 81 minutes, YouTube title "Sequence to Sequence Models: Attention Models") is mainly about sequence-to-sequence attention (softmax weights, query/key/value, self-attention, positional information), with the Transformer (Vaswani et al., 2017) introduced only briefly later on. The transcript does not mention scaled dot-product attention, so that wording was replaced. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## Update Log
 

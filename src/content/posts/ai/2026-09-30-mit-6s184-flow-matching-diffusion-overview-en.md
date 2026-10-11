@@ -1,5 +1,5 @@
 ---
-title: "Reading MIT 6.S184: Flow Matching and Diffusion Through ODEs and SDEs"
+title: "Reading MIT 6.S184: Flow Matching and Diffusion Through ODEs and SDEs | MIT 6.S184 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,15 +32,6 @@ glossary:
 Image and video generators such as Stable Diffusion 3 and Meta Movie Gen are mostly built on diffusion models or flow matching. Tutorials tend to pick one extreme: code only, or a wall of stochastic differential equations. [MIT 6.S184](https://diffusion.csail.mit.edu/) takes the middle road. It teaches just enough ODE and SDE math, then turns that math step by step into a working latent diffusion model.
 
 This post is the entry point and contains no derivations. By the end you will know what the course teaches, where each material lives, what is missing, and what order to read things in.
-
-## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official 2026 course page on 2026-10-10: the Recording column lists YouTube recordings for Lectures 1, 2, 3-A, 3-B, 4 and 5; the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
 
 ## What the course is
 
@@ -150,6 +141,15 @@ The course site footer says **CC BY-NC-SA**. This series only summarizes and gui
 - The DDPM view (opposite time direction): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Discrete diffusion language models: [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
 - Deep learning overall: [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Course video sources
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official 2026 course page on 2026-10-10: the Recording column lists YouTube recordings for Lectures 1, 2, 3-A, 3-B, 4 and 5; the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

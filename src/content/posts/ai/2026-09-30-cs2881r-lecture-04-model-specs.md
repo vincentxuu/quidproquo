@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L4：Model Spec 該寫原則還是細則"
+title: "Model Spec 該寫原則還是細則｜Harvard CS2881R 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,25 +41,6 @@ glossary:
 這一講沒有學生寫的 LessWrong 週摘要（系列只有 Week 1、2、3、5、6 有）。
 
 Barak 開場就先揭露立場：他之所以聚焦 [OpenAI Model Spec](https://model-spec.openai.com/)，一是他在 OpenAI、參與過撰寫，比較熟；二是他認為這是目前各家公開的規範裡最詳細的一份，也希望其他公司公開更詳細的版本。
-
-## 課程影片來源
-
-已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=LQ0RRQKKluc
-title: CS2881R Fall 2025 L4: Model Specifications & Compliance
-```
-
-原始影片：[CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
-
-官方來源：
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 4: Model Specs》（2:06:03）的完整自動字幕：確認 Barak 的三種對齊目標與押注、普通法與大陸法及法規字數圖（美國憲法 4,500 字）、KYC 與百萬封行銷信、root／system／developer／user／guideline 層級與 `AGENTS.md` 例子、辭職信與金門大橋防護網、平地球與毒品配方翻譯的實測、Gödel 與黎曼猜想的壞規則例子、十種角色的分組練習（含 IRB、Agent-4 玩笑、第一修正案與吹哨者），以及結尾的 mini-project 預告，未發現需要更正的說法。
 
 ## 先看大家實際拿 ChatGPT 做什麼
 
@@ -232,6 +213,25 @@ Hugh Van Deventer 問的是：拿一個安全訓練很少的模型，給它詳�
 延伸閱讀：站上 [CS329Z 的 LLM-as-judge 與安全評測](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)談「用模型評模型」的陷阱，可以對照 SpecEval 的三方一致性設計。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L3：jailbreak、prompt injection 與從軟體安全借來的教訓](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)｜下一篇 [L5：Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
+
+## 課程影片來源
+
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=LQ0RRQKKluc
+title: CS2881R Fall 2025 L4: Model Specifications & Compliance
+```
+
+原始影片：[CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 4: Model Specs》（2:06:03）的完整自動字幕：確認 Barak 的三種對齊目標與押注、普通法與大陸法及法規字數圖（美國憲法 4,500 字）、KYC 與百萬封行銷信、root／system／developer／user／guideline 層級與 `AGENTS.md` 例子、辭職信與金門大橋防護網、平地球與毒品配方翻譯的實測、Gödel 與黎曼猜想的壞規則例子、十種角色的分組練習（含 IRB、Agent-4 玩笑、第一修正案與吹哨者），以及結尾的 mini-project 預告，未發現需要更正的說法。
 
 ## 更新紀錄
 

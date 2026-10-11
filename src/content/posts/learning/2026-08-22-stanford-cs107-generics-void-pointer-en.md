@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 11: How void * Gives C Generics Without Pretending Types Still Exist"
+title: "How void * Gives C Generics Without Pretending Types Still Exist | Stanford CS107 Lecture 11"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Separate `swap` functions for `int`, `double`, and string pointers are safe but repetitive. How can one function know how many bytes to move, or what type an address denotes? Stanford CS107 Lecture 11 gives a characteristically C answer: the function need not know the value's meaning if the caller supplies an address and byte count. `void *` erases the pointee type, `memcpy` copies raw bytes, and the interface contract and caller jointly preserve correctness.
 
 This is not lightweight syntax comparable to Java generics. Once type information is erased, the compiler can check less. A wrong width, cast, or lifetime may compile. The lecture therefore closes the previous heap discussion before introducing generics. Both halves ask the same systems question: when the language does not remember a resource or type for you, how must the program restore that missing information in its contract?
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -187,6 +179,14 @@ Lecture 11 is therefore not primarily a list of five library functions. Abstract
 ## Further exercises
 
 Write `append` for a growing `int` buffer, receive `realloc` through a temporary, and identify the owner on every failure path. Then replace typed swaps with a generic core and record what the compiler can no longer check. Finally ask what information a generic bubble sort still lacks after receiving a base, element count, and width.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

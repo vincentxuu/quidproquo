@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石導讀：學習可行嗎？Hoeffding 與「出了資料之外」"
+title: "林軒田機器學習基石導讀：學習可行嗎？Hoeffding 與「出了資料之外」｜台大林軒田 機器學習基石與技法 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,28 +31,6 @@ glossary:
 [第 1 篇](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)的 PLA 在訓練資料上可以做到零錯誤，但我們真正在乎的是**沒看過的資料**。這一講從「演算法」跳到「機率保證」，是整門課的第一道斷崖，所以本系列讓它單獨一篇。
 
 **本文依據**：MOOC 投影片 [04_handout](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/04_handout.pdf)、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) W3 的課前必看清單、extended slides [04e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/04e_handout.pdf)、[Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf) 與 [Fall 2024 HW2](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw2/hw2_red.pdf)，全部在 2026-09-30 打開核對。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=tOgbh5_747w
-title: Learning is Impossible?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=MgAihqFPkZc
-title: Probability to the Rescue
-```
-
-原始影片：[Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 這篇對應的教材
 
@@ -192,6 +170,28 @@ print("Hoeffding bound:", 2 * np.exp(-2 * 0.3**2 * N))
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：學習理論的另一種講法。
 
 **系列導覽**：上一篇 [學習問題、PLA 與學習的種類](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)｜[總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)｜下一篇 [訓練與測試：有效假說數、成長函數與 break point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=tOgbh5_747w
+title: Learning is Impossible?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=MgAihqFPkZc
+title: Probability to the Rescue
+```
+
+原始影片：[Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

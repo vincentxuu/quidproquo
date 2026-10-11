@@ -1,5 +1,5 @@
 ---
-title: "CS149 L3: Fast Processors, Slow Data — Latency vs. Bandwidth, and How ISPC Separates Abstraction from Implementation"
+title: "Fast Processors, Slow Data — Latency vs. Bandwidth, and How ISPC Separates Abstraction from Implementation | Stanford CS149 Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 Fall 2025 recordings live only on Stanford's Canvas. The course home page points to the public 2023 recordings instead; this lecture matches [2023 Lecture 3](https://www.youtube.com/watch?v=F4bVSyz_jxo), which has the same title. This post follows the 2025 slides and treats the video as a listening supplement. The course as a whole is A3 (enough for self-study); the gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
 
 The lecture has two halves that look unrelated. The first is about **memory bandwidth**; the second is about the **ISPC programming model**. They share one premise. The previous lecture's three forms of hardware parallelism (multi-core, SIMD, hardware multithreading) made processors enormously capable. The next questions are whether data can arrive fast enough, and how a programmer should describe parallel work.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=F4bVSyz_jxo
-title: Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions
-```
-
-Original videos: [Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
-
-Course and recording entries:
-
-- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions” (1:16:18). The captions cover a recap of hardware multithreading and latency from the previous lecture, bandwidth and memory latency (around the halfway mark), instruction pipeline throughput, and ISPC in roughly the last sixth (gangs, program instances, and the exercise of convincing yourself that one abstraction has several valid implementations), matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## The lecture opens by finishing the last one
 
@@ -200,6 +182,24 @@ Slide 56's summary is three sentences: programming models are a way to think abo
 Further reading: to see bandwidth limits at the scale of large-model training, continue with this site's [CS336 guide to GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous [L2: A Modern Multi-Core Processor](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en) | next [PA1 + Written 1: Performance on a Quad-Core CPU](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=F4bVSyz_jxo
+title: Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions
+```
+
+Original videos: [Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions” (1:16:18). The captions cover a recap of hardware multithreading and latency from the previous lecture, bandwidth and memory latency (around the halfway mark), instruction pipeline throughput, and ISPC in roughly the last sixth (gangs, program instances, and the exercise of convincing yourself that one abstraction has several valid implementations), matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

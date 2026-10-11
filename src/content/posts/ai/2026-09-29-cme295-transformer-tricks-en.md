@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 2: How One Transformer Grew into BERT, GPT, and a Zoo of Attention Variants"
+title: "How One Transformer Grew into BERT, GPT, and a Zoo of Attention Variants | Stanford CME295 Lecture 2"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ This post covers Lecture 2 of the 2025 edition of Stanford's [CME295](/posts/ai/
 [Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en) assembled the [original 2017 Transformer](https://arxiv.org/abs/1706.03762). But the LLM you use today has swapped out almost all of its position encoding, normalization, and attention, and kept only the decoder half. Lecture 2 is that refit list: which parts of the same machine got replaced, why, and which model families grew out of keeping different halves.
 
 The slides run in five sections: position embeddings → layer normalization → attention approximation → a taxonomy of Transformer models → a deep dive on BERT. The first three are part upgrades; the last two are about how the whole machine split into families.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=yT84Y5zCnaA
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 2, Transformer-Based Models & Tricks (page date 2025-10-03, length 1:47:19, matching the post's "1 hour 47 minutes"). Its chapters are position embeddings (sinusoidal, T5 bias and ALiBi, RoPE), layer normalization, sparse attention, sharing attention heads, a BERT deep dive and finetuning ([CLS]/[SEP]), and BERT extensions, consistent with the post's topic and its teddy-bear BERT example. I also read the transcript of the 2026 Lecture 2 recording (GaIeu3npx04) to check the "What changed in 2026" section: that recording is already up and still teaches BERT's MLM and NSP, so I fixed the post's earlier statement that the recording was not released and that BERT coverage was unknown.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Position information: from "add a vector" to "rotate by an angle"
 
@@ -258,6 +238,26 @@ These questions are adapted from Part II of the [2025 midterm](https://cme295.st
 - Attention variants and MoE: [CS336 Lecture 4](/posts/ai/2026-08-22-cs336-attention-moe-en)
 - BERT's place in the history of pretraining: [CS224N Lecture 7: pretraining, subwords, and in-context learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Previous lecture: [CME295 Lecture 1: From Tokens to Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=yT84Y5zCnaA
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 2, Transformer-Based Models & Tricks (page date 2025-10-03, length 1:47:19, matching the post's "1 hour 47 minutes"). Its chapters are position embeddings (sinusoidal, T5 bias and ALiBi, RoPE), layer normalization, sparse attention, sharing attention heads, a BERT deep dive and finetuning ([CLS]/[SEP]), and BERT extensions, consistent with the post's topic and its teddy-bear BERT example. I also read the transcript of the 2026 Lecture 2 recording (GaIeu3npx04) to check the "What changed in 2026" section: that recording is already up and still teaches BERT's MLM and NSP, so I fixed the post's earlier statement that the recording was not released and that BERT coverage was unknown.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

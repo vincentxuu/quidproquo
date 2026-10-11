@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L12: ControlNet and Fooocus, or How to Make an Image Model Follow Your Composition"
+title: "ControlNet and Fooocus, or How to Make an Image Model Follow Your Composition | NCCU Yen-Lung Tsai Generative AI Lecture 12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **This post is based on the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 12 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L11: Text-to-Image AI](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en).
 
 I used three official sources: the [lecture 12 recording](https://www.youtube.com/watch?v=3TdC6xb1RfY) (2025-05-06, 3 h 12 min), the slide deck [GenAI12 ControlNet 與 Fooocus](https://drive.google.com/file/d/15-cHR3PSoGVmXj0yrrzCksDJQ1fcVtir/view) (33 slides, in Chinese), and the week 12 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Access level is **A3**: recordings, slides, and the assignment with its rubric are public. There is no matching notebook in [AI-Demo](https://github.com/yenlung/AI-Demo) this week; the hands-on part uses the open-source [Fooocus](https://github.com/lllyasviel/Fooocus) itself.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=3TdC6xb1RfY
-title: 【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)
-```
-
-Original videos: [【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)](https://www.youtube.com/watch?v=3TdC6xb1RfY)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -223,6 +206,23 @@ This post stands on its own. To dig deeper:
 - Where ControlNet sits in 2023 computer vision research: [2023 AI Conference Guide: Computer Vision](/posts/ai/2026-08-24-ai-conference-2023-cv-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L11: Text-to-Image AI](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en) | next, [L13: Reinforcement Learning and Generative AI Applications](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3TdC6xb1RfY
+title: 【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)
+```
+
+Original videos: [【生成式 AI】12. ControlNet 與 Fooocus (YouTube recording, 2025-05-06)](https://www.youtube.com/watch?v=3TdC6xb1RfY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

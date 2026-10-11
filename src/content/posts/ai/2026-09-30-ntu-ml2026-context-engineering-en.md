@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: Context Engineering — Compression, Filtering, On-Demand Loading, and Whether to Hand the Context to the LLM"
+title: "Reading NTU ML 2026: Context Engineering — Compression, Filtering, On-Demand Loading, and Whether to Hand the Context to the LLM | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **This post follows the 3/13 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 3 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous post covered [HW1: defending against malicious instructions](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en). Part 1, [Dissecting the Lobster](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en), showed that OpenClaw stuffs SOUL.md and MEMORY.md into the system prompt and compresses and prunes conversations. This post takes the next question: **when the context doesn't fit, what stays, what goes, and who decides?**
 
 Official materials used: pages 1–33 of the slide deck [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) (61 pages in total; the second half belongs to the next post), and the lecture video [AI Agent (1/3): Context Engineering basics](https://youtu.be/urwDLyNa9FU) (in Mandarin). Access level is **A3**: slides (pdf/pptx) and the recording are public. This lecture has no quiz or leaderboard attached.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=urwDLyNa9FU
-title: Video: AI Agent (1/3): Context Engineering basics
-```
-
-Original videos: [Video: AI Agent (1/3): Context Engineering basics](https://www.youtube.com/watch?v=urwDLyNa9FU)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video urwDLyNa9FU (53:05) was read. Checked the C_{t+1} ← F(C_t, I_t, O_t) formalization and the P/M split, LLM summary versus Hard Clear (the SWE-bench comparison and trajectory elongation), offloading to log1.txt, ACON (context collapse, no parameter updates), AgentFold (needs fine-tuning), models disliking compression, subagents as autonomous compression and the two Context-Folding penalties, observations at about 84% and code reading at about 76%, memory_get line-range filtering, MCP-Zero (GitHub tools at 4,600 tokens), Dynamic Cheatsheet, ACE and Recursive Language Models. Every video-related claim appears in the transcript and no errors were found; slide page numbers and individual figures (such as ACON's 26%) come from the slides, which the transcript does not cover, and cannot be verified.
 
 ## Why Context Engineering
 
@@ -140,6 +121,25 @@ Not confirmed: I did not transcribe the video, so examples, numbers, and comment
 Further reading on this site: the [Context Engineering guide](/posts/ai/2026-03-24-context-engineering-guide-en), [context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en), CMU 11-768's [Context Management guide](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en), and Stanford CS146S's [Context Engineering guide](/posts/ai/2026-08-16-cs146s-context-engineering-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW1: defending against malicious instructions](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en) | Next: [Interaction between AI agents and their impact on work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=urwDLyNa9FU
+title: Video: AI Agent (1/3): Context Engineering basics
+```
+
+Original videos: [Video: AI Agent (1/3): Context Engineering basics](https://www.youtube.com/watch?v=urwDLyNa9FU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video urwDLyNa9FU (53:05) was read. Checked the C_{t+1} ← F(C_t, I_t, O_t) formalization and the P/M split, LLM summary versus Hard Clear (the SWE-bench comparison and trajectory elongation), offloading to log1.txt, ACON (context collapse, no parameter updates), AgentFold (needs fine-tuning), models disliking compression, subagents as autonomous compression and the two Context-Folding penalties, observations at about 84% and code reading at about 76%, memory_get line-range filtering, MCP-Zero (GitHub tools at 4,600 tokens), Dynamic Cheatsheet, ACE and Recursive Language Models. Every video-related claim appears in the transcript and no errors were found; slide page numbers and individual figures (such as ACON's 26%) come from the slides, which the transcript does not cover, and cannot be verified.
 
 ## Update Log
 

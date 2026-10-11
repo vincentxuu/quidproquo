@@ -1,5 +1,5 @@
 ---
-title: "LLM 推理：思維鏈與長推理 RLVR"
+title: "LLM 推理：思維鏈與長推理 RLVR｜Stanford CS229 第 18 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,18 +18,6 @@ series:
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 18 章（印刷頁 220–225）。這是 2026 notes 的逐章導讀，不是某學期錄影重建；本文解釋主要目標與演算法直覺，不聲稱重現每項證明或實作細節。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。兩份公開播放清單（Spring 2026 共 17 支、Autumn 2018 共 21 支）都已即時查看，找不到能對應本章主題的單支講次，所以不嵌入影片。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## 思維鏈把一次預測拆成一段計算
 
@@ -86,6 +74,18 @@ GRPO 對同一 prompt 採樣一組回答，用組內平均與標準差形成相�
 ## 練習
 
 為「產生能通過單元測試的函式」定義 RLVR：列出狀態、動作、終止條件、獎勵與 KL 參考策略。再提出兩種 reward hacking 情境，並說明僅增加測試數量為何未必完全解決。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。兩份公開播放清單（Spring 2026 共 17 支、Autumn 2018 共 21 支）都已即時查看，找不到能對應本章主題的單支講次，所以不嵌入影片。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

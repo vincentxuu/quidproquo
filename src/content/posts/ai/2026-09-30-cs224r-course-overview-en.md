@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS224R: A Guide to the Spring 2026 Deep Reinforcement Learning Course"
+title: "A Guide to the Spring 2026 Deep Reinforcement Learning Course | Stanford CS224R Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 [CS224R: Deep Reinforcement Learning](https://cs224r.stanford.edu/) is [Chelsea Finn](https://ai.stanford.edu/~cbfinn/)'s deep RL course at Stanford. In Spring 2026 it met Wednesdays and Fridays at 9:30 am in NVIDIA Auditorium. The home page also carries one line about the future: the next offering moves to Fall 2027, and there is no Spring 2027. So as of September 2026, Spring 2026 is both the latest complete offering and the last one for a while.
 
 This post answers four questions: what the course teaches, what outside readers can actually get, how the 2026 offering differs from the 2025 one that has public recordings, and how to read this series.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [CS224R Spring 2025 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## What the course teaches
 
@@ -179,6 +168,17 @@ These series on the site overlap with CS224R. This series does not cut anything 
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): where the A0–A3 tiers are defined
 
 **Series navigation**: Next: [L1: Framing decision-making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

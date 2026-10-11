@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 5 講：WikiChat 的七階段 RAG 如何逐條攔下幻覺"
+title: "WikiChat 的七階段 RAG 如何逐條攔下幻覺｜Stanford CS224V 第 5 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, rag, hallucination, wikichat]
@@ -19,18 +19,6 @@ description: "拆解 CS224V Grounding Conversational Agents on Free Text：RAG �
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-freetext.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第五講回到自由文字：資料不像資料庫有 schema，也不像 Worksheet 有固定欄位，助理怎麼避免順口補完？[WikiChat 論文](https://aclanthology.org/2023.findings-emnlp.157/)的答案是把 RAG 展開成多次檢索、過濾與主張查核，而不是相信「有 context 就不會幻覺」。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：先拆穿基線，再建立 pipeline
 
@@ -135,6 +123,18 @@ Verification 結果要能影響 response。最保守是刪除 unsupported claim�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片沒有完整程式碼、prompt 與課堂錄影；「七階段」在不同投影片也以更細的 prompt 操作展開。本文描述的是可見的演算法角色，不聲稱能由投影片逐字重建 production WikiChat。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

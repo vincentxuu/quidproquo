@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 12: How Backpropagation Reuses the Chain Rule"
+title: "How Backpropagation Reuses the Chain Rule | CMU 07-280 Lecture 12"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, backpropagation, neural-network]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Spring 2026 officially called Lecture 12 **Neural Networks (cont.)**, dated February 19. This article foregrounds backpropagation because it is the public slide deck's main technical subject. Fall 2026 renamed the lecture, but the edition and sources here remain Spring 2026. No public lecture-by-lecture recording exists.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -99,6 +89,16 @@ The next lecture pauses model derivations and asks a higher-level question: even
 ## What to do tonight
 
 Implement `linear_forward` and `linear_backward`, then check one weight by central difference: `(J(w+ε)-J(w-ε))/(2ε)`. Require analytic and numerical gradients to meet a tolerance before adding sigmoid. Finally, verify on one three-class example that the softmax-cross-entropy gradient with respect to logits is `ŷ-y`.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

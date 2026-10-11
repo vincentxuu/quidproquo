@@ -1,5 +1,5 @@
 ---
-title: "Clustering and k-Means: A First Alternating-Optimization Algorithm"
+title: "Clustering and k-Means: A First Alternating-Optimization Algorithm | Stanford CS229 Chapter 10"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,27 +20,6 @@ draft: false
 This is a chapter-by-chapter reading of Chapter 10, printed pages 147–149, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings**. The chapter is only three pages long, and its purpose is precise: understand k-means as alternating optimization and state exactly what its convergence guarantee means.
 
 Chapters 8 and 9 studied generalization and model selection with labeled data. Chapter 10 begins unsupervised learning. Given only $x^{(1)},\ldots,x^{(n)}$ and no targets $y$, the task is to organize the observations into $k$ internally cohesive groups.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=bSmIGBCoffA
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)](https://www.youtube.com/watch?v=bSmIGBCoffA)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 9; the transcript opens by saying the lecture covers K-means and its probabilistic counterpart GMM, discusses assignment, initialization and local optima, and ends by previewing the EM derivation for the next class. The K-means part fits this chapter; GMM/EM belong to later chapters.
 
 ## The algorithm alternates hard assignments and means
 
@@ -87,6 +66,27 @@ Chapter 9 selected among candidate models using validation data. Chapter 10 assu
 ## Self-study exercise
 
 Create two two-dimensional datasets: three similarly sized circular clusters and two elongated, overlapping crescent shapes. Run k-means from ten random initializations on each dataset. Record final distortion and inspect the assignments. Ask whether the lowest-distortion result always matches the grouping you intended.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=bSmIGBCoffA
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)](https://www.youtube.com/watch?v=bSmIGBCoffA)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 9; the transcript opens by saying the lecture covers K-means and its probabilistic counterpart GMM, discusses assignment, initialization and local optima, and ends by previewing the EM derivation for the next class. The K-means part fits this chapter; GMM/EM belong to later chapters.
 
 ## Update Log
 

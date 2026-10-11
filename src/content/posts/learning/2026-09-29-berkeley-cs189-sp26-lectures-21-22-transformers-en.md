@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 21–22: Transformers"
+title: "Transformers | Berkeley CS189 Lectures 21–22"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, transformer, attention, self-attention, deep-learning]
@@ -32,31 +32,6 @@ This guide is based on the official materials of [CS189 Spring 2026](https://eec
 The assigned reading is Chapter 12 (Transformers) of Bishop's *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*.
 
 [The previous post on Lec 19–20](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en) covered CNNs and generalization. These two lectures answer a follow-up: CNNs are already parameter-efficient, so why do we need a new architecture? This post covers only the core of attention. Positional encodings and the full encoder/decoder implementation are left to the next post, the [HW4 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en). That assignment walks you from softmax all the way to a transformer that generates stories.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=mqaFEvi5rWE
-title: Lecture 21 recording: Transformers
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=syp1pSf_DYY
-title: Lecture 22 recording: Transformers (ctnd.)
-```
-
-Original videos: [Lecture 21 recording: Transformers](https://www.youtube.com/watch?v=mqaFEvi5rWE)、[Lecture 22 recording: Transformers (ctnd.)](https://www.youtube.com/watch?v=syp1pSf_DYY)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 21 video (mqaFEvi5rWE, about 76 minutes) is indeed the first Transformers lecture: receptive fields, TF-IDF (the football example), RNNs and image captioning (COCO), soft and hard attention, and location-based versus content-based addressing; the Bahdanau paper and the REINFORCE remark could not be found in the transcript and appear only in the slides. The Lecture 22 video (syp1pSf_DYY, about 70 minutes) builds self-attention from content-based attention, covers the PyTorch implementation, the soft-dictionary view, and the bank/river example, and ends as it begins on what a good positional embedding should provide (a unique representation); multi-head, LayerNorm, and residuals get only a brief mention, and GQA, the class token, KV cache, and the learned-versus-sinusoidal positional encoding comparison could not be found in the transcript and appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## What I read, and the limits
 
@@ -220,6 +195,31 @@ When you use PyTorch's `nn.MultiheadAttention` or any LLM library, each layer do
 - Series navigation: previous, [Lec 19–20: CNNs and generalization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); next, [HW4 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: take the three tokens and three weight matrices from Discussion 10, problem 1. Compute q, k, and v by hand, then write one line of NumPy, `softmax(Q @ K.T / np.sqrt(d)) @ V`, and check the row for x₃ against your hand calculation.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mqaFEvi5rWE
+title: Lecture 21 recording: Transformers
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=syp1pSf_DYY
+title: Lecture 22 recording: Transformers (ctnd.)
+```
+
+Original videos: [Lecture 21 recording: Transformers](https://www.youtube.com/watch?v=mqaFEvi5rWE)、[Lecture 22 recording: Transformers (ctnd.)](https://www.youtube.com/watch?v=syp1pSf_DYY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 21 video (mqaFEvi5rWE, about 76 minutes) is indeed the first Transformers lecture: receptive fields, TF-IDF (the football example), RNNs and image captioning (COCO), soft and hard attention, and location-based versus content-based addressing; the Bahdanau paper and the REINFORCE remark could not be found in the transcript and appear only in the slides. The Lecture 22 video (syp1pSf_DYY, about 70 minutes) builds self-attention from content-based attention, covers the PyTorch implementation, the soft-dictionary view, and the bank/river example, and ends as it begins on what a good positional embedding should provide (a unique representation); multi-head, LayerNorm, and residuals get only a brief mention, and GQA, the class token, KV cache, and the learned-versus-sinusoidal positional encoding comparison could not be found in the transcript and appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

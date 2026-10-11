@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 9 導讀：Probabilistic Generative Models，Naive Bayes 與 Gaussian Discriminant Analysis"
+title: "Probabilistic Generative Models，Naive Bayes 與 Gaussian Discriminant Analysis｜CMU 07-380 第 9 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, machine-learning, generative-models, naive-bayes, classification]
@@ -23,30 +23,6 @@ draft: false
 到目前為止，07-280 和 07-380 教過的分類器（邏輯迴歸、神經網路）都直接學 `p(y|x)`。這一講換一個方向：先描述「資料是怎麼產生的」，也就是先學 `p(y)` 和 `p(x|y)`，分類時再用 Bayes rule 反推。Schedule 後段的 GMM／EM、VAE、diffusion 也都屬於生成式模型，這一講是它們在本課的起點。
 
 本文依 2026-09-29 的課站狀態寫成，課站標明 schedule `subject to change`。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-我實際打開並讀過的材料：
-
-- [Lec9-10 Probabilistic Generative Models 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Probabilistic_Generative_Models.pdf)（另有 pptx 與 inked 版），副標是「Discriminant Analysis & Naive Bayes」。
-- [Notes_Generative_Models.pdf](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Probabilistic_Generative_Models.pdf)：Iris 單特徵的完整例子與 generative story。
-- [Naive Bayes SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf)，對應的解答在 [Recitation 5 Solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation5_07380_f26_sol.pdf) 第 7 節。
-- 兩份放在 Google Drive 的 notebook：[cat_dog_sampling.ipynb](https://drive.google.com/file/d/17O6w49maTydc_4zmeYW6vUpedW1lS5dF/view?usp=drive_link) 和 [discriminant_analysis.ipynb](https://drive.google.com/file/d/1895ysOVVlDl1IGV2OjN9Ow14szP7hRh6/view?usp=drive_link)，匿名可下載。
-- 延伸讀物 [Mitchell, Generative and Discriminative Classifiers](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)。課站另列 Murphy 3.5、4.2、8.6，但連結走 CMU 圖書館的 EBSCO，校外讀者多半打不開，我沒有讀。
-
-讀取限制：投影片的文字層只有標題、公式和 poll 題目，很多圖（Iris 散佈圖、生成故事示意）和課堂手寫推導沒有文字，我不轉述看不到的內容。這一講沒有 pre-reading checkpoint，也沒有錄影連結。
-
-**檔名的問題**：投影片檔名寫「Lec9-10」，但 Schedule 上的第 10 講（9/28）是 Bayes Nets，而 `07380_F26_Lec10_Bayes_Nets.pdf` 在 2026-09-29 仍回 404。生成式模型實際講了一堂還是兩堂，課站沒有說明，本文不推測。
 
 ## 承上問題：Bayes rule 的第二種用法
 
@@ -187,6 +163,30 @@ Mitchell 的章節證明了一件很漂亮的事：在一種「變異數不隨�
 1. 列印 [SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf)，先不看解答算一次，再和上面的 0.074 對照。
 2. 跑上面的取樣程式，再把 `sigmas` 換成完整的共變異數矩陣，改用 `rng.multivariate_normal`，比較兩張散佈圖。
 3. 做投影片 Poll 1：三個類別、兩個特徵、每類各有完整共變異數的 GDA，到底有幾個參數？先數 μ，再數 Σ 裡真正自由的項。
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+我實際打開並讀過的材料：
+
+- [Lec9-10 Probabilistic Generative Models 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Probabilistic_Generative_Models.pdf)（另有 pptx 與 inked 版），副標是「Discriminant Analysis & Naive Bayes」。
+- [Notes_Generative_Models.pdf](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Probabilistic_Generative_Models.pdf)：Iris 單特徵的完整例子與 generative story。
+- [Naive Bayes SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf)，對應的解答在 [Recitation 5 Solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation5_07380_f26_sol.pdf) 第 7 節。
+- 兩份放在 Google Drive 的 notebook：[cat_dog_sampling.ipynb](https://drive.google.com/file/d/17O6w49maTydc_4zmeYW6vUpedW1lS5dF/view?usp=drive_link) 和 [discriminant_analysis.ipynb](https://drive.google.com/file/d/1895ysOVVlDl1IGV2OjN9Ow14szP7hRh6/view?usp=drive_link)，匿名可下載。
+- 延伸讀物 [Mitchell, Generative and Discriminative Classifiers](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)。課站另列 Murphy 3.5、4.2、8.6，但連結走 CMU 圖書館的 EBSCO，校外讀者多半打不開，我沒有讀。
+
+讀取限制：投影片的文字層只有標題、公式和 poll 題目，很多圖（Iris 散佈圖、生成故事示意）和課堂手寫推導沒有文字，我不轉述看不到的內容。這一講沒有 pre-reading checkpoint，也沒有錄影連結。
+
+**檔名的問題**：投影片檔名寫「Lec9-10」，但 Schedule 上的第 10 講（9/28）是 Bayes Nets，而 `07380_F26_Lec10_Bayes_Nets.pdf` 在 2026-09-29 仍回 404。生成式模型實際講了一堂還是兩堂，課站沒有說明，本文不推測。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L16: Vision and Language — From CLIP's Contrastive Learning to Multimodal Foundation Models That Talk About Images"
+title: "Vision and Language — From CLIP's Contrastive Learning to Multimodal Foundation Models That Talk About Images | Stanford CS231N Lecture 16"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 For the [CS231N](https://cs231n.stanford.edu/) lecture on May 26, 2026, the [schedule](https://cs231n.stanford.edu/schedule.html) gives the title "Vision and Language", while the slide cover reads "Vision + Language (and Foundation Models)". The official material is the 122-page [lecture_16.pdf](https://cs231n.stanford.edu/slides/2026/lecture_16.pdf); the matching public recording is [Spring 2025 Lecture 16](https://www.youtube.com/watch?v=mQOK0Mfyrkk).
 
 **The gap between recording and slides is especially large for this lecture.** The 2025 [lecture_16.pdf](https://cs231n.stanford.edu/slides/2025/lecture_16.pdf) has 148 pages, was given by Ranjay Krishna, and includes a long section on Segment Anything; the 2026 version lists Segment Anything only in the taxonomy, and adds Qwen3-VL, SigLIP, and omni models. When the 2025 recording covers something the 2026 slides don't, treat it as extra material.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 16 (length 1:09:53, guest speaker Ranjay Krishna, confirmed by the spoken introduction). The transcript covers CLIP and contrastive pretraining, a long Segment Anything section, Flamingo, Winoground/ARO-style benchmarks and foundation models, matching the article's topic. It has no LLaVA, SigLIP, Qwen3-VL or omni models, consistent with the article saying the 2026 slides add those and the 2025 recording has a large Segment Anything part. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=mQOK0Mfyrkk
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language](https://www.youtube.com/watch?v=mQOK0Mfyrkk)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Scene: how far can one model per task go?
 
@@ -183,6 +166,23 @@ Looking back, this lecture gathers parts from earlier ones: the ViT from [L8](/p
 ## Access limits
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this course is **A3**: the 2026 slides, assignments, and starter code are public, plus full 2025 recordings. The gaps for this lecture: 2026 recordings are on Canvas for enrolled students only, and the 2025 recording differs from the 2026 slides more than in other lectures.
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 16 (length 1:09:53, guest speaker Ranjay Krishna, confirmed by the spoken introduction). The transcript covers CLIP and contrastive pretraining, a long Segment Anything section, Flamingo, Winoground/ARO-style benchmarks and foundation models, matching the article's topic. It has no LLaVA, SigLIP, Qwen3-VL or omni models, consistent with the article saying the 2026 slides add those and the 2025 recording has a large Segment Anything part. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=mQOK0Mfyrkk
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 16: Vision and Language](https://www.youtube.com/watch?v=mQOK0Mfyrkk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP 期末專題與 Fall 2026 改版：30% 分組專題換成 W14 實體期中考，外加 Reasoning／Agentic AI、AI-TA 與 TAICA 算力"
+title: "清大 NLP 期末專題與 Fall 2026 改版：30% 分組專題換成 W14 實體期中考，外加 Reasoning／Agentic AI、AI-TA 與 TAICA 算力｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,28 +22,6 @@ draft: false
 前 18 篇照 Fall 2025 的教材走完了一學期。這一篇處理兩件前面沒講的事：2025 年占三成的期末專題要做什麼，以及 2026 年的課改了哪些地方。
 
 用到的官方材料：2025 的 [W0_Syllabus.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W0_Syllabus.pdf) 與 [Course_summary.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/Course_summary.pdf)、[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) W14–W16 列的錄影、2026 的 [Syllabus-115.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2026/Slides/Syllabus-115.pdf) 與 [repo 首頁課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing)。存取等級：Fall 2025 是 **A3 足以自學**，但期末專題這一塊只到課綱層級；Fall 2026 是 **A2（進行中）**。評級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=_hzMv789JQ8
-title: Week 14 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=03_BDLu3DDU
-title: Week 15 Tue.
-```
-
-原始影片：[Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8)、[Week 15 Tue.](https://www.youtube.com/watch?v=03_BDLu3DDU)、[Week 15 Thu.](https://www.youtube.com/watch?v=w48WxRz6LXE)、[Week 16 Tue.](https://www.youtube.com/watch?v=3AsbuOlSWpQ)、[Week 16 Thu.](https://www.youtube.com/watch?v=jQUHM3MQisw)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
 
 ## 2025：期末專題占 30%
 
@@ -175,6 +153,28 @@ HW1 的主題仍是 Word Analogy，說明影片是 [4nktsdfU24k](https://youtu.b
 可以確認：兩份 Syllabus 的配分、題型、限制、課表、TAICA 算力條件、AI-TA 頁面與 2025 成績分布圖；Course_summary 的專題方向與期末時程；2025 與 2026 README 各週掛的檔案、錄影 ID、標題與長度。不能確認：2025 第 5 份作業是什麼；專題規格、評分細則與各組題目；W15–W16 錄影的實際內容（無字幕，未看片）；「CP4」的確切指涉；改成期中考的原因；Fall 2026 W4 之後的教材。
 
 系列導覽：上一篇 [課程總結與 LLM Reasoning 筆記](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)｜回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=_hzMv789JQ8
+title: Week 14 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=03_BDLu3DDU
+title: Week 15 Tue.
+```
+
+原始影片：[Week 14 Tue.](https://www.youtube.com/watch?v=_hzMv789JQ8)、[Week 15 Tue.](https://www.youtube.com/watch?v=03_BDLu3DDU)、[Week 15 Thu.](https://www.youtube.com/watch?v=w48WxRz6LXE)、[Week 16 Tue.](https://www.youtube.com/watch?v=3AsbuOlSWpQ)、[Week 16 Thu.](https://www.youtube.com/watch?v=jQUHM3MQisw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

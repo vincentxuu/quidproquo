@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L5: Planning — When an Agent Should Think It Through, and When It Should Revise as It Goes"
+title: "Planning — When an Agent Should Think It Through, and When It Should Revise as It Goes | CMU 11-768 Lecture 5"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -30,25 +30,6 @@ glossary:
 Lecture 5 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (September 8, 2026, taught by Daniel Fried; [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en)) covers planning and task decomposition, ending with a first look at multi-agent systems. Fried frames the topic as a trade-off from the start: the more an agent sticks to one plan, the easier it is for a person to understand and control; the more flexible it is, the better it copes with problems that surface mid-task. The whole lecture looks for positions along that axis.
 
 Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-05-planning.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5).
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 5, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=S8v-dR4s29M
-title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
-```
-
-Original videos: [CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min, lecturer Fried) and checked the GPU-purchase opener, the Plan Mode show of hands and student reasons, the Mike Tyson quote, CoT / Least-to-Most / Decomposed Prompting, STRIPS and programs as plans, the workflow-vs-adaptive trade-off and the deprecated-blog remark, planner/executor (7B grounding model, Plan-and-Act), SayCan, ALFRED replanning, Thinking vs Doing, overthinking, Vending-Bench and self-conditioning (including Qwen3 32B dropping most), RAO, plan-then-execute against injection, the Cursor Plan Mode demo, and MACU's DAG and replanning-budget experiment (about 25% with a fixed graph); all supported. Six fixes: content absent from the video is now labeled as slide content (the "burn that bridge" joke, the Fred Brooks quote, "was this just a bad plan?", the Neubig slide), the manager-model "Sonnet" claim now reflects what the captions show ("recent Claude models"), and the Odysseys data source is now Google browsing history. TravelPlanner, per-paper figures and the MACU tables rest on the papers and slides, not the transcript; the "Sept 8" lecture date is not stated in the video.
 
 ## Opening case: buying the lab a GPU workstation
 
@@ -350,6 +331,25 @@ Four open problems:
 - [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization-en)
 - [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
 - [Multi-Agent Error Propagation and Recovery](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 5, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=S8v-dR4s29M
+title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
+```
+
+Original videos: [CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min, lecturer Fried) and checked the GPU-purchase opener, the Plan Mode show of hands and student reasons, the Mike Tyson quote, CoT / Least-to-Most / Decomposed Prompting, STRIPS and programs as plans, the workflow-vs-adaptive trade-off and the deprecated-blog remark, planner/executor (7B grounding model, Plan-and-Act), SayCan, ALFRED replanning, Thinking vs Doing, overthinking, Vending-Bench and self-conditioning (including Qwen3 32B dropping most), RAO, plan-then-execute against injection, the Cursor Plan Mode demo, and MACU's DAG and replanning-budget experiment (about 25% with a fixed graph); all supported. Six fixes: content absent from the video is now labeled as slide content (the "burn that bridge" joke, the Fred Brooks quote, "was this just a bad plan?", the Neubig slide), the manager-model "Sonnet" claim now reflects what the captions show ("recent Claude models"), and the Odysseys data source is now Google browsing history. TravelPlanner, per-paper figures and the MACU tables rest on the papers and slides, not the transcript; the "Sept 8" lecture date is not stated in the video.
 
 ## Update Log
 

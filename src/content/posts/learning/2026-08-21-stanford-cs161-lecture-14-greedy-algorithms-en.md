@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 14: When a Greedy Algorithm Turns Local Choices into a Global Optimum"
+title: "When a Greedy Algorithm Turns Local Choices into a Global Optimum | Stanford CS161 Lecture 14"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ This is article fifteen in [Reading Stanford CS161](/en/series/stanford-cs161). 
 This article uses the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture14-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture14.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture14.md). The Canvas recording on the official page requires Stanford access. I did not watch it and do not count it as a source. The component also links a Winter 2025 notebook and concept-check bank; this article does not use those older auxiliary materials to expand Winter 2026 claims.
 
 The preceding dynamic-programming lecture retained several subproblems because it did not yet know which decision would extend to an optimum. This lecture asks a more aggressive question: if one can prove that following a single branch always suffices, can the whole table be discarded? Yes—but the cost moves from code to proof. A greedy algorithm is often short. The difficult part is proving that no local decision ever eliminates every globally optimal solution.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-14-greedy-algorithms)
-
-Checked: 2026-10-10.
 
 ## Greedy is a proved structure, not an intuition
 
@@ -202,6 +192,16 @@ The following points are implementation guidance, not formal Winter 2026 Lecture
 If activity input is already finish-time sorted, do not sort it again; this keeps the distinction between `O(n)` and `O(n log n)` explicit. For ratio scheduling, cross multiplication avoids floating-point error but integer overflow must be considered. A standard Huffman implementation uses a min-priority queue for `current`; any runtime claim must include the queue operations rather than merely counting loop iterations.
 
 More generally, when a “pick the best next item” idea appears, take two actions. Search small instances for a counterexample to reject bad ordering rules quickly. Then try to exchange the first different choice in an arbitrary optimum with the greedy choice. The first action cannot prove correctness but can stop a false conjecture. The second is the threshold between intuition and an algorithm.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-14-greedy-algorithms)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

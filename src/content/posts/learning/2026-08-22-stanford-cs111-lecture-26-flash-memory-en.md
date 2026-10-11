@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 26: Flash Translation Layers, Garbage Collection, and Wear Leveling"
+title: "Flash Translation Layers, Garbage Collection, and Wear Leveling | Stanford CS111 Lecture 26"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is part 27 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 26**, taught by Mendel Rosenblum on 2026-05-29 under [Flash Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/26/Lecture26.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); Canvas/Panopto video is inaccessible. SHA auditing shows Lecture 26 differs from adjacent Lectures 25 and 27, so there is no duplicate artifact.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Flash sits between disk and DRAM
 
@@ -83,11 +75,17 @@ The FTL cannot know that a file-system block was freed until overwrite. It may c
 
 Flash favors out-of-place updates, whereas disks favored in-place layouts for reads. SSD-oriented file systems therefore try to avoid in-place updates. This changes allocation and recovery tradeoffs; it does not make append-only designs automatically correct.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Rewritten against Lecture 26, scoping hardware figures as deck snapshots and documenting the page-size typo and crash-state boundary.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Rewritten against Lecture 26, scoping hardware figures as deck snapshots and documenting the page-size typo and crash-state boundary.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

@@ -1,5 +1,5 @@
 ---
-title: "清大高宏宇 NLP 導讀：RAG（上）——幻覺與檢索器，從 BM25 到 DPR、GTR"
+title: "清大高宏宇 NLP 導讀：RAG（上）——幻覺與檢索器，從 BM25 到 DPR、GTR｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,28 +36,6 @@ glossary:
 上一篇講的是怎麼用少量參數把新知識「調進」模型。這篇換一條路：不改模型，改成在回答前先把相關資料找出來塞給它。
 
 這篇回答一個問題：**LLM 會編答案，要怎麼先「找對資料」？稀疏向量和稠密向量各有什麼長處？**
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
-title: Week 10 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=SMVvvbXLYg4
-title: Week 10 Thu.
-```
-
-原始影片：[Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4)、[Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
 
 ## 幻覺與兩條緩解路線
 
@@ -203,6 +181,28 @@ GTR 分兩階段訓練：
 - RAG 與 language agent 的元件拆解：[CS224N 第 10 講：RAG 與 Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 工程面的 RAG 技法總整理：[RAG 技法大全](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - 中文 embedding 在 RAG 裡常見的坑：[繁中 embedding 的 RAG 失敗模式](/posts/ai/2026-06-04-zh-tw-embedding-rag-failures)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=VHkMHSkJ4I4
+title: Week 10 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=SMVvvbXLYg4
+title: Week 10 Thu.
+```
+
+原始影片：[Week 10 Tue.](https://www.youtube.com/watch?v=VHkMHSkJ4I4)、[Week 10 Thu.](https://www.youtube.com/watch?v=SMVvvbXLYg4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

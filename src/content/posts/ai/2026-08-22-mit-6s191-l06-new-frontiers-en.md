@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 6: New Frontiers: Choosing the Problem Beyond the Model"
+title: "New Frontiers: Choosing the Problem Beyond the Model | MIT 6.S191 Lecture 6"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 6 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **New Frontiers: Choosing the Problem Beyond the Model**. It Places deep learning in emerging applications and real constraints, emphasizing data, outputs, evaluation, and failure conditions. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=ev7cLSd-ySE
-title: MIT 6.S191: Language Models and New Frontiers
-```
-
-Original videos: [MIT 6.S191: Language Models and New Frontiers](https://www.youtube.com/watch?v=ev7cLSd-ySE)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the universal approximation theorem, generalization and the random-label experiment, data distribution and out-of-distribution failures (the self-driving crash example), adversarial attacks, algorithmic bias, then diffusion models (forward noising, reverse denoising) and LLMs (next-token prediction, emergent abilities). The theme of new frontiers and limitations matches this note, and this is where diffusion actually appears (the Lecture 4 video does not cover it). The "baseline" and "failure condition" advice in this note is the site's own framing; the video does not use those terms.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Choose one idea and describe its problem, input, output, data, baseline, and fai
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=ev7cLSd-ySE
+title: MIT 6.S191: Language Models and New Frontiers
+```
+
+Original videos: [MIT 6.S191: Language Models and New Frontiers](https://www.youtube.com/watch?v=ev7cLSd-ySE)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the universal approximation theorem, generalization and the random-label experiment, data distribution and out-of-distribution failures (the self-driving crash example), adversarial attacks, algorithmic bias, then diffusion models (forward noising, reverse denoising) and LLMs (next-token prediction, emergent abilities). The theme of new frontiers and limitations matches this note, and this is where diffusion actually appears (the Lecture 4 video does not cover it). The "baseline" and "failure condition" advice in this note is the site's own framing; the video does not use those terms.
 
 ## Update Log
 

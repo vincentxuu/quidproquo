@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA5, the Fastest Kernel on an H100: Five AI Kernels, Graded on Your Work Log"
+title: ", the Fastest Kernel on an H100: Five AI Kernels, Graded on Your Work Log | Stanford CS149 Programming Assignment 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,14 +30,6 @@ glossary:
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 18 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en). It follows [L13 DSLs and AI-driven optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) and covers [Programming Assignment 5 (stanford-cs149/asst5-kernels)](https://github.com/stanford-cs149/asst5-kernels). The course home page lists it as "Assignment 5: Make the World's Fastest CUDA Kernels," due December 4, 2025. The README states there are **no late days** for it.
 
 This post covers what each problem exercises, what to measure first, and which direction to think in. **No solutions.**
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## How this assignment differs from the first four
 
@@ -171,6 +163,14 @@ One more thing to watch: the SwiGLU README calls [arXiv 1710.05941](https://arxi
 Further reading: the full FlashAttention story in [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention-en); Triton's programming model in [CS336 kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en); another take on GPU programming in [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
 
 **Series**: previous [L13 DSLs and AI-driven optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) | next [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## Update Log
 

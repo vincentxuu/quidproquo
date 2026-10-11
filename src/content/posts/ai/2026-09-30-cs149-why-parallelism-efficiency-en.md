@@ -1,5 +1,5 @@
 ---
-title: "CS149 L1: Why Single Cores Stopped Getting Faster, and Why Fast Isn't Efficient"
+title: "Why Single Cores Stopped Getting Faster, and Why Fast Isn't Efficient | Stanford CS149 Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,23 +34,6 @@ glossary:
 > **This post is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** The source is the [86-slide Lecture 1 deck](https://gfxcourses.stanford.edu/cs149/fall25content/media/efficiency/01_efficiency_hyF1AJq.pdf) (also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)). The Fall 2025 recording isn't public, so the 2023 L1 recording serves as a supplement. This is post 1 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en); see the overview for course background, access level, and limits.
 
 The first lecture, on September 23, 2025, is titled with two questions: Why Parallelism? Why Efficiency? Those two questions set the direction of the whole course. The first half answers the first one: why single-core processors stopped getting faster on their own. The second half answers the other: even once a program is parallel, why should you still care about efficiency?
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=V1tINV2-9p4
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?](https://www.youtube.com/watch?v=V1tINV2-9p4)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 1 - Why Parallelism? Why Efficiency?” (1:12:21). The captions cover the course introduction and instructors, the definition of speedup and the classroom demonstrations, clock frequency and power, and memory latency and cache basics at the end, matching this post's topic; energy is mentioned only in passing and the pJ numbers in this post are not in the captions, consistent with the post's statement that the video would not mention them. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Parallel computers and speedup
 
@@ -198,6 +181,23 @@ The 2023 [Lecture 1 video](https://www.youtube.com/watch?v=V1tINV2-9p4) (about 1
 ---
 
 **Series navigation**: [← Series overview](/posts/ai/2026-09-30-cs149-course-overview-en) | Next: [L2 Modern multi-core processors: multi-core, SIMD, multithreading →](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=V1tINV2-9p4
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?](https://www.youtube.com/watch?v=V1tINV2-9p4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 1 - Why Parallelism? Why Efficiency?” (1:12:21). The captions cover the course introduction and instructors, the definition of speedup and the classroom demonstrations, clock frequency and power, and memory latency and cache basics at the end, matching this post's topic; energy is mentioned only in passing and the pJ numbers in this post are not in the captions, consistent with the post's statement that the video would not mention them. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

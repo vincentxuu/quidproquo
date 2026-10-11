@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 13：AI Alignment 從 Reward Hacking 走到可稽核的 AI Scientist"
+title: "AI Alignment 從 Reward Hacking 走到可稽核的 AI Scientist｜CMU 07-280 第 13 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, ai-alignment, ai-safety, evaluation]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 第 13 講 **AI Alignment** 在 2026 年 2 月 26 日進行，位置正好在 Midterm 1 後。前四講建立模型與梯度，這一講改問：objective 可被有效最佳化，是否等於行為符合使用者要求與人類價值？官方講義明說這是一堂 discussion-oriented lecture；官方課表未列公開錄影或逐字稿連結，因此本文只整理文件列出的議題與案例，不假裝知道現場討論結論。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文讀取 [AI Alignment lecture notes](https://www.cs.cmu.edu/~07280/lectures/280AIalignment_lecturenotes.pdf)與 [Autonomous AI Scientist Systems deck](https://www.cs.cmu.edu/~07280/lectures/07280_AutonomousScientists.pdf)。後者以 [Methodological Flaws in Autonomous AI Scientists](https://arxiv.org/abs/2509.08713)的實驗為例。HW6 在同日到期，但內容仍是 backprop，並非 alignment 作業；本講沒有專屬公開 recitation。
 
 ## 承上問題：loss 降低了，為什麼系統仍可能做錯事
 
@@ -85,6 +71,20 @@ Deck 的 actionable takeaway 是：不能只審最終 paper，還要提交 trace
 ## 今晚可以做的動作
 
 選一個 agent 任務，寫一頁 evaluation spec：真正目標、可量測 proxy、三種可能 gaming route、兩個 distribution shifts、必須保存的 traces。再設計一個 control condition，讓「系統真的改善」和「只挑容易案例」能被分開。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文讀取 [AI Alignment lecture notes](https://www.cs.cmu.edu/~07280/lectures/280AIalignment_lecturenotes.pdf)與 [Autonomous AI Scientist Systems deck](https://www.cs.cmu.edu/~07280/lectures/07280_AutonomousScientists.pdf)。後者以 [Methodological Flaws in Autonomous AI Scientists](https://arxiv.org/abs/2509.08713)的實驗為例。HW6 在同日到期，但內容仍是 backprop，並非 alignment 作業；本講沒有專屬公開 recitation。
 
 ## 更新紀錄
 

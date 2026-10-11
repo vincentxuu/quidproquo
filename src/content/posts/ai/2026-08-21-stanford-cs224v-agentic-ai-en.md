@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V: Renamed to Agentic AI in 2026, but What It Teaches Is Formal Methods Against Hallucination"
+title: "Renamed to Agentic AI in 2026, but What It Teaches Is Formal Methods Against Hallucination | Stanford CS224V Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,18 +25,6 @@ draft: false
 A rename like that reads as chasing the agent wave. Put the two official descriptions side by side, though, and what got swapped out is the subject matter, not the route. This course has been working the same problem from the start: **a next-word-prediction model gets seventy percent of the answers right almost for free, and cannot get close to all of them.** The prescription is to translate natural language into formal semantics and constrain the model with database queries, knowledge graphs, and SMT theorem provers — not to reach for a different orchestration framework.
 
 This piece was written after reading the course site, four academic years of ExploreCourses entries, all fourteen public lecture decks, and both assignment PDFs. It covers what the rename did and didn't change, what the course argues, where the assignments actually get hard, and how much of this a self-learner can reach. It does **not** include a paper-by-paper close reading, and it does not cover the new academic year's syllabus — that isn't online yet. For where this course sits on the whole Stanford CS ladder, go back to the [map post](/posts/learning/2026-08-20-stanford-cs-course-map-en).
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -135,6 +123,18 @@ To get a feel for the whole spine first, read four decks in order: Introduction 
 - **System numbers cited in the lectures** (all from the first deck, not independently verified here): WikiChat at 97% factual accuracy in English across 25 supported languages; SPINACH deployed on the Wikidata query forum with 1,700 conversations and a 78% success rate on 198 sampled ones; Genie Worksheets at 80% accuracy against 0–10% for GPT-4 function calling; STORM with 800,000 organic users and 1.4 million articles written.
 - **The NLP building blocks lecture on November 12**: it covers CHURRO, a 3B-parameter vision-language model for recognizing historical documents, published at [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1763/).
 - **Unconfirmed**: (1) the official reason for the rename — ExploreCourses, the course site, and the OVAL site all say nothing about it; (2) whether autumn 2026 reuses the 2025 assignments and reading list, since the new syllabus is not up; (3) the 2026–2027 entry lists only Monica Lam, with no course staff yet, so there is no way to tell whether the team changed.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

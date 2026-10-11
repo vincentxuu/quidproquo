@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 9 講：Transformer 走出文字，LLM 不再從左寫到右"
+title: "Transformer 走出文字，LLM 不再從左寫到右｜Stanford CME295 第 9 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ glossary:
 前八講一路把「一句話怎麼變成一個會推理、會用工具、還能被評分的模型」講完了。最後一講往外推了兩步。第一，Transformer 能不能拿來看圖？第二，LLM 一定要從左到右一個字一個字寫嗎？投影片的議程分成四塊：Recap、Beyond Transformer-based LLMs、Diffusion LLMs、Closing thoughts。
 
 這堂課不在考試範圍，內容也最雜。本篇只挑兩條主線細講，Vision Transformer 與 diffusion LLM，其餘趨勢快速帶過。diffusion 的數學細節，會留到 2026 版新開的整講上架後再寫。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 9 講 Recap & Current Trends（頁面日期 2025-12-05，長 1:51:31，與本文相符）；章節是前八講回顧、Vision Transformer、Diffusion-based LLMs、結語，與本文講 ViT 與 diffusion LLM 的主體一致。本文只引投影片，沒有轉述課堂口述。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 八張圖複習一整學期
 
@@ -276,6 +256,26 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 - 影像 diffusion 的數學：[CS229 第 14 章：擴散模型](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 推論成本為什麼卡在記憶體：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - 回到起點：[本系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 9 講 Recap & Current Trends（頁面日期 2025-12-05，長 1:51:31，與本文相符）；章節是前八講回顧、Vision Transformer、Diffusion-based LLMs、結語，與本文講 ViT 與 diffusion LLM 的主體一致。本文只引投影片，沒有轉述課堂口述。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

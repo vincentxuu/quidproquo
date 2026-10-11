@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 10: Why Two DFS Passes Find Strongly Connected Components"
+title: "Why Two DFS Passes Find Strongly Connected Components | Stanford CS161 Lecture 10"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, graph-algorithms, strongly-connected-components]
@@ -22,16 +22,6 @@ This is article 11 in [Reading Stanford CS161](/en/series/stanford-cs161), cover
 I used the [official Lecture 10 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components), the public notes, and the public slides. The slides run the original graph first and reverse it second; the notes use the equivalent reverse-first orientation. I show both but keep the full proof in the notes orientation so that the passes never get mixed. I did not use the Canvas-only recording, and I do not present the inherited `winter2025-extra` notebook as newly authored Winter 2026 material.
 
 Lecture 9 established that DFS from any vertex of an undirected component reaches the whole component. Directed graphs are harder. Reachability from u to v does not imply a return path. One DFS produces a reachable set, not mutual reachability. Lecture 10 contracts SCCs into a DAG and uses finish times to decide where a second DFS can start without escaping into another unprocessed component.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
-
-Checked: 2026-10-10.
 
 ## Directed graphs need two notions of connectivity
 
@@ -165,6 +155,16 @@ Lecture 11 turns to weighted shortest paths. SCC decomposition is not itself a s
 To verify both official forms, draw one graph with three SCCs and run `G→G^T` and `G^T→G`. Record finish order and second-pass trees. Vertex times may differ, while the component partition must agree.
 
 An implementation can return both a component ID per vertex and the condensation DAG. Convert every original edge `(u,v)` to `(comp[u],comp[v])`, then remove self-loops and duplicates. This is an extension exercise from this article, not an additional Winter 2026 requirement.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

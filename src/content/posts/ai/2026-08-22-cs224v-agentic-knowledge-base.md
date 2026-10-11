@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 10 講：SPINACH Agent 如何逐步探索 Wikidata 並寫 SPARQL"
+title: "SPINACH Agent 如何逐步探索 Wikidata 並寫 SPARQL｜Stanford CS224V 第 10 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, knowledge-graph, sparql, agentic-ai]
@@ -19,27 +19,6 @@ description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 這堂標題本來就叫 Agentic AI for Knowledge Base Queries，屬於 Fall 2025 歷史課綱；不能因為 CS224V 在 2026–27 學年整門改名 Agentic AI，就把新版內容混進來。第十講的範圍很明確：讓 agent 像熟悉 Wikidata 的人一樣，邊查 schema 邊建立 SPARQL。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（知識圖譜 agent 查詢（Wikidata／SPARQL））；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 13 講（約 1 小時 29 分），字幕以 Wikidata 知識圖譜（自動字幕寫成 Wiki data）與 SPARQL（字幕寫成 sparkle）查詢為主，有 SPINACH 資料集、ReAct 式的行動與觀察迴圈，以及 FEC 資料庫，與本文主題相符；本文細節與數字取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
-title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
-```
-
-原始影片：[CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：KBQA、agent、資料集
 
@@ -150,6 +129,27 @@ Agent 可能重複同一個無結果 action。SPINACH 偵測重複、rollback，
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片提供 action 定義、prompt 摘要與結果表，沒有完整 evaluation harness、全部 trace 或課堂討論。本文只描述 Fall 2025 講義中的 SPINACH，不用 2026 新課名推論課程方向。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（知識圖譜 agent 查詢（Wikidata／SPARQL））；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 13 講（約 1 小時 29 分），字幕以 Wikidata 知識圖譜（自動字幕寫成 Wiki data）與 SPARQL（字幕寫成 sparkle）查詢為主，有 SPINACH 資料集、ReAct 式的行動與觀察迴圈，以及 FEC 資料庫，與本文主題相符；本文細節與數字取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
+title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
+```
+
+原始影片：[CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 13：位址空間、relocation、base-and-bound 與保護"
+title: "位址空間、relocation、base-and-bound 與保護｜Stanford CS111 第 13 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 14 篇，對應 **Stanford CS111, Spring 2026, Lecture 13**。2026-04-27 由 Mendel Rosenblum 主講，官方題目是 [Virtual Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/13/Lecture13.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 前半課程把一個 core 分享給 concurrent threads；從今天開始，要把一份 physical memory 分享給 concurrent processes。PDF 採歷史順序，讓每個新機制都針對前一版的失敗，而不是直接把現代 virtual memory 當成魔法。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Single-tasking 與四個 memory-sharing goals
 
@@ -98,6 +90,14 @@ Reference 必須同時提供 segment number 與 offset。PDP-10 例子用 high-o
 Segmentation 仍有限制。固定 segment 數量無法自然支援任意多 mappings，例如 `mmap` files；variable-length physical allocations 仍造成 fragmentation；address space 被 rigidly divided，program/ISA 必須知道某 reference 屬於哪個 segment。
 
 所以 segmentation 改善了 base/bound 的「一區到底」，卻沒有消除 variable-size placement。下一步 paging 會把 address space 切成固定大小 pages，以另一種 metadata 與 translation trade-off 解決。Lecture 13 的核心方法是保留四個 goals，再逐代定位哪個 representation 太弱：load-time relocation 缺 runtime protection，base/bound 只有一區，segmentation 又受固定數與 variable lengths 限制。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L10: Video Understanding — What Changes When You Add a Time Axis"
+title: "Video Understanding — What Changes When You Add a Time Axis | Stanford CS231N Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,24 +34,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en) moved the output from one label per image to every object and every pixel. This lecture extends in a different direction: **the input gains a time axis**. The slides set it up in one line: a video is a sequence of images, a 4D tensor of shape T×3×H×W.
 
 One question ties the lecture together: **where in the network do you handle the extra T, and at what cost?** Each architecture is a different answer.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 10 (length 1:08:44, guest speaker Ruohan Gao, confirmed by the spoken introduction). The transcript covers early/late fusion, 3D convolutions, optical flow and two-stream networks, I3D weight inflation, temporal action localization, audio-visual sound separation, and only a closing mention of egocentric video streams, broadly matching the article's topic. The HourVideo/AirPods long-video question-answering example is not in the transcript; it comes from the 2026 slides. It does not name TimeSformer, Video Swin, MViT, tubelets or AVA and has no token-count table; those details come from the 2026 slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=wElqklprhPE
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
-
-Course and recording entries:
-
-- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Task and data: from objects to actions
 
@@ -165,6 +147,24 @@ So far everything classifies short clips. The second half extends in three direc
 - Why long sequences are expensive and how to split them across GPUs: the next post, [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en)
 
 **Series navigation**: Previous: [L9: Object Detection, Segmentation, and Visualization](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en) | Next: [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 10 (length 1:08:44, guest speaker Ruohan Gao, confirmed by the spoken introduction). The transcript covers early/late fusion, 3D convolutions, optical flow and two-stream networks, I3D weight inflation, temporal action localization, audio-visual sound separation, and only a closing mention of egocentric video streams, broadly matching the article's topic. The HourVideo/AirPods long-video question-answering example is not in the transcript; it comes from the 2026 slides. It does not name TimeSformer, Video Swin, MViT, tubelets or AVA and has no token-count table; those details come from the 2026 slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=wElqklprhPE
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

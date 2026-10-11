@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L03: Optimization Overview — SGD, Adam, LR Schedules & Scaling Rules"
+title: "Optimization Overview — SGD, Adam, LR Schedules & Scaling Rules | MIT 6.7960 Lecture 3"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,32 +21,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) This site's L03 post covers the topic of "optimization", which has no single matching OCW lecture; the related videos are spread over two lectures: Lec 02 How to Train a Neural Net (taught by Sara Beery: SGD, momentum, backpropagation) and [Lec 07 Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/) (taught by Jeremy Bernstein: using steepest descent and norms to derive why the best learning rate drifts with network width, and how to make it width-independent). The rest of this article (Adam/AdamW, learning-rate schedules, batch-size scaling rules, the decision tree) is this site's own synthesis from the general literature, not a segment-by-segment summary of these two videos.
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the “L03” in this article’s title is this site’s series numbering; OCW Lec 03 is actually Approximation Theory, and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
-
-```youtube
-url: https://www.youtube.com/watch?v=vidCX_dMCu0
-title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VcGPE4s_oNw
-title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0), [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
-
-Course and recording entries:
-- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
-- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
-
-Content check: verified against the video transcript (2026-10-10): read the transcripts of Lec 02 (Sara Beery) and Lec 07 (Jeremy Bernstein); neither covers AdamW, LR schedules or batch-size scaling rules, so the old "video timestamps" section and the "lecture derives the Linear Scaling Rule" claim did not hold and were rewritten as an approximate topic order marked as this site's supplement; also corrected the Lec 07 YouTube ID in the references (it wrongly gave Lec 08's Q1HOKrNeh2M).
 
 ## Optimizer Genealogy: From SGD to Adam
 
@@ -226,6 +200,32 @@ print("Saved plot to optimizer_comparison.png")
 | Val loss flat, train loss drops | Overfitting, weight decay too small | Increase wd, add dropout, early stopping |
 | Large batch won't converge | Linear scaling breaks | Switch to sqrt scaling, extend warmup, check BN stats |
 | AdamW weight decay ineffective | Used `weight_decay` param but optimizer is Adam | Use `torch.optim.AdamW` (decoupled) |
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the “L03” in this article’s title is this site’s series numbering; OCW Lec 03 is actually Approximation Theory, and OCW has no lecture dedicated to Adam or learning-rate schedules. The two videos below are related lectures: Lec 02 How to Train a Neural Net (SGD, backpropagation, automatic differentiation) and Lec 07 Scaling Rules for Optimization. They are topical supplements and do not verify that the whole article comes from these lectures.
+
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0), [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+Course and recording entries:
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
+
+Content check: verified against the video transcript (2026-10-10): read the transcripts of Lec 02 (Sara Beery) and Lec 07 (Jeremy Bernstein); neither covers AdamW, LR schedules or batch-size scaling rules, so the old "video timestamps" section and the "lecture derives the Linear Scaling Rule" claim did not hold and were rewritten as an approximate topic order marked as this site's supplement; also corrected the Lec 07 YouTube ID in the references (it wrongly gave Lec 08's Q1HOKrNeh2M).
 
 ## Update Log
 

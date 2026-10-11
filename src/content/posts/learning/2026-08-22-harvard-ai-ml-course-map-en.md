@@ -1,5 +1,5 @@
 ---
-title: "Harvard AI/ML Course Guide: Do CS50 AI, CS181, and CS182 Videos Match Their Assignments?"
+title: "From AI Foundations to Machine Learning: Learning Paths through CS50 AI, CS181, and CS182 | Global AI/CS Course Map"
 date: 2026-08-22
 category: learning
 tags: [harvard, ai-course, machine-learning, learning-path, open-course]
@@ -24,19 +24,6 @@ CSCI S-80 Summer 2026 was a formal Harvard Summer School offering, but that does
 The undated [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/) uses a 2023 distribution for the same project and a 2024 `check50` slug. All access judgments below reflect an audit performed on **August 22, 2026**.
 
 This guide therefore separates **the offering, lecture assets, assignment assets, and feedback system** before reconstructing Harvard's internal AI/ML route.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
-- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
-- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
-- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
-- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
-- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
 
 ## Harvard's formal foundation is not CS50 AI
 
@@ -122,6 +109,19 @@ Harvard's clearest lesson is that a polished public page still needs an asset-le
 - 2026-08-27: Added a six-round audit disclaimer — CS182 2026/2025/2024/2023 are all A0 for the current offering (Locator Canvas unpublished, no public homework repo; only F22 22-lecture + F18 P0–5 as historical A2); CS181 four-year comparison (two midterms vs midterm+final, hw3–5 reshuffle, practical lifecycle) and the deleted Google Sheet note; weekly guides will use homework numbers as the clock.
 - 2026-08-26: Backfilled an internal link — the [CS50 AI deep dive](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en) is now live; linked it from the version-comparison passage.
 - 2026-08-22: Standardized the A0/A1 boundary, re-rated catalog-only Fall 2026 courses as A0, and separated future tracking from current self-study routes.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
+- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
+- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
+- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
+- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
+- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
 
 ## References
 

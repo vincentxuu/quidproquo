@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW6: Learning Theory, MLE/MAP, and Fairness Metrics"
+title: "Learning Theory, MLE/MAP, and Fairness Metrics | CMU 10-301 Assignment 6"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, learning-theory, ai-ethics]
@@ -21,6 +21,18 @@ Learning theory asks when a sample supports population claims. MLE and MAP expos
 ## First check and completion
 
 Open the [`fairness_dataset.csv` inside the ZIP](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip) and identify columns, groups, labels, and predictions before computing a metric. Completion means listing assumptions for every bound/estimator, reproducing fairness calculations from the CSV, and separating mathematically supported results from value judgments in societal-impact responses. There are no official answers to claim as verification.
+
+## Identify a fairness metric’s denominator
+
+This is an invented teaching example, not an official assignment solution.
+
+In invented group data, A has ten actual positives, eight predicted positive; B has five actual positives, four predicted positive. Both true-positive rates are 0.8. The denominator is actual positives, not the entire group population.
+
+**Check and answer:** Does this prove all fairness conditions hold? No: without actual negatives, incorrect predictions, and group totals, false-positive rates or selection rates cannot be computed. Equal TPR establishes only equality on that metric.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 - [HW6 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip)

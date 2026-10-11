@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石作業導讀：Fall 2024 HW0–HW5 練什麼、要什麼資料，附 Fall 2026 hw0／hw1"
+title: "林軒田機器學習基石作業導讀：Fall 2024 HW0–HW5 練什麼、要什麼資料，附 Fall 2026 hw0／hw1｜台大林軒田 機器學習基石與技法 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,20 +42,6 @@ glossary:
 2. **評分只限修課生。** 作業交到 Gradescope，討論在 Discord 與 NTU COOL（Fall 2024 是 40495，Fall 2026 是 63348），都需要修課身分或台大帳號。
 
 所以本篇**不給答案**，只說每題在練什麼、需要什麼資料，以及怎麼自己驗證結果。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
-- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
-
-2026-10-10 已即時查過官方 MOOC 頁與兩份播放清單：播放清單只有講課影片，沒有這篇談的作業說明影片（題目是 NTU 課程頁上的 PDF）。
-
-查核日期：2026-10-10。
 
 ## 作業長什麼樣
 
@@ -209,6 +195,20 @@ hw2 以後依課程計畫在 10/07 起陸續公布，截至 2026-09-30 都還沒
 技法部分的 HW6、HW7 與期末專題（虛構的 HTMLB 棒球勝負預測）在下一篇[技法作業與期末專題](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)。上一篇是[T16 Finale 與現代深度學習補充](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)。
 
 各份作業對應的講次導讀：[L1–L3](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)、[L4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)、[L5–L6](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function)、[L7–L8](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)、[L9–L10](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)、[L11–L12](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)、[L13–L14](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)、[L15–L16](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)。
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+2026-10-10 已即時查過官方 MOOC 頁與兩份播放清單：播放清單只有講課影片，沒有這篇談的作業說明影片（題目是 NTU 課程頁上的 PDF）。
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

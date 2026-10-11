@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 8 講：從 instruction tuning、RLHF 到 DPO"
+title: "從 instruction tuning、RLHF 到 DPO｜Stanford CS224N 第 8 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 8 講排在 2026 年 1 月 29 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture08-posttraining.pdf)題為 **Post-training (RLHF, SFT, DPO)**。agenda 依序是 instruction fine-tuning、RLHF、InstructGPT/ChatGPT、RL 與 reward modeling 的限制、DPO，以及人類偏好資料與 AI feedback。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
-
-```youtube
-url: https://www.youtube.com/watch?v=35X6zlhoCy4
-title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma
-```
-
-原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma](https://www.youtube.com/watch?v=35X6zlhoCy4)
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Lecture 10（約 80 分鐘，YouTube 標題署名 Archit Sharma，字幕本身沒有出現講者姓名）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕依序涵蓋 prompting、instruction fine-tuning（SFT）、以摘要為例的偏好資料與 reward model（含 Bradley-Terry）、為何要加與初始模型的 KL 懲罰，再到 DPO 的推導（約 70% 之後），與本文主線相符。講者明說課程不假設強化學習背景，PPO／REINFORCE 不展開（字幕沒有 proximal 或 policy gradient 的推導），所以本文 PPO objective 一節只依 Winter 2026 投影片；字幕也沒有 AI feedback、Constitutional AI 或 LLM-as-judge 的討論，本文「人類與 AI feedback」與品質控制兩節同樣不是影片內容。
 
 ## 預測下一詞不等於協助使用者
 
@@ -135,6 +115,26 @@ Capability regression：新行為學會了，舊任務退化。Over-refusal：�
 ## 材料缺口與編號註記
 
 Winter 2026 錄影不公開。投影片封面保留「Lecture 7: Post-training」舊標籤，但官方課表、日期與檔名確認它是 regular Lecture 8。本文覆蓋六段 agenda，不補寫口頭案例。
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=35X6zlhoCy4
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma
+```
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 10 - Post-training by Archit Sharma](https://www.youtube.com/watch?v=35X6zlhoCy4)
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是 2024 年春季 Lecture 10（約 80 分鐘，YouTube 標題署名 Archit Sharma，字幕本身沒有出現講者姓名）與本文（以 Winter 2026 投影片為準）的主題關係，不是 2026 課堂錄影。字幕依序涵蓋 prompting、instruction fine-tuning（SFT）、以摘要為例的偏好資料與 reward model（含 Bradley-Terry）、為何要加與初始模型的 KL 懲罰，再到 DPO 的推導（約 70% 之後），與本文主線相符。講者明說課程不假設強化學習背景，PPO／REINFORCE 不展開（字幕沒有 proximal 或 policy gradient 的推導），所以本文 PPO objective 一節只依 Winter 2026 投影片；字幕也沒有 AI feedback、Constitutional AI 或 LLM-as-judge 的討論，本文「人類與 AI feedback」與品質控制兩節同樣不是影片內容。
 
 ## 更新紀錄
 

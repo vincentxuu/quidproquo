@@ -1,5 +1,5 @@
 ---
-title: "支援向量機：間隔、對偶與 SMO"
+title: "支援向量機：間隔、對偶與 SMO｜Stanford CS229 第 6 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 6 章〈Support vector machines〉，講義頁碼 60–78。它是 **2026 notes 的逐章導讀**，不是任何一學期錄影內容的重建。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=lDwow4aOrtg
-title: Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8NYoQiRANpg
-title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
-```
-
-原始影片：[Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=lDwow4aOrtg)、[Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 6（約 81 分鐘）前約三分之二還在收尾 Naive Bayes（Laplace 平滑、文字分類的 event model），約 55% 之後才開始介紹 SVM，約 70% 起講 functional margin、geometric margin 與 optimal margin classifier，結尾預告 kernel；Lecture 7（約 80 分鐘）開頭接 optimal margin classifier 的最佳化問題與 representer theorem，主體是 kernel（見第 5 章），尾段有 L1 soft margin。本章的 Lagrange 對偶推導、KKT 與 SMO，兩支字幕都沒有講（Lecture 6 完全沒出現 Lagrange，兩支都沒有 SMO），那幾節只依講義；兩支合起來只對得上本章前半（margin、最大間隔最佳化）與 soft margin 的概念。
 
 ## 從「分對」到「離邊界夠遠」
 
@@ -100,6 +74,32 @@ Sequential minimal optimization（SMO）在對偶問題中一次挑兩個 \(\alp
 ## 自學練習
 
 在二維資料上畫出可分情況的最大間隔線、兩側 margin 與 support vectors。加入一個離群點後，分別用三個 \(C\) 訓練 soft-margin SVM，記錄間隔寬度、違規點與 support-vector 數量如何變化。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=lDwow4aOrtg
+title: Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8NYoQiRANpg
+title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+原始影片：[Lecture 6 - Support Vector Machines | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=lDwow4aOrtg)、[Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 6（約 81 分鐘）前約三分之二還在收尾 Naive Bayes（Laplace 平滑、文字分類的 event model），約 55% 之後才開始介紹 SVM，約 70% 起講 functional margin、geometric margin 與 optimal margin classifier，結尾預告 kernel；Lecture 7（約 80 分鐘）開頭接 optimal margin classifier 的最佳化問題與 representer theorem，主體是 kernel（見第 5 章），尾段有 L1 soft margin。本章的 Lagrange 對偶推導、KKT 與 SMO，兩支字幕都沒有講（Lecture 6 完全沒出現 Lagrange，兩支都沒有 SMO），那幾節只依講義；兩支合起來只對得上本章前半（margin、最大間隔最佳化）與 soft margin 的概念。
 
 ## 更新紀錄
 

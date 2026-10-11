@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：BERT 與它的家族——從多義詞問題到 XLNet、RoBERTa、mBERT"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：BERT 與它的家族——從多義詞問題到 XLNet、RoBERTa、mBERT｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,30 +35,6 @@ glossary:
 - 影片：[5.2 BERT 進擊的芝麻街巨人](https://youtu.be/pSQM-HNHA64)（57:29）、[5.3 BERT Variants 效能更好的BERT家族](https://youtu.be/sqldA6AgV7s)（4:09）、[5.4 XLNet 兼顧AE與AR好處的BERT](https://youtu.be/Q-bIzFhVweA)（34:06）、[5.5 RoBERTa & SpanBERT 更多資料更好效能的BERT](https://youtu.be/u6USoD6mRR4)（22:20）、[5.6 Multilingual BERT & XLM 懂多國語言的BERT](https://youtu.be/NAFu7xQKbRE)（12:48）
 
 存取等級沿用系列的 **A2**：本講的講義與影片都公開，但對應的作業 HW1 要在 Kaggle 與 NTU COOL 繳交，校外讀者只能照規格自己練（見[下一篇](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)）。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=pSQM-HNHA64
-title: 5.2 BERT
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=sqldA6AgV7s
-title: 5.3 BERT Variants
-```
-
-原始影片：[5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 5.2（57:29）與 5.3（4:09）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章對這兩支只引用標題與長度，其餘內容依講義。補充確認的事實：這兩支的 YouTube 上傳日與說明欄都是 2023/10/12，是 2023 學期的錄影，不是 2025 重錄。
 
 ## 起點：詞向量不懂多義詞
 
@@ -190,6 +166,30 @@ XLNet 的 permutation language model 在所有可能的分解順序上做 AR 預
 延伸閱讀：站上 [CS224N 第 7 講：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)從另一個角度講 encoder／decoder／encoder-decoder 三種預訓練；[CS224U 的 contextual representation 模型家族](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)也整理了 BERT、RoBERTa、ELECTRA 等模型。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Tokenization 與 BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)｜下一篇 [HW1 中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=pSQM-HNHA64
+title: 5.2 BERT
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sqldA6AgV7s
+title: 5.3 BERT Variants
+```
+
+原始影片：[5.2 BERT](https://www.youtube.com/watch?v=pSQM-HNHA64)、[5.3 BERT Variants](https://www.youtube.com/watch?v=sqldA6AgV7s)、[5.4 XLNet](https://www.youtube.com/watch?v=Q-bIzFhVweA)、[5.5 RoBERTa & SpanBERT](https://www.youtube.com/watch?v=u6USoD6mRR4)、[5.6 Multilingual BERT & XLM](https://www.youtube.com/watch?v=NAFu7xQKbRE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 5.2（57:29）與 5.3（4:09）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章對這兩支只引用標題與長度，其餘內容依講義。補充確認的事實：這兩支的 YouTube 上傳日與說明欄都是 2023/10/12，是 2023 學期的錄影，不是 2025 重錄。
 
 ## 更新紀錄
 

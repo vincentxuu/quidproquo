@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 21：Bellman Equation 如何解 Markov Decision Process"
+title: "Bellman Equation 如何解 Markov Decision Process｜CMU 07-280 第 21 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 **CMU 07-280 Spring 2026 Lecture 21** 從「預測下一 token」切換到「選一連串 actions」。官方題目是 *Markov Decision Processes*。本講的關鍵限制很重要：transition probabilities 與 rewards 已知；問題是如何規劃，而不是如何從互動資料學出環境。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 21 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec21_MDPs.pdf)、[MDP pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MDPs.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並核對 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 的 racing problem。官方頁沒有 Spring 2026 逐講公開錄影，本文不虛構課堂口述。
 
 ## 承上問題：expectimax tree 會無限展開
 
@@ -105,6 +91,20 @@ Recitation 11 用 racing car MDP 要求寫出 transition、reward、discount 影
 ## 今晚可做動作
 
 把上面的 `Stop/Try` MDP 寫成五行迴圈，從 `V_0=0` 做二十次 value iteration。改測 `γ=0,0.5,0.9`，記錄收斂值與 greedy action。然後刻意把「是否已嘗試過」設成會影響 transition、卻不放進 state，觀察 Markov assumption 為何失效。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 21 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec21_MDPs.pdf)、[MDP pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MDPs.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並核對 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 的 racing problem。官方頁沒有 Spring 2026 逐講公開錄影，本文不虛構課堂口述。
 
 ## 更新紀錄
 

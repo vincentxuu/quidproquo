@@ -1,5 +1,5 @@
 ---
-title: "CS149 L2：多核、SIMD、硬體多執行緒，三種平行各解決什麼問題"
+title: "多核、SIMD、硬體多執行緒，三種平行各解決什麼問題｜Stanford CS149 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,23 +41,6 @@ glossary:
 投影片說今天是「從軟體工程師的角度講計算機架構」，要講三個關鍵概念：兩個跟平行執行有關（multi-core、SIMD），一個跟記憶體延遲有關（multithreading）。理解這些，才能最佳化自己的平行程式，也才有直覺判斷哪些工作適合跑在平行機器上。
 
 投影片後段有幾頁用 GPU 當例子。本系列把 GPU 全部留到[第 9 篇 L7 GPU 架構與 CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)，這一篇只談 CPU。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=CKmNpAO5rS4
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 2 - A Modern Multi-Core Processor》（1:16:13）。字幕涵蓋用 pthread 平行化 sinx 例子、SIMD 與條件分支發散、指令層級平行（ILP）、以及用多個硬體執行緒蓋住 load 延遲並把利用率拉到 100% 的練習，主題與本文一致。另發現「2023 影片的最後一段屬於下一篇」的說法與字幕不符：影片結尾停在執行緒利用率與硬體多執行緒，講者說下次再接記憶體與 superscalar，字幕沒有 A[i]×B[i] 的頻寬例子，已更正。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 開場複習
 
@@ -243,6 +226,23 @@ int y = A[x];
 ---
 
 **系列導覽**：[← 上一篇 L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency) ｜ [系列總覽](/posts/ai/2026-09-30-cs149-course-overview) ｜ 下一篇 [L3 延遲 vs 頻寬 + ISPC →](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=CKmNpAO5rS4
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 2 - A Modern Multi-Core Processor》（1:16:13）。字幕涵蓋用 pthread 平行化 sinx 例子、SIMD 與條件分支發散、指令層級平行（ILP）、以及用多個硬體執行緒蓋住 load 延遲並把利用率拉到 100% 的練習，主題與本文一致。另發現「2023 影片的最後一段屬於下一篇」的說法與字幕不符：影片結尾停在執行緒利用率與硬體多執行緒，講者說下次再接記憶體與 superscalar，字幕沒有 A[i]×B[i] 的頻寬例子，已更正。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

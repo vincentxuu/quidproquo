@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 11 (Finale): From Waiting for Orders to Acting First — Proactive Agents and Demo Day"
+title: "(Finale): From Waiting for Orders to Acting First — Proactive Agents and Demo Day | Stanford CS329Z Week 11"
 date: 2026-09-10
 updated: 2026-09-12
 category: ai
@@ -26,17 +26,6 @@ Picture two assistants. The first waits for your orders and never moves until to
 The difference is not model size but who moves first. A reactive agent's loop starts with your instruction; a proactive agent's loop starts with its observations of you. Observation takes a pair of eyes, inference takes a user model, and acting takes rules for when to interrupt. Those three are exactly the three protagonists of this week's main reading.
 
 Week 11 is arranged like a closing act. Monday (Proactive Agents) assigns Shaikh et al.'s [General User Models](https://arxiv.org/abs/2505.10831), with a follow-up paper on Next Action Prediction plus privacy-and-trust discussion. Wednesday (Open Problems & Final Demos) has no single assigned reading: the course lays out multimodal agents, web and computer use, science agents, long-running architectures, and production observability, converging on three open directions. My Wednesday write-up below is framed as the course's view, not any one paper's claim. Paper-video peer reviews are also due Monday, and Demo Day lands in finals week under the theme Making Life at Stanford Better with Agents.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## GUM: turning screen traces into a user model
 
@@ -102,6 +91,17 @@ Production observability is Wednesday's other half. Tracing, monitoring, and cos
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Made the Week 10 Thanksgiving recess explicit in the series map and course-material checklist so the Week 9-to-11 jump no longer looks like a missing post.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

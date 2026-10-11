@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 13 & 15: Convergence, Momentum, Adam, SGD"
+title: "& 15: Convergence, Momentum, Adam, SGD | Berkeley CS189 Lecture 13"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, gradient-descent, optimization]
@@ -23,31 +23,6 @@ This guide follows the public materials of [CS189 Spring 2026](https://eecs189.o
 The earlier lectures on linear and logistic regression were about *what* to minimize. Starting with Lec 13, the course asks *how* to minimize it. The answer is gradient descent: take a small step against the gradient and repeat until convergence. These two lectures deal with three questions. How big can a step be before training diverges? What do you do when the landscape is flat or badly skewed? And what if the dataset is too large to compute a full gradient at every step?
 
 On the schedule, Lec 13 (3/3) and Lec 15 (3/10) sit on either side of Lec 14 (MLE/MAP). This series combines the two optimization lectures into one post and covers Lec 14 in the [next one](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy-en).
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=1EAoNdjsOZw
-title: Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6zV_GGgUa0Y
-title: Lecture 15 recording: Learning with Gradient Descent
-```
-
-Original videos: [Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent](https://www.youtube.com/watch?v=1EAoNdjsOZw)、[Lecture 15 recording: Learning with Gradient Descent](https://www.youtube.com/watch?v=6zV_GGgUa0Y)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 13 video (1EAoNdjsOZw, about 77 minutes; "Conv." in the title abbreviates Convergence) builds up gradient descent from scratch using house-price regression (from derivative to gradient, the Kaggle test set, convex functions, the learning rate and convergence condition on a 1-D quadratic, mini-batches), but the transcript contains no Hessian eigendecomposition derivation, momentum, or Adam; those sections of this post come from the lec13.pdf slides and handwritten notes, not from this video. The Lecture 15 video (6zV_GGgUa0Y, about 77 minutes) is indeed Learning with Gradient Descent: it computes the loss and gradient for a linear model with parameters w1, w2, and b on a small table, then covers momentum, AdaGrad, Adam, and mini-batch SGD; the instructor opens by saying extra content was added to connect the material. The transcripts do not name the speakers, so speaker attribution (including "Dimakis's hand calculation") is not verified.
 
 ## Where the materials are
 
@@ -154,6 +129,31 @@ Previous: [Lec 11–12: classification and logistic regression](/posts/learning/
 1. Open the small data table at the start of `lec15.pdf`, compute the gradient by hand and take one update step. Make sure you can write down dJ/dw1.
 2. Take a 2D quadratic (for example the slides' `(w0 − 1)² + (w1 − 2)² + 1`), multiply the coefficient in one direction by 100, run gradient descent in NumPy, and find the smallest η that makes it diverge. Compare it with `2/λ_max`.
 3. Do the first problem of Discussion 7 before watching its walkthrough.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=1EAoNdjsOZw
+title: Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6zV_GGgUa0Y
+title: Lecture 15 recording: Learning with Gradient Descent
+```
+
+Original videos: [Lecture 13 recording: Conv. + Momentum + Adam + Stochastic Gradient Descent](https://www.youtube.com/watch?v=1EAoNdjsOZw)、[Lecture 15 recording: Learning with Gradient Descent](https://www.youtube.com/watch?v=6zV_GGgUa0Y)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 13 video (1EAoNdjsOZw, about 77 minutes; "Conv." in the title abbreviates Convergence) builds up gradient descent from scratch using house-price regression (from derivative to gradient, the Kaggle test set, convex functions, the learning rate and convergence condition on a 1-D quadratic, mini-batches), but the transcript contains no Hessian eigendecomposition derivation, momentum, or Adam; those sections of this post come from the lec13.pdf slides and handwritten notes, not from this video. The Lecture 15 video (6zV_GGgUa0Y, about 77 minutes) is indeed Learning with Gradient Descent: it computes the loss and gradient for a linear model with parameters w1, w2, and b on a small table, then covers momentum, AdaGrad, Adam, and mini-batch SGD; the instructor opens by saying extra content was added to connect the material. The transcripts do not name the speakers, so speaker attribution (including "Dimakis's hand calculation") is not verified.
 
 ## Update Log
 

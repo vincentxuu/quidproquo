@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 13: Bayesian Networks II: Gibbs Sampling and the Markov Blanket"
+title: "Bayesian Networks II: Gibbs Sampling and the Markov Blanket | Stanford CS221 Lecture 13"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article follows **Stanford CS221, Autumn 2025, Lecture 13**. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering; the executable lecture artifact is [gibbs_sampling](https://stanford-cs221.github.io/autumn2025-lectures/?trace=gibbs_sampling). The discussion below follows the execution order in `source/gibbs_sampling.py`. Rather than hiding the mathematics behind a finished sampler, the source exposes `ProbTable`, `Bernoulli`, `sample_dict`, and `normalize_dict` so that distributions, updates, and counts remain visible.
 
 > Material gap: the official executable lecture and course site are public. This article does not treat Canvas-only interactions, assignment solutions, or hidden tests as known material. The public lecture repository is the lecture artifact, not a complete record of every classroom activity.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 13, the same term and lecture number this article follows. It matches item 13 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=Dk7Kqqehzjk
-title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling](https://www.youtube.com/watch?v=Dk7Kqqehzjk)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 13) and confirmed it covers a rejection-sampling recap, Gibbs sampling, Markov blankets, and conditional independence, matching this article's lecture and topic; no mismatch found.
 
 ## TL;DR
 
@@ -206,6 +186,26 @@ The medical-diagnosis example names Cold (C), Allergies (A), Cough (H), and Itch
 The main line of Lecture 13 is not that Gibbs sampling universally replaces rejection sampling. It progressively narrows the work of one inference update: represent the joint with Bayesian-network factors; condition on evidence; marginalize and normalize; observe that rejection regenerates and wastes rare evidence; keep an evidence-satisfying state and resample one variable; exploit the Markov blanket to keep only local factors; then use graph structure to reason about independence.
 
 When reading or implementing this source, three calculations should be reproducible by hand: how candidate joint products become a conditional distribution; why a Markov blanket permits particular factors to cancel; and why rare evidence versus strong correlation harms the two samplers in different ways. Burn-in, multi-chain diagnostics, error bounds, and a fuller convergence theory are not developed here. The artifact only points to inaccurate finite estimates, mixing times, and the possibility that the simple method is slow. Those limits should remain visible rather than being filled in with guarantees the source does not provide.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 13, the same term and lecture number this article follows. It matches item 13 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=Dk7Kqqehzjk
+title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling](https://www.youtube.com/watch?v=Dk7Kqqehzjk)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 13) and confirmed it covers a rejection-sampling recap, Gibbs sampling, Markov blankets, and conditional independence, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

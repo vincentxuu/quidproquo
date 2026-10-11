@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L18：遷移學習（Transfer Learning）—— 預訓練、特徵抽取、與微調策略"
+title: "遷移學習（Transfer Learning）—— 預訓練、特徵抽取、與微調策略｜MIT 6.7960 第 18 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -32,25 +32,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 18）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
-title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 18 字幕（Sara Beery，1:25:41）：主題確實是遷移學習，但字幕講的是預訓練／微調的取捨、domain adaptation、蒸餾、foundation model 與 adapter／prompt；字幕沒有 LoRA、SimCLR、MAE，也沒有「特徵抽取／全模型微調／參數高效微調」三分法，已在「三大微調策略」加註為本站補充。
 
 ## 為什麼遷移有效
 
@@ -116,6 +97,25 @@ ImageNet 標註要花幾千小時人類工時，且很多資料根本沒標籤�
 ## 串到 L19
 
 L19 會深入 L18 沒展開的 PEFT（LoRA 數學推導、prefix tuning 細節）、foundation model 與 in-context learning 的關係、以及災難性遺忘問題。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
+title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 18 字幕（Sara Beery，1:25:41）：主題確實是遷移學習，但字幕講的是預訓練／微調的取捨、domain adaptation、蒸餾、foundation model 與 adapter／prompt；字幕沒有 LoRA、SimCLR、MAE，也沒有「特徵抽取／全模型微調／參數高效微調」三分法，已在「三大微調策略」加註為本站補充。
 
 ## 更新紀錄
 

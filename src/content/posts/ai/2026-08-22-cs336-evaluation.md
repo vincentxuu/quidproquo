@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 12：沒有一個真正的 LLM 評分，只有規則不同的遊戲"
+title: "沒有一個真正的 LLM 評分，只有規則不同的遊戲｜Stanford CS336 第 12 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 12: Evaluation**，2026 年 5 月 6 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_12.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_12.py)。
 
 課程在談資料以前先談 evaluation，因為資料會把模型推向你量測的行為。這一講最重要的句子是：沒有唯一正確的 evaluation。你必須先說規則、對象與使用情境，再選 metric。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 12（Evaluation）。字幕涵蓋 perplexity、MMLU／GPQA 類考試型 benchmark、Chatbot Arena 與 LLM-as-judge、SWE-bench／Terminal-Bench／Kaggle 類 agent 評測與 scaffold、ARC、safety benchmark、realism／validity 與 contamination。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=JpAxdTWQJxM
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## Perplexity 平滑，但不等於有用
 
@@ -84,6 +66,24 @@ Benchmark contamination 讓三者更難判斷。模型可能在 pretraining 看�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依其 perplexity、exam、chat、agent、reasoning、安全與 validity 主線整理。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 12（Evaluation）。字幕涵蓋 perplexity、MMLU／GPQA 類考試型 benchmark、Chatbot Arena 與 LLM-as-judge、SWE-bench／Terminal-Bench／Kaggle 類 agent 評測與 scaffold、ARC、safety benchmark、realism／validity 與 contamination。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=JpAxdTWQJxM
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

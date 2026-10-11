@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW10 Spoken Language Model——三種架構、Mimi 的 32 層 token，以及為什麼 Moshi 能邊聽邊說"
+title: "台大李宏毅 ML 2026 導讀：HW10 Spoken Language Model——三種架構、Mimi 的 32 層 token，以及為什麼 Moshi 能邊聽邊說｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW10。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 20 篇，也是最後一篇。上一篇是 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)。
 
 用到的官方材料：作業說明 [hw10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw10.pdf)（42 頁，第 31 頁起是 12 題的完整選項）、[作業 Colab](https://colab.research.google.com/drive/1QBtp0lQrjQbTKB1sLIxoavqhSU7EhG_g?usp=sharing)（32 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW10 Spoken Language Model](https://youtu.be/Gx96VH6ePC4)。課程頁寫 5/29 公告，截止時間 2026/06/18 23:59:59（UTC+8），不收遲交。成績在 2026/06/19 前公布，成績複查到 06/21，學期總成績在 06/22 前公布。助教是陳竣瑋、陳思齊、鄭安妤、尹廷安。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=Gx96VH6ePC4
-title: 助教影片：ML 2026 Spring HW10 Spoken Language Model
-```
-
-原始影片：[助教影片：ML 2026 Spring HW10 Spoken Language Model](https://www.youtube.com/watch?v=Gx96VH6ePC4)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 存取等級：A3，但沒有官方解答
 
@@ -166,6 +147,25 @@ PDF 第 22 頁給了兩個定義：**Realtime** 是輸出延遲短；**Full-Dupl
 不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。作業 repo 的 Model A、Model B 各是什麼模型，本文刻意不寫，因為那就是 Q2 的答案。Q9 的配分 PDF 沒有標。官方解答沒有公開。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)｜這是系列最後一篇
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Gx96VH6ePC4
+title: 助教影片：ML 2026 Spring HW10 Spoken Language Model
+```
+
+原始影片：[助教影片：ML 2026 Spring HW10 Spoken Language Model](https://www.youtube.com/watch?v=Gx96VH6ePC4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

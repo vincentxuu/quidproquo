@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 LLM Systems 導讀：總覽與自學路線——28 份講義、7 份作業全公開，但官方課表未列公開錄影連結、要自備 GPU"
+title: "LLM 系統：串起訓練、推論與部署的自學路線｜CMU 11-868 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,16 +35,6 @@ CMU 11-868 是 [Language Technologies Institute](https://www.lti.cmu.edu/) 的�
 作業的主角是 [MiniTorch](https://llmsystem.github.io/llmsystemhomework)。[作業站 Overview](https://llmsystem.github.io/llmsystemhomework) 說明，它原本是 [Sasha Rush](https://rush-nlp.com/) 的教學框架，本課「extend the original framework to support real cuda kernels」。你先寫 CUDA kernel，再在自己的框架裡做 autodiff、Transformer、融合 kernel，最後才換到 DeepSpeed、SGLang 這些產業框架。
 
 FAQ 把它跟 CMU 另一門 LLM 課 11-667 分得很清楚：11-667 講模型、學習演算法與應用；11-868 講「building systems for LLM, including training, serving, and maintaining」。FAQ 也直說，不想寫底層系統程式碼的人應該去修 11-667。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -220,6 +210,16 @@ HW5（自己寫資料平行與管線平行）要至少兩張 GPU；HW6（DeepSpe
 - [CME295 第 5 講：LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)：一講的篇幅快速掃過 KV cache、分散式訓練與推論加速。
 - [CMU 11-785 深度學習導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：autodiff 與 Transformer 的背景。
 - CMU 10-414/714 Deep Learning Systems（[dlsyscourse.org](https://dlsyscourse.org/)）：也是自己寫框架的課，站上還沒有系列，定位可以先看 [CMU AI／ML 課程地圖](/posts/learning/2026-08-21-cmu-ai-ml-course-map)。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

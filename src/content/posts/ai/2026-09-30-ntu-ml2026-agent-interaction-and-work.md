@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：AI Agent 之間的互動與對工作的衝擊——協作拓撲、狼人殺、Moltbook，以及 AI 寫論文與審論文"
+title: "台大李宏毅 ML 2026 導讀：AI Agent 之間的互動與對工作的衝擊——協作拓撲、狼人殺、Moltbook，以及 AI 寫論文與審論文｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,30 +22,6 @@ draft: false
 用到的官方材料：講義 [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) 第 34–61 頁，以及兩支影片：[AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動](https://youtu.be/mmPmNezjCi0)、[AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例](https://youtu.be/VqB8zMujdjM)。存取等級 **A3**，本講沒有對應的作業或測驗。
 
 這一講多半是「看案例」而不是「學方法」，所以下面照投影片順序走，每段只挑一個重點。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=mmPmNezjCi0
-title: 影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VqB8zMujdjM
-title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例
-```
-
-原始影片：[影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動](https://www.youtube.com/watch?v=mmPmNezjCi0)、[影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例](https://www.youtube.com/watch?v=VqB8zMujdjM)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片（mmPmNezjCi0、VqB8zMujdjM）字幕皆已讀。核對 MacNet 拓撲比較、狼人殺 Mona／Grace、Moltbook 與甲殼教五大教義、三項 Moltbook 分析、Andrew Hall 的 Claude Code 論文與成本比較、ideation-execution gap、AAAI 2026 AI 審查、Agents4Science 247／48 篇等，文中關於影片的說法皆能在字幕找到，未發現錯誤；講義頁碼、論文表格與引用連結屬本站補充，字幕無法驗證。
 
 ## 一、多個 agent 怎麼協作比較有效
 
@@ -123,6 +99,30 @@ title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學�
 延伸閱讀：站上的 [Multi-Agent 安全](/posts/ai/2026-09-18-multi-agent-safety)與 [OpenClaw 的多 agent 設定](/posts/ai/2026-03-28-openclaw-multi-agent)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)｜下一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mmPmNezjCi0
+title: 影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VqB8zMujdjM
+title: 影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例
+```
+
+原始影片：[影片：AI Agent (2/3)：AI Agent 之間可以有什麼樣的互動](https://www.youtube.com/watch?v=mmPmNezjCi0)、[影片：AI Agent (3/3)：AI Agent 對於工作帶來的衝擊 - 以學術研究為例](https://www.youtube.com/watch?v=VqB8zMujdjM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片（mmPmNezjCi0、VqB8zMujdjM）字幕皆已讀。核對 MacNet 拓撲比較、狼人殺 Mona／Grace、Moltbook 與甲殼教五大教義、三項 Moltbook 分析、Andrew Hall 的 Claude Code 論文與成本比較、ideation-execution gap、AAAI 2026 AI 審查、Agents4Science 247／48 篇等，文中關於影片的說法皆能在字幕找到，未發現錯誤；講義頁碼、論文表格與引用連結屬本站補充，字幕無法驗證。
 
 ## 更新紀錄
 

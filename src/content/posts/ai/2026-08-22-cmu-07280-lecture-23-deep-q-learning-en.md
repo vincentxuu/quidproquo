@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 23: From Approximate Q-learning to DQN"
+title: "From Approximate Q-learning to DQN | CMU 07-280 Lecture 23"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Tabular Q-learning stores one number for every `(state, action)`. The Deep Reinforcement Learning segment of **CMU 07-280, Spring 2026, Lecture 23** addresses state explosion. Features and neural networks approximate `Q(s,a)`, allowing one experience to affect many related states.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-There is an important source gap. The Spring 2026 Lecture 23 `Deep_RL` slide and PowerPoint links listed by the course site all returned 404 on August 22, 2026. This article therefore **does not claim to have read the Lecture 23 slides** and does not invent their sequence.
-
-The available primary materials are the [Approximate Q-learning pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Approx_Q-learning.pdf), [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf), plus [Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf). There is no official public Spring 2026 lecture recording. This is a reading of those available materials, not a complete classroom reconstruction.
 
 ## The inherited problem: a Q-table cannot even visit the states
 
@@ -117,6 +101,22 @@ This lecture also reconnects RL to supervised learning: DQN still has inputs, pr
 ## An action for tonight
 
 Do not begin with Atari. Use the two-dimensional linear features above and hand-calculate `y`, TD error, and weight updates for three transitions, then encode them as unit tests. Implement one version using the current network for every target and another that synchronizes a target network every ten steps. Plot not only reward but also TD loss, Q-value magnitude, and the gap between target and online predictions.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+There is an important source gap. The Spring 2026 Lecture 23 `Deep_RL` slide and PowerPoint links listed by the course site all returned 404 on August 22, 2026. This article therefore **does not claim to have read the Lecture 23 slides** and does not invent their sequence.
+
+The available primary materials are the [Approximate Q-learning pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Approx_Q-learning.pdf), [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf), plus [Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf). There is no official public Spring 2026 lecture recording. This is a reading of those available materials, not a complete classroom reconstruction.
 
 ## Update Log
 

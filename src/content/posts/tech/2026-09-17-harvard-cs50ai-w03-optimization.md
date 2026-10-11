@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 3：Optimization——局部搜尋、模擬退火、約束滿足問題與填字遊戲"
+title: "Optimization——局部搜尋、模擬退火、約束滿足問題與填字遊戲｜Harvard CS50 AI 第 3 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 3 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=qK46ET1xk2A
-title: Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=qK46ET1xk2A)
-
-課程與錄影入口：
-
-- [CS50 AI Week 3 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/3/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：原表的整體順序成立，但「Sideways moves」「最小衝突值（min-conflicts）」在字幕中沒有出現，「Local Beam Search」只有一句帶過；字幕另有 AC-3 之前的 node consistency 與 least-constraining value，已補上。字幕全程未提到 Crossword 專案，專案說明來自課程官網。原精確時間碼（尾段到 1:30:00，影片實長 1:44:45）無法驗證，改為依字幕估算的「約」值。
 
 ## TL;DR
 
@@ -304,6 +284,26 @@ style50 generate.py
 - [ ] 理解 LCV（最小衝突值）為何能減少回溯
 - [ ] 能解釋 Crossword 中 `overlaps` 字典如何編碼二元約束
 - [ ] Crossword 專案 `check50` 全綠（大型測資也能在時限內解出）
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 3 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=qK46ET1xk2A
+title: Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Optimization - Lecture 3 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=qK46ET1xk2A)
+
+課程與錄影入口：
+
+- [CS50 AI Week 3 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/3/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：原表的整體順序成立，但「Sideways moves」「最小衝突值（min-conflicts）」在字幕中沒有出現，「Local Beam Search」只有一句帶過；字幕另有 AC-3 之前的 node consistency 與 least-constraining value，已補上。字幕全程未提到 Crossword 專案，專案說明來自課程官網。原精確時間碼（尾段到 1:30:00，影片實長 1:44:45）無法驗證，改為依字幕估算的「約」值。
 
 ## 更新紀錄
 

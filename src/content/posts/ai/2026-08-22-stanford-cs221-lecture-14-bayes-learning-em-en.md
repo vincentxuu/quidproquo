@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 14: Bayesian Networks III: From Counts and Smoothing to EM"
+title: "Bayesian Networks III: From Counts and Smoothing to EM | Stanford CS221 Lecture 14"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 14**, listed on the official schedule as Bayesian Networks III on November 5, 2025. The [official course site](https://stanford-cs221.github.io/autumn2025/) identifies the offering; the article follows the executable [bayes_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes_learning) source in sequence. The useful thread is not “EM as a black box,” but the change from counting complete assignments to counting weighted assignments when a variable is hidden.
 
 > Material gap: the official course page, lectures repository, and executable lecture artifact are public; Canvas recordings, classroom whiteboard interactions, assignment solutions, and hidden tests are not part of this public source. I do not fill those gaps with another year's lecture notes.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 14, the same term and lecture number this article follows. It matches item 14 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=4d9V6Sxa6gU
-title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning](https://www.youtube.com/watch?v=4d9V6Sxa6gU)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 14) and confirmed it covers the end of d-separation/conditional independence, learning parameters by counting and smoothing, HMM structure, and EM with hidden variables, matching this article's lecture and topic; no mismatch found.
 
 ## Put the Bayesian network back in context
 
@@ -143,6 +123,26 @@ There is an identifiability limit as well. The hidden label names are arbitrary.
 The source sequence can be used as an implementation checklist. First ask whether every variable is observed. If yes, count each `(parameter_name, parent_values, value)` assignment and normalize each local bucket. Next decide whether local parameters are shared; that decision determines which observations are pooled. If zero estimates are a problem, seed the counts with pseudocounts and understand the limiting behavior as \(lambda\) changes. If a variable is hidden, do not fabricate its label: optimize the observed-data likelihood, compute posterior weights in the E-step, and run weighted count + normalize in the M-step.
 
 The same checklist also marks the limits supported by this material. Fully observed learning has a closed-form local estimate; incomplete-data learning has a marginalization term inside the log. EM can increase likelihood without reaching the global optimum, its result depends on initialization, and the names of hidden states are permutation-symmetric. The source does not discuss continuous variables, missingness mechanisms, general numerical optimizers, or extra convergence diagnostics here, so those topics remain outside this lecture reconstruction.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 14, the same term and lecture number this article follows. It matches item 14 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=4d9V6Sxa6gU
+title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning](https://www.youtube.com/watch?v=4d9V6Sxa6gU)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 14) and confirmed it covers the end of d-separation/conditional independence, learning parameters by counting and smoothing, HMM structure, and EM with hidden variables, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

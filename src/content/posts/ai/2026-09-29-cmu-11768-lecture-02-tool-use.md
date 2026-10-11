@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L2：Tool Use 怎麼從 token 變成動作——schema、受限解碼、MCP 與平行呼叫"
+title: "Tool Use 怎麼從 token 變成動作——schema、受限解碼、MCP 與平行呼叫｜CMU 11-768 第 2 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -33,25 +33,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Carnegie Mellon 語言技術研究所（LTI）2026 秋季開的研究所課程，由 Daniel Fried 與 Graham Neubig 主授，從工具、context、記憶、規劃一路講到訓練、安全與互動。第 2 講（8 月 27 日，[投影片](https://www.cmu-agents.com/slides/lecture-02-tool-use.pdf)、[錄影](https://www.youtube.com/watch?v=jXChFB4JSyw)）由 Neubig 主講 Tool Use。他開場就下了定義：會呼叫工具，是 agent 跟語言模型之間最根本的差別。
 
 這一講不是教你「怎麼在 API 裡加 `tools` 參數」。它把工具呼叫從上到下剖開：模型為什麼需要工具、工具呼叫在 token 層長什麼樣、harness 怎麼解析與派送、怎麼保證格式正確、REST 和 MCP 差在哪、多個呼叫怎麼平行、最後怎麼評測。這些內容正是[作業 A1（Harness）](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)要你親手寫出來的部分。本篇照講課順序走，每節最後標出它在 A1 裡對應到哪裡。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 2 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=jXChFB4JSyw
-title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
-```
-
-原始影片：[CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 57 分鐘），逐項對照文章轉述的 Neubig 說法（兩類工具用途、RAG 沒死、CodeAct 與程式的代價、各家 tool-call 格式與特殊 token 問答、call ID 與 Anthropic 報錯、XGrammar 與 token 用完的例外、MCP 憑證中介、平行呼叫與 RL、BFCL、OpenRouter provider 錯誤率與 FP8／FP4），皆有依據；投影片專有的數字與圖表細節（如 6.4 秒範例、15.1% 等）字幕沒講，仍屬投影片來源。
 
 ## 工具是什麼，什麼時候值得叫
 
@@ -235,6 +216,25 @@ Neubig 提了一個現在 agent 圈的怪現象：**更貴的模型按任務計�
 - [MCP（Model Context Protocol）：AI Agent 工具呼叫的標準化協定](/posts/ai/2026-03-22-mcp-model-context-protocol)
 - [MCP vs CLI vs API：Agent 工具介面的真實分界](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)：和本講 REST vs MCP 一節互補
 - [Code Mode：把 tool definition 從 context 搬進 code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)：CodeAct 想法在 MCP 上的實作
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 2 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=jXChFB4JSyw
+title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
+```
+
+原始影片：[CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 57 分鐘），逐項對照文章轉述的 Neubig 說法（兩類工具用途、RAG 沒死、CodeAct 與程式的代價、各家 tool-call 格式與特殊 token 問答、call ID 與 Anthropic 報錯、XGrammar 與 token 用完的例外、MCP 憑證中介、平行呼叫與 RL、BFCL、OpenRouter provider 錯誤率與 FP8／FP4），皆有依據；投影片專有的數字與圖表細節（如 6.4 秒範例、15.1% 等）字幕沒講，仍屬投影片來源。
 
 ## 更新紀錄
 

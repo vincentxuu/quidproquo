@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques T3–T4: Kernel Trick and Soft-Margin SVM — Computing an Infinite-Dimensional Classifier and Keeping It from Overfitting"
+title: "Kernel Trick and Soft-Margin SVM — Computing an Infinite-Dimensional Classifier and Keeping It from Overfitting | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 3–4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ This is part 10 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Te
 **Sources**: the MOOC slides [203_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/203_handout.pdf) and [204_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/204_handout.pdf), videos 10–17 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2), the [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) course pages, and [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), all opened and checked on 2026-09-30. The textbook sections are [LFD](http://amlbook.com) e-8.3 (kernels) and e-8.4 (soft margin), as listed on both course pages; I did not open the chapter itself.
 
 Access level: the MOOC materials are **A2**. Adding the public Fall 2024 HW6 PDF, [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), and the MNIST data brings these two lectures to **A3 (minus grading)**: there are no official solutions, and Gradescope grading is for enrolled students only.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=oOi7kqUTqxw
-title: Kernel Trick
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Fb-WSBvsPak
-title: Polynomial Kernel
-```
-
-Original videos: [Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Where the last post stopped
 
@@ -222,6 +200,28 @@ There are no official solutions. For Q10–Q12, cross-check #SV and the margin w
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): the English course on the same textbook.
 
 Series navigation: previous, [Linear SVM and dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | next, [Kernel logistic regression and support vector regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=oOi7kqUTqxw
+title: Kernel Trick
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fb-WSBvsPak
+title: Polynomial Kernel
+```
+
+Original videos: [Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

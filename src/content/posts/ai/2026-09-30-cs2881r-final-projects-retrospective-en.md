@@ -1,5 +1,5 @@
 ---
-title: "CS2881R Final Projects and Retrospective: 19 Student Papers, the Rubric, and Lessons from Year One"
+title: "19 Student Papers, the Rubric, and Lessons from Year One | Harvard CS2881R Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -24,42 +24,6 @@ draft: false
 **This post is based on the Fall 2025 term of Harvard CS 2881R.** It is part 15, the last part, of the [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en) series. The previous part, [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en), covered the final lecture. This one answers two questions. What research did students produce over the semester? And where did the "reproduce, then extend" course design work, and where does it need fixing?
 
 The first half is for readers who want to run a final project themselves: the spec, the rubric, the topic list, and how the 19 results are spread. The second half is for anyone planning a similar course, or deciding whether this one is worth following: how the TAs and students judged it afterward.
-
-## Course video sources
-
-The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and lists the final-project oral presentations recording (about 75 minutes). The section on the oral presentations in this article is based on that video.
-
-```youtube
-url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
-title: AI Safety (CS 2881) Oral presentations of student projects
-```
-
-Original videos: [AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Oral presentations of student projects” (1:15:40) and confirmed the order of the seven talks (AI-induced Psychosis, Who Said That?, Improving GCG, legal hallucination, Phase Transitions in Backdoor Learning, Subliminal Learning, Evolutionary Alignment), the opening statement of 10 minutes per team including questions, and the two Q&A items (the backdoor team asked about QLoRA 4-bit quantization, the Evolutionary Alignment team asked whether ES is just regularization on GRPO). The captions carry no time codes, so the table's exact start times and `?t=` deep links could not be verified and have been replaced by talk order only.
-
-## Official materials and access
-
-| Material | Contents | Status |
-|---|---|---|
-| [Student Projects page](https://boazbk.github.io/mltheoryseminar/student_projects) | 19 final paper PDFs, 17 poster PDFs, abstracts | Public |
-| [Oral presentation video](https://youtu.be/Xr9FNl0S66Q) | "AI Safety (CS 2881) Oral presentations of student projects", 1:15:40, uploaded 2026-01-07 | Public |
-| [Final Project Outline](https://docs.google.com/document/d/1cB_zHcHQuCua-UlwcbDwNaxN2YQEtp5vKHKmBS9_63I) | Team size, two project types, deliverables, timeline, topic list with mentors | Public (Google Docs) |
-| [Final Project Grading Rubric](https://docs.google.com/document/d/1JA-p0g91_LIB-uTfbZ5PtOfk7KFkIoOC-odrwf-HAiM) | 100-point rubric | Public (Google Docs) |
-| [Reflections on TA-ing Harvard's first AI safety course](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) | Head TA Roy Rinberg's retrospective, 2026-01-15 | Public |
-| [Learnings from AI safety course so far](https://www.lesswrong.com/posts/2pZWhCndKtLAiWXYv) | Boaz Barak's mid-semester notes, 2025-09-27 | Public |
-| [Harvard Q-report](https://boazbk.github.io/mltheoryseminar/assets/q_report.pdf) | Official anonymous course evaluation, 8 pages | Public |
-
-Everything this post uses is public. Two things are missing: each team's grades and TA feedback, and the teams not shown on the projects page. The head TA's retrospective says there were "about ~23 final projects", but the page lists 19 papers, and the gap is not explained.
-
-The series-wide access grade (A3, with a gap list) is in the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en).
 
 ## The final project spec
 
@@ -248,6 +212,42 @@ If you've followed the series this far, the next step is running a final project
 - Previous: [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en)
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - This is the last part of the series.
+
+## Course video sources
+
+The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and lists the final-project oral presentations recording (about 75 minutes). The section on the oral presentations in this article is based on that video.
+
+```youtube
+url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
+title: AI Safety (CS 2881) Oral presentations of student projects
+```
+
+Original videos: [AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Oral presentations of student projects” (1:15:40) and confirmed the order of the seven talks (AI-induced Psychosis, Who Said That?, Improving GCG, legal hallucination, Phase Transitions in Backdoor Learning, Subliminal Learning, Evolutionary Alignment), the opening statement of 10 minutes per team including questions, and the two Q&A items (the backdoor team asked about QLoRA 4-bit quantization, the Evolutionary Alignment team asked whether ES is just regularization on GRPO). The captions carry no time codes, so the table's exact start times and `?t=` deep links could not be verified and have been replaced by talk order only.
+
+## Official materials and access
+
+| Material | Contents | Status |
+|---|---|---|
+| [Student Projects page](https://boazbk.github.io/mltheoryseminar/student_projects) | 19 final paper PDFs, 17 poster PDFs, abstracts | Public |
+| [Oral presentation video](https://youtu.be/Xr9FNl0S66Q) | "AI Safety (CS 2881) Oral presentations of student projects", 1:15:40, uploaded 2026-01-07 | Public |
+| [Final Project Outline](https://docs.google.com/document/d/1cB_zHcHQuCua-UlwcbDwNaxN2YQEtp5vKHKmBS9_63I) | Team size, two project types, deliverables, timeline, topic list with mentors | Public (Google Docs) |
+| [Final Project Grading Rubric](https://docs.google.com/document/d/1JA-p0g91_LIB-uTfbZ5PtOfk7KFkIoOC-odrwf-HAiM) | 100-point rubric | Public (Google Docs) |
+| [Reflections on TA-ing Harvard's first AI safety course](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) | Head TA Roy Rinberg's retrospective, 2026-01-15 | Public |
+| [Learnings from AI safety course so far](https://www.lesswrong.com/posts/2pZWhCndKtLAiWXYv) | Boaz Barak's mid-semester notes, 2025-09-27 | Public |
+| [Harvard Q-report](https://boazbk.github.io/mltheoryseminar/assets/q_report.pdf) | Official anonymous course evaluation, 8 pages | Public |
+
+Everything this post uses is public. Two things are missing: each team's grades and TA feedback, and the teams not shown on the projects page. The head TA's retrospective says there were "about ~23 final projects", but the page lists 19 papers, and the gap is not explained.
+
+The series-wide access grade (A3, with a gap list) is in the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en).
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 20：從 Position Encoding 推到 Causal Self-Attention"
+title: "從 Position Encoding 推到 Causal Self-Attention｜CMU 07-280 第 20 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 Lecture 19 的模型只用一個前 token 預測下一個。**CMU 07-280 Spring 2026 Lecture 20** 問：要同時利用整段 context，該如何保留位置，又讓模型依目前 token 決定要看哪裡？官方題目是 *Attention & Transformers*，投影片從平均 context vectors 一步步推到 GPT-2 skeleton。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並以 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 核對 Building GPT2 對應。官方頁沒有 Spring 2026 逐講公開錄影，因此不描述 slide animation 的現場節奏或教師口述。
-
-Recitation 的 minGPT notebook 位於外部環境；公開 PDF 可確認模型比較、dimension exercises 與示範答案，但不等於完整 notebook／autograder 都匿名開放。
 
 ## 承上問題：平均所有 context 會忘記順序與關聯
 
@@ -108,6 +92,22 @@ Attention weights 告訴我們某一 head 在該 forward pass 如何組合 value
 ## 今晚可做動作
 
 拿 `T=3,d_k=2` 的小矩陣，手算 `QKᵀ/√2`、causal mask、row-wise softmax 與 `AV`。接著寫十行 NumPy 重算，逐一 assert shapes。最後故意把 softmax 改成 column-wise，看每列是否還加總為一；這能比背公式更快抓到實作錯誤。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf)、[Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf)，並以 [HW11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) 核對 Building GPT2 對應。官方頁沒有 Spring 2026 逐講公開錄影，因此不描述 slide animation 的現場節奏或教師口述。
+
+Recitation 的 minGPT notebook 位於外部環境；公開 PDF 可確認模型比較、dimension exercises 與示範答案，但不等於完整 notebook／autograder 都匿名開放。
 
 ## 更新紀錄
 

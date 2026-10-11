@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L16–L17 Efficient Vision: What ViTs, GANs, Video, and Point Clouds Each Waste"
+title: "Efficient Vision: What ViTs, GANs, Video, and Point Clouds Each Waste | MIT 6.5940 Lectures 16–17"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,29 +46,6 @@ glossary:
 "L16 page N" and "L17 page N" below refer to page numbers in these two PDFs. Access level **A3**: slides and video are public, and no lab goes with these lectures. Checked on 2026-09-30.
 
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) keeps "Vision Transformer" (Lecture 16, November 5) but **drops the GAN, Video, and Point Cloud lecture**. Lectures 17 and 18 become Diffusion Model Part I and Part II. As of 2026-09-30 none of these are up yet. For now, the Fall 2024 materials are the only way to study Lecture 17's content.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=v0jYDgaVzlk
-title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=o_60Yhb79W8
-title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk), [EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): For L16 I read the opening (the Halloween and HART demo) and the closing summary: ViT basics, window attention, EfficientViT's linear attention, SparseViT, self-supervision (contrastive learning and MAE) and HART. For L17 I read the opening and ending and checked the middle and later parts: GAN Compression, AnyCost, DiffAugment, TSM (compared with 2D/3D CNNs), PVConv/SPVConv and BEVFusion (the later part of the video fuses camera and LiDAR features into a bird's-eye view using Boston street scenes). Both lectures match this post's topics. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why these two lectures go together
 
@@ -213,6 +190,29 @@ Two threads run through both:
 - ViT and self-supervised learning: [CS231N L8: attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en), [CS231N L12: self-supervised learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
 - GANs: [CS231N L13: autoregressive models, VAEs, and GANs](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
 - Video and 3D: [CS231N L10: video understanding](/posts/ai/2026-09-30-cs231n-video-understanding-en), [CS231N L15: 3D vision](/posts/ai/2026-09-30-cs231n-3d-vision-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=v0jYDgaVzlk
+title: EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o_60Yhb79W8
+title: EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 16 - Vision Transformer (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=v0jYDgaVzlk), [EfficientML.ai Lecture 17 - GAN, Video, Point Cloud (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=o_60Yhb79W8)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): For L16 I read the opening (the Halloween and HART demo) and the closing summary: ViT basics, window attention, EfficientViT's linear attention, SparseViT, self-supervision (contrastive learning and MAE) and HART. For L17 I read the opening and ending and checked the middle and later parts: GAN Compression, AnyCost, DiffAugment, TSM (compared with 2D/3D CNNs), PVConv/SPVConv and BEVFusion (the later part of the video fuses camera and LiDAR features into a bird's-eye view using Boston street scenes). Both lectures match this post's topics. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

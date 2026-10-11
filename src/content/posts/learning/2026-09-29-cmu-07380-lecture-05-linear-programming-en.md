@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 Lecture 5: Linear Programming, and Why the Optimum Sits at a Vertex of the Feasible Region"
+title: "Linear Programming, and Why the Optimum Sits at a Vertex of the Feasible Region | CMU 07-380 Lecture 5"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, linear-programming, optimization]
@@ -25,26 +25,6 @@ In [07-280 Lecture 8](/posts/ai/2026-08-22-cmu-07280-lecture-08-optimization-en)
 The short answer: **if an LP has a finite optimum, the set of optimal points always includes at least one vertex.** A solver only has to check the intersections of constraint boundaries, not the whole plane.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-- [Lec5 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf): pre-reading polls, modeling the Diet Problem, three LP forms, the graphical view, vertex enumeration, simplex intuition, higher dimensions. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx) is also posted
-- [PR3 Linear Programming pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Linear_Programming.pdf) (checkpoint due 9/8): the Diet Problem, matrix dimension checks, dot products, lines and half-planes
-- The seven Desmos demos listed on the site: [Dot Product](https://www.desmos.com/calculator/ns7z4a6t7p), [Cost at points](https://www.desmos.com/calculator/k8mplulyxm), [Zero cost](https://www.desmos.com/calculator/tbzzbwta0g), [Cost contours](https://www.desmos.com/calculator/8d9kxbdq9u), [Constraint](https://www.desmos.com/calculator/hwudcts2yd), [Cost with one constraint](https://www.desmos.com/calculator/ufrnzjgyvb), [LP](https://www.desmos.com/calculator/plp1thgsbh)
-- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): this post uses only Problem 1 (vertex enumeration vs. simplex) and Cargo Plane. Recitation 3 (9/11, also the day of Quiz 1) and Recitation 4 (9/18) share this one PDF
-- Assigned reading: [Boyd & Vandenberghe, *Convex Optimization*](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) §2.2.1 hyperplanes and halfspaces, §2.2.4 polyhedra, §4.3–4.3.1 linear programs and examples (the first example in §4.3.1 is the diet problem)
-
-**Access level**: all of the above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The site has no lecture recordings, and the Canvas checkpoint and Quiz 1 are CMU-only.
 
 ## The starting question: from a word problem to solver input
 
@@ -154,6 +134,26 @@ The branch and bound example in [the next lecture](/posts/learning/2026-09-29-cm
 - Previous: [HW2 guide: Classical and Motion Planning, from Robot-Cook PDDL to RRT\* to Graphing LPs](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
 - Next: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+- [Lec5 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf): pre-reading polls, modeling the Diet Problem, three LP forms, the graphical view, vertex enumeration, simplex intuition, higher dimensions. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx) is also posted
+- [PR3 Linear Programming pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Linear_Programming.pdf) (checkpoint due 9/8): the Diet Problem, matrix dimension checks, dot products, lines and half-planes
+- The seven Desmos demos listed on the site: [Dot Product](https://www.desmos.com/calculator/ns7z4a6t7p), [Cost at points](https://www.desmos.com/calculator/k8mplulyxm), [Zero cost](https://www.desmos.com/calculator/tbzzbwta0g), [Cost contours](https://www.desmos.com/calculator/8d9kxbdq9u), [Constraint](https://www.desmos.com/calculator/hwudcts2yd), [Cost with one constraint](https://www.desmos.com/calculator/ufrnzjgyvb), [LP](https://www.desmos.com/calculator/plp1thgsbh)
+- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): this post uses only Problem 1 (vertex enumeration vs. simplex) and Cargo Plane. Recitation 3 (9/11, also the day of Quiz 1) and Recitation 4 (9/18) share this one PDF
+- Assigned reading: [Boyd & Vandenberghe, *Convex Optimization*](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) §2.2.1 hyperplanes and halfspaces, §2.2.4 polyhedra, §4.3–4.3.1 linear programs and examples (the first example in §4.3.1 is the diet problem)
+
+**Access level**: all of the above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The site has no lecture recordings, and the Canvas checkpoint and Quiz 1 are CMU-only.
 
 ## Update Log
 

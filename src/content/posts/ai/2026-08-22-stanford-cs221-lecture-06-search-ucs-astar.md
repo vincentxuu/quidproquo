@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 6：Search II：UCS 與 A* 的優先順序"
+title: "Search II：UCS 與 A* 的優先順序｜Stanford CS221 第 6 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 6**，2025-10-08 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [ucs_astar](https://stanford-cs221.github.io/autumn2025-lectures/?trace=ucs_astar)。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 6 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 6 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=4Iu4KPVbnAY
-title: Stanford CS221 | Autumn 2025 | Lecture 6: Search II
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 6: Search II](https://www.youtube.com/watch?v=4Iu4KPVbnAY)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 6 支）字幕，確認內容涵蓋 UCS、A*、heuristic 與 consistency、relaxation 設計 heuristic（如 tile 拼圖），與本文的講次與主題相符，未發現錯配。
 
 ## 先回顧：搜尋在解什麼問題
 
@@ -124,6 +104,26 @@ admissibility 則是 `h(s) <= FutureCost(s)`，也就是 heuristic 永遠低估�
 UCS 以 increasing past cost 探索，透過 priority queue、frontier update、DONE/stale-entry accounting 與 backpointer 重建最低成本路徑；在 non-negative costs 下，取出的終點具有 minimum cost。A* 是加上 heuristic 的 UCS：consistent heuristic 讓修改後成本非負，admissible heuristic 提供 future cost 的下界，好的 relaxation 則可能減少探索。
 
 下一講的問題是：如果 action 的 outcome 不再 deterministic，例如擲骰子，搜尋會發生什麼事？至於本講未公開的 Canvas 互動、作業解答、hidden tests 與未提供的數據，仍維持材料缺口，不用另一個 term 或直覺補齊。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 6 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 6 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=4Iu4KPVbnAY
+title: Stanford CS221 | Autumn 2025 | Lecture 6: Search II
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 6: Search II](https://www.youtube.com/watch?v=4Iu4KPVbnAY)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 6 支）字幕，確認內容涵蓋 UCS、A*、heuristic 與 consistency、relaxation 設計 heuristic（如 tile 拼圖），與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

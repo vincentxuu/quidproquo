@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L04：正則化實戰——Weight Decay、Dropout、Batch Norm 與標籤平滑"
+title: "正則化實戰——Weight Decay、Dropout、Batch Norm 與標籤平滑｜MIT 6.7960 第 4 堂"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,27 +21,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 本站 L04 這篇把正則化當成「工程工具箱」來整理：每種技巧解決什麼具體問題、怎麼正確用、怎麼跟其他技巧組合，附可直接套用的決策表與可跑的 PyTorch 程式碼。內容是本站依一般文獻整理的，不是某一講的逐段摘要；OCW 沒有專講 weight decay、dropout、Batch Norm 的講次，詳見下方「課程影片來源」。
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文標題的 L04 是本站系列編號（OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容來自該影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=EiO8BBa-xdc
-title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
-
-內容核對：已依字幕核對（2026-10-10）：讀了嵌入的 Lec 06（Phillip Isola）與相關的 Lec 09（Phillip Isola）兩支字幕；原「影片時間戳」章節（Weight Decay／Dropout／Batch Norm／Label Smoothing 各佔固定分鐘）對不上任何影片，已刪除並改寫為依字幕相對位置的對應說明；原稱 Lec 09 由 Sara Beery 授課也不成立（講者是 Isola），已更正；Lec 09 明確建議不要用 Batch Norm，已如實註明。
 
 ## 正則化四大支柱：機制、效果、適用場景
 
@@ -271,6 +250,27 @@ for name, cfg in configs.items():
 | AdamW weight decay 不生效 | 用了 `optim.Adam(weight_decay=...)` | 改用 `optim.AdamW(weight_decay=...)` |
 | Mixup 後 loss 計算錯誤 | 直接用混合標籤算 CE | 用 `mixup_loss` 線性組合兩個 CE |
 | 小批次 BN 統計量不穩 | Batch size < 16 | 改 GroupNorm(32) 或 LayerNorm |
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表與 Lec 06 頁面核對：本文標題的 L04 是本站系列編號（OCW 的 Lec 04 是 Architectures: Grids）。OCW 沒有一講專門講 weight decay、dropout、Batch Norm 與標籤平滑；Lec 06 Generalization Theory 的官方摘要是 overparameterization、double descent、VC dimension 的限制與 inductive bias，只能當相關背景補充，不能證明本文內容來自該影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=EiO8BBa-xdc
+title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
+
+內容核對：已依字幕核對（2026-10-10）：讀了嵌入的 Lec 06（Phillip Isola）與相關的 Lec 09（Phillip Isola）兩支字幕；原「影片時間戳」章節（Weight Decay／Dropout／Batch Norm／Label Smoothing 各佔固定分鐘）對不上任何影片，已刪除並改寫為依字幕相對位置的對應說明；原稱 Lec 09 由 Sara Beery 授課也不成立（講者是 Isola），已更正；Lec 09 明確建議不要用 Batch Norm，已如實註明。
 
 ## 更新紀錄
 

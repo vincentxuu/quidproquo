@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀 8：進階策略梯度——performance bound、KL、PPO 與 GAE"
+title: "進階策略梯度——performance bound、KL、PPO 與 GAE｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,31 +45,6 @@ glossary:
 存取等級 **A3**。第 7 講後半的模仿學習留給 [order 10](/posts/ai/2026-09-30-cs234-imitation-learning-irl)。
 
 這是系列第二個數學高峰。正文走直覺與結論，證明與定義放進折疊區塊。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
-title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: Lecture 7: Policy Search 3（Spring 2024，YouTube）
-```
-
-原始影片：[Lecture 6: Policy Search 2（Spring 2024，YouTube）](https://www.youtube.com/watch?v=8PwvNQ5WS-o)、[Lecture 7: Policy Search 3（Spring 2024，YouTube）](https://www.youtube.com/watch?v=4ngb0IZTg8I)
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 6「Policy Search 2」後段（約 53% 之後）講單調改進、performance difference lemma、KL／trust region 與 PPO clip，GAE 只在結尾被提到；Lecture 7「Policy Search 3」前半（約 55% 之前）講 GAE、單調改進與 PPO，之後才轉到模仿學習。與本文主題一致；「YouTube 章節」改為「字幕」，時間改為「約」值。
 
 ## 場景：一步走太大，表現就崩了
 
@@ -255,6 +230,31 @@ A2 第 2.4 節的 PPO 跟投影片的 clipped 變體是同一個目標，只是�
 - [Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 
 **系列導覽**：上一篇 [order 7：策略梯度——REINFORCE、baseline、actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)｜下一篇 [order 9：A2——REINFORCE、baseline、PPO 實作](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: Lecture 7: Policy Search 3（Spring 2024，YouTube）
+```
+
+原始影片：[Lecture 6: Policy Search 2（Spring 2024，YouTube）](https://www.youtube.com/watch?v=8PwvNQ5WS-o)、[Lecture 7: Policy Search 3（Spring 2024，YouTube）](https://www.youtube.com/watch?v=4ngb0IZTg8I)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 6「Policy Search 2」後段（約 53% 之後）講單調改進、performance difference lemma、KL／trust region 與 PPO clip，GAE 只在結尾被提到；Lecture 7「Policy Search 3」前半（約 55% 之前）講 GAE、單調改進與 PPO，之後才轉到模仿學習。與本文主題一致；「YouTube 章節」改為「字幕」，時間改為「約」值。
 
 ## 更新紀錄
 

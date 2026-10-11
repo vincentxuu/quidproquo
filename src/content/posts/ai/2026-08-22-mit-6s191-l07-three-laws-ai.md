@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 7：AI 三法則：安全要落在可觀測與評估"
+title: "AI 三法則：安全要落在可觀測與評估｜MIT 6.S191 第 7 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 7 講是 **AI 三法則：安全要落在可觀測與評估**。從 Asimov 的文學法則出發，討論現代 AI 安全協定的限制，以及 trace、測試資料與持續評估。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=XKOpA7iaJvg
-title: MIT 6.S191: The Three Laws of AI
-```
-
-原始影片：[MIT 6.S191: The Three Laws of AI](https://www.youtube.com/watch?v=XKOpA7iaJvg)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Comet 的研究主管 Doug Blank，不是主課講者。字幕從 Asimov 機器人三法則談起，接著用 Comet 的 Opik 示範 system prompt 越獄、資料集加 metric 的評估實驗（含 LLM-as-judge）、trace 記錄、agent 工具呼叫，最後提出他版本的現代 AI 準則（記錄 trace、增量建測試集、持續評估、公開結果）；與本文的 trace、固定測試集與持續評估相符。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: The Three Laws of AI
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=XKOpA7iaJvg
+title: MIT 6.S191: The Three Laws of AI
+```
+
+原始影片：[MIT 6.S191: The Three Laws of AI](https://www.youtube.com/watch?v=XKOpA7iaJvg)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Comet 的研究主管 Doug Blank，不是主課講者。字幕從 Asimov 機器人三法則談起，接著用 Comet 的 Opik 示範 system prompt 越獄、資料集加 metric 的評估實驗（含 LLM-as-judge）、trace 記錄、agent 工具呼叫，最後提出他版本的現代 AI 準則（記錄 trace、增量建測試集、持續評估、公開結果）；與本文的 trace、固定測試集與持續評估相符。
 
 ## 更新紀錄
 

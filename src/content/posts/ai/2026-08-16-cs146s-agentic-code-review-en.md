@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 6: To Make AI Review Useful, Google Deleted 17 Rules First"
+title: "To Make AI Review Useful, Google Deleted 17 Rules First | Stanford CS146S Week 6"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the seventh post in the [CS146S series](/posts/ai/2026-08-16-cs146s-cour
 Three topics: what AI review catches well and what it misses, review architectures and custom rules, and fitting AI review into a team's PR workflow. The guest is Cognition's Silas Alberti — who also appeared in Fall 2025, then on AI IDEs, now on code review.
 
 That shift is telling. A year ago the talk worth booking was about how to write. Now it's about who checks.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Why the course treats review as high leverage
 
@@ -125,6 +113,18 @@ That single sentence answers both accountability and process design.
 - AutoCommenter's numbers come from a 2023–2024 deployment and several model generations ago; they describe the **shape of the problem**, not today's absolute performance
 - Fall 2026's materials and assignment for this week aren't published
 - Tool capability boundaries move fast; the table above needs periodic re-testing
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 1：從位元組到 tokenizer，先決定什麼值得隨規模成長"
+title: "從位元組到 tokenizer，先決定什麼值得隨規模成長｜Stanford CS336 第 1 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization**，2026 年 3 月 30 日由 Percy Liang 主講。主要來源是官方的可執行講義 [`lecture_01.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_01.py)，不是用前一學期影片重建當期內容。
 
 這一講做兩件事。前半先回答「為什麼在已有 GPT、Claude、Gemini API 的年代，還要從零打造語言模型」；後半從原始位元組開始，實作 byte-level BPE tokenizer。兩段其實是同一件事：先找出會限制規模化的抽象，再親手拆開它。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 1（Overview, Tokenization）。字幕由 Percy 自我介紹開場，涵蓋課程動機、bitter lesson 與 efficiency、mechanics／mindset／intuitions、BERT 到 API 的歷史、byte-level BPE（256 個 byte、merge）。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=JuoVZkPBiKk
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 課程不是反對抽象，而是提醒抽象會漏
 
@@ -96,6 +78,24 @@ Byte-level 起點解決了 unknown token：任何 UTF-8 輸入最後都能拆成
 ## 材料完整度
 
 本講有 Spring 2026 官方 schedule、完整可執行講義與官方課程錄影清單，足以對回當期講次。本文以講義為主；沒有把 Spring 2025 的影片、作業內容或後來的模型發展混進本講。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 1（Overview, Tokenization）。字幕由 Percy 自我介紹開場，涵蓋課程動機、bitter lesson 與 efficiency、mechanics／mindset／intuitions、BERT 到 API 的歷史、byte-level BPE（256 個 byte、merge）。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=JuoVZkPBiKk
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

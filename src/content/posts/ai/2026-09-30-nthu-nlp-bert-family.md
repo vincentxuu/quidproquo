@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP 導讀 8：ELMo、BERT、T5、BART、GPT——預訓練的三條路"
+title: "清大 NLP 導讀 8：ELMo、BERT、T5、BART、GPT——預訓練的三條路｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,30 +31,6 @@ glossary:
 這一講的官方材料是 [W4_bert_and_its_family.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W4_bert_and_its_family.pdf)（58 頁），標題是「ELMo, BERT, GPT, and T5 (BERT and its Family)」，錄影是 [Week 6 Tue.](https://www.youtube.com/live/U5HypcXrIgY) 和 [Week 6 Thu.](https://www.youtube.com/live/RNlcZjzbhDo)。[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把它掛在 W6；W9 那一列的 Topics 欄雖然寫著「ELMo, BERT, GPT, and T5」，實際掛的卻是 PEFT 投影片。Topics 欄是課綱模板，本篇以實際掛的檔案為準。
 
 投影片大綱：回顧詞向量與 RNN → 從詞向量走到預訓練語言模型（ELMo）→ 用 Transformer 預訓練（encoder 的 BERT、encoder-decoder 的 T5、decoder 的 GPT）→ GPT-3 的 in-context learning 與大型語言模型。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=U5HypcXrIgY
-title: Week 6 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=RNlcZjzbhDo
-title: Week 6 Thu.
-```
-
-原始影片：[Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 6 Thu. 字幕讀完，Week 6 Tue. 字幕只讀前段（約 12,000 字）後再以關鍵字搜尋其餘部分，屬部分核對。Week 6 Tue. 講 ELMo（biLM、兩層與加權串接）、MLM 的 15% 與 80/10/10、NSP 與 [CLS]／[SEP]、微調做法、BERT-base／large 規格與 64 TPU 4 天、RoBERTa／SpanBERT／領域 BERT，並開始介紹 T5；Week 6 Thu. 回顧 T5 並接著講 BART、GPT-1 到 GPT-3、in-context learning、scaling laws 與 MoE。文章本身以投影片為主、沒有對影片內容下具體說法，與字幕沒有衝突，不需修改。
 
 ## 起點：同一個 record，兩種意思
 
@@ -249,6 +225,30 @@ GPT-4 那一列的參數量要保留看待：[GPT-4 技術報告](https://arxiv.
 - 解答、測驗與課堂討論在 NTU COOL，校外讀者拿不到。Fall 2026 的這一講還沒公開。
 
 **系列導覽**：上一篇 [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)｜下一篇 [HF BERT 助教課與 HW3：多輸出學習](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=U5HypcXrIgY
+title: Week 6 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RNlcZjzbhDo
+title: Week 6 Thu.
+```
+
+原始影片：[Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 6 Thu. 字幕讀完，Week 6 Tue. 字幕只讀前段（約 12,000 字）後再以關鍵字搜尋其餘部分，屬部分核對。Week 6 Tue. 講 ELMo（biLM、兩層與加權串接）、MLM 的 15% 與 80/10/10、NSP 與 [CLS]／[SEP]、微調做法、BERT-base／large 規格與 64 TPU 4 天、RoBERTa／SpanBERT／領域 BERT，並開始介紹 T5；Week 6 Thu. 回顧 T5 並接著講 BART、GPT-1 到 GPT-3、in-context learning、scaling laws 與 MoE。文章本身以投影片為主、沒有對影片內容下具體說法，與字幕沒有衝突，不需修改。
 
 ## 更新紀錄
 

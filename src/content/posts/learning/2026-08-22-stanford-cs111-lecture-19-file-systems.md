@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 19：檔案抽象、配置策略與 FAT"
+title: "檔案抽象、配置策略與 FAT｜Stanford CS111 第 19 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 20 篇，對應 **Stanford CS111, Spring 2026, Lecture 19**。2026-05-11 由 Mendel Rosenblum 主講，官方題目是 [File Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/19/Lecture19.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，因此不把錄影內容當成已核對來源。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 高延遲磁碟上的四個問題
 
@@ -85,7 +77,32 @@ Contiguous 用極小 inode 與優秀 locality 換取難成長和 fragmentation�
 
 可以用三種 workload 檢查：固定大小、頻繁 sequential read 偏好 contiguous；不可預測地 append 需要成長彈性；需要 random access 的大檔不適合逐塊追 on-disk links。這講沒有宣布永遠最佳者，而是讓「metadata 放哪裡」與「物理 blocks 如何分布」的代價可比較。
 
+## 練習：同一個 byte，三種定位方式
+
+這是本站另設的小例子，不是官方作業解答。假設每個資料 block 可放 4096 bytes，offset 從 0 起算；忽略 metadata cache 和預讀。檔案至少有三個 blocks，現在要讀 offset 9000 的一個 byte。
+
+先自己算：它在第幾個邏輯 block、block 內哪個位置？若連續配置從實體 block 10 開始，目標在哪？若鏈式配置是 6 → 4 → 3 → end，要讀幾個 data blocks？FAT 已在記憶體時又要讀幾個？
+
+<details>
+<summary>核對答案與理由</summary>
+
+`9000 = 2 × 4096 + 808`，所以是第 2 個邏輯 block（從 0 算）、內部 offset 808。連續配置直接算出實體 block `10 + 2 = 12`，只需讀目標 data block。on-disk linked allocation 要先讀 6 的 next pointer，再讀 4 的 next pointer，最後讀 3，因此共讀 3 個 data blocks。FAT 仍走 6 → 4 → 3，但前兩個 links 在記憶體表格裡，只需讀 block 3 的資料。這個比較把每塊視為 4096-byte 資料容量；若 pointer 與資料共用固定大小 block，須先扣掉 pointer bytes 再重算。
+
+判準：你的答案必須區分「走過幾個 links」與「實際讀幾個磁碟 data blocks」。FAT 沒讓鏈式查找變成常數步數，只把追索引的成本移到記憶體。
+
+</details>
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
+
 ## 更新紀錄
+
+- 2026-10-11：補上位元組位移與區塊讀取的完整例子、答案判準，合併更新紀錄。
 
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

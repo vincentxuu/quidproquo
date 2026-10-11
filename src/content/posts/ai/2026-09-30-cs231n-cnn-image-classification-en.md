@@ -1,5 +1,5 @@
 ---
-title: "CS231N L5: Image Classification with CNNs — From Hand-Crafted Features to Convolution and Pooling"
+title: "Image Classification with CNNs — From Hand-Crafted Features to Convolution and Pooling | Stanford CS231N Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ Official materials used here:
 Access level is **A3**. Slides, notes, and a recording are public, but the 2026 recordings are on Canvas for enrolled students only.
 
 One detail first. Every page footer of the 2026 slides reads "April 14, 2025," yet the admin slide on page 2 says A1 is due "Wednesday 4/16," which matches the 2026 schedule. I treat this deck as the version the 2026 schedule links to and don't infer how much it changed. Compared with the [2025 lecture_5.pdf](https://cs231n.stanford.edu/slides/2025/lecture_5.pdf), the section order is nearly identical. The 2025 deck adds one Bag of Words slide and an appendix of slides from earlier years.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 5 (length 1:08:04). Justin Johnson introduces himself at the start as this lecture's speaker, and the transcript covers hand-crafted features and HOG, AlexNet, convolution-layer padding/stride/parameter counts, receptive fields, pooling and translation equivariance, matching the article's topic. It does not mention Bag of Words or LeNet (the article says the Bag of Words page is in the 2025 slides, so the recording may have skipped it). The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=f3g1zGdxptI
-title: Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs](https://www.youtube.com/watch?v=f3g1zGdxptI)
-
-Course and recording entries:
-
-- [Stanford CS231N Spring 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Start with the limits of linear classifiers
 
@@ -196,6 +178,24 @@ Not confirmed: who actually taught this lecture in 2026 (the lecturer column on 
 Further reading on this site: [CMU 11-785's first CNN lecture](/posts/ai/2026-08-22-cmu-11785-09-cnn-one-en) derives convolution from scanning MLPs, a different route in. [CMU 07-280 Lecture 14](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns-en) is a gentler introduction to computer vision and CNNs.
 
 Series navigation: previous [A1 guide: kNN, Softmax, Two-Layer Net, and Fully-Connected Nets](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet-en) | next [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 5 (length 1:08:04). Justin Johnson introduces himself at the start as this lecture's speaker, and the transcript covers hand-crafted features and HOG, AlexNet, convolution-layer padding/stride/parameter counts, receptive fields, pooling and translation equivariance, matching the article's topic. It does not mention Bag of Words or LeNet (the article says the Bag of Words page is in the 2025 slides, so the recording may have skipped it). The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=f3g1zGdxptI
+title: Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs](https://www.youtube.com/watch?v=f3g1zGdxptI)
+
+Course and recording entries:
+
+- [Stanford CS231N Spring 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

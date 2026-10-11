@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 14 講：LLM 後訓練——從 SFT、RLHF 到只動 1% 參數的高效微調"
+title: "LLM 後訓練——從 SFT、RLHF 到只動 1% 參數的高效微調｜MIT 6.5940 第 14 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,24 +40,6 @@ glossary:
 > 小提醒：PDF 封面寫的是「Lecture 13 LLM Post-Training Part II」，第 26 頁也夾了一張內容不同的舊版 Lecture Plan（提到 PockEngine、LongLoRA）。課頁與錄影標題都是第 14 講，本文以課頁為準，並以第 3 頁的 Lecture Plan 為地圖。
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)同樣排了「LLM Post Training」（10 月 29 日，第 14 講），截至 2026-09-30 投影片與錄影還是空連結，無法比對內容。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
-title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭與可取得的字幕：SFT、LoRA／adapter／prefix 與 prompt tuning、RLHF／偏好對齊、多模態（cross-attention 與 token-in-token-out 兩路）、VILA 的三階段訓練、prompt engineering 與 RAG。講次與主題和本文相符；開場口誤說成 lecture 13，影片標題與課頁為第 14 講，與文中的提醒一致。取得的字幕在 RAG 段落中途結束，影片最後一小段（含 VILA-U、結尾總結）沒有字幕可核對。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 這一講在解什麼
 
@@ -201,6 +183,24 @@ $$
 - RLHF／DPO：[CS224N 第 8 講：instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)、[CS224R L9：RLHF、DPO 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 - LoRA／QLoRA：[CMU 11-868 L23 大模型的高效微調](/posts/ai/2026-09-30-cmu11868-peft-lora)、[CS224N Tinker 與 LoRA](/posts/ai/2026-08-22-cs224n-tinker-lora)
 - 多模態：[CS231N L16 視覺與語言](/posts/ai/2026-09-30-cs231n-vision-language)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
+title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與可取得的字幕：SFT、LoRA／adapter／prefix 與 prompt tuning、RLHF／偏好對齊、多模態（cross-attention 與 token-in-token-out 兩路）、VILA 的三階段訓練、prompt engineering 與 RAG。講次與主題和本文相符；開場口誤說成 lecture 13，影片標題與課頁為第 14 講，與文中的提醒一致。取得的字幕在 RAG 段落中途結束，影片最後一小段（含 VILA-U、結尾總結）沒有字幕可核對。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

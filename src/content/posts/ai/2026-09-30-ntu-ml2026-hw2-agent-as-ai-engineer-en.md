@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: HW2, AI Agent as an AI Engineer — an AIDE-Style Tree Search That Lets an Open LLM Build a MyGO & Ave Mujica Face Classifier"
+title: "Reading NTU ML 2026: HW2, AI Agent as an AI Engineer — an AIDE-Style Tree Search That Lets an Open LLM Build a MyGO & Ave Mujica Face Classifier | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **This post covers HW2 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 5 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two posts covered [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) and [how agents change research work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en). This assignment has you build a small version yourself: **let an agent be your AI engineer for once**.
 
 Official materials used: the homework slides [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf) (59 pages, in English), the [Colab starter code](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing) (32 cells), and the TA's [homework video](https://youtu.be/3xhwSsuNTM0). The assignment was released on 3/13 and was due 2026/4/2 23:59 (UTC+8).
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=3xhwSsuNTM0
-title: Video: ML 2026 Spring hw2 AI Agent as an AI Engineer
-```
-
-Original videos: [Video: ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## What outside readers can do
 
@@ -155,6 +136,25 @@ Not confirmed: I did not transcribe the homework video and did not run the full 
 Further reading on this site: [CS231n: CNNs and image classification](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) for the CNN itself, and [context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en) for the engineering side of Intentional Compaction.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Interaction between AI agents and their impact on work](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work-en) | Next: [Faster generation (part 1): Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3xhwSsuNTM0
+title: Video: ML 2026 Spring hw2 AI Agent as an AI Engineer
+```
+
+Original videos: [Video: ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

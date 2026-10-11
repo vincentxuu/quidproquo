@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 6 Neural Networks and LLMs：從神經元、反向傳播到 decoder-only 模型"
+title: "Neural Networks and LLMs：從神經元、反向傳播到 decoder-only 模型｜Stanford CS124 第 6 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

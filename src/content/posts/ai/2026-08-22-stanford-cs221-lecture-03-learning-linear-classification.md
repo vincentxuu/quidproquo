@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 3：Learning II：線性分類、特徵與交叉熵"
+title: "Learning II：線性分類、特徵與交叉熵｜Stanford CS221 第 3 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇只沿著官方可執行 artifact 的程式流程讀 Learning II：linear classification。source 的 main() 先回顧線性迴歸，再依序進入 prediction task、machine-learning problem、hypothesis class、zero-one loss、zero-one loss optimization、logistic loss、logistic-loss optimization、multiclass classification，以及 representing text。這個順序不是名詞清單：每一次改變表示法或 loss，都是在回應前一步暴露出的問題。
 
 > 公開材料缺口：source 明確連到 Autumn 2023 的線性分類模組；課程入口、artifact、repository 與 playlist 列在文末。source 只呈現 sentiment classification 的任務例子，沒有提供 sentiment 作業的隱藏測資或解答，因此本文不補寫那些內容。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 3 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 3 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=Mbe5ICIUw5Q
-title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 3: Learning II](https://www.youtube.com/watch?v=Mbe5ICIUw5Q)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 3 支）字幕，確認內容涵蓋線性分類、0-1 loss、logit 與 cross-entropy、多類別分類（結尾附帶 tokenization／vocab 示範），與本文的講次與主題相符，未發現錯配。
 
 ## 從線性迴歸換成線性分類
 
@@ -127,6 +107,26 @@ bag-of-words 把每個 token 看成 one-hot，再取所有 token vectors 的平�
 - maximum likelihood 的 probability product 經過 log、取負號，成為可最小化 loss。
 - multiclass 為每類算 logit，以 softmax 轉 probabilities；cross-entropy 對 one-hot label 是 target class probability 的 negative log。
 - 文字經 tokenization 與 one-hot 的數學表示成 tensor；實作可直接使用 indices。bag of words 固定維度但捨棄 word order。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 3 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 3 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=Mbe5ICIUw5Q
+title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 3: Learning II](https://www.youtube.com/watch?v=Mbe5ICIUw5Q)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 3 支）字幕，確認內容涵蓋線性分類、0-1 loss、logit 與 cross-entropy、多類別分類（結尾附帶 tokenization／vocab 示範），與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

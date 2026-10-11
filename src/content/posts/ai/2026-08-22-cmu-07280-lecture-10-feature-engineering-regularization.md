@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 10：Feature Engineering 與 Regularization 如何交換表達力和穩定性"
+title: "Feature Engineering 與 Regularization 如何交換表達力和穩定性｜CMU 07-280 第 10 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, feature-engineering, regularization]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 Spring 2026 第 10 講 **Feature Engineering and Regularization**，日期為 2 月 12 日。Lecture 9 的 logistic regression 對輸入特徵仍只畫出線性邊界；這一講先用 feature transform 擴張可表示的函數，再立刻處理擴張後的過度擬合。官方課表未列逐講公開錄影連結，本文也不補寫課堂口述。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文深讀 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)、官方 [Model Selection deck](https://www.cs.cmu.edu/~07280/lectures/model%20selection.pdf)、[Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)與 HW5。Spring 2026 課表原本連到的 `07280_S26_Lec10_Regularization.pdf` 目前回傳 404，因此本文不宣稱讀過那份 deck，也不拿 Fall 2026 材料補洞。
 
 ## 承上問題：線性模型的限制到底在模型還是資料表示
 
@@ -93,6 +79,20 @@ Feature engineering 由人指定 `φ(x)`，可解釋、資料需求低，也把�
 ## 今晚可以做的動作
 
 取 8 個帶少量雜訊的 `(x,y)` 點，分別擬合 1、3、7 次多項式。固定其中 2 點只作 validation，不參與訓練。記下三個模型的 training 與 validation MSE，再對 7 次模型加入三個不同 `λ`。不要先看 test 點；等選完 degree 與 `λ` 才做最後一次評估。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文深讀 [Feature Engineering & Logistic Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Feature_Eng_and_Logistic_Reg.pdf)、官方 [Model Selection deck](https://www.cs.cmu.edu/~07280/lectures/model%20selection.pdf)、[Recitation 5 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec5_sol.pdf)與 HW5。Spring 2026 課表原本連到的 `07280_S26_Lec10_Regularization.pdf` 目前回傳 404，因此本文不宣稱讀過那份 deck，也不拿 Fall 2026 材料補洞。
 
 ## 更新紀錄
 

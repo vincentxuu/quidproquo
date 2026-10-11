@@ -1,5 +1,5 @@
 ---
-title: "CS224R L10：LLM 推理的 RL 與 test-time compute"
+title: "LLM 推理的 RL 與 test-time compute｜Stanford CS224R 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 > **這篇的寫法限制**：這份投影片 42 頁，大多是圖表和截圖，能抽出的文字不到一千字。客座演講是觀點式的，講者在台上補充了什麼，投影片上看不到。本文只整理投影片標題、條列和圖上標出的數字，不替講者補寫論證。課表上這一講也沒有列指定讀物。
 
 [CS224R](https://cs224r.stanford.edu/) 課表把這一講叫「RL for LLMs: Reasoning」，客座講者是 Noam Brown，投影片封面標示他的單位是 OpenAI。[上一講](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)結尾提到：學到的 reward model 不可靠，改用數學、程式這類可驗證的獎勵，就走到了 reasoning model。這一講從那裡接著講，切入點是「算力該花在哪裡」，演算法放到後面才談。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=O2VpNnwB4lM
-title: Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）
-```
-
-原始影片：[Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）](https://www.youtube.com/watch?v=O2VpNnwB4lM)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L10 RL for LLM Reasoning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Aviral Kumar、主題與本文相符。講者為 Aviral Kumar（頁面描述與字幕皆如此），與本文「2026 講者不同、只能當背景」的說法相符；字幕談 LLM 推理的 RL、process reward、PPO 延伸到 GRPO，並明說這一講不講 CQL。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 主線：scaling 多了一個維度
 
@@ -150,7 +131,11 @@ A：取樣 1 次，要求寫出推理過程
 B：取樣 N 次（N = 1, 4, 16, 64），取多數決
 ```
 
-把正確率對「總輸出 token 數」作圖，而不是對 N 作圖。這就是投影片主張的「分數對算力」評估，也能讓你親眼看到多數決在哪裡停止進步。
+這是本站設計的比較，不是講者已完成的實驗。先固定 20 題、同一模型版本、temperature、prompt 的題目內容及答案格式；題目不能在試跑後挑換。A、B 都要求相同的推理格式。把總輸出預算訂為每題 1024 tokens：A 一次最多 1024；B 的 N 次各最多 `1024/N`。截斷也算消耗，不足以輸出答案記為失敗。這測的是固定預算如何分配；另畫不限制每題總預算的曲線時，必須標成另一個實驗。
+
+作答前寫好 parser 與 checker：例如 24 點題要解析成運算式，驗證四個數字各用一次、只用允許的運算且結果為 24。多數決以正規化後的候選答案分組，不能用 checker 偷挑一個正確答案；平手依預先訂好的第一個候選規則處理。若不同合法運算式都是答案，先說清楚如何分組，避免字串不同被當成不同票。保存每題的答案、正確與否、實際 tokens、延遲及截斷狀態。
+
+核對判準：先用一個已知有效答案和一個無效答案確認 checker；20 題都要有記錄，不能只保留成功題。報告 A、各 N 的正確題數、總 tokens 和延遲，再以另組 seed 重跑；結果可能沒有平台期，也可能 B 更差，不能把講者的趨勢當成你一定會得到的結論。相同輸出 token 預算只是近似成本控制，沒有等化隱藏推理 tokens、輸入成本或硬體算力。
 
 ## 延伸閱讀
 
@@ -159,6 +144,25 @@ B：取樣 N 次（N = 1, 4, 16, 64），取多數決
 - [Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)：更完整的 RL 理論背景
 
 **系列導覽**：上一篇 [L9：RLHF、DPO 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)｜下一篇 [Default Project：用 SFT、IPO、RLOO 微調 LLM 解 Countdown](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=O2VpNnwB4lM
+title: Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）
+```
+
+原始影片：[Spring 2025 Lecture 10: RL for LLM Reasoning（YouTube，講者不同，僅供背景）](https://www.youtube.com/watch?v=O2VpNnwB4lM)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L10 RL for LLM Reasoning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Aviral Kumar、主題與本文相符。講者為 Aviral Kumar（頁面描述與字幕皆如此），與本文「2026 講者不同、只能當背景」的說法相符；字幕談 LLM 推理的 RL、process reward、PPO 延伸到 GRPO，並明說這一講不講 CQL。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

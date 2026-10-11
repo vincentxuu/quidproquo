@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 3：核心執行緒、使用者執行緒、context switch 與 dispatcher"
+title: "核心執行緒、使用者執行緒、context switch 與 dispatcher｜Stanford CS111 第 3 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 4 篇，對應 **Stanford CS111, Spring 2026, Lecture 3**。2026-04-03 由 Mendel Rosenblum 主講，官方題目是 [Threads, Processes, and Dispatching, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/3/Lecture3.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 3 接手上一講留下的問題：threads 多於 cores 時，核心如何讓每條執行緒看似持續前進？答案不是單一 scheduler 函式，而是一個由狀態轉移、PCB、context save／restore 與 dispatcher 組成的閉環。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 用一次 CPU 交接讀完整講
 
@@ -78,6 +70,14 @@ preemption 仍不是零成本。每次切換要保存與恢復 state，切到不
 ## 手動走一次 dispatcher
 
 替 A、B 兩條執行緒各畫 running、ready、blocked 三格，從 A 發出阻塞式 I/O 開始，逐步標出 PCB 更新、SP 切換、B 恢復，以及 I/O 完成後 A 回到 ready queue。任何一步若不知道由事件還是 dispatcher 觸發，就回看對應狀態箭頭。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

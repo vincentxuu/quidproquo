@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lab 4 + Lab 5: Quantizing an LLM with AWQ, Then Running LLaMA2-7B on Your Own Laptop"
+title: "Quantizing an LLM with AWQ, Then Running LLaMA2-7B on Your Own Laptop | MIT 6.5940 Lab 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -44,15 +44,6 @@ Question numbers, points, and wording below follow the notebook and docx themsel
 **Access level A3, with gaps**: the notebook, docx, and starter repo are public, and the code downloads the models and datasets for you. What you can't get is grading. Submissions go through MIT's Canvas, there are no public solutions, and Lab 5's bonus requires TA verification. This post **doesn't include solutions**. It only explains what each question asks and which part of the lectures it maps to.
 
 **Fall 2026 status**: the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) lists Lab 4 as "Quantization" and Lab 5 as "LLM deployment on laptop", with Lab 4 scheduled for October 27 and Lab 5 for November 5. As of 2026-09-30 neither has a link. Lab 4's label repeats Lab 2's, so whether it's still AWQ won't be known until it's released.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
 
 ## How the two labs fit together
 
@@ -193,6 +184,15 @@ One thing you can do tonight: clone [tinychat-tutorial](https://github.com/mit-h
 - Same series: [L13 LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en) (how AWQ and TinyChat work), [L11 TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en) (loops, multithreading, SIMD), [Lab 2: K-means and linear quantization](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en) (quantization fundamentals)
 - Diagnosing bottlenecks on the GPU side: [Fall 2026 Lab 1 supplement](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics-en)
 - Quantization and inference in other courses: [CMU 11-868 model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en), [CS336 inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

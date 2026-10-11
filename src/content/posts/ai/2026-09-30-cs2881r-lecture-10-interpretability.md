@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L10：看模型內部與看 chain of thought"
+title: "看模型內部與看 chain of thought｜Harvard CS2881R 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -48,39 +48,6 @@ L10 的答案分成兩條路。一條是讀模型寫出來的推理過程，也�
 | Leo Gao | OpenAI | 座談（約 1:46 起） | SAE 與可解釋性的定位 |
 
 課站把這一講的四個子題列成 Activations、Sparse Auto Encoders（SAE）、Black box models、Chain of thought。本篇沿著這四個子題走，但順序照講者的實際安排：Bowen 開場時說，他們要照 stack 的反向順序講，先講像內心獨白的 CoT，再講像腦內訊號的 activation。
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=79otWC2FQlE
-title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 10: Mechanistic Intepretability》（2:30:24）的完整自動字幕：確認 Bowen Baker、Jack Lindsey、Neel Nanda、學生實驗、Leo Gao 座談的出場順序與大致位置、「倒著走 stack」的開場、寫死常數的 CoT 例子、房間顏色的 faithfulness 例子、persona vector 圖、Sonnet 4.5 的評測意識稽核、Sam Marks 的稽核遊戲、「簡單方法的 virtue of simplicity」，以及 Palisade 關機實驗（兩個互相衝突的指令）。開場原句「由上往下」改成字幕實際的「stack 的反向順序」。
-
-## 用到的官方材料與存取狀態
-
-| 材料 | 狀態 |
-|---|---|
-| [講課錄影](https://youtu.be/79otWC2FQlE)（YouTube 標題「Lecture 10: Mechanistic Intepretability」，約 2 小時 30 分） | 公開；含 Boaz 開場、三場演講、學生實驗、座談 |
-| [Neel Nanda 投影片](https://www.neelnanda.io/harvard-slides)（Google Slides） | 公開 |
-| Bowen Baker、Jack Lindsey 投影片 | 課站未列，只能從錄影看 |
-| 閱讀清單 | 公開，六篇 pre-reading，另有九篇延伸 |
-| 學生實驗 | 課站「Experiment」欄寫 To be determined，但錄影中有一組學生報告了實驗（見下文）；沒有找到對應的投影片、GitHub 或 LessWrong 週摘要 |
-| 課堂筆記 | 學生寫的 [LessWrong 週摘要](https://www.lesswrong.com/w/cs-2881r)沒有涵蓋這一週 |
-
-系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，沒有可以動手的作業或實驗程式，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**：錄影與部分投影片公開，能讀懂內容，但要練習得自己從閱讀清單挑論文重現。
 
 ## 開場：讀得到大腦，不代表它不會騙你
 
@@ -270,6 +237,39 @@ Boaz 要每位講者選邊：機制可解釋性對 AI 安全是不是關鍵瓶�
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L8：Scheming、reward hacking 與欺騙](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 - 下一篇：[L6：AI 做 AI 研發會不會觸發智慧爆炸](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=79otWC2FQlE
+title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 10: Mechanistic Intepretability》（2:30:24）的完整自動字幕：確認 Bowen Baker、Jack Lindsey、Neel Nanda、學生實驗、Leo Gao 座談的出場順序與大致位置、「倒著走 stack」的開場、寫死常數的 CoT 例子、房間顏色的 faithfulness 例子、persona vector 圖、Sonnet 4.5 的評測意識稽核、Sam Marks 的稽核遊戲、「簡單方法的 virtue of simplicity」，以及 Palisade 關機實驗（兩個互相衝突的指令）。開場原句「由上往下」改成字幕實際的「stack 的反向順序」。
+
+## 用到的官方材料與存取狀態
+
+| 材料 | 狀態 |
+|---|---|
+| [講課錄影](https://youtu.be/79otWC2FQlE)（YouTube 標題「Lecture 10: Mechanistic Intepretability」，約 2 小時 30 分） | 公開；含 Boaz 開場、三場演講、學生實驗、座談 |
+| [Neel Nanda 投影片](https://www.neelnanda.io/harvard-slides)（Google Slides） | 公開 |
+| Bowen Baker、Jack Lindsey 投影片 | 課站未列，只能從錄影看 |
+| 閱讀清單 | 公開，六篇 pre-reading，另有九篇延伸 |
+| 學生實驗 | 課站「Experiment」欄寫 To be determined，但錄影中有一組學生報告了實驗（見下文）；沒有找到對應的投影片、GitHub 或 LessWrong 週摘要 |
+| 課堂筆記 | 學生寫的 [LessWrong 週摘要](https://www.lesswrong.com/w/cs-2881r)沒有涵蓋這一週 |
+
+系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，沒有可以動手的作業或實驗程式，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**：錄影與部分投影片公開，能讀懂內容，但要練習得自己從閱讀清單挑論文重現。
 
 ## 更新紀錄
 

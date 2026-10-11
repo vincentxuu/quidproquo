@@ -1,5 +1,5 @@
 ---
-title: "清大高宏宇 NLP 導讀：GPT-3、InstructGPT 與 RLHF——會接話的模型怎麼變成聽話的助理"
+title: "清大高宏宇 NLP 導讀：GPT-3、InstructGPT 與 RLHF——會接話的模型怎麼變成聽話的助理｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,30 +42,6 @@ glossary:
 這篇回答一個問題：**會接話的 GPT-3，怎麼變成聽得懂指令的助理？**
 
 投影片的目錄只有五項：從 GPT-1 到 GPT-3 的回顧、Sparse Transformer、InstructGPT、RLHF，以及 Meta 的 Llama 和 Llama-2。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=w-M9plRRVQc
-title: Week 8 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=h-m9wVSx0_s
-title: Week 8 Thu.
-```
-
-原始影片：[Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已抽樣依字幕核對（2026-10-10）：兩支影片都讀了字幕的前段，沒有逐字讀完。Week 8 Tue. 前段是 decoding 補充、文字浮水印論文、MTEB，接著講 GPT-1 到 GPT-3 的差異、Sparse Transformer 與 nanochat；Week 8 Thu. 前段先講作業 3，再回到 instruction tuning、GPT-3 的偏見問題與 InstructGPT 的 SFT、reward model、RL 與 KL penalty。主題與講次相符，文章依投影片寫成、沒有對影片內容下具體說法，沒有發現衝突；Llama／Llama-2 等後段字幕未讀。
 
 ## 從 GPT-1 到 GPT-3：架構只改了幾個地方
 
@@ -223,6 +199,30 @@ y_c 是被選中的回答，y_r 是被拒絕的回答，m(r) 依標註的好壞�
 - 偏好微調的各種做法：[CME295 導讀：Preference Tuning](/posts/ai/2026-09-29-cme295-preference-tuning)
 - 從工程角度拆 SFT 與 RLHF：[CS336 導讀：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - GQA 與 KV Cache 為什麼會卡記憶體：[台大李宏毅 ML 2026 導讀：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=w-M9plRRVQc
+title: Week 8 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=h-m9wVSx0_s
+title: Week 8 Thu.
+```
+
+原始影片：[Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已抽樣依字幕核對（2026-10-10）：兩支影片都讀了字幕的前段，沒有逐字讀完。Week 8 Tue. 前段是 decoding 補充、文字浮水印論文、MTEB，接著講 GPT-1 到 GPT-3 的差異、Sparse Transformer 與 nanochat；Week 8 Thu. 前段先講作業 3，再回到 instruction tuning、GPT-3 的偏見問題與 InstructGPT 的 SFT、reward model、RL 與 KL penalty。主題與講次相符，文章依投影片寫成、沒有對影片內容下具體說法，沒有發現衝突；Llama／Llama-2 等後段字幕未讀。
 
 ## 更新紀錄
 

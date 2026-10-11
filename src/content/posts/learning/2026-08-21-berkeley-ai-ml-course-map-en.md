@@ -1,5 +1,5 @@
 ---
-title: "Berkeley AI/ML Course Guide: From CS61A to CS288, What Can You Actually Study Online?"
+title: "Berkeley AI/ML Course Guide: From CS61A to CS288, What Can You Actually Study Online? | Global AI/CS Course Map"
 date: 2026-08-21
 category: learning
 tags: [berkeley, ai-course, machine-learning, learning-path, open-course]
@@ -22,19 +22,6 @@ First, correct the assumption hidden inside the phrase “Berkeley AI curriculum
 That differs sharply from MIT's Course 6-4. MIT defines a formal degree in Artificial Intelligence and Decision Making. Berkeley offers something closer to a network that students assemble: enter through CS188 for search, reasoning, and planning, or through CS189 for mathematically intensive machine learning, then branch into deep learning, natural language processing, computer vision, or reinforcement learning.
 
 Course numbers and public access both make that network harder to read. CS185 and CS285 are undergraduate and graduate counterparts, as are CS180 and CS280A, but CS C280 is a separate graduate vision course. A site that was public during one semester may later return 404. This guide therefore checks official prerequisites, actual 2025–2026 course sites, and what an anonymous visitor can currently obtain: notes, assignments, code, video, and solutions.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [Berkeley EECS's undergraduate-program comparison](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)
-- [UC Berkeley EECS — CS Lower-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-lowerdiv/)
-- [UC Berkeley EECS — CS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-upperdiv/)
-- [UC Berkeley EECS — EECS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/eecs-2/degree-reqs-upperdiv-2/)
-- [CS61A — Fall 2025](https://www-inst.eecs.berkeley.edu/~cs61a/fa25/)
-- [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 
 ## Build the foundation: 61A, 61B, 70, and mathematics
 
@@ -186,6 +173,19 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 - 2026-10-10: Fixed an outdated recording statement. The CS185/285 table row now says lecture recordings are public on the RAIL YouTube channel; what is restricted is Ed, Gradescope, and office hours.
 - 2026-09-30: The CS189 Spring 2026 site is back online, now graded A3 and added to the inventory table; Spring 2025 official recordings require a bCourses login, so the "public video" claim was removed; linked the expanded CS189 guide series.
 - 2026-08-22: Restored CS C182 to the advanced-vision route based on CS C280's official expected background.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Berkeley EECS's undergraduate-program comparison](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)
+- [UC Berkeley EECS — CS Lower-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-lowerdiv/)
+- [UC Berkeley EECS — CS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-upperdiv/)
+- [UC Berkeley EECS — EECS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/eecs-2/degree-reqs-upperdiv-2/)
+- [CS61A — Fall 2025](https://www-inst.eecs.berkeley.edu/~cs61a/fa25/)
+- [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 
 ## References
 

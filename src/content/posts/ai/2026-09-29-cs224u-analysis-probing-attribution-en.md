@@ -1,5 +1,5 @@
 ---
-title: "CS224U Analysis Methods I: Probing Shows You Representations, Feature Attribution Gives You Causal Guarantees"
+title: "Probing Shows You Representations, Feature Attribution Gives You Causal Guarantees | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -35,29 +35,6 @@ glossary:
 **This post is based on the Spring 2023 offering of [CS224U](https://web.stanford.edu/class/cs224u/).** It is part 11 of the [Stanford CS224U guide series](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en). It covers the first half of the Analysis methods unit: the overview, probing, and feature attribution. The schedule puts this unit on May 8, 10, and 15, 2023. I used three official sources: slides 1–40 of the [Analysis methods in NLP deck](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) (64 slides in total), videos 33–35 of the public playlist, and [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb) in the course repo.
 
 Access follows the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) definitions: **A3 (historical offering)**. Slides, recordings, and notebooks are all public. What you can't get is Quiz 4 on Canvas and the classroom recordings.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=5RZDKW1_HS4
-title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
-title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4), [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
-
-Content check: verified against the video transcript (2026-10-10): Video 33 (Part 1: Overview) and video 34 (Part 2: Probing) were compared item by item with their transcripts: the even/odd detector counterexample and the quote, the three-column scorecard, Tenney's layer results, probe selectivity, and the addition-network causal counterexample. Video 35 (Feature Attribution), which the post also cites, was read as well; the IG axioms, counterexample, and worked example all match, and nothing needed correcting.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Going one layer beneath behavioral evaluation
 
@@ -185,6 +162,29 @@ Confirmed: the schedule, the slide content, the three videos, and the current st
 Further reading: the site's CS224N series has an [interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) covering Been Kim's agentic interpretability, which complements the probing/IG line here.
 
 Series navigation: previous, [Compositionality: COGS, ReCOGS, and HW3](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en) | next, [Analysis Methods II: causal abstraction, IIT, and DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=5RZDKW1_HS4
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4), [Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
+
+Content check: verified against the video transcript (2026-10-10): Video 33 (Part 1: Overview) and video 34 (Part 2: Probing) were compared item by item with their transcripts: the even/odd detector counterexample and the quote, the three-column scorecard, Tenney's layer results, probe selectivity, and the addition-network causal counterexample. Video 35 (Feature Attribution), which the post also cites, was read as well; the IG axioms, counterexample, and worked example all match, and nothing needed correcting.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

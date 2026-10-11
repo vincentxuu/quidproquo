@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 導讀：2026 年才改名叫 Agentic AI，教的卻是拿形式方法治幻覺"
+title: "2026 年才改名叫 Agentic AI，教的卻是拿形式方法治幻覺｜Stanford CS224V 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,18 +25,6 @@ draft: false
 改名容易被讀成「趕上 agent 熱潮」。但把兩份官方描述並排看，換掉的是題目，不是路線。這門課從頭到尾在處理同一個問題：**next-word prediction 的模型答對七成很容易，要接近全對做不到**。它給的處方是把自然語言翻譯成形式語意，用資料庫查詢、知識圖譜、SMT 定理證明器去約束模型，而不是換一套 orchestration 框架。
 
 這篇讀完了課程官網、四個學年的 ExploreCourses 條目、公開的十四份講義與兩份作業 PDF。涵蓋改名前後的差異、課程主張什麼、作業真正的門檻在哪、自學者實際拿得到多少。**不包含**逐篇論文精讀，也不包含新學年的課綱——那份還沒上線。想先看這門課在整條 Stanford CS 階梯的哪一格，可以回[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -135,6 +123,18 @@ Genie Worksheets 是這門課的核心工具，也是課程立場的體現：你
 - **講義引用的系統數字**（皆出自第一堂投影片，非本文獨立查證）：WikiChat 英文事實正確率 97%、支援 25 種語言；SPINACH 部署在 Wikidata 查詢論壇，1700 次對話、198 個抽樣的成功率 78%；Genie Worksheets 準確率 80%，對照組 GPT-4 function calling 為 0–10%；STORM 有 80 萬名自然使用者、寫出 140 萬篇文章。
 - **11 月 12 日那堂的 NLP building blocks**：講的是 CHURRO，一個 3B 參數的歷史文獻辨識視覺語言模型，論文收錄於 [EMNLP 2025](https://aclanthology.org/2025.emnlp-main.1763/)。
 - **未能確認的項目**：（1）改名的官方理由——ExploreCourses、課程網站、OVAL 網站三處都沒有任何說明；（2）2026 年秋季是否沿用 2025 年的作業與閱讀清單，新課綱尚未上線；（3）2026-2027 條目目前只列 Monica Lam 一人，助教名單尚未公布，無法判斷是否有異動。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

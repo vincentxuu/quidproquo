@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L09：深度學習駭客指南 —— 讓網路真正聽你使喚的實作心法"
+title: "深度學習駭客指南 —— 讓網路真正聽你使喚的實作心法｜MIT 6.7960 第 9 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -28,25 +28,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課，參考材料包含 *Recipes for Training Neural Networks* 與 Google *Rules of ML*。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
-title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 09 字幕（Phillip Isola，1:15:50）：影片確實是實作心法（先看資料與統計量、先過擬合小批次、資料增強、基本 recipe「Adam＋Transformer＋cross entropy」、「Always tune your learning rate」）；但對正則化只有結尾一句，還建議不要用 Batch Norm，已在第 4 節加註說明該節清單為本站補充。
 
 ## 這一講在補什麼缺口
 
@@ -117,6 +98,25 @@ loss 不降時，按這個順序查：
 ## 為什麼這對實作重要
 
 這一講的價值不在某個具體技巧，而在**建立一個可控的實驗流程**。當你有一套可重複的 recipe，每次實驗失敗都能定位原因，而不是「換個隨機種子再試一次」。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
+title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 09 字幕（Phillip Isola，1:15:50）：影片確實是實作心法（先看資料與統計量、先過擬合小批次、資料增強、基本 recipe「Adam＋Transformer＋cross entropy」、「Always tune your learning rate」）；但對正則化只有結尾一句，還建議不要用 Batch Norm，已在第 4 節加註說明該節清單為本站補充。
 
 ## 更新紀錄
 

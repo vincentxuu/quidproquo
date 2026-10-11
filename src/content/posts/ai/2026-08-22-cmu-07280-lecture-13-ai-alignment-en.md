@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists"
+title: "From Reward Hacking to Auditable AI Scientists | CMU 07-280 Lecture 13"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, ai-alignment, ai-safety, evaluation]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 13, **AI Alignment**, took place on February 26, 2026, immediately after Midterm 1. The preceding lectures built models and gradients. This one asks whether efficiently optimizing an objective implies behavior that meets user requirements and human values. The official note describes a discussion-oriented lecture. With no public recording or transcript link listed in the official schedule, this article summarizes only documented topics and cases, not classroom conclusions.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -85,6 +75,16 @@ Lecture 14 moves into computer vision, but alignment does not disappear. Dataset
 ## What to do tonight
 
 Choose one agent task and write a one-page evaluation specification: true goal, measurable proxy, three gaming routes, two distribution shifts, and required traces. Add one control condition that separates genuine improvement from selecting easier cases.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

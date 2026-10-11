@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP 導讀 9：一個 BERT 同時打分數又判蘊含——Hugging Face 助教課與 HW3 多輸出學習"
+title: "清大 NLP 導讀 9：一個 BERT 同時打分數又判蘊含——Hugging Face 助教課與 HW3 多輸出學習｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 - 對應 notebook [bert-huggingface.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/bert-huggingface.ipynb)
 - 作業說明 [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf)（24 頁）與起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
 - 錄影：助教課 [自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw) 與 HW3 說明影片 [自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI)
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=VErSpYgZGiw
-title: 自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Fe1roWMVdUI
-title: 自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）
-```
-
-原始影片：[自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw)、[自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
 
 ## 錄影與週次：先把對照關係理清楚
 
@@ -194,6 +172,28 @@ notebook 裡那一格寫的是 `num_labels=3`，但 IMDb 是二元分類，`comp
 - 這份助教課是 2024 年版，Fall 2026 的對應單元還沒公開。依[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，Fall 2025 是 A3（足以自學），缺口是解答與評分。
 
 **系列導覽**：上一篇 [ELMo、BERT、T5、BART、GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family)｜下一篇 [解碼策略與 NLG 評估](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=VErSpYgZGiw
+title: 自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fe1roWMVdUI
+title: 自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）
+```
+
+原始影片：[自然語言處理 高宏宇 教授 Week 8 Tue. [助教課]（2024 年錄影）](https://www.youtube.com/watch?v=VErSpYgZGiw)、[自然語言處理 高宏宇 教授 Week 8 Thu. Assignment 3（Fall 2025）](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

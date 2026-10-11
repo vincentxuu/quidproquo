@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW3: Compare K-NN, Perceptron, and Linear Regression"
+title: "Compare K-NN, Perceptron, and Linear Regression | CMU 10-301 Assignment 3"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, knn, perceptron, linear-regression]
@@ -21,6 +21,18 @@ The common question is which model fails first when representation or decision b
 ## First check and completion
 
 There is no necessary safe command. Open the [PDF/LaTeX bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw3.zip) and list the assumptions behind all five sections before calculating. Completion means pairing every result with its assumption and predicting model behavior on XOR, an outlier-contaminated line, and sparse high-dimensional points. With no official answers, do not label your derivations officially verified.
+
+## How XOR exposes a linear-boundary limit
+
+This is an invented teaching example, not an official assignment solution.
+
+Four invented points implement XOR: (0,0) and (1,1) have label 0; (0,1) and (1,0) have label 1. A strict linear separation requires b<0, w₁+b>0, w₂+b>0, and w₁+w₂+b<0. Adding the positive-side requirements gives w₁+w₂+b>-b>0, contradicting the last condition.
+
+**Check and answer:** Can adding feature x₁x₂ help? Yes: score=x₁+x₂-2x₁x₂-0.5 yields -0.5,-0.5,0.5,0.5 in the listed point order. Changing representation changes separability.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 - [HW3 public bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw3.zip)

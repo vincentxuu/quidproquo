@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 8：ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲"
+title: "ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲｜Stanford CS336 第 8 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 8: Parallelism**，2026 年 4 月 22 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_08.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf)。
 
 第七講教你用 collectives 組出平行化；第八講問大型模型究竟該怎麼組。它把 datacenter 當成新的計算單位：GPU memory、NVLink domain、跨節點 fabric 與 batch size 共同決定切法，沒有一個 strategy 能單獨解完所有限制。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 8（Parallelism，講者 Tatsu）。字幕開場稱「last lecture Percy covered…underlying mechanics」，並涵蓋 ZeRO／FSDP、tensor／pipeline／sequence／context／expert parallel、activation checkpointing 與 pipeline bubble、各大模型的 3D／4D 組合案例。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=6-cXp-aOmdg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## ZeRO 從複製 state 開始減
 
@@ -87,6 +69,24 @@ Parameter memory 在啟動前可算清楚；activation 隨 batch、sequence、hi
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文涵蓋投影片的 networking、ZeRO/FSDP、TP/PP/SP/EP 與組合策略。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 8（Parallelism，講者 Tatsu）。字幕開場稱「last lecture Percy covered…underlying mechanics」，並涵蓋 ZeRO／FSDP、tensor／pipeline／sequence／context／expert parallel、activation checkpointing 與 pipeline bubble、各大模型的 3D／4D 組合案例。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=6-cXp-aOmdg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

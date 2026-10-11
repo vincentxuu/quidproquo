@@ -1,5 +1,5 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 1: Flash Attention and Why Moving Data Is the Bottleneck"
+title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 1: Flash Attention and Why Moving Data Is the Bottleneck | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **This guide is based on the 3/20 materials of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 6 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous post is [HW2: An AI Agent as an AI Engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en). The earlier posts were about agents: [OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en) prepends a long system prompt to every message you send, and [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) deals with context that no longer fits. This post moves inside the model: **when inputs run to tens or hundreds of thousands of tokens, why does generation slow down, and how do you speed it up?**
 
 Official materials used: the slides [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf), pages 1–28 (55 pages total; the second half is the [next post on KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)), the lecture video [加快語言模型生成速度 (1/2)：Flash Attention](https://youtu.be/vXb2QYOUzl4) (in Mandarin), and the [demo Colab](https://colab.research.google.com/drive/1KoeKKIXSXI9b-pYg0kun3-uLQkP6p_hC?usp=sharing) linked on slide 28. Access level is **A3**: slides (pdf/pptx), recording, and demo code are all public. There is no quiz for this lecture; the matching exercises are in [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en).
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=vXb2QYOUzl4
-title: Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)
-```
-
-Original videos: [Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)](https://www.youtube.com/watch?v=vXb2QYOUzl4)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video vXb2QYOUzl4 (49:39) was read in full. Checked Prefill/Decode and the three-cost evaluation framework, the warehouse/workbench analogy (80GB is the warehouse, the workbench is only a dozen or so MB), chunking and the rule that nothing proportional to L fits on the workbench, the online-softmax correction exp(d1−d2), the output-correction formula that skips the attention weights, Hugging Face being unable to return attention weights, the Colab difference of about 1e-7, the roughly 8–9x speedup at length 4096, and the CUDA OOM at long lengths; all match the transcript. One inconsistency: the instructor names Yi-34B for the real-model demo in the transcript while the post said gemma-3-4b-it, so it now lists both and reports trends only; the saved Colab output and slide page numbers cannot be verified from the video.
 
 ## Prerequisite: you are expected to know Transformers
 
@@ -176,6 +157,25 @@ Verified: the structure and text of slides 1–28, the video transcript (from th
 Not verified: which model the real-model demo used. The instructor says Yi-34B in the transcript, while the saved Colab code names `google/gemma-3-4b-it`; the two disagree, so this post draws no conclusion and reports trends only. The timings in the lecture do not match the saved Colab output (the longest saved run did not hit OOM), so the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content is paraphrased from the transcript.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW2: An AI Agent as an AI Engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en) | Next: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=vXb2QYOUzl4
+title: Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)
+```
+
+Original videos: [Video: Speeding up LM generation (1/2): Flash Attention (in Mandarin)](https://www.youtube.com/watch?v=vXb2QYOUzl4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video vXb2QYOUzl4 (49:39) was read in full. Checked Prefill/Decode and the three-cost evaluation framework, the warehouse/workbench analogy (80GB is the warehouse, the workbench is only a dozen or so MB), chunking and the rule that nothing proportional to L fits on the workbench, the online-softmax correction exp(d1−d2), the output-correction formula that skips the attention weights, Hugging Face being unable to return attention weights, the Colab difference of about 1e-7, the roughly 8–9x speedup at length 4096, and the CUDA OOM at long lengths; all match the transcript. One inconsistency: the instructor names Yi-34B for the real-model demo in the transcript while the post said gemma-3-4b-it, so it now lists both and reports trends only; the saved Colab output and slide page numbers cannot be verified from the video.
 
 ## Update Log
 

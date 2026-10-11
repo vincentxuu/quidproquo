@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW3 LLM Fast Inference——讀七篇加速論文，再在 GPU 上量 speculative decoding、FlashAttention 與 vLLM"
+title: "台大李宏毅 ML 2026 導讀：HW3 LLM Fast Inference——讀七篇加速論文，再在 GPU 上量 speculative decoding、FlashAttention 與 vLLM｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW3。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 8 篇。前兩篇講了 [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention) 和 [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)，這份作業要你真的在 GPU 上量看看，也把課堂上跳過的 Speculative Decoding 補回來。
 
 用到的官方材料：作業說明 [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf)（63 頁，後半是中英兩版題目）、[作業 Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing)（40 個 cell），以及課程頁列出的助教說明影片 [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU)。課程頁寫 3/20 公告，PDF 寫截止時間是 2026/04/09 23:59:59（UTC+8），不收遲交。助教是馮柏翰、吳岳霖、蘇炳揚。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
-title: 助教影片：ML 2026 Spring HW3 LLM Fast Inference
-```
-
-原始影片：[助教影片：ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 存取等級：A3，但沒有官方解答
 
@@ -162,6 +143,25 @@ PDF 介紹 [vLLM](https://github.com/vllm-project/vllm) 是結合多種技術的
 不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。官方解答沒有公開，本文刻意不提供任何題目的答案。n-gram 加速的實作細節只依 Colab 程式裡的 `prompt_lookup_num_tokens` 參數描述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)｜下一篇 [Positional Embedding 與超長輸入](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
+title: 助教影片：ML 2026 Spring HW3 LLM Fast Inference
+```
+
+原始影片：[助教影片：ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

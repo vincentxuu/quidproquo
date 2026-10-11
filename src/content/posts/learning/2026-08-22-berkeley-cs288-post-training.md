@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288（三）：Pre-training、Post-training、Generation 與 Evaluation"
+title: "Pre-training、Post-training、Generation 與 Evaluation｜Berkeley CS288 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, llm, post-training, evaluation, prompting]
@@ -31,6 +31,18 @@ Greedy、sampling 與 top-k 類方法改變探索程度；停止條件、長度�
 官方課表把 inference/evaluation 和 experimental design/human annotation 排在一起。這提醒讀者：benchmark score 只有在資料定義、切分與 annotation procedure 清楚時才有意義。先寫 evaluation contract：任務、資料時間點、metric、失敗類型與人工複核抽樣，再開始跑分。
 
 錄影與課堂討論不公開，因此本文不還原教師對特定 benchmark 的口頭評價，只沿公開 slides 與作業建立檢查框架。
+
+## 先固定模型，再比較生成
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編的下一詞分布是 A:0.6、B:0.3、C:0.1。Greedy 每次選 A；sampling 依這個分布抽樣，可能得到 B 或 C。權重未變，答案卻可能改變，因此不能把一次輸出差異直接歸因為訓練改善。
+
+**檢查與答案：** 若只保留 top-2 並重新正規化，A、B 的機率是多少？答案是 0.6/0.9=2/3 與 0.3/0.9=1/3。比較品質時仍需固定題目、評分方式與抽樣設定。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 

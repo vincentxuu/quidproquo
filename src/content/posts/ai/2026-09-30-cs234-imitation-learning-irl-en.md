@@ -1,5 +1,5 @@
 ---
-title: "CS234 Learning from Demonstrations: Behavioral Cloning, DAgger, Inverse RL, and MaxEnt IRL"
+title: "Behavioral Cloning, DAgger, Inverse RL, and MaxEnt IRL | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,31 +41,6 @@ glossary:
 Until now the reward has always been given. The second half of L7 asks a different question. The world already has very good decision-makers: drivers, pilots, doctors. Can we learn directly from their demonstrations without writing a reward first?
 
 The slides give the motivation in one line. Having humans provide a reward signal while the RL algorithm acts is cheap supervision, but its sample complexity is high. The alternative is **imitation learning**.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: from about minute 45, "Introduction to imitation learning"
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=IEbuJtjqtMU
-title: from about minute 4
-```
-
-Original videos: [from about minute 45, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[from about minute 4](https://www.youtube.com/watch?v=IEbuJtjqtMU)
-
-Course and recording entries:
-
-- [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 7, "Policy Search 3" (about 79 minutes), spends its first part on GAE and monotonic improvement, only starts imitation learning after roughly 55% (behavior cloning, ALVINN, DAgger) and reaches IRL and feature matching in about the last 15%; Lecture 8, "Offline RL 1" (about 74 minutes), opens with an imitation-learning recap and MaxEnt IRL and turns to RLHF after roughly 70%. Every mm:ss timestamp is now an approximate value estimated from where topics fall in the transcript, the &t= links are removed, and "YouTube chapters" became "transcript"; the claim that the video is more detailed than the slides was removed because that comparison was not made.
 
 ## Slide ranges and the 2024 videos
 
@@ -207,6 +182,31 @@ One thing to do tonight: make a table of what BC, DAgger, and IRL each need. Do 
 
 - The same topic in a deep RL course: [CS224R L2: imitation learning and multimodal policies](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
 - Another take on distribution shift: [Berkeley CS285 L1–4: imitation learning, distribution shift, and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: from about minute 45, "Introduction to imitation learning"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=IEbuJtjqtMU
+title: from about minute 4
+```
+
+Original videos: [from about minute 45, "Introduction to imitation learning"](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[from about minute 4](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+
+Course and recording entries:
+
+- [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 7, "Policy Search 3" (about 79 minutes), spends its first part on GAE and monotonic improvement, only starts imitation learning after roughly 55% (behavior cloning, ALVINN, DAgger) and reaches IRL and feature matching in about the last 15%; Lecture 8, "Offline RL 1" (about 74 minutes), opens with an imitation-learning recap and MaxEnt IRL and turns to RLHF after roughly 70%. Every mm:ss timestamp is now an approximate value estimated from where topics fall in the transcript, the &t= links are removed, and "YouTube chapters" became "transcript"; the claim that the video is more detailed than the slides was removed because that comparison was not made.
 
 ## Update Log
 

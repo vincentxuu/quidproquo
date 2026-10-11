@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 7：二元搜尋樹、紅黑樹與最壞 O(log n) 的來源"
+title: "二元搜尋樹、紅黑樹與最壞 O(log n) 的來源｜Stanford CS161 第 7 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, binary-search-tree, red-black-tree]
@@ -22,16 +22,6 @@ series:
 這篇依照[官方 Lecture 7 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)、公開 notes 與 slides 整理。slides 的課堂主線是二元搜尋樹（BST）與紅黑樹；notes 另外完整放入 heap。本篇會把 heap 標成講義補充，不假裝它和投影片有相同篇幅。Canvas-only 錄影沒有作為來源。
 
 這堂課真正要解的問題不是「什麼是樹」，而是：如果一個集合會持續插入與刪除，能不能同時保留快速搜尋？排序陣列搜尋快，修改慢；鏈結串列修改快，搜尋慢。BST 想取兩者之長，但它的速度取決於形狀。紅黑樹則把「形狀不能太糟」寫成可維護的不變量。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
-
-查核日期：2026-10-10。
 
 ## 從操作需求看資料結構
 
@@ -190,6 +180,16 @@ h ≤ 2 log₂(n + 1)
 若要把本講變成可操作的練習，可以拿同一串 keys 做三次：依排序順序插入普通 BST、手動選一個近似中位數順序插入、再依紅黑樹規則插入。每一步都寫下樹高與搜尋 path。這會直接看見「相同 keys、不同形狀、不同成本」。
 
 第二個練習是只實作 rotation，不急著做整棵紅黑樹。對每次旋轉前後跑 in-order traversal；輸出序列若改變，pointer 就接錯了。接著再為每個節點計算所有到 `NIL` paths 的 black count，才開始寫 insertion fix-up。這些是本站的實作建議，不是 Winter 2026 投影片新增的課程要求。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

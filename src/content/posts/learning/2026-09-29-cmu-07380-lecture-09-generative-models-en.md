@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 9 Guide: Probabilistic Generative Models, Naive Bayes and Gaussian Discriminant Analysis"
+title: "Probabilistic Generative Models, Naive Bayes and Gaussian Discriminant Analysis | CMU 07-380 Lecture 9"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, machine-learning, generative-models, naive-bayes, classification]
@@ -23,30 +23,6 @@ Lecture 9 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), **Generati
 Every classifier in 07-280 and 07-380 so far (logistic regression, neural networks) learned `p(y|x)` directly. This lecture turns the other way. First describe how the data is produced, meaning learn `p(y)` and `p(x|y)`, then invert with Bayes rule at prediction time. GMM/EM, VAEs, and diffusion later in the schedule are also generative models, and this lecture is where the course starts down that road.
 
 This guide reflects the course site as of 2026-09-29. The schedule is marked `subject to change`.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-Materials I opened and read:
-
-- [Lec9-10 Probabilistic Generative Models slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Probabilistic_Generative_Models.pdf), plus pptx and inked versions, subtitled "Discriminant Analysis & Naive Bayes."
-- [Notes_Generative_Models.pdf](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Probabilistic_Generative_Models.pdf): the full one-feature Iris example and the generative story.
-- The [Naive Bayes SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf), whose solution is section 7 of the [Recitation 5 Solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation5_07380_f26_sol.pdf).
-- Two notebooks on Google Drive, downloadable without login: [cat_dog_sampling.ipynb](https://drive.google.com/file/d/17O6w49maTydc_4zmeYW6vUpedW1lS5dF/view?usp=drive_link) and [discriminant_analysis.ipynb](https://drive.google.com/file/d/1895ysOVVlDl1IGV2OjN9Ow14szP7hRh6/view?usp=drive_link).
-- Further reading: [Mitchell, Generative and Discriminative Classifiers](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf). The site also lists Murphy 3.5, 4.2, and 8.6, but that link goes through CMU's EBSCO library portal, which most outside readers can't open. I did not read it.
-
-Limits: the slides' text layer holds only titles, equations, and poll questions. Many figures (the Iris scatter plots, the generative-story diagrams) and the handwritten derivations have no text, and I don't describe what I can't see. This lecture has no pre-reading checkpoint and no recording link.
-
-**About the file name**: the slides are named "Lec9-10," but Lecture 10 on the schedule (9/28) is Bayes Nets, and `07380_F26_Lec10_Bayes_Nets.pdf` still returned 404 on 2026-09-29. The site doesn't say whether generative models took one session or two, and I won't guess.
 
 ## The question carried forward: Bayes rule's second use
 
@@ -187,6 +163,30 @@ Before Naive Bayes, the slides review the definitions of independence and condit
 1. Print the [SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf), work it without looking at the solution, then compare with the 0.074 above.
 2. Run the sampling code above, then replace `sigmas` with full covariance matrices and switch to `rng.multivariate_normal`. Compare the two scatter plots.
 3. Do Poll 1 from the slides: a GDA with three classes, two features, and a full covariance per class has how many parameters? Count the μ's first, then the truly free entries of each Σ.
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+Materials I opened and read:
+
+- [Lec9-10 Probabilistic Generative Models slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Probabilistic_Generative_Models.pdf), plus pptx and inked versions, subtitled "Discriminant Analysis & Naive Bayes."
+- [Notes_Generative_Models.pdf](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Probabilistic_Generative_Models.pdf): the full one-feature Iris example and the generative story.
+- The [Naive Bayes SPAM worksheet](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec9-10_Naive_Bayes_handout.pdf), whose solution is section 7 of the [Recitation 5 Solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation5_07380_f26_sol.pdf).
+- Two notebooks on Google Drive, downloadable without login: [cat_dog_sampling.ipynb](https://drive.google.com/file/d/17O6w49maTydc_4zmeYW6vUpedW1lS5dF/view?usp=drive_link) and [discriminant_analysis.ipynb](https://drive.google.com/file/d/1895ysOVVlDl1IGV2OjN9Ow14szP7hRh6/view?usp=drive_link).
+- Further reading: [Mitchell, Generative and Discriminative Classifiers](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf). The site also lists Murphy 3.5, 4.2, and 8.6, but that link goes through CMU's EBSCO library portal, which most outside readers can't open. I did not read it.
+
+Limits: the slides' text layer holds only titles, equations, and poll questions. Many figures (the Iris scatter plots, the generative-story diagrams) and the handwritten derivations have no text, and I don't describe what I can't see. This lecture has no pre-reading checkpoint and no recording link.
+
+**About the file name**: the slides are named "Lec9-10," but Lecture 10 on the schedule (9/28) is Bayes Nets, and `07380_F26_Lec10_Bayes_Nets.pdf` still returned 404 on 2026-09-29. The site doesn't say whether generative models took one session or two, and I won't guess.
 
 ## Update Log
 

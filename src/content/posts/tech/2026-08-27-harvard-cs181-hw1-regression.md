@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW1：冰芯溫度迴歸 — kNN、核迴歸、基底函數與正則化四題導讀"
+title: "冰芯溫度迴歸 — kNN、核迴歸、基底函數與正則化四題導讀｜Harvard CS181 作業 1"
 date: 2026-08-27
 category: tech
 tags: [harvard, cs181, regression, linear-regression, kernel-regression, knn, regularization, ice-core, python, machine-learning]
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本**：以 [CS181 2026 HW1](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) 的 `hw1_release.tex` 為準（課號 CS1810-S26，截止 2026-02-13 11:59 PM）。往年版本的題目與配分可能不同，對照時以你那一屆的 `.tex` 為主。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -127,6 +116,17 @@ curl -O https://raw.githubusercontent.com/harvard-ml-courses/cs181-s26-homeworks
 - **[HW4（上）](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)**：Understanding the Transformer。
 
 上一篇是 [HW0：線性代數複習](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)，完整清單見[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

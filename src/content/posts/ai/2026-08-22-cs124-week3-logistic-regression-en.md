@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 3 Logistic Regression and Text Classification: From Features to Probability and Loss"
+title: "Logistic Regression and Text Classification: From Features to Probability and Loss | Stanford CS124 Week 3"
 date: 2026-08-22
 category: ai
 type: deep-dive

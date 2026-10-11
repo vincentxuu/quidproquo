@@ -1,5 +1,5 @@
 ---
-title: "基礎模型概覽：線性探測、微調與 LoRA"
+title: "基礎模型概覽：線性探測、微調與 LoRA｜Stanford CS229 第 15 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,18 +18,6 @@ series:
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 15 章（印刷頁 191–195）。這是依目前公開 notes 撰寫的逐章導讀，不是任何學期錄影或課表的重建；重點是掌握推導骨架與使用判斷，不逐行重現所有證明。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。兩份公開播放清單（Spring 2026 共 17 支、Autumn 2018 共 21 支）都已即時查看，找不到能對應本章主題的單支講次，所以不嵌入影片。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## 為什麼先預訓練，再適應任務
 
@@ -79,6 +67,18 @@ h=W_0x+\frac{\alpha}{r}BAx,
 ## 練習
 
 假設一個權重矩陣為 \(4096\times4096\)，LoRA 秩 \(r=16\)。計算完整微調與 LoRA 的可訓練參數量及比例；接著說明為何這個比例不能直接當成推論記憶體或運算量的下降比例。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。兩份公開播放清單（Spring 2026 共 17 支、Autumn 2018 共 21 支）都已即時查看，找不到能對應本章主題的單支講次，所以不嵌入影片。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 7：o3 找到 Linux kernel 零日，代價是 1:50 的訊噪比"
+title: "o3 找到 Linux kernel 零日，代價是 1:50 的訊噪比｜Stanford CS146S 第 7 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：SAST / SCA、相依套件與密鑰外洩漏洞；prompt injection 與 agent 特有的攻擊面；agent 輔助的分流與修補。客座是 Semgrep 執行長 Isaac Evans，兩版大綱都有他。
 
 安全是十週裡**唯一兩版都在的主題**。但這週要同時處理兩件方向相反的事：拿 agent 當防守工具，以及把 agent 本身當成新的攻擊面。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 課程先教的三個縮寫
 
@@ -163,6 +151,18 @@ OWASP 在 2026 年 8 月 3 日發布 [GenAI / LLM Top 10 2026 版](https://genai
 - o3 的實驗是 2025 年 5 月，模型已換代；那組數字說明的是**方法的形狀**，不是今天的命中率
 - OWASP 清單每年改版，寫作當下最新是 2026-08-03 發布的 GenAI / LLM Top 10 2026
 - 各家 agent 的沙箱與權限預設值變動頻繁，實作前查當下文件
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

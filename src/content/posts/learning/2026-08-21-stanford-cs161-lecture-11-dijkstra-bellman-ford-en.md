@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 11: Dijkstra, Bellman-Ford, and Two Orders of Relaxation"
+title: "Dijkstra, Bellman-Ford, and Two Orders of Relaxation | Stanford CS161 Lecture 11"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, shortest-path, graph-algorithms]
@@ -22,16 +22,6 @@ This is article 12 in [Reading Stanford CS161](/en/series/stanford-cs161), cover
 I used the [official Lecture 11 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford), the public notes, and the public slides PDF. The deck says Dijkstra occupies most of class and Bellman-Ford is a quick introduction before Lecture 12. The notes add full Bellman-Ford and amortized-analysis arguments. This article preserves that emphasis. I did not use the Canvas-only recording. The component lists `lecture11-slides.pptx`, but that asset is missing, so I do not cite it.
 
 Lecture 9's BFS solves unweighted shortest paths because every edge increases distance by one. Weighted graphs disrupt that order: a path with fewer edges may cost more. Dijkstra and Bellman-Ford share one core operation—relaxation—but schedule it differently and therefore require different assumptions.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
-
-Checked: 2026-10-10.
 
 ## Problem, notation, and relaxation
 
@@ -188,6 +178,16 @@ Lecture 12 will reinterpret `d^(k)[v]` as a table of subproblem solutions. That 
 Trace both algorithms on the same five-vertex graph. After each Dijkstra finalization, write why the value can no longer change. After each Bellman-Ford round, write the maximum number of edges whose paths are now covered. Add a negative edge and then a negative cycle to distinguish a failed premise from an undefined distance.
 
 An implementation can retain predecessors as well as distances. After detecting a negative cycle, following predecessors n steps and then around the loop can produce a cycle certificate. This is a practice extension, not an additional Winter 2026 requirement.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-11-dijkstra-and-bellman-ford)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 8: Align ZeRO, FSDP, and 3D Parallelism with Hardware Topology"
+title: "Align ZeRO, FSDP, and 3D Parallelism with Hardware Topology | Stanford CS336 Lecture 8"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 8: Parallelism**, taught by Tatsunori Hashimoto on April 22, 2026. Its primary source is the official [`lecture_08.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf).
 
 Lecture 7 builds parallelism from collectives. Lecture 8 asks how to compose it for a large model. It treats the datacenter as the new compute unit: GPU memory, NVLink domains, cross-node fabric, and batch size jointly determine sharding. No strategy solves every limit alone.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 8 (Parallelism, Tatsu). The captions open with "last lecture Percy covered…underlying mechanics" and cover ZeRO/FSDP, tensor/pipeline/sequence/context/expert parallelism, activation checkpointing, pipeline bubbles, and 3D/4D combinations in large-model case studies. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=6-cXp-aOmdg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## ZeRO removes replicated state in stages
 
@@ -87,6 +69,24 @@ A configuration that runs is not necessarily efficient. Lecture 8's central test
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide covers its networking, ZeRO/FSDP, TP/PP/SP/EP, and composition sections.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 8 (Parallelism, Tatsu). The captions open with "last lecture Percy covered…underlying mechanics" and cover ZeRO/FSDP, tensor/pipeline/sequence/context/expert parallelism, activation checkpointing, pipeline bubbles, and 3D/4D combinations in large-model case studies. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=6-cXp-aOmdg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 8: Parallelism](https://www.youtube.com/watch?v=6-cXp-aOmdg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

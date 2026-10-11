@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS146S, Two Syllabi Side by Side: What Changed in a Year"
+title: ", Two Syllabi Side by Side: What Changed in a Year | Stanford CS146S Course Map"
 date: 2026-08-16
 category: ai
 tags:
@@ -29,18 +29,6 @@ draft: false
 Stanford runs a for-credit course called [CS146S: The Modern Software Developer](https://themodernsoftware.dev/). It does not teach you to write code; it teaches you to direct coding agents that write code. It first ran in fall 2025, and the fall 2026 syllabus (classes start 9/22) is already published — **with changes big enough to read as an industry signal**.
 
 This series works through the Fall 2026 syllabus one week per post. This first post covers the course itself, then puts both syllabi side by side.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## The hard facts
 
@@ -150,6 +138,18 @@ One post per week plus this overview, eleven in total:
 - Marketing lines like "world's first course of its kind," "10x productivity," and the newsletter's "trusted by 32K developers globally" are course self-descriptions with no independent verification
 - The comparison between the two syllabi is my own item-by-item diff; the course publishes no changelog
 - All classroom content quoted in this series comes from Fall 2025 slides; those sessions may be taught differently in Fall 2026
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

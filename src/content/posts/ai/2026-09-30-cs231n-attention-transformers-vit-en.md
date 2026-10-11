@@ -1,5 +1,5 @@
 ---
-title: "CS231N L8: Attention, Transformers, and ViT"
+title: "Attention, Transformers, and ViT | Stanford CS231N Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,23 +35,6 @@ glossary:
 Through Lecture 7, CS231N has two kinds of structure: convolution for grids and RNNs for sequences. Lecture 8 introduces a third, and it went on to take over the territory of the other two. The summary slide says it outright: Transformers are the backbone of all large AI models today, used for language, vision, speech, and more.
 
 The lecture follows one line: where attention came from → abstracting it into a general operation → building the Transformer out of it → turning images into something a Transformer can consume. This post follows the same line.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 8 (length 1:06:31). The transcript covers the RNN translation model and attention, the matrix form of self-attention, permutation equivariance, positional encoding, masked and multi-head attention, the RNN/convolution/self-attention comparison, the Transformer block and a ViT overview, and ends with a Transformer summary. It has no RoPE, QK-Norm, Flash Attention, Pre-Norm, SwiGLU or MoE, and no 224x224 / 16x16 patch numbers; those come from the 2026 slides this article follows, and the version note now says so. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=RQowiOF_FvQ
-title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The problem: an RNN translator squeezed through one vector
 
@@ -190,6 +173,23 @@ These courses cover the same architecture from the language model side. This pos
 - [CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en)
 - [CME295: Transformers](/posts/ai/2026-09-29-cme295-transformer-en)
 - Building a Transformer language model from scratch: [CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 8 (length 1:06:31). The transcript covers the RNN translation model and attention, the matrix form of self-attention, permutation equivariance, positional encoding, masked and multi-head attention, the RNN/convolution/self-attention comparison, the Transformer block and a ViT overview, and ends with a Transformer summary. It has no RoPE, QK-Norm, Flash Attention, Pre-Norm, SwiGLU or MoE, and no 224x224 / 16x16 patch numbers; those come from the 2026 slides this article follows, and the version note now says so. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=RQowiOF_FvQ
+title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

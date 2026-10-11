@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 1–3：ML 問題框架、資料工具、術語與技巧"
+title: "ML 問題框架、資料工具、術語與技巧｜Berkeley CS189 第 1–3 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, scikit-learn, pandas]
@@ -30,31 +30,6 @@ draft: false
 | Discussion 1 | 第 2 週 | [題目](https://drive.google.com/file/d/13TjzfhCv8lbf8pxoQjOx4RoEY0oS5-9b/view?usp=sharing) / [解答](https://drive.google.com/file/d/1rvdrRJ6YBEDrIhxeulEjq80H1iI2qwVR/view?usp=sharing) / [Walkthrough](https://www.youtube.com/watch?v=dTdHuJEHOsM&list=PL-ysCubq-Sa8_GGY5otoIkzjneKo-qfW3) | — |
 
 課本是 Bishop 與 Bishop 的《Deep Learning: Foundations and Concepts》，[bishopbook.com](https://www.bishopbook.com) 有免費的線上閱讀版。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。官方課表沒有列第 1 講的錄影。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=IzfaWKuxThw
-title: Lecture 2 錄影：Data Tools
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=oVo_RajZ3aE
-title: Lecture 3 錄影：Machine Learning Mechanics - Terminology and Techniques
-```
-
-原始影片：[Lecture 2 錄影：Data Tools](https://www.youtube.com/watch?v=IzfaWKuxThw)、[Lecture 3 錄影：Machine Learning Mechanics - Terminology and Techniques](https://www.youtube.com/watch?v=oVo_RajZ3aE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 2 影片（IzfaWKuxThw，約 80 分鐘）確為 Data Tools：開頭回顧 Lec 1 的三分法（工程問題、ML 問題、人的問題）與泛化問題，後面大半是 pandas（選取、join、group by 等）；視覺化只簡短帶過 Matplotlib 與 Plotly，字幕沒有 Weights & Biases。Lecture 3 影片（oVo_RajZ3aE，約 76 分鐘）確為 ML Mechanics：FashionHub 例子、train/validation/test、one-hot 與取 log、標準化、COVID 準確率例子、no free lunch、欠擬合與過擬合，並預告 HW1 週五發布；講者說還有幾頁投影片沒講就收尾，所以作業說明、grid search、predict_proba、ImageNetV2 等細節只見於投影片，字幕沒有。文中以「投影片」為主詞的敘述未逐頁對照；字幕未自報講者姓名，講者歸屬未驗證。
 
 ## Lec 1：什麼問題該交給 ML
 
@@ -175,6 +150,31 @@ Lecture 3 最後幾頁在講作業：Part 1 是講課內容的應用（書面題
 - [Stanford CS109 L3：貝氏定理](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem)：Discussion 1 機率題的前置
 - [Stanford CS229 講義 Ch.1：線性回歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)：另一門課怎麼從線性模型起步
 - [CMU 11-785 L1：導論](/posts/ai/2026-08-22-cmu-11785-01-introduction)：從深度學習角度看同一批基本概念
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。官方課表沒有列第 1 講的錄影。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=IzfaWKuxThw
+title: Lecture 2 錄影：Data Tools
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=oVo_RajZ3aE
+title: Lecture 3 錄影：Machine Learning Mechanics - Terminology and Techniques
+```
+
+原始影片：[Lecture 2 錄影：Data Tools](https://www.youtube.com/watch?v=IzfaWKuxThw)、[Lecture 3 錄影：Machine Learning Mechanics - Terminology and Techniques](https://www.youtube.com/watch?v=oVo_RajZ3aE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 2 影片（IzfaWKuxThw，約 80 分鐘）確為 Data Tools：開頭回顧 Lec 1 的三分法（工程問題、ML 問題、人的問題）與泛化問題，後面大半是 pandas（選取、join、group by 等）；視覺化只簡短帶過 Matplotlib 與 Plotly，字幕沒有 Weights & Biases。Lecture 3 影片（oVo_RajZ3aE，約 76 分鐘）確為 ML Mechanics：FashionHub 例子、train/validation/test、one-hot 與取 log、標準化、COVID 準確率例子、no free lunch、欠擬合與過擬合，並預告 HW1 週五發布；講者說還有幾頁投影片沒講就收尾，所以作業說明、grid search、predict_proba、ImageNetV2 等細節只見於投影片，字幕沒有。文中以「投影片」為主詞的敘述未逐頁對照；字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 更新紀錄
 

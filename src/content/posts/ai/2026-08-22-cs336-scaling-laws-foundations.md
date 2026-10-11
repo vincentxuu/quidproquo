@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 9：Scaling law 不是水晶球，是小實驗的外推工具"
+title: "Scaling law 不是水晶球，是小實驗的外推工具｜Stanford CS336 第 9 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 9: Scaling laws**，2026 年 4 月 27 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_09.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf)。
 
 如果最後一次大模型訓練才發現模型太大、資料太少或 learning rate 不對，預算已經無法追回。Scaling law 的用途，是用一批較小實驗建立簡單、可檢驗的關係，再預測昂貴區域。它不是保證未來的定律，而是一套設計實驗與管理不確定性的工具。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（Scaling Laws，講者 Tatsu，字幕稱「two lectures on scaling law」的第一講）。字幕涵蓋 power law／log-log、intrinsic dimension、Kaplan 與 Chinchilla、IsoFLOPs、joint fit、LSTM 對 Transformer 的 scaling 比較、critical batch size 與 MoE 的 scaling。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## Power law 為什麼容易被看見
 
@@ -82,6 +64,24 @@ Chinchilla 問的是固定訓練 compute 下取得最低 loss；產品生命週�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文涵蓋 data scaling、模型工程與 compute-optimal scaling，沒有預先挪用 Lecture 11 的實作內容。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（Scaling Laws，講者 Tatsu，字幕稱「two lectures on scaling law」的第一講）。字幕涵蓋 power law／log-log、intrinsic dimension、Kaplan 與 Chinchilla、IsoFLOPs、joint fit、LSTM 對 Transformer 的 scaling 比較、critical batch size 與 MoE 的 scaling。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

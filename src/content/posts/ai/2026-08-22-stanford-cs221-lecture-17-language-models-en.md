@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 17: Language Models: From Next-Token Prediction to Generation"
+title: "Language Models: From Next-Token Prediction to Generation | Stanford CS221 Lecture 17"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This post is rewritten only from the official slides for **Stanford CS221 Autumn 2025 Lecture 17**, `language_models.pdf`. The PDF dates the lecture to 2025-11-17 and credits Ken Liu; it begins by noting that language models will not be on that week's exam, then introduces the definition, motivation, architectures and systems, and finally places the topic in its industrial and research context.
 
 > Material gap: The scope below is limited to what the static PDF supports. The slides do not provide a complete Transformer derivation, reproducible training code, systems benchmark table, classroom interaction record, or Canvas material; those gaps are not filled with generic textbook content.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 17, the same term and lecture number this article follows. It matches item 17 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=3orP3u2-jcg
-title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 17: Language Models](https://www.youtube.com/watch?v=3orP3u2-jcg)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 17) and confirmed it covers the definition of a language model and next-token prediction, n-gram counts, scaling, pre-training and post-training, and closing robotics/multimodal extensions, matching this article's lecture and topic; no mismatch found.
 
 ## The lecture map
 
@@ -157,6 +137,26 @@ This 119-page slide deck is a map, not a complete textbook or reproducible bench
 - No public Canvas interactions, assignment solutions, hidden tests, or classroom discussion for this lecture.
 
 The reliable takeaway is therefore not that next-token prediction explains intelligence. It is a checkable contract: language is represented as a token sequence, the joint probability is factored by the chain rule, each position is a vocabulary classification, training and post-training change different behaviors, inference generates one token at a time, and architecture, data, systems, and evaluation determine how far the contract can be taken.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 17, the same term and lecture number this article follows. It matches item 17 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=3orP3u2-jcg
+title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 17: Language Models](https://www.youtube.com/watch?v=3orP3u2-jcg)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 17) and confirmed it covers the definition of a language model and next-token prediction, n-gram counts, scaling, pre-training and post-training, and closing robotics/multimodal extensions, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

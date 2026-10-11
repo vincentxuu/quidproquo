@@ -1,5 +1,5 @@
 ---
-title: "NTHU Hung-Yu Kao NLP, Week 1: Why Language Is Hard, and How Text Became Numbers Before LLMs"
+title: "Why Language Is Hard, and How Text Became Numbers Before LLMs | NTHU Hung-Yu Kao Natural Language Processing Week 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,35 +36,6 @@ glossary:
 Type "taxi" into a search box and you probably also want pages that say "cab." To a person these are the same thing. To a program that only compares strings, they have nothing in common. The slides' own example is three different Chinese words for taxi.
 
 Week 1 is about that gap. It answers one question: **before large language models, how did a computer turn a pile of text into something it could compute on and rank?** The answer is a pipeline that grew out of information retrieval, plus two patches applied after that pipeline hit a wall: LSA and word vectors.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, the two Week 1 videos cover the first part of this deck and Week 2 Tue. covers the later part. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=X7XJcm9wfFA
-title: Fall 2025 Week 1 Tue. recording
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=0hTqSpoNp4o
-title: Fall 2025 Week 1 Thu. recording
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6Z0A4JMptT8
-title: Fall 2025 Week 2 Tue. recording
-```
-
-Original videos: [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. recording](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch?v=6Z0A4JMptT8)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the Week 2 Tue. transcript was read through; for Week 1 Tue. and Thu. only the openings were read. Week 2 Tue. covers exactly the later part of the deck this post follows: inverted indexes, tokenization, stemming vs. lemmatization (Porter), stop words (including the "To be or not to be" joke), the vector-space model, TF-IDF (including why IDF must be recomputed), cosine vs. dot product, BM25 as a strong baseline, the limits of bag of words and one-hot, WordNet, dense vectors, the LSA/SVD example with ten Linux and genome documents, word2vec training with a single hidden layer, and it closes on the Leonie Monigatti article, all consistent with the post. Week 1 Tue. opens with course logistics and an applications overview; Week 1 Thu. opens by saying this is the NLP brief originally planned for Tuesday and covers word-sense ambiguity. The post relies on the slides only and makes no specific claims about the videos, so the body is unchanged; Week 2 Tue. was moved here from the word-embeddings post.
 
 ## Why language is hard for computers
 
@@ -184,6 +155,35 @@ The 2026 main README links [W1_NLP_brief_v2.pdf](https://github.com/IKMLab/NTHU_
 - [CS224N word vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en): Stanford's take on word2vec and distributional semantics.
 - [CS224U information retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en): the BM25 formula, IR metrics, and neural IR.
 - [Hybrid search: BM25 + vectors + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en): BM25 inside a real RAG retrieval system.
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, the two Week 1 videos cover the first part of this deck and Week 2 Tue. covers the later part. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=X7XJcm9wfFA
+title: Fall 2025 Week 1 Tue. recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=0hTqSpoNp4o
+title: Fall 2025 Week 1 Thu. recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. recording
+```
+
+Original videos: [Fall 2025 Week 1 Tue. recording](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. recording](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. recording](https://www.youtube.com/watch?v=6Z0A4JMptT8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 2 Tue. transcript was read through; for Week 1 Tue. and Thu. only the openings were read. Week 2 Tue. covers exactly the later part of the deck this post follows: inverted indexes, tokenization, stemming vs. lemmatization (Porter), stop words (including the "To be or not to be" joke), the vector-space model, TF-IDF (including why IDF must be recomputed), cosine vs. dot product, BM25 as a strong baseline, the limits of bag of words and one-hot, WordNet, dense vectors, the LSA/SVD example with ten Linux and genome documents, word2vec training with a single hidden layer, and it closes on the Leonie Monigatti article, all consistent with the post. Week 1 Tue. opens with course logistics and an applications overview; Week 1 Thu. opens by saying this is the NLP brief originally planned for Tuesday and covers word-sense ambiguity. The post relies on the slides only and makes no specific claims about the videos, so the body is unchanged; Week 2 Tue. was moved here from the word-embeddings post.
 
 ## Update Log
 

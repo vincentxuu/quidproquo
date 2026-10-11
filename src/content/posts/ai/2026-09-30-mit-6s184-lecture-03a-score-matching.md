@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L3A：分數函數、SDE 取樣與 score matching"
+title: "A：分數函數、SDE 取樣與 score matching｜MIT 6.S184 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 這一講的聚焦問題：**什麼是分數函數，為什麼學到它（或學到向量場）就能用 SDE 取樣？** 答案會順便說明 diffusion model 跟 flow matching 是什麼關係。
 
 時間方向跟前面一樣：**t=0 是雜訊，t=1 是資料**。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=ngC3QnYSVNM
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了影片後半的大部分字幕：分數函數與向量場可互換、用 SDE 取樣（任選 σ_t，加上 σ_t²/2 倍的 score 修正）、Fokker–Planck 方程式的證明（講者標明為選讀，字幕轉成 “focal plank”）、flow 與 diffusion 取樣的差異與「理論一樣、實務不同」的訓練誤差與模擬誤差、Langevin dynamics 當附帶說明（字幕轉成 “long dynamics”）、以及 denoising score matching 的結語。內容與本文相符。影片到 CFG 開始前結束，Ornstein–Uhlenbeck 與 Theorem 編號等細節依講義。
 
 ## 分數函數：往機率更高的方向指
 
@@ -271,6 +253,24 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 - 講義附錄 E（A Guide to the Diffusion Model Literature）：說明離散時間 vs 連續時間、forward process vs 機率路徑、反向時間慣例，以及 flow matching 與 stochastic interpolants 的關係，把文獻的寫法對回本課的語言
 
 系列導覽：上一篇 [L2：Flow matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)｜下一篇 [Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=ngC3QnYSVNM
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03A - Score Functions (2026)](https://www.youtube.com/watch?v=ngC3QnYSVNM)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了影片後半的大部分字幕：分數函數與向量場可互換、用 SDE 取樣（任選 σ_t，加上 σ_t²/2 倍的 score 修正）、Fokker–Planck 方程式的證明（講者標明為選讀，字幕轉成 “focal plank”）、flow 與 diffusion 取樣的差異與「理論一樣、實務不同」的訓練誤差與模擬誤差、Langevin dynamics 當附帶說明（字幕轉成 “long dynamics”）、以及 denoising score matching 的結語。內容與本文相符。影片到 CFG 開始前結束，Ornstein–Uhlenbeck 與 Theorem 編號等細節依講義。
 
 ## 更新紀錄
 

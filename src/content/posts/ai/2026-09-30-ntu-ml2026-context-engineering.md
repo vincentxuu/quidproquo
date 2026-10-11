@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：Context Engineering——壓縮、過濾、按需載入，以及要不要把 context 整個交給 LLM"
+title: "台大李宏毅 ML 2026 導讀：Context Engineering——壓縮、過濾、按需載入，以及要不要把 context 整個交給 LLM｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/13 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 3 篇。上一篇是 [HW1：防禦惡意指令](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)，第 1 篇[解剖小龍蝦](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)已經看過 OpenClaw 會把 SOUL.md、MEMORY.md 塞進 system prompt，也會壓縮與修剪對話。這一篇回答接下來的問題：**context 放不下的時候，該留什麼、丟什麼、誰來決定？**
 
 用到的官方材料：講義 [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf) 第 1–33 頁（整份 61 頁，後半是下一篇的內容），以及課程頁列出的影片 [AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://youtu.be/urwDLyNa9FU)。存取等級是 **A3**：投影片 pdf／pptx 與錄影都公開，本講沒有對應的測驗或排行榜。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=urwDLyNa9FU
-title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說
-```
-
-原始影片：[影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://www.youtube.com/watch?v=urwDLyNa9FU)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片 urwDLyNa9FU（53:05）字幕已讀。核對 C_{t+1} ← F(C_t, I_t, O_t) 形式化與 P／M 拆分、LLM summary 與 Hard Clear（SWE-bench 比較、軌跡延長）、卸載到 log1.txt、ACON（Context Collapse、不動參數）、AgentFold（需微調）、語言模型不喜歡壓縮、subagent 視為自主壓縮與 Context-Folding 的兩種懲罰、Observation 約 84%／讀程式碼約 76%、memory_get 的行數過濾、MCP-Zero（GitHub 工具 4,600 token）、Dynamic Cheatsheet／ACE／Recursive Language Models，文中關於影片的說法皆能在字幕找到，未發現錯誤；投影片頁碼與個別數字（如 ACON 的 26%）屬講義內容，字幕未涵蓋、無法驗證。
 
 ## 為什麼需要 Context Engineering
 
@@ -140,6 +121,25 @@ title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念�
 延伸閱讀：站上的 [Context Engineering 指南](/posts/ai/2026-03-24-context-engineering-guide)、[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)、CMU 11-768 的 [Context Management 導讀](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)，以及 Stanford CS146S 的 [Context Engineering 導讀](/posts/ai/2026-08-16-cs146s-context-engineering)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW1：防禦惡意指令](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)｜下一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=urwDLyNa9FU
+title: 影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說
+```
+
+原始影片：[影片：AI Agent (1/3)：核心技術 Context Engineering 基本概念解說](https://www.youtube.com/watch?v=urwDLyNa9FU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 urwDLyNa9FU（53:05）字幕已讀。核對 C_{t+1} ← F(C_t, I_t, O_t) 形式化與 P／M 拆分、LLM summary 與 Hard Clear（SWE-bench 比較、軌跡延長）、卸載到 log1.txt、ACON（Context Collapse、不動參數）、AgentFold（需微調）、語言模型不喜歡壓縮、subagent 視為自主壓縮與 Context-Folding 的兩種懲罰、Observation 約 84%／讀程式碼約 76%、memory_get 的行數過濾、MCP-Zero（GitHub 工具 4,600 token）、Dynamic Cheatsheet／ACE／Recursive Language Models，文中關於影片的說法皆能在字幕找到，未發現錯誤；投影片頁碼與個別數字（如 ACON 的 26%）屬講義內容，字幕未涵蓋、無法驗證。
 
 ## 更新紀錄
 

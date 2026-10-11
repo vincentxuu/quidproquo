@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS124: Numbered 100, Four Prerequisites Written Into the Catalog, and Not Offered at All Next Year"
+title: "Numbered 100, Four Prerequisites Written Into the Catalog, and Not Offered at All Next Year | Stanford CS124 Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ draft: false
 On the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) this is the first cell in the NLP branch. That piece answers where the course sits on the ladder. This one answers what happens once you walk in: how the weeks are laid out, what the assignments look like, which one is the dividing line, and how much of it you can get without a Stanford login.
 
 Scope first. **No slide-by-slide close reading, and no lecture-video content** — this offering's recordings live behind Canvas and are unavailable to non-enrolled students, and I say below exactly where that boundary falls. What follows is based on the Winter 2026 course site, the [ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+124&view=catalog) entry, the public assignment repos, and the textbook site itself.
-
-## Course video sources
-
-The official Winter 2026 course page (read live on 2026-10-10) says the pre-recorded videos are in Canvas Modules (course 186110); opening it redirected me to the Stanford login page, confirming the sign-in wall, and the five live lectures and five labs are explicitly "not recorded". The From Languages to Information YouTube channel has an 80-video "CS124 - Full Course" playlist, but its weekly titles (for example Week 2: Naive Bayes, Week 6: Chatbots and Dialogue Agents) do not match the Winter 2026 syllabus, so it is not treated as the current term’s recordings and nothing is embedded.
-
-Course and recording entries:
-
-- [From Languages to Information YouTube channel](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
-- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -197,6 +186,17 @@ One item sits between the two and deserves its own paragraph: **there is a full 
 - **An archive directory whose label contradicts its contents**: `cs124.1254` is marked Winter 2025 by both its code and its page title, but what's inside is **an early draft of the Winter 2026 page** — the same "not taught in 2026–27" banner, the same January 6 start date, only with TAs still listed as TBD and no starter-code links on the assignments. Set the two side by side and two edits are visible: in that draft PA7 is named *Chatbot*, renamed to *Agent* in the released version; and the two honor-code sentences about using language models like a TA appear only in the released version. `cs124.1204` doesn't line up either: the title says Winter 2021, but the schedule runs from March 30 to June 3 and the staff email is `cs124-spr2021-staff`. **When citing an archived CS124 page, open it and check the contents; don't trust the directory code.** Where this piece refers to "the 2021 version," it means the content on the `cs124.1204` page, not its directory label.
 - **How the chapter numbers were checked**: the "what you get today" column in the table above comes from downloading the PDFs from both the main `slp3/` directory and `old_aug25/` and comparing the chapter titles on page one. The main-directory versions are headed Draft of August 19, 2026; the `old_aug25/` versions are headed Draft of August 24, 2025. Separately, `12.pdf` in the main directory still exists and downloads, but its content is Machine Translation, headed Draft of January 6, 2026 — while the index page lists Chapter 12 as "Agents [not written yet]" with no link.
 - **Unconfirmed items**: (1) the actual recording year of the YouTube videos — no official page states it, and this piece describes them only through the correspondence between playlist topics and archived syllabi, making no claim about the year. (2) Completion rates, grade distributions and average time spent on each Winter 2026 assignment — the course site publishes none of this, and neither does this piece. (3) Whether the course will keep the same syllabus after 2026–27 — the page says only that it isn't being offered and suggests when to take it, with nothing about future content.
+
+## Course video sources
+
+The official Winter 2026 course page (read live on 2026-10-10) says the pre-recorded videos are in Canvas Modules (course 186110); opening it redirected me to the Stanford login page, confirming the sign-in wall, and the five live lectures and five labs are explicitly "not recorded". The From Languages to Information YouTube channel has an 80-video "CS124 - Full Course" playlist, but its weekly titles (for example Week 2: Naive Bayes, Week 6: Chatbots and Dialogue Agents) do not match the Winter 2026 syllabus, so it is not treated as the current term’s recordings and nothing is embedded.
+
+Course and recording entries:
+
+- [From Languages to Information YouTube channel](https://www.youtube.com/channel/UC_48v322owNVtORXuMeRmpA)
+- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 4–7：K-means、機率複習、MLE、多變量高斯與 GMM"
+title: "K-means、機率複習、MLE、多變量高斯與 GMM｜Berkeley CS189 第 4–7 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, clustering, k-means, probability, unsupervised-learning]
@@ -34,31 +34,6 @@ draft: false
 | Lec 7 Mixture of Gaussians & Linear Regression（本篇只讀前半） | 2/10 | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view?usp=drive_link) / [影片](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) | 3.2.9、15.2、15.2.1（線性回歸部分留到下一篇） |
 | Discussion 2 | 第 3 週 | [題目](https://drive.google.com/file/d/1MZs3r4ZOMhKUTAXjvLU9lxeCvGCUq1ND/view?usp=drive_link) / [解答](https://drive.google.com/file/d/1rGh1__n8Q7q9ScAJvSQWFsygwwsChh5V/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/watch?v=Mf4deCkjUkQ&list=PL-ysCubq-Sa9uYDjsrzfmPCLLbjfOKVPd&index=3) | — |
 | Discussion 3 | 第 4 週 | [題目](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view?usp=drive_link) / [解答](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj) | — |
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=STdR9OyulZE
-title: Lecture 4 錄影：Clustering, Probability Review
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=kU7a1K3PX10
-title: Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
-```
-
-原始影片：[Lecture 4 錄影：Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 4 影片（STdR9OyulZE，約 80 分鐘）確為 Clustering, Probability Review：講者開場說之前是 Alex 在授課、這是自己的第一堂；內容有間歇泉等聚類例子、K-means 與質心、局部最小值、不同群大小的提問、KL 不對稱，機率複習只講到聯合分布與邊際化就下課（講者說留到下次），所以文中「機率複習」其餘各項（乘法規則、獨立性、IID、喚醒詞貝氏例子）只見於投影片，字幕沒有，「Lloyd」之名也沒被提到。Lecture 5 影片（kU7a1K3PX10，約 72 分鐘）：回顧 K-means 的缺點、隨機變數複習、簡單 MLE 例子與一維高斯 MLE 推導，骰子例子講到一半就結束（講者說下次完成），因此 Lagrange 乘子推導、多變量高斯與 GMM 不在這支影片裡。Lec 6、Lec 7 的影片本文沒有嵌入，未核對。
 
 ## Lec 4 前半：K-means 分群
 
@@ -194,6 +169,31 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 - [Stanford CS109 L19：最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)：MLE 的另一種講法
 - [Stanford CS109 L9：常態分布](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution)：一維高斯的前置
 - [Stanford CS229 講義 Ch.4：生成式學習演算法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms)：多變量高斯在分類上的用法
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=STdR9OyulZE
+title: Lecture 4 錄影：Clustering, Probability Review
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=kU7a1K3PX10
+title: Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
+```
+
+原始影片：[Lecture 4 錄影：Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 錄影：Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 4 影片（STdR9OyulZE，約 80 分鐘）確為 Clustering, Probability Review：講者開場說之前是 Alex 在授課、這是自己的第一堂；內容有間歇泉等聚類例子、K-means 與質心、局部最小值、不同群大小的提問、KL 不對稱，機率複習只講到聯合分布與邊際化就下課（講者說留到下次），所以文中「機率複習」其餘各項（乘法規則、獨立性、IID、喚醒詞貝氏例子）只見於投影片，字幕沒有，「Lloyd」之名也沒被提到。Lecture 5 影片（kU7a1K3PX10，約 72 分鐘）：回顧 K-means 的缺點、隨機變數複習、簡單 MLE 例子與一維高斯 MLE 推導，骰子例子講到一半就結束（講者說下次完成），因此 Lagrange 乘子推導、多變量高斯與 GMM 不在這支影片裡。Lec 6、Lec 7 的影片本文沒有嵌入，未核對。
 
 ## 更新紀錄
 

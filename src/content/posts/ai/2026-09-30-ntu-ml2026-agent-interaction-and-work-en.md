@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: How AI Agents Interact and What They Do to Work — Collaboration Topologies, Werewolf, Moltbook, and AI Writing and Reviewing Papers"
+title: "Reading NTU ML 2026: How AI Agents Interact and What They Do to Work — Collaboration Topologies, Werewolf, Moltbook, and AI Writing and Reviewing Papers | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,30 +22,6 @@ draft: false
 Official materials used: pages 34–61 of [agent_era.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/agent_era.pdf), and two videos (in Mandarin): [AI Agent (2/3): what kinds of interaction AI agents can have](https://youtu.be/mmPmNezjCi0) and [AI Agent (3/3): the impact of AI agents on work, with academic research as the example](https://youtu.be/VqB8zMujdjM). Access level is **A3**. This lecture has no homework or quiz attached.
 
 This lecture is mostly case studies rather than methods, so I follow the slide order and pick one point per section.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=mmPmNezjCi0
-title: Video: AI Agent (2/3): interactions between AI agents
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VqB8zMujdjM
-title: Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example
-```
-
-Original videos: [Video: AI Agent (2/3): interactions between AI agents](https://www.youtube.com/watch?v=mmPmNezjCi0)、[Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example](https://www.youtube.com/watch?v=VqB8zMujdjM)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10): both videos (mmPmNezjCi0, VqB8zMujdjM) were read. Checked the MacNet topology comparison, the werewolf Mona/Grace example, Moltbook and the five Church of Molt tenets, the three Moltbook analyses, Andrew Hall's Claude Code paper and cost comparison, the ideation-execution gap, AAAI 2026 AI review, and the Agents4Science 247/48 figures. Every video-related claim in the post appears in the transcripts and no errors were found; slide page numbers, the paper table and cited links are this site's additions and cannot be verified from the transcripts.
 
 ## 1. How should multiple agents collaborate?
 
@@ -123,6 +99,30 @@ Not confirmed: I did not transcribe the two videos, so verbal commentary and ext
 Further reading on this site: [multi-agent safety](/posts/ai/2026-09-18-multi-agent-safety-en) and [OpenClaw's multi-agent setup](/posts/ai/2026-03-28-openclaw-multi-agent-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) | Next: [HW2: AI agent as an AI engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=mmPmNezjCi0
+title: Video: AI Agent (2/3): interactions between AI agents
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VqB8zMujdjM
+title: Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example
+```
+
+Original videos: [Video: AI Agent (2/3): interactions between AI agents](https://www.youtube.com/watch?v=mmPmNezjCi0)、[Video: AI Agent (3/3): the impact of AI agents on work, with academic research as the example](https://www.youtube.com/watch?v=VqB8zMujdjM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10): both videos (mmPmNezjCi0, VqB8zMujdjM) were read. Checked the MacNet topology comparison, the werewolf Mona/Grace example, Moltbook and the five Church of Molt tenets, the three Moltbook analyses, Andrew Hall's Claude Code paper and cost comparison, the ideation-execution gap, AAAI 2026 AI review, and the Agents4Science 247/48 figures. Every video-related claim in the post appears in the transcripts and no errors were found; slide page numbers, the paper table and cited links are this site's additions and cannot be verified from the transcripts.
 
 ## Update Log
 

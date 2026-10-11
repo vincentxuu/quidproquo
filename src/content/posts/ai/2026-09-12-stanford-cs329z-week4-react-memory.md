@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 4：先學會邊想邊做，再學會記住——ReAct 與 MemGPT"
+title: "先學會邊想邊做，再學會記住——ReAct 與 MemGPT｜Stanford CS329Z 第 4 週"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ draft: false
 週一（10/12，Agent Patterns）的主讀物是 Yao 等人的 [ReAct](https://arxiv.org/abs/2210.03629)（ICLR 2023）。它讓模型把「想」（Thought）和「做」（Action）交錯寫出來，每做一步都回頭看環境回了什麼（Observation）。週三（10/14，Memory & Multi-Agent）的主讀物是 Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560)（ICLR 2024）。它把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗和外部儲存之間分頁。這一週 [HW1](https://cs329z.stanford.edu/) 正好走到中段：迴圈長什麼樣、記憶放哪裡，就是 harness 要往上長之前得先定案的兩件事。
 
 先把位置說清楚：[Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy) 發了 HW1：替一家公司做內部 AI 助理。不准用任何 agent 框架，只有一個 chat completion 呼叫和你自己寫的程式。先做在真實企業 email 封存上檢索、推理的 pipeline，再長成帶工具、terminal、記憶和人類介入的完整 harness。Week 4 給你兩篇論文當施工藍圖。[總導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)把整門課定位成「工程學」，而這週就是工程圖攤開的那一週。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## ReAct：想、做、看的交錯迴圈
 
@@ -81,6 +70,17 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
   - [Mem0](https://arxiv.org/abs/2504.19413)走上線路線：動態抽取、合併、檢索對話中的關鍵資訊，另有圖結構變體捕捉實體關係。它在長對話基準的 LLM 評分指標上，相對 OpenAI 提升 26%。
   - [Park 等人的 Generative Agents](https://arxiv.org/abs/2304.03442)示範記憶的另一端：25 個智慧體住進小鎮，用自然語言存下完整經歷。智慧體定期把經歷寫成高層反思，檢索回來做計畫。只靠一句「想辦情人節派對」的初始設定，就湧現發邀請、邀約、準時赴約的社會行為。消融證實觀察、計畫、反思缺一不可。
 - 課表原文：[CS329Z 官網 Week 4](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

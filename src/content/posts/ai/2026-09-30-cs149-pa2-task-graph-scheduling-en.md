@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA2: Building a Task Execution Library from Scratch — Thread Pools, Sleeping, and Task Graphs with Dependencies"
+title: "Building a Task Execution Library from Scratch — Thread Pools, Sleeping, and Task Graphs with Dependencies | Stanford CS149 Programming Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,14 +29,6 @@ glossary:
 The official materials are on GitHub at [stanford-cs149/asst2](https://github.com/stanford-cs149/asst2): the main README, [`tests/README.md`](https://github.com/stanford-cs149/asst2/blob/master/tests/README.md), and [`cloud_readme.md`](https://github.com/stanford-cs149/asst2/blob/master/cloud_readme.md). This post covers only what the assignment trains and what to watch for at each step. **It does not provide solutions.**
 
 Access level: the starter code, tests, and reference-implementation binaries are all public, so this is **A3**. The limits are in the grading environment, covered below.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## The assignment in one sentence
 
@@ -202,6 +194,14 @@ Confirmed: the contents of the asst2 README, `tests/README.md`, and `cloud_readm
 Further reading: for an operating-systems view of condition variables and locks, see [CS111 Lecture 5: locks and condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en).
 
 Series navigation: previous, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | next, [Lecture 7: GPU architecture and CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## Update Log
 

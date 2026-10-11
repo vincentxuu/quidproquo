@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 3: Threads, Processes, and Dispatching, Continued"
+title: "Threads, Processes, and Dispatching, Continued | Stanford CS111 Lecture 3"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 4 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 3**. Mendel Rosenblum taught the lecture on 2026-04-03; its official title is [Threads, Processes, and Dispatching, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/3/Lecture3.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 3 takes up the question left by the previous lecture: when threads outnumber cores, how can each appear to keep progressing? The answer is not one scheduler function but a loop of state transitions, PCBs, context save/restore, and dispatch.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Read the lecture as one CPU handoff
 
@@ -72,6 +64,14 @@ The context-switch sequence hinges on SP. Registers are saved into the current s
 ## Walk one dispatch by hand
 
 Draw running, ready, and blocked boxes for threads A and B. Starting when A issues blocking I/O, label the PCB update, stack-pointer switch, B’s resume, and A’s return to the ready queue after I/O completion. If a step cannot be attributed to an event or the dispatcher, revisit that state-transition arrow.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

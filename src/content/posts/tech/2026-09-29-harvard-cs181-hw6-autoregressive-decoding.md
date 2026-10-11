@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW6（一）：自迴歸模型的解碼、KV Cache 與 Speculative Decoding"
+title: "（一）：自迴歸模型的解碼、KV Cache 與 Speculative Decoding｜Harvard CS181 作業 6"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, homework, generative-models, kv-cache, speculative-decoding]
@@ -29,17 +29,6 @@ glossary:
 > ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/.pdf`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 11 週、[Section 9](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf)（標頭 Spring 2026）為準。「Autoregressive Models」是 2026 新排的講題，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影。Section 9 講了自迴歸分解、teacher forcing 與 greedy／sampling 等解碼策略，但**沒有講 KV cache 與 speculative decoding**；這兩部分的背景只能靠作業題幹本身。作業解答未公開，Section 9 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 11 篇。上一篇是 [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)，下一篇是 [HW6（二）：HMM 與 Kalman filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman)。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 為什麼從 Problem 4 開始讀
 
@@ -140,6 +129,17 @@ Part 2 結論是生成慢在不能平行。speculative decoding 用兩個模型�
 
 - [CME295 第 3 講：LLM 生成時的控制旋鈕](/posts/ai/2026-09-29-cme295-large-language-models)：解碼策略、temperature、top-p。
 - [CME295 2026 第 5 講（課前預寫）：LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)：prefill 與 decode 的差別、KV cache 大小怎麼算、speculative decoding 的接受率與加速上限。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

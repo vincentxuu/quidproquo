@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 AI Agents: An Agents Course You Can't Take Without Having Trained a Language Model, With Three Assignments From Harness to Eval to RL"
+title: "An Agents Course You Can't Take Without Having Trained a Language Model, With Three Assignments From Harness to Eval to RL | CMU 11-768 Course Overview"
 date: 2026-09-29
 category: ai
 type: guide
@@ -22,25 +22,6 @@ draft: false
 The course website defines its subject in one sentence: systems that use large language models to perceive, reason, plan, and act over many steps. What separates it from the usual "build an agent with a framework" course is that it asks you to **train agents yourself**. Neubig says it plainly in lecture 1: building an agent isn't hard, making it actually work is — and very few people know how to train agents well. The instructors want everyone who finishes the course to be in that small group.
 
 This post is the entry point for the series: first the format and the bar to get in, then the 23-lecture schedule, the three assignments, and the project, and finally how the 27 posts in this series are laid out and where they stand.
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course. This overview links the introductory first lecture.
-
-```youtube
-url: https://www.youtube.com/watch?v=UwfjzyLnvMg
-title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
-```
-
-Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): This overview embeds the lecture 1 video; read its full transcript and checked the speaker statements the article cites (both instructors' introductions and research areas, "building an agent is easy, making it work is hard", the show-of-hands estimate of about 10% having done agent RL, the 40% assignments / 50% project split and teams of 2–3, the AI-tool policy and the "thousand lines of slop" remark, slack days, the 4–7B prerequisite note); all supported. One fix: Neubig said he develops OpenHands while discussing harnesses, not in his self-introduction. The official schedule and the 24-hour highlights rule are not in the video and still rest on the official site. The progress table was also updated now that the L10 recording is posted (2026-10-10).
 
 ## Format: the prerequisite is enforced
 
@@ -160,6 +141,25 @@ The target reader is an engineer who uses LLM APIs and has built or is building 
 Material status as of 2026-10-10: L1–L10 have slides and recordings, L11–L14 have slides only, nothing from L15 on is public yet, and the Assignment 3 repo is not public either (due Oct 29).
 
 If you only plan to read a few, start with [lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) to get the "six capabilities × two paths" map, then A1 to see what a harness actually looks like, then A2 and the RL lectures to see how evaluation becomes a training signal.
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course. This overview links the introductory first lecture.
+
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): This overview embeds the lecture 1 video; read its full transcript and checked the speaker statements the article cites (both instructors' introductions and research areas, "building an agent is easy, making it work is hard", the show-of-hands estimate of about 10% having done agent RL, the 40% assignments / 50% project split and teams of 2–3, the AI-tool policy and the "thousand lines of slop" remark, slack days, the 4–7B prerequisite note); all supported. One fix: Neubig said he develops OpenHands while discussing harnesses, not in his self-introduction. The official schedule and the 24-hour highlights rule are not in the video and still rest on the official site. The progress table was also updated now that the L10 recording is posted (2026-10-10).
 
 ## Update Log
 

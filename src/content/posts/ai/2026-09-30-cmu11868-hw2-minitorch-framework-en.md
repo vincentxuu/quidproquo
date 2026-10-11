@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 Assignment 2: Implementing Autodiff in MiniTorch and Training a Sentiment Classifier"
+title: "Implementing Autodiff in MiniTorch and Training a Sentiment Classifier | CMU 11-868 Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ The previous post explained how a framework computes gradients on a computation 
 Unlike Assignment 1, all the code here is Python. It is not independent of Assignment 1, though: the CUDA kernels you wrote there are this assignment's default compute backend.
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -135,6 +125,16 @@ One thing you can do tonight: open `minitorch/autodiff.py`, read only the method
 
 - [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en): the math behind autodiff
 - [CMU 10-414/714 Deep Learning Systems](https://dlsyscourse.org/): a whole course building a framework called Needle from scratch; this site has no series for it yet, but the [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) explains where it fits
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

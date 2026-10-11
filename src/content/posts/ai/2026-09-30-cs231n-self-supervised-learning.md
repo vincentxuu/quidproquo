@@ -1,5 +1,5 @@
 ---
-title: "CS231N L12：自監督學習——沒有標註，怎麼學到好的表示"
+title: "自監督學習——沒有標註，怎麼學到好的表示｜Stanford CS231N 第 12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 > 這是 [Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)系列的第 14 篇，也是官方第三單元「Generative and Interactive Visual Intelligence」的第一講。
 
 這一講從前面學過的東西出發。AlexNet 最後一層的 4096 維特徵裡，最近鄰的圖片語意相近，而像素空間的最近鄰不是。**學到的表示很有用，問題是它需要大量標註資料。** 能不能不靠大量人工標註，也訓練出這樣的表示？
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 12 講（長度 1:14:41，講者 Ehsan Adeli 依影片說明欄），字幕有 pretext task（旋轉、拼圖、上色）、MAE、linear probing、對比學習、MoCo、CPC 與 DINO，與本文主題相符；字幕沒有 inpainting、InfoNCE、SimCLR 的拼法與多感官（audio）段落，後者與本文說投影片沒有獨立的多感官監督段落一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=4howBU7THbM
-title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning](https://www.youtube.com/watch?v=4howBU7THbM)
-
-課程與錄影入口：
-
-- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 整體框架：pretext task 與 downstream task
 
@@ -208,6 +190,24 @@ def H(t, s):
 - 課表建議閱讀：[Lilian Weng 的 Self-Supervised Representation Learning](https://lilianweng.github.io/lil-log/2019/11/10/self-supervised-learning.html)
 
 **系列導覽**：上一篇 [L11：大規模分散式訓練](/posts/ai/2026-09-30-cs231n-distributed-training)｜下一篇 [L13：生成模型（一）VAE、GAN 與自迴歸](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 12 講（長度 1:14:41，講者 Ehsan Adeli 依影片說明欄），字幕有 pretext task（旋轉、拼圖、上色）、MAE、linear probing、對比學習、MoCo、CPC 與 DINO，與本文主題相符；字幕沒有 inpainting、InfoNCE、SimCLR 的拼法與多感官（audio）段落，後者與本文說投影片沒有獨立的多感官監督段落一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=4howBU7THbM
+title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning](https://www.youtube.com/watch?v=4howBU7THbM)
+
+課程與錄影入口：
+
+- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

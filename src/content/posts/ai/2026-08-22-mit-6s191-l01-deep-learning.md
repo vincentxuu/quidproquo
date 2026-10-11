@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 1：深度學習的最小骨架"
+title: "深度學習的最小骨架｜MIT 6.S191 第 1 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 1 講是 **深度學習的最小骨架**。從感知器、前向傳播、loss 到 gradient descent，建立後續九講共用的語言。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=II4giR4vOOo
-title: MIT Introduction to Deep Learning | 6.S191
-```
-
-原始影片：[MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=II4giR4vOOo)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Alexander Amini 主講的第一堂，字幕涵蓋感知器（單一神經元、activation）、loss、gradient descent、反向傳播（chain rule）與 overfitting，與本文列的概念鏈相符；Lab 1 開頭也有介紹。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT Introduction to Deep Learning | 6.S191
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=II4giR4vOOo
+title: MIT Introduction to Deep Learning | 6.S191
+```
+
+原始影片：[MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=II4giR4vOOo)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Alexander Amini 主講的第一堂，字幕涵蓋感知器（單一神經元、activation）、loss、gradient descent、反向傳播（chain rule）與 overfitting，與本文列的概念鏈相符；Lab 1 開頭也有介紹。
 
 ## 更新紀錄
 

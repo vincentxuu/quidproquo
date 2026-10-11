@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 7 講：後訓練——Instruction Tuning、RLHF 與 InstructGPT"
+title: "後訓練——Instruction Tuning、RLHF 與 InstructGPT｜台大陳縕儂 深度學習之應用 2025 Fall 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,30 +34,6 @@ glossary:
 **系列位置**：上一篇 [預訓練三大類與 Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)｜下一篇 [PEFT：Adapter、LoRA、Prompt Tuning 與 HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
 這一講要回答一個問題：預訓練完的模型已經很會接話，為什麼還要再訓練一輪？講義的答案分兩層。第一層是讓模型讀懂「任務描述」，第二層是讓模型的輸出符合人類的偏好。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=G5O93KOsBCs
-title: ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=PfSybChNSNc
-title: ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）
-```
-
-原始影片：[ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF 從人類反饋中學習（YouTube）](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT 驚艷眾人的對話式 AI（YouTube）](https://www.youtube.com/watch?v=-hchhJoH3YE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：7.1 與 7.2 兩支都讀了字幕。7.1：專才與通才、GPT 對 WMT 翻譯系統的比較、用 QA 統一多任務（2018）、預訓練加 prompting 與預訓練加微調的對照、emergent ability、「不知道未來任務」才需要 post-training；7.2：FLAN 與 T0 的做法與 zero-shot 結果、instruction 描述要詳細、prompt 數量的影響、Super-NaturalInstructions、instruction tuning 的三個限制（成對資料昂貴、開放式任務無唯一解、token 層級目標與人類目標不一致），皆與文章「從專才到通才」與「第一步」相符。7.3、7.4 未嵌入，RLHF、DPO、InstructGPT 各段未對照字幕。
 
 ## 從專才到通才
 
@@ -205,6 +181,30 @@ L_RM = − E_(x, y_w, y_l) [ log σ( r_θ(x, y_w) − r_θ(x, y_l) ) ]
 - [CME295 2026 第 4 講：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
 下一篇：[PEFT：Adapter、LoRA、Prompt Tuning 與 HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=G5O93KOsBCs
+title: ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=PfSybChNSNc
+title: ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）
+```
+
+原始影片：[ADL 7.1: Post-Training 預訓練完還要後訓練（YouTube）](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT 讓模型學習理解指令（YouTube）](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF 從人類反饋中學習（YouTube）](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT 驚艷眾人的對話式 AI（YouTube）](https://www.youtube.com/watch?v=-hchhJoH3YE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：7.1 與 7.2 兩支都讀了字幕。7.1：專才與通才、GPT 對 WMT 翻譯系統的比較、用 QA 統一多任務（2018）、預訓練加 prompting 與預訓練加微調的對照、emergent ability、「不知道未來任務」才需要 post-training；7.2：FLAN 與 T0 的做法與 zero-shot 結果、instruction 描述要詳細、prompt 數量的影響、Super-NaturalInstructions、instruction tuning 的三個限制（成對資料昂貴、開放式任務無唯一解、token 層級目標與人類目標不一致），皆與文章「從專才到通才」與「第一步」相符。7.3、7.4 未嵌入，RLHF、DPO、InstructGPT 各段未對照字幕。
 
 ## 更新紀錄
 

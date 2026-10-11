@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329A 導讀：這門課教自我改進，也親口說了它改進不了什麼"
+title: "這門課教自我改進，也親口說了它改進不了什麼｜Stanford CS329A 主題單元"
 date: 2026-08-20
 category: ai
 type: deep-dive
@@ -25,32 +25,6 @@ draft: false
 它教一個缺口，然後在最後一堂親口說這個缺口目前補到哪、補不到哪。
 
 這篇是把公開的九支錄影逐堂聽完、再加上第一次開課那三場散落在別處的客座之後寫的，涵蓋課程主張什麼、34 篇指定閱讀怎麼分組、兩次開課之間改了什麼，以及沒修課的人實際能拿到多少。**不包含**逐篇論文精讀——那是另一個量級的工作。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 公開的 CS329A Autumn 2025 錄影；2026-10-10 已即時確認第 2、6、9 堂的影片頁存在且標題與講次相符（第 9 堂只留文字連結）。
-
-```youtube
-url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
-title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yVnmHSAy3ck
-title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
-```
-
-原始影片：[Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
-
-課程與錄影入口：
-
-- [CS329A Winter 2025 錄影播放清單（含 Jeff Clune、Michele Catasta 客座）](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
-- [官方課程／講次來源](https://cs329a.stanford.edu/)
-- [CS329A 第 1 堂 Course Overview（Stanford Online 公開錄影，共 9 堂）](https://www.youtube.com/watch?v=6YnLB0XbTnI)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支嵌入影片（Part 2、Part 6）都讀了字幕。Part 2 字幕涵蓋 Large Language Monkeys 的重複取樣與冪次律、長尾難題、多數決與 reward model 都追不上理論 coverage 的 generation–verification gap、最難的題目在上千次取樣裡只被答對幾次，以及 Archon 的 fusion 勝過 oracle selection，文章這幾點都成立；Part 6 字幕涵蓋 STaR（GSM8K 上 rationalization 沒有明顯幫助）、DeepSeekMath（取樣 32 次時 majority@K 上升而 pass@K 沒有，「more consistent, not fundamentally smarter」）、GRPO 在全對或全錯時正規化失效、DAPO 的 dynamic sampling 與 Qwen-32B 從 30 提升到約 50 的階梯，以及三項技術不提升基礎能力的結論，也都成立。文中的中文引文是意譯，意思與英文字幕相符、措辭不同；字幕沒有出現講者姓名，講者歸屬依課程資訊而非字幕。本文對第 9 堂、第 17 堂、其他堂次與客座講的說法對應的是未嵌入的影片，這次沒有核對。
 
 ## 這門課的硬事實
 
@@ -230,6 +204,32 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 - **SWE-bench 的但書**：課堂指出標註者傾向低估，且模型多半看過那些 GitHub repo，所以 SWE-bench 上量到的翻倍速度會比在完全沒見過的 repo 上短。
 - **GDPval**：涵蓋美國 GDP 前九大部門的 44 種職業，共約 1,320 題，開源的 gold subset 為 220 題，任務出自十年以上年資的產業專家。勝率區間是 GPT-4o 的 12.4% 到 Claude Opus 4.1 的 47.6%。GPT-5 的產出品質拆解為：約一半「可接受但不如專家」、約兩成「模型確實更好」、將近三成「糟糕或災難性」——人類評分者之間對此也有一定歧見。任務刻意寫得清楚（約 89% 被專家認定為規格良好）、一次交件、不給來回修改。
 - **Intelligence per Watt 的 5.3×**：指 2023 到 2025 年間每瓦智能的改善，課堂拆解為模型端 3.1 倍、硬體端 1.7 倍。另一個常被混用的 88.7% 是「查詢覆蓋率」，條件是「至少有一個 20B active 參數以下的本地模型能答對」，與 5.3× 是兩個獨立量測。
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 公開的 CS329A Autumn 2025 錄影；2026-10-10 已即時確認第 2、6、9 堂的影片頁存在且標題與講次相符（第 9 堂只留文字連結）。
+
+```youtube
+url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
+title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnmHSAy3ck
+title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
+```
+
+原始影片：[Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+
+課程與錄影入口：
+
+- [CS329A Winter 2025 錄影播放清單（含 Jeff Clune、Michele Catasta 客座）](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
+- [官方課程／講次來源](https://cs329a.stanford.edu/)
+- [CS329A 第 1 堂 Course Overview（Stanford Online 公開錄影，共 9 堂）](https://www.youtube.com/watch?v=6YnLB0XbTnI)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支嵌入影片（Part 2、Part 6）都讀了字幕。Part 2 字幕涵蓋 Large Language Monkeys 的重複取樣與冪次律、長尾難題、多數決與 reward model 都追不上理論 coverage 的 generation–verification gap、最難的題目在上千次取樣裡只被答對幾次，以及 Archon 的 fusion 勝過 oracle selection，文章這幾點都成立；Part 6 字幕涵蓋 STaR（GSM8K 上 rationalization 沒有明顯幫助）、DeepSeekMath（取樣 32 次時 majority@K 上升而 pass@K 沒有，「more consistent, not fundamentally smarter」）、GRPO 在全對或全錯時正規化失效、DAPO 的 dynamic sampling 與 Qwen-32B 從 30 提升到約 50 的階梯，以及三項技術不提升基礎能力的結論，也都成立。文中的中文引文是意譯，意思與英文字幕相符、措辭不同；字幕沒有出現講者姓名，講者歸屬依課程資訊而非字幕。本文對第 9 堂、第 17 堂、其他堂次與客座講的說法對應的是未嵌入的影片，這次沒有核對。
 
 ## 更新紀錄
 

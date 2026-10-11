@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石 L15–L16：驗證與三個學習原則"
+title: "驗證與三個學習原則｜台大林軒田 機器學習基石與技法 第 15–16 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization)留下一個問題：雜訊越多需要越強的正則化，但雜訊大小事先不知道，λ 要怎麼選？L15 的答案是驗證。L16 是基石的最後一講，不再引入新演算法，而是用三個原則提醒你：前面十五講的保證，在哪些情況下會悄悄失效。
 
 讀完這篇，你應該能說清楚為什麼用 E_in 選模型不行、驗證集該切多大、為什麼選完要用全部資料重訓，以及 sampling bias 和 data snooping 分別在防什麼。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=BRLGPnrcel8
-title: Model Selection Problem
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=RvkCaAwRP8A
-title: Validation
-```
-
-原始影片：[Model Selection Problem](https://www.youtube.com/watch?v=BRLGPnrcel8)、[Validation](https://www.youtube.com/watch?v=RvkCaAwRP8A)、[Leave-One-Out Cross Validation](https://www.youtube.com/watch?v=iToz5t0J6WU)、[V-Fold Cross Validation](https://www.youtube.com/watch?v=Y8PaLsYm0Ac)、[Occam's Razor](https://www.youtube.com/watch?v=Oj6j98ceUz8)、[Sampling Bias](https://www.youtube.com/watch?v=8QZZiIAdTUU)、[Data Snooping](https://www.youtube.com/watch?v=7nP5zWMQmxM)、[Power of Three](https://www.youtube.com/watch?v=29jgHPeRAqI)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 課程與教材對照
 
@@ -201,6 +179,28 @@ HW5 的 Q4 已經是技法 T1 的 hard-margin SVM，留給[下一篇](/posts/ai/
 - 基石到此結束。技法從「特徵轉換太貴」這個問題出發，第一站是 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
 - 其他學校的 ML 入門：[Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[Berkeley CS189](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=BRLGPnrcel8
+title: Model Selection Problem
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RvkCaAwRP8A
+title: Validation
+```
+
+原始影片：[Model Selection Problem](https://www.youtube.com/watch?v=BRLGPnrcel8)、[Validation](https://www.youtube.com/watch?v=RvkCaAwRP8A)、[Leave-One-Out Cross Validation](https://www.youtube.com/watch?v=iToz5t0J6WU)、[V-Fold Cross Validation](https://www.youtube.com/watch?v=Y8PaLsYm0Ac)、[Occam's Razor](https://www.youtube.com/watch?v=Oj6j98ceUz8)、[Sampling Bias](https://www.youtube.com/watch?v=8QZZiIAdTUU)、[Data Snooping](https://www.youtube.com/watch?v=7nP5zWMQmxM)、[Power of Three](https://www.youtube.com/watch?v=29jgHPeRAqI)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 生成式 AI 導讀：系列總覽——26 講投影片與四份作業全公開，錄影鎖在 Panopto"
+title: "生成式 AI：從機率模型到語言與多模態生成｜CMU 10-423 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ CMU 10-423 是卡內基美隆大學機器學習系的生成式 AI 課，Spring 2
 課程描述把範圍寫得很廣：怎麼建構生成模型與其他大型基礎模型（視覺與語言的 Transformer、diffusion model）、怎麼訓練（預訓練、微調）與高效調適（adapter、in-context learning）、怎麼擴展到大規模資料（多 GPU／分散式最佳化）、怎麼在日常使用現成模型（生成程式碼、讓生成模型參與寫程式的流程），以及會出什麼錯（bias、hallucination、adversarial attack、data contamination）與怎麼處理。
 
 這篇回答三件事：這門課教什麼、校外讀者拿得到哪些東西、該怎麼自學。各講細節留給後面的篇章。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -194,6 +183,17 @@ HW4 的 Colab Pro 建議需要 CMU 信箱，校外讀者得自己找 GPU。細�
 - Diffusion 與 flow matching 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 - LLM 的系統面（CUDA、分散式、服務）：[CMU 11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 - 先修：[CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

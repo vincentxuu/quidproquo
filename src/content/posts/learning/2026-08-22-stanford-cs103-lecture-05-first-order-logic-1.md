@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 4：一階邏輯的物件、量詞與型別"
+title: "一階邏輯的物件、量詞與型別｜Stanford CS103 第 4 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 6 篇，對應 **Spring 2026 官方 Lecture 4（2026-04-08）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 前一講的命題邏輯把整句話視為 true 或 false，再用 `¬`、`∧`、`∨`、`→` 與 `↔` 組合。本講打開這個黑盒子：句子談哪些物件？性質套在哪個物件上？「有人」與「每個人」如何進入公式？難點不是符號變多，而是每種元件都有固定的輸入與輸出型別。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)
 
 ## 從命題邏輯走向物件
 
@@ -147,6 +139,14 @@ FOL 也支援先前證明技巧：要否定敘述，先翻成公式、取 negati
 ## 材料缺口與閱讀界線
 
 完整投影片足以重建物件語言、兩種量詞、scope、precedence、空論域與翻譯模式的順序。投影片不是錄影，不保留講者口頭轉折、學生回答或即興補充；本文只把 deck 支持的定義、公式與例子歸於課程，銜接文字是導讀，不是講師逐字引述。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)
 
 ## 更新紀錄
 

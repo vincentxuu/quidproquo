@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 21: Representations and Autoencoders"
+title: "Representations and Autoencoders | CMU 11-785 Lecture 21"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 21: Representations and Autoencoders**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec21.representations.pdf) and [official YouTube recording](https://youtu.be/mc_OF_arFyk). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=mc_OF_arFyk
-title: Lecture 21 official YouTube recording
-```
-
-Original videos: [Lecture 21 official YouTube recording](https://www.youtube.com/watch?v=mc_OF_arFyk)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The Lecture 21 video (about 83 minutes, YouTube title "Neural Networks: Representation") covers what neural networks represent (how a tanh hidden layer transforms the data), autoencoders that learn to reconstruct their input, and the equivalence between a linear autoencoder and PCA. The transcript has no discussion of evaluating representation quality, so the wording was changed and the latent scatter exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=mc_OF_arFyk
+title: Lecture 21 official YouTube recording
+```
+
+Original videos: [Lecture 21 official YouTube recording](https://www.youtube.com/watch?v=mc_OF_arFyk)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The Lecture 21 video (about 83 minutes, YouTube title "Neural Networks: Representation") covers what neural networks represent (how a tanh hidden layer transforms the data), autoencoders that learn to reconstruct their input, and the equivalence between a linear autoencoder and PCA. The transcript has no discussion of evaluating representation quality, so the wording was changed and the latent scatter exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## Update Log
 

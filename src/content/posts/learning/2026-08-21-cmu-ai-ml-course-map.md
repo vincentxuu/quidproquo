@@ -1,5 +1,5 @@
 ---
-title: "CMU AI／ML 課程導讀：07-280 新主幹與校外可走的公開路線"
+title: "CMU AI／ML 課程導讀：07-280 新主幹與校外可走的公開路線｜世界名校 AI／CS 課程地圖"
 date: 2026-08-21
 category: learning
 tags: [cmu, ai-course, machine-learning, learning-path, open-course]
@@ -22,19 +22,6 @@ CMU 的情況和前幾站都不一樣：它不只有[正式的人工智慧學士
 這會產生一個看似矛盾、其實很重要的答案：**想知道 CMU 現在認為 AI 學生該學什麼，要看 07-280／380；想在校外今天就完成一條公開課，要用已完成的 07-280 Spring 2026 殘留教材或持續開課的 10-301/601，不能直接照著尚未開學的 Fall 2026 頁面走。**
 
 這篇因此不會拿一張「最新課號清單」冒充自學路線。我會先還原 BSAI 新主幹，再把 2025–2026 課站逐一用匿名視窗檢查。本文查核日是 **2026 年 8 月 21 日**；Fall 2026 課程尚未開始，未來課表不會被算成已完成教材。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [正式的人工智慧學士（BSAI）](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)
-- [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
-- [CMU SCS — BS in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/)
-- [CMU SCS — BSAI Program Roadmap](https://www.cs.cmu.edu/bs-in-artificial-intelligence/program-roadmap)
-- [07-280 Artificial Intelligence and Machine Learning I](https://www.cs.cmu.edu/~07280/)
-- [07-380 Artificial Intelligence and Machine Learning II](https://www.cs.cmu.edu/~07380/)
 
 ## BSAI 新主幹：不是只學模型
 
@@ -162,6 +149,19 @@ CSDIY 目前有 CMU **10-414/714、11-785、10-708** 的獨立頁面；沒有獨
 CMU 目前最值得學的，恰好不是一張固定清單，而是這次改制暴露出的兩層：**學位用新課定義未來，自學用已公開的材料完成今天。**把兩層分開，你就能追最新，也不必等最新課程全部釋出才開始。
 
 延伸閱讀：[MIT AI／ML 課程導讀](/posts/learning/2026-08-21-mit-ai-ml-course-map)有一條較穩定的正式學位主幹；[Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)則是沒有獨立 AI 學士、由平行入口自行組路。三校放在一起看，會更清楚「學位結構」和「公開課可用性」是兩套不同問題。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [正式的人工智慧學士（BSAI）](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)
+- [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
+- [CMU SCS — BS in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/)
+- [CMU SCS — BSAI Program Roadmap](https://www.cs.cmu.edu/bs-in-artificial-intelligence/program-roadmap)
+- [07-280 Artificial Intelligence and Machine Learning I](https://www.cs.cmu.edu/~07280/)
+- [07-380 Artificial Intelligence and Machine Learning II](https://www.cs.cmu.edu/~07380/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading NTHU Kao's NLP: GPT-3, InstructGPT, and RLHF — How a Model That Continues Text Becomes an Assistant That Follows Instructions"
+title: "Reading NTHU Kao's NLP: GPT-3, InstructGPT, and RLHF — How a Model That Continues Text Becomes an Assistant That Follows Instructions | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,30 +42,6 @@ Every model in the earlier posts does the same thing: given some text, guess the
 This post answers one question: **how does GPT-3, a model that continues text, become an assistant that follows instructions?**
 
 The outline has five items: a recap from GPT-1 to GPT-3, the Sparse Transformer, InstructGPT, RLHF, and Meta's Llama and Llama-2.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=w-M9plRRVQc
-title: Week 8 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=h-m9wVSx0_s
-title: Week 8 Thu.
-```
-
-Original videos: [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10), sampled: only the early part of each transcript was read, not word for word. Week 8 Tue. opens with decoding addenda, the text-watermarking paper and MTEB, then GPT-1 to GPT-3 differences, the Sparse Transformer and nanochat; Week 8 Thu. opens with Assignment 3, then returns to instruction tuning, GPT-3 bias problems, and InstructGPT's SFT, reward model, RL and KL penalty. Topics and lecture numbers match; the post is slide-based, makes no specific claims about the videos, and nothing conflicts. The later parts (Llama / Llama-2) were not read.
 
 ## From GPT-1 to GPT-3: only a few architecture changes
 
@@ -223,6 +199,30 @@ One thing to do tonight: ask your usual chat model one factual question and one 
 - Approaches to preference tuning: [Reading CME295: Preference Tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - SFT and RLHF from an engineering angle: [Reading CS336: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Why GQA and the KV cache hit memory limits: [Reading NTU Hung-yi Lee ML 2026: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=w-M9plRRVQc
+title: Week 8 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=h-m9wVSx0_s
+title: Week 8 Thu.
+```
+
+Original videos: [Week 8 Tue.](https://www.youtube.com/watch?v=w-M9plRRVQc)、[Week 8 Thu.](https://www.youtube.com/watch?v=h-m9wVSx0_s)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10), sampled: only the early part of each transcript was read, not word for word. Week 8 Tue. opens with decoding addenda, the text-watermarking paper and MTEB, then GPT-1 to GPT-3 differences, the Sparse Transformer and nanochat; Week 8 Thu. opens with Assignment 3, then returns to instruction tuning, GPT-3 bias problems, and InstructGPT's SFT, reward model, RL and KL penalty. Topics and lecture numbers match; the post is slide-based, makes no specific claims about the videos, and nothing conflicts. The later parts (Llama / Llama-2) were not read.
 
 ## Update Log
 

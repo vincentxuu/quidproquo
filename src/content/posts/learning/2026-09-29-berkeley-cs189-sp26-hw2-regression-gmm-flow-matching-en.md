@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW2 Guide: Chatbot Arena Paper Questions, Regression, MLE/MAP, From GMMs to Flow Matching"
+title: "Chatbot Arena Paper Questions, Regression, MLE/MAP, From GMMs to Flow Matching | Berkeley CS189 Assignment 2"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, homework, linear-regression, generative-models]
@@ -23,30 +23,6 @@ This guide follows the public materials of [CS189 Spring 2026](https://eecs189.o
 Homework 2 was released on 2/24, the same day as Lec 11, and was due **Friday 3/13 at 11:59 PM PT**, four days before the midterm. It reaches further than the lectures had at that point. The early problems review linear regression and MLE/MAP; the last two push GMMs forward into robust clustering and a generative model, flow matching.
 
 This guide covers only what each problem tests, which lecture to revisit, and where people tend to get stuck. **It contains no answers.** HW1–4 have no public official solutions, and the GenAI policy in the [syllabus](https://eecs189.org/sp26/syllabus/) explicitly forbids pasting assignment text into GenAI tools. Enrolled students should not treat this as a solution source.
-
-## Course video sources
-
-No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-## Official materials and what I could read
-
-The schedule's HW2 Assignment link points to a [Drive folder](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm) with just two files:
-
-| File | Contents | Could I read it? |
-|---|---|---|
-| `hw2.pdf` | 20 pages of problems | Yes, read in full |
-| `hw2_student.tex` | LaTeX answer template; same problem text as the PDF | Yes, read in full |
-
-You submit a single PDF to the Gradescope "HW2 Write-Up" assignment, starting each problem on a new page. HW2 has no notebook or coding part. The syllabus says each homework has a Part 1 Warmup and a Part 2 Main, but the HW2 folder shows no such split.
-
-On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the problems themselves are fully public, so an outside learner can work through all of them. What you can't get is official solutions, Gradescope grading, or the Ed discussion.
 
 ## The ten problems at a glance
 
@@ -128,6 +104,30 @@ Previous: [Lec 14 & 16: MLE vs MAP, bias-variance, entropy and KL](/posts/learni
 1. Download `hw2_student.tex` and start with Problem 4, MLE vs MAP. Make sure you can rearrange the posterior back into Beta form.
 2. Open the Chatbot Arena paper, read only the introduction, and try answering Problem 1 parts a–d in your own words.
 3. Before Problem 9, run a small NumPy experiment: sample from a Gaussian plus 5% Cauchy, run k-means with k = 1, and watch whether the center jumps around.
+
+## Course video sources
+
+No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+## Official materials and what I could read
+
+The schedule's HW2 Assignment link points to a [Drive folder](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm) with just two files:
+
+| File | Contents | Could I read it? |
+|---|---|---|
+| `hw2.pdf` | 20 pages of problems | Yes, read in full |
+| `hw2_student.tex` | LaTeX answer template; same problem text as the PDF | Yes, read in full |
+
+You submit a single PDF to the Gradescope "HW2 Write-Up" assignment, starting each problem on a new page. HW2 has no notebook or coding part. The syllabus says each homework has a Part 1 Warmup and a Part 2 Main, but the HW2 folder shows no such split.
+
+On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the problems themselves are fully public, so an outside learner can work through all of them. What you can't get is official solutions, Gradescope grading, or the Ed discussion.
 
 ## Update Log
 

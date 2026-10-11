@@ -1,5 +1,5 @@
 ---
-title: "CS234 L2: Planning with a Model: Policy Evaluation, PI, VI"
+title: "Planning with a Model: Policy Evaluation, PI, VI | Stanford CS234 Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en) stopped at Markov reward processes: how to value a process with no actions. The second lecture of [CS234](https://web.stanford.edu/class/cs234/) adds actions and asks a more practical question: **when you know how the world works, how do you compute the best policy?**
 
 The slides open with a question to be answered by the end of class. Can we build algorithms that guarantee the policy only improves, or stays the same, with each extra round of computation? Do all algorithms have this property? The answer is "yes, and no, not all of them." This post covers which algorithm has it and why.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=gHdsUUGcBC0
-title: Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)
-```
-
-Original videos: [Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)](https://www.youtube.com/watch?v=gHdsUUGcBC0)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 2, "Tabular MDP Planning" (about 65K characters): it covers Markov reward processes, policy evaluation, policy iteration and monotonic improvement, value iteration and contraction, finite horizons and the Mars rover example, matching this post. The quiz-by-quiz and proof details here come from the 2026 slides and were not compared one by one with the video.
 
 ## The warm-up: what a large γ means
 
@@ -292,6 +273,25 @@ Then read [Sutton & Barto](http://incompleteideas.net/book/RLbook2018.pdf) secti
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
 **Series navigation**: previous, [What RL is and the language of MDPs](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en) | next, [A1: effective horizon, reward hacking, Bellman residuals, RiverSwim](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=gHdsUUGcBC0
+title: Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)
+```
+
+Original videos: [Spring 2024 Lecture 2: Tabular MDP Planning (YouTube, supplement)](https://www.youtube.com/watch?v=gHdsUUGcBC0)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 2, "Tabular MDP Planning" (about 65K characters): it covers Markov reward processes, policy evaluation, policy iteration and monotonic improvement, value iteration and contraction, finite horizons and the Mars rover example, matching this post. The quiz-by-quiz and proof details here come from the 2026 slides and were not compared one by one with the video.
 
 ## Update Log
 

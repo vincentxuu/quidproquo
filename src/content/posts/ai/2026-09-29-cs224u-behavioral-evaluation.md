@@ -1,5 +1,5 @@
 ---
-title: "CS224U 行為評估：分析考量、對抗測試、ANLI 與 DynaSent"
+title: "分析考量、對抗測試、ANLI 與 DynaSent｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -33,29 +33,6 @@ glossary:
 前面三個單元都在講模型與架構。第四單元換一個方向：我們怎麼蒐集證據、怎麼標記進步。Potts 在[第 25 支錄影](https://www.youtube.com/watch?v=l_w05N0QGLk)開頭說，這個單元只看輸入輸出行為；下一個單元才往模型內部看。
 
 這份投影片有 80 頁，中間的 Compositionality 與 (Re)COGS 兩節跟作業三綁在一起，留到[下一篇](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)。本篇講其餘六節。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=l_w05N0QGLk
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=sZPxZm8HfaE
-title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
-
-內容核對：已依字幕核對（2026-10-10）：影片 25（Part 1: Overview）與影片 26（Part 2: Analytical Considerations）的字幕逐項對照：評估光譜、標準評估與對抗評估流程、Winograd／Levesque、奇偶模型、不公平題目的兩個例子、inoculation by fine-tuning 三種結果、MoNLI；文中引用的影片 29–31（Adversarial Testing／ANLI／DynaSent）也讀過，SQuAD 排名洗牌、Breaking NLI、Naik 三種診斷、ANLI 流程、DynaSent 兩輪設計與五個開放問題皆吻合。唯一無法由字幕支持的是『約 22 分鐘』的片長，已刪除；MoNLI 的 2.2% 與 90.0 為投影片數字，字幕只說『essentially 0』。
-
-課程與錄影入口：
-
-- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 評估有哪幾種
 
@@ -199,6 +176,29 @@ Round 1 的 dev 與 test 把三個類別平衡，並刻意讓 Model 0 在上面�
 - 課程狀態與 COGS 成績表：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 同一件事在 2026 年 CS224N 的講法：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
 - 往模型內部看的方法：[CS224N 第 15 講：Agentic Interpretability](/posts/ai/2026-08-22-cs224n-interpretability)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=l_w05N0QGLk
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sZPxZm8HfaE
+title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk)、[Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
+
+內容核對：已依字幕核對（2026-10-10）：影片 25（Part 1: Overview）與影片 26（Part 2: Analytical Considerations）的字幕逐項對照：評估光譜、標準評估與對抗評估流程、Winograd／Levesque、奇偶模型、不公平題目的兩個例子、inoculation by fine-tuning 三種結果、MoNLI；文中引用的影片 29–31（Adversarial Testing／ANLI／DynaSent）也讀過，SQuAD 排名洗牌、Breaking NLI、Naik 三種診斷、ANLI 流程、DynaSent 兩輪設計與五個開放問題皆吻合。唯一無法由字幕支持的是『約 22 分鐘』的片長，已刪除；MoNLI 的 2.2% 與 90.0 為投影片數字，字幕只說『essentially 0』。
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

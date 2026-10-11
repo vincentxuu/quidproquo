@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS228 導讀：先修只寫「基本機率與演算法」，但這門課已經停開兩年"
+title: "先修只寫「基本機率與演算法」，但這門課已經停開兩年｜Stanford CS228 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -24,17 +24,7 @@ draft: false
 
 它在 Stanford 的 AI 課程地圖裡位置很特別：所有人都知道它存在，很少人真的修。障礙不在門檻。它的官方先修沒有指定任何前置課程，而隔壁的 [CS 234](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) 要求 CS229 或同等程度，低了一整層。真正的障礙是它已經兩年沒有開課，官網也凍結在最後一次開課的樣子。
 
-這篇是把 ExploreCourses 的四個學年條目、凍結的課程官網、以及那份公開講義的每一章實際打開讀過之後寫的。涵蓋：硬規定寫了什麼、五份作業的節奏、講義的真實完整度、以及它跟 CS236 的關係。**不包含**逐章的數學推導——那是講義本身的工作，而講義是公開的。系列的階梯排序見[《Stanford CS 課程導讀》地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)。
-
-## 課程影片來源
-
-官方課程網站（cs228.stanford.edu，導向 ermongroup.github.io/cs228，頁首標示 Winter 2023-24；2026-10-10 即時讀取）的 Lecture Videos 連結指向 canvas.stanford.edu 的外部工具；我實際開啟，被導向 Stanford 登入頁，確認需要修課帳號。搜尋也沒有找到這門課的公開 YouTube 或 OCW 釋出，所以不嵌入，也不以其他課程的影片冒充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs228.stanford.edu/)
-
-查核日期：2026-10-10。
+這篇先回答三個自學問題：獨立性假設怎麼縮小機率表、表示／推論／學習如何接在一起，以及該從哪一章開始練。下面用一個另設的小例子算一次 Naive Bayes，再用三種圖形檢查條件獨立。先修、公開材料與歷史查核放在對應說明及文末備註；本文不取代講義的逐章數學推導。系列順序見[《Stanford CS 課程導讀》地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
 ## 這門課的硬事實
 
@@ -78,17 +68,6 @@ draft: false
 | Learning | [Directed](https://ermongroup.github.io/cs228-notes/learning/directed/)、[Undirected](https://ermongroup.github.io/cs228-notes/learning/undirected/)、[Latent variable](https://ermongroup.github.io/cs228-notes/learning/latent/)、[Bayesian](https://ermongroup.github.io/cs228-notes/learning/bayesian/)、[Structure](https://ermongroup.github.io/cs228-notes/learning/structure/) |
 | 收尾 | [The variational autoencoder](https://ermongroup.github.io/cs228-notes/extras/vae/) |
 
-首頁上那句「The notes are still **under construction**」值得單獨講，因為它會誤導人。索引頁在四個地方標了 *under construction*：機率複習、應用、Bayesian learning 的例子、以及結構學習的 Bayesian structure learning。**把這四頁全部打開讀過之後，這些標記大多已經對不上內容了：**
-
-- 機率複習不但寫完了，還寫得比課程需要的更深——它從 σ-algebra 與測度講起，明講材料改寫自 CS229 的機率講義與 STATS310 的講義。
-- 應用那章是整份講義最長的一章，涵蓋影像、語言、音訊、因果推論、錯誤更正碼、計算生物、生態、經濟與醫療診斷。
-- Bayesian learning 標的是「Examples（under construction）」，但那頁開頭就擺著兩個完整的例子。一個是偏心硬幣的 MLE 為什麼不會隨資料量變得更有信心，另一個是 bag-of-words 語言模型碰到未見詞時整句機率變成零。後面接共軛先驗、Beta、Dirichlet，最後把 Laplace smoothing 收成 Dirichlet 先驗的特例。
-- 唯一還真的缺的是結構學習那章。score-based、Chow-Liu、AIC/BIC、BD score、constraint-based、order search 與 ILP 都在，但沒有獨立的 Bayesian structure learning 一節。
-
-維護狀態就誠實一點。這個 repo 有兩千多顆星、沒有被封存，但**最後一次推送停在 2025 年 6 月**，而且那筆改動只是一則錯字修正。再往前翻，實質內容的編輯集中在 2023 到 2024 年初。它現在還掛著幾個沒被合併的 PR，最舊的那個開在六年前（精確數字見附錄）。
-
-腐蝕開始出現，但也有人在補。講義裡有三處推薦「一位前 CS228 學生做的互動模擬」，全部指向同一個已經下線的 `pgmlearning.herokuapp.com`。其中兩處已經被改成 Wayback Machine 的封存版：d-separation 與變數消除。repo 裡有一筆 2024 年初的 commit 名字就叫「Update variable elimination web app link with archived version」。**只有結構學習那章的 K3 演算法模擬還指著原網址，實測回 404。**
-
 ## 講義自己怎麼安置 Transformer 和 diffusion
 
 「2026 年還要不要學圖模型」是讀者真正會問的問題。這裡不自己編答案，直接看材料怎麼定位自己——而課程的兩份材料給的答案不一樣。
@@ -107,7 +86,44 @@ draft: false
 
 **但要注意時間戳。** 這些現代化的段落最新引用停在 2023 年（ChatGPT、Child et al. 2021 的 Very Deep VAE），之後沒有再更新。所以講義回答的是「到 2023 年為止，現代生成模型怎麼放進圖模型框架」，不是 2026 年的版本。
 
-## 作業長什麼樣
+## 算一次：兩個詞的 Naive Bayes
+
+這是本站另設的二元分類例子，不是課堂或作業的實際數據。令 `Y` 表示垃圾郵件，`O` 表示有 offer，`M` 表示有 meeting。假設 `O`、`M` 在給定 `Y` 後獨立；`P(Y=1)=0.4`，且 `P(O=1|Y=1)=0.75`、`P(M=1|Y=1)=0.4`；非垃圾信的兩項機率分別是 0.25、0.8。
+
+一封信兩個詞都有，垃圾信的未正規化分數為 `0.4×0.75×0.4=0.12`，非垃圾信為 `0.6×0.25×0.8=0.12`。兩者除以總和 0.24，得到垃圾信機率 0.5。即使 offer 偏向垃圾信，meeting 的訊號也可能抵銷它；不能只看某個詞就下結論。
+
+先自己算「有 offer、沒有 meeting」：垃圾信為 `0.4×0.75×0.6=0.18`，非垃圾信為 `0.6×0.25×0.2=0.03`，正規化後是 `6/7≈0.857`。核對判準是兩類機率和為 1，且你能說明為什麼要把 meeting 的條件機率取補數。這個答案只在我們假設的獨立模型裡成立；若詞在各類別內仍相關，乘積模型就可能給錯機率。
+
+## 怎麼開始
+
+今晚就能做的一件事，用來判斷你到底進不進得去：
+
+打開[貝氏網路那章](https://ermongroup.github.io/cs228-notes/representation/directed/)，讀到 d-separation 那一節，然後蓋住頁面，自己回答三個三變數結構的獨立性——`X → Z → Y`、`X ← Z → Y`、`X → Z ← Y`——在 Z 有沒有被觀測的兩種情況下，X 和 Y 各是獨立還是相依。
+
+第三個（v-structure，講義叫 explaining away）跟前兩個不同：**在只有這三個節點的圖中，Z 未被觀測時，圖保證 X 與 Y 獨立；觀測 Z 後，圖不再保證兩者獨立，通常可能出現 explaining away，但特定參數仍可能讓它們獨立。** 以草地為例，Z 是草濕了，X 是下雨，Y 是灑水器開過。知道草濕、又知道灑水器沒開，可能提高下雨的機率；只有再假設草濕完全由這兩個原因決定、沒有其他原因或量測雜訊，才可把雨的機率推到 1。圖形本身不給出這個數字。
+
+核對時，chain 與 fork 在給定 Z 後保證 X、Y 條件獨立，未給定 Z 則不保證；collider 的保證方向相反。能說清楚「圖保證獨立」與「不保證獨立」的差別，就完成這個閱讀檢查；它是繼續學推論的一項基礎，不代表已掌握每種推論演算法。若仍混淆，先重讀該章的三種結構與條件化例子。
+
+## 教材與版本備註
+
+<details>
+<summary>講義維護與歷史查核細節</summary>
+
+首頁上那句「The notes are still **under construction**」值得單獨講，因為它會誤導人。索引頁在四個地方標了 *under construction*：機率複習、應用、Bayesian learning 的例子、以及結構學習的 Bayesian structure learning。**把這四頁全部打開讀過之後，這些標記大多已經對不上內容了：**
+
+- 機率複習不但寫完了，還寫得比課程需要的更深——它從 σ-algebra 與測度講起，明講材料改寫自 CS229 的機率講義與 STATS310 的講義。
+- 應用那章是整份講義最長的一章，涵蓋影像、語言、音訊、因果推論、錯誤更正碼、計算生物、生態、經濟與醫療診斷。
+- Bayesian learning 標的是「Examples（under construction）」，但那頁開頭就擺著兩個完整的例子。一個是偏心硬幣的 MLE 為什麼不會隨資料量變得更有信心，另一個是 bag-of-words 語言模型碰到未見詞時整句機率變成零。後面接共軛先驗、Beta、Dirichlet，最後把 Laplace smoothing 收成 Dirichlet 先驗的特例。
+- 唯一還真的缺的是結構學習那章。score-based、Chow-Liu、AIC/BIC、BD score、constraint-based、order search 與 ILP 都在，但沒有獨立的 Bayesian structure learning 一節。
+
+維護狀態就誠實一點。這個 repo 有兩千多顆星、沒有被封存，但**最後一次推送停在 2025 年 6 月**，而且那筆改動只是一則錯字修正。再往前翻，實質內容的編輯集中在 2023 到 2024 年初。它現在還掛著幾個沒被合併的 PR，最舊的那個開在六年前（精確數字見附錄）。
+
+腐蝕開始出現，但也有人在補。講義裡有三處推薦「一位前 CS228 學生做的互動模擬」，全部指向同一個已經下線的 `pgmlearning.herokuapp.com`。其中兩處已經被改成 Wayback Machine 的封存版：d-separation 與變數消除。repo 裡有一筆 2024 年初的 commit 名字就叫「Update variable elimination web app link with archived version」。**只有結構學習那章的 K3 演算法模擬還指著原網址，實測回 404。**
+
+
+</details>
+
+### 作業長什麼樣
 
 課程官網沒有公開作業內容（都在 Ed 上），但公開了完整的時程表，而時程表本身有資訊。五份作業，寫明「both written and programming parts」，每份都圍繞一個應用。搭配十週的講次表是這樣排的：
 
@@ -127,7 +143,7 @@ draft: false
 
 期末考是一場三小時的考試。**沒有期末專案**——這跟同一位講師的 CS236 是相反的安排，那門課的課程專案占四成。
 
-## 自學者實際拿得到什麼
+### 自學者實際拿得到什麼
 
 逐項講，拿得到與拿不到分開：
 
@@ -143,23 +159,13 @@ draft: false
 
 順帶一提，網路上關於這門課的二手介紹要小心。連 Ermon 自己的 [Stanford 首頁](https://cs.stanford.edu/~ermon/)也不準——那份教學列表最新只到 Winter 2022/2023，但 ExploreCourses 與課程官網都記錄了 Winter 2024 那次開課，講師是他本人。
 
-## 跟 CS236 的關係：兩門課現在都停著
+### 跟 CS236 的關係：兩門課現在都停著
 
 CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io/) 出自同一個人。很多人以為 CS228 是 CS236 的前置，這件事**在官方頁面上不成立**。CS236 的先修原文是「Basic knowledge about machine learning from at least one of CS 221, 228, 229 or 230」。CS228 只是四選一的其中一個，不是必經。
 
 比較有訊息量的是兩門課現在的狀態。ExploreCourses 上 CS236 的狀態是 `Last offered: Autumn 2023`，它的課程官網標題也還寫著「CS236 - Fall 2023」——跟 CS228 官網凍結在 Winter 2023-24 是同一種樣子。兩門課現在都不在開課中，差別在於前者已經排進了下一個冬季，後者在 2025-26 學年完全沒有開（ExploreCourses 的 sections 為空），但 2026-27 學年已排進冬季學期的 catalog——enrollStatus 是 Open，講師與時間地點欄位空白，屬於「系上有意開、講師未指派」的狀態而非確認開課（2026-08-26 查）。至於停開的原因，官方從未解釋，但時間軸自己會說話：兩門課最後一次都是 Ermon 本人教，而他在 2024 年 7 月起出任 diffusion LLM 新創 [Inception Labs](https://techcrunch.com/2025/02/26/inception-emerges-from-stealth-with-a-new-type-of-ai-model/) 的 CEO——停開期與創業期完全重疊（詳見文末附錄）。CS236 已排進 Spring 2027 且 PI 就是 Ermon 本人，這兩門課是暫停，不是取消。
 
 分工倒是清楚的：CS228 教怎麼用圖寫下獨立假設、怎麼在圖上做推論與學習，結束在 VAE；CS236 從 VAE 開始，往 GAN、normalizing flow、autoregressive、energy-based 與 score-based 展開。所以講義最後那章，剛好就是兩門課的接縫。另外一個實務差異：CS236 官網明寫歡迎校內旁聽（「we are very open to sitting-in guests if you are a member of the Stanford community」），CS228 官網沒有對應的說法。
-
-## 怎麼開始
-
-今晚就能做的一件事，用來判斷你到底進不進得去：
-
-打開[貝氏網路那章](https://ermongroup.github.io/cs228-notes/representation/directed/)，讀到 d-separation 那一節，然後蓋住頁面，自己回答三個三變數結構的獨立性——`X → Z → Y`、`X ← Z → Y`、`X → Z ← Y`——在 Z 有沒有被觀測的兩種情況下，X 和 Y 各是獨立還是相依。
-
-第三個（v-structure，講義叫 explaining away）跟前兩個是反過來的：**Z 沒被觀測時 X 與 Y 獨立，Z 被觀測之後反而相依。** 講義用草地來解釋——Z 是「早上草地是濕的」，X 是下過雨、Y 是灑水器開過；知道草是濕的、又知道灑水器沒開，那下過雨的機率就被推到 1。兩個原本無關的原因，因為共同結果被觀測而綁在一起。
-
-如果你能自己把這件事講出來，這門課的整套推論演算法你都跟得上，因為 d-separation 是後面每一個演算法的地基。如果講不出來，就把那一章重讀一遍再往下——它是講義裡回報率最高的一節，也剛好是課程第一場加開助教課的主題。
 
 ## 附錄：數字與查證方式
 
@@ -173,6 +179,16 @@ CS228 和 [CS236: Deep Generative Models](https://deepgenerativemodels.github.io
 - **課程官網位置**：`cs228.stanford.edu` 實際導向 `ermongroup.github.io/cs228`，頁首標示 Winter 2023-24。`web.stanford.edu/class/archive/cs/cs228/` 回 404，這門課沒有 Stanford 封存區的歷屆版本。
 
 **未能確認的項目**：(1) CS228 為何連續兩個學年停開、CS236 為何自 Autumn 2023 後未再開課——官方從未說明，但 2026-08-26 的查核把時間軸對上了：ExploreCourses XML 確認最後一次開課兩門都是 Ermon 本人教（Winter 2024 的 CS228 有 133 人、Autumn 2023 的 CS236 有 321 人），而他 **2024 年 7 月起擔任 diffusion LLM 新創 Inception Labs 的 CEO**，2025 年 2 月出 stealth、11 月拿 $50M seed（Menlo Ventures 領投），投資方訪談裡直接說三位創辦人「walk away from tenure」——停開期與創業期完全重疊。Stanford 的 faculty startup 政策也明文要求教授接管理職應休假（leave of absence）。這是間接證據最強的解釋，但沒有任何官方來源明文連結兩者。課程本身沒有死掉：CS236 已排進 Spring 2027 且 PI 就是 Ermon，CS228 排 Winter 2027 但講師 TBD。(2) Winter 2027 的授課者是誰，ExploreCourses 的講師欄目前空白。(3) 五份作業的實際題目與難度分布，作業內容鎖在 Ed 上，本篇對作業的描述全部來自公開的時程表與評分政策，不是作業本身。
+
+## 課程影片來源
+
+官方課程網站（cs228.stanford.edu，導向 ermongroup.github.io/cs228，頁首標示 Winter 2023-24；2026-10-10 即時讀取）的 Lecture Videos 連結指向 canvas.stanford.edu 的外部工具；我實際開啟，被導向 Stanford 登入頁，確認需要修課帳號。搜尋也沒有找到這門課的公開 YouTube 或 OCW 釋出，所以不嵌入，也不以其他課程的影片冒充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs228.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

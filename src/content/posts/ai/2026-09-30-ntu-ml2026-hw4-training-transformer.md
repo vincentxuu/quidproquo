@@ -1,5 +1,5 @@
 ---
-title: "李宏毅 ML 2026 HW4：用 decoder-only Transformer 接龍畫寶可夢"
+title: "用 decoder-only Transformer 接龍畫寶可夢｜台大李宏毅 機器學習 2026 Spring 作業 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 - 助教說明影片 [ML 2026 Spring HW4 -- Training Transformers](https://youtu.be/QrqdoGf35Iw)
 
 存取等級：題目、範例程式、資料集都公開，屬於 **A3**；缺的是評分鏈，下面會說明。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=QrqdoGf35Iw
-title: 影片：ML 2026 Spring HW4 -- Training Transformers
-```
-
-原始影片：[影片：ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 任務：把圖片當成一串 token
 
@@ -131,8 +112,37 @@ Colab 裡的預設 GPT-2 設定與這張表一致（`n_embd` 64、`n_head` 2、`
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)｜下一篇 [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)
 
+## 把四個像素排成訓練對
+
+以下是本文自編的教學例子，不是講者的實驗或官方作業解答。
+
+自編縮小圖片有四個 token `[2,5,1,3]`，不是官方寶可夢資料。照 sequence[:-1] 與 sequence[1:]，輸入是 `[2,5,1]`，標籤是 `[5,1,3]`：看到 2 預測 5、看到 2與5 預測 1、看到 2與5與1 預測 3。因果遮罩不讓第一個位置提前看到 5。
+
+**檢查與答案：** 原作業 400 個 token 的 train 輸入與標籤各多長？答案各 399。validation 補完則給 240、生成 160，兩種流程不能混用；逐 token 猜中率也不能替代 FID/PDR。
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=QrqdoGf35Iw
+title: 影片：ML 2026 Spring HW4 -- Training Transformers
+```
+
+原始影片：[影片：ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
+
 ## 更新紀錄
 
+
+- 2026-10-11：補上自編推理例子與理解檢查，保留來源限制及原作業範圍。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但影片沒有可取得的字幕，影片口述內容未核對；本文對作業的說明僅依 PDF 與 Colab。

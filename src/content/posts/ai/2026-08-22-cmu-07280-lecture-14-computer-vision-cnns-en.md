@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 14: Encoding Image Structure with Convolutional Networks"
+title: "Encoding Image Structure with Convolutional Networks | CMU 07-280 Lecture 14"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, computer-vision, cnn, alexnet]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 14, **Computer Vision**, took place on March 10, 2026. It puts the previous neural-network and backpropagation machinery into images. Instead of treating every pixel as an unrelated feature, one small kernel is reused across locations. No public lecture-by-lecture recording exists; this reading uses the lecture note, CNN pre-reading, Recitation 8, and homework material.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -90,6 +80,16 @@ Lecture 15 reuses learned visual representations. With little data for a new tas
 ## What to do tonight
 
 Hand-compute a valid convolution between a `1×4×4` input and a `2×2` kernel, writing all four products at each position. Then calculate shapes and parameters for `3×64×64 → Conv(32,3×3,pad=1) → MaxPool(2)`. Deliberately multiply parameter count by output positions, then explain why that is wrong.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

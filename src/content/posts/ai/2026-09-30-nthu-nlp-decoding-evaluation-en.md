@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 10: Why the Same Model Sounds Stiff or Rambles — Decoding Strategies and NLG Evaluation"
+title: "NTHU NLP Guide 10: Why the Same Model Sounds Stiff or Rambles — Decoding Strategies and NLG Evaluation | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 The official materials are the slides [W5_decoding.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W5_decoding.pdf) (63 pages, titled "Decoding Strategies and Evaluations for Natural Language Generation") and the [Week 7 Tue.](https://www.youtube.com/live/NtPrXea8qSE) recording (about 98 minutes, in Mandarin).
 
 First, which recording to watch. The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) puts this deck and the Hugging Face tutorial in the same W7 row, and its Topics column ("Python for text tutorial") is a syllabus template that doesn't match the content. I read the captions for Week 7 Tue.: it runs from the opening on decoding all the way to MMLU, and the professor closes with "that's it for decoding and evaluation today." [Week 7 Thu.](https://www.youtube.com/live/4qDUML9TeHM) that week plays the Hugging Face tutorial (this video has no captions; frames at minutes 5, 25, and 50 show the tutorial slides, so its content could not be checked against a transcript, though in the Tuesday captions the professor announces that Thursday is the TA session), which the previous part covers. For this unit, W7 Tue. alone is enough.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=NtPrXea8qSE
-title: Week 7 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4qDUML9TeHM
-title: Week 7 Thu.
-```
-
-Original videos: [Week 7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)、[Week 7 Thu.](https://www.youtube.com/watch?v=4qDUML9TeHM)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Week 7 Tue. transcript through; the quoted remarks (greedy results being "rigid", top-k/top-p missing from the slides and explained orally with the 0.9/0.8 defaults and the 0.6+0.2 example, beam size defaulting to 2 with "three would already be impressive", the MMLU and ACL remarks, and the closing line about decoding and evaluation) all appear, and the professor announces that Thursday is the TA session. The Week 7 Thu. YouTube page has no captions, so its content could not be checked; "it is the TA session" rests on frame captures and Tuesday's announcement.
 
 ## The setup: training has answers, testing doesn't
 
@@ -182,6 +158,30 @@ On MMLU, the professor notes that such datasets basically provide no training da
 - The Fall 2026 version of this unit isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study).
 
 **Series navigation**: previous, [Hugging Face BERT tutorial and HW3 multi-output learning](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en) | next, [GPT-2 / T5 Chinese summarization](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=NtPrXea8qSE
+title: Week 7 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4qDUML9TeHM
+title: Week 7 Thu.
+```
+
+Original videos: [Week 7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)、[Week 7 Thu.](https://www.youtube.com/watch?v=4qDUML9TeHM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Week 7 Tue. transcript through; the quoted remarks (greedy results being "rigid", top-k/top-p missing from the slides and explained orally with the 0.9/0.8 defaults and the 0.6+0.2 example, beam size defaulting to 2 with "three would already be impressive", the MMLU and ACL remarks, and the closing line about decoding and evaluation) all appear, and the professor announces that Thursday is the TA session. The Week 7 Thu. YouTube page has no captions, so its content could not be checked; "it is the TA session" rests on frame captures and Tuesday's announcement.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 15 | Adding Random Variables and the Central Limit Theorem"
+title: "Adding Random Variables and the Central Limit Theorem | Stanford CS109 Lecture 15"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 16 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 15: Central Limit Theorem** on July 16 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture15-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture15-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture15-LLMPrompts.pdf), and reader chapters on [sums of random variables](https://probabilitycoders.stanford.edu/spr26/summation_vars) and the [CLT](https://probabilitycoders.stanford.edu/spr26/clt). The current slides are unavailable and Canvas video is gated, so missing material is not reconstructed.
 
 The worksheet and key contain complete two-page P1–P7 plus challenge material. The guide's six concepts occupy two substantive pages; page three only continues the wrap-up. This is the first **L2** unit: the public problem set and reader support a complete artifact guide, but not a claim to reproduce the full slides or lecture.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=6Q9wT6JGMMM
-title: Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18
-```
-
-Original videos: [Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18](https://www.youtube.com/watch?v=6Q9wT6JGMMM)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 18, "Central Limit Theorem" (about 49 minutes): it starts with a convolution review, then covers sums of IID variables, the sample mean, variance and sample-size estimation with the CLT, matching this lecture. Worksheet problems in this post such as the ELO and truncation-error items are not video content.
 
 ## P1: Open with a Beta-belief review
 
@@ -188,6 +166,28 @@ The six concepts are IID variables, convolution, closed-form sums, Normal differ
 - P7 and the challenge are pset5 items omitted from the public answer key and are derived only from public prompts.
 - Current slides are unavailable and video is gated; L2 does not mean a full lecture reconstruction.
 - The worksheet/key are two pages each, and guide page three only continues closing text. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=6Q9wT6JGMMM
+title: Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18
+```
+
+Original videos: [Stanford CS109 I Central Limit Theorem I 2022 I Lecture 18](https://www.youtube.com/watch?v=6Q9wT6JGMMM)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 18, "Central Limit Theorem" (about 49 minutes): it starts with a convolution review, then covers sums of IID variables, the sample mean, variance and sample-size estimation with the CLT, matching this lecture. Worksheet problems in this post such as the ELO and truncation-error items are not video content.
 
 ## Update Log
 

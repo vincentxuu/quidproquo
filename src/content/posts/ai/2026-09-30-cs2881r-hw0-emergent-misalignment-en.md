@@ -1,5 +1,5 @@
 ---
-title: "CS2881R HW0: Reproducing Emergent Misalignment with a 1B Model"
+title: "Reproducing Emergent Misalignment with a 1B Model | Harvard CS2881R Assignment 0"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,17 +40,6 @@ Imagine teaching a model exactly one bad habit: give dangerous advice whenever s
 That is emergent misalignment. HW0 of [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/), released a month before term, has you see it on your own machine or in the cloud with a 1B-parameter model and LoRA.
 
 It was also the admission filter. The README says only Harvard or MIT students planning to take the course for credit, and able to attend Thursday afternoon lectures, should submit, with a deadline of 11:59pm Eastern on 2025-08-04. The head TA's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) says selection combined the HW0 score, an interest form, and background; the interest form drew 274 responses.
-
-## Course video sources
-
-This post covers an assignment, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this assignment; use the schedule for the lecture recordings.
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
 
 ## The paper it reproduces
 
@@ -195,6 +184,17 @@ One thing to do tonight: open [`eval/prompts/non_medical.py`](https://github.com
 - LoRA in theory and practice: [CMU 11-868: PEFT and LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora-en)
 - Limits of LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 - Series entry and material gaps: [Reading Harvard CS2881R (overview)](/posts/ai/2026-09-30-cs2881r-course-overview-en)
+
+## Course video sources
+
+This post covers an assignment, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this assignment; use the schedule for the lecture recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "生成式學習演算法：GDA、Naive Bayes 與平滑"
+title: "生成式學習演算法：GDA、Naive Bayes 與平滑｜Stanford CS229 第 4 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 4 章〈Generative learning algorithms〉，講義頁碼 35–48。它是 **2026 notes 的逐章導讀**，不是某一學期錄影的重建；本章把 Naive Bayes 標成 optional reading，也應照講義的權重理解。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=zRdE8A4UZes
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis](https://www.youtube.com/watch?v=zRdE8A4UZes)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 5（約 82 分鐘），字幕依序講生成式與判別式的差別、高斯分布與共享協方差、GDA 與其最大概似、GDA 與 logistic regression 的比較（含講義沒有的二次決策邊界示範），最後約 90% 之後才進到 Naive Bayes 垃圾郵件過濾並提到 Laplace 平滑（字幕自動辨識成 applause smoothing）；主題與本章相符。字幕對 Naive Bayes 只講到簡化假設與平滑，沒有 Bernoulli／multinomial event model 的對照，那部分只依講義。
 
 ## 判別式與生成式的分岔
 
@@ -87,6 +66,27 @@ GDA 對高斯形狀與共享協方差敏感；Naive Bayes 對特徵相依關係�
 ## 自學練習
 
 用同一個二元資料集訓練邏輯斯迴歸與 GDA，先在近似高斯資料比較，再刻意加入偏斜或離群值。另用十封短文字手算 Bernoulli Naive Bayes，觀察不加平滑時一個未見詞如何讓整個類別機率歸零。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=zRdE8A4UZes
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis](https://www.youtube.com/watch?v=zRdE8A4UZes)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 5（約 82 分鐘），字幕依序講生成式與判別式的差別、高斯分布與共享協方差、GDA 與其最大概似、GDA 與 logistic regression 的比較（含講義沒有的二次決策邊界示範），最後約 90% 之後才進到 Naive Bayes 垃圾郵件過濾並提到 Laplace 平滑（字幕自動辨識成 applause smoothing）；主題與本章相符。字幕對 Naive Bayes 只講到簡化假設與平滑，沒有 Bernoulli／multinomial event model 的對照，那部分只依講義。
 
 ## 更新紀錄
 

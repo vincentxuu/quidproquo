@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 16: From Subregisters to x86-64 Arithmetic and Logic"
+title: "From Subregisters to x86-64 Arithmetic and Logic | Stanford CS107 Lecture 16"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 The same `%rax` storage can be named `%eax`, `%ax`, or `%al`. The same short bit pattern can also become very different 64-bit values after zero extension and sign extension. Stanford CS107 Lecture 16 is not merely another mnemonic list. It adds two dimensions to the previous lecture's addressing modes: **how many bytes this operation touches, and how the ALU interprets and rewrites those bits.**
 
 For every instruction, ask four questions in order: what is the operand width, where is the source, where is the destination, and does a parenthesized expression merely calculate an address or actually dereference it? That procedure explains `movzbl`, `leaq`, `addq`, and `sar` without treating the names of subregisters as independent storage.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, gaps, and complete agenda
 
@@ -231,6 +223,14 @@ The shift reads `%cl` and masks the count for destination width. In the slides' 
 6. For a binary ALU form, calculate `D op S` and write it back to the second operand.
 7. For a shift, distinguish `sar` from `shr` and check whether the count is immediate or `%cl`.
 8. Only then use the ABI and neighboring instructions to name semantics.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

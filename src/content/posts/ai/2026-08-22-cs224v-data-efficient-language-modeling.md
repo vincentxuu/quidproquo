@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 14 講：資料受限時，語言模型還能怎麼擴展"
+title: "資料受限時，語言模型還能怎麼擴展｜Stanford CS224V 第 14 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, language-model, data-efficiency, synthetic-data]
@@ -19,18 +19,6 @@ description: "CS224V Training LLMs／Data-Efficient Language Modeling：資料�
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 Schedule 把最後一講簡寫成 Training LLMs，但 deck 的精確標題是 Data-Efficient Language Modeling。它不是從 tokenizer 教到 RLHF 的完整配方，而是問：當 compute 成長比高品質資料快，固定資料能不能被用得更好，又能否合成真正增加泛化能力的新資料？
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：用好既有資料，再製造新資料
 
@@ -177,6 +165,18 @@ Synthetic continued pretraining 的方向是學習「一份文件的 neighbor」
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開 deck 是研究演講，不是完整訓練 recipe；多項結果標為 preprint 或特定 experimental regime。沒有課堂錄影、完整程式碼與所有超參數，因此本文不把結果泛化到任意模型規模。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

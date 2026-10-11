@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 17：Gale–Shapley、穩定配對與可撤銷的貪婪選擇"
+title: "Gale–Shapley、穩定配對與可撤銷的貪婪選擇｜Stanford CS161 第 17 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 第十八篇，對應 **Winter 2026 Lecture 17**，由 Ellen Vitercik 於 2026 年 3 月 9 日主講，題名 *Stable Matchings and Gale-Shapley*。
 
 本文讀了公開 [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf) 與[官方 component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md)。Canvas 錄影未觀看。正文只陳述這些 Winter 2026 材料支持的模型與結論。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
-
-查核日期：2026-10-10。
 
 ## Stable 不是每個人都滿意
 
@@ -109,6 +99,16 @@ Naive greedy 容易錯在把 hospital 首次接受永久化。Deferred Acceptanc
 ## 延伸
 
 真實 matching markets 常有 capacities、ties、couples 與不完整偏好，不能把本講 theorem 原封不動搬過去。工程測試可生成小型 strict preferences，暴力枚舉 matchings，檢查輸出完整、無 blocking pair，並比較所有 stable solutions 驗證 proposing-side optimality。這是驗證策略，不是課堂對真實 NRMP 的完整模型。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

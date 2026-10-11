@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 1：從 even／odd 定義寫出第一個直接證明"
+title: "從 even／odd 定義寫出第一個直接證明｜Stanford CS103 第 1 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 3 篇，對應 **Spring 2026 官方 Lecture 1（2026-04-01）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Mathematical Proofs**。CS103 的讀法不是背一排名詞，而是依序問：物件如何定義、哪些輸入合法、主張要求什麼，以及什麼論證才足以支持結論。這篇依投影片的定義與例子整理；沒有出現在公開 投影片 的口頭補充，不會被補寫成課堂內容。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/)
 
 ## 證明是交給讀者執行的論證
 
@@ -134,6 +126,14 @@ odd 定義同理。這解釋為何 proof 中同一個定義會出現兩次，角
 ## 材料缺口與閱讀界線
 
 公開投影片完整呈現 even／odd 定義、偶數平方、兩奇數相加與 floor／ceiling case split。錄影與逐字稿不公開；本文不重建口頭 feedback 或未出現在 deck 的證明版本。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/01/)
 
 ## 更新紀錄
 

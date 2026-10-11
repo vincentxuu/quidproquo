@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L11: Representation Learning (Reconstruction-Based) — Autoencoders, VQ, Self-Supervision"
+title: "Representation Learning (Reconstruction-Based) — Autoencoders, VQ, Self-Supervision | MIT 6.7960 Lecture 11"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; the required reading is *Representation Learning*.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=QxOzQRtd440
-title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 11 transcript (Phillip Isola, 1:21:04): the video covers representation learning, brain representations (about 24%–32%), autoencoders and reconstruction (about 41%–66%), vector quantization (about 79%–81%) and self-supervision with masking (about 82%–93%), matching the article; nothing needed correcting.
 
 ## What is a "representation" and why it matters
 
@@ -126,6 +107,25 @@ Representation learning bridges supervised learning and generative / foundation 
 - **Retrieval / similarity?** A good representation makes "nearest neighbor" meaningful.
 
 Next lecture (L12) shifts from "reconstruction" to "similarity" — contrastive learning pulls same-class representations together and pushes different ones apart.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=QxOzQRtd440
+title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 11 transcript (Phillip Isola, 1:21:04): the video covers representation learning, brain representations (about 24%–32%), autoencoders and reconstruction (about 41%–66%), vector quantization (about 79%–81%) and self-supervision with masking (about 82%–93%), matching the article; nothing needed correcting.
 
 ## Update Log
 

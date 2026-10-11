@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 15: Reading x86-64 Addressing Modes Without Confusing Addresses and Values"
+title: "Reading x86-64 Addressing Modes Without Confusing Addresses and Values | Stanford CS107 Lecture 15"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 `mov $0x42,%rax` and `mov 0x42,%rax` differ by one `$`, yet do completely different work. The first puts the number `0x42` in a register; the second reads a value from memory address `0x42`. Stanford CS107 Lecture 15 begins with this easy-to-miss distinction and turns x86-64 addressing modes into one expression that can be calculated.
 
 The point is not to memorize seven arrangements of punctuation. For every operand, ask two questions: does it produce a value or an address? If it produces an address, does the instruction use the address itself or the contents stored there? Once those questions become routine, `(%rdi,%rcx,8)` stops looking like punctuation and starts looking like C's `arr[index]`.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, scope, and complete agenda
 
@@ -285,6 +277,14 @@ Do not collapse `mov 9(%rax,%rdx),%rcx` into mental arithmetic. Write `EA = 9 + 
 The [GNU `objdump` documentation](https://sourceware.org/binutils/docs/binutils/objdump.html) explains that `-d` displays assembler mnemonics for machine instructions and that x86 output can select `-M intel` or `-M att`. [GCC's output options](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) let `-S` preserve compiler-generated assembly. Displaying one short C expression in both syntaxes is a direct exercise in holding semantics constant while notation changes.
 
 Lecture 15 reduces to one sentence: components inside parentheses calculate an address; the entire parenthesized operand accesses memory at that address. Combine that with `$` for immediates, `%` for registers, and source-first AT&T order, and dense punctuation becomes checkable pointer arithmetic.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS149 L9: Running DNNs Efficiently on GPUs — Conv as GEMM, Blocking, Fusion, and the Road to FlashAttention"
+title: "Running DNNs Efficiently on GPUs — Conv as GEMM, Blocking, Fusion, and the Road to FlashAttention | Stanford CS149 Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 10: Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU), and it is only a partial supplement. Compared with the [2023 slides for the same lecture](https://gfxcourses.stanford.edu/cs149/fall23/lecture/dnneval/) (68 slides), conv-to-GEMM, blocked matrix multiply, implicit GEMM, fusion, and fused attention are all there. The 2025 deck adds Triton and ThunderKittens, the row-wise softmax fusion example, and a ThunderKittens Flash-Attention. It also drops the 2023 section on saving compute through better network topologies (ResNet, MobileNet). This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
 
 The [previous post](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) drew circles on a GPU. This one runs neural networks. The bridge: a conv layer is just a huge pile of dot products, and making dot products fast is still about the arithmetic intensity from [post 7](/posts/ai/2026-09-30-cs149-locality-communication-en).
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=qbKtU0X6-WU
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU)
-
-Course and recording entries:
-
-- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 10 - Efficiently Evaluating DNNs on GPUs” (1:20:26). The captions cover convolution layers and rewriting convolution as matrix multiplication, blocking and arithmetic intensity, operator fusion, fusing softmax and attention, low precision and Tensor Cores, and network topology (ResNet/MobileNet); Triton is only mentioned, and FlashAttention, CUTLASS and ThunderKittens do not appear in the captions, consistent with the post's statement that these are 2025 additions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Opening: you already know most of this
 
@@ -194,6 +176,24 @@ Slides 72–74 close with two questions. Why might a GPU be a good platform for 
 Further reading: to see how Triton kernels are actually written, read the site's [CS336 Kernels and Triton guide](/posts/ai/2026-08-22-cs336-kernels-triton-en). For the same ideas in an LLM systems course, read [CMU 11-868 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en).
 
 Series navigation: previous [PA3 + Written 2: CUDA circle renderer](/posts/ai/2026-09-30-cs149-pa3-w2-cuda-renderer-en) | next [L10 Hardware specialization and DNN accelerator design](/posts/ai/2026-09-30-cs149-hardware-specialization-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=qbKtU0X6-WU
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 10 - Efficiently Evaluating DNNs on GPUs](https://www.youtube.com/watch?v=qbKtU0X6-WU)
+
+Course and recording entries:
+
+- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dnninference/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 10 - Efficiently Evaluating DNNs on GPUs” (1:20:26). The captions cover convolution layers and rewriting convolution as matrix multiplication, blocking and arithmetic intensity, operator fusion, fusing softmax and attention, low precision and Tensor Cores, and network topology (ResNet/MobileNet); Triton is only mentioned, and FlashAttention, CUTLASS and ThunderKittens do not appear in the captions, consistent with the post's statement that these are 2025 additions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

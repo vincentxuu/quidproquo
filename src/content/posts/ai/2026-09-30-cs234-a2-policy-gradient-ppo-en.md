@@ -1,5 +1,5 @@
 ---
-title: "CS234 Assignment 2: Implementing REINFORCE, a Baseline, and PPO, Plus Policy-Induced Distributions"
+title: "Implementing REINFORCE, a Baseline, and PPO, Plus Policy-Induced Distributions | Stanford CS234 Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,17 +34,6 @@ The last three posts took value-based methods up to [DQN](/posts/ai/2026-09-30-c
 On the 2026 schedule, A2 goes out in Week 2 and is **due Sunday, February 1, 2026 at 6:00 PM PST**. That week (Week 4) lectures cover Policy Search and imitation learning, so the code is due right after the PPO lecture.
 
 This guide covers what each question trains, which lecture tools it needs, and where people get stuck. **It gives no solutions.**
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-Checked: 2026-10-10.
 
 ## Submission and points
 
@@ -198,6 +187,17 @@ One thing to do tonight: sketch the clipped PPO objective as a function of z, on
 
 - The same policy gradient material in another course: [CS224R L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en), [CS224R L5: the shared skeleton of PPO and SAC](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en)
 - Berkeley's version: [CS285 L5–10: Policy Gradient, Actor-Critic, DQN, and SAC](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

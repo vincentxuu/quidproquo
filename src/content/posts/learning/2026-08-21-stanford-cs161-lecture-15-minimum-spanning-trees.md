@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 15：用 cut property 證明 Prim 與 Kruskal"
+title: "用 cut property 證明 Prim 與 Kruskal｜Stanford CS161 第 15 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 本文實際閱讀了公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-slides.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture15.md)。官方頁面仍把資源區標成 `coming`，但 notes 與 slides 檔案確實存在。Canvas 錄影需要 Stanford 權限，我沒有觀看，也未使用 prelecture、notebook 或 concept-check bank 補寫正文。
 
 上一講用 exchange argument 證明 greedy choice 不會排除最佳解。這一講把同一思想濃縮成一個可重複使用的定理：只要找到一個尊重目前選邊的 cut，跨越它的最輕邊就是安全的。Prim 與 Kruskal 外觀看來很不一樣，一個長出單棵樹，一個合併森林；證明卻是同一個模板。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
-
-查核日期：2026-10-10。
 
 ## 問題與不變量
 
@@ -143,6 +133,16 @@ Lecture 14 說 greedy choice 需要 exchange proof；Lecture 15 把它封裝成 
 實作 Kruskal 時，通常用 parent forest 加 union by rank/size 與 path compression；這能實現講義提到的近 `α(n)` amortized bound。工程上也應明確定義 tie-breaking，讓輸出可重現；它不影響最佳成本，卻會影響測試預期的 edge list。
 
 若要驗證實作，不只檢查總權重。還應檢查輸出恰有 `n-1` 邊、連通、無 cycle，並在小圖上與 brute-force spanning trees 比較。對不連通輸入，API 應選擇報錯或明確回傳 forest，不要悄悄宣稱得到 MST。這些是工程延伸，不是本講新增的 theorem。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

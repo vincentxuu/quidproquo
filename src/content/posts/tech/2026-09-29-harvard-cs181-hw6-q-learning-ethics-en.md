@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW6 (Part 4): Q-learning Swingy Monkey and Embedded EthiCS"
+title: "(Part 4): Q-learning Swingy Monkey and Embedded EthiCS | Harvard CS181 Assignment 6"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, q-learning, reinforcement-learning, ai-ethics, homework]
@@ -28,17 +28,6 @@ glossary:
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `p3src/`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the 2026 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) and [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) slides, all opened on 2026-09-29. The slide links come from topic cells in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but the April 23 Embedded EthiCS session appears on the schedule only as "see recording", with no public link, and no 2026 slides or module page could be found. That session is **A0**: this post does not guess at what it covered.
 
 This is part 14 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 3)](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning-en), planned in a Gridworld with known transitions. This part drops "known": the agent learns while it plays.
-
-## Course video sources
-
-The Spring 2026 schedule does not list public videos for MDP/RL, but April 23 Embedded EthiCS explicitly says “see recording.” In the public schedule HTML retrieved here, that cell contains text without an openable recording link. A recording is referenced, but its public viewing link and permissions remain unconfirmed; this is not evidence that no video exists.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the term
 
@@ -166,6 +155,17 @@ Posts on this site that approach the same ideas from another angle; they don't r
 ## Next
 
 HW6 is the last homework. The next part, [Final Checkpoint and Series Wrap-up](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en), uses the official final checklist and practice problems to consolidate the second half of the term.
+
+## Course video sources
+
+The Spring 2026 schedule does not list public videos for MDP/RL, but April 23 Embedded EthiCS explicitly says “see recording.” In the public schedule HTML retrieved here, that cell contains text without an openable recording link. A recording is referenced, but its public viewing link and permissions remain unconfirmed; this is not evidence that no video exists.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

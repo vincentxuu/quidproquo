@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 8 講：SLIDERS 如何用自動 schema 分析一整組長文件"
+title: "SLIDERS 如何用自動 schema 分析一整組長文件｜Stanford CS224V 第 8 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, long-context, information-extraction, sliders]
@@ -19,18 +19,6 @@ description: "CS224V Long-Document QA：訓練與切塊路線、SLIDERS schemati
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第八講把問題規模拉到「一組長文件」：比較公司年報、病歷、新聞事件或發票時，答案可能散在不同段落與文件。單純增加 context window 沒有解決跨文件整合，也沒有提供可查詢的中間狀態。SLIDERS 把文字轉成為問題量身打造的表格。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：從兩條路線到 SLIDERS
 
@@ -139,6 +127,18 @@ SLIDERS 的優勢不只是能放更多 token，而是把每份文件的局部證
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 講義明稱 preliminary evaluation，沒有足夠資訊把結果視為成熟 production benchmark；公開資料也沒有完整 pipeline code、成本分析或課堂錄影。本文保留這個研究階段的限制。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

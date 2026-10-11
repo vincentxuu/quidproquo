@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 12: There Is No Single True LLM Score, Only Different Games"
+title: "There Is No Single True LLM Score, Only Different Games | Stanford CS336 Lecture 12"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 12: Evaluation**, taught by Percy Liang on May 6, 2026. Its primary source is the official executable lecture, [`lecture_12.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_12.py).
 
 The course discusses evaluation before data because data pushes a model toward the behavior being measured. The lecture's central statement is that no single evaluation is true. Rules, objects, and use cases must be specified before choosing a metric.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 12 (Evaluation). The captions cover perplexity, exam-style benchmarks such as MMLU and GPQA, Chatbot Arena and LLM-as-judge, agent evaluations such as SWE-bench, Terminal-Bench and Kaggle with scaffolds, ARC, safety benchmarks, realism/validity and contamination. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=JpAxdTWQJxM
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Perplexity is smooth but not equivalent to usefulness
 
@@ -84,6 +66,24 @@ Lecture 12 does not ask for more leaderboard runs. It requires each score to ans
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its perplexity, exam, chat, agent, reasoning, safety, and validity structure.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 12 (Evaluation). The captions cover perplexity, exam-style benchmarks such as MMLU and GPQA, Chatbot Arena and LLM-as-judge, agent evaluations such as SWE-bench, Terminal-Bench and Kaggle with scaffolds, ARC, safety benchmarks, realism/validity and contamination. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=JpAxdTWQJxM
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 12: Evaluation](https://www.youtube.com/watch?v=JpAxdTWQJxM)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 10 | Probabilistic Models: Joints, marginals, independence, and Bayes"
+title: "Probabilistic Models: Joints, marginals, independence, and Bayes | Stanford CS109 Lecture 10"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 This is article 11 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 10: Probabilistic Models** on July 7 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture10-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture10-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture10-LLMPrompts.pdf), and shared Spring-dated reader chapters on [joint distributions](https://probabilitycoders.stanford.edu/spr26/joint) and [inference](https://probabilitycoders.stanford.edu/spr26/inference). The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The lecture expands from one random variable to how several variables move together. A joint distribution is the complete starting point. Summing out an unneeded variable produces a marginal; normalizing a row or column produces a conditional; independence asks whether the joint factors into a product of marginals.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
 
 ## P1: Open with a Normal review
 
@@ -160,6 +147,19 @@ The guide orders joint PMFs, marginals, conditioning within a joint, independenc
 - P6 and the challenge are pset4 items deliberately omitted from the public answer key; this article derives them only from the public prompts.
 - The challenge prior is `3/4`; `34` is a PDF fraction-extraction artifact.
 - The Canvas recording is inaccessible. The worksheet and guide are two pages each, so the short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

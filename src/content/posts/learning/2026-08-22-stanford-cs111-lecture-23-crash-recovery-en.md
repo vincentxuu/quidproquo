@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 23: From fsck and Ordered Writes to Write-Ahead Logging"
+title: "From fsck and Ordered Writes to Write-Ahead Logging | Stanford CS111 Lecture 23"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 24 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 23**. Mendel Rosenblum taught the lecture on 2026-05-20; its official title is [File System Crash Recovery](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/23/Lecture23.pdf). The public PDF has 23 pages. Its SHA-256 differs from Lecture 24, yet their content is nearly identical: extracted text differs only in the slash in `/lost+found` and four periods. A different hash therefore does not establish independent material. This article owns the crash model, `fsck`, ordered writes, and the WAL entry point; Lecture 24 continues with transactions, checkpoints, and durability. The recording sits behind Canvas/Panopto, and this article does not treat unwatched spoken material as a source.
 
 The lecture asks one sharp question. A file-system operation may modify the free map, an inode, and a directory entry across several disk blocks, but disks do not provide arbitrary atomic multiblock writes. If power fails in the middle, which version should the rebooted system trust? The slides compare three answers in order: scan and repair afterward with `fsck`, constrain write order beforehand, or record an operation in a log before applying it. All three address consistency, but they choose different costs in lost data, startup time, and normal-path performance.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Most OS state can restart after a crash; file-system state cannot
 
@@ -69,11 +61,17 @@ But “write the log first” is only a design principle, not a complete protoco
 - Page 15: WAL and journaling as the entry point to the third recovery strategy.
 - Pages 16–23: continued in Lecture 24 with entries, transactions, checkpoints, `fsync`, and the final trade-off.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Corrected the duplicate-artifact inference and narrowed this lecture to the crash model, `fsck`, ordered writes, and the WAL entry point.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Corrected the duplicate-artifact inference and narrowed this lecture to the crash model, `fsck`, ordered writes, and the WAL entry point.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

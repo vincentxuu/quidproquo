@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 16：Maximum Likelihood 如何統一 Logistic 與 Linear Regression"
+title: "Maximum Likelihood 如何統一 Logistic 與 Linear Regression｜CMU 07-280 第 16 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, maximum-likelihood, probability]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 第 16 講 **MLE and Probabilistic Modeling** 在 2026 年 3 月 17 日進行。前面幾講已使用 squared error 與 cross-entropy，這一講終於回答「為什麼是這些 loss」：先假設資料如何由未知參數產生，再選出最能解釋已觀察資料的參數。官方課表未列逐講公開錄影連結，本文只依 lecture note、pre-reading、Recitation 9 與 HW9。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-主要來源是 [Maximum Likelihood lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_MLE.pdf)、完整 [MLE pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MLE.pdf)、[Recitation 9 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec9_sol.pdf)與 [HW9](https://www.cs.cmu.edu/~07280/assignments/hw9_blank.pdf)。Pre-reading 另含 categorical、multivariate Gaussian 與 conditional likelihood；本文主脊鎖定 MLE 如何重建先前 regression objectives。
 
 ## 承上問題：loss function 不是從清單裡隨便挑
 
@@ -112,6 +98,20 @@ MLE 只在候選 model family 裡找最能解釋資料的參數。若 coin flips
 ## 今晚可以做的動作
 
 用 10 次 coin flips 手算 Bernoulli likelihood 與 log-likelihood，在 `θ=0.1,0.2,…,0.9` 畫表，確認最大值落在 sample mean 附近。接著寫出一筆 logistic regression 的 conditional log-likelihood，逐項對照 cross-entropy。最後列出你的資料是否真的支持 i.i.d. 假設。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+主要來源是 [Maximum Likelihood lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_MLE.pdf)、完整 [MLE pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_MLE.pdf)、[Recitation 9 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec9_sol.pdf)與 [HW9](https://www.cs.cmu.edu/~07280/assignments/hw9_blank.pdf)。Pre-reading 另含 categorical、multivariate Gaussian 與 conditional likelihood；本文主脊鎖定 MLE 如何重建先前 regression objectives。
 
 ## 更新紀錄
 

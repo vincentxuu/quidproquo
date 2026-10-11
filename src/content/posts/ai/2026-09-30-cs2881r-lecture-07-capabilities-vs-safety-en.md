@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L7: How to Measure Capabilities and Where to Set Safety Thresholds"
+title: "How to Measure Capabilities and Where to Set Safety Thresholds | Harvard CS2881R Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,40 +40,6 @@ The course site's outline for this lecture:
 - The OpenAI Preparedness Framework and other responsible scaling policies
 
 What actually happened in the video needs saying up front. Becker's talk covered the first two items; the third was not covered. At the end of the video, Boaz says he had planned to talk about responsible scaling policies and the Preparedness Framework but ran out of time and would find another slot. The last section of this post fills in those two frameworks from the reading list and is clearly marked as not coming from the lecture.
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=fuRmxFZ-umE
-title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 7: Lab vs Field: Guest lecture by Joel Becker” (2:01:36) and confirmed the logistics (November 2, December 3, November 20), no student experiment, nothing special about 50% (best statistical power), the geometric mean, the 2029–2030 versus 2027 extrapolations and “reading the tea leaves”, the Sonnet 4.5 30-hour Q&A, the open-source developer RCT (16 issues, Cursor, hourly pay, forecasts around 40%, under 44% acceptance), the 22–25 age group in Canaries, and Boaz saying at the end there was no time for RSPs and the Preparedness Framework. The post said the 40-hour threshold was set by “a very smart colleague by intuition”, which is not in the captions and has been removed; the example-task table comes from the slides and is not read out in the captions.
-
-## Official materials and access
-
-| Material | Status |
-|---|---|
-| [Lecture video](https://youtu.be/fuRmxFZ-umE) (YouTube title "Lecture 7: Lab vs Field: Guest lecture by Joel Becker", about 2 hours) | Public |
-| [Joel Becker's slides](https://docs.google.com/presentation/d/1ipTQKM56fPRrUfQQ7y0jXBsqhtNEbIxF0xoJvcHYNlM/edit) (Google Slides, titled "Reconciling impressive AI capabilities with limited in-the-wild impacts") | Public |
-| Reading list | Public: four pre-readings plus a dozen-plus further readings, including policy documents from several governments |
-| Student experiment | The course site says TBD; Boaz confirms at the start of the video that there is no experiment this lecture |
-| Lecture notes | The student-written [LessWrong weekly summaries](https://www.lesswrong.com/w/cs-2881r) do not cover this week |
-
-The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has its video, slides, and reading list but no practice material, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
-
-The video also opens with some logistics: the midterm mini-project deadline moved to November 2; the final project is due on the last day of the semester, December 3; and because of Thanksgiving, the last lecture is November 20. For the midterm and final, see this series' posts on the [midterm reproduction project](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) and the [final projects retrospective](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective-en).
 
 ## The puzzle: lab evidence and field evidence disagree
 
@@ -262,6 +228,40 @@ The further readings also list the DeepMind Frontier Safety Framework, METR's Co
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L6: will AI doing AI R&D trigger an intelligence explosion?](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 - Next: [L9: early evidence on AI, jobs, and productivity](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=fuRmxFZ-umE
+title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 7: Lab vs Field: Guest lecture by Joel Becker” (2:01:36) and confirmed the logistics (November 2, December 3, November 20), no student experiment, nothing special about 50% (best statistical power), the geometric mean, the 2029–2030 versus 2027 extrapolations and “reading the tea leaves”, the Sonnet 4.5 30-hour Q&A, the open-source developer RCT (16 issues, Cursor, hourly pay, forecasts around 40%, under 44% acceptance), the 22–25 age group in Canaries, and Boaz saying at the end there was no time for RSPs and the Preparedness Framework. The post said the 40-hour threshold was set by “a very smart colleague by intuition”, which is not in the captions and has been removed; the example-task table comes from the slides and is not read out in the captions.
+
+## Official materials and access
+
+| Material | Status |
+|---|---|
+| [Lecture video](https://youtu.be/fuRmxFZ-umE) (YouTube title "Lecture 7: Lab vs Field: Guest lecture by Joel Becker", about 2 hours) | Public |
+| [Joel Becker's slides](https://docs.google.com/presentation/d/1ipTQKM56fPRrUfQQ7y0jXBsqhtNEbIxF0xoJvcHYNlM/edit) (Google Slides, titled "Reconciling impressive AI capabilities with limited in-the-wild impacts") | Public |
+| Reading list | Public: four pre-readings plus a dozen-plus further readings, including policy documents from several governments |
+| Student experiment | The course site says TBD; Boaz confirms at the start of the video that there is no experiment this lecture |
+| Lecture notes | The student-written [LessWrong weekly summaries](https://www.lesswrong.com/w/cs-2881r) do not cover this week |
+
+The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has its video, slides, and reading list but no practice material, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
+
+The video also opens with some logistics: the midterm mini-project deadline moved to November 2; the final project is due on the last day of the semester, December 3; and because of Thanksgiving, the last lecture is November 20. For the midterm and final, see this series' posts on the [midterm reproduction project](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) and the [final projects retrospective](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective-en).
 
 ## Update Log
 

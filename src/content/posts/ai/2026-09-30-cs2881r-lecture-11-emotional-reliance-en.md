@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L11: Chatbots, Emotional Reliance, and Mental Health"
+title: "Chatbots, Emotional Reliance, and Mental Health | Harvard CS2881R Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,26 +31,6 @@ glossary:
 **Series**: previous [L9: Early Evidence on AI, Jobs, and Productivity](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) | next [L12: AI 2035 and GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) looked at aggregate numbers: jobs, productivity, growth. This one zooms in on one person and one chatbot. Near the end of class Boaz framed the topic this way: emotional reliance is the first large-scale example of way out-of-distribution inputs, and it will not be the last.
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=GNvEjP1DfIs
-title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 11: Mental Health and Emotional Attachment” (1:13:22) and confirmed that the two student experiments take roughly the first third of the video (about the first 33 minutes), followed by Boaz on emotional reliance, with the simulator/optimizer explanation around minutes 39–43 and the bridge test near the end; nothing needed correcting, and the recording time “0:33” became “about 0:33”.
 
 ## What this lecture offers
 
@@ -170,6 +150,26 @@ One thing to do tonight: in a model you use, open two fresh chats the way the fi
 - How model specs describe this behavior: [L4: Model Specifications & Compliance](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 - RLHF and safety training in the training pipeline: [L2: Modern LLM Training](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
 - How reliable LLM-as-judge is: [Stanford CS329Z Week 8: Judges and safety](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=GNvEjP1DfIs
+title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 11: Mental Health and Emotional Attachment” (1:13:22) and confirmed that the two student experiments take roughly the first third of the video (about the first 33 minutes), followed by Boaz on emotional reliance, with the simulator/optimizer explanation around minutes 39–43 and the bridge test near the end; nothing needed correcting, and the recording time “0:33” became “about 0:33”.
 
 ## Update Log
 

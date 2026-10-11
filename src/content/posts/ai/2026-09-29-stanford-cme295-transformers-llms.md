@@ -1,5 +1,5 @@
 ---
-title: "Stanford CME295 導讀：兩學分、沒有作業，九堂課從 Transformer 走到 AI agent"
+title: "兩學分、沒有作業，九堂課從 Transformer 走到 AI agent｜Stanford CME295 主題單元"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -22,17 +22,6 @@ draft: false
 這門課用九堂課，從 tokenization 一路講到 AI agent 和 LLM 評估，每堂課錄影都是一小時四十多分鐘。它不教你寫程式，教的是一張地圖：Transformer 怎麼變成 LLM、LLM 怎麼被訓練和對齊、又怎麼被包成會用工具的 agent。
 
 這個系列會把九堂課逐堂讀完。這篇先交代課程長什麼樣、2025 和 2026 兩版差在哪、跟站上已經寫過的 [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 和 [CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 怎麼分工。
-
-## 課程影片來源
-
-本篇是系列總覽，不對應單一講次，所以不嵌入單支影片。2025 版九講錄影在下列 Stanford Online 播放清單，2026-10-10 已即時確認共 9 支且講次對應；2026 版官方課表目前只上架第 1、2 講錄影，其餘標示 “Coming soon”。各講錄影見對應的逐講導讀。
-
-課程與錄影入口：
-
-- [2025 版 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-
-查核日期：2026-10-10。
 
 ## 課程形式：兩學分、沒有作業、只有兩次考試
 
@@ -138,6 +127,17 @@ flowchart LR
 - **先修**：線性代數和機器學習基礎。缺機器學習基礎的話，可以先讀 [Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡排在前面的課。
 
 今晚能做的一件事：打開 [2025 版播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)的第 1 講，配著[投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)看前 30 分鐘的 tokenization 段落，再來讀本系列第 1 篇。
+
+## 課程影片來源
+
+本篇是系列總覽，不對應單一講次，所以不嵌入單支影片。2025 版九講錄影在下列 Stanford Online 播放清單，2026-10-10 已即時確認共 9 支且講次對應；2026 版官方課表目前只上架第 1、2 講錄影，其餘標示 “Coming soon”。各講錄影見對應的逐講導讀。
+
+課程與錄影入口：
+
+- [2025 版 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

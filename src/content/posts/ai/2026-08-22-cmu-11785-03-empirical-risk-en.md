@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 3: Training I: Learning and Empirical Risk Minimization"
+title: "Training I: Learning and Empirical Risk Minimization | CMU 11-785 Lecture 3"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 3: Training I: Learning and Empirical Risk Minimization**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec3.learning.pdf) and [official YouTube recording](https://youtu.be/sxkS0TLDArM). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=sxkS0TLDArM
-title: Lecture 3 official YouTube recording
-```
-
-Original videos: [Lecture 3 official YouTube recording](https://www.youtube.com/watch?v=sxkS0TLDArM)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 83 minutes); sampled the start, middle and end and searched for perceptron, divergence, empirical risk, expected value and generalization. The transcript confirms empirical risk minimization and the perceptron learning rule, but it barely discusses data distributions, hypotheses or generalization (generalization is mentioned once), so the topic description was rewritten. The lecturer also says the greedy solutions are only in the slides and not covered in class.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=sxkS0TLDArM
+title: Lecture 3 official YouTube recording
+```
+
+Original videos: [Lecture 3 official YouTube recording](https://www.youtube.com/watch?v=sxkS0TLDArM)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 83 minutes); sampled the start, middle and end and searched for perceptron, divergence, empirical risk, expected value and generalization. The transcript confirms empirical risk minimization and the perceptron learning rule, but it barely discusses data distributions, hypotheses or generalization (generalization is mentioned once), so the topic description was rewritten. The lecturer also says the greedy solutions are only in the slides and not covered in class.
 
 ## Update Log
 

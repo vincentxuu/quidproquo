@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 15：Pre-training、Transfer Learning 與 Fine-tuning 的分工"
+title: "Pre-training、Transfer Learning 與 Fine-tuning 的分工｜CMU 07-280 第 15 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, transfer-learning, fine-tuning, representation-learning]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 第 15 講 **Pre-training/Transfer Learning/Fine-tuning** 在 2026 年 3 月 12 日進行。Lecture 14 已說明 CNN 如何學 visual features；這一講問的是，換到資料較少的新任務時，哪些能力值得保留，哪些參數需要重學。官方課表未列逐講公開錄影連結，本文只依公開 lecture note 與 HW8 整理。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-主要來源是 [Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf)與 [HW8 written component](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf)。課表另指向 PyTorch Basics tutorial，但本文的核心主張不依賴該外部教學。沒有專屬 Spring 2026 recitation；Recitation 8 主要處理 CNN shapes 與 parameters。
 
 ## 承上問題：新任務為什麼不該每次從零開始
 
@@ -82,6 +68,20 @@ Frozen head training 也常叫 linear probing，可先測 representation 本身�
 ## 今晚可以做的動作
 
 找一個小型 pretrained image model 與兩類資料。先凍結 backbone 訓練 linear head，再只解凍最後一個 block，以相同 split 跑相同 epochs。記錄 trainable parameters、最高 validation accuracy、train-validation gap 與每 epoch 時間；不要只比較最後一個 accuracy。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+主要來源是 [Transfer Learning lecture note](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Transfer_Learning.pdf)與 [HW8 written component](https://www.cs.cmu.edu/~07280/assignments/hw8_blank.pdf)。課表另指向 PyTorch Basics tutorial，但本文的核心主張不依賴該外部教學。沒有專屬 Spring 2026 recitation；Recitation 8 主要處理 CNN shapes 與 parameters。
 
 ## 更新紀錄
 

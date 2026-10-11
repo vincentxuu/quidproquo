@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 12: CHURRO Makes Multilingual Historical Documents Searchable"
+title: "CHURRO Makes Multilingual Historical Documents Searchable | Stanford CS224V Lecture 12"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, vision-language-model, ocr, historical-documents]
@@ -19,18 +19,6 @@ description: "CS224V NLP Building Blocks: historical OCR gaps, HDML, CHURRO-DS, 
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 The schedule labels Lecture 12 “NLP Building Blocks,” while its deck is specifically “Vision-Language Models to Make Historical Documents Accessible.” It is not a general NLP-components survey. It presents [CHURRO](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf) from representation and data through model and historical-research application.
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## Agenda: data and systems for historical OCR
 
@@ -113,6 +101,18 @@ Select ten pages from one collection and define representation rules for reading
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The course site provides slides but no recording or complete reproducibility bundle. The deck summarizes the EMNLP 2025 work; this article does not infer undisclosed training details or costs from its charts.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

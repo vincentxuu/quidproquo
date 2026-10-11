@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lab 4＋Lab 5：用 AWQ 量化 LLM，再把 LLaMA2-7B 跑在自己的筆電上"
+title: "＋Lab 5：用 AWQ 量化 LLM，再把 LLaMA2-7B 跑在自己的筆電上｜MIT 6.5940 實驗 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -44,15 +44,6 @@ glossary:
 **存取等級 A3，但有缺口**：notebook、docx、starter repo 都公開，模型與資料集由程式自動下載。拿不到的是評分：作業走 MIT 的 Canvas 繳交，沒有公開解答，Lab 5 的 bonus 還要助教驗證。這篇**不寫解答**，只說每題在問什麼、對應課堂哪一段。
 
 **Fall 2026 對照**：[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)的 lab 清單寫 Lab 4「Quantization」、Lab 5「LLM deployment on laptop」，排程上 Lab 4 在 10 月 27 日發布、Lab 5 在 11 月 5 日發布。截至 2026-09-30 兩者都還沒有連結。Lab 4 的標籤和 Lab 2 重複，內容是否仍是 AWQ 要等放出才知道。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab／Google Drive 連結提供）。
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
 
 ## 兩份 lab 怎麼接起來
 
@@ -193,6 +184,15 @@ docx 附了 `./evaluate.sh reference` 的範例輸出：reference 跑 100 次、
 - 同系列：[L13 LLM 部署](/posts/ai/2026-09-30-mit-65940-llm-deployment)（AWQ、TinyChat 原理）、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)（loop、multithreading、SIMD）、[Lab 2：K-means 與線性量化](/posts/ai/2026-09-30-mit-65940-lab2-quantization)（量化基本功）
 - 同樣在講 GPU 上怎麼判斷瓶頸：[Fall 2026 Lab 1 補充](/posts/ai/2026-09-30-mit-65940-f26-lab1-gpu-basics)
 - 其他課的量化與推論：[CMU 11-868 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)、[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab／Google Drive 連結提供）。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

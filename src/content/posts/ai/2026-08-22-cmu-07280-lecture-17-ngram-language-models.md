@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 17：從 Tokenization 到 N-gram Language Model"
+title: "從 Tokenization 到 N-gram Language Model｜CMU 07-280 第 17 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 **CMU 07-280 Spring 2026 Lecture 17** 的逐講導讀。官方投影片封面題為 *Natural Language Processing (NLP): N-gram Language Models*，內容從 corpus、tokenization 一路走到 N-gram 與 language model。這不是現代 LLM 的縮小版介紹，而是在回答更早的問題：文字要先變成什麼，才可能被機率模型處理？
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 17 官方投影片](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf)，並用課程首頁與 syllabus 核對 offering。官方頁沒有提供 Spring 2026 的逐講公開錄影，因此本文只解讀投影片可見內容，不補寫講者口述、課堂問答或現場示範結果。
-
-投影片的材料順序是 NLP 任務例子、詞彙定義、tokenization、BPE、language model 應用與 N-gram worksheet。這篇也依同一條主脊展開。
 
 ## 承上問題：神經網路吃的是數字，語言卻不是
 
@@ -98,6 +82,22 @@ N-gram 和 autoregressive transformer 都把 sequence probability 拆成逐 toke
 ## 今晚可做動作
 
 拿一段 100–300 字的文字，分別用 character、空白切 word、以及你手動做兩輪 BPE 的方式 tokenization。記下每種 vocabulary 大小與 token sequence 長度，再用 bigram counts 產生十個 token。若某個 context 沒在 corpus 出現，先不要偷偷補答案；把它標成 zero-count，留給下一講處理資料稀疏與 sampling。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 17 官方投影片](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf)，並用課程首頁與 syllabus 核對 offering。官方頁沒有提供 Spring 2026 的逐講公開錄影，因此本文只解讀投影片可見內容，不補寫講者口述、課堂問答或現場示範結果。
+
+投影片的材料順序是 NLP 任務例子、詞彙定義、tokenization、BPE、language model 應用與 N-gram worksheet。這篇也依同一條主脊展開。
 
 ## 更新紀錄
 

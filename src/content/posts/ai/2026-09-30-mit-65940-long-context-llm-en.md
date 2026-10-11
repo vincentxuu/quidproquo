@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L15 Long-Context LLM: When Context Grows, the KV Cache Breaks First"
+title: "Long-Context LLM: When Context Grows, the KV Cache Breaks First | MIT 6.5940 Lecture 15"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **Official materials**: [Lec15-Long-Context-LLM.pdf](https://www.dropbox.com/scl/fi/aorbruqhmbu3cpqtnbuyo/Lec15-Long-Context-LLM.pdf?rlkey=i7d5urg0m4mm96wc82nx76lgs&st=nssefmxf&dl=0) (78 pages; all page numbers below refer to this PDF) and the [Lecture 15 recording](https://youtu.be/kgTWKjbnrBA). The F24 schedule puts this lecture on October 29, 2024. Access level **A3**: slides and video are public, and no lab goes with this lecture. Checked on 2026-09-30.
 
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "Long Context LLM" (Lecture 15, November 3). As of 2026-09-30 its slides and video are not up yet.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=kgTWKjbnrBA
-title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: RoPE and context length (fine-tuning from 2k to 32k), LongLoRA, lost-in-the-middle and needle-in-a-haystack evaluation, StreamingLLM's attention sink, DuoAttention, Quest, and Mamba/SSMs with hybrid architectures. Topics and lecture number match this post. The WorldModelBench announcement on slides 75–78 does not appear in the captions, which fits the note in this post that those pages are unrelated to the lecture. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## What this lecture is about
 
@@ -195,6 +177,24 @@ Page 68 splits an LLM's work into two kinds: communication between tokens (atten
 - KV cache: [CMU 11-868: serving at scale and the KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en), [NTU Hung-yi Lee ML 2026: the KV cache and how to slim it](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
 - Long context and SSMs: [CMU 10-423 L19 + L21: long context and state space/hybrid models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en)
 - Inference systems: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=kgTWKjbnrBA
+title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: RoPE and context length (fine-tuning from 2k to 32k), LongLoRA, lost-in-the-middle and needle-in-a-haystack evaluation, StreamingLLM's attention sink, DuoAttention, Quest, and Mamba/SSMs with hybrid architectures. Topics and lecture number match this post. The WorldModelBench announcement on slides 75–78 does not appear in the captions, which fits the note in this post that those pages are unrelated to the lecture. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

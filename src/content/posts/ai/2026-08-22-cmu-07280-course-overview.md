@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 完整課程導讀：搜尋、GPT-2、AlphaZero 為什麼在同一門課？"
+title: "搜尋、GPT-2、AlphaZero 為什麼在同一門課？｜CMU 07-280 課程總覽"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, search, reinforcement-learning]
@@ -22,16 +22,6 @@ CMU 在 Spring 2026 首次開出 **07-280 Artificial Intelligence and Machine Le
 這不是把「經典 AI」和「熱門模型」塞進同一張清單。07-280 的主脊是：**先學如何定義狀態、目標、模型與計算代價，再逐步增加能從資料與互動中學習的元件。**搜尋、監督式學習、語言模型與強化學習，都是在回答「系統如何選下一步」。
 
 本系列以 **Spring 2026 首次完成班次**為 canonical edition。官方首頁目前已切換到 Fall 2026，Spring links 退到 HTML comments；多數帶有 `S26` 的 slides、notes、recitation、written homework 和 notebooks 仍可匿名直連，但少數舊直連已失效。現存材料足以重建完整課程主線，卻官方課表未列逐講公開錄影連結；本文不會虛構講者口述或課堂問答。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
 
 ## 這次改制到底改了什麼
 
@@ -117,6 +107,16 @@ Fall 2026 完課後可以另寫版本差異，但不會把已發布文章的 can
 第一次讀建議從 [Lecture 1：Introduction](/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction)開始，依序完成逐講練習；每十二講、八講與四講後，分別停在三篇階段複習重組知識。開始前先下載 [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf)、[Math Background](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf)，再打開 [Recitation 1 Search worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf)。如果 worksheet 的 state space、frontier、heuristic 與 graph search 無法自行定義，先補這段，不要急著跳到 GPT-2 notebook。讀完 24 講後，再用[全課結業路線](/posts/ai/2026-08-22-cmu-07280-completion-roadmap)驗收自己是否真的留下可執行成果。
 
 07-280 最值得導讀的地方，正是它拒絕把現代 AI 縮成「訓練一個神經網路」。它從問題表示開始，經過搜尋、估計、表示學習與序列決策，最後才讓學生組裝 landmark systems。完整讀完，才看得出 AlexNet、GPT-2 與 AlphaZero 在同一門課裡不是宣傳詞，而是三次不同形式的整合考試。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

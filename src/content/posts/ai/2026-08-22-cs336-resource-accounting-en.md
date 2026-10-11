@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 2: Count FLOPs and Memory Before Asking Whether a Model Fits"
+title: "Count FLOPs and Memory Before Asking Whether a Model Fits | Stanford CS336 Lecture 2"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 2: PyTorch (einops), resource accounting**, taught by Percy Liang on April 1, 2026. Its primary source is the official executable lecture, [`lecture_02.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_02.py).
 
 Lecture 1 places efficiency at the center of the course; Lecture 2 immediately asks you to calculate it. The questions are no longer “is this model large?” but: how much computation does a 70B model require? What is the largest AdamW model that fits on eight H100s? Is an operation limited by compute or memory bandwidth?
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 2 (PyTorch (einops), Percy). The captions cover einops/einsum, bf16/fp32, H100, AdamW, arithmetic intensity and roofline, MFU, the backward-is-about-twice-forward and 6 x parameters x tokens estimates, gradient accumulation and checkpointing. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=kuYAsz7zspQ
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 2: PyTorch (einops)
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 2: PyTorch (einops)](https://www.youtube.com/watch?v=kuYAsz7zspQ)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Everything eventually becomes a tensor
 
@@ -96,6 +78,24 @@ The table does not replace a profiler, but it catches order-of-magnitude mistake
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its PyTorch examples and summary without merging another offering.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 2 (PyTorch (einops), Percy). The captions cover einops/einsum, bf16/fp32, H100, AdamW, arithmetic intensity and roofline, MFU, the backward-is-about-twice-forward and 6 x parameters x tokens estimates, gradient accumulation and checkpointing. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=kuYAsz7zspQ
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 2: PyTorch (einops)
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 2: PyTorch (einops)](https://www.youtube.com/watch?v=kuYAsz7zspQ)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

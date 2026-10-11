@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 2 Words, Tokens, Edit Distance, and N-grams：LLM 之前先決定模型看見什麼"
+title: "Words, Tokens, Edit Distance, and N-grams：LLM 之前先決定模型看見什麼｜Stanford CS124 第 2 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

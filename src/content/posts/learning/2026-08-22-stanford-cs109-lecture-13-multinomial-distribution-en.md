@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 13 | Multinomial: Category counts, bag of words, and log probability"
+title: "Multinomial: Category counts, bag of words, and log probability | Stanford CS109 Lecture 13"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 This is article 14 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 13: Multinomial** on July 14 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture13-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture13-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture13-LLMPrompts.pdf), and shared Spring-dated reader chapters on the [Multinomial](https://probabilitycoders.stanford.edu/spr26/multinomial) and [Federalist Papers](https://probabilitycoders.stanford.edu/spr26/federalist). The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The worksheet and answer key are both complete two-page P1–P6 plus challenge artifacts. The LLM guide displays a third page, but it contains only a carried-over closing sentence and page number—not a seventh concept or additional agenda item.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
 
 ## P1: Review inference with a two-node network
 
@@ -160,6 +147,19 @@ The six guide concepts are the Multinomial coefficient, joint PMF, applicability
 - The guide's third page contains only closing text and a page number, not another concept.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and substantive guide content are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

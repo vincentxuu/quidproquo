@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 8 | Continuous Random Variables: PDFs, CDFs, Uniform, and Exponential"
+title: "Continuous Random Variables: PDFs, CDFs, Uniform, and Exponential | Stanford CS109 Lecture 8"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -25,28 +25,6 @@ Moving from discrete to continuous variables is more than replacing a sum with a
 P(a≤X≤b) = ∫[a,b] f(x) dx
 F(a) = P(X≤a) = ∫[-∞,a] f(x) dx
 ```
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=OFgBn4rQkqc
-title: Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9](https://www.youtube.com/watch?v=OFgBn4rQkqc)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 9, "Continuous Random Variables" (about 76 minutes): it covers continuous random variables, densities (PDF), the CDF, Uniform and Exponential (including an earthquake example), matching this lecture. The transcript does not mention memorylessness or the curse of dimensionality, so those worksheet sections in this post are not from the video.
 
 ## P1: Reconnect Poisson counts
 
@@ -175,6 +153,28 @@ The guide orders six concepts: PMF to PDF, area and normalization, the CDF, Unif
 - P3 is a pset3 problem whose solution is deliberately omitted from the official answer key; this article derives it only from the public prompt.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. This article uses the short-material exception: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=OFgBn4rQkqc
+title: Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9](https://www.youtube.com/watch?v=OFgBn4rQkqc)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 9, "Continuous Random Variables" (about 76 minutes): it covers continuous random variables, densities (PDF), the CDF, Uniform and Exponential (including an earthquake example), matching this lecture. The transcript does not mention memorylessness or the curse of dimensionality, so those worksheet sections in this post are not from the video.
 
 ## Update Log
 

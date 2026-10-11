@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石 L9–L10：從線性迴歸的閉式解，走到邏輯迴歸的梯度下降"
+title: "從線性迴歸的閉式解，走到邏輯迴歸的梯度下降｜台大林軒田 機器學習基石與技法 第 9–10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,28 +46,6 @@ glossary:
 **存取等級**：只看影片與投影片是 A2；加上 Fall 2024 作業 PDF 與公開的 LIBSVM 資料集可到 A3，但沒有官方解答，批改只限修課生。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 **版本差異**：Fall 2024 的 09u 只有三個小節，拿掉了 MOOC 版的 Linear Regression for Binary Classification；Fall 2024 的 L11（11u）則以 Linear Models for Binary Classification 開場。本篇仍依 MOOC 版講完這一節。[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)把 L9–L10 排在 W5（10/07），截至 2026-09-30，這一週的 09u 投影片還沒公開。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=qGzjYrLV-4Y
-title: Linear Regression Problem
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=2LfdSCdcg1g
-title: Linear Regression Algorithm
-```
-
-原始影片：[Linear Regression Problem](https://www.youtube.com/watch?v=qGzjYrLV-4Y)、[Linear Regression Algorithm](https://www.youtube.com/watch?v=2LfdSCdcg1g)、[Generalization Issue](https://www.youtube.com/watch?v=lj2jK1FSwgo)、[Linear Regression for Binary Classification](https://www.youtube.com/watch?v=tF1HTirYbtc)、[Logistic Regression Problem](https://www.youtube.com/watch?v=4rPupwSdAac)、[Logistic Regression Error](https://www.youtube.com/watch?v=Uw62i3-Tr4Q)、[Gradient of Logistic Regression Error](https://www.youtube.com/watch?v=IZttt_v5tSw)、[Gradient Descent](https://www.youtube.com/watch?v=X9NTihvSdjw)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 第一部分：線性迴歸
 
@@ -230,6 +208,28 @@ L10 Logistic Regression：
 下一篇[線性分類模型、SGD、多類別與非線性轉換](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)會把本篇的三個線性模型放在同一張誤差圖上比較，把梯度下降改成隨機梯度下降（SGD），再用特徵轉換跳出「只能畫直線」的限制。
 
 延伸閱讀：Stanford CS229 的[線性迴歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)與[邏輯迴歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression)兩章導讀；Stanford CS109 的[最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)與[邏輯迴歸](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression)從機率課的角度講同一件事。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qGzjYrLV-4Y
+title: Linear Regression Problem
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=2LfdSCdcg1g
+title: Linear Regression Algorithm
+```
+
+原始影片：[Linear Regression Problem](https://www.youtube.com/watch?v=qGzjYrLV-4Y)、[Linear Regression Algorithm](https://www.youtube.com/watch?v=2LfdSCdcg1g)、[Generalization Issue](https://www.youtube.com/watch?v=lj2jK1FSwgo)、[Linear Regression for Binary Classification](https://www.youtube.com/watch?v=tF1HTirYbtc)、[Logistic Regression Problem](https://www.youtube.com/watch?v=4rPupwSdAac)、[Logistic Regression Error](https://www.youtube.com/watch?v=Uw62i3-Tr4Q)、[Gradient of Logistic Regression Error](https://www.youtube.com/watch?v=IZttt_v5tSw)、[Gradient Descent](https://www.youtube.com/watch?v=X9NTihvSdjw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

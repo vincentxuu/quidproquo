@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP LLM API Lab: NLI Classification with Gemini, OpenAI, and Claude, Using prompts.yaml, JSON Output, Few-Shot, and Token Counts"
+title: "NTHU NLP LLM API Lab: NLI Classification with Gemini, OpenAI, and Claude, Using prompts.yaml, JSON Output, Few-Shot, and Token Counts | NTHU Hung-Yu Kao Natural Language Processing Tutorial"
 date: 2026-09-30
 category: ai
 type: guide
@@ -25,23 +25,6 @@ glossary:
 > **Version note**: This post is based on [llm_api_tutorial.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/llm_api_tutorial.pdf), listed in the W12 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) for Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, and on `llm_api.ipynb` and `utils.py` in [LLM_API_lab](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/LLM_API_lab). The slide cover is dated **2024/11/21**, so this is the 2024 session reused. The recording is [the W12 Thursday one](https://www.youtube.com/live/xGwQYvya_Ag) (labeled "Video2(LLM_API)" in the schedule, 2025-11-19, 56:35, in Mandarin). It has no caption track, so I did not check it section by section. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and notebook are public, but the `prompts.yaml` the notebook loads is not in the repo (see below).
 
 **Series**: previous [RAG, Part 2: from ODQA to Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced-en) | next [RAG labs 1/2 + HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=xGwQYvya_Ag
-title: W12 Thursday recording (Fall 2025, in Mandarin)
-```
-
-Original videos: [W12 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=xGwQYvya_Ag)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
 
 ## Why use an API
 
@@ -127,7 +110,7 @@ This material ran in a late-2024 environment. To follow it in 2026, deal with th
 
 ## How to self-study this lab
 
-1. Write `prompts.yaml` from the screenshots on slides 10, 15, and 23. As long as the keys match, the notebook runs.
+1. Write `prompts.yaml` from the screenshots on slides 10, 15, and 23. Matching keys enables prompt loading and substitution; API calls still require addressing the model, SDK, and code issues above.
 2. Pick one API with a free tier and run the whole flow: basic call, JSON output, few-shot, token counts. Slides 29–31 cover the differences between providers well enough.
 3. Compare zero-shot and few-shot accuracy on 10 SemEval rows. That comparison is exactly where the API beats the web page.
 
@@ -138,7 +121,34 @@ One thing to try tonight: move your most-used prompt out of your code into a YAM
 - Iterating on prompts: [Prompt engineering iteration guide](/posts/ai/2026-03-13-prompt-engineering-iteration-guide-en)
 - From APIs to agents: [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en)
 
+## Test the classification and output contract before calling an API
+
+This is invented test data, not an official notebook example. Premise: “Mei has a cat.” Hypothesis: “Mei has an animal.” If the premise holds, the hypothesis must hold, so the label is `ENTAILMENT`, with expected response `{"result":"ENTAILMENT"}`.
+
+Change the hypothesis to “Mei has no animals”: the label is `CONTRADICTION`. Change it to “Mei has two cats”: the label is `NEUTRAL`, since the premise does not determine the count. The three cases test entailment, conflict, and missing information; absence from the premise is not automatically contradiction.
+
+**Check:** `{"result":"NEUTRAL"}` parses as JSON, but is it correct for the first question? No. Check valid JSON, membership in the three permitted labels, and correctness against the task separately. Two correct predictions out of three give accuracy `2/3`; format validity cannot replace semantic correctness.
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=xGwQYvya_Ag
+title: W12 Thursday recording (Fall 2025, in Mandarin)
+```
+
+Original videos: [W12 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=xGwQYvya_Ag)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
 ## Update Log
+
+- 2026-10-11: Added an invented conceptual example and comprehension check while preserving the original materials and video-verification scope.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.

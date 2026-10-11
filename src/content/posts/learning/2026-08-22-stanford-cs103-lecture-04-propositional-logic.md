@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 3：命題邏輯、真值表與等價式"
+title: "命題邏輯、真值表與等價式｜Stanford CS103 第 3 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 5 篇，對應 **Spring 2026 官方 Lecture 3（2026-04-06）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講回答「如何形式化證明裡使用的定義與推理」。命題邏輯先把每個完整陳述壓縮成一個真假值，只研究它們如何由連接詞組合；下一階段的一階邏輯才會打開陳述，處理物件及其性質。這個限制既是命題邏輯的力量，也是它不能表達所有數學內容的邊界。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/)
 
 ## 從英文命題到布林代數
 
@@ -146,6 +138,14 @@ p→q≡¬(p∧¬q).
 ## 材料缺口與閱讀界線
 
 公開完整投影片足以覆蓋命題變數、七種符號、各真值表、優先序、日食翻譯例題、杯子例題、De Morgan 定律與蘊涵等價式。本講有課堂投票與鄰座討論提示，但公開材料沒有結果、錄影或逐字稿，因此本文只重建題目與可由投影片確認的答案，不推測學生反應。PS2 只作為投影片指向的後續練習，不重現受限解答。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/03/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 7 講：Agentic LLM，讓模型查資料、叫函式、自己跑完一輪"
+title: "Agentic LLM，讓模型查資料、叫函式、自己跑完一輪｜Stanford CME295 第 7 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -45,26 +45,6 @@ glossary:
 | 一次呼叫不夠 | agent（ReAct） | 把查資料和呼叫串成迴圈，直到任務完成 |
 
 整講延續第 1 講的泰迪熊：「Where is Cuddly?」「Find a bear near me!」「My teddy bear is cold.」三個問題分別對應三塊。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 7 講 Agentic LLMs（頁面日期 2025-11-14，長 1:49:22，與本文「1 小時 49 分」相符）；章節是 RAG（SBERT／bi-encoder、BM25、HyDE 與 contextual retrieval、prompt caching、cross-encoder 重排、NDCG／MRR）、tool calling、tool selection、MCP、ReAct agent、安全，與本文章節一致。本文只引投影片，沒有轉述課堂口述，因此沒有口述內容需要核對。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## RAG：回答之前先查資料
 
@@ -298,6 +278,26 @@ Google 2025 年發表的 [Agent2Agent（A2A）](https://developers.googleblog.co
 - RAG 各世代與變體的全景：[RAG 系統模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
 - 投影片提到的 chunk 上下文化：[Contextual Retrieval：幫每個 Chunk 加上「這段在說什麼」](/posts/ai/2026-03-12-contextual-retrieval)
 - agent 迴圈在真實 coding agent 裡怎麼實作：[跟成熟 coding agent 學設計（2）：Agent loop 的形狀](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes)
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 7 講 Agentic LLMs（頁面日期 2025-11-14，長 1:49:22，與本文「1 小時 49 分」相符）；章節是 RAG（SBERT／bi-encoder、BM25、HyDE 與 contextual retrieval、prompt caching、cross-encoder 重排、NDCG／MRR）、tool calling、tool selection、MCP、ReAct agent、安全，與本文章節一致。本文只引投影片，沒有轉述課堂口述，因此沒有口述內容需要核對。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

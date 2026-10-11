@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 16: Ford–Fulkerson, Residual Networks, and Max-Flow Min-Cut"
+title: "Ford–Fulkerson, Residual Networks, and Max-Flow Min-Cut | Stanford CS161 Lecture 16"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ This is article seventeen in [Reading Stanford CS161](/en/series/stanford-cs161)
 I used the public [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-slides.pdf), and [official component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture16.md). I did not watch the Canvas recording or use the linked historical paper and concept checks.
 
 Lecture 15 used cuts to select safe greedy edges. Here a directed `s-t` cut gives an upper bound. Ford–Fulkerson builds a flow while updating a residual graph; when no residual path remains, reachability produces an equal-valued cut. The result and its certificate arrive together.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
-
-Checked: 2026-10-10.
 
 ## Flows and cuts
 
@@ -90,6 +80,16 @@ The residual graph serves execution and proof. During execution it represents bo
 ## Beyond the lecture
 
 Implementations can store reverse-edge indices and parent edges for path reconstruction, use sufficiently wide integers, and test capacity, conservation, value, and equality with the terminal reachable cut. Antiparallel original edges require explicit identities rather than the notes' simplified residual formula. These are engineering recommendations, not new lecture theorems.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

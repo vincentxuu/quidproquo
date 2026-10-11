@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW3：核方法、神經網路與 Scaling Law"
+title: "核方法、神經網路與 Scaling Law｜Harvard CS181 作業 3"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, kernel-methods, neural-networks, backpropagation, scaling-laws, homework]
@@ -33,17 +33,6 @@ glossary:
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) HW3 的標題是 **Neural Networks and Kernels**，依 `hw3_release.tex` 截止時間是 2026 年 3 月 23 日 23:59。三題的配分是 30、20、50，佔一半分數的是第三題：**自己量 scaling law**。
 
 [上一篇 HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance) 的特徵都是人手挑的基底。HW3 走完一條線：手工特徵映射 → kernel 讓特徵維度可以無限大 → 神經網路自己學特徵 → 模型和資料該放大多少才划算。本篇逐題說明每題的要求與對應講義，**不給解答**。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -155,6 +144,17 @@ L(N, D) ≈ a / N^α  +  b / D^β  +  L∞
 - 上一篇：[HW2 分類與偏差—變異](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
 - 下一篇：[期中檢核：用官方 checklist 盤點 HW0–HW3](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

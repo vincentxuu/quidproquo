@@ -1,5 +1,5 @@
 ---
-title: "CS149 L16 細粒度鎖與 lock-free：從 test-and-set 到 ABA 問題"
+title: "細粒度鎖與 lock-free：從 test-and-set 到 ABA 問題｜Stanford CS149 第 16 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 用到的官方材料是 [L16 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/finegrainedsync/16_finegrainedlock.pdf)（66 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)）。投影片封面的完整標題是「Implementing Locks, Fine-Grained Synchronization, and (a short intro to) Lock-Free Programming」，所以鎖的實作也在這一講。Fall 2025 錄影只在 Canvas，官方首頁指向的 2023 年版對應影片是 [Lecture 13: Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)，本文只把它列為聽講補充，內容以 2025 投影片為準。整門課的存取等級是 **A3**；這一講投影片完整公開，缺的是當期錄影。
 
 Part 5 這幾篇和 AI 沒有直接關係，但你寫的每個 thread pool、每個多執行緒 runtime 都踩在這些原語上。[PA2](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling) 的 task queue 就是一個要被多條 thread 同時存取的共享資料結構。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=GA1ObImqaMo
-title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming
-```
-
-原始影片：[Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming》（1:15:47）。字幕涵蓋 deadlock 與 starvation、test-and-set、ticket lock、compare-and-swap 與 LL/SC、用 hand-over-hand 鎖排序鏈結串列；lock-free 只在最後約 5 分鐘簡短帶過（提到 ABA 與 lock-free stack，講者說這部分不考、之後到 transactional memory 才會再碰到），字幕沒有 hazard pointer 的說明，SPSC 佇列也沒有明確出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 先分清楚三種「卡住」
 
@@ -184,6 +166,24 @@ test-and-set 家族的共同問題是放鎖那一刻所有等待者同時去搶�
 延伸閱讀：OS 角度的鎖實作與 deadlock，可以讀 [CS111 Lecture 6：實作鎖](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)與 [CS111 Lecture 7：Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock)。
 
 系列導覽：上一篇 [L15 同步實作與記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜下一篇 [L17–L18 Transactional memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=GA1ObImqaMo
+title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming
+```
+
+原始影片：[Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming》（1:15:47）。字幕涵蓋 deadlock 與 starvation、test-and-set、ticket lock、compare-and-swap 與 LL/SC、用 hand-over-hand 鎖排序鏈結串列；lock-free 只在最後約 5 分鐘簡短帶過（提到 ABA 與 lock-free stack，講者說這部分不考、之後到 transactional memory 才會再碰到），字幕沒有 hazard pointer 的說明，SPSC 佇列也沒有明確出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

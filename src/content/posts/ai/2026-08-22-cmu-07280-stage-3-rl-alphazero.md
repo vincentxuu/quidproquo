@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 階段複習三：從 MDP、Q-learning 到 AlphaZero"
+title: "從 MDP、Q-learning 到 AlphaZero｜CMU 07-280 主題單元"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, reinforcement-learning, mcts, alphazero]
@@ -20,16 +20,6 @@ draft: false
 前兩階段的資料集通常先給定答案：搜尋有 goal，監督式學習有 label，語言模型有下一個 token。Reinforcement learning 改變資料生成方式。Agent 的 action 會改變後續 state，reward 可能延遲出現，而 policy 又決定自己將看到哪些經驗。
 
 07-280 的第三階段從 MDP 建模，走過 value iteration、Q-learning 與 function approximation，再用 MCTS 與 self-play 收束到 Building AlphaZero。官方公開了 worksheet、部分 solutions 與作業入口，卻官方課表未列完整逐講錄影連結；HW12 的舊 PDF 直連在本文查核時已回傳 404。因此本篇只對可匿名驗證的官方課程頁與 Recitation 14 下結論，不假裝擁有完整 grader。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
 
 ## MDP 先把不確定性寫清楚
 
@@ -85,6 +75,16 @@ network → policy/value priors → MCTS → improved action distribution
 你應該能區分 environment reward、value estimate 與 search statistics；能手算一次 Q-learning update；能解釋 `π_t` 為何是 search 產生的訓練 target，而不是環境直接給的 label。最重要的是，能畫出資料從 self-play 回到 network 的完整路徑。
 
 做到這裡，07-280 的課程設計才真正閉合：Lecture 2 的 search 並沒有被 ML 章節丟掉，而是在 AlphaZero 裡回來；神經網路也不只是分類器，而成為 search 的 prior 與 evaluator。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

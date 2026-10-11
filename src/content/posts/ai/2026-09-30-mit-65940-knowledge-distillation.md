@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L9 知識蒸餾：讓大模型教小模型，要對齊的不只是輸出機率"
+title: "知識蒸餾：讓大模型教小模型，要對齊的不只是輸出機率｜MIT 6.5940 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,24 +42,6 @@ glossary:
 - 錄影 [EfficientML.ai Lecture 9 - Knowledge Distillation](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
 
 存取等級是 [課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map) 的 **A3 足以自學**，但這一講沒有對應的 lab。**Fall 2026 對照**：截至 2026-09-30，[Fall 2026 課程頁](https://hanlab.mit.edu/courses/2026-fall-65940)只放出 L1–L6，這一講還沒上線。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
-title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結與中段：溫度、可對齊的六類東西（logits、中間權重、特徵、梯度／attention map、sparsity pattern、關係）、self／online distillation、偵測／分割／GAN／NLP 的蒸餾，以及 network augmentation。講次與主題和本文相符；字幕把部分專名轉壞（例如 sparsity 被寫成 sparity），人名與論文名以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 為什麼這門課要講蒸餾
 
@@ -172,6 +154,24 @@ L_aug = L(W_base) + α · L([W_base, W_aug])
 如果要挑重點讀：第一段的溫度例子（第 7–10 頁）與第二段的六種對齊對象（第 12–28 頁）是 KD 的核心；第五段的 NetAug（第 67–80 頁）是這門課特有的角度，直接回答「小模型為什麼難訓練」。
 
 如果你是從 [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas) 過來的：lab 裡直接從 OFA super network 抽出子網路，沒有再訓練；這一講提供的是另一條路，架構定下來之後，還能靠蒸餾或 NetAug 把它訓練得更好。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
+title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾總結與中段：溫度、可對齊的六類東西（logits、中間權重、特徵、梯度／attention map、sparsity pattern、關係）、self／online distillation、偵測／分割／GAN／NLP 的蒸餾，以及 network augmentation。講次與主題和本文相符；字幕把部分專名轉壞（例如 sparsity 被寫成 sparity），人名與論文名以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

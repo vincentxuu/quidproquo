@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 6: Without the RNN, How Does a Transformer Know How Words Relate and Where They Sit?"
+title: "NTHU NLP Guide 6: Without the RNN, How Does a Transformer Know How Words Relate and Where They Sit? | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,30 +31,6 @@ glossary:
 The official material for this lecture is [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf) (65 slides), and the recordings are [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM) and [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) (the latter was originally attached to the sub-word lecture; reading its captions showed it covers the second half of this deck) (lectures are in Mandarin; slides are mostly English). The file name says W3, but it sits in the W4 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md), next to that Tuesday's PyTorch tutorial. The week number is left over from an older numbering, so this guide goes by the slides and recording actually attached to the row. The row's Topics column says "Basic machine learning for text"; that is a syllabus template that does not match the slides, and this guide does not cite it.
 
 The slides have six parts: issues with RNNs, attention as a solution, self-attention, the Transformer encoder-decoder, the Transformer's achievements, and Transformer variants. This guide follows that order in five layers: scenario, intuition, mechanism, back to the model, going deeper.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 4 Thu. covers the first half (RNNs and attention up to the start of self-attention) and Week 5 Tue. covers the second half. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=tr5QyN5TswM
-title: Week 4 Thu.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Dpswwk6UMCc
-title: Week 5 Tue.
-```
-
-Original videos: [Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)、[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both the Week 4 Thu. and Week 5 Tue. transcripts were read through. Week 4 Thu. finishes LSTM, then covers RNN plus attention (the translation alignment figure, the cost of storing all hidden states), the QKV search analogy, why we divide by the square root of d, and starts self-attention; Week 5 Tue. continues with the QKV matrix dimensions, sinusoidal positional encoding, multi-head attention, Add & Norm (with layer norm as the default), cross-attention, masked attention, autoregressive decoding and teacher forcing, the base/big results, ViT and the Stanford AI Index training-cost chart, which matches the structure of this post. The post originally had only Week 4 Thu.; Week 5 Tue. was moved here from the sub-word post. Slide numbers and formulas come from the slides, and the captions carry no timestamps, so nothing is tied to video time points.
 
 ## Scenario: John lives in New York, but the RNN forgot John
 
@@ -199,6 +175,30 @@ The last slide shows a training-cost chart from the [Stanford AI Index Report 20
 - The Fall 2026 version of this lecture is not yet public (the 2026 schedule is empty from W4 on); this guide uses Fall 2025 only.
 
 **Series navigation**: previous [PyTorch Tutorial and HW2: Arithmetic as Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en) | next [Sub-word Tokenization: Why a Model's Vocabulary Is Made of Word Pieces](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 4 Thu. covers the first half (RNNs and attention up to the start of self-attention) and Week 5 Tue. covers the second half. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Week 4 Thu.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Dpswwk6UMCc
+title: Week 5 Tue.
+```
+
+Original videos: [Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)、[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both the Week 4 Thu. and Week 5 Tue. transcripts were read through. Week 4 Thu. finishes LSTM, then covers RNN plus attention (the translation alignment figure, the cost of storing all hidden states), the QKV search analogy, why we divide by the square root of d, and starts self-attention; Week 5 Tue. continues with the QKV matrix dimensions, sinusoidal positional encoding, multi-head attention, Add & Norm (with layer norm as the default), cross-attention, masked attention, autoregressive decoding and teacher forcing, the base/big results, ViT and the Stanford AI Index training-cost chart, which matches the structure of this post. The post originally had only Week 4 Thu.; Week 5 Tue. was moved here from the sub-word post. Slide numbers and formulas come from the slides, and the captions carry no timestamps, so nothing is tied to video time points.
 
 ## Update Log
 

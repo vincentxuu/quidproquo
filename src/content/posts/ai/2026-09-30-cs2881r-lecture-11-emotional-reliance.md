@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L11：聊天機器人、情感依賴與心理健康"
+title: "聊天機器人、情感依賴與心理健康｜Harvard CS2881R 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,26 +31,6 @@ glossary:
 **系列位置**：上一篇 [L9：AI 對就業與生產力的早期證據](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)｜下一篇 [L12：AI 2035 與 GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 [上一篇](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)看的是總體數字：就業、生產力、成長。這一篇把鏡頭拉到一個人跟一個聊天機器人之間。Boaz 在課末給這個主題的定位是：情感依賴是「遠遠超出分布的輸入」第一個大規模出現的例子，而且不會是最後一個。
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=GNvEjP1DfIs
-title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 11: Mental Health and Emotional Attachment》（1:13:22）的完整自動字幕：確認兩組學生實驗在影片前約三分之一（約前 33 分鐘），之後 Boaz 講情感依賴，模擬器／最佳化器的說法出現在約 39–43 分鐘、橋的測試在最後，未發現需要更正的說法；錄影時間「0:33」改為「約 0:33」。
 
 ## 這一講的材料
 
@@ -170,6 +150,26 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 - 模型規格裡怎麼寫這類行為：[L4：模型規格與合規](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 - 訓練流程中的 RLHF 與安全訓練：[L2：現代 LLM 訓練](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
 - LLM-as-judge 的可靠性：[Stanford CS329Z 第 8 週：Judge 與安全](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=GNvEjP1DfIs
+title: AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 11: Mental Health and Emotional Attachment](https://www.youtube.com/watch?v=GNvEjP1DfIs)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 11: Mental Health and Emotional Attachment》（1:13:22）的完整自動字幕：確認兩組學生實驗在影片前約三分之一（約前 33 分鐘），之後 Boaz 講情感依賴，模擬器／最佳化器的說法出現在約 39–43 分鐘、橋的測試在最後，未發現需要更正的說法；錄影時間「0:33」改為「約 0:33」。
 
 ## 更新紀錄
 

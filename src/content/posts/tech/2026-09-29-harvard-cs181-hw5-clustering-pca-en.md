@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW5 (Part 1): K-means, HAC, and PCA on Handwritten Digits Without Labels"
+title: "(Part 1): K-means, HAC, and PCA on Handwritten Digits Without Labels | Harvard CS181 Assignment 5 / Part 1"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, homework, clustering, k-means, pca, unsupervised-learning]
@@ -31,17 +31,6 @@ glossary:
 This is part 9 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW4 (Part 3): Decision Trees, Random Forests, and MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en). Next: [HW5 (Part 2): SimCLR Contrastive Learning and GANs](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en).
 
 Through HW4, every assignment had labels: temperatures, loan decisions, image classes. HW5 is titled "Clustering, PCA, SSL," and all four problems drop the labels. This post covers the last two (Problem 3 clustering, Problem 4 PCA), the classical methods that come first in the lecture order. Problems 1–2, SimCLR and GANs, are in the next post.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## Where HW5 sits in the 2026 schedule
 
@@ -143,6 +132,17 @@ One detail: the K-means objective is computed on `large_dataset` (5000 images), 
 
 - [Stanford CS229 notes, chapter 10: clustering and k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means-en), which revisits K-means as alternating optimization.
 - [Berkeley CS189 Spring 2025 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), for how another university ML course schedules unsupervised learning.
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

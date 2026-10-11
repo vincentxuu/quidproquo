@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques Homework and Final Project: Fall 2024 HW6–HW7 and the HTMLB Win Prediction"
+title: "Hsuan-Tien Lin's ML Techniques Homework and Final Project: Fall 2024 HW6–HW7 and the HTMLB Win Prediction | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,20 +31,6 @@ This is part 18, the final post, of [Reading NTU Hsuan-Tien Lin Machine Learning
 **Sources**: the [Machine Learning, Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) (footer: last updated 2025-01-17), the [HW6 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), the [HW7 problems](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf), the [final project handout](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf), and the schedule on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/). I downloaded or opened all of them on 2026-09-30. Problem statements come from the PDFs. The "which lecture does this practice" labels are mine, based on each problem's content and any lecture number the problem cites.
 
 This post gives no solutions. For each problem it says what the problem practices, which post to read first, and how to check your own answer.
-
-## Course video sources
-
-No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-- [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
-- [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
-
-On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
-
-Checked: 2026-10-10.
 
 ## Access level and gaps
 
@@ -226,6 +212,20 @@ Fall 2026 grading is 30% homework, 30% exam, 40% project (tentative), and the co
 - [Reading Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) on this site: another angle on SVMs, kernels, and boosting.
 
 Series navigation: previous, [Foundations homework guide: Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en) | this is the last post; back to the [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
+
+Checked: 2026-10-10.
 
 ## Update Log
 

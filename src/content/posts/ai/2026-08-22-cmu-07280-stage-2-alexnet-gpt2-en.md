@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Stage Review II: Building AlexNet and GPT-2 as Working Systems"
+title: "Stage Review II: Building AlexNet and GPT-2 as Working Systems | CMU 07-280 Topic Guide"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, alexnet, gpt-2, deep-learning]
@@ -20,16 +20,6 @@ draft: false
 One distinctive choice in 07-280 is that neural networks do not end with a two-layer MLP. Students continue by assembling two landmark systems: AlexNet in HW8 and GPT-2 in HW11. The point is not to reproduce historical leaderboard numbers. It is to turn feature learning, autograd, optimization, and generalization into programs that can fail.
 
 This review checks the image and language stages together. It does not imply that public notebooks reproduce the enrolled experience; Gradescope, compute, staff help, and solution feedback remain part of the formal course. Independent learners can still reconstruct meaningful acceptance criteria from the public written specifications.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## AlexNet: placing spatial structure into representation
 
@@ -85,6 +75,16 @@ A better replication fixes four prompts, produces several samples per temperatur
 AlexNet and GPT-2 use different inputs and layers, but impose the same experimental duties: check tensor shapes, make the forward pass traceable, confirm gradients reach intended parameters, establish a baseline, and change one variable at a time. Autograd computes derivatives; it does not detect data leakage, reversed masks, or a contaminated validation split.
 
 The Stage II exit test is therefore not “both notebooks ran.” You should be able to reconstruct a forward pass from a tensor-shape table, explain why frozen parameters lack gradients, and connect a loss or perplexity curve to a concrete hypothesis. Only then has an architecture become a system.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

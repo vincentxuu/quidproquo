@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 9 講：Prompting、LoRA 與參數高效微調"
+title: "Prompting、LoRA 與參數高效微調｜Stanford CS224N 第 9 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 9 講排在 2026 年 2 月 3 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture09-peft.pdf)先用 DPO 與偏好資料收尾，再進入 prompting、PEFT、pruning/subnetwork、LoRA、prompt tuning、adapters 與其他方法。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## 適應方法先看「改了什麼」
 
@@ -133,6 +122,17 @@ Serving test 也要模擬真實切換。若同一 batch 不能混用不同 LoRA�
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文覆蓋 overview 的 DPO、偏好資料與七個 adaptation 主題；投影片中的實驗圖只用來解釋方法取捨，不外推到未測任務。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

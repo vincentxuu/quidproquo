@@ -1,5 +1,5 @@
 ---
-title: "李宏毅 ML 2026 HW6：Model Editing，只改一條知識、不動其他的"
+title: "Model Editing，只改一條知識、不動其他的｜台大李宏毅 機器學習 2026 Spring 作業 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 的 HW6。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 14 篇。官方材料有三份：作業投影片 [hw6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw6.pdf)、[作業 Colab](https://colab.research.google.com/drive/1gnaowsSzOT3VSw8j_MIDnksQiaZeKikA?usp=sharing)（47 個 cell），以及助教的[說明影片](https://youtu.be/AR1bNACLOAU)。助教是鄭安妤、楊樂霖、尹廷安、林育正。4/24 公告，截止時間 2026/05/14 23:59:59（UTC+8），不收遲交，成績在 2026/05/17 23:59:59 前公布。
 
 存取分級是 **A3 減評分**：投影片與 Colab 公開，照著做得出實驗結果；但**測驗題目本身**在 NTU COOL 上，需要台大帳號，hw6.pdf 只寫了題數與配分，沒有印出題目。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=AR1bNACLOAU
-title: HW6 說明影片（YouTube）
-```
-
-原始影片：[HW6 說明影片（YouTube）](https://www.youtube.com/watch?v=AR1bNACLOAU)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 先備：本學期沒有講 Model Editing
 
@@ -141,6 +122,25 @@ hw6.pdf 有兩處看得出是沿用舊版：single editing 的兩頁寫「report
 - 同一週的講次，另一種「不改參數也能修正」的思路：[Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction)
 
 系列導覽：上一篇 [Self-Correction：模型能改自己的錯嗎](/posts/ai/2026-09-30-ntu-ml2026-self-correction)｜下一篇 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=AR1bNACLOAU
+title: HW6 說明影片（YouTube）
+```
+
+原始影片：[HW6 說明影片（YouTube）](https://www.youtube.com/watch?v=AR1bNACLOAU)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

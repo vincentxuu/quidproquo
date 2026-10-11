@@ -1,5 +1,5 @@
 ---
-title: "CS149 L4：拿到一個程式，怎麼把它平行化？——分解、分配、協調，以及 Amdahl 定律"
+title: "拿到一個程式，怎麼把它平行化？——分解、分配、協調，以及 Amdahl 定律｜Stanford CS149 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,24 +31,6 @@ glossary:
 Fall 2025 錄影只在 Canvas，本講可對照 2023 公開錄影 [Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)。內容以 2025 投影片為準。
 
 投影片第 3–27 頁是 L3 後半 ISPC 內容的重播（`sinx()`、interleaved 與 blocked、`foreach`、`reduce_add`、SPMD 總結），[上一講的導讀](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc)已經講過。本文從第 28 頁開始，也就是這一講真正的新主題：**寫一個平行程式時，腦中該跑什麼流程？**
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=0-ztm8SKq70
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
-
-課程與錄影入口：
-
-- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 4 - Parallel Programming Basics》（1:17:14）。字幕涵蓋 decomposition／assignment／orchestration／mapping 四個步驟、Amdahl 定律（自動字幕寫成 AMD doll’s law，只被一句帶過）、grid solver 的相依性與紅黑棋盤式更新、shared address space 的 barrier 與 lock，主題與本文一致；字幕中沒有靜態與動態分配的討論（這部分在 Lecture 5），也沒有 message passing。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 三個問題，一個目標
 
@@ -206,6 +188,24 @@ flowchart LR
 延伸閱讀：本講的 lock 與原子性只講到動機。想看作業系統層面的完整討論，可以讀站上 [CS111 第 4 講：並行與原子性](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)與[第 5 講：lock 與 condition variable](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)；CS149 自己會在系列第 20–21 篇談 lock 的實作與 lock-free 程式設計。
 
 系列導覽：上一篇 [PA1 + Written 1：四核 CPU 效能分析](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)｜下一篇 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=0-ztm8SKq70
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 4 - Parallel Programming Basics》（1:17:14）。字幕涵蓋 decomposition／assignment／orchestration／mapping 四個步驟、Amdahl 定律（自動字幕寫成 AMD doll’s law，只被一句帶過）、grid solver 的相依性與紅黑棋盤式更新、shared address space 的 barrier 與 lock，主題與本文一致；字幕中沒有靜態與動態分配的討論（這部分在 Lecture 5），也沒有 message passing。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

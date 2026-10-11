@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS188 Spring 2026: Learn AI Through Projects P0–P5"
+title: "Learn AI Through Projects P0–P5 | Berkeley CS188 Spring 2026 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, pacman, open-course]
@@ -21,17 +21,6 @@ draft: false
 [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) is a broad introduction to artificial intelligence, not merely a neural-network course. It begins with state spaces, heuristics, constraint satisfaction, and game trees; moves through MDPs, reinforcement learning, and probabilistic inference; and only then reaches machine learning, deep learning, and LLMs. The official schedule publishes 28 recordings, 27 lecture slide sets (Lecture 22 has no separate slides), 11 discussion sets, and Projects P0–P5.
 
 Its strength is that concepts return as programs. P0 teaches Python and the autograder; P1–P4 use Pacman settings for search, multi-agent reasoning, RL, and probabilistic inference; P5 contains general ML tasks such as regression, classification, CNNs, and attention. That is why this series follows P0–P5 instead of producing 28 disconnected lecture summaries.
-
-## Course video sources
-
-This post is a course overview or resource map with no single corresponding lecture. The official Spring 2026 schedule and playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10 and are publicly viewable; pick recordings by lecture number.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-Checked: 2026-10-10.
 
 ## What is publicly available
 
@@ -59,6 +48,17 @@ For each stage, read the textbook first, watch the lecture, and attempt the disc
 ## Start tonight
 
 Open P0 and verify that Python and the local autograder run. Then read the state-space search chapter and write down the frontier rule for DFS, BFS, and UCS. If time remains, inspect P1's file layout and Q1 without trying to finish the project at once.
+
+## Course video sources
+
+This post is a course overview or resource map with no single corresponding lecture. The official Spring 2026 schedule and playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10 and are publicly viewable; pick recordings by lecture number.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

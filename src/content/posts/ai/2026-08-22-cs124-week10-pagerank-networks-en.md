@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 10 PageRank and Social Networks: From Anchor Text and Centrality to the Course Wrap-Up"
+title: "PageRank and Social Networks: From Anchor Text and Centrality to the Course Wrap-Up | Stanford CS124 Week 10"
 date: 2026-08-22
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 導讀：九講與三個 labs 全公開，但完整跑完仍要三個外部服務"
+title: "九講與三個 labs 全公開，但完整跑完仍要三個外部服務｜MIT 6.S191 主題單元"
 date: 2026-08-21
 category: ai
 type: guide
@@ -24,15 +24,6 @@ draft: false
 所以這篇不只列九個影片標題。我要回答的是：這九講如何接起來、三個 labs 到底做什麼，以及自學者會在哪一步碰到帳號、算力與回饋的邊界。
 
 這篇查過 2026 課站、九份投影片入口、官方 GitHub 的 README、三組 labs 與公開解答，也對照了 2025 封存站與兩年的程式分支。**沒有逐段看完九支影片**；以下是課程結構與可執行性的稽核，不是授課表現評論。
-
-## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方課程頁核對：2026 版列有九講的公開 YouTube 錄影（與官方播放清單前九支一致）；三個 labs 沒有專屬錄影。逐講影片附在各講文章。
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
 
 ## 先判斷它是不是你要的課
 
@@ -153,6 +144,15 @@ Labs 的概念延續，但檔案不是完全相同。最明顯的是 Lab 3：202
 不要先把九支影片加入稍後觀看。打開官方 GitHub 的 [Lab 1 PyTorch Part 1](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part1_Intro.ipynb)，按 Run in Colab，確認三件事：Google 帳號能進、GPU runtime 能選、第一組 TODO 能在不看 solution 的情況下完成。
 
 給自己九十分鐘。九十分鐘後如果你能說清楚 tensor shape、gradient 與下一個 TODO 在做什麼，就接 Lecture 2 與音樂生成；如果時間都花在 Python syntax，先補 Python／NumPy，再回來。這個小測試比「我有沒有數學天分」更能預測你是否適合現在開始。
+
+## 課程影片來源
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方課程頁核對：2026 版列有九講的公開 YouTube 錄影（與官方播放清單前九支一致）；三個 labs 沒有專屬錄影。逐講影片附在各講文章。
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

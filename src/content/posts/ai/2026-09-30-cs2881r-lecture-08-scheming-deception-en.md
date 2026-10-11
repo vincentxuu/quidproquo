@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L8: Scheming, Reward Hacking, and Deception"
+title: "Scheming, Reward Hacking, and Deception | Harvard CS2881R Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,26 +33,6 @@ glossary:
 > **Version note**: This post is based on the October 23 session of the [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 site. The main materials are [Boaz Barak's opening video](https://youtu.be/8NL1NAMrJxY) (10 minutes) and his 9-slide deck, the guest slides of [Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) and [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc), and the student experiment's [video](https://youtu.be/JXvHJheHE10), [GitHub](https://github.com/ItamarRocha/scheming-exp8), and [LessWrong post](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu). **The site lists no recording of the two guest talks, and the official 2025 YouTube playlist (checked 2026-10-01) has only Boaz's 10-minute opening and the student experiment for this session**, so this post describes the guest content from slide text only and does not fill in what the speakers said aloud. All facts were checked against these materials on 2026-09-30. This lecture on its own rates **A2**: the opening video, three slide decks, and the full student experiment are public, but the recordings of the main talks are not.
 
 **Series**: previous [Midterm: Reproduce and Extend One Headline Figure](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | next [L10: Looking Inside the Model vs. Reading the Chain of Thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10. For Lecture 8 the playlist lists only Boaz Barak’s roughly 10-minute opening video and the student experiment video; the two guest talks have no recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=8NL1NAMrJxY
-title: AI Safety (CS 2881) Lecture 8: Scheming
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full captions of “Lecture 8: Scheming” (10:17; the description says the guest lectures were not captured) and confirmed the definition and list of bad behaviors, “low-compute training cannot undo high-compute training” and “neither obscurity nor stupidity works”, the systemic versus idiosyncratic misalignment contrast (hallucination, 0.1% of traffic), the misalignment cone, using the same weights as actor and monitor, instrumental convergence, and the hand-off to Mario. The captions never say Jonathan Swift's name, so the post now says “a famous saying”.
 
 ## Start with a scene
 
@@ -212,6 +192,26 @@ One thing you can do tonight: give whatever coding agent you use a small task wh
 - Where reward hacking comes from in RL training: [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards](/posts/ai/2026-08-22-cs336-rlvr-en), [CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en)
 - Engineering agent permissions and monitoring: [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
 - Models as monitors and judges: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10. For Lecture 8 the playlist lists only Boaz Barak’s roughly 10-minute opening video and the student experiment video; the two guest talks have no recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=8NL1NAMrJxY
+title: AI Safety (CS 2881) Lecture 8: Scheming
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full captions of “Lecture 8: Scheming” (10:17; the description says the guest lectures were not captured) and confirmed the definition and list of bad behaviors, “low-compute training cannot undo high-compute training” and “neither obscurity nor stupidity works”, the systemic versus idiosyncratic misalignment contrast (hallucination, 0.1% of traffic), the misalignment cone, using the same weights as actor and monitor, instrumental convergence, and the hand-off to Mario. The captions never say Jonathan Swift's name, so the post now says “a famous saying”.
 
 ## Update Log
 

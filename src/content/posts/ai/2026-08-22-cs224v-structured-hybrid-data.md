@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 6 講：資料庫 Agent 為什麼要先做語意剖析"
+title: "資料庫 Agent 為什麼要先做語意剖析｜Stanford CS224V 第 6 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, semantic-parsing, database, hybrid-retrieval]
@@ -19,27 +19,6 @@ description: "拆解 CS224V Structured and Hybrid Data：NL-to-SQL、schema、�
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-db-hybrid-intro.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第六講把資料來源從自由文字換成資料庫。這時「把相關內容塞進 context」不是主要問題；真正的門檻是把使用者條件翻成精確查詢，並確定查詢真的符合 schema。這堂仍屬 Fall 2025 的 Conversational Virtual Assistants，不是 2026 改名後的新課綱。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Introduction to Agents for Structured and Hybrid Data」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 11 講「Intro to Agents」（約 1 小時 29 分），內容是結構化資料與混合資料：字幕有把英文轉成 SQL 的 semantic parser、few-shot 提示、列舉值（enumerated values）的處理、人工 spot check 錯誤、以及加入自由文字後的 hybrid data 與 benchmark，與本文主題相符；字幕沒有出現 Wikidata 與空結果診斷等本文講義段落。本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=6UGa_6wQ5Ng
-title: CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024
-```
-
-原始影片：[CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024](https://www.youtube.com/watch?v=6UGa_6wQ5Ng)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：結構化查詢與混合檢索
 
@@ -142,6 +121,27 @@ Hybrid source 還有不同更新頻率。Table 每小時刷新、文字介紹每
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片是架構與文獻導覽，沒有一份完整參考實作；後半引用的 benchmark 表格也不足以支持跨資料集泛化。公開資料沒有課堂錄影與講者補充。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Introduction to Agents for Structured and Hybrid Data」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 11 講「Intro to Agents」（約 1 小時 29 分），內容是結構化資料與混合資料：字幕有把英文轉成 SQL 的 semantic parser、few-shot 提示、列舉值（enumerated values）的處理、人工 spot check 錯誤、以及加入自由文字後的 hybrid data 與 benchmark，與本文主題相符；字幕沒有出現 Wikidata 與空結果診斷等本文講義段落。本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=6UGa_6wQ5Ng
+title: CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024
+```
+
+原始影片：[CS224V Fall 2024 Lecture 11: Intro to Agents 10 28 2024](https://www.youtube.com/watch?v=6UGa_6wQ5Ng)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

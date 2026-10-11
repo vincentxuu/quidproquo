@@ -1,5 +1,5 @@
 ---
-title: "CS224R L1：把做決策寫成 RL 問題"
+title: "把做決策寫成 RL 問題｜Stanford CS224R 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 [CS224R](https://cs224r.stanford.edu/) 的第一講在課表上叫「Course Intro + Start of MDPs & Imitation」。投影片把當天的學習目標寫成三條：怎麼表示行為、怎麼把問題寫成強化學習問題、模仿學習的基礎。
 
 課務部分（評分、late days、AI 工具政策）[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)已經整理過，這裡只講內容。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=EvHRQhMX7_w
-title: Spring 2025 Lecture 1: Class Intro（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 1: Class Intro（YouTube，補充）](https://www.youtube.com/watch?v=EvHRQhMX7_w)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L1 Class Intro 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕依序是課程目標與行政事項、為什麼學 deep RL、MDP 與 POMDP、模仿學習作為建模行為的起點，與本文結構相符。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 先補一段：MDP 是什麼
 
@@ -214,6 +195,25 @@ reward：
 - [CS221 導讀](/posts/ai/2026-08-21-stanford-cs221-ai-principles)：官網推薦的 RL 前置課
 
 **系列導覽**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)｜下一篇 [L2：模仿學習與能表達多峰分佈的 policy](/posts/ai/2026-09-30-cs224r-imitation-learning)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=EvHRQhMX7_w
+title: Spring 2025 Lecture 1: Class Intro（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 1: Class Intro（YouTube，補充）](https://www.youtube.com/watch?v=EvHRQhMX7_w)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L1 Class Intro 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕依序是課程目標與行政事項、為什麼學 deep RL、MDP 與 POMDP、模仿學習作為建模行為的起點，與本文結構相符。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

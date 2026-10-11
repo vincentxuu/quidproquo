@@ -1,5 +1,5 @@
 ---
-title: "CS231N Assignment 2 Guide: BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning"
+title: "BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning | Stanford CS231N Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,15 +37,6 @@ glossary:
 In A1 you built a fully connected network in numpy by hand. A2 asks two follow-up questions. Once the network gets deep, how do you keep it trainable? And when should you hand backpropagation over to a framework?
 
 The five questions form a ramp from deriving gradients yourself to letting PyTorch do it. The [assignments page](https://cs231n.stanford.edu/assignments.html) weights A2 at 18% of the course grade, the most of the three assignments. Page 2 of the [Lecture 9 slides](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf) also warns that A2 is the longest of the three, and that the midterm and project milestone deadlines follow closely after it. Start early.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## What the assignment looks like
 
@@ -176,6 +167,15 @@ The one inline question: what's one advantage and one disadvantage of a **charac
 - The next assignment replaces the RNN with a Transformer: [A3 guide](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip-en)
 - How another course teaches backprop and neural nets: [CS224N: Backpropagation and Neural Networks](/posts/ai/2026-08-22-cs224n-backprop-neural-nets-en)
 - A fuller deep learning theory course: [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

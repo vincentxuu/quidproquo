@@ -1,5 +1,5 @@
 ---
-title: "NTU AI/ML Course Guide: What Outsiders Can Actually Get from Hung-yi Lee, Hsuan-Tien Lin, and Yun-Nung Chen"
+title: "Connecting Courses by Hung-yi Lee, Hsuan-Tien Lin, and Yun-Nung Chen | Global AI/CS Course Map"
 date: 2026-09-30
 category: learning
 tags: [ntu, ai-course, machine-learning, learning-path, open-course]
@@ -20,19 +20,6 @@ draft: false
 The first five school maps in this series dealt with courses taught in English. NTU is different. It is probably the school Mandarin-speaking self-learners study from most. Hung-yi Lee uploads every semester to YouTube, and Hsuan-Tien Lin's Machine Learning Foundations recordings have circulated online for a decade. Being able to watch the videos is not the same as being able to take the course. Homework specs, starter code, grading platforms, and auditor status each have their own level of openness.
 
 This post uses the A0–A3 scale from the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only a catalog entry, A1 a syllabus, A2 some substantive material, and A3 enough material plus homework to form a coherent self-study path. It is this site's editorial grade, not an NTU evaluation, and it implies no credit or TA feedback. All access statuses were checked on **September 30, 2026**. Most sources below are in Mandarin.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [AI master's program](https://www.csie.ntu.edu.tw/zh_tw/Admission/Announcement13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%A2%A9%E5%A3%AB%E7%8F%AD-%E4%B8%80%E8%88%AC%E7%94%9F-%E8%80%83%E8%A9%A6%E5%85%A5%E5%AD%B8%E8%A6%8F%E5%AE%9A-50477470)
-- [NTU Course site](https://course.ntu.edu.tw/)
-- [Machine Learning in fall 2024 (term 113-1)](https://course.ntu.edu.tw/courses/113-1/26214)
-- [Machine Learning and Artificial Intelligence specialization](https://specom.aca.ntu.edu.tw/Domain/program?program=902002&lang=zh)
-- [Machine Learning for spring 2026 (term 114-2)](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)
-- [ML 2026 Spring course page](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
 
 ## How NTU organizes AI/ML: follow the specialization, not the department name
 
@@ -157,6 +144,19 @@ Watch the YouTube videos with the handout slides, and practice with the Fall 202
 Follow the Fall 2025 slides and recordings, do HW1 from the public spec, and reconstruct the other assignments from their walkthrough videos; [this site's ADL 2025 Fall guide](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) walks this route lecture by lecture. This path leans more toward engineering practice than Lee's courses. Fall 2026 is underway, so check back at the end of the term to see whether more homework goes public.
 
 The biggest difference between NTU and the other five schools is that open material centers on individual professors, not the university. The specialization tells you how courses connect, but the material you can actually study from lives on three professors' personal sites and YouTube channels, and each opens up differently. Lee shares homework but not grading. Lin shares videos, and his practice problems are on the Fall 2024 course page. Chen shares full recordings and only part of the homework. Figure out whether you're missing videos, problems, or feedback, then pick the professor whose course fills that gap.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [AI master's program](https://www.csie.ntu.edu.tw/zh_tw/Admission/Announcement13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%A2%A9%E5%A3%AB%E7%8F%AD-%E4%B8%80%E8%88%AC%E7%94%9F-%E8%80%83%E8%A9%A6%E5%85%A5%E5%AD%B8%E8%A6%8F%E5%AE%9A-50477470)
+- [NTU Course site](https://course.ntu.edu.tw/)
+- [Machine Learning in fall 2024 (term 113-1)](https://course.ntu.edu.tw/courses/113-1/26214)
+- [Machine Learning and Artificial Intelligence specialization](https://specom.aca.ntu.edu.tw/Domain/program?program=902002&lang=zh)
+- [Machine Learning for spring 2026 (term 114-2)](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)
+- [ML 2026 Spring course page](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
 
 ## Update Log
 

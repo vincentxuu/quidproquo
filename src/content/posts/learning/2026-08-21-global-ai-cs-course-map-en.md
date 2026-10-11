@@ -1,5 +1,5 @@
 ---
-title: "A Global Map of AI and CS Courses: Which Ones Can You Actually Study in Public?"
+title: "A Global Map of AI and CS Courses: Which Ones Can You Actually Study in Public? | Global AI/CS Course Map"
 date: 2026-08-21
 category: learning
 tags: [ai-course, cs-course, learning-path, self-study, open-course]
@@ -22,19 +22,6 @@ Search for Stanford CS229, Berkeley CS188, or MIT deep learning and you will qui
 This map covers Stanford, Carnegie Mellon University (CMU), MIT, UC Berkeley, Harvard, and National Taiwan University (NTU), spanning **2025–2026**. A complete 2026 edition takes priority. If the new semester has only a schedule or keeps video inside an LMS while an official 2025 edition is materially more complete, the 2025 edition can be the main version. Every course guide names its semester; it will not quietly combine 2025 video with 2026 assignments.
 
 This is not a university ranking. It answers two narrower questions: how each school organizes AI and CS, and how much of that structure an outsider can actually use.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
-- [CS336 Spring 2026](https://cs336.stanford.edu/)
-- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
-- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
-- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
 
 ## Public is not yes or no
 
@@ -182,6 +169,19 @@ If you want one course to start tonight, run a small test: open MIT 6.S191's fir
 - 2026-08-27: Re-audited Spring 2026 as completed: MIT 6.S191 (Mar 30–May 25), Stanford CS336 (Mar 30–Jun 3), Berkeley CS188 sp26 (archived, now su26), and CMU 11-785 S26 (F26 online) now marked as completed; CMU 07-280 Fall 2026 updated from "most materials not yet released" to 24 lectures / 12 assignments / weekly checkpoints all online, matching this site's 07-280 lecture guides; table expanded to five schools and Stanford CS103 / CS107 / CS109 / CS111 / CS161 completion noted; 07-380 now "first offered Fall 2026" per FAQ.
 - 2026-08-26: An audit found that the MIT 6.S191, CMU 11-785, CMU 07-280, CS336, and CS221 guides are already live on this site under the `ai` category. The "still unwritten" list now correctly names 6.7960, CS189, and Harvard's three courses.
 - 2026-08-26 (earlier): The follow-up articles (four school maps, Harvard, and the CS188 / CS285 / CS288 / 10-301 guide series) are now live. Added inline links throughout, replaced "What comes next" with a current-state list, and restructured References into site articles versus official sources.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
+- [CS336 Spring 2026](https://cs336.stanford.edu/)
+- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
+- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
 
 ## References
 

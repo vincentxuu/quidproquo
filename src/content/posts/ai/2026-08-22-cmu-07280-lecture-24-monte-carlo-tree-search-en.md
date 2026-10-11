@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 24: How Monte Carlo Tree Search Connects to AlphaZero"
+title: "How Monte Carlo Tree Search Connects to AlphaZero | CMU 07-280 Lecture 24"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 **CMU 07-280, Spring 2026, Lecture 24** is **Monte Carlo Tree Search (MCTS)**. The current Fall 2026 page separately displays LLM Post Training, but that is not the Spring canonical lecture used by this series. This lecture combines earlier adversarial search, sampling, Q estimates, deep networks, and self-play into the Building AlphaZero finale.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-The Spring 2026 Lecture 24 `MCTS` slide and PowerPoint direct links returned 404 on August 22, 2026. This article therefore does not claim to have read that lecture deck. Its core sources are [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf), [Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf), plus S26 filenames and assignment metadata on the [official course site](https://www.cs.cmu.edu/~07280/).
-
-The official site has no public Spring 2026 lecture recording. The HW12 Building AlphaZero PDF and archive links were also unavailable on the audit date. This article can read the surviving recitation pipeline in detail but does not fill missing materials with imagined classroom content.
 
 ## The inherited problem: a complete game tree is too large, while a Q-network has no lookahead
 
@@ -121,6 +105,22 @@ Ending Spring 2026 with MCTS reconnects the course's two strands. Search decides
 ## An action for tonight
 
 Implement the game with 11 candies where each player takes one or two. Build FlatMCSearch first, then add node visits, mean values, UCB selection, expansion, and alternating-sign backup. Fix a random seed and compare root policies after 10, 100, and 1,000 simulations. Finally add a deliberately wrong prior and measure how many simulations search needs to correct it.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+The Spring 2026 Lecture 24 `MCTS` slide and PowerPoint direct links returned 404 on August 22, 2026. This article therefore does not claim to have read that lecture deck. Its core sources are [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf), [Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf), plus S26 filenames and assignment metadata on the [official course site](https://www.cs.cmu.edu/~07280/).
+
+The official site has no public Spring 2026 lecture recording. The HW12 Building AlphaZero PDF and archive links were also unavailable on the audit date. This article can read the surviving recitation pipeline in detail but does not fill missing materials with imagined classroom content.
 
 ## Update Log
 

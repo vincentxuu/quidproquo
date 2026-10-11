@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 6: Spin Up the Data Flywheel — Submission Week"
+title: "Spin Up the Data Flywheel — Submission Week | Stanford CS329Z Week 6"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Week 6 is submission week. Monday (Oct 26) holds a guest lecture, topic still TB
 The data flywheel is one sentence: every production output is training material for the next round. Each answer an agent gives leaves a trace — what the user asked, which steps the system took, where it went wrong. Save the traces, score them, put the good ones back into the prompt as demonstrations, and put the fixed bad ones back too. One full turn means better demonstrations and higher scores, and the next turn produces even better data.
 
 Shankar splits the loop into three stations: evaluation, monitoring, and continual improvement. Evaluation defines what success looks like; monitoring keeps the metrics honest against reality; improvement feeds what was learned back into the system. All three eat the same production data, for different purposes. The post ships no new model and no new algorithm. It is engineering discipline: how to squeeze every drop out of production data.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## Evaluation: read real outputs before setting metrics
 
@@ -107,6 +96,17 @@ This week is the watershed. HW1 (due Oct 30) wraps up a full harness written fro
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more from-scratch / framework split, the corpus is now a corporate email archive) and the midpoint demo became a recorded video due Nov 4 at 11:59 p.m.; rewrote the timeline, trace-logging, and course-position passages to match
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

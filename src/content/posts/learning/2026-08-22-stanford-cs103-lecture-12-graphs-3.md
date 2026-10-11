@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 11：廣義鴿籠原理、Ramsey Theory 與平均負載"
+title: "廣義鴿籠原理、Ramsey Theory 與平均負載｜Stanford CS103 第 11 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 13 篇，對應 **Spring 2026 官方 Lecture 11（2026-04-24）**，題目是 **Graph Theory, Part Three**。本講不是再添一批圖論定義，而是示範如何把極簡的計數事實變成證明引擎：先用廣義鴿籠原理逼出局部結構，再用 case analysis 或 contradiction 推到目標結論。
 
 課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜實際講者。以下依公開完整投影片重建定義、證明與電影 puzzle；Canvas／Panopto 的口頭內容不在材料範圍內。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/)
 
 ## 從 adjacency 與 reachability 接回本講
 
@@ -142,6 +134,14 @@ WLOG 必須伴隨可說明的交換顏色或重新編號。`R(3)≤6` 不等於�
 ## 材料缺口與閱讀界線
 
 [講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/Lecture%20Slides.pdf)公開，足以核對 agenda、完整證明、Sim 與電影 puzzle。錄影和逐字稿只在 Canvas／Panopto，因此本文不推測現場投票答案、講師口語或學生問題；Ramsey 一般定理與延伸結果也只維持投影片給出的介紹深度。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/11/)
 
 ## 更新紀錄
 

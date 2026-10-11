@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 11：從 Logistic Regression 組出第一個 Neural Network"
+title: "從 Logistic Regression 組出第一個 Neural Network｜CMU 07-280 第 11 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, neural-network, representation-learning]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 第 11 講 **Neural Networks** 在 2026 年 2 月 17 日進行。它沒有把神經網路當成全新的神祕模型，而是從已學過的 linear／logistic regression 往上堆：每個 neuron 都先做加權和，再套 activation；多個 neuron 組合後，feature transform 不再由人手寫。官方課表未列逐講公開錄影連結，本文只讀文字材料。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-主要來源是 [Lecture 11 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec11_Neural_Networks_I.pdf)、[Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf)、[Recitation 6 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf)與 HW6。Slides 包含互動 demo 的課堂活動提示，但沒有公開投票結果；本文不把空白投影片補成講者答案。
 
 ## 承上問題：如果 φ(x) 也能從資料學出來呢
 
@@ -97,6 +83,20 @@ Lecture 12 接著回答實作核心：每個參數的梯度若都展開成一條
 ## 今晚可以做的動作
 
 在紙上畫一個 `2→3→2` 網路，替每個 `W`、`b`、`z`、`a` 標 shape，算出總參數量。接著任選一個二維輸入與小整數權重，完整算一次 forward pass；最後只對其中一個輸出層 weight 手算 loss derivative，為下一講預熱。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+主要來源是 [Lecture 11 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec11_Neural_Networks_I.pdf)、[Neural Networks pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Neural_Networks.pdf)、[Recitation 6 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec6_sol.pdf)與 HW6。Slides 包含互動 demo 的課堂活動提示，但沒有公開投票結果；本文不把空白投影片補成講者答案。
 
 ## 更新紀錄
 

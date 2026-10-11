@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 2 講：Node Embeddings：從隨機漫步到 node2vec"
+title: "Node Embeddings：從隨機漫步到 node2vec｜Stanford CS224W 第 2 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 2 講**，官方日期 2025-09-25。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/02-nodeemb.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -127,6 +114,19 @@ Node2vec 的強項是不需 node feature、固定圖上簡單有效；代價是 
 本講的交付物是一張 embedding protocol card：similarity 定義、walk transition、context window、negative distribution、decoder、downstream split 與 inductive boundary。另保存一個 walk pair 頻率表，抽查高 degree 與低 degree 節點各十個。若 pair frequency 與預期不符，先修 sampling；若 sampling 正確但下游失敗，再檢查 objective 與 decoder。這樣能避免把資料產生錯誤誤診為 optimizer 問題。
 
 第 2 講建立的概念會在後續講次繼續組合。閱讀時保留自己的小圖、符號表與 baseline；每遇到新模型，就問它改了資料、訊息、聚合、更新、目標函數或評估中的哪一項。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

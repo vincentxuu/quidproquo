@@ -1,5 +1,5 @@
 ---
-title: "A Complete Guide to CMU 11-785: 28 Public Lectures, but an Incomplete Assignment Chain"
+title: "A Learning Path from Neural Network Foundations to Sequence Models | CMU 11-785 Course Overview"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -21,16 +21,6 @@ series:
 [CMU 11-785 Introduction to Deep Learning Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html) is a graduate course that moves from neural-network representation to Boltzmann machines. Its official schedule contains one logistics session and **28 content lectures**. Every content lecture links slides, YouTube, and MediaServices, while a large bootcamp and recitation collection covers Python, NumPy, PyTorch, data handling, and model implementation.
 
 It resembles a completely open course, but the boundary is sharp: the lecture chain is complete; the graded assignment chain is not. This guide and its series lock to Spring 2026 rather than mixing Fall 2025 or Fall 2026, and reconstruct only what public evidence supports.
-
-## Course video sources
-
-This article covers multiple lectures; choose recordings by topic and lecture from the official index.
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
 
 ## Version decision: Spring 2026 is latest-complete
 
@@ -83,6 +73,16 @@ Treat compute separately as well. Course documents discuss PSC, cloud environmen
 Each lecture guide locks to its official date, slides, and YouTube recording, follows the published agenda, and does not invent classroom dialogue. Course Logistics is included here; orders 1–28 map to the 28 content lectures. Implementations reproduce only small exercises supported by public material, with platform gaps stated explicitly.
 
 The pilot covers Lectures 1–4. It will be reviewed for complete agenda coverage, independently recomputed derivations, and a self-check path that works without Autolab before the rest is produced.
+
+## Course video sources
+
+This article covers multiple lectures; choose recordings by topic and lecture from the official index.
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO"
+title: "How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO | Stanford CME295 Lecture 6"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ This post covers Lecture 6 of the 2025 edition of Stanford [CME295](/posts/ai/20
 The slides draw the boundary of "reasoning" with two questions. "What is the course code of Stanford's Transformers & LLMs class?" is not reasoning: you either remember it or you don't. "The bear was born in 2020. How old is this bear now?" is, because you have to work out what year it is and then subtract. The slides' tentative definition is one line: reasoning = ability to solve a problem.
 
 The previous lecture ([Lecture 5: preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en)) used [PPO](https://arxiv.org/abs/1707.06347) to make models say what people want to hear. This one asks whether the same RL toolkit can teach a model to think before it answers.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 6, LLM Reasoning (page date 2025-11-07, length 1:47:10). Its chapters are reasoning models, benchmarks, pass@k, scaling with RL, GRPO, GRPO versus PPO, length bias, DAPO and Dr. GRPO, and the DeepSeek R1 recipe, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Step 1: write the reasoning, then the answer
 
@@ -273,6 +253,26 @@ These are paraphrased from Part II, "LLM reasoning," of the [2025 final exam](ht
 - The inference side of test-time scaling: [CS224N Lecture 13: speculative decoding and test-time scaling](/posts/ai/2026-08-22-cs224n-reasoning-two-en)
 - RL foundations, policy gradient and actor-critic: [Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 - PPO and DPO from the previous lecture: [CME295 Lecture 5](/posts/ai/2026-09-29-cme295-preference-tuning-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 6, LLM Reasoning (page date 2025-11-07, length 1:47:10). Its chapters are reasoning models, benchmarks, pass@k, scaling with RL, GRPO, GRPO versus PPO, length bias, DAPO and Dr. GRPO, and the DeepSeek R1 recipe, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

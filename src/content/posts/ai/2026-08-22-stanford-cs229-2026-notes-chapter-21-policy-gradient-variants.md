@@ -1,5 +1,5 @@
 ---
-title: "策略梯度及其變體：REINFORCE 與 PPO"
+title: "策略梯度及其變體：REINFORCE 與 PPO｜Stanford CS229 第 21 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,27 +18,6 @@ series:
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 21 章（印刷頁 258–265）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；本文保留 REINFORCE 與 PPO 的核心推導、直覺和限制，不逐行複製全部證明。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。這支影片在 YouTube 上的標題是「Lecture 20: GMM (EM), PCA」，但字幕內容是最後一堂課的 policy gradient 收尾、PPO 與長思維鏈的強化學習訓練，與本章主題相符、與標題不符；上一版嵌的「Lecture 16: Basic Concept in RL, Policy Gradient」字幕內容其實是 attention 變體、in-context learning 與 SFT，已撤換。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=J7CossjMvEg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。字幕先回顧 policy gradient（reward、baseline），接著介紹 PPO（機率比、clipping），再講 GRPO 與長思維鏈推理的 RL 訓練；REINFORCE 到 PPO 的主線與本章相符，GRPO 與推理訓練的部分只在影片出現。
 
 ## REINFORCE 不需要知道環境公式
 
@@ -108,6 +87,27 @@ r_t(\theta)=\frac{\pi_\theta(a_t\mid s_t)}{\pi_{old}(a_t\mid s_t)}.
 ## 練習
 
 給兩條長度三的軌跡，每一步 reward 分別為 \((2,3,5)\) 與 \((1,1,0)\)，並令 \(\gamma=1\)。先寫出各時間點的 reward-to-go，再假設每個狀態的 baseline 都是 2，計算 advantage 的符號。最後令 \(\epsilon=0.2\)，分別解釋 \(\hat A>0,r=1.4\) 與 \(\hat A<0,r=0.7\) 時 PPO clipping 做了什麼。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。這支影片在 YouTube 上的標題是「Lecture 20: GMM (EM), PCA」，但字幕內容是最後一堂課的 policy gradient 收尾、PPO 與長思維鏈的強化學習訓練，與本章主題相符、與標題不符；上一版嵌的「Lecture 16: Basic Concept in RL, Policy Gradient」字幕內容其實是 attention 變體、in-context learning 與 SFT，已撤換。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=J7CossjMvEg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。字幕先回顧 policy gradient（reward、baseline），接著介紹 PPO（機率比、clipping），再講 GRPO 與長思維鏈推理的 RL 訓練；REINFORCE 到 PPO 的主線與本章相符，GRPO 與推理訓練的部分只在影片出現。
 
 ## 更新紀錄
 

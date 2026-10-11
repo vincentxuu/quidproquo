@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L9: Early Evidence on AI, Jobs, and Productivity"
+title: "Early Evidence on AI, Jobs, and Productivity | Harvard CS2881R Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,26 +31,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en) ended on measuring capability: METR's doubling task horizons and GDPval. This one goes a layer down. Once capability grows, what can we actually see in the labor market today?
 
 Boaz Barak framed the session in one sentence. An AI safety course cares whether AI's effect on the world is good or bad, the economic side is among the most important pieces, and the course would be incomplete without it. Then he handed over to two guests: one looking from inside OpenAI, one looking at administrative data.
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=4vQSMijp_M8
-title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 9: Economic Impacts of AI” (2:32:32) and confirmed Chatterji's role, the CHIPS Act, “exposure is not replacement”, his father's 1985 task list, Chandar's William Lee story, 60% of employment being work that did not exist in 1940, the ADP data, the 16% relative decline, interest-rate exposure being negatively correlated with AI exposure, the Q&A answers (computer science majors, Copilot), the students' Treasury-yield and GDPval experiments (70 of 220 tasks, 96%), and the UBI, SNAP and homogenized-advice exchanges; the captions mis-transcribe Chandar as Barat/Brock. The “0:28” recording time in the post is an approximate position and now says “about”.
 
 ## What this lecture offers
 
@@ -180,6 +160,26 @@ One thing to do tonight: open the Canaries paper, find the appendix figure behin
 - How capability is measured and how GDPval is built: [L7: Capabilities vs. Safety](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en), [L12: AI 2035 and GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035-en)
 - Timelines for AI doing AI R&D: [L6: Recursive Self-Improvement](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
 - Course map and A0–A3 grading: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=4vQSMijp_M8
+title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 9: Economic Impacts of AI” (2:32:32) and confirmed Chatterji's role, the CHIPS Act, “exposure is not replacement”, his father's 1985 task list, Chandar's William Lee story, 60% of employment being work that did not exist in 1940, the ADP data, the 16% relative decline, interest-rate exposure being negatively correlated with AI exposure, the Q&A answers (computer science majors, Copilot), the students' Treasury-yield and GDPval experiments (70 of 220 tasks, 96%), and the UBI, SNAP and homogenized-advice exchanges; the captions mis-transcribe Chandar as Barat/Brock. The “0:28” recording time in the post is an approximate position and now says “about”.
 
 ## Update Log
 

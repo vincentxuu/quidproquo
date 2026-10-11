@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 6: Language — N-gram Language Models, TF-IDF QA, Parser & Attention"
+title: "Language — N-gram Language Models, TF-IDF QA, Parser & Attention | Harvard CS50 AI Week 6"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **re-recorded in 2023** (first six weeks are 2020); project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 6 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
-title: Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023
-```
-
-Original videos: [Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
-
-Course and recording entries:
-
-- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Large parts of the original table did not match this 2023 video. The transcript has no TF-IDF, inverted index, information retrieval, question answering, CYK table filling or Good-Turing/Kneser-Ney smoothing, and no introduction of the Parser and Questions projects; all were removed. The video actually covers CFGs and the NLTK parser, n-grams, Naive Bayes sentiment analysis, word2vec, RNN-based machine translation, attention and Transformers, and the table was rewritten accordingly. The original table ran to 1:35:00 but the video is only 1:05:22 long; exact timecodes could not be verified and are now approximate values estimated from the transcript. The TF-IDF, question-answering and project material in this guide comes from the course site (project specs follow the 2026 version), not from this video.
 
 ## TL;DR
 
@@ -415,6 +395,26 @@ style50 questions.py
 - [ ] Understand Attention Q/K/V projections & scaled dot-product attention mechanism
 - [ ] Understand why Multi-Head Attention needs multiple heads (capture different relation types)
 - [ ] Both projects pass `check50` clean
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 6 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
+title: Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023
+```
+
+Original videos: [Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+
+Course and recording entries:
+
+- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Large parts of the original table did not match this 2023 video. The transcript has no TF-IDF, inverted index, information retrieval, question answering, CYK table filling or Good-Turing/Kneser-Ney smoothing, and no introduction of the Parser and Questions projects; all were removed. The video actually covers CFGs and the NLTK parser, n-grams, Naive Bayes sentiment analysis, word2vec, RNN-based machine translation, attention and Transformers, and the table was rewritten accordingly. The original table ran to 1:35:00 but the video is only 1:05:22 long; exact timecodes could not be verified and are now approximate values estimated from the transcript. The TF-IDF, question-answering and project material in this guide comes from the course site (project specs follow the 2026 version), not from this video.
 
 ## Update Log
 

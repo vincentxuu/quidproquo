@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L01：課程導論 —— Deep Learning 的地圖、為什麼深，以及第一個訓練 loop"
+title: "課程導論 —— Deep Learning 的地圖、為什麼深，以及第一個訓練 loop｜MIT 6.7960 第 1 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 01）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講為課程導論，依 OCW 影片說明由 Sara Beery 主講。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=6FkRvTtUc-o
-title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01 字幕（Sara Beery，1:00:51）：影片是課程導論，內容為深度學習的興起與歷史（AlexNet 與 GPU 約 30%）、課程規則與作業政策（約 15%–25%）、神經網路／MLP 基礎與優化（約 40%–80%）、tensor 與 PyTorch 概念（約 13%–15%、90%）；字幕沒有逐行示範 training loop，原文「第 1 講是唯一一講不講數學、不講架構」與「教師群輪流介紹」的說法不成立，已改寫。
 
 ## 一、deep learning 為什麼在 2010 年代後爆發
 
@@ -117,6 +98,25 @@ print("env OK, params:", sum(p.numel() for p in model.parameters()))
 - **工程師**：抓 L03 → L07 → L08 → L14 → L20 → L21 → L24，理解理論與現代 LLM 的工程實務。
 - **研究者**：從 L03 一路讀到 L24，PS1–PS3 真的做。
 - **應用方**：L14–L17 + L18–L19 給你部署與遷移的判斷力。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=6FkRvTtUc-o
+title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01 字幕（Sara Beery，1:00:51）：影片是課程導論，內容為深度學習的興起與歷史（AlexNet 與 GPU 約 30%）、課程規則與作業政策（約 15%–25%）、神經網路／MLP 基礎與優化（約 40%–80%）、tensor 與 PyTorch 概念（約 13%–15%、90%）；字幕沒有逐行示範 training loop，原文「第 1 講是唯一一講不講數學、不講架構」與「教師群輪流介紹」的說法不成立，已改寫。
 
 ## 更新紀錄
 

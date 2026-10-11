@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning"
+title: "Pretraining, Subwords, and In-Context Learning | Stanford CS224N Lecture 7"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 7 on January 27, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf), **Pretraining (Scaling, Systems, Data)**, has six agenda parts: motivation, subwords, the move from word embeddings to model pretraining, three architectures, what pretraining teaches, and large models with in-context learning.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The 2023 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
-
-```youtube
-url: https://www.youtube.com/watch?v=DGfCRXuNA2w
-title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
-```
-
-Original videos: [Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining](https://www.youtube.com/watch?v=DGfCRXuNA2w)
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the 2023 Lecture 9 (about 79 minutes, uploaded in September 2023) relates to this article, which is based on the Winter 2026 slides "Pretraining (Scaling, Systems, Data)"; it is neither the 2026 classroom recording nor the 2024 version. The transcript covers subword and BPE-style vocabulary design, the pre-training/fine-tuning paradigm, the three pre-training styles (decoder, encoder with BERT-style masked language modeling, encoder-decoder with span corruption/T5), parameter-efficient fine-tuning, and ends with GPT-3 in-context learning, chain-of-thought and a one-line Chinchilla mention, matching the first half of this article. The 2023 version lacks the systems and data threads of the Winter 2026 version (no discussion of GPUs, data filtering or deduplication in the transcript, and scaling appears only through that Chinchilla remark), so those sections rest on the Winter 2026 slides alone, not the video.
 
 ## Why pretraining scales
 
@@ -100,6 +80,26 @@ Add a length-matched no-demonstration control and preserve every prompt and raw 
 ## Material gap and numbering note
 
 Winter 2026 recordings are not public. The deck cover retains a stale “Lecture 6: Pretraining” label, while the official schedule, date, filename, and sequence establish it as regular lecture 7. This article follows the schedule and does not speculate about the stale label.
+
+## Course video sources
+
+This article uses Winter 2026 materials. The 2023 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=DGfCRXuNA2w
+title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
+```
+
+Original videos: [Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining](https://www.youtube.com/watch?v=DGfCRXuNA2w)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the 2023 Lecture 9 (about 79 minutes, uploaded in September 2023) relates to this article, which is based on the Winter 2026 slides "Pretraining (Scaling, Systems, Data)"; it is neither the 2026 classroom recording nor the 2024 version. The transcript covers subword and BPE-style vocabulary design, the pre-training/fine-tuning paradigm, the three pre-training styles (decoder, encoder with BERT-style masked language modeling, encoder-decoder with span corruption/T5), parameter-efficient fine-tuning, and ends with GPT-3 in-context learning, chain-of-thought and a one-line Chinchilla mention, matching the first half of this article. The 2023 version lacks the systems and data threads of the Winter 2026 version (no discussion of GPUs, data filtering or deduplication in the transcript, and scaling appears only through that Chinchilla remark), so those sections rest on the Winter 2026 slides alone, not the video.
 
 ## Update Log
 

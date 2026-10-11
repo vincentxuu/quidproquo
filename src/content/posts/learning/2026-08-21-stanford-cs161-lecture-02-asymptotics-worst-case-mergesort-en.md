@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 2: From an InsertionSort Proof to MergeSort's n log n"
+title: "From an InsertionSort Proof to MergeSort's n log n | Stanford CS161 Lecture 2"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is post 3 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 2**. Ellen Vitercik taught it on January 7, 2026, under the official title [Asymptotics, Worst-Case Analysis, and MergeSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort). I used the public pre-lecture exercise, eleven-page notes, 82-slide deck, and the two-page rigorous InsertionSort handout. The Canvas recording requires Stanford access and was not a source. I also did not use the notebook or concept checks to fill the article.
 
 Lecture 1 used Karatsuba to argue that growth tells us more about an algorithm than one timing measurement. Lecture 2 splits that intuition into two checkable questions: **Does the algorithm actually return the right answer? Does it perform well for every input?** Sorting supplies a shared language. InsertionSort is easy to trace, while MergeSort ties together divide and conquer, inductive correctness, and recursive runtime.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)
-
-Checked: 2026-10-10.
 
 ## What InsertionSort preserves
 
@@ -176,6 +166,16 @@ The same three questions apply to every new algorithm: what invariant does it pr
 InsertionSort often performs well on small or nearly sorted arrays, while MergeSort executes essentially the same recursive structure even when the input is ordered. Practical sorting systems therefore often use hybrid strategies and switch to insertion sorting for small subarrays. Lecture 2 does not prescribe a threshold or describe a specific standard-library implementation. Any threshold belongs to a benchmark for a particular language, element type, and machine.
 
 A second extension is to finish the Merge proof yourself. Before each iteration, state three facts: `S` is sorted, `S` contains exactly the consumed portions of both inputs, and the smaller front item is the next global minimum. This exercise is closer to the proof skill used throughout the course than memorizing the phrase `n log n`.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

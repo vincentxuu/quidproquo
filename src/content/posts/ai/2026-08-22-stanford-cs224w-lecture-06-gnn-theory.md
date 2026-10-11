@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 6 講：Theory of GNNs：WL test、GIN 與表達能力的上限"
+title: "Theory of GNNs：WL test、GIN 與表達能力的上限｜Stanford CS224W 第 6 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 6 講**，官方日期 2025-10-09。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/06-theory.pdf)整理；講者依投影片署名為 Jure Leskovec、Charilaos Kanatsoulis 與課程團隊。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -131,6 +118,19 @@ GIN 的 sum+MLP 與一般 sparse message passing 成本近似隨 edges 線性，
 最後再做一個 precision check：將 hand-crafted features 設為容易 collision 的整數，分別以 float32、float64 跑相同 sum+MLP，記錄接近但不相同的 neighborhoods 是否在 normalization 後難以區分。這不是推翻 WL 理論，而是提醒理論中的精確 injectivity 與實際有限精度/有限寬度有距離。若任務仰賴精確 counting，需把 count range、numeric precision 與 out-of-distribution graph size 納入測試。最終報告同時列「理論可區分」與「本次訓練成功區分」，不把兩者合併成一句。
 
 拿一張最小圖或一組最小三元組，寫出輸入、模型保留的不變性、輸出與評估方式。若兩個例子理應不同卻在每一步都相同，就找到這個 encoder 的表達缺口。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

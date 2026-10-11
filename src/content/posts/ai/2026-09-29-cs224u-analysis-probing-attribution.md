@@ -1,5 +1,5 @@
 ---
-title: "CS224U 解釋方法 I：probing 看得見表徵，feature attribution 才給得出因果保證"
+title: "probing 看得見表徵，feature attribution 才給得出因果保證｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -35,29 +35,6 @@ glossary:
 **本文依據 [CS224U](https://web.stanford.edu/class/cs224u/) 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列第 11 篇，範圍是 Analysis methods 單元的前半：總論、probing、feature attribution。講次表把這個單元排在 2023 年 5 月 8、10、15 日三堂。用到的官方材料有三份：投影片 [Analysis methods in NLP](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) 的前 40 頁（全份 64 頁）、公開播放清單的影片 33–35，以及 repo 裡的 [`feature_attribution.ipynb`](https://github.com/cgpotts/cs224u/blob/main/feature_attribution.ipynb)。
 
 存取等級沿用[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的定義，是 **A3（歷史版）**：投影片、錄影、notebook 都公開。拿不到的是 Canvas 上的 Quiz 4 和教室錄影。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=5RZDKW1_HS4
-title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
-title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
-
-內容核對：已依字幕核對（2026-10-10）：影片 33（Part 1: Overview）與影片 34（Part 2: Probing）的字幕逐項對照：奇偶偵測器反例與原話、三欄計分表、Tenney 各層結果、probe selectivity、加法網路因果反例；文中引用的影片 35（Feature Attribution）也讀過，IG 公理、反例與範例皆吻合，未發現需修正之處。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 從行為評估往裡面走一層
 
@@ -185,6 +162,29 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 延伸閱讀：站上 CS224N 系列也有一篇 [interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)，談的是 Been Kim 的 agentic interpretability，跟這裡的 probing／IG 路線互補。
 
 系列導覽：上一篇 [組合性：COGS、ReCOGS 與 HW3](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)｜下一篇 [解釋方法 II：causal abstraction、IIT 與 DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=5RZDKW1_HS4
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lZqsLuAjZ4c
+title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=5RZDKW1_HS4)、[Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Spring 2023](https://www.youtube.com/watch?v=lZqsLuAjZ4c)
+
+內容核對：已依字幕核對（2026-10-10）：影片 33（Part 1: Overview）與影片 34（Part 2: Probing）的字幕逐項對照：奇偶偵測器反例與原話、三欄計分表、Tenney 各層結果、probe selectivity、加法網路因果反例；文中引用的影片 35（Feature Attribution）也讀過，IG 公理、反例與範例皆吻合，未發現需修正之處。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

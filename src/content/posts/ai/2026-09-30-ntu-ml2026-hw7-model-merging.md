@@ -1,5 +1,5 @@
 ---
-title: "李宏毅 ML 2026 HW7：不再訓練，把日文模型和數學模型合成一個會解日文數學題的模型"
+title: "不再訓練，把日文模型和數學模型合成一個會解日文數學題的模型｜台大李宏毅 機器學習 2026 Spring 作業 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW7。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 16 篇。官方材料有：作業投影片 [hw7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw7.pdf)、[作業 Colab](https://colab.research.google.com/drive/1B9692EHFAZFh5-8Q5LsVhzk9nTH1MEyD)（50 個 cell）、[Kaggle 版](https://www.kaggle.com/code/sylora1101/ml2026hw7)，以及助教的[說明影片](https://youtu.be/YQtwk_L686I)。課程頁寫 5/8 公告、截止 2026/05/28 23:59，助教是黃郁涵、陳思齊、董家愷、吳岳霖（投影片封面列前三位）。投影片註明參考 ML2025 HW9 Model Merging。
 
 存取分級是 **A3 減評分**：題目規格、兩個模型、Colab 與評估程式都公開；排行榜要上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home)（2026-09-30 回傳 502），論文題在需要台大帳號的 NTU COOL 上。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=YQtwk_L686I
-title: HW7 說明影片（YouTube）
-```
-
-原始影片：[HW7 說明影片（YouTube）](https://www.youtube.com/watch?v=YQtwk_L686I)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 先備：hw7.pdf 沒有指定，但有一講正好對得上
 
@@ -143,6 +124,25 @@ notebook 分三段：
 - **工具**：[mergekit](https://github.com/arcee-ai/mergekit) 的 README 列了所有合併方法與參數；Hugging Face PEFT 也有 [model merging 指南](https://huggingface.co/docs/peft/developer_guides/model_merging)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)｜下一篇 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=YQtwk_L686I
+title: HW7 說明影片（YouTube）
+```
+
+原始影片：[HW7 說明影片（YouTube）](https://www.youtube.com/watch?v=YQtwk_L686I)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

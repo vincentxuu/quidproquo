@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 7 講：NAS I——從手工 building block 到搜尋空間與搜尋策略"
+title: "NAS I——從手工 building block 到搜尋空間與搜尋策略｜MIT 6.5940 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 **官方材料**：[Lec07-Neural-Architecture-Search-I.pdf](https://www.dropbox.com/scl/fi/hxhjhxonwqyw2hfoywzcp/Lec07-Neural-Architecture-Search-I.pdf?rlkey=o6s5dglazyb2o2nrc897ccppg&dl=0)（76 頁，以下頁碼皆指這份 PDF）、[第 7 講錄影](https://www.youtube.com/watch?v=3W146_T8eCs)。存取等級 **A3**：投影片與錄影公開，練習在 [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas)。以下內容以投影片為準，2026-09-30 核對。
 
 **Fall 2026 對照**：Fall 2026 的第 7 講排在 10 月 1 日，2026-10-01 查課程頁時投影片與錄影都還沒有連結。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=3W146_T8eCs
-title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭（Lab 1 到期、Lab 2 發布）、結尾總結並抽查中段：基本運算與 MAC 回顧、bottleneck（影片提到 2048 通道與 8.5 倍）、分組卷積與 ShuffleNet、Transformer，再到 NASNet 的 reduction／normal cell 與 cell-level／network-level 搜尋空間、不用訓練就判斷搜尋空間好壞的設計（好的空間較容易達到高 FLOPs），以及 grid／random／強化學習／梯度／演化搜尋。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 這講在整個 NAS 單元的位置
 
@@ -205,6 +187,24 @@ Network-level 固定 block 的種類，搜整個網路的形狀。第 49–53 �
 - 效率指標與 building block 的第一次介紹：[第 1–2 講＋Lab 0](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 - CNN 架構的另一種講法：[CMU 11-785 CNN 單元](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)
 - Transformer 從頭講起：[CMU 11-785 注意力與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=3W146_T8eCs
+title: EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 7 - Neural Architecture Search Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=3W146_T8eCs)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（Lab 1 到期、Lab 2 發布）、結尾總結並抽查中段：基本運算與 MAC 回顧、bottleneck（影片提到 2048 通道與 8.5 倍）、分組卷積與 ShuffleNet、Transformer，再到 NASNet 的 reduction／normal cell 與 cell-level／network-level 搜尋空間、不用訓練就判斷搜尋空間好壞的設計（好的空間較容易達到高 FLOPs），以及 grid／random／強化學習／梯度／演化搜尋。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

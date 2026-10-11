@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 21: A First Heap Allocator and the Tension Between Speed and Space"
+title: "A First Heap Allocator and the Tension Between Speed and Space | Stanford CS107 Lecture 21"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Lecture 20 ended by changing perspective from a client of `malloc` to its implementer. An allocator receives a contiguous heap and must arrange requests with different sizes and lifetimes inside it. Lecture 21 asks the first implementation question: what must an allocator remember to allocate and reclaim space repeatedly when it knows neither object types nor future requests?
 
 The goal is not one universally best data structure. An allocator simultaneously wants correct alignment, fast responses, and high space utilization, but improving one can damage another. A bump allocator spends almost no time searching but cannot truly reuse individual blocks. An implicit free list reuses space but scans allocated blocks too. This lecture progressively adds bookkeeping and accounts for both the capability it buys and the cost it creates.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -185,6 +177,14 @@ The implementation must likewise respect overlap and failure atomicity: it canno
 Write invariants before the main `malloc` loop: payload alignment, whether header size includes itself, minimum block size, the allocated-bit location, heap termination, overflow rejection, legality of both split products, and coalescing timing.
 
 The lasting lesson is not memorizing first fit. Every piece of metadata purchases an ability: a header enables traversal and reclamation, padding ensures alignment, search enables reuse, splitting improves utilization, and coalescing restores large intervals. Each also costs something. The next lecture extracts free blocks into an explicit list, once again buying a shorter search with more structure.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

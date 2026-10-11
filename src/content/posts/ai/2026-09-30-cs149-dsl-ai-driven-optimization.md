@@ -1,5 +1,5 @@
 ---
-title: "CS149 L13：讓效能最佳化不再只靠專家——Halide 的演算法／排程分離、自動排程器與 LLM agent"
+title: "讓效能最佳化不再只靠專家——Halide 的演算法／排程分離、自動排程器與 LLM agent｜Stanford CS149 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 17 篇，對應 11 月 6 日的第 13 講 [Domain-Specific Programming Systems and AI-Driven Performance Optimization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)，官方投影片 [PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aiperfoptimization/13_autooptimize.pdf) 共 55 頁（PDF 封面標題寫的是「Automatic Performance Optimization」）。
 
 關於錄影：Fall 2025 錄影只在 Canvas。這講前半的 DSL 內容，在課程首頁指向的 2023 公開錄影裡有對應的 [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)；**後半的 LLM agent 部分沒有任何公開錄影，只能依投影片**。本文全部以 2025 投影片為準，2023 影片只當前半的聽講補充，兩者內容是否一致本文沒有逐段比對。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
-
-課程與錄影入口：
-
-- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 15 - Domain Specific Programming Languages》（1:18:53）。字幕講 DSL 的動機（生產力與效能）、Halide（含模糊濾波例子與排程）、研究語言 Liszt（字幕誤寫成 list）與圖形、網格等其他領域，只在題外話提到 LLM；Halide 自動排程器、LLM agent 產生 kernel、KernelBench 在字幕中沒有出現，和文中「後半沒有公開錄影」的說法一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 起點：寫快程式的人太少
 
@@ -204,6 +186,24 @@ blurx.compute_at(x).vectorize(x, 8);
 - 自我改進 agent 的一般方法：[Stanford CS329A 自我改進 agent 導讀](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
 系列導覽：上一篇 [L12 把 AI 應用映射到資料中心](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)｜下一篇 [PA5 寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 15 - Domain Specific Programming Languages》（1:18:53）。字幕講 DSL 的動機（生產力與效能）、Halide（含模糊濾波例子與排程）、研究語言 Liszt（字幕誤寫成 list）與圖形、網格等其他領域，只在題外話提到 LLM；Halide 自動排程器、LLM agent 產生 kernel、KernelBench 在字幕中沒有出現，和文中「後半沒有公開錄影」的說法一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

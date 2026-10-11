@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 7: Functions II—Surjections, Assumptions, and Composition"
+title: "Functions II—Surjections, Assumptions, and Composition | Stanford CS103 Lecture 7"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 9 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 7, Spring 2026 (2026-04-15)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 Functions Part I defined domains, codomains, involutions, and injections. Part II is not merely another vocabulary list. Its central skill is translating first-order formulas into proof actions. The same `∀` or `→` demands a different next step depending on whether it is assumed or remains to be proved. That distinction connects every example in the deck.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/)
 
 ## 1. Recap: a function type is a proof contract
 
@@ -139,6 +131,14 @@ The public deck shows the agenda, definitions, bird example, both involution the
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt the article from the complete official Functions Part II deck, restoring the deck-specific proofs of surjectivity, assuming versus proving, involution relationships, and composition.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/07/)
 
 ## References
 

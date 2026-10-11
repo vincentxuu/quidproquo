@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 3: Minimax, Alpha-Beta, and Expectimax"
+title: "Minimax, Alpha-Beta, and Expectimax | CMU 07-280 Lecture 3"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 3: Adversarial Search**. The previous lecture found a route through a fixed world. Here, an opponent or random event changes the next state. The answer is no longer one action sequence but a contingent plan: what to do after each possible response.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf), [Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf), [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and checked [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No public recording link is listed in the official schedule. This article does not turn slide games or demos into unrecorded spoken commentary.
 
 ## The inherited question: when you do not control the transition
 
@@ -83,6 +69,20 @@ This returns to Lecture 1's representation problem. An evaluation function compr
 1. Compute the full minimax value of Recitation 2's first tree before pruning anything.
 2. Trace `α` and `β` in the same order, writing why each pruned branch cannot change an ancestor's decision.
 3. Build a three-action example in which minimax and expectimax choose different actions.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf), [Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf), [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and checked [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No public recording link is listed in the official schedule. This article does not turn slide games or demos into unrecorded spoken commentary.
 
 ## Update Log
 

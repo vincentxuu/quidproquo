@@ -1,5 +1,5 @@
 ---
-title: "Reading NCCU Yen-Lung Tsai's Generative AI: Overview and Self-Study Route"
+title: "Reading NCCU Yen-Lung Tsai's Generative AI: Overview and Self-Study Route | NCCU Yen-Lung Tsai Generative AI Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 The course has a clear audience: beginners with little programming background. They first learn the principles behind neural networks, GANs, large language models, RAG, AI agents, and diffusion image generation. Then they build chatbots, RAG systems, agents, and image-generation web apps in [Google Colab](https://colab.research.google.com/). Among the course guides on this site, it is one of the gentler entry points. Deeper material is linked out to other series.
 
 This post is the series entry. It covers who runs the course, what outside readers can get, how lectures line up with homework, which tools you need, and what changes in Fall 2026. Each lecture gets its own post.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-- [YouTube course playlist (Iveai - I've AI)](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
-
-Checked: 2026-10-10.
 
 ## Whose course is it: NCCU teaches it, the Chang Gung page is a satellite section
 
@@ -202,6 +191,17 @@ Each lecture here stands on its own. These series on the site are only for when 
 - Diffusion math: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); visual generation: [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en)
 - Reinforcement learning: [Berkeley CS285: imitation learning and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en)
 - How open each school's courses are: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [YouTube course playlist (Iveai - I've AI)](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

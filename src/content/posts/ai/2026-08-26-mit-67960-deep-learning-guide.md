@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 導讀：一門課兩個官方版本——想修完走 2024 OCW，要最新內容讀 2025 投影片"
+title: "一門課兩個官方版本——想修完走 2024 OCW，要最新內容讀 2025 投影片｜MIT 6.7960 主題單元"
 date: 2026-08-26
 category: ai
 type: guide
@@ -22,17 +22,6 @@ draft: false
 但這不是一門全公開課。psets 從 [Gradescope](https://www.gradescope.com/courses/1110115) 發布、解答放在 [Canvas](https://canvas.mit.edu/courses/33933)，上課錄影同樣只在 Canvas——三樣都要 MIT 身分。按照本站[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的四級標準，它是 **A2：教材部分開放**。不過故事沒有停在這裡：同一門課的 [Fall 2024 版上了 MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)，影片與作業全部公開。所以「6.7960 能不能自學」的答案不是一句話，而是先選版本。
 
 本文要回答四件事：這門課教什麼、三位講師怎麼分工、21 講的主題怎麼接起來，以及兩個版本各自能讓你走到哪裡。查證範圍是 Fall 2025 官方課站與 MIT OCW Fall 2024 的完整 schedule、grading 與 policies。我沒有逐份打開每個投影片 PDF 檢查內頁；以下對各講內容的描述來自官網自己的摘要文字。
-
-## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。
-
-課程與錄影入口：
-
-- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：本篇沒有嵌入影片，只核對文中關於影片的說法：讀了 Lec 01–18 共 18 支講課影片的字幕與影片說明（Lec 19 以後未讀），確認 Fall 2024 的講者是 Isola、Bernstein、Beery 三位（Beery 並非 2025 才加入），原「Fall 2024 由 Isola 與 Bernstein 合授」漏了 Beery，已更正。
 
 ## 先判斷它是不是你要的課
 
@@ -154,6 +143,17 @@ OCW 版公開的東西很完整：
 ## 小結
 
 6.7960 的自學答案取決於你要什麼。走 OCW Fall 2024，你拿到的是接近 A3 的完整包——影片、五份作業、起始檔、一份解答、project rubric；讀 Fall 2025 投影片，你拿到最新的 foundation models 課綱，但要自己造練習。兩版都公開了策展過的 readings 和免費教科書路線，也都不給你 office hours 和 MIT 的學分。先選版本，再開第一份作業。
+
+## 課程影片來源
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：列有 Lec 01–21、Lec 23、Lec 24 與 PyTorch Tutorial 的公開錄影；Lec 22 官方標示 not available。逐講影片附在各講文章。
+
+課程與錄影入口：
+
+- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：本篇沒有嵌入影片，只核對文中關於影片的說法：讀了 Lec 01–18 共 18 支講課影片的字幕與影片說明（Lec 19 以後未讀），確認 Fall 2024 的講者是 Isola、Bernstein、Beery 三位（Beery 並非 2025 才加入），原「Fall 2024 由 Isola 與 Bernstein 合授」漏了 Beery，已更正。
 
 ## 更新紀錄
 

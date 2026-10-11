@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 8: ELMo, BERT, T5, BART, GPT and the Three Roads to Pretraining"
+title: "NTHU NLP Guide 8: ELMo, BERT, T5, BART, GPT and the Three Roads to Pretraining | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,30 +31,6 @@ glossary:
 The official material for this lecture is [W4_bert_and_its_family.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W4_bert_and_its_family.pdf) (58 slides), titled "ELMo, BERT, GPT, and T5 (BERT and its Family)", with recordings [Week 6 Tue.](https://www.youtube.com/live/U5HypcXrIgY) and [Week 6 Thu.](https://www.youtube.com/live/RNlcZjzbhDo) (in Mandarin). The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W6. The W9 row's Topics column does say "ELMo, BERT, GPT, and T5", but the file attached there is the PEFT deck. The Topics column is a syllabus template; this guide goes by the attached files.
 
 The outline: recap of word embeddings and RNNs, then from word embeddings to pretrained language models (ELMo), then pretraining with Transformers (encoder BERT, encoder-decoder T5, decoder GPT), then GPT-3's in-context learning and large language models.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=U5HypcXrIgY
-title: Week 6 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=RNlcZjzbhDo
-title: Week 6 Thu.
-```
-
-Original videos: [Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the Week 6 Thu. transcript was read in full; the Week 6 Tue. transcript was read only for its first ~12,000 characters plus keyword searches of the rest, so that video is partially checked. Week 6 Tue. covers ELMo (biLM, two layers, weighted concatenation), MLM with 15% and 80/10/10, NSP with [CLS]/[SEP], the fine-tuning recipe, BERT-base/large sizes and 64 TPUs for 4 days, RoBERTa/SpanBERT/domain BERTs, and begins T5; Week 6 Thu. recaps T5, then covers BART, GPT-1 to GPT-3, in-context learning, scaling laws, and MoE. The post is slide-based and makes no specific claims about the videos; nothing conflicts with the transcripts, so no text was changed.
 
 ## Starting point: one "record", two meanings
 
@@ -249,6 +225,30 @@ Slide 58's takeaways close the three roads in three lines: the BERT family pretr
 - Solutions, quizzes and class discussion live on NTU COOL and are not available to outside readers. The Fall 2026 version of this lecture is not yet public.
 
 **Series navigation**: previous [Sub-word Tokenization](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en) | next [HF BERT Tutorial and HW3: Multi-output Learning](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=U5HypcXrIgY
+title: Week 6 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RNlcZjzbhDo
+title: Week 6 Thu.
+```
+
+Original videos: [Week 6 Tue.](https://www.youtube.com/watch?v=U5HypcXrIgY)、[Week 6 Thu.](https://www.youtube.com/watch?v=RNlcZjzbhDo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 6 Thu. transcript was read in full; the Week 6 Tue. transcript was read only for its first ~12,000 characters plus keyword searches of the rest, so that video is partially checked. Week 6 Tue. covers ELMo (biLM, two layers, weighted concatenation), MLM with 15% and 80/10/10, NSP with [CLS]/[SEP], the fine-tuning recipe, BERT-base/large sizes and 64 TPUs for 4 days, RoBERTa/SpanBERT/domain BERTs, and begins T5; Week 6 Thu. recaps T5, then covers BART, GPT-1 to GPT-3, in-context learning, scaling laws, and MoE. The post is slide-based and makes no specific claims about the videos; nothing conflicts with the transcripts, so no text was changed.
 
 ## Update Log
 

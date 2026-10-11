@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 17：多模態模型先把影像變成 token，再處理語意與細節的衝突"
+title: "多模態模型先把影像變成 token，再處理語意與細節的衝突｜Stanford CS336 第 17 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 17: Alignment — multimodality**，2026 年 5 月 27 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_17.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_17.py)。這是本系列最後一堂正課；後面兩堂 guest sessions 不納入 17 講主系列。
 
 Transformer 接收 token。文字需要 tokenizer，影像與影片也必須轉成一串可處理的 units。理解任務偏好保存高階語意，生成任務卻需要顏色、紋理與空間細節；同一套 representation 很難同時最佳。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 17（Alignment: Multimodality，講者 Percy 開場說原訂講 RL、改講多模態）。字幕涵蓋 CLIP（contrastive）、ViT／patch、LLaVA（projector、freeze）、any-res 切 tile、Qwen-VL（動態解析度、mRoPE、DeepStack）、Chameleon、VQ 離散 token 與 diffusion。字幕未見 SigLIP 一詞（正文把 SigLIP 當 CLIP 後續做法介紹，未宣稱影片講過），逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=26FtD08ZpOU
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## CLIP 用對比學習取得語意
 
@@ -78,6 +60,24 @@ Image tokens 通常比 text tokens entropy 高，也可能造成 norm growth 與
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。本文依 CLIP、SigLIP、LLaVA、Qwen-VL 與 Chameleon 的當期章節整理，沒有納入後續 guest sessions。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 17（Alignment: Multimodality，講者 Percy 開場說原訂講 RL、改講多模態）。字幕涵蓋 CLIP（contrastive）、ViT／patch、LLaVA（projector、freeze）、any-res 切 tile、Qwen-VL（動態解析度、mRoPE、DeepStack）、Chameleon、VQ 離散 token 與 diffusion。字幕未見 SigLIP 一詞（正文把 SigLIP 當 CLIP 後續做法介紹，未宣稱影片講過），逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=26FtD08ZpOU
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 17: Alignment - Multimodality](https://www.youtube.com/watch?v=26FtD08ZpOU)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 5 導讀：Linear Programming，為什麼最優解落在可行域的頂點"
+title: "Linear Programming，為什麼最優解落在可行域的頂點｜CMU 07-380 第 5 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, linear-programming, optimization]
@@ -25,26 +25,6 @@ draft: false
 先講結論：**只要 LP 有有限的最優值，最優解集合一定包含至少一個頂點**。所以求解器只需要檢查限制邊界的交點，不必掃過整個平面。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- [Lec5 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf)：pre-reading polls、Diet Problem 建模、三種 LP 形式、圖解、頂點枚舉、simplex 直覺、高維。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx)
-- [PR3 Linear Programming 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Linear_Programming.pdf)（checkpoint 截止 9/8）：Diet Problem、矩陣維度檢查、dot product、直線與半平面
-- 課站列的 7 個 Desmos：[Dot Product](https://www.desmos.com/calculator/ns7z4a6t7p)、[Cost at points](https://www.desmos.com/calculator/k8mplulyxm)、[Zero cost](https://www.desmos.com/calculator/tbzzbwta0g)、[Cost contours](https://www.desmos.com/calculator/8d9kxbdq9u)、[Constraint](https://www.desmos.com/calculator/hwudcts2yd)、[Cost with one constraint](https://www.desmos.com/calculator/ufrnzjgyvb)、[LP](https://www.desmos.com/calculator/plp1thgsbh)
-- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)：本篇只用第 1 題（頂點枚舉 vs simplex）與 Cargo Plane。Recitation 3（9/11，當天也是 Quiz 1）跟 Recitation 4（9/18）共用這一份 PDF
-- 課站指定閱讀：[Boyd & Vandenberghe《Convex Optimization》](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) §2.2.1 超平面與半空間、§2.2.4 多面體、§4.3–4.3.1 線性規劃與範例（§4.3.1 第一個例子就是 diet problem）
-
-**公開程度**：以上都能在校外直接下載，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。課站沒有錄影連結，Canvas checkpoint 和 Quiz 1 題目只限校內。
 
 ## 承上問題：從文字題到求解器看得懂的形式
 
@@ -154,6 +134,26 @@ flowchart LR
 - 上一篇：[HW2 導讀：Classical and Motion Planning，從 robot-cook PDDL 到 RRT\* 再到 LP 圖解](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp)
 - 下一篇：[Lecture 6 導讀：Integer Programming，先鬆弛成 LP 再用 branch and bound 分支](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- [Lec5 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming_inked.pdf)：pre-reading polls、Diet Problem 建模、三種 LP 形式、圖解、頂點枚舉、simplex 直覺、高維。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec5_Linear_Programming.pptx)
+- [PR3 Linear Programming 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Linear_Programming.pdf)（checkpoint 截止 9/8）：Diet Problem、矩陣維度檢查、dot product、直線與半平面
+- 課站列的 7 個 Desmos：[Dot Product](https://www.desmos.com/calculator/ns7z4a6t7p)、[Cost at points](https://www.desmos.com/calculator/k8mplulyxm)、[Zero cost](https://www.desmos.com/calculator/tbzzbwta0g)、[Cost contours](https://www.desmos.com/calculator/8d9kxbdq9u)、[Constraint](https://www.desmos.com/calculator/hwudcts2yd)、[Cost with one constraint](https://www.desmos.com/calculator/ufrnzjgyvb)、[LP](https://www.desmos.com/calculator/plp1thgsbh)
+- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)：本篇只用第 1 題（頂點枚舉 vs simplex）與 Cargo Plane。Recitation 3（9/11，當天也是 Quiz 1）跟 Recitation 4（9/18）共用這一份 PDF
+- 課站指定閱讀：[Boyd & Vandenberghe《Convex Optimization》](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) §2.2.1 超平面與半空間、§2.2.4 多面體、§4.3–4.3.1 線性規劃與範例（§4.3.1 第一個例子就是 diet problem）
+
+**公開程度**：以上都能在校外直接下載，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。課站沒有錄影連結，Canvas checkpoint 和 Quiz 1 題目只限校內。
 
 ## 更新紀錄
 

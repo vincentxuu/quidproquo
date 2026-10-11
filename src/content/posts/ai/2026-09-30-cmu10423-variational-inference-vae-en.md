@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L8–L9: Variational Inference, VAEs and the Diffusion ELBO"
+title: "Variational Inference, VAEs and the Diffusion ELBO | CMU 10-423 Lectures 8–9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,17 +32,6 @@ glossary:
 This is the steepest post in the series, so here is the intuition up front: **VAEs and diffusion models maximize the same kind of lower bound.** Both have latent variables, neither can compute log p_θ(x), and both push up a quantity that is computable and guaranteed to sit below log p_θ(x): the ELBO. That is the reason behind L7's advice to make the learned reverse step match q(x_{t−1} | x_t, x₀).
 
 If probability and Gaussians feel shaky, read the prerequisites section of [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) first. Every derivation below sits in a collapsible block, so you can skip them on a first pass.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## First half of L8: finishing diffusion
 
@@ -210,6 +199,17 @@ Question 6.1 of [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en), "ELBO Surgery"
 - [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) and [Lab 3: from DiT and VAE to latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en), another mathematical language for diffusion and VAEs
 - [Reading CMU 11-785: Variational autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - [Reading Stanford CS231n: Generative Models I (VAEs and GANs)](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

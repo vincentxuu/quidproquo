@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 2: STORM, Co-STORM, and Knowledge Curation"
+title: "STORM, Co-STORM, and Knowledge Curation | Stanford CS224V Lecture 2"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, deep-research, rag, storm]
@@ -19,27 +19,6 @@ description: "The complete CS224V Knowledge Curation lecture: RAG, STORM pre-wri
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 2 asks how pre-writing research can reveal dimensions the writer did not know to ask about. The schedule calls this Knowledge Curation. [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf) and Co-STORM are the central systems, followed by DataSTORM and Homework 1.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 2, "Knowledge Curation") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 2 (about 1 h 29 min). Two guest speakers present STORM and knowledge curation (going beyond retrieval to Wikipedia-style long-form articles and outlines), which matches the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
-
-```youtube
-url: https://www.youtube.com/watch?v=MY9B4eeeaTE
-title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
-```
-
-Original videos: [CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed](https://www.youtube.com/watch?v=MY9B4eeeaTE)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda: from RAG to collaborative research
 
@@ -138,6 +117,27 @@ Choose an unfamiliar topic, list three perspectives yourself, and generate an ou
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 There is no public recording, and oral explanations for several tables are unavailable. Usage and human-evaluation figures in the deck summarize the named studies; this article does not generalize them to every deep-research system.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 2, "Knowledge Curation") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 2 (about 1 h 29 min). Two guest speakers present STORM and knowledge curation (going beyond retrieval to Wikipedia-style long-form articles and outlines), which matches the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=MY9B4eeeaTE
+title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
+```
+
+Original videos: [CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed](https://www.youtube.com/watch?v=MY9B4eeeaTE)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

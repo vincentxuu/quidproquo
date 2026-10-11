@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW6 (Part 3): Policy Iteration and Value Iteration for MDPs"
+title: "(Part 3): Policy Iteration and Value Iteration for MDPs | Harvard CS181 Assignment 6"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, mdp, value-iteration, dynamic-programming, reinforcement-learning, homework]
@@ -27,17 +27,6 @@ glossary:
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/pdf/ipynb`, `img_input/gridworld.png`, due 2026-05-01), the [Section 10 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf), and the [2026 Lecture 21 MDP slides](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view), all opened on 2026-09-29. The slide link comes from a topic cell in the [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) (visible only in the xlsx export). The course as a whole is **A3**, but there are no public recording links listed for the corresponding lectures and no homework solutions. This post gives no answers and does not publish convergence counts or final policies.
 
 This is part 13 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous part, [HW6 (Part 2)](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en), dealt with HMMs, where the state evolves on its own and you only watch. Here the agent starts making decisions.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the term
 
@@ -149,6 +138,17 @@ Posts on this site that approach the same ideas from another angle; they don't r
 ## Next
 
 This problem assumes you have `get_transition_prob`. The next part, [HW6 (Part 4): Q-learning Swingy Monkey and Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en), removes that assumption: the agent doesn't know the rules and must learn by trial and error.
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

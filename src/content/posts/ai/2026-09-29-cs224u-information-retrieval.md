@@ -1,5 +1,5 @@
 ---
-title: "CS224U 資訊檢索：從 classical IR、IR 指標到 neural IR"
+title: "從 classical IR、IR 指標到 neural IR｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -40,29 +40,6 @@ glossary:
 作業一是分類題：句子給你，你判斷它的情感。作業二換成另一種題型：只給你一個問題，回答所需的證據要自己去找。2023 年的講次表把這個單元叫「Retrieval augmented in-context learning」，拆成兩份投影片，先講資訊檢索（本篇），再講 in-context learning（下一篇），最後在作業二合起來。
 
 這篇回答一個問題：**為什麼一門自然語言理解的課，要花一整個單元講搜尋引擎的技術？**
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=enRb6fp5_hw
-title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
-title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw)、[Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas，17:47）與 Part 3（IR metrics，19:22）的字幕逐項對照：消化系統無字串重疊的例子、標準 QA 與 OpenQA 對照、知識密集型任務、三種搜尋範式、捏造連結與 Bing 引用 DSP 論文的例子、SAIL 部落格；指標部分的 success／RR／precision／recall／average precision 範例與 D3 略勝 D2、選擇原則、延遲等其他維度與 Pareto frontier，皆吻合。文中引用但未嵌入的 Part 4（Neural IR）與 Part 5（Datasets）也讀過，cross-encoder／DPR／ColBERT／SPLADE 的比較、重排與 centroid 做法、PLAID 的 287 毫秒到 58 毫秒、資料集清單與三個未展開主題皆吻合。TF-IDF／BM25 公式與 MS MARCO 排行表數字屬投影片內容，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 為什麼 NLU 課要講檢索
 
@@ -217,6 +194,29 @@ Potts 在 [IR 第 3 支錄影](https://www.youtube.com/watch?v=9YCb-IxtbFQ) 用�
 
 - RAG 與 language agent 的元件拆解：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 課程狀態與作業環境：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=enRb6fp5_hw
+title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
+title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw)、[Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas，17:47）與 Part 3（IR metrics，19:22）的字幕逐項對照：消化系統無字串重疊的例子、標準 QA 與 OpenQA 對照、知識密集型任務、三種搜尋範式、捏造連結與 Bing 引用 DSP 論文的例子、SAIL 部落格；指標部分的 success／RR／precision／recall／average precision 範例與 D3 略勝 D2、選擇原則、延遲等其他維度與 Pareto frontier，皆吻合。文中引用但未嵌入的 Part 4（Neural IR）與 Part 5（Datasets）也讀過，cross-encoder／DPR／ColBERT／SPLADE 的比較、重排與 centroid 做法、PLAID 的 287 毫秒到 58 毫秒、資料集清單與三個未展開主題皆吻合。TF-IDF／BM25 公式與 MS MARCO 排行表數字屬投影片內容，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

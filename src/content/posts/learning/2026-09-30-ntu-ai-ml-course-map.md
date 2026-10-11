@@ -1,5 +1,5 @@
 ---
-title: "台大 AI／ML 課程導讀：李宏毅、林軒田、陳縕儂的課，校外到底拿得到哪些？"
+title: "李宏毅、林軒田與陳縕儂的課怎麼接成學習路線｜世界名校 AI／CS 課程地圖"
 date: 2026-09-30
 category: learning
 tags: [ntu, ai-course, machine-learning, learning-path, open-course]
@@ -20,19 +20,6 @@ draft: false
 前五篇學校地圖都在處理英文課。台大不一樣：它是中文讀者最常自學的一間。李宏毅每年把整學期的課放上 YouTube，林軒田的機器學習基石錄影也在網路上流傳了十年。問題是「看得到影片」和「能完整修一次」差很多。影片之外，作業題目、起始碼、評分平台和旁聽身分，各自有不同的開放程度。
 
 這篇沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3 分級。A0 只有課表，A1 有課綱，A2 有部分實質教材，A3 則是教材加作業足以排成連貫自學路線。這是本站的編輯分級，不是台大的評鑑，也不代表有學分或助教批改。以下公開狀態以 **2026 年 9 月 30 日**的查核為準。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [人工智慧碩士班](https://www.csie.ntu.edu.tw/zh_tw/Admission/Announcement13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%A2%A9%E5%A3%AB%E7%8F%AD-%E4%B8%80%E8%88%AC%E7%94%9F-%E8%80%83%E8%A9%A6%E5%85%A5%E5%AD%B8%E8%A6%8F%E5%AE%9A-50477470)
-- [臺大課程網](https://course.ntu.edu.tw/)
-- [機器學習](https://course.ntu.edu.tw/courses/113-1/26214)
-- [「機器學習與人工智慧」領域專長](https://specom.aca.ntu.edu.tw/Domain/program?program=902002&lang=zh)
-- [機器學習 114-2](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)
-- [ML 2026 Spring 課程頁](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
 
 ## 台大怎麼組織 AI／ML 課：看領域專長，不是看系名
 
@@ -157,6 +144,19 @@ Level 3–4：機器學習技法、機器學習
 跟 Fall 2025 的投影片與錄影，HW1 照公開規格做，其餘作業用說明影片推回題目；[本站的 ADL 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)逐講整理了這條路線。這條路比李宏毅的課更偏工程實作。Fall 2026 正在進行，學期末可以回來看作業是否公開更多。
 
 台大和前五間學校最大的差別，是公開教材的中心在老師個人，不在學校。領域專長告訴你課程怎麼接，真正能自學的材料卻散在三位老師的個人網頁與 YouTube 頻道上，每位的開放方式也不一樣。李宏毅開放作業但不開放評分；林軒田開放影片，練習題要回到 Fall 2024 課程頁找；陳縕儂開放完整錄影，作業只公開一部分。先確認你缺的是影片、題目還是回饋，再挑那位老師的課。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [人工智慧碩士班](https://www.csie.ntu.edu.tw/zh_tw/Admission/Announcement13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E7%A2%A9%E5%A3%AB%E7%8F%AD-%E4%B8%80%E8%88%AC%E7%94%9F-%E8%80%83%E8%A9%A6%E5%85%A5%E5%AD%B8%E8%A6%8F%E5%AE%9A-50477470)
+- [臺大課程網](https://course.ntu.edu.tw/)
+- [機器學習](https://course.ntu.edu.tw/courses/113-1/26214)
+- [「機器學習與人工智慧」領域專長](https://specom.aca.ntu.edu.tw/Domain/program?program=902002&lang=zh)
+- [機器學習 114-2](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)
+- [ML 2026 Spring 課程頁](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
 
 ## 更新紀錄
 

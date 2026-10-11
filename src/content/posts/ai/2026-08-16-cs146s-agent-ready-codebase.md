@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 5：Express 拿 28 分、CockroachDB 拿 74 分——agent 就緒度是可以量的"
+title: "Express 拿 28 分、CockroachDB 拿 74 分——agent 就緒度是可以量的｜Stanford CS146S 第 5 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：什麼讓一個 repo 變得 agent-ready（結構、文件、測試、檢查）、就緒度的評分與稽核、以及真實 repo 裡常見的阻礙。客座是 [Factory](https://factory.ai/) 共同創辦人兼 CTO Eno Reyes，講題就是 agent readiness。
 
 這一週可能是整份新大綱裡**最反直覺的一週**：它主張你手上 agent 表現不好，通常不是模型的問題。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 這一週不是憑空冒出來的
 
@@ -150,6 +138,18 @@ Factory 把幾個知名開源專案的評分[公開出來](https://factory.ai/ag
 - 三個公開專案的分數是評估當下的快照，repo 會變
 - 八柱五級的條目細節可能隨產品迭代調整
 - Fall 2026 這週的實際教材與作業要開課後才知道
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

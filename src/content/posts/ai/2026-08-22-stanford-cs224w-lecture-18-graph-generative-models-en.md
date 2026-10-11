@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W Lecture 18: Deep Generative Models for Graphs: GraphRNN and Goal-Directed Molecular Generation"
+title: "Deep Generative Models for Graphs: GraphRNN and Goal-Directed Molecular Generation | Stanford CS224W Lecture 18"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is **Lecture 18 of Stanford CS224W: Machine Learning with Graphs, Fall 2025**, dated 2025-12-02. It follows the [course schedule](https://web.stanford.edu/class/cs224w/) and the [official Lecture 18 deck](https://web.stanford.edu/class/cs224w/slides/18-deep-generation.pdf); speaker attribution follows the slides.
-
-## Course video sources
-
-Checked live: the archived Fall 2025 official page lists no public recording link (its Canvas entry is empty), and the current Fall 2026 official page says lecture videos are on Canvas for enrolled students only; the Canvas entry redirects to the Stanford sign-in page. The public Stanford Online YouTube playlists currently cover only the 2021 and 2023 offerings, whose lectures differ from the Fall 2025 offering this article follows, so they are not embedded or treated as Fall 2025 recordings.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-Checked: 2026-10-10.
 
 ## Materials and gaps
 
@@ -137,6 +124,19 @@ Save every action, mask, log-probability, validity decision, and reward to locat
 ## Self-study checkpoint
 
 Decompose the pipeline into graph construction, retrieval or sampling, encoder, prediction head, and evaluation. Replace one component at a time and retain cost and failure traces so any improvement remains attributable.
+
+## Course video sources
+
+Checked live: the archived Fall 2025 official page lists no public recording link (its Canvas entry is empty), and the current Fall 2026 official page says lecture videos are on Canvas for enrolled students only; the Canvas entry redirects to the Stanford sign-in page. The public Stanford Online YouTube playlists currently cover only the 2021 and 2023 offerings, whose lectures differ from the Fall 2025 offering this article follows, so they are not embedded or treated as Fall 2025 recordings.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

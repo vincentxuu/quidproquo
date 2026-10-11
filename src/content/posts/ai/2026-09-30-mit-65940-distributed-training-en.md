@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L19–L20 Distributed Training: Split the Model When Memory Runs Out, Compress Gradients When Bandwidth Does"
+title: "Distributed Training: Split the Model When Memory Runs Out, Compress Gradients When Bandwidth Does | MIT 6.5940 Lectures 19–20"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,29 +46,6 @@ But "add more GPUs" runs into two problems, one per lecture:
 
 - **The model does not fit on one GPU**: you have to split it (L19).
 - **Once split, GPUs have to talk to each other**: communication becomes the bottleneck (L20).
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=LcOM-nZdqxw
-title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=lOVcPooetrM
-title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LcOM-nZdqxw), [EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=lOVcPooetrM)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): For L19 I read the opening agenda, the keyword hits for ZeRO/FSDP, pipeline, tensor and sequence parallelism, and the ending. The video mentions 1,000+ V100s on the Summit supercomputer, about 3 million GPU hours for GPT-3 and about 14 minutes on 1,024 GPUs, consistent with the figures at the start of this post. For L20 I read the opening and closing summary: hybrid/2D/3D parallelism and auto-parallelization, the bandwidth and latency bottlenecks, gradient compression (deep gradient compression) and gradient quantization, delayed gradient averaging, and the 8-node Raspberry Pi experiment. Both lectures match this post's topics and lecture numbers. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Four ways to split
 
@@ -237,6 +214,29 @@ for iter in range(1, max_iters + 1):
 - [CMU 11-868 Lecture 18: how ZeRO shards data-parallel memory](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en)
 - [CMU 11-868 Lectures 16–17: split layers, matrices, or experts](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
 - Gradient pruning follows the same logic as weight pruning in Lectures 3–4: [Lecture 3 on pruning granularity and criteria](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=LcOM-nZdqxw
+title: EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=lOVcPooetrM
+title: EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 19 - Distributed Training Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LcOM-nZdqxw), [EfficientML.ai Lecture 20 - Distributed Training Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=lOVcPooetrM)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): For L19 I read the opening agenda, the keyword hits for ZeRO/FSDP, pipeline, tensor and sequence parallelism, and the ending. The video mentions 1,000+ V100s on the Summit supercomputer, about 3 million GPU hours for GPT-3 and about 14 minutes on 1,024 GPUs, consistent with the figures at the start of this post. For L20 I read the opening and closing summary: hybrid/2D/3D parallelism and auto-parallelization, the bandwidth and latency bottlenecks, gradient compression (deep gradient compression) and gradient quantization, delayed gradient averaging, and the 8-node Raspberry Pi experiment. Both lectures match this post's topics and lecture numbers. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

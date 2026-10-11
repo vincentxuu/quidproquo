@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 5: Reinforcement Learning: Learning from Return Instead of Labels"
+title: "Reinforcement Learning: Learning from Return Instead of Labels | MIT 6.S191 Lecture 5"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 5 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Reinforcement Learning: Learning from Return Instead of Labels**. It Connects agent, environment, state, action, reward, and policy into an interaction loop, introducing credit assignment and exploration. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=1ij3dweHu-0
-title: MIT 6.S191: Reinforcement Learning
-```
-
-Original videos: [MIT 6.S191: Reinforcement Learning](https://www.youtube.com/watch?v=1ij3dweHu-0)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the transcript covers agent/environment/state/action/reward, discounted return, the Q function and deep Q networks (the Atari Breakout example), policy gradients, sparse/delayed rewards, the exploration-versus-exploitation trade-off and RL for LLM alignment, matching this note.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Define state, action, reward, and termination for a simple game. If the reward c
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=1ij3dweHu-0
+title: MIT 6.S191: Reinforcement Learning
+```
+
+Original videos: [MIT 6.S191: Reinforcement Learning](https://www.youtube.com/watch?v=1ij3dweHu-0)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the transcript covers agent/environment/state/action/reward, discounted return, the Q function and deep Q networks (the Atari Breakout example), policy gradients, sparse/delayed rewards, the exploration-versus-exploitation trade-off and RL for LLM alignment, matching this note.
 
 ## Update Log
 

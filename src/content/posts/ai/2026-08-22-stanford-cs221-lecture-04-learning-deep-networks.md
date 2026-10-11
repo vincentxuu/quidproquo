@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 4：Learning III：深度網路是可重複組合的計算圖"
+title: "Learning III：深度網路是可重複組合的計算圖｜Stanford CS221 第 4 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 4**，2025-10-01 由 Percy Liang 主講。官方課表、講義與作業入口在[課程網站](https://stanford-cs221.github.io/autumn2025/)，本講主要材料是 [deep_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=deep_learning)。
 
 > 材料缺口：PyTorch 可執行示例公開；實際課堂錄影另見官方播放清單。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 4 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 4 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=89NND-Ca0yY
-title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 4: Learning III](https://www.youtube.com/watch?v=89NND-Ca0yY)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 4 支）字幕，確認內容涵蓋改用 PyTorch、非線性特徵、多層 MLP 與 ReLU、訓練穩定性與 SGD／GD 的差別，與本文的講次與主題相符，未發現錯配。
 
 ## 這一講的路線
 
@@ -92,6 +72,26 @@ PyTorch 已提供 `nn.Linear`、`nn.CrossEntropyLoss` 和 `torch.optim.SGD`。�
 第三個方法是 proper initialization。來源令 `input_dim=16384`、`output_dim=32`，以常態權重和輸入做 `y=x@w`；每個 `y` 元素按 `sqrt(input_dim)` 的尺度放大，可能造成梯度爆掉。將權重除以 `sqrt(input_dim)` 讓尺度不依賴 input dimension；來源把它連到 Xavier initialization，並把常態分布截斷在 `[-3,3]` 避免 outlier。原始資料是 Glorot and Bengio 2010。
 
 第四個方法是 stochastic optimizer。全資料 gradient 需加總所有 examples，大資料集上每次更新太昂貴，因此每步抽子集，得到 unbiased estimate。來源用四個梯度 `[1,2]、[3,4]、[5,6]、[7,8]`，先算全體 mean，再固定 seed 1、取 batch size 2 的 indices，計算抽樣 mean。實作上每個 epoch 先 permute，再切 consecutive chunks，最後比較 batch mean 的平均與全體 gradient；並提示可用 Adam 取代 SGD。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 4 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 4 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=89NND-Ca0yY
+title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 4: Learning III](https://www.youtube.com/watch?v=89NND-Ca0yY)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 4 支）字幕，確認內容涵蓋改用 PyTorch、非線性特徵、多層 MLP 與 ReLU、訓練穩定性與 SGD／GD 的差別，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

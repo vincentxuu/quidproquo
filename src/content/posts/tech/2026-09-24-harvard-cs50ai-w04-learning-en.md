@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 4: Learning — Supervised Learning, k-NN, SVM, Reinforcement Learning Q-learning & Nim"
+title: "Learning — Supervised Learning, k-NN, SVM, Reinforcement Learning Q-learning & Nim | Harvard CS50 AI Week 4"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 4 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=-g0iJjnO2_w
-title: Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-Original videos: [Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=-g0iJjnO2_w)
-
-Course and recording entries:
-
-- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The original table diverged from the video in several places. The actual order is nearest neighbor (about minute 9), perceptron (about 14–34), SVM (about 34), loss functions and overfitting (about 44–57), holdout/cross-validation, a scikit-learn demo, reinforcement learning with Q-learning (from about minute 71), then unsupervised learning and k-means (from about minute 99). The original table gave k-NN too much room, left out the closing k-means segment, and listed kernel trick, confusion matrix/F1 and the Bellman equation, none of which appear in the transcript (removed). Nim is a Q-learning example in the video, not a project introduction, and the transcript never mentions the Shopping project; project descriptions come from the course site. The original exact timecodes (the video runs 1:45:49) could not be verified and are now approximate values estimated from the transcript.
 
 ## TL;DR
 
@@ -392,6 +372,26 @@ style50 nim.py
 - [ ] Understand why Nim state uses tuple (Q-table keys must be hashable)
 - [ ] Understand ε-greedy behavior difference in training vs inference
 - [ ] Both projects pass `check50` clean
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 4 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=-g0iJjnO2_w
+title: Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+Original videos: [Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=-g0iJjnO2_w)
+
+Course and recording entries:
+
+- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The original table diverged from the video in several places. The actual order is nearest neighbor (about minute 9), perceptron (about 14–34), SVM (about 34), loss functions and overfitting (about 44–57), holdout/cross-validation, a scikit-learn demo, reinforcement learning with Q-learning (from about minute 71), then unsupervised learning and k-means (from about minute 99). The original table gave k-NN too much room, left out the closing k-means segment, and listed kernel trick, confusion matrix/F1 and the Bellman equation, none of which appear in the transcript (removed). Nim is a Q-learning example in the video, not a project introduction, and the transcript never mentions the Shopping project; project descriptions come from the course site. The original exact timecodes (the video runs 1:45:49) could not be verified and are now approximate values estimated from the transcript.
 
 ## Update Log
 

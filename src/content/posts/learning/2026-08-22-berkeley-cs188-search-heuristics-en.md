@@ -1,5 +1,5 @@
 ---
-title: "CS188 Search and Heuristics: Pacman from DFS and BFS to A*"
+title: "Pacman from DFS and BFS to A* | Berkeley CS188 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, search, heuristic, pacman]
@@ -19,26 +19,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 The opening unit of CS188 asks how an agent should expand possible states when it does not know the solution path. The [Lectures 1–4 schedule](https://inst.eecs.berkeley.edu/~cs188/sp26/) covers agents, uninformed search, A*, and local search. [Project 1](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj1/) turns that sequence into implementations of DFS, BFS, UCS, and A*, followed by heuristic design for corners and food search.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=On4rmdfuFKE
-title: CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments
-```
-
-Original videos: [CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments](https://www.youtube.com/watch?v=On4rmdfuFKE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 1, on course introduction, agents and environments; the early part is course logistics and staff introductions (Dan Klein and Stuart Russell sharing lectures) before moving into the notion of an agent, consistent with this article treating Lecture 1 as the start of the search unit. The remaining sections of this article cover other lectures in the unit and the project, not this video.
 
 ## Fix the common skeleton first
 
@@ -61,6 +41,26 @@ Heuristics must balance speed with correctness. The [official P1 specification](
 After P1, retain three questions: does the state preserve necessary information, what preference does the frontier encode, and does the heuristic provide only a safe directional estimate? Those questions return in MDPs, Bayes nets, and planning.
 
 Series navigation: [Previous: Course overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en) | [Next: CSPs and multi-agent search](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=On4rmdfuFKE
+title: CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments
+```
+
+Original videos: [CS188 Spring 2026 Lecture 1: Intro, Agents, and Environments](https://www.youtube.com/watch?v=On4rmdfuFKE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 1, on course introduction, agents and environments; the early part is course logistics and staff introductions (Dan Klein and Stuart Russell sharing lectures) before moving into the notion of an agent, consistent with this article treating Lecture 1 as the start of the search unit. The remaining sections of this article cover other lectures in the unit and the project, not this video.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224R HW3: AWAC, IQL, and Stitching on AntMaze"
+title: "AWAC, IQL, and Stitching on AntMaze | Stanford CS224R Assignment 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,16 +41,6 @@ The PDF lists three objectives:
 3. On a PointMass task with suboptimal data, check whether IQL's policy can compose trajectories better than any in the data.
 
 One rule to know up front: the PDF **prohibits using generative models to write code for this assignment**.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Environments and data
 
@@ -165,8 +155,28 @@ If you're not ready to spend compute, do something free first. Open the expectil
 
 **Series navigation**: Previous: [Lecture 8: Where Rewards Come From](/posts/ai/2026-09-30-cs224r-reward-learning-en) | Next: [Lecture 9: RLHF and Preference Optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
 
+## Understand asymmetry with invented residuals
+
+This is an invented teaching example, not a lecturer experiment or official assignment solution.
+
+Using invented residuals rather than assignment data, let Q-V equal +2 and -2, with ζ=0.75. Under the formula above, positive-residual loss is 0.75×2²=3 and negative-residual loss is |0.75-1|×(-2)²=1. Equal residual magnitudes receive different weights: establish residual orientation before interpreting the heavier penalty.
+
+**Check and answer:** At ζ=0.25, what are the two losses? Positive residual: 1; negative residual: 3. This supplies no assignment experiment result and does not infer overall algorithm performance from two losses.
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
+
 ## Update Log
 
+
+- 2026-10-11: Added an invented worked example and comprehension check, preserving source limits and assignment scope.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
 

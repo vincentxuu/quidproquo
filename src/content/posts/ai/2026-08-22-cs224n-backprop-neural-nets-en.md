@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 3: Matrix Calculus and Backpropagation"
+title: "Matrix Calculus and Backpropagation | Stanford CS224N Lecture 3"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 3 on January 13, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture03-neuralnets.pdf) is titled Neural Network Foundations; its agenda reviews word-vector evaluation, introduces neural networks, and then covers matrix calculus and backpropagation. The purpose is not a generic deep-learning overview. It establishes the training language used by every later model.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
-
-```youtube
-url: https://www.youtube.com/watch?v=HnliVHU2g9U
-title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network
-```
-
-Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network](https://www.youtube.com/watch?v=HnliVHU2g9U)
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 video (taught by Manning, about 73 minutes) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers neurons as small logistic units, matrix calculus and Jacobians, gradients having the same shape as the parameters (shapes, roughly 55 to 62%), the chain rule, computation graphs and the forward/backward pass (including accumulating gradients at branches), a PyTorch start and assignment two logistics, and manual gradient checking around 92%, matching the first half of this article. The transcript never mentions numerator layout, merging softmax with cross-entropy, the memory cost of backprop, optimizers or learning rates, so the corresponding sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
 ## From linear classifiers to neural networks
 
@@ -105,6 +85,26 @@ Require shape assertions, agreement between numerical and analytic gradients, an
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the four agenda components in the deck but does not claim the complete board derivation or classroom questions. The deck's “Lecture Plan” mistakenly says Lecture 2; its filename, cover, and official schedule identify it as Lecture 3.
+
+## Course video sources
+
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=HnliVHU2g9U
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network
+```
+
+Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 3 - Backpropagation, Neural Network](https://www.youtube.com/watch?v=HnliVHU2g9U)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 video (taught by Manning, about 73 minutes) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers neurons as small logistic units, matrix calculus and Jacobians, gradients having the same shape as the parameters (shapes, roughly 55 to 62%), the chain rule, computation graphs and the forward/backward pass (including accumulating gradients at branches), a PyTorch start and assignment two logistics, and manual gradient checking around 92%, matching the first half of this article. The transcript never mentions numerator layout, merging softmax with cross-entropy, the memory cost of backprop, optimizers or learning rates, so the corresponding sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
 ## Update Log
 

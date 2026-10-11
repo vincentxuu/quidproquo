@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 20：多層 Inode、Index Walk 與磁碟排程"
+title: "多層 Inode、Index Walk 與磁碟排程｜Stanford CS111 第 20 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 21 篇，對應 **Stanford CS111, Spring 2026, Lecture 20**。2026-05-13 由 Mendel Rosenblum 主講，官方題目是 [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)。官方 Lecture 20 與 [Lecture 21 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) 逐位元組相同，SHA-256 均為 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`；Canvas／Panopto 錄影不公開，無法還原兩天實際口述分界。
 
 因此這一篇只承擔 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) 前段的 multilevel inode／index walk 與尾端 disk scheduling。中段的 block cache、write policy、free bitmap、fragments 與 delayed allocation 集中放在 [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)。這是對 byte-identical artifact 的編輯分工，不是聲稱公開材料提供了確切的課堂切點。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 4.3BSD inode 是一棵按需長大的樹
 
@@ -60,6 +52,14 @@ inode tree 回答的是「logical block 對應哪個 disk block」，沒有決�
 多筆 disk I/O 等待時，ordering 目標是減少 seek。FIFO 按到達順序，公平直觀但不優化位置。Shortest positioning time first（SPTF）選移動最短者，減少 seeks 卻可能讓遠端 request starvation。SCAN 像 elevator 往一方向服務最近 requests，再反向；CSCAN 只在一方向服務，到端點後跳回起點，使等待較一致。
 
 最後三張圖以同一組 pending requests 和 most recent I/O 對比：FIFO 有許多 long seeks，SPTF 得 minimal seeks，CSCAN 依單一方向掃描。PDF 圖的文字抽取把相鄰標號黏成「71」，無法可靠判定那是 sector 7 與 1 還是 71；本文不虛構精確 traversal sequence，只保留圖能確定的政策比較。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

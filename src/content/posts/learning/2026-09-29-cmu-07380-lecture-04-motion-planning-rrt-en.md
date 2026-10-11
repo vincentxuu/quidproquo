@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 Lecture 4: Motion Planning, RRT Samples Its Way Through Continuous Space"
+title: "Motion Planning, RRT Samples Its Way Through Continuous Space | CMU 07-380 Lecture 4"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, motion-planning, rrt]
@@ -23,26 +23,6 @@ This is Lecture 4 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fa
 The previous lecture's world was made of finitely many facts; it could be huge, but it was finite. Joint angles on a robot arm or a game character's coordinates are real numbers, so there are infinitely many states and BFS cannot even finish the first layer. This lecture's answer: stop enumerating and start sampling.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule); the site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and scope
-
-- The second half of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): the Among Us and Robot Cook motivation, configuration space, RRT, collision handling, completeness and optimality, RRT\*
-- The three interactive demos on the site: [Piano Mover](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/piano_mover.html), [Robot Cook](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot.html), and [Robot Cook N-link](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot_nlink.html)
-- [Recitation 2 solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) §6: hand-computed RRT on a warehouse robot. This lecture has no recitation of its own; RRT practice is the last section of Recitation 2
-- The site assigns AIMA Ch. 26.5. This post does not draw on the textbook
-- There is no pre-reading for this lecture
-
-**Access level**: slides, all three demos, and the recitation solutions are public, and the matching HW2 programming assignment ships starter code and a local autograder, so this part reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale.
 
 ## From discrete to continuous: configuration space
 
@@ -152,6 +132,26 @@ The summary slide: RRT is not optimal; RRT\* considers minimal path cost as samp
 - Previous: [Lecture 3 guide: Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en)
 - Next: [HW2 guide: Classical and Motion Planning, from robot-cook PDDL to RRT* to graphing LPs](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp-en)
 - Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and scope
+
+- The second half of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): the Among Us and Robot Cook motivation, configuration space, RRT, collision handling, completeness and optimality, RRT\*
+- The three interactive demos on the site: [Piano Mover](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/piano_mover.html), [Robot Cook](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot.html), and [Robot Cook N-link](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot_nlink.html)
+- [Recitation 2 solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) §6: hand-computed RRT on a warehouse robot. This lecture has no recitation of its own; RRT practice is the last section of Recitation 2
+- The site assigns AIMA Ch. 26.5. This post does not draw on the textbook
+- There is no pre-reading for this lecture
+
+**Access level**: slides, all three demos, and the recitation solutions are public, and the matching HW2 programming assignment ships starter code and a local autograder, so this part reaches A3. The course as a whole is still A2 (in progress); see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale.
 
 ## Update Log
 

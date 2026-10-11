@@ -1,5 +1,5 @@
 ---
-title: "CS231N L7：循環神經網路與影像描述——RNN、LSTM 與 captioning"
+title: "循環神經網路與影像描述——RNN、LSTM 與 captioning｜Stanford CS231N 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -44,23 +44,6 @@ glossary:
 
 1. 這份投影片頁尾印的日期是「April 21, 2025」，但第 2 頁的公告寫 A2 在「this Thursday (4/23)」發佈、專題 proposal 同一天截止，跟 2026 課表一致。本文只稱它為「2026 課表連結的投影片」，不推論內容改了多少。和 [2025 年的 lecture_7.pdf](https://cs231n.stanford.edu/slides/2025/lecture_7.pdf) 對照，主體章節幾乎一樣；2025 版開頭多了幾頁「上次的釐清」（Dropout 測試時怎麼縮放、正規化與初始化的關係），後面多了一頁 Visual Language Navigation。
 2. **課表列了 GRU 和 sequence-to-sequence，但 2026 投影片的文字裡找不到這兩個主題**，2025 版投影片也沒有。本文不替這兩個主題補內容；要讀的話，課表建議的 Olah 文章裡有 GRU 的介紹。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 7 講（長度 1:11:47），字幕有 RNN 序列問題與字元級語言模型、截斷 BPTT、影像描述、VQA 與 Visual Dialog、LSTM 與梯度消失／爆炸、state space model，與本文主題相符；字幕沒有 GRU 與 sequence-to-sequence，與本文說兩個年份的投影片都沒有這兩個主題一致。講者 Zane Durante 這一點字幕沒有直接說出（影片說明欄列出），未另行驗證。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=kG2lAPBF7zA
-title: Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks](https://www.youtube.com/watch?v=kG2lAPBF7zA)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 開場：回顧 L6，然後轉向序列
 
@@ -236,6 +219,23 @@ LSTM 真的解決了梯度消失嗎？第 115 頁的回答很節制：
 延伸閱讀：站上 [CS224N 的 RNN 與語言模型導讀](/posts/ai/2026-08-22-cs224n-rnn-language-models)從 NLP 角度講同一批模型；[CMU 11-785 的 RNN 第一講](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)與 [seq2seq 講次](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc)可以補上本講投影片沒有展開的 sequence-to-sequence。
 
 系列導覽：上一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜下一篇 [A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 7 講（長度 1:11:47），字幕有 RNN 序列問題與字元級語言模型、截斷 BPTT、影像描述、VQA 與 Visual Dialog、LSTM 與梯度消失／爆炸、state space model，與本文主題相符；字幕沒有 GRU 與 sequence-to-sequence，與本文說兩個年份的投影片都沒有這兩個主題一致。講者 Zane Durante 這一點字幕沒有直接說出（影片說明欄列出），未另行驗證。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=kG2lAPBF7zA
+title: Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks](https://www.youtube.com/watch?v=kG2lAPBF7zA)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

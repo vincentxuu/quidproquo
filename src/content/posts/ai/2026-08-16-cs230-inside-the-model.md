@@ -1,5 +1,5 @@
 ---
-title: "What's Going On Inside My Model?：模型退步了，你先看哪裡"
+title: "What's Going On Inside My Model?：模型退步了，你先看哪裡｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -26,26 +26,6 @@ draft: false
 Katanforoosh 說明了改名的理由：
 
 > 「這堂課以前叫 neural network interpretability，但我**把範圍放寬了**，因為現在多了一節談 frontier model，而**你在外面玩的那些模型，可解釋性方法多半還沒被搞定。**」
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 10（長度 1:46:54 與文中「1 小時 47 分」相符；講者為 Kian，字幕中以第一人稱說明把課程「broadened the scope」）。逐項對過字幕，皆有對應：2000 億參數 checkpoint 退步案例與 MoE router、saliency 用 softmax 前分數、integrated gradients、occlusion（博美犬、阿富汗獵犬）、GAP 與 Grad-CAM、梯度上升（大麥町、鵝一整群、紅鶴）、dataset search 取前五、deconvolution 與 transposed convolution、翻轉 filter 與 switches、Zeiler & Fergus 與 Yosinski、兩層 transformer 與 induction head、Chinchilla 700 億對 GPT-3 1750 億、GPT-5 成本「數億美元」、n-gram 汙染偵測與 Llama 4、The Pile、非英語 token 12% 升到 19%、experience replay、「99% 的 Python 程式碼已在網路上」、Epoch AI。文中對 Epoch 數字與課堂不符的註記未在字幕比對（屬本站查證）。無需修改正文。
-
-```youtube
-url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
-title: Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-查核日期：2026-10-10。
 
 ## 開場案例：你是 frontier lab 的模型訓練員
 
@@ -332,6 +312,26 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 **三、benchmark 只看相對值。** 這條可以直接套用在讀模型發布公告上，而且他給了理由——不是因為廠商造假，而是因為**汙染難以偵測、而 benchmark 測的能力和你的任務不一定重疊**。
 
 最後值得記住的是他的誠實：**這整套方法在 transformer 上目前只做得到兩層。** 我們對自己每天在用的模型，內部理解程度遠低於對一個 2014 年的卷積網路。
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 10（長度 1:46:54 與文中「1 小時 47 分」相符；講者為 Kian，字幕中以第一人稱說明把課程「broadened the scope」）。逐項對過字幕，皆有對應：2000 億參數 checkpoint 退步案例與 MoE router、saliency 用 softmax 前分數、integrated gradients、occlusion（博美犬、阿富汗獵犬）、GAP 與 Grad-CAM、梯度上升（大麥町、鵝一整群、紅鶴）、dataset search 取前五、deconvolution 與 transposed convolution、翻轉 filter 與 switches、Zeiler & Fergus 與 Yosinski、兩層 transformer 與 induction head、Chinchilla 700 億對 GPT-3 1750 億、GPT-5 成本「數億美元」、n-gram 汙染偵測與 Llama 4、The Pile、非英語 token 12% 升到 19%、experience replay、「99% 的 Python 程式碼已在網路上」、Epoch AI。文中對 Epoch 數字與課堂不符的註記未在字幕比對（屬本站查證）。無需修改正文。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ozb1AR_F5MU
+title: Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 10: What’s Going On Inside My Model?](https://www.youtube.com/watch?v=Ozb1AR_F5MU)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

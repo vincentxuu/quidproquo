@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 3：Transformer 架構很多，真正穩定的預設值其實很少"
+title: "Transformer 架構很多，真正穩定的預設值其實很少｜Stanford CS336 第 3 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 3: Architectures, hyperparameters**，2026 年 4 月 6 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_03.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf)。
 
 這一講的題目故意叫做「Everything you didn't want to know」。近年的模型論文會列出大量架構變體，但真正的問題不是記住每個名稱。你要找出哪些選擇已有跨模型共識、哪些仍是局部取捨，以及哪些只是規模與系統條件不同。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Architectures）。字幕開場即說明「everything you didn't want to know about architectures and hyperparameters」，並涵蓋本文各節的 pre-norm／post-norm、RMSNorm、bias、SwiGLU、RoPE、aspect ratio、vocabulary、dropout／weight decay、QK norm、z-loss、soft-capping、GQA 與 sliding window；講者為 Tatsu 與官方 schedule 一致。逐句未比對，文章沒有對影片下其他具體說法，無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=lVynu4bo1rY
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 從一個簡化的現代 Transformer 出發
 
@@ -90,6 +72,24 @@ Softmax 是數值風險集中處。Output logits 可用 z-loss 抑制整體偏�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依投影片的架構、超參數、穩定性和 attention 章節整理，未拿其他學期補洞。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Architectures）。字幕開場即說明「everything you didn't want to know about architectures and hyperparameters」，並涵蓋本文各節的 pre-norm／post-norm、RMSNorm、bias、SwiGLU、RoPE、aspect ratio、vocabulary、dropout／weight decay、QK norm、z-loss、soft-capping、GQA 與 sliding window；講者為 Tatsu 與官方 schedule 一致。逐句未比對，文章沒有對影片下其他具體說法，無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=lVynu4bo1rY
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

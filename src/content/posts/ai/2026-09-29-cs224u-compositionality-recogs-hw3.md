@@ -1,5 +1,5 @@
 ---
-title: "CS224U 組合性泛化：COGS、ReCOGS 與作業三"
+title: "COGS、ReCOGS 與作業三｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -31,29 +31,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)的結尾留了一個問題：什麼算公平的非 IID 泛化測試？這一篇用一個具體的 benchmark 回答它。
 
 [系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經貼過那張 COGS 成績表，重點是 structural 幾欄幾乎全是 0，本文不再重貼數字。這裡要講的是：那些 0 是怎麼來的、ReCOGS 怎麼拆解它們，以及作業三要你做什麼。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=g5zwxUqBzN8
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=tOh-1GYaDl8
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
-
-內容核對：已依字幕核對（2026-10-10）：影片 27（Compositionality）與影片 28（COGS and ReCOGS）的字幕逐項對照：組合性原則與例句、對『無限』的保留、系統性與 mean apple pie 例、歷史回顧、COGS 任務與變數編號等慣例、切分類別、全 0 欄位、bigram 頻率、長度與遞迴的解耦（變數 45／46）、PP 修飾語假說與三種改寫、ReCOGS 三項改寫與四個概念問題，皆吻合。第 24 支作業說明錄影（文中引用但未嵌入）無法取得字幕，其三處說法已標明未核對。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 組合性是什麼，為什麼要測它
 
@@ -170,7 +147,7 @@ gen 的類別名稱有規律：`X_to_Y` 或 `only_seen_as_X_as_Y`，意思是某
 
 **Q1 是純資料分析，不訓練模型。** overview 投影片直接給了劇透：Charlie 在訓練集只當 theme，在泛化集只當 agent；Lina 在訓練集只當 agent，在泛化集只當 theme。
 
-**Q2 之前有一段很長的建模插曲。** notebook 把訓練 ReCOGS 模型需要的六個元件都給你：Hugging Face tokenizer、PyTorch Dataset、`EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`、`RecogsLoss`、`RecogsModule`、`RecogsModel`。不打算自己訓練的話，只要把最後一個當介面用。Potts 在[第 24 支錄影](https://www.youtube.com/watch?v=e73Ch08XhX0)說，tokenizer 原本要出成作業題，但他自己寫得太痛苦，決定直接給。（此點出自第 24 支作業說明錄影，本站未讀其字幕，未核對。）
+**Q2 之前有一段很長的建模插曲。** notebook 把訓練 ReCOGS 模型需要的六個元件都給你：Hugging Face tokenizer、PyTorch Dataset、`EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`、`RecogsLoss`、`RecogsModule`、`RecogsModel`。不打算自己訓練的話，只要把最後一個當介面用。
 
 Q2 用這個訓練好的模型延續 Q1 的分析，你會親眼看到：一個很好的模型，錯得最多的正是那些出現在陌生位置的名字。
 
@@ -209,6 +186,31 @@ Q2 用的評分函式 `recogs_exact_match` 有三條規則，notebook 各給一�
 
 - COGS 成績表與課程狀態：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 評估設計的一般原則：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
+
+> **待核實來源備註**：先前筆記提到 Potts 在[第 24 支作業說明錄影](https://www.youtube.com/watch?v=e73Ch08XhX0)談過 tokenizer 的出題緣由；本站未讀該段字幕、未核對，這項筆記不作為本文教學依據，也不據此歸因講者動機。
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=g5zwxUqBzN8
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=tOh-1GYaDl8
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8)、[Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
+
+內容核對：已依字幕核對（2026-10-10）：影片 27（Compositionality）與影片 28（COGS and ReCOGS）的字幕逐項對照：組合性原則與例句、對『無限』的保留、系統性與 mean apple pie 例、歷史回顧、COGS 任務與變數編號等慣例、切分類別、全 0 欄位、bigram 頻率、長度與遞迴的解耦（變數 45／46）、PP 修飾語假說與三種改寫、ReCOGS 三項改寫與四個概念問題，皆吻合。第 24 支作業說明錄影（文中引用但未嵌入）無法取得字幕，其三處說法已標明未核對。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

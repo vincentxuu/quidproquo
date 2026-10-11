@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 4：Median of Medians 如何保證線性 Selection"
+title: "Median of Medians 如何保證線性 Selection｜Stanford CS161 第 4 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 5 篇，對應 **Stanford CS161, Winter 2026, Lecture 4**。Moses Charikar 在 2026 年 1 月 14 日主講，官方題目是 [Median and Selection](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)。本文使用一頁課前練習、九頁講義與 66 頁投影片；Canvas 錄影未使用，notebook 與概念檢核也未列為已讀。
 
 Selection 的輸入是含 `n` 個數的陣列 `A` 與 `k∈{1,...,n}`，輸出第 `k` 小元素。最直接的做法是先用 MergeSort 排序，再取第 `k` 個，時間 `O(n log n)`。但只要一個順位，真的需要知道其他所有元素的完整順序嗎？第四講的答案是不用，而且 deterministic worst-case 可以做到 `O(n)`。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)
-
-查核日期：2026-10-10。
 
 ## 從最小值看出 Ω(n) 下界
 
@@ -173,6 +163,16 @@ Lecture 4 同時完成兩件事。它給出第一個看似不可能、卻達到 
 工程實作常選 random pivot，因為程式短、常數小；需要敵對輸入保證時，才更重視 deterministic selection。這不是說理論算法沒有用，而是保證也有成本。應先寫清楚威脅模型：輸入能否被攻擊者安排？延遲尾端是否比平均吞吐重要？再決定 pivot 策略。
 
 還可以比較「先排序」與「只 selection」的輸出價值。若後續還會問許多不同順位，先排序的 `n log n` 可能被多次查詢攤平；若只問一次 median，線性 selection 才完整發揮。複雜度永遠要連著整個工作負載，而不是只看一個函式名稱。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-4-median-and-selection)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 Lecture 7: Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA"
+title: "Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA | CMU 07-380 Lecture 7"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, pca, dimensionality-reduction]
@@ -25,27 +25,6 @@ In the previous two lectures ([Lec5 LP](/posts/learning/2026-09-29-cmu-07380-lec
 The short answer: **PCA's two usual definitions, minimizing reconstruction error and maximizing projected variance, have the same argmin.** The solution is the eigenvectors of the covariance matrix, which are also the right singular vectors in the SVD of the data matrix.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-- [Lec7 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA_inked.pdf), 41 pages: definitions, an MRI growth-plate example, centering, coordinate transforms, the PCA algorithm, the two objectives, the equivalence proof, Lagrange multipliers, choosing K, SVD. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA.pptx) is also posted
-- [PR4 PCA pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_PCA.pdf) (checkpoint due 9/15): scalar and vector projection, rotation and the projection matrix, the covariance matrix
-- Two Desmos demos: [Projection](https://www.desmos.com/calculator/7x11plypr0) and [Projection of points](https://www.desmos.com/calculator/dsfa42s9ln)
-- [`pca_2d_exercise.ipynb` (Colab)](https://colab.research.google.com/drive/1DQJ4cjImkuWOxGibw4oONuuPaVhnxBfC?usp=drive_link): publicly downloadable
-- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf), Problem 6, PCA Walkthrough (Recitation 4, 9/18)
-- Assigned reading: [Bishop, *Pattern Recognition and Machine Learning*](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) §12.1 (covers both the 12.1.1 maximum-variance and 12.1.2 minimum-error derivations); Murphy §12.2; the [LoRA paper (Hu et al., 2021)](https://arxiv.org/abs/2106.09685)
-
-**Access level**: slides, notes, Desmos, the notebook, and the recitation with solutions are all available outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Two exceptions: the Murphy link goes through CMU's EBSCO library access and needs a campus login, so I did not read it; and the site has no lecture recordings.
 
 ## The starting question: what is low-rank optimization
 
@@ -170,6 +149,27 @@ Two other posts on this site cover LoRA from the implementation side: [CS224N Ti
 - Previous: [Lecture 6: Integer Programming, Relax to an LP and Branch and Bound](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en)
 - Next: [Lecture 8: MAP, How Priors Enter Estimation and Why It Equals Regularization](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+- [Lec7 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA_inked.pdf), 41 pages: definitions, an MRI growth-plate example, centering, coordinate transforms, the PCA algorithm, the two objectives, the equivalence proof, Lagrange multipliers, choosing K, SVD. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA.pptx) is also posted
+- [PR4 PCA pre-reading](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_PCA.pdf) (checkpoint due 9/15): scalar and vector projection, rotation and the projection matrix, the covariance matrix
+- Two Desmos demos: [Projection](https://www.desmos.com/calculator/7x11plypr0) and [Projection of points](https://www.desmos.com/calculator/dsfa42s9ln)
+- [`pca_2d_exercise.ipynb` (Colab)](https://colab.research.google.com/drive/1DQJ4cjImkuWOxGibw4oONuuPaVhnxBfC?usp=drive_link): publicly downloadable
+- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf), Problem 6, PCA Walkthrough (Recitation 4, 9/18)
+- Assigned reading: [Bishop, *Pattern Recognition and Machine Learning*](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) §12.1 (covers both the 12.1.1 maximum-variance and 12.1.2 minimum-error derivations); Murphy §12.2; the [LoRA paper (Hu et al., 2021)](https://arxiv.org/abs/2106.09685)
+
+**Access level**: slides, notes, Desmos, the notebook, and the recitation with solutions are all available outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Two exceptions: the Murphy link goes through CMU's EBSCO library access and needs a campus login, so I did not read it; and the site has no lecture recordings.
 
 ## Update Log
 

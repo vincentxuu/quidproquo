@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lab 2: Implementing K-means and Linear Quantization, Down to an Integer-Only VGG"
+title: "Implementing K-means and Linear Quantization, Down to an Integer-Only VGG | MIT 6.5940 Lab 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,15 +35,6 @@ glossary:
 **Access grade A3, with gaps**: the notebook, pretrained weights, and dataset all download directly, and the notebook ships a few verification functions. What you can't get is official solutions or grading: submissions go through MIT's Canvas, so outside learners get no graded feedback. This post **doesn't give solutions**. It only says what each question asks and which part of the lectures it maps to.
 
 **Fall 2026 comparison**: The Fall 2026 course page lists Lab 2 as "Quantization," scheduled for release on October 1. When I checked again on 2026-10-01 there was no link yet. I'll add the differences here once it's out.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
 
 ## What the lab wants you to be able to do
 
@@ -138,6 +129,15 @@ One thing you can do tonight: open the notebook and run only the Setup and FP32 
 - Series entry point and course status: [Reading MIT 6.5940 (series overview)](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 - The same workflow applied to pruning: [Lab 1: Pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning-en)
 - 4-bit weight quantization for LLMs: [Lab 4 + Lab 5: AWQ and an LLM on a laptop](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

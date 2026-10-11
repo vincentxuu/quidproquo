@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU Hung-yi Lee's Machine Learning 2026 Spring: An Agent-First Course That Is Open Except for Grading"
+title: "A Learning Path into Machine Learning through AI Agents | NTU Hung-yi Lee Machine Learning 2026 Spring Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,25 +22,6 @@ draft: false
 This post is the series entry point. It covers the course structure, what outside readers can get, how assignments are graded, and where to start. Lecture content is left to the later posts. The course is taught in Mandarin, and all official materials linked here are in Chinese unless noted.
 
 **Sources**: the [course page](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php), the [policy slides, policy.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/policy.pdf) (22 slides), the [NTU course catalog syllabus for 114-2](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696), and the [bonus assignment slides, bonus.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/bonus.pdf). I opened and checked all of them on 2026-09-30. The matching video is the [ML 2026 course introduction](https://youtu.be/gl-BdDjNPVI).
-
-## Course video sources
-
-This is a course overview with no single corresponding lecture. The official course page publicly lists the course introduction video (checked live on 2026-10-10); find the other lecture videos through the official entry.
-
-```youtube
-url: https://www.youtube.com/watch?v=gl-BdDjNPVI
-title: 機器學習 2026 課程簡介
-```
-
-Original video: [機器學習 2026 課程簡介](https://www.youtube.com/watch?v=gl-BdDjNPVI)
-
-Course and recording entry:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video gl-BdDjNPVI (26:46, course introduction) was read in full. Checked the class schedule and format (Friday 14:20, about an hour of lecture plus TA homework walkthrough, floating end time, recordings online on Monday), the prerequisite of last semester's introductory course (10 lectures of about two hours each), ten assignments worth 10 points each, free Colab being enough to pass (C-, 60 points), the add-on quota of about 700 and priority order, auditing versus enrolled differences, no Python syntax teaching, and the Teaching Monster bonus; all match the transcript. The transcript does not cover policy.pdf page numbers, the assignment date table, the JudgeBoi/NTU COOL breakdown or the academic-integrity rules, which come from the slides and course page and cannot be verified from the video. The video was recorded early in the term and announces two guest talks (Appier, Chen Wei), whereas this post lists three based on the course page; the post follows the course page.
 
 ## The hard facts
 
@@ -134,6 +115,25 @@ Scoring in bonus.pdf is per team: +2 for participating, +10 for the top 30%, +20
 Related on this site: the [NTU AI/ML course guide](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) compares this course with the rest of NTU's offerings, and the Hung-yi Lee section of [Which AI Courses to Take in 2026](/posts/ai/2026-07-10-ai-courses-2026-guide-en) places it among other courses.
 
 Next: [Dissecting the Lobster: How AI Agents Work, Using OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en)
+
+## Course video sources
+
+This is a course overview with no single corresponding lecture. The official course page publicly lists the course introduction video (checked live on 2026-10-10); find the other lecture videos through the official entry.
+
+```youtube
+url: https://www.youtube.com/watch?v=gl-BdDjNPVI
+title: 機器學習 2026 課程簡介
+```
+
+Original video: [機器學習 2026 課程簡介](https://www.youtube.com/watch?v=gl-BdDjNPVI)
+
+Course and recording entry:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video gl-BdDjNPVI (26:46, course introduction) was read in full. Checked the class schedule and format (Friday 14:20, about an hour of lecture plus TA homework walkthrough, floating end time, recordings online on Monday), the prerequisite of last semester's introductory course (10 lectures of about two hours each), ten assignments worth 10 points each, free Colab being enough to pass (C-, 60 points), the add-on quota of about 700 and priority order, auditing versus enrolled differences, no Python syntax teaching, and the Teaching Monster bonus; all match the transcript. The transcript does not cover policy.pdf page numbers, the assignment date table, the JudgeBoi/NTU COOL breakdown or the academic-integrity rules, which come from the slides and course page and cannot be verified from the video. The video was recorded early in the term and announces two guest talks (Appier, Chen Wei), whereas this post lists three based on the course page; the post follows the course page.
 
 ## Update Log
 

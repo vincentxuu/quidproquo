@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L9：AI 對就業與生產力的早期證據"
+title: "AI 對就業與生產力的早期證據｜Harvard CS2881R 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,26 +31,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)停在「能力怎麼量」：METR 的任務長度倍增、GDPval。這一篇往下問一層：能力長上去之後，勞動市場現在到底看得到什麼？
 
 Boaz Barak 開場只講了一句定位：AI 安全課關心 AI 對世界的影響是好是壞，經濟面是其中最重要的一塊，少了這一講課程就不完整。接著把時間交給兩位客座，一位從 OpenAI 內部看，一位拿行政資料看。
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=4vQSMijp_M8
-title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 9: Economic Impacts of AI》（2:32:32）的完整自動字幕：確認 Chatterji 的職務、CHIPS 法案、「曝險不等於被取代」、父親 1985 年的任務清單，Chandar 的 William Lee、60% 的就業是 1940 年不存在的工作、ADP 資料、16% 的相對下降、利率曝險與 AI 曝險負相關、三個 Q&A（資科系人數、Copilot）、學生的殖利率與 GDPval 實驗（220 取 70 題、96%），以及 UBI、SNAP、同質化建議的問答；字幕把 Chandar 唸成 Barat／Brock。原文的錄影時間「0:28」是約略位置，已加「約」。
 
 ## 這一講的材料
 
@@ -180,6 +160,26 @@ Chatterji 回饋時問了一個好問題：messiness 是任務本身的屬性，
 - 能力怎麼量、GDPval 的設計：[L7：能力與安全](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)、[L12：AI 2035 與 GDPval](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035)
 - AI 做 AI 研發的時間軸：[L6：遞迴自我改進](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 - 課程地圖與 A0–A3 分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=4vQSMijp_M8
+title: AI Safety (CS 2881) Lecture 9: Economic Impacts of AI
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 9: Economic Impacts of AI](https://www.youtube.com/watch?v=4vQSMijp_M8)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 9: Economic Impacts of AI》（2:32:32）的完整自動字幕：確認 Chatterji 的職務、CHIPS 法案、「曝險不等於被取代」、父親 1985 年的任務清單，Chandar 的 William Lee、60% 的就業是 1940 年不存在的工作、ADP 資料、16% 的相對下降、利率曝險與 AI 曝險負相關、三個 Q&A（資科系人數、Copilot）、學生的殖利率與 GDPval 實驗（220 取 70 題、96%），以及 UBI、SNAP、同質化建議的問答；字幕把 Chandar 唸成 Barat／Brock。原文的錄影時間「0:28」是約略位置，已加「約」。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 9：MDPs III：直接對 policy 的期望報酬求梯度"
+title: "MDPs III：直接對 policy 的期望報酬求梯度｜Stanford CS221 第 9 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 9**，2025-10-20 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；本文沿著本講可執行材料 [policy_gradient](https://stanford-cs221.github.io/autumn2025-lectures/?trace=policy_gradient) 的執行順序，解釋每個實際出現的例子與推導。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。本文只覆蓋 `policy_gradient.py` 實際呈現的內容；source 沒有的 actor-critic、generalized advantage estimation、entropy regularization 或 off-policy policy-gradient 推導，不在本文假裝補齊。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 9 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 9 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=lOMNskWVeD8
-title: Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient](https://www.youtube.com/watch?v=lOMNskWVeD8)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 9 支）字幕，確認內容涵蓋 RL 複習（SARSA 與 Q-learning）、函數近似、直接學 policy、policy gradient 與 baseline，與本文的講次與主題相符，未發現錯配。
 
 ## 這一講從哪裡出發
 
@@ -199,6 +179,26 @@ source 實作選 `discount=1`，且未實作 baseline；本文不補入 actor-cr
 ## 這一講真正交付的契約
 
 policy gradient 學 `π_θ(a|s)`，用 rollout utility 加權 log probability；baseline/returns-to-go 降 variance，bootstrapping 以 bias 換 variance。source 未提供大環境收斂保證。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 9 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 9 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=lOMNskWVeD8
+title: Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient](https://www.youtube.com/watch?v=lOMNskWVeD8)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 9 支）字幕，確認內容涵蓋 RL 複習（SARSA 與 Q-learning）、函數近似、直接學 policy、policy gradient 與 baseline，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

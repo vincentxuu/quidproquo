@@ -1,5 +1,5 @@
 ---
-title: "A Reading Guide to Stanford's CS Courses: Ordered by Prerequisites, from CS106A to CS336"
+title: "A Reading Guide to Stanford's CS Courses: Ordered by Prerequisites, from CS106A to CS336 | Stanford's Main-Line CS Courses Course Map"
 date: 2026-08-20
 category: learning
 tags:
@@ -31,16 +31,6 @@ Stanford's computer science department runs more than three hundred courses a ye
 This is that map. It's ordered by **official prerequisites**, from the first programming class to an LLM course you have to apply to take, and each rung marks what the course teaches and what its public materials actually contain. The second half handles two things course maps usually skip: where someone not enrolled for credit hits a wall, and the fact that **several widely cited advanced courses haven't run in years.**
 
 Scope first: **this only covers courses whose materials are public enough to learn from**. On the [global map's scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), A0 is a catalog entry, A1 adds a syllabus, A2 exposes substantive partial material, and A3 supports a continuous self-study course. Versions on the main route meet the A3 threshold; catalog-only, Canvas-only, dormant, and placeholder subjects are excluded or called out separately. This measures access, not teaching quality or difficulty.
-
-## Course video sources
-
-This article maps multiple courses and does not correspond to a single lecture, so no video is embedded; see each linked course guide for its recording sources. The official source below is the Stanford CS bachelor’s degree requirements page (opened live on 2026-10-10); it lists degree requirements, not recordings.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://www.cs.stanford.edu/bs-degree-requirements)
-
-Checked: 2026-10-10.
 
 ## First, kill one assumption: the number is not the difficulty
 
@@ -299,6 +289,16 @@ Three items could not be fully confirmed, and none for lack of searching. Stanfo
 
 - 2026-08-21: After expanding the main-line courses into individual deep dives, seven corrections came back to this post. **(1)** The five-unit rule cited `www-cs.stanford.edu/bs-core-requirements`, which is now offline (301, then 404); it now cites the live BS Degree Requirements page, with a Wayback snapshot for the retired one. **(2)** The CS106B archive was labelled Fall 2025 but is Spring 2025; the term-code rule is now spelled out. **(3)** CS161's "two official names" contradiction no longer holds — the page carrying the old name vanished with the retirement above. **(4)** The dormant-courses table gained CS228 (Winter 2024), CS124 (Winter 2026), and CS224U (Spring 2023). **(5)** CS228 was removed from the "offered in 2026-27" list; its winter entry has neither a time slot nor an instructor. **(6)** The check taught in "Check whether it runs before you check prerequisites" missed placeholder entries, so it now covers the instructor/time fields, the earlier academic year tabs, and the ExploreCourses XML interface. **(7)** The post said "CS111 is the old CS110" and that CS110 self-study resources still apply; the live official description says "substitute for CS110" rather than a rename, and the two differ substantially in assignments and lectures (CS110 had a shell, an HTTP proxy, MapReduce, and three networking lectures; CS111 has none of these), so that passage was rewritten.
 - 2026-10-10: Rechecked video status. This multi-course map embeds no video; confirmed the official source page opens and kept the official-entry-only status with an updated check date.
+
+## Course video sources
+
+This article maps multiple courses and does not correspond to a single lecture, so no video is embedded; see each linked course guide for its recording sources. The official source below is the Stanford CS bachelor’s degree requirements page (opened live on 2026-10-10); it lists degree requirements, not recordings.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://www.cs.stanford.edu/bs-degree-requirements)
+
+Checked: 2026-10-10.
 
 ## References
 

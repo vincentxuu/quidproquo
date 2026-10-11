@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224R 導讀：Spring 2026 深度強化學習課程總覽"
+title: "Spring 2026 深度強化學習課程總覽｜Stanford CS224R 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 [CS224R: Deep Reinforcement Learning](https://cs224r.stanford.edu/) 是 [Chelsea Finn](https://ai.stanford.edu/~cbfinn/) 在 Stanford 開的深度強化學習課。Spring 2026 每週三、五早上 9:30 在 NVIDIA Auditorium 上課，首頁同時寫了一句：下一輪改在 Fall 2027 開，不開 Spring 2027。所以 2026 年 9 月這個時間點，Spring 2026 就是最新、也是最後一個完整版本。
 
 這篇回答四個問題：這門課教什麼、校外讀者實際拿得到什麼、2026 版和有公開錄影的 2025 版差在哪、整個系列要怎麼讀。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [CS224R Spring 2025 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## 這門課教什麼
 
@@ -180,6 +169,17 @@ L18 前沿與研究方法
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [L1：把做決策寫成 RL 問題](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

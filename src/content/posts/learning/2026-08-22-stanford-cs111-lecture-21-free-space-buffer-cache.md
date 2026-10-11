@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 21：Block Cache、Free Bitmap 與 Delayed Allocation"
+title: "Block Cache、Free Bitmap 與 Delayed Allocation｜Stanford CS111 第 21 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 22 篇，對應 **Stanford CS111, Spring 2026, Lecture 21**。2026-05-15 由 Mendel Rosenblum 主講，官方題目是 [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf)。官方 [Lecture 20 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) 與 Lecture 21 PDF 逐位元組相同，SHA-256 均為 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`。Canvas／Panopto 錄影不公開，無法還原兩天實際口述分界。
 
 因此本文聚焦重複 [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) 中段的 block cache、free-space bitmap、block fragments、repacking 與 delayed allocation。Direct／indirect inode walk 和尾端 disk scheduling 已由 [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes)完整處理；這裡不假裝有另一份 deck，也不複製相同段落灌水。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Block cache 解掉冷索引的 I/O
 
@@ -78,6 +70,14 @@ file 建立時不知道最終大小，而且是一 block 一 block 成長；小�
 另一做法是等 cache flush 才真正配置 disk space。此時 OS 已看見一批 dirty blocks，可替所有已知 blocks 一次配置 cluster，而不是每次 write 都在資訊不足時選一格。Delayed allocation 和 delayed write 不完全相同：前者延後決定位置，後者延後把內容送到 disk；實作常結合，但分析時要分開。
 
 投影片說 disk space 便宜，所以今日 internal fragmentation 不太重要。這是相對成本判斷，不是浪費消失；小容量裝置、quota 與大量 tiny files 仍可能敏感。可靠的結論是：當容量成本下降，系統更願意用較大 units 換取較少 metadata、較少 seeks 與較高 throughput。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

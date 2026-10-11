@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L5：內容審核的老教訓如何搬到生成式 AI"
+title: "內容審核的老教訓如何搬到生成式 AI｜Harvard CS2881R 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,26 +30,6 @@ glossary:
 **系列位置**：上一篇 [L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)｜下一篇 [期中：挑一張 headline figure 重現並延伸](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 上一講問的是「我們希望模型怎麼做」，答案寫成一份 model spec。這一講往下走一步：規則寫好之後，誰來執行、怎麼執行、執行錯了怎麼辦。社群平台已經在這件事上跌跌撞撞二十多年，[CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 請來 OpenAI Product Policy 的 [Ziad Reslan](https://jackson.yale.edu/person/ziad-reslan/)，把那段歷史接到生成式 AI 上。
-
-## 課程影片來源
-
-官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。2026-10-10 即時重查官方 YouTube 播放清單（AI Safety，17 支）：第 5 講同樣只有這支學生實驗影片，播放清單由第 4 講錄影直接接到第 6 講錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
-title: CS2881R Fall 2025 L5: Student experiment on policy compliance
-```
-
-原始影片：[CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
-
-官方來源：
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：這支影片是學生實驗，不是客座講課。讀了《Lecture 5: Experiment on Policy compliance》（17:01）的完整字幕：確認講者開頭說「這是上週的實驗」，內容是 minimal／principles／rules 三種 system prompt 在 DeepSeek-R1 8B、RealSafe-R1-8B 與 GPT-4o、Gemini、Claude 3.5 Sonnet 上的比較，評測用 OR-Bench 與 MMLU-Pro，每條件跑 3 次、約百題，結論是模型差距大於 prompt 差距。字幕沒有講者姓名；「押韻」的例子是講者自己回應觀眾時說的，不是 Boaz，已更正。
 
 ## 這一講拿得到什麼
 
@@ -142,6 +122,26 @@ title: CS2881R Fall 2025 L5: Student experiment on policy compliance
 - 政策寫在哪裡、怎麼解釋：[CS2881R L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 - 用模型當裁判與護欄的工程面：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 - 同一主題在其他課程的講法：[台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
+
+## 課程影片來源
+
+官方 Fall 2025 課表只提供本講的學生實驗影片，沒有列 Ziad Reslan 客座講課錄影。2026-10-10 即時重查官方 YouTube 播放清單（AI Safety，17 支）：第 5 講同樣只有這支學生實驗影片，播放清單由第 4 講錄影直接接到第 6 講錄影。下方可觀看的是學生的 policy compliance 實驗，不能當成客座講課的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
+title: CS2881R Fall 2025 L5: Student experiment on policy compliance
+```
+
+原始影片：[CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：這支影片是學生實驗，不是客座講課。讀了《Lecture 5: Experiment on Policy compliance》（17:01）的完整字幕：確認講者開頭說「這是上週的實驗」，內容是 minimal／principles／rules 三種 system prompt 在 DeepSeek-R1 8B、RealSafe-R1-8B 與 GPT-4o、Gemini、Claude 3.5 Sonnet 上的比較，評測用 OR-Bench 與 MMLU-Pro，每條件跑 3 次、約百題，結論是模型差距大於 prompt 差距。字幕沒有講者姓名；「押韻」的例子是講者自己回應觀眾時說的，不是 Boaz，已更正。
 
 ## 更新紀錄
 

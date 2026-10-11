@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 8: Hashing, Collisions, and What Expected O(1) Actually Guarantees"
+title: "Hashing, Collisions, and What Expected O(1) Actually Guarantees | Stanford CS161 Lecture 8"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, hashing, randomized-algorithms]
@@ -22,16 +22,6 @@ This is article 9 in [Reading Stanford CS161](/en/series/stanford-cs161), coveri
 I used the [official Lecture 8 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing), the public notes, and the public slides. The deck's main line ends with universal hashing. The notes continue into balls-and-bins and the birthday paradox, which I label as notes extensions. The course page also links to a Colab notebook inherited from `winter2025-extra`; I do not present it as newly authored Winter 2026 material. I did not use the Canvas-only recording.
 
 Lecture 7 used red-black trees to obtain worst-case `O(log n)` search, insertion, and deletion. Lecture 8 asks whether a set that does not need sorted order can approach constant expected time. The answer is not a magical deterministic formula that always distributes keys evenly. Hashing puts randomness inside the algorithm and controls collision probability for any key set fixed before that random choice.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
-
-Checked: 2026-10-10.
 
 ## Why direct addressing is not enough
 
@@ -229,6 +219,16 @@ Lecture 9 moves into graph algorithms. Even an adjacency list is a data-structur
 To internalize the universal-family proof, choose a small prime such as `p=11` and `n=5`. Enumerate several `(a,b)` pairs and count how often two fixed, distinct keys collide. The goal is not a perfectly even histogram; it is verifying the `1/n` pairwise bound.
 
 For implementation practice, record load factor, maximum chain length, and the average nodes scanned by a successful lookup after every insertion. Add resizing only when the load crosses a chosen threshold, then analyze that sequence separately with amortization. These are exercises suggested by this article, not additional Winter 2026 claims.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

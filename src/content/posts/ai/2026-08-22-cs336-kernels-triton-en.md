@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 6: Benchmark and Profile Before Writing a Triton Kernel"
+title: "Benchmark and Profile Before Writing a Triton Kernel | Stanford CS336 Lecture 6"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 6: Kernels, Triton**, taught by Percy Liang on April 15, 2026. Its primary source is the official executable lecture, [`lecture_06.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_06.py).
 
 Lecture 5 explains data movement, tiling, and fusion. Lecture 6 asks you to measure and write a kernel. The order matters: without trustworthy benchmarks and a profiler, a custom kernel merely optimizes a guess.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (the YouTube title is Kernels, Triton, XLA; the lecturer is Percy, opening by following on from Tatsu's GPU lecture). The captions cover Triton, PTX, GeLU fusion, softmax, matmul, occupancy, thread coarsening, shared-memory bank conflicts, and benchmark synchronization/warm-up. The article does not mention XLA, so the title difference does not matter here. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=xnDHaNUvHBg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Correctness, performance, and diagnosis are separate layers
 
@@ -79,6 +61,24 @@ Triton reduces CUDA's syntactic burden but does not remove hardware constraints.
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact containing benchmarks, profiling, and four Triton examples.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (the YouTube title is Kernels, Triton, XLA; the lecturer is Percy, opening by following on from Tatsu's GPU lecture). The captions cover Triton, PTX, GeLU fusion, softmax, matmul, occupancy, thread coarsening, shared-memory bank conflicts, and benchmark synchronization/warm-up. The article does not mention XLA, so the title difference does not matter here. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=xnDHaNUvHBg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

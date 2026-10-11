@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288（四）：Retrieval、RAG 與進階架構如何變成一個系統"
+title: "Retrieval、RAG 與進階架構如何變成一個系統｜Berkeley CS288 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, rag, retrieval, llm, evaluation]
@@ -31,6 +31,18 @@ series: { name: "Berkeley CS288 Spring 2026", order: 4 }
 作業 PDF 公開，hidden dev/test、正式 wrapper 與 Gradescope 不公開；官方也禁止散布 solutions。Impact & Social Implications 在課表中有位置，目前卻沒有對應的匿名 slides。因此本文只提出實作時要記錄的 crawl 範圍、個資、更新週期與引用來源，不把這些當成未公開課堂的內容摘要。
 
 今晚可先抓取十個公開 EECS 頁面，人工寫十題短答案 QA，再用 BM25 做 baseline。逐題保存 top-k evidence，最後人工標記 retrieval miss 或 generation miss。
+
+## 把檢索錯誤與生成錯誤分開
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編題庫問「課程教室在哪裡？」正確來源寫 Room 101。情境一的 top-k 文件完全沒有教室資訊，模型回答 Room 202：先標 retrieval miss。情境二的 top-k 包含 Room 101，模型仍答 Room 202：證據已找回，標 generation miss。兩者 final answer 同樣錯，但修法不同。
+
+**檢查與答案：** 十題中八題找到正確證據、六題答對，能否只靠 60% 端到端正確率判斷該換 generator？答案不能；至少檢查那兩個 retrieval misses 與證據已找到仍答錯的題目。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 

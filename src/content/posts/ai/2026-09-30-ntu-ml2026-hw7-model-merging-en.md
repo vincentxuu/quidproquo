@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 HW7: Merging a Japanese Model and a Math Model, With No Training, Into One That Solves Japanese Math Problems"
+title: "Merging a Japanese Model and a Math Model, With No Training, Into One That Solves Japanese Math Problems | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **This post covers HW7 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 16 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). Official materials: the slides [hw7.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw7.pdf), the [assignment Colab](https://colab.research.google.com/drive/1B9692EHFAZFh5-8Q5LsVhzk9nTH1MEyD) (50 cells), a [Kaggle version](https://www.kaggle.com/code/sylora1101/ml2026hw7), and the TA's [walkthrough video](https://youtu.be/YQtwk_L686I). The course page lists it as released 5/8 and due 2026/05/28 23:59, with TAs 黃郁涵, 陳思齊, 董家愷, and 吳岳霖 (the slide cover lists the first three). The slides note it is adapted from ML2025 HW9 Model Merging.
 
 Access rating: **A3 minus grading**. The spec, both models, the Colab, and the evaluation code are public. The leaderboard requires uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30, and the paper questions are on NTU COOL, which needs an NTU account.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=YQtwk_L686I
-title: HW7 walkthrough video (YouTube)
-```
-
-Original videos: [HW7 walkthrough video (YouTube)](https://www.youtube.com/watch?v=YQtwk_L686I)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Prerequisite: hw7.pdf names none, but one lecture fits
 
@@ -143,6 +124,25 @@ The slides estimate 0.5–2 hours to merge and 1–2 hours to run inference on t
 - **Tools**: the [mergekit](https://github.com/arcee-ai/mergekit) README lists every merge method and its parameters. Hugging Face PEFT also has a [model merging guide](https://huggingface.co/docs/peft/developer_guides/model_merging).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) | Next: [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=YQtwk_L686I
+title: HW7 walkthrough video (YouTube)
+```
+
+Original videos: [HW7 walkthrough video (YouTube)](https://www.youtube.com/watch?v=YQtwk_L686I)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

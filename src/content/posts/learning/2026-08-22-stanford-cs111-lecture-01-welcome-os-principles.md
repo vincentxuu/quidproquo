@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 1：作業系統的歷史、抽象化與三條課程主線"
+title: "作業系統的歷史、抽象化與三條課程主線｜Stanford CS111 第 1 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 2 篇，對應 **Stanford CS111, Spring 2026, Lecture 1**。2026-03-30 由 Mendel Rosenblum 主講，官方題目是 [Welcome to CS111!](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/1/Lecture1.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 1 不是先背一份 OS 定義，而是沿著硬體成本與使用方式的變化，回答作業系統為何一層層長出來。從共用 I/O 卡片、batch monitor、multiprogramming 到個人電腦，投影片把每次新增的抽象連回當時的瓶頸。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 本講的歷史閱讀法
 
@@ -90,6 +82,14 @@ Lecture 1 把季度分成三部分，而且每部分都由 lecture principles �
 ## 用歷史因果鏈自我檢查
 
 挑一個年代，寫成「硬體／使用瓶頸 → 新增的 OS 機制 → 新產生的政策或保護問題」。若無法說明中間箭頭，代表只記住年份，尚未掌握本講用歷史解釋設計的方式。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

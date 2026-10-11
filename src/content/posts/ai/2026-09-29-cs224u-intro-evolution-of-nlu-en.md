@@ -1,5 +1,5 @@
 ---
-title: "CS224U Opening Lecture: One Question Asked for Forty Years, and How a 2023 NLU Course Defines Understanding"
+title: "One Question Asked for Forty Years, and How a 2023 NLU Course Defines Understanding | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -30,29 +30,6 @@ glossary:
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) is Christopher Potts's project-oriented NLP course, with CS224N as a prerequisite. The first lecture, on April 3, 2023, explains how NLU got to where it is and uses that history to introduce the first two units; Potts finishes the rest of the course map and the course mechanics in the second video, which opens with "day two" and reviews the slides "from last time".
 
 This post draws on four public sources: the [intro slides](https://web.stanford.edu/class/cs224u/slides/cs224u-intro-2023-handout.pdf) (a 98-page handout), videos [01](https://www.youtube.com/watch?v=K_Dh0Sxujuc) and [02](https://www.youtube.com/watch?v=J52Dtu40esQ) in the [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp), the three readings listed for Apr 3, and [setup.ipynb](https://github.com/cgpotts/cs224u/blob/main/setup.ipynb) in the repo. All of these are public, so under the site's course-map access scale this is an A3 (enough to self-study) historical offering. The Canvas quizzes and classroom recordings are not available.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
-title: Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=J52Dtu40esQ
-title: Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023](https://www.youtube.com/watch?v=K_Dh0Sxujuc), [Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023](https://www.youtube.com/watch?v=J52Dtu40esQ)
-
-Content check: verified against the video transcript (2026-10-10): Video 01 (Intro & Evolution, Pt. 1) and video 02 (Course Overview, Part 2) were compared item by item with their transcripts: the US-states question and each generation's answer (Chat-80, Wolfram Alpha, Ada, Babbage, Curie, davinci-instruct-beta, text-davinci-001), Levesque's crocodile and the baseball-cap wings question (Davinci-2 and Davinci-3 contradicting each other), the in-class Bard 'Rule 3.06' exchange and the nonexistent links, the benchmark-saturation timeline, the historical phases and Transformer / self-supervision, the course themes (the all-zero COGS column, Cousteau, Strathern's law), fully asynchronous logistics, and the Colab / Cohere / OpenAI  credits. All match except one mismatch: video 02 opens by saying it is day two (reviewing the slides 'from last time'), so the second half of the course map and the mechanics were not all covered in the April 3 first lecture; that sentence was rewritten. Grading percentages and slide numbers come from the slides and were not checked against the transcripts.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## One question, forty years
 
@@ -210,6 +187,29 @@ If you only have half an hour, read section 2.2, "Cheap tricks," of [Levesque 20
 - [Stanford CS224U guide: overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en): course status, the three homeworks, the project grading document, and pitfalls in setting up the environment
 
 **Series navigation**: Previous: [Overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) | Next: [Contextual representations I: guiding ideas, the Transformer, and positional encoding](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
+title: Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=J52Dtu40esQ
+title: Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023](https://www.youtube.com/watch?v=K_Dh0Sxujuc), [Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023](https://www.youtube.com/watch?v=J52Dtu40esQ)
+
+Content check: verified against the video transcript (2026-10-10): Video 01 (Intro & Evolution, Pt. 1) and video 02 (Course Overview, Part 2) were compared item by item with their transcripts: the US-states question and each generation's answer (Chat-80, Wolfram Alpha, Ada, Babbage, Curie, davinci-instruct-beta, text-davinci-001), Levesque's crocodile and the baseball-cap wings question (Davinci-2 and Davinci-3 contradicting each other), the in-class Bard 'Rule 3.06' exchange and the nonexistent links, the benchmark-saturation timeline, the historical phases and Transformer / self-supervision, the course themes (the all-zero COGS column, Cousteau, Strathern's law), fully asynchronous logistics, and the Colab / Cohere / OpenAI  credits. All match except one mismatch: video 02 opens by saying it is day two (reviewing the slides 'from last time'), so the second half of the course map and the mechanics were not all covered in the April 3 first lecture; that sentence was rewritten. Grading percentages and slide numbers come from the slides and were not checked against the transcripts.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

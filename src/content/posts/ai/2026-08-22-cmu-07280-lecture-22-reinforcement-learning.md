@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 22：不知道 Dynamics 時如何做 Q-learning"
+title: "不知道 Dynamics 時如何做 Q-learning｜CMU 07-280 第 22 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 Lecture 21 可以對所有 successor states 做 expectation，因為 `P` 與 `R` 已知。**CMU 07-280 Spring 2026 Lecture 22** 拿掉這項特權：agent 只能採取 action、看到 reward 與 next state，再從 samples 學習。官方題目就是 *Reinforcement Learning*。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf)、[Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf)，並檢查公開的 [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/)。官方頁沒有 Spring 2026 逐講公開錄影，本文只依公開 slides、recitation 與程式骨架說明。
-
-Programming directory 可匿名查看部分 code，但 Gradescope tests、submission 與助教回饋不公開；「程式碼可見」不等同「作業完整可評分」。
 
 ## 承上問題：Bellman expectation 裡的 `P` 從哪裡來
 
@@ -106,6 +90,22 @@ Tabular Q-learning 也假設每個 `(s,a)` 都能存一格。Pac-Man、影像或
 ## 今晚可做動作
 
 建立兩個 states、兩個 actions 的 deterministic MDP，列出真實 optimal Q-table。用固定 transition sequence 手算前三次 Q-learning，再寫程式比對。之後打開 `ε=0.2` 跑 1,000 steps，分別記錄每個 action 的 visit count 與 Q error；不要只看最後 cumulative reward。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf)、[Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf)，並檢查公開的 [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/)。官方頁沒有 Spring 2026 逐講公開錄影，本文只依公開 slides、recitation 與程式骨架說明。
+
+Programming directory 可匿名查看部分 code，但 Gradescope tests、submission 與助教回饋不公開；「程式碼可見」不等同「作業完整可評分」。
 
 ## 更新紀錄
 

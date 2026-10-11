@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 13：Bayesian Networks II：Gibbs sampling 與 Markov blanket"
+title: "Bayesian Networks II：Gibbs sampling 與 Markov blanket｜Stanford CS221 第 13 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 13**。課程版本以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本講的可執行材料是 [gibbs_sampling](https://stanford-cs221.github.io/autumn2025-lectures/?trace=gibbs_sampling)，以下按照 `source/gibbs_sampling.py` 的執行順序整理。程式不是把抽象概念藏在一張圖裡，而是用 `ProbTable`、`Bernoulli`、`sample_dict` 與 `normalize_dict` 把每一步的分布、取樣和計數攤開來。
 
 > 材料缺口：官方可執行講義與課程網站公開；本篇不把 Canvas 內的錄影互動、作業解答或隱藏測資當成已知內容。可執行講義 repository 也只代表公開的 lecture artifact，不代表完整課堂活動。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 13 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 13 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=Dk7Kqqehzjk
-title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling](https://www.youtube.com/watch?v=Dk7Kqqehzjk)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 13 支）字幕，確認內容涵蓋 rejection sampling 回顧、Gibbs sampling、Markov blanket 與 conditional independence，與本文的講次與主題相符，未發現錯配。
 
 ## TL;DR
 
@@ -199,6 +179,26 @@ P(A=a,B=b \mid C=c)=P(A=a \mid C=c)P(B=b \mid C=c).
 ## 這一講留下的檢查
 
 這份 artifact 展示 sampler 的 mechanics 與限制，不提供完整 convergence proof、診斷標準或隱藏課堂材料。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 13 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 13 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=Dk7Kqqehzjk
+title: Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 13: Bayesian Networks and Gibbs Sampling](https://www.youtube.com/watch?v=Dk7Kqqehzjk)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 13 支）字幕，確認內容涵蓋 rejection sampling 回顧、Gibbs sampling、Markov blanket 與 conditional independence，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

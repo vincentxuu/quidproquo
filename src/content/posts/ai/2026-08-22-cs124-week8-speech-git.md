@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 8 Speech and PA7/Git Lab：把 TTS→STT pipeline 當成可稽核的資訊損失"
+title: "Speech and PA7/Git Lab：把 TTS→STT pipeline 當成可稽核的資訊損失｜Stanford CS124 第 8 週／程式作業 7"
 date: 2026-08-22
 category: ai
 type: deep-dive

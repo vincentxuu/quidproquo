@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L11–L12: Instruction Tuning, RLHF, and DPO — Make the Model Follow Instructions, Then Drop the RL"
+title: "Instruction Tuning, RLHF, and DPO — Make the Model Follow Instructions, Then Drop the RL | CMU 10-423 Lectures 11–12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,17 +38,6 @@ glossary:
 I checked every fact against the official materials on 2026-09-30. The [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) lists no readings for these two lectures, so this post cites only the slides and the figure sources they name. The reinforcement learning slides are marked as coming from Henry Chai. Access level **A3**: slides, homework, and the practice exam are public; lecture recordings are on CMU Panopto and not viewable from outside.
 
 **Series position**: previous [L10–L11: parameter-efficient fine-tuning and in-context learning](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en) | next [HW3: fine-tuning GPT-2 with LoRA](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## One story, two models
 
@@ -196,6 +185,17 @@ One thing to do tonight: open the Bradley–Terry slide in L12 and verify that e
 
 - The same material in other courses: [CS224N Lecture 8: from instruction tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en), [CME295 Lecture 5: preference tuning with RLHF and DPO](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - Course status and a self-study path: [CMU 10-423 series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

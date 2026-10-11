@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 15: Proving Prim and Kruskal with the Cut Property"
+title: "Proving Prim and Kruskal with the Cut Property | Stanford CS161 Lecture 15"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ This is article sixteen in [Reading Stanford CS161](/en/series/stanford-cs161), 
 I used the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture15-slides.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture15.md). Although the component still labels the resource section `coming`, both PDFs exist. I did not watch the access-controlled Canvas recording or use the prelecture, notebook, or concept-check bank.
 
 Lecture 14 used exchange arguments to justify greedy choices. This lecture packages the same idea into a reusable theorem: find a cut that respects the edges already chosen, and a light edge crossing it is safe. Prim grows one tree while Kruskal merges a forest, but both use exactly this proof template.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
-
-Checked: 2026-10-10.
 
 ## The problem and its invariant
 
@@ -127,6 +117,16 @@ Lecture 14 introduced exchange arguments; Lecture 15 crystallizes one as the cut
 Practical Kruskal implementations use union by rank or size together with path compression to realize the near-`α(n)` bound. Deterministic tie-breaking also makes outputs reproducible even though it does not affect minimum cost.
 
 Tests should check more than total weight: exactly `n-1` edges, connectivity, acyclicity, and agreement with brute-force trees on small graphs. An API should reject disconnected input or explicitly return a forest. These are engineering extensions, not additional lecture theorems.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-15-minimum-spanning-trees)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

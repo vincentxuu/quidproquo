@@ -1,5 +1,5 @@
 ---
-title: "Reasoning in LLMs: Chain of Thought and Long-Reasoning RLVR"
+title: "Reasoning in LLMs: Chain of Thought and Long-Reasoning RLVR | Stanford CS229 Chapter 18"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,18 +18,6 @@ series:
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 This article reads Chapter 18, printed pages 220–225, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains the main objectives and algorithmic intuition without claiming to reproduce every proof or implementation detail.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. Both public playlists were checked live (Spring 2026: 17 videos; Autumn 2018: 21 videos), and no single lecture could be matched to this chapter's topic, so nothing is embedded. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Chain of thought turns one prediction into a computation
 
@@ -86,6 +74,18 @@ Chapter 17 built the autoregressive Transformer and SFT objective. This chapter 
 ## Exercise
 
 Define an RLVR setup for generating a function that passes unit tests: state, action, termination, reward, and reference policy for KL regularization. Then describe two reward-hacking scenarios and explain why merely adding more tests may still be insufficient.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. Both public playlists were checked live (Spring 2026: 17 videos; Autumn 2018: 21 videos), and no single lecture could be matched to this chapter's topic, so nothing is embedded. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

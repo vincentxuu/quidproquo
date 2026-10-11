@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 9: Why Automated Qualitative Coding Still Needs Expert Review"
+title: "Why Automated Qualitative Coding Still Needs Expert Review | Stanford CS224V Lecture 9"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, qualitative-coding, event-extraction, structured-output]
@@ -19,27 +19,6 @@ description: "CS224V Document Set Analysis: qualitative coding, ACLED codebooks,
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 9 examines document analysis in which researchers repeatedly code events, actors, places, and relationships under a codebook. Epidemic events and ACLED conflict data provide the running cases. Its conclusion is deliberately restrained: automated qualitative coding is not ready to bypass human quality control.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Document Set Analysis: Qualitative Coding") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 14 (about 1 h 29 min). The transcript is about analyzing large document sets and automatic qualitative coding with LLMs (codebook, interviews and document summaries), matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
-
-```youtube
-url: https://www.youtube.com/watch?v=HZ1cr52x8ew
-title: CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024
-```
-
-Original videos: [CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024](https://www.youtube.com/watch?v=HZ1cr52x8ew)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda: from manual practice to extraction
 
@@ -122,6 +101,27 @@ Build a small codebook over twenty documents. For every event type, write one po
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The lecture summarizes active research and multiple datasets without publishing the complete annotation manual, review workflow, or training/evaluation code. This article does not present the research pipeline as an unattended production system.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Document Set Analysis: Qualitative Coding") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 14 (about 1 h 29 min). The transcript is about analyzing large document sets and automatic qualitative coding with LLMs (codebook, interviews and document summaries), matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=HZ1cr52x8ew
+title: CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024
+```
+
+Original videos: [CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024](https://www.youtube.com/watch?v=HZ1cr52x8ew)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 8：MDPs II：不知道轉移模型時如何學 Q 值"
+title: "MDPs II：不知道轉移模型時如何學 Q 值｜Stanford CS221 第 8 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 8**，2025-10-15 由 Percy Liang 主講。課程版本與作業以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本講的可執行主線是官方 [reinforcement_learning artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=reinforcement_learning)，程式碼可在 [CS221 Autumn 2025 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures) 對照，影片入口則是 [Stanford Online 的 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)。
 
 > 材料缺口：本地對照的官方 artifact 覆蓋的是 MDP、tabular model-free 方法、SARSA 與 Q-learning。它沒有在這份檔案中提供 features 或 linear approximation 的實作，因此本文只標示缺口，不把其他講次的內容接進來。Canvas 課堂互動、作業解答與隱藏測資也不在公開材料裡。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 8 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 8 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=34Hk2v2kwg4
-title: Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning](https://www.youtube.com/watch?v=34Hk2v2kwg4)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 8 支）字幕，確認內容涵蓋 agent 的 get action／incorporate feedback 介面、探索策略與估計 MDP、epsilon-greedy、Q-learning／SARSA，與本文的講次與主題相符，未發現錯配。
 
 ## TL;DR
 
@@ -145,6 +125,26 @@ SARSA 學的是目前 policy 的 `Q_π(s,a)`。最後一段問得更直接：如
 這講先回到已知 MDP，再移除模型前提，讓 agent 只能在 action 後收到 reward 與 next state。`simulate` 定義互動協定，model-based 估計模型後重用 value iteration，Monte Carlo 等完整回報，SARSA 用實際下一 action bootstrapping，Q-learning 則用 greedy next action 建 target，從 on-policy 轉成 off-policy。
 
 若問題改成 features、linear approximation 或巨大 state space，這份 Lecture 8 artifact 已經告訴你邊界：下一步要找另一份官方材料，而不是從本講自行推導不存在的段落。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 8 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 8 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=34Hk2v2kwg4
+title: Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning](https://www.youtube.com/watch?v=34Hk2v2kwg4)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 8 支）字幕，確認內容涵蓋 agent 的 get action／incorporate feedback 介面、探索策略與估計 MDP、epsilon-greedy、Q-learning／SARSA，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

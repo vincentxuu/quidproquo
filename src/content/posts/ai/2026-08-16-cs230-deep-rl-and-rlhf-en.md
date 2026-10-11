@@ -1,5 +1,5 @@
 ---
-title: "Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame"
+title: "Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -24,31 +24,6 @@ This post covers **[Lecture 5: Deep Reinforcement Learning](https://www.youtube.
 This is a **substituted lecture**. He says up front that the week was supposed to cover network interpretability and LLM visualization, but the students hadn't reached attention maps and CNNs yet, so teaching it in week five would be too far ahead — interpretability moved later (it became Lecture 10).
 
 The structure is roughly the first 80% deriving Q-learning and DQN from scratch, then about 15 minutes on **RLHF** (YouTube's auto chapters start it around 1:30:24) — and that last part is the most valuable piece here for anyone building LLM applications.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match; the second is the AlphaGo documentary related to this lecture (not a course recording).
-
-Content check: verified against the video transcript (2026-10-10): Two videos: (1) 4E27qlfYw0A is Lecture 5 (Deep Reinforcement Learning, Kian; 1:45:01 matches "1 hour 45 minutes", and the captions open with the swap that moved the interpretability lecture later); its transcript was read. (2) WXuK6gekU1Y is DeepMind's official upload of the documentary "AlphaGo - The Movie" (1:30:28, not a course recording); its transcript was read to confirm it is that film, and consists of narration and interviews, not lecture content. For the lecture, checked item by item against the captions, all appear: the three objections to supervised Go, teach by example vs experience, advertising, fog of war, the recycling Q table with gamma = 0.9, the Bellman equation, Breakout preprocessing (grayscale, four frames) and "park the bus", terminal states, experience replay and prioritized sweeping, epsilon = 5%, the bike ride across campus, sumo, the Netflix AlphaGo documentary, PPO, InstructGPT's 13,000 pairs, reward models, sparse rewards, and Karpathy's video "from 4 days ago" (the lecturer did not play it, only said he would post it). The Seaquest story is "I think it was CQS, I forgot which one" in the captions, consistent with the article. One fix: "the last 20 minutes on RLHF" does not match YouTube's auto chapters (RLHF Introduction starts around 1:30:24 of 1:45:01, about 15 minutes), so it now says roughly the first 80% is Q-learning/DQN and the last 15 minutes or so is RLHF.
-
-```youtube
-url: https://www.youtube.com/watch?v=4E27qlfYw0A
-title: Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=WXuK6gekU1Y
-title: AlphaGo - The Movie | Full award-winning documentary
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A), [AlphaGo - The Movie | Full award-winning documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y), [Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
-
-Course and recording entries:
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-
-Checked: 2026-10-10.
 
 ## Why RL matters
 
@@ -337,6 +312,31 @@ The three reasons Go can't be learned with supervision **all transfer intact to 
 The third point is exactly what the site's [three forms of RAG and the evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants-en) post is working on — Katanforoosh just puts it more cleanly through Go: **you will never be stronger than your judge.**
 
 And the practical significance of the RLHF mapping table: **when you're debugging an RLHF'd model, you're debugging a sparse-reward sequential decision problem.** The model says something wrong at token 300 and the signal has to propagate all the way back — which is why alignment often fails on long responses, rather than the model being "insufficiently obedient."
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match; the second is the AlphaGo documentary related to this lecture (not a course recording).
+
+Content check: verified against the video transcript (2026-10-10): Two videos: (1) 4E27qlfYw0A is Lecture 5 (Deep Reinforcement Learning, Kian; 1:45:01 matches "1 hour 45 minutes", and the captions open with the swap that moved the interpretability lecture later); its transcript was read. (2) WXuK6gekU1Y is DeepMind's official upload of the documentary "AlphaGo - The Movie" (1:30:28, not a course recording); its transcript was read to confirm it is that film, and consists of narration and interviews, not lecture content. For the lecture, checked item by item against the captions, all appear: the three objections to supervised Go, teach by example vs experience, advertising, fog of war, the recycling Q table with gamma = 0.9, the Bellman equation, Breakout preprocessing (grayscale, four frames) and "park the bus", terminal states, experience replay and prioritized sweeping, epsilon = 5%, the bike ride across campus, sumo, the Netflix AlphaGo documentary, PPO, InstructGPT's 13,000 pairs, reward models, sparse rewards, and Karpathy's video "from 4 days ago" (the lecturer did not play it, only said he would post it). The Seaquest story is "I think it was CQS, I forgot which one" in the captions, consistent with the article. One fix: "the last 20 minutes on RLHF" does not match YouTube's auto chapters (RLHF Introduction starts around 1:30:24 of 1:45:01, about 15 minutes), so it now says roughly the first 80% is Q-learning/DQN and the last 15 minutes or so is RLHF.
+
+```youtube
+url: https://www.youtube.com/watch?v=4E27qlfYw0A
+title: Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WXuK6gekU1Y
+title: AlphaGo - The Movie | Full award-winning documentary
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A), [AlphaGo - The Movie | Full award-winning documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y), [Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

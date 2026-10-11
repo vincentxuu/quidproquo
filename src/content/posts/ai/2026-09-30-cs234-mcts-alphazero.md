@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀 16：規劃＋學習——MCTS、UCT 與 AlphaGo／AlphaZero"
+title: "規劃＋學習——MCTS、UCT 與 AlphaGo／AlphaZero｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,31 +37,6 @@ glossary:
 用到的官方材料：[第 13 講投影片（post 版）](https://web.stanford.edu/class/cs234/slides/lecture13post.pdf)（13 頁，只有 simulation-based search 那段）與[第 14 講投影片（post 版）](https://web.stanford.edu/class/cs234/slides/lecture14post.pdf)（30 頁，AlphaZero）。兩份的標題都是〈Monte Carlo Tree Search〉，講義頁把它們歸在「Monte Carlo Tree Search and Conquering Go」單元。聽講補充是 [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)的[影片 14〈Multi-Agent Game Playing〉](https://www.youtube.com/watch?v=UgANzoWc0nc)；依字幕，影片主題跟 2026 投影片對得上，細節見下方「2024 影片怎麼對照」。
 
 存取等級是 **A3（足以自學）**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：兩份投影片公開。缺口是 2026 錄影只在 Canvas；另外兩份投影片的 Class Structure 頁顯示 MCTS 在 2026 是跟客座課共用時段講的（第 13 講配 Shane Gu 的世界模型客座，第 14 講配倫理與社會客座第二部分），所以 PDF 頁數比一般講次少。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=UgANzoWc0nc
-title: Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=FOlPpjNbHjE
-title: 影片 15 的前 15 分鐘
-```
-
-原始影片：[Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉](https://www.youtube.com/watch?v=UgANzoWc0nc)、[影片 15 的前 15 分鐘](https://www.youtube.com/watch?v=FOlPpjNbHjE)
-
-課程與錄影入口：
-
-- [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 14「Multi-Agent Game Playing」（約 73 分鐘）依序是 simulation-based search 與 expectimax、MCTS、UCT、AlphaGo／AlphaZero 與 self-play、神經網路；Lecture 15（約 74 分鐘）一開始先回顧 DPO／RLHF 小測，接著是 AlphaZero 收尾，約 22% 之後換 Dan Webber 客座。分鐘數改為依字幕位置估算的「約」值並移除 &t= 連結，「YouTube 章節」改為「字幕」，影片 15 的描述補上開頭的 DPO／RLHF 小測。
 
 ## 換一個問題：只為現在這一步規劃
 
@@ -202,6 +177,31 @@ $$
 - 另一門課從 MDP、Q-learning 一路講到 AlphaZero：[CMU 07-280 階段複習三：從 MDP、Q-learning 到 AlphaZero](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero)
 - 規劃與模型在深度 RL 裡的其他用法：[CS224R L11：Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)
 - 本系列下一段會碰到的世界模型客座：[客座：Shane Gu〈World of World Modeling〉](/posts/ai/2026-09-30-cs234-guest-world-models)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=UgANzoWc0nc
+title: Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: 影片 15 的前 15 分鐘
+```
+
+原始影片：[Stanford CS234 Spring 2024 影片 14〈Multi-Agent Game Playing〉](https://www.youtube.com/watch?v=UgANzoWc0nc)、[影片 15 的前 15 分鐘](https://www.youtube.com/watch?v=FOlPpjNbHjE)
+
+課程與錄影入口：
+
+- [2024 公開播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 14「Multi-Agent Game Playing」（約 73 分鐘）依序是 simulation-based search 與 expectimax、MCTS、UCT、AlphaGo／AlphaZero 與 self-play、神經網路；Lecture 15（約 74 分鐘）一開始先回顧 DPO／RLHF 小測，接著是 AlphaZero 收尾，約 22% 之後換 Dan Webber 客座。分鐘數改為依字幕位置估算的「約」值並移除 &t= 連結，「YouTube 章節」改為「字幕」，影片 15 的描述補上開頭的 DPO／RLHF 小測。
 
 ## 更新紀錄
 

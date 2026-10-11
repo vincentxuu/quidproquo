@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L22–L23 Course Summary and Quantum Machine Learning: Pruning, NAS, and On-Device Training on Quantum Circuits"
+title: "Course Summary and Quantum Machine Learning: Pruning, NAS, and On-Device Training on Quantum Circuits | MIT 6.5940 Lectures 22–23"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,29 +37,6 @@ glossary:
 **Series position**: Previous: [Lecture 21, on-device training](/posts/ai/2026-09-30-mit-65940-on-device-training-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 
 After 22 lectures, Song Han wraps up the course in 13 slides, then gives most of Lecture 22 and all of Lecture 23 to what looks like a detour: quantum machine learning. This post first goes through the course summary, then walks the six sections of the Lecture 23 slides. It ends with the question from the series plan: why does a course on efficiency close with this topic?
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=svjjD2uthhQ
-title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=ZDk-GsyInt8
-title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=svjjD2uthhQ), [EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ZDk-GsyInt8)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): In the L22 video the course summary is only a short opening stretch (about the first 4% of the transcript: a recap of the inference, training and application-specific blocks, plus enrollment and YouTube view growth). The rest is Hanrui Wang's Quantum ML Part I (qubits, gates, NISQ and compilation). The final-project poster dates and the 7-item rubric are not spoken in the video; that part of this post follows the slides. For the L23 video I spot-checked PQC data encoding, parameter-shift gradients, gradient pruning under noise, TorchQuantum and SuperCircuit/QuantumNAS, and the topics match. The “first half / second half” and “a lecture and a half” wording has been changed to match the recording.
 
 ## Lecture 22, opening: a 13-page course summary
 
@@ -224,6 +201,29 @@ The [F26 course page](https://hanlab.mit.edu/courses/2026-fall-65940) marks Chap
 - Series entry point and chapter map: [Reading MIT 6.5940 overview](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 - NAS search spaces and strategies: [Lecture 7, NAS Part I](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en)
 - Open courses by school and the A0–A3 access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=svjjD2uthhQ
+title: EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ZDk-GsyInt8
+title: EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 22: Course Summary + Quantum Machine Learning Part 1 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=svjjD2uthhQ), [EfficientML.ai Lecture 23: Quantum Machine Learning Part 2 (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ZDk-GsyInt8)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): In the L22 video the course summary is only a short opening stretch (about the first 4% of the transcript: a recap of the inference, training and application-specific blocks, plus enrollment and YouTube view growth). The rest is Hanrui Wang's Quantum ML Part I (qubits, gates, NISQ and compilation). The final-project poster dates and the 7-item rubric are not spoken in the video; that part of this post follows the slides. For the L23 video I spot-checked PQC data encoding, parameter-shift gradients, gradient pruning under noise, TorchQuantum and SuperCircuit/QuantumNAS, and the topics match. The “first half / second half” and “a lecture and a half” wording has been changed to match the recording.
 
 ## Update Log
 

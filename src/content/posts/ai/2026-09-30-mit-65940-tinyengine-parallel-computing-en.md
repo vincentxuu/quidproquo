@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L11 TinyEngine and Parallel Computing: From Loop Tiling to In-Place Depthwise"
+title: "TinyEngine and Parallel Computing: From Loop Tiling to In-Place Depthwise | MIT 6.5940 Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 [Lecture 10](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en) described MCUNet as a co-design of TinyNAS and TinyEngine, but only covered TinyNAS. Lecture 11 fills in the other half. Once the model is fixed, how does the system layer make it run fast and use less memory?
 
 This lecture has more code than the earlier ones, but the structure is simple. The first half takes **one matrix multiply** and applies loop optimizations, SIMD, multithreading, and CUDA in turn, reporting a speedup at each step. The second half switches to convolution and covers four inference tricks TinyEngine uses. The Lecture Plan on page 2 has exactly these three parts: edge AI and MCU characteristics, parallel computing techniques, and inference optimizations.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=wl1UEnIOVek
-title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and the ending (the Winograd part and the hand-off to TinyChat and Labs 4–5) and spot-checked the middle: loop reordering (12x in the video), tiling (19x), four threads (4.1x), SIMD, im2col, in-place depthwise, the NHWC vs. NCHW trade-off, and Winograd cutting 36 multiplications to 16 (2.25x). These multipliers agree with this post. The topic and lecture number match. I did not find the CUDA 94x or loop-unrolling 2.85x figures in the captions, so those two stay slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Where an MCU is small
 
@@ -166,6 +148,24 @@ In other words, the CPU techniques from this lecture come back unchanged to spee
 - Locality and arithmetic intensity: [CS149 L6 Locality and Communication](/posts/ai/2026-09-30-cs149-locality-communication-en)
 - GPUs and Triton kernels: [CS336 Lecture 5: GPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en), [CS336 Lecture 6: Triton kernels](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 - CUDA in an assignment: [CMU 11-868 HW1: CUDA Programming](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=wl1UEnIOVek
+title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and the ending (the Winograd part and the hand-off to TinyChat and Labs 4–5) and spot-checked the middle: loop reordering (12x in the video), tiling (19x), four threads (4.1x), SIMD, im2col, in-place depthwise, the NHWC vs. NCHW trade-off, and Winograd cutting 36 multiplications to 16 (2.25x). These multipliers agree with this post. The topic and lecture number match. I did not find the CUDA 94x or loop-unrolling 2.85x figures in the captions, so those two stay slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

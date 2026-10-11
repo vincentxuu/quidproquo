@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L10：在 GPU 上加速 Transformer，LightSeq 把時間花在哪裡省下來"
+title: "在 GPU 上加速 Transformer，LightSeq 把時間花在哪裡省下來｜CMU 11-868 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,16 +36,6 @@ glossary:
 > **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L10 投影片 PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf)（66 頁）與兩篇 reading 核對。存取等級 **A3**：講義、作業、起始碼全部公開，但**官方課表未列本課公開錄影連結**，以下只根據投影片與論文，引用處標頁碼。
 
 **系列位置**：上一篇 [HW3：在 MiniTorch 實作 decoder-only Transformer](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)｜下一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 這一講在回答什麼
 
@@ -183,6 +173,16 @@ bert_model.layer[0] = ls_layer
 - 同一件事在 Triton 裡怎麼做、怎麼先量再優化：[CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)
 - GPU 記憶體階層與「少搬資料」的直覺：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 本課前面的 GPU 程式模型：[L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

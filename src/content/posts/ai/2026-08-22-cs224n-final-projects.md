@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 6 講：把期末專案收斂成可驗證的研究問題"
+title: "把期末專案收斂成可驗證的研究問題｜Stanford CS224N 第 6 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 6 講排在 2026 年 1 月 22 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture06-final-project.pdf)題為 **Final Projects: Custom and Default; Practical Tips**。agenda 分成兩塊：先用約十五分鐘補完 Transformer，再談專案類型與評分、研究題目與資料來源，最後 Q&A。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## Transformer 回顧補了什麼
 
@@ -117,6 +106,17 @@ Custom project 也應這樣拆。RAG 分成 indexing、retrieval、context、gen
 ## 材料缺口
 
 Winter 2026 錄影與 Q&A 不公開。本文涵蓋官方投影片的 Transformer recap 與三段 project agenda，但不重建學生提問、口頭題目建議或現場評分解釋。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

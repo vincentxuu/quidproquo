@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Foundations L11–L12: Linear Classification, SGD, Multiclass, and Nonlinear Transforms"
+title: "Linear Classification, SGD, Multiclass, and Nonlinear Transforms | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 11–12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 By the end of Lecture 10, the third part of the course, "How Can Machines Learn?", has given you three linear models. PLA classifies. Linear regression has a closed-form solution. Logistic regression is solved by gradient descent. Lecture 11 asks how the three relate. Lecture 12 asks what happens when the data isn't linearly separable at all.
 
 These two lectures close out the third part. After reading, you should be able to explain why regression can be used for classification, where the SGD update comes from, the two ways to split a multiclass problem, and how to count the price of a feature transform.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=qXfDVHVzI38
-title: Binary Classification
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=9HL3YvmrovQ
-title: Stochastic Grad. Descent
-```
-
-Original videos: [Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Course materials
 
@@ -189,6 +167,28 @@ One thing to try tonight: use d̃ = C(Q+d, d) − 1 to compute the dimension for
 - The trade-off between feature transforms and regularization: [CMU 07-280 Lecture 10: Feature Engineering and Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en)
 - ML Techniques hands the "high dimensions cost you" problem to SVMs and kernels: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=qXfDVHVzI38
+title: Binary Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9HL3YvmrovQ
+title: Stochastic Grad. Descent
+```
+
+Original videos: [Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

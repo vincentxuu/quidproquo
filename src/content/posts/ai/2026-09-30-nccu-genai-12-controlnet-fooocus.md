@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI L12：ControlNet 與 Fooocus——怎麼讓生圖 AI 照你的構圖畫？"
+title: "ControlNet 與 Fooocus——怎麼讓生圖 AI 照你的構圖畫？｜政大蔡炎龍 生成式AI 第 12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 12 篇，接續 [L11 文字生圖 AI 的原理及實作](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)。
 
 用到的官方材料有三份：[第 12 講錄影](https://www.youtube.com/watch?v=3TdC6xb1RfY)（2025-05-06，3 小時 12 分）、投影片 [GenAI12 ControlNet 與 Fooocus](https://drive.google.com/file/d/15-cHR3PSoGVmXj0yrrzCksDJQ1fcVtir/view)（33 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第十二週作業說明。存取等級是 **A3**：錄影、投影片、作業題目與評分標準都公開。這一講沒有對應的 [AI-Demo](https://github.com/yenlung/AI-Demo) notebook，實作用的是 [Fooocus](https://github.com/lllyasviel/Fooocus) 這套開源軟體本身。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=3TdC6xb1RfY
-title: 【生成式 AI】12. ControlNet 與 Fooocus（YouTube 錄影，2025-05-06）
-```
-
-原始影片：[【生成式 AI】12. ControlNet 與 Fooocus（YouTube 錄影，2025-05-06）](https://www.youtube.com/watch?v=3TdC6xb1RfY)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -223,6 +206,23 @@ pip install -r requirements_versions.txt
 - ControlNet 在 2023 年電腦視覺研究裡的位置：[2023 AI 頂會導讀：電腦視覺篇](/posts/ai/2026-08-24-ai-conference-2023-cv)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L11 文字生圖 AI 的原理及實作](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)｜下一篇 [L13 強化學習與生成式 AI 綜合應用](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=3TdC6xb1RfY
+title: 【生成式 AI】12. ControlNet 與 Fooocus（YouTube 錄影，2025-05-06）
+```
+
+原始影片：[【生成式 AI】12. ControlNet 與 Fooocus（YouTube 錄影，2025-05-06）](https://www.youtube.com/watch?v=3TdC6xb1RfY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

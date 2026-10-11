@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 3: The Knobs You Turn When an LLM Generates, from Temperature and Top-p to Chain of Thought"
+title: "The Knobs You Turn When an LLM Generates, from Temperature and Top-p to Chain of Thought | Stanford CME295 Lecture 3"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,31 +39,6 @@ This post covers Lecture 3, "Large Language Models," of the 2025 edition of Stan
 If you have called any LLM API, you have probably seen `temperature` and `top_p` in the parameter list, and maybe an option for forcing JSON output. Where each of those fields intervenes in the model's work is the core of this lecture.
 
 The slides are organized into five parts: LLM overview, MoE-based LLMs, Response generation, Prompting strategies, and Inference optimizations. This post centers on the middle three, which are the knobs you can turn while the model is generating. MoE gets the intuition only, and the final part on inference speedups gets a map, with links to fuller posts on this site for the details.
-
-## Course video sources
-
-The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 3); the second is the Autumn 2026 recording listed for Lecture 2, "Large Language Models", on the official 2026 syllabus (https://cme295.stanford.edu/syllabus/). Lecture titles and video IDs were checked live on 2026-10-10 and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=Q5baLehv5So
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=GaIeu3npx04
-title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
-
-Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Q5baLehv5So is Autumn 2025 Lecture 3 (2025-10-10, 1:48:45, matching the post); its chapters are MoE, decoding (greedy, beam, sampling, temperature), guided decoding, prompting, in-context learning, CoT and self-consistency, KV cache, and PagedAttention/MLA, consistent with the post's "knob" sections. GaIeu3npx04 is Autumn 2026 Lecture 2, Large Language Models (1:43:14); its transcript really is the LLM lecture (MoE, RoPE, sliding windows, GQA, temperature, guided decoding, context rot, prompting). Note that the chapter list in its page description is copied from Lecture 1 and does not match the content, so I went by the transcript. Found and fixed: the post said prompting, in-context learning, CoT and self-consistency disappeared from the 2026 syllabus and that guided decoding could not be placed, but the 2026 Lecture 2 transcript briefly covers the first four at its end and also covers guided decoding.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## What counts as an LLM
 
@@ -260,6 +235,31 @@ These questions are adapted from Part III of the [2025 midterm](https://cme295.s
 - Where in-context learning comes from: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Inference optimization: [CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference-en)
 - Next in this series: [Lecture 4: LLM training](/posts/ai/2026-09-29-cme295-llm-training-en); training chain of thought into the model itself comes in [Lecture 6: LLM reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+
+## Course video sources
+
+The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 3); the second is the Autumn 2026 recording listed for Lecture 2, "Large Language Models", on the official 2026 syllabus (https://cme295.stanford.edu/syllabus/). Lecture titles and video IDs were checked live on 2026-10-10 and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=GaIeu3npx04
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 2 - Large Language Models](https://www.youtube.com/watch?v=GaIeu3npx04)
+
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Q5baLehv5So is Autumn 2025 Lecture 3 (2025-10-10, 1:48:45, matching the post); its chapters are MoE, decoding (greedy, beam, sampling, temperature), guided decoding, prompting, in-context learning, CoT and self-consistency, KV cache, and PagedAttention/MLA, consistent with the post's "knob" sections. GaIeu3npx04 is Autumn 2026 Lecture 2, Large Language Models (1:43:14); its transcript really is the LLM lecture (MoE, RoPE, sliding windows, GQA, temperature, guided decoding, context rot, prompting). Note that the chapter list in its page description is copied from Lecture 1 and does not match the content, so I went by the transcript. Found and fixed: the post said prompting, in-context learning, CoT and self-consistency disappeared from the 2026 syllabus and that guided decoding could not be placed, but the 2026 Lecture 2 transcript briefly covers the first four at its end and also covers guided decoding.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

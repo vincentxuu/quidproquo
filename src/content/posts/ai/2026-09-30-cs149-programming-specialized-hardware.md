@@ -1,5 +1,5 @@
 ---
-title: "CS149 L11：怎麼替專用硬體寫程式——ThunderKittens 管住 H100 的非同步，資料流架構用 metapipeline 換掉它"
+title: "怎麼替專用硬體寫程式——ThunderKittens 管住 H100 的非同步，資料流架構用 metapipeline 換掉它｜Stanford CS149 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,14 +35,6 @@ glossary:
 **這一講沒有公開錄影可以對照。** Fall 2025 的錄影只放在 Stanford Canvas，官方首頁指向的 2023 播放清單裡也沒有這一講。[2023 年課站的硬體專用化投影片](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/)後半講 Spatial 加速器語言與串流執行模型，觀念上接近本講的資料流那一半，但內容不同，不能當作本講的替代。本文逐頁依 2025 投影片寫，投影片沒寫的不補；有些頁面只有圖或程式截圖、沒有文字，本文就只寫標題。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
 
 本篇用到的硬體名詞（Tensor Core、TMA、脈動陣列、資料流架構）都在[上一篇](/posts/ai/2026-09-30-cs149-hardware-specialization)解釋過，這裡只引用。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
 
 ## 一、場景：同一個 kernel，換新 GPU 反而變慢
 
@@ -225,6 +217,14 @@ METAPIPE(M / MM, [&]() {
 延伸閱讀：想在 TPU 上看另一種「用 DSL 管理專用硬體」的做法，讀 [CMU 11-868 TPU、JAX 與 Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)；想看 Triton 這類更高階的 GPU kernel 語言，讀 [CS336 Kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)。下一篇 [PA4](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki) 會讓你在 AWS Trainium2 上親手管理軟體控制的晶片上記憶體。
 
 系列導覽：上一篇 [L10 硬體專用化與 DNN 加速器設計](/posts/ai/2026-09-30-cs149-hardware-specialization)｜下一篇 [PA4 + Written 3：Trainium2 與 NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
 
 ## 更新紀錄
 

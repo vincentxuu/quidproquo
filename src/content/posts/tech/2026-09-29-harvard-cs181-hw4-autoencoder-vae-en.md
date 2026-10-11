@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW4 (Part 2): Why Autoencoders Can't Generate, and What VAEs Add"
+title: "(Part 2): Why Autoencoders Can't Generate, and What VAEs Add | Harvard CS181 Assignment 4 / Part 2"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, vae, generative-models, homework, machine-learning]
@@ -32,17 +32,6 @@ glossary:
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/ipynb`) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, but has no public recording links listed for the corresponding lectures and no homework solutions. The autoencoder part of Section 6 stops at sparse and denoising autoencoders and **does not cover VAEs**. I did not get the Week 6 Representation Learning / Autoencoders lecture slides, so the VAE material here rests only on the homework handout itself.
 
 This is post 7 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en), following [HW4 (Part 1) on Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en).
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## The setup: it can rebuild a face, but can't draw a new one
 
@@ -158,6 +147,17 @@ Section 6 §2.5 also has a result that ties straight into the next assignment: a
 
 - Previous: [HW4 (Part 1): Transformers, from hand-computed attention to multi-head](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 - Next: [HW4 (Part 3): decision trees, random forests, and Mixture of Experts](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

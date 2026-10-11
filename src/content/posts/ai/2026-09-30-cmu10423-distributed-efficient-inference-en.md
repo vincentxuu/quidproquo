@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L17–L18: Distributed Training, FlashAttention, and Efficient Decoding — Where to Start When One GPU Can't Hold the Model and Inference Is Too Slow"
+title: "Distributed Training, FlashAttention, and Efficient Decoding — Where to Start When One GPU Can't Hold the Model and Inference Is Too Slow | CMU 10-423 Lectures 17–18"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,17 +33,6 @@ glossary:
 Official materials used: the [Lecture 17 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed.pdf) and their [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed-ink.pdf), the [Lecture 18 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture18-efficient.pdf), and the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html). I downloaded and checked all of them on 2026-09-30. The schedule lists no readings for these two lectures, so every paper cited here is one the slides cite.
 
 > **Version note**: The L17 PDF (March 18) was created in March 2026, but its reminder slide says HW4 "Out: Thu, Oct 23" and HW623 "Due: Mon, Dec 1". Those are Fall 2025 dates, so the content appears to be carried over from the previous semester. The slides credit Henry Chai and Pat Virtue. L18 (March 23) has Spring 2026 dates on its reminder slide and no inked version. Recordings are on CMU's internal Panopto and not visible from outside.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## L17: Distributed training
 
@@ -179,6 +168,17 @@ Confirmed: the text, tables, and citations on both slide decks; schedule dates a
 - The systems-course deep dive: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en), especially [L14–L15 on data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en), [L18 on ZeRO](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en), [L21 on FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en), and [L22 and L24 on PagedAttention and LLM serving](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en)
 
 Series: Previous: [L15–L16: Scaling Laws and Mixture of Experts](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en) | Next: [L19 and L21: Long Context and State Space Models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

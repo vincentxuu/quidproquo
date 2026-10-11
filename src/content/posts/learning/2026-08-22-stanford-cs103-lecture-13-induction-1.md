@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 12：數學歸納法、假幣問題與不變量"
+title: "數學歸納法、假幣問題與不變量｜Stanford CS103 第 12 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 14 篇，對應 **Spring 2026 官方 Lecture 12（2026-04-27）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Mathematical Induction, Part I**。投影片先用全場依序做 wave 建立直覺，再寫出歸納原理；接著用二的冪次和示範正式證明，以假幣問題呈現遞迴式演算法，最後用錯誤證明與 MU puzzle 說明 base case 和不變量為何不可省略。這些例子都在追問同一件事：一個性質如何從目前狀態可靠地傳到下一個狀態。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)
 
 ## Wave：歸納法的兩個齒輪
 
@@ -171,6 +163,14 @@ Base case 是普通命題 `P(0)`，可以使用任何合法方法。歸納步驟
 完整公開投影片足以支持 wave、歸納原理、兩個完整示範、錯誤證明、MU puzzle 與 loop invariant 的連結。投影片也列出假幣問題的趣味變形，但沒有在 deck 中展開解答；本文不代替課堂補完。錄影、學生回應與口頭轉折不公開，也不被重建成講師原話。
 
 下一講預告從較晚位置起步、一次跨較大步及 complete induction；那些變形留在系列下一篇，不提前混入本講。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)
 
 ## 更新紀錄
 

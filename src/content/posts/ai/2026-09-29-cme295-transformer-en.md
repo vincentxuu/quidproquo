@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 1: From Tokens to Transformer, or How One Sentence Gets Translated into Another Language"
+title: "From Tokens to Transformer, or How One Sentence Gets Translated into Another Language | Stanford CME295 Lecture 1"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -37,31 +37,6 @@ glossary:
 This post covers Lecture 1, "Transformer," of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The main sources are the 2025 [recording](https://www.youtube.com/watch?v=Ub3GoFaUcds) and its [135-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf), cross-checked against the new edition released on September 25, 2026 ([recording](https://www.youtube.com/watch?v=114i2Kz-LZA), [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)).
 
 The whole lecture runs on one example sentence: "A cute teddy bear is reading." It gets split into tokens, turned into vectors, handed to an RNN, and then we see why the RNN can't cope, until finally a Transformer translates it into French: "Un ours en peluche mignon lit." Follow that sentence from start to finish and you've covered the entire lecture.
-
-## Course video sources
-
-The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 1); the second is the Autumn 2026 recording listed for Lecture 1 on the official 2026 syllabus (https://cme295.stanford.edu/syllabus/). Lecture titles and video IDs were checked live on 2026-10-10 and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=Ub3GoFaUcds
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=114i2Kz-LZA
-title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
-
-Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Ub3GoFaUcds is Autumn 2025 Lecture 1, Transformer (page date 2025-09-26, length 1:41:59); its chapters include an NLP overview (sentiment analysis, NER, translation, and metrics such as BLEU, ROUGE and perplexity), tokenization, word representation, RNNs, self-attention, the Transformer architecture, and a detailed example (the teddy-bear sentence). 114i2Kz-LZA is Autumn 2026 Lecture 1, Transformers (1:44:28); its chapters go from a timeline to tokenization, word2vec, RNN/LSTM, attention, the Transformer and an end-to-end example, with no NLP overview or evaluation metrics (BLEU, ROUGE and perplexity never appear in the transcript), and it opens with a "difference from last year's edition" segment that mentions agents. This matches the post's statements that 2026 drops the NLP overview, covers it only in a timeline, and adds an agentic era; nothing needed correcting.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Step 1: Split the sentence into tokens
 
@@ -186,6 +161,31 @@ These questions are adapted from Part I of the [2025 midterm](https://cme295.sta
 - RNNs and vanishing gradients: [CS224N Lecture 4: language models, RNNs, and vanishing gradients](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
 - Another take on going from recurrence to Transformers: [CS224N Lecture 5](/posts/ai/2026-08-22-cs224n-transformers-en)
 - Implementing BPE yourself: [CS336 Lecture 1](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
+
+## Course video sources
+
+The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 1); the second is the Autumn 2026 recording listed for Lecture 1 on the official 2026 syllabus (https://cme295.stanford.edu/syllabus/). Lecture titles and video IDs were checked live on 2026-10-10 and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ub3GoFaUcds
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=114i2Kz-LZA
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
+
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Ub3GoFaUcds is Autumn 2025 Lecture 1, Transformer (page date 2025-09-26, length 1:41:59); its chapters include an NLP overview (sentiment analysis, NER, translation, and metrics such as BLEU, ROUGE and perplexity), tokenization, word representation, RNNs, self-attention, the Transformer architecture, and a detailed example (the teddy-bear sentence). 114i2Kz-LZA is Autumn 2026 Lecture 1, Transformers (1:44:28); its chapters go from a timeline to tokenization, word2vec, RNN/LSTM, attention, the Transformer and an end-to-end example, with no NLP overview or evaluation metrics (BLEU, ROUGE and perplexity never appear in the transcript), and it opens with a "difference from last year's edition" segment that mentions agents. This matches the post's statements that 2026 drops the NLP overview, covers it only in a timeline, and adds an agentic era; nothing needed correcting.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

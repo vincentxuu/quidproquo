@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 20: After Reverse Engineering, Ask About Privacy and Trust Before Building a Heap Allocator"
+title: "After Reverse Engineering, Ask About Privacy and Trust Before Building a Heap Allocator | Stanford CS107 Lecture 20"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 The early lectures taught us to track C bytes and pointers. The middle of the course translated functions into x86-64, and the previous lecture made buffer-overflow control flow readable. Before implementing an allocator, Lecture 20 pauses deliberately: once reverse engineering can expose behavior a program did not intend to publish, we need a language for deciding what we should do, not merely what we can do.
 
 This is not ethics attached as decoration. A security researcher can find vulnerabilities because they receive or acquire unusual capabilities. A data custodian can compute statistics because it concentrates other people's information. An allocator can reuse space because a client promises not to touch a freed block. The same questions connect all three: **who can do what, whom do we rely on, and who bears the risk of betrayal?**
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -170,6 +162,14 @@ Create two checklists after this lecture. For a security exercise, record author
 Lecture 20 is not mainly an invitation to memorize four privacy definitions or pre-learn allocator algorithms. It asks responsibility to grow alongside capability. Reverse engineering crosses abstraction boundaries, so distinguish ability from permission. Differential privacy offers a precise guarantee, so identify the threats outside it. Heap APIs look small, so expose the ownership contract shared by client and library.
 
 As allocator implementation begins, keep asking the same questions: who owns this resource, who is trusted, how long does trust last, and who is harmed when the contract breaks? Mature systems programming means understanding both the bytes and the power and responsibility behind them.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

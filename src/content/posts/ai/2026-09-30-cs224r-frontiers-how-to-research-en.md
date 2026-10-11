@@ -1,5 +1,5 @@
 ---
-title: "CS224R L18: Open Problems in Deep RL, and How to Do Research"
+title: "Open Problems in Deep RL, and How to Do Research | Stanford CS224R Lecture 18"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ Official sources used:
 Access level is **A3**: the slides, project specs, and project reports are all readable without logging in; the 2026 recordings live only on Canvas.
 
 Companion video (**supplementary**): [Spring 2025 Lecture 18: Frontiers](https://www.youtube.com/watch?v=FacJ_1tTSx4) (about 71 minutes). I compared the [2025 deck](https://cs224r.stanford.edu/spring_2025/slides/18_cs224r_frontiers_how_to_research.pdf) (53 pages) with the 2026 one. The 2026 deck adds three opening slides summarizing the quarter and one research example slide; the text of the open problems and research advice is nearly identical. So the 2025 video covers most of this lecture, but for the opening summary, go by the 2026 slides.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=FacJ_1tTSx4
-title: Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)
-```
-
-Original videos: [Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)](https://www.youtube.com/watch?v=FacJ_1tTSx4)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L18 Frontiers transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript walks through open problems in problem setup, methods, and deployment/evaluation, then research advice and projects, and includes the speaker's second-year-PhD internship story about building a video generation model (about 1,300 citations), which supports the post's statement that the 2025 video covers most of this lecture. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: what is still unsolved after the full toolkit
 
@@ -317,6 +298,25 @@ Not confirmed:
 - Which video generation paper slide 43 refers to; the slide doesn't give its title
 
 Series navigation: previous [L17 RL for VLAs](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en) | this is the final post | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=FacJ_1tTSx4
+title: Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 18: Frontiers (YouTube, supplementary)](https://www.youtube.com/watch?v=FacJ_1tTSx4)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L18 Frontiers transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript walks through open problems in problem setup, methods, and deployment/evaluation, then research advice and projects, and includes the speaker's second-year-PhD internship story about building a video generation model (about 1,300 citations), which supports the post's statement that the 2025 video covers most of this lecture. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

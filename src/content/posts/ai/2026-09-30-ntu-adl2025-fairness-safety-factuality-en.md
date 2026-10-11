@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment, Plus the Jailbreaking Olympics Final Project"
+title: "Bias, Safety, Hallucination, and Alignment, Plus the Jailbreaking Olympics Final Project | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -48,30 +48,6 @@ The deck is organized as four problem-to-goal pairs:
 | Toxicity | Safety | 14–22 | 10.2 |
 | Hallucination | Factuality | 23–28 | 10.3 |
 | (steering models toward specific goals) | Alignment | 29–40 | none |
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=3BAFtBS27UI
-title: ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=V2Pot_Uv31E
-title: ADL 10.2: Model Safety (YouTube, in Mandarin)
-```
-
-Original videos: [ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety (YouTube, in Mandarin)](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction (YouTube)](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge (YouTube)](https://www.youtube.com/watch?v=pZxBNlSqy6I)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded 10.1 (24:53) and 10.2 (23:46) have no obtainable YouTube transcript, so their spoken content was not checked. The article takes its content from numbered slides and does not attribute any claim to the spoken lecture. Both were uploaded on 2025-11-06 with a description dated 2025/11/03 crediting Stanford and CMU courses for the slides.
 
 ## Bias → Fairness
 
@@ -190,6 +166,30 @@ One thing you can do tonight: take an LLM application you own, go through slide 
 
 Previous: [NLG: Decoding, Control, and Evaluation](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation-en)
 Next: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=3BAFtBS27UI
+title: ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=V2Pot_Uv31E
+title: ADL 10.2: Model Safety (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 10.1: Fairness for Bias Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety (YouTube, in Mandarin)](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction (YouTube)](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge (YouTube)](https://www.youtube.com/watch?v=pZxBNlSqy6I)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded 10.1 (24:53) and 10.2 (23:46) have no obtainable YouTube transcript, so their spoken content was not checked. The article takes its content from numbered slides and does not attribute any claim to the spoken lecture. Both were uploaded on 2025-11-06 with a description dated 2025/11/03 crediting Stanford and CMU courses for the slides.
 
 ## Update Log
 

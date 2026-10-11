@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 Machine Learning: Your 2026 Roadmap Through 7 Homeworks (With a 4-Year Comparison)"
+title: "Your 2026 Roadmap Through 7 Homeworks (With a 4-Year Comparison) | Harvard CS181 Course Overview"
 date: 2026-08-27
 category: tech
 tags: [harvard, cs181, machine-learning, learning-path, homework, practical, textbook]
@@ -18,17 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > ⚠️ **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -101,6 +90,17 @@ Suggested path: read this overview to decide whether to follow the 2026 main lin
 - The scribe notes are from 2024; the midterm/final review and midterm practice headers say 2025.
 - The site's `homework` page is stale (lists only HW0); use the s26 repo and the schedule for the 2026 homework list.
 - CS1810 is a spring course and is not offered in Fall 2026; a comparison will follow once Spring 2027 materials are up.
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## References
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 1: The Shared Problem Behind AI, ML, and Representation Learning"
+title: "The Shared Problem Behind AI, ML, and Representation Learning | CMU 07-280 Lecture 1"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 1: Introduction**. It is not merely a warm-up that arranges AI terms on a timeline. The slides keep returning to one question: when an input is too complex for hand-written rules, how can a system build a useful representation and use it to predict or act?
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf), and [Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf). There is no anonymously accessible lecture recording or transcript, so this article interprets the documents only. It does not reconstruct spoken explanations, activity results, or Q&A.
-
-The Spring 2026 title is simply **Introduction**. Alignment and safety material later added to the Fall 2026 homepage is outside this article's edition.
 
 ## The inherited question: why search and GPT-2 belong in one course
 
@@ -62,10 +46,10 @@ Suppose each alien has three observable factors: eye count `e ∈ {1,2,3}`, heig
 
 ```text
 z1 = h
-z2 = e + 0.25a
+z2 = e
 ```
 
-Height is exactly recoverable from `z1`. `z2` usually separates eye count and stores antenna presence in its fractional part. But if broader values were allowed, different aliens could collide at the same coordinate. The lesson is the cost of a bottleneck: a low-dimensional representation must decide which distinctions survive, and the training objective decides which distinctions matter.
+This representation exercise is created for this guide. Height and eye count are recoverable, but antenna presence is not encoded: `(e,h,a)=(2,0.5,0)` and `(2,0.5,1)` both become `z=(0.5,2)`. A decoder cannot distinguish them. Predict the missing feature, then check these two inputs; your answer must identify different antennas with identical coordinates. The collision follows from our chosen encoding, not a theorem that two coordinates cannot hold these three factors. Using `z2=e+0.25a` would preserve antennas within the stated domains.
 
 You can reproduce the idea without training a network. Place ten household objects on two axes of your own design, then ask someone else to infer their properties from coordinates alone. Whatever cannot be recovered is information your representation discarded.
 
@@ -86,6 +70,22 @@ When later lectures present closed-form linear regression or CSP algorithms, do 
 1. Read the Notation Guide and write a five-symbol cheat sheet for the notation you do not use fluently.
 2. Describe one familiar AI application in four columns: input, representation, output, and performance criterion.
 3. Open Recitation 1 and formulate only the Tower of Hanoi state and actions before reading the solution.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [Lecture 1 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec1_Intro.pdf), [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf), and [Math Background notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf). There is no anonymously accessible lecture recording or transcript, so this article interprets the documents only. It does not reconstruct spoken explanations, activity results, or Q&A.
+
+The Spring 2026 title is simply **Introduction**. Alignment and safety material later added to the Fall 2026 homepage is outside this article's edition.
 
 ## Update Log
 

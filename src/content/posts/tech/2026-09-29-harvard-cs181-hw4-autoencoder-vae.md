@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW4（中）：Autoencoder 為何不能生成，VAE 補了什麼"
+title: "（中）：Autoencoder 為何不能生成，VAE 補了什麼｜Harvard CS181 作業 4／第 2 部分"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, vae, generative-models, homework, machine-learning]
@@ -33,17 +33,6 @@ glossary:
 > ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/ipynb`）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，2026-09-29 實際打開。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答。Section 6 的 autoencoder 段落講到 sparse 與 denoising AE 為止，**沒有涵蓋 VAE**；Week 6 的 Representation Learning / Autoencoders 講課投影片本篇沒有取得，所以 VAE 部分只根據作業題目本身。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 7 篇，接在 [HW4（上）Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 之後。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 場景：它能把臉還原，卻畫不出一張新臉
 
@@ -159,6 +148,17 @@ VAE 的「encoder 把圖壓成分布、decoder 從 latent 還原」這個結構�
 
 - 上一篇：[HW4（上）：Transformer 從手算注意力到多頭](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 - 下一篇：[HW4（下）：決策樹、隨機森林與 Mixture of Experts](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 7: The Three Laws of AI: Safety Through Observability and Evaluation"
+title: "The Three Laws of AI: Safety Through Observability and Evaluation | MIT 6.S191 Lecture 7"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 7 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **The Three Laws of AI: Safety Through Observability and Evaluation**. It Starts from Asimov’s literary laws and examines modern safety protocols through traces, test data, and continuous evaluation. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=XKOpA7iaJvg
-title: MIT 6.S191: The Three Laws of AI
-```
-
-Original videos: [MIT 6.S191: The Three Laws of AI](https://www.youtube.com/watch?v=XKOpA7iaJvg)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Doug Blank, head of research at Comet, not one of the main instructors. The transcript starts from Asimov's three laws of robotics, then uses Comet's Opik to demo system-prompt jailbreaks, dataset-plus-metric evaluation experiments (including LLM-as-judge), trace logging and agent tool calls, and ends with his version of modern AI rules (log traces, grow a test dataset incrementally, evaluate continually, publish results), matching this note's trace, fixed test set and continuous evaluation.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Save ten representative cases with inputs, outputs, and version metadata, then r
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=XKOpA7iaJvg
+title: MIT 6.S191: The Three Laws of AI
+```
+
+Original videos: [MIT 6.S191: The Three Laws of AI](https://www.youtube.com/watch?v=XKOpA7iaJvg)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Doug Blank, head of research at Comet, not one of the main instructors. The transcript starts from Asimov's three laws of robotics, then uses Comet's Opik to demo system-prompt jailbreaks, dataset-plus-metric evaluation experiments (including LLM-as-judge), trace logging and agent tool calls, and ends with his version of modern AI rules (log traces, grow a test dataset incrementally, evaluate continually, publish results), matching this note's trace, fixed test set and continuous evaluation.
 
 ## Update Log
 

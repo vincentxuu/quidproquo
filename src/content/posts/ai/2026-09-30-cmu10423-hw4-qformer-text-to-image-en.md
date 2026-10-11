@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 HW4: Text-to-Image with a Q-Former Between a Frozen GPT-2 and a Frozen DiT — Structure, Files to Edit, and Compute"
+title: "Text-to-Image with a Q-Former Between a Frozen GPT-2 and a Frozen DiT — Structure, Files to Edit, and Compute | CMU 10-423 Assignment 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,17 +34,6 @@ glossary:
 Official materials used: [hw4.zip](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw4.zip) from the [Coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html) (the 30-page "S26 10423 HW4.pdf", starter code, and unit tests), the [read-only Overleaf template](https://www.overleaf.com/read/fvnjnmymbzmt#bd53e3), the [course schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), and the Querying Transformer section of the [Lecture 15 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf). I downloaded and checked all of them on 2026-09-30.
 
 This post covers structure, points, files to edit, compute, and environment. **It gives no solutions.**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## The basics
 
@@ -190,6 +179,17 @@ Confirmed: the handout, starter code, unit tests, and notebook in hw4.zip; sched
 Further reading: for the math behind diffusion and guidance, see [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en). For the systems side of parameter-efficient fine-tuning such as LoRA, see [CMU 11-868 L23: Efficient Fine-Tuning for Large Models](/posts/ai/2026-09-30-cmu11868-peft-lora-en).
 
 Series: Previous: [L14–L15: Cross-Attention, DiT, Prompt-to-Prompt, and the Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en) | Next: [L15–L16: Scaling Laws and Mixture of Experts](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

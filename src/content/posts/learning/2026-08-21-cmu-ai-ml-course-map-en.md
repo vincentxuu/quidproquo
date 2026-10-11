@@ -1,5 +1,5 @@
 ---
-title: "CMU AI/ML Course Guide: The New 07-280 Core and a Public Self-Study Route"
+title: "CMU AI/ML Course Guide: The New 07-280 Core and a Public Self-Study Route | Global AI/CS Course Map"
 date: 2026-08-21
 category: learning
 tags: [cmu, ai-course, machine-learning, learning-path, open-course]
@@ -22,19 +22,6 @@ CMU differs from the previous stops in this series. It has a formal [Bachelor of
 That produces an apparent contradiction with a useful answer: **look at 07-280/380 to understand what CMU now believes an AI undergraduate should study, but use the completed Spring 2026 remains of 07-280 or the continuing 10-301/601 course if you want something executable outside CMU today.** A future Fall 2026 page is not yet a completed public course.
 
 This guide therefore does not turn a list of the newest course numbers into a self-study plan. It first reconstructs the new BSAI core, then tests each 2025–2026 site as an anonymous visitor. The audit date is **August 21, 2026**. Fall 2026 classes have not started, so a published future schedule does not count as delivered material.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [Bachelor of Science in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)
-- [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
-- [CMU SCS — BS in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/)
-- [CMU SCS — BSAI Program Roadmap](https://www.cs.cmu.edu/bs-in-artificial-intelligence/program-roadmap)
-- [07-280 Artificial Intelligence and Machine Learning I](https://www.cs.cmu.edu/~07280/)
-- [07-380 Artificial Intelligence and Machine Learning II](https://www.cs.cmu.edu/~07380/)
 
 ## The new BSAI core is broader than model training
 
@@ -171,6 +158,19 @@ For comparison, the [MIT AI/ML Course Guide](/posts/learning/2026-08-21-mit-ai-m
 - 2026-09-30: Added 11-868 LLM Systems (Spring 2026: 28 slide decks and seven MiniTorch assignments all public, no recordings, GPU required, A3) to the public-material inventory and the systems branch, with a link to this site's guide.
 - 2026-09-29: Rechecked after Fall 2026 began: 07-280 Fall 2026 moved to A2→A3 (first 11 lectures and HW1–5 public), 07-380 updated to a full course site with current slide progress, 11-785 F26 videos rolling out lecture by lecture; added 11-768 AI Agents (table and branch route); added links to this site's 07-280, 10-301, 11-785, and 11-768 guides.
 - 2026-08-22: Added direct official Spring 2026 assets so an anonymous reader can reproduce the 07-280 A3 rating.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [Bachelor of Science in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/curriculum)
+- [Fall 2026](https://deeplearning.cs.cmu.edu/F26/index.html)
+- [CMU SCS — BS in Artificial Intelligence](https://www.cs.cmu.edu/bs-in-artificial-intelligence/)
+- [CMU SCS — BSAI Program Roadmap](https://www.cs.cmu.edu/bs-in-artificial-intelligence/program-roadmap)
+- [07-280 Artificial Intelligence and Machine Learning I](https://www.cs.cmu.edu/~07280/)
+- [07-380 Artificial Intelligence and Machine Learning II](https://www.cs.cmu.edu/~07380/)
 
 ## References
 

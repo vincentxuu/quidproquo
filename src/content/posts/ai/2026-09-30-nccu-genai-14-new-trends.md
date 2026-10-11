@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI L14：文字模型與圖像模型互搶地盤——生成式 AI 新趨勢與期末專案"
+title: "文字模型與圖像模型互搶地盤——生成式 AI 新趨勢與期末專案｜政大蔡炎龍 生成式AI 第 14 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 用到的官方材料有四份：[第 14 講錄影](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)（2025-05-27，3 小時 9 分）、投影片 [GenAI14 生成式 AI 新趨勢](https://drive.google.com/file/d/14gA0kgjU0E4Fyb7bOcZpg4TZwTN9KnWv/view)（60 頁）、[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的課表與期末專案說明，以及 [Fall 2026（1151）課綱](https://drive.google.com/file/d/1hhigEPT9SdhJgtIpevACzSJsSNA0mw6T/view)的第 15、16 週與評分說明。
 
 存取等級是 **A3**，但這一講有兩個缺口要先講清楚。一是錄影的後半段有現場技術問題，影片說明直接寫「後半段請參考投影片」，並附上各段對應的投影片頁數。二是期末專案只有規則公開，1132 的成果清單沒有公開。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=AOLoR3p2Z0Q
-title: 【生成式 AI】14. 生成式 AI 新趨勢（YouTube 錄影，2025-05-27）
-```
-
-原始影片：[【生成式 AI】14. 生成式 AI 新趨勢（YouTube 錄影，2025-05-27）](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -212,6 +195,23 @@ Inception Labs 在 2025 年 6 月發表了技術報告 [Mercury: Ultra-Fast Lang
 - 課程地圖：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L13 強化學習與生成式 AI 綜合應用](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)｜本篇是系列最後一篇
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=AOLoR3p2Z0Q
+title: 【生成式 AI】14. 生成式 AI 新趨勢（YouTube 錄影，2025-05-27）
+```
+
+原始影片：[【生成式 AI】14. 生成式 AI 新趨勢（YouTube 錄影，2025-05-27）](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

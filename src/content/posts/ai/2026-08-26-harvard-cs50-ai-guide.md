@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI 導讀：七週主題、十二個 projects 與一門 2020 年錄影的課怎麼跟"
+title: "七週主題、十二個 projects 與一門 2020 年錄影的課怎麼跟｜Harvard CS50 AI 主題單元"
 date: 2026-08-26
 category: ai
 type: guide
@@ -20,17 +20,6 @@ draft: false
 搜「免費 AI 課程」，[Harvard CS50's Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/)（以下簡稱 CS50 AI）幾乎一定排在前幾名。它由 [Brian Yu](https://brianyu.me) 和 [David J. Malan](https://cs.harvard.edu/malan/) 主講，透過 OpenCourseWare 完全免費公開：七週影片、逐講 notes、投影片、原始碼、quiz，加上十二個有 autograder 回饋的 Python projects。按照本站在[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定的分級，它是 **A3——足以自學**：錄影、教材、projects、回饋系統全部對校外開放，一個人從零走到拿證書，中間不需要任何校內身分。
 
 但「材料全開」不等於「材料是最新的」。打開任何一講的下載連結，你會發現路徑寫著 `cdn.cs50.net/ai/2020/spring/`——影片是 2020 年春天錄的。這篇要回答的問題因此有兩個層：這七週和十二個 projects 到底在做什麼；以及一份 2020 年的錄影，放在 2026 年還值不值得跟。
-
-## 課程影片來源
-
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對。
-
-課程與錄影入口：
-
-- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
-
-查核日期：2026-10-10。
 
 ## 先判斷它是不是你要的課
 
@@ -123,6 +112,17 @@ draft: false
 3. 跑 `check50 ai50/projects/2024/x/degrees`，全綠就走提交流程，確認你的 edX 帳號和 Gradebook 有記錄。
 
 如果第一步到第三步你在三天內走完，這門課適合你繼續；如果光是讀 spec 就卡住，先去補 [CS50x](https://cs50.harvard.edu/x) 或一年的 Python，再回來。
+
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

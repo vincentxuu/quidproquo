@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L12–L13: Text-to-Image, Latent Diffusion, and Vision-Language Models"
+title: "Text-to-Image, Latent Diffusion, and Vision-Language Models | CMU 10-423 Lectures 12–13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 The recordings live on CMU's Panopto and aren't available outside CMU, so this post relies on the slides alone. I didn't transcribe the handwriting on the inked version. The schedule lists no readings for these two lectures. I checked every fact against the official materials on 2026-09-30.
 
 The previous post, [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en), still dealt with text-only LLMs. This one returns to the diffusion models of [L7](/posts/ai/2026-09-30-cmu10423-diffusion-models-en) and [L8](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en) and adds a new question: **how does text steer image generation, and how does a language model come to read an image?**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Second half of L12: conditional image generation
 
@@ -205,6 +194,17 @@ The slides' takeaway: VLMs with VQ-VAE-style encoders can define a loss over ima
 - Definitions of access grades A0–A3: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: previous [HW3: Fine-tuning GPT-2 with LoRA](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) | next [L14–L15: Cross-attention, DiT, Prompt-to-Prompt, and Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en) | [Series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

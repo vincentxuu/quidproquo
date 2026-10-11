@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 11: Games II: TD Learning, Simultaneous Games, and Nash Equilibria"
+title: "Games II: TD Learning, Simultaneous Games, and Nash Equilibria | Stanford CS221 Lecture 11"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 11**, taught by Percy Liang on 2025-10-27. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [td_learning and simultaneous_games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=td_learning). The account below follows the order of the two source files and does not fill their gaps with material from another lecture or with unstated intuition.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article keeps that boundary explicit rather than inventing evidence.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 11, the same term and lecture number this article follows. It matches item 11 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=9CKRoKFdS5Y
-title: Stanford CS221 | Autumn 2025 | Lecture 11: Games II
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 11: Games II](https://www.youtube.com/watch?v=9CKRoKFdS5Y)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 11) and confirmed it covers a minimax review, TD learning, simultaneous games and Nash equilibrium (including rock-paper-scissors), matching this article's lecture and topic; no mismatch found.
 
 ## The lecture's route
 
@@ -217,6 +197,26 @@ The final distinction is essential. Simultaneous zero-sum games have von Neumann
 ## The source boundary
 
 Together, the two files demonstrate a recurrence, a tabular TD update, self-play policies that maximize or minimize, expected payoff computation from a matrix, and theorem-level conclusions about minimax and Nash. They do not provide a complete deep-network training system, a general Nash solver implementation, or hidden assignment criteria. Those remain outside what this Lecture 11 artifact establishes.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 11, the same term and lecture number this article follows. It matches item 11 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=9CKRoKFdS5Y
+title: Stanford CS221 | Autumn 2025 | Lecture 11: Games II
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 11: Games II](https://www.youtube.com/watch?v=9CKRoKFdS5Y)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 11) and confirmed it covers a minimax review, TD learning, simultaneous games and Nash equilibrium (including rock-paper-scissors), matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

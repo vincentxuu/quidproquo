@@ -1,5 +1,5 @@
 ---
-title: "CS231N A2 導讀：BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning"
+title: "BatchNorm、Dropout、CNN、PyTorch 與 RNN Captioning｜Stanford CS231N 作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,15 +37,6 @@ glossary:
 A1 讓你用 numpy 手寫出一個全連接網路。A2 接著問兩件事：網路變深以後，怎麼讓它還訓練得動？什麼時候該把手寫的反向傳播交給框架？
 
 五道題剛好排成一條從「自己推梯度」到「交給 PyTorch」的斜坡。[作業總頁](https://cs231n.stanford.edu/assignments.html)把 A2 定為總成績的 18%，是三份作業裡權重最高的一份。[第 9 講投影片](https://cs231n.stanford.edu/slides/2026/lecture_9.pdf)第 2 頁也提醒：A2 是三份裡最長的，截止後緊接著期中考與專題 milestone，要早點開始。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Spring 2026 課表沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；Spring 2025 的公開播放清單沒有對應本文範圍的單一講次。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 這份作業長什麼樣子
 
@@ -176,6 +167,15 @@ Part V 的要求是：10 個 epoch 內在 CIFAR-10 **驗證集**上達到至少 
 - 下一份作業把 RNN 換成 Transformer：[A3 導讀](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)
 - 另一門課怎麼教 backprop 與神經網路：[CS224N：反向傳播與神經網路](/posts/ai/2026-08-22-cs224n-backprop-neural-nets)
 - 更完整的深度學習理論課：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Spring 2026 課表沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；Spring 2025 的公開播放清單沒有對應本文範圍的單一講次。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

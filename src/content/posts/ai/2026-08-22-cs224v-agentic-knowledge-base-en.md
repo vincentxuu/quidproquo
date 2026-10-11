@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 10: How SPINACH Explores Wikidata and Builds SPARQL"
+title: "How SPINACH Explores Wikidata and Builds SPARQL | Stanford CS224V Lecture 10"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, knowledge-graph, sparql, agentic-ai]
@@ -19,27 +19,6 @@ description: "CS224V Agentic AI for Knowledge Base Queries: Wikidata and SPARQL 
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-agentic.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 This lecture was already titled “Agentic AI for Knowledge Base Queries” in Fall 2025. That does not authorize mixing in the course-wide Autumn 2026 rename. Its historical scope is precise: make an agent construct SPARQL the way a knowledgeable Wikidata user does—by inspecting the graph while writing the query.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (agents for knowledge-graph queries (Wikidata / SPARQL)) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 13 (about 1 h 29 min). The transcript is about querying the Wikidata knowledge graph (auto-captioned "Wiki data") with SPARQL (captioned "sparkle"), including the SPINACH dataset, a ReAct-style action-and-observation loop, and the FEC database, matching the article's topic. The article's details and figures come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
-
-```youtube
-url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
-title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
-```
-
-Original videos: [CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda: KBQA, the agent, and evaluation data
 
@@ -122,6 +101,27 @@ Choose one Wikidata question and forbid yourself from writing the complete query
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public slides include action definitions, a prompt summary, and result tables, but not the complete harness, all traces, or classroom discussion. This article describes Fall 2025 SPINACH only and infers nothing from the Autumn 2026 rename.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (agents for knowledge-graph queries (Wikidata / SPARQL)) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 13 (about 1 h 29 min). The transcript is about querying the Wikidata knowledge graph (auto-captioned "Wiki data") with SPARQL (captioned "sparkle"), including the SPINACH dataset, a ReAct-style action-and-observation loop, and the FEC database, matching the article's topic. The article's details and figures come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=5qdj9Z7T7hI
+title: CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024
+```
+
+Original videos: [CS224V Fall 2024 Lecture 13: Knowledge Bases 11 04 2024](https://www.youtube.com/watch?v=5qdj9Z7T7hI)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

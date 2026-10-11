@@ -1,5 +1,5 @@
 ---
-title: "CS149 L13: Performance Optimization Beyond the Experts — Halide's Algorithm/Schedule Split, Autoschedulers, and LLM Agents"
+title: "Performance Optimization Beyond the Experts — Halide's Algorithm/Schedule Split, Autoschedulers, and LLM Agents | Stanford CS149 Lecture 13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,24 +32,6 @@ glossary:
 **This post follows the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 17 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers the November 6 Lecture 13, [Domain-Specific Programming Systems and AI-Driven Performance Optimization](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/). The official [slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/aiperfoptimization/13_autooptimize.pdf) has 55 pages (its title slide says "Automatic Performance Optimization").
 
 About video: Fall 2025 recordings are Canvas-only. The DSL half of this lecture has a counterpart in the 2023 public recordings that the course home page points to, [2023 Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ). **The LLM-agent half has no public video at all and is covered from the slides only.** Everything here follows the 2025 slides; the 2023 video is only a listening supplement for the first half, and this post has not compared the two section by section.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
-
-Course and recording entries:
-
-- [CS149 2023 public lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 15 - Domain Specific Programming Languages” (1:18:53). The captions cover the motivation for DSLs (productivity and performance), Halide (including the blur example and scheduling), the research language Liszt (mis-transcribed as “list”) and other domains such as graphs and meshes, and mention LLMs only in an aside; the Halide autoscheduler, LLM agents generating kernels and KernelBench do not appear in the captions, consistent with the post saying the second half has no public recording. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## The starting point: too few people can write fast code
 
@@ -203,6 +185,24 @@ The slide predicts that the best CS149 students of the future will likely work i
 - General methods for self-improving agents: [Stanford CS329A Self-Improving Agents](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
 Series navigation: previous [L12 Mapping AI Applications to the Datacenter](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en) | next [PA5: Writing the Fastest Kernels](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=sRuyBNxCkGQ
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 15 - Domain Specific Programming Languages](https://www.youtube.com/watch?v=sRuyBNxCkGQ)
+
+Course and recording entries:
+
+- [CS149 2023 public lecture playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aiperfoptimization/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 15 - Domain Specific Programming Languages” (1:18:53). The captions cover the motivation for DSLs (productivity and performance), Halide (including the blur example and scheduling), the research language Liszt (mis-transcribed as “list”) and other domains such as graphs and meshes, and mention LLMs only in an aside; the Halide autoscheduler, LLM agents generating kernels and KernelBench do not appear in the captions, consistent with the post saying the second half has no public recording. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

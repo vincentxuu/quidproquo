@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 HW6: Model Editing, Changing One Fact and Nothing Else"
+title: "Model Editing, Changing One Fact and Nothing Else | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **This post covers HW6 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 14 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are three official materials: the slides [hw6.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw6.pdf), the [Colab notebook](https://colab.research.google.com/drive/1gnaowsSzOT3VSw8j_MIDnksQiaZeKikA?usp=sharing) (47 cells), and the TAs' [walkthrough video](https://youtu.be/AR1bNACLOAU). The TAs are 鄭安妤, 楊樂霖, 尹廷安, and 林育正. It was released 4/24 and due 2026/05/14 23:59:59 (UTC+8), with no late submissions; grades were due by 2026/05/17 23:59:59.
 
 Access is **A3 minus grading**: the slides and Colab are public, and you can reproduce the experiments. But **the quiz questions themselves** are on NTU COOL, which needs an NTU account. hw6.pdf gives only the question counts and point values, not the questions.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=AR1bNACLOAU
-title: HW6 walkthrough video (YouTube)
-```
-
-Original videos: [HW6 walkthrough video (YouTube)](https://www.youtube.com/watch?v=AR1bNACLOAU)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Prerequisite: no lecture this semester covers model editing
 
@@ -141,6 +122,25 @@ Two spots in hw6.pdf show it was carried over from an older version. The two sin
 - The same week's lecture, a different take on fixing a model's answers: [Self-Correction](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en)
 
 Series navigation: Previous [Self-Correction: Can a Model Fix Its Own Mistakes?](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en) | Next [Self-Improving AI (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=AR1bNACLOAU
+title: HW6 walkthrough video (YouTube)
+```
+
+Original videos: [HW6 walkthrough video (YouTube)](https://www.youtube.com/watch?v=AR1bNACLOAU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

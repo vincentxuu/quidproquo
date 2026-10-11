@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L11：表示學習（重建式）—— 自編碼器、VQ 與自監督"
+title: "表示學習（重建式）—— 自編碼器、VQ 與自監督｜MIT 6.7960 第 11 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課，必讀材料為 *Representation Learning*。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=QxOzQRtd440
-title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 11 字幕（Phillip Isola，1:21:04）：影片講表示學習、大腦的表示（約 24%–32%）、自編碼器與重建（約 41%–66%）、向量量化（約 79%–81%）、自監督與遮罩（約 82%–93%），與文章主題一致，未發現需修正之處。
 
 ## 什麼是「表示」，為什麼它重要
 
@@ -126,6 +107,25 @@ z_q = argmin_k ‖z − e_k‖   →   用 e_k 當作離散表示
 - 想要**檢索 / 相似度**？好表示讓「最近鄰」就有意義。
 
 下一講（L12）會從「重建」轉向「相似性」——用對比學習讓同類表示靠近、異類推遠。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=QxOzQRtd440
+title: MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 11. Representation Learning: Reconstruction-Based](https://www.youtube.com/watch?v=QxOzQRtd440)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 11. Representation Learning: Reconstruction-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec11_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 11 字幕（Phillip Isola，1:21:04）：影片講表示學習、大腦的表示（約 24%–32%）、自編碼器與重建（約 41%–66%）、向量量化（約 79%–81%）、自監督與遮罩（約 82%–93%），與文章主題一致，未發現需修正之處。
 
 ## 更新紀錄
 

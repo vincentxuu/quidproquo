@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 19: Understanding x86-64 Function Calls and Calling Conventions"
+title: "Understanding x86-64 Function Calls and Calling Conventions | Stanford CS107 Lecture 19"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 A function call is not merely a jump to another label. The caller must make parameters available, preserve the instruction address at which execution should resume, provide necessary stack space, and ensure that neither side destroys registers whose values remain live. Across 57 incrementally animated slides, Stanford CS107 Lecture 19 reduces those jobs to `call`, `ret`, `%rsp`, and a calling convention.
 
 The contract enables separate compilation. A caller need not understand every callee instruction. If both obey the same ABI, they can exchange data, restore control, and know which registers may change.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, gaps, and complete agenda
 
@@ -201,6 +193,14 @@ The final slide returns to `sum_array`: arguments arrive in `%rdi/%esi`; index a
 7. For a function pointer, trace the indirect target through register or memory data flow.
 
 Lecture 19's core is three simultaneous contracts: control reconnects through a return address, data crosses through parameter and return locations, and memory/register state follows ownership rules. Those contracts explain how separately compiled functions interoperate. Heap and later privacy topics need not be imported early.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

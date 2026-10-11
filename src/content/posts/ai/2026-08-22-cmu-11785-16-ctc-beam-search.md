@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 16：CTC blank 與 beam search"
+title: "CTC blank 與 beam search｜CMU 11-785 第 16 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
 
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 16: CTC Blanks and Beam Search**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec16.recurrent.pdf)與[官方 YouTube 錄影](https://youtu.be/slHIssLlgZ8)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
-
-## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
-
-```youtube
-url: https://www.youtube.com/watch?v=slHIssLlgZ8
-title: Lecture 16 official YouTube recording
-```
-
-原始影片：[Lecture 16 official YouTube recording](https://www.youtube.com/watch?v=slHIssLlgZ8)
-
-課程與錄影入口：
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Lecture 16 影片（約 81 分鐘，YouTube 標題為「Sequence to Sequence Models: CTC」）的字幕涵蓋 blank 符號與相鄰符號合併、以 alpha 計算 CTC 機率與 divergence 的梯度、greedy 解碼，以及只保留前幾個節點的剪枝 beam；字幕中沒有「前綴機率」的說法，原文已改，prefix beam search 練習標為本站補充。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
 
 ## 這一講處理什麼
 
@@ -66,6 +47,25 @@ title: Lecture 16 official YouTube recording
 ## 讀完後
 
 闔上 slides，用一張紙寫下這講的輸入、輸出、目標函數與一個失敗模式。能不看筆記說明這四項，才往下一講；否則回到剛才的小例子，縮小輸入直到每一步都能人工核對。
+
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=slHIssLlgZ8
+title: Lecture 16 official YouTube recording
+```
+
+原始影片：[Lecture 16 official YouTube recording](https://www.youtube.com/watch?v=slHIssLlgZ8)
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Lecture 16 影片（約 81 分鐘，YouTube 標題為「Sequence to Sequence Models: CTC」）的字幕涵蓋 blank 符號與相鄰符號合併、以 alpha 計算 CTC 機率與 divergence 的梯度、greedy 解碼，以及只保留前幾個節點的剪枝 beam；字幕中沒有「前綴機率」的說法，原文已改，prefix beam search 練習標為本站補充。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 期中檢核：用官方 checklist 盤點 HW0–HW3"
+title: "用官方 checklist 盤點 HW0–HW3｜Harvard CS181 主題單元"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, exam-prep, machine-learning, course-guide]
@@ -26,17 +26,6 @@ draft: false
 官方 checklist 開頭說得很直接：
 
 > "For emphasis: the midterm is not about memorization but will be designed to test your conceptual and analytical understanding."
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -126,6 +115,17 @@ checklist 的「要知道」包括 bias trick、least squares、`w*` 的推導�
 - 下一篇：[HW4（上）Transformer 從手算到多頭注意力](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 - 回顧：[HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)、[HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)、[HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L1: Where Computer Vision Came From, and Where This Course Is Going"
+title: "Where Computer Vision Came From, and Where This Course Is Going | Stanford CS231N Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,23 +29,6 @@ glossary:
 The first [CS231N](https://cs231n.stanford.edu/) lecture of 2026 was on March 31, taught by Fei-Fei Li and Ehsan Adeli. The [schedule](https://cs231n.stanford.edu/schedule.html) links two decks for it: [part 1](https://cs231n.stanford.edu/slides/2026/lecture_1_part_1.pdf) is a short history of computer vision and deep learning, and [part 2](https://cs231n.stanford.edu/slides/2026/lecture_1_part_2.pdf) is the course overview and rules.
 
 There are no equations in this lecture. Its job is to show why the course starts with image classification, and why it goes all the way to generative models, 3D, and world modeling.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 1 (length 1:02:52). The transcript has Fei-Fei Li's opening, the Cambrian origin of vision and the camera obscura, the AI winter, perceptrons and the Neocognitron, ImageNet and AlexNet, and course assignment and grading logistics, matching the article's topic. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=2fq9wYslV0A
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction](https://www.youtube.com/watch?v=2fq9wYslV0A)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## One Venn diagram to place the course
 
@@ -150,6 +133,23 @@ The 2026 recordings are on Canvas only and closed to outside readers. If you wan
 - [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en): the same neural network history, from a general deep learning course
 
 **Series navigation**: Previous: [Overview and self-study plan](/posts/ai/2026-09-30-cs231n-course-overview-en) | Next: [L2: Image classification, kNN, and linear classifiers](/posts/ai/2026-09-30-cs231n-image-classification-linear-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 1 (length 1:02:52). The transcript has Fei-Fei Li's opening, the Cambrian origin of vision and the camera obscura, the AI winter, perceptrons and the Neocognitron, ImageNet and AlexNet, and course assignment and grading logistics, matching the article's topic. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=2fq9wYslV0A
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction](https://www.youtube.com/watch?v=2fq9wYslV0A)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

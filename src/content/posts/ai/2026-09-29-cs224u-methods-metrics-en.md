@@ -1,5 +1,5 @@
 ---
-title: "CS224U Methods and Metrics I: A Classifier with 0.81 Accuracy and 0.43 Macro F1 — What Classifier and Generation Metrics Each Encode"
+title: "A Classifier with 0.81 Accuracy and 0.43 Macro F1 — What Classifier and Generation Metrics Each Encode | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -31,29 +31,6 @@ glossary:
 Official sources: slides 1–41 of the [Methods and metrics deck](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf) (94 slides in total), videos 39–41 of the playlist, [`evaluation_metrics.ipynb`](https://github.com/cgpotts/cs224u/blob/main/evaluation_metrics.ipynb) in the repo, and the scheduled reading [Resnik and Lin 2010](https://home.cs.colorado.edu/~jbg/teaching/CMSC_773_2012/reading/evaluation.pdf). Access level: **A3 (historical offering)**.
 
 Datasets, data organization, and model comparison make up the second half of the slides and are left for the [next post](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en).
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=ORg6bZ3d1Rc
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=mbL4uUNtZwY
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=ORg6bZ3d1Rc), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023](https://www.youtube.com/watch?v=mbL4uUNtZwY)
-
-Content check: verified against the video transcript (2026-10-10): Part 1 (Overview) and Part 2 (Classifier Metrics) were compared item by item with their transcripts: projects not graded on how good the results are, the 2010 versus 2023 experimental protocols and dollar figures, the two fixed rules, Strathern's law and the pros and cons of leaderboards, the application scenarios and the criticism that F1 fits none of them, the remark on human performance, the definitions and weaknesses of accuracy / precision / recall / F / macro / weighted / micro, cross-entropy and accuracy, and PR curves with average precision. All match, and the confusion-matrix figures (accuracy 0.81, macro F1 0.43) recompute consistently with the transcript. Part 3 (Generation Metrics), which the post cites but does not embed, was read as well; perplexity, WER, BLEU, other reference-based and reference-free metrics, and task-oriented metrics all match. Nothing needed correcting.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Why an NLU course spends a unit on metrics
 
@@ -211,6 +188,29 @@ Confirmed: the schedule, slides 1–41, videos 39–41, the notebook, and the gr
 Further reading: the site's [CS224N benchmark and evaluation guide](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en) covers benchmark design in the LLM era and makes a good next read.
 
 Series navigation: previous, [Analysis Methods II: causal abstraction, IIT, and DAS](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en) | next, [Methods and Metrics II: datasets, data organization, and model comparison](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=ORg6bZ3d1Rc
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=mbL4uUNtZwY
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=ORg6bZ3d1Rc), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 2: Classifier Metrics I Spring 2023](https://www.youtube.com/watch?v=mbL4uUNtZwY)
+
+Content check: verified against the video transcript (2026-10-10): Part 1 (Overview) and Part 2 (Classifier Metrics) were compared item by item with their transcripts: projects not graded on how good the results are, the 2010 versus 2023 experimental protocols and dollar figures, the two fixed rules, Strathern's law and the pros and cons of leaderboards, the application scenarios and the criticism that F1 fits none of them, the remark on human performance, the definitions and weaknesses of accuracy / precision / recall / F / macro / weighted / micro, cross-entropy and accuracy, and PR curves with average precision. All match, and the confusion-matrix figures (accuracy 0.81, macro F1 0.43) recompute consistently with the transcript. Part 3 (Generation Metrics), which the post cites but does not embed, was read as well; perplexity, WER, BLEU, other reference-based and reference-free metrics, and task-oriented metrics all match. Nothing needed correcting.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

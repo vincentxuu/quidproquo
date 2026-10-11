@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 4: CSPs, AC-3, and Search Order"
+title: "CSPs, AC-3, and Search Order | CMU 07-280 Lecture 4"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 4: Constraint Satisfaction Problems**. A CSP is still search, but it does not treat a state as a black box. Variables, domains, and constraints expose structure, allowing the algorithm to delete impossible values before completing an assignment.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf), used the official [backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/), and read [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf), its [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No lecture recording is public. The demo exposes algorithm state, not spoken instruction.
 
 ## The inherited question: can failure be found before finishing a wrong path
 
@@ -78,6 +64,20 @@ This pattern—reasoning to reduce a space, search to handle residual ambiguity�
 1. Formulate Australian map coloring with three colors: list variables, domains, and every binary constraint.
 2. Run AC-3 on a three-node chain, recording the queue and each deleted value.
 3. Open the official demo and compare when forward checking and AC-3 first discover the same dead end.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf), used the official [backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/), and read [Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf), its [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf), and [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf). No lecture recording is public. The demo exposes algorithm state, not spoken instruction.
 
 ## Update Log
 

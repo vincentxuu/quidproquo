@@ -1,5 +1,5 @@
 ---
-title: "CS224R HW2: Gridworld Q-learning, PPO, and the Sawyer Hammer Task"
+title: "Gridworld Q-learning, PPO, and the Sawyer Hammer Task | Stanford CS224R Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ The assignment went out on April 10, 2026 (the day of L4) and was due on Gradesc
 - The compute guide [CS224R_compute_guide.pdf](https://cs224r.stanford.edu/material/CS224R_compute_guide.pdf)
 
 Access level: **A3**. The handout, template, starter code, and compute guide all download anonymously. Solutions, the autograder, Gradescope, and Ed are not public. **This post explains what each problem asks you to do and gives no solutions**, including which goal each Problem 1 scenario reaches.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## The task: a hammer that pays only at the end
 
@@ -204,6 +194,16 @@ Confirmed: the full handout text, the starter code's file list and configs, the 
 Related reading: the [Berkeley CS285 homework and project route](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route-en) also includes PPO and off-policy assignments, if you want a second set of exercises.
 
 Series navigation: previous [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | next [L7 Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 17–18: Depth, Universal Approximation, Activations, and Backpropagation"
+title: "Depth, Universal Approximation, Activations, and Backpropagation | Berkeley CS189 Lectures 17–18"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, neural-networks, backpropagation, deep-learning]
@@ -32,31 +32,6 @@ This guide is based on the official materials of [CS189 Spring 2026](https://eec
 These two lectures sit right after the midterm (3/17), on either side of spring break. By now you have seen linear regression, logistic regression, gradient descent, and Adam (see [order 8 of this series](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)). The question here is: once the model becomes many functions stacked on top of each other, can we still train it the same way? Yes, and backpropagation is how. It is the hardest idea in the course, so this post follows five layers: scene, intuition, mechanism, back to real models, and going deeper.
 
 The assigned reading is Bishop's [Deep Learning: Foundations and Concepts](https://www.bishopbook.com/), 6.1–6.3.1 for Lec 17, and Chapter 8 from the introduction through 8.1.4 plus the opening of 8.2 (not 8.2.1 onward) for Lec 18.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=bMJ9igfvn1M
-title: Lecture 17 video
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=XlaV_z2knjA
-title: Lecture 18 video
-```
-
-Original videos: [Lecture 17 video](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 video](https://www.youtube.com/watch?v=XlaV_z2knjA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 17 video (bMJ9igfvn1M, about 76 minutes) opens by moving on to neural networks after the exam and covers the XOR hand calculation, 64×64 images and the data manifold, the universal approximation theorem, the logic-circuit analogy for depth, and activation functions and ReLU; it ends before spring break. The PyTorch core concepts, leaky ReLU, and softplus could not be found in its transcript and appear only in the slides. The Lecture 18 video (XlaV_z2knjA, about 79 minutes) is indeed backpropagation: the chain rule, computation graphs, gradients adding over multiple children, and the bar notation; the finite-difference cost comparison, symbolic differentiation, and dead units could not be found (the instructor ends by saying derivatives through nonlinearities come next class), and finite differences and initialization appear in the Lec 19 video instead. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Scene: a linear model cannot even learn XOR
 
@@ -199,6 +174,31 @@ When you train in PyTorch, every addition, matrix multiply, or ReLU in the forwa
 - Series navigation: previous, [HW2 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en); next, [HW3 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: open the XOR example in the Lec 17 slides, compute the linear model's optimum `b* = 1/2` yourself in NumPy, then plug in the ReLU weights from the slides and confirm all four points come out right.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=bMJ9igfvn1M
+title: Lecture 17 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=XlaV_z2knjA
+title: Lecture 18 video
+```
+
+Original videos: [Lecture 17 video](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 video](https://www.youtube.com/watch?v=XlaV_z2knjA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 17 video (bMJ9igfvn1M, about 76 minutes) opens by moving on to neural networks after the exam and covers the XOR hand calculation, 64×64 images and the data manifold, the universal approximation theorem, the logic-circuit analogy for depth, and activation functions and ReLU; it ends before spring break. The PyTorch core concepts, leaky ReLU, and softplus could not be found in its transcript and appear only in the slides. The Lecture 18 video (XlaV_z2knjA, about 79 minutes) is indeed backpropagation: the chain rule, computation graphs, gradients adding over multiple children, and the bar notation; the finite-difference cost comparison, symbolic differentiation, and dead units could not be found (the instructor ends by saying derivatives through nonlinearities come next class), and finite differences and initialization appear in the Lec 19 video instead. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

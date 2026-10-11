@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 導讀：九份作業拼成一部作業系統，但考試不考作業"
+title: "九份作業拼成一部作業系統，但考試不考作業｜Stanford CS111 主題單元"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -25,14 +25,6 @@ draft: false
 本站的 [Stanford CS 課程導讀地圖](/posts/learning/2026-08-20-stanford-cs-course-map)已經說過「CS111 的作業表就是一部作業系統」。那是階梯層級的判斷。這篇要回答的是進去之後的事：九份作業各自在做什麼、哪一份跨過去之後回不了頭、為什麼一門作業系統課會花兩堂課講信任，以及那句廣為流傳的「CS111 就是以前的 CS110」到底對到什麼程度。
 
 **範圍先講清楚**：這篇讀的是公開網頁。包括 Spring 2026 的課程官網、九份作業說明、全部講義 PDF、公開的考古題與解答、榮譽準則頁、ExploreCourses 條目，以及 2021 年由 David Mazières 維護、至今還活著的另一個 CS111 網站。**沒有讀到的是講堂錄影**（在 Canvas 後面）、**每週的 section 講義**（在 Stanford 登入後面），以及**起始碼**（在校內的 myth 主機上）。所以下面談的難度是從作業規格、依賴關係與計分規則推出來的，不是修課心得。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 這門課的硬事實
 
@@ -183,6 +175,14 @@ g++ -std=c++17 -o tvp thread-v-process.cc -lpthread
 - **封存網址格式**：`web.stanford.edu/class/archive/cs/cs111/cs111.1266/`（1266 = Spring 2026）。CS110 的封存版是 `cs110.1204`（Winter 2020），本文寫作時可正常存取。
 - **假日標示有誤**：Spring 2026 行事曆把 5 月 25 日標成 Presidents' Day，該日實際上是 Memorial Day（Presidents' Day 在二月）。停課本身沒錯，標籤錯了。
 - **未能確認的三項**：（一）旁聽者用 `guest` 取代 `$USER` 的 clone 路徑是否仍然可用——我沒有 SUNet ID，無法實測；（二）寄信索取錄影權限的實際核准率；（三）Winter 2026 那一版（`cs111.1264`）的作業編號與 Spring 2026 不同（V6 檔案系統排在 assign1、日誌式檔案系統排在 assign2），我只讀到那兩份的封存頁，沒有完整的該學期行事曆，所以無法判斷整學期的順序是否重排過。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

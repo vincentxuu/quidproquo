@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L15–L16：Scaling laws 與 Mixture of Experts——模型該多大，大了又怎麼只算一部分"
+title: "Scaling laws 與 Mixture of Experts——模型該多大，大了又怎麼只算一部分｜CMU 10-423 第 15–16 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,17 +31,6 @@ glossary:
 用到的官方材料：[Lecture 15 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture15-querying-scaling.pdf)（37 頁，前半 Querying Transformer 已在 [order 14](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer) 講過，本篇只看 Scaling Laws 段）、[Lecture 16 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe.pdf)與[手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture16-moe-ink.pdf)、[課程講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)，以及 [Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)上的練習考卷。全部在 2026-09-30 下載核對。講次表這兩講沒有列 readings，本文引用的論文都是投影片上標註的出處。
 
 > **版本說明**：講次表 3 月 16 日 Lecture 16 連到的兩份 PDF，封面寫「Matt Gormley & Pat Virtue, Mar. 17, 2025」，提醒頁是 Spring 2025 的 HW4 日期，PDF 建立時間也是 2025 年 3 月。也就是說 Spring 2026 沿用了去年的 MoE 投影片。L15 的 Scaling 段註明「Scaling slides credit: Pat Virtue」。錄影只放在 CMU 內部的 Panopto，校外看不到，所以本篇完全依投影片撰寫。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 為什麼這一段接在多模態之後
 
@@ -180,6 +169,17 @@ top-k 的 k 通常選得很小。投影片的兩個例子：Mixtral k = 2、$N_e
 - MoE 的系統面（專家平行、通訊）：[CMU 11-868 L16–L17：模型放不進一張卡時](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 
 系列導覽：上一篇 [HW4：用 Q-Former 做文生圖](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)｜下一篇 [L17–L18：分散式訓練、Flash Attention 與高效解碼](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

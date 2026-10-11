@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L24–L26：語音、影片生成與互動式世界模型——生成模型怎麼從圖片走向聲音、時間和可操作的世界"
+title: "語音、影片生成與互動式世界模型——生成模型怎麼從圖片走向聲音、時間和可操作的世界｜CMU 10-423 第 24–26 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,17 +43,6 @@ glossary:
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[L24 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture24-audio.pdf)（38 頁）與[手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture24-audio-ink.pdf)（38 頁）、[L25 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture25-video.pdf)（34 頁）、[L26 世界模型投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture26-world-models.pdf)（40 頁）。L26 的另一份投影片「Science of Alignment」放在 [order 20](/posts/ai/2026-09-30-cmu10423-risks-alignment)。三講在講次表上都沒有列 readings。這門課的存取等級是 **A3**（等級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，投影片裡的聲音、影片 demo 也只剩連結，所以本篇完全依投影片文字與圖說撰寫。
 
 三講共用一個問題：**前面在文字和圖片上學到的 tokenizer、Transformer、latent diffusion，要怎麼延伸到聲音、時間軸，以及會回應使用者動作的世界？** 答案的形狀一再重複：先找一個好的表示（頻譜圖、離散 token、潛在空間），再套用已經學過的生成模型。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## L24：音訊的理解與合成
 
@@ -244,6 +233,17 @@ Genie-2 的技術描述很模糊，投影片推測主要的改變是規模（更
 延伸閱讀：擴散與 flow matching 的數學可以讀 [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；世界模型在強化學習裡的角色可以看 [CS234 客座：World of World Modeling](/posts/ai/2026-09-30-cs234-guest-world-models)。
 
 系列導覽：上一篇 [L23：程式生成與自主 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)｜下一篇 [收尾：練習考卷、HW623 與期末專案](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

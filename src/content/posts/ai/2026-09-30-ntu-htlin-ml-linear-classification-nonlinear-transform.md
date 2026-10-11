@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石 L11–L12：線性分類模型、SGD、多類別與非線性轉換"
+title: "線性分類模型、SGD、多類別與非線性轉換｜台大林軒田 機器學習基石與技法 第 11–12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 到 L10 為止，基石的第三段「How Can Machines Learn?」已經給了三個線性模型：做分類的 PLA、有閉式解的線性迴歸、用梯度下降解的邏輯迴歸。L11 要回答它們之間是什麼關係，L12 則要回答：如果資料根本不是線性可分的，這三個模型還能用嗎？
 
 這兩講是第三段的收尾。讀完你應該能說出：為什麼可以拿迴歸來做分類、SGD 的更新式是怎麼來的、多類別分類有哪兩種拆法，以及特徵轉換的代價要怎麼算。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=qXfDVHVzI38
-title: Binary Classification
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=9HL3YvmrovQ
-title: Stochastic Grad. Descent
-```
-
-原始影片：[Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 課程與教材對照
 
@@ -189,6 +167,28 @@ Q1 屬於 L10 的 cross-entropy，Q5 是邏輯迴歸的 Newton 法（Hessian）�
 - 特徵轉換與正則化的取捨：[CMU 07-280 Lecture 10：Feature Engineering 與 Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization)
 - 技法篇會把「維度大要付代價」這個問題交給 SVM 與 kernel：[線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qXfDVHVzI38
+title: Binary Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9HL3YvmrovQ
+title: Stochastic Grad. Descent
+```
+
+原始影片：[Binary Classification](https://www.youtube.com/watch?v=qXfDVHVzI38)、[Stochastic Grad. Descent](https://www.youtube.com/watch?v=9HL3YvmrovQ)、[Multiclass via Logistic](https://www.youtube.com/watch?v=wnM435PDHGY)、[Multiclass via Binary](https://www.youtube.com/watch?v=vxnjOI_ASlw)、[Quadratic Hypotheses](https://www.youtube.com/watch?v=8pQ06pku1xA)、[Nonlinear Transform](https://www.youtube.com/watch?v=UHAn6Cuk8zk)、[Price of Nonlinear Transform](https://www.youtube.com/watch?v=Inxr-Yc1Aow)、[Structured Hypothesis Sets](https://www.youtube.com/watch?v=gcLmU3MC3bE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

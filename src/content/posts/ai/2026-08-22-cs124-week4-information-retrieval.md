@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 4 Information Retrieval：從倒排索引、tf-idf 到 RAG 的檢索底座"
+title: "Information Retrieval：從倒排索引、tf-idf 到 RAG 的檢索底座｜Stanford CS124 第 4 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

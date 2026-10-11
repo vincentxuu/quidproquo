@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L17：out-of-distribution 泛化 —— 領域偏移、虛假相關、與三條實務對策"
+title: "out-of-distribution 泛化 —— 領域偏移、虛假相關、與三條實務對策｜MIT 6.7960 第 17 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -31,25 +31,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 17）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=tjD9LIzIIek
-title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 17 字幕（Sara Beery，1:04:41）：主題確實是 OOD 泛化，但影片內容是對抗樣本、虛假相關、相機等 shift 造成的效能下降、分佈穩健最佳化與反事實診斷；字幕沒有 covariate／label／concept shift 三分法、IRM、domain randomization、test-time adaptation，原「講次把 shift 拆成三類」的說法不成立，已改為「一般文獻」並在三條對策加註為本站補充。
 
 ## i.i.d. 假設與真實世界的落差
 
@@ -119,6 +100,25 @@ for x_unlabeled, _ in test_loader:
 - **Shift 中**：test-time adaptation（無標註）或自訓練。
 - **Shift 大**：domain adaptation（用目標域少量資料）甚至重訓。
 - **Concept shift**：幾乎只能重標資料，模型層救不回。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=tjD9LIzIIek
+title: MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 17. Generalization: Out-of-Distribution (OOD)](https://www.youtube.com/watch?v=tjD9LIzIIek)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 17. Generalization: Out-of-Distribution (OOD)](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec17_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 17 字幕（Sara Beery，1:04:41）：主題確實是 OOD 泛化，但影片內容是對抗樣本、虛假相關、相機等 shift 造成的效能下降、分佈穩健最佳化與反事實診斷；字幕沒有 covariate／label／concept shift 三分法、IRM、domain randomization、test-time adaptation，原「講次把 shift 拆成三類」的說法不成立，已改為「一般文獻」並在三條對策加註為本站補充。
 
 ## 更新紀錄
 

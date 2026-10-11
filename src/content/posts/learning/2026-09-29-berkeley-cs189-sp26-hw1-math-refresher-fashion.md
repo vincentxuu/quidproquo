@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW1 導讀：線代／微積分／機率熱身 + Fashion coding"
+title: "線代／微積分／機率熱身 + Fashion coding｜Berkeley CS189 作業 1"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, homework, linear-algebra, probability]
@@ -26,31 +26,6 @@ HW1 的名字叫「AGI, Everywhere, All at Once」，但內容很務實。它在
 2. 你能不能用 pandas、Plotly、scikit-learn、PyTorch tensor 把一份影像資料集從載入、探索、訓練一路做到除錯。
 
 這篇逐題說明每一題在考什麼、該回哪一講找工具，**不附解法**。HW1 沒有公開的官方解答，貼答案對自學者也沒有幫助。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-排程頁在 HW1 底下列了三個連結：
-
-- [Part 1: Written](https://drive.google.com/drive/folders/1gnC68dyq-QKJ5qFc-wKPJ4bCn1Q-YV8C)：Drive 資料夾，裡面有 `hw1.pdf` 和 LaTeX 模板 `hw1_student.tex`
-- [Part 1: Coding](https://modal.com/notebooks/prabhune/main/nb-4Q9GuhQLDqA3cByymHQNML)：Modal notebook `fashion_pt_1`，標題「Homework 1.1」
-- [Part 2: Coding](https://modal.com/notebooks/prabhune/main/nb-qmwHwOJWkhC3zn8msc2G2I)：Modal notebook `fashion_pt_2`，標題「Homework 1.2」
-
-[Syllabus](https://eecs189.org/sp26/syllabus/) 說每份作業分兩段：Part 1 是較短的 Warmup，Part 2 是 Main Homework，兩段同時發、同一天截止。作業有公開與隱藏兩種 autograder 測試；公開的只做健全性檢查，例如確認你填的是數字不是文字，隱藏測試才檢查對錯。
-
-提交有三個 Gradescope 入口：書面 PDF 交到「HW1 Write-Up」，兩本 notebook 各自打包成 zip 交到「HW1.1 Coding」和「HW1.2 Coding」。
-
-**公開程度**：題目 PDF、LaTeX 模板、兩本 notebook 都能匿名打開，題目層級是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。拿不到的是 Gradescope 提交、隱藏測試、官方解答和 Ed。校外讀者可以把題目做完，但只能自己驗證對錯。
 
 ## 書面題：10 題數學熱身
 
@@ -168,6 +143,31 @@ Part 2 整本在講一件真實世界常見的事：**訓練資料和測試資�
 
 - 上一篇：[Lec 7–10：線性回歸、最小平方的幾何、正則化](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
 - 下一篇：[Lec 11–12：分類、生成式分類器、logistic regression、ROC](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+排程頁在 HW1 底下列了三個連結：
+
+- [Part 1: Written](https://drive.google.com/drive/folders/1gnC68dyq-QKJ5qFc-wKPJ4bCn1Q-YV8C)：Drive 資料夾，裡面有 `hw1.pdf` 和 LaTeX 模板 `hw1_student.tex`
+- [Part 1: Coding](https://modal.com/notebooks/prabhune/main/nb-4Q9GuhQLDqA3cByymHQNML)：Modal notebook `fashion_pt_1`，標題「Homework 1.1」
+- [Part 2: Coding](https://modal.com/notebooks/prabhune/main/nb-qmwHwOJWkhC3zn8msc2G2I)：Modal notebook `fashion_pt_2`，標題「Homework 1.2」
+
+[Syllabus](https://eecs189.org/sp26/syllabus/) 說每份作業分兩段：Part 1 是較短的 Warmup，Part 2 是 Main Homework，兩段同時發、同一天截止。作業有公開與隱藏兩種 autograder 測試；公開的只做健全性檢查，例如確認你填的是數字不是文字，隱藏測試才檢查對錯。
+
+提交有三個 Gradescope 入口：書面 PDF 交到「HW1 Write-Up」，兩本 notebook 各自打包成 zip 交到「HW1.1 Coding」和「HW1.2 Coding」。
+
+**公開程度**：題目 PDF、LaTeX 模板、兩本 notebook 都能匿名打開，題目層級是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。拿不到的是 Gradescope 提交、隱藏測試、官方解答和 Ed。校外讀者可以把題目做完，但只能自己驗證對錯。
 
 ## 更新紀錄
 

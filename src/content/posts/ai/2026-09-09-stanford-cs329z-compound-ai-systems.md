@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 1：別再只調模型了，好成績是系統工程堆出來的"
+title: "別再只調模型了，好成績是系統工程堆出來的｜Stanford CS329Z 第 1 週"
 date: 2026-09-09
 category: ai
 type: deep-dive
@@ -23,17 +23,6 @@ draft: false
 [CS329Z](https://cs329z.stanford.edu/) 第一堂課只指定了一篇主讀物：Matei Zaharia 領銜的 [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)（BAIR Blog）。作者群橫跨 Berkeley、Stanford 與 Databricks。選它當開場白，整門課的立場就說完了：這門課不賭下一個大模型會帶來什麼能力，只關心一件事——用今天的零件把系統架到最好。第一堂課的三個關鍵字 decomposition、data、evaluation，全是從這篇文章長出來的。
 
 這篇導讀照文章的論證走：先給定義，再講為什麼非走系統不可，然後是它留下的三個設計問題、三大挑戰、四個新興方向。最後我會把每個段落連回課程——[HW1 要你交的東西](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，其實就是這篇文章的動手版。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 定義：系統和模型差在哪
 
@@ -98,6 +87,17 @@ draft: false
 - 官方課堂投影片（PDF）：[Foundations & Landscape — Lecture 01](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)
 - 週三 9/23 Foundations & Landscape：主讀物 Zaharia 等人 Compound AI Systems（本文已導讀）；延伸閱讀 Ng 四設計模式、Si 等人 execution-grounded（見上節延伸閱讀）。
 - 課表原文：[CS329Z 官網 Week 1](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 17 講：Multimodality 的官方閱讀地圖"
+title: "Multimodality 的官方閱讀地圖｜Stanford CS224N 第 17 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 17 個正規單元在 2026 年 3 月 3 日由 Luke Zettlemoyer 客座主講，官方題名是 **Guest Lecture: Multimodality**。課程頁沒有公開本季投影片或 agenda，並列出四篇 suggested readings 與七篇 optional readings；本文只整理實際讀過並列於文末的五項公開來源，不把其餘六篇描述成已讀，也不重建講者實際內容。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## 視覺可以是推理工作區
 
@@ -51,6 +40,17 @@ draft: false
 ## 可確認與不可確認
 
 可確認的是日期、講者、題名，以及官方頁共列十一篇閱讀；本文實際讀取並摘要的是文末五項來源。其餘六篇只存在於課表清單，不作內容主張。不可確認的是實際 agenda、講者比較了哪些架構、現場 demo 與結論。本文沒有把論文排列順序當成授課順序；若公開投影片補上，才應按 slide agenda 改寫。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 20: From Position Encoding to Causal Self-Attention"
+title: "From Position Encoding to Causal Self-Attention | CMU 07-280 Lecture 20"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 The Lecture 19 model used one previous token to predict the next. **CMU 07-280, Spring 2026, Lecture 20** asks how a model can use an entire context while preserving position and deciding which locations matter for the current token. The official title is *Attention & Transformers*, and the deck builds from averaged context vectors to a GPT-2 skeleton.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-This article fully reads the [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf), [Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf), and [Homework 11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) for the Building GPT2 connection. The official site has no public Spring 2026 lecture recording, so this article does not reconstruct slide-animation timing or spoken explanations.
-
-The recitation's minGPT notebook lives in an external environment. The public PDF confirms model comparisons, dimension exercises, and demonstration answers; it does not imply that the full notebook and autograder are anonymously accessible.
 
 ## The inherited problem: averaging context forgets order and relationships
 
@@ -108,6 +92,22 @@ Compared with an N-gram, attention selects context dynamically and shares contin
 ## An action for tonight
 
 Choose small matrices with `T=3,d_k=2` and calculate `QKᵀ/√2`, the causal mask, row-wise softmax, and `AV` by hand. Reproduce the result in roughly ten lines of NumPy and assert every shape. Then deliberately apply column-wise softmax and check whether each row still sums to one; this catches an implementation error more effectively than memorizing the formula.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+This article fully reads the [Lecture 20 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec20_NLP_Attention_Transformers.pdf), [Recitation 11](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec11_sol.pdf), and [Homework 11](https://www.cs.cmu.edu/~07280/assignments/hw11_blank.pdf) for the Building GPT2 connection. The official site has no public Spring 2026 lecture recording, so this article does not reconstruct slide-animation timing or spoken explanations.
+
+The recitation's minGPT notebook lives in an external environment. The public PDF confirms model comparisons, dimension exercises, and demonstration answers; it does not imply that the full notebook and autograder are anonymously accessible.
 
 ## Update Log
 

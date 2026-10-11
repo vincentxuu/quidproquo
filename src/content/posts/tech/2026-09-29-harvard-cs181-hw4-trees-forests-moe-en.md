@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW4 (Part 3): Decision Trees, Random Forests, and Mixture of Experts"
+title: "(Part 3): Decision Trees, Random Forests, and Mixture of Experts | Harvard CS181 Assignment 4 / Part 3"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, decision-trees, ensemble, mixture-of-experts, homework]
@@ -27,17 +27,6 @@ glossary:
 > ⚠️ **Version and access**: Based on `hw4_release.tex` from [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) and §3 of the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, with no public recording links listed for the corresponding lectures and no homework solutions. I did not get the Week 7 Non-parametric Models / Decision Trees lecture slides. Problem 3 is pen-and-paper only, with no notebook code; its header gives no total, and the marked sub-parts add up to 35 points.
 
 This is post 8 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) and the last problem in HW4. The previous two posts covered [Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en) and [autoencoders to VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en).
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## First: this problem doesn't test growing a tree
 
@@ -142,6 +131,17 @@ That wraps up HW4. HW5 moves to learning without labels: clustering, PCA, and se
 
 - Previous: [HW4 (Part 2): why autoencoders can't generate, and what VAEs add](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)
 - Next: [HW5 (Part 1): K-means, HAC, and PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

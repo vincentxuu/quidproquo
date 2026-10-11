@@ -1,5 +1,5 @@
 ---
-title: "Generalized Linear Models: Unifying Regression and Classification"
+title: "Generalized Linear Models: Unifying Regression and Classification | Stanford CS229 Chapter 3"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 3, “Generalized linear models,” on printed pages 30–34 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of one quarter's recordings.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 4 (about 74 minutes); the transcript covers the exponential family form (sufficient statistic, log partition function), constructing GLMs (including the canonical result) and softmax multi-class classification, matching this chapter. It names the Gaussian, Bernoulli and multinomial (softmax) cases, but never mentions Poisson (count data gets only a passing mention), so the Poisson part rests on the notes alone.
 
 ## Two algorithms are instances of one template
 
@@ -83,6 +62,27 @@ The model is also conditional: it describes \(y\mid x\) but not the distribution
 ## Self-study exercise
 
 Choose a count-data problem. Assume \(y\mid x\) is Poisson, write the distribution in exponential-family form, identify the relationship between its natural parameter and conditional mean, and derive the response function under \(\eta=\theta^Tx\). Then name two reasons the Poisson assumption might fail on your data.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 4 (about 74 minutes); the transcript covers the exponential family form (sufficient statistic, log partition function), constructing GLMs (including the canonical result) and softmax multi-class classification, matching this chapter. It names the Gaussian, Bernoulli and multinomial (softmax) cases, but never mentions Poisson (count data gets only a passing mention), so the Poisson part rests on the notes alone.
 
 ## Update Log
 

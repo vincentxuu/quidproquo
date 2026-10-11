@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 11: Advanced RL Algorithms — Credit Assignment, Stable Updates, Reward Hacking, and Distillation"
+title: "Advanced RL Algorithms — Credit Assignment, Stable Updates, Reward Hacking, and Distillation | CMU 11-768 Lecture 11"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -41,16 +41,6 @@ glossary:
 In Lecture 9, Fried used a number-guessing game to derive REINFORCE, baselines, and GRPO, and explicitly deferred three things to this one: importance ratios, clipping, and the reference-model KL term. (Lecture 10 in between was a guest lecture on deep research agents, unrelated to RL.) The roadmap slide places this lecture in the middle. RL basics covered "rewards → advantages → policy gradients." This lecture takes on four things — **useful feedback, less waiting, stable updates, and reliable rewards** — plus learning from a teacher. The next lecture (Lecture 12, by TA Apurva Gandhi) covers memory, parallelism, and execution at scale.
 
 The lecture packs in more than five algorithms, plus reward hacking and distillation. My approach: the algorithms go into one comparison table, reward hacking gets its own section, and distillation sits in a collapsible block.
-
-## Course video sources
-
-This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
 
 ## The example: fixing a retry-config bug
 
@@ -365,6 +355,16 @@ Further reading on this site (other angles on the same algorithms; not a substit
 - [Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) (CS230)
 - [CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
 - [CME295 Lecture 5: RLHF and DPO Add the Negative Signal](/posts/ai/2026-09-29-cme295-preference-tuning-en)
+
+## Course video sources
+
+This article is based on slides. The official schedule, instructor channel, and exact lecture-title searches were checked, but no matching recording could be verified. Schedule extraction returned only its later half and channel extraction omitted its video inventory. Availability remains unresolved; this does not establish that no video exists.
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

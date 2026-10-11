@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L12–L13：文生圖、latent diffusion 與視覺語言模型"
+title: "文生圖、latent diffusion 與視覺語言模型｜CMU 10-423 第 12–13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 錄影只放在 CMU 的 Panopto，校外看不到，所以本文只依投影片撰寫；inked 版上的手寫筆記我沒有逐字轉錄。講次表這兩講沒有列 readings。事實皆於 2026-09-30 打開官方材料核對。
 
 上一篇 [HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) 還在處理純文字的 LLM。這一篇回到 [L7](/posts/ai/2026-09-30-cmu10423-diffusion-models)、[L8](/posts/ai/2026-09-30-cmu10423-variational-inference-vae) 的 diffusion，然後加上一個新問題：**文字要怎麼控制圖片生成，圖片又怎麼被語言模型讀懂？**
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## L12 後半：條件式影像生成
 
@@ -205,6 +194,17 @@ CLIP 的 embedding 是連續的，VLM 沒辦法自然地對它定義「生成圖
 - 存取等級 A0–A3 的定義：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 系列導覽：上一篇 [HW3：用 LoRA 微調 GPT-2](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2)｜下一篇 [L14–L15：Cross-attention、DiT、Prompt-to-Prompt 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

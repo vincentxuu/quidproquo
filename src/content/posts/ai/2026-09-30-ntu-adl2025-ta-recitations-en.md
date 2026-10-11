@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 TA Recitations: From PyTorch and Hugging Face to LoRA, Quantization, and vLLM Deployment"
+title: "NTU ADL 2025 TA Recitations: From PyTorch and Hugging Face to LoRA, Quantization, and vLLM Deployment | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Tutorial"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,30 +36,6 @@ The [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) s
 This post answers one question: **the lectures teach the principles, so what hands-on skills do the recitations add?** You will come away knowing the order of the seven sessions, which tools each one teaches, which files still open, and how they line up in time with the three homework assignments.
 
 **Sources**: the Recitation column of the course page, the ten recitation videos (YouTube titles and descriptions), five slide PDFs (same-name files on the Fall 2024 path), two TA Colab notebooks, and YouTube's auto-generated captions for the Deployment video. I opened and checked all of them on 2026-09-30. The lectures are taught in Mandarin; the slides mix Mandarin and English.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=zuiACAhRUzA
-title: ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=RYkEoCkJWeA
-title: ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)
-```
-
-Original videos: [ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle (YouTube, in Mandarin)](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects (YouTube, in Mandarin)](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics (YouTube, in Mandarin)](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=AgZuF7lsu-8)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the two embedded PyTorch recitation videos (Tutorial 17:45, Debugging 11:46) have no obtainable YouTube transcript, so their spoken content was not checked; what the article says about them comes from the TA Colab. Metadata confirmed: both were uploaded on 2023-09-07 with a description dated 2023/09/07 and "Lectured by Yen-Ting Lin", matching the article's "2023 Fall, taught by Yen-Ting Lin". The other recitation videos in the article, including the Deployment video summarized from auto-captions, are not embedded and were not rechecked this time.
 
 ## The big picture
 
@@ -251,6 +227,30 @@ One thing to do tonight: open the [NLP Lifecycle Colab](https://colab.research.g
 
 Previous: [Post 17: beyond supervised learning and multimodality](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
 Series overview: [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zuiACAhRUzA
+title: ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RYkEoCkJWeA
+title: ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)
+```
+
+Original videos: [ADL TA Recitation: PyTorch Tutorial (YouTube, in Mandarin)](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging (YouTube, in Mandarin)](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle (YouTube, in Mandarin)](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects (YouTube, in Mandarin)](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics (YouTube, in Mandarin)](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture (YouTube, in Mandarin)](https://www.youtube.com/watch?v=AgZuF7lsu-8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the two embedded PyTorch recitation videos (Tutorial 17:45, Debugging 11:46) have no obtainable YouTube transcript, so their spoken content was not checked; what the article says about them comes from the TA Colab. Metadata confirmed: both were uploaded on 2023-09-07 with a description dated 2023/09/07 and "Lectured by Yen-Ting Lin", matching the article's "2023 Fall, taught by Yen-Ting Lin". The other recitation videos in the article, including the Deployment video summarized from auto-captions, are not embedded and were not rechecked this time.
 
 ## Update Log
 

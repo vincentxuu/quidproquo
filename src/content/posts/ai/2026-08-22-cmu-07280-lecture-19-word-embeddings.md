@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 19：Word Embedding 如何把下一詞預測變成幾何"
+title: "Word Embedding 如何把下一詞預測變成幾何｜CMU 07-280 第 19 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 **CMU 07-280 Spring 2026 Lecture 19** 把 language model 從 count table 改成可學習的向量幾何。官方投影片封面題為 *NLP: Word Embeddings / Attention*；實際主體是文字 features、兩組 token vectors、similarity、softmax 與訓練，attention 只作為下一講入口。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 19 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec19_NLP_Word_Embeddings.pdf)、[Word Embeddings pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Word_Embeddings.pdf)，以及 [Recitation 10](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10_sol.pdf)。官方頁沒有 Spring 2026 逐講公開錄影；本文不把投影片動畫或 recitation notebook 猜成課堂口述。
-
-Recitation 提到 Google Drive notebook，但本文只採用公開 PDF 明確寫出的模型、任務與結果，不宣稱重跑了受外部權限影響的正式 notebook。
 
 ## 承上問題：N-gram 的每個 context 都是孤島
 
@@ -88,6 +72,22 @@ Recitation 10 用 *Green Eggs and Ham* corpus 建一個二維模型，要求觀�
 ## 今晚可做動作
 
 用十個 token、二維 embedding 建一個 one-step next-token model。手算一筆 `Uv`、softmax、cross-entropy 與 `ŷ-y`，再用程式訓練同一模型。最後比較兩件事：相似 context tokens 是否靠近，以及它們接近是否真的改善 held-out next-token loss。不要只看散點圖「像不像語意」。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 19 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec19_NLP_Word_Embeddings.pdf)、[Word Embeddings pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Word_Embeddings.pdf)，以及 [Recitation 10](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10_sol.pdf)。官方頁沒有 Spring 2026 逐講公開錄影；本文不把投影片動畫或 recitation notebook 猜成課堂口述。
+
+Recitation 提到 Google Drive notebook，但本文只採用公開 PDF 明確寫出的模型、任務與結果，不宣稱重跑了受外部權限影響的正式 notebook。
 
 ## 更新紀錄
 

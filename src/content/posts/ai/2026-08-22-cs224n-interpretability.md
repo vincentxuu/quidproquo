@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 15 講：沒有公開投影片時，如何讀 Agentic Interpretability"
+title: "沒有公開投影片時，如何讀 Agentic Interpretability｜Stanford CS224N 第 15 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,17 +20,6 @@ draft: false
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 15 個正規單元在 2026 年 2 月 24 日由 Been Kim 客座主講，官方題名只有 **Guest Lecture: Interpretability**。這一講和前十四講不同：課程頁沒有公開 Winter 2026 投影片，也沒有列 agenda，只列五篇 suggested readings。
 
 因此這篇不能忠實重建「講了什麼」。以下是官方閱讀清單能支持的閱讀導圖，目的在保存系列位置與材料邊界，不把論文內容冒充課堂內容。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## 路線一：從解釋答案改成能持續調查的 agent
 
@@ -53,6 +42,17 @@ Neologism learning 嘗試學習新概念 token，讓模型能引用、控制或�
 ## 本講可確認與不可確認的範圍
 
 可確認的是日期、講者、題名與五篇官方閱讀。不可確認的是講者實際 agenda、採用哪些投影片、論文涵蓋比例、現場案例與結論。官網 HTML 裡出現一條被註解掉的舊學期 slide link，並非 Winter 2026 公開材料，本文沒有使用。若官方之後補上投影片，這篇才應升級成逐段 lecture review。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

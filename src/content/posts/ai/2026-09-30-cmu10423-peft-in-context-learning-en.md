@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L10–L11: Parameter-Efficient Fine-Tuning and In-Context Learning — Change a Few Weights, or Just the Input?"
+title: "Parameter-Efficient Fine-Tuning and In-Context Learning — Change a Few Weights, or Just the Input? | CMU 10-423 Lectures 10–11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 I checked every fact against the official materials on 2026-09-30. From L9 onward the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) lists no readings, so this post cites only the slides and the figure sources they name. Access level **A3**: slides, homework, and the practice exam are public; lecture recordings are on CMU Panopto and not viewable from outside.
 
 **Series position**: previous [HW2: implementing DDPM from scratch on AFHQ cats](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) | next [L11–L12: instruction tuning, RLHF, and DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Why the course goes from images back to LLMs
 
@@ -213,6 +202,17 @@ One thing to do tonight: open the LoRA Initialization slide in L10, write one se
 - The same material in other courses: [CS224N Lecture 7: pre-training, subwords, and in-context learning](/posts/ai/2026-08-22-cs224n-pretraining-en), [CS224U: in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning-en)
 - What LoRA saves in training cost: [CME295 Lecture 4: the bill for LLM training](/posts/ai/2026-09-29-cme295-llm-training-en)
 - Course status and a self-study path: [CMU 10-423 series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

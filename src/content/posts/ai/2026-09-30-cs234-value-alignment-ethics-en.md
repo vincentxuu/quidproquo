@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 17: Value Alignment: Aligned to Whom, Aligned to What"
+title: "Value Alignment: Aligned to Whom, Aligned to What | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -48,30 +48,6 @@ Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS cour
 - Week 10 on the schedule says "Alignment, Impacts," but the L15 and L16 PDFs on the lecture materials page both returned 404 on 2026-09-30, so this post relies only on the two guest decks above
 - Several slides are images or discussion questions with no speaker's answer; I report the questions as asked and don't supply conclusions for the speaker
 - The matching video in the public 2024 playlist is [video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE). Per the transcript, the video opens with a DPO/RLHF review quiz and an AlphaZero wrap-up (roughly the first 15 minutes), and [from about minute 15](https://www.youtube.com/watch?v=FOlPpjNbHjE) Dan Webber covers value alignment: misalignment, defining AI goals, aligning to preferences (about minute 28), aligning to interests (about minute 36), an LLM personalization study (about minute 41), and social and moral alignment (about minute 59). That broadly tracks the 2026 slides; the word sycophancy never appears in the transcript, and this post has not checked agentic AI segment by segment. [Video 16](https://www.youtube.com/watch?v=eenJzay5aLo), despite its "Value Alignment" title, is, per its transcript, a quiz review, a course recap, and RL case studies, not this post's material
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=FOlPpjNbHjE
-title: Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eenJzay5aLo
-title: video 16, "Value Alignment"
-```
-
-Original videos: [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[video 16, "Value Alignment"](https://www.youtube.com/watch?v=eenJzay5aLo)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: Lecture 15 (about 74 minutes, Emma Brunskill and Dan Webber) opens with a DPO/RLHF review quiz and an AlphaZero wrap-up, then from about 22% Dan Webber covers value alignment (paperclips, intentions, preferences, best interests, morals and ethics), broadly the same theme as this post, and the word sycophancy never appears in the transcript; Lecture 16 (about 70 minutes) is the final lecture, a course recap with a quiz discussion and RL applications, not value alignment. mm:ss timestamps became approximate values and the &t= links were removed, "YouTube chapters" became "transcript", and the "chapters don't show sycophancy" remark was corrected.
 
 ## Why an RL course covers this
 
@@ -197,6 +173,30 @@ One thing to try tonight: open a recommender or AI assistant you use often, writ
 - A whole course built around alignment: [Reading Harvard CS2881R: What Outsiders Can Get from the First Graduate AI Safety Course](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - How an intro course covers AI alignment: [CMU 07-280 Lecture 13: From Reward Hacking to Auditable AI Scientists](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment-en)
 - Where RLHF sits in LLM post-training: [CS224N Lecture 8: From Instruction Tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eenJzay5aLo
+title: video 16, "Value Alignment"
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 15, "Emma Brunskill & Dan Webber"](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[video 16, "Value Alignment"](https://www.youtube.com/watch?v=eenJzay5aLo)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Lecture 15 (about 74 minutes, Emma Brunskill and Dan Webber) opens with a DPO/RLHF review quiz and an AlphaZero wrap-up, then from about 22% Dan Webber covers value alignment (paperclips, intentions, preferences, best interests, morals and ethics), broadly the same theme as this post, and the word sycophancy never appears in the transcript; Lecture 16 (about 70 minutes) is the final lecture, a course recap with a quiz discussion and RL applications, not value alignment. mm:ss timestamps became approximate values and the &t= links were removed, "YouTube chapters" became "transcript", and the "chapters don't show sycophancy" remark was corrected.
 
 ## Update Log
 

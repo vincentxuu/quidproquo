@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 7 Transformers and Speech Processing：causal attention、生成與未錄現場課的邊界"
+title: "Transformers and Speech Processing：causal attention、生成與未錄現場課的邊界｜Stanford CS124 第 7 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

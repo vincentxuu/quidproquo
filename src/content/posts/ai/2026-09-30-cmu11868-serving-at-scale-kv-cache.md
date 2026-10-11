@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 大規模服務：prefill／decode 拆分、KV cache 與異質硬體"
+title: "prefill／decode 拆分、KV cache 與異質硬體｜CMU 11-868 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 [上上篇](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)講的是一台推論伺服器內部的事：continuous batching、PagedAttention、RadixAttention。這一篇把鏡頭拉遠。請求來自成千上萬的使用者，GPU 分布在好幾個機櫃，KV cache 多到 GPU 記憶體裝不下。這時候要回答的問題變成：**算力和 KV cache 要怎麼安排，才能在延遲要求內服務最多請求？**
 
 五份講義的講者分別來自學界、NVIDIA、開源專案與中國的 LLM 服務公司，角度差很多。本文按論證順序重排，不照檔案編號。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 五份講義一覽
 
@@ -180,6 +170,16 @@ L30 是 Lei Li 自己的講義，比較像地圖。前半用 [a16z 的 LLM 應�
 - 單機服務的前一步：[L22＋L24 LLM 服務：排程、RadixAttention、PagedAttention](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
 - 另一門課的推論講法：[Stanford CS336：推論](/posts/ai/2026-08-22-cs336-inference)
 - vLLM 本身的架構：[vLLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

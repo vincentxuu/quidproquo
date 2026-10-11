@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 11：Storage Reclamation、Reference Counting 與 GC"
+title: "Storage Reclamation、Reference Counting 與 GC｜Stanford CS111 第 11 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 12 篇，對應 **Stanford CS111, Spring 2026, Lecture 11**。2026-04-22 由 Mendel Rosenblum 主講，官方題目是 [Dynamic Storage Management, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 先說材料異常：官方 `Lecture10.pdf` 與 `Lecture11.pdf` 的 SHA-256 都是 `368092c0...e67cb`，22 頁內容逐位元組相同；calendar 卻把 4 月 22 日列為 **Dynamic Storage Management, Continued**。錄影受 Canvas 限制，無法判斷現場從哪一頁接續。因此本文不捏造 boundary tags 等 PDF 沒有的內容，而把重點放在重複 deck 後半明示的 storage reclamation。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Placement 與 reclamation 是兩個問題
 
@@ -72,6 +64,14 @@ Compaction 同時處理 reachability 與 external fragmentation，但更新 poin
 PDF 給出的成本量級是：GC 可能占系統 10–20% CPU time，需要 2–5× overallocation，並造成 long pauses。這些數字是課堂用來建立取捨的概括，不是對所有 heap、runtime、collector 與 workload 的 benchmark。Generational、incremental、concurrent collectors 如何降低某些成本，也不在這 22 頁內。（[官方講義](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf)）
 
 這講的核心不是「GC 一定優於 manual free」。Reference count 用便宜的 local count 換來 cycle 缺口；tracing GC 用 global reachability 換來 scan、space 與 pause；manual reclamation 把判斷交給 programmer，則暴露 dangling pointer 與 leak。官方 artifact 重複使本篇短於系列常規，但上述七節已覆蓋 PDF 後半全部 reclamation agenda，沒有重複 Lecture 10 的 allocator placement 內容灌水。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

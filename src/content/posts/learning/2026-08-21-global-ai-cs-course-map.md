@@ -1,5 +1,5 @@
 ---
-title: "世界名校 AI／CS 課程地圖：哪些課真的能公開自學？"
+title: "哪些課真的能公開自學？｜世界名校 AI／CS 課程地圖"
 date: 2026-08-21
 category: learning
 tags: [ai-course, cs-course, learning-path, self-study, open-course]
@@ -22,19 +22,6 @@ draft: false
 這份地圖盤點 Stanford、Carnegie Mellon University（CMU）、MIT、UC Berkeley、Harvard 與國立臺灣大學（台大），時間範圍是 **2025–2026**。2026 年版本完整就優先；如果新學期只有課表、錄影鎖在校內系統，而 2025 年官方版本更完整，2025 也會正式列入。每篇單課導讀都會標明採用學期，不把 2025 影片與 2026 作業包裝成同一套課。
 
 這不是大學排名，也不是「哪間學校最好」。它只回答兩件事：這間學校如何安排 AI／CS 課程，以及校外讀者現在到底拿得到多少。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
-- [CS336 Spring 2026](https://cs336.stanford.edu/)
-- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
-- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
-- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
 
 ## 公開課不是 yes／no，而是四個等級
 
@@ -165,6 +152,19 @@ Harvard 的現行課表裡沒有這類課。能從頭自學到尾（A3）的 AI 
 Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)（HW0–HW6 全部作業）都已上線；還沒寫的只剩 CS182，它 Fall 2026 雖列在 SEAS 課表上，但目前找不到公開課站，要等教材出現再寫。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [Fall 2026](https://inst.eecs.berkeley.edu/~cs188/fa26/)
+- [CS336 Spring 2026](https://cs336.stanford.edu/)
+- [Berkeley CS285 Spring 2026](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [07-280 AI & ML I](https://www.cs.cmu.edu/~07280/)
+- [11-785 Introduction to Deep Learning](https://deeplearning.cs.cmu.edu/S26/index.html)
 
 ## 更新紀錄
 

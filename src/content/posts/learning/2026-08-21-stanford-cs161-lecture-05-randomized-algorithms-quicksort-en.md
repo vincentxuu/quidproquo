@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 5: Proving Randomized QuickSort's Expected Time"
+title: "Proving Randomized QuickSort's Expected Time | Stanford CS161 Lecture 5"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is post 6 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 5**. Moses Charikar taught the lecture on January 21, 2026. Its official title is [Randomized Algorithms and QuickSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort). This article uses the pre-lecture exercise, notes, and slides. I did not use the Canvas recording or claim to have read the notebook.
 
 Lecture 4's Select partitions around a pivot and recurses only on the side containing the answer. QuickSort keeps the same structure but sorts both sides. That small change makes pivot quality more consequential: near-halves give `O(n log n)`, while repeated `0` versus `n-1` splits give `Θ(n²)`. Lecture 5 asks for more than the intuition that random pivots are usually decent. For any fixed input, taking expectation only over the algorithm's coins, how can we rigorously prove `O(n log n)`?
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
-
-Checked: 2026-10-10.
 
 ## What a randomized guarantee guarantees
 
@@ -168,6 +158,16 @@ A useful paper exercise fixes `z_1,...,z_6` and lists which first pivots make `z
 Expected time does not say how likely runtime is to exceed a latency threshold. Systems that care about tail latency can study high-probability bounds or use a hybrid that limits recursion depth and switches to a worst-case `O(n log n)` sorter. Winter 2026 Lecture 5 does not prove those results, so they belong outside the lecture reconstruction.
 
 Randomness also has engineering assumptions: pivot selection should be sufficiently uniform, and random generation has a cost. Against an adversary that can observe or predict the random source, “random pivot” may not provide the intended defense. Before applying the theorem, restate its input adversary, randomness source, and cost model.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

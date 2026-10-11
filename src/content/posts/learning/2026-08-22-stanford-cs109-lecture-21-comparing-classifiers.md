@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 21｜Comparing Classifiers：accuracy 之外還要問 calibration、錯誤成本與 fairness"
+title: "Comparing Classifiers：accuracy 之外還要問 calibration、錯誤成本與 fairness｜Stanford CS109 第 21 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)第 22 篇，對應 **Summer 2026 Lecture 21: Comparing Classifiers**（Jul 29），講者為 Chris Gregg。本文依官方 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture21-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture21-AnswerKey.pdf)與 [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture21-LLMPrompts.pdf)整理。
 
 本講是 **L2**：worksheet 四頁 P1–P8 加 Platt challenge，key 五頁，只省略 P8 pset7 解答；guide 三頁六 concepts。當期投影片不可用、錄影限 Canvas。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
 
 ## P1：Logistic Regression refresher
 
@@ -109,6 +96,19 @@ LL(a)=Σᵢ[yᵢlog qᵢ+(1-yᵢ)log(1-qᵢ)]
 - Worksheet 四頁 P1–P8 加 challenge；五頁 key 只省略 P8。
 - Guide 三頁六 concepts，無額外題目。
 - 當期投影片不可用、錄影限 Canvas。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

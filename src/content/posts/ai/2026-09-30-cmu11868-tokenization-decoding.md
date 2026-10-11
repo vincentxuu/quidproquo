@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L08–L09：詞表怎麼選、token 怎麼吐，以及 speculative decoding 為什麼快"
+title: "詞表怎麼選、token 怎麼吐，以及 speculative decoding 為什麼快｜CMU 11-868 第 8–9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,16 +34,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms)講的是模型中間那一大塊。這一篇講頭尾：輸入前怎麼把文字切成 token，輸出後怎麼一個一個把 token 吐出來。
 
 兩件事看起來都跟「系統」無關，其實都是成本問題。詞表大小決定 embedding 表和輸出層有多大、同一句話要多少個 token；解碼策略決定生成一段文字要跑幾次前向。L09 的後半更直接：speculative decoding 就是一個推論加速技術。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## L08：tokenization 是一個取捨
 
@@ -160,6 +150,16 @@ L09 第 4 頁先說明，窮舉所有序列找最大機率是 O(V^N)，不可能
 2. 開一個 tokenizer demo（投影片第 35 頁列了兩個），貼一段中文和一段英文，比較 token 數
 3. 跑 decoding notebook，比較 greedy 與 beam search 的輸出
 4. 跑 speculative decoding notebook，試著改 N，看接受率和速度怎麼變
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

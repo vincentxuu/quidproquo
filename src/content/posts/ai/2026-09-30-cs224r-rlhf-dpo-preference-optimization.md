@@ -1,5 +1,5 @@
 ---
-title: "CS224R L9：RLHF、DPO 與偏好最佳化"
+title: "RLHF、DPO 與偏好最佳化｜Stanford CS224R 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 [CS224R](https://cs224r.stanford.edu/) 的課表把這一講叫「RL for LLMs: Preference Optimization」，由客座講者 Archit Sharma 主講。投影片標題是「The Post-Training Frontier: RLHF, DPO and Modern Preference Optimization」，封面寫著「Based on slides from CS224N」，也就是改寫自 Stanford NLP 課的版本。
 
 前面十一篇都在講機器人和控制，這一講突然跳到語言模型。先把兩邊對上，後面的推導會好讀很多。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=XKLGuwvSKvI
-title: Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）](https://www.youtube.com/watch?v=XKLGuwvSKvI)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L9 RL for LLMs（偏好最佳化客座講） 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Archit Sharma、主題與本文相符。講者為 Archit Sharma（頁面描述標示為 DPO 第一作者），與本文所述同一位講者相符；字幕談 reward model、Bradley-Terry、帶 KL 的 RLHF 目標與 DPO，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 先把 LLM 對到 RL 的語言
 
@@ -224,6 +205,25 @@ log p_θ(y_l | x)     log p_ref(y_l | x)
 - [CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)：這一講投影片的來源課
 
 **系列導覽**：上一篇 [HW3：用 AWAC 和 IQL 做 offline RL](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)｜下一篇 [L10：LLM 推理的 RL 與 test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=XKLGuwvSKvI
+title: Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 9: RL for LLMs（YouTube，補充）](https://www.youtube.com/watch?v=XKLGuwvSKvI)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L9 RL for LLMs（偏好最佳化客座講） 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Archit Sharma、主題與本文相符。講者為 Archit Sharma（頁面描述標示為 DPO 第一作者），與本文所述同一位講者相符；字幕談 reward model、Bradley-Terry、帶 KL 的 RLHF 目標與 DPO，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

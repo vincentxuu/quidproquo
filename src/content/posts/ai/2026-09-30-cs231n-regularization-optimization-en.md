@@ -1,5 +1,5 @@
 ---
-title: "CS231N L3: Regularization and Optimization, from Random Search to AdamW and Learning Rate Schedules"
+title: "Regularization and Optimization, from Random Search to AdamW and Learning Rate Schedules | Stanford CS231N Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,23 +43,6 @@ Lecture 2 of [CS231N](https://cs231n.stanford.edu/) handed us three things: a da
 The [2026 schedule](https://cs231n.stanford.edu/schedule.html) lists four topics for this lecture: regularization, stochastic gradient descent, Momentum/AdaGrad/Adam, and learning rate schedules. It sits in the "Deep Learning Basics" unit. Every model later in the course (CNNs, RNNs, Transformers, diffusion) reuses this toolbox.
 
 This is the first hard post in the series, so it follows five layers: the setting, the intuition, the mechanics (formulas in collapsible blocks), how it connects to the course's models, and where to go deeper.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 3 (length 1:08:39; speaker Zane Durante per the video description). The transcript covers L1/L2 regularization, numerical gradients, minibatch SGD, momentum, RMSProp, Adam, cosine learning-rate schedules, and why second-order methods do not fit, matching the article's topic. It never mentions AdaGrad, consistent with the article saying AdaGrad's derivation sits in the slide appendix. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=dyNGd06MWn4
-title: Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization](https://www.youtube.com/watch?v=dyNGd06MWn4)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The setting: walking downhill without a map
 
@@ -257,6 +240,23 @@ The schedule links this lecture to the [optimization-1](https://cs231n.github.io
 3. Copy the RMSProp and Adam code from the slides into a notebook, run them on a narrow 2-D bowl, and plot the trajectories.
 
 One thing you can do tonight: in numpy, define f(x, y) = x² + 20y², run SGD and SGD + Momentum (ρ = 0.9) from the same starting point for 50 steps, and plot both paths. You'll see what "jitter along the steep direction, crawl along the shallow one" actually looks like.
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 3 (length 1:08:39; speaker Zane Durante per the video description). The transcript covers L1/L2 regularization, numerical gradients, minibatch SGD, momentum, RMSProp, Adam, cosine learning-rate schedules, and why second-order methods do not fit, matching the article's topic. It never mentions AdaGrad, consistent with the article saying AdaGrad's derivation sits in the slide appendix. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=dyNGd06MWn4
+title: Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization](https://www.youtube.com/watch?v=dyNGd06MWn4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

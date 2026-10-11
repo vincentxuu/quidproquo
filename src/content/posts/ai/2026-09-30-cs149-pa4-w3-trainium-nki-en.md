@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA4 + Written 3: Moving Your Own Data on Trainium2 — NKI, SBUF/PSUM, and a Fused Conv+Maxpool"
+title: "Moving Your Own Data on Trainium2 — NKI, SBUF/PSUM, and a Fused Conv+Maxpool | Stanford CS149 Programming Assignment 4 / Written Assignment 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,14 +39,6 @@ glossary:
 Access first. The course as a whole is A3 (enough to self-study), but **PA4 is effectively A2**. The code and README are fully public, so you can read and understand everything. Running it requires an AWS Trainium2 machine, and the official setup uses a private AMI available only to enrolled students (details under "What outside learners can do" below). The Written 3 PDF is public; no solutions are.
 
 This post covers what each problem trains and what to watch for. **It does not include solutions.**
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
 
 ## From CUDA to Trainium: the cache is gone
 
@@ -223,6 +215,14 @@ So outside readers have three options:
 - The GPU counterpart with Triton kernels: [CS336 Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en).
 
 Series navigation: previous [L11 Programming Specialized Hardware](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) | next [L12 Mapping AI Applications to the Datacenter](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
 
 ## Update Log
 

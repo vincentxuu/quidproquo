@@ -1,5 +1,5 @@
 ---
-title: "清大高宏宇 NLP 第一週：語言為什麼難，以及 LLM 以前怎麼把文字變成數字"
+title: "清大高宏宇 NLP 第一週：語言為什麼難，以及 LLM 以前怎麼把文字變成數字｜清大高宏宇 自然語言處理 第 1 週"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,35 +37,6 @@ glossary:
 打開一個搜尋框，打「計程車」，你大概也想看到寫著「的士」或「出租车」的文章。對人來說這是同一件事；對一個只會比對字串的程式來說，這三個詞毫無關係。
 
 第一週的投影片就在處理這個落差。它回答一個問題：**在大型語言模型出現以前，電腦怎麼把一堆文字變成可以計算、可以排序的東西？** 答案是一條從資訊檢索長出來的管線，以及這條管線撞牆之後的兩次修補：LSA 和詞向量。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 1 兩支涵蓋這份投影片的前段，Week 2 Tue. 涵蓋後段。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=X7XJcm9wfFA
-title: Fall 2025 Week 1 Tue. 錄影
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=0hTqSpoNp4o
-title: Fall 2025 Week 1 Thu. 錄影
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6Z0A4JMptT8
-title: Fall 2025 Week 2 Tue. 錄影
-```
-
-原始影片：[Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/watch?v=6Z0A4JMptT8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 2 Tue. 的字幕完整讀過，Week 1 Tue.／Thu. 只讀了開頭。Week 2 Tue. 講的就是本文所依投影片的後段：倒排索引、tokenization、stemming 與 lemmatization（Porter）、停用詞（連「To be or not to be」的笑話）、向量空間模型、TF-IDF（含 IDF 為何要重算）、cosine 與 dot product 的關係、BM25 當強 baseline、bag of words 與 one-hot 的限制、WordNet、稠密向量、LSA／SVD 的十篇 Linux／基因體文件例子、word2vec 的單隱藏層訓練，結尾提到 Leonie Monigatti 的文章，與文章內容吻合。Week 1 Tue. 開頭是課程介紹與應用概覽，Week 1 Thu. 開頭說這是原定週二要講的 NLP 簡介並講詞義歧義。文章本來就只依投影片、沒有對影片內容下具體說法，正文未改；Week 2 Tue. 是從詞向量那篇移來的。
 
 ## 語言對電腦為什麼難
 
@@ -185,6 +156,35 @@ Skip-gram 的訓練流程投影片一步步畫出來：用窗口大小 1 從「T
 - [CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)：Stanford 版本的 word2vec 與分布語意講法。
 - [CS224U 資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)：BM25 公式、IR 指標與 neural IR。
 - [混合搜尋：BM25 + 向量 + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)：把本篇的 BM25 放進實際的 RAG 檢索系統。
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 1 兩支涵蓋這份投影片的前段，Week 2 Tue. 涵蓋後段。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=X7XJcm9wfFA
+title: Fall 2025 Week 1 Tue. 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=0hTqSpoNp4o
+title: Fall 2025 Week 1 Thu. 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6Z0A4JMptT8
+title: Fall 2025 Week 2 Tue. 錄影
+```
+
+原始影片：[Fall 2025 Week 1 Tue. 錄影](https://www.youtube.com/watch?v=X7XJcm9wfFA)、[Fall 2025 Week 1 Thu. 錄影](https://www.youtube.com/watch?v=0hTqSpoNp4o)、[Fall 2025 Week 2 Tue. 錄影](https://www.youtube.com/watch?v=6Z0A4JMptT8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 2 Tue. 的字幕完整讀過，Week 1 Tue.／Thu. 只讀了開頭。Week 2 Tue. 講的就是本文所依投影片的後段：倒排索引、tokenization、stemming 與 lemmatization（Porter）、停用詞（連「To be or not to be」的笑話）、向量空間模型、TF-IDF（含 IDF 為何要重算）、cosine 與 dot product 的關係、BM25 當強 baseline、bag of words 與 one-hot 的限制、WordNet、稠密向量、LSA／SVD 的十篇 Linux／基因體文件例子、word2vec 的單隱藏層訓練，結尾提到 Leonie Monigatti 的文章，與文章內容吻合。Week 1 Tue. 開頭是課程介紹與應用概覽，Week 1 Thu. 開頭說這是原定週二要講的 NLP 簡介並講詞義歧義。文章本來就只依投影片、沒有對影片內容下具體說法，正文未改；Week 2 Tue. 是從詞向量那篇移來的。
 
 ## 更新紀錄
 

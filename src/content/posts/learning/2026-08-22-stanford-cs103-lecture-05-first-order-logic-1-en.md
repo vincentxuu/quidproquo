@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 4: Objects, Quantifiers, and Types in First-Order Logic"
+title: "Objects, Quantifiers, and Types in First-Order Logic | Stanford CS103 Lecture 4"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 6 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 4, Spring 2026 (2026-04-08)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 Propositional logic treats a whole statement as true or false and combines statements with `¬`, `∧`, `∨`, `→`, and `↔`. This lecture opens that black box. Which objects does a sentence discuss? Which property applies to which object? How do “some” and “every” enter a formula? The main difficulty is not the larger alphabet. Every syntactic component has a fixed input and output type.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)
 
 ## From Propositional Logic to Objects
 
@@ -147,6 +139,14 @@ FOL also supports earlier proof techniques. To negate an English statement, tran
 ## Material Limits
 
 The complete deck supports the sequence from object language through the two quantifiers, scope, precedence, empty-domain semantics, and translation patterns. Slides are not a recording and do not preserve spoken transitions, student responses, or improvisation. This guide attributes only deck-supported definitions, formulas, and examples to the course; its connective prose is not an instructor transcript.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/04/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L2: Where Safety Training Sits in the LLM Training Pipeline"
+title: "Where Safety Training Sits in the LLM Training Pipeline | Harvard CS2881R Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,26 +34,6 @@ glossary:
 It draws on four official sources: the [lecture recording](https://youtu.be/GXggPt_gqiI) (about 2 hours 23 minutes), the [slides](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/Eau65O5QsfJOtuDI2FAXCCMBpC--98FHOpUwefGGuqDp3w?e=A5IKRL) on Harvard SharePoint (48 slides, viewable in PowerPoint Online without signing in), Justin Y. Chen's [LessWrong Week 2 summary](https://www.lesswrong.com/posts/FC3m5zhx6sFBrMpTm/cs-2881r-ai-safety-week-2-modern-llm-training), and the student write-up [Optimizing Prompts with Reinforcement Learning](https://www.lesswrong.com/posts/LTcidRnJJLpaAQsWY/cs2881r-optimizing-prompts-with-reinforcement-learning) with its [GitHub repo](https://github.com/aahani-dot/CS2881_RLExperiment). The materials for this lecture are complete, so it keeps the series-level A3 access rating.
 
 Barak opens with a disclaimer: at OpenAI he does not work on pretraining, RL, or reasoning models, so the lecture is based on public papers. The five pre-readings are [InstructGPT](https://arxiv.org/abs/2203.02155), [Constitutional AI](https://arxiv.org/abs/2212.08073), [DeepSeekMath](https://arxiv.org/abs/2402.03300), [DeepSeek-R1](https://arxiv.org/abs/2501.12948), and [Deliberative Alignment](https://arxiv.org/abs/2412.16339).
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=GXggPt_gqiI
-title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 2- Modern LLM training and safety training” (2:23:02) and spot-checked and confirmed the emoji reward-hacking example, the Bourgain and “Tim G” “token difficulty” cases, DeepSeekMath's pass@1 versus pass@4, CoT monitoring and the position paper (no source given in the captions), the 5% cheating ratio, safe completions and the OpenAI/Anthropic cross-evaluation, the “protect my grandmother's cookie recipe” analogy, and the students' persona experiment (Einstein and Mozart); nothing needed correcting.
 
 ## Intuition first: the one idea to hold onto
 
@@ -209,6 +189,26 @@ Confirmed: the lecture topics and reading list on the course site, the recording
 Further reading on this site for the full RL and RLHF math: [CS336 SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en), [CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr-en), [CME295 preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en), [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en), and [CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [HW0: Reproducing emergent misalignment on a 1B model](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment-en) | Next: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=GXggPt_gqiI
+title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training](https://www.youtube.com/watch?v=GXggPt_gqiI)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 2- Modern LLM training and safety training” (2:23:02) and spot-checked and confirmed the emoji reward-hacking example, the Bourgain and “Tim G” “token difficulty” cases, DeepSeekMath's pass@1 versus pass@4, CoT monitoring and the position paper (no source given in the captions), the 5% cheating ratio, safe completions and the OpenAI/Anthropic cross-evaluation, the “protect my grandmother's cookie recipe” analogy, and the students' persona experiment (Einstein and Mozart); nothing needed correcting.
 
 ## Update Log
 

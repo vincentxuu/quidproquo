@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L13: Reinforcement Learning, from AlphaGo to the RLHF That Makes LLMs Bluff Less"
+title: "Reinforcement Learning, from AlphaGo to the RLHF That Makes LLMs Bluff Less | NCCU Yen-Lung Tsai Generative AI Lecture 13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 **This post is based on the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 13 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L12: ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en).
 
 I used three official sources: the [lecture 13 recording](https://www.youtube.com/watch?v=xG8ccKlW_Cc) (2025-05-13, 3 h 3 min), the slide deck [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view) (73 slides, in Chinese), and the week 13 assignment on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese). Note that the slide file is numbered 12, but it is the deck for lecture 13; its footer reads "13 強化學習與生成式 AI 綜合應用." Access level is **A3**: recordings, slides, and the assignment are public. There is no matching demo notebook this week.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
-title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)
-```
-
-Original videos: [【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -228,6 +211,23 @@ This post stands on its own. To dig deeper:
 - DeepSeek's verifiable-reward route: [CS336 Lecture 16: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L12: ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en) | next, [L14: New Trends in Generative AI and the Final Project](/posts/ai/2026-09-30-nccu-genai-14-new-trends-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
+title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)
+```
+
+Original videos: [【生成式 AI】13. 強化學習與生成式 AI 綜合應用 (YouTube recording, 2025-05-13)](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

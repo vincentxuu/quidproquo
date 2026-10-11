@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 14: OpenHands — A Coding-Agent Framework That Went from Research Prototype to Thousands of Automated Runs"
+title: "OpenHands — A Coding-Agent Framework That Went from Research Prototype to Thousands of Automated Runs | CMU 11-768 Lecture 14"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 The framework module of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) has two lectures. The first is [Graham Neubig](https://www.phontron.com/) on [OpenHands](https://github.com/OpenHands/OpenHands), which he leads; the second (Oct 20) is LangGraph. Neubig said in [Lecture 1](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent-en) that he works on OpenHands, so this is the author explaining a framework's design.
 
 If you're choosing a framework or writing your own harness, the interesting part isn't what the API looks like but why each part exists: **each design answers a problem a coding agent hit in real use.**
-
-## Course video sources
-
-This post is written from the slides. I checked the official schedule: Lecture 14 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
-
-Official source:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked: 2026-10-10.
 
 ## Evolution: from code completion to automations that run daily
 
@@ -193,6 +183,16 @@ I couldn't check this paper against public sources: the link on the slides is an
 ## Changelog
 
 - 2026-10-10: Added this post, written from the Lecture 14 slides; no recording on the official public page yet.
+
+## Course video sources
+
+This post is written from the slides. I checked the official schedule: Lecture 14 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
+
+Official source:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked: 2026-10-10.
 
 ## References
 

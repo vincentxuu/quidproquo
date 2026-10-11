@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 10: LLM Inference Is About Reading Weights and KV Cache Less Often"
+title: "LLM Inference Is About Reading Weights and KV Cache Less Often | Stanford CS336 Lecture 10"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 10: Inference**, taught by Percy Liang on April 29, 2026. Its primary source is the official executable lecture, [`lecture_10.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_10.py).
 
 Training places a full sequence inside matrix multiplications. Autoregressive inference generates only the next token. That difference turns the same Transformer into another systems problem at serving time: weights and KV cache are repeatedly read from memory while requests arrive and finish at different times.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 10 (Inference; it opens by following on from Tatsu's scaling-laws lecture). The captions cover TTFT, prefill/decode, KV-cache reduction (GQA, MLA, cross-layer), quantization (including GPTQ and activation-aware methods), speculative decoding, continuous batching and paging of the KV cache by analogy with operating systems. Two items are not in the captions: Medusa and EAGLE (the lecturer says there is a large follow-up literature and skips it), and the names PagedAttention/vLLM (the lecturer only says systems people reused operating-system paging). Both sentences now mark them as site additions. The rest was not compared line by line.
-
-```youtube
-url: https://www.youtube.com/watch?v=EfM546A79aM
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference](https://www.youtube.com/watch?v=EfM546A79aM)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Three metrics represent three product objectives
 
@@ -88,6 +70,24 @@ Tokens per second alone hides user waiting; latency alone may hide idle GPUs. Le
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its inference accounting, KV-cache, quantization, speculation, and paging structure.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 10 (Inference; it opens by following on from Tatsu's scaling-laws lecture). The captions cover TTFT, prefill/decode, KV-cache reduction (GQA, MLA, cross-layer), quantization (including GPTQ and activation-aware methods), speculative decoding, continuous batching and paging of the KV cache by analogy with operating systems. Two items are not in the captions: Medusa and EAGLE (the lecturer says there is a large follow-up literature and skips it), and the names PagedAttention/vLLM (the lecturer only says systems people reused operating-system paging). Both sentences now mark them as site additions. The rest was not compared line by line.
+
+```youtube
+url: https://www.youtube.com/watch?v=EfM546A79aM
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 10: Inference](https://www.youtube.com/watch?v=EfM546A79aM)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

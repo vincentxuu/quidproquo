@@ -1,5 +1,5 @@
 ---
-title: "EM 演算法：從高斯混合到 VAE"
+title: "EM 演算法：從高斯混合到 VAE｜Stanford CS229 第 11 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 11 章（印刷頁 150–166）的逐章導讀，依 Tengyu Ma 與 Andrew Ng 的官方主講義整理，**不是某學期錄影的重建**。本章的主脊是：隱變數讓直接 maximum likelihood 變難，EM 改為交替估計後驗分布、更新模型參數，VAE 再把這套做法推到神經網路與連續隱變數。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=sUS-eTa0l6s
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 10（約 80 分鐘）：前約 60% 是 EM——soft assignment 的 GMM、Jensen 不等式、ELBO（字幕自動辨識成 elbow）、E step／M step 與逐步單調改善、只找到局部最大；約 62% 之後轉去 PCA（屬第 12 章）。主題與本章前半相符。本章後半的變分推論、VAE 與 reparameterization trick，字幕完全沒有出現（variational、reparam、VAE 皆零次），那幾節只依講義。
 
 ## 高斯混合把群別藏起來
 
@@ -109,6 +88,27 @@ $$
 ## 自學練習
 
 為一維兩成分高斯混合手算一次 EM。先任選 $\phi_j,\mu_j,\sigma_j^2$，對四個資料點算責任度，再更新均值與混合權重。計算更新前後的 observed-data log-likelihood，確認它沒有下降；換一組初始均值再做一次，觀察最後解是否相同。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=sUS-eTa0l6s
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 10（約 80 分鐘）：前約 60% 是 EM——soft assignment 的 GMM、Jensen 不等式、ELBO（字幕自動辨識成 elbow）、E step／M step 與逐步單調改善、只找到局部最大；約 62% 之後轉去 PCA（屬第 12 章）。主題與本章前半相符。本章後半的變分推論、VAE 與 reparameterization trick，字幕完全沒有出現（variational、reparam、VAE 皆零次），那幾節只依講義。
 
 ## 更新紀錄
 

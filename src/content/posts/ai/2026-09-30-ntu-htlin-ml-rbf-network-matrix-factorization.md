@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T14–T15：RBF 網路、k-means 與矩陣分解——萃取模型還能長什麼樣"
+title: "RBF 網路、k-means 與矩陣分解——萃取模型還能長什麼樣｜台大林軒田 機器學習基石與技法 第 14–15 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,28 +40,6 @@ glossary:
 - [技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)的第 54–61 支影片（文末逐支列出）。
 
 **存取等級：A2，而且沒有練習材料。** 影片與投影片免費，但 [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 與 [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 兩個學期的課程計畫都跳過 T14–T15：兩學期都在 NN／deep learning（212u、213u）之後直接接 modern deep learning（302u、303u）。所以這兩講沒有對應的 `u` 版更新投影片，課程頁也沒有標 LFD 章節。我翻過 Fall 2024 的 HW0–HW7 與期末專題說明，沒有任何一題考 RBF 網路、k-means 或矩陣分解。能拿來自我檢查的只有投影片裡的 Fun Time 小題。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=7lHhnpdPVr0
-title: RBF Network Hypothesis
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=dEYdx2rS66c
-title: RBF Network Learning
-```
-
-原始影片：[RBF Network Hypothesis](https://www.youtube.com/watch?v=7lHhnpdPVr0)、[RBF Network Learning](https://www.youtube.com/watch?v=dEYdx2rS66c)、[k-Means Algorithm](https://www.youtube.com/watch?v=ker9RF2TDUU)、[k-Means and RBFNet in Action](https://www.youtube.com/watch?v=D5elADTz1vk)、[Linear Network Hypothesis](https://www.youtube.com/watch?v=2pX76iH_irw)、[Basic Matrix Factorization](https://www.youtube.com/watch?v=3l5kaWkcR6s)、[Stochastic Gradient Descent](https://www.youtube.com/watch?v=br3IzOz-xMs)、[Summary of Extraction Models](https://www.youtube.com/watch?v=xKZMB4T2a2s)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 這兩講在技法裡的位置
 
@@ -249,6 +227,28 @@ T14–T15 沒有 Fall 2024 或 Fall 2026 的作業題，也沒有官方解答。
 下一篇[總結：三大技巧，外加 Fall 2024 的現代深度學習補充](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)會用 T16 把整門技法收成特徵、最佳化、防過擬合三類技巧，並接上 Fall 2024 補充的 ReLU、He 初始化、momentum 與 Adam。
 
 延伸閱讀：[Stanford CS224W 導讀](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)從圖的角度處理推薦問題，可以和本篇的矩陣分解對照。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=7lHhnpdPVr0
+title: RBF Network Hypothesis
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=dEYdx2rS66c
+title: RBF Network Learning
+```
+
+原始影片：[RBF Network Hypothesis](https://www.youtube.com/watch?v=7lHhnpdPVr0)、[RBF Network Learning](https://www.youtube.com/watch?v=dEYdx2rS66c)、[k-Means Algorithm](https://www.youtube.com/watch?v=ker9RF2TDUU)、[k-Means and RBFNet in Action](https://www.youtube.com/watch?v=D5elADTz1vk)、[Linear Network Hypothesis](https://www.youtube.com/watch?v=2pX76iH_irw)、[Basic Matrix Factorization](https://www.youtube.com/watch?v=3l5kaWkcR6s)、[Stochastic Gradient Descent](https://www.youtube.com/watch?v=br3IzOz-xMs)、[Summary of Extraction Models](https://www.youtube.com/watch?v=xKZMB4T2a2s)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

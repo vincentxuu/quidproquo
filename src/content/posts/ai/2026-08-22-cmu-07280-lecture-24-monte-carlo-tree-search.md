@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 24：Monte Carlo Tree Search 如何接上 AlphaZero"
+title: "Monte Carlo Tree Search 如何接上 AlphaZero｜CMU 07-280 第 24 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 **CMU 07-280 Spring 2026 Lecture 24** 是 **Monte Carlo Tree Search（MCTS）**。現行 Fall 2026 首頁另外顯示 LLM Post Training，但那不是本系列鎖定的 Spring canonical lecture。這一講把前面的 adversarial search、sampling、Q estimates、deep networks 與 self-play 組成 Building AlphaZero 的收束。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-Spring 2026 Lecture 24 `MCTS` slides 與 pptx 直鏈在 2026-08-22 回傳 404，因此本文不宣稱讀過該講投影片。核心來源是 [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf)、[Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf)，再以[官方課程首頁](https://www.cs.cmu.edu/~07280/)的 S26 filename 與 assignment metadata 核對版本。
-
-官方頁沒有 Spring 2026 逐講公開錄影；HW12 Building AlphaZero 的 PDF／zip 直鏈在查核日也失效。本文只能詳細導讀仍公開的 recitation pipeline，不把缺失材料補成想像的課堂內容。
 
 ## 承上問題：完整 game tree 太大，純 Q-network 又沒有 lookahead
 
@@ -119,6 +103,22 @@ Spring 2026 以 MCTS 結束，正好把整門課的兩條線接起來：前半�
 ## 今晚可做動作
 
 實作「11 顆糖、每次拿 1 或 2 顆」遊戲。先做 FlatMCSearch，再加入 node visits、mean value、UCB selection、expansion 與 alternating-sign backup。固定 random seed，比較 10、100、1,000 simulations 時 root policy。最後加入一個刻意偏錯的 prior，觀察多少 simulations 後 search 能否修正它。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+Spring 2026 Lecture 24 `MCTS` slides 與 pptx 直鏈在 2026-08-22 回傳 404，因此本文不宣稱讀過該講投影片。核心來源是 [Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf)、[Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf)，再以[官方課程首頁](https://www.cs.cmu.edu/~07280/)的 S26 filename 與 assignment metadata 核對版本。
+
+官方頁沒有 Spring 2026 逐講公開錄影；HW12 Building AlphaZero 的 PDF／zip 直鏈在查核日也失效。本文只能詳細導讀仍公開的 recitation pipeline，不把缺失材料補成想像的課堂內容。
 
 ## 更新紀錄
 

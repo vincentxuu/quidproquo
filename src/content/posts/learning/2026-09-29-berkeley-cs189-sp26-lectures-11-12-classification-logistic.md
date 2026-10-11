@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 11–12：分類、生成式分類器、logistic regression、ROC"
+title: "分類、生成式分類器、logistic regression、ROC｜Berkeley CS189 第 11–12 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, classification, logistic-regression, evaluation]
@@ -27,44 +27,6 @@ draft: false
 1. 為什麼 LDA 的邊界是直線，QDA 是曲線。
 2. 為什麼 logistic regression 比 LDA「更一般」，卻不一定比較好。
 3. 為什麼 95% 準確率可能代表一個完全沒用的分類器。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=oid6SvXy8Kw
-title: Lecture 11 錄影：Classification
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=xBCpwQt8A5w
-title: Lecture 12 錄影：Logistic Regression, Classifier Accuracy
-```
-
-原始影片：[Lecture 11 錄影：Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 錄影：Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 11 影片（oid6SvXy8Kw，約 81 分鐘）確為分類：回顧 train/validation/test，用獅子與大象講生成式與判別式、LDA／QDA 決策邊界、COVID 先驗的例子與 logistic regression 的銜接，結束在 Naive Bayes（講者說下堂繼續）；字幕沒有 ROC 與 ImageNetV2。Lecture 12 影片（xBCpwQt8A5w，約 80 分鐘）涵蓋 sigmoid、softmax、100 封信中 5 封垃圾信的準確率例子、混淆矩陣、ROC、partial AUC、校準與 PR 曲線；字幕找不到成本敏感分類與「為何不直接拿指標當損失」的討論，這兩點只見於投影片。字幕未自報講者姓名，講者歸屬未驗證。
-
-## 官方材料與讀取範圍
-
-| 講次 | 日期 | 講題 | 材料 | 排程頁的 Bishop 閱讀 |
-|---|---|---|---|---|
-| Lec 11 | 2/24 | Classification | [PDF](https://drive.google.com/file/d/1XRPSMXshMXlA2Y54NEbMEBKh3L3Eoh00/view)／[影片](https://www.youtube.com/watch?v=oid6SvXy8Kw&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=10) | 5.0–5.1.4 判別函數、5.3–5.3.3 生成式分類器 |
-| Lec 12 | 2/26 | Logistic Regression, Classifier Accuracy | [PDF](https://drive.google.com/file/d/1JvSLsdHffGdBQIXs_NrXJLQC7CQR3rd2/view)／[影片](https://www.youtube.com/watch?v=xBCpwQt8A5w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=11) | 5.2.2 期望損失、5.2.5 分類器準確率、5.2.6 ROC、5.4–5.4.4 判別式分類器與 logistic regression |
-
-同週還有 [Discussion 5](https://drive.google.com/file/d/1I0qfBd1cCc_QUU9wPcfCcEg6-5eCNbCb/view)（[解答](https://drive.google.com/file/d/1auD6wh7wN9QPGN52bMKZSc1KoSipxrVF/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9TlqqkuL1y7ybVRtrA6l6w)），以及 HW2 發布（截止 3/13）。課本是 Bishop & Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》，官網有免費線上閱讀版。
-
-**公開程度**：兩講的 PDF 與影片、Discussion 5 的題目／解答／walkthrough 都能匿名打開，這一段是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
-
-教材上有一個重疊要先說：Lec 10 的 PDF 後半已經講過判別式 vs. 生成式和 GDA，Lec 11 從同一處重講並補完；ROC 那段則在 Lec 11 和 Lec 12 的 PDF 裡都有。本篇依主題整理，不逐講切開。
 
 ## 三種做分類器的方式
 
@@ -230,6 +192,44 @@ Discussion 5 雖然排在 Lec 11 那週，三題的內容都是回歸與估計�
 
 - 上一篇：[HW1 導讀：線代／微積分／機率熱身 + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
 - 下一篇：[Lec 13、15：收斂、Momentum、Adam、SGD，用 GD 學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers)
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=oid6SvXy8Kw
+title: Lecture 11 錄影：Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=xBCpwQt8A5w
+title: Lecture 12 錄影：Logistic Regression, Classifier Accuracy
+```
+
+原始影片：[Lecture 11 錄影：Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 錄影：Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 11 影片（oid6SvXy8Kw，約 81 分鐘）確為分類：回顧 train/validation/test，用獅子與大象講生成式與判別式、LDA／QDA 決策邊界、COVID 先驗的例子與 logistic regression 的銜接，結束在 Naive Bayes（講者說下堂繼續）；字幕沒有 ROC 與 ImageNetV2。Lecture 12 影片（xBCpwQt8A5w，約 80 分鐘）涵蓋 sigmoid、softmax、100 封信中 5 封垃圾信的準確率例子、混淆矩陣、ROC、partial AUC、校準與 PR 曲線；字幕找不到成本敏感分類與「為何不直接拿指標當損失」的討論，這兩點只見於投影片。字幕未自報講者姓名，講者歸屬未驗證。
+
+## 官方材料與讀取範圍
+
+| 講次 | 日期 | 講題 | 材料 | 排程頁的 Bishop 閱讀 |
+|---|---|---|---|---|
+| Lec 11 | 2/24 | Classification | [PDF](https://drive.google.com/file/d/1XRPSMXshMXlA2Y54NEbMEBKh3L3Eoh00/view)／[影片](https://www.youtube.com/watch?v=oid6SvXy8Kw&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=10) | 5.0–5.1.4 判別函數、5.3–5.3.3 生成式分類器 |
+| Lec 12 | 2/26 | Logistic Regression, Classifier Accuracy | [PDF](https://drive.google.com/file/d/1JvSLsdHffGdBQIXs_NrXJLQC7CQR3rd2/view)／[影片](https://www.youtube.com/watch?v=xBCpwQt8A5w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=11) | 5.2.2 期望損失、5.2.5 分類器準確率、5.2.6 ROC、5.4–5.4.4 判別式分類器與 logistic regression |
+
+同週還有 [Discussion 5](https://drive.google.com/file/d/1I0qfBd1cCc_QUU9wPcfCcEg6-5eCNbCb/view)（[解答](https://drive.google.com/file/d/1auD6wh7wN9QPGN52bMKZSc1KoSipxrVF/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9TlqqkuL1y7ybVRtrA6l6w)），以及 HW2 發布（截止 3/13）。課本是 Bishop & Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》，官網有免費線上閱讀版。
+
+**公開程度**：兩講的 PDF 與影片、Discussion 5 的題目／解答／walkthrough 都能匿名打開，這一段是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
+
+教材上有一個重疊要先說：Lec 10 的 PDF 後半已經講過判別式 vs. 生成式和 GDA，Lec 11 從同一處重講並補完；ROC 那段則在 Lec 11 和 Lec 12 的 PDF 裡都有。本篇依主題整理，不逐講切開。
 
 ## 更新紀錄
 

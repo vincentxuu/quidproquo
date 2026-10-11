@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L10 MCUNet: Running Neural Networks on a Microcontroller with 320kB of SRAM"
+title: "MCUNet: Running Neural Networks on a Microcontroller with 320kB of SRAM | MIT 6.5940 Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 The first nine lectures (pruning, quantization, NAS, distillation) all answer the question "how do we make a model smaller?" Lecture 10 asks a different one: how small is small enough? That depends on the chip you deploy to. This lecture picks the most extreme target: a microcontroller (MCU). That's a chip that may cost a few dollars, has no operating system, and measures its SRAM in kilobytes.
 
 The Lecture Plan on page 2 has four items: what tinyML is, its challenges, tiny neural network design, and applications (vision, audio, time series and anomaly detection). This post follows that order.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=uR1KKhIhHEk
-title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening agenda and the ending (including the AITA teaching-assistant demo) and spot-checked the middle: MCU memory limits, TinyNAS search-space design, MCUNetV2's patch-based inference (peak SRAM from 1372kB to 172kB, about 5x with a 3×3 patch), and the vision, audio (keyword spotting), anomaly detection and time-series applications. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## What tinyML is: shrinking from the cloud to IoT
 
@@ -167,6 +149,24 @@ Pages 88–91: train an autoencoder to reconstruct normal data. In deployment, i
 - CNN basics and MobileNet-style building blocks: [CS231N L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en)
 - This series' two NAS lectures: [L7 Search Space and Strategy](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en), [L8 Hardware-Aware NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
 - Metric definitions (#Params, peak activation): [L1–L2 Efficiency Metrics](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=uR1KKhIhHEk
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening agenda and the ending (including the AITA teaching-assistant demo) and spot-checked the middle: MCU memory limits, TinyNAS search-space design, MCUNetV2's patch-based inference (peak SRAM from 1372kB to 172kB, about 5x with a 3×3 patch), and the vision, audio (keyword spotting), anomaly detection and time-series applications. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

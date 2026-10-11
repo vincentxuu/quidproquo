@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 5: Search I: Define the State Before Choosing the Algorithm"
+title: "Search I: Define the State Before Choosing the Algorithm | Stanford CS221 Lecture 5"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 5**, taught by Percy Liang on 2025-10-06. The [course site](https://stanford-cs221.github.io/autumn2025/) provides the schedule and assignments; this article follows the code and prose order of the [executable search artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=search).
 
 > Material gap: the source provides this executable lecture only. This article does not fill in route-assignment solutions, other lecture slides, or experiments not shown in the source.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 5, the same term and lecture number this article follows. It matches item 5 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=fPESauMaJYA
-title: Stanford CS221 | Autumn 2025 | Lecture 5: Search I
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 5: Search I](https://www.youtube.com/watch?v=fPESauMaJYA)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 5) and confirmed it covers modeling problems as search problems, the tram example, dynamic programming (including adding step count to the state to remove cycles), beam search, and a language-model search example, matching this article's lecture and topic; no mismatch found.
 
 ## Motivation: why search still matters
 
@@ -128,6 +108,26 @@ In `LanguageModelSearchProblem`, the state is the prompt plus the response prefi
 For a new problem, ask in order: What is the start state? What are the successors, actions, and costs? What counts as an end state? What action sequence is a solution, and how are costs added? Does the state retain tickets, the previous action, or any other information that changes the future? If the state space fits in memory and many paths merge, dynamic programming is a candidate. If exact search is infeasible, consider best-of-n or beam search.
 
 The main lesson is not that DP always beats recursion. Modeling determines which histories can be compressed, and compression creates the opportunity to cache. Exhaustive search gives an exact baseline but can be exponential; DP removes repeated work when the state space is small and paths overlap; best-of-n and beam search trade a finite computation budget for approximate answers. Learning can supply costs, and search can find a solution under those costs. Cycles such as A → B → C → A are deferred to the next lecture.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 5, the same term and lecture number this article follows. It matches item 5 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=fPESauMaJYA
+title: Stanford CS221 | Autumn 2025 | Lecture 5: Search I
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 5: Search I](https://www.youtube.com/watch?v=fPESauMaJYA)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 5) and confirmed it covers modeling problems as search problems, the tram example, dynamic programming (including adding step count to the state to remove cycles), beam search, and a language-model search example, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

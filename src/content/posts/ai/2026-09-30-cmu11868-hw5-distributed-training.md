@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW5：在兩張 GPU 上自己寫資料平行與管線平行"
+title: "在兩張 GPU 上自己寫資料平行與管線平行｜CMU 11-868 作業 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,16 +28,6 @@ glossary:
 > **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 的 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列的第 14 篇。作業頁與 repo 依 2026-09-30 所見；作業站是跨學期共用的，之後可能被 Fall 2026 修改。
 
 這份作業把第 11 到 13 篇講的東西拿來動手：[資料平行](/posts/ai/2026-09-30-cmu11868-data-parallel-training)（L14–L15）和[管線平行](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)（L16 上半）。[上一篇的 ZeRO](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization) 不在這份作業裡，要到 HW6 才用 DeepSpeed 實際跑。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 基本資料
 
@@ -117,6 +107,16 @@ Problem 1 限定只能用 `torch.distributed` 和 `torch.multiprocessing.Process
 - 系列下一篇：[L19–L20 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 前一份作業：[HW4：Softmax／LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)；下一份作業：[HW6：DeepSpeed ZeRO＋LoRA 訓練、SGLang 推論](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)
 - 站內：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

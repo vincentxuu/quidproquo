@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄"
+title: "請模型當裁判，再幫 agent 上護欄｜Stanford CS329Z 第 8 週"
 date: 2026-09-10
 updated: 2026-09-12
 category: ai
@@ -28,17 +28,6 @@ Week 8 是裁判週加安全週。週一（11/9）談 LLM-as-Judge 與評測基�
 人工評分是黃金標準，代價是又貴又慢。Prompt 一改，總不能重請幾十位研究生再投一次票。解法是請強模型當裁判，做法在 [MT-Bench 論文](https://arxiv.org/abs/2306.05685)裡完整驗證過。Anthropic 的[評測指南](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)則把它放進智慧體評測的完整拼圖。裁判本身也會犯錯，週三的安全課回答另一個問題：評分過關的智慧體，實戰為什麼還會出事。
 
 三篇主讀物裡，本篇深讀 Anthropic 評測指南與 MT-Bench。安全主線以 [PrivacyLens](https://arxiv.org/abs/2409.00138) 為核心，旁及部署期的護欄實務。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 三種 grader：先選對工具再談自動化
 
@@ -129,6 +118,17 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 - 週一 11/9 LLM-as-Judge & Evaluation Infrastructure：主讀物 Demystifying Evals、MT-Bench、AutoMetrics，以及延伸閱讀 [Zhu 等人 AutoLibra](https://openreview.net/forum?id=4BjGVZ7Bxn)，本文均已導讀。
 - 週三 11/11 Agent Safety & Guardrails：主讀物 PrivacyLens 等三篇，以及延伸閱讀 [Wen 等人情境化隱私防禦](https://arxiv.org/abs/2603.02983)、[OpenAI 的 prompt injection 威脅模型](https://openai.com/index/prompt-injections/)、[Anthropic RSP v1](https://www.anthropic.com/news/anthropics-responsible-scaling-policy)，本文均已導讀。
 - 課表原文：[CS329Z 官網 Week 8](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

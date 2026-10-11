@@ -1,5 +1,5 @@
 ---
-title: "CS224U In-context learning：起源、核心概念與建議做法"
+title: "起源、核心概念與建議做法｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -45,29 +45,6 @@ glossary:
 Potts 在 [ICL 第 4 支錄影](https://www.youtube.com/watch?v=0mXbM2j3Dzs) 開頭先打了預防針：他幾乎確定幾個月後就會有人發現更強的技巧，讓這支錄影顯得過時。所以讀這個單元，重點不在 2023 年的具體招式，而在它怎麼定義問題、怎麼判斷一個技巧值不值得用。
 
 投影片分五節：Origins、Core concepts、The current moment、Techniques、Suggested methods。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
-title: Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eyNLkiQ89KI
-title: Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs)、[Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Techniques and Suggested Methods）與 Part 1（Origins）的字幕逐項對照：Potts 的過時預告、demonstration 的選法與四類方式、ELMo 示範過濾例子、CoT／generic step-by-step／self-consistency（dsp.majority）／Self-Ask／反覆改寫、DSP 結果的解讀與四條建議；Origins 的 ChomskyBot、Brants 2007、decaNLP、GPT-2 的 TL;DR 與翻譯、GPT-3 摘要，皆吻合。文中引用但未嵌入的 Part 2（Core Concepts）與 Part 3（Current Moment）也讀過，術語定義、第 (2) 條無法驗證、生成是強加的規則、Potts 選第 4 個說法、Alpaca 的 175 個種子任務與 52,000 個例子皆吻合。HotPotQA 的 28.3／36.9／51.4 與 Mina Lee 客座屬投影片內容（客座無錄影），未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 起源：從 n-gram 到 GPT-3
 
@@ -207,6 +184,29 @@ Potts 對這張表的解讀比數字本身更值得記。他說只有在「新�
 
 - In-context learning 在預訓練脈絡裡的位置：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - Instruction tuning 與 RLHF 的細節：[CS224N 第 8 講：從 instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
+title: Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eyNLkiQ89KI
+title: Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs)、[Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Techniques and Suggested Methods）與 Part 1（Origins）的字幕逐項對照：Potts 的過時預告、demonstration 的選法與四類方式、ELMo 示範過濾例子、CoT／generic step-by-step／self-consistency（dsp.majority）／Self-Ask／反覆改寫、DSP 結果的解讀與四條建議；Origins 的 ChomskyBot、Brants 2007、decaNLP、GPT-2 的 TL;DR 與翻譯、GPT-3 摘要，皆吻合。文中引用但未嵌入的 Part 2（Core Concepts）與 Part 3（Current Moment）也讀過，術語定義、第 (2) 條無法驗證、生成是強加的規則、Potts 選第 4 個說法、Alpaca 的 175 個種子任務與 52,000 個例子皆吻合。HotPotQA 的 28.3／36.9／51.4 與 Mina Lee 客座屬投影片內容（客座無錄影），未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

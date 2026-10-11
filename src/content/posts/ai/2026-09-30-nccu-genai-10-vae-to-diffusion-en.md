@@ -1,5 +1,5 @@
 ---
-title: "Reading NCCU Yen-Lung Tsai Generative AI, L10: The Adventure That Starts with the VAE — Feature Vectors, Autoencoders, Diffusion, and \"Without the VAE, Stable Diffusion Doesn't Run\""
+title: "The Adventure That Starts with the VAE — Feature Vectors, Autoencoders, Diffusion, and \"Without the VAE, Stable Diffusion Doesn't Run\" | NCCU Yen-Lung Tsai Generative AI Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 10 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L09 on AI agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en). From here on, the course turns from text generation to images.
 
 It draws on four official sources: [video 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk) (2025-04-22, about 2 h 54 min), the 78-page GenAI10 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08), and the week 10 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08 was last committed on 2025-04-28. **What follows quotes the current repo version.**
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
-title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
-```
-
-Original videos: [【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -226,6 +209,23 @@ This guide stands on its own. To go deeper, the site has these:
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L09 Why 2025 was called the year of AI agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en) | Next: [L11 Text-to-image AI: principles and practice](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
+title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
+```
+
+Original videos: [【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

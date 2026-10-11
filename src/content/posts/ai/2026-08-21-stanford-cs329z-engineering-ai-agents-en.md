@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z: No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch"
+title: "No Frameworks, Just One Chat-Completion Call — Grow an Agent Harness from Scratch | Stanford CS329Z Topic Guide"
 date: 2026-08-21
 updated: 2026-10-10
 category: ai
@@ -26,17 +26,6 @@ draft: false
 The frame the course site opens with is "compound AI systems": systems assembled from LLMs, retrievers, tools and optimizers that interact with each other. The site calls this a fundamental shift in how AI applications get built. The three threads that run through the quarter are named in the very first session description — decomposition, data, evaluation.
 
 This piece cross-checks four primary sources: the course site, the public GitHub repo behind it, ExploreCourses, and the available lecture decks (now posted through Lecture 5). It covers how the course actually runs, what the assignments look like, what got rewritten in the syllabus around the start of the quarter, and how it differs from the other two Stanford courses with "agent" in the title. It does **not** break down the lectures one by one — the course only started on September 23, and the week-by-week material is handled by [the series' weekly guides](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en).
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -211,13 +200,21 @@ The final evaluation is conversational: simulated users ask questions, respond, 
 - **ExploreCourses instructors**: read on 8/21, it listed only Ryan, M. and Yang, D.; read on 9/29, it lists Ryan, M., Yang, D. and Yang, J. as PIs, and the room already shows Skilling.
 - **Could not confirm**: the two guest speakers; whether recordings will end up public; whether the Stanford Bulletin has a CS329Z entry yet (its course catalog is a dynamically loaded frontend app, which I could not verify first-hand).
 
-## Update log
+## Course video sources
 
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
+
+## Update Log
 
 - 2026-10-10: Added the first five official PDF decks and the public HW1 starter, handout, datasets, tests, and self-study commands; refreshed AI-use policy and recording access notes.
 - 2026-09-29: Updated for the course site's September revisions and the first two lecture decks — HW1 is now a framework-free Agentic Harness (the Part B DSPy rewrite is gone), the project topic is open with ICLR format and reproducibility added, the grading table now gives peer review 20%; added the TAs, room change, compute credits, audit and recording notes, and the slide contents; rewrote the title and tldr to match
-
-## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.

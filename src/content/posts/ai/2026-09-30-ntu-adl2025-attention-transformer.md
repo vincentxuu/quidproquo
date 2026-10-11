@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 第 4 講：Attention 與 Transformer"
+title: "Attention 與 Transformer｜台大陳縕儂 深度學習之應用 2025 Fall 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)結尾留了一個問題：RNN 理論上記得住很久以前的詞，實際上梯度傳不回去。這一講分兩步回答。第一步是 attention，它原本是加在 RNN 翻譯模型上的外掛；第二步是 Transformer，它把 RNN 整個拿掉，只留下 attention。
 
 兩份講義在 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)上是分開的兩列，但 Transformer 講義的前 9 頁就是 Attention 講義的複習，所以本篇合起來讀。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=FLNSD3zykgE
-title: ADL 4.1: Attention Mechanism 注意力機制
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=c0O9s6MCFys
-title: ADL 4.2: Self-Attention & Transformer 自注意力機制之模型
-```
-
-原始影片：[ADL 4.1: Attention Mechanism 注意力機制](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer 自注意力機制之模型](https://www.youtube.com/watch?v=c0O9s6MCFys)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：4.1 與 4.2 兩支都讀了字幕。4.1 的記憶與注意力類比、RNN 單一向量瓶頸、query／key／value 定義、語音辨識與 image captioning（含長頸鹿誤判為白色大鳥）、Greg／Brian 三次 hop 的閱讀理解例子，以及 4.2 的 CNN 與 RNN 比較、法國／法語例子、self-attention、multi-head、masked、三種 attention 的 Q／K／V 來源、positional encoding 的四個條件與 sin／cos、訓練技巧與結果，文章對影片的說法皆能在字幕找到；沒有發現需要更正的地方。投影片頁碼、公式與 CoQA／QuAC 等細節來自講義，不是影片內容。
 
 ## 第一步：翻譯時為什麼需要 attention
 
@@ -212,6 +188,30 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 
 - 同一段內容在 Stanford 的講法：[CS224N Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CME295 第 1 講：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - 講義引用的逐行實作：[The Annotated Transformer（Sasha Rush）](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=FLNSD3zykgE
+title: ADL 4.1: Attention Mechanism 注意力機制
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=c0O9s6MCFys
+title: ADL 4.2: Self-Attention & Transformer 自注意力機制之模型
+```
+
+原始影片：[ADL 4.1: Attention Mechanism 注意力機制](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer 自注意力機制之模型](https://www.youtube.com/watch?v=c0O9s6MCFys)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：4.1 與 4.2 兩支都讀了字幕。4.1 的記憶與注意力類比、RNN 單一向量瓶頸、query／key／value 定義、語音辨識與 image captioning（含長頸鹿誤判為白色大鳥）、Greg／Brian 三次 hop 的閱讀理解例子，以及 4.2 的 CNN 與 RNN 比較、法國／法語例子、self-attention、multi-head、masked、三種 attention 的 Q／K／V 來源、positional encoding 的四個條件與 sin／cos、訓練技巧與結果，文章對影片的說法皆能在字幕找到；沒有發現需要更正的地方。投影片頁碼、公式與 CoQA／QuAC 等細節來自講義，不是影片內容。
 
 ## 更新紀錄
 

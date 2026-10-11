@@ -1,5 +1,5 @@
 ---
-title: "CS149 L16: Fine-Grained Locking and Lock-Free Programming, from Test-and-Set to the ABA Problem"
+title: "Fine-Grained Locking and Lock-Free Programming, from Test-and-Set to the ABA Problem | Stanford CS149 Lecture 16"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,24 +36,6 @@ glossary:
 The official material is the [L16 slides PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/finegrainedsync/16_finegrainedlock.pdf) (66 slides, also available [slide by slide](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)). The title slide's full name is "Implementing Locks, Fine-Grained Synchronization, and (a short intro to) Lock-Free Programming", so lock implementation lives in this lecture too. Fall 2025 recordings are only on Canvas. The course home page points to the 2023 recordings instead, and the matching video is [2023 Lecture 13: Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo). This post treats it as a listening supplement and follows the 2025 slides. The course as a whole is **A3**; for this lecture the slides are fully public and only the current-term recording is missing.
 
 Part 5 of the series has no direct link to AI. Still, every thread pool and every multithreaded runtime you write sits on these primitives. The task queue in [PA2](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) is exactly a shared data structure that many threads hit at once.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=GA1ObImqaMo
-title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming
-```
-
-Original videos: [Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)
-
-Course and recording entries:
-
-- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming” (1:15:47). The captions cover deadlock and starvation, test-and-set, ticket locks, compare-and-swap and LL/SC, and a sorted linked list with hand-over-hand locking; lock-free programming gets only about the last five minutes (ABA and a lock-free stack are mentioned, with the speaker saying it is not on the midterm and will come back with transactional memory), and the captions have no explanation of hazard pointers and no clear SPSC queue. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Three ways to get stuck
 
@@ -182,6 +164,24 @@ Confirmed: the contents of the L16 slides PDF, and the lecture date and summary 
 Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 6: Implementing Locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en) and [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L15: Implementing Synchronization and Memory Consistency](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en) | next [L17–L18: Transactional Memory + Written 4](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=GA1ObImqaMo
+title: Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming
+```
+
+Original videos: [Stanford CS149 I 2023 I Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming](https://www.youtube.com/watch?v=GA1ObImqaMo)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/finegrainedsync/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 13 - Fine-Grained Synchronization and Lock-Free Programming” (1:15:47). The captions cover deadlock and starvation, test-and-set, ticket locks, compare-and-swap and LL/SC, and a sorted linked list with hand-over-hand locking; lock-free programming gets only about the last five minutes (ABA and a lock-free stack are mentioned, with the speaker saying it is not on the midterm and will come back with transactional memory), and the captions have no explanation of hazard pointers and no clear SPSC queue. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS149 L17–L18: Transactional Memory and Written 4, Handing \"Make This Atomic\" to the System"
+title: "Transactional Memory and Written 4, Handing \"Make This Atomic\" to the System | Stanford CS149 Lectures 17–18 / Written Assignment 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,29 +43,6 @@ Official material used:
 - [Written Assignment 4 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst4.pdf) (47 pages)
 
 Fall 2025 recordings are only on Canvas. The course home page points to the 2023 recordings instead; the matching videos are [2023 Lecture 16: Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA) and [2023 Lecture 17: Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI). This post treats them as listening supplements and follows the 2025 slides. The course as a whole is **A3**; both lectures' slides and Written 4 are fully public, and what is missing is the current-term recording and the solutions.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA), [Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
-
-Course and recording entries:
-
-- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of both Fall 2023 recordings. “Lecture 16 - Transactional Memory 1” (1:20:20) covers the motivation for atomic blocks, serializability and isolation, eager/lazy versioning, and pessimistic/optimistic conflict detection; “Lecture 17 - Transactional Memory 2” (1:18:33) covers STM (transaction descriptor, read set, commit and abort; the captions mention Intel's implementation without saying the name McRT) and HTM with R/W bits and conflict detection, and ends by previewing heterogeneous computing; TCC does not appear in the captions, and Written 4 is this site's summary of the assignment PDF, unrelated to the videos. I checked how the videos' topics relate to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the videos.
 
 ## Between a lock and a hard place
 
@@ -206,6 +183,29 @@ Confirmed: the contents of the L17 and L18 slides and the Written 4 PDF, and the
 Further reading: for locks and deadlock from the OS side, see [CS111 Lecture 7: Deadlock](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en).
 
 Series navigation: previous [L16: Fine-Grained Locking and Lock-Free Programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | this is the last part | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=rFFf3WIJ7BA
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Tbk1vnYLQqI
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 16 - Transactional Memory 1](https://www.youtube.com/watch?v=rFFf3WIJ7BA), [Stanford CS149 I Parallel Computing I 2023 I Lecture 17 - Transactional Memory 2](https://www.youtube.com/watch?v=Tbk1vnYLQqI)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/transactions/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of both Fall 2023 recordings. “Lecture 16 - Transactional Memory 1” (1:20:20) covers the motivation for atomic blocks, serializability and isolation, eager/lazy versioning, and pessimistic/optimistic conflict detection; “Lecture 17 - Transactional Memory 2” (1:18:33) covers STM (transaction descriptor, read set, commit and abort; the captions mention Intel's implementation without saying the name McRT) and HTM with R/W bits and conflict detection, and ends by previewing heterogeneous computing; TCC does not appear in the captions, and Written 4 is this site's summary of the assignment PDF, unrelated to the videos. I checked how the videos' topics relate to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the videos.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "大型語言模型：分詞、Transformer、MoE 與 SFT"
+title: "大型語言模型：分詞、Transformer、MoE 與 SFT｜Stanford CS229 第 17 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 17 章（印刷頁 202–219）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；以下聚焦模型、計算與後訓練的連鎖，不逐一重做所有證明。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=hHC-SF3utxg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。Lecture 14（約 78 分鐘）開場說明接下來是幾堂大型語言模型，先講 tokenization，再講 autoregressive 的條件機率分解、softmax 輸出、attention 與 causal mask，結尾是 normalization 與 residual，並提到長序列的 T² 成本，對應本章前兩節與長序列成本一節的開頭。原本嵌的 Lecture 13（YouTube 標題「LLMs, Next-Word Prediction Loss」）字幕其實是表徵學習的下半場（對比學習、語意搜尋、RAG），沒有 next-token、tokenization 或 transformer，已撤換，內容改放到第 16 章。換上的影片雖然 YouTube 標題寫「Lecture 16: Basic Concept in RL, Policy Gradient」，字幕卻是 attention 變體（multi-query／grouped-query、KV cache、sliding window）、mixture of experts、in-context learning（few-shot、zero-shot）與 SFT，對應本章長序列成本與「MoE、提示與 SFT」兩節；標題與內容不符，跟本章相符的是內容。
 
 ## 從文字到 autoregressive 機率
 
@@ -100,6 +74,32 @@ Mixture of Experts 用 router 為每個 token 選少數 expert。它能增加總
 ## 練習
 
 對同一段 2,048-token prompt，比較「無 KV cache」與「有 KV cache」逐 token 生成時哪些張量需要重算。再畫一張表，分別寫出 FlashAttention、GQA 與 sliding window 主要節省的資源，以及各自沒有解決的瓶頸。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=hHC-SF3utxg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=pwQ0l4hFCVI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient](https://www.youtube.com/watch?v=hHC-SF3utxg)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning](https://www.youtube.com/watch?v=pwQ0l4hFCVI)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。Lecture 14（約 78 分鐘）開場說明接下來是幾堂大型語言模型，先講 tokenization，再講 autoregressive 的條件機率分解、softmax 輸出、attention 與 causal mask，結尾是 normalization 與 residual，並提到長序列的 T² 成本，對應本章前兩節與長序列成本一節的開頭。原本嵌的 Lecture 13（YouTube 標題「LLMs, Next-Word Prediction Loss」）字幕其實是表徵學習的下半場（對比學習、語意搜尋、RAG），沒有 next-token、tokenization 或 transformer，已撤換，內容改放到第 16 章。換上的影片雖然 YouTube 標題寫「Lecture 16: Basic Concept in RL, Policy Gradient」，字幕卻是 attention 變體（multi-query／grouped-query、KV cache、sliding window）、mixture of experts、in-context learning（few-shot、zero-shot）與 SFT，對應本章長序列成本與「MoE、提示與 SFT」兩節；標題與內容不符，跟本章相符的是內容。
 
 ## 更新紀錄
 

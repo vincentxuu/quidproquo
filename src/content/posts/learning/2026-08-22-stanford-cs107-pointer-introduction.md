@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 8：指標不是魔法，而是可被複製的位址"
+title: "指標不是魔法，而是可被複製的位址｜Stanford CS107 第 8 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 C 的指標常被教成符號規則：宣告加星號、呼叫加 `&`、使用時再加 `*`。這不容易回答真正的問題：函式改到哪一格記憶體？為何 pointer parameter 仍可能改不到 caller 的 pointer？
 
 Stanford CS107 Winter 2026 的第 8 講把指標拉回最樸素的模型：pointer 是一個值，而那個值是某個物件的 memory address。C 的參數一律按值傳遞；傳 pointer 時，複製的不是目標物件，而是它的位址。callee 因而可以沿著複製來的位址找到 caller 擁有的物件。整講從 `int *` 一路走到 `char **`，其實只重複同一個問題：你究竟想修改值、指標，還是指標所指向的值？
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與閱讀範圍
 
@@ -305,6 +297,14 @@ Strong typing 讓編譯器知道解參照後應存取多少 bytes，也能檢查
 第四，dereference 不是單純語法動作，而是一份有效性承諾。地址必須真的指向仍在生命週期內、可依該型別存取的物件；null pointer 不能解參照。
 
 最後，swap 與 rotation 顯示 pointer 的力量不是「可以碰記憶體」這種空話，而是函式可以精確修改 caller 選定的物件。代價也同樣精確：呼叫端與函式必須共同維持型別、生命週期與有效地址的契約。下一講把 pointers 與 arrays 接起來時，這套逐格追蹤法會比任何口訣都可靠。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

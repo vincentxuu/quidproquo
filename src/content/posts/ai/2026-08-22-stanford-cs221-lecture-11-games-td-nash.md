@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 11：Games II：TD learning、同時賽局與 Nash 均衡"
+title: "Games II：TD learning、同時賽局與 Nash 均衡｜Stanford CS221 第 11 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 11**，2025-10-27 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [td_learning and simultaneous_games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=td_learning)。下面只沿著兩份 source 的教學順序整理，不把其他講次或常識硬塞進來。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。因此本文不替這些部分補上不存在的數據或結論。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 11 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 11 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=9CKRoKFdS5Y
-title: Stanford CS221 | Autumn 2025 | Lecture 11: Games II
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 11: Games II](https://www.youtube.com/watch?v=9CKRoKFdS5Y)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 11 支）字幕，確認內容涵蓋 minimax 複習、TD learning、同時出手賽局與 Nash 均衡（含 rock paper scissors），與本文的講次與主題相符，未發現錯配。
 
 ## 這一講的路線
 
@@ -205,6 +185,26 @@ source 用三個 payoff 圖示例子對照：zero-sum Morra 的 Nash equilibrium
 ## source 的邊界
 
 本講展示 recurrence 與策略比較，不提供完整 Nash solver。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 11 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 11 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=9CKRoKFdS5Y
+title: Stanford CS221 | Autumn 2025 | Lecture 11: Games II
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 11: Games II](https://www.youtube.com/watch?v=9CKRoKFdS5Y)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 11 支）字幕，確認內容涵蓋 minimax 複習、TD learning、同時出手賽局與 Nash 均衡（含 rock paper scissors），與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

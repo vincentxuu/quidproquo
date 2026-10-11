@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 2: Sequence Modeling: From RNNs to Attention"
+title: "Sequence Modeling: From RNNs to Attention | MIT 6.S191 Lecture 2"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 2 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Sequence Modeling: From RNNs to Attention**. It Addresses data where order changes meaning—text, audio, and time series—and connects directly to music generation in Lab 1. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=d02VkQ9MP44
-title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
-```
-
-Original videos: [MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the RNN recurrent state, next-word prediction, tokenization/embedding, backpropagation through time, vanishing/exploding gradients, a mention of LSTM, music generation (the Schubert unfinished symphony, tied to Lab 1) and attention with query/key/value, matching this note.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Take a short ABC score and manually form input/next-character pairs before openi
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=d02VkQ9MP44
+title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
+```
+
+Original videos: [MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is presented by Ava Soleimany; the transcript covers the RNN recurrent state, next-word prediction, tokenization/embedding, backpropagation through time, vanishing/exploding gradients, a mention of LSTM, music generation (the Schubert unfinished symphony, tied to Lab 1) and attention with query/key/value, matching this note.
 
 ## Update Log
 

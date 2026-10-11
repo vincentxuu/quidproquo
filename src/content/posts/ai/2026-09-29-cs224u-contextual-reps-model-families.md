@@ -1,5 +1,5 @@
 ---
-title: "CS224U 上下文表徵 II：GPT、BERT、RoBERTa、ELECTRA、T5、BART 與蒸餾，各改了預訓練的哪一環"
+title: "GPT、BERT、RoBERTa、ELECTRA、T5、BART 與蒸餾，各改了預訓練的哪一環｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -34,30 +34,6 @@ glossary:
 同一份 [contextual representations 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf)的後七節（GPT、BERT、RoBERTa、ELECTRA、seq2seq、Distillation、Wrap-up）對應 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 07 到 13 支影片。
 
 讀這七節最好的方式，是一直問同一個問題：**這個家族改了預訓練的哪一環？**
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=sNw40lEhaIQ
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=H0Zw0_22JRg
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
-其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
-
-內容核對：已依字幕核對（2026-10-10）：影片 04（GPT）與影片 05（BERT）的字幕逐項對照：自迴歸損失、attention mask、teacher forcing、『模型預測分數而非 token』、微調方式、GPT 規模表、MLM 與 NSP、[CLS] 微調、BERT 版本與 512 上限、四個已知限制。文中描述但未嵌入的 RoBERTa、ELECTRA、seq2seq、蒸餾與 Wrap-up 五支影片（連結於文中）也讀過字幕，各項說法吻合。唯一無法支持的是『每支約 6 到 14 分鐘』的片長，已刪除。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單（影片 07–13）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 先看全貌
 
@@ -247,6 +223,30 @@ notebook 的流程：
 - 這個單元沒有專屬作業；第一份作業才會實際微調這些模型。
 
 **系列導覽**：上一篇 [上下文表徵 I：guiding ideas、Transformer 與位置編碼](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)｜下一篇 [HW1：多領域情感分析與 bake-off](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=sNw40lEhaIQ
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=H0Zw0_22JRg
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
+其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
+
+內容核對：已依字幕核對（2026-10-10）：影片 04（GPT）與影片 05（BERT）的字幕逐項對照：自迴歸損失、attention mask、teacher forcing、『模型預測分數而非 token』、微調方式、GPT 規模表、MLM 與 NSP、[CLS] 微調、BERT 版本與 512 上限、四個已知限制。文中描述但未嵌入的 RoBERTa、ELECTRA、seq2seq、蒸餾與 Wrap-up 五支影片（連結於文中）也讀過字幕，各項說法吻合。唯一無法支持的是『每支約 6 到 14 分鐘』的片長，已刪除。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單（影片 07–13）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

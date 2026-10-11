@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L21 FlashAttention：attention 慢在搬資料，不在算——Tri Dao 從 FA1 講到 FA4"
+title: "FlashAttention：attention 慢在搬資料，不在算——Tri Dao 從 FA1 講到 FA4｜CMU 11-868 第 21 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,16 +40,6 @@ glossary:
 這是系列裡比較硬的一篇。會先講場景與直覺，推導放在折疊區塊。沒讀過 GPU 記憶體階層的讀者，建議先看 [L02–L04 GPU 程式模型](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)與 [L10 LightSeq](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq)。
 
 整篇只回答一個問題：**為什麼 attention 的瓶頸是 IO，而不是 FLOPs？**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 場景：序列一長，訓練就慢下來
 
@@ -189,6 +179,16 @@ FP8 的問題是 outlier 讓量化誤差變大。第 24 頁的解法是 incohere
 - 上一篇：[L19–L20 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 下一篇：[L12–L13 TPU、JAX 與 Pallas／Splash Attention](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)
 - 系列總覽：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW3: Build GPT-2 in Your Own MiniTorch and Make It Translate German"
+title: "Build GPT-2 in Your Own MiniTorch and Make It Translate German | CMU 11-868 Assignment 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 The first two assignments built the foundation: [HW1](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en) wrote CUDA kernels for map, zip, reduce, and matmul, and [HW2](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en) wrote autodiff and a sentiment classifier. HW3 is the first time they come together as a real language model.
 
 The assignment page opens with two sentences. The first: implement a decoder-only GPT-2 architecture in MiniTorch, train it on IWSLT14 German-English translation, and benchmark it. The second is a warning: **training for Problem 4 takes at least 10 hours**.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Timeline and dependencies
 
@@ -139,6 +129,16 @@ To match the spring version, the last commit before the Feb 18 deadline is `376b
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/): the Recitation 3 material, useful for comparing shapes and masking
 - [CS336 series overview](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en): CS336's first assignment also has you write a Transformer LM from scratch, but in PyTorch; in 11-868 the framework and kernels underneath are yours too
 - [CMU 11-785 Lecture 18: attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

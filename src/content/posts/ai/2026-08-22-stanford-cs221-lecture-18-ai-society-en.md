@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 18: AI & Society: Benefits, Misuse, Accidents, and Institutions"
+title: "AI & Society: Benefits, Misuse, Accidents, and Institutions | Stanford CS221 Lecture 18"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 18**, taught by Percy Liang on 2025-11-19. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [society](https://stanford-cs221.github.io/autumn2025-lectures/?trace=society). It follows the executable order of `main()` rather than turning the lecture into a generic essay. Claims not supplied by the artifact remain gaps.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 18, the same term and lecture number this article follows. It matches item 18 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=071zJXhvNfM
-title: Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society](https://www.youtube.com/watch?v=071zJXhvNfM)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 18) and confirmed it covers the Belmont report and research ethics, accidents such as sycophancy, spurious correlation (the X-ray example), reward hacking, copyright and fair use, transparency indicators, and model gating, matching this article's lecture and topic; no mismatch found.
 
 ## The lecture's problem
 
@@ -206,6 +186,26 @@ The practical tools are multiple metrics across subpopulations, third-party audi
 ## Material gaps
 
 This article uses `society.py` and the existing official links as its base, adding authoritative sources inline where needed. The official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are not. No unprovided numbers were added for GenderShades, global reward differences, chest-drain images, FMTI, or legal disputes, and normative directions were not rewritten as proven causal conclusions. The artifact names cases and strategies but supplies no complete fairness definition, comprehensive deployment rules, or comparative effectiveness results for every strategy. The legal discussion is also limited to selected U.S. distinctions, not cross-jurisdiction legal advice. Those remain gaps.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 18, the same term and lecture number this article follows. It matches item 18 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=071zJXhvNfM
+title: Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 18: AI & Society](https://www.youtube.com/watch?v=071zJXhvNfM)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 18) and confirmed it covers the Belmont report and research ethics, accidents such as sycophancy, spurious correlation (the X-ray example), reward hacking, copyright and fair use, transparency indicators, and model gating, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

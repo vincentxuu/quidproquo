@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L1：RNN 語言模型與 autodiff——生成式 AI 從「預測下一個字」開始（含 HW0）"
+title: "RNN 語言模型與 autodiff——生成式 AI 從「預測下一個字」開始（含 HW0）｜CMU 10-423 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,17 +33,6 @@ glossary:
 你打開 ChatGPT 打一句話，它一個字一個字吐出回答。第一講要你先接受一件事：這個過程在數學上就是反覆回答「給定前面所有的字，下一個字的機率分布是什麼」。整門課 26 講，文字、影像、語音、影片，都是在用不同的方式估這種分布。
 
 這一講的投影片由三段組成：課程導覽（生成式 AI 是什麼、能做什麼、課程政策）、module-based autodiff、語言模型從 n-gram 到 RNN。課程政策的部分已經寫在[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)，這裡只講技術內容。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 生成式 AI 就是機率建模
 
@@ -168,6 +157,17 @@ HW0 在 1 月 14 日發布、1 月 26 日交 Slot A。第一講的作業表寫�
 - Backpropagation 的完整推導：[CMU 11-785 第 5 講：Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)
 - RNN 的訓練與梯度問題：[CMU 11-785 第 13 講：RNN（一）](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)
 - 另一門課怎麼講 RNN 語言模型：[CS224N：RNN 語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

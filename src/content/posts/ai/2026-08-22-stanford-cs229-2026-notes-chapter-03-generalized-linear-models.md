@@ -1,5 +1,5 @@
 ---
-title: "廣義線性模型：用指數族統一迴歸與分類"
+title: "廣義線性模型：用指數族統一迴歸與分類｜Stanford CS229 第 3 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 3 章〈Generalized linear models〉，講義頁碼 30–34。它是 **2026 notes 的逐章導讀**，不是某一季課程錄影的重建。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 4（約 74 分鐘），字幕講指數族的形式（sufficient statistic、log partition function）、GLM 的建構（含 canonical 的結論）與 softmax 多類別分類，與本章主題相符；字幕提到高斯、Bernoulli、多項式（softmax）對應的資料型態，但沒有出現 Poisson（計數資料只是一句帶過），Poisson 部分只依講義。
 
 ## 兩個演算法其實是一個模板
 
@@ -83,6 +62,27 @@ GLM 並不保證選到正確的輸出分布，也不保證自然參數真的隨�
 ## 自學練習
 
 選一個計數資料問題。假設 \(y\mid x\) 服從 Poisson 分布，將它寫成指數族形式，找出自然參數與條件平均的關係，再推導以 \(\eta=\theta^Tx\) 為前提的 response function。最後列出 Poisson 假設可能不適合該資料的兩個理由。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 4（約 74 分鐘），字幕講指數族的形式（sufficient statistic、log partition function）、GLM 的建構（含 canonical 的結論）與 softmax 多類別分類，與本章主題相符；字幕提到高斯、Bernoulli、多項式（softmax）對應的資料型態，但沒有出現 Poisson（計數資料只是一句帶過），Poisson 部分只依講義。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 20: Multilevel Inodes, Index Walks, and Disk Scheduling"
+title: "Multilevel Inodes, Index Walks, and Disk Scheduling | Stanford CS111 Lecture 20"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 21 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 20**. Mendel Rosenblum taught it on 2026-05-13; the official title is [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf). The official Lecture 20 and [Lecture 21 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf) files are byte-identical, both SHA-256 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`. Inaccessible Canvas/Panopto video prevents recovering the actual spoken boundary.
 
 This article therefore owns [The deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)'s opening multilevel-inode/index-walk material and its closing disk-scheduling material. Block cache, write policy, free bitmaps, fragments, and delayed allocation are concentrated in [Lecture 21](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache). This is an editorial partition of a byte-identical artifact, not a claim that the public material reveals the exact classroom split.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## A 4.3BSD inode is an on-demand tree
 
@@ -61,11 +53,17 @@ With queued I/O, scheduling minimizes seek. FIFO preserves arrival order but ign
 
 The last diagrams compare one pending set: FIFO has long seeks, SPTF minimal seeks, and CSCAN a single-direction sweep. PDF extraction merges adjacent labels as “71,” so it cannot establish whether these are 7 and 1 or 71. No exact traversal is invented from that artifact ([official slides](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf)).
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Partitioned the byte-identical Lecture 20/21 deck; this article now focuses on inode index walks and disk scheduling, while Lecture 21 owns cache, free-space, and allocation policy.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Partitioned the byte-identical Lecture 20/21 deck; this article now focuses on inode index walks and disk scheduling, while Lecture 21 owns cache, free-space, and allocation policy.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

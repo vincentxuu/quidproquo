@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀 L10：從變分自編碼器（VAE）開始的冒險旅程——特徵向量、Autoencoder、Diffusion，以及「沒有 VAE，Stable Diffusion 根本不能動」"
+title: "從變分自編碼器（VAE）開始的冒險旅程——特徵向量、Autoencoder、Diffusion，以及「沒有 VAE，Stable Diffusion 根本不能動」｜政大蔡炎龍 生成式AI 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 10 篇，接在 [L09 AI Agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)之後。課程從這一講開始，由文字生成轉向圖像生成。
 
 用到的官方材料有四份：[錄影 10](https://www.youtube.com/watch?v=j4-k7Ug4bYk)（2025-04-22，約 2 小時 54 分）、投影片 GenAI10（78 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo08】用diffusers套件生成圖像`](https://yenlung.me/AI08)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第十週作業。存取等級是 **A3**。Demo08 在 GitHub 上最近一次 commit 是 2025-04-28，**以下引用的是 repo 目前版本**。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
-title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
-```
-
-原始影片：[【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -226,6 +209,23 @@ repo 目前版本的流程：
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L09 為什麼大家說 2025 是 AI Agents 元年](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)｜下一篇：[L11 文字生圖 AI 的原理及實作](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=j4-k7Ug4bYk
+title: 【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】10.變分自編碼器 (VAE) 開始的冒險旅程（YouTube 錄影）](https://www.youtube.com/watch?v=j4-k7Ug4bYk)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

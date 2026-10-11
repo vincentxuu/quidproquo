@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L3: How Long-Context Agents Manage Memory — Hybrid Attention, RoPE Extension, Prompt Caching, and Compaction"
+title: "How Long-Context Agents Manage Memory — Hybrid Attention, RoPE Extension, Prompt Caching, and Compaction | CMU 11-768 Lecture 3"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,25 +39,6 @@ Lecture 3 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Sep 1; [slides
 The problem is easy to state: every tool call from [last lecture](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use-en) grows the history, and the next call sends the whole history to the model again. The lecture asks two questions: can the model **use** input this long (capacity), and can the system **afford** it (efficiency)?
 
 **How to read this post**: the lecture has two layers. The model layer covers attention architectures, position encoding, and training data — the concern of people who build models. The harness layer covers prompt caching and compaction — what anyone writing an agent deals with every day. If you build agents but don't train models, you can skip ahead to "The harness layer." Every model-layer section opens with the intuition and tucks formulas into collapsible blocks. For background on attention and inference, the site's [CS336 Lecture 4: Attention and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en) and [CS336 Lecture 10: Inference](/posts/ai/2026-08-22-cs336-inference-en) are good prerequisites.
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 3, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=AiwCCvFW1uE
-title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
-```
-
-Original videos: [CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 76 min) and checked the Neubig statements the article relays: the prompt composition of 1,500 OpenHands sessions (78K tokens, 37% tool results, etc.), TTFT/TPOT and OpenRouter provider speed gaps, hybrid attention and the linear/sparse attention explanations, the NoPE and causal-mask Q&A, long-context data and context parallelism (including his failure to find a Gated DeltaNet kernel), cached tokens at about a tenth of the price and a 90-95% hit rate, provider cache retention, cache-breaking pitfalls, compaction triggers and what to keep, and the early OpenHands compaction pull-request story; all supported. Two claims were not in the transcript and were fixed: "Neubig likens DeltaNet to online learning" (he only compared β to a learning rate) and the Q&A item on alternative architectures and context overflow (the transcript ends with a single subagent question). Per-model layer ratios, the price table and the YaRN formula are slide or external-source details the transcript does not cover; the "Sept 1" lecture date is not stated in the video.
 
 ## Why agent context grows so fast
 
@@ -474,6 +455,25 @@ The schedule lists no required reading for this lecture, only a long reference l
 - [CS336 Lecture 10: inference is about reading less weight and KV cache](/posts/ai/2026-08-22-cs336-inference-en): prefill/decode and the KV cache from a systems view
 - [Context Engineering: Why Your AI Agent's Problem Is Information, Not the Model](/posts/ai/2026-03-24-context-engineering-guide-en): practical notes for the harness layer
 - [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory-en): another take on MemGPT's external memory
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 3, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=AiwCCvFW1uE
+title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
+```
+
+Original videos: [CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 76 min) and checked the Neubig statements the article relays: the prompt composition of 1,500 OpenHands sessions (78K tokens, 37% tool results, etc.), TTFT/TPOT and OpenRouter provider speed gaps, hybrid attention and the linear/sparse attention explanations, the NoPE and causal-mask Q&A, long-context data and context parallelism (including his failure to find a Gated DeltaNet kernel), cached tokens at about a tenth of the price and a 90-95% hit rate, provider cache retention, cache-breaking pitfalls, compaction triggers and what to keep, and the early OpenHands compaction pull-request story; all supported. Two claims were not in the transcript and were fixed: "Neubig likens DeltaNet to online learning" (he only compared β to a learning rate) and the Q&A item on alternative architectures and context overflow (the transcript ends with a single subagent question). Per-model layer ratios, the price table and the YaRN formula are slide or external-source details the transcript does not cover; the "Sept 1" lecture date is not stated in the video.
 
 ## Update Log
 

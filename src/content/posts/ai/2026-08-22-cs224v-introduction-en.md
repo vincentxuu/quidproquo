@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 1: Turning Hallucinating LLMs into Dependable Assistants"
+title: "Turning Hallucinating LLMs into Dependable Assistants | Stanford CS224V Lecture 1"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, conversational-ai, llm, computational-thinking]
@@ -19,27 +19,6 @@ description: "A lecture-by-lecture guide to Stanford CS224V Fall 2025 Introducti
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 This is the first lecture of CS224V Fall 2025, not the still-unpublished Autumn 2026 Agentic AI syllabus. Its premise is severe: an LLM can ignore retrieved evidence, mix in parametric memory, or fluently invent unsupported statements even with RAG. The course responds by turning an assistant into individually inspectable steps.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 1, "Introduction") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 1 (about 1 h 29 min). Like the Fall 2025 first lecture this article follows, it is the course introduction: the transcript covers the course overview, knowledge work and automation, whether a bigger LLM can remove hallucination, a pipeline that checks each claim and filters unsupported ones, and TA and project logistics. The article's arguments and figures come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
-
-```youtube
-url: https://www.youtube.com/watch?v=cNxlGYO4YME
-title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
-```
-
-Original videos: [CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon](https://www.youtube.com/watch?v=cNxlGYO4YME)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda
 
@@ -128,6 +107,27 @@ For every system, write three columns: input, formal intermediate state, observa
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public artifact is a slide deck, with no recording or complete speaker notes. Some slides intentionally leave classroom content out. This article therefore reconstructs only the visible argument and keeps Fall 2025 separate from the renamed 2026–27 catalog course.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (Lecture 1, "Introduction") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 1 (about 1 h 29 min). Like the Fall 2025 first lecture this article follows, it is the course introduction: the transcript covers the course overview, knowledge work and automation, whether a bigger LLM can remove hallucination, a pipeline that checks each claim and filters unsupported ones, and TA and project logistics. The article's arguments and figures come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=cNxlGYO4YME
+title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
+```
+
+Original videos: [CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon](https://www.youtube.com/watch?v=cNxlGYO4YME)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

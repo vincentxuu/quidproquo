@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 25：Truth, Trust, and Technology——演算法、生成式 AI 與 deepfake 如何改寫信任"
+title: "Truth, Trust, and Technology——演算法、生成式 AI 與 deepfake 如何改寫信任｜Stanford CS111 第 25 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 26 篇，對應 **Stanford CS111, Spring 2026, Lecture 25**。2026-05-27 由 Mendel Rosenblum 主講，官方題目是 [Truth, Trust, and Technology](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/25/Lecture25.pdf)。本文依 13 頁公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)逐頁整理；錄影在 Canvas／Panopto，未把它當成已讀來源。
 
 這堂課刻意離開傳統 OS 機制，接回 Lecture 12 的 trust 框架：當人無法親自驗證所有資訊，如何把判斷委託給平台、AI 與媒體？主旨不是「科技都不可信」，而是信任能延伸行動能力，也同步帶來被誤導的風險。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 逐頁 agenda
 
@@ -95,6 +87,14 @@ AI 藏進搜尋、文件或通訊軟體後，使用者也可能忘記一句話�
 Lecture 25 看似偏離檔案系統，實際延續整門課的習慣：不要只看介面輸出，要追問誰維護狀態、保證什麼不變量、失敗時能觀察到什麼。這次共享資源是社會對資訊的信任，失敗模式是來源模糊、錯誤複製與判斷外包。
 
 第 13 頁沒有提供偵測器或法規作為萬靈丹。信任不可或缺，確認偏誤也難完全避免；科技讓不可靠來源顯得可信，也讓人更容易過度依賴熟悉、方便的來源。課堂認為最有希望的是擁有長期可信紀錄的機構，卻留下問題：人們是否願意信任它們？設計題因此是讓來源、程序、更正與責任更可觀察，而不是要求使用者憑直覺猜真假。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP 導讀 6：拿掉 RNN 之後，Transformer 怎麼知道字跟字的關係和位置"
+title: "清大 NLP 導讀 6：拿掉 RNN 之後，Transformer 怎麼知道字跟字的關係和位置｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,30 +31,6 @@ glossary:
 這一講的官方材料是 [W3_Transformers.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Transformers.pdf)（65 頁），錄影是 [Week 4 Thu.](https://www.youtube.com/live/tr5QyN5TswM) 與 [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc)（後者原本掛在 Sub-word 那一講，字幕讀過後發現講的是這份投影片的後半）。檔名寫 W3，卻掛在 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)的 W4 列，和同週二的 PyTorch 助教課放在一起。這是舊版週次編號沒改，內容以實際掛的投影片與錄影為準。課表那一列的 Topics 欄寫「Basic machine learning for text」，是課綱模板，和這份投影片對不起來，本篇不引用。
 
 投影片大綱分六段：RNN 的問題、attention 當解法、self-attention、Transformer encoder-decoder、Transformer 的成就、Transformer 變體。本篇照這個順序，用「場景 → 直覺 → 機制 → 連回模型 → 想深入」五層來寫。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 4 Thu. 涵蓋前半（RNN 與 attention 到 self-attention 起頭），Week 5 Tue. 涵蓋後半。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=tr5QyN5TswM
-title: Week 4 Thu.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Dpswwk6UMCc
-title: Week 5 Tue.
-```
-
-原始影片：[Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)、[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 4 Thu. 與 Week 5 Tue. 兩支字幕都完整讀過。Week 4 Thu. 先收尾 LSTM，再講 RNN 加 attention（翻譯對齊圖、儲存全部 hidden state 的代價）、QKV 的搜尋比喻、為什麼除以根號 d，並開始講 self-attention；Week 5 Tue. 接著講 QKV 的矩陣維度、sinusoidal 位置編碼、multi-head、Add & Norm（偏用 layer norm）、cross-attention、masked attention、自迴歸解碼與 teacher forcing、base／big 結果、ViT 與 Stanford AI Index 的訓練成本圖，與本文結構一致。原文只有 Week 4 Thu. 一支，Week 5 Tue. 是從 Sub-word 那篇移來的。文中投影片頁碼與公式來自投影片，字幕沒有時間碼，因此不對應到影片時間點。
 
 ## 場景：John 住在紐約，RNN 卻忘了 John
 
@@ -199,6 +175,30 @@ pos 是位置，i 是維度索引。偶數維用 sin、奇數維用 cos，波長
 - Fall 2026 的這一講還沒公開（2026 課表 W4 之後都是空的），本文只根據 Fall 2025。
 
 **系列導覽**：上一篇 [PyTorch 助教課與 HW2：把算式當語言](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)｜下一篇 [Sub-word Tokenization：為什麼模型的詞彙表是「半個字」](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 4 Thu. 涵蓋前半（RNN 與 attention 到 self-attention 起頭），Week 5 Tue. 涵蓋後半。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Week 4 Thu.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Dpswwk6UMCc
+title: Week 5 Tue.
+```
+
+原始影片：[Week 4 Thu.](https://www.youtube.com/watch?v=tr5QyN5TswM)、[Week 5 Tue.](https://www.youtube.com/watch?v=Dpswwk6UMCc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 4 Thu. 與 Week 5 Tue. 兩支字幕都完整讀過。Week 4 Thu. 先收尾 LSTM，再講 RNN 加 attention（翻譯對齊圖、儲存全部 hidden state 的代價）、QKV 的搜尋比喻、為什麼除以根號 d，並開始講 self-attention；Week 5 Tue. 接著講 QKV 的矩陣維度、sinusoidal 位置編碼、multi-head、Add & Norm（偏用 layer norm）、cross-attention、masked attention、自迴歸解碼與 teacher forcing、base／big 結果、ViT 與 Stanford AI Index 的訓練成本圖，與本文結構一致。原文只有 Week 4 Thu. 一支，Week 5 Tue. 是從 Sub-word 那篇移來的。文中投影片頁碼與公式來自投影片，字幕沒有時間碼，因此不對應到影片時間點。
 
 ## 更新紀錄
 

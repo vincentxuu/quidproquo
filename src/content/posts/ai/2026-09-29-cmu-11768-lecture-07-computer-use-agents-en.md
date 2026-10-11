@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L7: How Computer Use Agents See the Screen, Get Graded, and Get Trained"
+title: "How Computer Use Agents See the Screen, Get Graded, and Get Trained | CMU 11-768 Lecture 7"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -40,25 +40,6 @@ A computer use agent (CUA) differs from the text agents in earlier lectures at b
 
 - Course page: [cmu-agents.com schedule](https://www.cmu-agents.com/) (slides and [recording](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7) for Lecture 7)
 - This guide is based on the Sep 15, 2026 slides and recording. Where the speaker's claims about GPT-6 Astra and other products have no public source (Fable / Opus 5 appear only in the slide's action-format table; he does not comment on them in the recording), the text marks them as his; where an official number exists (for example [OpenAI's GPT-6 Astra announcement](https://openai.com/index/gpt-6-astra/)), it is added alongside.
-
-## Course video sources
-
-Checked the public recording of CMU 11-768 Fall 2026 Lecture 7; it is published on instructor Graham Neubig's channel, and the title and description match this course (speaker: Jing Yu Koh).
-
-```youtube
-url: https://www.youtube.com/watch?v=jwGluLrrqjQ
-title: CMU AI Agents 2026: 7. Computer Use Agents
-```
-
-Original video: [CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 74 min, speaker Jing Yu Koh introduced by Fried) and checked: the speaker background, the observe-reason-act loop and the "buy a blue mug" example, the in-class poll on the first CUA paper (2017), the nine-year history and his spoken remarks on GPT-6 Astra, the four evaluation families (static ScreenSpot-Pro/Mind2Web, WebArena and VisualWebArena, VLM-judged WebVoyager/Online-Mind2Web, OSWorld/WindowsAgentArena, long-horizon Odysseys/OSWorld 2.0/CUA-World-Long), the class Q&A (partial credit, rubric sourcing, training on benchmarks, screenshots vs HTML, waiting for page loads), the pre-training / SFT / RL pipeline and the Tesla analogy, and success of about 0.5 after SFT rising above 0.6 with RL; all supported. Two fixes: the WindowsAgentArena "20 minutes" line is from the paper, not the speaker, and Fable / Opus 5 appear only in the slide's action-format table. Details in the four open problems (Game-TARS, FDM-1, GUM, etc.) and per-benchmark task counts and paper figures rest on slides and papers that the transcript mostly does not cover; the lecture date is not stated in the video.
 
 ## What a CUA is: observe, reason, act, repeat
 
@@ -263,6 +244,25 @@ Then ask: if you kept only check 2, which "looks successful" trajectories would 
 - Background for the RL stage: [CS336 Lecture 16: RLVR and GRPO](/posts/ai/2026-08-22-cs336-rlvr-en)
 - SFT basics: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Biases of LLM judges: [Self-Reflection and LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+
+## Course video sources
+
+Checked the public recording of CMU 11-768 Fall 2026 Lecture 7; it is published on instructor Graham Neubig's channel, and the title and description match this course (speaker: Jing Yu Koh).
+
+```youtube
+url: https://www.youtube.com/watch?v=jwGluLrrqjQ
+title: CMU AI Agents 2026: 7. Computer Use Agents
+```
+
+Original video: [CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 74 min, speaker Jing Yu Koh introduced by Fried) and checked: the speaker background, the observe-reason-act loop and the "buy a blue mug" example, the in-class poll on the first CUA paper (2017), the nine-year history and his spoken remarks on GPT-6 Astra, the four evaluation families (static ScreenSpot-Pro/Mind2Web, WebArena and VisualWebArena, VLM-judged WebVoyager/Online-Mind2Web, OSWorld/WindowsAgentArena, long-horizon Odysseys/OSWorld 2.0/CUA-World-Long), the class Q&A (partial credit, rubric sourcing, training on benchmarks, screenshots vs HTML, waiting for page loads), the pre-training / SFT / RL pipeline and the Tesla analogy, and success of about 0.5 after SFT rising above 0.6 with RL; all supported. Two fixes: the WindowsAgentArena "20 minutes" line is from the paper, not the speaker, and Fable / Opus 5 appear only in the slide's action-format table. Details in the four open problems (Game-TARS, FDM-1, GUM, etc.) and per-benchmark task counts and paper figures rest on slides and papers that the transcript mostly does not cover; the lecture date is not stated in the video.
 
 ## Update Log
 

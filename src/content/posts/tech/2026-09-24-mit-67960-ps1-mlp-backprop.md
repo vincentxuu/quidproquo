@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 PS1 實作走查：從 NumPy 手寫 MLP 到 PyTorch Autograd 反向傳播"
+title: "PS1 實作走查：從 NumPy 手寫 MLP 到 PyTorch Autograd 反向傳播｜MIT 6.7960 主題單元"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,30 +21,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) [Homework 1](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960_f24_hw1_pdf/) 是課程的第一個編程作業，核心目標：**從零實作 MLP 的前向與反向傳播，理解自動微分的底層機制**。這篇文章完整走查 HW1 的每個考點，提供可直接執行的 NumPy 參考實作與 PyTorch 驗證腳本。
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：Homework 1 本身沒有專屬錄影。下方兩支是 OCW 的相關公開影片：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 PyTorch Tutorial。它們是背景補充，不是 HW1 的逐題講解。
-
-```youtube
-url: https://www.youtube.com/watch?v=vidCX_dMCu0
-title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=o5gPABcGZwc
-title: PyTorch Tutorial
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[PyTorch Tutorial](https://www.youtube.com/watch?v=o5gPABcGZwc)
-
-課程與錄影入口：
-- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
-- [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01、Lec 02 的字幕，並讀了 PyTorch Tutorial 的字幕全文（該支字幕直接讀取，未另存檔）；三支都確實是相關背景而非 HW1 逐題講解，原「影片時間戳（相關講義）」標題誤導，已改為「相關講義影片」並依字幕補上各支實際內容（相對位置、無精確時間碼）。
 
 ## HW1 題目架構概覽
 
@@ -319,6 +295,30 @@ if __name__ == "__main__":
 3. **Learning rate schedule**：Cosine decay 實作
 4. **Weight decay**：在損失函數加 L2 或解耦實作
 5. **Dropout / BatchNorm**：前向/反向都要正確處理
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：Homework 1 本身沒有專屬錄影。下方兩支是 OCW 的相關公開影片：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 PyTorch Tutorial。它們是背景補充，不是 HW1 的逐題講解。
+
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=o5gPABcGZwc
+title: PyTorch Tutorial
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[PyTorch Tutorial](https://www.youtube.com/watch?v=o5gPABcGZwc)
+
+課程與錄影入口：
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — PyTorch Tutorial](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_review_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 01、Lec 02 的字幕，並讀了 PyTorch Tutorial 的字幕全文（該支字幕直接讀取，未另存檔）；三支都確實是相關背景而非 HW1 逐題講解，原「影片時間戳（相關講義）」標題誤導，已改為「相關講義影片」並依字幕補上各支實際內容（相對位置、無精確時間碼）。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS188 Spring 2026：用 P0–P5 六個 Projects 學人工智慧"
+title: "用 P0–P5 六個 Projects 學人工智慧｜Berkeley CS188 Spring 2026 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, pacman, open-course]
@@ -21,17 +21,6 @@ draft: false
 [Berkeley CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/) 是一門廣義人工智慧入門課。它不是只教神經網路：前半從狀態空間、heuristic、constraint satisfaction 與 game trees 開始，中段進入 MDP、強化學習與機率推論，後段才接機器學習、深度學習與 LLM。官方課表公開 28 組 recordings、27 組 lecture slides（Lecture 22 沒有獨立 slides）、11 組 discussion，以及 P0–P5 六個 projects。
 
 這套材料的價值在於「概念會回到程式」。P0 是 Python 與 autograder tutorial；P1–P4 用 Pacman 情境練搜尋、多代理、RL 與機率推論；P5 則是 regression、分類、CNN 與 attention 等一般 ML tasks。這也是本系列不逐講切成 28 篇，而以 P0–P5 為主脊的原因。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次。官方 Spring 2026 課表與播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，公開可看；請依講次編號挑選錄影。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-查核日期：2026-10-10。
 
 ## 公開到什麼程度
 
@@ -59,6 +48,17 @@ draft: false
 ## 今晚的起步動作
 
 先打開 P0，確認 Python 環境與 local autograder 能執行；接著讀教材的 state-space search 章節，在紙上寫出 DFS、BFS、UCS 的 frontier 規則。若還有時間，只閱讀 P1 的檔案分工與 Q1，不急著一次寫完整份。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次。官方 Spring 2026 課表與播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，公開可看；請依講次編號挑選錄影。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

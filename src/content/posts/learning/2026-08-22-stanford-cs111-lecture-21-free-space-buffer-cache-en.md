@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 21: Block Cache, Free Bitmaps, and Delayed Allocation"
+title: "Block Cache, Free Bitmaps, and Delayed Allocation | Stanford CS111 Lecture 21"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 22 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 21**, taught by Mendel Rosenblum on 2026-05-15 under [File Systems, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf). The official [Lecture 20 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/20/Lecture20.pdf) and Lecture 21 PDF are byte-identical, both SHA-256 `42e4021f84ed272db95224024c878a09d6c719430efc386c2614dcc8ef94310d`. Inaccessible Canvas/Panopto video prevents recovering the spoken boundary.
 
 This article focuses on cache, free-space bitmaps, fragments, repacking, and delayed allocation. Direct/indirect inode walks and disk scheduling belong to [Lecture 20](/posts/learning/2026-08-22-stanford-cs111-lecture-20-file-system-indexes); duplicate prose is not evidence of a second [deck](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/21/Lecture21.pdf).
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Block cache removes cold index I/O
 
@@ -79,11 +71,17 @@ Allocation can also wait until cache flush. By then the OS sees many dirty block
 
 The slide says cheap disk makes internal fragmentation less important. That is relative, not disappearance; small devices, quotas, and tiny-file workloads differ. Lower capacity cost makes trading space for less metadata and higher throughput more attractive.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Focused the duplicate Lecture 20/21 PDF on cache, free space, fragments, and delayed allocation, recording the shared SHA and video boundary.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Focused the duplicate Lecture 20/21 PDF on cache, free space, fragments, and delayed allocation, recording the shared SHA and video boundary.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

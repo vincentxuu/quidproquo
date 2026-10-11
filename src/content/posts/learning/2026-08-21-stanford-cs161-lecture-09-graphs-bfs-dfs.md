@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 9：圖的表示、DFS、BFS 與兩種搜尋順序的證明"
+title: "圖的表示、DFS、BFS 與兩種搜尋順序的證明｜Stanford CS161 第 9 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, graph-algorithms, graph-traversal]
@@ -22,16 +22,6 @@ series:
 本篇依照[官方 Lecture 9 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)、公開 notes 與 slides 整理。Notes 詳寫 graph representation、DFS 與 BFS；slides 還把 DFS 用到 topological sorting、把 BFS 用到 bipartiteness，兩者都屬本講 agenda，不能因 notes 沒展開就漏掉。官方 Colab 沿用 `winter2025-extra`，本文未用它支撐 Winter 2026 的新主張。Canvas-only 錄影未作為來源。
 
 這堂課的核心不是背兩份走訪 pseudocode，而是看見「探索順序」會留下不同證據。DFS 的 discovery / finish times 把巢狀結構編碼下來；BFS 的 layers 則直接對應 edge 數最少的距離。相同的 `O(n+m)` 掃描框架，因容器與 bookkeeping 不同，能解不同問題。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
-
-查核日期：2026-10-10。
 
 ## 先決定圖怎麼放進記憶體
 
@@ -177,6 +167,16 @@ Lecture 9 是課程從排序與資料結構轉進 graph algorithms 的入口。�
 可用同一張小圖做三次手算。第一次依不同 neighbor order 跑 DFS，比較 timestamps；第二次把 vertices 按 decreasing finish time 排出，檢查每條 DAG edge；第三次跑 BFS，逐層寫 `L_i` 並沿 parent 還原 shortest path。Neighbor order 會改變 tree 形狀，卻不會破壞三個核心結論。
 
 實作 bipartite test 時，不要只回傳 boolean。遇到同色 edge 時，沿 parent pointers 找共同 ancestor，輸出那條 odd cycle。成功時回傳 coloring，失敗時回傳反例，會讓正確性從抽象宣告變成可檢查 certificate。這是本站的延伸建議，不是 Winter 2026 額外要求。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-9-graphs-and-bfs-and-dfs)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

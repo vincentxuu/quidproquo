@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 19: Turning Next-token Prediction into Geometry"
+title: "Turning Next-token Prediction into Geometry | CMU 07-280 Lecture 19"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 **CMU 07-280, Spring 2026, Lecture 19** replaces a language-model count table with learnable vector geometry. The official slide cover says *NLP: Word Embeddings / Attention*. Most of the deck develops text features, two sets of token vectors, similarity, softmax, and training; attention is the doorway to the next lecture.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-This article fully reads the [Lecture 19 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec19_NLP_Word_Embeddings.pdf), the [Word Embeddings pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Word_Embeddings.pdf), [Recitation 10](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10.pdf), and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10_sol.pdf). The official site has no public Spring 2026 lecture recording, so this article does not infer spoken explanations from slide animations or the recitation notebook.
-
-The recitation references a Google Drive notebook. This reading uses only the model, tasks, and results explicitly visible in the public PDFs; it does not claim to have reproduced an access-dependent formal notebook.
 
 ## The inherited problem: every N-gram context is an island
 
@@ -88,6 +72,22 @@ This clarifies the difference between feature engineering and feature learning. 
 ## An action for tonight
 
 Build a one-step next-token model with ten tokens and two-dimensional embeddings. Hand-calculate one `Uv`, softmax, cross-entropy, and `ŷ-y`, then train the same model in code. Compare two questions: do similar context tokens become close, and does that closeness improve held-out next-token loss? Do not judge only whether the scatter plot “looks semantic.”
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+This article fully reads the [Lecture 19 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec19_NLP_Word_Embeddings.pdf), the [Word Embeddings pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Word_Embeddings.pdf), [Recitation 10](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10.pdf), and its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec10_sol.pdf). The official site has no public Spring 2026 lecture recording, so this article does not infer spoken explanations from slide animations or the recitation notebook.
+
+The recitation references a Google Drive notebook. This reading uses only the model, tasks, and results explicitly visible in the public PDFs; it does not claim to have reproduced an access-dependent formal notebook.
 
 ## Update Log
 

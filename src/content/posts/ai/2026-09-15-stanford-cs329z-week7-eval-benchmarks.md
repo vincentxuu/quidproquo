@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週"
+title: "分數別騙自己，資料再做大——期中驗收週｜Stanford CS329Z 第 7 週"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Week 7 是期中驗收週。週一（11/2）談資料選擇與品質，週三（
 先給新手一個框架。課程把一次 agent 評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。
 
 拿修 bug 當例子。request 是「修好這個 issue」，environment 是程式碼庫加終端機，stopping criteria 是交出 patch，scorer 是跑測試。後面三篇主讀物正好分工：[Zhu 等人的最佳實踐](https://arxiv.org/abs/2507.02825)在講 scorer 多容易寫錯，[Shankar 等人的驗證者研究](https://arxiv.org/abs/2404.12272)在講 LLM 幫忙打分要怎麼對齊人類，[Yang 等人的 SWE-smith](https://arxiv.org/abs/2504.21798)在講任務資料怎麼做大。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 評分比你想的脆弱
 
@@ -70,6 +59,17 @@ Week 7 之後就是驗收：週三交的 demo 錄影拿分數說話，週五報�
 - 週一 11/2 Data Selection & Quality：主讀物 SWE-smith、Who Validates the Validators?（本文已導讀）。延伸閱讀 [Zhou 等人 LIMA](https://arxiv.org/abs/2305.11206)：只用 1,000 條精心篩選的問答做 supervised fine-tune，不做 RLHF；人類評測裡 43% 的回覆不輸 GPT-4。論點是知識都在預訓練學完，對齊重質不重量。
 - 週三 11/4 Evaluation Fundamentals & Benchmark Design：主讀物 Zhu 等人最佳實踐（本文已導讀）。延伸閱讀 [Press 談怎麼做好的 LM benchmark](https://ofir.io/How-to-Build-Good-Language-Modeling-Benchmarks/)：好 benchmark 要 natural、automatically evaluable、challenging；他還警告別讓同一個 LM 又當選手又當裁判。文末把單一任務寫成 request–environment–stopping criteria–scorer 的 4-tuple，正是本週框架的出處。延伸閱讀 [Polo 等人 tinyBenchmarks](https://arxiv.org/abs/2402.14992)：MMLU 的 1.4 萬題不必全跑。100 題精選子集就能可靠重現原排名。評測貴在具代表性，不在題海。
 - 課表原文：[CS329Z 官網 Week 7](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

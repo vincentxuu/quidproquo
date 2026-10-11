@@ -1,5 +1,5 @@
 ---
-title: "清大高宏宇 NLP 第二週：詞向量與語言模型，從數 n-gram 到 RNN"
+title: "清大高宏宇 NLP 第二週：詞向量與語言模型，從數 n-gram 到 RNN｜清大高宏宇 自然語言處理 第 2 週"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,30 +37,6 @@ glossary:
 「Please turn your homework …」下一個字是什麼？over？in？你大概猜得到，而且猜得很準。第二週的投影片從這個問題開始：**預測下一個字這件事，怎麼從數次數一路走到神經網路？**
 
 [上一篇](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)從資訊檢索的角度，把文字變成了向量。這一篇換成語言模型的角度。投影片第一頁的標題是「GAI Motivation」，列出監督式學習（文字分類、問答系統）的兩個問題：缺訓練資料、領域知識有限；下一頁接著說，產生句子最常見的方式就是一個字接一個字寫下去。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 2 Thu. 涵蓋投影片前段（到 perplexity），Week 3 Tue. 涵蓋後段。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=cqp5a39eyJQ
-title: Fall 2025 Week 2 Thu. 錄影
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=LFeFc0VtKRI
-title: Fall 2025 Week 3 Tue. 錄影
-```
-
-原始影片：[Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. 錄影](https://www.youtube.com/watch?v=LFeFc0VtKRI)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 2 Thu. 與 Week 3 Tue. 兩支字幕都完整讀過。Week 2 Thu. 前段是 HW1 說明，之後講 n-gram、語言模型、add-one smoothing 與 perplexity（含用 perplexity 判斷文字是不是 ChatGPT 寫的、J.K. Rowling 化名事件的四字詞分析），到 perplexity 為止；Week 3 Tue. 接著重講 perplexity 與 n-gram 的限制，再講 sparse／dense 向量、PPMI 的 cherry／sugar 例子（3.3）、詞向量的 analogy 與詞義變遷（broadcast、network）、CBOW／skip-gram 與負採樣、softmax、contextual embedding（蘋果公司／蘋果派）、神經網路基礎、RNN（moving average 比喻）與 NER／情感分類，與本文各節吻合。原文的 Week 2 Tue. 講的是資訊檢索（TF-IDF、BM25、LSA），屬於上一篇，已移過去；Week 3 Tue. 從 seq2seq 那篇移來。投影片頁碼與數字來自投影片，正文未改。
 
 ## 統計語言模型：數 n-gram
 
@@ -189,6 +165,30 @@ RNN 就是為序列設計的。投影片的比喻是「Moving average 進階版�
 
 - [CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)：Stanford 版本的 word2vec 推導。
 - [CS224N RNN 與語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)：n-gram、perplexity 與 RNN 語言模型的另一種講法。
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：YouTube 公開且可嵌入。字幕核對後，Week 2 Thu. 涵蓋投影片前段（到 perplexity），Week 3 Tue. 涵蓋後段。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=cqp5a39eyJQ
+title: Fall 2025 Week 2 Thu. 錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 Week 3 Tue. 錄影
+```
+
+原始影片：[Fall 2025 Week 2 Thu. 錄影](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. 錄影](https://www.youtube.com/watch?v=LFeFc0VtKRI)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 2 Thu. 與 Week 3 Tue. 兩支字幕都完整讀過。Week 2 Thu. 前段是 HW1 說明，之後講 n-gram、語言模型、add-one smoothing 與 perplexity（含用 perplexity 判斷文字是不是 ChatGPT 寫的、J.K. Rowling 化名事件的四字詞分析），到 perplexity 為止；Week 3 Tue. 接著重講 perplexity 與 n-gram 的限制，再講 sparse／dense 向量、PPMI 的 cherry／sugar 例子（3.3）、詞向量的 analogy 與詞義變遷（broadcast、network）、CBOW／skip-gram 與負採樣、softmax、contextual embedding（蘋果公司／蘋果派）、神經網路基礎、RNN（moving average 比喻）與 NER／情感分類，與本文各節吻合。原文的 Week 2 Tue. 講的是資訊檢索（TF-IDF、BM25、LSA），屬於上一篇，已移過去；Week 3 Tue. 從 seq2seq 那篇移來。投影片頁碼與數字來自投影片，正文未改。
 
 ## 更新紀錄
 

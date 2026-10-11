@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 16 講：Hallucination、創造力、工作與價值對齊"
+title: "Hallucination、創造力、工作與價值對齊｜Stanford CS224N 第 16 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 16 講排在 2026 年 2 月 26 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture16-impact-on-humanity.pdf)題為 *AI's impact on humanity*。agenda 有四段：hallucination、AI 輔助創造力的悖論、工作影響與 value alignment。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## 為什麼模型會 hallucinate
 
@@ -169,6 +158,17 @@ Red team 找 failure，不估 prevalence；自然 usage telemetry 估 prevalence
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文完整涵蓋四段官方 agenda；投影片中引用的個案只用來說明風險機制，沒有把單一調查數字外推成整體學界比例。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

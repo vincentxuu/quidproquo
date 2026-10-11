@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 5 | Random Variables and Expectation: A random variable maps outcomes to numbers; expectation is a weighted average, not necessarily an attainable value."
+title: "Random Variables and Expectation: A random variable maps outcomes to numbers; expectation is a weighted average, not necessarily an attainable value. | Stanford CS109 Lecture 5"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 6 in [Reading Stanford CS109](/series/stanford-cs109), covering **Stanford CS109, Summer 2026, Lecture 5** (Jun 29). The canonical schedule title is **Random Variables and Expectation**, taught by Chris Gregg. This guide cross-checks the [official schedule](https://web.stanford.edu/class/cs109/schedule.html), [lecture page](https://web.stanford.edu/class/cs109/lectures/5-Binomial), [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture05-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture05-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture05-LLMPrompts.pdf). The lecture page and the `/spr26` [reader](https://probabilitycoders.stanford.edu/spr26) are shared, Spring-dated concept references.
 
 Material fidelity is **L3**: the Summer schedule and problem artifacts establish the agenda; shared Spring-dated pages support concepts only. The Canvas recording was not used.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover only part of this lecture's topic (see the content check below) but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=8QCg2ur-3fo
-title: Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6
-```
-
-Original videos: [Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6](https://www.youtube.com/watch?v=8QCg2ur-3fo)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 6, "Random Variables and Expectation" (about 68 minutes): it covers random variables, probability mass functions, dice and coin examples and expectation, matching the official title. The word "binomial" never appears in the transcript, while this post's worksheet agenda and binomial section centre on the binomial PMF, so the video does not cover that part; the description now says "partial match".
 
 ## Worksheet agenda: from counting to the binomial PMF
 
@@ -65,6 +43,28 @@ C(n,k) chooses the success locations, p^k makes those successes occur, and (1-p)
 - The shared Spring-dated Binomial page supports the PMF and modeling conditions, but not the Summer classroom sequence.
 - recordings are Canvas-gated and were not used.
 - This article does not use search snippets or inaccessible Canvas material, and it does not invent classroom examples.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover only part of this lecture's topic (see the content check below) but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=8QCg2ur-3fo
+title: Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6
+```
+
+Original videos: [Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6](https://www.youtube.com/watch?v=8QCg2ur-3fo)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 6, "Random Variables and Expectation" (about 68 minutes): it covers random variables, probability mass functions, dice and coin examples and expectation, matching the official title. The word "binomial" never appears in the transcript, while this post's worksheet agenda and binomial section centre on the binomial PMF, so the video does not cover that part; the description now says "partial match".
 
 ## Update Log
 

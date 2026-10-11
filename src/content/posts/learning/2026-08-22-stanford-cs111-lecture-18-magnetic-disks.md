@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 18：磁碟幾何、Interrupt 與 DMA"
+title: "磁碟幾何、Interrupt 與 DMA｜Stanford CS111 第 18 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 19 篇，對應 **Stanford CS111, Spring 2026, Lecture 18**。2026-05-08 由 Mendel Rosenblum 主講，官方題目是 [Magnetic Disks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不可公開存取，因此不把錄影內容當成已核對來源。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## HDD 是會移動的儲存裝置
 
@@ -84,6 +76,14 @@ device 以 DMA 讀 command，將 sector bytes DMA 到指定 address，再把 com
 最後兩頁是 old-style magnetic tape 與 IBM System/360 datacenter 圖像，沒有新增演算法或量化主張。它們把前面的抽象放回歷史：早期軟體更直接面對裝置幾何與機械順序，現代 block API、DMA 與 queue 則把細節逐層移到 controller 與 driver。
 
 整講可以用一條請求檢查：使用者要求某個 block，OS 建 command，MMIO doorbell 通知 device，controller 付出 seek、rotation 與 transfer，DMA 寫入 memory，response queue 記錄完成，再由 interrupt 把控制權交回核心。理解每一步由誰修改哪個狀態，比只背 HDD 數字更接近 driver 的真問題。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

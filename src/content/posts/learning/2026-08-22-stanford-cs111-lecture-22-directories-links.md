@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 22：Directory Lookup、Hard Link 與 Symbolic Link"
+title: "Directory Lookup、Hard Link 與 Symbolic Link｜Stanford CS111 第 22 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 23 篇，對應 **Stanford CS111, Spring 2026, Lecture 22**。2026-05-18 由 Mendel Rosenblum 主講，官方題目是 [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開，未把口述內容當成來源。SHA-256 稽核顯示 Lecture 22 與相鄰 Lectures 21、23 都不同，沒有 duplicate artifact。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 從 inode blocks 到持久的 i-number
 
@@ -84,6 +76,14 @@ pathname 不受本地 i-number 限制，所以 symlink 可跨 file systems，也
 hard link 增加同一 inode 的 namespace references：改其中一名看到的 bytes，其他名字立即看到同一內容；移除一名只改 count。symlink 自己有 inode 與 bytes，內容恰好是一段待重新解析的 pathname；target 被 rename 或移除時，它不會自動跟著 identity 移動。
 
 可以用三題檢查：rename target 後哪種 link 仍指同 inode？跨 file system 時哪種能工作？relative symlink 從哪個 directory 展開？答案分別是 hard link、symbolic link、symlink 所在 directory。這三題把 reference identity 和 pathname indirection 清楚分開。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

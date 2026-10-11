@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 21：表示學習與 autoencoder"
+title: "表示學習與 autoencoder｜CMU 11-785 第 21 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
 
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 21: Representations and Autoencoders**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec21.representations.pdf)與[官方 YouTube 錄影](https://youtu.be/mc_OF_arFyk)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
-
-## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
-
-```youtube
-url: https://www.youtube.com/watch?v=mc_OF_arFyk
-title: Lecture 21 official YouTube recording
-```
-
-原始影片：[Lecture 21 official YouTube recording](https://www.youtube.com/watch?v=mc_OF_arFyk)
-
-課程與錄影入口：
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Lecture 21 影片（約 83 分鐘，YouTube 標題為「Neural Networks: Representation」）的字幕涵蓋神經網路表示什麼（tanh 隱藏層對資料的變換）、學習重建輸入的 autoencoder，以及線性 autoencoder 等同 PCA；字幕沒有「表示品質」的評估討論，原文已改，latent 散點圖練習標為本站補充。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
 
 ## 這一講處理什麼
 
@@ -66,6 +47,25 @@ title: Lecture 21 official YouTube recording
 ## 讀完後
 
 闔上 slides，用一張紙寫下這講的輸入、輸出、目標函數與一個失敗模式。能不看筆記說明這四項，才往下一講；否則回到剛才的小例子，縮小輸入直到每一步都能人工核對。
+
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=mc_OF_arFyk
+title: Lecture 21 official YouTube recording
+```
+
+原始影片：[Lecture 21 official YouTube recording](https://www.youtube.com/watch?v=mc_OF_arFyk)
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Lecture 21 影片（約 83 分鐘，YouTube 標題為「Neural Networks: Representation」）的字幕涵蓋神經網路表示什麼（tanh 隱藏層對資料的變換）、學習重建輸入的 autoencoder，以及線性 autoencoder 等同 PCA；字幕沒有「表示品質」的評估討論，原文已改，latent 散點圖練習標為本站補充。抽樣前、中、後段並以關鍵字搜尋，非逐字核對。
 
 ## 更新紀錄
 

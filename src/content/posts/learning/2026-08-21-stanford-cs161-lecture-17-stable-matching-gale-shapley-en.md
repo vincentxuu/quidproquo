@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 17: Gale–Shapley and Revocable Greedy Choices"
+title: "Gale–Shapley and Revocable Greedy Choices | Stanford CS161 Lecture 17"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is article eighteen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Winter 2026 Lecture 17**, taught by Ellen Vitercik on March 9, 2026: *Stable Matchings and Gale-Shapley*.
 
 I read the public [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture17-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture17.pdf), and [official component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture17.md). I did not watch the Canvas recording.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
-
-Checked: 2026-10-10.
 
 ## Stability is not universal happiness
 
@@ -88,6 +78,16 @@ Choosing an arbitrary free doctor does not change the guarantees. Proposal trace
 ## Beyond the lecture
 
 Small-instance tests can enumerate all matchings, verify completeness and absence of blocking pairs, and compare all stable outcomes to check proposing-side optimality. Real markets with capacities, ties, or couples need stronger models; these are engineering and research directions, not claims from this lecture.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-17-stable-matchings-and-gale-shapley)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L7：能力怎麼量，安全門檻怎麼設"
+title: "能力怎麼量，安全門檻怎麼設｜Harvard CS2881R 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,40 +40,6 @@ glossary:
 - OpenAI Preparedness Framework 與其他 responsible scaling policy
 
 錄影裡的實際情況要先說清楚：Becker 的演講涵蓋了前兩項；第三項沒有講到。Boaz 在錄影最後說，他原本打算談 responsible scaling policy 與 Preparedness Framework，但時間不夠，會另外找時間。本篇最後一節依閱讀清單補上這兩份框架，並明確標出那部分不是課堂內容。
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=fuRmxFZ-umE
-title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 7: Lab vs Field: Guest lecture by Joel Becker》（2:01:36）的完整自動字幕：確認課務（11 月 2 日、12 月 3 日、11 月 20 日）、沒有學生實驗、50% 沒有特別意義（統計檢定力最好）、幾何平均、2029–2030 對 2027 的外推與「讀茶葉渣」、Sonnet 4.5 的 30 小時問答、開源開發者 RCT（16 個 issue、Cursor、按小時付費、預測約 40%、接受不到 44%）、Canaries 的 22–25 歲，以及結尾 Boaz 說沒時間講 RSP 與 Preparedness Framework。原文說 40 小時門檻是「一位聰明同事憑直覺訂的」，字幕找不到，已刪除；任務示例表來自投影片，字幕未念。
-
-## 用到的官方材料與存取狀態
-
-| 材料 | 狀態 |
-|---|---|
-| [講課錄影](https://youtu.be/fuRmxFZ-umE)（YouTube 標題「Lecture 7: Lab vs Field: Guest lecture by Joel Becker」，約 2 小時） | 公開 |
-| [Joel Becker 投影片](https://docs.google.com/presentation/d/1ipTQKM56fPRrUfQQ7y0jXBsqhtNEbIxF0xoJvcHYNlM/edit)（Google Slides，標題「Reconciling impressive AI capabilities with limited in-the-wild impacts」） | 公開 |
-| 閱讀清單 | 公開，四篇 pre-reading，另有十幾篇延伸，含各國政策文件 |
-| 學生實驗 | 課站寫 TBD；Boaz 在錄影開頭確認這一講沒有實驗 |
-| 課堂筆記 | 學生的 [LessWrong 週摘要](https://www.lesswrong.com/w/cs-2881r)沒有涵蓋這一週 |
-
-系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，錄影、投影片、閱讀清單都在，但沒有練習材料，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**。
-
-錄影開頭還有幾則課務：期中 mini-project 延到 11 月 2 日交；期末專題截止是學期最後一天 12 月 3 日；因為感恩節，最後一講是 11 月 20 日。期中與期末的細節見本系列的[期中重現專題](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)與[期末專題回顧](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)。
 
 ## 一個謎：實驗室證據與田野證據說的不一樣
 
@@ -262,6 +228,40 @@ Becker 說這部分之後會有經濟學家客座（見 [L9 經濟衝擊](/posts
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L6：AI 做 AI 研發會不會觸發智慧爆炸](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement)
 - 下一篇：[L9：AI 對就業與生產力的早期證據](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=fuRmxFZ-umE
+title: AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 7: Lab vs Field: Guest lecture by Joel Becker](https://www.youtube.com/watch?v=fuRmxFZ-umE)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 7: Lab vs Field: Guest lecture by Joel Becker》（2:01:36）的完整自動字幕：確認課務（11 月 2 日、12 月 3 日、11 月 20 日）、沒有學生實驗、50% 沒有特別意義（統計檢定力最好）、幾何平均、2029–2030 對 2027 的外推與「讀茶葉渣」、Sonnet 4.5 的 30 小時問答、開源開發者 RCT（16 個 issue、Cursor、按小時付費、預測約 40%、接受不到 44%）、Canaries 的 22–25 歲，以及結尾 Boaz 說沒時間講 RSP 與 Preparedness Framework。原文說 40 小時門檻是「一位聰明同事憑直覺訂的」，字幕找不到，已刪除；任務示例表來自投影片，字幕未念。
+
+## 用到的官方材料與存取狀態
+
+| 材料 | 狀態 |
+|---|---|
+| [講課錄影](https://youtu.be/fuRmxFZ-umE)（YouTube 標題「Lecture 7: Lab vs Field: Guest lecture by Joel Becker」，約 2 小時） | 公開 |
+| [Joel Becker 投影片](https://docs.google.com/presentation/d/1ipTQKM56fPRrUfQQ7y0jXBsqhtNEbIxF0xoJvcHYNlM/edit)（Google Slides，標題「Reconciling impressive AI capabilities with limited in-the-wild impacts」） | 公開 |
+| 閱讀清單 | 公開，四篇 pre-reading，另有十幾篇延伸，含各國政策文件 |
+| 學生實驗 | 課站寫 TBD；Boaz 在錄影開頭確認這一講沒有實驗 |
+| 課堂筆記 | 學生的 [LessWrong 週摘要](https://www.lesswrong.com/w/cs-2881r)沒有涵蓋這一週 |
+
+系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，錄影、投影片、閱讀清單都在，但沒有練習材料，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**。
+
+錄影開頭還有幾則課務：期中 mini-project 延到 11 月 2 日交；期末專題截止是學期最後一天 12 月 3 日；因為感恩節，最後一講是 11 月 20 日。期中與期末的細節見本系列的[期中重現專題](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)與[期末專題回顧](/posts/ai/2026-09-30-cs2881r-final-projects-retrospective)。
 
 ## 更新紀錄
 

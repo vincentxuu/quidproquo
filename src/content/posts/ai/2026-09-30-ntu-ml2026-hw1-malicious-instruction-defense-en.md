@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 HW1: With Only a Defense Prompt, How Many 'I have been PWNED' Attacks Can You Stop?"
+title: "With Only a Defense Prompt, How Many 'I have been PWNED' Attacks Can You Stop? | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **This post is based on HW1 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 2 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are three official sources: the assignment slides [hw1.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw1.pdf) (in English), the [assignment Colab](https://colab.research.google.com/drive/1kgy1Nas2uu7RoWTn-pZfyF1Sj3WpuJdy?usp=sharing) (just 2 cells, for counting tokens), and the TA [walkthrough video](https://youtu.be/qVTehGJQHys). The TAs were 董家愷, 陳思齊, and 許筠曼. It was released 3/06 and due 2026/03/26 23:59:59 (UTC+8), with no late submissions. The slides credit GenAI 2025 HW4 (by 標彥廷) as their source.
 
 Access is **A3 minus grading**: the task, attack text, and rules are public, but a score required uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=qVTehGJQHys
-title: HW1 walkthrough video (YouTube)
-```
-
-Original videos: [HW1 walkthrough video (YouTube)](https://www.youtube.com/watch?v=qVTehGJQHys)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Why the first assignment is prompt injection defense
 
@@ -131,6 +112,25 @@ The slides' reference list points to two places to dig further: the HackAPrompt 
 - How OpenClaw itself thinks about these attacks: [OpenClaw's Threat Model](/posts/ai/2026-03-28-openclaw-threat-model-en)
 
 Series navigation: previous, [Dissecting the Lobster](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy-en) | next, [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering-en) | [series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=qVTehGJQHys
+title: HW1 walkthrough video (YouTube)
+```
+
+Original videos: [HW1 walkthrough video (YouTube)](https://www.youtube.com/watch?v=qVTehGJQHys)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

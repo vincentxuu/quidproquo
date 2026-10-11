@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 24: Profile with Callgrind, Then Read What GCC Optimized"
+title: "Profile with Callgrind, Then Read What GCC Optimized | Stanford CS107 Lecture 24"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 “This line looks faster” is a dangerous start to performance work. Lecture 24 separates two responsibilities. The programmer chooses a reasonable algorithm and measures the real hotspot. The compiler removes, moves, or replaces low-level work when doing so preserves observable semantics. Both matter, but neither substitutes for the other.
 
 The lecture first compares unoptimized and `-O2` builds of a triple-loop matrix multiply, then introduces Callgrind's dynamic instruction counts. It next examines constant folding, common-subexpression elimination, dead-code elimination, strength reduction, code motion, and tail-recursion optimization. Repeated `strlen` calls finally show why a compiler sometimes lacks knowledge available to the programmer.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -201,6 +193,14 @@ The next time code feels slow, do not edit immediately. Profile fixed input, rec
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Replaced the dead Stanford Callgrind guide with the live official Valgrind manual for the workflow and option claims.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## References
 

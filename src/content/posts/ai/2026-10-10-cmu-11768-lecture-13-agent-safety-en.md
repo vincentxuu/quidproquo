@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 13: Agent Safety — Four Threat Models and Three Limits: Sandboxes, Credential Brokering, Monitoring"
+title: "Agent Safety — Four Threat Models and Three Limits: Sandboxes, Credential Brokering, Monitoring | CMU 11-768 Lecture 13"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -31,16 +31,6 @@ glossary:
 Lecture 13 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the safety module, subtitled "limiting what agents can access and do." The schedule originally titled it Sandboxing & Credential Management and now says Agent Safety; the content is indeed broader, adding red teaming, monitoring and safety evaluation. Observability and monitoring get their own lecture on Oct 22 (Eric Wallace), so monitoring here is an introduction.
 
 The question this post answers: **what is the minimum you need before letting an agent touch real systems, so you don't learn the lesson from the first incident?**
-
-## Course video sources
-
-This post is written from the slides. I checked the official schedule: Lecture 13 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
-
-Official source:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked: 2026-10-10.
 
 ## Five incidents: what going wrong looks like
 
@@ -197,6 +187,16 @@ When events are rare, even a 1% false-positive rate makes more than half the ale
 ## Changelog
 
 - 2026-10-10: Added this post, written from the Lecture 13 slides; no recording on the official public page yet.
+
+## Course video sources
+
+This post is written from the slides. I checked the official schedule: Lecture 13 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
+
+Official source:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked: 2026-10-10.
 
 ## References
 

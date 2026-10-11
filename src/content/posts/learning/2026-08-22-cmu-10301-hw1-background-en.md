@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW1: Find ML Foundation Gaps with Mathematics and Python"
+title: "Find ML Foundation Gaps with Mathematics and Python | CMU 10-301 Assignment 1"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, python, linear-algebra]
@@ -27,6 +27,18 @@ python majority_vote.py heart_train.tsv heart_test.tsv heart_train_labels.txt he
 ```
 
 Then add tiny cases for reordered columns and constant labels. Completion means explaining the shapes in the main mathematics sections and matching both heart and education reference label/metric files line by line. It does not establish success on private tests.
+
+## Hand-compute a majority-vote classifier first
+
+This is invented data, not an official test case. Training labels are `1, 0, 1, 1`: three ones and one zero. Ignore features and predict `1` for every row. One of four training predictions is wrong, so training error is `1/4=0.25`.
+
+Test labels are `0, 0, 1`. Keep the majority learned from training: predictions are `1, 1, 1`, with error `2/3`. Do not select a new majority from test labels; that would use test answers to change the classifier.
+
+**Check:** For test labels `1, 1, 0, 1`, what are predictions and error? Four ones, with error `1/4=0.25`. This example deliberately avoids tied training counts. Follow the official handout for tie-breaking, columns, and output formatting rather than inferring them here.
+
+## Changelog
+
+- 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 
 ## References
 - [Spring 2026 coursework](https://www.cs.cmu.edu/~mgormley/courses/10601/coursework.html)

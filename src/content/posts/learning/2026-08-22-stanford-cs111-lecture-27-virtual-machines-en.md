@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 27: Trap-and-Emulate, Virtual I/O, and Nested Page Tables"
+title: "Trap-and-Emulate, Virtual I/O, and Nested Page Tables | Stanford CS111 Lecture 27"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is part 28 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 27**, taught by Mendel Rosenblum on 2026-06-01 under [Virtual Machines](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); Canvas/Panopto video is inaccessible. SHA auditing shows Lecture 27 differs from adjacent Lectures 26 and 28.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## From process abstraction to machine abstraction
 
@@ -91,11 +83,17 @@ VMs encapsulate execution state and can be duplicated, saved, and moved. Develop
 
 Data centers once isolated applications on separate underused machines. One application per VM lets several share a host, separates hardware provisioning from software, and enabled cloud computing. Utilization improves while the hypervisor becomes a shared failure and trust boundary.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Rewritten against Lecture 27 through VM abstraction, trap-and-emulate, virtual I/O, memory virtualization, and usage, with adjacent-artifact SHA auditing.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Rewritten against Lecture 27 through VM abstraction, trap-and-emulate, virtual I/O, memory virtualization, and usage, with adjacent-artifact SHA auditing.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

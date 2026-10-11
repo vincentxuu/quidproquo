@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 8: FIFO, Round Robin, Priorities, and Multicore Scheduling"
+title: "FIFO, Round Robin, Priorities, and Multicore Scheduling | Stanford CS111 Lecture 8"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 9 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 8**. Mendel Rosenblum taught the lecture on 2026-04-15; its official title is [Scheduling](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/8/Lecture8.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 This lecture starts where dispatching left off. The dispatcher can save registers, switch stacks, and resume a thread; scheduling decides which thread should receive that mechanism next. Given ready threads and CPU cores, the policy chooses a thread for each core and how long it may run. The PDF develops the problem on one core before generalizing it to multiple cores. The recording is Canvas-only, so no unobserved spoken material is reconstructed here.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. FIFO: a simple ready queue is already a policy
 
@@ -117,6 +109,14 @@ The scheduler is code invoked by events, **not a resident thread**. The PDF list
 Scheduling importance changes with hardware and workload. It was central under timesharing; on a single-user PC priorities could be left more to the user; abundant multicore CPU time can reduce sensitivity to the exact algorithm. Datacenters make it interesting again by scheduling across hundreds or thousands of servers and colocating latency-critical web services with CPU-heavy ML training.
 
 The final contract is that a scheduling algorithm should not change the results a correct synchronized program produces, although it strongly changes efficiency and response time. Good schemes are adaptive, and strange-looking constants can materially affect behavior. True optimality would require predicting the future. Real systems use the past as an estimate and continually trade response time, utilization, overhead, fairness, and locality.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

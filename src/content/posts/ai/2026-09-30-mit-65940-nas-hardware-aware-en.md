@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L8 NAS II: Scoring Architectures Without Training Them, and Putting Hardware in the Loop"
+title: "NAS II: Scoring Architectures Without Training Them, and Putting Hardware in the Loop | MIT 6.5940 Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ This is part 9 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-course
 - Video: [EfficientML.ai Lecture 8 - Neural Architecture Search Part II](https://www.youtube.com/watch?v=5ty12mNV4Sg)
 
 Using the access grades from the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2024 is **A3, enough for self-study**. **Fall 2026 comparison**: as of 2026-09-30, the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) has released only L1–L6, and the Lecture 8 slide and video links are still empty. This post uses Fall 2024 only.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=5ty12mNV4Sg
-title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=5ty12mNV4Sg)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and located each section by keyword. The video goes hardware-aware NAS/ProxylessNAS (roughly the first 15–27%), Once-for-All (about 40–50%), zero-shot NAS (about 64–66%), NAAS (about 68–71%), then applications (after about 80%). The lecture and topics match this post. The “ProxylessNAS to OFA stretch” suggestion originally gave only slide numbers; its approximate position in the video has been added. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Where the last lecture left off: how do you score a candidate?
 
@@ -194,6 +176,24 @@ Slide 102 summarizes five items: performance estimation in NAS, hardware-aware N
 These ideas land immediately in **[Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en)**. You get an OFA-trained MCUNetV2 super network, implement an efficiency predictor (MACs and peak memory) and an accuracy predictor, and write random and evolutionary search. The next lecture, **[L9 Knowledge Distillation](/posts/ai/2026-09-30-mit-65940-knowledge-distillation-en)**, turns to a different question: once the architecture is fixed, how do you train a small model better?
 
 If you have one hour: watch the ProxylessNAS-to-OFA stretch of the video (slides 16–73; in the recording roughly from the first 15% to a bit past the halfway mark), which is what Lab 3 uses directly. Zero-shot NAS and NAAS come in the second half of the recording (about 64–71%) and can wait.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=5ty12mNV4Sg
+title: EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 8 - Neural Architecture Search Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=5ty12mNV4Sg)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and located each section by keyword. The video goes hardware-aware NAS/ProxylessNAS (roughly the first 15–27%), Once-for-All (about 40–50%), zero-shot NAS (about 64–66%), NAAS (about 68–71%), then applications (after about 80%). The lecture and topics match this post. The “ProxylessNAS to OFA stretch” suggestion originally gave only slide numbers; its approximate position in the video has been added. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 1：Knowledge——命題邏輯、模型檢查、推理規則與知識表示"
+title: "Knowledge——命題邏輯、模型檢查、推理規則與知識表示｜Harvard CS50 AI 第 1 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 1 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=HWQLez87vqM
-title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=HWQLez87vqM)
-
-課程與錄影入口：
-
-- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：9 個主題的順序成立，但原表兩個項目有出入：Clue 約在第 41–53 分鐘，Mastermind 在第 62–65 分鐘（中間夾著 Hogwarts 邏輯謎題），並非同一段；原表精確時間碼（尾段到 1:22:00，影片實長 1:47:44）無法驗證，已改為依字幕相對位置估算的「約」值。字幕全程未提到 Knights、Minesweeper 專案，專案說明來自課程官網。
 
 ## TL;DR
 
@@ -409,6 +389,26 @@ style50 minesweeper.py
 - [ ] 理解 Knights 專案中「身分約束」與「發言約束」的邏輯編碼差異
 - [ ] 理解 Minesweeper 中 `Sentence` 的 `mark_mine`/`mark_safe` 為何要調整 `count`
 - [ ] 兩專案 `check50` 全綠
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 1 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=HWQLez87vqM
+title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=HWQLez87vqM)
+
+課程與錄影入口：
+
+- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：9 個主題的順序成立，但原表兩個項目有出入：Clue 約在第 41–53 分鐘，Mastermind 在第 62–65 分鐘（中間夾著 Hogwarts 邏輯謎題），並非同一段；原表精確時間碼（尾段到 1:22:00，影片實長 1:47:44）無法驗證，已改為依字幕相對位置估算的「約」值。字幕全程未提到 Knights、Minesweeper 專案，專案說明來自課程官網。
 
 ## 更新紀錄
 

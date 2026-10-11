@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS285 Spring 2026 Guide: 25 Lectures, Five Assignments, and the Self-Study Boundary"
+title: "Deep Reinforcement Learning: From Decision Concepts to Policy Learning and Experiments | Berkeley CS285 Spring 2026 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, self-study, ai-course]
@@ -22,26 +22,6 @@ series:
 On video, the Spring 2026 lecture recordings are public on the RAIL YouTube channel (a 27-video playlist). The official [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) and [course home page](https://rail.eecs.berkeley.edu/deeprlcourse/) have not caught up: they still say recordings are on bCourses and link the Fall 2023 playlist. The Fall 2023 recordings on the [resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) are historical substitutes, not recordings of the 2026 lectures. The 2026 slides, sections, and assignments stay canonical; match recordings by lecture number.
 
 This series therefore treats the 2026 slides, sections, and assignments as canonical.
-
-## Course video sources
-
-This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos, public since 2026-08-15). The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist. Pick recordings by lecture number from the playlist.
-
-The overview embeds Lecture 1 as an introductory supplement (the opening lecture, 44 minutes; its content was checked against the transcript as the opening and course introduction):
-
-```youtube
-url: https://www.youtube.com/watch?v=DD8APgTEix4
-title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
-```
-
-Course and recording entries:
-
-- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
-- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the transcript obtained reaches only the middle of the lecture (up to the learning-and-search part of the Bitter Lesson discussion); it covers the opening robot-grasping example, course logistics (prerequisites, homework, exam, final project), what RL is, how it differs from supervised learning on the IID assumption, applications, and Sutton's The Bitter Lesson, matching its role as an introductory supplement for this overview.
 
 ## The six-part route
 
@@ -69,6 +49,26 @@ The course's compute support applies to enrolled students. A self-learner should
 The recordings restore the instructor's spoken explanation, but an external learner still lacks Ed threads, Gradescope feedback, in-class interaction, and office hours, which live in bCourses and the enrolled-student systems. These articles explain the structure connecting public slides and assignments. They do not invent lecture remarks or relabel Fall 2023 video as Spring 2026.
 
 A better completion criterion is an artifact: one derivation note, one implementation that succeeds on a small environment, a result table across seeds, and a failure analysis. That is closer to the course's actual work than merely “watching 25 lectures.”
+
+## Course video sources
+
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the instructor published the Spring 2026 lecture recordings on the RAIL YouTube channel (27 videos, public since 2026-08-15). The course syllabus still says recordings are on bCourses and the course site still links the Fall 2023 playlist. Pick recordings by lecture number from the playlist.
+
+The overview embeds Lecture 1 as an introductory supplement (the opening lecture, 44 minutes; its content was checked against the transcript as the opening and course introduction):
+
+```youtube
+url: https://www.youtube.com/watch?v=DD8APgTEix4
+title: CS 185/285 (Spring 2026): Lecture 1, Deep Reinforcement Learning
+```
+
+Course and recording entries:
+
+- [Official course and recording entry](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the transcript obtained reaches only the middle of the lecture (up to the learning-and-search part of the Bitter Lesson discussion); it covers the opening robot-grasping example, course logistics (prerequisites, homework, exam, final project), what RL is, how it differs from supervised learning on the IID assumption, applications, and Sutton's The Bitter Lesson, matching its role as an introductory supplement for this overview.
 
 ## Update Log
 

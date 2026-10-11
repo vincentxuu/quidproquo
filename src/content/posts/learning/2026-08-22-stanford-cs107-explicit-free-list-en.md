@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 23: The Allocator Invariants Behind In-Place realloc"
+title: "The Allocator Invariants Behind In-Place realloc | Stanford CS107 Lecture 23"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 The preceding lectures build an implicit allocator and then link all free blocks into an explicit free list. Lecture 23 asks the more difficult question: when a client changes an allocation with `realloc`, can the data remain at the same address? Sometimes it can, but “no move” does not mean “no work.” Shrinking can create a free block; growing can require removing a right neighbor from the free list. One missing metadata or link update can leave overlapping blocks.
 
 This lecture follows one `realloc` transition. Check the block's actual capacity, then consider existing padding, a shrink-and-split, absorption of adjacent free blocks, and finally allocate-copy-free. All three in-place cases preserve the same invariants: alignment, a complete nonoverlapping heap partition, exactly one list entry for every free block, and an unchanged valid prefix of the old data.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -186,6 +178,14 @@ Lecture 23 is not merely a faster `realloc`. It forces three views into one func
 Write preconditions and postconditions for each helper: whether its node is currently listed, whether a returned remainder is already inserted, when metadata may be overwritten, and which pointer remains valid on failure. Decomposing an operation into unlink, change the physical extent, and reinsert as needed is much easier to debug than changing six pointers at once.
 
 The performance benefit of in-place growth is obvious. The deeper rule is simpler: preserve structural information before invalidating its old representation; prove a remainder is a legal block before indexing it; establish the new allocation before ending the old object's lifetime. Allocators have little room for error because one stale link eventually becomes overlapping memory returned to another caller.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

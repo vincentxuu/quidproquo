@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 3 導讀：Minimax、Alpha-Beta 與 Expectimax"
+title: "Minimax、Alpha-Beta 與 Expectimax｜CMU 07-280 第 3 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 **CMU 07-280 Spring 2026 Lecture 3：Adversarial Search**。上一講在固定世界裡找一條路。這一講的下一個狀態會被對手或隨機事件改變，所以答案不再是一條 action sequence，而是一套「看到什麼就怎麼回應」的 contingent plan。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf)、[Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。官方課表未列公開錄影連結；本文不會把投影片上的棋局與 demo 寫成未記錄的課堂口述。
 
 ## 承上問題：當 transition 不是你說了算
 
@@ -83,6 +69,20 @@ Depth limit 不是只把計算砍短。它把「真正走到 terminal 的 utilit
 1. 先不剪枝，替 Recitation 2 第一棵樹算完整 minimax value。
 2. 再依相同順序標 `α`、`β`，每剪一枝寫一句「它為何不可能改變祖先決策」。
 3. 自建一個三 action 例子，讓 minimax 與 expectimax 分別選不同 action。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec3_Adversarial_Search_inked.pdf)、[Adversarial Search staff notes](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Adversarial_Search.pdf)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。官方課表未列公開錄影連結；本文不會把投影片上的棋局與 demo 寫成未記錄的課堂口述。
 
 ## 更新紀錄
 

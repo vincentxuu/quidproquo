@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L21 On-Device Training: Gradients Leak Data, and Activations Are the Memory Killer"
+title: "On-Device Training: Gradients Leak Data, and Activations Are the Memory Killer | MIT 6.5940 Lecture 21"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 [Lectures 19–20](/posts/ai/2026-09-30-mit-65940-distributed-training-en) were about training on thousands of GPUs in a data center. Lecture 21 reverses direction: training on a phone, a Jetson, or even a microcontroller with only 256KB of SRAM.
 
 Pages 2–3 give two reasons. **Customization**: sensors keep collecting new data, and the model needs to adapt. **Privacy**: sensitive data such as code or enterprise data should not go to the cloud. The Lecture Plan on page 4 has six items: gradient leakage, the training memory bottleneck, TinyTL, SparseBP, QAS, and PockEngine. The first is about privacy; the other five are about memory.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=1YuD_5UQxsA
-title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: the Deep Leakage from Gradients demo, TinyTL (tuning only biases, about 6.5x memory saving), sparse backprop, QAS and int8 training, PockEngine, and bringing training memory from 100+ MB to 141KB on an MCU with 256KB of SRAM. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Sharing only gradients is not safe either
 
@@ -189,6 +171,24 @@ Pages 94–100 show results across platforms:
 
 - The same memory limits on the inference side: [Lecture 10 on MCUNet and tinyML](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en), [Lecture 11 on TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 - Quantization basics: [Lecture 6 on PTQ and QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=1YuD_5UQxsA
+title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: the Deep Leakage from Gradients demo, TinyTL (tuning only biases, about 6.5x memory saving), sparse backprop, QAS and int8 training, PockEngine, and bringing training memory from 100+ MB to 141KB on an MCU with 256KB of SRAM. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

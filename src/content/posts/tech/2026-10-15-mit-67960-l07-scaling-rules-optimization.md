@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L07：優化縮放定律 —— 譜視角、特徵學習與超參數遷移"
+title: "優化縮放定律 —— 譜視角、特徵學習與超參數遷移｜MIT 6.7960 第 7 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Jeremy Bernstein** 授課，必讀材料為他的筆記 *Steepest Descent*。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=VcGPE4s_oNw
-title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 07 字幕（Jeremy Bernstein，1:20:55）：影片確實在講學習率隨寬度、深度漂移，以及用最陡下降／範數／譜範數讓最佳學習率與寬度無關（譜範數約 64%–76%）；字幕沒有 μP、lazy training、feature learning、critical batch size，這幾段已改標為本站補充。
 
 ## 為什麼要單獨講「優化的縮放定律」
 
@@ -122,6 +103,25 @@ class LinearMUP(nn.Module):
 3. **縮放是可預測的**：μP 解決「寬度遷移」，critical batch size 解決「算力分配」。
 
 對工程師來說，最直接的收穫是：下次要從 1 億參數擴到 100 億，先在小網路上用 μP 調好超參數，再線性外推，而不是重新 grid search 一輪。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 07 字幕（Jeremy Bernstein，1:20:55）：影片確實在講學習率隨寬度、深度漂移，以及用最陡下降／範數／譜範數讓最佳學習率與寬度無關（譜範數約 64%–76%）；字幕沒有 μP、lazy training、feature learning、critical batch size，這幾段已改標為本站補充。
 
 ## 更新紀錄
 

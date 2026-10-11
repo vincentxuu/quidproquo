@@ -1,5 +1,5 @@
 ---
-title: "CS224R L11：Model-Based RL——學一個模擬器，然後別太相信它"
+title: "Model-Based RL——學一個模擬器，然後別太相信它｜Stanford CS224R 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,25 +40,6 @@ glossary:
 存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas 上，校外看不到。
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA)（約 73 分鐘）。要注意兩年的切法不同。[2025 年的 L11 投影片](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf)先講 planning、再講資料生成，最後還有一段靈巧操作的 case study；[2025 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)開頭又接著講「用 learned model 生成合成資料」和「什麼時候用 model-based RL」。我讀過字幕：L11 錄影在靈巧機器手的 case study 之後預告「下次講 model-based 的最後一部分和多任務」，所以合成資料生成（MBPO 那段）不在這支影片，而是在 L12 錄影開頭。以下以 2026 投影片為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=PvqyGnOirgA
-title: Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）](https://www.youtube.com/watch?v=PvqyGnOirgA)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L11 Model-Based RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L11、講者為 Chelsea Finn；內容依序是演算法總覽複習、dynamics model 的學習、gradient-based 與 sampling-based planning、replanning，結尾是靈巧機器手的 case study（含 ensemble、約 4 小時資料就能轉 90°），最後預告「下次講 model-based 的最後一部分和多任務」。所以合成資料生成（MBPO 那一段）確實不在這支影片裡，而是在 L12 錄影開頭。本文以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：前面十講都沒學過環境
 
@@ -237,6 +218,25 @@ Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；�
 可以確認：2026 投影片的文字、演算法步驟和圖說，課表日期與指定閱讀，2025 投影片的講次切分，以及 2025 L11 影片的標題與長度。不能確認：第 16 頁 MBPO 圖的細節結論（投影片只有圖）、第 18 頁「跟 PPO、SAC 比如何」在課堂上的答案，以及 2026 課堂口頭補充的內容。
 
 系列導覽：上一篇 [Default Project：LLM 的 RL 微調](/posts/ai/2026-09-30-cs224r-default-project-llm-rl)｜下一篇 [L12 多任務與 Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=PvqyGnOirgA
+title: Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 11: Model-Based RL（YouTube，補充）](https://www.youtube.com/watch?v=PvqyGnOirgA)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L11 Model-Based RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L11、講者為 Chelsea Finn；內容依序是演算法總覽複習、dynamics model 的學習、gradient-based 與 sampling-based planning、replanning，結尾是靈巧機器手的 case study（含 ensemble、約 4 小時資料就能轉 90°），最後預告「下次講 model-based 的最後一部分和多任務」。所以合成資料生成（MBPO 那一段）確實不在這支影片裡，而是在 L12 錄影開頭。本文以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

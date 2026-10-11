@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW8：從 MDP 到 Reinforcement Learning 更新規則"
+title: "從 MDP 到 Reinforcement Learning 更新規則｜CMU 10-301 作業 8"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, reinforcement-learning, mdp]
@@ -29,6 +29,18 @@ pip install -r requirements.txt
 ```
 
 先跑 `test_runner.py`，再嘗試 Pong training。完成判準是公開 tests 覆蓋的 network shapes、n-step return 與 loss 計算通過，固定 seed 能啟動並持續訓練，且 reward curve 與設定都有紀錄；沒有 reference output 與 hidden tests，不能以單次高分宣稱完成官方驗收。
+
+## terminal 不再往後 bootstrap
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編兩步軌跡，reward 依序為 1、2，第二步後終止，discount=0.5。第一步 return 是 1+0.5×2=2；最後一步 return 就是 2，沒有下一狀態價值。若錯把 terminal 後的 value=10 接上，最後 target 會變成 2+0.5×10=7。
+
+**檢查與答案：** discount 改成 1 時，第一步 return 是多少？答案 3；最後一步仍為 2。改 discount 不會取消 terminal boundary。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW8 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw8.zip)

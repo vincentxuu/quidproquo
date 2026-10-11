@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 7: From String Search to Buffer Overflows—Input Validation Is Not Capacity Checking"
+title: "From String Search to Buffer Overflows—Input Validation Is Not Capacity Checking | Stanford CS107 Lecture 7"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Lecture 6 defined a C string as a memory contract: starting from a `char *`, a program must encounter `\0` within valid storage. Lecture 7 first exploits that contract for richer searches, then turns to what happens when it breaks. A buffer overflow is not security magic detached from strings. It begins when code writes input into fixed storage without proving that it fits.
 
 The distinction to retain is simple: **valid content does not imply a safe memory operation.** A password may contain only permitted characters and no forbidden fragment, yet still be too long for its destination. `strspn` and `strstr` answer policy questions; capacity reasoning answers a bounds question. Conflating them lets memory bugs hide inside ordinary business logic.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -212,6 +204,14 @@ Trace string input through these questions:
 This turns “be careful about buffer overflow” into line-by-line work. It also explains why half the lecture concerns search: `strchr`, `strstr`, and spans return boundary-bearing results. Using them correctly requires progress, null checks, alias awareness, and termination. Security is not bolted on at the end; it extends the same pointer reasoning.
 
 Lecture 7 reduces to one sentence: **validating what text says and proving that memory can hold it are different jobs.** Product policy needs the first; remaining within C's defined execution needs the second. Reliable systems code proves both.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

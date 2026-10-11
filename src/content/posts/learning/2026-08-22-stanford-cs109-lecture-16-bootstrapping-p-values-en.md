@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 16 | Bootstrapping: Sampling statistics, error bars, and p-values"
+title: "Bootstrapping: Sampling statistics, error bars, and p-values | Stanford CS109 Lecture 16"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 17 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 16: Bootstrapping** on July 20 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture16-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture16-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture16-LLMPrompts.pdf), and reader chapters on [bootstrapping](https://probabilitycoders.stanford.edu/spr26/bootstrapping) and [samples](https://probabilitycoders.stanford.edu/spr26/samples). Current slides are unavailable and Canvas video is gated, so this remains an L2 artifact guide.
 
 The worksheet, key, and guide are all three pages. The formal agenda is P1–P6 plus challenge, with no orphan page or numbering gap. A sample distribution describes data spread; a sampling distribution describes how a statistic changes when the whole experiment is repeated. Error bars target the latter.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=NXJwyPT1vsc
-title: Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19](https://www.youtube.com/watch?v=NXJwyPT1vsc)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 19, "Bootstrapping and P-Values" (about 70K characters): it starts with sample variance and standard error, then bootstrapping, and introduces the null hypothesis and p-values near the end, matching this lecture. The transcript has no median or compiler-flag examples, so P4 and P5 in this post are not video content.
 
 ## P1: Review a CLT for checkout totals
 
@@ -172,6 +150,28 @@ The six concepts are population/sample/statistic, unbiased variance, SE, the boo
 - Current slides are unavailable and video is gated; an L2 article does not reconstruct missing lecture content.
 - Bootstrap code is equivalent organization of official pseudocode, not a claim about production implementation details.
 - The limited artifact scope qualifies for the short-material exception; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=NXJwyPT1vsc
+title: Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Bootstraping and P-Values I 2022 I Lecture 19](https://www.youtube.com/watch?v=NXJwyPT1vsc)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 19, "Bootstrapping and P-Values" (about 70K characters): it starts with sample variance and standard error, then bootstrapping, and introduces the null hypothesis and p-values near the end, matching this lecture. The transcript has no median or compiler-flag examples, so P4 and P5 in this post are not video content.
 
 ## Update Log
 

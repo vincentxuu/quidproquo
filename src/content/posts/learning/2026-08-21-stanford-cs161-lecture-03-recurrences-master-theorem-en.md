@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 3: Reading a Recursion Tree Through the Master Theorem"
+title: "Reading a Recursion Tree Through the Master Theorem | Stanford CS161 Lecture 3"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ This is post 4 in [Reading Stanford CS161](/en/series/stanford-cs161), covering 
 One source discrepancy belongs up front. The component and slides identify the lecture as recurrences, the Master Theorem, and substitution. The notes cover exactly those subjects, but their cover says “Solving Recurrences and the Selection Problem.” Selection does not appear in the body and begins in Lecture 4. This article follows the official lecture title and the actual material rather than expanding a stale cover title into a nonexistent agenda.
 
 Lecture 2 computed MergeSort's entire recursion tree. Lecture 3 turns that calculation into a reusable method: translate code into a recurrence, then identify which levels dominate the total work. The Master Theorem is the shortcut. Substitution is the proof route that remains when the shortcut does not fit.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
-
-Checked: 2026-10-10.
 
 ## A recurrence includes more than its right-hand side
 
@@ -238,6 +228,16 @@ Do not begin your self-test by memorizing the three cases. Draw trees for `T(n)=
 For an irregular recurrence, two first moves are useful. Expand the first few levels and ask whether total level costs form a geometric pattern. Then make an upper-bound guess with an adjustable constant and, if necessary, a lower-order correction. Neither step guarantees an immediate solution, but both prevent the common mistake of searching for a formula before modeling the algorithm correctly.
 
 The Master Theorem is not the endpoint of recurrence analysis. Tools such as Akra–Bazzi handle more general unequal-size recurrences, but they are outside Winter 2026 Lecture 3. Treat such a tool as a different theorem with different conditions, not as an informal extension of these three cases.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

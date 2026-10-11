@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L3：長 context agent 怎麼管記憶體——混合注意力、RoPE 外推、prompt cache 與 compaction"
+title: "長 context agent 怎麼管記憶體——混合注意力、RoPE 外推、prompt cache 與 compaction｜CMU 11-768 第 3 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,25 +39,6 @@ glossary:
 問題很好懂：[上一講](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use)的工具呼叫每用一次，歷史就長一截，下一次呼叫要把整段歷史再送進模型一次。這一講回答兩個問題：模型**吃不吃得下**這麼長的輸入（容量），系統**養不養得起**（效率）。
 
 **怎麼讀這篇**：本講有兩層。模型層在講注意力架構、位置編碼、訓練資料，是做模型的人的事；harness 層在講 prompt cache 和 compaction，是每個寫 agent 的人每天都會碰到的事。只寫 agent 不訓練模型的讀者，可以先跳到「Harness 層」。模型層每一節都先給直覺，公式收在折疊區；如果想先補注意力與推論的基礎，站內的 [CS336 Lecture 4：Attention 與 MoE](/posts/ai/2026-08-22-cs336-attention-moe) 和 [CS336 Lecture 10：推論](/posts/ai/2026-08-22-cs336-inference) 是很好的前置。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 3 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=AiwCCvFW1uE
-title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
-```
-
-原始影片：[CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 76 分鐘），逐項核對文章轉述的 Neubig 說法：OpenHands 1,500 個 session 的 prompt 組成（7.8 萬 token、37% 工具結果等）、TTFT／TPOT 與 OpenRouter provider 速度差、混合注意力與各線性／稀疏注意力的講解、NoPE 與因果遮罩問答、長 context 資料與 context parallelism（含自己找不到 Gated DeltaNet kernel 的經驗）、快取價格約十倍與命中率 90–95%、provider 快取保留時間、快取地雷、compaction 觸發與保留策略、OpenHands 早期 compaction 的 PR 故事；皆有依據。發現兩處字幕找不到並已修正：DeltaNet 的「很像線上學習」（講者只說 β 類似學習率）、課後問答的「替代架構會不會造成 context 溢位」（字幕末段只有 subagent 一問）。逐模型的層數比例、價格表、YaRN 公式等細節屬投影片與外部來源，字幕未涵蓋；「9 月 1 日」的上課日期字幕未提。
 
 ## Agent 的 context 為什麼長得這麼快
 
@@ -474,6 +455,25 @@ Neubig 講了一個 OpenHands 早期的故事。他們認為自己做出了最�
 - [CS336 Lecture 10：LLM 推論的核心不是少算，而是少讀權重與 KV cache](/posts/ai/2026-08-22-cs336-inference)：prefill／decode 與 KV cache 的系統觀點
 - [Context Engineering：為什麼你的 AI Agent 問題出在資訊，不在模型](/posts/ai/2026-03-24-context-engineering-guide)：harness 層的實務整理
 - [Stanford CS329Z 導讀 Week 4：ReAct 與 MemGPT](/posts/ai/2026-09-12-stanford-cs329z-week4-react-memory)：MemGPT 外存記憶的另一種講法
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 3 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=AiwCCvFW1uE
+title: CMU AI Agents 2026: 3. Long Context Modeling for Agents
+```
+
+原始影片：[CMU AI Agents 2026: 3. Long Context Modeling for Agents](https://www.youtube.com/watch?v=AiwCCvFW1uE)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 76 分鐘），逐項核對文章轉述的 Neubig 說法：OpenHands 1,500 個 session 的 prompt 組成（7.8 萬 token、37% 工具結果等）、TTFT／TPOT 與 OpenRouter provider 速度差、混合注意力與各線性／稀疏注意力的講解、NoPE 與因果遮罩問答、長 context 資料與 context parallelism（含自己找不到 Gated DeltaNet kernel 的經驗）、快取價格約十倍與命中率 90–95%、provider 快取保留時間、快取地雷、compaction 觸發與保留策略、OpenHands 早期 compaction 的 PR 故事；皆有依據。發現兩處字幕找不到並已修正：DeltaNet 的「很像線上學習」（講者只說 β 類似學習率）、課後問答的「替代架構會不會造成 context 溢位」（字幕末段只有 subagent 一問）。逐模型的層數比例、價格表、YaRN 公式等細節屬投影片與外部來源，字幕未涵蓋；「9 月 1 日」的上課日期字幕未提。
 
 ## 更新紀錄
 

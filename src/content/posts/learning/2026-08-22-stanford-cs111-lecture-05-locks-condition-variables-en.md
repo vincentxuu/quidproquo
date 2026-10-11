@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 5: Mutexes, Condition Variables, and Mesa Semantics"
+title: "Mutexes, Condition Variables, and Mesa Semantics | Stanford CS111 Lecture 5"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 6 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 5**. Mendel Rosenblum taught it on 2026-04-08; the official title is [Locks and Condition Variables](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/5/Lecture5.pdf). This article uses only the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not treated as a source read here.
 
 The previous lecture's Too Much Milk solutions forced exclusion out of flags and carefully enumerated interleavings, but were too complicated. This lecture asks for two higher-level capabilities: **mutual exclusion**, to express critical sections, and **blocking**, to delay a thread without wasting a CPU. A mutex solves the first problem and a condition variable the second. The PDF repeatedly repairs one producer/consumer `Pipe` to establish why both are necessary.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## From Too Much Milk to a mutex
 
@@ -214,6 +206,14 @@ void Pipe::put(char c) {
 `get()` symmetrically waits for `count > 0` and notifies `charRemoved`. The contracts are visible together: `unique_lock` represents ownership; while rechecks after every wakeup; wait atomically releases and reacquires; circular-state updates stay in the critical section; notify says only that state may have changed.
 
 Five questions audit any condition-variable program: What is shared state? Which mutex protects it? What is each operation's predicate? Is wait inside a locked while loop? Which state transition notifies which waiter? If any answer is missing, successful runs are not yet a synchronization proof.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

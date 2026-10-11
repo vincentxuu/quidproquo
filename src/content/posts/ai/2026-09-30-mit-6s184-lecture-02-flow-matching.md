@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L2：Flow matching，從條件路徑學邊際向量場"
+title: "Flow matching，從條件路徑學邊際向量場｜MIT 6.S184 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 這一講回答一個問題：**要怎麼調 θ，讓 ODE 的終點 `X_1` 服從資料分佈 `p_data`？** 講義給的答案叫 flow matching，§3 開頭形容它簡單、可規模化，而且代表目前最先進的做法。
 
 先記住時間方向：這門課的 **t=0 是雜訊，t=1 是資料**。很多 diffusion 文獻剛好相反，後面對照其他教材時要小心。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=PNkMKWW8Khw
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：抽樣核對：讀了開頭（回顧第 1 講、flow matching 是核心訓練演算法）與結尾（下一講 score 與 guidance）並用關鍵字抽查中段：條件與邊際機率路徑、邊際向量場、積分算不出來的難處、continuity equation（影片說明機率質量守恆）、以 conditional 目標做回歸的 loss。講次與主題和本文相符；字幕沒有 Theorem／eq. 編號與「Flow Matching Matrix」這類名稱，那些細節依講義與 Slides 2。
 
 ## 一張表先看懂整講
 
@@ -277,6 +259,24 @@ L_CFM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖u_t^θ(α_t z + β_t ε) − (�
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 
 系列導覽：上一篇 [Lab 1：模擬 ODE 與 SDE](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes)｜下一篇 [L3A：分數函數、SDE 取樣與 score matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=PNkMKWW8Khw
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：抽樣核對：讀了開頭（回顧第 1 講、flow matching 是核心訓練演算法）與結尾（下一講 score 與 guidance）並用關鍵字抽查中段：條件與邊際機率路徑、邊際向量場、積分算不出來的難處、continuity equation（影片說明機率質量守恆）、以 conditional 目標做回歸的 loss。講次與主題和本文相符；字幕沒有 Theorem／eq. 編號與「Flow Matching Matrix」這類名稱，那些細節依講義與 Slides 2。
 
 ## 更新紀錄
 

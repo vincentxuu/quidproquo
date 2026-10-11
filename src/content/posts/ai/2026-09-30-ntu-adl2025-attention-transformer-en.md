@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL Lecture 4: Attention and the Transformer"
+title: "Attention and the Transformer | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,30 +32,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) ended on a problem: in theory an RNN remembers words from long ago, in practice the gradient never gets back to them. This lecture answers in two steps. First comes attention, originally an add-on to RNN translation models. Then comes the Transformer, which removes the RNN entirely and keeps only attention.
 
 The two decks are separate rows on the [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), but the first nine pages of the Transformer deck review the Attention deck, so this post reads them together.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=FLNSD3zykgE
-title: ADL 4.1: Attention Mechanism
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=c0O9s6MCFys
-title: ADL 4.2: Self-Attention & Transformer
-```
-
-Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer](https://www.youtube.com/watch?v=c0O9s6MCFys)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (4.1 and 4.2) were read. Everything the article attributes to the videos appears in them: the memory/attention analogy, the single-vector RNN bottleneck, the query/key/value definitions, speech recognition and image captioning (including the giraffes misread as a large white bird), the Greg/Brian three-hop reading-comprehension example, and in 4.2 the CNN vs RNN comparison, the France/French example, self-attention, multi-head, masking, where Q/K/V come from in the three attention types, the four positional-encoding criteria with sin/cos, and the training tips and results. Nothing needed correcting. Slide page numbers, formulas and details such as CoQA/QuAC come from the slides, not the videos.
 
 ## Step one: why translation needs attention
 
@@ -211,6 +187,30 @@ One thing to try tonight: write a self-attention in under 20 lines of NumPy, wit
 
 - The same material at Stanford: [CS224N Lecture 5: From Recurrence to the Transformer](/posts/ai/2026-08-22-cs224n-transformers-en), [CME295 Lecture 1: From Tokens to Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
 - The line-by-line implementation the slides cite: [The Annotated Transformer (Sasha Rush)](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=FLNSD3zykgE
+title: ADL 4.1: Attention Mechanism
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=c0O9s6MCFys
+title: ADL 4.2: Self-Attention & Transformer
+```
+
+Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer](https://www.youtube.com/watch?v=c0O9s6MCFys)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (4.1 and 4.2) were read. Everything the article attributes to the videos appears in them: the memory/attention analogy, the single-vector RNN bottleneck, the query/key/value definitions, speech recognition and image captioning (including the giraffes misread as a large white bird), the Greg/Brian three-hop reading-comprehension example, and in 4.2 the CNN vs RNN comparison, the France/French example, self-attention, multi-head, masking, where Q/K/V come from in the three attention types, the four positional-encoding criteria with sin/cos, and the training tips and results. Nothing needed correcting. Slide page numbers, formulas and details such as CoQA/QuAC come from the slides, not the videos.
 
 ## Update Log
 

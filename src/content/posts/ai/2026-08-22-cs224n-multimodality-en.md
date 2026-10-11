@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 17: An Official Reading Map for Multimodality"
+title: "An Official Reading Map for Multimodality | Stanford CS224N Lecture 17"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the seventeenth regular unit took place on March 3, 2026, guest-taught by Luke Zettlemoyer under **Guest Lecture: Multimodality**. The course page publishes no current slides or agenda and lists four suggested plus seven optional readings. This article covers only the five public sources actually read and listed below; it does not present the other six as read or reconstruct the session.
-
-## Course video sources
-
-Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
 
 ## Vision as a reasoning workspace
 
@@ -51,6 +40,17 @@ The optional subset actually read here contains only [Multimodal RewardBench](ht
 ## What can and cannot be confirmed
 
 The date, speaker, title, and the fact that the official page lists eleven readings are confirmed. This article actually reads and summarizes the five sources in its reference list; the other six appear only in the schedule and support no content claim here. The actual agenda, architecture comparisons, live demonstrations, and conclusions are not confirmed. Reading-list order is not presented as teaching order. A slide-by-slide review should replace this map only if current slides are released.
+
+## Course video sources
+
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

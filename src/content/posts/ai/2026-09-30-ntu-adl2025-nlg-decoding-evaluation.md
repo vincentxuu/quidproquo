@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 9 講：NLG 的解碼、生成控制與評估"
+title: "NLG 的解碼、生成控制與評估｜台大陳縕儂 深度學習之應用 2025 Fall 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,30 +41,6 @@ glossary:
 前面幾講都在教模型怎麼學會「下一個詞的機率分布」。這一講處理的是模型訓練好以後的事：分布拿到手，**到底要輸出哪個詞**？輸出的一整段文字，**又要怎麼判斷好壞**？
 
 這一講沒有對應的作業，[存取分級](/posts/ai/2026-09-30-ntu-adl2025-course-overview)沿用系列的 A2：講義與影片都公開，這一講本身沒有缺口。同一週的助教課 LLM Inference & Evaluation 放在本系列的[助教課篇](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=1d9WhPS6gv8
-title: ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=agHrC93u7w8
-title: ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）
-```
-
-原始影片：[ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control 控制輸出內容的特性（YouTube）](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation 評估語言生成的結果（YouTube）](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG 進一步提升語言生成結果（YouTube）](https://www.youtube.com/watch?v=Ly67whCaS4M)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：9.1 與 9.2 兩支都讀了字幕。9.1：NLG 任務、conditional LM、teacher forcing、exposure bias 與「一步錯，步步錯」、scheduled sampling（含 image captioning 實驗）、LLM 因資料量大而不用 scheduled sampling；9.2：greedy 非全域最佳、beam search 與 beam size 取捨（含 What do you do for a living? 的例子）、sampling 的長尾問題與 white rabbit 例子、top-k、nucleus sampling 的動態集合、temperature 不是解碼演算法、不能把整個機率分布當下一步輸入（高興想笑／難過想哭），皆與文章相符，沒有需要更正的影片說法。確認文章「版本提醒」所述：兩支影片上傳於 2025-10-27，說明欄日期為 2023/10/26 並註明投影片取材自李宏毅老師。9.3–9.5 未嵌入，未核對；BLEU、ROUGE、perplexity、LLM-Eval 與 RL for NLG 的段落依據的是講義。
 
 ## 從語言模型到 conditional LM
 
@@ -202,6 +178,30 @@ Beam size 的取捨在第 22 頁有個好例子：對一句「我主要吃生食
 
 上一篇：[RAG＋HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)
 下一篇：[偏見、安全、幻覺與對齊＋期末專題](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=1d9WhPS6gv8
+title: ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=agHrC93u7w8
+title: ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）
+```
+
+原始影片：[ADL 9.1: Natural Language Generation 語言生成的詳細策略（YouTube）](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms 如何控制每次輸出哪個 Token 呢?（YouTube）](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control 控制輸出內容的特性（YouTube）](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation 評估語言生成的結果（YouTube）](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG 進一步提升語言生成結果（YouTube）](https://www.youtube.com/watch?v=Ly67whCaS4M)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：9.1 與 9.2 兩支都讀了字幕。9.1：NLG 任務、conditional LM、teacher forcing、exposure bias 與「一步錯，步步錯」、scheduled sampling（含 image captioning 實驗）、LLM 因資料量大而不用 scheduled sampling；9.2：greedy 非全域最佳、beam search 與 beam size 取捨（含 What do you do for a living? 的例子）、sampling 的長尾問題與 white rabbit 例子、top-k、nucleus sampling 的動態集合、temperature 不是解碼演算法、不能把整個機率分布當下一步輸入（高興想笑／難過想哭），皆與文章相符，沒有需要更正的影片說法。確認文章「版本提醒」所述：兩支影片上傳於 2025-10-27，說明欄日期為 2023/10/26 並註明投影片取材自李宏毅老師。9.3–9.5 未嵌入，未核對；BLEU、ROUGE、perplexity、LLM-Eval 與 RL for NLG 的段落依據的是講義。
 
 ## 更新紀錄
 

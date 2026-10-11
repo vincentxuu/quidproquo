@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 5：Randomized QuickSort 的期望時間怎麼證"
+title: "Randomized QuickSort 的期望時間怎麼證｜Stanford CS161 第 5 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 6 篇，對應 **Stanford CS161, Winter 2026, Lecture 5**。Moses Charikar 在 2026 年 1 月 21 日主講，官方題目是 [Randomized Algorithms and QuickSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)。本文使用課前練習、講義與投影片；Canvas 錄影未使用，notebook 也未列為已讀。
 
 上一講的 Select 用 pivot 做 partition，然後只走答案所在的一側。QuickSort 保留同一個骨架，卻遞迴排序兩側。這個小改動讓 pivot 的品質更敏感：每次近乎切半是 `O(n log n)`，每次切成 `0` 與 `n-1` 則是 `Θ(n²)`。第五講要回答的不是「random pivot 通常不錯」這句直覺，而是：對任意固定輸入，只對演算法自己的亂數取期望時，如何嚴格證出 `O(n log n)`？
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
-
-查核日期：2026-10-10。
 
 ## 隨機化保證到底在保證什麼
 
@@ -168,6 +158,16 @@ Lecture 4 與 Lecture 5 共用 pivot、partition、recursion，卻展示兩種�
 期望時間回答平均亂數成本，卻沒有告訴我們慢到某個門檻的機率。若系統在意 tail latency，可進一步研究 high-probability analysis，或採取限制遞迴深度、超過門檻後切換到 worst-case `O(n log n)` sorter 的混合策略。這些不是 Winter 2026 第五講已證的內容，所以與正文分開。
 
 隨機性也有實作前提：pivot 必須足夠接近均勻，亂數產生與選取本身要計入系統模型。面對可觀察或可預測亂數的敵對環境，「隨機 pivot」未必提供想像中的防護。數學定理的輸入 adversary、亂數來源與成本模型，都應在套用到工程前重新寫清楚。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-5-randomized-algorithms-and-quicksort)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

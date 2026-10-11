@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 25: Truth, Trust, and Technology—How Algorithms, Generative AI, and Deepfakes Reshape Trust"
+title: "Truth, Trust, and Technology—How Algorithms, Generative AI, and Deepfakes Reshape Trust | Stanford CS111 Lecture 25"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is installment 26 of the [Stanford CS111 guide](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 25**. Mendel Rosenblum taught it on May 27, 2026, under the official title [Truth, Trust, and Technology](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/25/Lecture25.pdf). This article follows the 13-page public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not presented as reviewed.
 
 This lecture deliberately leaves conventional OS mechanisms and returns to Lecture 12's trust framework: when people cannot verify every claim themselves, how do they delegate judgment to platforms, AI, and media? Its message is not “all technology is untrustworthy.” Trust extends agency while creating exposure to deception.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Page-by-page agenda
 
@@ -95,6 +87,14 @@ Page 12 asks what observables suggest trustworthiness or untrustworthiness. The 
 Lecture 25 may seem to leave file systems, but it continues the course's habit: do not inspect only interface output. Ask who maintains state, what invariant is promised, and what is observable under failure. Here the shared resource is society's trust in information; failure modes are obscured provenance, copied errors, and delegated judgment.
 
 Page 13 offers neither a detector nor a statute as a universal cure. Trust remains essential and confirmation bias is hard to eliminate. Technology can make untrustworthy sources look credible and convenient sources easier to over-trust. The lecture sees hope in institutions with established records, then asks whether people will trust them. The design problem is to make provenance, procedure, correction, and responsibility observable instead of asking users to guess truth from appearance.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

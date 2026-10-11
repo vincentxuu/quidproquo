@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L5: Discrete Diffusion, Generating Language with CTMCs"
+title: "Discrete Diffusion, Generating Language with CTMCs | MIT 6.S184 Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,24 +40,6 @@ The notes open §7 bluntly: a discrete state space has **no mathematical diffusi
 The good news: the recipe from [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) stays exactly the same. The three steps listed at the start of §7.2 are the flow matching steps: (1) build a probability path from noise to data; (2) derive conditional and marginal training targets; (3) learn the marginal target without simulation. Only the objects inside each step change.
 
 The time convention matches the rest of the series: t=0 is noise and t=1 is data.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=d0kmyEJN2hI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read most of the captions (81:11, matching the “1 hour 21 minutes” in the post): CTMCs and rate matrices, the factorized design with every position jumping in parallel, the mixture path and masking, the Kolmogorov forward equation, learning the rate matrix as classification (a softmax and negative log-likelihood per position), the masked diffusion LM and the LLaDA demo, the trade-offs against autoregressive models (parallel generation, any order, harder KV caching) and the closing course-evaluation reminder. It matches this post. The “teleported” and “Only unknown!” annotations from Slides 5 and the lecture-note numbering are not spoken in the video; those follow the slides and notes.
 
 ## Start with the map: every continuous object has a discrete twin
 
@@ -381,6 +363,24 @@ The notes' answer is that these principles were never specific to flows or CTMCs
 - Continuous diffusion from the DDPM view (time runs in the opposite direction from this course): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Starting points for discrete diffusion cited in the notes: [Campbell et al., A Continuous Time Framework for Discrete Denoising Models](https://arxiv.org/abs/2205.14987) (reference [5]) and [Gat et al., Discrete Flow Matching](https://arxiv.org/abs/2407.15595) (reference [16])
 - Source of Figure 18 in the notes: [Lipman et al., Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264) (reference [26])
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=d0kmyEJN2hI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read most of the captions (81:11, matching the “1 hour 21 minutes” in the post): CTMCs and rate matrices, the factorized design with every position jumping in parallel, the mixture path and masking, the Kolmogorov forward equation, learning the rate matrix as classification (a softmax and negative log-likelihood per position), the masked diffusion LM and the LLaDA demo, the trade-offs against autoregressive models (parallel generation, any order, harder KV caching) and the closing course-evaluation reminder. It matches this post. The “teleported” and “Only unknown!” annotations from Slides 5 and the lecture-note numbering are not spoken in the video; those follow the slides and notes.
 
 ## Update Log
 

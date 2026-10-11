@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 15: Logic I: Models, Entailment, and SAT"
+title: "Logic I: Models, Entailment, and SAT | Stanford CS221 Lecture 15"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 15**, taught by Percy Liang on 2025-11-10. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is the executable lecture's [`propositional_logic.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=propositional_logic). Rather than flattening “logic” into a glossary, this reading follows the source in execution order and connects each definition, example, and reduction.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 15, the same term and lecture number this article follows. It matches item 15 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=Q7V13XriJEc
-title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 15: Logic I](https://www.youtube.com/watch?v=Q7V13XriJEc)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 15) and confirmed it covers propositional syntax and semantics, models, entailment/contradiction/contingency, knowledge bases, inference rules, and satisfiability/SAT, matching this article's lecture and topic; no mismatch found.
 
 ## Why logic: the lecture's starting problem
 
@@ -156,6 +136,26 @@ The ideal is equality: everything derived is true, and everything true in the se
 The public source has a clear chain: motivation through reasoning; the three ingredients of a formal language; propositional syntax and its five connectives; semantics through `I`, `get_models`, and KBs; entailment, contradiction, contingency, Ask/Tell; the Bayesian-network comparison; satisfiability and Z3 model checking; then modus ponens, forward inference, soundness, and completeness.
 
 It does not provide Canvas interactions, assignment solutions, hidden tests, or a CNF-conversion implementation in `propositional_logic.py`. It also does not walk through unit propagation, backtracking, DPLL branching, or CDCL learning. Those topics should not be filled in from another offering or from intuition. The computational limit already present in this lecture is enough to state precisely: formulas can be compact representations, while direct model enumeration can be exponential; SAT solvers make the existence of at least one satisfying assignment the central computational question.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 15, the same term and lecture number this article follows. It matches item 15 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=Q7V13XriJEc
+title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 15: Logic I](https://www.youtube.com/watch?v=Q7V13XriJEc)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 15) and confirmed it covers propositional syntax and semantics, models, entailment/contradiction/contingency, knowledge bases, inference rules, and satisfiability/SAT, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

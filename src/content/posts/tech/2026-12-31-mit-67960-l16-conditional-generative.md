@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L16：條件生成模型（Conditional Generative Models）—— cGAN、cVAE 與 Classifier-Free Guidance"
+title: "條件生成模型（Conditional Generative Models）—— cGAN、cVAE 與 Classifier-Free Guidance｜MIT 6.7960 第 16 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -32,25 +32,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 16）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=zaMcHuJwe1w
-title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 16 字幕（Phillip Isola，1:21:31）：影片是條件生成（開場預告「conditional models」），涵蓋條件分佈與預測問題（約 10%–36%）、條件 GAN 與 cVAE（約 50%–58%、73%–77%）、text-to-image 與 U-Net 去噪器（約 71%–84%），以及配對／非配對影像翻譯（約 89%–99%）；字幕沒有 classifier／classifier-free guidance，已在該節加註為本站補充。
 
 ## 從「生成」到「條件生成」
 
@@ -131,6 +112,25 @@ x_{t−1} ← x_t − γ · ∇_{x_t} log p(y | x_t) + 噪聲
 - **Prompt 不夠具體**：模型退化成 mean-image（VAE 系的根本毛病）。
 - **y 與 x 沒對齊**：微調階段用 LoRA / DreamBooth 把新概念「塞進」模型的條件空間。
 - **可控性 vs 多樣性**：這是條件生成的根本權衡，沒有銀彈。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=zaMcHuJwe1w
+title: MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 16. Generative Models: Conditional Models](https://www.youtube.com/watch?v=zaMcHuJwe1w)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 16. Generative Models: Conditional Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec16_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 16 字幕（Phillip Isola，1:21:31）：影片是條件生成（開場預告「conditional models」），涵蓋條件分佈與預測問題（約 10%–36%）、條件 GAN 與 cVAE（約 50%–58%、73%–77%）、text-to-image 與 U-Net 去噪器（約 71%–84%），以及配對／非配對影像翻譯（約 89%–99%）；字幕沒有 classifier／classifier-free guidance，已在該節加註為本站補充。
 
 ## 更新紀錄
 

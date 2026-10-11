@@ -1,5 +1,5 @@
 ---
-title: "主成分分析：投影、重建與降維"
+title: "主成分分析：投影、重建與降維｜Stanford CS229 第 12 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,32 +20,6 @@ draft: false
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 12 章（印刷頁 167–172）的逐章導讀，依官方主講義整理，**不是某一學期錄影內容的重建**。本篇沿著「找出資料近似所在的線性子空間」這條主脊，串起前處理、最大變異、特徵向量與降維。
 
 PCA 處理的是資料座標之間的線性冗餘。例如同一車速同時用 mph 與 km/h 記錄，兩欄幾乎是同一資訊；若資料大致沿某個斜方向散布，真正重要的變化可能只需要一個內在軸。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自CS229 Spring 2026 與舊版 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=sUS-eTa0l6s
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=dyb_cFywuik
-title: Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)、[Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018](https://www.youtube.com/watch?v=dyb_cFywuik)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Spring 2026 Lecture 10（約 80 分鐘）前約 60% 是 EM，約 62% 之後才轉到 PCA（最大變異方向、共變異矩陣的特徵向量、投影），本章對應的是後 40%。2018 年秋季 Andrew Ng 的 Lecture 15（約 79 分鐘）約前 80% 是 PCA：標準化到零均值單位變異、投影到主軸、最大化投影變異得到 covariance 矩陣的 principal eigenvector、降維的應用（神經科學範例等），最後 20% 才開始介紹 ICA 的雞尾酒會問題。兩支主題與本章相符；字幕中 Lecture 10 沒有出現 reconstruct，重建誤差一類的說法只依講義。
 
 ## 前處理先決定什麼叫「大變化」
 
@@ -93,6 +67,32 @@ PCA 可用於壓縮、二或三維視覺化、在監督式學習前降低輸入�
 ## 自學練習
 
 取一份含兩個量尺差很多特徵的二維資料。分別對「只中心化」與「中心化加標準化」計算共變異矩陣、主特徵向量及第一主成分解釋的變異比例。畫出兩條主軸，說明尺度選擇如何改變 PCA 認為最重要的方向。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自CS229 Spring 2026 與舊版 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=sUS-eTa0l6s
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=dyb_cFywuik
+title: Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)、[Lecture 15 - PCA and ICA | Stanford CS229: Machine Learning Andrew Ng - Autumn 2018](https://www.youtube.com/watch?v=dyb_cFywuik)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Spring 2026 Lecture 10（約 80 分鐘）前約 60% 是 EM，約 62% 之後才轉到 PCA（最大變異方向、共變異矩陣的特徵向量、投影），本章對應的是後 40%。2018 年秋季 Andrew Ng 的 Lecture 15（約 79 分鐘）約前 80% 是 PCA：標準化到零均值單位變異、投影到主軸、最大化投影變異得到 covariance 矩陣的 principal eigenvector、降維的應用（神經科學範例等），最後 20% 才開始介紹 ICA 的雞尾酒會問題。兩支主題與本章相符；字幕中 Lecture 10 沒有出現 reconstruct，重建誤差一類的說法只依講義。
 
 ## 更新紀錄
 

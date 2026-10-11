@@ -1,5 +1,5 @@
 ---
-title: "CS231N L4：神經網路與反向傳播——計算圖上的「上游乘以本地」"
+title: "神經網路與反向傳播——計算圖上的「上游乘以本地」｜Stanford CS231N 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,23 +39,6 @@ glossary:
 [2026 課表](https://cs231n.stanford.edu/schedule.html)給 L4 的主題只有兩個：Multi-layer Perceptron 和 Backpropagation。這是「Deep Learning Basics」單元的最後一講，也是本系列規劃裡標記的第一個數學高峰。
 
 這篇照五層走：場景、直覺、機制（公式收在折疊區塊）、連回模型、想深入。機制那一層用 section 2 的五步例題當骨架，因為它比講義更一步一步。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 4 講（長度 1:16:46），字幕有 sigmoid／ReLU 激活函數、神經元與大腦的類比、numpy 實作範例、計算圖與 local gradient、Jacobian 與矩陣梯度，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=25zD5qJHYsk
-title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation](https://www.youtube.com/watch?v=25zD5qJHYsk)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 場景：線性分類器不夠用
 
@@ -250,6 +233,23 @@ L4 的最後一頁寫著「Next Time: Convolutional Neural Networks!」。全連
 4. 卡在矩陣求導時，回去讀 [linear-backprop.pdf](https://cs231n.stanford.edu/handouts/linear-backprop.pdf) 的 2×2×3 小例子。
 
 今晚可以做的一件事：在紙上畫出 f(x, y, z) = (x + y) · z 的計算圖，代入 x = −2、y = 5、z = −4，只用「add 分配、mul 交換」兩條規則寫出三個梯度，再用 numpy 的數值梯度核對。
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 4 講（長度 1:16:46），字幕有 sigmoid／ReLU 激活函數、神經元與大腦的類比、numpy 實作範例、計算圖與 local gradient、Jacobian 與矩陣梯度，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=25zD5qJHYsk
+title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation](https://www.youtube.com/watch?v=25zD5qJHYsk)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

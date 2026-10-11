@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 導讀：一門把「寫清楚」列為第三個學習目標的演算法課"
+title: "一門把「寫清楚」列為第三個學習目標的演算法課｜Stanford CS161 主題單元"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -25,16 +25,6 @@ draft: false
 先講最反直覺的一件事：這門課的官方目標有三個，第三個是「溝通」。第一堂的投影片把它跟設計、分析並列寫在同一頁——**Communication: Learn to communicate clearly about algorithms**。這不是場面話，它是整套作業規則的來源，包括為什麼從第二份作業起手寫一律零分。
 
 這篇涵蓋 Winter 2026 那一輪的十八講講義、八份作業 PDF、課程政策與嵌入式倫理教材，以及一手材料裡跟外界印象對不上的地方。**不包含**演算法本身的教學——那是講義自己的工作，而且它們全部公開。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -197,6 +187,16 @@ Winter 2026 由 [Moses Charikar](https://profiles.stanford.edu/moses-charikar) �
 - **課程人力**：兩位授課者、一位課程經理、一位 head CA、七位 CA，另有一位 ACE 專屬 CA。
 - **Stanford Online 版本**：五學分，八週，每週建議十到二十小時，學費 7,875 美元（頁面註明可能變動），2026 年的檔期是 6 月 22 日到 8 月 15 日，我查證當下顯示未開放報名。
 - **未能確認的項目**：一、修課人數。課程網站與 ExploreCourses 都沒有公布，我沒有找到可引用的來源。二、2026–2027 學年是否會再開秋季與夏季班——ExploreCourses 目前只掛冬季與春季，但未來學年的資料會陸續補，現在下「減開」的結論太早。三、Winter 2026 之前各屆的完整課程網站是否還開著。`web.stanford.edu/class/archive/cs/cs161/` 這層目錄直接回 404，我沒有找到可瀏覽的封存索引；能確認還在的舊材料只有 GitHub 上逐年的 notebook repo（最早到 2021 年冬季）。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

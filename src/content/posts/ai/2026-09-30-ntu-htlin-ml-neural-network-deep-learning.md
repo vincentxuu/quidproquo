@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T12–T13：神經網路與深度學習（autoencoder、PCA）"
+title: "神經網路與深度學習（autoencoder、PCA）｜台大林軒田 機器學習基石與技法 第 12–13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,28 +37,6 @@ glossary:
 技法的第一段用 kernel 塞進大量特徵，第二段用 aggregation 組合預測特徵。第三段「Distilling Implicit Features: Extraction Models」換了一個方向：不再由人決定特徵，而是讓模型自己從資料裡**萃取**出隱藏的特徵。T12–T15 的四個模型（神經網路、深度學習、RBF 網路、矩陣分解）都是這個主題的變奏。
 
 這一篇讀的兩講有一個時代背景要先講清楚：錄影在 2016 年上傳，當時深度學習剛「在近年受到關注」（投影片原話），所以 T13 的主角是逐層預訓練與 autoencoder，而不是現在常見的 ReLU、Adam 或 Transformer。林軒田在 Fall 2024 另外補了 302u、303u 兩份 modern deep learning 投影片，本系列放在[第 16 篇](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=GwRS2YJv2Ck
-title: Motivation
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=giOcWMbi1bU
-title: Neural Network Hypothesis
-```
-
-原始影片：[Motivation](https://www.youtube.com/watch?v=GwRS2YJv2Ck)、[Neural Network Hypothesis](https://www.youtube.com/watch?v=giOcWMbi1bU)、[Neural Network Learning](https://www.youtube.com/watch?v=Z26n4YGNWvQ)、[Optimization and Regularization](https://www.youtube.com/watch?v=z2tHzMzoOOs)、[Deep Neural Network](https://www.youtube.com/watch?v=H1czfox0Nog)、[Autoencoder](https://www.youtube.com/watch?v=eBVPQ4fgs_k)、[Denoising Autoencoder](https://www.youtube.com/watch?v=gx2Vfw8S--0)、[Principal Component Analysis](https://www.youtube.com/watch?v=Bgc4UY8567A)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 在課表上的位置
 
@@ -233,6 +211,28 @@ Q9 值得和 T12「試幾組隨機而且小的初始值」的建議放在一起�
 - [MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)：研究所等級的深度學習。
 - [台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)：台大的平行路線，偏深度學習與生成式 AI。
 - [Harvard CS181 HW4：Autoencoder 與 VAE](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)、[CMU 10-301 HW5：神經網路](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks)：其他學校的同主題作業。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=GwRS2YJv2Ck
+title: Motivation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=giOcWMbi1bU
+title: Neural Network Hypothesis
+```
+
+原始影片：[Motivation](https://www.youtube.com/watch?v=GwRS2YJv2Ck)、[Neural Network Hypothesis](https://www.youtube.com/watch?v=giOcWMbi1bU)、[Neural Network Learning](https://www.youtube.com/watch?v=Z26n4YGNWvQ)、[Optimization and Regularization](https://www.youtube.com/watch?v=z2tHzMzoOOs)、[Deep Neural Network](https://www.youtube.com/watch?v=H1czfox0Nog)、[Autoencoder](https://www.youtube.com/watch?v=eBVPQ4fgs_k)、[Denoising Autoencoder](https://www.youtube.com/watch?v=gx2Vfw8S--0)、[Principal Component Analysis](https://www.youtube.com/watch?v=Bgc4UY8567A)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Stage Recap: From Reasoning Under Certainty and Optimization to Uncertainty"
+title: "Stage Recap: From Reasoning Under Certainty and Optimization to Uncertainty | CMU 07-380 Topic Guide"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, learning-path, optimization]
@@ -23,16 +23,6 @@ By 9/28, [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 has c
 The short answer: **the first ten lectures run from "provable and enumerable" to "can only be estimated".** Logic tells an agent what is certain; planning turns certain knowledge into action; optimization writes "best" as a constrained objective; and at MAP, when the data is not enough to be certain, a prior goes into the objective, which is where probabilistic models take over.
 
 This post synthesizes only the official materials already cited in orders 1–13 of this series, plus the module split on the [course schedule](https://www.cs.cmu.edu/~07380/#schedule). It adds no new facts. Based on the course site as of 2026-09-29; the site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
 
 ## How the course site splits it
 
@@ -130,6 +120,16 @@ If you are self-studying along with this series, the math behind Lec2–Lec8 can
 1. On a sheet of paper, write one sentence for each of Lec2–Lec10: "what problem from the previous lecture does this one solve?" Wherever you get stuck, go back to that lecture's pre-reading.
 2. Pick a programming assignment from HW1–HW3 you have not run yet, download the starter, and run `autograder.py` once to see everything fail, confirming your environment works.
 3. Read question 4 of [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) (MAP: priors and regularization) and try to write only the form of the log-posterior, without rushing to finish. This checks whether you have really crossed from optimization to probability.
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

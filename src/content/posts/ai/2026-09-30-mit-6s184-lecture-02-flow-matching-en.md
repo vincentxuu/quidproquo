@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L2: Flow Matching, Learning the Marginal Vector Field from Conditional Paths"
+title: "Flow Matching, Learning the Marginal Vector Field from Conditional Paths | MIT 6.S184 Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 This lecture answers one question: **how do we tune θ so that the ODE endpoint `X_1` follows the data distribution `p_data`?** The notes call the answer flow matching and, at the start of §3, describe it as simple, scalable, and the current state of the art.
 
 Keep the time direction in mind: in this course **t=0 is noise and t=1 is data**. Much of the diffusion literature uses the reverse, so be careful when you compare with other material.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=PNkMKWW8Khw
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Spot check: read the opening (a recap of Lecture 1; flow matching as the core training algorithm) and the ending (next lecture on scores and guidance) and keyword-checked the middle: conditional and marginal probability paths, the marginal vector field, why the integral is intractable, the continuity equation (the video explains conservation of probability mass), and the regression loss against the conditional target. The lecture and topics match this post. The captions do not contain the theorem/equation numbers or the “Flow Matching Matrix” label; those details follow the lecture notes and Slides 2.
 
 ## One table for the whole lecture
 
@@ -275,6 +257,24 @@ The three Gaussian-path formulas (eq. 35–37):
 - A broad introduction to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 
 Series navigation: previous, [Lab 1: Simulating ODEs and SDEs](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en) | next, [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=PNkMKWW8Khw
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 02: Flow Matching (2026)](https://www.youtube.com/watch?v=PNkMKWW8Khw)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Spot check: read the opening (a recap of Lecture 1; flow matching as the core training algorithm) and the ending (next lecture on scores and guidance) and keyword-checked the middle: conditional and marginal probability paths, the marginal vector field, why the integral is intractable, the continuity equation (the video explains conservation of probability mass), and the regression loss against the conditional target. The lecture and topics match this post. The captions do not contain the theorem/equation numbers or the “Flow Matching Matrix” label; those details follow the lecture notes and Slides 2.
 
 ## Update Log
 

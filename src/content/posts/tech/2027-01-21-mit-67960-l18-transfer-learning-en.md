@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L18: Transfer Learning — Pretraining, Feature Extraction, and Fine-Tuning Strategies"
+title: "Transfer Learning — Pretraining, Feature Extraction, and Fine-Tuning Strategies | MIT 6.7960 Lecture 18"
 date: 2026-08-30
 category: tech
 type: guide
@@ -32,25 +32,6 @@ additionalSeries:
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 18). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/).
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
-title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 18 transcript (Sara Beery, 1:25:41): the topic is indeed transfer learning, but the transcript covers pretraining/fine-tuning trade-offs, domain adaptation, distillation, and foundation models with adapters/prompting; LoRA, SimCLR, MAE and the "feature extraction / full fine-tuning / parameter-efficient fine-tuning" split do not appear, so the "Three fine-tuning strategies" section now carries a note marking it as this site's supplement.
 
 ## Why transfer works
 
@@ -116,6 +97,25 @@ Practically, **self-supervised pretraining + downstream fine-tuning** already be
 ## Bridge to L19
 
 L19 goes deeper into the PEFT that L18 left as a preview (LoRA math derivation, prefix tuning details), the foundation-model era and in-context learning, and catastrophic forgetting.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=tNfuZ9Imt3M
+title: MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 18. Transfer Learning: Models](https://www.youtube.com/watch?v=tNfuZ9Imt3M)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 18. Transfer Learning: Models](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec18_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 18 transcript (Sara Beery, 1:25:41): the topic is indeed transfer learning, but the transcript covers pretraining/fine-tuning trade-offs, domain adaptation, distillation, and foundation models with adapters/prompting; LoRA, SimCLR, MAE and the "feature extraction / full fine-tuning / parameter-efficient fine-tuning" split do not appear, so the "Three fine-tuning strategies" section now carries a note marking it as this site's supplement.
 
 ## Update Log
 

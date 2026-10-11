@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 7: o3 Found a Linux Kernel Zero-Day at a 1:50 Signal-to-Noise Ratio"
+title: "o3 Found a Linux Kernel Zero-Day at a 1:50 Signal-to-Noise Ratio | Stanford CS146S Week 7"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the eighth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-cours
 Three topics: SAST / SCA, dependency and secret-leak vulnerabilities; prompt injection and agent-specific attack surfaces; agent-assisted triage and remediation. The guest is Semgrep CEO Isaac Evans, present in both syllabi.
 
 Security is the **only topic that survives in both versions**. But this week has to handle two opposite things at once: agents as defensive tooling, and agents as a new attack surface.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## The three acronyms the course teaches first
 
@@ -163,6 +151,18 @@ The last one is not a technical question. **The course puts it on the same list 
 - The o3 experiment is from May 2025 and models have turned over since; those numbers describe **the shape of the method**, not today's hit rate
 - OWASP revises its lists annually; the latest at time of writing is the GenAI / LLM Top 10 2026, published 2026-08-03
 - Sandbox and permission defaults across agent products change often — check current docs before implementing
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 25: Caching, Memory Hierarchy, and Locality"
+title: "Caching, Memory Hierarchy, and Locality | Stanford CS107 Lecture 25"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 The previous lecture used profilers and compiler transformations to ask what work can be removed. Lecture 25 changes direction: even when the same instructions execute, waiting time can differ because data resides at different memory levels. A cache retains data likely to be reused in a smaller, faster layer near the processor, allowing many accesses to avoid returning to a slower layer.
 
 The Winter 2026 public deck extracts to only 55 lines. It is not a complete public course in cache architecture. This article faithfully explains its memory hierarchy, temporal locality, and spatial locality, then turns them into testable programming questions. It does not invent cache-line sizes, associativity, replacement policies, write policies, or processor-specific latencies.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture materials and complete agenda
 
@@ -103,6 +95,14 @@ Lecture 25 is valuable because it is restrained. It replaces the assumption that
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Restored the page 3 cache-cost thought question and calculation, and documented the unavailable source for the page 5 `cache.c` demo.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## References
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 21 | Comparing Classifiers: Beyond accuracy to calibration, error costs, and fairness"
+title: "Comparing Classifiers: Beyond accuracy to calibration, error costs, and fairness | Stanford CS109 Lecture 21"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 This is article 22 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 21: Comparing Classifiers** (Jul 29), taught by Chris Gregg. It follows the official [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture21-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture21-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture21-LLMPrompts.pdf).
 
 This is **L2**: a four-page worksheet with P1–P8 plus a Platt challenge, a five-page key omitting only the P8 pset7 solution, and a three-page six-concept guide. Current slides are unavailable and video is Canvas-gated.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
 
 ## P1: Logistic Regression refresher
 
@@ -109,6 +96,19 @@ Work through brute-force Bayes, Naive Bayes, train/test evaluation, calibration,
 - The worksheet has P1–P8 plus a challenge; the five-page key omits only P8.
 - The three-page guide has six concepts and no extra problem.
 - Current slides are unavailable and video is Canvas-gated.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234: Evaluating a Policy Without a Model — MC, TD(0), and Certainty Equivalence"
+title: "Evaluating a Policy Without a Model — MC, TD(0), and Certainty Equivalence | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,26 +39,6 @@ Up to the [previous lecture](/posts/ai/2026-09-30-cs234-mdp-planning-en), we ass
 Lecture 3's title states the problem outright: **Policy Evaluation Without Knowing How the World Works**. Today is only about evaluation: given a fixed policy π, estimate its value V^π. Improving the policy (control) waits for the next lecture. The slides also say up front that today's data comes from running π itself (on-policy). Evaluating π with data from other policies comes later.
 
 The listed readings are sections 5.1, 5.5, and 6.1–6.3 of [Sutton & Barto, 2nd edition](http://incompleteideas.net/book/the-book-2nd.html), and the structure follows David Silver's Lecture 4.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=jjq51TRNVvk
-title: Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"
-```
-
-Original videos: [Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"](https://www.youtube.com/watch?v=jjq51TRNVvk)
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 3, "Policy Evaluation" (about 62K characters): it covers Monte Carlo (first-visit) and TD policy evaluation, bias and variance, certainty equivalence, batch methods and the Mars rover/AB examples, matching this post. The quiz and page-level details here come from the 2026 slides and were not compared with the video.
 
 ## Back to dynamic programming: it already borrows its own estimate
 
@@ -222,6 +202,26 @@ One thing to do tonight: just the AB example. Before looking at the answer, writ
 
 - The same topic in CS221 (an introductory take on TD and Q-learning): [CS221 Lecture 8: Reinforcement Learning and Q-learning](/posts/ai/2026-08-22-stanford-cs221-lecture-08-reinforcement-learning-q-learning-en)
 - Policy evaluation and value-based methods from a deep RL angle: [Berkeley CS285: Policy and Value Methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=jjq51TRNVvk
+title: Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"
+```
+
+Original videos: [Stanford CS234 Spring 2024 Lecture 3, "Policy Evaluation"](https://www.youtube.com/watch?v=jjq51TRNVvk)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 3, "Policy Evaluation" (about 62K characters): it covers Monte Carlo (first-visit) and TD policy evaluation, bias and variance, certainty equivalence, batch methods and the Mars rover/AB examples, matching this post. The quiz and page-level details here come from the 2026 slides and were not compared with the video.
 
 ## Update Log
 

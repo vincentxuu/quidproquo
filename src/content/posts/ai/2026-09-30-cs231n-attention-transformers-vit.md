@@ -1,5 +1,5 @@
 ---
-title: "CS231N L8：Attention、Transformer 與 ViT"
+title: "Attention、Transformer 與 ViT｜Stanford CS231N 第 8 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,23 +37,6 @@ glossary:
 到第 7 講為止，CS231N 有兩種結構：處理網格的卷積，處理序列的 RNN。第 8 講引入第三種，而且它後來吃掉了前兩種的地盤。投影片的總結頁寫得很直接：Transformer 是今天所有大型 AI 模型的骨幹，用在語言、視覺、語音等領域。
 
 這一講的主線只有一條：attention 從哪裡來 → 抽象成一個通用運算 → 用它蓋出 Transformer → 把圖片也變成 Transformer 能吃的輸入。本文照這條線走。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 8 講（長度 1:06:31），字幕有 RNN 翻譯模型與 attention、self-attention 的矩陣運算、排列等變、位置編碼、masked 與 multi-head、RNN／卷積／self-attention 比較、Transformer block 與 ViT 概述，結尾是 Transformer 總結。字幕沒有 RoPE、QK-Norm、Flash Attention、Pre-Norm、SwiGLU、MoE，也沒有 224×224／16×16 patch 的數字例子，這些屬於本文依據的 2026 投影片，已在版本說明補上。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=RQowiOF_FvQ
-title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 場景：RNN 翻譯模型卡在一個向量
 
@@ -192,6 +175,23 @@ Y = A V         [N × D_out]   Y_i = Σ_j A_ij V_j
 - [CS224N：Transformer](/posts/ai/2026-08-22-cs224n-transformers)
 - [CME295：Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - 從零寫出 Transformer 語言模型：[CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 8 講（長度 1:06:31），字幕有 RNN 翻譯模型與 attention、self-attention 的矩陣運算、排列等變、位置編碼、masked 與 multi-head、RNN／卷積／self-attention 比較、Transformer block 與 ViT 概述，結尾是 Transformer 總結。字幕沒有 RoPE、QK-Norm、Flash Attention、Pre-Norm、SwiGLU、MoE，也沒有 224×224／16×16 patch 的數字例子，這些屬於本文依據的 2026 投影片，已在版本說明補上。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=RQowiOF_FvQ
+title: Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 8: Attention and Transformers](https://www.youtube.com/watch?v=RQowiOF_FvQ)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

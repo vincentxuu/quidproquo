@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T1–T2：線性 SVM 與對偶 SVM——最胖的分隔線、QP 與 KKT"
+title: "線性 SVM 與對偶 SVM——最胖的分隔線、QP 與 KKT｜台大林軒田 機器學習基石與技法 第 1–2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,28 +35,6 @@ glossary:
 **本文依據**：MOOC 投影片 [201_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/201_handout.pdf) 與 [202_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/202_handout.pdf)、[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 1–9 支、[Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 與 [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 課程頁的課程計畫，全部在 2026-09-30 打開核對。教科書對應 [LFD](http://amlbook.com) e-8.1（線性 SVM）與 e-8.2（對偶 SVM），這是兩份課程頁標的章節；e-Chapter 8 是 LFD 的線上章節，本文沒有打開章節本身。
 
 存取等級：只看 MOOC 是 **A2**，投影片與 9 支影片都免費。這兩講在 Fall 2024 沒有專屬作業，相關練習都在 HW6（見文末），那份 PDF 公開，但沒有官方解答。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=A-GxGCCAIrg
-title: Course Introduction
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8hak0XngnV0
-title: Large-Margin Separating Hyperplane
-```
-
-原始影片：[Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 從基石接過來：轉換的代價還沒付清
 
@@ -248,6 +226,28 @@ T2-2 的影片標題在 YouTube 上拼成「Largange Dual SVM」，投影片是�
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課。
 
 系列導覽：上一篇 [驗證與三個學習原則](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)｜下一篇 [Kernel 技巧與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=A-GxGCCAIrg
+title: Course Introduction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8hak0XngnV0
+title: Large-Margin Separating Hyperplane
+```
+
+原始影片：[Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lab 3: LoRA Fine-Tuning and LLM-as-a-Judge Evaluation"
+title: "LoRA Fine-Tuning and LLM-as-a-Judge Evaluation | MIT 6.S191 Lab 3"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,15 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lab 3 in the [official MIT 6.S191 2026 repository](https://github.com/MITDeepLearning/introtodeeplearning/tree/2026/lab3) is **Lab 3: LoRA Fine-Tuning and LLM-as-a-Judge Evaluation**. It builds chat templates and generation with LFM2-1.2B, adapts style through LoRA, and combines OpenRouter with Opik for a judge workflow. This article pins the 2026 branch so later changes to master do not silently alter the exercise.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as official GitHub notebooks).
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
 
 ## Before you begin
 
@@ -50,6 +41,15 @@ Keep a notebook copy, one reproducible end-to-end run, and a short conclusion: w
 ## Limits
 
 This lab has the most dependencies: a Colab GPU, Comet/Opik, and an OpenRouter key. The [official Lab 3 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab3/LLM_Finetuning.ipynb) warns that capable judges may cost money and free models may be rate-limited; recheck current terms.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as official GitHub notebooks).
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

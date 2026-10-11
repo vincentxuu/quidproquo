@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW5: Writing Data Parallelism and Pipeline Parallelism Yourself on Two GPUs"
+title: "Writing Data Parallelism and Pipeline Parallelism Yourself on Two GPUs | CMU 11-868 Assignment 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -27,16 +27,6 @@ glossary:
 > **This guide follows the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/).** It is part 14 of [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). The handout and repo are described as seen on 2026-09-30. The homework site is shared across semesters and may be changed for Fall 2026.
 
 This assignment puts parts 11 through 13 into practice: [data parallelism](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en) (L14–L15) and [pipeline parallelism](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) (first half of L16). [ZeRO from the previous post](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization-en) isn't part of it; you run ZeRO through DeepSpeed in HW6.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## At a glance
 
@@ -116,6 +106,16 @@ Also, the last commit on main is dated 2026-04-30, so it still reflects spring. 
 - Next in series: [L19–L20 Model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - Previous assignment: [HW4: fused CUDA kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en); next assignment: [HW6: DeepSpeed ZeRO + LoRA training, SGLang inference](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
 - On this site: [CS336 parallelism mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en), [CS336 parallelism strategies](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

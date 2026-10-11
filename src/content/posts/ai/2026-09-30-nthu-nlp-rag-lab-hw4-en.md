@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP RAG Labs + HW4: Building a Cat-Facts RAG Two Ways, with LangChain and by Hand"
+title: "Building a Cat-Facts RAG Two Ways, with LangChain and by Hand | NTHU Hung-Yu Kao Natural Language Processing Assignment 4 / Tutorial"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,28 +28,6 @@ glossary:
 > **Version note**: This post is based on materials from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025: [rag_tutorial_1.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_1.pdf) (cover dated 2024/11/28), [rag_tutorial_2.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_2.pdf) (cover dated 2024/12/05), [RAG_tutorial_1.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/RAG_tutorial_1.ipynb), [RAG_lab_2](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/RAG_lab_2), and the handout PDF, `main.ipynb`, `cat-facts.txt`, and `questions_answers.txt` in [Assignment4](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment4). Both TA slide decks are reused from 2024. The recordings are W13's [RAG1](https://youtube.com/live/anCghHOjzV0) and [RAG2](https://youtube.com/live/RpLqfqR2OZI) plus the [HW4 walkthrough](https://youtu.be/JvThEbeOZbs), all in Mandarin. None has a caption track, so I did not check them section by section. I checked every fact against the official materials on 2026-09-30. Access level **A3**: the handout, starter code, and data are public. What's missing is NTU COOL for submission, the grading script, and solutions.
 
 **Series**: previous [LLM API lab](/posts/ai/2026-09-30-nthu-nlp-llm-api-en) | next [Course summary and LLM reasoning notes](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=JvThEbeOZbs
-title: HW4 walkthrough (in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=anCghHOjzV0
-title: W13 Tuesday: RAG1
-```
-
-Original videos: [HW4 walkthrough (in Mandarin)](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 Tuesday: RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 Thursday: RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 Thursday recording (in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
 
 ## Timeline: the assignment came before the labs
 
@@ -171,6 +149,28 @@ One thing to try tonight: download `cat-facts.txt` and `questions_answers.txt` a
 - Chunking: [Chunking strategies decide whether RAG finds the answer](/posts/ai/2026-03-12-chunking-strategies-en)
 - Evaluating RAG: [RAG evaluation frameworks and tool selection](/posts/ai/2026-03-12-rag-evaluation-frameworks-en)
 - Another course's RAG assignment: [CS224U Assignment 2: OpenQA and DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=JvThEbeOZbs
+title: HW4 walkthrough (in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=anCghHOjzV0
+title: W13 Tuesday: RAG1
+```
+
+Original videos: [HW4 walkthrough (in Mandarin)](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 Tuesday: RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 Thursday: RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 Thursday recording (in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

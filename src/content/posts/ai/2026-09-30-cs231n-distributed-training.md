@@ -1,5 +1,5 @@
 ---
-title: "CS231N L11：大規模分散式訓練——把一個模型切到上萬張 GPU"
+title: "大規模分散式訓練——把一個模型切到上萬張 GPU｜Stanford CS231N 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **為什麼電腦視覺課要講分散式訓練？** [上一篇](/posts/ai/2026-09-30-cs231n-video-understanding)算過：5 分鐘、24 fps 的影片切成 ViT token 是 141 萬個。下一篇的自監督學習也會提到 SimCLR 需要大 batch，ImageNet 實驗要靠 TPU 分散式訓練。視覺模型走到基礎模型的規模之後，「怎麼把它塞進很多張 GPU」就變成每個人都會碰到的問題。
 
 這一講是整門課最偏系統的一講。它的貫穿範例是 [Llama3-405B](https://arxiv.org/abs/2407.21783)。投影片解釋了原因：GPT-4 技術報告明言不公開架構、模型大小、硬體與訓練算力，開啟了不分享模型細節的趨勢；Meta 在 2024 年 4 月釋出的 Llama3 則在論文裡公開大量模型與訓練細節。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 11 講（長度 1:12:53），字幕有 H100／B200 與 GPU 算力成長、Llama 3 叢集、all-reduce、FSDP／HSDP、activation checkpointing、context／tensor／pipeline 平行、microbatch 與 MFU／HFU（30%、40% 的門檻），與本文主題相符；字幕沒有出現 1.875 PB 這類數字，那是投影片內容。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=9MvD-XsowsE
-title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training](https://www.youtube.com/watch?v=9MvD-XsowsE)
-
-課程與錄影入口：
-
-- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 第一部分：GPU 與叢集
 
@@ -198,6 +180,24 @@ CP 常用於長序列微調。Llama3-405B 的例子：第一階段 S=8192，不�
 - 大 batch 對比學習為什麼需要分散式訓練：本系列下一篇 [L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 
 **系列導覽**：上一篇 [L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)｜下一篇 [L12：自監督學習](/posts/ai/2026-09-30-cs231n-self-supervised-learning)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 11 講（長度 1:12:53），字幕有 H100／B200 與 GPU 算力成長、Llama 3 叢集、all-reduce、FSDP／HSDP、activation checkpointing、context／tensor／pipeline 平行、microbatch 與 MFU／HFU（30%、40% 的門檻），與本文主題相符；字幕沒有出現 1.875 PB 這類數字，那是投影片內容。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=9MvD-XsowsE
+title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training](https://www.youtube.com/watch?v=9MvD-XsowsE)
+
+課程與錄影入口：
+
+- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

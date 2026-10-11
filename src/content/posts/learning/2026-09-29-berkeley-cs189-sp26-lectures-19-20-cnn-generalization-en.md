@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 19–20: Initialization, BatchNorm, CNNs, Early Stopping, and Double Descent"
+title: "Initialization, BatchNorm, CNNs, Early Stopping, and Double Descent | Berkeley CS189 Lectures 19–20"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, neural-networks, cnn, batch-norm, deep-learning]
@@ -37,31 +37,6 @@ Assigned reading (Bishop, [Deep Learning: Foundations and Concepts](https://www.
 |---|---|
 | Lec 19 | 7.2.5 NN initialization; 7.4 through 7.4.2 (data normalization, batch norm); Chapter 10 through 10.2.8, plus 10.3.2 (CNNs) |
 | Lec 20 | 9.1.2 no free lunch; 9.3.1 early stopping; 9.3.2 double descent |
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=-4PpBUsB_S4
-title: Lecture 19 video
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4LrCyN7URuY
-title: Lecture 20 video
-```
-
-Original videos: [Lecture 19 video](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 video](https://www.youtube.com/watch?v=4LrCyN7URuY)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 19 video (-4PpBUsB_S4, about 80 minutes) starts from vanishing gradients and covers the O(N·L²) cost of finite differences, initialization and the symmetry problem of all-zero weights, batch normalization with its moving averages at inference, and the input-scale problem (meters versus millimeters); the later part starts CNNs (templates and edge detection) and ends with an edge-detection demo, before pooling. The Lecture 20 video (4LrCyN7URuY, about 71 minutes) covers pooling and local invariance, receptive fields, weight sharing, VGG and ResNet, a single held-out validation set replacing cross-validation, transfer learning with frozen layers, early stopping, dropout, and double descent. The exact He-initialization coefficient, the Nakkiran paper name, and Discussion 9 rely on the slides only and were not checked item by item against the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Lec 19, first part: finishing backprop
 
@@ -174,6 +149,31 @@ Both problems in Discussion 9 are reused from Fall 2025 discussions (labeled F25
 - Series navigation: previous, [HW3 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers-en); next, [Lec 21–22: Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: following Discussion 9 problem 2, write a 1D convolution in NumPy, then rewrite it as a 7×9 matrix multiply and confirm both give the same output. You will see directly what "15 entries, only 3 parameters" means.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=-4PpBUsB_S4
+title: Lecture 19 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4LrCyN7URuY
+title: Lecture 20 video
+```
+
+Original videos: [Lecture 19 video](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 video](https://www.youtube.com/watch?v=4LrCyN7URuY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 19 video (-4PpBUsB_S4, about 80 minutes) starts from vanishing gradients and covers the O(N·L²) cost of finite differences, initialization and the symmetry problem of all-zero weights, batch normalization with its moving averages at inference, and the input-scale problem (meters versus millimeters); the later part starts CNNs (templates and edge detection) and ends with an edge-detection demo, before pooling. The Lecture 20 video (4LrCyN7URuY, about 71 minutes) covers pooling and local invariance, receptive fields, weight sharing, VGG and ResNet, a single held-out validation set replacing cross-validation, transfer learning with frozen layers, early stopping, dropout, and double descent. The exact He-initialization coefficient, the Nakkiran paper name, and Discussion 9 rely on the slides only and were not checked item by item against the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

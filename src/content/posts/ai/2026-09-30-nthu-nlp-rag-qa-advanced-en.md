@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP RAG, Part 2: Connecting the Retriever to a Reader, from ORQA and REALM to Self-RAG"
+title: "NTHU NLP RAG, Part 2: Connecting the Retriever to a Reader, from ORQA and REALM to Self-RAG | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,30 +32,6 @@ glossary:
 > **Version note**: This post is based on slides 60–125 of [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) from Hung-Yu Kao's Natural Language Processing course at National Tsing Hua University (NTHU), Fall 2025, plus the Chinese caption tracks of the [W11 Tuesday](https://www.youtube.com/live/chIewpk4-q0) and [W11 Thursday](https://www.youtube.com/live/cRSaBtoTDag) recordings. The lectures are in Mandarin. I checked every fact against the official materials on 2026-09-30. Access level **A3**: slides and recordings are public. This unit has no assignment of its own; the hands-on part is in [the RAG labs and HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en).
 
 **Series**: previous [RAG, Part 1: hallucination and retrievers](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en) | next [LLM API lab](/posts/ai/2026-09-30-nthu-nlp-llm-api-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=chIewpk4-q0
-title: W11 Tuesday recording (Fall 2025, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=cRSaBtoTDag
-title: W11 Thursday recording (Fall 2025, in Mandarin)
-```
-
-Original videos: [W11 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both W11 transcripts (Tuesday and Thursday) were read through. The table rows hold: Tuesday announces the term-project topic change, then covers TF-IDF, BM25, why CLS is unreliable, Siamese / Sentence-BERT, SimCSE, DPR and GTR, and ends at the retriever/reader boundary; Thursday opens with the term-project checkpoint and peer review and announces that HW4 is delayed a week, then covers ORQA / ICT / REALM, and ends on the RAG paper with the rest promised for next week. The professor remarks the post relays (the ICT remark and the warning about fine-tuning your own encoder, REALM being hard to train, the comment on the RAG paper) are all found. The Thursday split originally said "19 minutes"; the captions carry no timestamps, so it now says "about 20". Nothing from REPLUG onward is covered in either video, so that part remains slide-only.
 
 ## Where this picks up, and what the recordings cover
 
@@ -171,6 +147,30 @@ One thing to try tonight: take a RAG system or ChatGPT conversation you already 
 - The same topic from another course: [CS224N Lecture 10: six components of RAG and language agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - Retrieval evaluation and neural IR: [CS224U: information retrieval](/posts/ai/2026-09-29-cs224u-information-retrieval-en)
 - The engineering landscape: [RAG patterns: a complete guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=chIewpk4-q0
+title: W11 Tuesday recording (Fall 2025, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cRSaBtoTDag
+title: W11 Thursday recording (Fall 2025, in Mandarin)
+```
+
+Original videos: [W11 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 Thursday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 Tuesday recording (Fall 2025, in Mandarin)](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both W11 transcripts (Tuesday and Thursday) were read through. The table rows hold: Tuesday announces the term-project topic change, then covers TF-IDF, BM25, why CLS is unreliable, Siamese / Sentence-BERT, SimCSE, DPR and GTR, and ends at the retriever/reader boundary; Thursday opens with the term-project checkpoint and peer review and announces that HW4 is delayed a week, then covers ORQA / ICT / REALM, and ends on the RAG paper with the rest promised for next week. The professor remarks the post relays (the ICT remark and the warning about fine-tuning your own encoder, REALM being hard to train, the comment on the RAG paper) are all found. The Thursday split originally said "19 minutes"; the captions carry no timestamps, so it now says "about 20". Nothing from REPLUG onward is covered in either video, so that part remains slide-only.
 
 ## Update Log
 

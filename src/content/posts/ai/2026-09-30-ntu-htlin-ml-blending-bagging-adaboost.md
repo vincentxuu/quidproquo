@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T7–T8：Blending、Bagging 與 AdaBoost"
+title: "Blending、Bagging 與 AdaBoost｜台大林軒田 機器學習基石與技法 第 7–8 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,28 +37,6 @@ glossary:
 技法的前六講都在做同一件事：用 kernel 把大量特徵塞進模型裡。從第 7 講開始換題目，進入第二段「Combining Predictive Features: Aggregation Models」。問題變成：手上有很多個假說，有的強、有的弱，能不能組合出一個比任何單一個都好的 G？
 
 這兩講回答兩件事。第一，組合為什麼會變好：答案是多樣性，加上投票能抵銷 variance。第二，多樣性從哪裡來：T7 靠資料的隨機抽樣（bagging），T8 靠刻意重新加權（AdaBoost）。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=mjUKsp0MvMI
-title: Motivation of Aggregation
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=DAFkKJYTMW4
-title: Uniform Blending
-```
-
-原始影片：[Motivation of Aggregation](https://www.youtube.com/watch?v=mjUKsp0MvMI)、[Uniform Blending](https://www.youtube.com/watch?v=DAFkKJYTMW4)、[Linear and Any Blending](https://www.youtube.com/watch?v=i03s1g7X_m4)、[Bagging (Bootstrap Aggregation)](https://www.youtube.com/watch?v=3T1mdvzRAF0)、[Motivation of Boosting](https://www.youtube.com/watch?v=hL8DjIHAzZY)、[Diversity by Re-weighting](https://www.youtube.com/watch?v=pTNKUj_1Dw8)、[Adaptive Boosting Algorithm](https://www.youtube.com/watch?v=vqTXLTYqbbw)、[Adaptive Boosting in Action](https://www.youtube.com/watch?v=5wPN87bwoaE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 在課表上的位置
 
@@ -213,6 +191,28 @@ Q10 要求把 HW2 的 decision stump 擴充成多維、吃樣本權重的版本�
 
 - [Harvard CS181 HW4：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=mjUKsp0MvMI
+title: Motivation of Aggregation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=DAFkKJYTMW4
+title: Uniform Blending
+```
+
+原始影片：[Motivation of Aggregation](https://www.youtube.com/watch?v=mjUKsp0MvMI)、[Uniform Blending](https://www.youtube.com/watch?v=DAFkKJYTMW4)、[Linear and Any Blending](https://www.youtube.com/watch?v=i03s1g7X_m4)、[Bagging (Bootstrap Aggregation)](https://www.youtube.com/watch?v=3T1mdvzRAF0)、[Motivation of Boosting](https://www.youtube.com/watch?v=hL8DjIHAzZY)、[Diversity by Re-weighting](https://www.youtube.com/watch?v=pTNKUj_1Dw8)、[Adaptive Boosting Algorithm](https://www.youtube.com/watch?v=vqTXLTYqbbw)、[Adaptive Boosting in Action](https://www.youtube.com/watch?v=5wPN87bwoaE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 6: Sorting Lower Bounds and Linear-Time Radix Sort"
+title: "Sorting Lower Bounds and Linear-Time Radix Sort | Stanford CS161 Lecture 6"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is post 7 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 6**. Moses Charikar taught it on January 26, 2026. The official component calls it [BucketSort and Lower Bounds for Sorting](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting). The notes say *Sorting Lower Bounds, Counting Sort, and Radix Sort*, while the slides say *Sorting lower bounds and O(n)-time sorting*. I preserve the page's BucketSort label while noting that the concrete bucket algorithm in the materials is called Counting Sort. Sources used here are the pre-lecture exercise, notes, and slides; I did not use the Canvas recording.
 
 The first five lectures obtained ordering information through comparisons. MergeSort already has worst-case `O(n log n)` time, so can sorting reach `O(n)`? The answer begins with a different question: **what may the algorithm do with a key?** Lecture 6 first proves `Ω(n log n)` in the comparison model, then leaves that model by reading integer keys directly in Counting Sort and Radix Sort. There is no contradiction.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting)
-
-Checked: 2026-10-10.
 
 ## Lower bounds depend on a computational model
 
@@ -181,6 +171,16 @@ For a paper check, run `21,345,13,101,50,234,1` through every pass and draw arro
 A formal randomized comparison lower bound must reason about a distribution over deterministic trees, often through distributional arguments. The official slides state but omit the proof. Any full addition should use a separate primary source and be marked as extension rather than quietly renaming deterministic leaf counting.
 
 Production radix implementations often use fixed machine words, array counting, and alternating buffers instead of linked-list buckets. Those choices can improve cache locality and constants without changing the central tradeoff: each pass touches `n` items, the radix controls bucket work, and word width controls pass count. The formula `d(n+r)` is an evaluation framework, not a substitute for measurement.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-6-bucketsort-and-lower-bounds-for-sorting)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

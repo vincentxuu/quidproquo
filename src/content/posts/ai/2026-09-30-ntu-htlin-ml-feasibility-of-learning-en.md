@@ -1,5 +1,5 @@
 ---
-title: "Reading Hsuan-Tien Lin's ML Foundations: Is Learning Feasible? Hoeffding and \"Outside the Data\""
+title: "Reading Hsuan-Tien Lin's ML Foundations: Is Learning Feasible? Hoeffding and \"Outside the Data\" | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,28 +31,6 @@ This is post 2 in the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations &
 The PLA from [post 1](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) can reach zero errors on the training data. What we actually care about is **data we have not seen**. This lecture jumps from algorithms to probabilistic guarantees, the first steep step in the course, so this series gives it a post of its own.
 
 **Sources**: MOOC slides [04_handout](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/04_handout.pdf), the W3 watch list on the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/), extended slides [04e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/04e_handout.pdf), [Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf), and [Fall 2024 HW2](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw2/hw2_red.pdf). All checked on 2026-09-30.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=tOgbh5_747w
-title: Learning is Impossible?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=MgAihqFPkZc
-title: Probability to the Rescue
-```
-
-Original videos: [Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Materials for this post
 
@@ -192,6 +170,28 @@ The simulated value comes out far below 0.33, matching the slides' point that Ho
 - [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another take on learning theory.
 
 **Series navigation**: Previous: [The Learning Problem, PLA, and Types of Learning](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en) | [Overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en) | Next: [Training vs. Testing: Effective Hypotheses, Growth Function, and Break Point](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=tOgbh5_747w
+title: Learning is Impossible?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=MgAihqFPkZc
+title: Probability to the Rescue
+```
+
+Original videos: [Learning is Impossible?](https://www.youtube.com/watch?v=tOgbh5_747w)、[Probability to the Rescue](https://www.youtube.com/watch?v=MgAihqFPkZc)、[Connection to Learning](https://www.youtube.com/watch?v=iXbbfjJNfwU)、[Connection to Real Learning](https://www.youtube.com/watch?v=MFL6xDn1lXM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

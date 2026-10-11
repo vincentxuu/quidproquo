@@ -1,5 +1,5 @@
 ---
-title: "CS231N 收尾：World Modeling／Robot Learning、Human-Centered AI 與期末專題"
+title: "World Modeling／Robot Learning、Human-Centered AI 與期末專題｜Stanford CS231N 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,29 +41,6 @@ glossary:
 **系列位置**：上一篇 [L15：3D 視覺](/posts/ai/2026-09-30-cs231n-3d-vision)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 
 課程最後兩講不再教新演算法，而是把前面的東西往外推：視覺模型要怎麼跟行動接起來，又要為誰服務。同一段時間，修課生手上最重的是期末專題，占總成績 35%。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片都讀了字幕。第一支是 Spring 2025 第 17 講 Robot Learning（長度 1:18:32，客座講者 Yunzhu Li，字幕開場介紹確認），字幕有 Atari 與 AlphaGo、credit assignment、粒子動態模型與彈塑性麵團做餃子、behavior cloning、inverse RL、diffusion policy、RT-1 到 Pi-Zero 的時間線、真實世界評估與 sim-to-real 挑戰，與本文敘述相符；字幕沒有 world model 的定義，也沒有 1X World Models、DayDreamer、NVIDIA Cosmos，已更正（原文寫成講者給的定義與例子）。第二支是第 18 講 Human-Centered AI（長度 1:05:15，Fei-Fei Li），本文依字幕整理的內容（540 百萬年前、summer vision project、物件辨識三波與 2012 年 ImageNet 匯流、Visual Genome、手部衛生與 ICU、約 1,400 人調查、BEHAVIOR 任務表現為零、增強而非取代）抽樣都在字幕出現。期末專題段與影片無關，未核對。
-
-```youtube
-url: https://www.youtube.com/watch?v=XSfmOH_xVSU
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
-```
-
-原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
-
-課程與錄影入口：
-
-- [CS231N Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 2026 L17：World Modeling，只有一行課表
 
@@ -178,6 +155,29 @@ imitation learning 就是從示範資料做監督學習，投影片列出 behavi
 
 - 強化學習與機器人學習的完整課程：[Berkeley CS285 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - 一般深度學習與研究專案的另一種寫法：[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都讀了字幕。第一支是 Spring 2025 第 17 講 Robot Learning（長度 1:18:32，客座講者 Yunzhu Li，字幕開場介紹確認），字幕有 Atari 與 AlphaGo、credit assignment、粒子動態模型與彈塑性麵團做餃子、behavior cloning、inverse RL、diffusion policy、RT-1 到 Pi-Zero 的時間線、真實世界評估與 sim-to-real 挑戰，與本文敘述相符；字幕沒有 world model 的定義，也沒有 1X World Models、DayDreamer、NVIDIA Cosmos，已更正（原文寫成講者給的定義與例子）。第二支是第 18 講 Human-Centered AI（長度 1:05:15，Fei-Fei Li），本文依字幕整理的內容（540 百萬年前、summer vision project、物件辨識三波與 2012 年 ImageNet 匯流、Visual Genome、手部衛生與 ICU、約 1,400 人調查、BEHAVIOR 任務表現為零、增強而非取代）抽樣都在字幕出現。期末專題段與影片無關，未核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=XSfmOH_xVSU
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
+```
+
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU)、[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+
+課程與錄影入口：
+
+- [CS231N Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

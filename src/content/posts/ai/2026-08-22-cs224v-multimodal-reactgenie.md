@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 13 講：ReactGenie 如何讓語音命令與原生 GUI 共用同一個狀態"
+title: "ReactGenie 如何讓語音命令與原生 GUI 共用同一個狀態｜Stanford CS224V 第 13 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, multimodal, react, conversational-ui]
@@ -19,27 +19,6 @@ description: "CS224V Multimodal Applications：組合命令、API 暴露、同�
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第十三講的 multimodal 不是「模型能看圖片」而已。它討論使用者同時用語音與畫面操作 app：說「把所有 [ReactGenie](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf) 文字靠右」時，系統要理解目前畫布、找到多個物件、組合 API，並讓結果直接出現在原生 GUI。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Multimodal Applications」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 15 講（約 57 分），由客座講者介紹多模態應用，字幕講到為什麼需要多模態互動（語音加 GUI 觸控）、ReactGenie 多模態 app 開發框架與 Genie Wizard，並提到 12 位開發者的受試研究，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=FIoD02zCILo
-title: CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024
-```
-
-原始影片：[CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024](https://www.youtube.com/watch?v=FIoD02zCILo)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：三個問題與一個 framework
 
@@ -160,6 +139,27 @@ Multimodal UI 可在複合 manipulation 與大量結果上比 GUI-only 更有效
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開 deck 有架構與 study 摘要，但不是完整 API reference，也沒有全部 demo source、原始研究資料或課堂錄影。本文不把 2026 改名後內容混入這堂 Fall 2025 lecture。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Multimodal Applications」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 15 講（約 57 分），由客座講者介紹多模態應用，字幕講到為什麼需要多模態互動（語音加 GUI 觸控）、ReactGenie 多模態 app 開發框架與 Genie Wizard，並提到 12 位開發者的受試研究，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=FIoD02zCILo
+title: CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024
+```
+
+原始影片：[CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024](https://www.youtube.com/watch?v=FIoD02zCILo)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

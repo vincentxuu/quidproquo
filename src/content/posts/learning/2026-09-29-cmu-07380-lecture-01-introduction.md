@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 1 導讀：Introduction，AI & ML II 接在 07-280 之後要解什麼問題"
+title: "Introduction，AI & ML II 接在 07-280 之後要解什麼問題｜CMU 07-380 第 1 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, machine-learning, learning-path]
@@ -21,28 +21,6 @@ draft: false
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的第一講。整門課的地圖在[系列總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)，這篇只看 Lec1 本身：投影片講了什麼，課站的 Schedule 和 Policies 怎麼把 26 講排成幾個模組，還有你在校外能拿到哪些材料。
 
 以下內容依 2026-09-29 抓取的課站。課站自己標了 `Subject to change`，日期和主題之後可能會動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文讀過的材料：
-
-- [Lec1 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction.pdf) 與 [inked 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction_inked.pdf)（課站另有 pptx）
-- 課站的 [Schedule](https://www.cs.cmu.edu/~07380/#schedule)、[Policies](https://www.cs.cmu.edu/~07380/#policies)、[FAQ](https://www.cs.cmu.edu/~07380/#faq)
-- Schedule 把 AIMA（Russell & Norvig，第 4 版）Ch.1 列為這講的選讀。本文沒有逐頁引用 AIMA
-
-Lec1 沒有 pre-reading、沒有 recitation，也沒有對應作業。課站沒有錄影連結。inked 版和原版文字相同，差別在講師手寫的註記，例如在課程地圖上圈出「280/380 overlap with AI courses」。
-
-公開程度：Lec1 的投影片、Schedule 和 Policies 都能匿名打開，這一講本身的材料是完整的。整門課依 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)仍是 A2（進行中）。Canvas、Gradescope、Piazza 和課堂 poll 都只限校內。
 
 ## 投影片主線：智慧＝在不確定性下把任務做好
 
@@ -150,6 +128,28 @@ flowchart LR
 3. 在開始 Lec2 前讀完課站的 [PR1 Prop Logic 筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf)。課程把命題邏輯的語法和 model checking 放在 pre-reading，Lec2 直接從演算法開始。
 
 下一篇：[Lecture 2 導讀：Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents)。上一篇：[系列總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)。
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文讀過的材料：
+
+- [Lec1 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction.pdf) 與 [inked 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction_inked.pdf)（課站另有 pptx）
+- 課站的 [Schedule](https://www.cs.cmu.edu/~07380/#schedule)、[Policies](https://www.cs.cmu.edu/~07380/#policies)、[FAQ](https://www.cs.cmu.edu/~07380/#faq)
+- Schedule 把 AIMA（Russell & Norvig，第 4 版）Ch.1 列為這講的選讀。本文沒有逐頁引用 AIMA
+
+Lec1 沒有 pre-reading、沒有 recitation，也沒有對應作業。課站沒有錄影連結。inked 版和原版文字相同，差別在講師手寫的註記，例如在課程地圖上圈出「280/380 overlap with AI courses」。
+
+公開程度：Lec1 的投影片、Schedule 和 Policies 都能匿名打開，這一講本身的材料是完整的。整門課依 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)仍是 A2（進行中）。Canvas、Gradescope、Piazza 和課堂 poll 都只限校內。
 
 ## 更新紀錄
 

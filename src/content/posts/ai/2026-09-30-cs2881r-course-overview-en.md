@@ -1,5 +1,5 @@
 ---
-title: "Reading Harvard CS2881R: What Outsiders Can Get from the First Graduate AI Safety Course"
+title: "AI Safety: A Learning Path from Risk Identification to Experiments and Research | Harvard CS2881R Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,17 +34,6 @@ glossary:
 Head TA Roy Rinberg's [retrospective](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) calls it "Harvard's first AI safety course" in its title. For a graduate seminar, it is unusually open: lecture recordings, student-written weekly summaries, the homework repo, and the final papers and posters are all reachable from outside Harvard.
 
 This post answers three questions: where the materials are, what you can actually get, and how to read this series. Lecture content lives in the later posts.
-
-## Course video sources
-
-This post spans several lectures; pick videos by topic and lecture from the official recording index. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10: it has lecture recordings for Lectures 1–4 and 6–12, student experiment videos for Lectures 5 and 8, the Lecture 8 opening video, and the final-project oral presentations. Lecture 5 has no guest-lecture recording. The same playlist also holds Fall 2026 Lectures 1 and 3, which belong to a different semester and are not used in this series.
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
 
 ## Where the site is: an old ML theory seminar URL
 
@@ -164,6 +153,17 @@ Each post in this series stands on its own. Where it overlaps other course guide
 - Other Harvard courses: [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
 One thing to do tonight: open the [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) README, read the three "Instructions" steps, and decide whether your GPU or cloud budget can handle LoRA fine-tuning of a 1B model.
+
+## Course video sources
+
+This post spans several lectures; pick videos by topic and lecture from the official recording index. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10: it has lecture recordings for Lectures 1–4 and 6–12, student experiment videos for Lectures 5 and 8, the Lecture 8 opening video, and the final-project oral presentations. Lecture 5 has no guest-lecture recording. The same playlist also holds Fall 2026 Lectures 1 and 3, which belong to a different semester and are not used in this series.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

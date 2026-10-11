@@ -1,5 +1,5 @@
 ---
-title: "CS234 L1：RL 是什麼、MDP 的語言"
+title: "RL 是什麼、MDP 的語言｜Stanford CS234 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ glossary:
 [CS234](https://web.stanford.edu/class/cs234/) 第一講的議程分三段：RL 概論、課務、不確定下的序列決策。課務（評分、tutorials、late days）[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)已經整理過，這篇只講另外兩段。
 
 一個小提醒：post-class 版 PDF 有 60 頁，頁碼卻標到「/ 70」，最後一頁是當天的總結。後面沒放上來的部分，下一講的投影片開頭會接著講。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=WsvFL-LjA6U
-title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）
-```
-
-原始影片：[Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）](https://www.youtube.com/watch?v=WsvFL-LjA6U)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 1「Introduction to Reinforcement Learning」字幕（約 72K 字元）：確認影片講 RL 的定位與應用（AlphaGo、核融合、COVID、ChatGPT、AlphaTensor）、探索與利用、AI 家教加減法的 reward 例子、Markov 假設、Mars rover 與折扣，主題與本文一致；字幕沒有 OpenAI o1（2024 影片早於 o1），本文提到 o1 的地方是依 2026 投影片，不是影片內容。
 
 ## RL 是什麼
 
@@ -237,6 +218,25 @@ reward：
 - [CS221 L7：MDPs 與 value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)：先修課裡的 MDP
 
 **系列導覽**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs234-course-overview)｜下一篇 [有模型時怎麼規劃：policy evaluation、PI、VI](/posts/ai/2026-09-30-cs234-mdp-planning)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=WsvFL-LjA6U
+title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2024 Lecture 1: Introduction to Reinforcement Learning（YouTube，補充）](https://www.youtube.com/watch?v=WsvFL-LjA6U)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 1「Introduction to Reinforcement Learning」字幕（約 72K 字元）：確認影片講 RL 的定位與應用（AlphaGo、核融合、COVID、ChatGPT、AlphaTensor）、探索與利用、AI 家教加減法的 reward 例子、Markov 假設、Mars rover 與折扣，主題與本文一致；字幕沒有 OpenAI o1（2024 影片早於 o1），本文提到 o1 的地方是依 2026 投影片，不是影片內容。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 Lecture 6: Integer Programming, Relax to an LP and Branch and Bound"
+title: "Integer Programming, Relax to an LP and Branch and Bound | CMU 07-380 Lecture 6"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, linear-programming, optimization]
@@ -25,25 +25,6 @@ This is Lecture 6 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fa
 The answer is **branch and bound**. Pretend the integer constraint isn't there and solve the LP for an optimistic bound. If the result isn't integral, split the problem in two and keep going.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule). The site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-- [Lec6 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf), 18 pages: LP → IP, the graphical view, relaxation, argmin vs. min notation, three polls, the branch and bound algorithm and example. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx) is also posted
-- [Desmos: IP](https://www.desmos.com/calculator/tnlo7p5plp): the only demo listed under Lec6; slide Poll 1 uses it to ask "What is the solution to this LP?"
-- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): the site labels Recitation 4 (9/18) "ILP and PCA," and it shares this PDF with Recitation 3. This post uses Problem 2, Baymax's Factory, and Problem 3, Cargo Plane, and mentions Problem 4, CSP as IP, and Problem 5, 4-Queens
-- Lec6 has no pre-reading notes, and the site lists no assigned reading for it
-
-**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The official syllabus lists no public recording links, and the Canvas checkpoint is CMU-only.
 
 ## The starting question: what breaks when you add x ∈ ℤᴺ
 
@@ -149,6 +130,25 @@ This is the recitation's most complete branch and bound problem. One ounce of me
 - Previous: [Lecture 5: Linear Programming, and Why the Optimum Sits at a Vertex](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
 - Next: [Lecture 7: Low Rank Optimization, PCA's Reconstruction Error, Projected Variance, and LoRA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en)
 - Series overview: [CMU 07-380 Fall 2026 Overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+- [Lec6 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf), 18 pages: LP → IP, the graphical view, relaxation, argmin vs. min notation, three polls, the branch and bound algorithm and example. A [pptx version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx) is also posted
+- [Desmos: IP](https://www.desmos.com/calculator/tnlo7p5plp): the only demo listed under Lec6; slide Poll 1 uses it to ask "What is the solution to this LP?"
+- [Recitation 3-4 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf): the site labels Recitation 4 (9/18) "ILP and PCA," and it shares this PDF with Recitation 3. This post uses Problem 2, Baymax's Factory, and Problem 3, Cargo Plane, and mentions Problem 4, CSP as IP, and Problem 5, 4-Queens
+- Lec6 has no pre-reading notes, and the site lists no assigned reading for it
+
+**Access level**: everything above downloads freely from outside CMU, so this lecture's materials reach A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The official syllabus lists no public recording links, and the Canvas checkpoint is CMU-only.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 2：序列模型：從 RNN 到注意力"
+title: "序列模型：從 RNN 到注意力｜MIT 6.S191 第 2 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 2 講是 **序列模型：從 RNN 到注意力**。處理文字、音訊與時間序列中「順序會改變意義」的問題，並連到 Lab 1 的音樂生成。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=d02VkQ9MP44
-title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
-```
-
-原始影片：[MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 RNN 的 recurrent state、next word prediction、tokenization／embedding、backpropagation through time、梯度消失與爆炸、LSTM 提及、Schubert 未完成交響曲的音樂生成（對應 Lab 1），以及 attention 的 query／key／value；與本文相符。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=d02VkQ9MP44
+title: MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention
+```
+
+原始影片：[MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention](https://www.youtube.com/watch?v=d02VkQ9MP44)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 RNN 的 recurrent state、next word prediction、tokenization／embedding、backpropagation through time、梯度消失與爆炸、LSTM 提及、Schubert 未完成交響曲的音樂生成（對應 Lab 1），以及 attention 的 query／key／value；與本文相符。
 
 ## 更新紀錄
 

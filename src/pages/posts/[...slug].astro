@@ -33,14 +33,20 @@ const sortedPosts = sortPostsByDateDesc(
   allPosts.filter(p => isPublishedPost(p) && p.data.lang === lang)
 );
 const currentIndex = sortedPosts.findIndex(p => p.id === post.id);
-const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : undefined;
-const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+const chronologicalPrev = currentIndex >= 0 ? sortedPosts[currentIndex + 1] : undefined;
+const chronologicalNext = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
 
 const relatedPosts = getRelatedPosts(post, allPosts);
 const seriesNavs = getSeriesNavs(post, allPosts).map(nav => ({
   nav,
   href: getSeriesHref(nav.name, lang),
 }));
+// Series boundaries stay within the primary series, including its first/last post.
+const primarySeriesNav = seriesNavs[0]?.nav;
+const prevPost = primarySeriesNav ? primarySeriesNav.prev : chronologicalPrev
+  ? { slug: chronologicalPrev.id, title: chronologicalPrev.data.title } : undefined;
+const nextPost = primarySeriesNav ? primarySeriesNav.next : chronologicalNext
+  ? { slug: chronologicalNext.id, title: chronologicalNext.data.title } : undefined;
 const readingTime = post.data.readingTime ?? 1;
 const isDailyBrief = /(?:^|\/)\d{4}-\d{2}-\d{2}-ai-agent-daily(?:-en)?$/.test(post.id);
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
@@ -356,21 +362,21 @@ const breadcrumbLD = {
     {(prevPost || nextPost) && (
       <nav class="post-nav">
         {prevPost ? (
-          <a href={`/posts/${prevPost.id}`} class="post-nav-prev">
+          <a href={`/posts/${prevPost.slug}`} class="post-nav-prev">
             <span class="post-nav-label">
               <Icons name="chevron-left" size={14} />
               {t('post.prev')}
             </span>
-            <span class="post-nav-title">{prevPost.data.title}</span>
+            <span class="post-nav-title">{prevPost.title}</span>
           </a>
         ) : <span />}
         {nextPost && (
-          <a href={`/posts/${nextPost.id}`} class="post-nav-next">
+          <a href={`/posts/${nextPost.slug}`} class="post-nav-next">
             <span class="post-nav-label">
               {t('post.next')}
               <Icons name="chevron-right" size={14} />
             </span>
-            <span class="post-nav-title">{nextPost.data.title}</span>
+            <span class="post-nav-title">{nextPost.title}</span>
           </a>
         )}
       </nav>

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 10: Trading Expressiveness for Stability with Features and Regularization"
+title: "Trading Expressiveness for Stability with Features and Regularization | CMU 07-280 Lecture 10"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, feature-engineering, regularization]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Spring 2026 Lecture 10 is **Feature Engineering and Regularization**, dated February 12. Lecture 9's logistic model still draws a linear boundary in its input features. This lecture first expands what the model can represent, then immediately addresses the overfitting created by that expansion. The official schedule lists no public lecture-by-lecture recording links, and this article does not reconstruct spoken content.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -93,6 +83,16 @@ Manual feature engineering makes `φ(x)` explicit. It can be interpretable and d
 ## What to do tonight
 
 Create eight noisy `(x,y)` points and fit degree-1, degree-3, and degree-7 polynomials. Hold out two points solely for validation. Record training and validation MSE, then apply three `λ` values to the degree-7 model. Do not inspect test points until degree and `λ` have been selected.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 19: AI Supply Chains: Resources, Labor, and Markets Behind Models"
+title: "AI Supply Chains: Resources, Labor, and Markets Behind Models | Stanford CS221 Lecture 19"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 19**, dated 2025-12-01. The official schedule calls it **AI Supply Chains**, while the executable lecture repository links to a deck titled **Economics of AI**. I downloaded and read the complete 70-page Google Slides PDF. Its cover lists **Rishi Bommasani** as deck author / credited presenter. That credit does not establish who presented the class, so this article does not call him the in-room speaker or extend Percy Liang’s course-instructor role into a Lecture 19 speaking attribution. The primary written artifact is [Economics of AI Google Slides (deck snapshot checked 2026-08-22; the slides do not print a market date for every valuation)](https://docs.google.com/presentation/d/1jCn1OV4H1HKzQ0PWzRn2_bfOWKw43eS33wyramBt2z8/edit), with the offering and schedule fixed by the [official course site](https://stanford-cs221.github.io/autumn2025/).
 
 > Material boundary: the schedule and repository use different names for the same 2025-12-01 lecture. I label claims directly stated in the PDF as “Deck fact,” research or forecasts cited by the deck as “Deck citation,” and connective reasoning as “My interpretation.” I did not fill gaps with another term or a lecture transcript. Market valuations, survey numbers, and forecast graphics are treated as snapshots in this deck, not as live statistics in 2026.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 19, the same term and lecture number this article follows. It matches item 19 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=lPx5PF1ttkc
-title: Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains](https://www.youtube.com/watch?v=lPx5PF1ttkc)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 19) and confirmed it covers AI and labor (the call-center study), compute supply chains such as ASML and TSMC, data acquisition and pricing, downstream differences between open and closed models, and GDP and growth economics, matching this article's lecture and topic; no mismatch found.
 
 ## The lecture's problem
 
@@ -134,6 +114,26 @@ Turn the deck into four exercises: draw model and organization layers; label com
 Keep “what the deck says” separate from “what we want to test.” The ASML, TSMC, and Nvidia descriptions and valuations are deck snapshots. The data-acquisition table is an analytical framework. The 2025 genAI survey numbers are a cited survey example. The links among GPTs, the J-curve, Cobb-Douglas, and ideas are research-backed concepts assembled by the deck. My extension must not turn them into a complete current industry census.
 
 Open gaps include compute cost/capacity decomposition, contract context for the $1.5B transaction, empirical distribution-channel comparison, and a reproducible macro model. These remain follow-ups, not conclusions supplied by common sense. First label a number as deck fact, deck citation, or interpretation; then ask which bottleneck and complement a market conclusion omits.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 19, the same term and lecture number this article follows. It matches item 19 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=lPx5PF1ttkc
+title: Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 19: AI Supply Chains](https://www.youtube.com/watch?v=lPx5PF1ttkc)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 19) and confirmed it covers AI and labor (the call-center study), compute supply chains such as ASML and TSMC, data acquisition and pricing, downstream differences between open and closed models, and GDP and growth economics, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

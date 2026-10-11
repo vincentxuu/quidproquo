@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 HW3 Guide: Optimization, Writing Your Own LP Solver and Branch and Bound, With PCA and MAP on Paper"
+title: "Optimization, Writing Your Own LP Solver and Branch and Bound, With PCA and MAP on Paper | CMU 07-380 Assignment 3"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, optimization, linear-programming, pca, homework]
@@ -21,30 +21,6 @@ draft: false
 HW3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) closes the course's optimization block: [Lecture 5 on LP](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en), [Lecture 6 on integer programming](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming-en), [Lecture 7 on PCA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank-en), plus the just-started [Lecture 8 on MAP](/posts/learning/2026-09-29-cmu-07380-lecture-08-map-en). Per the Assignments table on 2026-09-29, it is due **Thursday 10/1 at 11:59 pm**.
 
 The assignment is not yet due, and the course's AI Tools and Collaboration Policy forbids viewing or sharing any artifact that will be submitted (code, pseudocode, diagrams, text). So this guide does only three things: explain what each problem tests, point to the material to review, and flag where people get stuck. **It contains no answers.** Enrolled students should not treat it as a solution source.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-The site lists three parts for HW3:
-
-| Part | Content | Could I read it? |
-|---|---|---|
-| Online | [Gradescope](https://www.gradescope.com/courses/1340181) questions | No, CMU-only |
-| Written | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) plus [hw3_tex.zip](https://www.cs.cmu.edu/~07380/assignments/hw3.zip) (LaTeX template) | Yes, read in full |
-| Programming | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/), with `optimization.zip` and a local autograder | Yes, read the page and confirmed the zip downloads |
-
-`hw3.zip` contains `hw3.tex`, one `.tex` per problem (`q1_ip`, `q2_ethics`, `q3_pca`, `q4_map`), a collaboration statement `q_collaboration.tex`, and two figures for the PCA problem. I cannot see the online questions, so I skip them.
-
-On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the written and programming parts are both public and come with a local autograder, so an outside learner can practice fully (A3). There are no official solutions, though, and no Gradescope feedback.
 
 ## Programming: from vertex enumeration to branch and bound
 
@@ -150,6 +126,30 @@ The previous post is [Lecture 8 on MAP](/posts/learning/2026-09-29-cmu-07380-lec
 1. Download [optimization.zip](https://www.cs.cmu.edu/~07380/assignments/optimization/optimization.zip), write only the 2-D version of Q1, and get `-t test_cases/q1/test2D_1` passing.
 2. Read the branch and bound example in the course notes and draw its search tree yourself before writing Q5.
 3. Before starting written problem 4, write out the Gaussian-prior-to-L2 derivation and make sure you can split the negative log posterior into "loss + penalty."
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+The site lists three parts for HW3:
+
+| Part | Content | Could I read it? |
+|---|---|---|
+| Online | [Gradescope](https://www.gradescope.com/courses/1340181) questions | No, CMU-only |
+| Written | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) plus [hw3_tex.zip](https://www.cs.cmu.edu/~07380/assignments/hw3.zip) (LaTeX template) | Yes, read in full |
+| Programming | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/), with `optimization.zip` and a local autograder | Yes, read the page and confirmed the zip downloads |
+
+`hw3.zip` contains `hw3.tex`, one `.tex` per problem (`q1_ip`, `q2_ethics`, `q3_pca`, `q4_map`), a collaboration statement `q_collaboration.tex`, and two figures for the PCA problem. I cannot see the online questions, so I skip them.
+
+On this site's [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the written and programming parts are both public and come with a local autograder, so an outside learner can practice fully (A3). There are no official solutions, though, and no Gradescope feedback.
 
 ## Update Log
 

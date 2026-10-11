@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 4：CLAUDE.md 該寫什麼、hooks 該擋什麼、subagent 該切在哪"
+title: "CLAUDE.md 該寫什麼、hooks 該擋什麼、subagent 該切在哪｜Stanford CS146S 第 4 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：`CLAUDE.md` 與 `AGENTS.md` 各自該放什麼、用 hooks 做 lint gate 與測試閘門、以及 subagent 的 planner / implementer / reviewer 分工。客座是 Boris Cherny——Claude Code 的作者，Fall 2025 也講過一場，這次是 fireside Q&A。
 
 課程實際列的是**四件**指揮工具（指示檔、hooks、commands、subagents）。它們看起來是四個功能，其實是**同一個問題的四種答案**：怎麼讓 agent 每次都照你們的做法做事，而不是每次都要重講一遍。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 課程的分工表：哪幾格是人的
 
@@ -182,6 +170,18 @@ Anthropic 對這類選擇的總結態度值得抄：「do the simplest thing tha
 - Claude Code 目前讀 `CLAUDE.md` 而非 `AGENTS.md`，這件事隨版本可能改變，實作前請查當下的官方文件
 - agents.md 的 60k 專案數是官網自述（連到 GitHub 搜尋結果），不是第三方統計
 - 本站的 hook 設定是 2026-08-16 當下的狀態
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW3 Guide: Autograd from Scratch (BearTensor), Newton's Method, and the Information Bottleneck"
+title: "Autograd from Scratch (BearTensor), Newton's Method, and the Information Bottleneck | Berkeley CS189 Assignment 3"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, homework, autograd, backpropagation, optimization, information-theory]
@@ -30,17 +30,6 @@ glossary:
 This guide is based on the [official HW3 folder](https://drive.google.com/drive/folders/1M6ii2VAJR63485TaDK0yKhcfT1bHdRIO) of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis). It holds three files: the written problems [hw3.pdf](https://drive.google.com/file/d/18EVIcfx9eH3XG7w_S1XEn3QthMNdRTCt/view) (16 pages), the LaTeX template `hw3_student.tex`, and the coding assignment [hw3.ipynb](https://drive.google.com/file/d/17GdkCG486LIoROrwYg-3w0OxP12Azb1d/view). The schedule gives the deadline as **Sunday 4/12, 11:59 PM PT**, and lists HW3 in week 9, the week of the midterm (3/17).
 
 It follows directly from [Lec 17–18 (neural networks and backprop)](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en). In lecture you watched the chain rule run on a computation graph; HW3 has you turn it into a small working PyTorch. In the notebook's own words, you extend the single-variable autograd from lecture to general tensors, mimicking how `torch`'s autograd is implemented.
-
-## Course video sources
-
-No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
 
 ## First: what you can and cannot get
 
@@ -158,6 +147,17 @@ The optional Q5 is a simplified Muon: approximate the orthogonalization `UVᵀ` 
 - Series navigation: previous, [Lec 17–18](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop-en); next, [Lec 19–20: initialization, BatchNorm, CNNs, and generalization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: download `hw3.ipynb`, implement only `__add__` and `__mul__` from Q1, build the graph `z = x * y + x`, work out ∂z/∂x = y + 1 by hand, and confirm your graph adds the gradients from both paths.
+
+## Course video sources
+
+No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

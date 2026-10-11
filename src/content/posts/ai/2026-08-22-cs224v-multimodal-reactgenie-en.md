@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 13: ReactGenie Gives Voice and Native GUIs Shared State"
+title: "ReactGenie Gives Voice and Native GUIs Shared State | Stanford CS224V Lecture 13"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, multimodal, react, conversational-ui]
@@ -19,27 +19,6 @@ description: "CS224V Multimodal Applications: command composition, API exposure,
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 13 uses “multimodal” for interaction, not merely a model that sees images. A user can speak while operating an app. “Right-align every occurrence of [ReactGenie](https://web.stanford.edu/class/cs224v/lectures/l-multimodal.pdf)” requires inspecting the canvas, selecting multiple objects, composing APIs, and displaying the result in the native GUI.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Multimodal Applications") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 15 (about 57 min), a guest lecture on multimodal applications. The transcript covers why multimodal interaction (voice plus GUI touch) is needed, the ReactGenie multimodal app framework and Genie Wizard, and a study with 12 developers, matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
-
-```youtube
-url: https://www.youtube.com/watch?v=FIoD02zCILo
-title: CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024
-```
-
-Original videos: [CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024](https://www.youtube.com/watch?v=FIoD02zCILo)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda: three problems and one framework
 
@@ -136,6 +115,27 @@ Expose only add, complete, and due-date-filter actions in a todo app. Give each 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck contains architecture and study summaries, not a full API reference, all demo source, raw study data, or a recording. Autumn 2026 material is not used to fill this Fall 2025 lecture.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture ("Multimodal Applications") from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 15 (about 57 min), a guest lecture on multimodal applications. The transcript covers why multimodal interaction (voice plus GUI touch) is needed, the ReactGenie multimodal app framework and Genie Wizard, and a study with 12 developers, matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video.
+
+```youtube
+url: https://www.youtube.com/watch?v=FIoD02zCILo
+title: CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024
+```
+
+Original videos: [CS224V Fall 2024 Lecture 15: Multimodal Applications 11 13 2024](https://www.youtube.com/watch?v=FIoD02zCILo)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

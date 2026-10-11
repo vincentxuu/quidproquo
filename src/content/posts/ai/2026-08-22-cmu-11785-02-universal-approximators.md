@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 2：神經網路作為通用近似器"
+title: "神經網路作為通用近似器｜CMU 11-785 第 2 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
 
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 2: Neural Nets as Universal Approximators**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec2.universal.pdf)與[官方 YouTube 錄影](https://youtu.be/dUukTSXi20c)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
-
-## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
-
-```youtube
-url: https://www.youtube.com/watch?v=dUukTSXi20c
-title: Lecture 2 official YouTube recording
-```
-
-原始影片：[Lecture 2 official YouTube recording](https://www.youtube.com/watch?v=dUukTSXi20c)
-
-課程與錄影入口：
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片自動字幕全程約 84 分鐘；抽查開頭、中段、結尾並搜尋布林函數、depth、width、XOR、activation。字幕確認本講談表示能力與深度／寬度，但沒有談「表示能力不等於可訓練性」這個論點（只在結尾說明下一講才處理如何訓練），已改寫文章對影片主題的描述；英文版原本寫成 Lecture 22 的 VAE（latent variable、ELBO），已一併改回本講。
 
 ## 這一講處理什麼
 
@@ -66,6 +47,25 @@ title: Lecture 2 official YouTube recording
 ## 讀完後
 
 闔上 slides，用一張紙寫下這講的輸入、輸出、目標函數與一個失敗模式。能不看筆記說明這四項，才往下一講；否則回到剛才的小例子，縮小輸入直到每一步都能人工核對。
+
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=dUukTSXi20c
+title: Lecture 2 official YouTube recording
+```
+
+原始影片：[Lecture 2 official YouTube recording](https://www.youtube.com/watch?v=dUukTSXi20c)
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片自動字幕全程約 84 分鐘；抽查開頭、中段、結尾並搜尋布林函數、depth、width、XOR、activation。字幕確認本講談表示能力與深度／寬度，但沒有談「表示能力不等於可訓練性」這個論點（只在結尾說明下一講才處理如何訓練），已改寫文章對影片主題的描述；英文版原本寫成 Lecture 22 的 VAE（latent variable、ELBO），已一併改回本講。
 
 ## 更新紀錄
 

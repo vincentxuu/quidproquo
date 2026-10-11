@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L4：U-Net、DiT 與 latent space"
+title: "U-Net、DiT 與 latent space｜MIT 6.S184 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ glossary:
 2. **空間太大。** 講義算給你看：1024×1024×3 大約是 300 萬維，影片還要再乘上幀數。
 
 第 4 講就是分別解這兩題。講義 §6 的順序是先講架構、再講 latent space，Slides 4 則是反過來先講 latent space（Section 6）、再講架構（Section 7）。本文照講義順序。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=g0MB1CCBmsI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（約 81 分鐘）：latent space 動機、autoencoder／VAE 與 KL 項、latent diffusion 配方、時間／類別／文字嵌入（sinusoidal）、patchify 與 DiT（self-attention、cross-attention、adaLN）、Stable Diffusion 3 與 Movie Gen 的案例（20% 丟 prompt、LAION、約 50 步），以及結尾的文獻導覽。與本文相符，但有兩處需要補述：影片沒有講 U-Net，本文 U-Net 一節只依講義；文獻導覽（時間慣例、離散時間、forward process、stochastic interpolants）影片結尾有簡短講到，本文未整理。已在文中補上這兩點。
 
 ## 第一題：網路要怎麼吃三種輸入
 
@@ -293,6 +275,24 @@ Slides 4 另外寫 SD3 的資料集是 LAION，這一點講義沒有寫。講義
 - VAE 的完整推導（ELBO 觀點）：[CMU 11-785 L22：Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders)
 - Transformer 與 attention 從頭講：[Stanford CS224N：Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CMU 11-785 L18：Attention 與 Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
 - DDPM 觀點的 diffusion（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=g0MB1CCBmsI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（約 81 分鐘）：latent space 動機、autoencoder／VAE 與 KL 項、latent diffusion 配方、時間／類別／文字嵌入（sinusoidal）、patchify 與 DiT（self-attention、cross-attention、adaLN）、Stable Diffusion 3 與 Movie Gen 的案例（20% 丟 prompt、LAION、約 50 步），以及結尾的文獻導覽。與本文相符，但有兩處需要補述：影片沒有講 U-Net，本文 U-Net 一節只依講義；文獻導覽（時間慣例、離散時間、forward process、stochastic interpolants）影片結尾有簡短講到，本文未整理。已在文中補上這兩點。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 1: An Agent Is a Model in a Loop — the Hard Part Is Making It Work"
+title: "An Agent Is a Model in a Loop — the Hard Part Is Making It Work | CMU 11-768 Lecture 1"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -40,25 +40,6 @@ glossary:
 Lecture 1 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) (Aug 25, 2026; [recording](https://www.youtube.com/watch?v=UwfjzyLnvMg), [slides](https://www.cmu-agents.com/slides/lecture-01-agents.pdf)) comes in two halves. In the first, Daniel Fried strips an agent down to its minimum: a language model plus a loop that executes tools. In the second, Graham Neubig asks the next question: writing the loop isn't hard, so how do you make it actually work? His answer is a map of "six capabilities × two paths," and the course schedule is laid out along that map.
 
 This post follows the lecture in order: the opening successes and failures, the definition of an agent, the three steps from language model to agent, the six capabilities, the training-versus-harness trade-off, the five components of an agent system, and the course's learning objectives. Format, grading, and assignment details are in the [series overview](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=UwfjzyLnvMg
-title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
-```
-
-Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 68 min) and checked the Fried/Neubig split, the opening cases (16-agent compiler, OpenClaw email deletion and context compaction), the JY Koh and OpenHands demos, the six capabilities and the harness-vs-training trade-off, the show-of-hands estimate that about 10% had done agent RL, the spoken account of the OpenAI/Hugging Face incident, the five system components and OpenRouter provider counts, and the grading and AI policy; all supported. One fix: the remark about the agent debugging itself in the OpenHands demo is Neubig's narration, not Fried's. Details not in the transcript (Summer Yue's name, the 100k-line figure, slide page numbers) come from slides or external sources.
 
 ## Opening: agents can do big things, and break big things
 
@@ -296,6 +277,25 @@ Long context. Keeping every memory in context affects efficiency, not just accur
 - On this site: [The OpenClaw Agent Loop](/posts/ai/2026-03-28-openclaw-agent-loop-en), how the loop behind the opening incident is written
 - On this site: [Reading Stanford CS329Z](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), which also has you build a harness from scratch but doesn't touch training
 - On this site: [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en), the same ground from the RAG and function-calling angle
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 1, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+Original videos: [CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 68 min) and checked the Fried/Neubig split, the opening cases (16-agent compiler, OpenClaw email deletion and context compaction), the JY Koh and OpenHands demos, the six capabilities and the harness-vs-training trade-off, the show-of-hands estimate that about 10% had done agent RL, the spoken account of the OpenAI/Hugging Face incident, the five system components and OpenRouter provider counts, and the grading and AI policy; all supported. One fix: the remark about the agent debugging itself in the OpenHands demo is Neubig's narration, not Fried's. Details not in the transcript (Summer Yue's name, the 100k-line figure, slide page numbers) come from slides or external sources.
 
 ## Update Log
 

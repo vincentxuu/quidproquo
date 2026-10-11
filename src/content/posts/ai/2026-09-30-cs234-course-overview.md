@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS234 導讀：總覽與自學路線（Winter 2026）"
+title: "總覽與自學路線（Winter 2026）｜Stanford CS234 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 [CS234: Reinforcement Learning](https://web.stanford.edu/class/cs234/) 是 Emma Brunskill 在 Stanford 開的強化學習課。Winter 2026 每週一、三下午 3:00–4:20 上課，課表從 1 月 5 日排到 3 月 17 日交期末報告。
 
 這篇回答五個問題：這門課教什麼、要先會什麼、校外讀者實際拿得到什麼、2026 教材和 2024 錄影怎麼搭、10 週要怎麼排。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-查核日期：2026-10-10。
 
 ## 這門課教什麼
 
@@ -234,6 +223,17 @@ Tutorials 是 2026 版的新設計。[第一講投影片](https://web.stanford.e
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [RL 是什麼、MDP 的語言](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

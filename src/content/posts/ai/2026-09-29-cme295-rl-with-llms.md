@@ -1,5 +1,5 @@
 ---
-title: "CME295 2026 第 4 講（課前預寫）：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient"
+title: "（課前預寫）：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient｜Stanford CME295 第 4 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -51,31 +51,6 @@ glossary:
 先講結論。讀第 5、6 篇時，PPO 和 GRPO 的公式看起來像兩個不相干的長式子。推一遍之後會發現，SFT、REINFORCE、PPO、GRPO、on-policy distillation 都長成同一個形狀：**模型對某個 token 的 log 機率梯度，乘上一個分數**。五種方法的差別只有兩個：樣本從哪裡來，分數怎麼算。
 
 以下每一節先講直覺，公式收在可展開的區塊裡。凡是標「2025 投影片」的內容出自 [2025 版第 5 講](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf)或[第 6 講](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf)投影片；其餘來自原始論文，會附連結。
-
-## 課程影片來源
-
-本文預寫 CME295 2026 版第 4 講（Reinforcement learning with LLMs，10 月 16 日）。2026-10-10 讀取官方 2026 課表，該講仍標示 “Coming soon”，原講次錄影尚未上架。下方是 2025 版第 5 講（LLM tuning，含 PPO）與第 6 講（LLM reasoning，含 GRPO）的公開錄影；2025 版沒有獨立的 RL 講次，所以只作相關補充，不是 2026 版第 4 講的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)、[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。PmW_TMQ3l0I 是 Autumn 2025 第 5 講 LLM Tuning（含 RLHF、reward model、PPO 及 clip／KL 變體、DPO），k5Fh-UgTuCo 是 Autumn 2025 第 6 講 LLM Reasoning（含 GRPO、GRPO 與 PPO 比較、DAPO／Dr. GRPO、DeepSeek R1 配方），證實本文所說「第 5 講含 PPO、第 6 講含 GRPO，只作相關補充、不是 2026 第 4 講錄影」。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 一、數學記號：把「生成一段回答」寫成 RL
 
@@ -411,6 +386,31 @@ KL(π_θ ‖ π_teacher) = E_{x~π_θ} [ log π_θ(x_{t+1}|x_1..t) − log π_te
 - reward design 與 limitations 各列了哪幾條，跟本篇第二、四節的整理有哪些出入
 - on-policy distillation 引了哪篇來源（GKD、MiniLLM、Thinking Machines 或 Qwen3），用 forward 還是 reverse KL
 - 錄影連結，以及 2026 期中考（10 月 23 日）有沒有考到這一講
+
+## 課程影片來源
+
+本文預寫 CME295 2026 版第 4 講（Reinforcement learning with LLMs，10 月 16 日）。2026-10-10 讀取官方 2026 課表，該講仍標示 “Coming soon”，原講次錄影尚未上架。下方是 2025 版第 5 講（LLM tuning，含 PPO）與第 6 講（LLM reasoning，含 GRPO）的公開錄影；2025 版沒有獨立的 RL 講次，所以只作相關補充，不是 2026 版第 4 講的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)、[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。PmW_TMQ3l0I 是 Autumn 2025 第 5 講 LLM Tuning（含 RLHF、reward model、PPO 及 clip／KL 變體、DPO），k5Fh-UgTuCo 是 Autumn 2025 第 6 講 LLM Reasoning（含 GRPO、GRPO 與 PPO 比較、DAPO／Dr. GRPO、DeepSeek R1 配方），證實本文所說「第 5 講含 PPO、第 6 講含 GRPO，只作相關補充、不是 2026 第 4 講錄影」。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

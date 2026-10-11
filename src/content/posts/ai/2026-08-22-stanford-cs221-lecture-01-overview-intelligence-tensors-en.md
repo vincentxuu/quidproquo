@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 1: Overview: Defining Intelligence Under Resource Constraints"
+title: "Overview: Defining Intelligence Under Resource Constraints | Stanford CS221 Lecture 1"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 1**, taught by Percy Liang and dated 2025-09-22. It reads only the three public executable artifacts: `welcome.py`, `history.py`, and `tensors.py`. The course entry point is the [official course site](https://stanford-cs221.github.io/autumn2025/), and the lecture trace is [welcome, history, tensors](https://stanford-cs221.github.io/autumn2025-lectures/?trace=welcome). Canvas-only classroom interaction is not treated as evidence, and claims absent from these sources are not added.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 1, the same term and lecture number this article follows. It matches item 1 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=yaLEGZuIIgE
-title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 1) and confirmed it covers the definition of AI and resource constraints, AI history (Turing, Hebb, perceptron through foundation models), and tensors with einops, matching this article's lecture and topic; no mismatch found.
 
 ## The lecture agenda
 
@@ -148,6 +128,26 @@ Reductions can also be named: `x.sum(dim=-1)` is expressed as `reduce(x, "... hi
 ## Checks after reading
 
 Together, the artifacts suggest listing abilities and goals, marking computation, information, and societal constraints, then checking tensor shapes. Start with the smallest test case; hidden tests and unpublished solutions are not reconstructed here.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 1, the same term and lecture number this article follows. It matches item 1 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 1) and confirmed it covers the definition of AI and resource constraints, AI history (Turing, Hebb, perceptron through foundation models), and tensors with einops, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

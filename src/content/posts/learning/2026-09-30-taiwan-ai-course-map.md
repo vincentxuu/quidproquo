@@ -1,5 +1,5 @@
 ---
-title: "台灣其他學校 AI 公開課地圖：從 TAICA 課程清單找出清大、政大、成大、北科的公開課"
+title: "台灣其他學校 AI 公開課地圖：從 TAICA 課程清單找出清大、政大、成大、北科的公開課｜世界名校 AI／CS 課程地圖"
 date: 2026-09-30
 category: learning
 tags: [taiwan, ai-course, learning-path, open-course, nthu, nccu]
@@ -33,19 +33,6 @@ glossary:
 [台大那篇地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)處理的是李宏毅、林軒田、陳縕儂。台大以外，台灣其實還有好幾門中文授課、整學期錄影都放在 YouTube 的 AI 課。它們不好找，因為教材散在老師的 GitHub、Google Sites、實驗室網頁，甚至別校協同教師的網站上。
 
 這篇用一份官方清單把它們串起來：TAICA 臺灣大專院校人工智慧學程聯盟每學期公布的開課清單。分級沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的 A0–A3。A0 只有課表，A1 有課綱，A2 有部分實質教材或錄影。A3 則是教材加作業，足以排成連貫的自學路線。這是本站的編輯分級，不代表有學分或助教批改。台大的課請看台大那篇，這裡不重複。以下公開狀態以 **2026 年 9 月 30 日**的查核為準。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
-- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-- [作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
-- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-- [人工智慧導論](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
-- [Lectures 頁](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
 
 ## TAICA 是什麼：一份會告訴你「課在哪裡直播」的清單
 
@@ -176,6 +163,19 @@ TAICA 的[人工智慧資訊安全技術學程](https://taicatw.net/artificial_i
 朱威達適合用中文走一輪 AIMA，胡敏君補機器人與強化學習，韓秉軒則補「使用者怎麼跟 AI 互動」這一塊。三門都只有錄影和部分教材，要自己找練習題。
 
 台大以外的公開課有個共同點：TAICA 要讓幾千名跨校學生同時上課，老師就把直播放上 YouTube，公開是順帶的結果。錄影因此很齊，作業和評分卻留在 NTU COOL。想追新課，最省力的方法是每學期初打開 TAICA 的最新課程清單，看「遠距上課位置」那一欄。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
+- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+- [作業總表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
+- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [人工智慧導論](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
+- [Lectures 頁](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
 
 ## 更新紀錄
 

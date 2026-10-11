@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L7：Computer Use Agent 怎麼看螢幕、怎麼評分、怎麼訓練"
+title: "Computer Use Agent 怎麼看螢幕、怎麼評分、怎麼訓練｜CMU 11-768 第 7 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -40,25 +40,6 @@ Computer use agent（CUA）和前面幾講的純文字 agent 差在輸入輸出�
 
 - 課程頁：[cmu-agents.com 課表](https://www.cmu-agents.com/)（第 7 講有投影片與[錄影](https://www.youtube.com/watch?v=jwGluLrrqjQ&list=PLSN0qpDfUvTM&index=7)）
 - 本講內容以 2026-09-15 的投影片與錄影為準。講者對 GPT-6 Astra 等產品表現的評語（Fable／Opus 5 只出現在投影片的動作格式表，錄影裡講者沒有評論），凡是查不到公開來源的，文中都標明是講者的說法；能對到官方數字的（例如 [OpenAI 的 GPT-6 Astra 公告](https://openai.com/index/gpt-6-astra/)）另外附上
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 7 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程（講者 Jing Yu Koh）。
-
-```youtube
-url: https://www.youtube.com/watch?v=jwGluLrrqjQ
-title: CMU AI Agents 2026: 7. Computer Use Agents
-```
-
-原始影片：[CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 74 分鐘，講者 Jing Yu Koh，Fried 做介紹），逐項核對：講者背景、observe-reason-act 迴圈與「買藍色馬克杯」例子、2017 年第一篇 CUA 論文的課堂小調查、九年簡史與 GPT-6 Astra 的口述評語、四類評測（靜態 ScreenSpot-Pro／Mind2Web、WebArena 與 VisualWebArena、VLM 評審的 WebVoyager／Online-Mind2Web、OSWorld／WindowsAgentArena、長時程 Odysseys／OSWorld 2.0／CUA-World-Long）、課堂問答（partial credit、rubric 來源、是否拿 benchmark 訓練、截圖 vs HTML、等待載入）、預訓練／SFT／RL 三段訓練與 Tesla 類比、SFT 後約 0.5、RL 後 0.6 以上；皆有依據。修正兩處：WindowsAgentArena「壓到 20 分鐘」是論文說法、講者沒提；Fable／Opus 5 只在投影片的動作格式表，講者沒有評論。四個未解問題中的細節（Game-TARS、FDM-1、GUM 等）、各 benchmark 的任務數與論文數字屬投影片與論文，字幕大多未涵蓋；上課日期字幕未提。
 
 ## CUA 是什麼：observe、reason、act 一直轉
 
@@ -263,6 +244,25 @@ References 裡的 [Mind2Web](https://arxiv.org/abs/2306.06070)、[WebVoyager](ht
 - RL 階段的背景：[CS336 Lecture 16：RLVR 與 GRPO](/posts/ai/2026-08-22-cs336-rlvr)
 - SFT 的基礎：[CS336 Lecture 15：SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)
 - LLM 當評審的偏誤：[Self-Reflection 與 LLM-as-Judge](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 7 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程（講者 Jing Yu Koh）。
+
+```youtube
+url: https://www.youtube.com/watch?v=jwGluLrrqjQ
+title: CMU AI Agents 2026: 7. Computer Use Agents
+```
+
+原始影片：[CMU AI Agents 2026: 7. Computer Use Agents](https://www.youtube.com/watch?v=jwGluLrrqjQ)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 74 分鐘，講者 Jing Yu Koh，Fried 做介紹），逐項核對：講者背景、observe-reason-act 迴圈與「買藍色馬克杯」例子、2017 年第一篇 CUA 論文的課堂小調查、九年簡史與 GPT-6 Astra 的口述評語、四類評測（靜態 ScreenSpot-Pro／Mind2Web、WebArena 與 VisualWebArena、VLM 評審的 WebVoyager／Online-Mind2Web、OSWorld／WindowsAgentArena、長時程 Odysseys／OSWorld 2.0／CUA-World-Long）、課堂問答（partial credit、rubric 來源、是否拿 benchmark 訓練、截圖 vs HTML、等待載入）、預訓練／SFT／RL 三段訓練與 Tesla 類比、SFT 後約 0.5、RL 後 0.6 以上；皆有依據。修正兩處：WindowsAgentArena「壓到 20 分鐘」是論文說法、講者沒提；Fable／Opus 5 只在投影片的動作格式表，講者沒有評論。四個未解問題中的細節（Game-TARS、FDM-1、GUM 等）、各 benchmark 的任務數與論文數字屬投影片與論文，字幕大多未涵蓋；上課日期字幕未提。
 
 ## 更新紀錄
 

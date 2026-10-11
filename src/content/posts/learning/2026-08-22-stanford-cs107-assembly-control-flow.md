@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 17：從乘除法到 %rip，讀懂 x86-64 control flow"
+title: "從乘除法到 %rip，讀懂 x86-64 control flow｜Stanford CS107 第 17 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 `addq` 的結果仍放得進一個 64-bit register，但兩個 64-bit 數相乘可能需要 128 bits；division 更特別，dividend 橫跨 `%rdx:%rax`，quotient 與 remainder 又分別回到這兩個 registers。Stanford CS107 Lecture 17 先收完這組「一個 operand，卻暗中讀寫多個 registers」的 ALU operations，再問另一個更根本的問題：CPU 怎麼知道下一條 instruction 在哪裡？
 
 答案是 `%rip`。一般情況下，它隨目前 instruction 的 encoded length 前進；遇到 `jmp`，它改成指定 target。這講刻意只走到 unconditional jump，尚未介紹 condition codes 或 conditional jumps。讀者若把後續 flags、`cmp`／`test`、`jcc` 或 function call stack mechanics 提前塞進來，反而會模糊本講用 instruction bytes 建立的基本模型。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料、缺口與完整 agenda
 
@@ -231,6 +223,14 @@ Control flow：
 3. 遇到 `jmp` 時，以 target 取代預設 successor。
 4. direct jump 直接記錄固定 edge；indirect jump 反查 operand value 的來源。
 5. 只還原 edges 支持的 loop 或 skip，不假設尚未出現的 condition。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

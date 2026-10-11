@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 14: Virtual Memory, Continued"
+title: "Virtual Memory, Continued | Stanford CS111 Lecture 14"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 15 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 14**. Mendel Rosenblum taught the lecture on 2026-04-29; its official title is [Virtual Memory, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/14/Lecture14.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Official `Lecture13.pdf` and `Lecture14.pdf` are byte-identical 25-page files with SHA-256 `f0aa78c7...e315`, although the calendar calls April 29 **Virtual Memory, Continued**. Canvas video is unavailable. This article does not pretend there is another deck; it focuses on segmentation in the repeated artifact's latter section.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Why one base/bound pair is insufficient
 
@@ -80,6 +72,14 @@ Segments are smaller than whole processes but remain variable-length physical al
 Virtual space is rigidly divided too. Code/data/stack ranges follow the encoding, unused capacity does not necessarily transfer, and tools must understand segment identity.
 
 Multiple descriptors repair protection, growth, and sharing for one-region base/bound, but retain fixed-count and variable-size placement limits. Paging next uses fixed-size pages and a larger map for noncontiguous frames; this article does not write paging back into the duplicated PDF.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

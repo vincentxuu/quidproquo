@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW6（四）：Q-learning 玩 Swingy Monkey 與 Embedded EthiCS"
+title: "（四）：Q-learning 玩 Swingy Monkey 與 Embedded EthiCS｜Harvard CS181 作業 6"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, q-learning, reinforcement-learning, ai-ethics, homework]
@@ -29,17 +29,6 @@ glossary:
 > ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`、`p3src/`，due 2026-05-01）、[Section 10 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf)、2026 的 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) 與 [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) 投影片為準，全部於 2026-09-29 實際打開。投影片連結來自[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)講題儲存格（xlsx 匯出才看得到）。本課整體為 **A3**，但 4 月 23 日的 Embedded EthiCS 講課在課表上只寫「see recording」，沒有公開連結，也找不到 2026 的講義或模組頁，這一堂是 **A0**：本篇不推測它講了什麼。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 14 篇。上一篇 [HW6（三）](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning)在已知轉移機率的 Gridworld 裡做規劃。這篇拿掉「已知」：agent 只能邊玩邊學。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：MDP／RL 講次未列公開影片，4 月 23 日 Embedded EthiCS 明確寫「see recording」。本次取得的公開課表 HTML 中，這格是文字，未提供可開啟的錄影連結。因此倫理部分有錄影線索，但公開觀看連結與權限尚未確認；不能說没有影片。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 在學期裡的位置
 
@@ -167,6 +156,17 @@ Section 10 的說法是：SARSA 學的是「我實際做的事值多少」，Q-l
 ## 下一篇
 
 HW6 是最後一份作業。下一篇 [期末檢核與系列收尾](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint) 用官方的 final checklist 與練習題，把下半學期收斂起來。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：MDP／RL 講次未列公開影片，4 月 23 日 Embedded EthiCS 明確寫「see recording」。本次取得的公開課表 HTML 中，這格是文字，未提供可開啟的錄影連結。因此倫理部分有錄影線索，但公開觀看連結與權限尚未確認；不能說没有影片。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

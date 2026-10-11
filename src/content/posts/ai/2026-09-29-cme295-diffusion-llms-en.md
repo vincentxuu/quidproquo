@@ -1,5 +1,5 @@
 ---
-title: "CME295 2026 Lecture 8, Written Ahead: Three Kinds of Noise, One Training Objective, and the Price of Parallel Decoding in Diffusion LLMs"
+title: ", Written Ahead: Three Kinds of Noise, One Training Objective, and the Price of Parallel Decoding in Diffusion LLMs | Stanford CME295 Lecture 8"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -47,16 +47,6 @@ Instead it picks up the three questions order 9 left open:
 3. Where does the speed of "filling several positions at once" come from, and what does it cost?
 
 The 2026 slides and recording are not out yet. Anything marked "2025 slides" below comes from pages 71–98 of the [2025 Lecture 9 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture9.pdf). Everything else comes from the original papers and official pages, and does not represent how the 2026 lecture will present it.
-
-## Course video sources
-
-This article is a pre-written guide to CME295 2026 Lecture 8 (Diffusion LLMs, November 20). The official 2026 syllabus, read live on 2026-10-10, still marks that lecture "Coming soon", so no recording exists yet; the 2025 syllabus has no corresponding lecture, so there is no public video to include.
-
-Course and recording entries:
-
-- [Official 2026 syllabus](https://cme295.stanford.edu/syllabus/)
-
-Checked: 2026-10-10.
 
 ## Start with a contradiction: where does 10x come from
 
@@ -386,6 +376,16 @@ Once the November 20, 2026 video and slides are released, this post will be chec
 - Which sampling strategies the inference part covers, and whether it mentions KV caching and block generation
 - Whether the 2025 slides' "~10x tokens/s" gets an updated figure or a cited source
 - If the final exam (December 9, 2026) is released and covers this lecture, replace the self-check with questions adapted from the official exam
+
+## Course video sources
+
+This article is a pre-written guide to CME295 2026 Lecture 8 (Diffusion LLMs, November 20). The official 2026 syllabus, read live on 2026-10-10, still marks that lecture "Coming soon", so no recording exists yet; the 2025 syllabus has no corresponding lecture, so there is no public video to include.
+
+Course and recording entries:
+
+- [Official 2026 syllabus](https://cme295.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

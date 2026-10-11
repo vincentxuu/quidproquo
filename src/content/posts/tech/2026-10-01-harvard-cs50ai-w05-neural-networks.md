@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 5：Neural Networks——反向傳播、TensorFlow/Keras、CNN 與交通號誌辨識"
+title: "Neural Networks——反向傳播、TensorFlow/Keras、CNN 與交通號誌辨識｜Harvard CS50 AI 第 5 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 5 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=J1QD9hLDEDY
-title: Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=J1QD9hLDEDY)
-
-課程與錄影入口：
-
-- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：原表的順序（神經網路基礎→訓練→TensorFlow→CNN）大致成立，但原表有多項字幕中找不到的內容：損失函數 MSE／Cross-Entropy 的獨立章節（Softmax 只有一句）、優化器 SGD／Momentum／Adam、Functional API、Batch Normalization、Data Augmentation、Early Stopping、通用近似定理、鏈式法則推導，以及 Traffic 專案介紹，皆已移除；影片末段約第 85 分鐘起其實是遞迴神經網路（RNN），原表漏掉，已補上。字幕全程未提到 Traffic 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:41:20）無法驗證，改為依字幕估算的「約」值。
 
 ## TL;DR
 
@@ -331,6 +311,26 @@ style50 traffic.py
 - [ ] 理解 CNN 中 `Conv2D` 的 `filters`、`kernel_size`、`padding`、`strides` 參數效果
 - [ ] 理解 BatchNormalization、Dropout、Data Augmentation 的正則化機制
 - [ ] Traffic 專案 `check50` 全綠（測試集準確率達標）
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 5 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=J1QD9hLDEDY
+title: Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Neural Networks - Lecture 5 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=J1QD9hLDEDY)
+
+課程與錄影入口：
+
+- [CS50 AI Week 5 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/5/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：原表的順序（神經網路基礎→訓練→TensorFlow→CNN）大致成立，但原表有多項字幕中找不到的內容：損失函數 MSE／Cross-Entropy 的獨立章節（Softmax 只有一句）、優化器 SGD／Momentum／Adam、Functional API、Batch Normalization、Data Augmentation、Early Stopping、通用近似定理、鏈式法則推導，以及 Traffic 專案介紹，皆已移除；影片末段約第 85 分鐘起其實是遞迴神經網路（RNN），原表漏掉，已補上。字幕全程未提到 Traffic 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:41:20）無法驗證，改為依字幕估算的「約」值。
 
 ## 更新紀錄
 

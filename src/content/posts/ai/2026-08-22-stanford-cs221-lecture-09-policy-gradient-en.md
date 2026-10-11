@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 9: MDPs III: Differentiating Expected Return Directly"
+title: "MDPs III: Differentiating Expected Return Directly | Stanford CS221 Lecture 9"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 9**, taught by Percy Liang on 2025-10-20. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments. The article follows the execution order of the lecture's [policy_gradient](https://stanford-cs221.github.io/autumn2025-lectures/?trace=policy_gradient) artifact and explains every example and derivation that actually appears there.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article covers only what appears in `policy_gradient.py`. Actor-critic, generalized advantage estimation, entropy regularization, and off-policy policy-gradient derivations are not silently added.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 9, the same term and lecture number this article follows. It matches item 9 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=lOMNskWVeD8
-title: Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient](https://www.youtube.com/watch?v=lOMNskWVeD8)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 9) and confirmed it covers an RL review (SARSA versus Q-learning), function approximation, learning a policy directly, and policy gradient with baselines, matching this article's lecture and topic; no mismatch found.
 
 ## Where the lecture starts
 
@@ -217,6 +197,26 @@ The source ends by placing three routes side by side: model-based methods estima
 The policy-gradient contract is concrete: the policy is a stochastic distribution `π_θ(a | s)`; the current policy generates the rollout; each rollout produces utility; and the update uses its `(state, action)` pairs weighted by utility or by a variance-reduced alternative. The log-derivative identity avoids differentiating the sampled discrete action as a continuous value while still producing an unbiased gradient estimator for expected utility.
 
 The costs are just as concrete. Updates wait for an episode to finish, and one trajectory's utility can be very noisy. Baselines and returns-to-go can reduce variance; bootstrapping trades some bias for lower variance. The source does not explain how to learn a baseline, choose hyperparameters, or prove convergence in larger environments. Those remain outside this material and cannot be inferred from the three-stop tram example.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 9, the same term and lecture number this article follows. It matches item 9 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=lOMNskWVeD8
+title: Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 9: Policy Gradient](https://www.youtube.com/watch?v=lOMNskWVeD8)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 9) and confirmed it covers an RL review (SARSA versus Q-learning), function approximation, learning a policy directly, and policy gradient with baselines, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

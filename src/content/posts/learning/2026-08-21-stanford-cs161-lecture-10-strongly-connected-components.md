@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 10：兩次 DFS 為什麼能找出強連通分量"
+title: "兩次 DFS 為什麼能找出強連通分量｜Stanford CS161 第 10 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, graph-algorithms, strongly-connected-components]
@@ -22,16 +22,6 @@ series:
 本文依照[官方 Lecture 10 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)、公開 notes 與 slides 整理。Slides 採「先跑原圖、再反轉」；notes 採等價的「先跑轉置圖、再回原圖」。本篇會把兩種版本並列，但完整 proof 固定採 notes 方向，避免把 pass 混接。Canvas-only 錄影未作為來源；官方頁連到的 `winter2025-extra` notebook 也未被冒充為 Winter 2026 新材料。
 
 Lecture 9 已經知道：在 undirected graph 中，從任一 vertex 跑 DFS，就能走完整個 connected component。Directed graph 麻煩得多。從 u 能到 v，不表示 v 能回 u；一次 DFS 找到的是 reachable set，不是 mutual reachability。Lecture 10 的巧思，是先把 SCC 之間的關係看成 DAG，再用 finish times 決定「下一次 DFS 從哪個分量開始才不會漏出去」。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
-
-查核日期：2026-10-10。
 
 ## Directed graph 需要兩種 connected 概念
 
@@ -167,6 +157,16 @@ Lecture 9 先建立 DFS forest 與 finish-time intervals；Lecture 10 沒有另�
 要自己驗證兩個官方版本，可畫一張有三個 SCC 的 directed graph，同時跑 `G→G^T` 與 `G^T→G`。逐 pass 寫下 finish order 與第二趟 trees；vertex 級 times 可能不同，component partition 必須相同。
 
 實作時建議回傳兩份結果：每個 vertex 的 component ID，以及 condensation DAG。後者可把每條原 edge `(u,v)` 轉成 `(comp[u],comp[v])`，去掉 self-loops 與重複 edge。這是本站的延伸練習，不是 Winter 2026 投影片要求。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-10-strongly-connected-components)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

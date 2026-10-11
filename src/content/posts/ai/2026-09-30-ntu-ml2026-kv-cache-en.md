@@ -1,5 +1,5 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 2: KV Cache Saves Time, Fills the Warehouse, and How to Slim It Down"
+title: "NTU Hung-yi Lee ML 2026 Guide: Faster Generation, Part 2: KV Cache Saves Time, Fills the Warehouse, and How to Slim It Down | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **This guide is based on the 3/20 materials of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 7 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. At the end of the previous post on [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en), the demo Colab made the sequence ten times longer and the GPU ran out of memory. What filled up was the warehouse (HBM), not the workbench (SRAM). This post picks up that thread: **what fills the warehouse, and how do you make it last longer?**
 
 Official materials used: the slides [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf), pages 29–55, and the lecture video [加快語言模型生成速度 (2/2)：KV Cache](https://youtu.be/fDQaadKysSA) (in Mandarin). Access level is **A3**: slides (pdf/pptx) and recording are public. The hands-on part is the vLLM section of [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en).
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=fDQaadKysSA
-title: Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)
-```
-
-Original videos: [Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)](https://www.youtube.com/watch?v=fDQaadKysSA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video fDQaadKysSA (38:33) was read in full. Checked Prefill/Decode and why only k and v are cached, Gemma 2 at about 0.72 MB per token and about 114k tokens on an A100, why MQA/GQA share k/v across queries, the MLA no-decompression derivation, Sliding Window (Mistral 7B, GPT-OSS interleaving), StreamingLLM and attention sinks, Scissorhands/H2O, cross-conversation prompt caching and the prefix rule, system-prompt ordering (date goes last), the "book a flight from x to y" example, and the summary table rows; all match the transcript. Two small spoken-versus-slide differences (the head count is spoken as 30 and the pricing example as GPT-4o; Don't Break the Cache is described as saving at least 50%); the post follows the slide figures and says so.
 
 ## The scene: KV Cache itself is simple
 
@@ -174,6 +155,25 @@ Verified: the text and figures of slides 29–55 (the Gemma 2 table, the OpenAI 
 Not verified: the captions mishear the head count as 30 and name a different model for the pricing example; this post uses the numbers on the slides (32 heads, gpt-5.4 prices). The slide only shows a screenshot of the pricing table, and this post did not check OpenAI's current prices, so check the official page for real numbers. In the summary table, the "Other cost" cells for GQA, MLA, Sliding Window, and StreamingLLM are blank on the slide.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 1: Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) | Next: [HW3: LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=fDQaadKysSA
+title: Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)
+```
+
+Original videos: [Video: Speeding up LM generation (2/2): KV Cache (in Mandarin)](https://www.youtube.com/watch?v=fDQaadKysSA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video fDQaadKysSA (38:33) was read in full. Checked Prefill/Decode and why only k and v are cached, Gemma 2 at about 0.72 MB per token and about 114k tokens on an A100, why MQA/GQA share k/v across queries, the MLA no-decompression derivation, Sliding Window (Mistral 7B, GPT-OSS interleaving), StreamingLLM and attention sinks, Scissorhands/H2O, cross-conversation prompt caching and the prefix rule, system-prompt ordering (date goes last), the "book a flight from x to y" example, and the summary table rows; all match the transcript. Two small spoken-versus-slide differences (the head count is spoken as 30 and the pricing example as GPT-4o; Don't Break the Cache is described as saving at least 50%); the post follows the slide figures and says so.
 
 ## Update Log
 

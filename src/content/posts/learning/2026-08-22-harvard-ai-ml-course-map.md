@@ -1,5 +1,5 @@
 ---
-title: "Harvard AI／ML 課程導讀：CS50 AI、CS181、CS182 的影片與作業是不是同一版？"
+title: "從 AI 入門到機器學習：CS50 AI、CS181 與 CS182 的學習路線｜世界名校 AI／CS 課程地圖"
 date: 2026-08-22
 category: learning
 tags: [harvard, ai-course, machine-learning, learning-path, open-course]
@@ -24,19 +24,6 @@ CSCI S-80 Summer 2026 確實是 Harvard Summer School 的正式 2026 班次，�
 另一邊，沒有學期標籤的 [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/) 已把同一題換成 2023 distribution，並使用 2024 的 `check50` slug。以下公開狀態均以 **2026 年 8 月 22 日**的查核結果為準。
 
 所以這篇不會把畫面年份當教材版本。我會把 **正式開課、講授資產、作業資產與回饋系統**拆開，再回答 Harvard 的校內 AI／ML 主幹如何接起來。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
-- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
-- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
-- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
-- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
-- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
 
 ## Harvard 的正式地基不是 CS50 AI
 
@@ -114,6 +101,19 @@ A0–A3 沿用[世界名校 AI／CS 課程地圖](/posts/learning/2026-08-21-glo
 想往 AI 安全走，現在就能用的是 Boaz Barak 在 Fall 2025 首開的研究所研討課 **CS 2881R AI Safety**。它已完整結束，12 講的閱讀清單全公開，YouTube 有 11 講錄影，HW0 是能自己跑的 GitHub repo，期中與期末的規格也放出來，以研討課標準可列 A3。先修是 CS 181 程度，所以排在 CS1810 之後。課站掛在 Boaz 的 GitHub Pages，根目錄現在是 Fall 2026，Fall 2025 搬到 `/fall2025/`；Fall 2026 正在上，只能當預覽。它沒有傳統習題，自學節拍要靠閱讀清單與期中、期末專題規格自己排。本站的 [CS 2881R 導讀系列](/posts/ai/2026-09-30-cs2881r-course-overview)以 Fall 2025 為主線。
 
 Harvard 最清楚的教訓不是哪門課最好，而是**公開頁面很漂亮，仍要查看底層資產年份**。CS50 AI 告訴你影片和作業可能跨版；CS1810 告訴你沒有影片仍可形成 A3；CS1820 則提醒最新課表不等於已存在的公開課。把這三種狀態分開，才有一條今天能走、未來也容易更新的路線。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [CS50 AI OpenCourseWare](https://cs50.harvard.edu/ai/)
+- [CS concentration requirements](https://csadvising.seas.harvard.edu/concentration/requirements/)
+- [Harvard CS advising](https://csadvising.seas.harvard.edu/concentration/courses/)
+- [CSCI S-80 Summer 2026](https://cs50.harvard.edu/summer/ai/2026/)
+- [Lecture 0](https://cs50.harvard.edu/summer/ai/2026/lectures/0/)
+- [Degrees project](https://cs50.harvard.edu/ai/projects/0/degrees/)
 
 ## 更新紀錄
 

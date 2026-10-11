@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 4–7: K-means, Probability Review, MLE, Multivariate Gaussians and GMMs"
+title: "K-means, Probability Review, MLE, Multivariate Gaussians and GMMs | Berkeley CS189 Lectures 4–7"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, clustering, k-means, probability, unsupervised-learning]
@@ -34,31 +34,6 @@ Read the lectures along this line and they stop feeling like a pile of unrelated
 | Lec 7 Mixture of Gaussians & Linear Regression (first half only here) | 2/10 | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view?usp=drive_link) / [video](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) | 3.2.9, 15.2, 15.2.1 (linear regression is in the next post) |
 | Discussion 2 | Week 3 | [Worksheet](https://drive.google.com/file/d/1MZs3r4ZOMhKUTAXjvLU9lxeCvGCUq1ND/view?usp=drive_link) / [Solutions](https://drive.google.com/file/d/1rGh1__n8Q7q9ScAJvSQWFsygwwsChh5V/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/watch?v=Mf4deCkjUkQ&list=PL-ysCubq-Sa9uYDjsrzfmPCLLbjfOKVPd&index=3) | — |
 | Discussion 3 | Week 4 | [Worksheet](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view?usp=drive_link) / [Solutions](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view?usp=drive_link) / [Walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj) | — |
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=STdR9OyulZE
-title: Lecture 4 recording: Clustering, Probability Review
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=kU7a1K3PX10
-title: Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
-```
-
-Original videos: [Lecture 4 recording: Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 4 video (STdR9OyulZE, about 80 minutes) is indeed Clustering, Probability Review. The instructor opens by saying Alex had been lecturing before and this is their first class; the video covers clustering examples such as geysers, K-means and centroids, local minima, a question about clusters of different sizes, and the asymmetry of KL. The probability review stops at joint distributions and marginalization (the instructor says the rest is left for next time), so the remaining items under the probability review (product rule, independence, IID, the wake-word Bayes example) appear only on the slides, and the name "Lloyd" is never spoken. The Lecture 5 video (kU7a1K3PX10, about 72 minutes) recaps K-means' weaknesses, reviews random variables, and works through simple MLE examples and the 1-D Gaussian MLE; it ends partway through the die example (the instructor says it will be finished next class), so the Lagrange-multiplier derivation, multivariate Gaussians, and GMM are not in this video. The Lec 6 and Lec 7 videos are not embedded in this post and were not checked.
 
 ## Lec 4, first half: K-means clustering
 
@@ -194,6 +169,31 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 - [Stanford CS109 L19: maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en): another take on MLE
 - [Stanford CS109 L9: the normal distribution](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en): background on the univariate Gaussian
 - [Stanford CS229 notes Ch. 4: generative learning algorithms](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en): multivariate Gaussians used for classification
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=STdR9OyulZE
+title: Lecture 4 recording: Clustering, Probability Review
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=kU7a1K3PX10
+title: Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians
+```
+
+Original videos: [Lecture 4 recording: Clustering, Probability Review](https://www.youtube.com/watch?v=STdR9OyulZE)、[Lecture 5 recording: Intro to Maximum Likelihood Estimation, Multivariate Gaussians, Mixture of Gaussians](https://www.youtube.com/watch?v=kU7a1K3PX10)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 4 video (STdR9OyulZE, about 80 minutes) is indeed Clustering, Probability Review. The instructor opens by saying Alex had been lecturing before and this is their first class; the video covers clustering examples such as geysers, K-means and centroids, local minima, a question about clusters of different sizes, and the asymmetry of KL. The probability review stops at joint distributions and marginalization (the instructor says the rest is left for next time), so the remaining items under the probability review (product rule, independence, IID, the wake-word Bayes example) appear only on the slides, and the name "Lloyd" is never spoken. The Lecture 5 video (kU7a1K3PX10, about 72 minutes) recaps K-means' weaknesses, reviews random variables, and works through simple MLE examples and the 1-D Gaussian MLE; it ends partway through the die example (the instructor says it will be finished next class), so the Lagrange-multiplier derivation, multivariate Gaussians, and GMM are not in this video. The Lec 6 and Lec 7 videos are not embedded in this post and were not checked.
 
 ## Update Log
 

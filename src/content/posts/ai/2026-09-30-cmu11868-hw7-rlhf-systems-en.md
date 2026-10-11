@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 RLHF Systems and Assignment 7: A VERL-Style Pipeline with a Reward Model, GAE, and PPO"
+title: "A VERL-Style Pipeline with a Reward Model, GAE, and PPO | CMU 11-868 Assignment 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 The course description lists "efficient implementation of RLHF," and this lecture plus Assignment 7 is where it lands. The two are public to very different degrees. The lecture has a title and one reading. The assignment has a full write-up, starter code, and grading criteria. This post covers what you can read for the lecture, then what the assignment asks of you.
 
 **No solutions here.** I also don't derive the RLHF algorithms themselves (PPO, reward model theory); links to other courses are at the end.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The 4/15 lecture: a title and one paper
 
@@ -144,6 +134,16 @@ This course treats RLHF as a systems problem. Guides to other courses on this si
 - [Stanford CS336: RLVR](/posts/ai/2026-08-22-cs336-rlvr-en): from PPO to GRPO and verifiable rewards, including the cost of rollout systems
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en): policy gradient, DQN, SAC, and the rest of the policy-based and value-based toolkit
 - [Berkeley CS285 series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

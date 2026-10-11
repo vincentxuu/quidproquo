@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 21：Heap Allocator 的第一個設計，速度與空間為何互相拉扯"
+title: "Heap Allocator 的第一個設計，速度與空間為何互相拉扯｜Stanford CS107 第 21 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Lecture 20 最後把視角從 `malloc` 的使用者轉到實作者：一段連續 heap 交到 allocator 手上，它得把不同大小、不同生命週期的要求安排進去。Lecture 21 正式回答第一層問題：allocator 至少要記住什麼，才能在沒有物件型別、也不知道未來要求的情況下，反覆配置與回收空間？
 
 這不是尋找唯一「最好」的資料結構。配置器同時追求正確對齊、快速回應和高空間利用率，但改善其中一項常會傷害另一項。最簡單的 bump allocator 幾乎不花時間搜尋，代價是無法真正重用；implicit free list 能重用空間，卻得掃過使用中的 block。這講的主脊就是逐步增加 bookkeeping，並逐筆看見它買到的能力與新增的成本。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -176,6 +168,14 @@ Coalescing 可立即執行，也可延後到搜尋失敗或特定時點。立即
 實作前先寫出不變量，比先寫 `malloc` 主迴圈更省時間：payload alignment 是多少；header 的 size 是否包含自己；最低 block size 是多少；allocated flag 藏在哪個 bit；heap 如何表示終點；size arithmetic 如何拒絕 overflow；split 後兩塊是否都合法；free 後何時 coalesce。
 
 Lecture 21 的真正收穫不是背下 first fit，而是看懂 allocator 每增加一份 metadata，都在購買某種能力：header 買到走訪與回收，padding 買到 alignment，搜尋買到重用，splitting 買到較高利用率，coalescing 買到較大的連續空間。成本也同時存在。下一講把 free blocks 從隱含序列抽成 explicit list，會再次用更多結構換取更短搜尋。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

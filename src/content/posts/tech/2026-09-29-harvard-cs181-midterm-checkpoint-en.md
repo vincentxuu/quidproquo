@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 Midterm Checkpoint: Auditing HW0–HW3 With the Official Checklist"
+title: "Auditing HW0–HW3 With the Official Checklist | Harvard CS181 Topic Guide"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, exam-prep, machine-learning, course-guide]
@@ -26,17 +26,6 @@ The timing matters. HW2 is already in, and [HW3](/posts/tech/2026-09-29-harvard-
 The checklist says so directly:
 
 > "For emphasis: the midterm is not about memorization but will be designed to test your conceptual and analytical understanding."
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -126,6 +115,17 @@ One honest caveat: the checklist carries no year, and its SVM and Bayesian items
 - Next: [HW4 (Part 1): Transformers, from hand-computed attention to multi-head](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 - Look back: [HW0](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review-en), [HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en), [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

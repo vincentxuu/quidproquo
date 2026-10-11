@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 19｜Maximum Likelihood Estimation：固定資料，找最能解釋資料的參數"
+title: "Maximum Likelihood Estimation：固定資料，找最能解釋資料的參數｜Stanford CS109 第 19 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 20 篇，對應 **Summer 2026 Lecture 19**（Jul 23）。Schedule 題目是 **MLE**，講次頁使用 **Maximum Likelihood Estimation**，講者為 Chris Gregg。本文依當期 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture19-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture19-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture19-LLMPrompts.pdf)與官方讀本整理。
 
 本講維持 **L2**：worksheet 共三頁，正式 P1–P6，另有 optional challenge；answer key 兩頁，P5 與 challenge 是 pset6 題，公開版刻意不附解答。Guide 是三頁六 concepts，最後一頁只延續 Concept 6 與 wrap-up。當期投影片不可用、錄影限 Canvas，以下不重建未公開內容。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=utFEufMXHgw
-title: Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21](https://www.youtube.com/watch?v=utFEufMXHgw)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 21「M.L.E.」字幕（約 71K 字元）：影片講 likelihood、log-likelihood、argmax 與用微分求 MLE（Bernoulli、Poisson、Gaussian 等），與本講一致；字幕沒有 geometric、Rayleigh、邊界解或 negative binomial，也沒有 gradient ascent，本文對應的 worksheet 段落不是影片內容。
 
 ## P1：用 entropy 接回上一講
 
@@ -159,6 +137,28 @@ Wrap-up 可要求一題串起：辨認 model 與 `θ`、寫 likelihood／log-lik
 - Worksheet 是三頁 P1–P6 加 optional challenge；兩頁 key 省略兩題 pset6 解答。
 - Guide 是三頁六 concepts，第三頁沒有第七個 concept。
 - 當期投影片不可用、錄影限 Canvas；本文未重建未公開內容。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=utFEufMXHgw
+title: Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21](https://www.youtube.com/watch?v=utFEufMXHgw)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 21「M.L.E.」字幕（約 71K 字元）：影片講 likelihood、log-likelihood、argmax 與用微分求 MLE（Bernoulli、Poisson、Gaussian 等），與本講一致；字幕沒有 geometric、Rayleigh、邊界解或 negative binomial，也沒有 gradient ascent，本文對應的 worksheet 段落不是影片內容。
 
 ## 更新紀錄
 

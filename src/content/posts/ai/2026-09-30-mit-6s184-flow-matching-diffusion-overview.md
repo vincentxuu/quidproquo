@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 導讀：用 ODE／SDE 讀懂 flow matching 與 diffusion"
+title: "用 ODE／SDE 讀懂 flow matching 與 diffusion｜MIT 6.S184 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,15 +32,6 @@ glossary:
 Stable Diffusion 3、Meta Movie Gen 這類圖片與影片生成器，底層多半是 diffusion model 或 flow matching。網路上的教學通常二選一：要嘛只給程式碼，要嘛直接丟一堆隨機微分方程。[MIT 6.S184](https://diffusion.csail.mit.edu/) 走中間路線：只教「剛好夠用」的 ODE／SDE 數學，再一步步把這些數學變成一個能跑的 latent diffusion model。
 
 這篇是系列入口，不做任何推導。讀完你會知道這門課教什麼、材料在哪、缺什麼，以及該按什麼順序讀。
-
-## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方 2026 課程頁核對：Recording 欄列有第 1、2、3-A、3-B、4、5 講的 YouTube 錄影；三個 labs 沒有專屬錄影。逐講影片附在各講文章。
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
 
 ## 這門課是什麼
 
@@ -150,6 +141,15 @@ Stable Diffusion 3、Meta Movie Gen 這類圖片與影片生成器，底層多�
 - DDPM 視角（時間方向相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 離散擴散語言模型：[CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)
 - 深度學習整體：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 課程影片來源
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方 2026 課程頁核對：Recording 欄列有第 1、2、3-A、3-B、4、5 講的 YouTube 錄影；三個 labs 沒有專屬錄影。逐講影片附在各講文章。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

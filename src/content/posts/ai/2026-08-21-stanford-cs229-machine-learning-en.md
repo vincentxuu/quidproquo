@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS229: Notes Rewritten Every Year, Public Problem Sets Frozen at 2020, and an Official Self-Test From 2008"
+title: "Notes Rewritten Every Year, Public Problem Sets Frozen at 2020, and an Official Self-Test From 2008 | Stanford CS229 Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,27 +25,6 @@ draft: false
 It also has the most complete public self-study materials of any Stanford course: the notes are a public PDF, the lectures are on YouTube, and the problem sets and starter code are still sitting on the server. That is why it deserves its own post — **an abundance of material is not the same as consistent material**. Those four resources are frozen at four different years, and nothing on any page tells you so.
 
 This piece was written after reading through the notes PDF chapter by chapter, putting the 2018 and 2026 syllabi side by side, and downloading and working through every problem set still reachable. It covers what the course teaches, where chapter 1 gets hard, what changed between the two syllabi, what the assignments look like, and how much someone without a Stanford account can actually get. It does **not** include a lecture-by-lecture listen — that is a different order of work, and the [CS329A post](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) in this series is the one that does it. For where this course sits on the prerequisite ladder, see the [map post](/posts/learning/2026-08-20-stanford-cs-course-map-en) that opens the series.
-
-## Course video sources
-
-This article is a course-level guide, not a single lecture. The video below, Spring 2026 Lecture 1 (Introduction), is a related supplement from the public Stanford Online playlist. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=DATnpGoGhM8
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2026 Lecture 1 (about 37 minutes) taught by Tengyu Ma; the transcript is the course introduction: prerequisites, the AI tools policy, definitions of machine learning (1959 and Tom Mitchell 1998), the supervised/unsupervised/reinforcement taxonomy and previews of LLMs and diffusion models. It fits the article as a course-level overview, and the article makes no finer claims about this video. The Lecture 14 opening, the attention-variants quote and the descriptions of Lectures 16/18/20 come from other videos, not this one, and were not re-read here.
 
 ## The hard facts
 
@@ -189,6 +168,27 @@ The one-line version: **old recordings with new notes, assignments with the star
 - **Review notes still downloadable**: `section/cs229-linalg.pdf`, `section/cs229-prob.pdf`, `section/cs229-cvxopt.pdf`, and `section/cs229-gaussians.pdf` all return 200; the older per-topic notes listed on the 2018 syllabus, such as `notes/cs229-notes1.pdf`, all return 404.
 - **Self-test problem set**: `https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`, 4 pages, PDF `CreationDate` 2008-10-06. The header reads "CS 229, Public Course".
 - **Not confirmed**: (1) why lectures 15, 17, and 19 are missing from the spring 2026 recordings, and why the last three titles are misaligned — neither the Stanford Online page nor the playlist description says anything; (2) the grade breakdown (assignments / midterm / project) for any quarter of CS229 — the current syllabus is locked behind a Stanford account and this post obtained no official breakdown for any term, so it does not discuss grade weighting at all; (3) whether a public showcase of recent final projects exists anywhere — none found; (4) whether problem sets from years other than 2019 and 2020 remain on the server — only the summer2019 and summer2020 paths were tested.
+
+## Course video sources
+
+This article is a course-level guide, not a single lecture. The video below, Spring 2026 Lecture 1 (Introduction), is a related supplement from the public Stanford Online playlist. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=DATnpGoGhM8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2026 Lecture 1 (about 37 minutes) taught by Tengyu Ma; the transcript is the course introduction: prerequisites, the AI tools policy, definitions of machine learning (1959 and Tom Mitchell 1998), the supervised/unsupervised/reinforcement taxonomy and previews of LLMs and diffusion models. It fits the article as a course-level overview, and the article makes no finer claims about this video. The Lecture 14 opening, the attention-variants quote and the descriptions of Lectures 16/18/20 come from other videos, not this one, and were not re-read here.
 
 ## Update Log
 

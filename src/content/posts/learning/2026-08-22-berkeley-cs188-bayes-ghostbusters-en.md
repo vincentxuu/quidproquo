@@ -1,5 +1,5 @@
 ---
-title: "CS188 Bayes Nets and Ghostbusters: Inference When Ghosts Are Invisible"
+title: "Inference When Ghosts Are Invisible | Berkeley CS188 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, bayesian-network, probabilistic-inference, particle-filter]
@@ -19,6 +19,32 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 [Lectures 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/) progress from probability and Bayes nets through exact inference and sampling to HMMs and particle filtering. [Project 4: Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) makes the sequence concrete: Pacman cannot see ghosts and receives only noisy Manhattan-distance readings, so it must maintain location beliefs and pursue targets.
+
+## Factor operations are not mechanical tables
+
+Joining factors combines compatible information; elimination sums over a variable no longer needed. Variable-elimination cost and intermediate factor sizes depend on order; correct exact inference for the same query and evidence should give the same result. Before each implementation step, state what distribution the factor represents and check conditioned versus unconditioned variables instead of manipulating dictionary keys blindly.
+
+## Observation and time are different updates
+
+On a sensor reading, reweight beliefs by likelihood and normalize. When time advances without direct observation, propagate the distribution through the ghost movement model. Alternating these operations is filtering. The [official P4 specification](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) states that if every particle receives zero weight, the particle filter must reinitialize rather than sample from an empty distribution.
+
+The official visualization displays posterior probability through brightness. After each update, predict which cells should brighten and where the transition model should move mass, then run the autograder. Predicting the direction of the picture demonstrates more than a passing test.
+
+## Study order
+
+Hand-calculate a join and elimination on a two-variable factor, then implement exact inference. Verify normalization before moving to particle filtering. Finally let the greedy BustersAgent act on each ghost's most likely position and examine what is lost when a complete uncertainty distribution is reduced to a mode.
+
+Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en) | [Next: Decisions and machine learning](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
+
+## One belief update with two possible locations
+
+This is an invented teaching example, not an official assignment solution. A ghost can be at A or B, initially with probability `0.5` each. For observation z, assume `P(z|A)=0.8` and `P(z|B)=0.2`.
+
+Multiply prior by likelihood: A has unnormalized weight `0.5×0.8=0.4`, B has `0.5×0.2=0.1`. Divide by their sum, `0.5`, to get posterior A `0.8`, B `0.2`. This is observe: evidence changes relative confidence in locations.
+
+Now assume each location has probability `0.75` of staying put and `0.25` of moving to the other. Without a new observation, next-step A has probability `0.8×0.75+0.2×0.25=0.65`; B has `0.35`. This is elapse time: propagate the current belief through a movement model. Both steps produce distributions summing to one, but use different information.
+
+**Check:** If the observation is equally likely at A and B, what happens to the original prior? It remains `0.5, 0.5`: equal likelihoods favor neither location. If all weights are zero, division is invalid; the particle version must reinitialize according to the official specification.
 
 ## Course video sources
 
@@ -40,23 +66,9 @@ Checked: 2026-10-10.
 
 Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 13, on probability; it opens with a news aside, then says the lecture covers the notation and laws of probability with Bayes-net representation next class, which is the starting point of this article's Lecture 13–18 range. The remaining sections of this article cover other lectures in the unit and the project, not this video.
 
-## Factor operations are not mechanical tables
-
-Joining factors combines compatible information; elimination sums over a variable no longer needed. Variable-elimination cost depends strongly on order. Before each implementation step, state what distribution the factor represents and check conditioned versus unconditioned variables instead of manipulating dictionary keys blindly.
-
-## Observation and time are different updates
-
-On a sensor reading, reweight beliefs by likelihood and normalize. When time advances without direct observation, propagate the distribution through the ghost movement model. Alternating these operations is filtering. The [official P4 specification](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/) states that if every particle receives zero weight, the particle filter must reinitialize rather than sample from an empty distribution.
-
-The official visualization displays posterior probability through brightness. After each update, predict which cells should brighten and where the transition model should move mass, then run the autograder. Predicting the direction of the picture demonstrates more than a passing test.
-
-## Study order
-
-Hand-calculate a join and elimination on a two-variable factor, then implement exact inference. Verify normalization before moving to particle filtering. Finally let the greedy BustersAgent act on each ghost's most likely position and examine what is lost when a complete uncertainty distribution is reduced to a mode.
-
-Series navigation: [Previous: MDPs and reinforcement learning](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en) | [Next: Decisions and machine learning](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en)
-
 ## Update Log
+
+- 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Spring 2026 schedule and YouTube playlist were checked live and list the embedded lecture recording, so the status is now Videos included.

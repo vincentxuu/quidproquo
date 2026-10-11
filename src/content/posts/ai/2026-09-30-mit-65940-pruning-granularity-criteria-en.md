@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L3 Pruning I: Where to Prune, How Fine, and by What Criterion"
+title: "Pruning I: Where to Prune, How Fine, and by What Criterion | MIT 6.5940 Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ Official materials covered here:
 - Lecture 3 Pruning and Sparsity (Part I): [slides](https://www.dropbox.com/scl/fi/6qspcmk8qayy7mft737gh/Lec03-Pruning-I.pdf?rlkey=9jpifc92be0sitiknpbhn9ggf&st=lml94lam&dl=0) (74 pages), [video](https://www.youtube.com/watch?v=EjsB0WgIfUM)
 
 All page numbers are PDF page numbers.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=EjsB0WgIfUM
-title: EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and ending and spot-checked the middle: the definition of pruning, granularity (fine-grained up to channel level), magnitude criteria, Taylor/second-order criteria, APoZ, batch-norm scaling factors (network slimming), fine-tuning learning rate and epochs, and why over-parameterization helps optimization. Topics and lecture number match this post. The captions do not contain the term “fine-grained” verbatim, so the exact category names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why start with pruning
 
@@ -212,6 +194,24 @@ Open the [Fall 2024 Lab 1](https://colab.research.google.com/drive/1Fagq3JQBzCiz
 - [Stanford CS336: inference](/posts/ai/2026-08-22-cs336-inference-en): compression on the LLM inference side
 
 **Series navigation**: previous [Why efficiency matters and how to measure model size and compute](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en) | next [Pruning II: per-layer ratios and hardware support](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en) | [Series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=EjsB0WgIfUM
+title: EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 3 - Pruning and Sparsity Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EjsB0WgIfUM)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and ending and spot-checked the middle: the definition of pruning, granularity (fine-grained up to channel level), magnitude criteria, Taylor/second-order criteria, APoZ, batch-norm scaling factors (network slimming), fine-tuning learning rate and epochs, and why over-parameterization helps optimization. Topics and lecture number match this post. The captions do not contain the term “fine-grained” verbatim, so the exact category names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

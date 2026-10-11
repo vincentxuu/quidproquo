@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW4: Writing Softmax and LayerNorm as Fused CUDA Kernels"
+title: "Writing Softmax and LayerNorm as Fused CUDA Kernels | CMU 11-868 Assignment 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,16 +33,6 @@ glossary:
 The previous post covered how LightSeq fuses the small operations in a Transformer and rewrites reductions to drop a synchronization. This assignment hands you two of those kernels: attention **softmax** and **LayerNorm**, forward and backward. The assignment page opens by saying the CUDA optimizations come from the [LightSeq](https://arxiv.org/abs/2010.13887) and [LightSeq2](https://arxiv.org/abs/2110.05722) papers, and "strongly encourages" reading them and the lecture slides before writing code.
 
 This post covers only the structure, points, dependencies, hardware, and where self-learners get stuck. **No solutions and no reference implementations.**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -126,6 +116,16 @@ One thing you can do tonight: clone the repo, read only `ker_attn_softmax_lt32` 
 
 - Writing fused kernels in Triton, and profiling before optimizing: [CS336 Lecture 6: Benchmark and Profile Before Writing a Triton Kernel](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 - Fusing all of attention into one kernel: this series' [FlashAttention post](/posts/ai/2026-09-30-cmu11868-flashattention-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

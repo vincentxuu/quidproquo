@@ -1,5 +1,5 @@
 ---
-title: "CS224U Methods and Metrics II: Datasets, Data Splits, and Comparing Models"
+title: "Datasets, Data Splits, and Comparing Models | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -20,30 +20,6 @@ draft: false
 **This post is based on the Spring 2023 edition of CS224U.** It is part 14 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics I](/posts/ai/2026-09-29-cs224u-methods-metrics-en), covered how scores get computed: confusion matrices, averaged F1, BLEU, and perplexity. This part takes the next question. **Even with the right metric, will your experiment convince a reviewer who doesn't trust you?**
 
 The course answers that in the last three sections of the same [methods slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf): Datasets, Data organization, and Model evaluation. They match videos 42 to 44 in the [YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) and the repo's [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb). The deck's "Associated materials" slide also assigns [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/) of Noah Smith's *Linguistic Structure Prediction*. That appendix is titled Experimentation. It covers train/dev/test, cross-validation, comparison without replication, and hypothesis testing.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=zFtA0fjaXPE
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=7zZRaoHr-8g
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
-Other related videos (text links only): [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
-
-Content check: verified against the video transcript (2026-10-10): Part 4 (Datasets) and Part 6 (Model Evaluation & Conclusion) were compared item by item with their transcripts: the six uses of datasets and the three 'use both' questions, the DynaSent prompt condition, Bowman and Dahl's counterargument and Potts's response, the MoNLI example, random and task-specific baselines, the 50/100/500 hyperparameter arithmetic and the 200,000 GPU hours, the six compromises, the four classifier-comparison tools, early stopping and learning curves, random initialization and XOR 8 of 10, and the five concluding points. All match. Details that come only from the slides or notebooks (data-organization splits, the Dynascore tables) are not in these two videos and were not checked against the transcripts.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Where this unit sits in the course
 
@@ -218,6 +194,30 @@ If you can't answer any one of them, your "A beats B" conclusion isn't ready for
 - Previous in the series: [CS224U Methods and Metrics I](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
 - Next in the series: [CS224U Final Project Workflow: Lit Review and Experiment Protocol](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 - The evaluation part of the site's CS224N series: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=zFtA0fjaXPE
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=7zZRaoHr-8g
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE), [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
+Other related videos (text links only): [Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
+
+Content check: verified against the video transcript (2026-10-10): Part 4 (Datasets) and Part 6 (Model Evaluation & Conclusion) were compared item by item with their transcripts: the six uses of datasets and the three 'use both' questions, the DynaSent prompt condition, Bowman and Dahl's counterargument and Potts's response, the MoNLI example, random and task-specific baselines, the 50/100/500 hyperparameter arithmetic and the 200,000 GPU hours, the six compromises, the four classifier-comparison tools, early stopping and learning curves, random initialization and XOR 8 of 10, and the five concluding points. All match. Details that come only from the slides or notebooks (data-organization splits, the Dynascore tables) are not in these two videos and were not checked against the transcripts.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

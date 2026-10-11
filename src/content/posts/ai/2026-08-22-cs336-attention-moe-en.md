@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 4: Attention Has Alternatives, and MoE Does Not Scale for Free"
+title: "Attention Has Alternatives, and MoE Does Not Scale for Free | Stanford CS336 Lecture 4"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 4: Attention alternatives and mixture of experts**, taught by Tatsunori Hashimoto on April 8, 2026. Its primary source is the official [`lecture_04.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf).
 
 The lecture places two topics together that are often discussed separately: attention alternatives and mixture of experts (MoE). They share a question: can a model gain longer context or more parameters without making every token pay the full cost? Structured sparsity can do that, but saved arithmetic becomes a new optimization and systems problem.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (Attention Alternatives). The captions cover linear attention, Mamba, delta-rule recurrent models, sparse attention with a lightweight indexer (DeepSeek DSA), MoE and routers, load balancing, router z-loss, upcycling, shared experts, MLA and multi-token prediction. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Linear attention changes multiplication order
 
@@ -92,6 +74,24 @@ Sparsity does not eliminate cost; it relocates it. The durable test from Lecture
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its attention-alternative, MoE-routing, training, and systems sections.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (Attention Alternatives). The captions cover linear attention, Mamba, delta-rule recurrent models, sparse attention with a lightweight indexer (DeepSeek DSA), MoE and routers, load balancing, router z-loss, upcycling, shared experts, MLA and multi-token prediction. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

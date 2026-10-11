@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：HW2 讓 AI Agent 當 AI 工程師——用 AIDE 式樹搜尋，讓開源 LLM 自己寫出 MyGO & Ave Mujica 臉部辨識"
+title: "台大李宏毅 ML 2026 導讀：HW2 讓 AI Agent 當 AI 工程師——用 AIDE 式樹搜尋，讓開源 LLM 自己寫出 MyGO & Ave Mujica 臉部辨識｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW2。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 5 篇。前兩篇講了 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering) 與 [agent 對研究工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)，這份作業讓你親手做一個縮小版：**讓 agent 替你當一次 AI 工程師**。
 
 用到的官方材料：作業投影片 [hw2.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw2.pdf)（59 頁）、[Colab 起始碼](https://colab.research.google.com/drive/1hAT97f4GmBQFpWKHiRymIDJiXEsPlXS1?usp=sharing)（32 個 cell），以及助教的[作業說明影片](https://youtu.be/3xhwSsuNTM0)。作業 3/13 公告，截止時間是 2026/4/2 23:59（UTC+8）。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=3xhwSsuNTM0
-title: 影片：ML 2026 Spring hw2 AI Agent as an AI Engineer
-```
-
-原始影片：[影片：ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 校外讀者能做到哪裡
 
@@ -155,6 +136,25 @@ node.metric = 1.0
 延伸閱讀：站上的 [CS231n：CNN 與影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)補 CNN 本身；[coding agent 的 context 壓縮](/posts/ai/2026-08-25-coding-agent-context-compaction)補 Intentional Compaction 的工程細節。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI Agent 之間的互動與對工作的衝擊](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)｜下一篇 [加快生成（上）：Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=3xhwSsuNTM0
+title: 影片：ML 2026 Spring hw2 AI Agent as an AI Engineer
+```
+
+原始影片：[影片：ML 2026 Spring hw2 AI Agent as an AI Engineer](https://www.youtube.com/watch?v=3xhwSsuNTM0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

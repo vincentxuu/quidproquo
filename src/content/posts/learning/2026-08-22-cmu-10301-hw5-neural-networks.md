@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW5：用 NumPy 拆開 Neural Network 與 Backpropagation"
+title: "用 NumPy 拆開 Neural Network 與 Backpropagation｜CMU 10-301 作業 5"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, neural-network, backpropagation]
@@ -27,6 +27,18 @@ python -m unittest tests
 ```
 
 再用 small CSV 執行 handout 的 `neuralnet.py` 介面，做 finite-difference gradient check，最後嘗試 overfit 極小子集。完成判準是公開 unit tests 通過、small data 的每 epoch loss 與 labels／metrics 格式正確、數值梯度吻合；官方明說公開 tests 不完整，因此不能等同 Gradescope 全過。
+
+## 先在小計算圖追導數
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編純量圖：x=2，h=wx，o=vh，loss=0.5(o-y)²；設 w=3、v=0.5、y=1。forward 得 h=6、o=3、loss=2。backward 從 dloss/do=o-y=2 開始，dloss/dv=2h=12，dloss/dw=2vx=2。
+
+**檢查與答案：** 若只把 x 改成 1，梯度還是同一組嗎？答案不是：h=3、o=1.5，dloss/dv=0.5×3=1.5，dloss/dw=0.5×0.5×1=0.25。這是線性小圖，不取代官方 sigmoid/softmax 網路。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW5 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw5.zip)

@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 1: From Bytes to a Tokenizer—and What Deserves to Scale"
+title: "From Bytes to a Tokenizer—and What Deserves to Scale | Stanford CS336 Lecture 1"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers Stanford **CS336 Spring 2026 Lecture 1: Overview, tokenization**, taught by Percy Liang on March 30, 2026. Its primary source is the official executable lecture, [`lecture_01.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_01.py), rather than a reconstruction from videos of an earlier offering.
 
 The lecture does two things. First, it asks why anyone should build a language model from scratch when GPT, Claude, and Gemini are available through APIs. It then starts from raw bytes and implements a byte-level BPE tokenizer. These are two parts of the same argument: identify the abstractions that limit scaling, then open them up by building them.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Overview, Tokenization). The captions open with Percy introducing the teaching staff and cover the course motivation, the bitter lesson and efficiency, mechanics/mindset/intuitions, the history from BERT to API models, and byte-level BPE (256 byte values, merges). Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=JuoVZkPBiKk
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
-
-Course and recording entries:
-
-- [Official CS336 Spring 2026 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## The course is not against abstraction; it warns that abstractions leak
 
@@ -96,6 +78,24 @@ The last step reconnects tokenization to the course's main theme. Every token re
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry, a complete executable lecture, and an official course recording playlist, so it can be aligned to the offering. This guide uses the lecture artifact as its primary source and does not merge in Spring 2025 videos, assignment details, or later model developments.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Overview, Tokenization). The captions open with Percy introducing the teaching staff and cover the course motivation, the bitter lesson and efficiency, mechanics/mindset/intuitions, the history from BERT to API models, and byte-level BPE (256 byte values, merges). Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=JuoVZkPBiKk
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 1: Overview, Tokenization](https://www.youtube.com/watch?v=JuoVZkPBiKk)
+
+Course and recording entries:
+
+- [Official CS336 Spring 2026 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

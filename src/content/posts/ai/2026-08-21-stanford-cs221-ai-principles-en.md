@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS221: The AI Intro Course Whose Prerequisites Field Reads CS103, CS106B, CS109, CS161"
+title: "The AI Intro Course Whose Prerequisites Field Reads CS103, CS106B, CS109, CS161 | Stanford CS221 Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,26 +25,6 @@ draft: false
 In 2026, when everyone is talking about LLMs, a course still teaching A\* and resolution deserves the question "why is this still here?" This piece isn't a defense of it. It's a reading of how the course answers that question in its own lecture notes — and the answer is blunter than you'd expect. CS221 puts all of these methods on a single axis, and deep learning lands in the **lowest** slot. Not because it doesn't matter, but because it's the one kind of model that never backtracks: run the computation once, emit the answer.
 
 What follows covers the hard facts, how the course defines AI, the four-layer spine, what Autumn 2025 cut, what the eight assignments actually ask for, and how much primary material you can get without enrolling. It does **not** teach the material lecture by lecture — that's the lecture notes' job, and they're public; paths at the end. The series entry point is [Reading Stanford's CS Courses](/posts/learning/2026-08-20-stanford-cs-course-map-en), which places this course on the ladder.
-
-## Course video sources
-
-This article is a course-level guide, not a single lecture. The video below, Autumn 2025 Lecture 1 (course overview), is a related supplement; each lecture has its own guide article in this series. The official playlist is public and lists all 20 lectures.
-
-```youtube
-url: https://www.youtube.com/watch?v=yaLEGZuIIgE
-title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the whole transcript (1:06:26). This is Percy Liang's first lecture of Autumn 2025: he says it is his 14th year at Stanford and 13th time teaching the course, with quite large changes this year; it covers the definition and brief history of AI, the four abilities perceive/reason/act/learn under resource constraints (computation and data), expressing algorithms as tensors, the learning-by-doing philosophy of the homeworks, and a preview of AI's societal issues, matching this article's description of the course. The transcript does not discuss the dropped constraint-satisfaction material, the lecture repo, or assignment and grading details; those claims rest on welcome.py and the official pages, not this video.
 
 ## The hard facts
 
@@ -196,6 +176,26 @@ For a fuller entry point, run [welcome](https://stanford-cs221.github.io/autumn2
 - **Assignment lineup across offerings**: Autumn 2022 was foundations, blackjack, pacman, scheduling, car, logic; Autumn 2023 swapped blackjack for sentiment; Autumn 2024 and Spring 2025 added route and mountaincar for a total of eight; Autumn 2025 removed scheduling and car and added bayesian and society.
 - **Late policy**: 7 late days for the quarter, at most 2 on any single assignment; past that, the cap drops 25% per additional day, and nothing is accepted more than 2 days late.
 - **What could not be confirmed**: (1) which of the three official pages takes precedence when they disagree on prerequisites — none of them says; this piece can only suggest taking the union, not settle the ordering. (2) Why constraint satisfaction was cut — the first lecture records the outcome and an emoticon, no reason. (3) Why the project dropped from a graded component to extra credit — no course site across the offerings explains it. (4) The assignment policy page says submitted code has "no guarantee of support for packages beyond the standard library" and tells you not to use numpy, scikit-learn or pandas, yet the setup steps for the first assignment tell you to run `uv add numpy einops`; I can't determine from the pages themselves which scope each rule applies to. (5) Autumn 2025 enrollment is not published.
+
+## Course video sources
+
+This article is a course-level guide, not a single lecture. The video below, Autumn 2025 Lecture 1 (course overview), is a related supplement; each lecture has its own guide article in this series. The official playlist is public and lists all 20 lectures.
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the whole transcript (1:06:26). This is Percy Liang's first lecture of Autumn 2025: he says it is his 14th year at Stanford and 13th time teaching the course, with quite large changes this year; it covers the definition and brief history of AI, the four abilities perceive/reason/act/learn under resource constraints (computation and data), expressing algorithms as tensors, the learning-by-doing philosophy of the homeworks, and a preview of AI's societal issues, matching this article's description of the course. The transcript does not discuss the dropped constraint-satisfaction material, the lecture repo, or assignment and grading details; those claims rest on welcome.py and the official pages, not this video.
 
 ## Update Log
 

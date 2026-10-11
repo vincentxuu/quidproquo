@@ -1,5 +1,5 @@
 ---
-title: "CS149 L10: Why General-Purpose Processors Waste Energy — Hardware Specialization, Tensor Cores, TPU Systolic Arrays, and Dataflow Architectures"
+title: "Why General-Purpose Processors Waste Energy — Hardware Specialization, Tensor Cores, TPU Systolic Arrays, and Dataflow Architectures | Stanford CS149 Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,24 +42,6 @@ glossary:
 Fall 2025 recordings live only on Stanford Canvas. The closest public video is [2023 Lecture 18: Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw), but it only supplements the first half. Compared with the [2023 course site's slides on the same topic](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/), the opening material (energy constraints, H.264, FFT, DSPs, Anton, FPGAs, efficiency rules of thumb) is all in the 2023 deck. The 2023 second half covered the Spatial accelerator-design language, streaming execution, and how DRAM works (the recording's captions contain only Spatial and streaming execution; the speaker says there was no time for DRAM). The 2025 deck replaces that with GPU Tensor Cores, the TPU systolic array, and dataflow architectures. This guide follows the 2025 slides. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
 
 The [previous post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) ended on a question: GPUs run DNNs well, but are they the ideal platform? This lecture answers it. This post also sets up the accelerator vocabulary (Tensor Core, systolic array, TMA, dataflow architecture) that the [next post](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) uses without re-explaining.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=2tAb3EgyjNw
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
-
-Course and recording entries:
-
-- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 18 - Hardware Specialization” (1:11:48). The captions cover energy-constrained computing, the energy cost of H.264 encoding with SIMD, FFTs/DSPs/ASICs and Anton, energy limits on mobile devices, the TPU and FPGAs (the captions render the latter as “field programmable gator rays” and touch on it only briefly), and the second half is mainly the Spatial accelerator-design language and streaming execution; the speaker says there was no time to cover how DRAM works. BF16/FP8, the A100/H100/B100 Tensor Cores, systolic arrays, Plasticine and the Hardware Lottery are not in the captions, so the video only supplements the first half of this post (energy and the case for specialization), as the post says. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Why specialize: energy
 
@@ -226,6 +208,24 @@ Slide 71's summary. Specialized hardware for DNNs:
 Further reading: for how TPUs are used with JAX and Pallas in an LLM systems course, read [CMU 11-868 TPU, JAX, and Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en). For GPUs and TPUs from the LLM training side, read [CS336 GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous [L9 Running DNNs efficiently on GPUs](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) | next [L11 Programming systems for specialized hardware](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=2tAb3EgyjNw
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 18 - Hardware Specialization](https://www.youtube.com/watch?v=2tAb3EgyjNw)
+
+Course and recording entries:
+
+- [CS149 2023 public video playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/accelerators/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 18 - Hardware Specialization” (1:11:48). The captions cover energy-constrained computing, the energy cost of H.264 encoding with SIMD, FFTs/DSPs/ASICs and Anton, energy limits on mobile devices, the TPU and FPGAs (the captions render the latter as “field programmable gator rays” and touch on it only briefly), and the second half is mainly the Spatial accelerator-design language and streaming execution; the speaker says there was no time to cover how DRAM works. BF16/FP8, the A100/H100/B100 Tensor Cores, systolic arrays, Plasticine and the Hardware Lottery are not in the captions, so the video only supplements the first half of this post (energy and the case for specialization), as the post says. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

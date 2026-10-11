@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL Lecture 5: Tokenization and BPE, or Where the Vocabulary Comes From"
+title: "Tokenization and BPE, or Where the Vocabulary Comes From | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,25 +32,6 @@ glossary:
 Going back to "how do we split text" right after the Transformer looks like a step backward. But this is exactly the order of the 9/08 row on the [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/): Attention → Transformer → Tokenization → BERT. There are two reasons. The first item in the Transformer training tips from the [previous post](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer-en) is BPE. And BERT, in the [next post](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), takes subwords as input.
 
 The deck is only 22 pages, and 14 of them walk through a single example. Work that example yourself and you have read the lecture.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=NrT5kmnTFCk
-title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization
-```
-
-Original videos: [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU) (a Hugging Face demo video linked from the slides; not an ADL lecture recording, so it is not embedded)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded ADL 5.1 (33:38) has no obtainable YouTube transcript, so its spoken content was not checked; the article's own version note already says this video has no captions and that the content follows the slides only. Metadata confirmed: uploaded 2023-10-12 with a description dated 2023/10/12, so it is a recording reused from an earlier term, which matches the article.
 
 ## The problem: out-of-vocabulary words
 
@@ -159,6 +140,25 @@ One thing to try tonight: open the [OpenAI tokenizer](https://platform.openai.co
 - Building a BPE tokenizer from scratch: [CS336 Lecture 1: From Bytes to a Tokenizer](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 - A fuller treatment of multilingual token costs: [CS224N Lecture 14: How Tokenization Creates Multilingual Cost Gaps](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
 - How another course connects tokenization to the Transformer: [CME295 Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=NrT5kmnTFCk
+title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization
+```
+
+Original videos: [ADL 5.1: BPE (Byte-Pair Encoding) Tokenization](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU) (a Hugging Face demo video linked from the slides; not an ADL lecture recording, so it is not embedded)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded ADL 5.1 (33:38) has no obtainable YouTube transcript, so its spoken content was not checked; the article's own version note already says this video has no captions and that the content follows the slides only. Metadata confirmed: uploaded 2023-10-12 with a description dated 2023/10/12, so it is a recording reused from an earlier term, which matches the article.
 
 ## Update Log
 

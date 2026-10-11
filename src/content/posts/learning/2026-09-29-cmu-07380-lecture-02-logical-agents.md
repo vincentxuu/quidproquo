@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 2 導讀：Logical Agents，用 model checking、DPLL 與 forward chaining 證明安全格"
+title: "Logical Agents，用 model checking、DPLL 與 forward chaining 證明安全格｜CMU 07-380 第 2 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, logic, algorithms]
@@ -21,29 +21,6 @@ draft: false
 這是 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) Fall 2026 的 Lecture 2：Logical Agents。上一講（[Lecture 1 導讀](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction)）說 07-380 前段都在確定性的世界裡，這一講是第一站：agent 看到一些線索，要**證明**某一格是安全的，而不是猜。
 
 以下依 2026-09-29 抓取的課站與材料。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文讀過的材料：
-
-- [Lec2 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents.pdf) 與 [inked 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents_inked.pdf)（課站另有 pptx）
-- Pre-reading：[PR1 Propositional Logic 筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf)（課站標為 Prop Logic.pdf，checkpoint 8/25 截止）
-- [Recitation 1 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26_sol.pdf)
-- 課站列的兩個範例：踩地雷，以及 [Wumpus World 模擬器](https://thiagodnf.github.io/wumpus-world-simulator/)
-
-Schedule 另外列了 AIMA Ch.7.1–7 當選讀，本文沒有逐頁引用。課站未列公開錄影連結。Pre-reading checkpoint 在 Canvas 上，只限校內。
-
-公開程度：這一講的投影片、筆記、recitation 和解答都能匿名下載，材料層級夠自學。
 
 ## 承上問題：不是找路徑，是找「現在能確定什麼」
 
@@ -186,6 +163,29 @@ Schedule 把這講的副標寫成「Search + GenAI: Alpha Geometry」。投影�
 3. 自己寫一個 20 行以內的 DPLL，先只做提早終止和分支，再加 unit clause，比較兩版在同一組 CNF 上的遞迴次數。
 
 上一篇：[Lecture 1 導讀：Introduction](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction)。下一篇：[HW1 導讀：Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus)。
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文讀過的材料：
+
+- [Lec2 投影片 pdf](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents.pdf) 與 [inked 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents_inked.pdf)（課站另有 pptx）
+- Pre-reading：[PR1 Propositional Logic 筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf)（課站標為 Prop Logic.pdf，checkpoint 8/25 截止）
+- [Recitation 1 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26_sol.pdf)
+- 課站列的兩個範例：踩地雷，以及 [Wumpus World 模擬器](https://thiagodnf.github.io/wumpus-world-simulator/)
+
+Schedule 另外列了 AIMA Ch.7.1–7 當選讀，本文沒有逐頁引用。課站未列公開錄影連結。Pre-reading checkpoint 在 Canvas 上，只限校內。
+
+公開程度：這一講的投影片、筆記、recitation 和解答都能匿名下載，材料層級夠自學。
 
 ## 更新紀錄
 

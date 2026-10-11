@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L14: Generative Models Basics — Density/Energy Models, GANs, Autoregressive, Diffusion"
+title: "Generative Models Basics — Density/Energy Models, GANs, Autoregressive, Diffusion | MIT 6.7960 Lecture 14"
 date: 2026-08-30
 category: tech
 type: guide
@@ -30,25 +30,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; the required reading is *Generative Models*.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=hJlrAHqGOS8
-title: MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics](https://www.youtube.com/watch?v=hJlrAHqGOS8)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 14. Generative Models: Basics](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec14_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 14 transcript (Phillip Isola, 1:21:18): the video previews autoregressive, diffusion and GAN models, and its body covers probability densities and maximum likelihood (about 16%–50%), energy models (about 52%–70%), autoregressive models (about 70%–77%), diffusion (about 85%–95%) and GANs (about 96%), matching the article; nothing needed correcting.
 
 ## The ultimate goal of generative models
 
@@ -114,6 +95,25 @@ def diffusion_loss(net, x0, t, sqrt_alphas_cumprod, sqrt_1_m_alphas):
 - **Discrete sequences like text**: autoregressive (today's LLMs are exactly this).
 
 The next batch (L15, L16) goes deep on VAEs and conditional generation (text-to-image, image-to-text), connecting generative models back to the need for *control*.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=hJlrAHqGOS8
+title: MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 14. Generative Models: Basics](https://www.youtube.com/watch?v=hJlrAHqGOS8)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 14. Generative Models: Basics](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec14_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 14 transcript (Phillip Isola, 1:21:18): the video previews autoregressive, diffusion and GAN models, and its body covers probability densities and maximum likelihood (about 16%–50%), energy models (about 52%–70%), autoregressive models (about 70%–77%), diffusion (about 85%–95%) and GANs (about 96%), matching the article; nothing needed correcting.
 
 ## Update Log
 

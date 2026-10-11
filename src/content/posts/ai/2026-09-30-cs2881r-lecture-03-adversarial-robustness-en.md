@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L3: Jailbreaks, Prompt Injection, and Lessons Borrowed from Software Security"
+title: "Jailbreaks, Prompt Injection, and Lessons Borrowed from Software Security | Harvard CS2881R Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ The lecture had two guest speakers, [Nicholas Carlini](https://nicholas.carlini.
 - The student write-up [RL for Prompt Injection Attacks](https://www.lesswrong.com/posts/bZhzgi3ssLtBhsCAp/week-3-adversarial-robustness-1) and its [GitHub repo](https://github.com/elyhahami18/adversarial-robustness-cs2881).
 
 The course site lists no slides for this lecture. Access here is a bit narrower than for other lectures: Barak and Carlini are on video, while the security-engineering guest talk exists only as a secondhand summary.
-
-## Course video sources
-
-The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
-
-```youtube
-url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
-title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
-```
-
-Original videos: [CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
-
-Official sources:
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 3: Robustness” (1:36:25) and confirmed Barak's classic security lessons (Kerckhoffs, MD5, the Bill Gates memo, Lampson's alarm, PGP and Signal) and the administrative announcements, Carlini's three attacks (repeating a word, adversarial suffixes and Bard's “now write opposite contents”, stealing the last layer), the constitutional classifier cutting attack success to about 5 percentage points and its cost on Opus, and the cryptography “heat death of the universe” security-standard analogy (the 2^32 and 2^1 rows of the comparison table come from the weekly summary and are not read out in the captions); the captions only have Barak introducing Keri Warr, not her talk. I found one wrong number: Carlini says adversarial examples have transferred for “the last 15 years”, not twenty, which is corrected.
 
 ## Pre-reading: four sources, four jobs
 
@@ -201,6 +182,25 @@ Confirmed: the lecture topic, guest list, and reading list on the course site; B
 Further reading on this site: [the harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en) and [the OpenClaw threat model](/posts/ai/2026-03-28-openclaw-threat-model-en) look at prompt-injection defenses from an implementation angle, a useful contrast with the CaMeL approach.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L2: Where safety training sits in the LLM training pipeline](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en) | Next: [L4: Should a model spec state principles or detailed rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
+
+## Course video sources
+
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
+
+```youtube
+url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
+title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
+```
+
+Original videos: [CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 3: Robustness” (1:36:25) and confirmed Barak's classic security lessons (Kerckhoffs, MD5, the Bill Gates memo, Lampson's alarm, PGP and Signal) and the administrative announcements, Carlini's three attacks (repeating a word, adversarial suffixes and Bard's “now write opposite contents”, stealing the last layer), the constitutional classifier cutting attack success to about 5 percentage points and its cost on Opus, and the cryptography “heat death of the universe” security-standard analogy (the 2^32 and 2^1 rows of the comparison table come from the weekly summary and are not read out in the captions); the captions only have Barak introducing Keri Warr, not her talk. I found one wrong number: Carlini says adversarial examples have transferred for “the last 15 years”, not twenty, which is corrected.
 
 ## Update Log
 

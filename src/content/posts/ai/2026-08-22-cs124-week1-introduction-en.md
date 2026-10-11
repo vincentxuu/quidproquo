@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 1 Introduction and Setup: Turning Language Problems into Computable Components"
+title: "Introduction and Setup: Turning Language Problems into Computable Components | Stanford CS124 Week 1"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) begins with a map, not a Transformer crash course. Dan Jurafsky's January 6 Introduction arranges the quarter as an engineering chain: decide how text becomes tokens, then study classification, retrieval, and representations before moving into neural networks, Transformers, speech, recommendation, and network analysis. The governing idea is that an LLM is a system assembled from learnable components, not a black box that appears fully formed.
 
 **Course version:** CS124 / LINGUIST 180, Winter 2026. **Official unit:** Week 1, January 6 and 8. **Instructor:** Dan Jurafsky, with a separate Jupyter/PA0 tutorial on January 8. **Public materials:** the [schedule and syllabus](https://web.stanford.edu/class/cs124/lec/), [Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf), and [PA0 repository](https://github.com/cs124/pa0-jupyter-tutorial). **Public-material gap:** the live Introduction was not recorded, and the platform-specific setup videos require Stanford Canvas access. This article therefore does not reconstruct live discussion.
-
-## Course video sources
-
-The official Winter 2026 course page (read live on 2026-10-10) says the January 6 Introduction is a live lecture by Dan marked "required not recorded", and January 8 is a live tutorial. The only videos listed for this week are the PA0 Windows and Mac setup demos, which sit in Canvas (sign-in required) and are not lecture recordings. The "CS124 - Full Course" YouTube playlist uses weekly titles that differ from the Winter 2026 syllabus, so it is not treated as this term’s recording.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
-
-Checked: 2026-10-10.
 
 ## One course, several kinds of information
 
@@ -94,6 +84,16 @@ Independent study can still preserve artifacts that a deadline-driven student mi
 ## Further study
 
 For the broader course, prerequisites, and source-access audit, see the [existing CS124 overview](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). This article covers only Winter 2026 Week 1 and does not import older public recordings.
+
+## Course video sources
+
+The official Winter 2026 course page (read live on 2026-10-10) says the January 6 Introduction is a live lecture by Dan marked "required not recorded", and January 8 is a live tutorial. The only videos listed for this week are the PA0 Windows and Mac setup demos, which sit in Canvas (sign-in required) and are not lecture recordings. The "CS124 - Full Course" YouTube playlist uses weekly titles that differ from the Winter 2026 syllabus, so it is not treated as this term’s recording.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs124/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

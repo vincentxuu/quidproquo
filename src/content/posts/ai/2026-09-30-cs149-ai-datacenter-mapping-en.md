@@ -1,5 +1,5 @@
 ---
-title: "CS149 L12: From One Chip to a Whole Datacenter — Dataflow Hardware, Kernel Fusion, Parallelism Strategies, and the Memory Bottleneck"
+title: "From One Chip to a Whole Datacenter — Dataflow Hardware, Kernel Fusion, Parallelism Strategies, and the Memory Bottleneck | Stanford CS149 Lecture 12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,15 +35,6 @@ glossary:
 **There is no public video for this lecture.** Fall 2025 recordings are Canvas-only, and the 2023 public recordings that the course home page points to do not include this topic. This post is based only on the slides. Some slides are images without text (the Nvidia HBM roadmap, a Transformer diagram); what the lecturer said about them is unknown, and this post does not fill it in.
 
 One thing stands out when you read the deck. The title says "datacenter," but only about pages 28–44 of 72 are about datacenter scale. Before that comes a memory primer and dataflow hardware; after it, energy and DRAM. The thread through all three is **data movement**: on chip, between chips, and across a cluster, the bottleneck is whether data arrives fast enough.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [CS149 2023 public lecture playlist (no video for this lecture)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
 
 ## Part one: HBM and dataflow hardware (pages 3–27)
 
@@ -196,6 +187,15 @@ This lecture is a survey. Each topic has a deeper guide on the site; this series
 - The big picture of LLM systems: [CME295 LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en)
 
 Series navigation: previous [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) | next [L13 Domain-Specific Languages and AI-Driven Performance Optimization](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [CS149 2023 public lecture playlist (no video for this lecture)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Linear Regression: From LMS to Locally Weighted Regression"
+title: "Linear Regression: From LMS to Locally Weighted Regression | Stanford CS229 Chapter 1"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 1, “Linear regression,” on printed pages 9–20 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter-by-chapter reading of the 2026 notes**, not a reconstruction of any quarter's recordings or lecture schedule.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=cmNIMjPYdgM
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=uJF_gL3jhxI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup](https://www.youtube.com/watch?v=cmNIMjPYdgM); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 2 (about 78 minutes) covers the supervised learning setup, linear regression, batch and stochastic gradient descent and the normal equations, matching the chapter's LMS, SGD and normal-equation sections. The first half of Lecture 3 (about 62 minutes) covers the probabilistic interpretation of the error term (zero mean, IID, Gaussian) and maximum likelihood, matching the chapter's probabilistic-interpretation section; its second half moves on to classification, logistic regression and Newton's method (Chapter 2 material). Its YouTube title says "Weighted Least Squares", but the transcript never mentions locally weighted regression ("weighted" appears zero times). Neither video covers the chapter's last section on locally weighted linear regression, which rests on the notes alone.
 
 ## Why the notes begin with linear regression
 
@@ -102,6 +76,32 @@ Chapter 2 keeps a linear score but replaces continuous outputs with class probab
 ## Self-study exercise
 
 On one one-dimensional dataset, implement batch gradient descent, SGD, the normal equations, and locally weighted regression with three bandwidths. Plot every fitted curve, compare mean squared errors, and test whether fixed-rate SGD keeps oscillating while a decaying rate settles.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=cmNIMjPYdgM
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup](https://www.youtube.com/watch?v=cmNIMjPYdgM); [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Lecture 2 (about 78 minutes) covers the supervised learning setup, linear regression, batch and stochastic gradient descent and the normal equations, matching the chapter's LMS, SGD and normal-equation sections. The first half of Lecture 3 (about 62 minutes) covers the probabilistic interpretation of the error term (zero mean, IID, Gaussian) and maximum likelihood, matching the chapter's probabilistic-interpretation section; its second half moves on to classification, logistic regression and Newton's method (Chapter 2 material). Its YouTube title says "Weighted Least Squares", but the transcript never mentions locally weighted regression ("weighted" appears zero times). Neither video covers the chapter's last section on locally weighted linear regression, which rests on the notes alone.
 
 ## Update Log
 

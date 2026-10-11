@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Reasoning — A Video-Only Lecture, Five Steps from CoT to RL"
+title: "Reading NTU ADL 2025 Fall: Reasoning — A Video-Only Lecture, Five Steps from CoT to RL | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -25,30 +25,6 @@ glossary:
 **This post is based on the L12 videos in the playlist of [NTU Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), taught by Yun-Nung (Vivian) Chen.** It is post 15 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous post, [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en), treated reasoning as one of three key concepts for agents. This one pulls it out on its own: **how does a model learn to think before it answers?**
 
 First, the limit of this post: **L12 has no public slides.** The 12/01 row on the course page just says "Reasoning," with no slides and no video links. The five videos appear only in the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o). I did not transcribe the videos, so all I can report are their titles, lengths, and descriptions, plus the reasoning pages in the previous lecture's deck.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=paTmY2nZ8XI
-title: 12.1 What is Reasoning?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VHNdIld9sAg
-title: 12.2 Short CoT
-```
-
-Original videos: [12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded 12.1 (10:21) and 12.2 (12:06) have no obtainable YouTube transcript, so their spoken content was not checked word for word. For these two the article relies only on the title, subtitle, length, upload date and description, which match the YouTube pages.
 
 ## The five videos
 
@@ -115,7 +91,41 @@ For detail beyond the video titles, two site series cover the same ground from c
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents-en) | Next: [Conversational AI and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
 
+## Separate thinking at inference from learning in training
+
+This is an invented conceptual check, not a claim about the unverified L12 video contents. Keep one model fixed and ask: “Three boxes, four pens each: how many pens?” On one call it answers `12` directly; on another it writes `3×4=12` first. Only generation changes; neither call updates weights. Both are uses at inference.
+
+A different process collects such questions and demonstrated steps, computes a training loss, and updates weights. This changes model parameters rather than only answer length. The distinction matches the inference/training transition visible in the video titles, without inferring their specific algorithms.
+
+**Check:** Does producing five candidates with the same model and selecting one answer count as retraining? No, unless a separate weight update takes place. More candidates also do not guarantee correctness; selection or verification must be reliable.
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=paTmY2nZ8XI
+title: 12.1 What is Reasoning?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VHNdIld9sAg
+title: 12.2 Short CoT
+```
+
+Original videos: [12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded 12.1 (10:21) and 12.2 (12:06) have no obtainable YouTube transcript, so their spoken content was not checked word for word. For these two the article relies only on the title, subtitle, length, upload date and description, which match the YouTube pages.
+
 ## Update Log
+
+- 2026-10-11: Added an invented conceptual example and comprehension check while preserving the original materials and video-verification scope.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.

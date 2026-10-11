@@ -1,5 +1,5 @@
 ---
-title: "MIT AI／ML 課程導讀：6-4 是正式 AI 學位，公開教材卻分散在三個年代"
+title: "從程式與數學先備到 AI：公開課程的學習路線｜世界名校 AI／CS 課程地圖"
 date: 2026-08-21
 category: learning
 tags: [mit, ai-course, machine-learning, learning-path, open-course]
@@ -26,19 +26,6 @@ draft: false
 3. **OCW、Open Learning Library 與歷史課站**通常最適合自學，卻可能使用舊課號或前一年的內容。
 
 這篇把三層拆開。目標不是假裝校外讀者能「線上讀完 MIT 學位」，而是排出一條真的打得開、知道缺什麼的 AI／ML 路線。本站的 [6.S191 完整導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)已經深入單一課程；這篇處理它在整個 MIT 骨架裡的位置。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [**MIT 有正式的 AI 學位。**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
-- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
-- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
-- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
-- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
-- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
 
 ## 先讀懂兩個編號：6-4 不是 6.4
 
@@ -168,6 +155,19 @@ CSDIY 很適合回答「自學社群曾把哪個版本整理成可走的路線�
 3. 寫下缺的先修：Python、演算法、線代或機率。缺哪一個，就先回去補哪一個。
 
 MIT 真正值得借來的不是一串名課，而是它對 AI 能力的切法：資料、模型、決策、計算與人，缺一塊都不完整。公開教材能讓你借到其中很大一部分；學分、回饋、同儕、受管制平台與研究環境，仍然借不到。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [**MIT 有正式的 AI 學位。**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
+- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
+- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
+- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
+- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
+- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
 
 ## 更新紀錄
 

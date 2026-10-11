@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 14: From C to x86-64, Reading Disassembly for the First Time"
+title: "From C to x86-64, Reading Disassembly for the First Time | Stanford CS107 Lecture 14"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 To a processor, a C `for` loop no longer has variable names, an `int` type, or array syntax. It consists of bytes at addresses, values in registers, and jumps that change the location of the next instruction. Stanford CS107 Lecture 14 marks the course's transition from C's memory model to machine-level execution. It does not ask students to author assembly from a blank page. It teaches them to inspect compiler-generated x86-64 and identify which pieces collectively implement the original C.
 
 This lecture establishes only the first layer of that reading skill. The disassembly of `sum_array` contains ten instructions. The slides first explain the columns in that output, then connect assembly to machine code, introduce the processor's sixteen general-purpose registers, and show how a compiler lowers high-level work into loading, operating, and storing. The official calendar also previews addressing modes, data widths, and variants of `mov`, but the public slides only begin those subjects here; Lecture 15 carries most of that detail forward.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, scope, and complete agenda
 
@@ -259,6 +251,14 @@ The point is not to memorize sixteen register names. It is to change the unit in
 For `sum_array`, locate the loop through `jge` and the backward `jmp`; identify the index through updates to `%eax`; identify the sum through accumulation into `%edx`; reconstruct array access from `(%rdi,%rcx,4)`; and finally detect the return value from `%eax`'s last role. The sequence scales to more complex compiler output: draw control flow first, trace dataflow second, and name roles last.
 
 If you do only one exercise, compile five lines of C to both a `.s` file and an executable tonight, then inspect them with `gcc -S` and `objdump -d`. Annotate every instruction with “what it reads, what it writes, and where execution goes next” before looking up a complete C answer. High-level abstractions were not erased by magic; they were decomposed into another set of traceable machine-state transitions.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

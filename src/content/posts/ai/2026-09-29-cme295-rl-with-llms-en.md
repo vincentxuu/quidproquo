@@ -1,5 +1,5 @@
 ---
-title: "CME295 2026 Lecture 4 (Pre-Lecture Edition): SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient"
+title: "(Pre-Lecture Edition): SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient | Stanford CME295 Lecture 4"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -51,31 +51,6 @@ The lecture sits after Lecture 3, "LLM training," and before the midterm. 2025 h
 The punchline first. Reading posts 5 and 6, the PPO and GRPO formulas look like two unrelated long expressions. Derive them once and SFT, REINFORCE, PPO, GRPO, and on-policy distillation all turn out to share a shape: **the gradient of the model's log-probability of a token, times a score**. The five methods differ in only two things: where the samples come from, and how the score is computed.
 
 Each section below gives the intuition first, with formulas tucked into expandable blocks. Anything marked "2025 slides" comes from the [2025 Lecture 5](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf) or [Lecture 6](https://cme295.stanford.edu/slides/fall25-cme295-lecture6.pdf) slides; the rest comes from the original papers, linked inline.
-
-## Course video sources
-
-This article is a pre-written guide to CME295 2026 Lecture 4 (Reinforcement learning with LLMs, October 16). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The videos below are the public 2025 Lecture 5 (LLM tuning, with PPO) and Lecture 6 (LLM reasoning, with GRPO); the 2025 course had no standalone RL lecture, so they are included only as related background and are not the 2026 Lecture 4 recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
-
-Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). PmW_TMQ3l0I is Autumn 2025 Lecture 5, LLM Tuning (RLHF, reward models, PPO with clip and KL variants, DPO), and k5Fh-UgTuCo is Autumn 2025 Lecture 6, LLM Reasoning (GRPO, GRPO versus PPO, DAPO and Dr. GRPO, the DeepSeek R1 recipe). This confirms the post's statement that Lecture 5 includes PPO and Lecture 6 includes GRPO, and that both are related background rather than the 2026 Lecture 4 recording.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## 1. Mathematical conventions: writing "generate an answer" as RL
 
@@ -411,6 +386,31 @@ After the October 16, 2026 lecture, once the slides are posted, this post will b
 - Which items are listed under reward design and limitations, and how they differ from sections 2 and 4 here
 - Which source is cited for on-policy distillation (GKD, MiniLLM, Thinking Machines, or Qwen3), and whether it uses forward or reverse KL
 - The recording link, and whether the 2026 midterm (October 23) tests this lecture
+
+## Course video sources
+
+This article is a pre-written guide to CME295 2026 Lecture 4 (Reinforcement learning with LLMs, October 16). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The videos below are the public 2025 Lecture 5 (LLM tuning, with PPO) and Lecture 6 (LLM reasoning, with GRPO); the 2025 course had no standalone RL lecture, so they are included only as related background and are not the 2026 Lecture 4 recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=k5Fh-UgTuCo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 6 - LLM Reasoning](https://www.youtube.com/watch?v=k5Fh-UgTuCo)
+
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). PmW_TMQ3l0I is Autumn 2025 Lecture 5, LLM Tuning (RLHF, reward models, PPO with clip and KL variants, DPO), and k5Fh-UgTuCo is Autumn 2025 Lecture 6, LLM Reasoning (GRPO, GRPO versus PPO, DAPO and Dr. GRPO, the DeepSeek R1 recipe). This confirms the post's statement that Lecture 5 includes PPO and Lecture 6 includes GRPO, and that both are related background rather than the 2026 Lecture 4 recording.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 4: Bitwise Operators, Conversions, and Masks"
+title: "Bitwise Operators, Conversions, and Masks | Stanford CS107 Lecture 4"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, bitwise-operators, bitmask]
@@ -20,14 +20,6 @@ draft: false
 A bitwise operator does not treat an integer as a merely small number. It temporarily sets aside the aggregate value and treats each position as an independent field. `&` can preserve selected bits, `|` can set them, and `^` can toggle them. Before manipulating a pattern, however, one must know whether C conversion changed its width and whether the same bits are being interpreted as signed or unsigned.
 
 CS107 Lecture 4 therefore does not begin immediately with truth tables. It first closes the representation thread from Lecture 3: casts, mixed-signedness comparison, extension, and truncation. Only after tracking which bits remain, appear, or disappear does it introduce AND, OR, NOT, XOR, bit vectors, and bitmasks. This article follows all 27 pages of the [official Winter 2026 Lecture 4 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/04/Lecture04.pdf).
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture metadata and source limits
 
@@ -349,6 +341,14 @@ For a type exercise, decode eight-bit pattern `11111011` as both unsigned and tw
 6. The four core mask idioms—set, clear, test, and toggle—can all be derived from truth tables rather than memorized.
 
 The next lecture continues bitwise operators, especially left and right shifts, and observes representations in `gdb`. This lecture establishes the mask-selection rule first: ones indicate positions to affect, while zeroes preserve positions. Shifts will add a way to create and move those selections.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

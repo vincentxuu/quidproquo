@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 16: Logic II: Quantifiers Beyond Individual Propositions"
+title: "Logic II: Quantifiers Beyond Individual Propositions | Stanford CS221 Lecture 16"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 16**, taught by Percy Liang on 2025-11-12. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the main artifact is the executable [first_order_logic](https://stanford-cs221.github.io/autumn2025-lectures/?trace=first_order_logic). Rather than turning the slides into a generic introduction to first-order logic, this article follows the call sequence of `first_order_logic.py`: what each stage is trying to solve, what each example represents, and which boundaries the source code deliberately leaves visible.
 
 > Material gap: The official lecture artifact, executable material, and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable. This article does not fill those gaps with material from another offering.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 16, the same term and lecture number this article follows. It matches item 16 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=x9Mbqu06OVo
-title: Stanford CS221 | Autumn 2025 | Lecture 16: Logic II
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 16: Logic II](https://www.youtube.com/watch?v=x9Mbqu06OVo)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 16) and confirmed it covers first-order terms and predicates, semantics, substitution, and translating sentences with quantifiers (forall/exists), matching this article's lecture and topic; no mismatch found.
 
 ## TL;DR
 
@@ -286,6 +266,26 @@ The whole lecture therefore presents a matched gain and cost. Objects and predic
 First ask whether a name is an object term, a function term, a predicate, or a formula; do not let `father(x)` and `Student(x)` collapse into “some expression.” When you see `∀` or `∃`, mark its scope and check that implication or conjunction is on the intended side. When inspecting a model, look for its domain and the interpretations of constants, functions, and predicates—not an arbitrary truth table. For propositionalization, record unique names and domain closure; for modus ponens, record the definite-clause restriction; with functions, record the possibility of infinitely many terms. Finally, keep soundness and completeness separate: the former means “does not derive falsehood,” while the latter means “does not miss entailments.”
 
 This is why the lecture is more than a vocabulary list. The source carries the same examples through sentences, syntax, models, queries, and inference rules. The important thing to follow is each change of representation and each assumption introduced by that change. The public Canvas interactions, assignment solutions, and hidden tests remain unavailable; this article preserves that gap instead of turning guesses into course conclusions.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 16, the same term and lecture number this article follows. It matches item 16 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=x9Mbqu06OVo
+title: Stanford CS221 | Autumn 2025 | Lecture 16: Logic II
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 16: Logic II](https://www.youtube.com/watch?v=x9Mbqu06OVo)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 16) and confirmed it covers first-order terms and predicates, semantics, substitution, and translating sentences with quantifiers (forall/exists), matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

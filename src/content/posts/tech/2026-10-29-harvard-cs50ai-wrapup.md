@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI 總結：什麼永恆、什麼改變、下一步走哪條路"
+title: "總結：什麼永恆、什麼改變、下一步走哪條路｜Harvard CS50 AI 主題單元"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,17 +21,6 @@ draft: false
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本系列涵蓋講課影片為 **2020 年春季錄製（Week 0–5）與 2023 年重錄（Week 6）**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準。
-
-## 課程影片來源
-
-本篇是跨週的綜論或總結，沒有單一對應講次；官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對，沒有專屬於本篇的影片，請依主題回到各週講課錄影。
-
-課程與錄影入口：
-
-- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -227,6 +216,17 @@ CS50 AI 完成 (12 Projects ✓)
 | 10 | **Wrap-up (本文)** | **永恆/變遷/下一步** |
 
 ---
+
+## 課程影片來源
+
+本篇是跨週的綜論或總結，沒有單一對應講次；官方 CS50 YouTube 播放清單（8 支：導論加 Week 0–6 講課）已於 2026-10-10 即時核對，沒有專屬於本篇的影片，請依主題回到各週講課錄影。
+
+課程與錄影入口：
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

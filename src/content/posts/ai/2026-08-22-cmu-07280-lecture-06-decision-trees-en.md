@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 6: How Decision Trees Split Data with Mutual Information"
+title: "How Decision Trees Split Data with Mutual Information | CMU 07-280 Lecture 6"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 6: Decision Trees**. Lecture 5 said to find a low-empirical-risk function in a hypothesis class. This lecture makes `H` concrete and exposes a central tradeoff: do not enumerate every possible tree; greedily choose one informative split at each node.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [Decision Trees lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes%20-%20decision%20trees.pdf), [pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf), [Recitation 3](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## The inherited question: once the hypothesis class is chosen, how is a model found
 
@@ -84,6 +70,20 @@ A single path through a tree is readable, but training is greedy. A small data c
 1. Calculate the entropy of a fair coin, an always-tails coin, and a fair six-sided die.
 2. Compute conditional entropy and mutual information for two attributes in an eight-example binary dataset.
 3. Use the best attribute as the root and recurse until labels agree or attributes are exhausted.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [Decision Trees lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes%20-%20decision%20trees.pdf), [pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf), [Recitation 3](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec3_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## Update Log
 

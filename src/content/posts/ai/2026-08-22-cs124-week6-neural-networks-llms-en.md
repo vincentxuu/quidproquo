@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 6 Neural Networks and LLMs: From Units and Backpropagation to Decoder-Only Models"
+title: "Neural Networks and LLMs: From Units and Backpropagation to Decoder-Only Models | Stanford CS124 Week 6"
 date: 2026-08-22
 category: ai
 type: deep-dive

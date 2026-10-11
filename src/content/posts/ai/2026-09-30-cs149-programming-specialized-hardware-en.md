@@ -1,5 +1,5 @@
 ---
-title: "CS149 L11: Programming Specialized Hardware — ThunderKittens Tames H100 Asynchrony, Dataflow Replaces It with Metapipelines"
+title: "Programming Specialized Hardware — ThunderKittens Tames H100 Asynchrony, Dataflow Replaces It with Metapipelines | Stanford CS149 Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,14 +35,6 @@ glossary:
 **There is no public video for this lecture.** Fall 2025 recordings live only on Stanford Canvas, and the 2023 playlist that the official home page points to doesn't include this lecture. The second half of the [2023 course site's hardware specialization slides](https://gfxcourses.stanford.edu/cs149/fall23/lecture/hwaccel/) covers the Spatial accelerator language and a streaming execution model. That is conceptually close to this lecture's dataflow half, but the content differs and can't stand in for it. This guide follows the 2025 slides page by page and adds nothing they don't say. Some slides are only images or code screenshots with no text; for those, this guide gives only the title. The course overall is A3 (enough to self-study); gaps are listed in the [series overview](/posts/ai/2026-09-30-cs149-course-overview-en).
 
 The hardware terms used here (Tensor Core, TMA, systolic array, dataflow architecture) were all explained in the [previous post](/posts/ai/2026-09-30-cs149-hardware-specialization-en) and are only referenced here.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
 
 ## 1. The scene: the same kernel gets slower on a newer GPU
 
@@ -225,6 +217,14 @@ Keep in mind while reading: the GPU-versus-RDU comparison, the Llama call counts
 Further reading: for another way of managing specialized hardware through a DSL, on TPUs, read [CMU 11-868 TPU, JAX, and Pallas](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en). For higher-level GPU kernel languages like Triton, read [CS336 Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en). Next up, [PA4](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) has you manage software-controlled on-chip memory yourself on AWS Trainium2.
 
 Series navigation: previous [L10 Hardware specialization and DNN accelerator design](/posts/ai/2026-09-30-cs149-hardware-specialization-en) | next [PA4 + Written 3: Trainium2 and NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/)
 
 ## Update Log
 

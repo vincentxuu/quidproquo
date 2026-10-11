@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L4：預訓練、微調與現代 Transformer——RoPE、GQA、sliding window 各自修了什麼"
+title: "預訓練、微調與現代 Transformer——RoPE、GQA、sliding window 各自修了什麼｜CMU 10-423 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa.pdf)（44 頁）與[課堂手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa-ink.pdf)（47 頁），以及講次表列的三篇 readings：[GQA](https://arxiv.org/pdf/2305.13245.pdf)、[Longformer](https://arxiv.org/pdf/2004.05150.pdf)、[RoFormer](https://arxiv.org/pdf/2104.09864.pdf)。這門課的存取等級是 **A3**（等級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，所以本篇完全依投影片撰寫，課堂口述的補充拿不到。
 
 這一講是文字單元的最後一講。講次表在同一天標著「HW1 out (L1-L4)」，兩天後的 Quiz 1 範圍也是 L1–L4。換句話說，這一講講的三個元件，下一篇的 [HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa) 就要你動手寫出來。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 前半：預訓練和微調到底差在哪
 
@@ -204,6 +193,17 @@ HW1 的書面題第 4 大題（11 分）就是從這張表出發：先問直接�
 延伸閱讀：站上 [CME295 的 Transformer 技巧篇](/posts/ai/2026-09-29-cme295-transformer-tricks)從另一門課的角度講位置編碼與注意力變體；[CS336 的架構與超參數篇](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)和 [attention 與 MoE 篇](/posts/ai/2026-08-22-cs336-attention-moe)則從「自己訓練一個 LM」的角度整理同一批現代元件。
 
 系列導覽：上一篇 [L2–L3：Transformer LM、LLM 訓練與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)｜下一篇 [HW1：在 minGPT 加上 RoPE 與 GQA](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques T1–T2: Linear SVM and Dual SVM — the Fattest Separator, QP, and KKT"
+title: "Linear SVM and Dual SVM — the Fattest Separator, QP, and KKT | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 1–2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,28 +37,6 @@ This is part 9 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Tec
 Access level: the MOOC alone is **A2**. The slides and all 9 videos are free. Fall 2024 has no homework dedicated to these two lectures; the related problems are in HW6 (see the end of this post). That PDF is public, but there are no official solutions.
 
 The lectures are taught in Mandarin; the slides are in English.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=A-GxGCCAIrg
-title: Course Introduction
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8hak0XngnV0
-title: Large-Margin Separating Hyperplane
-```
-
-Original videos: [Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Picking up from Foundations: the transform bill is still unpaid
 
@@ -250,6 +228,28 @@ There are no official solutions. For Q1, you can write a kernel perceptron and c
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook.
 
 Series navigation: previous, [Validation and three learning principles](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | next, [Kernel trick and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=A-GxGCCAIrg
+title: Course Introduction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8hak0XngnV0
+title: Large-Margin Separating Hyperplane
+```
+
+Original videos: [Course Introduction](https://www.youtube.com/watch?v=A-GxGCCAIrg)、[Large-Margin Separating Hyperplane](https://www.youtube.com/watch?v=8hak0XngnV0)、[T1-3](https://www.youtube.com/watch?v=lHo9GcIURRs)、[T1-4](https://www.youtube.com/watch?v=FAm70y081o4)、[T1-5](https://www.youtube.com/watch?v=7UUO_AamxcA)、[T2-1](https://www.youtube.com/watch?v=VUp-17l03lk)、[T2-2](https://www.youtube.com/watch?v=Yhwtvbzg9Fw)、[T2-3](https://www.youtube.com/watch?v=qGk0p7K07Mc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 16：Page Fault、Demand Fetching 與 Prefetch"
+title: "Page Fault、Demand Fetching 與 Prefetch｜Stanford CS111 第 16 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 17 篇，對應 **Stanford CS111, Spring 2026, Lecture 16**。2026-05-04 由 Mendel Rosenblum 主講，官方題目是 [Demand Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/16/Lecture16.pdf)。官方 Lecture 16/17 PDFs 逐位元組相同；錄影又不公開，因此無法證明實際口述分界。為避免重複，本文聚焦 fault/fetching mechanism，[Lecture 17](/posts/learning/2026-08-22-stanford-cs111-lecture-17-page-replacement)承擔 replacement policy。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 從位址空間到真正的虛擬記憶體
 
@@ -73,6 +65,14 @@ page fault 雖由軟體政策利用，卻依賴硬體機制。MMU 要能標出�
 Demand paging 的 fetching path 可濃縮成一條迴路：present bit 讓硬體偵測缺頁，CR2 保存位址，核心驗證 mapping 並辨認 executable、zero-fill 或 backing-store source，I/O 完成後更新 PTE，最後以精確例外重啟原指令。Prefetch 只是在這條路徑上多讀預測頁。
 
 可以用三題驗證理解：`present=0` 為何不等於非法位址？同一個 nonresident page 可能有哪些內容來源？為何 faulting instruction 必須可重啟？victim selection 與 thrashing 則轉交 Lecture 17。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

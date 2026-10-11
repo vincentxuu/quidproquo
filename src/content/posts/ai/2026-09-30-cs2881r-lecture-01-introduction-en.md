@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L1: Why AI Safety Deserves a Graduate Course"
+title: "Why AI Safety Deserves a Graduate Course | Harvard CS2881R Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 The hardest part of the first class in an AI safety course is not listing risks. It is agreeing on what you are worried about. Some people expect superhuman AI within five years; others think AI is the next electricity. Their definitions of "safety" are far apart.
 
 The first lecture of [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) (2025-09-04) handles this by assigning two readings with opposite views plus one on measurement, then taking the definitions apart in class. This post follows the same three pieces: what to read, what Boaz covered, and what the student experiment found.
-
-## Course video sources
-
-The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
-
-```youtube
-url: https://www.youtube.com/watch?v=-NCiWaRS6So
-title: CS2881R Fall 2025 L1: Introduction
-```
-
-Original videos: [CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
-
-Official sources:
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 1” (2:25:51) and confirmed Boaz's opening risk categories and the four course themes, the METR trend extrapolation, the impact-based AGI definition (50% of jobs replaced) and the capability-adoption gap (the electric-car example), the three alignment goals (Asimov-style principles, character training, model spec), inference cost falling at least 10x a year, and Valerio's experiment (6,000 bioethics examples, Llama 3.2 1B, Tülu 3, 95% confidence intervals). In the video the experiment report comes before Boaz's definitions; the specific alignment/coherence scores, the “90th percentile” capability definition and some failure modes (superalignment, Claude Code hard-coding results, deepfakes) do not appear in the captions, so those come from the weekly summary and slides and are not verified against the video.
 
 ## Materials for this lecture
 
@@ -177,6 +158,25 @@ One thing to do tonight: write one sentence each for a capability-based and an i
 
 - Series entry and material gaps: [Reading Harvard CS2881R (overview)](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - This site's course-openness grades: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+
+## Course video sources
+
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
+
+```youtube
+url: https://www.youtube.com/watch?v=-NCiWaRS6So
+title: CS2881R Fall 2025 L1: Introduction
+```
+
+Original videos: [CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 1” (2:25:51) and confirmed Boaz's opening risk categories and the four course themes, the METR trend extrapolation, the impact-based AGI definition (50% of jobs replaced) and the capability-adoption gap (the electric-car example), the three alignment goals (Asimov-style principles, character training, model spec), inference cost falling at least 10x a year, and Valerio's experiment (6,000 bioethics examples, Llama 3.2 1B, Tülu 3, 95% confidence intervals). In the video the experiment report comes before Boaz's definitions; the specific alignment/coherence scores, the “90th percentile” capability definition and some failure modes (superalignment, Claude Code hard-coding results, deepfakes) do not appear in the captions, so those come from the weekly summary and slides and are not verified against the video.
 
 ## Update Log
 

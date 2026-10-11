@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L12–L13 TPU, JAX, and Pallas: One Attention Kernel on TPU, from XLA Fusions to Splash Attention"
+title: "TPU, JAX, and Pallas: One Attention Kernel on TPU, from XLA Fusions to Splash Attention | CMU 11-868 Lectures 12–13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,16 +40,6 @@ glossary:
 Both lectures are by Srinath Mandalapu of Google CoreML Frameworks. The official materials are two slide decks: [L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf) (107 pages) and [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf) (111 pages). The Syllabus lists no readings for them. Access level is **A3**, but the official syllabus lists no public recording links, and every profiling number in the slides was measured on TPU Ironwood, which most outside readers cannot reproduce. Page numbers refer to the PDFs.
 
 The whole post answers one question: **when you move to TPUs and XLA, how does writing a fast kernel change?**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The scenario: the same attention on a different machine
 
@@ -252,6 +242,16 @@ The algorithm is identical. What differs is **where control sits**. On GPUs you 
 - Previous: [L21 FlashAttention (guest lecture by Tri Dao)](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - Next: [L23 Parameter-Efficient Fine-Tuning for Large Models](/posts/ai/2026-09-30-cmu11868-peft-lora-en)
 - Series overview: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

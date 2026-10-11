@@ -1,5 +1,5 @@
 ---
-title: "EM Algorithms: From Gaussian Mixtures to VAEs"
+title: "EM Algorithms: From Gaussian Mixtures to VAEs | Stanford CS229 Chapter 11"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is a chapter-by-chapter reading of Chapter 11, printed pages 150–166, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) by Tengyu Ma and Andrew Ng. It is **not a reconstruction of any quarter's recordings**. The chapter's spine is simple: latent variables make direct maximum likelihood difficult; EM alternates posterior inference and parameter updates; VAEs extend that pattern to neural networks and continuous latent variables.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=sUS-eTa0l6s
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 10 (about 80 minutes): roughly the first 60% is EM (a GMM with soft assignments, Jensen's inequality, the ELBO (auto-captioned as "elbow"), the E and M steps, step-by-step monotone improvement and only reaching a local maximum), and from about 62% it turns to PCA (Chapter 12). It matches the first half of this chapter. The chapter's second half on variational inference, VAEs and the reparameterization trick never appears in the transcript ("variational", "reparam" and "VAE" occur zero times) and rests on the notes alone.
 
 ## Gaussian mixtures hide the component labels
 
@@ -109,6 +88,27 @@ This chapter generalizes the alternating updates of k-means, replacing hard labe
 ## Self-study exercise
 
 Work through one EM iteration for a one-dimensional, two-component Gaussian mixture. Choose initial weights, means, and variances; compute responsibilities for four observations; then update means and mixture weights. Evaluate the observed-data log-likelihood before and after. Repeat from different initial means and compare the final solutions.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=sUS-eTa0l6s
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA](https://www.youtube.com/watch?v=sUS-eTa0l6s)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 10 (about 80 minutes): roughly the first 60% is EM (a GMM with soft assignments, Jensen's inequality, the ELBO (auto-captioned as "elbow"), the E and M steps, step-by-step monotone improvement and only reaching a local maximum), and from about 62% it turns to PCA (Chapter 12). It matches the first half of this chapter. The chapter's second half on variational inference, VAEs and the reparameterization trick never appears in the transcript ("variational", "reparam" and "VAE" occur zero times) and rests on the notes alone.
 
 ## Update Log
 

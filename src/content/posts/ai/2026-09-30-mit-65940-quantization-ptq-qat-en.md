@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lecture 6: Quantization II — PTQ Granularity and Clipping, QAT and STE, Binarization, Mixed Precision"
+title: "Quantization II — PTQ Granularity and Clipping, QAT and STE, Binarization, Mixed Precision | MIT 6.5940 Lecture 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **Official materials**: [Lec06-Quantization-II.pdf](https://www.dropbox.com/scl/fi/qt970xoje5d1btek4a8cl/Lec06-Quantization-II.pdf?rlkey=lalxz5ed2hez0olwu4e4gokbj&dl=0) (82 pages; all page numbers below refer to this PDF) and the [Lecture 6 recording](https://youtu.be/wrcgWm_nUeE). Access grade **A3**: slides and recordings are public, and the exercises are in [Lab 2](/posts/ai/2026-09-30-mit-65940-lab2-quantization-en). Everything below follows the slides, checked on 2026-09-30.
 
 **Fall 2026 comparison**: The Fall 2026 [Lecture 6 slides](https://www.dropbox.com/scl/fi/4zry0dea0hrykoa2aoqp0/Lec06-Quantization-II.pdf?rlkey=cb7gol6t8jcrb8kyyxpxwjzfb&dl=0) (80 pages) and [recording](https://www.youtube.com/watch?v=_sHTMuOQY5A) are already up. The five-item Lecture Plan is word-for-word identical. A page-by-page comparison finds only two pages missing: a duplicate linear-quantization recap, and the chart of HAQ's bit allocation on edge versus cloud hardware (F24 page 80).
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=wrcgWm_nUeE
-title: EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wrcgWm_nUeE)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: per-tensor vs. per-channel quantization, group quantization, clipping outliers (calibration methods), PTQ and QAT, the straight-through estimator, binary/ternary networks with XNOR/popcount, and mixed precision (HAQ). Topics and lecture number match this post. The captions garble names such as AdaRound and VS-Quant, so those follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## The question Lecture 5 left open
 
@@ -237,6 +219,24 @@ One thing you can do tonight: open the table on page 26 and work out VS-Quant's 
 - Quantization basics: [Lecture 5: Quantization I](/posts/ai/2026-09-30-mit-65940-quantization-basics-en)
 - Quantization and systems in LLM inference: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Backpropagation: [CMU 11-785 Lecture 5](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=wrcgWm_nUeE
+title: EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 6 - Quantization Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wrcgWm_nUeE)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and spot-checked the middle: per-tensor vs. per-channel quantization, group quantization, clipping outliers (calibration methods), PTQ and QAT, the straight-through estimator, binary/ternary networks with XNOR/popcount, and mixed precision (HAQ). Topics and lecture number match this post. The captions garble names such as AdaRound and VS-Quant, so those follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

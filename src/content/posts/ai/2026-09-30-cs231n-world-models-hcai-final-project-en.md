@@ -1,5 +1,5 @@
 ---
-title: "CS231N Wrap-Up: World Modeling / Robot Learning, Human-Centered AI and the Final Project"
+title: "World Modeling / Robot Learning, Human-Centered AI and the Final Project | Stanford CS231N Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,29 +40,6 @@ glossary:
 **Series**: previous [L15: 3D Vision](/posts/ai/2026-09-30-cs231n-3d-vision-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 The last two lectures stop teaching new algorithms. They push what came before outward: how vision models connect to action, and whom they should serve. Meanwhile, the heaviest thing on enrolled students' plates is the final project, worth 35% of the grade.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read. The first is Spring 2025 Lecture 17, Robot Learning (length 1:18:32, guest speaker Yunzhu Li, confirmed by the spoken introduction); it covers Atari and AlphaGo, credit assignment, particle dynamics models and the elastic dough-to-dumpling task, behavior cloning, inverse RL, diffusion policy, the RT-1-to-Pi-Zero timeline, and real-world evaluation and sim-to-real challenges, matching the article. It has no definition of a world model and does not mention 1X World Models, DayDreamer or NVIDIA Cosmos, which is corrected (the text had presented them as the speaker's definition and examples). The second is Lecture 18, Human-Centered AI (length 1:05:15, Fei-Fei Li); the content the article summarizes from the transcript (540 million years ago, the summer vision project, the three waves of object recognition and the 2012 ImageNet convergence, Visual Genome, hand hygiene and ICU sensing, the survey of about 1,400 people, zero performance on BEHAVIOR tasks, augmentation rather than replacement) was spot-checked and all appears in the transcript. The final-project section is unrelated to the videos and was not checked.
-
-```youtube
-url: https://www.youtube.com/watch?v=XSfmOH_xVSU
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU), [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
-
-Course and recording entries:
-
-- [CS231N Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## 2026 L17: World Modeling, one line on the schedule
 
@@ -177,6 +154,29 @@ That completes this series: the public L1–L16 slides of CS231N Spring 2026, al
 
 - A full course on reinforcement learning and robot learning: [Reading Berkeley CS285](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - General deep learning and another take on course projects: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read. The first is Spring 2025 Lecture 17, Robot Learning (length 1:18:32, guest speaker Yunzhu Li, confirmed by the spoken introduction); it covers Atari and AlphaGo, credit assignment, particle dynamics models and the elastic dough-to-dumpling task, behavior cloning, inverse RL, diffusion policy, the RT-1-to-Pi-Zero timeline, and real-world evaluation and sim-to-real challenges, matching the article. It has no definition of a world model and does not mention 1X World Models, DayDreamer or NVIDIA Cosmos, which is corrected (the text had presented them as the speaker's definition and examples). The second is Lecture 18, Human-Centered AI (length 1:05:15, Fei-Fei Li); the content the article summarizes from the transcript (540 million years ago, the summer vision project, the three waves of object recognition and the 2012 ImageNet convergence, Visual Genome, hand hygiene and ICU sensing, the survey of about 1,400 people, zero performance on BEHAVIOR tasks, augmentation rather than replacement) was spot-checked and all appears in the transcript. The final-project section is unrelated to the videos and was not checked.
+
+```youtube
+url: https://www.youtube.com/watch?v=XSfmOH_xVSU
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=g8UaBfj6Sh8
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 17: Robot Learning](https://www.youtube.com/watch?v=XSfmOH_xVSU), [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 18: Human-Centered AI](https://www.youtube.com/watch?v=g8UaBfj6Sh8)
+
+Course and recording entries:
+
+- [CS231N Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

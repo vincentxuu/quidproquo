@@ -1,5 +1,5 @@
 ---
-title: "CS149 L4: How Do You Parallelize a Program? Decomposition, Assignment, Orchestration, and Amdahl's Law"
+title: "How Do You Parallelize a Program? Decomposition, Assignment, Orchestration, and Amdahl's Law | Stanford CS149 Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,24 +31,6 @@ glossary:
 Fall 2025 recordings are only on Canvas. The matching public recording is [2023 Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70). This post follows the 2025 slides.
 
 Slides 3–27 replay the ISPC half of L3 (`sinx()`, interleaved vs. blocked, `foreach`, `reduce_add`, the SPMD summary), which the [previous lecture guide](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en) already covers. This post starts at slide 28, where the lecture's new topic begins: **what should run through your head when you write a parallel program?**
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=0-ztm8SKq70
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
-
-Course and recording entries:
-
-- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 4 - Parallel Programming Basics” (1:17:14). The captions cover the four steps of decomposition, assignment, orchestration and mapping, Amdahl's law (transcribed as “AMD doll's law” and mentioned in one sentence), grid-solver dependencies with red-black checkerboard updates, and barriers and locks in the shared address space model, matching this post's topic; the captions contain no discussion of static versus dynamic assignment (that is in Lecture 5) and no message passing. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Three questions, one goal
 
@@ -206,6 +188,24 @@ The next lecture, L5, picks up at the assignment step: how to balance load witho
 Further reading: this lecture only motivates locks and atomicity. For the full operating-systems treatment, see this site's guides to [CS111 Lecture 4: concurrency and atomicity](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity-en) and [Lecture 5: locks and condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables-en). CS149 itself covers lock implementation and lock-free programming at orders 20–21 of this series.
 
 Series navigation: previous [PA1 + Written 1: Performance on a Quad-Core CPU](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance-en) | next [L5: Work Distribution and Scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=0-ztm8SKq70
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 4 - Parallel Programming Basics](https://www.youtube.com/watch?v=0-ztm8SKq70)
+
+Course and recording entries:
+
+- [CS149 2023 public recordings playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/thoughtprocess/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 4 - Parallel Programming Basics” (1:17:14). The captions cover the four steps of decomposition, assignment, orchestration and mapping, Amdahl's law (transcribed as “AMD doll's law” and mentioned in one sentence), grid-solver dependencies with red-black checkerboard updates, and barriers and locks in the shared address space model, matching this post's topic; the captions contain no discussion of static versus dynamic assignment (that is in Lecture 5) and no message passing. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

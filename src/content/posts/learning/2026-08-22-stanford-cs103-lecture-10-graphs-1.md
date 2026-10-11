@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 9：圖論 I"
+title: "圖論 I｜Stanford CS103 第 9 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 11 篇，對應 **Spring 2026 官方 Lecture 9（2026-04-20）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Graphs, Part I**。課程從「一群物件及其關係」抽象出圖，再用兩個配置問題引出頂點覆蓋與獨立集。最後的核心是一個 iff 定理：集合 `C` 是頂點覆蓋，恰好在它的補集 `V − C` 是獨立集時成立。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)
 
 ## 圖把領域故事壓縮成關係結構
 
@@ -159,6 +151,14 @@ cover 的否定不是「有頂點沒被選」，而是存在一條未覆蓋的�
 公開投影片支持本文的形式定義、兩個應用故事、補集定理及兩個 lemma。它也有期中考行政資訊與即時投票；本文只保留理解圖論所需的內容，沒有把特定日期的考試安排寫成現行建議。
 
 錄影、逐字稿與課堂討論未公開，因此不重建講者的口頭比喻、學生回答或 deck 未載明的推導。paths、trails、local area networks 與 trees 是下一講主題，本文不提前展開。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/09/)
 
 ## 更新紀錄
 

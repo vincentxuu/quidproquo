@@ -1,5 +1,5 @@
 ---
-title: "LQR, DDP, and LQG: From Linear Control to Uncertainty"
+title: "LQR, DDP, and LQG: From Linear Control to Uncertainty | Stanford CS229 Chapter 20"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 20, printed pages 244–257, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It explains how structured control problems are solved and approximated without reproducing every Riccati or Gaussian-conditioning proof.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=0rt2CsEQv6U
-title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=QFu5nuc-S0s
-title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-Original videos: [Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U); [Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Autumn 2018 Lecture 19 (about 81 minutes) covers state-action rewards and finite-horizon MDPs (dynamic programming backward from the last step), then linear dynamical systems and linearizing a non-linear model, and finally LQR (assuming V* is quadratic, which yields a linear policy), matching the chapter's first two sections and the LQR section. The words Riccati, DDP, Kalman and LQG never appear in the transcript, so the chapter's DDP and LQG sections are not covered and rest on the notes alone. Lecture 18 (about 80 minutes) is continuous-state MDPs and fitted value iteration and only mentions LQR and LQG as coming later (around 48%), so it is background.
 
 ## Finite-horizon dynamic programming works backward
 
@@ -112,6 +86,32 @@ Chapter 19 introduced general MDPs and continuous-state approximation. This chap
 ## Exercise
 
 Consider \(s_{t+1}=s_t+a_t+w_t\) with cost \(s_t^2+0.1a_t^2\). Explain why the optimal action should be proportional to \(s_t\) with the opposite sign. Then add \(y_t=s_t+v_t\) and draw the data flow among Kalman predict, Kalman update, and the LQR action.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=0rt2CsEQv6U
+title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+Original videos: [Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U); [Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. Autumn 2018 Lecture 19 (about 81 minutes) covers state-action rewards and finite-horizon MDPs (dynamic programming backward from the last step), then linear dynamical systems and linearizing a non-linear model, and finally LQR (assuming V* is quadratic, which yields a linear policy), matching the chapter's first two sections and the LQR section. The words Riccati, DDP, Kalman and LQG never appear in the transcript, so the chapter's DDP and LQG sections are not covered and rest on the notes alone. Lecture 18 (about 80 minutes) is continuous-state MDPs and fitted value iteration and only mentions LQR and LQG as coming later (around 48%), so it is background.
 
 ## Update Log
 

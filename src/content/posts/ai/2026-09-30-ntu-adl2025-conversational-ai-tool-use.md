@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：對話系統與工具使用——從 LU／DST／Policy／NLG 到 LaMDA、WebGPT、Toolformer"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：對話系統與工具使用——從 LU／DST／Policy／NLG 到 LaMDA、WebGPT、Toolformer｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,30 +45,6 @@ glossary:
 | 13.9 | [Conversation Evaluation](https://youtu.be/gjiKrxiAyNI) | 評估對話系統的好壞 | 13:07 | 99–106 |
 
 「對應頁」是本文依主題比對的結果，影片實際放的投影片是不是這幾頁，沒有辦法從公開資訊確認。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
-title: 13.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=LHhxbXKfnKs
-title: 13.2 LaMDA
-```
-
-原始影片：[13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 13.1（15:02）與 13.2（13:15）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，內容依 Fall 2024 講義，對影片只引用標題、副標、長度與說明欄。兩支的上傳日是 2025-11-25、說明欄寫 2025/11/24，與文章一致。
 
 ## 對話系統的兩支
 
@@ -172,6 +148,30 @@ title: 13.2 LaMDA
 - 本系列 [RAG＋HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3) 也講到 WebGPT，這篇著重它的工具使用面。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning)｜下一篇 [超越監督學習與多模態](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
+title: 13.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LHhxbXKfnKs
+title: 13.2 LaMDA
+```
+
+原始影片：[13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 13.1（15:02）與 13.2（13:15）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，內容依 Fall 2024 講義，對影片只引用標題、副標、長度與說明欄。兩支的上傳日是 2025-11-25、說明欄寫 2025/11/24，與文章一致。
 
 ## 更新紀錄
 

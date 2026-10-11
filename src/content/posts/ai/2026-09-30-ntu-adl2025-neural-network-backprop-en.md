@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 2: Neural Networks and Backpropagation"
+title: "Neural Networks and Backpropagation | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,30 +30,6 @@ This is post 2 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 | [2.5 Backpropagation](https://youtu.be/BHgssEwMxsY) | — | All of Backpropagation |
 
 The decks were checked on 2026-09-30. Video 2.5 is linked from the course page but is not on the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o), so watching only the playlist skips it. The page ranges in the table come from the section title slides in the deck, not from the video timelines.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=YfNmHxDHE-M
-title: ADL 2.1: How to Train a Model? (YouTube)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=AySPuO7vOvA
-title: ADL 2.2: What is a Model? (YouTube)
-```
-
-Original videos: [ADL 2.1: How to Train a Model? (YouTube)](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model? (YouTube)](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean? (YouTube)](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function? (YouTube)](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation (YouTube)](https://www.youtube.com/watch?v=BHgssEwMxsY)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The 2.2 transcript was read (46 minutes): binary vs multi-class classification, one-hot (16x16 image = 256 dims, 10 output dims, vocabulary-sized word vector), the single neuron and bias as a prior, the perceptron limit and XOR, the ridge/bump explanation of multiple layers, the a/z/w/b notation and z = Wa + b, sigmoid/tanh/ReLU and "without nonlinearity it collapses to one layer" all match the Q1 sections of the article; the article makes no other specific claims about this video. The embedded 2.1 (4:41) has no obtainable transcript, so its content was not checked (only title and length were confirmed). Also noted: both 2.1 and 2.2 carry an upload date and description of 2023/09/14, so they are recordings from the 2023 term, not a 2025 re-recording. The other three videos listed in the article (2.3, 2.4, 2.5) are not embedded and were not checked.
 
 ## Training a model means answering three questions
 
@@ -220,6 +196,30 @@ Pages 26–27 draw this as a "reversed network": δ^(l+1) is the input, it is mu
 
 Previous: [What Machine Learning and Deep Learning Are](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction-en)
 Next: [Word Vectors, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=YfNmHxDHE-M
+title: ADL 2.1: How to Train a Model? (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=AySPuO7vOvA
+title: ADL 2.2: What is a Model? (YouTube)
+```
+
+Original videos: [ADL 2.1: How to Train a Model? (YouTube)](https://www.youtube.com/watch?v=YfNmHxDHE-M)、[ADL 2.2: What is a Model? (YouTube)](https://www.youtube.com/watch?v=AySPuO7vOvA)、[ADL 2.3: What does the "Good" Function Mean? (YouTube)](https://www.youtube.com/watch?v=OjX-O9uuug8)、[ADL 2.4: How can we Pick the "Best" Function? (YouTube)](https://www.youtube.com/watch?v=Uo3ZavxQyCs)、[ADL 2.5: Backpropagation (YouTube)](https://www.youtube.com/watch?v=BHgssEwMxsY)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The 2.2 transcript was read (46 minutes): binary vs multi-class classification, one-hot (16x16 image = 256 dims, 10 output dims, vocabulary-sized word vector), the single neuron and bias as a prior, the perceptron limit and XOR, the ridge/bump explanation of multiple layers, the a/z/w/b notation and z = Wa + b, sigmoid/tanh/ReLU and "without nonlinearity it collapses to one layer" all match the Q1 sections of the article; the article makes no other specific claims about this video. The embedded 2.1 (4:41) has no obtainable transcript, so its content was not checked (only title and length were confirmed). Also noted: both 2.1 and 2.2 carry an upload date and description of 2023/09/14, so they are recordings from the 2023 term, not a 2025 re-recording. The other three videos listed in the article (2.3, 2.4, 2.5) are not embedded and were not checked.
 
 ## Update Log
 

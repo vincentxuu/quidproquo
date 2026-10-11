@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 6: Search II: Priorities in UCS and A*"
+title: "Search II: Priorities in UCS and A* | Stanford CS221 Lecture 6"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 6**, taught by Percy Liang on 2025-10-08. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [ucs_astar](https://stanford-cs221.github.io/autumn2025-lectures/?trace=ucs_astar).
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 6, the same term and lecture number this article follows. It matches item 6 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=4Iu4KPVbnAY
-title: Stanford CS221 | Autumn 2025 | Lecture 6: Search II
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 6: Search II](https://www.youtube.com/watch?v=4Iu4KPVbnAY)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 6) and confirmed it covers UCS, A*, heuristics and consistency, and designing heuristics by relaxation (e.g. tile puzzles), matching this article's lecture and topic; no mismatch found.
 
 ## Recap: what search is solving
 
@@ -124,6 +104,26 @@ A relaxed problem is not automatically easier. Costs must be reduced in a struct
 UCS explores by increasing past cost and uses priority-queue updates, DONE/stale-entry accounting, and backpointers to reconstruct a minimum-cost path; with nonnegative costs, the removed goal has minimum cost. A* is UCS with a heuristic: consistency keeps modified costs nonnegative, admissibility supplies a lower bound on future cost, and a useful relaxation may reduce exploration.
 
 Next time asks what happens when action outcomes are nondeterministic, such as rolling dice. Canvas interactions, assignment solutions, hidden tests, and unsupported numerical claims remain material gaps; they should not be filled with another term or intuition.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 6, the same term and lecture number this article follows. It matches item 6 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=4Iu4KPVbnAY
+title: Stanford CS221 | Autumn 2025 | Lecture 6: Search II
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 6: Search II](https://www.youtube.com/watch?v=4Iu4KPVbnAY)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 6) and confirmed it covers UCS, A*, heuristics and consistency, and designing heuristics by relaxation (e.g. tile puzzles), matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

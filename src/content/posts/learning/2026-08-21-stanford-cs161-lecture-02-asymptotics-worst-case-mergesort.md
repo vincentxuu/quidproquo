@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 2：從 InsertionSort 證明到 MergeSort 的 n log n"
+title: "從 InsertionSort 證明到 MergeSort 的 n log n｜Stanford CS161 第 2 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 3 篇，對應 **Stanford CS161, Winter 2026, Lecture 2**。Ellen Vitercik 在 2026 年 1 月 7 日主講，官方題目是 [Asymptotics, Worst-Case Analysis, and MergeSort](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)。本文使用公開的課前練習、11 頁講義、82 頁投影片，以及兩頁的 InsertionSort 嚴格證明 handout。Canvas 錄影需要校內權限，沒有作為來源；官方 notebook 與概念題也沒有拿來補正文。
 
 第一講用 Karatsuba 示範「成長率比單次計時更能描述算法」。第二講把這句直覺拆成兩個可檢查的問題：**演算法真的會回傳正確答案嗎？它對所有輸入都有足夠好的效能嗎？** 排序成為共同語言，因為 InsertionSort 的步驟容易追，MergeSort 又能把分治、正確性歸納與遞迴時間接在一起。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)
-
-查核日期：2026-10-10。
 
 ## InsertionSort 到底維持了什麼
 
@@ -176,6 +166,16 @@ Lecture 2 把 CS161 的證明語法定下來：迭代算法找迴圈不變量，
 幾乎有序的小陣列常讓 InsertionSort 表現很好，而 MergeSort 的控制流程不會因輸入已排序就少掉整棵遞迴樹。實務排序器因此常採混合策略，在小子陣列切換到插入排序。但 Winter 2026 第二講沒有指定門檻或特定標準函式實作；任何門檻數字都應依語言、資料型態與硬體另做基準測試。
 
 另一個延伸是親自補完 `Merge` 的不變量。每次迭代前寫下三件事：`S` 已排序、`S` 的元素正是兩輸入已消耗部分、兩個指標前端的較小值是下一個全域最小值。這比只背 `n log n` 更接近後面每一份正確性證明真正會用到的能力。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-2-asymptotics-worst-case-analysis-and-mergesort)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

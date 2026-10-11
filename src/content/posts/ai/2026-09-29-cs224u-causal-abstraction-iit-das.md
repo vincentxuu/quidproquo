@@ -1,5 +1,5 @@
 ---
-title: "CS224U 解釋方法 II：用 interchange intervention 從「有資訊」走到「有用到」——causal abstraction、IIT 與 DAS"
+title: "用 interchange intervention 從「有資訊」走到「有用到」——causal abstraction、IIT 與 DAS｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -34,29 +34,6 @@ glossary:
 用到的官方材料有四份：投影片 [Analysis methods in NLP](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf) 第 41–61 頁、播放清單的影片 36–37、repo 裡的 [`iit_equality.ipynb`](https://github.com/cgpotts/cs224u/blob/main/iit_equality.ipynb)，加上它依賴的 [`iit.py`](https://github.com/cgpotts/cs224u/blob/main/iit.py) 與 [`torch_deep_neural_classifier_iit.py`](https://github.com/cgpotts/cs224u/blob/main/torch_deep_neural_classifier_iit.py)。存取等級是 **A3（歷史版）**。
 
 這是整個系列最陡的一篇。以下只講直覺，並用 notebook 的 equality task 當貫穿的例子，形式定義收在折疊區塊裡。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=6pwpOOj33aw
-title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
-title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
-```
-
-原始影片：[Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
-
-內容核對：已依字幕核對（2026-10-10）：影片 36（Causal Abstraction & IIT）與影片 37（DAS & Conclusion）的字幕逐項對照：加法網路的 interchange intervention 例子、IIA 的性質、四項『because』發現、IIT 的 double update 與四項應用、DAS 的兩個問題與旋轉矩陣、Alpaca 發現、結論的四個方向與三格計分表，皆吻合，未發現需修正之處。notebook 數字與投影片頁碼不在影片內，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 先記住上一篇卡在哪
 
@@ -216,6 +193,29 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 延伸閱讀：站上 [CS224N 的 interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)走的是 agentic interpretability 與概念發現的路線，可以對照。
 
 系列導覽：上一篇 [解釋方法 I：probing 與 feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)｜下一篇 [方法與指標 I：分類與生成指標](/posts/ai/2026-09-29-cs224u-methods-metrics)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=6pwpOOj33aw
+title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
+title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
+```
+
+原始影片：[Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw)、[Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+
+內容核對：已依字幕核對（2026-10-10）：影片 36（Causal Abstraction & IIT）與影片 37（DAS & Conclusion）的字幕逐項對照：加法網路的 interchange intervention 例子、IIA 的性質、四項『because』發現、IIT 的 double update 與四項應用、DAS 的兩個問題與旋轉矩陣、Alpaca 發現、結論的四個方向與三格計分表，皆吻合，未發現需修正之處。notebook 數字與投影片頁碼不在影片內，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

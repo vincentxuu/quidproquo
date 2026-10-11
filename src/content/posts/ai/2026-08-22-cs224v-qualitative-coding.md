@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 9 講：自動質性編碼為什麼需要 codebook、型別與人工覆核"
+title: "自動質性編碼為什麼需要 codebook、型別與人工覆核｜Stanford CS224V 第 9 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, qualitative-coding, event-extraction, structured-output]
@@ -19,27 +19,6 @@ description: "CS224V Document Set Analysis：質性編碼、ACLED codebook、abs
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-data-coding.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第九講討論一種常被低估的文件分析：研究者不是只問一題，而是依 codebook 持續標記大量文件裡的事件、角色、地點與關係。講義以疫情事件與 [ACLED 衝突事件方法](https://acleddata.com/methodology/)為主線，最後的結論很克制：自動質性編碼仍不足以跳過人工品質流程。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Document Set Analysis: Qualitative Coding」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 14 講（約 1 小時 29 分），字幕以大量文件集分析與 LLM 自動質性編碼（qualitative coding、codebook、訪談與文件摘要）為主，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=HZ1cr52x8ew
-title: CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024
-```
-
-原始影片：[CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024](https://www.youtube.com/watch?v=HZ1cr52x8ew)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：從人工方法到端到端抽取
 
@@ -146,6 +125,27 @@ Qualitative coding 的價值來自一致應用 codebook，而不是產出很多 
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 講義摘要仍在進行的研究與多份資料集，沒有公開完整標註手冊、review 流程或訓練／評估程式；本文不把研究 pipeline 寫成已可無人監督部署。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（「Document Set Analysis: Qualitative Coding」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 14 講（約 1 小時 29 分），字幕以大量文件集分析與 LLM 自動質性編碼（qualitative coding、codebook、訪談與文件摘要）為主，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=HZ1cr52x8ew
+title: CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024
+```
+
+原始影片：[CS224V Fall 2024 Lecture 14: Qualitative Coding 11 06 2024](https://www.youtube.com/watch?v=HZ1cr52x8ew)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

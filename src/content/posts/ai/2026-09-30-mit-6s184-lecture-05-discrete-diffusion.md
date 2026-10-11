@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L5：離散擴散，用 CTMC 生成語言"
+title: "離散擴散，用 CTMC 生成語言｜MIT 6.S184 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,24 +41,6 @@ glossary:
 這一講的好消息是：你在[第 2 講](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)學過的配方一步都不用改。講義 §7.2 開頭列的三步就是 flow matching 的三步：(1) 造一條從雜訊到資料的機率路徑；(2) 推出條件與邊際的訓練目標；(3) 不模擬就能學會邊際目標。變的只是每一步裡的物件。
 
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=d0kmyEJN2hI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（81 分 11 秒，與文中「1 小時 21 分」相符）：CTMC 與 rate matrix、factorized 設計與每個位置平行跳、mixture path 與 mask、Kolmogorov forward equation、學 rate matrix 等於分類（對每個位置做 softmax 與 negative log likelihood）、masked diffusion LM 與 LLaDA 示範、與自回歸模型的取捨（平行生成、任意順序、KV cache 較難），以及結尾的課程評鑑提醒。與本文相符。字幕裡聽不到 Slides 5 的 “teleported”、“Only unknown!” 等標註與講義編號，那些依 slides 與講義。
 
 ## 先看對照表：每個連續物件都有離散版
 
@@ -382,6 +364,24 @@ Slides 5 有一頁討論離散擴散與自回歸模型的取捨，每一點都�
 - DDPM 視角的連續擴散（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 講義引用的離散擴散起點：[Campbell et al., A Continuous Time Framework for Discrete Denoising Models](https://arxiv.org/abs/2205.14987)（參考文獻 [5]）、[Gat et al., Discrete Flow Matching](https://arxiv.org/abs/2407.15595)（參考文獻 [16]）
 - 講義 Figure 18 的圖源：[Lipman et al., Flow Matching Guide and Code](https://arxiv.org/abs/2412.06264)（參考文獻 [26]）
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=d0kmyEJN2hI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 05 - Discrete Diffusion Models (2026)](https://www.youtube.com/watch?v=d0kmyEJN2hI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了影片大部分字幕（81 分 11 秒，與文中「1 小時 21 分」相符）：CTMC 與 rate matrix、factorized 設計與每個位置平行跳、mixture path 與 mask、Kolmogorov forward equation、學 rate matrix 等於分類（對每個位置做 softmax 與 negative log likelihood）、masked diffusion LM 與 LLaDA 示範、與自回歸模型的取捨（平行生成、任意順序、KV cache 較難），以及結尾的課程評鑑提醒。與本文相符。字幕裡聽不到 Slides 5 的 “teleported”、“Only unknown!” 等標註與講義編號，那些依 slides 與講義。
 
 ## 更新紀錄
 

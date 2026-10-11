@@ -1,5 +1,5 @@
 ---
-title: "NTHU Hung-Yu Kao NLP, Week 2: Word Embeddings and Language Models, from Counting N-grams to RNNs"
+title: "Word Embeddings and Language Models, from Counting N-grams to RNNs | NTHU Hung-Yu Kao Natural Language Processing Week 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,30 +36,6 @@ glossary:
 "Please turn your homework …" What comes next? Over? In? You can probably guess, and guess well. Week 2's slides start from that question: **how did predicting the next word go from counting to neural networks?**
 
 The [previous post](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing-en) turned text into vectors from the retrieval side. This one switches to language models. The first slide is titled "GAI Motivation" and lists two problems with supervised learning (text classification, QA systems): not enough training data, and limited domain knowledge. The next slide says the most common way to generate a sentence is to write the words down one after another.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 2 Thu. covers the first part of the deck (up to perplexity) and Week 3 Tue. covers the later part. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=cqp5a39eyJQ
-title: Fall 2025 Week 2 Thu. recording
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=LFeFc0VtKRI
-title: Fall 2025 Week 3 Tue. recording
-```
-
-Original videos: [Fall 2025 Week 2 Thu. recording](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. recording](https://www.youtube.com/watch?v=LFeFc0VtKRI)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both the Week 2 Thu. and Week 3 Tue. transcripts were read through. Week 2 Thu. opens with the HW1 briefing, then covers n-grams, language models, add-one smoothing and perplexity (including using perplexity to judge whether text was written by ChatGPT and the four-gram analysis in the J.K. Rowling pseudonym case), and stops at perplexity; Week 3 Tue. then revisits perplexity and the limits of n-grams, and covers sparse vs. dense vectors, the PPMI cherry/sugar example (3.3), analogies and semantic change in word vectors (broadcast, network), CBOW/skip-gram and negative sampling, softmax, contextual embeddings (Apple the company vs. the pie), neural-network basics, RNNs (the moving-average analogy) and NER/sentiment classification, all consistent with the post sections. The original Week 2 Tue. covers information retrieval (TF-IDF, BM25, LSA), which belongs to the previous post, so it was moved there; Week 3 Tue. was moved in from the seq2seq post. Slide numbers and figures come from the slides; the body is unchanged.
 
 ## Statistical language models: counting n-grams
 
@@ -188,6 +164,30 @@ The 2026 main README links the [v2 of this deck](https://github.com/IKMLab/NTHU_
 
 - [CS224N word vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en): Stanford's derivation of word2vec.
 - [CS224N RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en): another take on n-grams, perplexity, and RNN language models.
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, Week 2 Thu. covers the first part of the deck (up to perplexity) and Week 3 Tue. covers the later part. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=cqp5a39eyJQ
+title: Fall 2025 Week 2 Thu. recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LFeFc0VtKRI
+title: Fall 2025 Week 3 Tue. recording
+```
+
+Original videos: [Fall 2025 Week 2 Thu. recording](https://www.youtube.com/watch?v=cqp5a39eyJQ)、[Fall 2025 Week 3 Tue. recording](https://www.youtube.com/watch?v=LFeFc0VtKRI)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both the Week 2 Thu. and Week 3 Tue. transcripts were read through. Week 2 Thu. opens with the HW1 briefing, then covers n-grams, language models, add-one smoothing and perplexity (including using perplexity to judge whether text was written by ChatGPT and the four-gram analysis in the J.K. Rowling pseudonym case), and stops at perplexity; Week 3 Tue. then revisits perplexity and the limits of n-grams, and covers sparse vs. dense vectors, the PPMI cherry/sugar example (3.3), analogies and semantic change in word vectors (broadcast, network), CBOW/skip-gram and negative sampling, softmax, contextual embeddings (Apple the company vs. the pie), neural-network basics, RNNs (the moving-average analogy) and NER/sentiment classification, all consistent with the post sections. The original Week 2 Tue. covers information retrieval (TF-IDF, BM25, LSA), which belongs to the previous post, so it was moved there; Week 3 Tue. was moved in from the seq2seq post. Slide numbers and figures come from the slides; the body is unchanged.
 
 ## Update Log
 

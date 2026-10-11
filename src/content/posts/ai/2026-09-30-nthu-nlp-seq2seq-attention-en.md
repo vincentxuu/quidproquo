@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP W3: When Input and Output Lengths Differ — Seq2seq, LSTM, and Attention"
+title: "NTHU NLP W3: When Input and Output Lengths Differ — Seq2seq, LSTM, and Attention | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,30 +28,6 @@ glossary:
 This is post 4 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. [Post 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en) introduced RNN language models, which read one token at a time and predict the next. [HW1](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en) tested word vectors. This post takes on a problem RNN language models never faced: **how do you design a model when the input and output have different lengths?**
 
 The source is the 33-slide deck [W3_Sequence-to-sequence Models and Attention Mechanisms.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_Sequence-to-sequence%20Models%20and%20Attention%20Mechanisms.pdf) from the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing). The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists it in the W3 row with two recordings, [W3 Tue](https://www.youtube.com/live/LFeFc0VtKRI) and [W3 Thu](https://www.youtube.com/live/UZ22K0rmU1g) (lectures are in Mandarin). Reading the captions showed W3 Tue is about word embeddings and language models, so it now lives in [part 2](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en), and [W4 Thu](https://www.youtube.com/live/tr5QyN5TswM), whose first half (LSTM recap, RNN plus attention) matches this deck's attention part, is embedded instead. That row's Topics column says "Introduction to NLP (Language model)", but it is a syllabus template, so the slides are the source of truth. This post is based on the slides only; I did not check it against the recordings segment by segment.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, W3 Thu covers the end of RNNs, seq2seq and LSTM, and W4 Thu covers attention. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=UZ22K0rmU1g
-title: Fall 2025 W3 Thu recording
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=tr5QyN5TswM
-title: Fall 2025 W4 Thu recording
-```
-
-Original videos: [Fall 2025 W3 Thu recording](https://www.youtube.com/watch?v=UZ22K0rmU1g)、[Fall 2025 W4 Thu recording](https://www.youtube.com/watch?v=tr5QyN5TswM)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both the W3 Thu and W4 Thu transcripts were read through. W3 Thu first finishes RNNs (NER, sentiment classification, stacking and bidirectional), then covers seq2seq (translation with RNNs, the context vector, teacher forcing), vanishing gradients and the LSTM gates, and closes by saying RNNs/LSTMs cannot be parallelized; W4 Thu recaps LSTM, then covers RNN plus attention (the translation alignment figure, the cost of storing every hidden state), then moves on to QKV and self-attention. These line up with the encoder-decoder, vanishing-gradient, LSTM and attention sections of this post. The original W3 Tue is about word embeddings and language models and was moved to part 2; W4 Thu is also embedded in the Transformer post. Slide numbers and details come from the slides; the body is unchanged.
 
 ## The problem: translation lengths do not line up
 
@@ -156,6 +132,30 @@ Attention without RNNs is the heart of the Transformer, which this series covers
 - Next in this series: [PyTorch TA Session + HW2 Arithmetic as a Language](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic-en)
 - The same material in English-language courses: [CS224N: RNNs and Language Models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en), [CMU 11-785: Language Models and Translation](/posts/ai/2026-08-22-cmu-11785-17-language-models-translation-en), [CMU 11-785: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube videos are public and embeddable. After reading the captions, W3 Thu covers the end of RNNs, seq2seq and LSTM, and W4 Thu covers attention. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=UZ22K0rmU1g
+title: Fall 2025 W3 Thu recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=tr5QyN5TswM
+title: Fall 2025 W4 Thu recording
+```
+
+Original videos: [Fall 2025 W3 Thu recording](https://www.youtube.com/watch?v=UZ22K0rmU1g)、[Fall 2025 W4 Thu recording](https://www.youtube.com/watch?v=tr5QyN5TswM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both the W3 Thu and W4 Thu transcripts were read through. W3 Thu first finishes RNNs (NER, sentiment classification, stacking and bidirectional), then covers seq2seq (translation with RNNs, the context vector, teacher forcing), vanishing gradients and the LSTM gates, and closes by saying RNNs/LSTMs cannot be parallelized; W4 Thu recaps LSTM, then covers RNN plus attention (the translation alignment figure, the cost of storing every hidden state), then moves on to QKV and self-attention. These line up with the encoder-decoder, vanishing-gradient, LSTM and attention sections of this post. The original W3 Tue is about word embeddings and language models and was moved to part 2; W4 Thu is also embedded in the Transformer post. Slide numbers and details come from the slides; the body is unchanged.
 
 ## Update Log
 

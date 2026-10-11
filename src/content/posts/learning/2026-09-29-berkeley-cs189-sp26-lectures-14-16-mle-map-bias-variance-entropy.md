@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 14、16：MLE vs MAP、bias-variance、熵與 KL，期中自評"
+title: "、16：MLE vs MAP、bias-variance、熵與 KL，期中自評｜Berkeley CS189 第 14 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, bias-variance, information-theory, exam-prep]
@@ -26,31 +26,6 @@ draft: false
 - **Logistic regression 的損失**：原本是「最大化 likelihood」，Lec 16 會把它重新解釋成 cross-entropy，也就是兩個分布之間差多少 bits。
 
 這兩講上完隔週就是期中考（3/17），所以文末附一套用官方考題自評的流程。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
-title: Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=ArSadC8hY-Q
-title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
-```
-
-原始影片：[Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 錄影：Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 14 影片（Z1KuNG9HyiQ，約 69 分鐘）以擲硬幣偏差對照 MLE 與 MAP、連到 ridge 與最小平方，再講 bias-variance 並以驗證集調整，與文中前兩節相符；字幕沒有 Chatbot Arena、Bradley–Terry 與讀論文五問題，這一段只見於 lec14.pdf。Lecture 16 影片（ArSadC8hY-Q，約 70 分鐘）確為 Entropy, Information, and Logistic Regression：從壓縮講熵（100 天下雨資料約 73 位元、賽馬）、cross-entropy 與 KL，再接到 logistic regression 的損失；MNIST、CIFAR-10 的資料集數字字幕沒有提到，影片結尾是期中考後勤。期中考段落與逐題講解影片不在本次核對範圍。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 教材在哪、能拿到什麼
 
@@ -167,6 +142,31 @@ title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
 1. 把 ridge 的目標函數從「負 log 後驗」親手推一次，寫出 λ 等於哪兩個變異數的比值。
 2. 算出西雅圖例子的熵 H(0.8)，確認 100 天約等於 73 bits。
 3. 挑一個晚上，照上面的流程計時寫完 sp26 期中考。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
+title: Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ArSadC8hY-Q
+title: Lecture 16 錄影：Entropy, Information, and Logistic Regression
+```
+
+原始影片：[Lecture 14 錄影：MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 錄影：Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 14 影片（Z1KuNG9HyiQ，約 69 分鐘）以擲硬幣偏差對照 MLE 與 MAP、連到 ridge 與最小平方，再講 bias-variance 並以驗證集調整，與文中前兩節相符；字幕沒有 Chatbot Arena、Bradley–Terry 與讀論文五問題，這一段只見於 lec14.pdf。Lecture 16 影片（ArSadC8hY-Q，約 70 分鐘）確為 Entropy, Information, and Logistic Regression：從壓縮講熵（100 天下雨資料約 73 位元、賽馬）、cross-entropy 與 KL，再接到 logistic regression 的損失；MNIST、CIFAR-10 的資料集數字字幕沒有提到，影片結尾是期中考後勤。期中考段落與逐題講解影片不在本次核對範圍。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 更新紀錄
 

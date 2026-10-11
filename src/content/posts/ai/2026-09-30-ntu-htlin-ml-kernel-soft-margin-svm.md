@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T3–T4：Kernel 技巧與軟邊界 SVM——無限維的分類器怎麼算、怎麼防過擬合"
+title: "Kernel 技巧與軟邊界 SVM——無限維的分類器怎麼算、怎麼防過擬合｜台大林軒田 機器學習基石與技法 第 3–4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,28 +35,6 @@ glossary:
 **本文依據**：MOOC 投影片 [203_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/203_handout.pdf) 與 [204_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/204_handout.pdf)、[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 10–17 支、[Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) 與 [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) 課程頁，以及 [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)，全部在 2026-09-30 打開核對。教科書對應 [LFD](http://amlbook.com) e-8.3（kernel）與 e-8.4（soft margin），這是兩份課程頁標的章節，本文沒有打開章節本身。
 
 存取等級：MOOC 教材是 **A2**；加上 Fall 2024 HW6 題目 PDF 與公開的 [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) 和 MNIST 資料，這兩講可以到 **A3（評分鏈除外）**：沒有官方解答，Gradescope 批改只限修課生。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=oOi7kqUTqxw
-title: Kernel Trick
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Fb-WSBvsPak
-title: Polynomial Kernel
-```
-
-原始影片：[Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 上一篇停在哪
 
@@ -224,6 +202,28 @@ Gaussian soft-margin SVM 至少有 (C, γ) 兩個參數，投影片三張圖（C
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：同一本教科書的英文課。
 
 系列導覽：上一篇 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)｜下一篇 [Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=oOi7kqUTqxw
+title: Kernel Trick
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fb-WSBvsPak
+title: Polynomial Kernel
+```
+
+原始影片：[Kernel Trick](https://www.youtube.com/watch?v=oOi7kqUTqxw)、[Polynomial Kernel](https://www.youtube.com/watch?v=Fb-WSBvsPak)、[T3-3](https://www.youtube.com/watch?v=_-fIkbSBdF8)、[T3-4](https://www.youtube.com/watch?v=sacJmcs8TKE)、[T4-1](https://www.youtube.com/watch?v=K7ZcAYXuU_A)、[T4-2](https://www.youtube.com/watch?v=fTHTqW5Uq4U)、[T4-3](https://www.youtube.com/watch?v=5z7ujI3YBBE)、[T4-4](https://www.youtube.com/watch?v=ahogAa5Rnmc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

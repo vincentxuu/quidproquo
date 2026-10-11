@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 作業六：用 DeepSpeed ZeRO＋LoRA 訓練 Llama-2-7B，用 SGLang 做推論"
+title: "用 DeepSpeed ZeRO＋LoRA 訓練 Llama-2-7B，用 SGLang 做推論｜CMU 11-868 作業 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,16 +35,6 @@ glossary:
 換句話說，前五份作業讓你知道框架裡面長什麼樣；這一份讓你用真的框架，把前面學的 ZeRO、LoRA、RadixAttention 跑在一個 7B 模型上。
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 它在課程裡的位置
 
@@ -130,6 +120,16 @@ glossary:
 
 - 另一門課的平行化觀念：[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 - 推論系統的另一種講法：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS149 L12：從一顆晶片到整座資料中心——資料流硬體、kernel 融合、平行策略與記憶體瓶頸"
+title: "從一顆晶片到整座資料中心——資料流硬體、kernel 融合、平行策略與記憶體瓶頸｜Stanford CS149 第 12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,15 +35,6 @@ glossary:
 **這一講沒有任何公開錄影。** Fall 2025 錄影只在 Canvas，而課程首頁指向的 2023 年公開錄影裡沒有這個主題。本文只依投影片撰寫；投影片上有一些只有圖、沒有文字的頁面（例如 Nvidia HBM roadmap、Transformer 架構圖），講者在課堂上怎麼解釋，我們無從得知，本文不替它補話。
 
 先說一件讀投影片時會注意到的事：講題是「映射到資料中心」，但 72 頁裡真正講資料中心規模的大約是第 28–44 頁。前面是記憶體入門與資料流硬體，後面是能源與 DRAM。把三段串起來的主題是**資料搬移**——從晶片內、晶片間到整座叢集，瓶頸都是資料送不送得過來。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [CS149 2023 公開錄影播放清單（無本講對應影片）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
 
 ## 第一段：HBM 與資料流硬體（第 3–27 頁）
 
@@ -196,6 +187,15 @@ glossary:
 - LLM 系統的整體圖像：[CME295 LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)
 
 系列導覽：上一篇 [PA4 + Written 3：Trainium2 與 NKI](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)｜下一篇 [L13 領域專用語言與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單（無本講對應影片）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/aidatacenter/)
 
 ## 更新紀錄
 

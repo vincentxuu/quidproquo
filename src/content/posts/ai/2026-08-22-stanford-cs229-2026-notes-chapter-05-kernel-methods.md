@@ -1,5 +1,5 @@
 ---
-title: "核方法：不顯式展開特徵的非線性學習"
+title: "核方法：不顯式展開特徵的非線性學習｜Stanford CS229 第 5 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 5 章〈Kernel methods〉，講義頁碼 49–59。它是 **2026 notes 的逐章導讀**，不是某季錄影的重建。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=8NYoQiRANpg
-title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
-```
-
-原始影片：[Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季 Andrew Ng 的 Lecture 7（約 80 分鐘）：開頭先講 optimal margin classifier／SVM 的最佳化問題與 representer theorem，之後講高維特徵映射、kernel trick、kernel matrix（字幕稱 Gram matrix）、Mercer 定理與半正定條件、多項式與高斯 kernel、可核化的演算法（含 linear regression、logistic regression、perceptron），最後以 L1 soft margin 與 MNIST 例子作結；主題與本章相符，但這是 2018 年的講法，不是 2026 版講義的逐段來源。
 
 ## 非線性，仍然可以對參數線性
 
@@ -83,6 +62,27 @@ kernel trick 省掉顯式高維特徵，卻沒有讓資料規模消失。通常�
 ## 自學練習
 
 對三個二維點手算二次多項式特徵 \(\phi(x)\) 的所有內積，再用對應 polynomial kernel 直接計算，確認兩者一致。接著比較不同 Gaussian bandwidth 產生的 Gram 矩陣，觀察它如何從接近單位矩陣變成幾乎常數矩陣。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=8NYoQiRANpg
+title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+原始影片：[Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季 Andrew Ng 的 Lecture 7（約 80 分鐘）：開頭先講 optimal margin classifier／SVM 的最佳化問題與 representer theorem，之後講高維特徵映射、kernel trick、kernel matrix（字幕稱 Gram matrix）、Mercer 定理與半正定條件、多項式與高斯 kernel、可核化的演算法（含 linear regression、logistic regression、perceptron），最後以 L1 soft margin 與 MNIST 例子作結；主題與本章相符，但這是 2018 年的講法，不是 2026 版講義的逐段來源。
 
 ## 更新紀錄
 

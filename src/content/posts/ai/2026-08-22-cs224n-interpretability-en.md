@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 15: Reading Agentic Interpretability Without Public Slides"
+title: "Reading Agentic Interpretability Without Public Slides | Stanford CS224N Lecture 15"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,17 +20,6 @@ draft: false
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) confirms that the fifteenth regular unit took place on February 24, 2026, guest-taught by Been Kim under the official title **Guest Lecture: Interpretability**. Unlike the first fourteen units, the course page publishes no Winter 2026 deck and no agenda. It lists only five suggested readings.
 
 This article therefore cannot faithfully reconstruct what was taught. It is a reading map supported by the official list, preserving the series position and material boundary without presenting papers as classroom speech.
-
-## Course video sources
-
-Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
 
 ## Route one: from explaining an answer to an investigating agent
 
@@ -53,6 +42,17 @@ Neologism learning introduces new concept tokens that a model can reference, con
 ## What can and cannot be confirmed
 
 The date, speaker, title, and five official readings are confirmed. The spoken agenda, deck, coverage of each paper, live examples, and conclusions are not. The page HTML contains a commented-out link to an older offering's slides; it is not Winter 2026 public material and is not used here. This article should become a full lecture review only if current slides are later released.
+
+## Course video sources
+
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

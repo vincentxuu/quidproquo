@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW5（下）：SimCLR 對比學習與 GAN，不靠標籤學表示、不靠似然做生成"
+title: "（下）：SimCLR 對比學習與 GAN，不靠標籤學表示、不靠似然做生成｜Harvard CS181 作業 5／第 3 部分"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, homework, self-supervised-learning, contrastive-learning, gan, generative-models]
@@ -31,17 +31,6 @@ glossary:
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 10 篇。上一篇是 [HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)，下一篇是 [HW6（一）：自迴歸模型的解碼、KV Cache 與 Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)。
 
 上一篇的 K-means 與 PCA 都在「重建」：用群中心或幾個主成分把影像拼回來，誤差越小越好。這篇的兩題換了思路。SimCLR 不重建任何東西，只要求網路認出「這兩張是同一張圖的不同裁切」。GAN 不算資料的似然，只要生成的樣本騙得過一個判別器。兩題的共同點是 [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf) 第 5 節的標題：**把學習看成一個分類問題**。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 在 2026 課表的位置
 
@@ -156,6 +145,17 @@ EBM 這一段作業沒有出題，只在 Section 8 出現。
 
 - 站內 [CS230 導讀：Supervised、Self-Supervised 與 Weakly Supervised Learning](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)，從 triplet loss 一路講到 SimCLR 的動機。
 - 原始論文：[Chen et al., SimCLR (2020)](https://arxiv.org/abs/2002.05709)、[Goodfellow et al., Generative Adversarial Networks (2014)](https://arxiv.org/abs/1406.2661)。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

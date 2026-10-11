@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 2 講：STORM 與 Co-STORM 怎麼把搜尋變成知識策展"
+title: "STORM 與 Co-STORM 怎麼把搜尋變成知識策展｜Stanford CS224V 第 2 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, deep-research, rag, storm]
@@ -19,27 +19,6 @@ description: "拆解 CS224V Knowledge Curation 講義的完整路線：RAG、STO
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第二講問的不是「怎麼摘要搜尋結果」，而是研究寫作前如何找出自己尚未想到的面向。官方 schedule 把它叫 Knowledge Curation；主角是 [STORM](https://web.stanford.edu/class/cs224v/lectures/2-knowledge-curation.pdf)、Co-STORM，最後接到 Homework 1 的 DataSTORM。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 2 講「Knowledge Curation」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 2 講（約 1 小時 29 分），由兩位客座講者介紹 STORM 與知識整理（knowledge curation，從檢索走向寫出像 Wikipedia 的長文與大綱），與本文主題相符；本文的細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=MY9B4eeeaTE
-title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
-```
-
-原始影片：[CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed](https://www.youtube.com/watch?v=MY9B4eeeaTE)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：從 RAG 到人機共同研究
 
@@ -158,6 +137,27 @@ Research depth 與 breadth 之間也要明確選擇。每個 perspective 都追�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片沒有錄影，部分表格的口頭解釋不可得；其中的使用量與人類評估數字屬講義對研究結果的摘要，本文不把它們泛化成所有 deep-research 系統的結論。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 2 講「Knowledge Curation」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 2 講（約 1 小時 29 分），由兩位客座講者介紹 STORM 與知識整理（knowledge curation，從檢索走向寫出像 Wikipedia 的長文與大綱），與本文主題相符；本文的細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=MY9B4eeeaTE
+title: CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed
+```
+
+原始影片：[CS224V Fall 2024 Lecture 2: Knowledge Curation on 9 25 2024 Wed](https://www.youtube.com/watch?v=MY9B4eeeaTE)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

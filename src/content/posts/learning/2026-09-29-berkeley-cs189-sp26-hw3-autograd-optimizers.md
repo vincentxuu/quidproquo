@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW3 導讀：從零寫 autograd（BearTensor）、Newton 法、資訊瓶頸"
+title: "從零寫 autograd（BearTensor）、Newton 法、資訊瓶頸｜Berkeley CS189 作業 3"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, homework, autograd, backpropagation, optimization, information-theory]
@@ -30,17 +30,6 @@ glossary:
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的 [HW3 官方資料夾](https://drive.google.com/drive/folders/1M6ii2VAJR63485TaDK0yKhcfT1bHdRIO)寫成，裡面有三個檔案：書面題 [hw3.pdf](https://drive.google.com/file/d/18EVIcfx9eH3XG7w_S1XEn3QthMNdRTCt/view)（16 頁）、LaTeX 模板 `hw3_student.tex`，以及程式作業 [hw3.ipynb](https://drive.google.com/file/d/17GdkCG486LIoROrwYg-3w0OxP12Azb1d/view)。排程頁寫的截止時間是 **4/12（日）晚上 11:59 PT**；排程把 HW3 列在第 9 週，也就是期中考（3/17）那一週。
 
 它緊接在 [Lec 17–18（神經網路與反向傳播）](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)之後。講課時你看過 chain rule 怎麼在計算圖上跑；HW3 要你把它寫成一個能用的小型 PyTorch。notebook 開頭這樣寫：把課堂上的單變數 autograd 推廣到一般張量，模仿 `torch` 的 autograd 實作方式。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
 
 ## 先說清楚：拿得到什麼、拿不到什麼
 
@@ -158,6 +147,17 @@ Q4 用 OpenML 的 `wine-quality-red`（1599 筆紅酒、11 個化學特徵，預
 - 系列導覽：上一篇 [Lec 17–18](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)；下一篇 [Lec 19–20：初始化、BatchNorm、CNN 與泛化](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：下載 `hw3.ipynb`，只做 Q1 的 `__add__` 和 `__mul__`，建一張 `z = x * y + x` 的圖，手算 ∂z/∂x = y + 1，確認你的圖會把兩條路徑的梯度相加。
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

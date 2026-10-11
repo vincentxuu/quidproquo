@@ -1,5 +1,5 @@
 ---
-title: "CS224U Behavioral Evaluation: Analytical Considerations, Adversarial Tests, ANLI, and DynaSent"
+title: "Analytical Considerations, Adversarial Tests, ANLI, and DynaSent | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -32,29 +32,6 @@ glossary:
 The first three units were about models and architectures. The fourth turns to how we gather evidence and mark progress. At the start of [screencast 25](https://www.youtube.com/watch?v=l_w05N0QGLk), Potts says this unit looks only at input/output behavior; the next one goes inside the model.
 
 The deck runs 80 pages. Its Compositionality and (Re)COGS sections tie into Assignment 3, so they get [their own post](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en). This one covers the other six sections.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=l_w05N0QGLk
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=sZPxZm8HfaE
-title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk), [Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
-
-Content check: verified against the video transcript (2026-10-10): Video 25 (Part 1: Overview) and video 26 (Part 2: Analytical Considerations) were compared item by item with their transcripts: the evaluation spectrum, the standard versus adversarial protocols, Winograd and Levesque, the even/odd models, the two unfair-task examples, the three inoculation-by-fine-tuning outcomes, and MoNLI. Videos 29-31 (Adversarial Testing, ANLI, DynaSent), which the post also cites, were read as well; the SQuAD ranking shuffle, Breaking NLI, Naik's three diagnoses, the ANLI procedure, the two DynaSent rounds, and the five open questions all match. The one claim the transcripts cannot support, the 'about 22 minutes' running time, was removed; the 2.2% and 90.0 MoNLI figures come from the slides, while the transcript only says 'essentially 0'.
-
-Course and recording entries:
-
-- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Varieties of evaluation
 
@@ -198,6 +175,29 @@ One thing to do tonight: take any classifier you have and write five minimal pai
 - Course status and the COGS results table: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - How CS224N covered the same ground in 2026: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
 - Methods that look inside the model: [CS224N Lecture 15: Reading Agentic Interpretability Without Public Slides](/posts/ai/2026-08-22-cs224n-interpretability-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=l_w05N0QGLk
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sZPxZm8HfaE
+title: Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 1: Overview I Spring 2023](https://www.youtube.com/watch?v=l_w05N0QGLk), [Stanford XCS224U I Behavioral Eval of NLU Models, Pt 2: Analytical Considerations I Spring 2023](https://www.youtube.com/watch?v=sZPxZm8HfaE)
+
+Content check: verified against the video transcript (2026-10-10): Video 25 (Part 1: Overview) and video 26 (Part 2: Analytical Considerations) were compared item by item with their transcripts: the evaluation spectrum, the standard versus adversarial protocols, Winograd and Levesque, the even/odd models, the two unfair-task examples, the three inoculation-by-fine-tuning outcomes, and MoNLI. Videos 29-31 (Adversarial Testing, ANLI, DynaSent), which the post also cites, were read as well; the SQuAD ranking shuffle, Breaking NLI, Naik's three diagnoses, the ANLI procedure, the two DynaSent rounds, and the five open questions all match. The one claim the transcripts cannot support, the 'about 22 minutes' running time, was removed; the 2.2% and 90.0 MoNLI figures come from the slides, while the transcript only says 'essentially 0'.
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

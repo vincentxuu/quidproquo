@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 9: An Array Is Not a Pointer, but They Cooperate in Expressions"
+title: "An Array Is Not a Pointer, but They Cooperate in Expressions | Stanford CS107 Lecture 9"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 “An array is a pointer” is a half-truth. `arr[i]` and `*(arr + i)` select the same element, and a function parameter receives only the first-element address. Yet an array owns element storage while a pointer variable stores an address. The array is not assignable, and `sizeof` in its declaring scope measures the whole array; the pointer behaves differently.
 
 Lecture 9 organizes the traps as “Seven Commandments of C Strings.” For every expression, ask whether it is an array object or pointer value, where the characters live, whether storage is mutable, and whether the pointer may be redirected.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -257,6 +249,14 @@ Third, prove bounds and lifetime. Pointer arithmetic is defined only within one 
 During review, annotate each `char *` with source object, mutability, known capacity, and lifetime. If one field is guesswork, the interface lacks information or a documented precondition.
 
 Lecture 9 does not erase the array-pointer distinction; it explains their cooperation. An array provides contiguous storage, conversion provides a first-element address, pointer arithmetic navigates, and dereference accesses an element. Separating those steps keeps `arr[i]` convenience from hiding its memory contract.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

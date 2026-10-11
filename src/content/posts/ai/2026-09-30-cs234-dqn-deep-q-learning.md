@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀 6：DQN——deadly triad、experience replay 與 fixed Q-targets"
+title: "DQN——deadly triad、experience replay 與 fixed Q-targets｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,26 +40,6 @@ glossary:
 存取等級是 **A3（足以自學）**：投影片與 A2 題目都公開。缺口是 2026 錄影只在 Canvas、Gradescope autograder 不公開，所以 A2 Q1 你只能自己對照講義檢查答案。
 
 第 5 講的檔名是〈Policy Gradient I〉，但前 21 頁其實在收尾上一講的函數近似，講 DQN。本系列依主題切篇，所以這篇只講前半，後半的策略梯度留給[下一篇](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=b_wvosA70f8
-title: 影片 04〈Q learning and Function Approximation〉
-```
-
-原始影片：[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 GLIE／SARSA／Q-learning、函數近似、deadly triad，最後約 20% 是 DQN（experience replay 與 fixed target）；時間點改為依字幕位置估算的「約」值。Lecture 5「Policy Search 1」字幕只在開頭複習題與比較時順帶提到 DQN，沒有講解，已照實改寫。
 
 ## 先回到上一篇的最後一個式子
 
@@ -193,6 +173,26 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 - [CS229 筆記第 19 章：強化學習](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)：先修課對 MDP 與 value iteration 的整理
 
 **系列導覽**：上一篇 [order 5：沒模型時怎麼控制](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)｜下一篇 [order 7：策略梯度——REINFORCE、baseline、actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: 影片 04〈Q learning and Function Approximation〉
+```
+
+原始影片：[影片 04〈Q learning and Function Approximation〉](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Spring 2024 Lecture 4「Q learning and Function Approximation」字幕（約 68K 字元）：確認影片依序講 GLIE／SARSA／Q-learning、函數近似、deadly triad，最後約 20% 是 DQN（experience replay 與 fixed target）；時間點改為依字幕位置估算的「約」值。Lecture 5「Policy Search 1」字幕只在開頭複習題與比較時順帶提到 DQN，沒有講解，已照實改寫。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L21 裝置端訓練：梯度會洩漏資料，activation 才是記憶體殺手"
+title: "裝置端訓練：梯度會洩漏資料，activation 才是記憶體殺手｜MIT 6.5940 第 21 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 [L19–L20](/posts/ai/2026-09-30-mit-65940-distributed-training) 講的是在資料中心裡用上千張 GPU 訓練。L21 把方向倒過來：在一支手機、一塊 Jetson，甚至一顆只有 256KB SRAM 的微控制器上訓練。
 
 第 2–3 頁給兩個理由。**客製化**：感測器不斷收到新資料，模型要跟著調整。**隱私**：程式碼、企業資料這類敏感資料不該送上雲端。第 4 頁的 Lecture Plan 分六項：梯度洩漏、訓練記憶體瓶頸、TinyTL、SparseBP、QAS、PockEngine。前一項講隱私，後五項講記憶體。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=1YuD_5UQxsA
-title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：Deep Leakage from Gradients 的示範、TinyTL（只調 bias，約省 6.5 倍記憶體）、sparse backprop、QAS 與 int8 訓練、PockEngine，以及把訓練記憶體從 100MB 以上壓到 141KB、在 256KB SRAM 的 MCU 上跑。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 只分享梯度，其實也不安全
 
@@ -189,6 +171,24 @@ Adam 也能救回大部分精度，但要多 3 倍記憶體，在裝置上用不
 
 - 推論端的同一套記憶體限制：[L10 MCUNet 與 tinyML](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 - 量化基礎：[L6 PTQ 與 QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=1YuD_5UQxsA
+title: EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 21 - On-device Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=1YuD_5UQxsA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：Deep Leakage from Gradients 的示範、TinyTL（只調 bias，約省 6.5 倍記憶體）、sparse backprop、QAS 與 int8 訓練、PockEngine，以及把訓練記憶體從 100MB 以上壓到 141KB、在 256KB SRAM 的 MCU 上跑。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

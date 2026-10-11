@@ -1,5 +1,5 @@
 ---
-title: "CS234 Data Efficiency I: Multi-Armed Bandits, Regret, and UCB"
+title: "Multi-Armed Bandits, Regret, and UCB | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,26 +39,6 @@ So far this course has used exactly one exploration method: ε-greedy. It showed
 L9 opens by listing four ways to evaluate an algorithm: whether it converges, whether it converges to the optimal policy, how quickly it gets there, and how many mistakes it makes along the way. The course has covered the first two; L9 starts on the last two. The lecture is titled "Data Efficient Reinforcement Learning", and the materials page groups L9 through L12 into one "Data Efficient RL" module, listing Section 7.1 of [Bandit Algorithms](https://tor-lattimore.com/downloads/book/book.pdf) as supplementary reading.
 
 In the 2024 video, Brunskill calls the bandit "a very simple setting" and says at the end that these ideas extend to more complicated settings such as function approximation and RL. That is why bandits come first: they are the simplest place to see these ideas, and the ideas will extend to MDPs.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=sqYii3nd78w
-title: Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"
-```
-
-Original videos: [Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"](https://www.youtube.com/watch?v=sqYii3nd78w)
-
-Course and recording entries:
-
-- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 11, "Exploration 1" (Emma Brunskill, about 75 minutes): it covers the bandit setting, the fracture-treatment example, regret, greedy and ε-greedy, the lower bound, optimism and UCB built on confidence bounds, matching this post. The transcript has no COVID border-testing case and never says "sub-Gaussian"; those parts come from the 2026 slides, not the video.
 
 ## The setting: RL with a single decision
 
@@ -225,6 +205,26 @@ One thing you can do tonight: simulate the broken toes in 30 lines of Python, ru
 
 - Exploration methods and theory in deep RL: [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Course positioning, access gaps, and the 2024 video mapping: [Reading Stanford CS234 (series overview)](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=sqYii3nd78w
+title: Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"
+```
+
+Original videos: [Stanford CS234 Spring 2024 playlist, video 11 "Exploration 1"](https://www.youtube.com/watch?v=sqYii3nd78w)
+
+Course and recording entries:
+
+- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 11, "Exploration 1" (Emma Brunskill, about 75 minutes): it covers the bandit setting, the fracture-treatment example, regret, greedy and ε-greedy, the lower bound, optimism and UCB built on confidence bounds, matching this post. The transcript has no COVID border-testing case and never says "sub-Gaussian"; those parts come from the 2026 slides, not the video.
 
 ## Update Log
 

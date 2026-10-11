@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 12: Decoding, DeepSeek-R1, and Reasoning Training"
+title: "Decoding, DeepSeek-R1, and Reasoning Training | Stanford CS224N Lecture 12"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,17 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 12 on February 12, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official Reasoning 1/2 deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture12-reasoning-part1.pdf) covers decoding, DeepSeek-R1, PPO/GRPO/DAPO, and the nature, success, and failure conditions of reasoning.
-
-## Course video sources
-
-Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
 
 ## Decoding changes the model you observe
 
@@ -105,6 +94,17 @@ Preserve raw trajectories and verifier decisions so generation coverage and sele
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four agenda sections and does not generalize one R1 case study into a universal result for reasoning models.
+
+## Course video sources
+
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The only public recordings the official page points to are the 2024 playlist, and none of its lectures matches this lecture's title, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

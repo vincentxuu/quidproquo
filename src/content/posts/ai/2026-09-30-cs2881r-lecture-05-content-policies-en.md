@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L5: Carrying Content Moderation's Old Lessons into Generative AI"
+title: "Carrying Content Moderation's Old Lessons into Generative AI | Harvard CS2881R Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,26 +29,6 @@ glossary:
 **Series**: previous [L4: Should a Model Spec Be Principles or Rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en) | next [Midterm: Reproduce and Extend One Headline Figure](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 The previous lecture asked what we want a model to do, and wrote the answer down as a model spec. This one goes a step further: once the rules exist, who enforces them, how, and what happens when enforcement goes wrong? Social platforms have stumbled through this for more than twenty years. [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) invited [Ziad Reslan](https://jackson.yale.edu/person/ziad-reslan/) from OpenAI Product Policy to connect that history to generative AI.
-
-## Course video sources
-
-The official Fall 2025 schedule provides only a student experiment video for this lecture and does not list a recording of Ziad Reslan’s guest lecture. Rechecked live on 2026-10-10: the official YouTube playlist (AI Safety, 17 videos) also has only this student experiment video for Lecture 5, and goes straight from the Lecture 4 recording to the Lecture 6 recording. The video below is the policy-compliance student experiment, not the guest lecture.
-
-```youtube
-url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
-title: CS2881R Fall 2025 L5: Student experiment on policy compliance
-```
-
-Original videos: [CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
-
-Official sources:
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): This video is the student experiment, not the guest lecture. I read the full captions of “Lecture 5: Experiment on Policy compliance” (17:01) and confirmed that the speaker opens by saying it is last week's experiment, and that it compares minimal/principles/rules system prompts on DeepSeek-R1 8B, RealSafe-R1-8B and GPT-4o, Gemini and Claude 3.5 Sonnet, evaluated with OR-Bench and MMLU-Pro, 3 runs per condition and roughly a hundred prompts, concluding that gaps between models exceed gaps between prompts. The captions do not give the speaker's name; the “rhyme” example was said by the presenter himself while answering the audience, not by Boaz, which is corrected.
 
 ## What you can get for this lecture
 
@@ -141,6 +121,26 @@ One thing you can do tonight: following the class exercise, list five image scen
 - Where policies get written and how they're interpreted: [CS2881R L4: Should a Model Spec Be Principles or Rules?](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en)
 - The engineering side of models as judges and guardrails: [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en)
 - The same theme in another course: [NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
+
+## Course video sources
+
+The official Fall 2025 schedule provides only a student experiment video for this lecture and does not list a recording of Ziad Reslan’s guest lecture. Rechecked live on 2026-10-10: the official YouTube playlist (AI Safety, 17 videos) also has only this student experiment video for Lecture 5, and goes straight from the Lecture 4 recording to the Lecture 6 recording. The video below is the policy-compliance student experiment, not the guest lecture.
+
+```youtube
+url: https://www.youtube.com/watch?v=HMcA4Gi6HFE
+title: CS2881R Fall 2025 L5: Student experiment on policy compliance
+```
+
+Original videos: [CS2881R Fall 2025 L5: Student experiment on policy compliance](https://www.youtube.com/watch?v=HMcA4Gi6HFE)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): This video is the student experiment, not the guest lecture. I read the full captions of “Lecture 5: Experiment on Policy compliance” (17:01) and confirmed that the speaker opens by saying it is last week's experiment, and that it compares minimal/principles/rules system prompts on DeepSeek-R1 8B, RealSafe-R1-8B and GPT-4o, Gemini and Claude 3.5 Sonnet, evaluated with OR-Bench and MMLU-Pro, 3 runs per condition and roughly a hundred prompts, concluding that gaps between models exceed gaps between prompts. The captions do not give the speaker's name; the “rhyme” example was said by the presenter himself while answering the audience, not by Boaz, which is corrected.
 
 ## Update Log
 

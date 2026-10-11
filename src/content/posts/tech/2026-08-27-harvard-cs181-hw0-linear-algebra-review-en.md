@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW0: Do These 4 Problems First — They Tell You What to Patch"
+title: "Do These 4 Problems First — They Tell You What to Patch | Harvard CS181 Assignment 0"
 date: 2026-08-27
 category: tech
 tags: [harvard, cs181, machine-learning, linear-algebra, calculus, probability, linear-regression, python]
@@ -21,17 +21,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > ⚠️ **Edition**: This guide tracks [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0) (`hw0.tex`, due 2026-02-02) with [Spring 2025 HW0](https://github.com/harvard-ml-courses/cs181-s25-homeworks/tree/main/hw0) as fallback. Prerequisites and grading are from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [CS181 2025 site](https://harvard-ml-courses.github.io/cs181-web-2025/).
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -84,8 +73,29 @@ Role-playing `Steve the TF live demo`, fit a `line of best fit` via OLS (not a p
 
 After HW0, [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) (ice-core), [HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en), [HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en), [HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en), [HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en), and [HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en) are new material rather than remediation. The 2025 `practical` (Kaggle-style) is the capstone if you want more after HW6; 2026 has no practical, so use the 2025 version.
 
+## Solve two invented points algebraically and as a matrix
+
+This is an invented teaching example, not a lecturer experiment or official assignment solution.
+
+Using invented values rather than assignment numbers, points are (0,1) and (2,5). From y=w₀+w₁x, the first yields w₀=1; the second gives 5=1+2w₁, so w₁=2. Matrix form is X=[[1,0],[1,2]],w=[1,2],y=[1,5]; multiplication reproduces y. X is 2×2 and both vectors have length two.
+
+**Check and answer:** For (0,1) and (0,5), is there still a unique exact fit? No: identical inputs require different outputs, so no function line passes through both; X has identical rows and is singular. Check data and rank before choosing a solver.
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
+
 ## Update Log
 
+
+- 2026-10-11: Added an invented worked example and comprehension check, preserving source limits and assignment scope.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 12 講：RL 系統——推論和訓練是兩種工作負載，agent 軌跡又讓兩邊的假設都失效"
+title: "強化學習系統：推論與訓練怎麼接起來｜CMU 11-768 第 12 堂"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "CMU 11-768 AI Agents 導讀"
   order: 13
-tldr: "Apurva Gandhi 把 LLM 的 RL 框架拆成兩種性質相反的引擎：推論引擎（decode 為主、不算梯度）負責取樣，訓練引擎（prefill 式、要 autograd）負責更新，中間靠權重同步連起來。這一講先列兩端各自的優化，再講 agent 軌跡讓假設失效的地方——sequence extension、chat template、token 進 token 出、非同步 RL——最後比較單一程式與「全部服務化」兩種系統設計，並附上一張除錯指標表。"
-description: "導讀 CMU 11-768 AI Agents 第 12 講 RL Systems（依投影片撰寫）：RL 框架的兩種工作負載、一個訓練步驟的五個階段、KV 快取／prefix 快取／continuous batching／speculative decoding、activation checkpointing 與 prefix sharing、權重同步與 Rollout Routing Replay、agentic RL 的 sequence extension 與 TITO、同步與非同步 RL、harness-agnostic 與全服務化設計，以及訓練除錯指標。"
+tldr: "RL 系統用推論引擎取樣、驗證器給獎勵、訓練引擎重算 logprob 與梯度，再把新權重同步回推論端。用一個自編的小例子走完這五步，再理解快取、歷史保留與非同步更新各在解決什麼問題。"
+description: "用一次完整的簡化更新流程，理解強化學習系統如何連接推論與訓練，再看快取、token 傳遞、權重同步與非同步 RL 的取捨。依 CMU 11-768 第 12 堂公開投影片撰寫，附理解檢查與答案。"
 draft: false
 glossary:
   - term: "sequence extension"
@@ -30,21 +30,13 @@ glossary:
 
 **影片狀態：官方公開頁未列錄影。** [影片來源與說明](#課程影片來源)
 
-> **本篇依投影片撰寫，影片上架後補充。** 截至 2026-10-10，[官方課表](https://www.cmu-agents.com/#/schedule)上第 12 講（10/1）只有[投影片](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)，沒有錄影。下文的說明只根據投影片，沒有講者口述；投影片沒寫的，我會標成我的解讀。
+> **本文依公開投影片撰寫，未含講者口述；額外解讀與自編例子會另行標明。**
 
-[CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第 12 講是訓練模組的最後一講，由 [Apurva Gandhi](https://apga.github.io/) 主講。前面兩講（[第 9 講](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)、[第 11 講](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)）講的是演算法：advantage 怎麼算、ratio 怎麼 clip。這一講換一個問題：**演算法寫在紙上只有一行公式，要在幾百張 GPU 上跑起來，系統要長什麼樣子？**
+[CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第 12 堂是訓練模組的最後一堂，由 [Apurva Gandhi](https://apga.github.io/) 主講。前面兩堂（[第 9 堂](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)、[第 11 堂](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)）講的是演算法：advantage 怎麼算、ratio 怎麼 clip。這堂課換一個問題：**演算法寫在紙上只有一行公式，要在幾百張 GPU 上跑起來，系統要長什麼樣子？**
 
 如果你只想做一次小規模的 RL 實驗，這篇的前半（兩種負載、兩端優化）就夠用；要自己架訓練平台的人，後半的設計選擇才是重點。
 
-## 課程影片來源
-
-本篇依投影片撰寫。已查官方課表，第 12 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
+**讀完這篇，你應該能畫出一次 RL 更新的資料流，說明為什麼訓練端要重算 logprob，以及新權重何時回到推論端。** 先用下面的小例子走完一輪，再看快取、非同步與服務化各在解決哪個瓶頸。
 
 ## 為什麼不直接用 PyTorch 手刻
 
@@ -73,6 +65,32 @@ flowchart LR
 ```
 
 第 3 步是容易漏掉的一環：訓練引擎要自己重算一次 logprob（同時保留梯度），不能直接用推論引擎吐出來的數字。為什麼這件事會出問題，後面講 R3 時會看到。
+
+## 走完一次更新：讓 agent 算對一道題
+
+以下是**我為了說明資料流自編的簡化例子，不是講者的實驗**。我們用同步流程，任務只有「回答 `2 + 3`」，驗證器只接受答案 `5`。模型先不呼叫工具，也不改寫歷史，讓你能專心看兩個引擎的交接。
+
+| 階段 | 這一輪發生的事 | 交給下一步的資料 |
+|---|---|---|
+| 1. sample | 推論引擎用權重版本 `v0` 產出答案 `5` | 原始輸入與生成 token ID、取樣時的 logprob、版本 `v0` |
+| 2. verify | 驗證器比較答案與 `5`，給獎勵 `1`；假設演算法已算出這條軌跡的 advantage 為 `+1` | 同一條軌跡，加上獎勵與 advantage |
+| 3. forward | 訓練引擎讀取相同的 token ID，以 `v0` 重算答案 token 的 logprob，保留計算圖 | 有梯度連結的 logprob |
+| 4. backward | 對答案 token 計算簡化的 policy-gradient loss，再反向傳播 | 權重的梯度 |
+| 5. optim_step + sync | optimizer 更新成 `v1`，再把權重同步到推論引擎 | 下一輪用 `v1` 取樣 |
+
+把答案當成單一動作，假設它在 `v0` 下的機率為 `0.2`。只看最簡單的 policy-gradient 項，忽略 clipping、KL 與其他訓練項：
+
+```text
+loss = -advantage × log P(答案 | 題目)
+     = -1 × ln(0.2)
+     ≈ 1.609
+```
+
+這個 loss 的作用，是在此簡化設定中讓正 advantage 的答案變得更可能。如果另一次更新後機率變成 `0.25`，同一個項會變成 `-ln(0.25) ≈ 1.386`。**這兩個數字只是比較方向，不是預測 optimizer 一步會得到什麼結果**；也不能由一道題答對，就推論整體能力提升。
+
+現在回頭看第 3 步：推論引擎即使已回傳 `ln(0.2)`，那也只是取樣紀錄中的數字，沒有訓練端連到權重的計算圖。訓練器得自己做 forward，backward 才知道該更新哪些參數。推論紀錄仍要保留，後面討論非同步 RL 時，才有辦法辨識資料是由哪個 policy 取樣的。
+
+最後，訓練端已得到 `v1`，並不代表推論端已用上它。我們這個同步例子要等權重同步完成，才開始下一輪。若不等、讓 rollout 與更新重疊，就進入後面要處理資料過期的非同步情境。
 
 ## 推論端：四個優化，agent 都特別受惠
 
@@ -125,7 +143,7 @@ rollout 從推論端送到訓練端，要傳字串還是 token？投影片的答
 
 ### 非同步 RL
 
-長軌跡讓同步訓練的 GPU 大量空轉。非同步 RL 把 GPU 分成訓練和推論兩群，rollout 和權重更新重疊進行。投影片說 agentic RL 常常是 rollout 受限，所以可以把更多 GPU 分給推論，例如 3:1。代價有兩個：資料會過期，要有 off-policy 修正（這就是[第 11 講](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)的 importance sampling）；推論引擎要支援 continuous batching 和**飛行中的權重更新**。
+長軌跡讓同步訓練的 GPU 大量空轉。非同步 RL 把 GPU 分成訓練和推論兩群，rollout 和權重更新重疊進行。投影片說 agentic RL 常常是 rollout 受限，所以可以把更多 GPU 分給推論，例如 3:1。代價有兩個：資料會過期，要有 off-policy 修正（這就是[第 11 堂](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)的 importance sampling）；推論引擎要支援 continuous batching 和**飛行中的權重更新**。
 
 後者的例子是 SGLang 的暫停模式：`abort` 丟掉進行中的請求，`retract` 收回，`in_place` 保留請求狀態暫停，但之後清快取會失敗，因為進行中的請求還在用那些 KV。推論框架正在為 RL 的需求演化。
 
@@ -158,7 +176,7 @@ SPMD 版本的偽碼很短：前四個 rank 組成訓練群組，持續取 batch
 - **部署後線上 RL**：agent 服務（例如 Hermes Agent）把推論請求導到訓練系統的閘道；投影片寫 Cursor 的 Tab 和 Composer 已在正式環境這樣做，Composer 約每 5 小時從真實使用者互動產出一個新 checkpoint。
 - **多租戶、多 LoRA 訓練**：Tinker 開了這條路，投影片的例子是 8 條同時進行的 LoRA 訓練吞吐量勝過 8 條串行，每條的端到端時間會變長；需要 Grouped-GEMM／SGMV 這類特殊 kernel。
 
-## 除錯：九個要盯的指標
+## 除錯：八組要盯的指標
 
 投影片收尾放了一張表，我把它整理成「看到什麼就該去查什麼」：
 
@@ -173,19 +191,35 @@ SPMD 版本的偽碼很短：前四個 rank 組成訓練群組，持續取 batch
 | 訓練端 MFU | 掉下來：padding、不平衡、microbatch 太小 |
 | rollout／update／stall／total 計時 | stall 大於 0：訓練器在等 rollout |
 
+## 確認你真的接起了兩端
+
+先不看答案，試著回答：
+
+1. 畫出一次更新的五個階段。驗證器已判定答案正確，也有推論端的 logprob，為什麼不能直接跳到 optimizer？
+2. 訓練端更新成 `v1`，推論端仍用 `v0`，下一條軌跡應記成哪個版本？
+3. 同步完成後，下一輪答錯了，能否只靠這個結果判定權重同步失敗？
+
+**參考答案：** 第一題的順序是 sample → verify → forward → backward → optim_step + sync。不能跳過的原因是缺少訓練端 forward 建立的計算圖與 backward 算出的梯度；獎勵和 logprob 的紀錄不能代替它們。第二題要記 `v0`，因為那才是實際取樣的版本，不能用訓練器目前的版本覆蓋。第三題不能：單次取樣的結果不足以定位問題，應先檢查實際使用的權重版本，再搭配留出評測與除錯指標判斷。
+
 ## 今晚能做的事
 
-- **量你的 rollout 前綴重複率。** 把一個 batch 的軌跡兩兩比最長共同前綴，算出重複 token 的比例。如果超過一半，prefix 快取和 prefix sharing 是第一個要查的優化。
+- **量你的 rollout 前綴重複率。** 先算一個 batch 所有軌跡各自的 token 數總和，再把相同 token 前綴整理成樹，共用前綴只計一次。重複比例是 `1 − 前綴樹的 token 數 ÷ 原始 token 總數`，不要兩兩比較後加總，否則同一段前綴可能重複計算。這個比例只是找出可共用的資料；是否採用 prefix 快取或 prefix sharing，要量測實際的時間與記憶體變化。
 - **用你的 chat template 重新組一次舊軌跡。** 拿第 2 輪的 prompt，檢查它是不是第 1 輪「prompt 加生成」的延伸。對不上，就是 sequence extension 破了。
 - **訓練時把表上的指標都寫進同一張儀表板。** 至少要有 reward、留出評測、entropy 和 stall 時間；出問題時，第一個看的是哪個指標先動。
 
 ## 想深入
 
 - 推論端：本站的 [vLLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)、[CMU 11-868：Serving at Scale 與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
-- 演算法端：[第 11 講：進階 RL 演算法](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
+- 演算法端：[第 11 堂：進階 RL 演算法](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
 - 非同步 RL 系統：[AReaL](https://arxiv.org/abs/2505.24298)
 
+## 課程影片來源
+
+本文依[第 12 堂投影片](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)撰寫，未含講者口述。查核日期：2026-10-10；當時[官方課表與錄影索引](https://www.cmu-agents.com/#/schedule)的第 12 堂（10/1）只列投影片，未列錄影連結。這只代表當時公開頁未列，不代表校內沒有錄影。
+
 ## 更新紀錄
+
+- 2026-10-11：統一為主題在前與「第 12 堂」標題；濃縮重複來源說明，補上自編更新流程例子與理解檢查。
 
 - 2026-10-10：新增本篇。依第 12 講投影片撰寫，官方公開頁尚未列錄影。
 
@@ -195,5 +229,5 @@ SPMD 版本的偽碼很短：前四個 rank 組成訓練群組，持續取 batch
 - [Lecture 12 投影片：Reinforcement Learning Systems](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf)
 - [Apurva Gandhi 個人網站](https://apga.github.io/)
 - [Fu et al., 2025. AReaL: A Large-Scale Asynchronous Reinforcement Learning System for Language Reasoning](https://arxiv.org/abs/2505.24298)
-- [第 9 講：RL 基礎](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)
-- [第 11 講：進階 RL 演算法](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
+- [第 9 堂：RL 基礎](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)
+- [第 11 堂：進階 RL 演算法](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)

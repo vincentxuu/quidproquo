@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Foundations L13–L14: Overfitting and Regularization"
+title: "Overfitting and Regularization | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 13–14"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,28 +32,6 @@ glossary:
 The nonlinear transforms in the [previous post](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en) gave linear models a lot of power, and the L12 summary teased the next lecture as "the dark side of the force". Lecture 13 opens the last part of the course, "How Can Machines Learn Better?". It first asks what happens when that power is overused, then offers the first remedy.
 
 After reading, you should be able to name the four causes of overfitting, say how deterministic noise differs from ordinary noise, derive the weight-decay objective from a constraint, and explain what regularization corresponds to in VC theory.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=BA76U3JBDdE
-title: What is Overfitting?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6bfcLhHhgs0
-title: The Role of Noise and Data Size
-```
-
-Original videos: [What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Course materials
 
@@ -216,6 +194,28 @@ One thing to try tonight: take any linear model you have, sweep the L2 coefficie
 - Regularization in deep learning: [MIT 6.7960: Regularization](/posts/tech/2026-09-17-mit-67960-regularization-en)
 - ML Techniques revisits SVMs from the regularization angle: [Kernel Logistic Regression and Support Vector Regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=BA76U3JBDdE
+title: What is Overfitting?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6bfcLhHhgs0
+title: The Role of Noise and Data Size
+```
+
+Original videos: [What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

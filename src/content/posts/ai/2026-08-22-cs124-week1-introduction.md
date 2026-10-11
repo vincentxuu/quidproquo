@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 1 Introduction and Setup：先把語言問題拆成可計算的元件"
+title: "Introduction and Setup：先把語言問題拆成可計算的元件｜Stanford CS124 第 1 週"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 [CS124: From Languages to Information](https://web.stanford.edu/class/cs124/lec/) Winter 2026 的第一週是課程地圖，不是模型速成班。Dan Jurafsky 在 1 月 6 日的現場 Introduction lecture 把十週問題排成一條工程鏈：先決定文字如何切成 token，再做分類、檢索與表示學習，接著進神經網路、Transformer、語音、推薦與網路分析。這個順序的重點是：LLM 不是憑空出現的黑盒子，而是前面每個元件逐層疊起來的系統。
 
 **課程版本：** CS124 / LINGUIST 180, Winter 2026。**官方單元：** Week 1，2026-01-06、01-08。**講師：** Dan Jurafsky；1 月 8 日另有 Jupyter 與 PA0 tutorial。**公開材料：** [Week 1 課表與 syllabus](https://web.stanford.edu/class/cs124/lec/)、[Introduction slides](https://web.stanford.edu/class/cs124/lec/intro26.pdf)、[PA0 repo](https://github.com/cs124/pa0-jupyter-tutorial)。**材料缺口：** Introduction 是未錄影的現場課；Canvas 上 Windows／Mac setup videos 需要 Stanford 權限。因此本文只整理公開投影片、課表與 repo，不能重建現場問答或講者未寫在投影片上的說明。
-
-## 課程影片來源
-
-官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：1 月 6 日的 Introduction 是 Dan 的現場講課，標示 “required not recorded”；1 月 8 日是現場 tutorial。本週唯一列出的影片是 PA0 的 Windows／Mac 安裝示範，放在 Canvas（需登入），不是本週講課錄影。YouTube 頻道的 “CS124 - Full Course” 週次標題與 Winter 2026 課綱不同，不當作當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
-
-查核日期：2026-10-10。
 
 ## 這門課到底把什麼放在一起
 
@@ -102,6 +92,16 @@ Winter 2026 [schedule／syllabus](https://web.stanford.edu/class/cs124/lec/) 把
 ## 延伸
 
 想先知道完整十週材料的可取得程度，可讀[既有 CS124 總覽](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)。那篇處理課程定位、先修與版本漂移；本篇只對應 Winter 2026 Week 1，不拿其他年份影片補進本週。
+
+## 課程影片來源
+
+官方 Winter 2026 課程頁（2026-10-10 即時讀取）寫明：1 月 6 日的 Introduction 是 Dan 的現場講課，標示 “required not recorded”；1 月 8 日是現場 tutorial。本週唯一列出的影片是 PA0 的 Windows／Mac 安裝示範，放在 Canvas（需登入），不是本週講課錄影。YouTube 頻道的 “CS124 - Full Course” 週次標題與 Winter 2026 課綱不同，不當作當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs124/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

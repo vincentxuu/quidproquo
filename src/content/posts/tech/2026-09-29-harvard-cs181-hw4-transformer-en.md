@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW4 (Part 1): Transformers, From Hand-Computed Attention to Multi-Head"
+title: "(Part 1): Transformers, From Hand-Computed Attention to Multi-Head | Harvard CS181 Assignment 4 / Part 1"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, transformer, self-attention, attention, homework]
@@ -27,17 +27,6 @@ glossary:
 > ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/pdf/ipynb`, due 2026-04-03) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), all opened on 2026-09-29. The course as a whole is **A3** (homework, notebooks, sections and section solutions are public), but there are no recordings for the current term, no homework solutions, and Gradescope requires enrollment. The [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) says slides live in a Google Drive folder, but the CSV export carries no links. I did not get the 2026 Transformers lecture slides, so this post makes no claims about what was said in lecture.
 
 This is post 6 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous post is the [midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en); this one opens HW4, the first assignment after the midterm.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## Where HW4 sits in the term
 
@@ -132,6 +121,17 @@ Other courses approach the same topic from different angles:
 ## Next
 
 [HW4 (Part 2): why autoencoders can't generate, and what VAEs add](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en). We move from "every token looks at every other token" to "squeeze an image through a narrow latent and rebuild it".
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

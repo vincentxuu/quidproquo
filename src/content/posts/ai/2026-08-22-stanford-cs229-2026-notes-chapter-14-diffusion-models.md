@@ -1,5 +1,5 @@
 ---
-title: "擴散模型：正向加噪、反向生成與 ELBO"
+title: "擴散模型：正向加噪、反向生成與 ELBO｜Stanford CS229 第 14 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 14 章（印刷頁 180–190）的逐章導讀，依官方主講義整理，**不是任何一學期錄影或課表的重建**。本章進入生成模型：先設計一條把資料變成高斯雜訊的固定路徑，再學習反方向每一步如何去噪。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=dqUMCzWjZSI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models](https://www.youtube.com/watch?v=dqUMCzWjZSI)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 11（約 83 分鐘），字幕依序講加噪的正向過程（x0 到 xt 逐步加高斯噪音並展開成一次到位的式子）、學習反向過程（從雜訊逐步還原成乾淨圖片）、ELBO（約 70% 之後，字幕辨識成 elbow）與訓練目標，中段（約 55%）有一段連續時間觀點的岔題；主題與本章相符。本章最後「連續時間為何出現 score」一節，字幕中 score 一詞零次出現，連續時間只是岔題帶過，該節主要依講義。
 
 ## 正向過程把困難分布逐步洗成高斯
 
@@ -109,6 +88,27 @@ $$
 ## 自學練習
 
 選一張已正規化的小影像與三個 $\bar\alpha_t$ 值，對同一張影像各抽一份 $\epsilon$，用 closed-form 公式產生 $x_t$。接著假裝模型完美知道 $\epsilon$，從 $x_t$ 代數解回 $x_0$。最後替 $\epsilon$ 加入小誤差，觀察在低訊噪比時間步中，重建誤差如何被放大。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=dqUMCzWjZSI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models](https://www.youtube.com/watch?v=dqUMCzWjZSI)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 11（約 83 分鐘），字幕依序講加噪的正向過程（x0 到 xt 逐步加高斯噪音並展開成一次到位的式子）、學習反向過程（從雜訊逐步還原成乾淨圖片）、ELBO（約 70% 之後，字幕辨識成 elbow）與訓練目標，中段（約 55%）有一段連續時間觀點的岔題；主題與本章相符。本章最後「連續時間為何出現 score」一節，字幕中 score 一詞零次出現，連續時間只是岔題帶過，該節主要依講義。
 
 ## 更新紀錄
 

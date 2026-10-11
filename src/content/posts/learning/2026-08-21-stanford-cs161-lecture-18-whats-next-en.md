@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 18: From the Algorithmic Toolbox to LP, Coding, and ML"
+title: "From the Algorithmic Toolbox to LP, Coding, and ML | Stanford CS161 Lecture 18"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 This is article nineteen in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Winter 2026 Lecture 18**, taught by Ellen Vitercik on March 11, 2026; the [official Winter 2026 course homepage](https://stanford-cs161.github.io/winter2026/) defines the term and sequence used here. The component says *What's next?* and the deck says *What we’ve done and what’s to come*.
 
 The source boundary is unusually important: the official component provides **52 slides and no lecture notes**. I used the [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf) and [component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md), not Canvas or notes from another term.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
-
-Checked: 2026-10-10.
 
 ## Seventeen lectures in thirteen recap slides
 
@@ -90,6 +80,16 @@ The same date boundary applies to research examples and citation years: this art
 Natural next routes are optimization for LP algorithms and duality, coding theory for finite fields and decoding bounds, and learning-augmented algorithms for robust guarantees under prediction error. These are directions suggested by the deck, not material already taught in this lecture.
 
 The best use of this finale is as a map: choose a tool here, then return to the earlier lecture for its full proof. Lecture 18 is intentionally a roadmap rather than a compressed substitute for every route.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

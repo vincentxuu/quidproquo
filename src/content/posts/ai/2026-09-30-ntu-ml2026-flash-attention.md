@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：加快生成（上）——Flash Attention 為什麼卡在搬資料，而不是計算"
+title: "台大李宏毅 ML 2026 導讀：加快生成（上）——Flash Attention 為什麼卡在搬資料，而不是計算｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)3/20 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 6 篇。上一篇是 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)。前幾篇都在談 agent：[OpenClaw](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy) 會把一大段 system prompt 塞在你的每一句話前面，[Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering) 則在處理 context 放不下的問題。這一篇換到模型內部：**輸入動輒上萬、十萬 token 的時候，生成為什麼會慢，又能怎麼變快？**
 
 用到的官方材料：講義 [inference.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/inference.pdf) 第 1–28 頁（整份 55 頁，後半是[下一篇 KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)），課程頁列出的影片[加快語言模型生成速度 (1/2)：Flash Attention](https://youtu.be/vXb2QYOUzl4)，以及投影片第 28 頁的[範例 Colab](https://colab.research.google.com/drive/1KoeKKIXSXI9b-pYg0kun3-uLQkP6p_hC?usp=sharing)。存取等級是 **A3**：投影片 pdf／pptx、錄影與範例程式都公開。本講沒有獨立測驗，對應的練習在 [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=vXb2QYOUzl4
-title: 影片：加快語言模型生成速度 (1/2)：Flash Attention
-```
-
-原始影片：[影片：加快語言模型生成速度 (1/2)：Flash Attention](https://www.youtube.com/watch?v=vXb2QYOUzl4)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片 vXb2QYOUzl4（49:39）字幕全文已讀。核對 Prefill／Decode 與三種代價的評估框架、倉庫／工作台比喻（80GB 是倉庫、工作台僅十幾 MB）、分塊與「工作台不能放與 L 成正比的東西」、online softmax 修正項 exp(d1−d2)、跳過 attention weight 的 O 修正式、Hugging Face 無法讀 attention weight、Colab 數值差約 10 的負 7 次方、序列 4096 約快 8 至 9 倍、長序列 CUDA OOM，皆與字幕一致。發現一處不一致：字幕中老師口述真實模型示範為 Yi-34B，本文原寫 gemma-3-4b-it，已改為並列兩種說法並只寫趨勢；Colab 存檔輸出與投影片頁碼無法由影片驗證。
 
 ## 先備：這堂課假設你已經懂 Transformer
 
@@ -176,6 +157,25 @@ Colab 裡做了三件事：
 不能確認：真實模型示範用的是哪一個模型。字幕裡老師口述的是 Yi-34B，Colab 存檔程式碼寫的是 `google/gemma-3-4b-it`，兩者不一致，本文不下定論，只寫趨勢。講課當場的秒數與 Colab 存檔輸出不一致（存檔裡最長的那次沒有 OOM），因此真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，文字依字幕轉述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)｜下一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=vXb2QYOUzl4
+title: 影片：加快語言模型生成速度 (1/2)：Flash Attention
+```
+
+原始影片：[影片：加快語言模型生成速度 (1/2)：Flash Attention](https://www.youtube.com/watch?v=vXb2QYOUzl4)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 vXb2QYOUzl4（49:39）字幕全文已讀。核對 Prefill／Decode 與三種代價的評估框架、倉庫／工作台比喻（80GB 是倉庫、工作台僅十幾 MB）、分塊與「工作台不能放與 L 成正比的東西」、online softmax 修正項 exp(d1−d2)、跳過 attention weight 的 O 修正式、Hugging Face 無法讀 attention weight、Colab 數值差約 10 的負 7 次方、序列 4096 約快 8 至 9 倍、長序列 CUDA OOM，皆與字幕一致。發現一處不一致：字幕中老師口述真實模型示範為 Yi-34B，本文原寫 gemma-3-4b-it，已改為並列兩種說法並只寫趨勢；Colab 存檔輸出與投影片頁碼無法由影片驗證。
 
 ## 更新紀錄
 

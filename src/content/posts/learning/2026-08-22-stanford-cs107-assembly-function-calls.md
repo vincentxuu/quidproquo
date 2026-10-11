@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 19：從 call/ret 到 calling convention，讀懂 x86-64 函式呼叫"
+title: "從 call/ret 到 calling convention，讀懂 x86-64 函式呼叫｜Stanford CS107 第 19 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 函式呼叫不是單純「跳到另一個 label」。Caller 還得讓 callee 找到 parameters，保留回來後該執行的 instruction address，提供必要 stack space，並確保雙方不會踩掉仍有用的 registers。Stanford CS107 Lecture 19 用 57 頁逐格追蹤，把這四件事收斂成 `call`、`ret`、`%rsp` 與 calling convention。
 
 這份契約的價值在於 separate compilation：caller 不必讀懂 callee 每一行，只要雙方遵守同一 ABI，就能交換 data、恢復 control，並知道哪些 registers 可能改變。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料、缺口與完整 agenda
 
@@ -201,6 +193,14 @@ ABI 的 register table還包含 `%rsp` 必須維持 stack discipline，以及各
 7. Function pointer 的 indirect target 要沿 register/memory data flow 追來源。
 
 Lecture 19 的核心是三份契約同時成立：control 由 return address 接回去，data 依 parameter/return locations 交換，memory 與 registers 依 ownership 規則恢復。這些契約足以解釋獨立編譯的 functions 為何能互相呼叫；heap 與後續 privacy 議題不需要被提前塞進來。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

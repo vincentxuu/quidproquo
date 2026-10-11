@@ -1,5 +1,5 @@
 ---
-title: "李宏毅 ML 2026 HW1：只准改 defense prompt，擋得住幾種「I have been PWNED」？"
+title: "只准改 defense prompt，擋得住幾種「I have been PWNED」？｜台大李宏毅 機器學習 2026 Spring 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 的 HW1。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 2 篇。官方材料有三份：作業投影片 [hw1.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw1.pdf)、[作業 Colab](https://colab.research.google.com/drive/1kgy1Nas2uu7RoWTn-pZfyF1Sj3WpuJdy?usp=sharing)（只有 2 個 cell，用來數 token），以及助教的[說明影片](https://youtu.be/qVTehGJQHys)。助教是董家愷、陳思齊、許筠曼，3/06 公告，截止時間 2026/03/26 23:59:59（UTC+8），不收遲交。投影片註明改編自 GenAI 2025 HW4（標彥廷）。
 
 存取分級是 **A3 減評分**：題目、攻擊原文、規則都公開；要拿到分數得上傳 [JudgeBoi](https://ml.ee.ntu.edu.tw/home)，而它在 2026-09-30 回傳 502。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=qVTehGJQHys
-title: HW1 說明影片（YouTube）
-```
-
-原始影片：[HW1 說明影片（YouTube）](https://www.youtube.com/watch?v=qVTehGJQHys)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 為什麼第一份作業就是防 prompt injection
 
@@ -131,6 +112,25 @@ policy.pdf 的作業表把 HW1 標成只走 JudgeBoi，不在 NTU COOL 上作答
 - OpenClaw 自己怎麼看這類攻擊：[OpenClaw 威脅模型](/posts/ai/2026-03-28-openclaw-threat-model)
 
 系列導覽：上一篇 [解剖小龍蝦：以 OpenClaw 看 AI Agent](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)｜下一篇 [Context Engineering](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=qVTehGJQHys
+title: HW1 說明影片（YouTube）
+```
+
+原始影片：[HW1 說明影片（YouTube）](https://www.youtube.com/watch?v=qVTehGJQHys)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

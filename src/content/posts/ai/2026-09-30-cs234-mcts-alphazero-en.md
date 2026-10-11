@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 16: Planning Plus Learning: MCTS, UCT, and AlphaGo/AlphaZero"
+title: "Planning Plus Learning: MCTS, UCT, and AlphaGo/AlphaZero | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,31 +35,6 @@ glossary:
 Official materials used: the [Lecture 13 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture13post.pdf) (13 pages, simulation-based search only) and the [Lecture 14 slides (post-class)](https://web.stanford.edu/class/cs234/slides/lecture14post.pdf) (30 pages, AlphaZero). Both are titled "Monte Carlo Tree Search," and the lecture materials page files them under "Monte Carlo Tree Search and Conquering Go." For listening, the matching video is [video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per the transcript, it lines up with the 2026 slides; see the section on the 2024 video below.
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): both decks are public. The gap is that 2026 recordings are on Canvas only. The decks' Class Structure slides also show that in 2026 MCTS shared its sessions with guest lectures (Lecture 13 with Shane Gu's world-models talk, Lecture 14 with part 2 of the ethics and society guest lecture), which is why both PDFs are shorter than usual.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=UgANzoWc0nc
-title: Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=FOlPpjNbHjE
-title: the first 15 minutes of video 15
-```
-
-Original videos: [Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc)、[the first 15 minutes of video 15](https://www.youtube.com/watch?v=FOlPpjNbHjE)
-
-Course and recording entries:
-
-- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 14, "Multi-Agent Game Playing" (about 73 minutes), goes in order through simulation-based search and expectimax, MCTS, UCT, AlphaGo/AlphaZero and self-play, then the neural networks; Lecture 15 (about 74 minutes) opens with a DPO/RLHF review quiz, then wraps up AlphaZero, and hands over to guest Dan Webber at about 22%. Minute marks are now approximate values estimated from the transcript, &t= links are removed, "YouTube chapters" became "transcript", and the description of video 15 now mentions the opening DPO/RLHF quiz.
 
 ## A different question: plan only for this move
 
@@ -200,6 +175,31 @@ One thing to try tonight: write MCTS for tic-tac-toe, with UCT for selection and
 - Another course that goes from MDPs and Q-learning to AlphaZero: [CMU 07-280 Stage Review III: From MDPs and Q-learning to AlphaZero](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero-en)
 - Other uses of planning and models in deep RL: [CS224R L11: Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en)
 - The world-models guest lecture later in this series: [Guest lecture: Shane Gu, "World of World Modeling"](/posts/ai/2026-09-30-cs234-guest-world-models-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=UgANzoWc0nc
+title: Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: the first 15 minutes of video 15
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 14, "Multi-Agent Game Playing"](https://www.youtube.com/watch?v=UgANzoWc0nc)、[the first 15 minutes of video 15](https://www.youtube.com/watch?v=FOlPpjNbHjE)
+
+Course and recording entries:
+
+- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 14, "Multi-Agent Game Playing" (about 73 minutes), goes in order through simulation-based search and expectimax, MCTS, UCT, AlphaGo/AlphaZero and self-play, then the neural networks; Lecture 15 (about 74 minutes) opens with a DPO/RLHF review quiz, then wraps up AlphaZero, and hands over to guest Dan Webber at about 22%. Minute marks are now approximate values estimated from the transcript, &t= links are removed, "YouTube chapters" became "transcript", and the description of video 15 now mentions the opening DPO/RLHF quiz.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 14 講：OpenHands——一個 coding agent 框架從研究原型走到每天跑上千次自動化"
+title: "OpenHands——一個 coding agent 框架從研究原型走到每天跑上千次自動化｜CMU 11-768 第 14 堂"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的框架模組有兩堂，第一堂是 [Graham Neubig](https://www.phontron.com/) 講他自己主導的 [OpenHands](https://github.com/OpenHands/OpenHands)，第二堂（10/20）是 LangGraph。Neubig 在[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)自介時就說他在做 OpenHands；這一講等於是作者本人講框架的設計理由。
 
 讀這篇的人如果自己在選框架或自己寫 harness，值得關注的不是 API 長什麼樣子，而是每個零件為什麼存在：**每一個設計都對應一個 coding agent 在真實使用裡撞到的問題。**
-
-## 課程影片來源
-
-本篇依投影片撰寫。已查官方課表，第 14 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
 
 ## 演進：從補完函式到每天跑自動化
 
@@ -189,6 +179,16 @@ flowchart LR
 - 論文：[OpenHands Software Agent SDK](https://arxiv.org/abs/2511.03690v1)、[SWE-agent](https://arxiv.org/abs/2405.15793)、[OpenHands-Versa](https://arxiv.org/abs/2506.03011v1)、[Code with Me or for Me?](https://arxiv.org/abs/2507.08149v1)
 - 原始碼：[OpenHands](https://github.com/OpenHands/OpenHands)、[software-agent-sdk](https://github.com/OpenHands/software-agent-sdk/tree/69e26889401fe69157fff536e6a69049e6644cb3)
 - 文章：[Don't Sleep on Single-agent Systems](https://hub.openhands.dev/blog/dont-sleep-on-single-agent-systems)
+
+## 課程影片來源
+
+本篇依投影片撰寫。已查官方課表，第 14 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

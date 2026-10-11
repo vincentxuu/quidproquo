@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 A2：替資料視覺化 agent 寫評分器——四類錯誤、MCC 與 Harbor 驗證器"
+title: "替資料視覺化 agent 寫評分器——四類錯誤、MCC 與 Harbor 驗證器｜CMU 11-768 作業 2"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -32,16 +32,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的三份個人作業剛好是一條線：[A1](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness) 蓋 harness、A2 做評測、A3 做訓練。[Assignment 2](https://github.com/cmu-agents/assignment-2) 占學期成績 15%，10 月 1 日截止，官網的一句話摘要是「設計量測 agent 正確性與功能所需的評測框架」。作業由 Andy Liu、Jiarui Liu、Yueqi Song 設計，GPU 用的是課程提供的 Modal 額度。
 
 這篇只講作業要什麼、架構長怎樣、怎麼計分、設計上有哪些取捨，**不給解答**。課表上沒有一堂專門講評測的課，評測設計只出現在這份作業裡，所以本篇最後會把它接回 L9 到 L11：你在 A2 寫的評分器，就是 A3 之後 RL 要最大化的 reward。
-
-## 課程影片來源
-
-本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
 
 ## 作業在評什麼：資料視覺化 agent
 
@@ -184,6 +174,16 @@ Part 1 和 Part 3 代表兩種找評分器弱點的方法：一種是讀真實�
 - [調整 agent 之後，怎麼嚴謹比較前後差異：從 golden set 到統計檢定](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 - [Self-Reflection + LLM-as-Judge：讓 AI 評估自己的回答](/posts/ai/2026-03-12-self-reflection-llm-as-judge)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)
+
+## 課程影片來源
+
+本篇是作業導讀，附官方課程入口；尚未核對到這份作業的專屬錄影。課程已有部分公開講課影片，但不能直接視為這份作業的影片。
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

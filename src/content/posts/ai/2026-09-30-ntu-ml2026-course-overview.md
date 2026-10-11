@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 機器學習 2026 Spring 導讀：從 AI Agent 切入，評分平台之外幾乎全開"
+title: "從 AI Agent 切入機器學習的學習路線｜台大李宏毅 機器學習 2026 Spring 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,25 +22,6 @@ draft: false
 這篇是系列入口，只講課程結構、校外讀者拿得到什麼、作業怎麼評分、該從哪裡開始。每一講的內容留給後面各篇。
 
 **本文依據**：[課程頁](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)、[規則說明投影片 policy.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/policy.pdf)（22 頁）、[台大課程網 114-2 課程大綱](https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?class=&course_id=921+U2620&dpt_code=9450&semester=114-2&ser_no=26696)、[Bonus 作業投影片 bonus.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/bonus.pdf)，全部在 2026-09-30 打開核對。對應的影片是[機器學習 2026 課程簡介](https://youtu.be/gl-BdDjNPVI)。
-
-## 課程影片來源
-
-本文是課程總覽，沒有單一對應講次；官方課程頁公開列出課程簡介影片（2026-10-10 即時查核），其餘講次影片請從官方入口查找。
-
-```youtube
-url: https://www.youtube.com/watch?v=gl-BdDjNPVI
-title: 機器學習 2026 課程簡介
-```
-
-原始影片：[機器學習 2026 課程簡介](https://www.youtube.com/watch?v=gl-BdDjNPVI)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片 gl-BdDjNPVI（26:46，課程簡介）字幕全文已讀。核對上課時間與形式（週五 14:20、約一小時講課加助教講作業、下課時間浮動、錄影週一上線）、先備為上學期導論（10 講、各約兩小時）、10 份作業各 10 分、Colab 免費額度可及格（C-、60 分）、加簽名額約 700 人與優先順序、旁聽與修課差別、不教 Python 語法、Bonus 為 Teaching Monster，皆與字幕一致；字幕未涵蓋 policy.pdf 頁碼、作業日期表、JudgeBoi／NTU COOL 分工細節與學術誠信規則，這些屬講義與課程頁內容，無法由影片驗證。影片是學期初錄製，當時預告兩場演講（Appier、陳暐），與本文依課程頁寫的三場不同，本文已以課程頁為準。
 
 ## 這門課的硬事實
 
@@ -134,6 +115,25 @@ bonus.pdf 的計分是每隊：參加 +2 分、前 30% +10 分、前三名 +20 �
 站內相關入口：[台大 AI／ML 課程導讀](/posts/learning/2026-09-30-ntu-ai-ml-course-map)把這門課放在台大課程版圖裡比較；[2026 AI 課程總覽](/posts/ai/2026-07-10-ai-courses-2026-guide)的「李宏毅：繁中讀者的入口」一段說明它和其他課的相對位置。
 
 下一篇：[解剖小龍蝦：以 OpenClaw 看 AI Agent 的運作原理](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
+
+## 課程影片來源
+
+本文是課程總覽，沒有單一對應講次；官方課程頁公開列出課程簡介影片（2026-10-10 即時查核），其餘講次影片請從官方入口查找。
+
+```youtube
+url: https://www.youtube.com/watch?v=gl-BdDjNPVI
+title: 機器學習 2026 課程簡介
+```
+
+原始影片：[機器學習 2026 課程簡介](https://www.youtube.com/watch?v=gl-BdDjNPVI)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 gl-BdDjNPVI（26:46，課程簡介）字幕全文已讀。核對上課時間與形式（週五 14:20、約一小時講課加助教講作業、下課時間浮動、錄影週一上線）、先備為上學期導論（10 講、各約兩小時）、10 份作業各 10 分、Colab 免費額度可及格（C-、60 分）、加簽名額約 700 人與優先順序、旁聽與修課差別、不教 Python 語法、Bonus 為 Teaching Monster，皆與字幕一致；字幕未涵蓋 policy.pdf 頁碼、作業日期表、JudgeBoi／NTU COOL 分工細節與學術誠信規則，這些屬講義與課程頁內容，無法由影片驗證。影片是學期初錄製，當時預告兩場演講（Appier、陳暐），與本文依課程頁寫的三場不同，本文已以課程頁為準。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 9 講：RL 基礎——policy gradient 就是 SFT loss 乘上一個權重"
+title: "RL 基礎——policy gradient 就是 SFT loss 乘上一個權重｜CMU 11-768 第 9 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -35,25 +35,6 @@ glossary:
 本篇依[影片](https://www.youtube.com/watch?v=paAcPaaYZGM)與[投影片](https://www.cmu-agents.com/slides/lecture-09-rl-basics.pdf)撰寫。Fried 開場就說，這一講是從上一講的 SFT 搭一座橋，走到 policy gradient 這個他認為最簡單、也最優雅的 RL 形式。整講的主線可以濃縮成一句話：**每一種方法都是對 agent 自己做過的動作算 log 機率，差別只在乘上什麼權重。**
 
 這篇照講者的順序走，數學一律放在折疊區。只想抓直覺的讀者，跳過所有「機制」折疊區也讀得完。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 9 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=paAcPaaYZGM
-title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
-```
-
-原始影片：[CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：字幕共約 78 分鐘（主講 Fried）；我讀了字幕開頭與主要段落，並對文章轉述的口述／課堂內容逐項做關鍵字搜尋核對：猜數字與 Wordle 比喻、SFT 三缺口、RL 消除重複迴圈的口述觀察、POMDP 回答、ReST 與 cold start 三種解法、REINFORCE 與 Deal or No Deal 的個人經驗、95% 例子的 baseline 直覺、視覺化、GRPO 群組約 8 個（Apurva 會再談）、不偏性回答、GRPO 完整 loss 的 clipping／KL 留待 Neubig 講、「自稱 GRPO 的實作多半已拿掉除以標準差」、價值模型與 policy 共用骨幹；皆有依據，未發現需修改處。這是抽樣＋關鍵字核對，不是逐字全文比對；投影片公式與論文細節（Williams 1992、DeepSeekMath 設定等）屬投影片與論文，字幕未涵蓋；「9/22」上課日期字幕未提。
 
 ## 場景：在 1 到 16 之間猜一個數字
 
@@ -384,6 +365,25 @@ $$\nabla_\theta J = \sum_t w_t\, \nabla_\theta \log \pi_\theta(a_t \mid h_t)$$
 - [Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)（CS230）
 - [CME295 第 5 講：RLHF 與 DPO 怎麼補上負面訊號](/posts/ai/2026-09-29-cme295-preference-tuning)
 - [CME295 第 6 講：reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼](/posts/ai/2026-09-29-cme295-llm-reasoning)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 9 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=paAcPaaYZGM
+title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
+```
+
+原始影片：[CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：字幕共約 78 分鐘（主講 Fried）；我讀了字幕開頭與主要段落，並對文章轉述的口述／課堂內容逐項做關鍵字搜尋核對：猜數字與 Wordle 比喻、SFT 三缺口、RL 消除重複迴圈的口述觀察、POMDP 回答、ReST 與 cold start 三種解法、REINFORCE 與 Deal or No Deal 的個人經驗、95% 例子的 baseline 直覺、視覺化、GRPO 群組約 8 個（Apurva 會再談）、不偏性回答、GRPO 完整 loss 的 clipping／KL 留待 Neubig 講、「自稱 GRPO 的實作多半已拿掉除以標準差」、價值模型與 policy 共用骨幹；皆有依據，未發現需修改處。這是抽樣＋關鍵字核對，不是逐字全文比對；投影片公式與論文細節（Williams 1992、DeepSeekMath 設定等）屬投影片與論文，字幕未涵蓋；「9/22」上課日期字幕未提。
 
 ## 更新紀錄
 

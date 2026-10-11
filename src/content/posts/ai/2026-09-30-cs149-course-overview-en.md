@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS149: A Guide to the Fall 2025 Parallel Computing Course"
+title: "A Guide to the Fall 2025 Parallel Computing Course | Stanford CS149 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -27,15 +27,6 @@ glossary:
 > **This series is based on the Fall 2025 edition of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25).** When I checked on 2026-09-30, `cs149.stanford.edu` still redirected to the fall25 site and the fall26 URL returned 404. This is post 0 of the series and its overview; every later post points back here for materials and limits.
 
 Most AI engineers now work on parallel hardware every day. Training runs on GPU clusters, inference means squeezing kernel performance, and even phones ship an NPU. Yet many people have only a vague sense of why GPUs are fast, or why adding cores didn't make their program faster. [CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) fills that gap.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
 
 ## What the course teaches
 
@@ -206,6 +197,15 @@ These site series overlap with CS149. This series does not cut content because o
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): definitions of the A0–A3 grades
 
 **Series navigation**: next, [L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
 
 ## Update Log
 

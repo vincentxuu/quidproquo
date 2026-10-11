@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 7: Post-Training — Instruction Tuning, RLHF, and InstructGPT"
+title: "Post-Training — Instruction Tuning, RLHF, and InstructGPT | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,30 +34,6 @@ This is post 9 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 **Series position**: previous [Pre-Training Families and Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en) | next [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 
 The lecture answers one question: a pre-trained model already continues text well, so why train it again? The slides answer in two layers. First, make the model understand task descriptions. Second, make its outputs match human preference.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=G5O93KOsBCs
-title: ADL 7.1: Post-Training (YouTube, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=PfSybChNSNc
-title: ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)
-```
-
-Original videos: [ADL 7.1: Post-Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF (YouTube, in Mandarin)](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=-hchhJoH3YE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (7.1 and 7.2) were read. 7.1: specialists vs generalists, GPT compared against WMT translation systems, unifying tasks as QA (2018), pretrain + prompting vs pretrain + fine-tuning, emergent ability, and post-training being needed because future tasks are unknown. 7.2: how FLAN and T0 work and their zero-shot results, instructions needing detailed descriptions, the effect of the number of prompts, Super-NaturalInstructions, and the three limits of instruction tuning (paired data is expensive, open-ended tasks have no single answer, and token-level objectives differ from human objectives). All match the article's "From specialists to generalists" and "Step one" sections. 7.3 and 7.4 are not embedded, and the RLHF, DPO and InstructGPT sections were not compared against transcripts.
 
 ## From specialists to generalists
 
@@ -205,6 +181,30 @@ Other course guides on this site cut the same topic differently:
 - [CME295 2026 Lecture 4: SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
 
 Next: [PEFT: Adapter, LoRA, Prompt Tuning, and HW2](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=G5O93KOsBCs
+title: ADL 7.1: Post-Training (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=PfSybChNSNc
+title: ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 7.1: Post-Training (YouTube, in Mandarin)](https://www.youtube.com/watch?v=G5O93KOsBCs)、[ADL 7.2: Instruction Tuning / SFT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=PfSybChNSNc)、[ADL 7.3: RLHF (YouTube, in Mandarin)](https://www.youtube.com/watch?v=4Md8Y0zAXUE)、[ADL 7.4: InstructGPT & ChatGPT (YouTube, in Mandarin)](https://www.youtube.com/watch?v=-hchhJoH3YE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (7.1 and 7.2) were read. 7.1: specialists vs generalists, GPT compared against WMT translation systems, unifying tasks as QA (2018), pretrain + prompting vs pretrain + fine-tuning, emergent ability, and post-training being needed because future tasks are unknown. 7.2: how FLAN and T0 work and their zero-shot results, instructions needing detailed descriptions, the effect of the number of prompts, Super-NaturalInstructions, and the three limits of instruction tuning (paired data is expensive, open-ended tasks have no single answer, and token-level objectives differ from human objectives). All match the article's "From specialists to generalists" and "Step one" sections. 7.3 and 7.4 are not embedded, and the RLHF, DPO and InstructGPT sections were not compared against transcripts.
 
 ## Update Log
 

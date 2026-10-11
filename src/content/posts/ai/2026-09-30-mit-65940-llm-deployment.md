@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 13 講：LLM 部署——量化、稀疏與 serving 三條路"
+title: "LLM 部署——量化、稀疏與 serving 三條路｜MIT 6.5940 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,24 +40,6 @@ glossary:
 **官方材料**：[Lec13-LLM-Deployment.pdf](https://www.dropbox.com/scl/fi/aa5ea0hrc68cn3fh18nan/Lec13-LLM-Deployment.pdf?rlkey=gzq9yiddx4bnh14bxomtfmcoj&dl=0)（93 頁，以下頁碼皆指這份 PDF）、[第 13 講錄影](https://youtu.be/sTz2tXG1T0c)。存取等級 **A3**：投影片與錄影公開，對應練習是 [Lab 4 與 Lab 5](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)。以下內容以投影片為準，2026-09-30 核對。
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)把第 13 講（10 月 27 日）改名為「LLM Quantization and Deployment」，截至 2026-09-30 投影片與錄影還沒上線，無法比對內容。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=sTz2tXG1T0c
-title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭（Lab 3 到期、Lab 4 發布）、結尾總結並抽查中段：SmoothQuant、AWQ（保留約 1% 重要權重 channel）、GPTQ、QServe（W4A8KV4）、稀疏、TTFT 等 serving 指標、PagedAttention、FlashAttention、continuous／in-flight batching、speculative decoding。主題與講次和本文相符。第 25 頁 OPT-6.7B 的 perplexity 數字（43.16、14.07）是投影片上的數字，字幕裡找不到對應說法，仍以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 這一講在解什麼
 
@@ -226,6 +208,24 @@ QServe 的兩個對策：
 - 同系列：[L12 Transformer 與 LLM](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)、[L6 量化 II（PTQ 與 QAT）](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)、[L11 TinyEngine 與平行運算](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 - 推論與 serving：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)、[CMU 11-868 模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)、[CMU 11-868 LLM serving（SGLang 與 vLLM）](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)、[CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)
 - MoE：[CMU 11-868 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=sTz2tXG1T0c
+title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（Lab 3 到期、Lab 4 發布）、結尾總結並抽查中段：SmoothQuant、AWQ（保留約 1% 重要權重 channel）、GPTQ、QServe（W4A8KV4）、稀疏、TTFT 等 serving 指標、PagedAttention、FlashAttention、continuous／in-flight batching、speculative decoding。主題與講次和本文相符。第 25 頁 OPT-6.7B 的 perplexity 數字（43.16、14.07）是投影片上的數字，字幕裡找不到對應說法，仍以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes"
+title: "One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes | Stanford CS329Z Week 5"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ When one model cannot crack a problem, the instinct is to bring more models and 
 But anyone who has sat through meetings knows the meeting itself costs something. Who speaks first, who writes the conclusion, who owns the mistake — none of it is free. Model meetings work the same way, except quieter: the upstream agent's hallucination becomes the downstream agent's trusted fact. Monday (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://arxiv.org/abs/2308.08155) (COLM 2024): a framework that turns meeting rules into programs.
 
 Wednesday (Oct 21, Optimization) asks a different question: solo or meeting, a system improves in exactly three places. Prompts (the instructions), weights (the brain), inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## Solo versus team: AutoGen writes the division of labor as conversation
 
@@ -95,6 +84,17 @@ One week remains after Week 5: a guest lecture plus Data for Agentic Systems in 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, the goal is a framework-free full harness); rewrote the ten-day "Closing HW1" plan and the HW1 hooks in each "What to do" note
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

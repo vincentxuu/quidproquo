@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI L13：強化學習——從 AlphaGo 到讓 LLM「不要那麼唬爛」的 RLHF"
+title: "強化學習——從 AlphaGo 到讓 LLM「不要那麼唬爛」的 RLHF｜政大蔡炎龍 生成式AI 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **本文依據政大蔡炎龍「生成式 AI：文字與圖像生成的原理與實務」2025 春季（政大學期代碼 1132）版。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 13 篇，接續 [L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)。
 
 用到的官方材料有三份：[第 13 講錄影](https://www.youtube.com/watch?v=xG8ccKlW_Cc)（2025-05-13，3 小時 3 分）、投影片 [GenAI12 強化學習與生成式 AI 綜合應用](https://drive.google.com/file/d/1uPDkwB4uu183yKczp0lcxyIcQC08XdaR/view)（73 頁），以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上的第十三週作業說明。注意投影片檔名的編號是 12，但它是第 13 講的講義，投影片頁尾也寫「13 強化學習與生成式 AI 綜合應用」。存取等級是 **A3**：錄影、投影片、作業說明都公開；這一講沒有對應的 Demo notebook。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
-title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）
-```
-
-原始影片：[【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -229,6 +212,23 @@ y_w 要比較高分、y_ℓ 要比較低分。方向對了，sigmoid 值會趨�
 - DeepSeek 那條可驗證獎勵路線：[CS336 Lecture 16：RLVR](/posts/ai/2026-08-22-cs336-rlvr)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L12 ControlNet 與 Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)｜下一篇 [L14 生成式 AI 新趨勢與期末專案](/posts/ai/2026-09-30-nccu-genai-14-new-trends)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=xG8ccKlW_Cc
+title: 【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）
+```
+
+原始影片：[【生成式 AI】13. 強化學習與生成式 AI 綜合應用（YouTube 錄影，2025-05-13）](https://www.youtube.com/watch?v=xG8ccKlW_Cc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

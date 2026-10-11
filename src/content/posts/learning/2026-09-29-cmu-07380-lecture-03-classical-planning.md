@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 3 導讀：Classical Planning，PDDL、狀態空間搜尋與 relaxation heuristic"
+title: "Classical Planning，PDDL、狀態空間搜尋與 relaxation heuristic｜CMU 07-380 第 3 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, planning, pddl]
@@ -23,26 +23,6 @@ draft: false
 一句話先講結論：**規劃不是新問題，是同一個搜尋問題換了狀態表示**。表示法換成 factored 之後，planner 可以讀懂動作的描述，自己算出 heuristic，不用人盯著題目去想。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- [Lec3 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec3_Classical_Planning_inked.pdf)：pre-reading polls、SATPlan、STRIPS、Blocks world、PDDL、state-space search、GraphPlan 開頭
-- [Lec4 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf)**前半**：GraphPlan 的 mutex、backward search、delete-relaxed planning graph、Fast Forward、Fast Downward。後半的 motion planning 留給[下一篇 RRT 導讀](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
-- [PR2 Planning 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Planning.pdf)（checkpoint 截止 8/30）
-- [Recitation 2](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26.pdf) 與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf)（9/4）：successor-state axioms、GraphPlan 詞彙、Crane 問題、h<sub>max</sub>／h<sub>add</sub>
-- 課站指定閱讀 AIMA Ch. 11.1-3。本文沒有引用課本內容，只列出指定範圍
-
-**公開程度**：這一講的投影片、預讀筆記、recitation 與解答全部公開，已達 A3（足以自學）。Canvas checkpoint 題目只限校內。全課目前仍是 A2（進行中），分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 承上問題：邏輯為什麼寫不動「改變」
 
@@ -188,6 +168,26 @@ Recitation 2 第 5 題是花生醬果醬吐司：目標 `PB Slice ∧ Jelly Slic
 - 上一篇：[HW1 導讀：Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus)
 - 下一篇：[Lecture 4 導讀：Motion Planning，RRT 在連續空間用取樣找路](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- [Lec3 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec3_Classical_Planning_inked.pdf)：pre-reading polls、SATPlan、STRIPS、Blocks world、PDDL、state-space search、GraphPlan 開頭
+- [Lec4 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf)**前半**：GraphPlan 的 mutex、backward search、delete-relaxed planning graph、Fast Forward、Fast Downward。後半的 motion planning 留給[下一篇 RRT 導讀](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
+- [PR2 Planning 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Planning.pdf)（checkpoint 截止 8/30）
+- [Recitation 2](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26.pdf) 與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf)（9/4）：successor-state axioms、GraphPlan 詞彙、Crane 問題、h<sub>max</sub>／h<sub>add</sub>
+- 課站指定閱讀 AIMA Ch. 11.1-3。本文沒有引用課本內容，只列出指定範圍
+
+**公開程度**：這一講的投影片、預讀筆記、recitation 與解答全部公開，已達 A3（足以自學）。Canvas checkpoint 題目只限校內。全課目前仍是 A2（進行中），分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 更新紀錄
 

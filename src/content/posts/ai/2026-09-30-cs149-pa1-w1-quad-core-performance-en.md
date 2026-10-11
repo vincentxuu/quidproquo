@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA1 + Written 1: Measuring Speedup on a Quad-Core CPU and Explaining Why It Isn't Linear"
+title: "Measuring Speedup on a Quad-Core CPU and Explaining Why It Isn't Linear | Stanford CS149 Programming Assignment 1 / Written Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,14 +29,6 @@ glossary:
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 4 of the [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en) series and covers [Programming Assignment 1: Analyzing Parallel Program Performance on a Quad-Core CPU](https://github.com/stanford-cs149/asst1) (due October 6 in Fall 2025) and [Written Assignment 1](https://gfxcourses.stanford.edu/cs149/fall25content/static/pdfs/written_asst1.pdf).
 
 This post covers what each problem practices, what to watch for, and which direction to think in. **It contains no solutions.** The value of both assignments is in measuring and explaining things yourself.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## What the assignment asks for
 
@@ -165,6 +157,14 @@ Confirmed: the problems, point values, grading-machine specs, and constraints in
 Further reading: the README's "For the Curious" section strongly recommends Matt Pharr's [The Story of ISPC](https://pharr.org/matt/blog/2018/04/30/ispc-all), which takes on questions like "why can't the compiler just parallelize it?"
 
 Series navigation: previous [L3: Latency vs. Bandwidth and ISPC](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en) | next [L4: The Thought Process of Parallelizing Code](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## Update Log
 

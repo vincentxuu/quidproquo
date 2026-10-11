@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 20: Large Language Models"
+title: "Large Language Models | CMU 11-785 Lecture 20"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 20: Large Language Models**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec20.llm.pdf) and [official YouTube recording](https://youtu.be/z9IZlzs8hAM). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=z9IZlzs8hAM
-title: Lecture 20 official YouTube recording
-```
-
-Original videos: [Lecture 20 official YouTube recording](https://www.youtube.com/watch?v=z9IZlzs8hAM)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The Lecture 20 video (about 85 minutes, YouTube title "Large Language Models", taught by guest lecturer Omar Khattab) covers pre-training, scaling laws, and post-training (SFT and improving the model from its own sampled answers with scalar feedback). The transcript has no dedicated section on capability boundaries and no comparison of greedy, temperature, and top-k sampling, so the wording was changed and the generation-sampling exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=z9IZlzs8hAM
+title: Lecture 20 official YouTube recording
+```
+
+Original videos: [Lecture 20 official YouTube recording](https://www.youtube.com/watch?v=z9IZlzs8hAM)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The Lecture 20 video (about 85 minutes, YouTube title "Large Language Models", taught by guest lecturer Omar Khattab) covers pre-training, scaling laws, and post-training (SFT and improving the model from its own sampled answers with scalar feedback). The transcript has no dedicated section on capability boundaries and no comparison of greedy, temperature, and top-k sampling, so the wording was changed and the generation-sampling exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288 Part 5: Inference-time Compute, Reasoning, and Embodied Agents"
+title: "Inference-time Compute, Reasoning, and Embodied Agents | Berkeley CS288 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, ai-agent, reasoning, multimodal-ai, llm]
@@ -35,6 +35,18 @@ The [official schedule](https://cal-cs288.github.io/sp26/) also includes guest s
 ## Finish with a staged project
 
 The [Course Project](https://cal-cs288.github.io/sp26/project/) requires an abstract, midpoint report, presentation, and final report. A self-study project should keep the same checkpoints: define the question and baseline, submit a midpoint failure analysis, and only then consolidate results. Team matching, staff feedback, and course compute credits are not public, so arrange peer review and a compute ceiling yourself.
+
+## Same two model calls, different outcomes
+
+This is an invented teaching scenario, not a classroom experiment. The task is to report an order’s delivery date using at most two model calls. Both agents have identical tools, permissions, and initial data. Success means matching the order tool’s returned date.
+
+Agent A guesses Friday on its first call and revises its own text to Saturday on its second, without checking the order. Agent B requests the order lookup on its first call; the tool returns Monday, and B answers Monday on its second. In this scenario A fails the criterion and B passes. The difference is access to relevant evidence, not output length.
+
+**Check:** If B’s tool returns an error and the model treats the error text as a date, where should diagnosis start? Inspect the tool result and the model’s error-handling step; the final answer alone does not show a general reasoning failure. Only model-call count is fixed here. A latency or monetary comparison must also include tool costs.
+
+## Changelog
+
+- 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 
 ## References
 

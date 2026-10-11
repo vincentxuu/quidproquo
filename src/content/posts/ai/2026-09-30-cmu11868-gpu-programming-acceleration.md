@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L02–L04 GPU 程式模型與加速：thread、block、記憶體階層與 tiling"
+title: "GPU 程式模型與加速：thread、block、記憶體階層與 tiling｜CMU 11-868 第 2–4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -47,16 +47,6 @@ glossary:
 **系列位置**：上一篇 [L01 開場：LLM 為什麼需要系統](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)｜下一篇 [HW1：CUDA Programming](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 這三講是整門課的地基。[總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)提過，先修只要求會 C／C++，但 L02 第二週就進到 CUDA。本篇照五層結構走：先看一個讓人意外的數字，再建直覺，然後拆機制，最後連回 LLM 與作業。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 場景：寫對的 matmul，只用到 2.48% 的算力
 
@@ -233,6 +223,16 @@ Recitation 1 講的是動手前的準備：PSC 的帳號申請、head node 與 G
 - [CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile](/posts/ai/2026-08-22-cs336-kernels-triton)：從 CUDA 往上一層，用 Triton 寫 kernel。
 - Recitation 1 推薦的練習：Sasha Rush 的 [GPU-Puzzles](https://github.com/srush/GPU-Puzzles)、NVIDIA 的 [cuda-samples](https://github.com/NVIDIA/cuda-samples)，以及把 matmul 一步步優化到接近 cuBLAS 的 [How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance: a Worklog](https://siboehm.com/articles/22/CUDA-MMM)。
 - 指定閱讀：*Programming Massively Parallel Processors* 第 4 版，Syllabus 對應 L02 第 2、4 章、L03 第 3 章、L04 第 5、6 章；L04 第 2 頁另外推薦 NVIDIA 的 [CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/)。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

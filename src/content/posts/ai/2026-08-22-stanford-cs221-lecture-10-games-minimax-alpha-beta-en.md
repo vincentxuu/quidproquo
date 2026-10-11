@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 10: Games I: From Expectimax to Minimax"
+title: "Games I: From Expectimax to Minimax | Stanford CS221 Lecture 10"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 10**, taught by Percy Liang on 2025-10-22. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=games). Rather than presenting game search as a list of detached terms, this reading follows the execution order of `main()` in `.work/stanford-cs221-notes/source/games.py`, from the game interface to exact pruning and approximate evaluation.
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 10, the same term and lecture number this article follows. It matches item 10 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=SMOD_GiRzb8
-title: Stanford CS221 | Autumn 2025 | Lecture 10: Games I
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 10: Games I](https://www.youtube.com/watch?v=SMOD_GiRzb8)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 10) and confirmed it covers the three-bins game example, going from expectimax to minimax, and alpha-beta pruning, matching this article's lecture and topic; no mismatch found.
 
 ## Reframing the MDP problem as games
 
@@ -167,6 +147,26 @@ That is the approximation failure mode. An evaluation function can mistake a sho
 `games.py` begins by separating state, turn, transitions, termination, and utility through five `Game` methods. It uses `simulate` to observe rollouts under fixed policies and `V_eval` to compute their expected utility exactly. Expectimax then maximizes at agent nodes and takes expectation under a fixed opponent policy. Minimax changes the opponent node to min, producing a worst-case policy for an unknown opponent. The face-off section makes clear that each optimality claim is relative to an opponent assumption. When chance enters the tree, expectiminimax combines max, min, and expectation.
 
 The final two speedups have different contracts. Alpha-beta is branch-and-bound with bounds and ordering, so it remains exact. An evaluation function is prior knowledge used at a depth-limited leaf, trading full-tree guarantees for computability. Alpha-beta's main practical variable is ordering; depth-limited evaluation's main risk is the quality of its estimates and cutoff depth. Keeping those assumptions next to the interface is what prevents “best against a fixed opponent,” “guaranteed against the worst opponent,” and “approximately best under a finite search” from collapsing into one answer.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 10, the same term and lecture number this article follows. It matches item 10 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=SMOD_GiRzb8
+title: Stanford CS221 | Autumn 2025 | Lecture 10: Games I
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 10: Games I](https://www.youtube.com/watch?v=SMOD_GiRzb8)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 10) and confirmed it covers the three-bins game example, going from expectimax to minimax, and alpha-beta pruning, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

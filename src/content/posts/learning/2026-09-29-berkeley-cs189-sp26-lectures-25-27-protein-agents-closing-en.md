@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 25–27: AI for Protein Engineering, Agents and Environments, and Where to Go Next"
+title: "AI for Protein Engineering, Agents and Environments, and Where to Go Next | Berkeley CS189 Lectures 25–27"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, ai-agents, protein-design, post-training, deep-learning]
@@ -32,31 +32,6 @@ This guide is based on the official materials of [CS189 Spring 2026](https://eec
 [The previous post on Lec 23–24](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en) turned the transformer into an LLM and finished self-supervised learning. The final three lectures introduce no new basic tools. Instead they carry the semester's material to two frontiers, protein design and agents. The topics look unrelated, but they share one question: **when you ask a model to make decisions for you, not just predictions, how do you know it can be trusted?**
 
 The schedule lists no Bishop readings for these three lectures.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 26 (the guest lecture). No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
-title: Lecture 25 video
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yRgSQCXr8M0
-title: Lecture 27 video
-```
-
-Original videos: [Lecture 25 video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 video](https://www.youtube.com/watch?v=yRgSQCXr8M0)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 25 video (V-SJk4AJ-xc, about 78 minutes) is indeed protein engineering: the instructor draws on their own group's work and covers AlphaFold and the Nobel Prize, the "banana" analogy (the optimizer is the adversary), generative models such as ESM, the analogy between conditional generative models and ChatGPT, and gene-therapy vectors, ending with a mention of base editors; the Rosetta timeline, epistemic uncertainty, the three routes via Bayes rule, CTMC guidance, and the five-step AAV pipeline could not be found in the transcript and may appear only in the slides. The Lecture 27 video (yRgSQCXr8M0, about 74 minutes) is indeed LLMs, Agents, Environments: agents versus workflows, LangChain and AutoGen, Terminal-Bench with Docker and Harbor, SFT/RLVR/GRPO, GEPA (mis-transcribed as JEPA), exporting Slack to files versus using an MCP, the example of Dimitris's guest lecture, with course-evaluation and final-exam reminders at the start and end; the METR task-length doubling and the 2029 extrapolation could not be found in the transcript. Lecture 26 has no embedded video and was not checked. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Lec 25: AI for protein engineering
 
@@ -234,6 +209,31 @@ These directions follow the threads CS189's last lectures leave open, using guid
 - Series navigation: previous, [Lec 23–24: LLM training and self-supervised learning](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl-en); next, [HW5 (optional) guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something to do tonight**: pick a [Terminal-Bench](https://www.tbench.ai/) task category and build a mini environment with Lec 27's three parts: a one-sentence task description, a Dockerfile that breaks something, and a test script that checks whether it's fixed. Once you've written the verifier, you'll see that deciding what counts as success is much harder than getting the agent to move.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 26 (the guest lecture). No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
+title: Lecture 25 video
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yRgSQCXr8M0
+title: Lecture 27 video
+```
+
+Original videos: [Lecture 25 video](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 video](https://www.youtube.com/watch?v=yRgSQCXr8M0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 25 video (V-SJk4AJ-xc, about 78 minutes) is indeed protein engineering: the instructor draws on their own group's work and covers AlphaFold and the Nobel Prize, the "banana" analogy (the optimizer is the adversary), generative models such as ESM, the analogy between conditional generative models and ChatGPT, and gene-therapy vectors, ending with a mention of base editors; the Rosetta timeline, epistemic uncertainty, the three routes via Bayes rule, CTMC guidance, and the five-step AAV pipeline could not be found in the transcript and may appear only in the slides. The Lecture 27 video (yRgSQCXr8M0, about 74 minutes) is indeed LLMs, Agents, Environments: agents versus workflows, LangChain and AutoGen, Terminal-Bench with Docker and Harbor, SFT/RLVR/GRPO, GEPA (mis-transcribed as JEPA), exporting Slack to files versus using an MCP, the example of Dimitris's guest lecture, with course-evaluation and final-exam reminders at the start and end; the METR task-length doubling and the 2029 extrapolation could not be found in the transcript. Lecture 26 has no embedded video and was not checked. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

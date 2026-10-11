@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Stage Review III: From MDPs and Q-learning to AlphaZero"
+title: "Stage Review III: From MDPs and Q-learning to AlphaZero | CMU 07-280 Topic Guide"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, reinforcement-learning, mcts, alphazero]
@@ -20,16 +20,6 @@ draft: false
 Earlier stages usually begin with answers supplied by a dataset: search has a goal, supervised learning has labels, and language modeling has the next token. Reinforcement learning changes how data is produced. An agent's action changes later states, rewards may be delayed, and the policy determines which experience the learner will observe.
 
 Stage III moves from MDPs through value iteration, Q-learning, and function approximation, then combines MCTS with self-play in Building AlphaZero. Public worksheets, some solutions, and assignment links remain available, but there is no complete public recording set. The old direct HW12 PDF also returned 404 during this audit, so this review limits claims to the anonymous official course page and Recitation 14 rather than implying access to the complete grader.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## An MDP makes uncertainty explicit
 
@@ -85,6 +75,16 @@ An independent implementation should begin with tic-tac-toe or a reduced Connect
 You should distinguish environment rewards, value estimates, and search statistics; calculate one Q-learning update; and explain why `π_t` is a search-generated target rather than a label directly supplied by the environment. Most importantly, you should be able to draw the entire path from self-play data back into the network.
 
 At that point the course closes its loop. Lecture 2's search has not been discarded by machine learning; it returns inside AlphaZero. The neural network is no longer merely a classifier but a prior and evaluator for search.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

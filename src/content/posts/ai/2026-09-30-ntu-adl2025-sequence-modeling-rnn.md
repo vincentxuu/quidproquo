@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 第 3 講：詞怎麼變成向量、語言模型與 RNN"
+title: "詞怎麼變成向量、語言模型與 RNN｜台大陳縕儂 深度學習之應用 2025 Fall 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 前兩篇是選課前要自學的先修內容。這一講是 [ADL Fall 2025](https://www.csie.ntu.edu.tw/~miulab/f114-adl/) 開學第一週（9/01）的正課，排在 Course Logistics 之後。投影片副標寫的是「Language Modeling & Recurrent Neural Networks」，大綱分四段：詞的表示、語言模型、RNN、RNN 的應用。
 
 四段裡有四個新概念，但真正貫穿的只有一件事：**語言模型要估計一串詞出現的機率，做法是一次預測下一個詞。**詞的表示是它的輸入，RNN 是它的架構，應用是它換個輸出後能做的事。讀的時候抓住這條線就不會散。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=215BxEbYrCs
-title: ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eVA_WTW4gXE
-title: ADL 3.2: Language Modeling 語言模型
-```
-
-原始影片：[ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling 語言模型](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network 簡介](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications RNN各式應用](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism 了解LSTM與GRU的細節](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：3.2 讀了字幕（15 分鐘）：recognize speech 的例子、smoothing 的 0.0001 問題、neural LM 的 cat／dog 自動平滑、RNN 權重共用（10 個詞用 10 次）、RNN 是 Transformer 前一步，皆與文章說法相符。文中另外提到但沒嵌入的 3.3、3.4 也讀了字幕：BPTT 與訓練很久、0.9 連乘趨近 0、clipping、France／French 與 gating、雙向 RNN 不能偷看答案、詞向量平均足夠做金融分類、序列輸出等於一連串分類、tagging 優先、HW1 用 Transformer，皆相符。嵌入的 3.1 這支 YouTube 沒有可取得的字幕，內容未逐字核對（文章未對 3.1 的口述內容下具體說法，只核對到標題、日期 2025-09-01 與長度 22:04）。
 
 ## 詞要怎麼放進電腦
 
@@ -186,6 +162,30 @@ RNN 的做法是沿時間軸展開（Unfold）。輸入是 init、x₁、x₂…
 
 - 同一段內容在 Stanford 的講法：[CS224N 詞向量](/posts/ai/2026-08-22-cs224n-word-vectors)、[CS224N RNN 與語言模型](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 - 同校課程怎麼分工：[台大 AI／ML 課程地圖](/posts/learning/2026-09-30-ntu-ai-ml-course-map)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=215BxEbYrCs
+title: ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eVA_WTW4gXE
+title: ADL 3.2: Language Modeling 語言模型
+```
+
+原始影片：[ADL 3.1: Word Representations 用機器看得懂的方式表示詞彙](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling 語言模型](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network 簡介](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications RNN各式應用](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism 了解LSTM與GRU的細節](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：3.2 讀了字幕（15 分鐘）：recognize speech 的例子、smoothing 的 0.0001 問題、neural LM 的 cat／dog 自動平滑、RNN 權重共用（10 個詞用 10 次）、RNN 是 Transformer 前一步，皆與文章說法相符。文中另外提到但沒嵌入的 3.3、3.4 也讀了字幕：BPTT 與訓練很久、0.9 連乘趨近 0、clipping、France／French 與 gating、雙向 RNN 不能偷看答案、詞向量平均足夠做金融分類、序列輸出等於一連串分類、tagging 優先、HW1 用 Transformer，皆相符。嵌入的 3.1 這支 YouTube 沒有可取得的字幕，內容未逐字核對（文章未對 3.1 的口述內容下具體說法，只核對到標題、日期 2025-09-01 與長度 22:04）。
 
 ## 更新紀錄
 

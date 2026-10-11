@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW8: From MDPs to Reinforcement-Learning Updates"
+title: "From MDPs to Reinforcement-Learning Updates | CMU 10-301 Assignment 8"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, reinforcement-learning, mdp]
@@ -29,6 +29,18 @@ pip install -r requirements.txt
 ```
 
 Run `test_runner.py` before Pong training. Completion means passing public checks for network shapes, n-step returns, and losses; starting sustained fixed-seed training; and retaining configurations and reward curves. With no reference output or hidden tests, one high-scoring run is not official validation.
+
+## Do not bootstrap beyond termination
+
+This is an invented teaching example, not an official assignment solution.
+
+An invented two-step trajectory receives rewards 1 and 2, terminates after the second step, and uses discount 0.5. First-step return is 1+0.5×2=2; last-step return is 2, with no next-state value. Incorrectly attaching terminal-next value 10 gives a last target of 2+0.5×10=7.
+
+**Check and answer:** With discount 1, what is first-step return? Three; the last remains two. Changing discount does not remove the terminal boundary.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 - [HW8 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw8.zip)

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 6 | Moments: Expectation, LOTUS, and linearity"
+title: "Moments: Expectation, LOTUS, and linearity | Stanford CS109 Lecture 6"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,28 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is article 7 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 6: Moments (Expectation)** on June 30 with Chris Gregg. Its Summer agenda comes from the [schedule](https://web.stanford.edu/class/cs109/schedule.html), [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture06-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture06-AnswerKey.pdf), and [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture06-LLMPrompts.pdf). The `/spr26` [reader](https://probabilitycoders.stanford.edu/spr26) is a shared, Spring-dated concept reference rather than evidence of the Summer lecture. Canvas video is inaccessible and is not reconstructed.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below partly overlap this lecture's topic (see the content check below) but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=I2UBspTNAG0
-title: Stanford CS109 Probability for Computer Scientists I Variance Bernoulli Binomial I 2022 I Lecture 7
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Variance Bernoulli Binomial I 2022 I Lecture 7](https://www.youtube.com/watch?v=I2UBspTNAG0)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this lecture. This is 2022 Lecture 7 (Variance, Bernoulli, Binomial): it opens by recapping linearity of expectation and LOTUS, then covers Bernoulli and binomial, and only introduces variance at the end. It is adjacent to and partly overlaps this lecture (expectation, LOTUS, linearity) but weighs variance and binomial more heavily, so it is a related supplement, not the same lecture.
 
 ## From a distribution to an operational summary
 
@@ -107,6 +85,28 @@ so a random permutation has one fixed point on average. The challenge derives `E
 
 - This guide covers all seven worksheet problems and the optional challenge without inventing inaccessible classroom examples.
 - Recordings are Canvas-gated and were not used.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below partly overlap this lecture's topic (see the content check below) but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=I2UBspTNAG0
+title: Stanford CS109 Probability for Computer Scientists I Variance Bernoulli Binomial I 2022 I Lecture 7
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Variance Bernoulli Binomial I 2022 I Lecture 7](https://www.youtube.com/watch?v=I2UBspTNAG0)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this lecture. This is 2022 Lecture 7 (Variance, Bernoulli, Binomial): it opens by recapping linearity of expectation and LOTUS, then covers Bernoulli and binomial, and only introduces variance at the end. It is adjacent to and partly overlaps this lecture (expectation, LOTUS, linearity) but weighs variance and binomial more heavily, so it is a related supplement, not the same lecture.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224U 作業二：用 DSPy 做少樣本 OpenQA"
+title: "用 DSPy 做少樣本 OpenQA｜Stanford CS224U 作業 2"
 date: 2026-09-29
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 Potts 在[作業二 overview 錄影](https://www.youtube.com/watch?v=NQUxBVOJM14)裡說，這個任務在 2018 年大概根本提不出來；2022 年第一次出這份作業時，他還擔心太難。
 
 本文只講題目結構、配分、需要的資源，以及今天照原樣跑會卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=NQUxBVOJM14
-title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
-
-內容核對：已依字幕核對（2026-10-10）：已依 Homework 2 字幕逐項對照：Potts 對任務難度的說法（2018 年提不出、前一年出題時擔心太難）、QA 任務表四列與 few-shot OpenQA 的限制、SQuAD 只當 train／dev 示範來源、凍結檢索與凍結 LM、評估成本提醒與 200 題樣本、Cohere 免費與 OpenAI 少量額度、text-davinci-001 設定、@dsp.transformation 的用意、Question 1／2（annotate）與原創系統，皆吻合。DSPy 版配分、成本數字與版本落差屬 notebook／PyPI 內容，不在影片內，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 它在課程裡的位置
 
@@ -201,6 +183,24 @@ dspy-ai==2.4.13
 - 課程狀態、三份作業總覽與環境坑：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - RAG 與 agent 的新近整理：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - DSPy 3.x 的 API：[DSPy：用 Signature、Metric 與 Optimizer 編譯 AI 程式](/posts/ai/2026-08-22-dspy-ai-program-optimization)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=NQUxBVOJM14
+title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
+
+內容核對：已依字幕核對（2026-10-10）：已依 Homework 2 字幕逐項對照：Potts 對任務難度的說法（2018 年提不出、前一年出題時擔心太難）、QA 任務表四列與 few-shot OpenQA 的限制、SQuAD 只當 train／dev 示範來源、凍結檢索與凍結 LM、評估成本提醒與 200 題樣本、Cohere 免費與 OpenAI 少量額度、text-davinci-001 設定、@dsp.transformation 的用意、Question 1／2（annotate）與原創系統，皆吻合。DSPy 版配分、成本數字與版本落差屬 notebook／PyPI 內容，不在影片內，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

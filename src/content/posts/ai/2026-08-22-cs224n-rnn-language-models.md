@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 4 講：語言模型、RNN 與消失梯度"
+title: "語言模型、RNN 與消失梯度｜Stanford CS224N 第 4 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 4 講排在 2026 年 1 月 15 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf)的 agenda 有四段：語言模型、RNN、梯度爆炸與消失、機器翻譯。投影片直接把 language modeling 稱為整門課最重要的概念，因為現代生成式 NLP 大多仍建立在預測下一個 token 上。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 錄影涵蓋語言模型與 RNN 基礎（範圍見下方內容核對），為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
-
-```youtube
-url: https://www.youtube.com/watch?v=fyc0Jzr74y4
-title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks
-```
-
-原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks](https://www.youtube.com/watch?v=fyc0Jzr74y4)
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2024 Lecture 5：字幕內容為神經網路補充、語言模型（含 n-gram）、RNN 與 backpropagation through time（重複權重的梯度相加），結尾預告下次繼續；字幕中沒有出現 vanishing／exploding gradient、LSTM／GRU 與機器翻譯的內容（這些在後續講次），所以本文對應的「梯度消失或爆炸」「LSTM 與 GRU」「機器翻譯」幾節在這支影片裡找不到。
 
 ## 語言模型到底輸出什麼
 
@@ -143,6 +123,26 @@ Machine translation 的評估還揭露 exposure 與 search 問題。訓練 loss 
 ## 材料缺口
 
 Winter 2026 錄影不公開。本文涵蓋官方投影片列出的四段 agenda，未還原口頭例題與課堂推導；同樣不以舊學期公開錄影替代。
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 錄影涵蓋語言模型與 RNN 基礎（範圍見下方內容核對），為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=fyc0Jzr74y4
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks
+```
+
+原始影片：[Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks](https://www.youtube.com/watch?v=fyc0Jzr74y4)
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2024 Lecture 5：字幕內容為神經網路補充、語言模型（含 n-gram）、RNN 與 backpropagation through time（重複權重的梯度相加），結尾預告下次繼續；字幕中沒有出現 vanishing／exploding gradient、LSTM／GRU 與機器翻譯的內容（這些在後續講次），所以本文對應的「梯度消失或爆炸」「LSTM 與 GRU」「機器翻譯」幾節在這支影片裡找不到。
 
 ## 更新紀錄
 

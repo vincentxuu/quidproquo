@@ -1,5 +1,5 @@
 ---
-title: "CS231N L4: Neural Networks and Backpropagation, or Upstream Times Local on a Computational Graph"
+title: "Neural Networks and Backpropagation, or Upstream Times Local on a Computational Graph | Stanford CS231N Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,23 +37,6 @@ glossary:
 The [2026 schedule](https://cs231n.stanford.edu/schedule.html) gives L4 just two topics: Multi-layer Perceptron and Backpropagation. It's the last lecture of the "Deep Learning Basics" unit, and the series plan flags it as the first mathematical peak.
 
 This post follows five layers: the setting, the intuition, the mechanics (formulas in collapsible blocks), the connection back to models, and where to go deeper. The mechanics layer uses the Section 2 five-step example as its backbone, because it goes more step by step than the handouts.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 4 (length 1:16:46). The transcript covers sigmoid/ReLU activations, the neuron-and-brain analogy, a numpy example, computational graphs and local gradients, and Jacobians and matrix gradients, matching the article's topic. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=25zD5qJHYsk
-title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation](https://www.youtube.com/watch?v=25zD5qJHYsk)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The setting: linear classifiers aren't enough
 
@@ -248,6 +231,23 @@ Posts on this site that cover the same ground from other angles:
 4. When matrix derivatives trip you up, go back to the 2×2×3 example in [linear-backprop.pdf](https://cs231n.stanford.edu/handouts/linear-backprop.pdf).
 
 One thing you can do tonight: draw the computational graph for f(x, y, z) = (x + y) · z on paper, plug in x = −2, y = 5, z = −4, write out the three gradients using only "add distributes, mul swaps", and check them against a numpy numerical gradient.
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 4 (length 1:16:46). The transcript covers sigmoid/ReLU activations, the neuron-and-brain analogy, a numpy example, computational graphs and local gradients, and Jacobians and matrix gradients, matching the article's topic. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=25zD5qJHYsk
+title: Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 4: Neural Networks and Backpropagation](https://www.youtube.com/watch?v=25zD5qJHYsk)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

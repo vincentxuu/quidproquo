@@ -1,5 +1,5 @@
 ---
-title: "Adversarial Robustness and Generative Models: It's Not Nonlinearity, It's Linearity"
+title: "Adversarial Robustness and Generative Models: It's Not Nonlinearity, It's Linearity | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -28,28 +28,6 @@ The lecture packs in two semi-independent topics: the first 30–45 minutes are 
 (In 2024 this lecture was called "Adversarial examples / GANs / Stable Diffusion" and sat at Lecture 5.)
 
 ---
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (1:47:17, matching "1 hour 47 minutes" in the article). The lecturer speaks in the first person about "a former PhD student of Andrew Ng" (Abbeel) and the Gates building, consistent with Kian in Lecture 2; the name itself is not spoken in the captions, so the attribution rests on the instructor list in the YouTube description. Checked item by item against the captions, nearly everything matches: the opening plan of "30 to 45 minutes" on adversarial robustness, the iguana optimization and "more than the atoms in the universe", library-to-prison and washer-to-doormat, the YOLO v2 adversarial patch (printable-colour and smoothness loss terms), at most three pings per minute, the non-linearity explanation being wrong, the 0.08 output of the five-dimensional logistic regression, FGSM, Anthropic red teaming and constitutional AI, backdoors, the grandmother attack, non-saturating loss and mode collapse, DCGAN vector arithmetic and Midjourney still using GANs, the flamingo and burger diversity comparison, the noise schedule, Sora's "cube" as a token, and "within minutes". Quotes were sampled and nothing needed fixing; the 0.83 result is not recognisable in the captions (the rest of the arithmetic matches).
-
-```youtube
-url: https://www.youtube.com/watch?v=aWlRtOlacYM
-title: Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-Checked: 2026-10-10.
-
-# Part one: adversarial robustness
 
 ## A decade, three waves of attack
 
@@ -390,6 +368,28 @@ And the detection problem is the same on both sides: **you can't tell from the o
 This thread gets addressed head-on in Lecture 10, which spends the whole session opening models up — and its conclusion is equally honest: on transformers, this methodology currently only reaches two layers.
 
 For people building LLM applications, the directly portable piece is **indirect prompt injection**. The site's [security](/posts/ai/2026-08-10-agent-security-harness-layer-en) post covers how to damage-control at the harness layer, and this lecture supplies the half it doesn't have: **why the model itself can't defend against it** — because the fragility comes from the architecture's linear nature and the input's high dimensionality, and that isn't something alignment fixes.
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 4 (1:47:17, matching "1 hour 47 minutes" in the article). The lecturer speaks in the first person about "a former PhD student of Andrew Ng" (Abbeel) and the Gates building, consistent with Kian in Lecture 2; the name itself is not spoken in the captions, so the attribution rests on the instructor list in the YouTube description. Checked item by item against the captions, nearly everything matches: the opening plan of "30 to 45 minutes" on adversarial robustness, the iguana optimization and "more than the atoms in the universe", library-to-prison and washer-to-doormat, the YOLO v2 adversarial patch (printable-colour and smoothness loss terms), at most three pings per minute, the non-linearity explanation being wrong, the 0.08 output of the five-dimensional logistic regression, FGSM, Anthropic red teaming and constitutional AI, backdoors, the grandmother attack, non-saturating loss and mode collapse, DCGAN vector arithmetic and Midjourney still using GANs, the flamingo and burger diversity comparison, the noise schedule, Sora's "cube" as a token, and "within minutes". Quotes were sampled and nothing needed fixing; the 0.83 result is not recognisable in the captions (the rest of the arithmetic matches).
+
+```youtube
+url: https://www.youtube.com/watch?v=aWlRtOlacYM
+title: Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 4: Adversarial Robustness and Generative Models](https://www.youtube.com/watch?v=aWlRtOlacYM)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
+
+# Part one: adversarial robustness
 
 ## Update Log
 

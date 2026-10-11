@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 10｜Probabilistic Models：joint、marginal、independence 與 Bayes"
+title: "Probabilistic Models：joint、marginal、independence 與 Bayes｜Stanford CS109 第 10 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 11 篇，對應 **Summer 2026 Lecture 10: Probabilistic Models**，日期為 7 月 7 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture10-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture10-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture10-LLMPrompts.pdf)，以及跨 offering 共用的 Spring-dated 官方讀本 [joint distributions](https://probabilitycoders.stanford.edu/spr26/joint) 與 [inference](https://probabilitycoders.stanford.edu/spr26/inference) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 本講把「一個 random variable 的分布」擴張到「多個變數如何一起變動」。Joint distribution 是完整起點。把不關心的變數加總掉得到 marginal，以 marginal 正規化一列或一欄得到 conditional。Independence 則問 joint 能否分解成 marginals 的乘積。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
 
 ## P1：用 Normal 複習開場
 
@@ -160,6 +147,19 @@ Posterior 從 `0.75` 大幅降到約 `0.142`。`Exp(3)` 的平均等待只有 `1
 - P6 與 challenge 是 pset4 題，公開 answer key 刻意省略解答；本文只依公開題目推導。
 - Challenge prior 為 `3/4`；`34` 是 PDF 分數的文字抽取 artifact。
 - Canvas 錄影未公開，不推測額外課堂內容。Worksheet 與 guide 各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 10 導讀（pre-reading 版）：Bayes Nets 用圖把聯合分佈拆成條件機率表"
+title: "Bayes Nets 用圖把聯合分佈拆成條件機率表｜CMU 07-380 第 10 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, bayesian-network, probability]
@@ -24,30 +24,7 @@ draft: false
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
 
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 先講缺口：這是 pre-reading 版，不是課堂版
-
-2026-09-29 重新檢查課站時，Schedule 裡 Lec10 這一列**沒有投影片連結**，只列了 Bayes Net Demo、PR6 筆記、Canvas checkpoint 和選讀。依前幾講的檔名規則去猜的 `lectures/07380_F26_Lec10_Bayes_Nets.pdf` 回 404。另外，Lec9 的投影片檔名叫 `Lec9-10_Probabilistic_Generative_Models`，但它的文字內容沒有出現 Bayes net 或 graphical model 的段落，所以這份也不能當 Lec10 的課堂材料用。
-
-因此本文**不描述課堂上講了什麼**，只導讀已公開的預讀筆記。Schedule 在 Lec10 旁標了「No d-separation」，本文同樣不碰 d-separation。投影片上線後會用 post-update 補。
-
-公開程度：整門課是 A2（進行中）；Lec10 這一講目前是「預讀筆記＋互動 demo」，沒有投影片、recitation 或作業，連 A2 內部都算偏薄。Checkpoint（截止 9/27）在 Canvas，只限校內。等級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 官方材料與讀取範圍
-
-- [PR6 Bayes Nets 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Bayes_Nets.pdf)（20 頁，v1.0）：本文主要來源，九節全讀
-- [15-281 Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo)（另有 [highres 版](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo_highres)）：Cloudy／Sprinkler／Rainy／Wet Grass 四節點網路
-- Schedule 列的選讀：AIMA Ch. 12.1-5、13.1-2，以及 [Jordan Ch. 2.1](http://people.eecs.berkeley.edu/~jordan/prelims/chapter2.pdf)。本文沒有引用這些選讀的內容
-- 筆記開頭說它假設讀者已經會 [07-280 Probability Background](https://www.cs.cmu.edu/~07280-s26/notes/07280_S26_Notes_Probability_Background.pdf) 裡的機率規則
+> **來源範圍（2026-09-29）**：本文依公開 PR6 預讀筆記與互動 demo 導讀，不描述課堂口述。該次查核的課表未列第 10 堂投影片，並註明「No d-separation」，因此本文不教 d-separation；Canvas checkpoint 限校內修課者存取。
 
 ## 承上問題：聯合分佈什麼都能答，但拿不到
 
@@ -209,6 +186,23 @@ P(+b,+e,+a,+j,+m) = 0.001 × 0.002 × 0.95 × 0.9 × 0.7 ≈ 1.2 × 10⁻⁶
 2. 用第 4 節的季節表算 `P(T | sun)`，先用 un-marginalize 寫出完整式子，再用 normalization trick 算一次，確認兩者一樣。
 3. 把 alarm network 的五張 CPT 寫成 Python dict，照「每張表查一格再相乘」寫一個 `joint(b,e,a,j,m)` 函式，再用它算 `P(B | +j,+m)`，看是否得到約 0.284。
 4. 在 [Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo) 選 `+c, −s, +r, +w`，逐步執行，記下每一步查到哪一格。
+
+## 官方材料與讀取範圍
+
+- [PR6 Bayes Nets 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Bayes_Nets.pdf)（20 頁，v1.0）：本文主要來源，九節全讀
+- [15-281 Bayes Net Demo](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo)（另有 [highres 版](https://www.cs.cmu.edu/~15281-f25/demos/bayesNetDemo_highres)）：Cloudy／Sprinkler／Rainy／Wet Grass 四節點網路
+- Schedule 列的選讀：AIMA Ch. 12.1-5、13.1-2，以及 [Jordan Ch. 2.1](http://people.eecs.berkeley.edu/~jordan/prelims/chapter2.pdf)。本文沒有引用這些選讀的內容
+- 筆記開頭說它假設讀者已經會 [07-280 Probability Background](https://www.cs.cmu.edu/~07280-s26/notes/07280_S26_Notes_Probability_Background.pdf) 裡的機率規則
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

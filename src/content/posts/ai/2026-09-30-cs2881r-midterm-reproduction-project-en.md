@@ -1,5 +1,5 @@
 ---
-title: "CS2881R Midterm: Reproduce and Extend One Headline Figure"
+title: "Reproduce and Extend One Headline Figure | Harvard CS2881R Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 **Series**: previous [L5: Carrying Content Moderation's Old Lessons into Generative AI](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en) | next [L8: Scheming, Reward Hacking, and Deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en) | [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 By this point you've seen how models are trained (L2), how they're broken (L3), how their rules are written (L4), and how those rules are enforced (L5). The [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) midterm asks you to redo one of those results yourself, then ask: how solid is it?
-
-## Course video sources
-
-This post covers the midterm project, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this project; use the schedule for the lecture recordings.
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
 
 ## What the assignment asks
 
@@ -154,8 +143,29 @@ One thing you can do tonight: open the paper you picked, look only at the headli
 - Another course's jailbreak project design: [NTU ADL 2025 Lecture 10: Bias, Safety, Hallucination, and Alignment](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 - Engineering defenses against prompt injection: [Security: Prompt Injection Can Only Be Contained in the Harness](/posts/ai/2026-08-10-agent-security-harness-layer-en)
 
+## A replication and variation you can interpret
+
+This is an invented teaching example, not a lecturer experiment or official assignment solution.
+
+This is an invented research design, not a safety paper’s result. Suppose a method succeeds on eight of ten cases and a baseline on six. Fix model, data, and success criteria in replication and obtain seven versus six: the advantage persists, but its magnitude changes from 2/10 to 1/10. Report settings, raw counts, and differences rather than only stating “replicated.”
+
+**Check and answer:** If a variation changes both model and data and the advantage disappears, can you blame the model? No: the factors are confounded. Change one at a time and use additional cases or repeated evaluation to assess instability. Ten cases do not establish a general result.
+
+## Course video sources
+
+This post covers the midterm project, not a single lecture. The official Fall 2025 YouTube playlist (AI Safety, 17 videos) was checked live on 2026-10-10 and has no walkthrough video for this project; use the schedule for the lecture recordings.
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
 ## Update Log
 
+
+- 2026-10-11: Added an invented worked example and comprehension check, preserving source limits and assignment scope.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official playlist was checked live; no recording corresponds to this post, so the status stays official entry only.
 

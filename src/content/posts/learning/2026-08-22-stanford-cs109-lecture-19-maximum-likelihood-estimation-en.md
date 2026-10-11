@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 19 | Maximum Likelihood Estimation: Hold data fixed and optimize the parameter"
+title: "Maximum Likelihood Estimation: Hold data fixed and optimize the parameter | Stanford CS109 Lecture 19"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 20 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 19** (Jul 23). The schedule calls it **MLE**, while the lecture page uses **Maximum Likelihood Estimation**; Chris Gregg is the instructor. This guide follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture19-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture19-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture19-LLMPrompts.pdf), and course reader.
 
 The lecture remains **L2**. Its three-page worksheet has P1–P6 plus an optional challenge. The two-page public key deliberately omits P5 and the challenge because they are pset6 problems. The three-page guide has six concepts; its last page only continues Concept 6 and the wrap-up. Current slides are unavailable and video is Canvas-gated, so this article stays within public artifacts.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=utFEufMXHgw
-title: Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21](https://www.youtube.com/watch?v=utFEufMXHgw)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 21, "M.L.E." (about 71K characters): it covers likelihood, log-likelihood, argmax and finding the MLE by differentiation (Bernoulli, Poisson, Gaussian and others), matching this lecture. The transcript has no geometric, Rayleigh, boundary-solution or negative-binomial material and no gradient ascent, so the matching worksheet sections in this post are not video content.
 
 ## P1: Connect entropy to parameter learning
 
@@ -159,6 +137,28 @@ For the wrap-up, request one problem chaining model and `θ` identification, lik
 - The worksheet has three pages with P1–P6 plus an optional challenge; the two-page key omits both pset6 solutions.
 - The guide has six concepts across three pages; page three adds no seventh concept.
 - Current slides are unavailable and video is Canvas-gated; this article does not reconstruct inaccessible content.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=utFEufMXHgw
+title: Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I M.L.E. I 2022 I Lecture 21](https://www.youtube.com/watch?v=utFEufMXHgw)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 21, "M.L.E." (about 71K characters): it covers likelihood, log-likelihood, argmax and finding the MLE by differentiation (Bernoulli, Poisson, Gaussian and others), matching this lecture. The transcript has no geometric, Rayleigh, boundary-solution or negative-binomial material and no gradient ascent, so the matching worksheet sections in this post are not video content.
 
 ## Update Log
 

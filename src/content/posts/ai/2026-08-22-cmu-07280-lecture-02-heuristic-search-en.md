@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 2: Heuristic Search from UCS and Greedy to A*"
+title: "Heuristic Search from UCS and Greedy to A* | CMU 07-280 Lecture 2"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 2: Heuristic Search**. The point is not memorizing five algorithms. It is seeing how each algorithm assigns a different priority to the same frontier. Completeness, path cost, and memory use are often determined at the moment the algorithm chooses what to expand next.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec2_Heuristic_Search_inked.pdf), [Search pre-reading](https://www.cs.cmu.edu/~07280/notes/search/search_prereading.html), [Recitation 1 worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1_sol.pdf), and checked [HW1](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf). The official schedule lists no public lecture recording link. Inked slides preserve marks on slides, not a verbatim class transcript.
 
 ## The inherited question: after representing a problem, which state comes next
 
@@ -91,6 +77,20 @@ The real design question is whether a computation cheaper than search can produc
 1. Trace the DFS, BFS, UCS, Greedy, and A* explored orders in Recitation 1 without its solution.
 2. Define misplaced-tile and Manhattan-distance heuristics for the eight puzzle and justify why each does not overestimate.
 3. Draw a three-node admissible-but-inconsistent example and run the course's A* graph search by hand.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec2_Heuristic_Search_inked.pdf), [Search pre-reading](https://www.cs.cmu.edu/~07280/notes/search/search_prereading.html), [Recitation 1 worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1_sol.pdf), and checked [HW1](https://www.cs.cmu.edu/~07280/assignments/hw1_blank.pdf). The official schedule lists no public lecture recording link. Inked slides preserve marks on slides, not a verbatim class transcript.
 
 ## Update Log
 

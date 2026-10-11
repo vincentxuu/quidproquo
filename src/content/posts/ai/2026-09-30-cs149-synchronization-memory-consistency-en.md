@@ -1,5 +1,5 @@
 ---
-title: "CS149 L15 Memory Consistency: How Write Buffers Make r1 = r2 = 0 Possible"
+title: "Memory Consistency: How Write Buffers Make r1 = r2 = 0 Possible | Stanford CS149 Lecture 15"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 **This post is based on the Fall 2025 edition of [CS149](https://gfxcourses.stanford.edu/cs149/fall25).** It is part 20 of [Reading Stanford CS149](/posts/ai/2026-09-30-cs149-course-overview-en). It follows [L14 Cache coherence](/posts/ai/2026-09-30-cs149-cache-coherence-en) and covers Lecture 15 (2025-11-13).
 
 The official material is the [L15 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf) (60 pages, also available [slide by slide on the web](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)). Fall 2025 recordings are Canvas-only; the course home page points to the 2023 [Lecture 12 Memory Consistency video](https://www.youtube.com/watch?v=nFXWmo9MFiY) instead. This post follows the 2025 slides and lists the video only as a supplement. The access level is **A3** (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)): the slides are fully public, and only the current recordings are missing.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=nFXWmo9MFiY
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency](https://www.youtube.com/watch?v=nFXWmo9MFiY)
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 12 - Memory Consistency” (1:19:15). The video opens by finishing cache coherence and then covers memory consistency: the captions include sequential consistency, reordering caused by write buffers (with TSO/PSO and fences), relaxed consistency and data races, matching this post's topic; the captions do not go into x86 lfence/sfence/mfence or name release consistency, and the speaker ends by saying the language-level memory model comes next week. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## What this lecture actually covers
 
@@ -204,6 +186,24 @@ Not confirmed: what was said in the Fall 2025 lecture, and the page-by-page diff
 Further reading: lock implementations and atomic operations from the operating-system side in [CS111 Lecture 6: Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks-en).
 
 **Series**: previous [L14 Cache coherence: MSI, MESI, and false sharing](/posts/ai/2026-09-30-cs149-cache-coherence-en) | next [L16 Fine-grained locking and lock-free programming](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=nFXWmo9MFiY
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency](https://www.youtube.com/watch?v=nFXWmo9MFiY)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 12 - Memory Consistency” (1:19:15). The video opens by finishing cache coherence and then covers memory consistency: the captions include sequential consistency, reordering caused by write buffers (with TSO/PSO and fences), relaxed consistency and data races, matching this post's topic; the captions do not go into x86 lfence/sfence/mfence or name release consistency, and the speaker ends by saying the language-level memory model comes next week. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

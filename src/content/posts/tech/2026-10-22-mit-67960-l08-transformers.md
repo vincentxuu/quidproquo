@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L08：Transformer —— Token、Attention 與位置編碼，以及它和 MLP/CNN/GNN 的關係"
+title: "Transformer —— Token、Attention 與位置編碼，以及它和 MLP/CNN/GNN 的關係｜MIT 6.7960 第 8 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Phillip Isola** 授課，必讀材料為 *Transformers* 講義（以視覺為例，但架構適用於任意資料）。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
-title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 08 字幕（Phillip Isola，1:14:35）：影片講 token、attention（query／key／softmax）、位置編碼，並把 Transformer 與 MLP、CNN、GNN 並排比較，與文章主題一致，未發現需修正之處。
 
 ## 三個核心想法
 
@@ -114,6 +95,25 @@ def scaled_dot_product_attention(q, k, v):
 - **不要神化 Transformer**：它是一種 inductive bias 很弱的架構（全域注意力幾乎不假設結構），所以資料效率通常不如 CNN（影像）或 GNN（圖），但在資料夠多時上限最高。
 - **注意力不是免費的**：`O(n²)` 的序列長度複雜度意味著長序列會很吃顯存。實務上要用 FlashAttention、稀疏注意力、或把長序列切成塊來緩解。
 - **位置編碼是隱形地雷**：如果你的任務對順序敏感（大多數任務都是），忘記加位置編碼，模型表現會慘不忍睹。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
+title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 08 字幕（Phillip Isola，1:14:35）：影片講 token、attention（query／key／softmax）、位置編碼，並把 Transformer 與 MLP、CNN、GNN 並排比較，與文章主題一致，未發現需修正之處。
 
 ## 更新紀錄
 

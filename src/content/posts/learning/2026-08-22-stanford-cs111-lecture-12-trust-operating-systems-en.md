@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 12: Trust and Operating Systems"
+title: "Trust and Operating Systems | Stanford CS111 Lecture 12"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 13 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 12**. Mendel Rosenblum taught the lecture on 2026-04-24; its official title is [Trust and Operating Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/12/Lecture12.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 The PDF defines trust as a trustor's willingness to accept vulnerability based on an expectation that a trustee will perform an important action, even without the ability to monitor or control it. Its philosophical version calls trust an unquestioning attitude: we stop repeatedly testing dependability and proceed as though it will work.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Trust extends agency and creates vulnerability
 
@@ -92,6 +84,14 @@ The last slide describes Brex CrabTrap as an LLM-as-a-judge HTTP proxy that insp
 The proxy becomes another trustee and can misclassify, miss, or be bypassed. Giving safety to another LLM moves rather than removes the boundary. Evidence, least privilege, independent logs, and recovery remain necessary.
 
 A practical review has four columns: vulnerability accepted by the trustor; reproducible evidence about the trustee; an independent backup for failure; and design or institutional signals that may induce over-trust. Calling the OS a root of trust is not an invitation to blind trust. The closer a component is to the TCB, the more deliberately inference and substitution must be built from distrust.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

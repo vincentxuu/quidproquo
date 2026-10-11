@@ -1,5 +1,5 @@
 ---
-title: "CS224R L6：Q-learning 與它的穩定化"
+title: "Q-learning 與它的穩定化｜Stanford CS224R 第 6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,30 +37,6 @@ glossary:
 存取等級是 **A3**：投影片與講義匿名可下載，2026 錄影只放在 Canvas。
 
 配套影片（**補充教材**）有兩支：[Spring 2025 Lecture 6: Q-Learning](https://www.youtube.com/watch?v=-7kv6jf0isQ)（約 62 分鐘）和 [Spring 2025 Tutorial Session: Review of Q-Learning](https://www.youtube.com/watch?v=07MQNMcxhZU)（約 51 分鐘）。兩支都是 2025 年的錄影，內容可能和 2026 投影片、講義有出入，以下以 2026 教材為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=-7kv6jf0isQ
-title: Spring 2025 Lecture 6: Q-Learning（YouTube，補充）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=07MQNMcxhZU
-title: Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 6: Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=07MQNMcxhZU)
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取前／中／後段並以關鍵字搜尋（非逐字比對）。-7kv6jf0isQ 是 Spring 2025 L6 Q-Learning（Chelsea Finn）：開頭複習價值函數與 policy gradient／actor-critic，接著講 Q function 與 policy 的關係、不學顯式 policy 的 RL、replay buffer、target network、double DQN 等穩定化技巧。07MQNMcxhZU 是 Spring 2025 Tutorial Session: Review of Q-Learning，講者是助教 Anikait Singh（字幕自述），內容是 MDP 複習、tabular／fitted Q iteration、parametric Q-learning（TD 與 Monte Carlo 的偏差變異取捨）與實作細節。長度（約 62、51 分鐘）皆相符。本文以 2026 教材為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：能不能連 policy 都不學
 
@@ -236,6 +212,30 @@ TA 講義最後兩節是 DQN walkthrough 和 Soft Actor-Critic，PDF 上只有�
 可以確認：2026 投影片與 TA 講義的文字、公式與圖表標題，課表日期、地點與閱讀清單，2025 兩支影片的標題與長度。不能確認：第 7 頁思考題在課堂上給的答案、TA 加課的口頭內容、講義 DQN 與 SAC walkthrough 的細節。第 2 頁的課程提醒提到會分享「去年 head CA 的筆記」，這份筆記沒有出現在公開頁面上。
 
 系列導覽：上一篇 [L5 Off-Policy Actor-Critic](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)｜下一篇 [HW2：Gridworld Q-learning、PPO 與 Sawyer 鐵鎚任務](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=-7kv6jf0isQ
+title: Spring 2025 Lecture 6: Q-Learning（YouTube，補充）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=07MQNMcxhZU
+title: Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 6: Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=-7kv6jf0isQ)、[Spring 2025 Tutorial Session: Review of Q-Learning（YouTube，補充）](https://www.youtube.com/watch?v=07MQNMcxhZU)
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取前／中／後段並以關鍵字搜尋（非逐字比對）。-7kv6jf0isQ 是 Spring 2025 L6 Q-Learning（Chelsea Finn）：開頭複習價值函數與 policy gradient／actor-critic，接著講 Q function 與 policy 的關係、不學顯式 policy 的 RL、replay buffer、target network、double DQN 等穩定化技巧。07MQNMcxhZU 是 Spring 2025 Tutorial Session: Review of Q-Learning，講者是助教 Anikait Singh（字幕自述），內容是 MDP 複習、tabular／fitted Q iteration、parametric Q-learning（TD 與 Monte Carlo 的偏差變異取捨）與實作細節。長度（約 62、51 分鐘）皆相符。本文以 2026 教材為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

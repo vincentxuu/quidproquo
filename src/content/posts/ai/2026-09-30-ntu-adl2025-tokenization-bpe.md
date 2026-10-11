@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 第 5 講：Tokenization 與 BPE，詞表是怎麼長出來的"
+title: "Tokenization 與 BPE，詞表是怎麼長出來的｜台大陳縕儂 深度學習之應用 2025 Fall 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 讀完 Transformer 之後突然回頭講「怎麼切字」，看起來像倒退一步。其實 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的 9/08 那一列就是這個順序：Attention → Transformer → Tokenization → BERT。理由有兩個。第一，[上一篇](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)的 Transformer 訓練技巧第一項就是 BPE。第二，[下一篇](/posts/ai/2026-09-30-ntu-adl2025-bert-family)的 BERT 吃進去的輸入就是 subword。
 
 這份投影片只有 22 頁，其中 14 頁是一個例子的逐步示範。把那個例子自己算一遍，這一講就讀完了。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=NrT5kmnTFCk
-title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元
-```
-
-原始影片：[ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU)（投影片附的 Hugging Face 示範影片，不是 ADL 課堂錄影，因此不嵌入）
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 ADL 5.1（33:38）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章的「版本說明」本來就寫明這支沒有字幕、內容只依投影片。確認的中介資料：上傳日 2023-10-12、說明欄 2023/10/12，是沿用往年的錄影，與文章一致。
 
 ## 問題：詞表外的詞
 
@@ -160,6 +141,25 @@ w i d e s t </w>  : 3
 - 從零實作 BPE tokenizer：[CS336 Lecture 1：從位元組到 tokenizer](/posts/ai/2026-08-22-cs336-overview-tokenization)
 - 多語 token 成本的更完整討論：[CS224N 第 14 講：Tokenization 如何製造多語言成本差](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality)
 - 另一門課怎麼把切字接到 Transformer：[CME295 第 1 講](/posts/ai/2026-09-29-cme295-transformer)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=NrT5kmnTFCk
+title: ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元
+```
+
+原始影片：[ADL 5.1: BPE (Byte-Pair Encoding) Tokenization 如何將字詞切成小單元](https://www.youtube.com/watch?v=NrT5kmnTFCk)、[Byte Pair Encoding Tokenization](https://www.youtube.com/watch?v=HEikzVL-lZU)（投影片附的 Hugging Face 示範影片，不是 ADL 課堂錄影，因此不嵌入）
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 ADL 5.1（33:38）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章的「版本說明」本來就寫明這支沒有字幕、內容只依投影片。確認的中介資料：上傳日 2023-10-12、說明欄 2023/10/12，是沿用往年的錄影，與文章一致。
 
 ## 更新紀錄
 

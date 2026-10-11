@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 13、15：收斂、Momentum、Adam、SGD"
+title: "、15：收斂、Momentum、Adam、SGD｜Berkeley CS189 第 13 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, gradient-descent, optimization]
@@ -23,31 +23,6 @@ draft: false
 前幾講的線性回歸和 logistic regression 都在寫「要最小化什麼」。從 Lec 13 開始，課程改問「怎麼把它最小化」。答案是梯度下降，也就是往梯度的反方向走一小步，重複到收斂。這兩講處理三個問題：步伐要多大才不會發散？地形很扁或很歪時怎麼辦？資料多到每步都算不起時怎麼辦？
 
 排程上 Lec 13（3/3）和 Lec 15（3/10）中間夾著 Lec 14（MLE/MAP），所以本系列把兩講合成一篇，Lec 14 放在[下一篇](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy)。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=1EAoNdjsOZw
-title: Lecture 13 錄影：Conv. + Momentum + Adam + Stochastic Gradient Descent
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6zV_GGgUa0Y
-title: Lecture 15 錄影：Learning with Gradient Descent
-```
-
-原始影片：[Lecture 13 錄影：Conv. + Momentum + Adam + Stochastic Gradient Descent](https://www.youtube.com/watch?v=1EAoNdjsOZw)、[Lecture 15 錄影：Learning with Gradient Descent](https://www.youtube.com/watch?v=6zV_GGgUa0Y)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 13 影片（1EAoNdjsOZw，約 77 分鐘；標題的「Conv.」是 Convergence 的縮寫）以房價回歸為例從頭講梯度下降（導數到梯度、Kaggle 測試集、凸函數、一維二次函數上的學習率與收斂條件、mini-batch），但字幕沒有 Hessian 特徵分解推導、momentum、Adam，文中這些段落來自 lec13.pdf 投影片與手寫稿，不是這支影片。Lecture 15 影片（6zV_GGgUa0Y，約 77 分鐘）確為 Learning with Gradient Descent：用 w1、w2、b 三個參數的線性模型與小資料表算損失與梯度，並講 momentum、AdaGrad、Adam 與 mini-batch SGD，講者開場說補了額外內容幫大家串起教材。字幕未自報講者姓名，講者歸屬（含「Dimakis 的手算練習」）未驗證。
 
 ## 教材在哪、能拿到什麼
 
@@ -154,6 +129,31 @@ batch size 怎麼選，講義的取捨表是：
 1. 打開 `lec15.pdf` 開頭的小資料表，用紙筆算一次梯度並更新一步，確認你能寫出 dJ/dw1。
 2. 取一個二維二次函數（例如講義的 `(w0 − 1)² + (w1 − 2)² + 1`），故意把一個方向的係數放大 100 倍，用 NumPy 跑梯度下降，試出讓它發散的最小 η，對照 `2/λ_max`。
 3. 做 Discussion 7 第一題，做完再看 Walkthrough。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=1EAoNdjsOZw
+title: Lecture 13 錄影：Conv. + Momentum + Adam + Stochastic Gradient Descent
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6zV_GGgUa0Y
+title: Lecture 15 錄影：Learning with Gradient Descent
+```
+
+原始影片：[Lecture 13 錄影：Conv. + Momentum + Adam + Stochastic Gradient Descent](https://www.youtube.com/watch?v=1EAoNdjsOZw)、[Lecture 15 錄影：Learning with Gradient Descent](https://www.youtube.com/watch?v=6zV_GGgUa0Y)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 13 影片（1EAoNdjsOZw，約 77 分鐘；標題的「Conv.」是 Convergence 的縮寫）以房價回歸為例從頭講梯度下降（導數到梯度、Kaggle 測試集、凸函數、一維二次函數上的學習率與收斂條件、mini-batch），但字幕沒有 Hessian 特徵分解推導、momentum、Adam，文中這些段落來自 lec13.pdf 投影片與手寫稿，不是這支影片。Lecture 15 影片（6zV_GGgUa0Y，約 77 分鐘）確為 Learning with Gradient Descent：用 w1、w2、b 三個參數的線性模型與小資料表算損失與梯度，並講 momentum、AdaGrad、Adam 與 mini-batch SGD，講者開場說補了額外內容幫大家串起教材。字幕未自報講者姓名，講者歸屬（含「Dimakis 的手算練習」）未驗證。
 
 ## 更新紀錄
 

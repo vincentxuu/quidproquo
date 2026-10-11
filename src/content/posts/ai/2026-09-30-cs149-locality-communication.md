@@ -1,5 +1,5 @@
 ---
-title: "CS149 L6 Locality、通訊與 arithmetic intensity：為什麼少搬資料比多開核更重要"
+title: "Locality、通訊與 arithmetic intensity：為什麼少搬資料比多開核更重要｜Stanford CS149 第 6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,24 +34,6 @@ glossary:
 用到的官方材料是 [L6 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt2/06_progperf2.pdf)（68 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)）。Fall 2025 錄影不公開，官方首頁指向 2023 年版，對應的是 [2023 Lecture 6 錄影](https://www.youtube.com/watch?v=Mhdny2JNhmc)。本文以 2025 投影片為準，影片只是補充。存取等級 **A3**。
 
 上一篇列的三個目標，這篇處理第二個：**減少通訊**。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=Mhdny2JNhmc
-title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention
-```
-
-原始影片：[Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention](https://www.youtube.com/watch?v=Mhdny2JNhmc)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 6 - Performance Optimization II: Locality, Communication, and Contention》（1:17:25）。字幕涵蓋 message passing 的 send/recv 與死鎖、grid solver、blocking、arithmetic intensity、inherent 與 artifactual communication、contention，並以 roofline 收尾，主題與本文一致；NUMA 與 high watermark 在字幕中沒有出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 共享位址空間只是抽象
 
@@ -222,6 +204,24 @@ void fused(int n, float* A, float* B, float* C, float* D, float* E) {
 延伸閱讀：cache 與記憶體階層的基礎可以先讀 [CS107 的 caching 與 memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy)。GPU 上的同一套頻寬與 fusion 思維，可以對照 [CS336 的 GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L5 工作分配與排程](/posts/ai/2026-09-30-cs149-work-distribution-scheduling)｜下一篇 [PA2：從零打造 task execution library](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=Mhdny2JNhmc
+title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention
+```
+
+原始影片：[Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention](https://www.youtube.com/watch?v=Mhdny2JNhmc)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 6 - Performance Optimization II: Locality, Communication, and Contention》（1:17:25）。字幕涵蓋 message passing 的 send/recv 與死鎖、grid solver、blocking、arithmetic intensity、inherent 與 artifactual communication、contention，並以 roofline 收尾，主題與本文一致；NUMA 與 high watermark 在字幕中沒有出現。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L2–L3: Transformer Language Models, LLM Training and Decoding — From Forgetful RNNs to the KV Cache"
+title: "Transformer Language Models, LLM Training and Decoding — From Forgetful RNNs to the KV Cache | CMU 10-423 Lectures 2–3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,17 +32,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en) ended with the RNN language model: compress every previous word into one fixed-length vector, then predict the next word. These two lectures answer three questions. Why is that vector not enough? What does the model look like once attention replaces it? How do you train such a model and generate from it?
 
 The two lectures split the work. Lecture 2 covers only the **architecture**. Lecture 3 covers **training, efficiency and decoding**. HW1 asks you to add RoPE and GQA to minGPT, and these two lectures are its foundation.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## "Large language models" predate the Transformer
 
@@ -201,6 +190,17 @@ One thing to do tonight: redo Lecture 2's classroom exercise on paper. Write dow
 - How other courses teach the Transformer: [CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 Lecture 18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en), [CME295: Transformer](/posts/ai/2026-09-29-cme295-transformer-en)
 - Building a tokenizer from scratch: [CS336 Lecture 1: Overview and tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization-en)
 - The systems side of the KV cache and inference: [CS336: Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

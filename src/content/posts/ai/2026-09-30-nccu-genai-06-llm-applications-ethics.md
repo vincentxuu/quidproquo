@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀 L06：LLM 的應用及倫理議題的挑戰——幻覺、個資、DeepSeek，以及一行 system 就做出來的員瑛式思考生成器"
+title: "LLM 的應用及倫理議題的挑戰——幻覺、個資、DeepSeek，以及一行 system 就做出來的員瑛式思考生成器｜政大蔡炎龍 生成式AI 第 6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,18 +31,6 @@ glossary:
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 6 篇，接在 [L05 Transformers 全攻略](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)之後。上一講把 Q/K/V 的矩陣拆完，這一講回到使用者的位置：LLM 會出什麼問題、該怎麼負責任地用，以及怎麼用 API 把它變成自己的小工具。
 
 用到的官方材料有四份：[錄影 06](https://www.youtube.com/watch?v=m6DFB60Tk68)（2025-03-25，約 3 小時 4 分）、投影片 GenAI06（57 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04】用OpenAI_API打造員瑛式思考生成器`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第六週作業。存取等級是 **A3**：錄影、投影片、範例 notebook 與作業說明都公開，但 notebook 是跨課共用的 repo，**以下引用的是 repo 目前版本，學期結束後可能已更新**。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-原始影片：[【生成式 AI】06.大型語言模型（LLM）的應用及倫理議題的挑戰（YouTube 錄影）](https://www.youtube.com/watch?v=m6DFB60Tk68)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -207,6 +195,18 @@ reply = chat_completion.choices[0].message.content
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L05 Transformers 全攻略](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)｜下一篇：[L07 打造自己的對話機器人](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+原始影片：[【生成式 AI】06.大型語言模型（LLM）的應用及倫理議題的挑戰（YouTube 錄影）](https://www.youtube.com/watch?v=m6DFB60Tk68)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

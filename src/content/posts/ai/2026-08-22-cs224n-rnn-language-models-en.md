@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 4: Language Models, RNNs, and Vanishing Gradients"
+title: "Language Models, RNNs, and Vanishing Gradients | Stanford CS224N Lecture 4"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 4 on January 15, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture04-rnnlm.pdf) has four agenda parts: language modeling, RNNs, exploding and vanishing gradients, and machine translation. It calls language modeling the course's most important concept because much of modern generative NLP still rests on next-token prediction.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover language models and RNN basics (see the content check below for scope) as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
-
-```youtube
-url: https://www.youtube.com/watch?v=fyc0Jzr74y4
-title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks
-```
-
-Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks](https://www.youtube.com/watch?v=fyc0Jzr74y4)
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2024 Lecture 5: the transcript covers neural-network add-ons, language models (including n-grams), RNNs and backpropagation through time (summing gradients over the repeated weight), and ends by promising to continue next time. It does not cover vanishing/exploding gradients, LSTM/GRU or machine translation (those come in later lectures), so the article's sections on those cannot be found in this video.
 
 ## What a language model outputs
 
@@ -109,6 +89,26 @@ Hold tokenizer, data, scale, and decoding fixed; report quality with throughput,
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all four agenda sections in the official deck but does not reconstruct spoken examples or classroom derivations, and it does not substitute public recordings from an older offering.
+
+## Course video sources
+
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover language models and RNN basics (see the content check below for scope) as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=fyc0Jzr74y4
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks
+```
+
+Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 5 - Recurrent Neural Networks](https://www.youtube.com/watch?v=fyc0Jzr74y4)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2024 Lecture 5: the transcript covers neural-network add-ons, language models (including n-grams), RNNs and backpropagation through time (summing gradients over the repeated weight), and ends by promising to continue next time. It does not cover vanishing/exploding gradients, LSTM/GRU or machine translation (those come in later lectures), so the article's sections on those cannot be found in this video.
 
 ## Update Log
 

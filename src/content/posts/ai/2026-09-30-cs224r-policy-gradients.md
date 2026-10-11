@@ -1,5 +1,5 @@
 ---
-title: "CS224R L3：Policy Gradients——不知道環境怎麼運作，也能直接對 policy 求梯度"
+title: "Policy Gradients——不知道環境怎麼運作，也能直接對 policy 求梯度｜Stanford CS224R 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,26 +33,6 @@ glossary:
 投影片第 5 頁列的學習目標只有兩個：理解 policy gradient 背後的關鍵直覺，以及知道怎麼實作、什麼時候該用它。同一頁也註明，這是 default project 的基礎之一。
 
 這一篇的數學負荷比前面重。正文只放直覺和結論，推導收在折疊區。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=KCAOXd4IO9o
-title: Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）
-```
-
-原始影片：[Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）](https://www.youtube.com/watch?v=KCAOXd4IO9o)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L3 Policy Gradients 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 REINFORCE、log-likelihood 梯度、baseline 與變異，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：模仿學習的天花板
 
@@ -202,6 +182,26 @@ L4 投影片第 27 頁會再提到這個 KL 限制，並說它會在 LLM 偏好�
 - [CME295：LLM 的 RL](/posts/ai/2026-09-29-cme295-rl-with-llms)、[CS336：RLVR](/posts/ai/2026-08-22-cs336-rlvr)：policy gradient 用在語言模型上的樣子
 
 **系列導覽**：上一篇 [HW1：Flappy Bird 上的 BC、Flow Matching 與 DAgger](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)｜下一篇 [L4：Actor-Critic 與價值估計](/posts/ai/2026-09-30-cs224r-actor-critic)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=KCAOXd4IO9o
+title: Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）
+```
+
+原始影片：[Spring 2025 Lecture 3: Policy Gradients（YouTube，Stanford Online）](https://www.youtube.com/watch?v=KCAOXd4IO9o)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L3 Policy Gradients 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 REINFORCE、log-likelihood 梯度、baseline 與變異，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

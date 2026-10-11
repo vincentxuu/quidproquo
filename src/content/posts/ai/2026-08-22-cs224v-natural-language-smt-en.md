@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 11: Translate Trial Criteria into SMT Instead of Asking an LLM to Decide"
+title: "Translate Trial Criteria into SMT Instead of Asking an LLM to Decide | Stanford CS224V Lecture 11"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, formal-methods, smt, semantic-parsing]
@@ -19,18 +19,6 @@ description: "CS224V Natural Language Constraints with SMT: clinical-trial match
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-semantics.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 11 is a formal-methods research case study, not medical advice. It asks how patient records and natural-language eligibility criteria can be matched at scale. Rather than asking an LLM for the eligibility decision, the pipeline translates language into a representation a solver can check.
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## Agenda: from matching systems to an SMT pipeline
 
@@ -113,6 +101,18 @@ NL-to-SMT can drop negation, confuse hard and soft constraints, or force clinica
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck provides no validated clinical deployment protocol, complete parser code, or recording. Its scale and result summaries are research context, not evidence for a clinical-performance claim here.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 2 講：同一台 Transformer，怎麼長出 BERT、GPT 和各種 attention 變體"
+title: "同一台 Transformer，怎麼長出 BERT、GPT 和各種 attention 變體｜Stanford CME295 第 2 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ glossary:
 [第 1 講](/posts/ai/2026-09-29-cme295-transformer)組好了一台 2017 年的[原始 Transformer](https://arxiv.org/abs/1706.03762)。可是你今天用的 LLM，位置編碼、正規化、attention 的做法幾乎都換過了，而且只留下 decoder 那一半。第 2 講就是這張改裝清單：同一台機器，哪些零件被換掉、為什麼換，以及拆成不同半邊之後長出了哪些模型家族。
 
 投影片分五段：位置編碼 → layer normalization → attention approximation → Transformer 模型分類 → BERT 深入拆解。前三段是「零件升級」，後兩段是「整台機器怎麼分家」。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=yT84Y5zCnaA
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 2 講 Transformer-Based Models & Tricks（頁面日期 2025-10-03，長 1:47:19，與本文「1 小時 47 分」相符）；章節是位置編碼（sinusoidal、T5 bias／ALiBi、RoPE）、layer norm、sparse attention、sharing attention heads、BERT 深入與 finetuning（[CLS]／[SEP]）、BERT 延伸，與本文主題與 teddy bear 的 BERT 範例一致。另外讀了 2026 第 2 講錄影（GaIeu3npx04）的字幕來查「2026 版改了什麼」：該錄影已上架，且仍講 BERT 的 MLM 與 NSP，已修正本文原說「錄影尚未釋出、BERT 是否細講待確認」。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 位置資訊：從「加一個向量」到「轉一個角度」
 
@@ -258,6 +238,26 @@ BERT 這一支沒有消失。投影片說它在業界「凡是跟 encoding 有�
 - attention 變體與 MoE：[CS336 Lecture 4：Attention 不只一種，MoE 也不是免費擴大模型](/posts/ai/2026-08-22-cs336-attention-moe)
 - BERT 在預訓練史上的位置：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
 - 上一講：[CME295 第 1 講：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=yT84Y5zCnaA
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 2 - Transformer-Based Models & Tricks](https://www.youtube.com/watch?v=yT84Y5zCnaA)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 2 講 Transformer-Based Models & Tricks（頁面日期 2025-10-03，長 1:47:19，與本文「1 小時 47 分」相符）；章節是位置編碼（sinusoidal、T5 bias／ALiBi、RoPE）、layer norm、sparse attention、sharing attention heads、BERT 深入與 finetuning（[CLS]／[SEP]）、BERT 延伸，與本文主題與 teddy bear 的 BERT 範例一致。另外讀了 2026 第 2 講錄影（GaIeu3npx04）的字幕來查「2026 版改了什麼」：該錄影已上架，且仍講 BERT 的 MLM 與 NSP，已修正本文原說「錄影尚未釋出、BERT 是否細講待確認」。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

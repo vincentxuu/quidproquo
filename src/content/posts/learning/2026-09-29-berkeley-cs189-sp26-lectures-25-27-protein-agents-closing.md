@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 25–27：蛋白質工程的 AI、agents 與環境，以及完課路線"
+title: "蛋白質工程的 AI、agents 與環境，以及完課路線｜Berkeley CS189 第 25–27 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, ai-agents, protein-design, post-training, deep-learning]
@@ -32,31 +32,6 @@ glossary:
 [上一篇 Lec 23–24](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl) 把 transformer 接成 LLM，也把自監督學習講完。最後三講不再引入新的基本工具，而是把整學期的東西拿到兩個前線去用：蛋白質設計，以及 agent。兩講的主題看起來不相干，卻有同一個問題：**當你要模型替你做決定，而不只是預測時，要怎麼知道它可信？**
 
 這三講排程頁都沒有列 Bishop 指定閱讀。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。官方課表沒有列第 26 講（guest lecture）的錄影。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
-title: Lecture 25 錄影：AI for Protein Engineering
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yRgSQCXr8M0
-title: Lecture 27 錄影：LLMs, Agents, Environments
-```
-
-原始影片：[Lecture 25 錄影：AI for Protein Engineering](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 錄影：LLMs, Agents, Environments](https://www.youtube.com/watch?v=yRgSQCXr8M0)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 25 影片（V-SJk4AJ-xc，約 78 分鐘）確為蛋白質工程：講者以自己團隊的工作為例，涵蓋 AlphaFold 與諾貝爾獎、「香蕉」比喻（最佳化者就是對手）、ESM 等生成模型、條件生成模型與 ChatGPT 的類比、基因治療載體，結尾提到 base editor；Rosetta 時間線、epistemic 不確定性、Bayes rule 三條路、CTMC guidance 與 AAV 五步流程在字幕中找不到，可能只在講義。Lecture 27 影片（yRgSQCXr8M0，約 74 分鐘）確為 LLMs, Agents, Environments：agent 與 workflow 的區分、LangChain／AutoGen、Terminal-Bench 與 Docker／Harbor、SFT／RLVR／GRPO、GEPA（字幕誤拼成 JEPA）、Slack 檔案匯出對比 MCP、Dimitris 的 guest lecture 例子，開場與結尾有課程評鑑與期末考提醒；METR 任務時長翻倍與 2029 的外推在字幕中找不到。第 26 講沒有嵌入影片，未核對。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## Lec 25：蛋白質工程的 AI
 
@@ -234,6 +209,31 @@ Spring 2026 的期末考在 5/11（syllabus 寫 11:30 AM – 2:30 PM，占 CS189
 - 系列導覽：上一篇 [Lec 23–24：LLM 訓練與自監督學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)；下一篇 [HW5（選修）導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：挑一個 [Terminal-Bench](https://www.tbench.ai/) 的任務類型，照 Lec 27 的三件套自己寫一個迷你環境：一句任務描述、一份會把東西弄壞的 Dockerfile、一支檢查是否修好的測試腳本。寫完 verifier 你就會發現，「怎麼判定成功」比「怎麼讓 agent 動起來」難得多。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。官方課表沒有列第 26 講（guest lecture）的錄影。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=V-SJk4AJ-xc
+title: Lecture 25 錄影：AI for Protein Engineering
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yRgSQCXr8M0
+title: Lecture 27 錄影：LLMs, Agents, Environments
+```
+
+原始影片：[Lecture 25 錄影：AI for Protein Engineering](https://www.youtube.com/watch?v=V-SJk4AJ-xc)、[Lecture 27 錄影：LLMs, Agents, Environments](https://www.youtube.com/watch?v=yRgSQCXr8M0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 25 影片（V-SJk4AJ-xc，約 78 分鐘）確為蛋白質工程：講者以自己團隊的工作為例，涵蓋 AlphaFold 與諾貝爾獎、「香蕉」比喻（最佳化者就是對手）、ESM 等生成模型、條件生成模型與 ChatGPT 的類比、基因治療載體，結尾提到 base editor；Rosetta 時間線、epistemic 不確定性、Bayes rule 三條路、CTMC guidance 與 AAV 五步流程在字幕中找不到，可能只在講義。Lecture 27 影片（yRgSQCXr8M0，約 74 分鐘）確為 LLMs, Agents, Environments：agent 與 workflow 的區分、LangChain／AutoGen、Terminal-Bench 與 Docker／Harbor、SFT／RLVR／GRPO、GEPA（字幕誤拼成 JEPA）、Slack 檔案匯出對比 MCP、Dimitris 的 guest lecture 例子，開場與結尾有課程評鑑與期末考提醒；METR 任務時長翻倍與 2029 的外推在字幕中找不到。第 26 講沒有嵌入影片，未核對。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L22 + L26: Practical Risks and the Science of Alignment — Copyright, Jailbreaks, Hallucination, Bias, Carbon, and Why Alignment Has Theoretical Limits"
+title: "Practical Risks and the Science of Alignment — Copyright, Jailbreaks, Hallucination, Bias, Carbon, and Why Alignment Has Theoretical Limits | CMU 10-423 Lecture 22 / Lecture 26"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,17 +40,6 @@ glossary:
 Official materials used: the [Course Description on the home page](https://www.cs.cmu.edu/~mgormley/courses/10423/), the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [L22 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture22-practical-considerations.pdf) (66 pages), and the [L26 alignment slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture26-alignment.pdf) (35 pages). Neither has an inked version, and the schedule lists no readings. A few L22 slides still carry 2024 dates in the footer (for example 9/25/24 and 10/9/24), so some material is carried over from earlier offerings. L26's first deck, "Interactive World Models," is covered in [part 22](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en). The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post relies only on the slides. Both decks are mostly screenshots of papers, so what can be confirmed is the text and captions in those screenshots.
 
 The question this post answers: **where do generative models go wrong, and how does alignment research deal with it?**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## What the syllabus promises versus what the slides cover
 
@@ -244,6 +233,17 @@ Confirmed: the schedule's dates, speakers, and quiz coverage; the syllabus Cours
 Further reading: the [Harvard CS2881R guide](/posts/ai/2026-09-30-cs2881r-course-overview-en) covers AI safety across a whole course, and its [adversarial robustness](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) and [economic impacts](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en) lectures are closest to this post; the [CME295 preference tuning post](/posts/ai/2026-09-29-cme295-preference-tuning-en) fills in RLHF details.
 
 Series navigation: previous [L20: reasoning models](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) | next [L23: code generation and autonomous agents](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

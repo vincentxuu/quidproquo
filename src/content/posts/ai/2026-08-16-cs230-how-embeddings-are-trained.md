@@ -1,5 +1,5 @@
 ---
-title: "Supervised, Self-Supervised & Weakly Supervised Learning：從比較像素到比較意義"
+title: "Supervised, Self-Supervised & Weakly Supervised Learning：從比較像素到比較意義｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -22,26 +22,6 @@ draft: false
 本篇對應 **[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)**（2025/09/30，Kian Katanforoosh 主講，1 小時 40 分。官網 syllabus 上的標題是 "Key AI Concepts Through Case Studies"）。
 
 這是全系列資訊密度最高的一講。Katanforoosh 是 Workera 的執行長，也是 CS230 的共同創辦人，他教一半的實體課。他開場給的定位是：實體課不重複線上影片的學術內容，而是帶**產業視角與決策方法**——所以整堂課的形式是三個案例研究，每一步都先問學生「你會怎麼做」再給答案。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 2（長度 1:39:48，與文中「1 小時 40 分」相符；Kian 在字幕自稱與 Andrew 共同講授、教約一半實體課）。逐項對過字幕：模型＝兩個檔案、YOLO、「第一名錯誤是加資料卻忘了改標籤」、挪威／瑞典、64×64×3、412×412×3、德國朋友與 Palo Alto／紐約地鐵、義大利語實驗與「一千倍」、三小時生成上百萬筆資料、CC BY／MIT／Apache、Gates 大樓博士生、128 維與 0.4／0.5 門檻、投票 47:23:3、Global Entry、K nearest neighbors、手機相簿 centroid、五句接龍、遮 20 個時間步、ImageBind 皆有對應。一處補註：字幕只稱 contrastive learning，未提 SimCLR 與其 76.5%／85.8% 數字、FaceNet 的 99.63%，這些是本站引自論文，已在正文註明。
-
-```youtube
-url: https://www.youtube.com/watch?v=DNCn1BpCAUY
-title: Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-查核日期：2026-10-10。
 
 ## 暖身：把「模型」講清楚
 
@@ -296,6 +276,26 @@ Katanforoosh 把這題丟給學生，逼問得很細。有人說「讓網路找�
 這直接影響檢索。當你發現結果語意上明明相關卻排不上去，問題往往不在 chunking 或 rerank，而在**那個 embedding 模型當初被訓練成認為什麼叫「接近」**，和你的查詢情境不一樣。站上 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 那篇要把 BM25 拉回來補盲區，根源就在這裡。
 
 另外那個合成資料 pipeline（**腳本知道答案，所以能自動標註**）今天一樣成立——現在大家用 LLM 生 eval 資料集，用的是同一個原理，也會踩到同一個坑：**訓練集可以合成，測試集必須真實。**
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 2（長度 1:39:48，與文中「1 小時 40 分」相符；Kian 在字幕自稱與 Andrew 共同講授、教約一半實體課）。逐項對過字幕：模型＝兩個檔案、YOLO、「第一名錯誤是加資料卻忘了改標籤」、挪威／瑞典、64×64×3、412×412×3、德國朋友與 Palo Alto／紐約地鐵、義大利語實驗與「一千倍」、三小時生成上百萬筆資料、CC BY／MIT／Apache、Gates 大樓博士生、128 維與 0.4／0.5 門檻、投票 47:23:3、Global Entry、K nearest neighbors、手機相簿 centroid、五句接龍、遮 20 個時間步、ImageBind 皆有對應。一處補註：字幕只稱 contrastive learning，未提 SimCLR 與其 76.5%／85.8% 數字、FaceNet 的 99.63%，這些是本站引自論文，已在正文註明。
+
+```youtube
+url: https://www.youtube.com/watch?v=DNCn1BpCAUY
+title: Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

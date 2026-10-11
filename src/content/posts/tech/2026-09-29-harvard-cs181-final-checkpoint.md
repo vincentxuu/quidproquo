@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 期末檢核與系列收尾：checklist、practice 與 practical 備援"
+title: "checklist、practice 與 practical 備援｜Harvard CS181 主題單元"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, final-exam, practical, learning-path]
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本**：2026 期末日期與週表以 [課站 schedule（Google Sheet）](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準；期末複習材料放在 [cs181-web 的 `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static)，實際打開後全是 **2025 版**（final review 標頭 `CS 1810 Spring 2025`，其餘 PDF 產生於 2025 年 5–6 月）。本篇 2026-09-29 查核。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -135,6 +124,17 @@ Checklist 也寫明哪些**不考**，例如 SVM dual 與 KKT 推導、二階最
 - 上一篇：[HW6（四）Q-learning 玩 Swingy Monkey＋Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics)
 - 回到起點：[Harvard CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
 - 上半學期對照：[期中檢核](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

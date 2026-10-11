@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 HW1 導讀：Logic and the Hybrid Wumpus Agent，邏輯推論加 A* 規劃"
+title: "Logic and the Hybrid Wumpus Agent，邏輯推論加 A* 規劃｜CMU 07-380 作業 1"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, logic, pacman, homework]
@@ -26,24 +26,6 @@ draft: false
 - **線上題看不到**。HW1 的 Online 部分連到 Gradescope 課程頁，要校內帳號。本文沒有讀到它的內容，也不猜。
 
 以下依 2026-09-29 抓取的作業頁。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- 作業頁：[assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
-- 程式碼：[logic_plan.zip](https://www.cs.cmu.edu/~07380/assignments/logic_plan/logic_plan.zip)（2026-09-29 以 HEAD 請求確認可下載）
-- 截止日：課站 Assignments 表寫 9/3 Thu 11:59 pm，已經過了
-
-公開程度：作業說明、starter 和本機 autograder 都能匿名取得，程式作業可以在校外完整重做。Gradescope 的線上題和正式評分只限校內。
 
 ## 這份作業在做什麼
 
@@ -184,6 +166,24 @@ Q6、Q7 的測資檔裡直接寫著盤面，`cat` 就看得到。用 `-q` 或 `-
 上一篇：[Lecture 2 導讀：Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents)。下一篇：[Lecture 3 導讀：Classical Planning](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning)。
 
 想看這類 Pacman 作業是怎麼一路演化過來的，可以讀 [Pacman AI 作業系譜](/posts/learning/2026-08-22-pacman-ai-project-lineage)。
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- 作業頁：[assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
+- 程式碼：[logic_plan.zip](https://www.cs.cmu.edu/~07380/assignments/logic_plan/logic_plan.zip)（2026-09-29 以 HEAD 請求確認可下載）
+- 截止日：課站 Assignments 表寫 9/3 Thu 11:59 pm，已經過了
+
+公開程度：作業說明、starter 和本機 autograder 都能匿名取得，程式作業可以在校外完整重做。Gradescope 的線上題和正式評分只限校內。
 
 ## 更新紀錄
 

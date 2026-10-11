@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 17: From Tokenization to N-gram Language Models"
+title: "From Tokenization to N-gram Language Models | CMU 07-280 Lecture 17"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is a lecture-by-lecture reading of **CMU 07-280, Spring 2026, Lecture 17**. The official slide deck is titled *Natural Language Processing (NLP): N-gram Language Models*. It moves from corpora and tokenization to N-grams and language models. Before asking how to build a modern LLM, it asks a more basic question: what must text become before a probabilistic model can process it?
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-This article fully reads the [official Lecture 17 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf) and uses the course site and syllabus to verify the offering. The official site does not provide a public Spring 2026 lecture recording, so this is a reading of published materials, not a reconstruction of spoken explanations, classroom questions, or live demos.
-
-The slides proceed through NLP task examples, vocabulary, tokenization, BPE, language-model applications, and an N-gram worksheet. This article follows that same conceptual spine.
 
 ## The inherited problem: neural networks consume numbers, not language
 
@@ -98,6 +82,22 @@ N-grams are therefore not merely obsolete language models. They make the chain r
 ## An action for tonight
 
 Take a 100–300 word passage and tokenize it three ways: characters, whitespace-delimited words, and two manual BPE rounds. Record vocabulary size and sequence length for each. Then build bigram counts and generate ten tokens. When a context has never appeared, label it as a zero count instead of inventing a fallback; that failure is the starting point for Lecture 18.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+This article fully reads the [official Lecture 17 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec17_NLP.pdf) and uses the course site and syllabus to verify the offering. The official site does not provide a public Spring 2026 lecture recording, so this is a reading of published materials, not a reconstruction of spoken explanations, classroom questions, or live demos.
+
+The slides proceed through NLP task examples, vocabulary, tokenization, BPE, language-model applications, and an N-gram worksheet. This article follows that same conceptual spine.
 
 ## Update Log
 

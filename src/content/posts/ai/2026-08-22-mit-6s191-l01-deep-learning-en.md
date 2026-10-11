@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 1: The Minimal Structure of Deep Learning"
+title: "The Minimal Structure of Deep Learning | MIT 6.S191 Lecture 1"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 1 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **The Minimal Structure of Deep Learning**. It builds the vocabulary shared by the rest of the course: perceptrons, forward propagation, loss, and gradient descent. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=II4giR4vOOo
-title: MIT Introduction to Deep Learning | 6.S191
-```
-
-Original videos: [MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=II4giR4vOOo)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Alexander Amini's opening lecture; the transcript covers the perceptron (single neuron, activation), loss, gradient descent, backpropagation (chain rule) and overfitting, matching the concept chain in this note, and introduces the labs.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ After watching, draw a two-layer network and label every tensor shape, then use 
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=II4giR4vOOo
+title: MIT Introduction to Deep Learning | 6.S191
+```
+
+Original videos: [MIT Introduction to Deep Learning | 6.S191](https://www.youtube.com/watch?v=II4giR4vOOo)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Alexander Amini's opening lecture; the transcript covers the perceptron (single neuron, activation), loss, gradient descent, backpropagation (chain rule) and overfitting, matching the concept chain in this note, and introduces the labs.
 
 ## Update Log
 

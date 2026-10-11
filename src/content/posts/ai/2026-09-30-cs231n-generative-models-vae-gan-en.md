@@ -1,5 +1,5 @@
 ---
-title: "CS231N L13: Generative Models I — What Autoregressive Models, VAEs, and GANs Each Optimize"
+title: "Generative Models I — What Autoregressive Models, VAEs, and GANs Each Optimize | Stanford CS231N Lecture 13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,24 +32,6 @@ glossary:
 The [CS231N](https://cs231n.stanford.edu/) lecture on May 14, 2026 was the first half of generative models. The [schedule](https://cs231n.stanford.edu/schedule.html) lists three topics: Variational Autoencoders, Generative Adversarial Network, and Autoregressive Models, with one suggested reading, the blog post [ELBO — What & Why](https://yunfanj.com/blog/2021/01/11/ELBO.html). The official material is the 116-page [lecture_13.pdf](https://cs231n.stanford.edu/slides/2026/lecture_13.pdf); the matching public recording is [Spring 2025 Lecture 13](https://www.youtube.com/watch?v=zbHXQRUNlH0).
 
 One thing to clear up first: **the 2026 L13 slides actually cover only autoregressive models and VAEs.** The taxonomy (slides 46–47) marks autoregressive models and VAEs as "Today" and GANs and diffusion as "Next Time", and the last slide reads "Next Time: Generative Adversarial Networks, Diffusion Models". The GAN material is on slides 8–35 of [lecture_14.pdf](https://cs231n.stanford.edu/slides/2026/lecture_14.pdf). The 2025 slides split things the same way. Following the schedule and the series plan, this post includes GANs and marks where they really sit in the slides; the next post starts at diffusion.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the embedded video is Spring 2025 Lecture 13 (length 1:12:30; speaker Justin Johnson per the video description). The transcript covers generative vs. discriminative models, density and maximum likelihood, the chain rule, and VAEs with the ELBO, matching the first half of the article (mechanism 1, autoregressive, and mechanism 2, VAE); GAN barely appears (2 mentions; GANs are in Lecture 14). The GAN section is in Lecture 14 (linked as text only, not embedded); that transcript was checked for the diffusion post and does contain GANs, the discriminator and StyleGAN. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=zbHXQRUNlH0
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)
-Other related videos (text links only): [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Scene: a classifier can't say "this image makes no sense"
 
@@ -228,6 +210,24 @@ On the assignment side, [A3](https://cs231n.github.io/assignments2026/assignment
 ## Access limits
 
 Under the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), this course is **A3**: the 2026 slides, assignments, and course notes are public, plus full 2025 recordings. The gaps for this lecture: 2026 recordings are on Canvas for enrolled students only, and the midterm (May 12, two days before this lecture) is not public.
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the embedded video is Spring 2025 Lecture 13 (length 1:12:30; speaker Justin Johnson per the video description). The transcript covers generative vs. discriminative models, density and maximum likelihood, the chain rule, and VAEs with the ELBO, matching the first half of the article (mechanism 1, autoregressive, and mechanism 2, VAE); GAN barely appears (2 mentions; GANs are in Lecture 14). The GAN section is in Lecture 14 (linked as text only, not embedded); that transcript was checked for the diffusion post and does contain GANs, the discriminator and StyleGAN. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=zbHXQRUNlH0
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)
+Other related videos (text links only): [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

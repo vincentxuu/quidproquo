@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 7: MDPs I: Putting Uncertainty into State Transitions"
+title: "MDPs I: Putting Uncertainty into State Transitions | Stanford CS221 Lecture 7"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 7**, taught by Percy Liang on 2025-10-13. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering, assignments, and lecture context. The article follows the executable [official `mdp` lecture artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp), with the data structures and update order translated into a readable derivation. The recording can be cross-checked through the [official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN), and the lecture source is in the [official lecture repository](https://github.com/stanford-cs221/autumn2025-lectures).
 
 > Material gap: The official lecture artifact and video are public; the local `mdp.py` does not provide the full spoken lecture, Canvas interactions, assignment solutions, or hidden tests. The claims below therefore stay with what the source directly demonstrates or what follows from its equations. Details from another term, unseen video material, or intuition are not presented as Lecture 7 conclusions.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 7, the same term and lecture number this article follows. It matches item 7 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
-title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 7) and confirmed it covers MDP transition probabilities and rewards, policy evaluation, Q-values, discounting, and value iteration, matching this article's lecture and topic; no mismatch found.
 
 ## 1. Start with search: why an MDP is needed
 
@@ -176,6 +156,26 @@ Finally, `max_iters=100` and `tolerance=1e-5` do not make `V*` exact. Hitting th
 ## 10. The model to carry forward
 
 Do not just memorize “take the max”; audit the contract. Does the state retain Markov information? Are actions complete and probabilities normalized? Is reward a negative cost or utility? Which states are terminal? Does γ fit future preferences? Is the reachable space finite and enumerable? If one answer is unclear, the table may not answer the intended question.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 7, the same term and lecture number this article follows. It matches item 7 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
+title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 7) and confirmed it covers MDP transition probabilities and rewards, policy evaluation, Q-values, discounting, and value iteration, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224R Default Project: Fine-Tuning an LLM on Countdown with SFT, IPO, and RLOO"
+title: "Fine-Tuning an LLM on Countdown with SFT, IPO, and RLOO | Stanford CS224R Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ The [CS224R](https://cs224r.stanford.edu/) final project is 35% of the course gr
 The spec opens with a note: the default project isn't meant to be less work. It removes the difficulty of devising your own idea and evaluation, so you can put the same effort into a given problem.
 
 It ties the last two lectures together. You run [L9](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)'s preference optimization and the verifiable-reward RL from [L10](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) on the same task.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## The task: Countdown
 
@@ -188,6 +178,16 @@ Download [default_proj.zip](https://cs224r.stanford.edu/material/default_proj.zi
 - [CME295: Preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en): an overview of the DPO family
 
 **Series**: previous [L10: RL for LLM reasoning and test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) | next [L11: Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

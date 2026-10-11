@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 導讀：Song Han 的高效 AI 課停了一年，這個系列為什麼以 Fall 2024 為主幹"
+title: "高效 AI：從模型壓縮到硬體部署的學習路線｜MIT 6.5940 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 Fall 2024 課頁的課程描述列出的主題有 model compression、pruning、quantization、neural architecture search、distributed training、data/model parallelism、gradient compression、on-device fine-tuning。另外還有針對 LLM 與 diffusion model 的加速技術。課頁承諾的實作成果很具體：學生要親手把 Llama2-7B 部署到自己的筆電上。
 
 這一篇是 MIT 6.5940 導讀的入口，回答四件事：這門課教什麼、為什麼本系列用 Fall 2024 而不是最新一屆、校外讀者實際拿得到什麼，以及怎麼讀。
-
-## 課程影片來源
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方課程頁核對：Fall 2024 頁列有第 1–23 講的公開 YouTube 錄影（第 24–26 講是期末專題報告，頁面未列錄影）；Fall 2026 頁目前列有第 1–8 講錄影。逐講影片附在各講文章。
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -196,6 +186,16 @@ L1–L2 在第一章之前，負責動機與量尺。Course Summary 投影片第
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)：diffusion 與 flow matching 的理論
 
 **系列導覽**：下一篇 [為什麼要高效、怎麼量模型大小與運算量](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
+
+## 課程影片來源
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。2026-10-10 已即時回官方課程頁核對：Fall 2024 頁列有第 1–23 講的公開 YouTube 錄影（第 24–26 講是期末專題報告，頁面未列錄影）；Fall 2026 頁目前列有第 1–8 講錄影。逐講影片附在各講文章。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

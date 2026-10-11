@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 1: What Machine Learning and Deep Learning Are"
+title: "What Machine Learning and Deep Learning Are | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,30 +22,6 @@ This is post 1 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/p
 **Sources**: the [Introduction deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf) (46 pages) and three videos: [1.1 What is ML?](https://youtu.be/Nls5bHxW6i0) (16:45), [1.2 What is DL?](https://youtu.be/asuLb0lLmJY) (41:26), and [1.3 How to Apply?](https://youtu.be/oT4UQj_PXYo) (10:11). The deck was checked on 2026-09-30. The videos are in Mandarin, and page numbers below refer to the PDF.
 
 There is no math in this lecture. It wants you to leave with two ideas: learning means finding a function, and you only know which model to pick after you write the task as "input domain → output domain."
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Nls5bHxW6i0
-title: ADL 1.1: What is ML? (YouTube)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=asuLb0lLmJY
-title: ADL 1.2: What is DL? (YouTube)
-```
-
-Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? (YouTube)](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? (YouTube)](https://www.youtube.com/watch?v=oT4UQj_PXYo)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (1.1 and 1.2) were read. 1.1: the sentiment-classification task that cannot be written as rules, learning as finding a function, training/testing, and the speech, image, advertising and game-playing applications. 1.2: the production-line analogy and end-to-end training, the shallow vs deep speech and image comparison, hidden layers and representations, the neuron and sigmoid, the roughly one-third error drop, big data and GPUs, and the fat vs thin parameter comparison. All match the corresponding sections. One thing the article did not say: both videos carry a YouTube upload date and description of 2024/09/04, so they are Fall 2024 recordings rather than a 2025 re-recording (the description also notes slides at adl.miulab.tw). The article makes no specific claims about the slide-21 timeline as spoken in the video, and 1.3 is not embedded and was not checked.
 
 ## When you can't write the rules, let the machine find the function
 
@@ -126,6 +102,30 @@ Pages 40–41 define "applied deep learning" as framing a task into a learning p
 
 Previous: [Reading NTU Yun-Nung Chen's Applied Deep Learning 2025 Fall: Course Map, A2 Rating, and How to Read It](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Nls5bHxW6i0
+title: ADL 1.1: What is ML? (YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=asuLb0lLmJY
+title: ADL 1.2: What is DL? (YouTube)
+```
+
+Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? (YouTube)](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? (YouTube)](https://www.youtube.com/watch?v=oT4UQj_PXYo)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (1.1 and 1.2) were read. 1.1: the sentiment-classification task that cannot be written as rules, learning as finding a function, training/testing, and the speech, image, advertising and game-playing applications. 1.2: the production-line analogy and end-to-end training, the shallow vs deep speech and image comparison, hidden layers and representations, the neuron and sigmoid, the roughly one-third error drop, big data and GPUs, and the fat vs thin parameter comparison. All match the corresponding sections. One thing the article did not say: both videos carry a YouTube upload date and description of 2024/09/04, so they are Fall 2024 recordings rather than a 2025 re-recording (the description also notes slides at adl.miulab.tw). The article makes no specific claims about the slide-21 timeline as spoken in the video, and 1.3 is not embedded and was not checked.
 
 ## Update Log
 

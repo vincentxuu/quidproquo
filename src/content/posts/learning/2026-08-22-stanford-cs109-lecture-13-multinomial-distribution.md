@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 13｜Multinomial：多類別計數、bag of words 與 log probability"
+title: "Multinomial：多類別計數、bag of words 與 log probability｜Stanford CS109 第 13 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 14 篇，對應 **Summer 2026 Lecture 13: Multinomial**，日期為 7 月 14 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture13-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture13-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture13-LLMPrompts.pdf)與跨 offering 共用的 Spring-dated 官方讀本 [multinomial](https://probabilitycoders.stanford.edu/spr26/multinomial) 及 [Federalist Papers](https://probabilitycoders.stanford.edu/spr26/federalist) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 正式 worksheet 與 answer key 都是兩頁、P1–P6 加 challenge，題號完整。LLM guide 雖顯示第三頁，但該頁只有前頁延續的收尾句與頁碼，沒有第七個 concept 或額外 agenda。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
 
 ## P1：以兩節點 network 複習 inference
 
@@ -160,6 +147,19 @@ P(X1=k,X2=n-k)
 - Guide 的第三頁只有收尾文字與頁碼，不代表額外 concept。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - Worksheet 與主要 guide 內容各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

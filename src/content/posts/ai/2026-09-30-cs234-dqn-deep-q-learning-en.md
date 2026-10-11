@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 6: DQN — the Deadly Triad, Experience Replay, and Fixed Q-Targets"
+title: "DQN — the Deadly Triad, Experience Replay, and Fixed Q-Targets | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,26 +39,6 @@ Official materials used: pages 5–21 of the [Lecture 5 slides (post version)](h
 Access level is **A3 (enough for self-study)**: the slides and the A2 handout are public. The gaps: the 2026 recordings are on Canvas only, and the Gradescope autograder is not public, so you can only check your A2 Q1 answers against the slides yourself.
 
 Lecture 5 is titled "Policy Gradient I", but its first 21 pages finish off function approximation and cover DQN. This series splits by topic, so this post covers only that first half. The policy gradient half is in the [next post](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en).
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=b_wvosA70f8
-title: video 04, "Q learning and Function Approximation"
-```
-
-Original videos: [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8)
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 4, "Q learning and Function Approximation" (about 68K characters): the video goes through GLIE/SARSA/Q-learning, function approximation and the deadly triad, with DQN (experience replay and fixed targets) in roughly the last 20%. Minute marks are now approximate values estimated from the transcript. The Lecture 5 "Policy Search 1" transcript only mentions DQN in passing in an opening review question and a comparison, and does not teach it; the text now says so.
 
 ## Back to the last equation of the previous post
 
@@ -192,6 +172,26 @@ This series does not give answers. The other three questions of A2 (policy gradi
 - [CS229 notes, Chapter 19: reinforcement learning](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en): the prerequisite course's treatment of MDPs and value iteration
 
 **Series navigation**: previous [Part 5: model-free control](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en) | next [Part 7: policy gradients — REINFORCE, baselines, actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=b_wvosA70f8
+title: video 04, "Q learning and Function Approximation"
+```
+
+Original videos: [video 04, "Q learning and Function Approximation"](https://www.youtube.com/watch?v=b_wvosA70f8)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 4, "Q learning and Function Approximation" (about 68K characters): the video goes through GLIE/SARSA/Q-learning, function approximation and the deadly triad, with DQN (experience replay and fixed targets) in roughly the last 20%. Minute marks are now approximate values estimated from the transcript. The Lecture 5 "Policy Search 1" transcript only mentions DQN in passing in an opening review question and a comparison, and does not teach it; the text now says so.
 
 ## Update Log
 

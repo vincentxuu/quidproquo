@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA2：從零打造 task execution library——thread pool、sleep 到有依賴的 task graph"
+title: "從零打造 task execution library——thread pool、sleep 到有依賴的 task graph｜Stanford CS149 程式作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,14 +30,6 @@ glossary:
 官方材料是 GitHub 上的 [stanford-cs149/asst2](https://github.com/stanford-cs149/asst2)：主 README、[`tests/README.md`](https://github.com/stanford-cs149/asst2/blob/master/tests/README.md)、[`cloud_readme.md`](https://github.com/stanford-cs149/asst2/blob/master/cloud_readme.md)。這篇只講題目在練什麼、每一步該觀察什麼現象，**不提供解答**。
 
 存取等級：starter code、測試、參考實作的執行檔都公開，是 **A3**。限制在評分環境，後面會講。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## 題目一句話
 
@@ -203,6 +195,14 @@ python3 ../tests/run_test_harness.py
 延伸閱讀：condition variable 與 lock 的作業系統觀點，可以讀 [CS111 Lecture 5：Locks 與 condition variables](/posts/learning/2026-08-22-stanford-cs111-lecture-05-locks-condition-variables)。
 
 系列導覽：上一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜下一篇 [L7 GPU 架構與 CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## 更新紀錄
 

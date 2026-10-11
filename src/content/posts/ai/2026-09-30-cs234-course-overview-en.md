@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS234: Overview and Self-Study Route (Winter 2026)"
+title: "Overview and Self-Study Route (Winter 2026) | Stanford CS234 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,17 +29,6 @@ glossary:
 [CS234: Reinforcement Learning](https://web.stanford.edu/class/cs234/) is Emma Brunskill's reinforcement learning course at Stanford. In Winter 2026 it met Mondays and Wednesdays, 3:00–4:20 pm. The schedule runs from January 5 to the final report deadline on March 17.
 
 This post answers five questions: what the course covers, what you need first, what outside readers can actually get, how the 2026 materials pair with the 2024 recordings, and how to lay out ten weeks.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-Checked: 2026-10-10.
 
 ## What the course covers
 
@@ -234,6 +223,17 @@ These series on the site overlap with CS234. This series does not cut content be
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): where the A0–A3 tiers are defined
 
 **Series navigation**: next, [What RL is and the language of MDPs](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

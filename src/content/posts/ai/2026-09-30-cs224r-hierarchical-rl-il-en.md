@@ -1,5 +1,5 @@
 ---
-title: "CS224R L15: Hierarchical RL and Imitation Learning"
+title: "Hierarchical RL and Imitation Learning | Stanford CS224R Lecture 15"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ Official materials used:
 Access level is **A3**: the slides download anonymously, and the 2026 recordings live on Canvas for enrolled students only.
 
 Companion video (**supplement**): [Spring 2025 Lecture 15: Hierarchical RL and IL](https://www.youtube.com/watch?v=iKWYLSVAtfM) (about 70 minutes). The 2025 lecture ran on May 21 with the same title and reading, but it is last year's recording and may differ from the 2026 slides. This post follows the 2026 slides.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=iKWYLSVAtfM
-title: Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)](https://www.youtube.com/watch?v=iKWYLSVAtfM)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L15 Hierarchical RL and IL transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers high-level and low-level policies, DAgger-style human interventions, subgoals produced by an image-editing model, and a closing section on hierarchical RL, consistent with the post's topic. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Setting: stringing behaviors together
 
@@ -214,6 +195,25 @@ Further reading on this site:
 Confirmed: the text, algorithm steps, and figure titles in the 2026 slides; the schedule's date and reading; the title and length of the 2025 video; and every paper title (each arXiv page was opened). Not confirmed: what was said in the slide 13 discussion, the numbers and metrics behind the bar charts on slides 34–36, and how the four industry systems on slide 23 were presented in class. The 2026 slides title SuSIE "SuSIE: Subgoal Synthesis via Image Editing," while arXiv titles it "Zero-Shot Robotic Manipulation with Pretrained Image-Editing Diffusion Models." They are the same paper.
 
 Series navigation: previous [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en) | next [L16 Sim-to-Real Robot Learning](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=iKWYLSVAtfM
+title: Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 15: Hierarchical RL and IL (YouTube, supplement)](https://www.youtube.com/watch?v=iKWYLSVAtfM)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L15 Hierarchical RL and IL transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers high-level and low-level policies, DAgger-style human interventions, subgoals produced by an image-editing model, and a closing section on hierarchical RL, consistent with the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 15：Logic I：模型、蘊涵與 SAT"
+title: "Logic I：模型、蘊涵與 SAT｜Stanford CS221 第 15 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 15**，2025-11-10 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是官方可執行講義裡的 [`propositional_logic.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=propositional_logic)。以下不是把「logic」濃縮成幾個名詞，而是沿著程式的執行順序，把每一個定義、例子與轉換接起來。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 15 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 15 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=Q7V13XriJEc
-title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 15: Logic I](https://www.youtube.com/watch?v=Q7V13XriJEc)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 15 支）字幕，確認內容涵蓋命題邏輯的語法與語意、models、entailment／contradiction／contingency、knowledge base、推論規則、satisfiability／SAT，與本文的講次與主題相符，未發現錯配。
 
 ## 這一講的問題：為什麼需要邏輯
 
@@ -153,6 +133,26 @@ Forward inference 的輸入是 inference rules 的集合 `Rules` 與初始 KB。
 ## source 的邊界
 
 公開 artifact 到 completeness 為止；沒有 CNF 轉換或 DPLL/CDCL 的完整實作。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 15 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 15 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=Q7V13XriJEc
+title: Stanford CS221 | Autumn 2025 | Lecture 15: Logic I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 15: Logic I](https://www.youtube.com/watch?v=Q7V13XriJEc)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 15 支）字幕，確認內容涵蓋命題邏輯的語法與語意、models、entailment／contradiction／contingency、knowledge base、推論規則、satisfiability／SAT，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

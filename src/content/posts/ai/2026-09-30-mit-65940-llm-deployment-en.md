@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lecture 13: LLM Deployment Through Quantization, Sparsity, and Serving"
+title: "LLM Deployment Through Quantization, Sparsity, and Serving | MIT 6.5940 Lecture 13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,24 +40,6 @@ glossary:
 **Official materials**: [Lec13-LLM-Deployment.pdf](https://www.dropbox.com/scl/fi/aa5ea0hrc68cn3fh18nan/Lec13-LLM-Deployment.pdf?rlkey=gzq9yiddx4bnh14bxomtfmcoj&dl=0) (93 pages; every page number below refers to this PDF) and the [Lecture 13 recording](https://youtu.be/sTz2tXG1T0c). Access level **A3**: slides and recording are public, and the matching exercises are [Lab 4 and Lab 5](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en). Everything below follows the slides, checked on 2026-09-30.
 
 **Fall 2026 status**: the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) renames Lecture 13 (October 27) to "LLM Quantization and Deployment". As of 2026-09-30 its slides and recording aren't up, so the content can't be compared yet.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=sTz2tXG1T0c
-title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 3 due, Lab 4 out) and the closing summary and spot-checked the middle: SmoothQuant, AWQ (keeping about 1% of salient weight channels), GPTQ, QServe (W4A8KV4), sparsity, serving metrics such as TTFT, PagedAttention, FlashAttention, continuous/in-flight batching and speculative decoding. Topics and lecture number match this post. The OPT-6.7B perplexity figures on slide 25 (43.16 and 14.07) are slide numbers with no matching statement in the captions, so they remain slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## What this lecture is solving
 
@@ -226,6 +208,24 @@ Put side by side, one thread runs through everything: **look at the activations*
 - Same series: [L12 Transformers and LLMs](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en), [L6 Quantization II (PTQ and QAT)](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en), [L11 TinyEngine and parallel computing](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing-en)
 - Inference and serving: [CS336 inference](/posts/ai/2026-08-22-cs336-inference-en), [CMU 11-868 model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en), [CMU 11-868 LLM serving (SGLang and vLLM)](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en), [CMU 11-868 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - MoE: [CMU 11-868 model parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=sTz2tXG1T0c
+title: EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 13 - LLM Deployment Techniques (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=sTz2tXG1T0c)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening (Lab 3 due, Lab 4 out) and the closing summary and spot-checked the middle: SmoothQuant, AWQ (keeping about 1% of salient weight channels), GPTQ, QServe (W4A8KV4), sparsity, serving metrics such as TTFT, PagedAttention, FlashAttention, continuous/in-flight batching and speculative decoding. Topics and lecture number match this post. The OPT-6.7B perplexity figures on slide 25 (43.16 and 14.07) are slide numbers with no matching statement in the captions, so they remain slide-sourced. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

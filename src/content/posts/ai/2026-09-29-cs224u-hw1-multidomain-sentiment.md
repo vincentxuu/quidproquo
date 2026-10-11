@@ -1,5 +1,5 @@
 ---
-title: "CS224U 作業一：多領域情感分析與 bake-off"
+title: "多領域情感分析與 bake-off｜Stanford CS224U 作業 1"
 date: 2026-09-29
 category: ai
 type: guide
@@ -41,24 +41,6 @@ glossary:
 它是整門課作業節奏的樣板。Potts 在 [作業一 overview 錄影](https://www.youtube.com/watch?v=PzvvtyK0QOk) 開頭就說，後面每份作業都照同樣的節奏與想法設計。所以這份的結構值得先看懂。
 
 本文只講題目結構、配分、需要的資源，以及今天照原樣跑會卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=PzvvtyK0QOk
-title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off
-```
-
-原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
-
-內容核對：已依字幕核對（2026-10-10）：已依 Homework 1 Overview: Bake Off 字幕逐項對照：作業節奏相同的開場、背景材料建議、三份資料與 mystery 句子、測試集 honor code 與『sin』的說法、單元測試、Q1／Q2 各 task 與 background 先做的建議、原創系統規則與原創性評分、START／STOP COMMENT 與文字描述的用意、bake-off 的 prediction 欄與檔名，以及結尾的助教回顧報告，皆吻合。資料載入相容性、配分數字與運算資源屬 notebook／網頁內容，不在影片內，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 它在課程裡的位置
 
@@ -170,6 +152,24 @@ SST 那一側的風險看起來比較小：`SetFit/sst5` 在 Hub 上是純資料
 
 - 課程狀態、三份作業總覽與環境坑：[Stanford CS224U 導讀（系列總覽）](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 預訓練與微調的基礎：[CS224N 第 7 講：預訓練、subword 與 in-context learning](/posts/ai/2026-08-22-cs224n-pretraining)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=PzvvtyK0QOk
+title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off
+```
+
+原始影片：[Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+
+內容核對：已依字幕核對（2026-10-10）：已依 Homework 1 Overview: Bake Off 字幕逐項對照：作業節奏相同的開場、背景材料建議、三份資料與 mystery 句子、測試集 honor code 與『sin』的說法、單元測試、Q1／Q2 各 task 與 background 先做的建議、原創系統規則與原創性評分、START／STOP COMMENT 與文字描述的用意、bake-off 的 prediction 欄與檔名，以及結尾的助教回顧報告，皆吻合。資料載入相容性、配分數字與運算資源屬 notebook／網頁內容，不在影片內，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 2：context 工程、RePPIT，與 MCP 的 98.7% 那一刀"
+title: "context 工程、RePPIT，與 MCP 的 98.7% 那一刀｜Stanford CS146S 第 2 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程列的四條主題：進階 prompting 技巧與各自的適用時機、RePPIT 與 spec-driven development、MCP 基礎（servers、clients、tools、transport）、以及 tool ergonomics。兩堂課分別是「Advanced prompting + agentic dev frameworks」與「Full introduction to MCP and tool-calling」。
 
 先說這週最大的訊號：**Fall 2025 有一整堂課叫「Power prompting for LLMs」，Fall 2026 它變成這週四條主題裡的第一條**。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 為什麼 prompting 會被降級
 
@@ -189,6 +177,18 @@ sub-agent 那條有個具體數字：子 agent 可能燒掉數萬 token，但回
 - 課程投影片講 MCP 傳輸層時是 stdio 與 SSE，規格之後有演進
 - 「2-3X faster」與「98.7%」分別出自框架作者與工具供應商，都是自家量測
 - MCP 的傳輸層規格仍在演進，寫作當下以官方文件為準
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

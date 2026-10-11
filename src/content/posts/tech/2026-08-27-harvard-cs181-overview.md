@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 Machine Learning 導讀總覽：2026 七份作業怎麼跟？四年版本一次看懂"
+title: "2026 七份作業怎麼跟？四年版本一次看懂｜Harvard CS181 課程總覽"
 date: 2026-08-27
 category: tech
 tags: [harvard, cs181, machine-learning, learning-path, homework, practical, textbook]
@@ -18,17 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。2026 課站嵌入的 [Google Sheet 課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 可匿名匯出（2026-09-29 確認），本系列以 `hw 編號` 為週節拍、課表講題為篇內順序。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -101,6 +90,17 @@ draft: false
 - 2024 scribe notes 是舊年份講義；midterm/final review 與 midterm practice 標頭為 2025。
 - 課站 `homework` 頁未更新（只列 HW0），2026 作業清單以 s26 repo 與課表為準。
 - CS1810 是春季課，Fall 2026 不開；Spring 2027 教材上架後再補對照。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 參考資料
 

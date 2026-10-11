@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 Approximation Theory — Universal Approximation, Barron's Theorem, and Why Depth Matters"
+title: "Approximation Theory — Universal Approximation, Barron's Theorem, and Why Depth Matters | MIT 6.7960 Topic Guide"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 03). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; optional reading includes *Deep Learning Theory Notes* (sections 2 and 5).
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
-title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 03 Approximation Theory transcript (Jeremy Bernstein, 1:22:42): the video opens with "scale width or depth?", and its body builds universal approximation from ReLU units (rectangles and triangle functions, about 28%–60%), the role of dimension and width, and the role of depth (about 61%–80%); Barron's theorem is mentioned only once, so that section now carries a note that its details are this site's supplement.
 
 ## The most fundamental question
 
@@ -113,6 +94,25 @@ Sweep the hidden width from 8 to 1024 and you will see the fit go from underfitt
 - **Width is not the only lever**: shallow nets suffice for low-dimensional, smooth problems; for high-dimensional, compositional structure, go deeper first.
 - **Don't blindly widen**: an ultra-wide shallow net can approximate in theory but trains and generalizes poorly; deep nets carry an inductive bias that fits real data better.
 - **Theory answers "why deep"**: not fashion, but expressive efficiency (this also ties back to L13's NTK view — the extremely-wide limit collapses into a linear kernel method).
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
+title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 03 Approximation Theory transcript (Jeremy Bernstein, 1:22:42): the video opens with "scale width or depth?", and its body builds universal approximation from ReLU units (rectangles and triangle functions, about 28%–60%), the role of dimension and width, and the role of depth (about 61%–80%); Barron's theorem is mentioned only once, so that section now carries a note that its details are this site's supplement.
 
 ## Update Log
 

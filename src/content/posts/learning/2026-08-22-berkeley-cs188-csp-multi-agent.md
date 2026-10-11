@@ -1,5 +1,5 @@
 ---
-title: "CS188 CSP 與多代理搜尋：Minimax、Alpha-Beta、Expectimax 怎麼選"
+title: "Minimax、Alpha-Beta、Expectimax 怎麼選｜Berkeley CS188 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, multi-agent, minimax, constraint-satisfaction]
@@ -20,26 +20,6 @@ draft: false
 
 [Lecture 5–8](https://inst.eecs.berkeley.edu/~cs188/sp26/)把兩類問題排在一起：CSP 用變數、domain 與 constraints 壓縮組合搜尋；game trees 則加入會回應你的其他 agent。[Project 2](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj2/)讓 Pacman 面對 ghosts，依序實作 reflex agent、minimax、alpha-beta pruning、expectimax 與 evaluation function。
 
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=JMP3f3Pd7_8
-title: CS188 Spring 2026 Lecture 5: CSPs I
-```
-
-原始影片：[CS188 Spring 2026 Lecture 5: CSPs I](https://www.youtube.com/watch?v=JMP3f3Pd7_8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 5，主題為CSPs I（約束滿足問題）；字幕先回顧 search 的假設（單一 agent、確定性、完全可觀察、離散），再引入 CSP 單元，並預告 Project 4 要找看不見的 ghosts。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
-
 ## CSP：先縮小選擇，再進入對局
 
 [官方 CSP 教材](https://inst.eecs.berkeley.edu/~cs188/textbook/csp/csps.html)把問題寫成 variables、每個 variable 的 domain，以及限制可同時成立 assignment 的 constraints。最基本的 backtracking 每次替一個 variable 選值；ordering heuristics 決定先選哪個 variable、先試哪個 value，propagation 則在每次 assignment 後刪除已不可能的候選值。它們不改答案集合，而是避免走進早已能判定失敗的分支。
@@ -59,6 +39,26 @@ Minimax 假設對手會選讓你最差的動作；alpha-beta 不改答案，只�
 建議先在紙上畫一棵含兩個 ghosts 的小樹，標出 agent index 與 depth 何時更新，再寫 recursion。完成 minimax 後才加 pruning，最後只替換 ghost node 的聚合規則做 expectimax。這樣每一步都能對回一個清楚假設。
 
 系列導航：[上一篇：搜尋與 heuristic](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics)｜[下一篇：MDP 與強化學習](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=JMP3f3Pd7_8
+title: CS188 Spring 2026 Lecture 5: CSPs I
+```
+
+原始影片：[CS188 Spring 2026 Lecture 5: CSPs I](https://www.youtube.com/watch?v=JMP3f3Pd7_8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 5，主題為CSPs I（約束滿足問題）；字幕先回顧 search 的假設（單一 agent、確定性、完全可觀察、離散），再引入 CSP 單元，並預告 Project 4 要找看不見的 ghosts。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
 
 ## 更新紀錄
 

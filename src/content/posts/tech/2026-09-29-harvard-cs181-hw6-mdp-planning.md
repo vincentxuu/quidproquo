@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW6（三）：MDP 的 Policy Iteration 與 Value Iteration"
+title: "（三）：MDP 的 Policy Iteration 與 Value Iteration｜Harvard CS181 作業 6"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, mdp, value-iteration, dynamic-programming, reinforcement-learning, homework]
@@ -29,17 +29,6 @@ glossary:
 > ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`、`img_input/gridworld.png`，due 2026-05-01）、[Section 10 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf)與 [2026 Lecture 21 MDP 投影片](https://drive.google.com/file/d/1RGWONNePmR07McdS_6H-vy_QWPSVevKG/view)為準，全部於 2026-09-29 實際打開。投影片連結來自[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)講題儲存格（xlsx 匯出才看得到）。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答。本篇不附答案，也不公布收斂次數或最終策略。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 13 篇。上一篇 [HW6（二）](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman)處理的是狀態自己演化、你只能觀察的 HMM。這篇讓 agent 開始做決定。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 在學期裡的位置
 
@@ -151,6 +140,17 @@ flowchart LR
 ## 下一篇
 
 這題的前提是你知道 `get_transition_prob`。下一篇 [HW6（四）：Q-learning 玩 Swingy Monkey 與 Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics) 拿掉這個前提：agent 不知道規則，只能從試錯裡學。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

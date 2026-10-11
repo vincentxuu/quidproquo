@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L1：為什麼 AI 安全值得一門研究所課"
+title: "為什麼 AI 安全值得一門研究所課｜Harvard CS2881R 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 一門 AI 安全課的第一堂，最難的不是講風險，是先說清楚「我們在擔心什麼東西」。有人覺得五年內會出現超人 AI，有人覺得 AI 只是下一個電力，兩邊對「安全」的定義差很遠。
 
 [CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 第一講（2025-09-04）的處理方式，是讓學生課前先讀立場相反的兩篇文章，再讀一篇量測方法，然後在課堂上把定義一個個拆開。這篇依序整理這三塊：課前讀什麼、Boaz 講了什麼、學生實驗做了什麼。
-
-## 課程影片來源
-
-已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=-NCiWaRS6So
-title: CS2881R Fall 2025 L1: Introduction
-```
-
-原始影片：[CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
-
-官方來源：
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 1》（2:25:51）的完整自動字幕：確認 Boaz 開場的風險分類與課程四塊、METR 趨勢外推、AGI 的衝擊定義（50% 工作被取代）與 capability-adoption gap（電動車例子）、對齊三種目標（Asimov 原則、character training、model spec）、推論成本每年至少降 10 倍，以及 Valerio 的實驗（生物倫理題 6,000 筆、Llama 3.2 1B、Tülu 3、95% 信賴區間）。實驗報告在影片中排在 Boaz 講定義之前；對齊／連貫度的具體分數、「第 90 百分位」的能力定義與部分失效模式（superalignment、Claude Code 寫死結果、deepfake）在字幕中沒有出現，這些來自週摘要與投影片，影片未驗證。
 
 ## 這一講的材料
 
@@ -177,6 +158,25 @@ title: CS2881R Fall 2025 L1: Introduction
 
 - 系列入口與材料缺口：[Harvard CS2881R 導讀（系列總覽）](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 本站的課程公開程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 課程影片來源
+
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=-NCiWaRS6So
+title: CS2881R Fall 2025 L1: Introduction
+```
+
+原始影片：[CS2881R Fall 2025 L1: Introduction](https://www.youtube.com/watch?v=-NCiWaRS6So)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 1》（2:25:51）的完整自動字幕：確認 Boaz 開場的風險分類與課程四塊、METR 趨勢外推、AGI 的衝擊定義（50% 工作被取代）與 capability-adoption gap（電動車例子）、對齊三種目標（Asimov 原則、character training、model spec）、推論成本每年至少降 10 倍，以及 Valerio 的實驗（生物倫理題 6,000 筆、Llama 3.2 1B、Tülu 3、95% 信賴區間）。實驗報告在影片中排在 Boaz 講定義之前；對齊／連貫度的具體分數、「第 90 百分位」的能力定義與部分失效模式（superalignment、Claude Code 寫死結果、deepfake）在字幕中沒有出現，這些來自週摘要與投影片，影片未驗證。
 
 ## 更新紀錄
 

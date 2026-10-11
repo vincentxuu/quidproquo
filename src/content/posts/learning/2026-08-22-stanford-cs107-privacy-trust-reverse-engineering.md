@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 20：Reverse Engineering 之後，先問 Privacy 與 Trust，再進 Heap Allocator"
+title: "Reverse Engineering 之後，先問 Privacy 與 Trust，再進 Heap Allocator｜Stanford CS107 第 20 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 前六講讓我們能追蹤 C 的 bytes 與 pointers，中段把函式翻成 x86-64，上一講則讓 buffer overflow 從抽象錯誤變成可讀的控制流程。Lecture 20 在進入 allocator 實作前刻意停一下：既然 reverse engineering 能揭露程式原本不打算公開的行為，會做與該不該做之間，必須補上一套 privacy 與 trust 的判斷語言。
 
 本講不是把倫理當成技術之外的裝飾。安全研究者能找到漏洞，是因為被允許或自行取得了特殊能力；資料管理者能做統計，是因為手上集中著別人的資訊；allocator 能重用一段空間，是因為 client 承諾不再碰已 `free` 的 block。三個問題其實相通：**誰能做什麼、我們依賴誰、背叛之後誰承擔風險？**
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -170,6 +162,14 @@ Privacy 與 allocator 看似是兩堂課，實際上共享同一個 systems 習�
 Lecture 20 的核心不是背四種 privacy 定義，也不是搶先學 allocator 演算法。它要求在能力增長時同步擴大責任感：reverse engineering 讓你能穿過抽象層，就更需要區分能力與授權；differential privacy 給出精確保證，就更需要辨認它沒有涵蓋的威脅；heap API 看似簡單，就更需要看見 library 與 client 共同維持的 ownership contract。
 
 下一步進 allocator 實作時，最值得保留的問題仍是同一組：誰擁有這段資源、誰被信任、信任持續多久、違反契約時誰會受傷。Systems programming 的成熟，不只是看得懂 bytes，也包括看得懂 bytes 背後的權力與責任。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

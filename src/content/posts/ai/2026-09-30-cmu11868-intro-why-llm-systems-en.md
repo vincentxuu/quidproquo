@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L01: Why LLMs Need Systems — the Scale Curve, Low-Level Operators, and Three Layers of Abstraction"
+title: "Why LLMs Need Systems — the Scale Curve, Low-Level Operators, and Three Layers of Abstraction | CMU 11-868 Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -27,16 +27,6 @@ glossary:
 **Series**: previous [Series overview and self-study paths](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) | next [L02–L04: GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 L01 has four parts: what LLMs can do, mathematical foundations, challenges in LLM systems, and logistics (page 5). Logistics are covered in the [overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en). This article follows the first three parts and traces how the lecture argues that LLMs need systems.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The learning objectives open with an arithmetic problem
 
@@ -128,8 +118,28 @@ Page 47 describes the homework: individual, in Python and C++/CUDA, building the
 - [CME295 Lecture 5: LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en): the same systems questions in one lecture.
 - [Reading CMU 11-785 Deep Learning](/posts/ai/2026-08-22-cmu-11785-course-overview-en): the course L01 recommends for students who want to learn to build models.
 
+## Complete the weight-memory calculation
+
+This is an invented teaching example, not a lecturer experiment or official assignment solution.
+
+For an invented estimate, assume 100 billion parameters stored at two bytes each. Weights alone require 200 billion bytes, or decimal 200 GB. If each card could dedicate all 64 GB to weights, capacity requires at least ceil(200/64)=4 shares.
+
+**Check and answer:** At four bytes per parameter, how many shares are needed? ceil(400/64)=7. This is only a capacity lower bound, excluding activations, gradients, optimizer state, caches, and communication; four cards are not thereby proven sufficient for training.
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
+
 ## Update Log
 
+
+- 2026-10-11: Added an invented worked example and comprehension check, preserving source limits and assignment scope.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
 

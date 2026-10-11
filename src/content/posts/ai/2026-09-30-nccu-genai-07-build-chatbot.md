@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀 L07：打造自己的對話機器人——API 金鑰、三種 role、把歷史對話送回去，以及用 Ollama 在本機跑模型"
+title: "打造自己的對話機器人——API 金鑰、三種 role、把歷史對話送回去，以及用 Ollama 在本機跑模型｜政大蔡炎龍 生成式AI 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -27,18 +27,6 @@ glossary:
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 7 篇，接在 [L06 LLM 的應用及倫理議題的挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)之後。上一講做出了一問一答的員瑛式思考生成器，這一講要讓它「聊得下去」，而且不一定要把資料送到雲端。
 
 用到的官方材料：[錄影 07](https://www.youtube.com/watch?v=LOo0VKhjoRc)（2025-04-01，約 3 小時 3 分）、投影片 GenAI07（31 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo04c】用OpenAI_API打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04c%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) 與 [`用_Ollama_打造自己的對話機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E7%94%A8_Ollama_%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8D%E8%A9%B1%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第七週作業。存取等級 **A3**。notebook 是跨課共用 repo，**以下引用 repo 目前版本，學期結束後可能已更新**。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-原始影片：[【生成式 AI】07.打造自己的對話機器人（YouTube 錄影）](https://www.youtube.com/watch?v=LOo0VKhjoRc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -159,6 +147,18 @@ Colab 免費版跑 1B 模型比較實際。想在自己電腦跑更大的版本�
 - 語言模型本身怎麼運作：[Stanford CS224N 導讀](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)
 
 上一篇：[L06 LLM 的應用及倫理議題的挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)｜下一篇：[L08 檢索增強生成（RAG）的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+原始影片：[【生成式 AI】07.打造自己的對話機器人（YouTube 錄影）](https://www.youtube.com/watch?v=LOo0VKhjoRc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

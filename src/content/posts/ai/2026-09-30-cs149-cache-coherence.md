@@ -1,5 +1,5 @@
 ---
-title: "CS149 L14 Cache coherence：MSI、MESI 與 false sharing"
+title: "Cache coherence：MSI、MESI 與 false sharing｜Stanford CS149 第 14 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 19 篇，接續 [PA5 在 H100 上寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)，範圍是 Lecture 14「Cache Coherence」（2025-11-11）。
 
 用到的官方材料是 [L14 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/cachecoherence/14_coherence.pdf)（45 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 11 Cache Coherence 錄影](https://www.youtube.com/watch?v=lrCfG2CPDEw)當替代。本文以 2025 投影片為準，影片只列為聽講補充。這一講的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片完整公開，缺的是當期錄影。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=lrCfG2CPDEw
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence](https://www.youtube.com/watch?v=lrCfG2CPDEw)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 11 - Cache Coherence》（1:20:37）。影片前約三分之一在收尾上一講的 Spark，約三分之一處才進入 cache coherence：講 coherence 的定義與兩個不變式、軟體與硬體做法、snooping 的概念，最後停在 MSI 三個狀態與 BusRd／BusRdX／BusWB 的定義，講者說狀態如何轉換「週四再繼續」。字幕中沒有 MESI 的 E 狀態、false sharing 的示範與 padding、directory 的實作細節（directory 只被一句帶過），所以本文這幾段沒有影片可對照。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 為什麼 AI kernel 之後突然回到 cache
 
@@ -222,6 +204,24 @@ Demo 的數字：8 個 thread 在 4 核系統上各自對自己的計數器加�
 延伸閱讀：作業系統層級的鎖與同步可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [PA5 在 H100 上寫最快的 kernel](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels)｜下一篇 [L15 記憶體一致性](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=lrCfG2CPDEw
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 11 - Cache Coherence](https://www.youtube.com/watch?v=lrCfG2CPDEw)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/cachecoherence/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 11 - Cache Coherence》（1:20:37）。影片前約三分之一在收尾上一講的 Spark，約三分之一處才進入 cache coherence：講 coherence 的定義與兩個不變式、軟體與硬體做法、snooping 的概念，最後停在 MSI 三個狀態與 BusRd／BusRdX／BusWB 的定義，講者說狀態如何轉換「週四再繼續」。字幕中沒有 MESI 的 E 狀態、false sharing 的示範與 padding、directory 的實作細節（directory 只被一句帶過），所以本文這幾段沒有影片可對照。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

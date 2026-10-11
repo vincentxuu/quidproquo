@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 3: Transformers Have Many Variants but Few Stable Defaults"
+title: "Transformers Have Many Variants but Few Stable Defaults | Stanford CS336 Lecture 3"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 3: Architectures, hyperparameters**, taught by Tatsunori Hashimoto on April 6, 2026. Its primary source is the official [`lecture_03.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf).
 
 The lecture is deliberately titled “Everything You Didn't Want to Know.” Recent model papers expose a large number of architectural variants, but the useful question is not how to memorize every name. It is which choices have converged across models, which remain local tradeoffs, and which differ because scale or systems constraints differ.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Architectures). The captions open with "everything you didn't want to know about architectures and hyperparameters" and cover each section here: pre-norm vs post-norm, RMSNorm, bias, SwiGLU, RoPE, aspect ratio, vocabulary, dropout/weight decay, QK norm, z-loss, soft-capping, GQA and sliding window. The lecturer (Tatsu) matches the official schedule. Checked by keyword and passage sampling, not line by line; the article makes no other specific claims about the video, so no changes were needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=lVynu4bo1rY
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Start from a simplified modern Transformer
 
@@ -90,6 +72,24 @@ That is the lecture's practical conclusion. Architecture search is not the accum
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its architecture, hyperparameter, stability, and attention sections without filling gaps from another offering.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 3 (Architectures). The captions open with "everything you didn't want to know about architectures and hyperparameters" and cover each section here: pre-norm vs post-norm, RMSNorm, bias, SwiGLU, RoPE, aspect ratio, vocabulary, dropout/weight decay, QK norm, z-loss, soft-capping, GQA and sliding window. The lecturer (Tatsu) matches the official schedule. Checked by keyword and passage sampling, not line by line; the article makes no other specific claims about the video, so no changes were needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=lVynu4bo1rY
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 3: Architectures](https://www.youtube.com/watch?v=lVynu4bo1rY)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

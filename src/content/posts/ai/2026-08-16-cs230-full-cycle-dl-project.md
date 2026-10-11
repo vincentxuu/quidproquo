@@ -1,5 +1,5 @@
 ---
-title: "Full Cycle of a DL Project：資料收兩天就好"
+title: "Full Cycle of a DL Project：資料收兩天就好｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: ai
 type: guide
@@ -20,26 +20,6 @@ draft: false
 > [上一篇](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)講了 embedding 怎麼被訓練出來。這一篇拉高一層，看整個專案。
 
 本篇對應 **[Lecture 3: Full Cycle of a DL Project](https://www.youtube.com/watch?v=MGqQuQEUXhk)**（2025/10/07，Andrew Ng 主講，1 小時 07 分）。這一講以現場問答為主（字幕中 Ng 提到自己「bad drawing」，應有現場畫圖；有無投影片字幕無法判斷），Ng 用同一個案例（人臉辨識開門系統）走完整個生命週期，每個決策點都先丟給學生投票再給答案。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Andrew Ng 主講，字幕開場即為「full cycle of a deep learning project」，長度 1:07:05 與文中「1 小時 07 分」相符）。逐項對過字幕：兩天期限與「週二 11:52」、至少 5 萬張人臉、Siamese network、cafeteria 取樣、VAD 兩個選項（變動像素 epsilon、約五行 Python）、挑清晰畫格、Texas 紅綠燈、手機被其團隊軟體檢查、鋼琴與福爾摩斯閣樓、Claude／Gemini 寫程式、重新驗證率儀表板，皆有對應。兩處修正：（1）「沒有投影片、全程白板」字幕無法判斷，只看得到講者說自己「bad drawing」，已改為如實描述；（2）併購資料公司的金額，字幕該處辨識成亂碼（只清楚聽到「肯定超過數千萬美元」），已註明。
-
-```youtube
-url: https://www.youtube.com/watch?v=MGqQuQEUXhk
-title: Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-查核日期：2026-10-10。
 
 ## AI 專案為什麼和傳統軟體不一樣
 
@@ -246,6 +226,26 @@ Ng 自己一路在做這個類比，但有幾條值得挑明：
 **「盲目抓更多資料不是好策略」** 現在的對應物是「盲目加更多 context」。站上 [context 與記憶](/posts/ai/2026-08-10-agent-context-memory-failure)那篇的結論——給 LLM 更多資訊會讓它變笨——和 Ng 這裡講的是同一個道理的兩種表現。
 
 **「我測試集分數很好」的當代版本是「我 eval 分數很好」。** 站上 [上線才是工作的開始](/posts/ai/2026-08-10-enterprise-agent-case-studies)整篇在講的就是這件事：eval 綠了不等於系統能用，而中間的落差通常是分佈變了。
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 3（Andrew Ng 主講，字幕開場即為「full cycle of a deep learning project」，長度 1:07:05 與文中「1 小時 07 分」相符）。逐項對過字幕：兩天期限與「週二 11:52」、至少 5 萬張人臉、Siamese network、cafeteria 取樣、VAD 兩個選項（變動像素 epsilon、約五行 Python）、挑清晰畫格、Texas 紅綠燈、手機被其團隊軟體檢查、鋼琴與福爾摩斯閣樓、Claude／Gemini 寫程式、重新驗證率儀表板，皆有對應。兩處修正：（1）「沒有投影片、全程白板」字幕無法判斷，只看得到講者說自己「bad drawing」，已改為如實描述；（2）併購資料公司的金額，字幕該處辨識成亂碼（只清楚聽到「肯定超過數千萬美元」），已註明。
+
+```youtube
+url: https://www.youtube.com/watch?v=MGqQuQEUXhk
+title: Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 3: Full Cycle of a DL project](https://www.youtube.com/watch?v=MGqQuQEUXhk)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

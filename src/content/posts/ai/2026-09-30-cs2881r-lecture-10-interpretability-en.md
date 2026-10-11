@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L10: Reading the Model's Insides and Reading Its Chain of Thought"
+title: "Reading the Model's Insides and Reading Its Chain of Thought | Harvard CS2881R Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -48,39 +48,6 @@ L10 answered along two paths. One reads the reasoning the model writes out, its 
 | Leo Gao | OpenAI | panel (from about 1:46) | SAEs and where interpretability fits |
 
 The course site lists four subtopics for the lecture: Activations, Sparse Auto Encoders (SAE), Black box models, and Chain of thought. This post covers all four, in the order the speakers actually used. Bowen said at the start that they would go "in reverse order of the stack": first the CoT, which is closer to an internal monologue, then activations, which are closer to signals in the brain.
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=79otWC2FQlE
-title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 10: Mechanistic Intepretability” (2:30:24) and confirmed the order and approximate positions of Bowen Baker, Jack Lindsey, Neel Nanda, the student experiment and the Leo Gao panel, the “reverse order of the stack” opening, the hard-coded-constant CoT example, the room-color faithfulness example, the persona vector chart, the Sonnet 4.5 evaluation-awareness audit, Sam Marks's auditing game, the “virtue of simplicity” point, and the Palisade shutdown experiment (two conflicting instructions). The Chinese post's paraphrase of the opening was aligned with the captions' “reverse order of the stack”.
-
-## Official materials and access
-
-| Material | Status |
-|---|---|
-| [Lecture video](https://youtu.be/79otWC2FQlE) (YouTube title "Lecture 10: Mechanistic Intepretability", about 2.5 hours) | Public; includes Boaz's intro, three talks, a student experiment, and the panel |
-| [Neel Nanda's slides](https://www.neelnanda.io/harvard-slides) (Google Slides) | Public |
-| Bowen Baker's and Jack Lindsey's slides | Not listed on the course site; visible only in the video |
-| Reading list | Public: six pre-readings plus nine further readings |
-| Student experiment | The course site's "Experiment" field says To be determined, but a student group presents an experiment in the video (see below). I found no matching slides, GitHub repo, or LessWrong write-up |
-| Lecture notes | The student-written [LessWrong weekly summaries](https://www.lesswrong.com/w/cs-2881r) do not cover this week |
-
-The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has no assignment or experiment code to work through, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the video and some slides are public, which is enough to follow the content, but for practice you have to pick papers from the reading list and reproduce them yourself.
 
 ## Opening: being able to read a brain does not mean it cannot fool you
 
@@ -270,6 +237,39 @@ Some student questions worth noting:
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L8: scheming, reward hacking, and deception](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception-en)
 - Next: [L6: will AI doing AI R&D trigger an intelligence explosion?](/posts/ai/2026-09-30-cs2881r-lecture-06-recursive-self-improvement-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=79otWC2FQlE
+title: AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 10: Mechanistic Intepretability](https://www.youtube.com/watch?v=79otWC2FQlE)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 10: Mechanistic Intepretability” (2:30:24) and confirmed the order and approximate positions of Bowen Baker, Jack Lindsey, Neel Nanda, the student experiment and the Leo Gao panel, the “reverse order of the stack” opening, the hard-coded-constant CoT example, the room-color faithfulness example, the persona vector chart, the Sonnet 4.5 evaluation-awareness audit, Sam Marks's auditing game, the “virtue of simplicity” point, and the Palisade shutdown experiment (two conflicting instructions). The Chinese post's paraphrase of the opening was aligned with the captions' “reverse order of the stack”.
+
+## Official materials and access
+
+| Material | Status |
+|---|---|
+| [Lecture video](https://youtu.be/79otWC2FQlE) (YouTube title "Lecture 10: Mechanistic Intepretability", about 2.5 hours) | Public; includes Boaz's intro, three talks, a student experiment, and the panel |
+| [Neel Nanda's slides](https://www.neelnanda.io/harvard-slides) (Google Slides) | Public |
+| Bowen Baker's and Jack Lindsey's slides | Not listed on the course site; visible only in the video |
+| Reading list | Public: six pre-readings plus nine further readings |
+| Student experiment | The course site's "Experiment" field says To be determined, but a student group presents an experiment in the video (see below). I found no matching slides, GitHub repo, or LessWrong write-up |
+| Lecture notes | The student-written [LessWrong weekly summaries](https://www.lesswrong.com/w/cs-2881r) do not cover this week |
+
+The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has no assignment or experiment code to work through, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the video and some slides are public, which is enough to follow the content, but for practice you have to pick papers from the reading list and reproduce them yourself.
 
 ## Update Log
 

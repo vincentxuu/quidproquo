@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224U 導讀 17：兩場延伸講座——用擴散模型生成文字，以及把大模型訓練的「民間知識」講清楚"
+title: "17：兩場延伸講座——用擴散模型生成文字，以及把大模型訓練的「民間知識」講清楚｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -35,29 +35,6 @@ glossary:
 2023 年春季的 [CS224U 課程網站](https://web.stanford.edu/class/cs224u/)，在 Apr 5 起的第一個單元（Domain adaptation for supervised sentiment）裡列了四項材料：作業一說明、Contextual word representations，以及兩份由別人主講的投影片——[Diffusion objectives for text](https://web.stanford.edu/class/cs224u/slides/lisa-224u-diffusion.pdf)（Lisa）和 [Fantastic language models and how to build them](https://web.stanford.edu/class/cs224u/slides/sidd-fantastic-lms-cs224u.pdf)（Sidd）。兩位講者 [Xiang (Lisa) Li](https://xiangli1999.github.io/) 與 [Sidd Karamcheti](https://www.siddkaramcheti.com/) 都列在課程網站的 Teaching team 名單上，所以嚴格說不是校外客座，是團隊成員帶的專題。
 
 本系列把這兩場從單元一搬到最後，理由很單純：[第 4 篇](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)剛講完 GPT、BERT、ELECTRA 這些模型家族，緊接著塞一個「文字也能用擴散生成」和一整套分散式訓練工程，等於同一段路上連跳兩個大台階。它們跟作業、期末專案都沒有直接關係，是「課程主線之外，2023 年這群人還在想什麼」的切片。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=4-kuJpVrr7M
-title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=JVKtPZsiv4k
-title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
-
-內容核對：已依字幕核對（2026-10-10）：影片 49（Part 1，字幕長度顯示 45:57）與影片 50（Part 2，1:20:41）的字幕核對：確認前段為 Potts 講 ELECTRA 與 neural IR 收尾、Karamcheti 在 Part 1 約後三分之一接手並以 MLP 與 kernel 類比結束，在 Part 2 約後半接手、講 warmup 到 ZeRO；也核對自我介紹（四年級博士生、language for robotics）、gradient accumulation（batch 4 OOM）、單卡約 100 天、16 張 GPU、DDP 約 7 天、混合精度、ZeRO 約 3 天、通訊瓶頸，以及最後一句推薦 PEFT，皆吻合。投影片頁碼與精確天數（99.63、6.01、3.37）、記憶體估算屬投影片內容，字幕只有口語約數。Diffusion 場次無錄影，未涉及。
-
-課程與錄影入口：
-
-- [XCS224U 播放清單（Spring 2023）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 這兩場拿得到什麼
 
@@ -181,6 +158,29 @@ Karamcheti 的投影片副標寫著「Stanford || Zoom || Folks 2x-ing the Recor
 - [CMU 11-785 Lecture 23：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)：影像擴散的完整推導
 - [CS336 Lecture 8：ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲](/posts/ai/2026-08-22-cs336-parallelism-strategies)：把第二場講座最後「撞上通訊牆」之後的事講完
 - [CS224N 第 5 講：從 recurrence 到 Transformer](/posts/ai/2026-08-22-cs224n-transformers)：Transformer 機制的另一種講法
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=4-kuJpVrr7M
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=JVKtPZsiv4k
+title: Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 1 I Spring 2023](https://www.youtube.com/watch?v=4-kuJpVrr7M)、[Stanford XCS224U: NLU I Fantastic Language Models and How to Build Them, Part 2 I Spring 2023](https://www.youtube.com/watch?v=JVKtPZsiv4k)
+
+內容核對：已依字幕核對（2026-10-10）：影片 49（Part 1，字幕長度顯示 45:57）與影片 50（Part 2，1:20:41）的字幕核對：確認前段為 Potts 講 ELECTRA 與 neural IR 收尾、Karamcheti 在 Part 1 約後三分之一接手並以 MLP 與 kernel 類比結束，在 Part 2 約後半接手、講 warmup 到 ZeRO；也核對自我介紹（四年級博士生、language for robotics）、gradient accumulation（batch 4 OOM）、單卡約 100 天、16 張 GPU、DDP 約 7 天、混合精度、ZeRO 約 3 天、通訊瓶頸，以及最後一句推薦 PEFT，皆吻合。投影片頁碼與精確天數（99.63、6.01、3.37）、記憶體估算屬投影片內容，字幕只有口語約數。Diffusion 場次無錄影，未涉及。
+
+課程與錄影入口：
+
+- [XCS224U 播放清單（Spring 2023）](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 1 講：Introduction：為什麼關係資料需要圖機器學習"
+title: "Introduction：為什麼關係資料需要圖機器學習｜Stanford CS224W 第 1 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 1 講**，官方日期 2025-09-23。本篇依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[當講投影片](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf)重建內容；講者依投影片署名為 Jure Leskovec 與課程團隊。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -124,7 +111,30 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 
 第 1 講建立的概念會在後續講次繼續組合。閱讀時保留自己的小圖、符號表與 baseline；每遇到新模型，就問它改了資料、訊息、聚合、更新、目標函數或評估中的哪一項。
 
+## 四節點圖的預期答案
+
+延續本文自編的 path graph，令邊是無向的 `A—B—C—D`，沒有 self-loop，每個節點的初始特徵都是 `1`。degree 依序是 `1, 2, 2, 1`，因此端點是 A、D，中間點是 B、C。
+
+若只做一次「加總鄰居初始特徵」的聚合，輸出也是 `1, 2, 2, 1`。這一步不用訓練就能手算；若程式輸出不同，先檢查邊方向與 self-loop。把輸入節點順序改成 `C, A, D, B`，相同節點的輸出應跟著變成 `2, 1, 1, 2`，不是保持原陣列不動。
+
+**檢查：** 若把 sum 換成 mean，四個節點會輸出多少？答案全部是 `1`：每個鄰居的特徵都是 `1`，平均後看不出 degree。這說明聚合選擇影響保留的訊號；不代表 mean 在所有任務都比較差。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
+
 ## 更新紀錄
+
+- 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方頁未列 Fall 2025 公開錄影、Canvas 需登入，公開播放清單僅 2021／2023 年版，維持原狀態並補上查核日期。

@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS231N: Overview and a Self-Study Plan (Spring 2026)"
+title: "Overview and a Self-Study Plan (Spring 2026) | Stanford CS231N Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,15 +28,6 @@ glossary:
 The course description centers on end-to-end learning. Over 10 weeks, students implement and train their own neural networks and learn to read current computer vision research. The home page also runs a small CNN in your browser that classifies CIFAR-10 images live, with the line "By the end of the class, you will know exactly what all these numbers mean."
 
 This post answers three questions: what the course teaches, what outside readers can actually get, and how to fit it into 10 weeks.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Stanford CS231N Deep Learning for Computer Vision I 2025 (YouTube playlist)](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The hard facts
 
@@ -160,6 +151,15 @@ The post order differs from the schedule in three places. Each assignment post c
 - [Berkeley CS285](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en): for readers who want to go on to robot learning
 
 **Series navigation**: Next: [L1: Where computer vision came from, and where this course is going](/posts/ai/2026-09-30-cs231n-intro-vision-history-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Stanford CS231N Deep Learning for Computer Vision I 2025 (YouTube playlist)](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

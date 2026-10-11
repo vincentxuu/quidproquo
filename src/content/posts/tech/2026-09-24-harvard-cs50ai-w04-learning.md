@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 4：Learning——監督式學習、k-NN、SVM、強化學習 Q-learning 與 Nim"
+title: "Learning——監督式學習、k-NN、SVM、強化學習 Q-learning 與 Nim｜Harvard CS50 AI 第 4 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 4 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=-g0iJjnO2_w
-title: Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=-g0iJjnO2_w)
-
-課程與錄影入口：
-
-- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：原表多處與影片不符：影片的順序是最近鄰（約 9 分）→ 感知機（約 14–34）→ SVM（約 34）→ 損失函數與 overfitting（約 44–57）→ holdout／cross-validation → scikit-learn 示範 → 強化學習（約 71 起，含 Q-learning）→ 非監督式學習與 k-means（約 99 起）；原表把 k-NN 擺在感知機之前的篇幅過大、漏掉影片末段的 k-means，字幕中也找不到核技巧、混淆矩陣／F1、貝爾曼方程，已移除。Nim 在影片中是 Q-learning 的範例而非專案介紹，字幕全程沒有提到 Shopping 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:45:49）無法驗證，改為依字幕估算的「約」值。
 
 ## TL;DR
 
@@ -392,6 +372,26 @@ style50 nim.py
 - [ ] 理解 Nim 中狀態表示為何用 tuple（Q-table 鍵需可哈希）
 - [ ] 理解 ε-greedy 在訓練 vs 推論階段的不同行為
 - [ ] 兩專案 `check50` 全綠
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 4 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=-g0iJjnO2_w
+title: Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Learning - Lecture 4 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=-g0iJjnO2_w)
+
+課程與錄影入口：
+
+- [CS50 AI Week 4 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/4/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：原表多處與影片不符：影片的順序是最近鄰（約 9 分）→ 感知機（約 14–34）→ SVM（約 34）→ 損失函數與 overfitting（約 44–57）→ holdout／cross-validation → scikit-learn 示範 → 強化學習（約 71 起，含 Q-learning）→ 非監督式學習與 k-means（約 99 起）；原表把 k-NN 擺在感知機之前的篇幅過大、漏掉影片末段的 k-means，字幕中也找不到核技巧、混淆矩陣／F1、貝爾曼方程，已移除。Nim 在影片中是 Q-learning 的範例而非專案介紹，字幕全程沒有提到 Shopping 專案，專案說明來自課程官網。原精確時間碼（影片實長 1:45:49）無法驗證，改為依字幕估算的「約」值。
 
 ## 更新紀錄
 

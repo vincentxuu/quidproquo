@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L04: Regularization in Practice — Weight Decay, Dropout, Batch Norm & Label Smoothing"
+title: "Regularization in Practice — Weight Decay, Dropout, Batch Norm & Label Smoothing | MIT 6.7960 Lecture 4"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,27 +21,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) This site's L04 post treats regularization as an "engineering toolbox": what concrete problem each technique solves, how to use it correctly, and how to combine it with others, with a practical decision table and runnable PyTorch code. The content is this site's synthesis of the general literature, not a segment-by-segment summary of any one lecture; OCW has no lecture dedicated to weight decay, dropout or batch norm (see "Course video sources" below).
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: the “L04” in this article’s title is this site’s series numbering (OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content.
-
-```youtube
-url: https://www.youtube.com/watch?v=EiO8BBa-xdc
-title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
-
-Content check: verified against the video transcript (2026-10-10): read the transcripts of the embedded Lec 06 (Phillip Isola) and the related Lec 09 (Phillip Isola); the old "video timestamps" section (fixed minute ranges for weight decay / dropout / batch norm / label smoothing) matched no video and was removed and replaced with an approximate transcript-based mapping; the claim that Lec 09 is taught by Sara Beery was wrong (the lecturer is Isola) and was corrected; Lec 09 explicitly advises against batch norm, which is now stated.
 
 ## Four Pillars of Regularization: Mechanism, Effect, Use Cases
 
@@ -272,6 +251,27 @@ for name, cfg in configs.items():
 | AdamW weight decay ineffective | Used `optim.Adam(weight_decay=...)` | Switch to `optim.AdamW(weight_decay=...)` |
 | Mixup loss calculation wrong | Direct CE on mixed labels | Use `mixup_loss` linear combo of two CEs |
 | Small batch BN statistics unstable | Batch size < 16 | Switch to GroupNorm(32) or LayerNorm |
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery and the Lec 06 page on 2026-10-10: the “L04” in this article’s title is this site’s series numbering (OCW Lec 04 is Architectures: Grids). OCW has no lecture dedicated to weight decay, dropout, batch norm or label smoothing; the official summary of Lec 06 Generalization Theory covers overparameterization, double descent, limits of VC dimension and inductive biases, so it is related background only. It does not verify this article’s content.
+
+```youtube
+url: https://www.youtube.com/watch?v=EiO8BBa-xdc
+title: MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 06. Generalization Theory](https://www.youtube.com/watch?v=EiO8BBa-xdc)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 06. Generalization Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec06_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Numbering note: the L03–L06 numbers of these four posts were planned by this site early on from a generic deep-learning teaching order (optimization, regularization, CNN, modern CNN) without matching each one to the OCW lecture list. OCW Fall 2024 Lec 03–06 are actually Approximation Theory, Architectures: Grids, Architectures: Graphs and Generalization Theory, so these four L numbers differ from OCW lecture numbers. The original numbers are kept to avoid changing URLs and titles; numbering lines up with OCW again from L07.
+
+Content check: verified against the video transcript (2026-10-10): read the transcripts of the embedded Lec 06 (Phillip Isola) and the related Lec 09 (Phillip Isola); the old "video timestamps" section (fixed minute ranges for weight decay / dropout / batch norm / label smoothing) matched no video and was removed and replaced with an approximate transcript-based mapping; the claim that Lec 09 is taught by Sara Beery was wrong (the lecturer is Isola) and was corrected; Lec 09 explicitly advises against batch norm, which is now stated.
 
 ## Update Log
 

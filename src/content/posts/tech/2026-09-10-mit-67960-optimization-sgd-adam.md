@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L03：優化總覽——SGD、Adam、學習率排程與縮放規則"
+title: "優化總覽——SGD、Adam、學習率排程與縮放規則｜MIT 6.7960 第 3 堂"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,32 +21,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) 本站 L03 這篇整理的是「優化」這個主題，OCW 沒有對應的單一講次，相關影片分散在兩講：Lec 02 How to Train a Neural Net（Sara Beery 主講：SGD、動量、反向傳播）與 [Lec 07 Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)（Jeremy Bernstein 主講：用最陡下降與範數推導學習率為什麼隨網路寬度漂移，以及怎麼讓最佳學習率與寬度無關）。本文其餘內容（Adam／AdamW、學習率排程、批次大小的縮放規則、決策樹）是本站依一般文獻整理的補充，不是這兩支影片的逐段摘要。
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：本文標題的 L03 是本站系列編號，OCW 的 Lec 03 其實是 Approximation Theory，且 OCW 沒有一講專門講 Adam 與學習率排程。下方兩支是相關講次：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 Lec 07 Scaling Rules for Optimization（優化縮放規則）。它們是主題補充，不能證明本文全部內容來自這兩講。
-
-```youtube
-url: https://www.youtube.com/watch?v=vidCX_dMCu0
-title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VcGPE4s_oNw
-title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
-
-課程與錄影入口：
-- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
-- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 02（Sara Beery）與 Lec 07（Jeremy Bernstein）兩支字幕；兩支影片都不含 AdamW、學習率排程、批次大小縮放規則，原「影片時間戳」章節與「講義推導 Linear Scaling Rule」的說法不成立，已改寫為相對位置的主題順序並標明為本站補充，另更正參考資料中 Lec 07 的 YouTube ID（原誤寫成 Lec 08 的 Q1HOKrNeh2M）。
 
 ## 優化器的譜系：從 SGD 到 Adam
 
@@ -226,6 +200,32 @@ print("Saved plot to optimizer_comparison.png")
 | 驗證 loss 不降、訓練 loss 降 | 過擬合、weight decay 太小 | 調大 wd、加 dropout、早停 |
 | 大批次訓練不收斂 | Linear scaling 失效 | 改 sqrt scaling、延長 warmup、檢查 batch norm 統計量 |
 | AdamW 權重衰減無效 | 用了 `weight_decay` 參數但優化器是 Adam | 改用 `torch.optim.AdamW`（解耦） |
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對：本文標題的 L03 是本站系列編號，OCW 的 Lec 03 其實是 Approximation Theory，且 OCW 沒有一講專門講 Adam 與學習率排程。下方兩支是相關講次：Lec 02 How to Train a Neural Net（SGD、反向傳播、自動微分）與 Lec 07 Scaling Rules for Optimization（優化縮放規則）。它們是主題補充，不能證明本文全部內容來自這兩講。
+
+```youtube
+url: https://www.youtube.com/watch?v=vidCX_dMCu0
+title: MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 02. How to Train a Neural Net](https://www.youtube.com/watch?v=vidCX_dMCu0)、[MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+課程與錄影入口：
+- [MIT OCW — Lec 02. How to Train a Neural Net](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec02_mp4/)
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+編號說明：本站 L03–L06 這四篇的編號，是本站早期依一般深度學習教學順序（優化、正則化、CNN、現代 CNN）自行規劃的，沒有逐一對照 OCW 講次表；OCW Fall 2024 的 Lec 03–06 實際是 Approximation Theory、Architectures: Grids、Architectures: Graphs、Generalization Theory，所以這四篇的 L 編號與 OCW 講次不同。本站為了不更動網址與標題而保留原編號，從 L07 起與 OCW 講次重新對齊。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 02（Sara Beery）與 Lec 07（Jeremy Bernstein）兩支字幕；兩支影片都不含 AdamW、學習率排程、批次大小縮放規則，原「影片時間戳」章節與「講義推導 Linear Scaling Rule」的說法不成立，已改寫為相對位置的主題順序並標明為本站補充，另更正參考資料中 Lec 07 的 YouTube ID（原誤寫成 Lec 08 的 Q1HOKrNeh2M）。
 
 ## 更新紀錄
 

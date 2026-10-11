@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 6：函數 I，從定義到單射與滿射證明"
+title: "函數 I，從定義到單射與滿射證明｜Stanford CS103 第 6 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 8 篇，對應 **Spring 2026 官方 Lecture 6（2026-04-13）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講的官方題目是 **Functions, Part I**。它把大家早已會算的函數，重新拆成可由集合與一階邏輯檢查的物件。「是不是函數」「是不是單射」「是不是滿射」因而不再靠圖形直覺，而能轉成量詞、否定，再轉成正式證明。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)
 
 ## 1. 證明技巧表再次登場
 
@@ -145,6 +137,14 @@ draft: false
 ## 材料缺口與閱讀界線
 
 完整投影片足以核對函數正式規則、定義方式、分段函數、involution、單射、滿射及五個主要證明例子，因此本文依 deck 重建 agenda。投影片不是錄影，不保存所有口頭轉折、學生問題或臨場補充；本文不把作者銜接包裝成講師原話，也未使用受限的作業解答。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)
 
 ## 更新紀錄
 

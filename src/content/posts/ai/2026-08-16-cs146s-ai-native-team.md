@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 9：一個人接 MCP 沒問題，三百個人接就需要一座門"
+title: "一個人接 MCP 沒問題，三百個人接就需要一座門｜Stanford CS146S 第 9 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：MCP portal 與集中、有權限控管的工具存取；LLM gateway、model routing 與成本優化；組織層級的採用模式。講題是「Coding agents in big teams」。
 
 這一週處理的是前八週都繞開的問題：**當使用者從一個人變成一整間公司**。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 每個人自己接，會壞在哪
 
@@ -133,6 +121,18 @@ Anthropic 公布過一份自家十個團隊怎麼用 Claude Code 的紀錄，涵
 - Anthropic 那份內部使用紀錄的數字是自述、單一時點、單一公司
 - MCP registry 與企業 portal 的產品生態變動快，本文只寫職責不寫產品
 - 各家模型的價格與能力階梯每幾個月就重排，routing 策略要跟著重驗
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

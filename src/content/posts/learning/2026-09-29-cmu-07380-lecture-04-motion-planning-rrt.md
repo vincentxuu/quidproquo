@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 4 導讀：Motion Planning，RRT 在連續空間用取樣找路"
+title: "Motion Planning，RRT 在連續空間用取樣找路｜CMU 07-380 第 4 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, motion-planning, rrt]
@@ -23,26 +23,6 @@ draft: false
 上一篇的世界由有限個事實組成，最多就是很大。機械手臂的關節角度、遊戲角色的座標是實數，狀態有無限多個，BFS 連第一層都展不完。這一講的答案是：不枚舉，改用取樣。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- [Lec4 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf)後半：Among Us 與 Robot Cook 的動機、configuration space、RRT、碰撞處理、completeness 與 optimality、RRT\*
-- 課站列出的三個互動 demo：[Piano Mover](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/piano_mover.html)、[Robot Cook](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot.html)、[Robot Cook N-link](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot_nlink.html)
-- [Recitation 2 解答](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) §6：倉庫機器人的 RRT 手算題。這一講沒有自己的 recitation，RRT 練習放在 Recitation 2 最後一節
-- 課站指定閱讀 AIMA Ch. 26.5。本文沒有引用課本內容
-- 這一講沒有 pre-reading 筆記
-
-**公開程度**：投影片、三個 demo 與 recitation 解答都公開，對應的 HW2 程式作業也有 starter 與本機 autograder，這一段已達 A3。全課目前仍是 A2（進行中），分級見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 從離散跳到連續：configuration space
 
@@ -152,6 +132,26 @@ B 原本要繞 A 才到得了，成本 4；有了 q<sub>new</sub> 之後降到 2
 - 上一篇：[Lecture 3 導讀：Classical Planning，PDDL、狀態空間搜尋與 relaxation heuristic](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning)
 - 下一篇：[HW2 導讀：Classical and Motion Planning，從 robot-cook PDDL 到 RRT* 再到 LP 圖解](/posts/learning/2026-09-29-cmu-07380-hw2-planning-lp)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- [Lec4 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf)後半：Among Us 與 Robot Cook 的動機、configuration space、RRT、碰撞處理、completeness 與 optimality、RRT\*
+- 課站列出的三個互動 demo：[Piano Mover](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/piano_mover.html)、[Robot Cook](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot.html)、[Robot Cook N-link](https://www.cs.cmu.edu/~pvirtue/AIS/modules/planning/pancake_robot_nlink.html)
+- [Recitation 2 解答](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) §6：倉庫機器人的 RRT 手算題。這一講沒有自己的 recitation，RRT 練習放在 Recitation 2 最後一節
+- 課站指定閱讀 AIMA Ch. 26.5。本文沒有引用課本內容
+- 這一講沒有 pre-reading 筆記
+
+**公開程度**：投影片、三個 demo 與 recitation 解答都公開，對應的 HW2 程式作業也有 starter 與本機 autograder，這一段已達 A3。全課目前仍是 A2（進行中），分級見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 更新紀錄
 

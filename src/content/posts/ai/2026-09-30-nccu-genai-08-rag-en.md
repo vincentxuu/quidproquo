@@ -1,5 +1,5 @@
 ---
-title: "Reading NCCU Yen-Lung Tsai Generative AI, L08: Retrieval-Augmented Generation (RAG) — Chunk the Text, Embed It, Put the Closest Pieces Back in the Prompt"
+title: "Retrieval-Augmented Generation (RAG) — Chunk the Text, Embed It, Put the Closest Pieces Back in the Prompt | NCCU Yen-Lung Tsai Generative AI Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,18 +29,6 @@ glossary:
 Official sources: [video 08](https://www.youtube.com/watch?v=JClJEmZub-A) (2025-04-08, about 3 h 4 min, in Mandarin), the 25-page GenAI08 slides (in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)), the notebooks [`【Demo06a】RAG01_打造向量資料庫`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06a%E3%80%91RAG01_%E6%89%93%E9%80%A0%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB.ipynb), [`【Demo06b】RAG02_打造_RAG_系統`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06b%E3%80%91RAG02_%E6%89%93%E9%80%A0_RAG_%E7%B3%BB%E7%B5%B1.ipynb), and [`【Demo06】用_RAG_打造心靈處方籤機器人`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo06%E3%80%91%E7%94%A8_RAG_%E6%89%93%E9%80%A0%E5%BF%83%E9%9D%88%E8%99%95%E6%96%B9%E7%B1%A4%E6%A9%9F%E5%99%A8%E4%BA%BA.ipynb) in the [AI-Demo](https://github.com/yenlung/AI-Demo) repo, and the week-8 assignment on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**.
 
 The notebook drift is especially visible this week, and I flag each case below: **the current repo version no longer matches what's on screen in the video.**
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=JClJEmZub-A)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits
 
@@ -161,6 +149,18 @@ From the [Chang Gung satellite course page](https://yangchihyuan.github.io/cours
 - Letting the model decide whether to search again: [CMU 11-768 AI Agents guide](/posts/ai/2026-09-29-cmu-11768-course-overview-en)
 
 Previous: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en) | Next: [L09 Why 2025 Is the Year of AI Agents](/posts/ai/2026-09-30-nccu-genai-09-ai-agents-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [Generative AI 08: Retrieval-Augmented Generation (RAG), principles and practice (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=JClJEmZub-A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

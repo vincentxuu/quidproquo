@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 17–18：深度、萬能近似、激活函數與反向傳播"
+title: "深度、萬能近似、激活函數與反向傳播｜Berkeley CS189 第 17–18 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, neural-networks, backpropagation, deep-learning]
@@ -32,31 +32,6 @@ glossary:
 這兩講卡在期中考（3/17）之後、春假前後。前半學期你已經學過線性回歸、logistic regression、梯度下降和 Adam（見[本系列 order 8](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers)）；這裡要回答的是：模型換成「很多層函數疊起來」之後，還能不能用同一套方法訓練？答案是可以，靠的就是反向傳播。它是整門課的認知高峰，所以本篇照「場景 → 直覺 → 機制 → 連回模型 → 想深入」五層來寫。
 
 官方指定閱讀是 Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》6.1–6.3.1（Lec 17）與第 8 章開頭到 8.1.4、8.2 開頭（Lec 18，不含 8.2.1 之後）。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=bMJ9igfvn1M
-title: Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=XlaV_z2knjA
-title: Lecture 18 錄影：Neural Networks, Backpropagation
-```
-
-原始影片：[Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 錄影：Neural Networks, Backpropagation](https://www.youtube.com/watch?v=XlaV_z2knjA)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 17 影片（bMJ9igfvn1M，約 76 分鐘）開場說期中考後進入神經網路，內容有 XOR 手算、64×64 影像與 data manifold、萬能近似定理、深度與邏輯電路的類比、激活函數與 ReLU，結束在課後春假前；字幕找不到 PyTorch 四個概念、leaky ReLU、softplus，這些只見於講義。Lecture 18 影片（XlaV_z2knjA，約 79 分鐘）確為反向傳播：chain rule、計算圖、多個子節點的梯度相加、bar 記號；字幕找不到有限差分的成本比較、符號微分與 dead units（講者結尾說非線性的導數留到下堂），有限差分與初始化相關內容在 Lec 19 影片出現。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 場景：線性模型連 XOR 都學不會
 
@@ -199,6 +174,31 @@ Discussion 8 只有兩題，都是證明題：
 - 系列導覽：上一篇 [HW2 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)；下一篇 [HW3 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：打開 Lec 17 講義的 XOR 例子，自己用 NumPy 算出線性模型的最佳解 `b* = 1/2`，再代入講義給的 ReLU 權重，確認四筆都對。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=bMJ9igfvn1M
+title: Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=XlaV_z2knjA
+title: Lecture 18 錄影：Neural Networks, Backpropagation
+```
+
+原始影片：[Lecture 17 錄影：Neural Networks, Why We Need Depth, Universal Approximation Theorem, Activation Functions](https://www.youtube.com/watch?v=bMJ9igfvn1M)、[Lecture 18 錄影：Neural Networks, Backpropagation](https://www.youtube.com/watch?v=XlaV_z2knjA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 17 影片（bMJ9igfvn1M，約 76 分鐘）開場說期中考後進入神經網路，內容有 XOR 手算、64×64 影像與 data manifold、萬能近似定理、深度與邏輯電路的類比、激活函數與 ReLU，結束在課後春假前；字幕找不到 PyTorch 四個概念、leaky ReLU、softplus，這些只見於講義。Lecture 18 影片（XlaV_z2knjA，約 79 分鐘）確為反向傳播：chain rule、計算圖、多個子節點的梯度相加、bar 記號；字幕找不到有限差分的成本比較、符號微分與 dead units（講者結尾說非線性的導數留到下堂），有限差分與初始化相關內容在 Lec 19 影片出現。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 更新紀錄
 

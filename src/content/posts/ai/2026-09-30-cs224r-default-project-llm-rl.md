@@ -1,5 +1,5 @@
 ---
-title: "CS224R Default Project：用 SFT、IPO、RLOO 微調 LLM 解 Countdown"
+title: "用 SFT、IPO、RLOO 微調 LLM 解 Countdown｜Stanford CS224R 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 規格開頭特別寫了一句：default project 的工作量並沒有比較少，它省掉的是自己想題目和設計評估的難度，讓你把同樣的力氣花在指定的問題上。
 
 它剛好把前兩講接起來：[L9](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization) 的偏好最佳化，加上 [L10](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning) 提到的可驗證獎勵 RL，在同一個任務上各做一次。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## 任務：Countdown
 
@@ -188,6 +178,16 @@ Survey 的日期來自 custom project 規格和首頁課表；其他日期和配
 - [CME295：偏好調整](/posts/ai/2026-09-29-cme295-preference-tuning)：DPO 家族的整理
 
 **系列導覽**：上一篇 [L10：LLM 推理的 RL 與 test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)｜下一篇 [L11：Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

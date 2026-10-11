@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 18 講：Tinker and LoRA Without Regret 材料缺口紀錄"
+title: "LoRA 低秩更新：Tinker 客座課前預習｜Stanford CS224N 第 18 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "Stanford CS224N 導讀"
   order: 19
-tldr: "第 18 講由 John Schulman 客座，官方只公布題名 Tinker and LoRA Without Regret、日期與講者，沒有投影片、agenda 或閱讀；因此本篇只保存可確認事實與不可確認清單。"
-description: "CS224N Winter 2026 Lecture 18 的嚴格材料缺口紀錄；不以外部產品資料或其他 LoRA 論文重建客座內容。"
+tldr: "手算低秩更新、分清更新與完整權重的秩，並計算可訓練參數。這是依 LoRA 論文的課前預習，不重建尚未取得公開材料的 Tinker 客座內容。"
+description: "CS224N 第 18 堂課前預習：以 LoRA 原論文與自編矩陣例子理解低秩更新、參數量與適用限制，保留 Tinker 客座材料尚未取得的來源邊界。"
 draft: false
 ---
 
@@ -17,42 +17,51 @@ draft: false
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
-[CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)確認第 18 個正規單元排在 2026 年 3 月 5 日，由 John Schulman 客座主講。官方頁面唯一內容是題名 **Guest Lecture: Tinker and LoRA Without Regret**，另有講者個人網站連結；沒有公開本季投影片。
+LoRA 為什麼不用更新整張權重矩陣？這篇先接回[第 9 堂的高效適應](/posts/ai/2026-08-22-cs224n-efficient-adaptation)，手算一次低秩更新，讀完能分清「更新矩陣的秩」與「完整權重的秩」，並算出可訓練參數量。
+
+> **來源範圍**：這是依 LoRA 原論文整理的課前預習，以下例子由本文自編。第 18 堂客座的題名是 Tinker and LoRA Without Regret，但截至 2026-10-11 官方課表仍未列本堂公開投影片；不能用這份預習推定 Tinker 的課堂介面、實驗或「Without Regret」的含義。
+
+## 低秩的是更新，不是整個模型
+
+[LoRA 原論文第 4.1 節](https://arxiv.org/html/2106.09685v2#S4.SS1)固定原權重 `W0`，只訓練兩個較小矩陣 `A`、`B`。若 `W0` 的大小是 `d_out × d_in`，`A` 是 `r × d_in`，`B` 是 `d_out × r`，前向計算是 `W0 x + (α/r) B A x`。
+
+`BA` 的秩最多是 `r`，但 `W0 + BA` 不一定低秩。這是在限制「往哪些方向調整」，不是把原模型縮成只有 r 個參數。對單一 `8 × 8` 權重，完整微調需更新 `64` 個值；若 `r=1`，兩個低秩矩陣共 `8+8=16` 個可訓練值。這只比較該矩陣的可訓練參數，不代表整個模型記憶體也剩四分之一。
+
+## 手算一次前向更新
+
+以下是自編的二維例子，假設某次訓練後 `W0=[[1,0],[0,1]]`、`A=[[1,-1]]`、`B=[[2],[1]]`，且 `r=α=1`、輸入 `x=[3,1]`。這不是 LoRA 的初始化設定，也不是客座講者的示範。
+
+1. 原分支：`W0 x=[3,1]`。
+2. 先投影：`A x=3-1=2`。
+3. 再映回：`B(Ax)=[4,2]`。
+4. 相加得到新輸出 `[7,3]`。
+
+同一計算也能先合併 `BA=[[2,-2],[1,-1]]`，再算 `(W0+BA)x`。更新只有 rank 1，但合併後的矩陣 `[[3,-2],[1,0]]` 行列式為 `2`，仍是 rank 2。本例的二維矩陣有四個完整權重，A、B 也共有四個值，沒有參數節省；選小矩陣只是為了能手算。
+
+## 換一個輸入，檢查理解
+
+保持同一組矩陣，把輸入換成 `x=[1,1]`。低秩分支會怎麼改變輸出？這能否證明任何任務都不會退步？
+
+**答案**：`Ax=0`，所以更新分支輸出 `[0,0]`，完整輸出仍是 `[1,1]`。它只說明這個輸入落在 A 的零空間；對 `[3,1]` 的輸出已改變。低秩限制與單一輸入不變，都不能保證所有任務的品質；不能從客座標題推導這種保證。
 
 ## 課程影片來源
 
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+原課歸因：官方課表將 2026 年 3 月 5 日的「Guest Lecture: Tinker and LoRA Without Regret」列為 John Schulman 客座；上面的預習計算由本文另行設計。
+
+
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，2026-10-10 的 Canvas 登入測試導向 Stanford 登入頁；2026-10-11 本次重查官方頁仍註明需登入且限修課者。官方指向的公開錄影只有 2024 年版播放清單，沒有 Winter 2026 的公開錄影；其中找不到與本講標題對應的講次，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
 
 課程與錄影入口：
 
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
-
-## 可確認的事
-
-- 這是 Winter 2026 regular schedule 的第 18 個教學單元。
-- 日期是 2026 年 3 月 5 日。
-- 講者是 John Schulman。
-- 官方題名同時提到 Tinker 與 LoRA Without Regret。
-
-## 不可確認的事
-
-官網沒有 Winter 2026 投影片、agenda、suggested reading、錄影或摘要。因此無法確認 Tinker 在這堂課裡指的是哪個介面或版本、LoRA 的技術涵蓋範圍、是否有 demo、比較基準、實驗數字，以及「Without Regret」是方法名稱、主張或演講修辭。
-
-Lecture 9 已依公開投影片介紹過 LoRA 的低秩權重更新，但不能據此推定 Lecture 18 重複或延伸哪些內容。外部網站即使有同名產品或講者其他演講，也不能證明本堂實際 agenda。
-
-## 為什麼仍保留這篇
-
-逐講系列的完整性不應靠虛構補齊，也不應默默略過缺料單元。這篇把 manifest 的位置、可確認事實與 blocker 留在公開閱讀順序中。若官方之後補材料，更新門檻很清楚：取得本季 slide、錄影或講者提供的 session notes，再依實際 agenda 重寫。
-
-## 材料缺口
-
-本篇就是材料缺口 artifact，不是 lecture summary。除了官方課表與講者身份，沒有把任何外部 Tinker/LoRA 資料描述成課堂內容。
+查核日期：2026-10-11。
 
 ## 更新紀錄
 
+- 2026-10-11：改為 LoRA 課前預習，補自編矩陣例子與答案，來源查核歷程移存研究筆記。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認 Winter 2026 錄影需登入、公開錄影僅 2024 年版且無對應講次，維持原狀態並補上查核日期。
 
@@ -60,3 +69,5 @@ Lecture 9 已依公開投影片介紹過 LoRA 的低秩權重更新，但不能�
 
 - [CS224N Winter 2026 官方課程頁](https://web.stanford.edu/class/cs224n/)
 - [John Schulman 個人網站](http://joschu.net/)
+
+- [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)

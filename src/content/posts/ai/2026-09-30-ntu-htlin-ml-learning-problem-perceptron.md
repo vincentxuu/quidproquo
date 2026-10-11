@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石導讀：學習問題、PLA 與學習的種類"
+title: "林軒田機器學習基石導讀：學習問題、PLA 與學習的種類｜台大林軒田 機器學習基石與技法 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,28 +31,6 @@ glossary:
 這三講回答兩件事：機器學習問題由哪些元件組成，以及最簡單的學習演算法長什麼樣。讀完你應該能自己寫出 PLA，並說出一個問題屬於哪一類學習。「PLA 學到的線，在沒看過的資料上也對嗎？」這個問題留給[第 2 篇](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)。
 
 **本文依據**：MOOC 投影片 [01](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/01_handout.pdf)、[02](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/02_handout.pdf)、[03](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/03_handout.pdf) handout；[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的 W2–W3 課前必看清單與 extended slides [01e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/01e_handout.pdf)、[02e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/02e_handout.pdf)、[03e](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/03e_handout.pdf)；[Fall 2024 HW1](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw1/hw1_red.pdf) 與 [Fall 2026 hw1](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/hw1/hw1.pdf)。全部在 2026-09-30 打開核對。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=nQvpFSMPhr0
-title: Course Introduction
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=sS4523miLnw
-title: What is Machine Learning
-```
-
-原始影片：[Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)、[What is Machine Learning](https://www.youtube.com/watch?v=sS4523miLnw)、[Applications of Machine Learning](https://www.youtube.com/watch?v=PveL3-fO_Qk)、[Components of Machine Learning](https://www.youtube.com/watch?v=pR1xsocj_Pw)、[Machine Learning and Other Fields](https://www.youtube.com/watch?v=vc2BimJ3XJA)、[Perceptron Hypothesis Set](https://www.youtube.com/watch?v=WlpF1Phkv28)、[Perceptron Learning Algorithm](https://www.youtube.com/watch?v=1xnUlrgJJGo)、[Guarantee of PLA](https://www.youtube.com/watch?v=Okrrz0IYoSE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 這篇對應的教材
 
@@ -216,6 +194,28 @@ L3 把學習問題沿四個軸分類。每個軸都有一個「核心」選項�
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課，第 1 講「The Learning Problem」對應這一篇的開頭。
 
 **系列導覽**：[總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)｜下一篇 [學習可行嗎：Hoeffding 與「出了資料之外」](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=nQvpFSMPhr0
+title: Course Introduction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=sS4523miLnw
+title: What is Machine Learning
+```
+
+原始影片：[Course Introduction](https://www.youtube.com/watch?v=nQvpFSMPhr0)、[What is Machine Learning](https://www.youtube.com/watch?v=sS4523miLnw)、[Applications of Machine Learning](https://www.youtube.com/watch?v=PveL3-fO_Qk)、[Components of Machine Learning](https://www.youtube.com/watch?v=pR1xsocj_Pw)、[Machine Learning and Other Fields](https://www.youtube.com/watch?v=vc2BimJ3XJA)、[Perceptron Hypothesis Set](https://www.youtube.com/watch?v=WlpF1Phkv28)、[Perceptron Learning Algorithm](https://www.youtube.com/watch?v=1xnUlrgJJGo)、[Guarantee of PLA](https://www.youtube.com/watch?v=Okrrz0IYoSE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

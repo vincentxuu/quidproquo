@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 13: Designing Dynamic Programs for LCS, Knapsack, and Independent Set"
+title: "Designing Dynamic Programs for LCS, Knapsack, and Independent Set | Stanford CS161 Lecture 13"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ This is article fourteen in [Reading Stanford CS161](/en/series/stanford-cs161).
 This article uses only the public [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture13-notes.pdf), [slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture13.pdf), and [official lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture13.md). The course page also lists a Canvas recording that requires Stanford access. I did not watch it and do not treat it as a source. The slide deck has 116 pages, many of which reveal the same table one cell at a time, so this article follows the complete derivations rather than treating slide count as content depth.
 
 Lecture 12 introduced the language of dynamic programming through Bellman–Ford and Floyd–Warshall. Lecture 13 immediately applies that language to three problems that look unrelated: strings, capacity-constrained selection, and trees. The actual lesson is not three formulas. It is how to determine exactly what a subproblem must remember. Leave one condition out of a state and an algorithm may reuse an item illegally. Choose the state well and a problem that is NP-hard on general graphs becomes linear on trees.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
-
-Checked: 2026-10-10.
 
 ## The lecture's five-step dynamic programming recipe
 
@@ -240,6 +230,16 @@ The following implementation ideas are not part of the formal Winter 2026 Lectur
 LCS length needs only two rows. Recovering a sequence with less than the full `mn` table requires a more advanced divide-and-conquer reconstruction method. Zero-one knapsack can be compressed to one dimension, but `x` must run from `W` downward. Unbounded knapsack normally runs capacity upward because reuse within the same pass is legal. What looks like a small loop-direction detail controls whether transitions read a newly written value or a value from the preceding item stage.
 
 To reconstruct vertices for tree MWIS, store whether `A(u)` came from including or excluding `u`, then traverse downward from the root. Ties may be resolved arbitrarily or preserved to enumerate multiple optima. These additions do not change the lecture's correctness argument, but they complete step four of the recipe: returning the actual solution.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

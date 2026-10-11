@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 助教課：從 PyTorch、Hugging Face 到 LoRA、量化與 vLLM 部署"
+title: "從 PyTorch、Hugging Face 到 LoRA、量化與 vLLM 部署｜台大陳縕儂 深度學習之應用 2025 Fall 助教課"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,30 +36,6 @@ glossary:
 這篇回答一個問題：**講課講原理，助教課補了哪些動手能力？** 讀完你會知道 7 堂助教課的順序、每堂在教什麼工具、哪些檔案還打得開，以及它們和三份作業在時間上怎麼對齊。
 
 **本文依據**：課程頁 Recitation 欄、10 支助教影片（YouTube 標題與說明欄）、5 份助教講義 PDF（Fall 2024 路徑同名檔）、2 份助教 Colab，以及 Deployment 影片的 YouTube 自動字幕。全部在 2026-09-30 打開核對。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=zuiACAhRUzA
-title: ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=RYkEoCkJWeA
-title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
-```
-
-原始影片：[ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle NLP專案的一生（YouTube）](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects NLP專案的底層邏輯（YouTube）](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training 大型語言模型太大怎麼調整呢?（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics 大型語言模型基礎概念（YouTube）](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture 各種 Dense 模型架構的小技巧（YouTube）](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture 混合專家模型的架構（YouTube）](https://www.youtube.com/watch?v=AgZuF7lsu-8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的兩支 PyTorch 助教影片（Tutorial 17:45、Debugging 11:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章對這兩支的說法來自助教 Colab。確認的中介資料：兩支都是 2023-09-07 上傳，說明欄寫 2023/09/07、Lectured by Yen-Ting Lin 林彥廷，與文章「2023 年秋季、林彥廷講授」一致。文中其他助教影片（含依自動字幕整理的 Deployment）未嵌入，這次未重新核對。
 
 ## 先看全貌
 
@@ -251,6 +227,30 @@ title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
 
 上一篇：[第 17 篇：超越監督學習與多模態](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
 系列總覽：[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zuiACAhRUzA
+title: ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=RYkEoCkJWeA
+title: ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）
+```
+
+原始影片：[ADL TA Recitation: PyTorch Tutorial 一步步上手深度學習（YouTube）](https://www.youtube.com/watch?v=zuiACAhRUzA)、[ADL TA Recitation: PyTorch Debugging 有BUG怎麼辦!?（YouTube）](https://www.youtube.com/watch?v=RYkEoCkJWeA)、[ADL TA Recitation: NLP Project Lifecycle NLP專案的一生（YouTube）](https://www.youtube.com/watch?v=anK1_PK464k)、[ADL TA Recitation: Underlying Logic of NLP Projects NLP專案的底層邏輯（YouTube）](https://www.youtube.com/watch?v=255ZzsTTHoU)、[ADL TA Recitation: LLM LoRA Training 大型語言模型太大怎麼調整呢?（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)、[ADL TA Recitation: LLM Basics 大型語言模型基礎概念（YouTube）](https://www.youtube.com/watch?v=BBw-ki4_06o)、[ADL TA Recitation: Transformer Architecture 各種 Dense 模型架構的小技巧（YouTube）](https://www.youtube.com/watch?v=TzhCZOILzlI)、[ADL TA Recitation: Mixture-of-Experts (MoE) Architecture 混合專家模型的架構（YouTube）](https://www.youtube.com/watch?v=AgZuF7lsu-8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的兩支 PyTorch 助教影片（Tutorial 17:45、Debugging 11:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章對這兩支的說法來自助教 Colab。確認的中介資料：兩支都是 2023-09-07 上傳，說明欄寫 2023/09/07、Lectured by Yen-Ting Lin 林彥廷，與文章「2023 年秋季、林彥廷講授」一致。文中其他助教影片（含依自動字幕整理的 Deployment）未嵌入，這次未重新核對。
 
 ## 更新紀錄
 

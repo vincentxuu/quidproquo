@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 7 Transformers and Speech Processing: Causal Attention, Generation, and an Unrecorded Lecture"
+title: "Transformers and Speech Processing: Causal Attention, Generation, and an Unrecorded Lecture | Stanford CS124 Week 7"
 date: 2026-08-22
 category: ai
 type: deep-dive

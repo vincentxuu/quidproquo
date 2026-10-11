@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 5 講：數字格式、K-means 量化與線性量化"
+title: "數字格式、K-means 量化與線性量化｜MIT 6.5940 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 剪枝是減少權重的「數量」，量化是減少每個權重的「位元數」。第 5 講是量化單元的上半，投影片第 2 頁的 Lecture Plan 列了三件事：複習數字格式、學量化的基本概念、學三種常見量化——K-means、線性、二值／三值。
 
 實際上第 5 講只講完前兩種。第 69 頁的總結只列 K-means 與線性量化，第 68 頁的比較表在二值／三值那一欄打了問號；[第 6 講](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat)的 Lecture Plan 才把二值與三值量化列為正式項目。本篇照投影片實際內容走，二值／三值留到下一篇。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=ymAzUz3qlIA
-title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：L5 影片的字幕全文讀過：資料型別（無號／有號整數、two's complement、定點數、FP32 的 sign／exponent／fraction 與 subnormal、FP16、BF16）、FP16／BF16 兩道換算題（−7 與 2.5）、FP8 E4M3／E5M2、FP4 的各種配置、K-means 量化（4×4 範例從 64 bytes 到 20 bytes、壓縮比約 3.2 倍與 32/n 的推導）、Deep Compression，以及線性量化的 scale／zero point 推導與整數矩陣乘法。內容與本文逐段相符，沒發現矛盾。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 為什麼位元數這麼重要
 
@@ -220,6 +202,24 @@ Fall 2026 的 Lab 2 標為 Quantization，截至 2026-09-30 尚未放出；Fall 
 - 從使用者角度看量化格式（GGUF、Q4/Q8）：[理解 AI 模型：量化](/posts/ai/2026-08-26-understanding-ai-models-quantization)
 - LLM 系統課的量化講法：[CMU 11-868 導讀：模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)
 - 同一套思路的上一站：[第 4 講：剪枝比例與系統支援](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=ymAzUz3qlIA
+title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：L5 影片的字幕全文讀過：資料型別（無號／有號整數、two's complement、定點數、FP32 的 sign／exponent／fraction 與 subnormal、FP16、BF16）、FP16／BF16 兩道換算題（−7 與 2.5）、FP8 E4M3／E5M2、FP4 的各種配置、K-means 量化（4×4 範例從 64 bytes 到 20 bytes、壓縮比約 3.2 倍與 32/n 的推導）、Deep Compression，以及線性量化的 scale／zero point 推導與整數矩陣乘法。內容與本文逐段相符，沒發現矛盾。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

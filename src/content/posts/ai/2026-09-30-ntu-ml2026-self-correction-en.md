@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 Self-Correction: Can a Model Fix Its Own Mistakes? What Changing Decoding, Workflow, or Weights Buys You"
+title: "Hung-yi Lee ML 2026 Self-Correction: Can a Model Fix Its Own Mistakes? What Changing Decoding, Workflow, or Weights Buys You | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -18,25 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 **This post covers the 4/24 lecture "How to educate a model (2): Self-Correction" from [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 13 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slides [Self-Correction.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/Self-Correction.pdf) (65 pages, plus a pptx) and the video [AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理](https://youtu.be/m3i2mk5hs8U) (in Chinese). Access is **A3**: slides and recording are both public.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=m3i2mk5hs8U
-title: Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)
-```
-
-Original videos: [Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)](https://www.youtube.com/watch?v=m3i2mk5hs8U)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video m3i2mk5hs8U (1:27:42) was read in full. Checked the three-route framing, error detection from representations and TruthX (heard as "True Facts" in the captions), contrastive decoding as (1+α)z−αz⁻ with an extra pass per token, the Obama/GPT-2 Small example, DoLa (logit lens, built into Hugging Face, first author a former lab project student), LayerCD, ICD "dumbing-down" prompts, CAD with the black-banana and surfboard examples, the audio version, MTI (reusing KV Cache, "Output Error", 62% to 72%, worse with other words), VISTA/ACG, the two intuitions for "check again" and the caveat that critiquing is not necessarily easier than generating, the conclusions of Can LLMs Correct Themselves and RefineBench, the confidence-level/critique-score formula and the effect of instruction wording, the two verification figures and the majority-vote baseline (the transcript says about 100x or more compute for 3.8%; the post's 128x is the slide figure), the Hillary Clinton birthplace example, ReVISE's two stages, the distribution shift when directly teaching correction, RLVR, the cost of thinking, K^(T+1) and the 6-bit parity example, and the pass@k debate and The Debate on RLVR; all match the transcript and no errors were found. The specific CL/CS table numbers, paper IDs and slide page numbers come from the slides and cannot be verified from the transcript.
 
 ## The question: can a model fix itself when nobody points out the error?
 
@@ -202,6 +183,25 @@ Verified: the text and main figures of all 65 slides (the benchmark scatter plot
 Not verified: the captions render TruthX as "True Facts"; this post follows the slides. Lee mentions a paper showing models critique no better than they generate but says he forgot to put it on the slides, and I couldn't identify it, so there's no link. MTI's 62%→72% and the model names used in RefineBench come from Lee's narration; I didn't check the numbers against the original papers.
 
 Series navigation: Previous [HW5: Finetuning without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en) | Next [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=m3i2mk5hs8U
+title: Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)
+```
+
+Original videos: [Video: AI 能自我修正嗎？從 decoding、workflow 到 reasoning 的技術發展整理 (in Chinese)](https://www.youtube.com/watch?v=m3i2mk5hs8U)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video m3i2mk5hs8U (1:27:42) was read in full. Checked the three-route framing, error detection from representations and TruthX (heard as "True Facts" in the captions), contrastive decoding as (1+α)z−αz⁻ with an extra pass per token, the Obama/GPT-2 Small example, DoLa (logit lens, built into Hugging Face, first author a former lab project student), LayerCD, ICD "dumbing-down" prompts, CAD with the black-banana and surfboard examples, the audio version, MTI (reusing KV Cache, "Output Error", 62% to 72%, worse with other words), VISTA/ACG, the two intuitions for "check again" and the caveat that critiquing is not necessarily easier than generating, the conclusions of Can LLMs Correct Themselves and RefineBench, the confidence-level/critique-score formula and the effect of instruction wording, the two verification figures and the majority-vote baseline (the transcript says about 100x or more compute for 3.8%; the post's 128x is the slide figure), the Hillary Clinton birthplace example, ReVISE's two stages, the distribution shift when directly teaching correction, RLVR, the cost of thinking, K^(T+1) and the 6-bit parity example, and the pass@k debate and The Debate on RLVR; all match the transcript and no errors were found. The specific CL/CS table numbers, paper IDs and slide page numbers come from the slides and cannot be verified from the transcript.
 
 ## Update Log
 

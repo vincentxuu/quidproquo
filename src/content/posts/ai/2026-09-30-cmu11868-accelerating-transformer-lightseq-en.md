@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L10: Accelerating Transformers on GPUs, and Where LightSeq Finds the Time"
+title: "Accelerating Transformers on GPUs, and Where LightSeq Finds the Time | CMU 11-868 Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,16 +36,6 @@ glossary:
 > **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L10 slide PDF](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-10-transformer-acc-5ba466406bf7296f86cd244ad0405867.pdf) (66 pages), and the two readings. Access grade **A3**: slides, assignments, and starter code are all public, but **the official syllabus lists no public recording links**, so everything below comes from the slides and papers, with page numbers.
 
 **Series**: Previous: [HW3: A Decoder-Only Transformer in MiniTorch](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture-en) | Next: [HW4: Fused CUDA Kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## What this lecture answers
 
@@ -183,6 +173,16 @@ One thing you can do tonight: run the PyTorch profiler on a forward pass of any 
 - The same ideas in Triton, and measuring before optimizing: [CS336 Lecture 6: Benchmark and Profile Before Writing a Triton Kernel](/posts/ai/2026-08-22-cs336-kernels-triton-en)
 - GPU memory hierarchy and the "move less data" intuition: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - This course's earlier GPU programming model: [L02-L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

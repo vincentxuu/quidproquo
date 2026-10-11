@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 20: Fireside Chat, Conclusion: Turning Twenty Lectures into Modeling Choices"
+title: "Fireside Chat, Conclusion: Turning Twenty Lectures into Modeling Choices | Stanford CS221 Lecture 20"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 This article covers **Stanford CS221, Autumn 2025, Lecture 20**, dated 2025-12-03. It is not a lecture that derives a new algorithm from slides. It is a fireside chat led by the course moderator, Ken, with Percy Liang answering student questions, followed by Percy’s closing thanks to the class. The [official course site](https://stanford-cs221.github.io/autumn2025/) and this series’ official schedule establish the offering and lecture order; the primary artifact is the [official Stanford Online video](https://www.youtube.com/watch?v=5u5I5jvWR5k).
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 20, the same term and lecture number this article follows. It matches item 20 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=5u5I5jvWR5k
-title: Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion](https://www.youtube.com/watch?v=5u5I5jvWR5k)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 20) and confirmed it covers Ken moderating and Percy Liang answering: Percy's education and research path, the AI outlook, the CS221 redesign and course positioning, career and research advice, and the closing thanks (the moderator's opening and closing remarks were checked too), matching this article's lecture and topic; no mismatch found. Timestamp handling: the per-paragraph `?t=` deep links were second-exact timestamps, and the transcript has no timecodes to verify them against, so all of them were removed and only the topic order is kept; by relative position in the transcript, the order (education and early language models, public perception shift, course redesign, research choices, career advice) matches the article.
 
 ## Materials and Reading Method
 
@@ -150,6 +130,26 @@ The fireside chat does not provide a final definition of AI or declare one winni
 Several linked observations emerge from Percy’s answers, though they should not be presented as a four-point conclusion he read aloud. First, the hard problem is shifting from doing to deciding what should be done: if a tool can build any app in five minutes, the difficult question is which app is worth building. Second, fundamentals remain useful because search, policy, probability, and logic are different tools for examining a new system rather than historical names invalidated by a product update. Third, in an uncertain future, growth, learning and adaptation, collaboration, and the ability to ask good questions are more durable than collecting impressive labels early. Fourth, AI evaluation cannot stop at static leaderboards or plausible-looking reasoning traces; it must ask whether systems are reliable, transparent, inspectable, and capable of producing real-world results.、、、、、
 
 This is an editorial synthesis of the recording, not a closing list Percy reads out. The actual ending is plain: Percy thanks Ken, the teaching team, and the students who stayed with the course, and wishes them well for the rest of the quarter. Because this lecture has no public slide artifact, the honest reading is not to invent a hidden agenda. It is to keep the questions, answers, laughter, caption gaps, and unresolved problems together. Lecture 20’s conclusion demonstrates the habit CS221 tries to leave behind: separate source material from inference before deciding what to model next.、
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 20, the same term and lecture number this article follows. It matches item 20 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=5u5I5jvWR5k
+title: Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion](https://www.youtube.com/watch?v=5u5I5jvWR5k)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 20) and confirmed it covers Ken moderating and Percy Liang answering: Percy's education and research path, the AI outlook, the CS221 redesign and course positioning, career and research advice, and the closing thanks (the moderator's opening and closing remarks were checked too), matching this article's lecture and topic; no mismatch found. Timestamp handling: the per-paragraph `?t=` deep links were second-exact timestamps, and the transcript has no timecodes to verify them against, so all of them were removed and only the topic order is kept; by relative position in the transcript, the order (education and early language models, public perception shift, course redesign, research choices, career advice) matches the article.
 
 ## Update Log
 

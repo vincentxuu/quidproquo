@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 18: How N-grams Train, Sample, and Fail"
+title: "How N-grams Train, Sample, and Fail | CMU 07-280 Lecture 18"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 17 chose the tokens. **CMU 07-280, Spring 2026, Lecture 18** turns a token sequence into a model that can be trained and sampled. The official inked deck is titled *NLP: N-gram LMs*. Its path runs through joint probability, a Markov approximation, corpus counts, sampling, temperature, and finally the handoff to feature learning.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-This article fully reads the [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf). The uninked direct link returned 404 on August 22, 2026, while the inked deck remained anonymously accessible and complete. The official site provides no public Spring 2026 lecture recording, so this article does not invent how the instructors discussed polls or the worksheet live.
-
-The lecture connects tokenization to the definition of a language model: a model approximates the joint probability of a token sequence in a language. It then applies the chain rule and limits context with an N-gram Markov assumption.
 
 ## The inherited problem: a table of bigram counts is not yet a full model
 
@@ -96,6 +80,22 @@ N-grams remain valuable because they are auditable. A probability can be traced 
 ## An action for tonight
 
 Using the corpus from Lecture 17, build unigram, bigram, and trigram counts. Generate three passages from the same prompt: greedy, sampling at `T=0.5`, and sampling at `T=2`. Record the first step at which each model encounters an unseen context, then choose whether you would smooth, back off, or shorten context. Do not stop at judging which output “sounds human.”
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+This article fully reads the [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf). The uninked direct link returned 404 on August 22, 2026, while the inked deck remained anonymously accessible and complete. The official site provides no public Spring 2026 lecture recording, so this article does not invent how the instructors discussed polls or the worksheet live.
+
+The lecture connects tokenization to the definition of a language model: a model approximates the joint probability of a token sequence in a language. It then applies the chain rule and limits context with an N-gram Markov assumption.
 
 ## Update Log
 

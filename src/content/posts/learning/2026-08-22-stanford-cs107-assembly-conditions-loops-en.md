@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 18: From Condition Codes to x86-64 Loops"
+title: "From Condition Codes to x86-64 Loops | Stanford CS107 Lecture 18"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 `cmp %rsi,%rdi` stores no subtraction result in a general-purpose register, yet a following `jge` can branch from it. Condition codes provide the bridge: a small set of CPU flags records important properties of the most recent arithmetic or logical operation. Stanford CS107 Lecture 18 starts from that hidden state and reconstructs C `if`, `while`, and `for` as fall-through paths and control-flow edges.
 
 The crucial habit is not memorizing every `jg/jl/ja/jb`. Ask which instruction most recently wrote the flags, read a comparison in the `S2-S1` direction, and decide whether the values require signed or unsigned interpretation. A mistake in any one reverses the branch condition.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, gaps, and complete agenda
 
@@ -276,6 +268,14 @@ The slides call the four-instruction form often fast, but that is not a universa
 8. When comparing cost, separate static instruction count from the dynamic path.
 
 Lecture 18 fully answers when to jump and how to produce a conditional result without jumping. It does not answer how a function transfers control or stores a return address. Keeping that boundary clear preserves the role of condition codes: a compressed summary of the latest operation, shared by jumps, sets, and moves to choose what happens next.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

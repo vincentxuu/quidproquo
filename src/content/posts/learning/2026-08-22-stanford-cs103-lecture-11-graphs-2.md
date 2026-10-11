@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 10：走訪、圖的補集與鴿籠原理"
+title: "走訪、圖的補集與鴿籠原理｜Stanford CS103 第 10 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 12 篇，對應 **Spring 2026 官方 Lecture 10（2026-04-22）**。本講的官方題目是 **Graph Theory, Part Two**，主線依序是 walks、paths 與 reachability、graph complements，以及 pigeonhole principle。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜實際講者。
 
 前一講把 graph 定義為 `G = (V, E)`：`V` 是節點集合，`E` 的元素是兩個不同節點組成的無序對。本講開始問動態問題：怎樣才算沿著圖移動？兩點何時彼此可達？若把所有不存在的邊翻成存在，連通性會怎樣？最後再把「東西比位置多」提升成可重複使用的證明工具。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)
 
 ## 相鄰是所有移動定義的起點
 
@@ -138,6 +130,14 @@ Pigeonhole principle 說：把 `m` 個物件放入 `n` 個箱子，若 `m > n`�
 ## 材料缺口與閱讀界線
 
 [講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/Lecture%20Slides.pdf)公開，足以核對本講 agenda、定義與完整證明。錄影與逐字稿只在 Canvas／Panopto，因此本文不重建講師口語、學生提問或現場投票結果，也不把延伸定理說成課堂已證明。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)
 
 ## 更新紀錄
 

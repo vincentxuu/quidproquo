@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 17：從 page fault 到 Clock，記憶體滿了該換掉誰？"
+title: "從 page fault 到 Clock，記憶體滿了該換掉誰？｜Stanford CS111 第 17 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 18 篇，對應 **Stanford CS111, Spring 2026, Lecture 17**。2026-05-06 由 Mendel Rosenblum 主講，官方題目是 [Demand Paging, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/17/Lecture17.pdf)。官方 Lecture 16 與 17 PDF 逐位元組相同（SHA-256 均為 `65091d9719674258175c2dcf29e1ad82bca8ff8a82d3b66d73b9e40ad3287d9e`），不是兩份可區分的 decks；本文因此聚焦後半的 replacement policy，Lecture 16 則以 fault/fetching mechanism 為主。Canvas／Panopto 錄影沒有公開，無法判定兩天實際口述分界。
 
 Lecture 16 建立 demand paging 的承諾：程式不必把全部 code 與 data 同時放進 physical memory，也能執行。Lecture 17 接著問兩題：什麼時候把 page 搬進來？RAM 已滿時又要換掉哪一頁？前者是 **page fetching policy**，後者是 **page replacement policy**。Page fault、present bit 與 restartable instruction 是機制；FIFO、LRU、Clock 與 global replacement 則是政策。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 本講完整 agenda
 
@@ -152,6 +144,14 @@ Lecture 17 因此畫出 demand paging 的界線。Mechanism 能安全 trap、補
 ## 這講之後應該能做的推理
 
 看到 fault，分別回答 address／來源／restart、是否 prefetch、free frame／victim pool／dirty cost。面對 reference string，固定 frame 數，逐步更新 resident set 再算 faults；面對真實 slowdown，先問 working set 是否放得下。若 hand 高速旋轉且 fault I/O 壓滿，微調 victim order 可能救不了 thrashing。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

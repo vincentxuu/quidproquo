@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 15：看懂 x86-64 addressing modes，分清位址和值"
+title: "看懂 x86-64 addressing modes，分清位址和值｜Stanford CS107 第 15 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 `mov $0x42,%rax` 與 `mov 0x42,%rax` 只差一個 `$`，效果卻完全不同：前者把數值 `0x42` 放進 register，後者到 memory address `0x42` 讀值。Stanford CS107 Lecture 15 就從這個容易看漏的符號開始，把 x86-64 addressing modes 整理成一套可計算的規則。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料、範圍與完整 agenda
 
@@ -277,6 +269,14 @@ void foo(long *xp, long *yp) {
 [GNU `objdump` 文件](https://sourceware.org/binutils/docs/binutils/objdump.html)指出 `-d` 顯示 machine instructions 的 assembler mnemonics，並可用 `-M intel` 或 `-M att` 選擇 x86 顯示方式。[GCC output options](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html)則讓你用 `-S` 保留 compiler 產生的 assembly。把同一個短 C expression 分別用兩種 syntax 顯示，是練習「語意不變、記法改變」最直接的方法。
 
 一句話收尾：括號內算位址，括號整體存取 memory。再配上 `$`、`%` 與 AT&T 的 source-first 順序，密集標點就成了可驗算的 pointer arithmetic。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

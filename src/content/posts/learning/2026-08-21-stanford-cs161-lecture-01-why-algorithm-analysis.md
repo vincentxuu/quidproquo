@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 1：為什麼分析演算法要從 Karatsuba 乘法開始"
+title: "為什麼分析演算法要從 Karatsuba 乘法開始｜Stanford CS161 第 1 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161)的第 2 篇，對應 **Stanford CS161, Winter 2026, Lecture 1**。這堂課在 2026 年 1 月 5 日由 Ellen Vitercik 主講，官方題目是 [Why are you here?](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here)。公開材料有講義、70 頁投影片，以及課程頁連出去的 notebook 與概念檢核；本文實際使用講義與投影片。錄影只能從 Canvas 進入，我沒有把它當成已讀來源。
 
 第一講不是把演算法定義背一遍。它選了一個每個人都會做的工作：整數乘法。你小學就知道直式乘法，但「會算」和「知道這個算法在輸入變大時要付出多少」是兩件事。這堂課用同一個例子串起三個課程目標：設計一個不同的算法、分析它的成長率、把理由寫到別人可以檢查。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here)
-
-查核日期：2026-10-10。
 
 ## 三個目標不是三份清單
 
@@ -195,6 +185,16 @@ Lecture 1 建立的是一種不信直覺的習慣。你可以正確算出答案�
 實作 Karatsuba 時，常見做法不是一路遞迴到一位數，而是在輸入夠小時切回直式乘法。這是工程上的混合策略：大輸入利用較好的漸近階，小輸入避開遞迴與暫存成本。Winter 2026 的公開講義沒有指定門檻，本文也不給一個假裝通用的數字；門檻應由數字表示、語言與硬體上的基準測試決定。
 
 另一個值得自己動手的延伸，是分別記錄「一位數乘法次數」與「總牆鐘時間」。前者會貼近遞迴樹預測，後者會混入直譯器、配置與快取。把兩張圖放在一起，正好能看見分析模型解釋了什麼，又沒有解釋什麼。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-1-why-are-you-here)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

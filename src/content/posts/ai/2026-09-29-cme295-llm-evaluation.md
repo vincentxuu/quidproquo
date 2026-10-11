@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 8 講：用 LLM 評 LLM，先防三種偏誤"
+title: "用 LLM 評 LLM，先防三種偏誤｜Stanford CME295 第 8 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ glossary:
 你改了一行 system prompt，想知道回答有沒有變好。模型吐出來的是自由文字，沒有標準答案可以對。找同事來評？兩個人對同一句話的打分不一定一樣，而且評一百題要一整天。這一講回答的就是這個問題：LLM 的輸出要怎麼評，哪些評法可以信到什麼程度。
 
 投影片先界定範圍：「評估」可以指**輸出品質**（有沒有照指示、連貫、正確），也可以指**系統表現**（延遲、價格、可靠度）。這一講只談前者。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=8fNP4N46RRo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 8 講 LLM Evaluation（頁面日期 2025-11-21，長 1:49:25）；章節是 inter-rater agreement、rule-based 指標（METEOR／BLEU／ROUGE）、LLM-as-a-judge 與其偏見（position／verbosity／self-enhancement）、factuality、agent evaluation、benchmarks（MMLU、AIME／PIQA、SWE-bench、HarmBench、Tau-Bench），與本文主題一致。本文只引投影片，沒有轉述課堂口述。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 人工評分：最接近真相，但有三個問題
 
@@ -270,6 +250,26 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 - 從 perplexity 一路談到 agent 與安全評測：[CS336 Lecture 12：沒有一個真正的 LLM 評分](/posts/ai/2026-08-22-cs336-evaluation)
 - 實作面：golden set、盲評、統計檢定怎麼做：[調整 agent 之後，怎麼嚴謹比較前後差異](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 - 把 agent 的每個 tool call 變成可追蹤的 span：[Agent 可觀測性：從 OTel Trace 到抓出幻覺、工具誤用與無限迴圈](/posts/ai/2026-06-04-agent-observability-failure-detection)
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=8fNP4N46RRo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 8 講 LLM Evaluation（頁面日期 2025-11-21，長 1:49:25）；章節是 inter-rater agreement、rule-based 指標（METEOR／BLEU／ROUGE）、LLM-as-a-judge 與其偏見（position／verbosity／self-enhancement）、factuality、agent evaluation、benchmarks（MMLU、AIME／PIQA、SWE-bench、HarmBench、Tau-Bench），與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

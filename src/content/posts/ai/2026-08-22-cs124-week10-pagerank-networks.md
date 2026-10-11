@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 10 PageRank and Social Networks：從 anchor text、圖中心性到課程收束"
+title: "PageRank and Social Networks：從 anchor text、圖中心性到課程收束｜Stanford CS124 第 10 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

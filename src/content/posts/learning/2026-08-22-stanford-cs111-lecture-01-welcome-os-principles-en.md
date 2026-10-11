@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 1: Welcome to CS111!"
+title: "Welcome to CS111! | Stanford CS111 Lecture 1"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 2 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 1**. Mendel Rosenblum taught the lecture on 2026-03-30; its official title is [Welcome to CS111!](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/1/Lecture1.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Lecture 1 does not begin by asking students to memorize a closed definition of an OS. It follows changes in hardware cost and use to explain why operating systems accumulated layers: shared I/O cards, batch monitors, multiprogramming, and personal computers each answer a concrete bottleneck.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## How to read this historical lecture
 
@@ -90,6 +82,14 @@ Applied to the next lecture, threads and processes are not merely two definition
 ## Check yourself with a historical causal chain
 
 Choose one period and write “hardware or usage bottleneck → new OS mechanism → newly created policy or protection problem.” If the arrows cannot be explained, the dates have been memorized without the lecture’s causal account of design.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS149 L6 Locality, Communication, and Arithmetic Intensity: Why Moving Less Data Beats Adding Cores"
+title: "Locality, Communication, and Arithmetic Intensity: Why Moving Less Data Beats Adding Cores | Stanford CS149 Lecture 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,24 +32,6 @@ glossary:
 The official source is the [Lecture 6 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt2/06_progperf2.pdf) (68 pages, with a [slide-by-slide web version](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)). Fall 2025 recordings aren't public; the homepage points to the 2023 version, here the [2023 Lecture 6 recording](https://www.youtube.com/watch?v=Mhdny2JNhmc). This post follows the 2025 slides and treats the video as a supplement. Access level **A3**.
 
 Of the three goals from the previous post, this one tackles the second: **reduce communication**.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=Mhdny2JNhmc
-title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention
-```
-
-Original videos: [Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention](https://www.youtube.com/watch?v=Mhdny2JNhmc)
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 6 - Performance Optimization II: Locality, Communication, and Contention” (1:17:25). The captions cover send/recv in message passing and deadlock, the grid solver, blocking, arithmetic intensity, inherent versus artifactual communication and contention, ending with the roofline, matching this post's topic; NUMA and the high-watermark method do not appear in the captions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## A shared address space is only an abstraction
 
@@ -220,6 +202,24 @@ Confirmed: the contents of the Lecture 6 slide PDF and the lecture date. The num
 Further reading: for cache and memory-hierarchy basics, start with [CS107 on caching and the memory hierarchy](/posts/learning/2026-08-22-stanford-cs107-caching-memory-hierarchy-en). For the same bandwidth-and-fusion thinking on GPUs, compare [CS336 on GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en).
 
 Series navigation: previous, [Lecture 5: work distribution and scheduling](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en) | next, [PA2: building a task execution library from scratch](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=Mhdny2JNhmc
+title: Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention
+```
+
+Original videos: [Stanford CS149 I Lecture 6 - Performance Optimization II: Locality, Communication, and Contention](https://www.youtube.com/watch?v=Mhdny2JNhmc)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt2/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 6 - Performance Optimization II: Locality, Communication, and Contention” (1:17:25). The captions cover send/recv in message passing and deadlock, the grid solver, blocking, arithmetic intensity, inherent versus artifactual communication and contention, ending with the roofline, matching this post's topic; NUMA and the high-watermark method do not appear in the captions. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

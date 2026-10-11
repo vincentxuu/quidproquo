@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 28：用四個觀念串起並行、記憶體與儲存"
+title: "用四個觀念串起並行、記憶體與儲存｜Stanford CS111 第 28 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 29 篇，對應 **Stanford CS111, Spring 2026, Lecture 28**。2026-06-03 由 Mendel Rosenblum 主講，官方題目是 [Course Review](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/28/Lecture28.pdf)。本文依 10 頁公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)逐頁整理；錄影位於 Canvas／Panopto 後方，不算已讀來源。
 
 素材稽核沒有發現重複講義：Lecture 28 的檔案雜湊、頁數與標題均不同於 Lecture 26、27。這份期末回顧也不是把章節名稱再念一次。第 2–7 頁先沿著 concurrency、memory、storage 三條主線盤點機制，第 8 頁再抽出 virtualization、atomicity、locality、layering 四個跨章節觀念。真正要帶走的是後者如何反覆出現在前者。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 第一條主線：並行不是「同時跑」而已
 
@@ -89,6 +81,14 @@ crash recovery 的三個答案是 `fsck`、ordered writes、write-ahead logging�
 - 第 6–7 頁：disk I/O、file access、inode、block layout、free space、cache、scheduling、links、crash recovery、FTL。
 - 第 8 頁：virtualization、atomicity、locality、layering。
 - 第 9–10 頁：後續課程方向與結語。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 深度學習完整課程導讀：28 講能看，作業鏈卻不完整公開"
+title: "從神經網路基礎到序列模型的學習路線｜CMU 11-785 課程總覽"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -21,16 +21,6 @@ series:
 [CMU 11-785 Introduction to Deep Learning Spring 2026](https://deeplearning.cs.cmu.edu/S26/index.html)是一門從神經網路表示能力一路走到 Boltzmann machine 的研究所課程。官方課表有一場 logistics 與 **28 講正式內容**；每講都連到投影片、YouTube 與 MediaServices，另有一大批 Python、NumPy、PyTorch、資料處理與模型實作的 bootcamp／recitation。
 
 它看起來像一門完整公開課，實際上有一道清楚的邊界：講授鏈很完整，正式作業鏈不完整。本文與後續系列鎖定 Spring 2026，不混用 Fall 2025 或 Fall 2026；只在公開證據足夠的範圍還原課程。
-
-## 課程影片來源
-
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
-
-課程與錄影入口：
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-查核日期：2026-10-10。
 
 ## 版本判決：Spring 2026 是 latest-complete
 
@@ -83,6 +73,16 @@ Fall 2025 仍可作歷史備援；Fall 2026 在本文查證時是新學期入口
 後續逐講文章各自鎖定官方日期、slides 與 YouTube，依原 agenda 展開，不虛構課堂問答。Course Logistics 併在本文；orders 1–28 對應 28 講內容。每篇的實作只重做可由公開材料支持的小例子，作業平台缺口會留在明示的限制欄。
 
 第一批先完成 Lectures 1–4，檢查三件事：是否完整覆蓋官方 agenda、推導是否真的重算、以及校外練習能否在沒有 Autolab 的情況自我檢查。通過內容 review 後才繼續量產。
+
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

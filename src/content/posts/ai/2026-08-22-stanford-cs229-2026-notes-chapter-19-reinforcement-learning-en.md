@@ -1,5 +1,5 @@
 ---
-title: "Reinforcement Learning: MDPs, Value Iteration, and Continuous States"
+title: "Reinforcement Learning: MDPs, Value Iteration, and Continuous States | Stanford CS229 Chapter 19"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 19, printed pages 227–243, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the 2026 notes, not a reconstruction of any quarter's recordings. It organizes the mathematical spine and approximation methods without copying every proof.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from public recordings of the older CS229 Autumn 2018 course (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=QFu5nuc-S0s
-title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=d5gaWTo6kDM
-title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
-```
-
-Original videos: [Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s); [Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter; one of the two originally embedded videos did not match. Autumn 2018 Lecture 17 (about 79 minutes) covers the MDP five-tuple, the Bellman equation, value iteration and policy iteration, then starts on estimating transition probabilities from data and exploration, with continuous states only previewed around 58% for the next time; this matches the chapter's first two sections. Lecture 18 (about 80 minutes) covers continuous-state MDPs: discretization, models/simulators and fitted value iteration with a linear-regression value approximation, matching the chapter's continuous-state section. The originally embedded Spring 2026 Lecture 16 (YouTube title "Basic Concept in RL, Policy Gradient") is in fact attention variants, MoE, in-context learning and SFT, with no MDP, Bellman or value iteration at all, so it was replaced by Lecture 18 (the 2026 video now lives in Chapter 17).
 
 ## MDPs model delayed consequences
 
@@ -96,6 +70,32 @@ Chapter 18 treated LLM token generation as a finite-horizon MDP and optimized th
 ## Exercise
 
 Write \(S,A,P,R,\gamma\) for a simplified balancing cart with position and velocity. Compare the state count when each dimension uses 20 bins with a linear value approximation using ten basis functions. Identify the information each representation is most likely to lose.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from public recordings of the older CS229 Autumn 2018 course (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d5gaWTo6kDM
+title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
+```
+
+Original videos: [Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s); [Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter; one of the two originally embedded videos did not match. Autumn 2018 Lecture 17 (about 79 minutes) covers the MDP five-tuple, the Bellman equation, value iteration and policy iteration, then starts on estimating transition probabilities from data and exploration, with continuous states only previewed around 58% for the next time; this matches the chapter's first two sections. Lecture 18 (about 80 minutes) covers continuous-state MDPs: discretization, models/simulators and fitted value iteration with a linear-regression value approximation, matching the chapter's continuous-state section. The originally embedded Spring 2026 Lecture 16 (YouTube title "Basic Concept in RL, Policy Gradient") is in fact attention variants, MoE, in-context learning and SFT, with no MDP, Bellman or value iteration at all, so it was replaced by Lecture 18 (the 2026 video now lives in Chapter 17).
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Kernel Methods: Nonlinear Learning Without Explicit Features"
+title: "Kernel Methods: Nonlinear Learning Without Explicit Features | Stanford CS229 Chapter 5"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 5, “Kernel methods,” on printed pages 49–59 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of a quarter's recordings.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=8NYoQiRANpg
-title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
-```
-
-Original videos: [Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Andrew Ng's Autumn 2018 Lecture 7 (about 80 minutes): it opens with the optimal margin classifier/SVM optimization problem and the representer theorem, then covers high-dimensional feature maps, the kernel trick, the kernel matrix (the transcript also calls it the Gram matrix), Mercer's theorem and positive semi-definiteness, polynomial and Gaussian kernels, which algorithms can be kernelized (linear regression, logistic regression, the perceptron) and closes with the L1 soft-margin SVM and MNIST. The topic matches this chapter, but it is the 2018 presentation, not a line-by-line source for the 2026 notes.
 
 ## Nonlinear in the input, linear in the parameters
 
@@ -83,6 +62,27 @@ This chapter extends Chapter 1's “linear model over features” idea and prepa
 ## Self-study exercise
 
 For three two-dimensional points, explicitly construct second-degree polynomial features and calculate every inner product. Then compute the corresponding polynomial kernel directly and verify equality. Finally, compare Gram matrices from several Gaussian bandwidths and watch them move from nearly diagonal to nearly constant.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=8NYoQiRANpg
+title: Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)
+```
+
+Original videos: [Lecture 7 - Kernels | Stanford CS229: Machine Learning Andrew Ng (Autumn 2018)](https://www.youtube.com/watch?v=8NYoQiRANpg)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Andrew Ng's Autumn 2018 Lecture 7 (about 80 minutes): it opens with the optimal margin classifier/SVM optimization problem and the representer theorem, then covers high-dimensional feature maps, the kernel trick, the kernel matrix (the transcript also calls it the Gram matrix), Mercer's theorem and positive semi-definiteness, polynomial and Gaussian kernels, which algorithms can be kernelized (linear regression, logistic regression, the perceptron) and closes with the L1 soft-margin SVM and MNIST. The topic matches this chapter, but it is the 2018 presentation, not a line-by-line source for the 2026 notes.
 
 ## Update Log
 

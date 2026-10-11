@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 6：Language——N-gram 語言模型、TF-IDF 問答系統、Parser 與 Attention"
+title: "Language——N-gram 語言模型、TF-IDF 問答系統、Parser 與 Attention｜Harvard CS50 AI 第 6 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2023 年重錄版**（前六週為 2020 年）；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 6 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
-title: Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023
-```
-
-原始影片：[Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
-
-課程與錄影入口：
-
-- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：原表有大段內容與這支 2023 年影片不符：字幕中沒有 TF-IDF、倒排索引、資訊檢索、問答系統、CYK 表填充、Good-Turing／Kneser-Ney 平滑，也沒有 Parser 與 Questions 專案介紹，已全部移除；影片實際講的是 CFG 與 NLTK 剖析器、n-gram、Naive Bayes 情感分析、word2vec、RNN 機器翻譯、attention 與 Transformer，已據此重寫。原表末段到 1:35:00，但影片實長只有 1:05:22，精確時間碼無法驗證，改為依字幕估算的「約」值。本週文章內的 TF-IDF、問答與專案說明來自課程官網（專案規格以 2026 年版為準），不是這支影片的內容。
 
 ## TL;DR
 
@@ -415,6 +395,26 @@ style50 questions.py
 - [ ] 理解 Attention Q/K/V 投影與 scaled dot-product 注意力機制
 - [ ] 理解 Multi-Head Attention 為何需要多頭（捕捉不同關係類型）
 - [ ] 兩專案 `check50` 全綠
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 6 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=QAZc9xsQNjQ
+title: Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023
+```
+
+原始影片：[Language - Lecture 6 - CS50's Introduction to Artificial Intelligence with Python 2023](https://www.youtube.com/watch?v=QAZc9xsQNjQ)
+
+課程與錄影入口：
+
+- [CS50 AI Week 6 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/6/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：原表有大段內容與這支 2023 年影片不符：字幕中沒有 TF-IDF、倒排索引、資訊檢索、問答系統、CYK 表填充、Good-Turing／Kneser-Ney 平滑，也沒有 Parser 與 Questions 專案介紹，已全部移除；影片實際講的是 CFG 與 NLTK 剖析器、n-gram、Naive Bayes 情感分析、word2vec、RNN 機器翻譯、attention 與 Transformer，已據此重寫。原表末段到 1:35:00，但影片實長只有 1:05:22，精確時間碼無法驗證，改為依字幕估算的「約」值。本週文章內的 TF-IDF、問答與專案說明來自課程官網（專案規格以 2026 年版為準），不是這支影片的內容。
 
 ## 更新紀錄
 

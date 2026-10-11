@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 5: WikiChat's Seven-Stage Defense Against Hallucination"
+title: "WikiChat's Seven-Stage Defense Against Hallucination | Stanford CS224V Lecture 5"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, rag, hallucination, wikichat]
@@ -19,18 +19,6 @@ description: "CS224V Grounding Conversational Agents on Free Text: RAG baselines
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-freetext.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 5 returns to free text. Without a database schema or fixed Worksheet fields, how can an assistant avoid fluent invention? WikiChat expands RAG into repeated retrieval, filtering, and claim verification instead of assuming that context eliminates hallucination.
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## Agenda: break the baseline, then build the pipeline
 
@@ -119,6 +107,18 @@ Take ten failures from an existing RAG system and label each as retrieval miss, 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck does not include full code, prompts, or a recording. Some slides expand the seven conceptual stages into finer prompt operations. This article describes the visible algorithmic roles and does not claim the production system can be reconstructed verbatim.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

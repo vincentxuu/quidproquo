@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 25：Caching、Memory Hierarchy 與 Locality"
+title: "Caching、Memory Hierarchy 與 Locality｜Stanford CS107 第 25 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 前一講從 profiler 與 compiler transformation 問「少做哪些工作」；Lecture 25 換一個方向：即使執行相同 instructions，資料位於不同 memory layer，等待時間也可能不同。Cache 的作用，是在較小、較快、靠近處理器的層級保留近期可能再用的資料，讓多數存取不必每次走到較慢的層級。
 
 這是 Winter 2026 一份只有 55 行抽取文字的短 deck，不是一堂公開材料完整的 cache architecture 課。本文忠實說清投影片提出的 memory hierarchy、temporal locality 與 spatial locality，再把它們轉成可驗證的程式設計問題；不自行補入 cache line 大小、associativity、replacement policy、寫入策略或特定處理器 latency。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -96,6 +88,14 @@ Lecture 24 已說明 optimization 從 measurement 開始。Lecture 25 並沒有�
 面對一段慢程式，先問三件事：同一小批資料是否很快被重用？接下來的存取是否接近目前地址？活躍工作集是否可能大到擠出先前資料？接著選一個最小修改，例如交換 nested-loop order、分塊或調整 hot fields 的排列，保持輸入與正確性檢查不變，再比較 measurement。
 
 Lecture 25 的價值正是克制。它沒有要求背一張硬體參數表，而是把效能推理從「每個 operation 都同價」改成「資料在哪裡、最近與附近會用什麼」。掌握 temporal 與 spatial locality 後，source-level traversal 才能和底層 memory hierarchy 接上；保留材料邊界，則避免把合理直覺誤寫成機器保證。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

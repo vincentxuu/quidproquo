@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 5 Embeddings and Social NLP：語境向量與公開材料的證據邊界"
+title: "Embeddings and Social NLP：語境向量與公開材料的證據邊界｜Stanford CS124 第 5 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

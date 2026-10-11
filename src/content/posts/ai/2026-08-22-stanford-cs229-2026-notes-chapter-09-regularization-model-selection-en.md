@@ -1,5 +1,5 @@
 ---
-title: "Regularization and Model Selection: Explicit, Implicit, and Cross-Validated"
+title: "Regularization and Model Selection: Explicit, Implicit, and Cross-Validated | Stanford CS229 Chapter 9"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,27 +20,6 @@ draft: false
 This is a chapter-by-chapter reading of Chapter 9, printed pages 137–145, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings**. The organizing question is how to control effective complexity through explicit penalties, optimization dynamics, validation, and Bayesian priors.
 
 Chapter 8 diagnosed variance as a threat to generalization, but using fewer parameters is not the only remedy. Complexity may mean parameter norm, sparsity, smoothness, or even which one of many global minima an optimizer prefers.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=llnEgyyuYkQ
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice](https://www.youtube.com/watch?v=llnEgyyuYkQ)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 6 (about 78 minutes); the transcript runs through overfitting and underfitting, the bias-variance decomposition, regularization (L2, L1 and norm penalties, roughly 50 to 75%), the Bayesian view that "regularization encodes prior knowledge" (a single sentence, around 55%), double descent, and only around 90% train/dev/test splits, k-fold cross-validation and hyperband. It fits this chapter's topic broadly. Implicit regularization appears only as a few sentences about the optimizer's implicit bias after double descent, and the MAP derivation and its equivalence with weight decay are never worked through, so those two sections rest mainly on the notes.
 
 ## Explicit regularization trades off two objectives
 
@@ -87,6 +66,27 @@ This chapter turns Chapter 8's diagnosis into practical controls. Chapter 10 beg
 ## Self-study exercise
 
 Fit polynomial regressions across a grid of $L_2$ strengths. Train on one split, choose $\lambda$ only on validation data, and inspect the test set once. Then deliberately choose $\lambda$ by training error and compare test performance. The contrast makes the separation between parameter fitting and model selection concrete.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=llnEgyyuYkQ
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice](https://www.youtube.com/watch?v=llnEgyyuYkQ)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 6 (about 78 minutes); the transcript runs through overfitting and underfitting, the bias-variance decomposition, regularization (L2, L1 and norm penalties, roughly 50 to 75%), the Bayesian view that "regularization encodes prior knowledge" (a single sentence, around 55%), double descent, and only around 90% train/dev/test splits, k-fold cross-validation and hyperband. It fits this chapter's topic broadly. Implicit regularization appears only as a few sentences about the optimizer's implicit bias after double descent, and the MAP derivation and its equivalence with weight decay are never worked through, so those two sections rest mainly on the notes.
 
 ## Update Log
 

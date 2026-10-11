@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 6: Functions I, from Definitions to Injection and Surjection Proofs"
+title: "Functions I, from Definitions to Injection and Surjection Proofs | Stanford CS103 Lecture 6"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 8 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 6, Spring 2026 (2026-04-13)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not identify the speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/Lecture%20Slides.pdf) are public; Canvas/Panopto recordings and transcripts were not used.
 
 The official title is **Functions, Part I**. It rebuilds familiar functions as objects checkable with sets and first-order logic. “Is this a function?”, “Is it injective?”, and “Is it surjective?” become quantified claims that can be negated and proved instead of answered by visual intuition.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)
 
 ## 1. The proof-technique table returns
 
@@ -150,6 +142,14 @@ The complete deck supports the function rules, definition methods, piecewise fun
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt the body, metadata, proof examples, and material boundary from the official Functions, Part I deck.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/06/)
 
 ## References
 

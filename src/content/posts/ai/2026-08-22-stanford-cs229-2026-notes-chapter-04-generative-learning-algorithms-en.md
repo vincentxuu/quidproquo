@@ -1,5 +1,5 @@
 ---
-title: "Generative Learning Algorithms: GDA, Naive Bayes, and Smoothing"
+title: "Generative Learning Algorithms: GDA, Naive Bayes, and Smoothing | Stanford CS229 Chapter 4"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 4, “Generative learning algorithms,” on printed pages 35–48 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of one quarter's recordings. The notes label Naive Bayes as optional reading, which is the appropriate weight to give that section.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=zRdE8A4UZes
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis](https://www.youtube.com/watch?v=zRdE8A4UZes)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 5 (about 82 minutes); the transcript covers generative versus discriminative models, the Gaussian and shared covariance, GDA with maximum likelihood, GDA versus logistic regression (including a quadratic-decision-boundary demo that is not in the notes), and only after roughly 90% moves to a Naive Bayes spam filter with Laplace smoothing (auto-captioned as "applause smoothing"). It matches this chapter. On Naive Bayes the transcript stops at the simplifying assumption and smoothing and does not compare the Bernoulli and multinomial event models, which rest on the notes alone.
 
 ## Discriminative and generative routes
 
@@ -86,6 +65,27 @@ This chapter contrasts with Chapter 3's conditional modeling. Chapter 5 takes a 
 ## Self-study exercise
 
 Train logistic regression and GDA on the same binary dataset, first with approximately Gaussian classes and then with skew or outliers. Separately, calculate Bernoulli Naive Bayes by hand for ten short documents and observe how one unseen word collapses a class probability without smoothing.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=zRdE8A4UZes
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis](https://www.youtube.com/watch?v=zRdE8A4UZes)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 5 (about 82 minutes); the transcript covers generative versus discriminative models, the Gaussian and shared covariance, GDA with maximum likelihood, GDA versus logistic regression (including a quadratic-decision-boundary demo that is not in the notes), and only after roughly 90% moves to a Naive Bayes spam filter with Laplace smoothing (auto-captioned as "applause smoothing"). It matches this chapter. On Naive Bayes the transcript stops at the simplifying assumption and smoothing and does not compare the Bernoulli and multinomial event models, which rest on the notes alone.
 
 ## Update Log
 

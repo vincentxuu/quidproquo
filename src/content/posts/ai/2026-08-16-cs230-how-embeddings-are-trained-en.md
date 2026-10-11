@@ -1,5 +1,5 @@
 ---
-title: "Supervised, Self-Supervised & Weakly Supervised Learning: From Comparing Pixels to Comparing Meaning"
+title: "Supervised, Self-Supervised & Weakly Supervised Learning: From Comparing Pixels to Comparing Meaning | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -22,26 +22,6 @@ draft: false
 This post covers **[Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)** (2025/09/30, Kian Katanforoosh, 1 hour 40 minutes. The syllabus title is "Key AI Concepts Through Case Studies").
 
 This is the densest lecture in the series. Katanforoosh is CEO of Workera and a CS230 co-creator; he teaches half the in-person sessions. His framing up front: the in-person class doesn't repeat the academic content of the online videos, it brings **industry perspective and decision-making method**. So the whole lecture is three case studies, and at every step he asks the students what they'd do before giving an answer.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 2 (1:39:48, matching "1 hour 40 minutes"; in the captions Kian says he co-teaches with Andrew and gives about half of the in-person lectures). Checked item by item against the captions: the model as two files, YOLO, "the number one mistake is adding data but forgetting to adjust the labels", Norway/Sweden, 64x64x3, 412x412x3, the German friends and Palo Alto/New York subway, the Italian labelling experiment and "a thousand times", millions of samples in three hours, CC BY/MIT/Apache, the PhD student in Gates, the 128-dimensional vector with 0.4/0.5 thresholds, the 47:23:3 vote, Global Entry, K nearest neighbors, the phone-album centroid, the five next-token examples, masking 20 time steps, and ImageBind all appear. One note: the captions say only "contrastive learning" and never mention SimCLR, its 76.5%/85.8% numbers, or FaceNet's 99.63%; these come from the papers, and the text now says so.
-
-```youtube
-url: https://www.youtube.com/watch?v=DNCn1BpCAUY
-title: Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-
-Checked: 2026-10-10.
 
 ## Warm-up: pinning down what a "model" is
 
@@ -296,6 +276,26 @@ The posts in the site's [RAG Techniques Compendium](/en/series/rag-techniques) l
 This bears directly on retrieval. When results are obviously semantically relevant but don't rank, the problem often isn't chunking or reranking — it's that **the embedding model was trained on a notion of "close" that differs from your query situation**. The site's [hybrid search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) post pulls BM25 back in to cover that blind spot, and this is the root of why.
 
 The synthetic-data pipeline (**the script knows the answer, so it can label automatically**) holds up today too — people generating eval datasets with LLMs are using the same principle, and will hit the same trap: **you can synthesize the training set, the test set has to be real.**
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 2 (1:39:48, matching "1 hour 40 minutes"; in the captions Kian says he co-teaches with Andrew and gives about half of the in-person lectures). Checked item by item against the captions: the model as two files, YOLO, "the number one mistake is adding data but forgetting to adjust the labels", Norway/Sweden, 64x64x3, 412x412x3, the German friends and Palo Alto/New York subway, the Italian labelling experiment and "a thousand times", millions of samples in three hours, CC BY/MIT/Apache, the PhD student in Gates, the 128-dimensional vector with 0.4/0.5 thresholds, the 47:23:3 vote, Global Entry, K nearest neighbors, the phone-album centroid, the five next-token examples, masking 20 time steps, and ImageBind all appear. One note: the captions say only "contrastive learning" and never mention SimCLR, its 76.5%/85.8% numbers, or FaceNet's 99.63%; these come from the papers, and the text now says so.
+
+```youtube
+url: https://www.youtube.com/watch?v=DNCn1BpCAUY
+title: Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 2: Supervised, Self-Supervised, & Weakly Supervised Learning](https://www.youtube.com/watch?v=DNCn1BpCAUY)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

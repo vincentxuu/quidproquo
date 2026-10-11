@@ -1,5 +1,5 @@
 ---
-title: "CS224R L2: Imitation Learning and Policies That Can Represent Multimodal Distributions"
+title: "Imitation Learning and Policies That Can Represent Multimodal Distributions | Stanford CS224R Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,25 +46,6 @@ The slides split the day into three parts, and mark the first two as the topic o
 The learning goals are specific: how to represent distributions with neural networks, why expressive distributions matter for imitation learning, and what compounding errors are and how to address them.
 
 The schedule lists two optional readings for this lecture: [Diffusion Policy (Chi et al.)](https://arxiv.org/abs/2303.04137v5) and [Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (Zhao et al., i.e. ALOHA/ACT)](https://arxiv.org/abs/2304.13705).
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=WxRDyObrm_M
-title: Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L2 Imitation Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers expressive policy distributions (mixtures and diffusion), compounding errors and DAgger-style online interventions; flow matching does not appear in the transcript, so the post's flow-matching material comes from the 2026 slides, not this video. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Problem one: the mean is not the answer
 
@@ -224,6 +205,25 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 - [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en): the same noise-and-denoise framework applied to language models
 
 **Series navigation**: Previous: [L1: Framing decision-making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en) | Next: [HW1: Imitation learning on Flappy Bird](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=WxRDyObrm_M
+title: Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 2: Imitation Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WxRDyObrm_M)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L2 Imitation Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers expressive policy distributions (mixtures and diffusion), compounding errors and DAgger-style online interventions; flow matching does not appear in the transcript, so the post's flow-matching material comes from the 2026 slides, not this video. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

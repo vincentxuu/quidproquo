@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 12：Bayesian Networks I：從 joint distribution 到 factorization"
+title: "Bayesian Networks I：從 joint distribution 到 factorization｜Stanford CS221 第 12 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 12**，2025-10-29 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [bayes](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes)。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 12 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 12 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=ec2rCf4iIqU
-title: Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I](https://www.youtube.com/watch?v=ec2rCf4iIqU)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 12 支）字幕，確認內容涵蓋 joint distribution、marginalization／conditioning、建立貝氏網路的步驟與 local conditional distribution、rejection sampling，與本文的講次與主題相符，未發現錯配。
 
 ## TL;DR
 
@@ -296,6 +276,26 @@ Bayesian network 不同於固定 input → output 的 classifier：medical examp
 ## 11. 收束：從 joint 到可計算的 query
 
 先確認 network 的 factorization 與 local tables，再選 exact tensor computation 或近似 sampling；答案不能脫離 modeling assumptions 與 evidence 的稀有程度。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 12 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 12 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=ec2rCf4iIqU
+title: Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I](https://www.youtube.com/watch?v=ec2rCf4iIqU)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 12 支）字幕，確認內容涵蓋 joint distribution、marginalization／conditioning、建立貝氏網路的步驟與 local conditional distribution、rejection sampling，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

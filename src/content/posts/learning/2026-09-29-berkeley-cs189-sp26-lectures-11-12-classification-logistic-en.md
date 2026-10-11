@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 11–12: Classification, Generative Classifiers, Logistic Regression, and ROC"
+title: "Classification, Generative Classifiers, Logistic Regression, and ROC | Berkeley CS189 Lectures 11–12"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, classification, logistic-regression, evaluation]
@@ -27,44 +27,6 @@ The spine of these two lectures is that **the same classification problem can be
 1. Why the LDA boundary is a line and the QDA boundary curves.
 2. Why logistic regression is "more general" than LDA but not necessarily better.
 3. Why 95% accuracy can mean a completely useless classifier.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=oid6SvXy8Kw
-title: Lecture 11 recording: Classification
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=xBCpwQt8A5w
-title: Lecture 12 recording: Logistic Regression, Classifier Accuracy
-```
-
-Original videos: [Lecture 11 recording: Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 recording: Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 11 video (oid6SvXy8Kw, about 81 minutes) is indeed classification: it recaps train/validation/test, uses lions and elephants to explain generative versus discriminative models, covers LDA/QDA decision boundaries and the COVID prior example leading into logistic regression, and ends at Naive Bayes (the instructor says it continues next class); ROC and ImageNetV2 do not appear in its transcript. The Lecture 12 video (xBCpwQt8A5w, about 80 minutes) covers sigmoid, softmax, the 5-spam-in-100-emails accuracy example, the confusion matrix, ROC, partial AUC, calibration, and PR curves; cost-sensitive classification and the discussion of why not to train directly on these metrics could not be found in the transcript and appear only on the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
-
-## Official materials and scope
-
-| Lecture | Date | Title | Materials | Bishop reading on the schedule |
-|---|---|---|---|---|
-| Lec 11 | Feb 24 | Classification | [PDF](https://drive.google.com/file/d/1XRPSMXshMXlA2Y54NEbMEBKh3L3Eoh00/view) / [Video](https://www.youtube.com/watch?v=oid6SvXy8Kw&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=10) | 5.0–5.1.4 discriminant functions, 5.3–5.3.3 generative classifiers |
-| Lec 12 | Feb 26 | Logistic Regression, Classifier Accuracy | [PDF](https://drive.google.com/file/d/1JvSLsdHffGdBQIXs_NrXJLQC7CQR3rd2/view) / [Video](https://www.youtube.com/watch?v=xBCpwQt8A5w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=11) | 5.2.2 expected loss, 5.2.5 classifier accuracy, 5.2.6 ROC, 5.4–5.4.4 discriminative classifiers and logistic regression |
-
-The same week has [Discussion 5](https://drive.google.com/file/d/1I0qfBd1cCc_QUU9wPcfCcEg6-5eCNbCb/view) ([solutions](https://drive.google.com/file/d/1auD6wh7wN9QPGN52bMKZSc1KoSipxrVF/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9TlqqkuL1y7ybVRtrA6l6w)) and the release of HW2 (due Mar 13). The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*, whose website has a free-to-use online version.
-
-**Access level**: both lectures' PDFs and videos, plus Discussion 5's problems, solutions, and walkthrough, open without a login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
-
-One overlap to flag up front: the second half of the Lec 10 PDF already covers discriminative vs. generative and GDA, and Lec 11 restarts from the same point and finishes it. The ROC material appears in both the Lec 11 and Lec 12 PDFs. This post is organized by topic rather than split lecture by lecture.
 
 ## Three ways to build a classifier
 
@@ -230,6 +192,44 @@ On this site:
 
 - Previous: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
 - Next: [Lec 13 & 15: convergence, momentum, Adam, SGD, and learning with GD](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-15-gradient-descent-optimizers-en)
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=oid6SvXy8Kw
+title: Lecture 11 recording: Classification
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=xBCpwQt8A5w
+title: Lecture 12 recording: Logistic Regression, Classifier Accuracy
+```
+
+Original videos: [Lecture 11 recording: Classification](https://www.youtube.com/watch?v=oid6SvXy8Kw)、[Lecture 12 recording: Logistic Regression, Classifier Accuracy](https://www.youtube.com/watch?v=xBCpwQt8A5w)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 11 video (oid6SvXy8Kw, about 81 minutes) is indeed classification: it recaps train/validation/test, uses lions and elephants to explain generative versus discriminative models, covers LDA/QDA decision boundaries and the COVID prior example leading into logistic regression, and ends at Naive Bayes (the instructor says it continues next class); ROC and ImageNetV2 do not appear in its transcript. The Lecture 12 video (xBCpwQt8A5w, about 80 minutes) covers sigmoid, softmax, the 5-spam-in-100-emails accuracy example, the confusion matrix, ROC, partial AUC, calibration, and PR curves; cost-sensitive classification and the discussion of why not to train directly on these metrics could not be found in the transcript and appear only on the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
+
+## Official materials and scope
+
+| Lecture | Date | Title | Materials | Bishop reading on the schedule |
+|---|---|---|---|---|
+| Lec 11 | Feb 24 | Classification | [PDF](https://drive.google.com/file/d/1XRPSMXshMXlA2Y54NEbMEBKh3L3Eoh00/view) / [Video](https://www.youtube.com/watch?v=oid6SvXy8Kw&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=10) | 5.0–5.1.4 discriminant functions, 5.3–5.3.3 generative classifiers |
+| Lec 12 | Feb 26 | Logistic Regression, Classifier Accuracy | [PDF](https://drive.google.com/file/d/1JvSLsdHffGdBQIXs_NrXJLQC7CQR3rd2/view) / [Video](https://www.youtube.com/watch?v=xBCpwQt8A5w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=11) | 5.2.2 expected loss, 5.2.5 classifier accuracy, 5.2.6 ROC, 5.4–5.4.4 discriminative classifiers and logistic regression |
+
+The same week has [Discussion 5](https://drive.google.com/file/d/1I0qfBd1cCc_QUU9wPcfCcEg6-5eCNbCb/view) ([solutions](https://drive.google.com/file/d/1auD6wh7wN9QPGN52bMKZSc1KoSipxrVF/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa9TlqqkuL1y7ybVRtrA6l6w)) and the release of HW2 (due Mar 13). The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*, whose website has a free-to-use online version.
+
+**Access level**: both lectures' PDFs and videos, plus Discussion 5's problems, solutions, and walkthrough, open without a login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
+
+One overlap to flag up front: the second half of the Lec 10 PDF already covers discriminative vs. generative and GDA, and Lec 11 restarts from the same point and finishes it. The ROC material appears in both the Lec 11 and Lec 12 PDFs. This post is organized by topic rather than split lecture by lecture.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L10：影片理解——多了時間維度，模型要怎麼改"
+title: "影片理解——多了時間維度，模型要怎麼改｜Stanford CS231N 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)把輸出從「整張圖一個標籤」推到每個物件、每個像素。這一講換一個方向擴展：**輸入多了一條時間軸**。投影片開頭一句話定調：影片就是一串影像，也就是形狀為 T×3×H×W 的 4D 張量。
 
 整講可以用一個問題串起來：**多出來的 T 要在網路的哪裡、用什麼代價處理？** 每一種架構都是對這個問題的不同答案。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 10 講（長度 1:08:44，客座講者 Ruohan Gao，字幕開場介紹確認），字幕有 early／late fusion、3D 卷積、光流與 two-stream、I3D 權重膨脹、時序動作定位、影音聲源分離，結尾只提到第一人稱（egocentric）影片串流，與本文主題大致相符。字幕沒有 HourVideo 與 AirPods 的長影片問答例子，那段來自 2026 投影片。字幕沒有 TimeSformer、Video Swin、MViT、tubelet 與 AVA 的名稱，也沒有 token 數量的表格，這些細節來自 2026 投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=wElqklprhPE
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
-```
-
-原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
-
-課程與錄影入口：
-
-- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 任務與資料：從「認物件」到「認動作」
 
@@ -166,6 +148,24 @@ self-attention 的成本隨 token 數平方成長，所以投影片提出兩大�
 - 為什麼長序列很貴、要怎麼切到多張 GPU：本系列下一篇 [L11：大規模分散式訓練](/posts/ai/2026-09-30-cs231n-distributed-training)
 
 **系列導覽**：上一篇 [L9：物件偵測、影像分割與模型可視化](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization)｜下一篇 [L11：大規模分散式訓練](/posts/ai/2026-09-30-cs231n-distributed-training)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 10 講（長度 1:08:44，客座講者 Ruohan Gao，字幕開場介紹確認），字幕有 early／late fusion、3D 卷積、光流與 two-stream、I3D 權重膨脹、時序動作定位、影音聲源分離，結尾只提到第一人稱（egocentric）影片串流，與本文主題大致相符。字幕沒有 HourVideo 與 AirPods 的長影片問答例子，那段來自 2026 投影片。字幕沒有 TimeSformer、Video Swin、MViT、tubelet 與 AVA 的名稱，也沒有 token 數量的表格，這些細節來自 2026 投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=wElqklprhPE
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding
+```
+
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 10: Video Understanding](https://www.youtube.com/watch?v=wElqklprhPE)
+
+課程與錄影入口：
+
+- [Stanford CS231N 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

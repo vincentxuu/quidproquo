@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques T12–T13: Neural Networks and Deep Learning (Autoencoders, PCA)"
+title: "Neural Networks and Deep Learning (Autoencoders, PCA) | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 12–13"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,28 +37,6 @@ glossary:
 The first part of Techniques packs many features in with kernels; the second combines predictive features with aggregation. The third part, "Distilling Implicit Features: Extraction Models," goes in a different direction. Instead of people choosing features, the model **extracts** hidden features from the data itself. The four models in T12–T15 (neural networks, deep learning, RBF networks, matrix factorization) are all variations on this theme.
 
 One piece of context matters for these two lectures. The videos were uploaded in 2016, when deep learning was "gaining attention in recent years" (the slides' words). So T13 centers on layer-wise pre-training and autoencoders, not the ReLU, Adam, or Transformers common today. In Fall 2024 Lin added two modern deep learning slide decks, 302u and 303u, which this series covers in [post 16](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en).
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=GwRS2YJv2Ck
-title: Motivation
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=giOcWMbi1bU
-title: Neural Network Hypothesis
-```
-
-Original videos: [Motivation](https://www.youtube.com/watch?v=GwRS2YJv2Ck)、[Neural Network Hypothesis](https://www.youtube.com/watch?v=giOcWMbi1bU)、[Neural Network Learning](https://www.youtube.com/watch?v=Z26n4YGNWvQ)、[Optimization and Regularization](https://www.youtube.com/watch?v=z2tHzMzoOOs)、[Deep Neural Network](https://www.youtube.com/watch?v=H1czfox0Nog)、[Autoencoder](https://www.youtube.com/watch?v=eBVPQ4fgs_k)、[Denoising Autoencoder](https://www.youtube.com/watch?v=gx2Vfw8S--0)、[Principal Component Analysis](https://www.youtube.com/watch?v=Bgc4UY8567A)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Where these lectures sit
 
@@ -233,6 +211,28 @@ These series on this site overlap with this post, but this post stands on its ow
 - [Reading MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en): graduate-level deep learning.
 - [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en): NTU's parallel track, leaning toward deep learning and generative AI.
 - [Harvard CS181 HW4: Autoencoders and VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en) and [CMU 10-301 HW5: Neural Networks](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks-en): homework on the same topics from other schools.
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=GwRS2YJv2Ck
+title: Motivation
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=giOcWMbi1bU
+title: Neural Network Hypothesis
+```
+
+Original videos: [Motivation](https://www.youtube.com/watch?v=GwRS2YJv2Ck)、[Neural Network Hypothesis](https://www.youtube.com/watch?v=giOcWMbi1bU)、[Neural Network Learning](https://www.youtube.com/watch?v=Z26n4YGNWvQ)、[Optimization and Regularization](https://www.youtube.com/watch?v=z2tHzMzoOOs)、[Deep Neural Network](https://www.youtube.com/watch?v=H1czfox0Nog)、[Autoencoder](https://www.youtube.com/watch?v=eBVPQ4fgs_k)、[Denoising Autoencoder](https://www.youtube.com/watch?v=gx2Vfw8S--0)、[Principal Component Analysis](https://www.youtube.com/watch?v=Bgc4UY8567A)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

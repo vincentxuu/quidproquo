@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L1: Generation Is Sampling, and ODEs and SDEs Are the Machine"
+title: "Generation Is Sampling, and ODEs and SDEs Are the Machine | MIT 6.S184 Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,24 +32,6 @@ glossary:
 The notes open with a line from Song et al.: creating noise from data is easy; creating data from noise is generative modeling. Lecture 1 turns that line into math. It defines what "generate" means, then gives two machines that push noise into data.
 
 This lecture **does not cover training**. You will meet a neural-network vector field `u_t^θ`, but how its parameters are learned is the subject of [Lecture 2](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en).
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=9eJQQVrUUoI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening (Peter introduces himself, Ron is a master's student helping with the class, a thank-you to advisor Tommy) and the ending (next class on Thursday, lecture notes and labs) and keyword-checked the middle: what “generation” means and the key ideas, vector fields/ODEs/flows, the linear vector-field example, sampling by simulating the ODE with a neural vector field, Brownian motion and SDEs, and the closing student questions. The content corresponds to this post. The captions do not contain Euler, Heun, Euler–Maruyama or the theorem numbers; those details in this post follow the lecture notes, not the video.
 
 ## Making "generate" precise: four Key Ideas
 
@@ -244,6 +226,24 @@ The last line: **a diffusion model with σ_t = 0 is a flow model.**
 - Rusty on probability: Appendix A of the notes (A Reminder on Probability Theory), or this site's [Stanford CS109 guide](/posts/learning/2026-08-21-stanford-cs109-probability-en)
 - A broader intro to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - The DDPM view (opposite time direction): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=9eJQQVrUUoI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening (Peter introduces himself, Ron is a master's student helping with the class, a thank-you to advisor Tommy) and the ending (next class on Thursday, lecture notes and labs) and keyword-checked the middle: what “generation” means and the key ideas, vector fields/ODEs/flows, the linear vector-field example, sampling by simulating the ODE with a neural vector field, Brownian motion and SDEs, and the closing student questions. The content corresponds to this post. The captions do not contain Euler, Heun, Euler–Maruyama or the theorem numbers; those details in this post follow the lecture notes, not the video.
 
 ## Update Log
 

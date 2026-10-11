@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS229 導讀：講義每年重編，公開作業停在 2020，官方自測題是 2008 年的"
+title: "講義每年重編，公開作業停在 2020，官方自測題是 2008 年的｜Stanford CS229 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,27 +25,6 @@ draft: false
 它同時是全 Stanford 自學材料最完整的一門：講義是公開 PDF、錄影在 YouTube、連作業和起始碼都還在伺服器上。這也是為什麼它值得單獨寫一篇——**材料多不等於材料一致**。這四份材料分別停在四個不同的年份，而且沒有任何一頁告訴你這件事。
 
 這篇是把講義 PDF 逐章翻過、把 2018 與 2026 兩版課綱擺在一起比、把還抓得到的作業下載下來讀完之後寫的。涵蓋課程涵蓋什麼、第一章難在哪、兩版之間差了什麼、作業長什麼樣、以及沒有 Stanford 帳號的人實際拿得到多少。**不包含**逐堂錄影精聽——那是另一個量級的工作，本系列的 [CS329A 那篇](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)才是那種做法。這門課在整條先修階梯上的位置，見[系列入口的地圖文](/posts/learning/2026-08-20-stanford-cs-course-map)。
-
-## 課程影片來源
-
-本文是整門課的導讀，不對應單一講次。下方附公開播放清單中的 Spring 2026 第 1 講（Introduction）作為相關補充。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=DATnpGoGhM8
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2026 Lecture 1（約 37 分鐘），由 Tengyu Ma 主講，字幕內容為課程簡介：先修、AI 工具政策、機器學習定義（1959 與 Tom Mitchell 1998）、監督／非監督／強化學習的分類，以及 LLM 與擴散模型的預告；它是整門課的開場，與本文「課程層級導讀」的定位相符，本文對這支影片本身沒有更細的說法。文中引用的 Lecture 14 開場白、attention 變體那堂的引言與 Lecture 16/18/20 的內容描述來自其他影片，不是這支，本次未重讀。
 
 ## 這門課的硬事實
 
@@ -190,6 +169,27 @@ title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
 - **仍可下載的複習講義**：`section/cs229-linalg.pdf`、`section/cs229-prob.pdf`、`section/cs229-cvxopt.pdf`、`section/cs229-gaussians.pdf` 皆回 200；`notes/cs229-notes1.pdf` 等 2018 課綱上的舊分冊講義已全部 404。
 - **自測題**：`https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`，4 頁，PDF `CreationDate` 為 2008-10-06。標頭寫「CS 229, Public Course」。
 - **未能確認的項目**：(1) ~~2026 春季錄影為何缺 15、17、19 三堂~~ **2026-08-26 已解開**：Spring 2026 為 Mon/Wed 上課，全季 20 個時段扣掉 Memorial Day（5/25）共 19 堂；播放清單只有 17 支，差的兩支就是 Lecture 14 裡講師親口宣布的兩場**客座講座**（其中一場確認為 Simran Arora 講 systems ML）——客座場未放進播放清單。三支錯植標題（自稱 Lecture 16/18/20）是上傳模板的殘跡，不是內容缺漏：17 支影片經字幕逐支比對內容完全連續，最後一支明講「the last lecture of this quarter」。自學者沒有漏掉任何正課。(2) 近年各季的精確成績配比——2020 年秋季起公開頁一律寫 Grading TBD，百分比移入登入限定文件。可考的錨點：2008 公開課 Handout 寫「作業四份各 10%、期中 20%、專案 40%、參與加給最多 3%」；[Fall 2020 的 logistics PDF](http://web.archive.org/web/20201031193539/http://cs229.stanford.edu/logistics_fall2020.pdf)（Wayback 存檔）寫「作業 45%、期中 15%、專案 40%」；現行的 project FAQ 只確認專案佔最終成績 40%，內部分配不公布；Summer 2026 的官方 FAQ 則是 HW 50%＋期末考 50%，暑期沒有專案。(3) 期末專案作品集——2026-08-26 系統性枚舉了 proj2005 到 proj2026 的所有路徑變體：仍在線上的公開作品集到 [proj2021spr](https://cs229.stanford.edu/proj2021spr/) 為止（含 Best Project Award 名單），2022 年起 live 全部 404 且 Wayback 零收錄；網站首頁現在明寫 course documents only shared with Stanford affiliates。(4) 其他年份 pset——CDX 全量列表顯示舊站年代（≤2017）曾有 ps0–ps4 含解答版與多屆期中考卷，但 Fall 2020 的 logistics PDF 第 8 節明文「assignments will only be posted on Ed」，Summer 2026 FAQ 重申同政策：**2020 年秋之後的 pset 不是沒找到，是從未存在於公開網路**。社群 mirror（如 maxim5/cs229-2018-autumn）覆蓋止於 2019 年代教材。
+
+## 課程影片來源
+
+本文是整門課的導讀，不對應單一講次。下方附公開播放清單中的 Spring 2026 第 1 講（Introduction）作為相關補充。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=DATnpGoGhM8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本文的關係。這支是 Spring 2026 Lecture 1（約 37 分鐘），由 Tengyu Ma 主講，字幕內容為課程簡介：先修、AI 工具政策、機器學習定義（1959 與 Tom Mitchell 1998）、監督／非監督／強化學習的分類，以及 LLM 與擴散模型的預告；它是整門課的開場，與本文「課程層級導讀」的定位相符，本文對這支影片本身沒有更細的說法。文中引用的 Lecture 14 開場白、attention 變體那堂的引言與 Lecture 16/18/20 的內容描述來自其他影片，不是這支，本次未重讀。
 
 ## 更新紀錄
 

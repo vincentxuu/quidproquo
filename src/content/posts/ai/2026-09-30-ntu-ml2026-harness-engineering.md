@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：Harness Engineering——不改參數，也能讓模型變強"
+title: "台大李宏毅 ML 2026 導讀：Harness Engineering——不改參數，也能讓模型變強｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)4/10 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 11 篇。前面兩講鑽進模型內部：[KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache) 與 [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)，上一篇 [HW4](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer) 讓你親手訓練一個 Transformer。從這一講開始是新單元，課表上叫「如何教育模型」：**模型已經訓練好了，人類還能做什麼讓它表現更好？**
 
 用到的官方材料：講義 [harness.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pdf)（63 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/harness.pptx)），影片 [Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://youtu.be/R6fZR_9kmIw)。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的測驗或排行榜。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=R6fZR_9kmIw
-title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導
-```
-
-原始影片：[影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://www.youtube.com/watch?v=R6fZR_9kmIw)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片 R6fZR_9kmIw（約 92 分鐘；取得的字幕為機器翻譯的英文版，專有名詞有誤譯）字幕已讀完。核對小模型修 bug 的開場示範與三段說明、harness 三種手段、AGENTS.md 兩篇研究、SWE-agent 的搜尋與編輯／lint 工具、Google Workspace CLI、planner／generator／evaluator 與 DeepMind generator／verifier／reviser、Ralph loop（字幕誤譯為 Homer）、context anxiety、文字梯度、emotion steering 與作弊實驗、life-long agent 的四種回饋與 hindsight 方法、τ-bench 模擬使用者落差、PinchBench 示範與 Meta-Harness 的跨模型跨任務實驗。發現並更正兩處：AGENTS.md 第一篇研究老師說明只量速度與 token、沒有量正確率；PinchBench 起始分數口述為 13.5（投影片圖為 13.8%）。另補上老師對 AutoDream 的說明。投影片頁碼與圖上數字無法由字幕驗證。
 
 ## 場景：一個會自己捏造檔案的小模型
 
@@ -159,6 +140,25 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 - CMU 11-768 導讀的 [Assignment 1：Harness](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW4：訓練 Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)｜下一篇 [HW5：微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=R6fZR_9kmIw
+title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導
+```
+
+原始影片：[影片：Harness Engineering：有時候語言模型不是不夠聰明，只是沒有人類好好引導](https://www.youtube.com/watch?v=R6fZR_9kmIw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 R6fZR_9kmIw（約 92 分鐘；取得的字幕為機器翻譯的英文版，專有名詞有誤譯）字幕已讀完。核對小模型修 bug 的開場示範與三段說明、harness 三種手段、AGENTS.md 兩篇研究、SWE-agent 的搜尋與編輯／lint 工具、Google Workspace CLI、planner／generator／evaluator 與 DeepMind generator／verifier／reviser、Ralph loop（字幕誤譯為 Homer）、context anxiety、文字梯度、emotion steering 與作弊實驗、life-long agent 的四種回饋與 hindsight 方法、τ-bench 模擬使用者落差、PinchBench 示範與 Meta-Harness 的跨模型跨任務實驗。發現並更正兩處：AGENTS.md 第一篇研究老師說明只量速度與 token、沒有量正確率；PinchBench 起始分數口述為 13.5（投影片圖為 13.8%）。另補上老師對 AutoDream 的說明。投影片頁碼與圖上數字無法由字幕驗證。
 
 ## 更新紀錄
 

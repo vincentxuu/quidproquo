@@ -1,5 +1,5 @@
 ---
-title: "CS224U Assignment 2: Few-Shot OpenQA with DSPy"
+title: "Few-Shot OpenQA with DSPy | Stanford CS224U Assignment 2"
 date: 2026-09-29
 category: ai
 type: guide
@@ -34,24 +34,6 @@ The previous two posts covered [information retrieval](/posts/ai/2026-09-29-cs22
 In the [Assignment 2 overview screencast](https://www.youtube.com/watch?v=NQUxBVOJM14), Potts says this task probably couldn't even have been posed in 2018. When the course first ran it in 2022, he worried it was too hard.
 
 This post covers the question structure, points, required resources, and where the notebook breaks if you run it as-is today. **It gives no solutions.**
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=NQUxBVOJM14
-title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
-
-Content check: verified against the video transcript (2026-10-10): The Homework 2 video was compared item by item with its transcript: Potts's remarks on difficulty (not posable in 2018, worried it was too hard last year), the four-row QA task table and the few-shot OpenQA constraints, SQuAD used only as train/dev demonstration source, frozen retriever and frozen LM, the evaluation-cost warning and the 200-example sample, free Cohere and small OpenAI credits, the text-davinci-001 setup, the purpose of @dsp.transformation, Question 1/2 (annotate), and the original system. All match. The DSPy-version point values, cost figures, and version gaps come from the notebook and PyPI, not the video, and were not checked against the transcript.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Where it sits in the course
 
@@ -200,6 +182,24 @@ One thing to do tonight: clone the repo, download only the 600 MB index, start t
 - Course status, all three assignments, and environment pitfalls: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - A recent take on RAG and agents: [CS224N Lecture 10: Six Components of RAG and Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - The DSPy 3.x API: [DSPy: Compiling AI Programs with Signatures, Metrics, and Optimizers](/posts/ai/2026-08-22-dspy-ai-program-optimization-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=NQUxBVOJM14
+title: Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 2 I Spring 2023](https://www.youtube.com/watch?v=NQUxBVOJM14)
+
+Content check: verified against the video transcript (2026-10-10): The Homework 2 video was compared item by item with its transcript: Potts's remarks on difficulty (not posable in 2018, worried it was too hard last year), the four-row QA task table and the few-shot OpenQA constraints, SQuAD used only as train/dev demonstration source, frozen retriever and frozen LM, the evaluation-cost warning and the 200-example sample, free Cohere and small OpenAI credits, the text-davinci-001 setup, the purpose of @dsp.transformation, Question 1/2 (annotate), and the original system. All match. The DSPy-version point values, cost figures, and version gaps come from the notebook and PyPI, not the video, and were not checked against the transcript.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW3: Kernels, Neural Networks, and Scaling Laws"
+title: "Kernels, Neural Networks, and Scaling Laws | Harvard CS181 Assignment 3"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, kernel-methods, neural-networks, backpropagation, scaling-laws, homework]
@@ -33,17 +33,6 @@ glossary:
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) titles HW3 **Neural Networks and Kernels**. Per `hw3_release.tex`, it is due March 23, 2026 at 11:59 PM. The three problems are worth 30, 20, and 50 points. Half the grade goes to the third problem: **measuring a scaling law yourself**.
 
 In [HW2](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en), every feature was a hand-picked basis. HW3 follows one line: hand-built feature maps → kernels that let feature dimension go to infinity → neural networks that learn their own features → how far to scale the model and the data. This post covers each problem's requirements and matching handouts. **No solutions.**
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -155,6 +144,17 @@ The last question in (b) cites Chinchilla ([Hoffmann et al., 2022](https://arxiv
 - Previous: [HW2 Classification and bias-variance](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 - Next: [Midterm checkpoint: auditing HW0–HW3 with the official checklist](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

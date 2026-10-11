@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石 L5–L6：假說有無限多個，為什麼還能泛化？——成長函數與 break point"
+title: "假說有無限多個，為什麼還能泛化？——成長函數與 break point｜台大林軒田 機器學習基石與技法 第 5–6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -49,30 +49,6 @@ glossary:
 - 練習：[Fall 2024 HW2](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw2/hw2_red.pdf)。
 
 **存取等級**：只看影片與投影片是 A2；加上 Fall 2024 的作業 PDF，這一段可以做到 A3，但沒有官方解答，Gradescope 批改只限修課生。分級定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=oAW0_j8_l3Y
-title: Effective Number of Lines
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4aIAxH8eBMs
-title: Recap and Preview
-```
-
-原始影片：[Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
-
-選修英文對照（另一門課 Caltech Learning from Data，不嵌入）：[Caltech Lecture 6（Yaser Abu-Mostafa）](https://www.youtube.com/watch?v=6FWRijsmLtE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## L6 是選修，這篇怎麼處理
 
@@ -234,6 +210,30 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 下一篇[VC 維度、雜訊與誤差衡量](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)會把「最大的非 break point」正式命名為 VC 維度 d<sub>VC</sub>，證明 d 維感知器的 d<sub>VC</sub> = d + 1，再把理論推廣到有雜訊的資料。
 
 延伸閱讀：Stanford CS229 的[泛化一章導讀](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)用不同的路線講同一個問題，可以對照。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=oAW0_j8_l3Y
+title: Effective Number of Lines
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4aIAxH8eBMs
+title: Recap and Preview
+```
+
+原始影片：[Recap and Preview](https://www.youtube.com/watch?v=4aIAxH8eBMs)、[Effective Number of Lines](https://www.youtube.com/watch?v=oAW0_j8_l3Y)、[Effective Number of Hypotheses](https://www.youtube.com/watch?v=dnVofdAomWY)、[Break Point](https://www.youtube.com/watch?v=z3TpJRqPzcg)、[Restriction of Break Point](https://www.youtube.com/watch?v=rUFqB5Z3YHQ)、[Bounding Function: Basic Cases](https://www.youtube.com/watch?v=OmRekto9rkc)、[Bounding Function: Inductive Cases](https://www.youtube.com/watch?v=6jtWUmaBqFU)
+
+選修英文對照（另一門課 Caltech Learning from Data，不嵌入）：[Caltech Lecture 6（Yaser Abu-Mostafa）](https://www.youtube.com/watch?v=6FWRijsmLtE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

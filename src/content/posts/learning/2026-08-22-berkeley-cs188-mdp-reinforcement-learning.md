@@ -1,5 +1,5 @@
 ---
-title: "CS188 MDP 與強化學習：從 Value Iteration 到 Q-Learning"
+title: "從 Value Iteration 到 Q-Learning｜Berkeley CS188 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, reinforcement-learning, mdp, q-learning]
@@ -20,6 +20,20 @@ draft: false
 
 搜尋假設你能列出 successor；強化學習則要在不確定結果與延遲 reward 下學會行動。[Lecture 9–12](https://inst.eecs.berkeley.edu/~cs188/sp26/)先建立 MDP，再進入 RL；[Project 3](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj3/)依序實作 value iteration、Q-learning、epsilon-greedy 與 approximate Q-learning。
 
+## 先分清 planning 和 learning
+
+Value iteration 已知 transition 與 reward model，透過 Bellman update 計算 value；Q-learning 不需要先知道模型，而從 `(state, action, reward, nextState)` 經驗更新 Q-value。兩者最後都能導出 policy，但資訊來源不同。若把這條邊界弄混，公式只剩符號代換。
+
+實作時特別檢查 synchronous update：某一輪的新 value 應全部由上一輪產生，而不是邊掃 state 邊使用剛更新的值。Q-learning 則要把 learning rate、discount 與 exploration 分開觀察；epsilon-greedy 的隨機動作是蒐集資訊，不是程式失控。
+
+## 從 table 到 features
+
+Tabular Q-learning 每個 state-action pair 各自學值，遇到大型 Pacman state space 很難泛化。Approximate Q-learning 把 Q-value 寫成 features 與 weights 的組合，讓相似情境共享經驗。先用 identity extractor 驗證它與 tabular 版本一致，再換成較有意義的 features，能把問題縮到「表示改變後，更新規則有沒有仍然成立」。
+
+建議先在小 Gridworld 手算一次 Bellman update，再跑單一 autograder case；最後比較 training 關閉 exploration 前後的 policy。不要只看平均分數，要能指出 agent 為什麼選那個 action。
+
+系列導航：[上一篇：CSP 與多代理搜尋](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)｜[下一篇：Bayes nets 與 Ghostbusters](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
+
 ## 課程影片來源
 
 官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
@@ -39,20 +53,6 @@ title: CS188 Spring 2026 Lecture 9: MDPs I
 查核日期：2026-10-10。
 
 內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 9，主題為MDPs I；字幕從 expectimax 的 chance node 回顧引入 MDP，並說明 MDP 與 search 的假設差異，與本文相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
-
-## 先分清 planning 和 learning
-
-Value iteration 已知 transition 與 reward model，透過 Bellman update 計算 value；Q-learning 不需要先知道模型，而從 `(state, action, reward, nextState)` 經驗更新 Q-value。兩者最後都能導出 policy，但資訊來源不同。若把這條邊界弄混，公式只剩符號代換。
-
-實作時特別檢查 synchronous update：某一輪的新 value 應全部由上一輪產生，而不是邊掃 state 邊使用剛更新的值。Q-learning 則要把 learning rate、discount 與 exploration 分開觀察；epsilon-greedy 的隨機動作是蒐集資訊，不是程式失控。
-
-## 從 table 到 features
-
-Tabular Q-learning 每個 state-action pair 各自學值，遇到大型 Pacman state space 很難泛化。Approximate Q-learning 把 Q-value 寫成 features 與 weights 的組合，讓相似情境共享經驗。先用 identity extractor 驗證它與 tabular 版本一致，再換成較有意義的 features，能把問題縮到「表示改變後，更新規則有沒有仍然成立」。
-
-建議先在小 Gridworld 手算一次 Bellman update，再跑單一 autograder case；最後比較 training 關閉 exploration 前後的 policy。不要只看平均分數，要能指出 agent 為什麼選那個 action。
-
-系列導航：[上一篇：CSP 與多代理搜尋](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)｜[下一篇：Bayes nets 與 Ghostbusters](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
 
 ## 更新紀錄
 

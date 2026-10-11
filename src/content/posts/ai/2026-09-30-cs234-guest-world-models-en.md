@@ -1,5 +1,5 @@
 ---
-title: "CS234 Guest Lecture: Shane Gu's \"World of World Modeling\" — the World Model Is the Model in Model-Based RL"
+title: "Shane Gu's \"World of World Modeling\" — the World Model Is the Model in Model-Based RL | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,17 +39,6 @@ glossary:
 > **Edition note**: This post is based on the guest slide deck [ShaneGuCS234_2026.pdf](https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf) (36 pages) linked from the [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 modules page, checked page by page on 2026-09-30. Access level is **A3** (defined in the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), with one clear gap for this lecture: **slides only, no recording**. The 2026 videos are on Canvas for enrolled students, and the public [Spring 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) does not include this talk. Many slides are images with almost no text, so this post covers only what is visible on the slides. How the speaker connected them out loud, and what he said in Q&A, is not available.
 
 **Series position**: Previous: [Value Alignment: Aligned to Whom, and to What](/posts/ai/2026-09-30-cs234-value-alignment-ethics-en) | This is the last post in the series | [Series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-Checked: 2026-10-10.
 
 ## Where this talk sits
 
@@ -200,6 +189,17 @@ One thing to do tonight: write out the shooting and collocation equations from p
 - Goal-conditioned RL and hindsight relabeling in depth: [CS224R L12: Multi-Task and Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
 - World models and robot learning from the computer vision side: [CS231N wrap-up: World Modeling / Robot Learning](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
 - A full deep RL course route: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

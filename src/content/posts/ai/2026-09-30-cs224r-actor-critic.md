@@ -1,5 +1,5 @@
 ---
-title: "CS224R L4：Actor-Critic 與價值估計——先學會判斷好壞，再多做好事"
+title: "Actor-Critic 與價值估計——先學會判斷好壞，再多做好事｜Stanford CS224R 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,26 +38,6 @@ glossary:
 - 怎麼用這些估計做出更有效率的 RL 演算法
 
 這一講的公式比 L3 多，但主軸只有一條：**與其等獎勵告訴你好壞，不如訓練一個網路來預測好壞。**
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=oejFZShW9hU
-title: Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）
-```
-
-原始影片：[Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）](https://www.youtube.com/watch?v=oejFZShW9hU)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L4 Actor-Critic Methods 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕有談到 critic／value function、Monte Carlo 與 bootstrap 標籤、n-step、advantage、discount γ，與本文章節對得上。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：policy gradient 在浪費資料
 
@@ -236,6 +216,26 @@ V 只吃狀態、不吃動作，比 Q 好學。
 - [CME295：偏好微調](/posts/ai/2026-09-29-cme295-preference-tuning)：KL 限制在 LLM 偏好最佳化裡的樣子
 
 **系列導覽**：上一篇 [L3：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)｜下一篇 [L5：Off-Policy Actor-Critic（PPO 與 SAC）](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=oejFZShW9hU
+title: Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）
+```
+
+原始影片：[Spring 2025 Lecture 4: Actor-Critic Methods（YouTube，Stanford Online）](https://www.youtube.com/watch?v=oejFZShW9hU)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L4 Actor-Critic Methods 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕有談到 critic／value function、Monte Carlo 與 bootstrap 標籤、n-step、advantage、discount γ，與本文章節對得上。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

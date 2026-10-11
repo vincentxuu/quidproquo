@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 2：否定、逆否證明與反證法"
+title: "否定、逆否證明與反證法｜Stanford CS103 第 2 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 4 篇，對應 **Spring 2026 官方 Lecture 2（2026-04-03）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面未逐堂標示講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 上一講從假設直接推到結論。本講問的是：直接路線不順時，能否改證一個等價命題？要安全地改方向，必須先知道原命題究竟在什麼情況下為假。投影片因此先講蘊涵與否定，才進入逆否證明和反證法。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/)
 
 ## 蘊涵只在前件成立時提出承諾
 
@@ -176,6 +168,14 @@ CS103 要求反證明示三件事：先說使用反證法；準確寫出原命�
 ## 材料缺口與閱讀界線
 
 完整投影片足以重建蘊涵與否定規則、逆否證明、雙條件、兩個反證例題，以及課程要求的書寫步驟。公開材料沒有課堂錄影、逐字稿、投票結果或學生提問，因此本文不推測互動結果，也不把銜接文字當講師原話。末頁另提醒閱讀 office hours、LaTeX、proofwriting 資料並開始 PS1；本文不重現受限作業解答。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/02/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 12: Function Pointers Inject Ordering into Generic C"
+title: "Function Pointers Inject Ordering into Generic C | Stanford CS107 Lecture 12"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 C has no templates or method dispatch, but an algorithm does not need to be copied once per type. Lecture 12 separates “generic” into two questions: how wide the data is and where its next element begins, and which rule should order two elements. A `void *` plus an element width answers the first question; a function pointer lets the caller inject the second answer.
 
 That decomposition matters more than the syntax. A generic function does not pretend to know every type. It retains only the common mechanism and turns unknown facts into parameters. The cost is that `void *` does not preserve full type information. Length, width, writability, and the comparator contract must be maintained jointly by the interface and caller.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -283,6 +275,14 @@ A practical exercise is to take one typed array helper and mark the three forms 
 5. Fully generic C sorting needs both abstractions: `void * + size` abstracts data and a comparator callback abstracts behavior. Each removes type information and therefore demands a more precise interface.
 
 Lecture 12 is not primarily a clever bubble-sort demonstration. It shows how C builds reusable boundaries without language-level generics: retain common work in the library and return unknowable width and decisions to the caller. The less the type system preserves automatically, the less vague the contract may be.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

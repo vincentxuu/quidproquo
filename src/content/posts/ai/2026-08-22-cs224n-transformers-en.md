@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 5: From Recurrence to the Transformer"
+title: "From Recurrence to the Transformer | Stanford CS224N Lecture 5"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 5 on January 20, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture05-transformers.pdf) finishes vanishing gradients and machine translation, then moves from recurrence to attention, self-attention, the complete Transformer, and finally results, drawbacks, and variants. It is the quarter's architectural dividing line: later lectures on pretraining, post-training, agents, and reasoning assume this material.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The 2023 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
-
-```youtube
-url: https://www.youtube.com/watch?v=LWMzyfvuehA
-title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers
-```
-
-Original videos: [Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers](https://www.youtube.com/watch?v=LWMzyfvuehA)
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is 2023 Lecture 8; the transcript covers self-attention, position representations, multi-head attention, residual connections and layer norm, encoder/decoder architectures and the quadratic cost of attention, which fits this article. It is a 2023 lecture, so details need not match the Winter 2026 slides.
 
 ## Why leave recurrence
 
@@ -102,6 +82,26 @@ The public assignment proves copying behavior, single-head limits, and permutati
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers all six agenda sections in the deck but does not treat the 2019 or Spring 2024 recordings as this lecture's spoken content. Live explanations and classroom questions cannot be confirmed from public material.
+
+## Course video sources
+
+This article uses Winter 2026 materials. The 2023 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=LWMzyfvuehA
+title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers
+```
+
+Original videos: [Stanford CS224N NLP with Deep Learning | 2023 | Lecture 8 - Self-Attention and Transformers](https://www.youtube.com/watch?v=LWMzyfvuehA)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is 2023 Lecture 8; the transcript covers self-attention, position representations, multi-head attention, residual connections and layer norm, encoder/decoder architectures and the quadratic cost of attention, which fits this article. It is a 2023 lecture, so details need not match the Winter 2026 slides.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W: Every Assignment Runs in Colab, but the Biggest Slice of the Grade Is Closed to Self-Learners"
+title: "Every Assignment Runs in Colab, but the Biggest Slice of the Grade Is Closed to Self-Learners | Stanford CS224W Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,19 +25,6 @@ draft: false
 Outside Stanford the course is mostly known through the 2021 YouTube recordings. Those recordings still exist and are still good, but they no longer match the syllabus. Lecture 4 in 2021 was PageRank; across the nineteen lectures in the current schedule, that word appears in no lecture title at all.
 
 This piece was written after reading the Autumn 2025 (Aut2526) primary materials one by one: the course site, the grading and honor-code terms on `info.html`, all three homework PDFs, all six Colab notebooks (downloaded and opened), the project handout, and the slides for three key lectures. It does **not** include a close reading of the assigned papers, and it does not include anything behind Canvas — I can't reach that, and I say so explicitly wherever it matters.
-
-## Course video sources
-
-Checked live: the archived Fall 2025 official page lists no public recording link (its Canvas entry is empty), and the current Fall 2026 official page says lecture videos are on Canvas for enrolled students only; the Canvas entry redirects to the Stanford sign-in page. The public Stanford Online YouTube playlists currently cover only the 2021 and 2023 offerings, whose lectures differ from the Fall 2025 offering this article follows, so they are not embedded or treated as Fall 2025 recordings.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -230,6 +217,19 @@ One gray area is worth mentioning: above the schedule on the course site is a li
 - **Paid enrollment prices**: the AI Professional Program charges $1,950 for a single course (XCS224W); CS224W for graduate credit is listed on Stanford Online at $6,300 in tuition. Both read Enrollment Closed when checked, and XCS224W lists no start date although several sibling courses on the same page do. **The page gives no reason.**
 - **Maintenance status of DeepSNAP and OGB**: when checked, the GitHub API showed `snap-stanford/deepsnap` last pushed 2025-11-24, `snap-stanford/ogb` 2025-05-06, and `pyg-team/pytorch_geometric` 2026-08-17. Neither repo is marked archived.
 - **Three things I could not confirm**: (1) Colab 0's Google Drive link returns 200, but it's a Drive viewer page rather than the notebook, and I did not obtain its cell contents — hence the blank row in the table above; (2) Stanford Online's two YouTube playlists hold 47 and 60 videos, but I did not compare them video by video to establish what the difference consists of; (3) lecture 16's slides do not name their speaker, and I found no official page saying who taught it, so no name appears in the text.
+
+## Course video sources
+
+Checked live: the archived Fall 2025 official page lists no public recording link (its Canvas entry is empty), and the current Fall 2026 official page says lecture videos are on Canvas for enrolled students only; the Canvas entry redirects to the Stanford sign-in page. The public Stanford Online YouTube playlists currently cover only the 2021 and 2023 offerings, whose lectures differ from the Fall 2025 offering this article follows, so they are not embedded or treated as Fall 2025 recordings.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

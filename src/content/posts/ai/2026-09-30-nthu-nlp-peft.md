@@ -1,5 +1,5 @@
 ---
-title: "清大高宏宇 NLP 導讀：Parameter-Efficient Fine-Tuning——沒有 A100 叢集，怎麼微調大模型"
+title: "清大高宏宇 NLP 導讀：Parameter-Efficient Fine-Tuning——沒有 A100 叢集，怎麼微調大模型｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,30 +40,6 @@ glossary:
 上一篇的 InstructGPT 和 Llama-2，每一步都要動到整個模型的參數。學校實驗室、小公司或修課學生（課綱明寫「No GPU provided」）要把一個 7B 模型調到自己的任務上，第一個撞到的牆是顯示卡記憶體。
 
 這篇回答一個問題：**沒有 A100 叢集，怎麼微調大模型？**
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=zgjO_t5eu_E
-title: Week 9 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=zWMHxXc0QvA
-title: Week 9 Thu.
-```
-
-原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 9 Thu. 的字幕讀過。開頭教授說這份投影片是原定第九週的 PEFT，內容講 Hovy 的 ROCLING 演講回顧（三個角度）、OpenAI 算力不足的新聞、全參數微調的記憶體估算（7B、16-bit，約 56GB）與只訓練少量參數時記憶體仍降不到太低、災難式遺忘、Adapter 的概念（用翻譯、轉接頭比喻），結尾說 LoRA 下週再講；文中這些部分與字幕一致，LoRA、Prefix／Prompt Tuning 等後半段只在投影片，這支影片沒講到。Week 9 Tue. 的 YouTube 頁面沒有字幕，內容無法核對。
 
 ## 開場：LLM 時代的 NLP 還能做什麼
 
@@ -236,6 +212,30 @@ LoRA 在投影片比較表上的優勢是**推論時沒有額外開銷**：訓�
 - 從 prompt 到 LoRA 的高效適應方法：[CS224N 第 8 講：Efficient Adaptation](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
 - 訓練階段的記憶體與參數帳：[CME295 導讀：LLM Training](/posts/ai/2026-09-29-cme295-llm-training)
 - 微調時怎麼不忘記舊能力：[台大李宏毅 ML 2026 導讀：HW5 微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 9 Thu. 的字幕讀過。開頭教授說這份投影片是原定第九週的 PEFT，內容講 Hovy 的 ROCLING 演講回顧（三個角度）、OpenAI 算力不足的新聞、全參數微調的記憶體估算（7B、16-bit，約 56GB）與只訓練少量參數時記憶體仍降不到太低、災難式遺忘、Adapter 的概念（用翻譯、轉接頭比喻），結尾說 LoRA 下週再講；文中這些部分與字幕一致，LoRA、Prefix／Prompt Tuning 等後半段只在投影片，這支影片沒講到。Week 9 Tue. 的 YouTube 頁面沒有字幕，內容無法核對。
 
 ## 更新紀錄
 

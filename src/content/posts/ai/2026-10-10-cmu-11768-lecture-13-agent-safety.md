@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 13 講：Agent 安全——四種威脅模型，加上沙盒、憑證代管與監控三道限制"
+title: "Agent 安全——四種威脅模型，加上沙盒、憑證代管與監控三道限制｜CMU 11-768 第 13 堂"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -31,16 +31,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第 13 講是安全模組的第一堂，副標題是「限制 agent 能存取什麼、能做什麼」。官方課表原本寫的講題是 Sandboxing & Credential Management，現在改成 Agent Safety；內容也確實更寬，除了沙盒與憑證，還包括 red teaming、監控和安全評測。可觀測性與監控會在 10/22 另有一堂（Eric Wallace 主講），所以這講的監控只是入門。
 
 這篇要回答的問題是：**你要讓 agent 碰真實系統，最少需要做哪幾件事，才不會在第一個事故裡學到教訓？**
-
-## 課程影片來源
-
-本篇依投影片撰寫。已查官方課表，第 13 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
 
 ## 五個事件：出事長什麼樣子
 
@@ -193,6 +183,16 @@ agent 可能在做了不安全的動作之後，仍交出一個看起來有用�
 
 - 站內：[Prompt injection 與信任邊界](/posts/ai/2026-06-04-agent-security-prompt-injection-trust-boundaries)、[帶登入狀態的 web agent 安全](/posts/ai/2026-08-22-authenticated-web-agent-safety)
 - 官方課表為這一講列的參考資料：[AgentDojo](https://arxiv.org/abs/2406.13352v3)、[ToolEmu](https://arxiv.org/abs/2309.15817v2)、[AgentHarm](https://arxiv.org/abs/2410.09024)、[OpenAgentSafety](https://arxiv.org/abs/2507.06134v2)、[Monitoring Reasoning Models for Misbehavior](https://arxiv.org/abs/2503.11926)
+
+## 課程影片來源
+
+本篇依投影片撰寫。已查官方課表，第 13 講只列投影片，未列錄影連結；這只代表公開頁沒有，不代表校內沒有錄影。
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

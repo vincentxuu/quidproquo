@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 15: Paging"
+title: "Paging | Stanford CS111 Lecture 15"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 16 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 15**. Mendel Rosenblum taught the lecture on 2026-05-01; its official title is [Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Segmentation still allocates variable-size physical regions and externally fragments. Paging divides both virtual and physical spaces into fixed-size chunks: virtual **pages** map to physical **page frames**. The [official PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf) gives 4 KB (“x86 myth”) and 16 KB MacBook examples as course snapshots, not universal specifications.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. VPN, offset, and PTE
 
@@ -104,6 +96,14 @@ Alternatively, the OS is mapped in every address space: shared kernel code/regio
 Paging removes **external fragmentation** between processes because any frame can serve any page. Unused bytes in a page are **internal fragmentation**, commonly in the last page of a segment; larger pages increase worst-case waste.
 
 The trade-offs are linked: fixed pages simplify allocation and sparse mappings; multilevel tables save memory but add walks; TLB locality hides walks but creates invalidation/context-switch duties; large pages reduce metadata/TLB pressure but waste more internally. Demand paging later explains how a non-present page is fetched from disk.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

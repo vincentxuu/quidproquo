@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 6：Google 為了讓 AI review 有用，先刪掉 17 條規則"
+title: "Google 為了讓 AI review 有用，先刪掉 17 條規則｜Stanford CS146S 第 6 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：AI review 擅長抓什麼、漏掉什麼；review 的架構與自訂規則；怎麼把 AI review 放進團隊的 PR 流程。客座是 Cognition 的 Silas Alberti——他 Fall 2025 也來過，那次講的是 AI IDE，這次題目換成 code review。
 
 這個位移本身有意思。一年前值得請人來講的是「怎麼寫」，現在是「誰來檢查」。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 先看課程為什麼把 code review 當高槓桿
 
@@ -125,6 +113,18 @@ Fall 2025 的對應課堂是 Week 7「AI code review」（[投影片](https://do
 - AutoCommenter 的數字是 2023–2024 年的部署，模型已經換過好幾代；那些數字說明的是**問題結構**，不是今天的絕對水準
 - Fall 2026 這週的教材與作業尚未公布
 - 各家 AI review 工具的能力邊界變動很快，表格裡的分界要定期重驗
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

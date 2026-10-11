@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 作業二：在 MiniTorch 實作自動微分，訓練一個情感分類器"
+title: "在 MiniTorch 實作自動微分，訓練一個情感分類器｜CMU 11-868 作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 跟作業一不同，這份的程式全部用 Python 寫。但它不是跟作業一無關：你作業一寫的 CUDA kernel 就是這份作業預設的運算後端。
 
 本文只講題目結構、配分、需要的資源，以及校外讀者會卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 它在課程裡的位置
 
@@ -135,6 +125,16 @@ llmsys_hw2 在春季截止前的最後一筆主線 commit 是 2026-01-29 的 `b9
 
 - [CMU 11-785 第 5 講：反向傳播](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)：自動微分背後的數學
 - [CMU 10-414/714 Deep Learning Systems](https://dlsyscourse.org/)：整門課從頭做一個叫 needle 的框架；本站還沒有導讀系列，課程定位見 [CMU AI／ML 課程地圖](/posts/learning/2026-08-21-cmu-ai-ml-course-map)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

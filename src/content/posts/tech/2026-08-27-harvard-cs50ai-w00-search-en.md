@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 0: Search — From DFS, BFS, A* to Minimax and Alpha-Beta Pruning"
+title: "Search — From DFS, BFS, A* to Minimax and Alpha-Beta Pruning | Harvard CS50 AI Week 0"
 date: 2026-08-27
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 0 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=WbzNRTTrX0g
-title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-Original videos: [Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=WbzNRTTrX0g)
-
-Course and recording entries:
-
-- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The topic order of all seven segments broadly holds, but the original exact timecodes were far off (for example Minimax actually starts around minute 73, not 52:00) and the table ended at 1:22:00 although the video runs 1:49:30; they are now approximate values estimated from relative position in the transcript. The original "seven-week syllabus" is now the seven topics the lecturer actually previews. The transcript never mentions this week's projects (Degrees, Tic-Tac-Toe); project descriptions come from the course site, not the video.
 
 ## TL;DR
 
@@ -300,6 +280,26 @@ style50 tictactoe.py
 - [ ] Can write Minimax recursion skeleton and Alpha-Beta pruning condition
 - [ ] Understand why `result` must deep copy (Minimax explores many board states in parallel)
 - [ ] Both projects pass `check50` clean
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 0 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=WbzNRTTrX0g
+title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+Original videos: [Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=WbzNRTTrX0g)
+
+Course and recording entries:
+
+- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The topic order of all seven segments broadly holds, but the original exact timecodes were far off (for example Minimax actually starts around minute 73, not 52:00) and the table ended at 1:22:00 although the video runs 1:49:30; they are now approximate values estimated from relative position in the transcript. The original "seven-week syllabus" is now the seven topics the lecturer actually previews. The transcript never mentions this week's projects (Degrees, Tic-Tac-Toe); project descriptions come from the course site, not the video.
 
 ## Update Log
 

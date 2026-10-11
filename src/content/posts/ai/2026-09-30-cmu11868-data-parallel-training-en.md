@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L14-L15: Distributed Training and Data Parallelism, and Where Gradient Sync Costs Come From"
+title: "Distributed Training and Data Parallelism, and Where Gradient Sync Costs Come From | CMU 11-868 Lectures 14–15"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,16 +36,6 @@ glossary:
 > **Version note**: This post is based on the Spring 2026 edition of [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/). Every fact was checked on 2026-09-30 against the [course syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus), the [L14 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf) (48 pages), the [L15 slides](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf) (26 pages), and the [PyTorch DDP paper](https://www.vldb.org/pvldb/vol13/p3005-li.pdf). Access grade **A3**, but **the official syllabus lists no public recording links**. Page numbers below always mean PDF pages; the numbers printed in the corner of the L14 slides run 2-3 higher than the PDF page, so go by the PDF.
 
 **Series**: Previous: [HW4: Fused CUDA Kernels for Softmax and LayerNorm](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en) | Next: [L16-L17 Model Parallelism and MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## What these lectures answer
 
@@ -206,6 +196,16 @@ One thing you can do tonight: in any PyTorch training script, set `bucket_cap_mb
 
 - Building data, tensor, and pipeline parallelism from collectives, with communication-volume derivations: [CS336 Lecture 7: Build Data, Tensor, and Pipeline Parallelism from Collectives](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en)
 - ZeRO, FSDP, and hardware topology: [CS336 Lecture 8: Align ZeRO, FSDP, and 3D Parallelism with Hardware Topology](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

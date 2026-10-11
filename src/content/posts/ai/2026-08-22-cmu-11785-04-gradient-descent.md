@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 4：訓練二：梯度下降"
+title: "訓練二：梯度下降｜CMU 11-785 第 4 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
 
 本篇對應 CMU 11-785 Spring 2026 的 **Lecture 4: Training II: Gradient Descent**。主要證據是[官方投影片](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec4.learning.pdf)與[官方 YouTube 錄影](https://youtu.be/WOtAtLGZRIg)；下文只整理兩者能支持的內容，不補寫課堂問答或未公開的講者說法。
-
-## 課程影片來源
-
-影片連結已與本文採用版本的官方課程頁核對。
-
-```youtube
-url: https://www.youtube.com/watch?v=WOtAtLGZRIg
-title: Lecture 4 official YouTube recording
-```
-
-原始影片：[Lecture 4 official YouTube recording](https://www.youtube.com/watch?v=WOtAtLGZRIg)
-
-課程與錄影入口：
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片自動字幕全程約 84 分鐘；抽查開頭、中段、結尾並搜尋 derivative、gradient、step size、second derivative、softmax。字幕確認本講談導數／梯度與梯度下降，但沒有「learning rate」一詞（講者用 step size），也沒有專講「線性神經元的訓練」，已改寫主題描述。
 
 ## 這一講處理什麼
 
@@ -66,6 +47,25 @@ title: Lecture 4 official YouTube recording
 ## 讀完後
 
 闔上 slides，用一張紙寫下這講的輸入、輸出、目標函數與一個失敗模式。能不看筆記說明這四項，才往下一講；否則回到剛才的小例子，縮小輸入直到每一步都能人工核對。
+
+## 課程影片來源
+
+影片連結已與本文採用版本的官方課程頁核對。
+
+```youtube
+url: https://www.youtube.com/watch?v=WOtAtLGZRIg
+title: Lecture 4 official YouTube recording
+```
+
+原始影片：[Lecture 4 official YouTube recording](https://www.youtube.com/watch?v=WOtAtLGZRIg)
+
+課程與錄影入口：
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片自動字幕全程約 84 分鐘；抽查開頭、中段、結尾並搜尋 derivative、gradient、step size、second derivative、softmax。字幕確認本講談導數／梯度與梯度下降，但沒有「learning rate」一詞（講者用 step size），也沒有專講「線性神經元的訓練」，已改寫主題描述。
 
 ## 更新紀錄
 

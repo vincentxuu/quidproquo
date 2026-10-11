@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 Lab 2: Writing Flow Matching and Score Matching by Hand"
+title: "Writing Flow Matching and Score Matching by Hand | MIT 6.S184 Lab 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,15 +31,6 @@ glossary:
 The notebook introduces itself as an intuitive, hands-on walk-through of flow matching and score matching. Everything runs on 2D toy distributions; for the Problem 3.1 training cell, the notebook says to expect about a minute.
 
 This post doesn't reproduce the solutions. It explains what each problem tests, where it maps to the notes, and how to check yourself against the official answers.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
 
 ## Before you start: three things
 
@@ -214,6 +205,15 @@ Some self-checks:
 - A flow matching assignment from another course: [Berkeley CS189 HW2: regression, GMMs, and flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
 
 Series navigation: previous, [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) | next, [L3B: Guidance and Classifier-Free Guidance](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

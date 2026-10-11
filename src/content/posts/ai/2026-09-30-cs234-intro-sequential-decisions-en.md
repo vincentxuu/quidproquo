@@ -1,5 +1,5 @@
 ---
-title: "CS234 L1: What RL Is and the Language of MDPs"
+title: "What RL Is and the Language of MDPs | Stanford CS234 Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ glossary:
 The first lecture of [CS234](https://web.stanford.edu/class/cs234/) has three parts: an overview of RL, logistics, and sequential decision making under uncertainty. The [series overview](/posts/ai/2026-09-30-cs234-course-overview-en) already covers the logistics (grading, tutorials, late days), so this post covers the other two.
 
 One note first: the post-class PDF has 60 pages, but its page numbers read "/ 70," and the last page is the day's summary. The next lecture's slides pick up where this one stops.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=WsvFL-LjA6U
-title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)
-```
-
-Original videos: [Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WsvFL-LjA6U)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 1, "Introduction to Reinforcement Learning" (about 72K characters): it covers where RL stands and its applications (AlphaGo, fusion, COVID, ChatGPT, AlphaTensor), exploration versus exploitation, the AI-tutor addition/subtraction reward example, the Markov assumption, the Mars rover and discounting, matching this post. OpenAI o1 never appears in the transcript (the 2024 video predates it), so the mention of o1 here comes from the 2026 slides, not the video.
 
 ## What RL is
 
@@ -237,6 +218,25 @@ If you want to compute something, take the Mars rover MRP with γ = 0.5 and rewa
 - [CS221 L7: MDPs and value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en): MDPs in a prerequisite course
 
 **Series navigation**: previous, [series overview](/posts/ai/2026-09-30-cs234-course-overview-en) | next, [Planning with a model: policy evaluation, PI, VI](/posts/ai/2026-09-30-cs234-mdp-planning-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=WsvFL-LjA6U
+title: Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2024 Lecture 1: Introduction to Reinforcement Learning (YouTube, supplement)](https://www.youtube.com/watch?v=WsvFL-LjA6U)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 1, "Introduction to Reinforcement Learning" (about 72K characters): it covers where RL stands and its applications (AlphaGo, fusion, COVID, ChatGPT, AlphaTensor), exploration versus exploitation, the AI-tutor addition/subtraction reward example, the Markov assumption, the Mars rover and discounting, matching this post. OpenAI o1 never appears in the transcript (the 2024 video predates it), so the mention of o1 here comes from the 2026 slides, not the video.
 
 ## Update Log
 

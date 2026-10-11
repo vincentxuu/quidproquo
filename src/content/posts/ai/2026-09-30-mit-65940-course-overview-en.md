@@ -1,5 +1,5 @@
 ---
-title: "Reading MIT 6.5940: Song Han's Efficient AI Course Skipped a Year, So This Series Is Built on Fall 2024"
+title: "Efficient AI: A Learning Path from Model Compression to Hardware Deployment | MIT 6.5940 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,16 +30,6 @@ glossary:
 The Fall 2024 course description lists model compression, pruning, quantization, neural architecture search, distributed training, data/model parallelism, gradient compression, and on-device fine-tuning, plus acceleration techniques for LLMs and diffusion models. It also promises a concrete hands-on result: students deploy Llama2-7B on their own laptop.
 
 This post is the entry point to the series. It answers four questions: what the course teaches, why this series uses Fall 2024 instead of the newest edition, what outside readers can actually get, and how to read it.
-
-## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official pages on 2026-10-10: the Fall 2024 page lists public YouTube recordings for Lectures 1–23 (Lectures 24–26 are final-project presentations with no recording listed); the Fall 2026 page currently lists recordings for Lectures 1–8. Per-lecture videos are embedded in each lecture article.
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -195,6 +185,16 @@ These site series overlap with 6.5940. This series still covers the overlapping 
 - [MIT 6.S184 guide](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en): the theory of diffusion and flow matching
 
 **Series navigation**: Next: [Why efficiency matters and how to measure model size and compute](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
+
+## Course video sources
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official pages on 2026-10-10: the Fall 2024 page lists public YouTube recordings for Lectures 1–23 (Lectures 24–26 are final-project presentations with no recording listed); the Fall 2026 page currently lists recordings for Lectures 1–8. Per-lecture videos are embedded in each lecture article.
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+- [mit-6-5940 Fall 2026 — official course page](https://hanlab.mit.edu/courses/2026-fall-65940)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

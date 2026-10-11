@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 12: Dynamic Programming with Bellman–Ford and Floyd–Warshall"
+title: "Dynamic Programming with Bellman–Ford and Floyd–Warshall | Stanford CS161 Lecture 12"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, dynamic-programming, shortest-path]
@@ -20,16 +20,6 @@ series:
 This is article 13 in [Reading Stanford CS161](/en/series/stanford-cs161), covering **Stanford CS161, Winter 2026, Lecture 12**. The official title is **Dynamic Programming: Bellman-Ford and Floyd-Warshall**. Ellen Vitercik taught it on February 18, 2026.
 
 This article follows the [official Lecture 12 page](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall), public notes, and the public slide PDF. It does not use the Canvas-only recording. Lecture 11 compared Dijkstra and Bellman–Ford through relaxation and weight assumptions. This lecture deliberately revisits Bellman–Ford, now emphasizing states, recurrences, and evaluation order before extending the same method to all-pairs shortest paths.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
-
-Checked: 2026-10-10.
 
 ## Bellman–Ford is already a DP table
 
@@ -170,6 +160,16 @@ The transferable skill is not memorizing two formulas. For a new optimization pr
 The notes quote Richard Bellman's recollection about the name “dynamic programming”: in a political environment, he chose words that sounded difficult to oppose for multistage decision processes. The history explains the unusual label, but it is not an algorithmic definition. States, recurrences, overlap, and evaluation order remain the useful criteria.
 
 The slides also mention asymptotically faster APSP research. That material is not required knowledge for this lecture and does not diminish Floyd–Warshall's role as the canonical DP example, so this article does not mix research bounds into the course guarantee.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

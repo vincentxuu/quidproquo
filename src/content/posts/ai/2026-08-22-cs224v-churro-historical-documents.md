@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 12 講：CHURRO 如何讓多語歷史文件變成可搜尋文字"
+title: "CHURRO 如何讓多語歷史文件變成可搜尋文字｜Stanford CS224V 第 12 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, vision-language-model, ocr, historical-documents]
@@ -19,18 +19,6 @@ description: "CS224V NLP Building Blocks：歷史文件 OCR 缺口、HDML、CHUR
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 Schedule 把第十二講寫成 NLP Building Blocks，投影片的實際主題是「Vision-Language Models to Make Historical Documents Accessible」。這堂不是泛用 NLP 元件總覽，而是 [CHURRO](https://web.stanford.edu/class/cs224v/lectures/l-churro.pdf) 從資料表示、模型到歷史研究助理的完整案例。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：歷史 OCR 的資料與系統
 
@@ -135,6 +123,18 @@ HistoryGenie 再把 page extraction 接到可搜尋、可對話的研究介面�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 課程網站提供投影片，沒有課堂錄影或完整 reproducibility bundle。投影片摘要了 EMNLP 2025 研究；本文不從圖表反推未公開的訓練細節與成本。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

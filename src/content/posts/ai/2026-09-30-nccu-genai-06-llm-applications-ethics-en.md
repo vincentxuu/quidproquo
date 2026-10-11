@@ -1,5 +1,5 @@
 ---
-title: "Reading NCCU Yen-Lung Tsai Generative AI, L06: LLM Applications and Ethical Challenges — Hallucination, Privacy, DeepSeek, and a One-Paragraph System Prompt Called the Lucky Vicky Generator"
+title: "LLM Applications and Ethical Challenges — Hallucination, Privacy, DeepSeek, and a One-Paragraph System Prompt Called the Lucky Vicky Generator | NCCU Yen-Lung Tsai Generative AI Lecture 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,18 +31,6 @@ glossary:
 **This post is based on the 1132 semester (Spring 2025) of NCCU Yen-Lung Tsai's *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 6 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L05, Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en). The last lecture took Q/K/V apart as matrices. This one steps back into the user's seat: what goes wrong with LLMs, how to use them responsibly, and how to turn one into your own small tool through an API.
 
 Four official sources: [video 06](https://www.youtube.com/watch?v=m6DFB60Tk68) (2025-03-25, about 3 h 4 min, in Mandarin), the 57-page GenAI06 slides (in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)), the notebook [`【Demo04】用OpenAI_API打造員瑛式思考生成器`](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04%E3%80%91%E7%94%A8OpenAI_API%E6%89%93%E9%80%A0%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8.ipynb) in the [AI-Demo](https://github.com/yenlung/AI-Demo) repo, and the week-6 assignment on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Videos, slides, notebooks, and assignment text are all public. The notebooks live in a repo shared across many workshops, though, so **everything below refers to the current repo version, which may have changed since the semester ended.**
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=m6DFB60Tk68)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits
 
@@ -207,6 +195,18 @@ This post stands on its own. For more depth, other series on this site:
 - The full course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L05 Transformers in Full](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en) | Next: [L07 Building Your Own Chatbot](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [Generative AI 06: LLM applications and ethical challenges (YouTube recording, in Mandarin)](https://www.youtube.com/watch?v=m6DFB60Tk68)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

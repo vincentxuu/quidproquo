@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: HW10 Spoken Language Model — Three Architectures, Mimi's 32 Token Layers, and How Moshi Listens While It Talks"
+title: "Reading NTU ML 2026: HW10 Spoken Language Model — Three Architectures, Mimi's 32 Token Layers, and How Moshi Listens While It Talks | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **This post follows HW10 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 20 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series, and the last one. The previous post is [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en).
 
 Official materials used: the homework slides [hw10.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw10.pdf) (42 pages; from page 31 on, all 12 questions with their options), the [homework Colab](https://colab.research.google.com/drive/1QBtp0lQrjQbTKB1sLIxoavqhSU7EhG_g?usp=sharing) (32 cells), and the TA video listed on the course page, [ML 2026 Spring HW10 Spoken Language Model](https://youtu.be/Gx96VH6ePC4). The course page lists 5/29 as the release date; the deadline is 2026/06/18 23:59:59 (UTC+8), no late submissions. Grades are out by 2026/06/19, regrade requests close on 06/21, and final course grades are out by 06/22. The TAs are 陳竣瑋, 陳思齊, 鄭安妤, and 尹廷安.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Gx96VH6ePC4
-title: TA video: ML 2026 Spring HW10 Spoken Language Model
-```
-
-Original videos: [TA video: ML 2026 Spring HW10 Spoken Language Model](https://www.youtube.com/watch?v=Gx96VH6ePC4)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Access level: A3, but no official answers
 
@@ -166,6 +147,25 @@ Verified: the full text and embedded links of hw10.pdf; the Colab's markdown and
 Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. This post deliberately doesn't say which models Model A and Model B are in the homework repo, because that is the answer to Q2. The PDF gives no weight for Q9. No official answers have been released.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en) | This is the last post in the series
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Gx96VH6ePC4
+title: TA video: ML 2026 Spring HW10 Spoken Language Model
+```
+
+Original videos: [TA video: ML 2026 Spring HW10 Spoken Language Model](https://www.youtube.com/watch?v=Gx96VH6ePC4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

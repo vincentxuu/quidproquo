@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS221 導讀：AI 入門課的先修欄位，寫的是 CS103、CS106B、CS109、CS161"
+title: "AI 入門課的先修欄位，寫的是 CS103、CS106B、CS109、CS161｜Stanford CS221 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -25,26 +25,6 @@ draft: false
 在所有人都在講 LLM 的 2026 年，一門還在教 A\* 與歸結法（resolution）的課值得被問一句「為什麼還教」。這篇不是替它辯護，是去讀它自己的講義怎麼回答。答案比想像中直接。課程把這些方法排在同一條軸上，而深度學習被放在**最低階**的那一格——不是因為它不重要，是因為它是唯一一種「不回溯、算完就輸出」的模型。
 
 這篇涵蓋課程的硬事實、它自己怎麼定義 AI、四層主脊、2025 年秋季砍了什麼、八份作業各在做什麼，以及沒選課的人實際拿得到多少一手材料。**不涵蓋**逐堂的技術教學——那是講義本身的工作，而講義是公開的，文末會給路徑。系列的上一層入口是[〈Stanford CS 課程導讀〉](/posts/learning/2026-08-20-stanford-cs-course-map)，那篇講這門課在階梯的哪一格。
-
-## 課程影片來源
-
-本文是整門課的導讀，不對應單一講次。下方附 Autumn 2025 第 1 講（課程總覽）作為相關補充；各講另有對應的導讀文章。官方播放清單是公開的，共 20 講。
-
-```youtube
-url: https://www.youtube.com/watch?v=yaLEGZuIIgE
-title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了整支字幕（1:06:26）。這是 Percy Liang 在 Autumn 2025 的第一堂：自述這是他在 Stanford 的第 14 年、第 13 次開這門課，且今年課程做了很大的改動；內容有 AI 的定義與簡史、perceive／reason／act／learn 四個能力與「都要在資源限制下完成」（運算與資料等資源）、用 tensor 表達各種演算法、learning by doing 的作業理念，以及 AI 的社會議題預告，與本文對這門課的描述相符。字幕沒有談到被砍掉的約束滿足、講義 repo 或作業與評分細節，那些說法依據的是 welcome.py 與官方頁面，不是這支影片。
 
 ## 這門課的硬事實
 
@@ -196,6 +176,26 @@ Autumn 2019 那屆的專案佔總成績兩成。到 Autumn 2025，[專案說明�
 - **作業歷屆組成**：Autumn 2022 為 foundations、blackjack、pacman、scheduling、car、logic；Autumn 2023 把 blackjack 換成 sentiment；Autumn 2024 與 Spring 2025 增加 route 與 mountaincar，成為八份；Autumn 2025 移除 scheduling 與 car，加入 bayesian 與 society。
 - **遲交規則**：全學期 7 個延遲日，單份作業最多用 2 天，用完之後每逾一天上限降 25%，超過 2 天不收。
 - **未能確認的項目**：（一）三份官方頁面在先修條件上不一致時該以哪一份為準，沒有任何一頁說明；本文只能建議取聯集，無法判定優先序。（二）約束滿足被砍掉的原因，第一堂講義只寫了結果與一個顏文字，沒有給理由。（三）專案從計分項降為加分項的原因，歷屆課程網站都沒有說明。（四）作業指南頁寫著提交的程式「不保證支援標準函式庫以外的套件，不要用 numpy、scikit-learn、pandas」，但第一份作業的安裝步驟要你 `uv add numpy einops`，兩頁的適用範圍我無法從頁面本身確定。（五）Autumn 2025 的選課人數未公開。
+
+## 課程影片來源
+
+本文是整門課的導讀，不對應單一講次。下方附 Autumn 2025 第 1 講（課程總覽）作為相關補充；各講另有對應的導讀文章。官方播放清單是公開的，共 20 講。
+
+```youtube
+url: https://www.youtube.com/watch?v=yaLEGZuIIgE
+title: Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 1: Course Overview and AI Foundations](https://www.youtube.com/watch?v=yaLEGZuIIgE)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了整支字幕（1:06:26）。這是 Percy Liang 在 Autumn 2025 的第一堂：自述這是他在 Stanford 的第 14 年、第 13 次開這門課，且今年課程做了很大的改動；內容有 AI 的定義與簡史、perceive／reason／act／learn 四個能力與「都要在資源限制下完成」（運算與資料等資源）、用 tensor 表達各種演算法、learning by doing 的作業理念，以及 AI 的社會議題預告，與本文對這門課的描述相符。字幕沒有談到被砍掉的約束滿足、講義 repo 或作業與評分細節，那些說法依據的是 welcome.py 與官方頁面，不是這支影片。
 
 ## 更新紀錄
 

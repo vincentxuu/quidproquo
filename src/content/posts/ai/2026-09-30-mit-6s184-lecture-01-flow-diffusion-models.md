@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L1：生成就是取樣，ODE 與 SDE 是機器"
+title: "生成就是取樣，ODE 與 SDE 是機器｜MIT 6.S184 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 講義開頭引了 Song 等人的一句話：從資料造出雜訊很容易，從雜訊造出資料才是生成模型。第 1 講就是把這句話變成數學：先定義「生成」到底是什麼，再給出把雜訊推成資料的兩台機器。
 
 這一講**不談怎麼訓練**。你會看到一個神經網路向量場 `u_t^θ`，但它的參數怎麼學，是[第 2 講](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)的事。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=9eJQQVrUUoI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭（講者 Peter 自我介紹、協助授課的碩士生 Ron、對指導教授 Tommy 的致謝）、結尾（下一講改週四、講義與 lab）並用關鍵字抽查中段：生成的定義與 key ideas、向量場／ODE／flow、線性向量場例子、用神經網路向量場模擬 ODE 取樣、Brownian motion 與 SDE、以及結尾的學生提問。內容與本文對應。字幕裡聽不到 Euler、Heun、Euler–Maruyama、Theorem 編號等名稱，本文這些細節是依講義，不是依影片。
 
 ## 先把「生成」講精確：四個 Key Idea
 
@@ -245,6 +227,24 @@ Require: 神經網路 u_t^θ，步數 n，diffusion coefficient σ_t
 - 機率概念生疏：講義附錄 A（A Reminder on Probability Theory），或本站 [Stanford CS109 導讀](/posts/learning/2026-08-21-stanford-cs109-probability)
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - DDPM 視角（時間方向相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=9eJQQVrUUoI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 01 - Flow and Diffusion Models (2026)](https://www.youtube.com/watch?v=9eJQQVrUUoI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（講者 Peter 自我介紹、協助授課的碩士生 Ron、對指導教授 Tommy 的致謝）、結尾（下一講改週四、講義與 lab）並用關鍵字抽查中段：生成的定義與 key ideas、向量場／ODE／flow、線性向量場例子、用神經網路向量場模擬 ODE 取樣、Brownian motion 與 SDE、以及結尾的學生提問。內容與本文對應。字幕裡聽不到 Euler、Heun、Euler–Maruyama、Theorem 編號等名稱，本文這些細節是依講義，不是依影片。
 
 ## 更新紀錄
 

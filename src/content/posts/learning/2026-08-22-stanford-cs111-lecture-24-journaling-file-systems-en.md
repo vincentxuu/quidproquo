@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 24: Journaling, Transactions, and Checkpoints"
+title: "Journaling, Transactions, and Checkpoints | Stanford CS111 Lecture 24"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 25 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 24**. Mendel Rosenblum taught it on 2026-05-22, and the calendar calls it [File System Crash Recovery, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). This article uses only the [public lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf). The recording is behind Canvas/Panopto and is not treated as a source read here.
 
 First, an anomaly in the source material: the Lecture 23 and Lecture 24 PDFs both have 23 pages, with the same page titles, bullets, and ordering. Their SHA-256 hashes differ, but extracted text differs only in the slash in `/lost+found` and four periods. The public material therefore does not provide an independent “continued” [slide](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf) deck. Rather than invent missing content, this series assigns pages 1–15 to Lecture 23 and uses this article for page 16 onward: write-ahead logging, transactions, checkpoints, and the boundary between consistency and durability.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Continuing from the previous lecture: same public material, different question
 
@@ -69,6 +61,14 @@ To test your understanding, close the slides and model one “allocate a new blo
 - Pages 16–18: logical and physical entries, idempotence, consistent groups, and Assignment 8 transactions.
 - Pages 19–22: checkpoints, metadata-only logging, benefits and costs, delayed log writes, `fsync`, and device failure.
 - Page 23: trade-offs among performance, durability, consistency, and the failures a design can recover from.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

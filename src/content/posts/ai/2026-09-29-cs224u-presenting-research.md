@@ -1,5 +1,5 @@
 ---
-title: "CS224U 寫 NLP 論文、投稿與上台報告"
+title: "CS224U 寫 NLP 論文、投稿與上台報告｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -24,30 +24,6 @@ draft: false
 2023 年的[講次表](https://web.stanford.edu/class/cs224u/)把這一講放在最後的「Your projects」單元，期末論文截止是 6 月 10 日上午 11:30（太平洋時間）。
 
 **存取狀態（A3，歷史版）**：投影片、影片、projects.md、講次表上的指定閱讀大多公開。拿不到的是投影片第 3 頁連結的往年範例論文（`restricted/past-final-projects/`，302 轉 Stanford 登入頁）。另外，講次表上 David Goss 那篇〈hints on mathematical style〉的連結，2026-09-29 查核時已是 404。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=teEA1DACM40
-title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=K-AqbhLJMgU
-title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40)、[Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
-其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY)、[Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Part 2（Writing NLP Papers）與 Part 4（Giving Talks）的字幕逐項對照：論文大綱與 4／8 頁格式、Intro 與 Related work 的寫法、Shieber 三種風格與理性重建、McCarthy 的主線、Goss 的『have mercy on the reader』、Blackburn 的誠實、ELMo 與 GloVe 作為範例；報告的結構、Pullum 六條規則、極簡派與比較派（Potts 自稱偏比較派）、overlay／顏色／大小／方框箭頭、上台前的瑣事（通知、省電模式、PDF 備份、準備無投影片）、討論時間的建議，皆吻合。文中的 Part 1 與 Part 3（Your Papers、Conference Submission）未嵌入也未讀，匿名期、bidding、審稿表等投稿流程細節來自投影片與 projects.md，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 第一段：期末論文的課程特有要求
 
@@ -214,6 +190,30 @@ projects.md 與投影片都列了同一份清單：關掉會跳出的通知、�
 - 同系列下一篇：[Stanford CS224U 導讀 17：兩場延伸講座](/posts/ai/2026-09-29-cs224u-guest-lectures)
 - 資料集取捨與 Datasheets 的脈絡：[CS224U 方法與指標 II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
 - 站內 CS224N 系列的期末專案篇：[CS224N 第 6 講：把期末專案收斂成可驗證的研究問題](/posts/ai/2026-08-22-cs224n-final-projects)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=teEA1DACM40
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=K-AqbhLJMgU
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40)、[Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
+其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY)、[Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Part 2（Writing NLP Papers）與 Part 4（Giving Talks）的字幕逐項對照：論文大綱與 4／8 頁格式、Intro 與 Related work 的寫法、Shieber 三種風格與理性重建、McCarthy 的主線、Goss 的『have mercy on the reader』、Blackburn 的誠實、ELMo 與 GloVe 作為範例；報告的結構、Pullum 六條規則、極簡派與比較派（Potts 自稱偏比較派）、overlay／顏色／大小／方框箭頭、上台前的瑣事（通知、省電模式、PDF 備份、準備無投影片）、討論時間的建議，皆吻合。文中的 Part 1 與 Part 3（Your Papers、Conference Submission）未嵌入也未讀，匿名期、bidding、審稿表等投稿流程細節來自投影片與 projects.md，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

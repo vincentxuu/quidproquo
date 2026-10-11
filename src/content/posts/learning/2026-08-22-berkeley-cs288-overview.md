@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288 Spring 2026 導讀：18 組教材、三份作業與自學邊界"
+title: "語言模型與 NLP：從基礎表示到檢索與 Agent｜Berkeley CS288 Spring 2026 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, llm, self-study, open-course]
@@ -21,17 +21,6 @@ series:
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) 是研究所等級的 Advanced Natural Language Processing。它不是只教怎麼呼叫現成 LLM：課程先從 n-gram、詞向量、分類與序列模型建立地基，再進入 Transformer、pre-training、post-training、RAG、inference-time compute、reasoning 與 agents。
 
 這個系列採「教材導讀」，不是逐字課堂重建。官方課站明載[錄影需要 Berkeley 登入](https://cal-cs288.github.io/sp26/course_info/)，匿名讀者拿得到的是 18 組 slides、三份作業、兩個 starter repositories 與 project 規格。文章只解釋這些材料明確支持的內容，不替未公開的口頭授課補台詞。
-
-## 課程影片來源
-
-官方課程資訊頁寫明錄影提供給修課學生與 Berkeley 校內旁聽者。2026-10-10 即時核對：課程首頁連到一份標示「Lecture recordings (Needs Berkeley log in)」的 YouTube 播放清單（CS288 Spring 2026），未登入開啟時看不到任何影片。沒有找到可公開觀看的外部錄影，請參考公開講義。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://cal-cs288.github.io/sp26/course_info/)
-- [CS288 Spring 2026 錄影播放清單（需 Berkeley 登入）](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
-
-查核日期：2026-10-10。
 
 ## 先修不是建議清單而已
 
@@ -66,6 +55,17 @@ series:
 [Assignment 2 與 Assignment 3](https://cal-cs288.github.io/sp26/assignments/) 的正式驗收還依賴 hidden tests、Gradescope，以及課程提供的 OpenRouter wrapper。校外讀者拿不到這些部分。[Final project](https://cal-cs288.github.io/sp26/project/) 另有課內團隊媒合與階段回饋；課站只說 VESSL AI 與 Google Cloud 提供 project compute credits，沒有承諾對外開放。
 
 A2 的 Transformer 與 A3 的 RAG 都可能產生費用。先用小資料、小模型與 CPU baseline 驗證管線，再決定是否租 GPU。
+
+## 課程影片來源
+
+官方課程資訊頁寫明錄影提供給修課學生與 Berkeley 校內旁聽者。2026-10-10 即時核對：課程首頁連到一份標示「Lecture recordings (Needs Berkeley log in)」的 YouTube 播放清單（CS288 Spring 2026），未登入開啟時看不到任何影片。沒有找到可公開觀看的外部錄影，請參考公開講義。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://cal-cs288.github.io/sp26/course_info/)
+- [CS288 Spring 2026 錄影播放清單（需 Berkeley 登入）](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

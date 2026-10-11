@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 5｜Random Variables and Expectation：隨機變數是把結果映成數字；期望值是加權平均，不保證會真的出現。"
+title: "Random Variables and Expectation：隨機變數是把結果映成數字；期望值是加權平均，不保證會真的出現。｜Stanford CS109 第 5 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 6 篇，對應 **Stanford CS109, Summer 2026, Lecture 5**（Jun 29），官方 schedule 題目是 **Random Variables and Expectation**，講者為 Chris Gregg。本文以[官方 schedule](https://web.stanford.edu/class/cs109/schedule.html)、[講次頁](https://web.stanford.edu/class/cs109/lectures/5-Binomial)、[課堂習題](https://web.stanford.edu/class/cs109/worksheets/Lecture05-Worksheet.pdf)、[解答](https://web.stanford.edu/class/cs109/worksheets/Lecture05-AnswerKey.pdf)與 [LLM guide](https://web.stanford.edu/class/cs109/worksheets/Lecture05-LLMPrompts.pdf)確定 Summer agenda；講次頁與 `/spr26` [讀本](https://probabilitycoders.stanford.edu/spr26)只作為跨 offering 共用的 Spring-dated 概念參考。
 
 本講材料完整度為 **L3**：Summer schedule 與題目 artifacts 確定 agenda，Spring-dated 共用頁面只補概念；Canvas 錄影未使用。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題只部分對應本講（見下方內容核對），但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=8QCg2ur-3fo
-title: Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6
-```
-
-原始影片：[Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6](https://www.youtube.com/watch?v=8QCg2ur-3fo)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 6「Random Variables and Expectation」字幕（約 68 分鐘）：影片講隨機變數、probability mass function、骰子與硬幣例子和期望值，對應官方題名；但字幕中沒有出現 binomial，而本文 worksheet agenda 與 binomial 式子段落以 binomial PMF 為主，影片未涵蓋這部分，已在說明中改為「部分對應」。
 
 ## Worksheet agenda：從 counting 走到 binomial PMF
 
@@ -67,6 +45,28 @@ C(n,k) 選出成功出現在哪 k 次；p^k 是那些成功同時發生；(1-p)^
 - Spring-dated 共用 Binomial 頁可核對 PMF 與建模條件，但不能證明 Summer 課堂流程。
 - 課程錄影限 Canvas，未使用。
 - 本文不使用搜尋摘要或未存取的 Canvas 內容，也不推測課堂口述例子。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題只部分對應本講（見下方內容核對），但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=8QCg2ur-3fo
+title: Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6
+```
+
+原始影片：[Stanford CS109 I Random Variables and Expectation I 2022 I Lecture 6](https://www.youtube.com/watch?v=8QCg2ur-3fo)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 6「Random Variables and Expectation」字幕（約 68 分鐘）：影片講隨機變數、probability mass function、骰子與硬幣例子和期望值，對應官方題名；但字幕中沒有出現 binomial，而本文 worksheet agenda 與 binomial 式子段落以 binomial PMF 為主，影片未涵蓋這部分，已在說明中改為「部分對應」。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L23: Code Generation and Autonomous Agents — From pass@k to the Coding Agent Loop"
+title: "Code Generation and Autonomous Agents — From pass@k to the Coding Agent Loop | CMU 10-423 Lecture 23"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code.pdf) (55 pages), and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture23-code-ink.pdf) (55 pages). The inked version has the same text plus red pen marks from class. The schedule lists no readings for this lecture, and this post does not add any. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post is written entirely from the slides.
 
 The lecture asks a practical question: **when a model writes code, or operates a computer on its own, how do you tell whether it did the right thing, and how do you wrap it in a system that can keep trying?** The deck has seven parts: applications, evaluation, code models, code-specific techniques, tool calling, coding agents, and autonomous agents. The first four are about the model. The last three are about the system around it.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## What code generation is for
 
@@ -196,6 +185,17 @@ Confirmed: schedule dates and titles, the text of the slides and the inked versi
 Further reading: on this site, [CME295 Lecture 7: Agentic LLMs](/posts/ai/2026-09-29-cme295-agentic-llms-en) goes from RAG and function calling to the agent loop, and [CME295 2026 Lecture 6: AI Agents](/posts/ai/2026-09-29-cme295-ai-agents-en) covers context management and harnesses. To read agents as a whole course, see [Reading CMU 11-768](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
 Series navigation: previous [L22 + L26: practical risks and the science of alignment](/posts/ai/2026-09-30-cmu10423-risks-alignment-en) | next [L24–L26: audio, video generation, and interactive world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

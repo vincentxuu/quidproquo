@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 15: Separating Pretraining, Transfer Learning, and Fine-Tuning"
+title: "Separating Pretraining, Transfer Learning, and Fine-Tuning | CMU 07-280 Lecture 15"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, transfer-learning, fine-tuning, representation-learning]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 15, **Pre-training/Transfer Learning/Fine-tuning**, took place on March 12, 2026. Lecture 14 explained how CNNs learn visual features. This lecture asks which capabilities to preserve and which parameters to relearn when a new task has less data. The official schedule lists no public lecture-by-lecture recording links; this article uses the public lecture note and HW8.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -82,6 +72,16 @@ Lecture 16 moves from architecture back to probabilistic assumptions. Cross-entr
 ## What to do tonight
 
 Choose a small pretrained vision model and a two-class dataset. First freeze the backbone and train a linear head. Then unfreeze only the final block with the same split and epochs. Record trainable parameters, best validation accuracy, train-validation gap, and time per epoch rather than comparing only final accuracy.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

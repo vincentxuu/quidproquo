@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 4：Attention 不只一種，MoE 也不是免費擴大模型"
+title: "Attention 不只一種，MoE 也不是免費擴大模型｜Stanford CS336 第 4 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 4: Attention alternatives and mixture of experts**，2026 年 4 月 8 日由 Tatsunori Hashimoto 主講。主要來源是官方 [`lecture_04.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf)。
 
 這一講把兩個常被分開談的主題放在一起：attention alternatives 與 mixture of experts（MoE）。共同問題是能否增加 context 或參數，卻不讓每個 token 支付完整成本。結構化稀疏可以做到，但省下的運算會轉化成新的最佳化與系統問題。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 4（Attention Alternatives）。字幕涵蓋 linear attention、Mamba、delta rule 類 recurrent 模型、以 lightweight indexer 做的 sparse attention（DeepSeek DSA）、MoE 與 router、load balancing、router z-loss、upcycling、shared experts、MLA 與 multi-token prediction。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## Linear attention 改變乘法順序
 
@@ -92,6 +74,24 @@ MoE 不一定從頭訓練。Upcycling 會複製既有 dense feed-forward weights
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整官方 PDF。本文依投影片的 attention alternatives、MoE routing、training 與 systems 段落整理。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 4（Attention Alternatives）。字幕涵蓋 linear attention、Mamba、delta rule 類 recurrent 模型、以 lightweight indexer 做的 sparse attention（DeepSeek DSA）、MoE 與 router、load balancing、router z-loss、upcycling、shared experts、MLA 與 multi-token prediction。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=cKSwj_qZ8Jg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 4: Attention Alternatives](https://www.youtube.com/watch?v=cKSwj_qZ8Jg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

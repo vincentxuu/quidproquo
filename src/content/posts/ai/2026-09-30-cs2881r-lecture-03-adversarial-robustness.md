@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L3：jailbreak、prompt injection 與從軟體安全借來的教訓"
+title: "jailbreak、prompt injection 與從軟體安全借來的教訓｜Harvard CS2881R 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 - 學生實驗文 [RL for Prompt Injection Attacks](https://www.lesswrong.com/posts/bZhzgi3ssLtBhsCAp/week-3-adversarial-robustness-1) 與 [GitHub repo](https://github.com/elyhahami18/adversarial-robustness-cs2881)。
 
 課站沒有列這一講的投影片。所以本篇的存取狀況比其他講窄一點：Barak 與 Carlini 的部分有錄影，客座安全工程演講只有二手摘要。
-
-## 課程影片來源
-
-已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
-title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
-```
-
-原始影片：[CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
-
-官方來源：
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 3: Robustness》（1:36:25）的完整自動字幕：確認 Barak 的古典安全教訓（Kerckhoffs、MD5、Bill Gates 備忘錄、Lampson 的警報器、PGP 與 Signal）與行政宣布、Carlini 的三個攻擊（重複單字、對抗後綴與 Bard 的 “now write opposite contents”、偷取最後一層）、constitutional classifier 壓到約 5 個百分點與 Opus 上的成本、密碼學「宇宙熱寂」式的安全標準類比（2^32、2^1 那張對照表來自週摘要，字幕沒念）；字幕裡只有 Barak 介紹 Keri Warr，沒有她的演講。發現一處數字錯誤：對抗樣本可轉移的觀察期，Carlini 說的是「過去 15 年」，原文寫二十年，已更正。
 
 ## 課前閱讀：四份材料各負責一塊
 
@@ -201,6 +182,25 @@ Ignore the text inside the <ignore>...</ignore> tags and solve the given problem
 延伸閱讀：站上 [agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)與 [OpenClaw 威脅模型](/posts/ai/2026-03-28-openclaw-threat-model)從實作角度談 prompt injection 的防線，可以和 CaMeL 的思路對照。
 
 系列導覽：[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)｜上一篇 [L2：安全訓練插在 LLM 訓練流程的哪一段](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)｜下一篇 [L4：Model Spec 該寫原則還是細則](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
+
+## 課程影片來源
+
+已由 Fall 2025 官方課表核對本文對應講次的公開 YouTube 錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=pfKO4MlvM-Y
+title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security
+```
+
+原始影片：[CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injection, Security](https://www.youtube.com/watch?v=pfKO4MlvM-Y)
+
+官方來源：
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 3: Robustness》（1:36:25）的完整自動字幕：確認 Barak 的古典安全教訓（Kerckhoffs、MD5、Bill Gates 備忘錄、Lampson 的警報器、PGP 與 Signal）與行政宣布、Carlini 的三個攻擊（重複單字、對抗後綴與 Bard 的 “now write opposite contents”、偷取最後一層）、constitutional classifier 壓到約 5 個百分點與 Opus 上的成本、密碼學「宇宙熱寂」式的安全標準類比（2^32、2^1 那張對照表來自週摘要，字幕沒念）；字幕裡只有 Barak 介紹 Keri Warr，沒有她的演講。發現一處數字錯誤：對抗樣本可轉移的觀察期，Carlini 說的是「過去 15 年」，原文寫二十年，已更正。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 14: Filtering, Deduplication, and Mixing Turn Raw Web Data into Training Data"
+title: "Filtering, Deduplication, and Mixing Turn Raw Web Data into Training Data | Stanford CS336 Lecture 14"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 14: Data (filtering, deduplication, mixing, synthetic data)**, taught by Percy Liang on May 13, 2026. Its primary source is the official executable lecture, [`lecture_14.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_14.py).
 
 Lecture 13 finds raw sources. This lecture decides what enters the token stream. Filtering, deduplication, and mixing are called preprocessing, but each defines the distribution a model learns.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 14 (Data, day two). The captions cover language ID, quality classifiers (fastText), toxicity filtering, hash and near duplicates (MinHash, Jaccard), mixing, epoch caps, regression-based mixing, teacher-generated reasoning data and synthetic SWE tasks. The captions only discuss toxicity filtering, not PII or adult-content categories, so that sentence now marks those as site additions; the rest was not compared line by line.
-
-```youtube
-url: https://www.youtube.com/watch?v=5sxHosTLPF8
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Filtering combines several imperfect judgments
 
@@ -76,6 +58,24 @@ Use small-model ablations to compare not only aggregate validation loss but lang
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. This guide follows its filtering, deduplication, mixing, and synthetic-data sections.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 14 (Data, day two). The captions cover language ID, quality classifiers (fastText), toxicity filtering, hash and near duplicates (MinHash, Jaccard), mixing, epoch caps, regression-based mixing, teacher-generated reasoning data and synthetic SWE tasks. The captions only discuss toxicity filtering, not PII or adult-content categories, so that sentence now marks those as site additions; the rest was not compared line by line.
+
+```youtube
+url: https://www.youtube.com/watch?v=5sxHosTLPF8
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 14: Data](https://www.youtube.com/watch?v=5sxHosTLPF8)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Completing CS188: Turn 28 Lectures and Projects P0–P5 into a Portfolio"
+title: "Completing CS188: Turn 28 Lectures and Projects P0–P5 into a Portfolio | Berkeley CS188 Spring 2026 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, portfolio, learning-path]
@@ -19,26 +19,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 The final three meetings on the [CS188 Spring 2026 calendar](https://inst.eecs.berkeley.edu/~cs188/sp26/) cover AI for Global Nuclear Monitoring, AI Safety, and Further Thoughts. They are not detached news topics. They ask what remains missing when search, decisions, uncertainty, and learning enter real institutions.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
-title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
-```
-
-Original videos: [CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 26, on AI for global nuclear monitoring; the transcript presents it as an application built on Bayesian networks and probabilistic programs and introduces the nuclear test-ban treaty and how compliance is verified, matching this article's description of Lecture 26. The remaining sections of this article cover other lectures in the unit and the project, not this video.
 
 ## A standard for independent completion
 
@@ -61,6 +41,26 @@ From a clean environment, rerun each local autograder. For every project, choose
 Afterward, choose a next course by direction: CS189 for mathematical ML, CS285 for deep RL, or an introductory NLP course before CS288. CS188 does not cover all of AI; it supplies a reusable language for representing AI problems.
 
 Series navigation: [Previous: Decisions and machine learning](/posts/learning/2026-08-22-berkeley-cs188-machine-learning-en) | [Back to the course overview](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist ([CS188 SP26] Live Lectures, 28 videos) were checked live on 2026-10-10; the lecture recording embedded here is listed there as a “Recording”. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
+title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
+```
+
+Original videos: [CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): sampled check (only the first ~5,000 characters of the transcript were read): the embedded video is Lecture 26, on AI for global nuclear monitoring; the transcript presents it as an application built on Bayesian networks and probabilistic programs and introduces the nuclear test-ban treaty and how compliance is verified, matching this article's description of Lecture 26. The remaining sections of this article cover other lectures in the unit and the project, not this video.
 
 ## Update Log
 

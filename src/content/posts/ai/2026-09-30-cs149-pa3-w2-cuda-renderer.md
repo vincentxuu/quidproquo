@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA3 與 Written 2：CUDA 圓形渲染器，順序正確與速度要一起拿"
+title: "與 Written 2：CUDA 圓形渲染器，順序正確與速度要一起拿｜Stanford CS149 程式作業 3／書面作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,14 +31,6 @@ glossary:
 **系列位置**：上一篇 [第 8 講：資料平行思維](/posts/ai/2026-09-30-cs149-data-parallel-thinking)｜下一篇 [第 9 講：在 GPU 上跑 DNN](/posts/ai/2026-09-30-cs149-dnn-on-gpus)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
 
 [第 7 講](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda) 講 CUDA 抽象怎麼落到 GPU，[第 8 講](/posts/ai/2026-09-30-cs149-data-parallel-thinking) 講怎麼用 scan、sort 這類原語取代鎖。PA3 把兩者一起考：README 開頭說這個渲染器很簡單，但把它平行化需要你設計並實作**能被平行建構與操作的資料結構**。接著用粗體重複了一次：真的要早點開始。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
 
 ## 課程裡的位置與環境
 
@@ -154,6 +146,14 @@ README 的配分有兩處自相矛盾，讀的時候注意：Grading Guidelines 
 - 另一門課的 CUDA 入門作業：[CMU 11-868 作業一：用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
 - thread、block 與 shared memory tiling 的另一種講法：[CMU 11-868 L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 - 五個作業的環境需求總表：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
 
 ## 更新紀錄
 

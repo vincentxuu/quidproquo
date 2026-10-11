@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L06–L07: Reading Transformers, T5, LLaMA, and GPT-3 Like a Systems Engineer"
+title: "Reading Transformers, T5, LLaMA, and GPT-3 Like a Systems Engineer | CMU 11-868 Lectures 6–7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 The first five posts laid the foundation: how a GPU runs a kernel, how a framework differentiates automatically, and how your own MiniTorch trains a sentiment classifier. This is where the course puts an actual model on the table for the first time.
 
 11-868 covers the model in just two lectures: L06 on the Transformer, L07 on pre-trained LLMs. Compared with [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) or [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en), that is short. The goal here is not to explain why language models work. It is to show you **what the thing you will accelerate, shard, and serve actually looks like**. This post reads the lectures from that angle and asks two questions of every component: what shape are its matrices, and what resources does it consume?
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Orientation: three kinds of language models
 
@@ -160,6 +150,16 @@ The following are my own rough estimates from the numbers above, not slide conte
 2. L07's size tables are images; open Table 2 of [LLaMA](https://arxiv.org/abs/2302.13971) and Tables 2.1 and D.1 of [GPT-3](https://arxiv.org/abs/2005.14165) directly
 3. Use GPT-3's numbers to compute parameter count, weight memory, and training FLOPs once, as a warm-up for the second half of the course
 4. L07 page 21 links straight to the [HW3 assignment page](https://llmsystem.github.io/llmsystemhomework/assignment_3/). The assignment went out on Feb 4; after this post and the [next one](/posts/ai/2026-09-30-cmu11868-tokenization-decoding-en) you can start it
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

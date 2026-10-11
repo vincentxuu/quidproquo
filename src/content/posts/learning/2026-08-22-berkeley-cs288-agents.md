@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288（五）：Inference-time Compute、Reasoning 與 Embodied Agents"
+title: "Inference-time Compute、Reasoning 與 Embodied Agents｜Berkeley CS288 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, ai-agent, reasoning, multimodal-ai, llm]
@@ -35,6 +35,18 @@ Embodied perception 讓模型從環境觀察建立狀態；embodied agent 再將
 ## 用 final project 收尾
 
 [Course Project](https://cal-cs288.github.io/sp26/project/) 依序要求 abstract、midpoint report、presentation 與 final report，將一次 demo 變成可審查的研究過程。校外版本也應保留四個 checkpoint：先寫問題與 baseline，再交中期失敗分析，最後才整理結果。課內的團隊媒合、教師回饋與雲端 credits 不對外提供，必須自行安排同儕 review 與算力上限。
+
+## 同樣兩次呼叫，為什麼結果不同
+
+以下是自編的教學情境，不是課堂實驗。任務是查詢指定訂單的到貨日期，最多呼叫模型兩次；兩個 agent 使用相同工具、權限與初始資料。成功判準是答案符合訂單工具回傳值。
+
+Agent A 第一次直接猜「週五」，第二次檢查自己的文字後改成「週六」，全程沒有查訂單。Agent B 第一次產生訂單查詢動作，工具回傳「週一」，第二次依 observation 回答「週一」。在這個指定情境，A 不符合判準，B 符合；不是因為 B 寫得比較長，而是它取得了回答需要的證據。
+
+**檢查：** 如果 B 的工具回傳錯誤，模型卻把錯誤文字當日期，應先把失敗歸到哪裡？答案是先查工具回傳與模型處理錯誤的步驟，不能僅憑 final answer 說模型不會推理。這裡只固定模型呼叫數；若比較延遲或金額，還要把工具成本納入，不能宣稱兩者所有成本相同。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 
 ## 參考資料
 

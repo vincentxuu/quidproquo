@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 6：C 字串不是型別，而是一份記憶體契約"
+title: "C 字串不是型別，而是一份記憶體契約｜Stanford CS107 第 6 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 第 6 講把文字拆回記憶體表示。C 沒有內建的字串型別；字串只是一段 `char` 序列，加上「遇到零就結束」的約定。
 
 長度、邊界與容量全由程式設計者管理。漏掉一個 `\0`，陣列仍在，卻不能再安全交給字串函式。看見 `char *` 時應追問：字串在哪裡結束、目的地多大、誰能修改記憶體？
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與閱讀範圍
 
@@ -295,6 +287,14 @@ void diamond(const char *str) {
 這套順序比背「`strncpy` 比較安全」可靠，因為後者根本不成立。C 的字串函式各自只執行狹窄工作；它們不持有 capacity，也不替呼叫者恢復被破壞的契約。`strlen` 信任 NUL、`strcpy` 信任空間、`strcat` 同時信任既有終止位置與剩餘空間。
 
 Lecture 6 真正交付的不是一張 `string.h` 速查表，而是一個系統程式設計習慣：型別資訊不夠時，把隱含契約寫回腦中的記憶體圖。下一講談 buffer overflow 與 security 時，漏洞不會突然從別處冒出來；它就是這一講的 capacity、terminator 與 pointer 關係被違反後的後果。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

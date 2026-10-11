@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L6: Will AI Doing AI R&D Trigger an Intelligence Explosion?"
+title: "Will AI Doing AI R&D Trigger an Intelligence Explosion? | Harvard CS2881R Lecture 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,38 +34,6 @@ glossary:
 A note on the change in register. [The previous post on L10](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en) looked inside a single model: activations, steering vectors, CoT. This one pulls back to the speed of the whole industry: if AI starts doing AI research for us, what does the progress curve look like? The tools change too, from linear algebra to the differential equations of growth economics. This series places official Lecture 6 after Lecture 10 because detection tools and timelines are different kinds of questions, so it finishes the first before taking on the second.
 
 The course site gives this lecture a single framing question: Is AI R&D an "AI-complete" task? In other words, to automate AI research, do you first need a general AI that can do everything, or is a narrow AI that writes code and runs experiments enough?
-
-## Course video sources
-
-The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=wzep3Rnv6iw
-title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
-```
-
-Original videos: [AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
-
-Course and recording entries:
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 6: Recursive Self Improvement” (2:29:32) and confirmed Boaz asking GPT-5 to extrapolate the METR curve, Chad Jones's GDP chart and the “talked over the weekend” remark, the ten-person economy example (the captions never say Baumol), the intelligence function and the p-exponent singularity discussion, the students' multi-agent experiment (LangGraph, Inspect, Kaggle), the five-minute table discussion on X, the 250x and 2,000x multipliers, the new-religion joke, Windows 3.1 and the OpenAI charter; the captions do not contain the binary-tree 0.916 and other experiment numbers or the Lifland/Jurkovic estimates, which come from the weekly summary and slides. The student experiment's position was given as exact times, but the captions have no time codes, so it is now approximate.
-
-## Official materials and access
-
-| Material | Status |
-|---|---|
-| [Lecture video](https://youtu.be/wzep3Rnv6iw) (about 2.5 hours) | Public; Boaz lectures, no guest |
-| [Lecture slides](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/ESGsKxa1G79Gv4T9O4g9ZJkBIZd4CWudXEzLmBvdpLbkmg?e=fci9ky) (Harvard SharePoint) | Public and downloadable without login (`AISafety_Fall25_lec6_rsi.pptx`, 31 slides); the equations, the Baumol example, the AI 2027 estimates, and the list of conclusions in this post were checked against the slide text. Slides 5–6, 20–22, 25, and a few others are image-only |
-| [LessWrong Week 6 summary](https://www.lesswrong.com/posts/DonyTLfGkyRyvJqwG/cs-2881r-week-6-recursive-self-improvement) (Joshua Qin, Mohammad Khan, Jaray Liu) | Public; writes up the lecture's equations and the student experiment's numbers |
-| Reading list | Public: four pre-readings plus ten further readings |
-| Student experiment | The course site's "Experiment" field says To be determined, with one idea: an experiment on how much broad general skill success in a narrow task like coding or AI requires. The video and the LessWrong summary show a student group presenting a multi-agent experiment (see below), but the site lists no slides or GitHub repo |
-
-The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has no assignment or experiment code to follow, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the video, student summary, and reading list are enough to follow the argument, and practice is up to you.
 
 ## Opening discussion: the more numbers in a forecast, the more careful you should be
 
@@ -218,6 +186,38 @@ Asked what the labs actually want, he cited OpenAI's charter (AI that benefits h
 - Series overview: [Reading Harvard CS2881R](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 - Previous: [L10: reading the model's insides and reading its chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
 - Next: [L7: how to measure capabilities and where to set safety thresholds](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
+
+## Course video sources
+
+The official Fall 2025 schedule and the official YouTube playlist (AI Safety, 17 videos) were checked live on 2026-10-10; the recording for this lecture is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=wzep3Rnv6iw
+title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
+```
+
+Original videos: [AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+
+Course and recording entries:
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 6: Recursive Self Improvement” (2:29:32) and confirmed Boaz asking GPT-5 to extrapolate the METR curve, Chad Jones's GDP chart and the “talked over the weekend” remark, the ten-person economy example (the captions never say Baumol), the intelligence function and the p-exponent singularity discussion, the students' multi-agent experiment (LangGraph, Inspect, Kaggle), the five-minute table discussion on X, the 250x and 2,000x multipliers, the new-religion joke, Windows 3.1 and the OpenAI charter; the captions do not contain the binary-tree 0.916 and other experiment numbers or the Lifland/Jurkovic estimates, which come from the weekly summary and slides. The student experiment's position was given as exact times, but the captions have no time codes, so it is now approximate.
+
+## Official materials and access
+
+| Material | Status |
+|---|---|
+| [Lecture video](https://youtu.be/wzep3Rnv6iw) (about 2.5 hours) | Public; Boaz lectures, no guest |
+| [Lecture slides](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/ESGsKxa1G79Gv4T9O4g9ZJkBIZd4CWudXEzLmBvdpLbkmg?e=fci9ky) (Harvard SharePoint) | Public and downloadable without login (`AISafety_Fall25_lec6_rsi.pptx`, 31 slides); the equations, the Baumol example, the AI 2027 estimates, and the list of conclusions in this post were checked against the slide text. Slides 5–6, 20–22, 25, and a few others are image-only |
+| [LessWrong Week 6 summary](https://www.lesswrong.com/posts/DonyTLfGkyRyvJqwG/cs-2881r-week-6-recursive-self-improvement) (Joshua Qin, Mohammad Khan, Jaray Liu) | Public; writes up the lecture's equations and the student experiment's numbers |
+| Reading list | Public: four pre-readings plus ten further readings |
+| Student experiment | The course site's "Experiment" field says To be determined, with one idea: an experiment on how much broad general skill success in a narrow task like coding or AI requires. The video and the LessWrong summary show a student group presenting a multi-agent experiment (see below), but the site lists no slides or GitHub repo |
+
+The series as a whole is rated A3 with a list of gaps (see the [series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en)). This lecture alone has no assignment or experiment code to follow, so it is closer to **A2** as defined in the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the video, student summary, and reading list are enough to follow the argument, and practice is up to you.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 7–10：線性回歸、最小平方的幾何、正則化"
+title: "線性回歸、最小平方的幾何、正則化｜Berkeley CS189 第 7–10 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, linear-regression, regularization]
@@ -27,51 +27,6 @@ draft: false
 3. **正則化**：解不唯一或太敏感時，加一個懲罰項；這個懲罰項又能解讀成參數的先驗分布。
 
 三條線最後會在同一條公式上會合。讀完這篇，你應該能自己推出 `w = (XᵀX + λI)⁻¹Xᵀy`，並說出每一項從哪裡來。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=0YLmbbERr0g
-title: Lecture 7 錄影：Mixture of Gaussians & Linear Regression
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=202aSB1p8do
-title: Lecture 8 錄影：Linear Regression
-```
-
-原始影片：[Lecture 7 錄影：Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 錄影：Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 7 影片（0YLmbbERr0g，約 80 分鐘）前段收尾 GMM（K-means 與混合高斯的損失比較、EM）、簡介梯度下降，後段開始線性回歸與判別式／生成式的區分，結束在對權重向量 w 做 MLE 求導之前（講者說下週先複習向量微積分）。Lecture 8 影片（202aSB1p8do，約 78 分鐘）講線性回歸、欄空間與投影的幾何、Moore-Penrose 偽逆與過擬合，結束在要引入正則化之前（講者說下堂再講）。因此文中 ridge、MAP、lasso、λ 的選擇與 winner's curse 等段落來自 Lec 9–10 的投影片，這兩支影片沒有涵蓋；Plotly 互動圖、Cauchy 對比圖與華爾街日報例子在字幕中找不到。字幕未自報講者姓名，講者歸屬未驗證。
-
-## 官方材料與讀取範圍
-
-| 講次 | 日期 | 講題（依排程頁） | 材料 |
-|---|---|---|---|
-| Lec 7 | 2/10 | Mixture of Gaussians & Linear Regression | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view)／[影片](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) |
-| Lec 8 | 2/12 | Linear Regression | [PDF](https://drive.google.com/file/d/10-22hV3z4fDeteznK2OZIw6vM5n9romC/view)／[影片](https://www.youtube.com/watch?v=202aSB1p8do&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=7) |
-| Lec 9 | 2/17 | Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1kDbaZf2t69nSJfqZMPU-jRV1WPKVOala/view)／[影片](https://www.youtube.com/watch?v=lrU8Vn0G44w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=8) |
-| Lec 10 | 2/19 | Finish Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1l4QFPcDuXQB8ThIsaCU8XsSkaqejB5nh/view)／[影片](https://www.youtube.com/watch?v=SlkUTrXY60E&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=9) |
-
-Discussion：
-
-- [Discussion 3](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view)（[解答](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj)）
-- [Discussion 4](https://drive.google.com/file/d/1GV_knujkL_ooo51cF7bM2PDCQo8z0e-B/view)（[解答](https://drive.google.com/file/d/18PGUKc33SP9Gyv8AILqQOpeDOFJ7aOsV/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa88y_YPkqtdNi_SQ3URFY2N)）
-
-指定閱讀是 Bishop & Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》。排程頁在 Lec 8 列了 1.2.2–1.2.6、2.1.3、2.3.4、2.6.2、4.1.1–4.1.4、4.1.6、9.2、9.2.2 與 Appendix A.3（矩陣微分）；Lec 10 另加 9.2.2 lasso 和 5.3 生成式分類器。書的官網有免費線上閱讀版。
-
-**公開程度**：四講的 PDF 與影片、兩份 discussion 的題目／解答／walkthrough，校外都能直接打開，這一段是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。拿不到的是 Ed 討論區與 section 現場。
-
-兩個閱讀時會碰到的小狀況：Lec 8 和 Lec 9 的 PDF 封面仍寫著「Lecture 7」，內容以排程頁的講次為準；Lec 9 封面公告說 Lec 8 幾何那段投影片的筆誤已修正並重新上傳，所以請用現在 Drive 上的版本。
 
 ## Lec 7 後半：回歸要估的是 p(y|x)
 
@@ -244,6 +199,51 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 
 - 上一篇：[Lec 4–7：K-means、機率複習、MLE、多變量高斯與 GMM](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
 - 下一篇：[HW1 導讀：線代／微積分／機率熱身 + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=0YLmbbERr0g
+title: Lecture 7 錄影：Mixture of Gaussians & Linear Regression
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=202aSB1p8do
+title: Lecture 8 錄影：Linear Regression
+```
+
+原始影片：[Lecture 7 錄影：Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 錄影：Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 7 影片（0YLmbbERr0g，約 80 分鐘）前段收尾 GMM（K-means 與混合高斯的損失比較、EM）、簡介梯度下降，後段開始線性回歸與判別式／生成式的區分，結束在對權重向量 w 做 MLE 求導之前（講者說下週先複習向量微積分）。Lecture 8 影片（202aSB1p8do，約 78 分鐘）講線性回歸、欄空間與投影的幾何、Moore-Penrose 偽逆與過擬合，結束在要引入正則化之前（講者說下堂再講）。因此文中 ridge、MAP、lasso、λ 的選擇與 winner's curse 等段落來自 Lec 9–10 的投影片，這兩支影片沒有涵蓋；Plotly 互動圖、Cauchy 對比圖與華爾街日報例子在字幕中找不到。字幕未自報講者姓名，講者歸屬未驗證。
+
+## 官方材料與讀取範圍
+
+| 講次 | 日期 | 講題（依排程頁） | 材料 |
+|---|---|---|---|
+| Lec 7 | 2/10 | Mixture of Gaussians & Linear Regression | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view)／[影片](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) |
+| Lec 8 | 2/12 | Linear Regression | [PDF](https://drive.google.com/file/d/10-22hV3z4fDeteznK2OZIw6vM5n9romC/view)／[影片](https://www.youtube.com/watch?v=202aSB1p8do&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=7) |
+| Lec 9 | 2/17 | Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1kDbaZf2t69nSJfqZMPU-jRV1WPKVOala/view)／[影片](https://www.youtube.com/watch?v=lrU8Vn0G44w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=8) |
+| Lec 10 | 2/19 | Finish Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1l4QFPcDuXQB8ThIsaCU8XsSkaqejB5nh/view)／[影片](https://www.youtube.com/watch?v=SlkUTrXY60E&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=9) |
+
+Discussion：
+
+- [Discussion 3](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view)（[解答](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj)）
+- [Discussion 4](https://drive.google.com/file/d/1GV_knujkL_ooo51cF7bM2PDCQo8z0e-B/view)（[解答](https://drive.google.com/file/d/18PGUKc33SP9Gyv8AILqQOpeDOFJ7aOsV/view)、[walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa88y_YPkqtdNi_SQ3URFY2N)）
+
+指定閱讀是 Bishop & Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》。排程頁在 Lec 8 列了 1.2.2–1.2.6、2.1.3、2.3.4、2.6.2、4.1.1–4.1.4、4.1.6、9.2、9.2.2 與 Appendix A.3（矩陣微分）；Lec 10 另加 9.2.2 lasso 和 5.3 生成式分類器。書的官網有免費線上閱讀版。
+
+**公開程度**：四講的 PDF 與影片、兩份 discussion 的題目／解答／walkthrough，校外都能直接打開，這一段是 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。拿不到的是 Ed 討論區與 section 現場。
+
+兩個閱讀時會碰到的小狀況：Lec 8 和 Lec 9 的 PDF 封面仍寫著「Lecture 7」，內容以排程頁的講次為準；Lec 9 封面公告說 Lec 8 幾何那段投影片的筆誤已修正並重新上傳，所以請用現在 Drive 上的版本。
 
 ## 更新紀錄
 

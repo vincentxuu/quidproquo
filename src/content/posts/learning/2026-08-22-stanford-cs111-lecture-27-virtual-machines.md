@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 27：Trap-and-Emulate、Virtual I/O 與 Nested Page Tables"
+title: "Trap-and-Emulate、Virtual I/O 與 Nested Page Tables｜Stanford CS111 第 27 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 28 篇，對應 **Stanford CS111, Spring 2026, Lecture 27**。2026-06-01 由 Mendel Rosenblum 主講，官方題目是 [Virtual Machines](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf)。本文逐頁依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不公開。SHA-256 稽核顯示 Lecture 27 與相鄰 Lectures 26、28 均不同，沒有 duplicate artifact。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 從 process abstraction 到 machine abstraction
 
@@ -90,6 +82,14 @@ VM encapsulates all execution state，因此可 duplicate、save、move。這把
 [投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/27/Lecture27.pdf)把 VM 起源放在 IBM late 1960s：電腦稀少昂貴，一個 user 一台 VM、各跑 single-user guest OS。1980s–1990s 個人擁有 private machine、time-sharing OS 更實用，VM 興趣下降；mid-1990s 因 Windows dominant position 等需求再度受重視。這是 deck 的簡化產業史，不是完整發明權年表。
 
 data center 原本常為 isolation 讓每台 machine 跑一個 application，但單一 app 只用部分資源。consolidation 改成一 app 一 VM、多 VMs 共用 host，減少 machines，並讓 hardware provisioning 與 software 分離，進一步促成 cloud computing。隔離提升 utilization，卻把 hypervisor 變成共享故障與信任邊界。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

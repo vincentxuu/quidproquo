@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW5（選修）導讀：生物自監督 InfoNCE、diffusion 理論、LLM fine-tuning + Kaggle"
+title: "（選修）導讀：生物自監督 InfoNCE、diffusion 理論、LLM fine-tuning + Kaggle｜Berkeley CS189 作業 5"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, self-supervised-learning, diffusion-models, fine-tuning, homework]
@@ -41,17 +41,6 @@ HW5 剛好把[上一篇 Lec 25–27](/posts/learning/2026-09-29-berkeley-cs189-s
 | Notebook | LLM Fine-tuning with Transformers | [Kaggle 競賽](https://www.kaggle.com/competitions/cs-189-hw-5-sp-26)的預測 CSV |
 
 `hw5.pdf` 的 Deliverables 只寫了書面 PDF；notebook 開頭說測試集細節「見隨附 PDF」，但 `hw5.pdf` 裡沒有這段說明。實際規則以 notebook 最後幾格為準。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
 
 ## 書面 1：生物資料上的自監督學習
 
@@ -161,6 +150,17 @@ Chat 格式那一格值得細讀：每筆資料是一串 `{"role": ..., "content
 - 系列導覽：上一篇 [Lec 25–27：蛋白質、agents 與完課](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)；這是系列最後一篇；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：先別訓練。把 notebook 跑到 Part 3，記下 baseline 準確率；再從 MMLU 抽幾十題非 machine learning 的一般題，做成自己的「遺忘監控集」。之後每改一次設定就同時看兩個數字，你會很快感受到 catastrophic forgetting 長什麼樣子。
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

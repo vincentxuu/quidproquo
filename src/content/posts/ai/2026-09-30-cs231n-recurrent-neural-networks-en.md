@@ -1,5 +1,5 @@
 ---
-title: "CS231N L7: Recurrent Neural Networks and Image Captioning — RNNs, LSTMs, and Captioning"
+title: "Recurrent Neural Networks and Image Captioning — RNNs, LSTMs, and Captioning | Stanford CS231N Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,23 +43,6 @@ Two things to note first:
 
 1. The footer of this deck reads "April 21, 2025," yet the page 2 announcement says A2 comes out "this Thursday (4/23)" and the project proposal is due the same day, which matches the 2026 schedule. I call it "the deck linked from the 2026 schedule" and don't infer how much changed. Compared with the [2025 lecture_7.pdf](https://cs231n.stanford.edu/slides/2025/lecture_7.pdf), the main sections are nearly the same. The 2025 deck opens with a few "Clarifications from Last Time" slides (how to scale dropout at test time, and how normalization relates to initialization) and later adds a Visual Language Navigation slide.
 2. **The schedule lists GRU and sequence-to-sequence, but neither appears in the text of the 2026 slides**, and the 2025 slides don't have them either. I don't fill them in here. For GRU, Olah's suggested article covers it.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 7 (length 1:11:47). The transcript covers RNN sequence problems and the character-level language model, truncated BPTT, image captioning, VQA and Visual Dialog, LSTMs and vanishing/exploding gradients, and state space models, matching the article's topic. It has no GRU or sequence-to-sequence, consistent with the article saying neither year's slides cover them. The speaker Zane Durante is listed on the video page but not stated in the transcript, so that was not independently verified. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=kG2lAPBF7zA
-title: Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks](https://www.youtube.com/watch?v=kG2lAPBF7zA)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Opening: closing out L6, then turning to sequences
 
@@ -235,6 +218,23 @@ Not confirmed: how much of GRU and sequence-to-sequence, both listed on the sche
 Further reading on this site: [CS224N on RNNs and language models](/posts/ai/2026-08-22-cs224n-rnn-language-models-en) covers the same models from the NLP side. [CMU 11-785's first RNN lecture](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en) and its [seq2seq lecture](/posts/ai/2026-08-22-cmu-11785-15-seq2seq-ctc-en) cover the sequence-to-sequence material these slides don't expand on.
 
 Series navigation: previous [L6: Training CNNs and CNN Architectures](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en) | next [A2 guide: BatchNorm, Dropout, CNNs, PyTorch, and RNN Captioning](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 7 (length 1:11:47). The transcript covers RNN sequence problems and the character-level language model, truncated BPTT, image captioning, VQA and Visual Dialog, LSTMs and vanishing/exploding gradients, and state space models, matching the article's topic. It has no GRU or sequence-to-sequence, consistent with the article saying neither year's slides cover them. The speaker Zane Durante is listed on the video page but not stated in the transcript, so that was not independently verified. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=kG2lAPBF7zA
+title: Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 7: Recurrent Neural Networks](https://www.youtube.com/watch?v=kG2lAPBF7zA)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

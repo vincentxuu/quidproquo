@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 10：Games I：從 expectimax 到 minimax"
+title: "Games I：從 expectimax 到 minimax｜Stanford CS221 第 10 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 10**，2025-10-22 由 Percy Liang 主講。課程版本與作業以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準，本講主要材料是 [games](https://stanford-cs221.github.io/autumn2025-lectures/?trace=games)。以下不把賽局搜尋寫成一串脫離程式的名詞，而是沿著 `.work/stanford-cs221-notes/source/games.py` 裡 `main()` 的執行順序，從一個可執行的賽局介面一路走到精確剪枝與近似評估。
 
 > 材料缺口：官方講義與影片公開；Canvas 課堂互動、作業解答與隱藏測資不公開。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 10 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 10 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=SMOD_GiRzb8
-title: Stanford CS221 | Autumn 2025 | Lecture 10: Games I
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 10: Games I](https://www.youtube.com/watch?v=SMOD_GiRzb8)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 10 支）字幕，確認內容涵蓋三個桶子的賽局例子、從 expectimax 到 minimax、alpha-beta 剪枝，與本文的講次與主題相符，未發現錯配。
 
 ## 這一講先把 MDP 的問題改寫成 games
 
@@ -163,6 +143,26 @@ Minimax 的 recurrence 要遞迴所有分支，通常是指數時間。Alpha-bet
 ## 執行順序總覽
 
 本講依序從 game 介面、simulation、expectimax、minimax 與 face-off，走到 expectiminimax、alpha-beta 和深度受限 evaluation；每一步都把假設寫在 recurrence 裡。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 10 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 10 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=SMOD_GiRzb8
+title: Stanford CS221 | Autumn 2025 | Lecture 10: Games I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 10: Games I](https://www.youtube.com/watch?v=SMOD_GiRzb8)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 10 支）字幕，確認內容涵蓋三個桶子的賽局例子、從 expectimax 到 minimax、alpha-beta 剪枝，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

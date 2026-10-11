@@ -1,5 +1,5 @@
 ---
-title: "CS224R L1: Framing Decision-Making as an RL Problem"
+title: "Framing Decision-Making as an RL Problem | Stanford CS224R Lecture 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,25 +34,6 @@ glossary:
 On the [CS224R](https://cs224r.stanford.edu/) schedule, lecture 1 is called "Course Intro + Start of MDPs & Imitation". The slides list three learning goals: how to represent behavior, how to formulate a reinforcement learning problem, and the basics of imitation learning.
 
 The logistics (grading, late days, the AI tools policy) are covered in the [series overview](/posts/ai/2026-09-30-cs224r-course-overview-en). This post covers only the content.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=EvHRQhMX7_w
-title: Spring 2025 Lecture 1: Class Intro (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 1: Class Intro (YouTube, supplement)](https://www.youtube.com/watch?v=EvHRQhMX7_w)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L1 Class Intro transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript runs through course goals and logistics, why study deep RL, MDPs and POMDPs, and imitation learning as a first way to model behavior, matching the post's structure. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## First, what an MDP is
 
@@ -213,6 +194,25 @@ Then ask two questions. Is your observation Markov? If not, how much history doe
 - [Reading CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en): the RL prerequisite the course recommends
 
 **Series navigation**: Previous: [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en) | Next: [L2: Imitation learning and policies that can represent multimodal distributions](/posts/ai/2026-09-30-cs224r-imitation-learning-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=EvHRQhMX7_w
+title: Spring 2025 Lecture 1: Class Intro (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 1: Class Intro (YouTube, supplement)](https://www.youtube.com/watch?v=EvHRQhMX7_w)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L1 Class Intro transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript runs through course goals and logistics, why study deep RL, MDPs and POMDPs, and imitation learning as a first way to model behavior, matching the post's structure. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

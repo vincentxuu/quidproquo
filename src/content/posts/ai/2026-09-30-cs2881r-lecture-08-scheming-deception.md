@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L8：Scheming、reward hacking 與欺騙"
+title: "Scheming、reward hacking 與欺騙｜Harvard CS2881R 第 8 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,26 +34,6 @@ glossary:
 > **版本說明**：本文依據 [Harvard CS 2881R AI Safety](https://boazbk.github.io/mltheoryseminar/fall2025/) Fall 2025 課站的 10 月 23 日講次。主要材料是 [Boaz Barak 開場錄影](https://youtu.be/8NL1NAMrJxY)（10 分鐘）與他的 9 頁投影片、[Marius Hobbhahn](https://docs.google.com/presentation/d/1BpMoImDfF9x3C7mGvmIFJOOVYvkgZFn2W09cW1oieSo) 與 [Buck Shlegeris](https://docs.google.com/presentation/d/1n5Dl6P-bPIfaenMU-9Dk4sTqXvl8VwdoHMSbmKmwonc) 的客座投影片，以及學生實驗的[影片](https://youtu.be/JXvHJheHE10)、[GitHub](https://github.com/ItamarRocha/scheming-exp8) 與 [LessWrong 文章](https://www.lesswrong.com/posts/AJANBeJb2p39su6F9/cs2881r-week-8-when-agents-prefer-hacking-to-failu)。**兩場客座演講課站沒有列出錄影，官方 2025 YouTube 播放清單（2026-10-01 核對）也只有 Boaz 的 10 分鐘開場與學生實驗兩支**，本文對客座內容的描述只依投影片文字，不補講者口頭說了什麼。事實皆於 2026-09-30 打開上述材料核對。單看這一講屬 **A2**：開場錄影、三份投影片與完整學生實驗公開，主體演講的錄影拿不到。
 
 **系列位置**：上一篇 [期中：挑一張 headline figure 重現並延伸](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)｜下一篇 [L10：看模型內部與看 chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，第 8 講在清單中只有 Boaz Barak 約 10 分鐘的開場錄影，兩場客座演講沒有錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=8NL1NAMrJxY
-title: AI Safety (CS 2881) Lecture 8: Scheming
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 8: Scheming》（10:17，影片說明寫明客座演講沒有錄到）的完整字幕：確認壞行為的定義與清單、「低算力無法改掉高算力訓練出的傾向」與「靠隱匿／靠愚蠢都不行」、系統性與特異性失準的對比（幻覺、千分之一流量）、misalignment cone、同一組權重當 actor 與 monitor、instrumental convergence 與以 Mario 收尾。字幕沒有念出 Jonathan Swift 之名，已改寫成「一句名言」。
 
 ## 先看一個場景
 
@@ -213,6 +193,26 @@ Boaz、Marius、Buck 三人在同一堂課給了三種角度，彼此有明確�
 - Reward hacking 在 RL 訓練中的來源：[CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理](/posts/ai/2026-08-22-cs336-rlvr)、[CMU 07-280 Lecture 13：AI Alignment 從 Reward Hacking 走到可稽核的 AI Scientist](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 - Agent 的權限與監控工程：[安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
 - 用模型當 monitor 與裁判：[Stanford CS329Z 導讀 Week 8：請模型當裁判，再幫 agent 上護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，第 8 講在清單中只有 Boaz Barak 約 10 分鐘的開場錄影，兩場客座演講沒有錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=8NL1NAMrJxY
+title: AI Safety (CS 2881) Lecture 8: Scheming
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 8: Scheming](https://www.youtube.com/watch?v=8NL1NAMrJxY)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 8: Scheming》（10:17，影片說明寫明客座演講沒有錄到）的完整字幕：確認壞行為的定義與清單、「低算力無法改掉高算力訓練出的傾向」與「靠隱匿／靠愚蠢都不行」、系統性與特異性失準的對比（幻覺、千分之一流量）、misalignment cone、同一組權重當 actor 與 monitor、instrumental convergence 與以 Mario 收尾。字幕沒有念出 Jonathan Swift 之名，已改寫成「一句名言」。
 
 ## 更新紀錄
 

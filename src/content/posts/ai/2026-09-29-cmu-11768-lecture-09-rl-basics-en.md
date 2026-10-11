@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 9: RL Basics — a Policy Gradient Is Just an SFT Loss Times a Weight"
+title: "RL Basics — a Policy Gradient Is Just an SFT Loss Times a Weight | CMU 11-768 Lecture 9"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -34,25 +34,6 @@ glossary:
 This post is based on the [recording](https://www.youtube.com/watch?v=paAcPaaYZGM) and the [slides](https://www.cmu-agents.com/slides/lecture-09-rl-basics.pdf). Fried opens by describing the lecture as a bridge from last week's SFT to policy gradients, which he calls the simplest and also one of the most elegant forms of reinforcement learning. The whole lecture compresses to one sentence: **every method computes log-probabilities of the actions the agent itself took; they differ only in the weight they multiply by.**
 
 I follow the lecture's order and keep all the math in collapsible sections. If you only want the intuition, you can skip every "Mechanism" block and still follow along.
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 9, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=paAcPaaYZGM
-title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
-```
-
-Original videos: [CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The transcript runs about 78 minutes (lecturer Fried); I read the opening and main passages and keyword-checked each spoken or in-class claim the article relays: the number-guessing game and Wordle analogy, the three SFT gaps, the remark that RL removed repetition loops, the POMDP answer, ReST and the three cold-start options, REINFORCE and his Deal or No Deal anecdote, the 95% baseline intuition, the visualizations, GRPO group size of about 8 (with Apurva to say more), the unbiasedness answer, clipping and KL deferred to Neubig's lecture, "many implementations calling themselves GRPO drop the std division", and the value model sharing a backbone with the policy; all supported and no changes were needed. This is a sampled, keyword-based check, not a line-by-line comparison of the whole transcript; slide equations and paper details (Williams 1992, DeepSeekMath settings, etc.) are not in the transcript, and the "Sept 22" date is not stated in the video.
 
 ## The setup: guess a number between 1 and 16
 
@@ -383,6 +364,25 @@ Further reading on this site (the same algorithms from other angles; not a subst
 - [Deep Reinforcement Learning: Putting RLHF Back Inside the RL Frame](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf-en) (CS230)
 - [CME295 Lecture 5: RLHF and DPO Add the Negative Signal](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 - [CME295 Lecture 6: How Reasoning Models Learn to Think Longer, and What GRPO Drops from PPO](/posts/ai/2026-09-29-cme295-llm-reasoning-en)
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 9, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=paAcPaaYZGM
+title: CMU AI Agents 2026: 9. Reinforcement Learning Basics
+```
+
+Original videos: [CMU AI Agents 2026: 9. Reinforcement Learning Basics](https://www.youtube.com/watch?v=paAcPaaYZGM)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The transcript runs about 78 minutes (lecturer Fried); I read the opening and main passages and keyword-checked each spoken or in-class claim the article relays: the number-guessing game and Wordle analogy, the three SFT gaps, the remark that RL removed repetition loops, the POMDP answer, ReST and the three cold-start options, REINFORCE and his Deal or No Deal anecdote, the 95% baseline intuition, the visualizations, GRPO group size of about 8 (with Apurva to say more), the unbiasedness answer, clipping and KL deferred to Neubig's lecture, "many implementations calling themselves GRPO drop the std division", and the value model sharing a backbone with the policy; all supported and no changes were needed. This is a sampled, keyword-based check, not a line-by-line comparison of the whole transcript; slide equations and paper details (Williams 1992, DeepSeekMath settings, etc.) are not in the transcript, and the "Sept 22" date is not stated in the video.
 
 ## Update Log
 

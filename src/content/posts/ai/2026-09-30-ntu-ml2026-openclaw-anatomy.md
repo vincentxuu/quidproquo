@@ -1,5 +1,5 @@
 ---
-title: "解剖小龍蝦：李宏毅用 OpenClaw 拆 AI Agent，拆到最後只剩文字接龍和幾個 .md 檔"
+title: "解剖小龍蝦：李宏毅用 OpenClaw 拆 AI Agent，拆到最後只剩文字接龍和幾個 .md 檔｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **本文依據 [機器學習 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 3/6 那一講。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 1 篇。官方材料是投影片 [解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pdf)（60 頁，另有 [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pptx)）與[課堂錄影](https://youtu.be/2rcJdFuNbZQ)。存取分級是 A3：投影片與錄影都公開，這一講沒有附屬作業或測驗。
 
 投影片第 16 頁有一行免責聲明：OpenClaw 是開源專案，隨時都在變動，本課程以概念為主。本篇也一樣，只照課程的講法拆 agent 機制。OpenClaw 的安裝、頻道、閘道器與設定細節，請看站上的 [OpenClaw 文件導讀](/posts/ai/2026-03-28-openclaw-overview)系列。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
-title: 課堂錄影：解剖小龍蝦（YouTube）
-```
-
-原始影片：[課堂錄影：解剖小龍蝦（YouTube）](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片 2rcJdFuNbZQ（83:17；取得的字幕為機器翻譯的英文版，專有名詞有誤譯）字幕已讀。核對開場小金開 YouTube 頻道的示範、system prompt 逾 4000 token、每輪重新開始（失憶比喻）、Read／Write／exec 的流程、TTS 驗證最多五次與自寫 TTS_check 腳本、sub-agent（spawn）與在程式層禁用、SKILL 可交換、Koi 調查 341 個惡意 skill（字幕為近 3000 個中有 341 個）、記憶寫入與 memory search、HEARTBEAT、Compaction 與 Pruning（Soft Trim）、AI 刪郵件事件與安全建議，皆與字幕一致，未發現錯誤。SKILL.md 內的 Puppeteer／ElevenLabs／FFmpeg 流程、各框架上線日期與投影片頁碼，字幕中沒有對應說法，屬投影片內容，無法由影片驗證。
 
 ## 先看小龍蝦能做什麼
 
@@ -173,6 +154,25 @@ HEARTBEAT 是心跳機制：每隔一段固定時間戳 agent 一下，讓它做
 - 語言模型原理的先備：[生成式人工智慧與機器學習導論 2025 第 1 講](https://youtu.be/TigfpYPJk1s)
 
 系列導覽：上一篇 [系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜下一篇 [HW1：LLM 惡意指令防禦](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
+title: 課堂錄影：解剖小龍蝦（YouTube）
+```
+
+原始影片：[課堂錄影：解剖小龍蝦（YouTube）](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片 2rcJdFuNbZQ（83:17；取得的字幕為機器翻譯的英文版，專有名詞有誤譯）字幕已讀。核對開場小金開 YouTube 頻道的示範、system prompt 逾 4000 token、每輪重新開始（失憶比喻）、Read／Write／exec 的流程、TTS 驗證最多五次與自寫 TTS_check 腳本、sub-agent（spawn）與在程式層禁用、SKILL 可交換、Koi 調查 341 個惡意 skill（字幕為近 3000 個中有 341 個）、記憶寫入與 memory search、HEARTBEAT、Compaction 與 Pruning（Soft Trim）、AI 刪郵件事件與安全建議，皆與字幕一致，未發現錯誤。SKILL.md 內的 Puppeteer／ElevenLabs／FFmpeg 流程、各框架上線日期與投影片頁碼，字幕中沒有對應說法，屬投影片內容，無法由影片驗證。
 
 ## 更新紀錄
 

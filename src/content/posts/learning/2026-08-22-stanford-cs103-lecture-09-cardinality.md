@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 8：用雙射定義基數與 Cantor 對角論證"
+title: "用雙射定義基數與 Cantor 對角論證｜Stanford CS103 第 8 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 10 篇，對應 **Spring 2026 官方 Lecture 8（2026-04-17）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂標示實際講者，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 本講官方題目是 **Set Theory Revisited**，實際主線是先把 injection 與 surjection 合成 bijection，再用雙射定義「兩個集合有相同基數」，最後正式證明第一講預告的 Cantor 定理。重點不是把有限計數硬套到無限集合，而是重新定義「一樣多」所需的證據。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)
 
 ## 今日路線：從雙射走到 Cantor 定理
 
@@ -157,6 +149,14 @@ y ∈ D  iff  y ∉ f(y).
 公開投影片完整呈現雙射定義、區間等勢逐步證明、基數相等的反身與傳遞性，以及 Cantor 定理的 roadmap、對角集合和正式證明，足以支持本文主線。投影片不是錄影，無法還原口頭轉折、投票結果、學生提問或即席說明；本文沒有把空白寫成講師原話。
 
 下一講進入 graphs，從 vertices 與 edges 建立高階性質。方法上的銜接是：本講從集合與函數建立「大小」，下一講從低階圖結構建立 connectivity 等概念。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/08/)
 
 ## 更新紀錄
 

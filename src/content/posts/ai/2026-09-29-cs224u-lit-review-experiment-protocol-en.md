@@ -1,5 +1,5 @@
 ---
-title: "CS224U Final Project Workflow: Lit Review and Experiment Protocol"
+title: "Lit Review and Experiment Protocol | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -20,46 +20,6 @@ draft: false
 **This post is based on the Spring 2023 edition of CS224U.** It is part 15 of the [Reading Stanford CS224U](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) series. The previous part, [Methods and Metrics II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en), covered baselines, splits, and statistical comparison. This part puts that methodology into the two documents the final project actually asks you to submit.
 
 The CS224U final project is half the grade, in three deliverables: a literature review, an experiment protocol, and a final paper. The series overview's [final-project section](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already covers the grading axes: results don't count, but metric choice, methodological strength, and honesty about limits do. This post doesn't repeat them. It does one thing: **it breaks the first two deliverables into steps you can follow.** The final paper gets the [next part](/posts/ai/2026-09-29-cs224u-presenting-research-en).
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
-title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=myAuZuXXPcI
-title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA), [Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
-
-Content check: verified against the video transcript (2026-10-10): The Lit Review Overview and Experiment Protocol Overview videos were compared item by item with their transcripts: the productive-dialogue rationale, about six pages with an eight-page cap and the ACL template, 5/7/9 papers for groups of 1/2/3, the five suggested sections, the six-step search loop and 'don't read whole papers', the policy that AI-assistant output must be quoted and the GPT-4 demo, the seven required sections, the short document with an eight-page cap, results not required but welcome, a working pipeline as soon as possible, and 'not having a hypothesis is itself a hypothesis'. All match. Details from projects.md / projects.html and Siyan's project talk come from documents and slides (the talk has no recording) and were not checked against transcripts.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
-
-## Official materials and access
-
-| Material | Content | Status |
-|---|---|---|
-| [Lit review overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-litreview-overview-2023.pdf) (9 pages) | Purpose, six-step paper search, plagiarism policy | Public |
-| [Experiment protocol overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-protocol-overview-2023.pdf) (6 pages) | Purpose, five tips | Public |
-| [Siyan's final-project slides](https://web.stanford.edu/class/cs224u/slides/siyan-projects-cs224u.pdf) (25 pages) | How one student did the lit review and experiment design | Public |
-| [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) videos 32 and 38 | Lit Review Overview, Experiment Protocol Overview | Public |
-| [projects.html](https://web.stanford.edu/class/cs224u/projects.html) #litreview, #protocol | Page limits, required sections, Overleaf templates | Public |
-| [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md) | Long-form guidance and FAQ | Public |
-| "Gradescope submission format" and "rubric" slides | Titles only; the content is screenshots | Screenshot text can't be extracted from the PDF, so this post doesn't describe it |
-| Past exemplary final papers | Examples | Stanford login required (302 to a login page) |
-
-Overall this is **A3 (historical edition)**. The requirement documents are fully public, but the rubric details and example papers are not.
-
-The 2023 timeline: the Lit review overview sat in the Analysis methods unit (from May 8), with the lit review due May 17. The Experiment protocol overview sat in the NLP methods unit (from May 17), with the protocol due May 29. Less than two weeks separated the two deadlines.
 
 ## What both deliverables are for
 
@@ -194,6 +154,46 @@ Once those two are filled in, Data and Metrics usually follow.
 - Next in the series: [CS224U: Writing NLP Papers, Submitting, and Giving Talks](/posts/ai/2026-09-29-cs224u-presenting-research-en)
 - Grading axes and grade breakdown: [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - The final-project part of the site's CS224N series: [CS224N Lecture 6: Turn a Final Project into a Testable Question](/posts/ai/2026-08-22-cs224n-final-projects-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
+title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=myAuZuXXPcI
+title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA), [Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
+
+Content check: verified against the video transcript (2026-10-10): The Lit Review Overview and Experiment Protocol Overview videos were compared item by item with their transcripts: the productive-dialogue rationale, about six pages with an eight-page cap and the ACL template, 5/7/9 papers for groups of 1/2/3, the five suggested sections, the six-step search loop and 'don't read whole papers', the policy that AI-assistant output must be quoted and the GPT-4 demo, the seven required sections, the short document with an eight-page cap, results not required but welcome, a working pipeline as soon as possible, and 'not having a hypothesis is itself a hypothesis'. All match. Details from projects.md / projects.html and Siyan's project talk come from documents and slides (the talk has no recording) and were not checked against transcripts.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
+
+## Official materials and access
+
+| Material | Content | Status |
+|---|---|---|
+| [Lit review overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-litreview-overview-2023.pdf) (9 pages) | Purpose, six-step paper search, plagiarism policy | Public |
+| [Experiment protocol overview slides](https://web.stanford.edu/class/cs224u/slides/cs224u-protocol-overview-2023.pdf) (6 pages) | Purpose, five tips | Public |
+| [Siyan's final-project slides](https://web.stanford.edu/class/cs224u/slides/siyan-projects-cs224u.pdf) (25 pages) | How one student did the lit review and experiment design | Public |
+| [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) videos 32 and 38 | Lit Review Overview, Experiment Protocol Overview | Public |
+| [projects.html](https://web.stanford.edu/class/cs224u/projects.html) #litreview, #protocol | Page limits, required sections, Overleaf templates | Public |
+| [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md) | Long-form guidance and FAQ | Public |
+| "Gradescope submission format" and "rubric" slides | Titles only; the content is screenshots | Screenshot text can't be extracted from the PDF, so this post doesn't describe it |
+| Past exemplary final papers | Examples | Stanford login required (302 to a login page) |
+
+Overall this is **A3 (historical edition)**. The requirement documents are fully public, but the rubric details and example papers are not.
+
+The 2023 timeline: the Lit review overview sat in the Analysis methods unit (from May 8), with the lit review due May 17. The Experiment protocol overview sat in the NLP methods unit (from May 17), with the protocol due May 29. Less than two weeks separated the two deadlines.
 
 ## Update Log
 

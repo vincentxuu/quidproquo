@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 14：Bayesian Networks III：從計數、平滑到 EM"
+title: "Bayesian Networks III：從計數、平滑到 EM｜Stanford CS221 第 14 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 14**，官方課程表將它列為 2025-11-05 的 Bayesian Networks III。課程版本以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；本文逐段依 [bayes_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes_learning) 的可執行 source 重建。重點不是把 EM 背成一個黑盒，而是跟著程式走完「完整資料如何計數、缺資料後如何加權計數」這條線。
 
 > 材料缺口：官方課程頁公開課程表，lectures repository 與可執行講義公開；Canvas 影片、課堂白板互動、作業解答與隱藏測資不在這份公開材料中。以下不把那些缺口用其他學期的講義補起來。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 14 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 14 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=4d9V6Sxa6gU
-title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning](https://www.youtube.com/watch?v=4d9V6Sxa6gU)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 14 支）字幕，確認內容涵蓋 d-separation／條件獨立的收尾、用計數與 smoothing 學參數、HMM 結構、含隱藏變數的 EM，與本文的講次與主題相符，未發現錯配。
 
 ## 先把 Bayesian network 放回原位
 
@@ -139,6 +119,26 @@ M-step 重新掃過 weighted data。對每個 `(x, weight)`，`counts_g[x["G"]]`
 這份 source 的完整路徑可以壓成四個問題。第一，資料是否是所有變數的完整 assignment？是的話，為每個 `(parameter_name, parent_values, value)` 計數並正規化。第二，是否要共用 local parameter？那是建模選擇，會改變哪些觀測被合併。第三，是否要避免零機率？可以在 count 前放入 pseudocount，並知道 \(lambda\) 從 0 到很大時的行為。第四，是否有未觀察的變數？不能直接把缺的 label 當成真值，而要以 observed-data likelihood 為目標，在 E-step 算 posterior 權重、M-step 做 weighted count + normalize。
 
 這也劃出材料支持的限制：EM 的結果依初始化而變，可能只到 local maximum；hidden label 可置換；完全可觀察的 closed-form count + normalize 並不能原封不動套到 log 裡含 marginalization 的 incomplete-data objective。source 沒有在這裡討論連續變數、一般數值最佳化、缺失機制或更多收斂診斷，因此本文也不把那些內容冒充成 Lecture 14 的結論。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 14 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 14 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=4d9V6Sxa6gU
+title: Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 14: Bayesian Networks and Learning](https://www.youtube.com/watch?v=4d9V6Sxa6gU)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 14 支）字幕，確認內容涵蓋 d-separation／條件獨立的收尾、用計數與 smoothing 學參數、HMM 結構、含隱藏變數的 EM，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

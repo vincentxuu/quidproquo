@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 2: Learning I: From Computation Graphs to Linear Regression"
+title: "Learning I: From Computation Graphs to Linear Regression | Stanford CS221 Lecture 2"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article uses only two executable artifacts: [`backpropagation.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=backpropagation) and [`linear_regression.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=linear_regression). The agenda is deliberately narrow: use tensors and `einsum` to make axes explicit, turn a scalar loss into a computation graph, then connect the same differentiation and update steps to linear regression. Every value, name, shape, and algorithmic step below follows what those two files actually contain.
 
 > Material gap: the source files provide executable lecture artifacts and code, but not classroom Q&A, a complete spoken explanation, additional experimental results, or assignment solutions. This article does not fill those gaps with plausible-sounding claims.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 2, the same term and lecture number this article follows. It matches item 2 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=ypZJaTqrNdk
-title: Stanford CS221 | Autumn 2025 | Lecture 2: Learning I
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 2: Learning I](https://www.youtube.com/watch?v=ypZJaTqrNdk)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 2) and confirmed it covers an einops review, computation graphs and backprop, gradients, and linear regression (hypothesis class, loss, gradient descent), matching this article's lecture and topic; no mismatch found.
 
 ## Agenda: from tensor operations to a learning loop
 
@@ -133,6 +113,26 @@ When the two artifacts are read together, shape checking is one of the most reus
 The three layers should also remain distinct. A forward pass computes values through a graph or predictor. A loss turns predictions and targets into an optimizable scalar. Backward propagation and gradient descent turn the loss’s sensitivity to parameters into an update. Missing any one layer cannot be repaired by recognizing the vocabulary. Exact gradients do not make a model appropriate: the hypothesis class may be too narrow, features may discard information, and training loss may fail to represent performance on unseen data.
 
 The lecture’s concrete deliverable is a representation that can be checked step by step. Verify `einsum` axes; verify that the objective is scalar; use finite differences to build local-change intuition; put primitive operations in a graph; use local derivatives and the chain rule for reverse-mode backpropagation; then connect residuals, squared loss, averaged gradients, and an update loop in linear regression. Larger models, different data distributions, generalization guarantees, practical optimizer comparisons, and unpublished classroom material are deliberate gaps.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 2, the same term and lecture number this article follows. It matches item 2 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=ypZJaTqrNdk
+title: Stanford CS221 | Autumn 2025 | Lecture 2: Learning I
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 2: Learning I](https://www.youtube.com/watch?v=ypZJaTqrNdk)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 2) and confirmed it covers an einops review, computation graphs and backprop, gradients, and linear regression (hypothesis class, loss, gradient descent), matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

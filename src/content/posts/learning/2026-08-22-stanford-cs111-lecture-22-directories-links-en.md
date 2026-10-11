@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 22: Directory Lookup, Hard Links, and Symbolic Links"
+title: "Directory Lookup, Hard Links, and Symbolic Links | Stanford CS111 Lecture 22"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is part 23 of [Reading Stanford CS111](/series/stanford-cs111), covering **Spring 2026 Lecture 22**, taught by Mendel Rosenblum on 2026-05-18 under [Directories and Links](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/22/Lecture22.pdf). It follows the public PDF and [calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar); inaccessible Canvas/Panopto video is not treated as reviewed. SHA-256 auditing shows Lecture 22 differs from adjacent Lectures 21 and 23, so there is no duplicate artifact.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## From inode blocks to persistent i-numbers
 
@@ -85,11 +77,17 @@ A hard link adds a reference to one inode; edits through any name expose the sam
 
 Three checks separate them: hard links survive target rename by identity; symlinks can cross file systems; relative symlinks expand from their containing directory. These distinguish inode identity from pathname indirection.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Rewritten against Lecture 22 through inode placement, traversal, working directories, hard links, and symlinks, with adjacent-artifact SHA auditing.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Rewritten against Lecture 22 through inode placement, traversal, working directories, hard links, and symlinks, with adjacent-artifact SHA auditing.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

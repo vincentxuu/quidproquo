@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 5: First-Order Logic II—Nested Quantifiers, Negation, and Uniqueness"
+title: "First-Order Logic II—Nested Quantifiers, Negation, and Uniqueness | Stanford CS103 Lecture 5"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 7 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 5, Spring 2026 (2026-04-10)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page has no per-meeting speaker field, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The previous lecture introduced predicates, functions, and quantifiers. This lecture starts doing serious translation. The difficulty is not the symbols themselves. A natural-language sentence often hides scope, dependencies, exceptions, and uniqueness at once. The safest method preserves the sentence's skeleton and replaces it one layer at a time instead of attempting the whole formula in one leap.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
 
 ## The four Aristotelian forms
 
@@ -188,6 +180,14 @@ The complete public deck supports the four forms, the two love examples, quantif
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt both language versions from the complete official First-Order Logic, Part II deck, restoring nested quantifiers, negation, restricted quantifiers, and uniqueness.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
 
 ## References
 

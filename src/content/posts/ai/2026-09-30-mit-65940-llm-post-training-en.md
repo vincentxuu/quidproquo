@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L14 LLM Post-Training: From SFT and RLHF to Fine-Tuning That Touches 1% of the Weights"
+title: "LLM Post-Training: From SFT and RLHF to Fine-Tuning That Touches 1% of the Weights | MIT 6.5940 Lecture 14"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,24 +40,6 @@ glossary:
 > A heads-up: the PDF cover says "Lecture 13 LLM Post-Training Part II", and page 26 contains an older, different Lecture Plan (mentioning PockEngine and LongLoRA). The course page and the video title both call this Lecture 14. This post follows the course page and uses the Lecture Plan on page 3 as its map.
 
 **Fall 2026 comparison**: The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) also schedules "LLM Post Training" (Lecture 14, October 29). As of 2026-09-30 its slide and video links are still empty, so there is nothing to compare yet.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
-title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and the captions that could be retrieved: SFT, LoRA/adapters/prefix and prompt tuning, RLHF and preference alignment, multimodal models (cross-attention versus token-in-token-out), VILA's three-stage training, prompt engineering and RAG. The lecture and topics match this post. The speaker says “lecture 13” at the start, while the video title and course page say Lecture 14, consistent with the note in this post. The retrieved captions end partway through the RAG section, so the last stretch of the video (including any VILA-U coverage and the closing summary) could not be checked. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## What this lecture is about
 
@@ -201,6 +183,24 @@ The last part needs no training. It's about how you ask:
 - RLHF/DPO: [CS224N Lecture 8: instruction tuning, RLHF, and DPO](/posts/ai/2026-08-22-cs224n-post-training-en), [CS224R L9: RLHF, DPO, and preference optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 - LoRA/QLoRA: [CMU 11-868 L23: efficient fine-tuning of large models](/posts/ai/2026-09-30-cmu11868-peft-lora-en), [CS224N Tinker and LoRA](/posts/ai/2026-08-22-cs224n-tinker-lora-en)
 - Multimodal: [CS231N L16: vision and language](/posts/ai/2026-09-30-cs231n-vision-language-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=OCdwWfVoQ-Q
+title: EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 14 - LLM Post-Training (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=OCdwWfVoQ-Q)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and the captions that could be retrieved: SFT, LoRA/adapters/prefix and prompt tuning, RLHF and preference alignment, multimodal models (cross-attention versus token-in-token-out), VILA's three-stage training, prompt engineering and RAG. The lecture and topics match this post. The speaker says “lecture 13” at the start, while the video title and course page say Lecture 14, consistent with the note in this post. The retrieved captions end partway through the RAG section, so the last stretch of the video (including any VILA-U coverage and the closing summary) could not be checked. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

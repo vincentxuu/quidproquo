@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL Lecture 3: Word Representations, Language Models, and RNNs"
+title: "Word Representations, Language Models, and RNNs | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 The previous two posts cover material students must self-study before enrolling. This lecture is the first regular class of [ADL Fall 2025](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), held on 9/01 right after Course Logistics. The slide subtitle is "Language Modeling & Recurrent Neural Networks," and the outline has four parts: word representations, language modeling, RNNs, and RNN applications.
 
 That is four new ideas, but one of them carries the rest: **a language model estimates the probability of a word sequence by predicting one next word at a time.** Word representations are its input, the RNN is its architecture, and the applications are what you get by changing its output. Keep that line in mind and the lecture holds together.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=215BxEbYrCs
-title: ADL 3.1: Word Representations
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eVA_WTW4gXE
-title: ADL 3.2: Language Modeling
-```
-
-Original videos: [ADL 3.1: Word Representations](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism (LSTM and GRU)](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The 3.2 transcript was read (15 minutes): the recognize-speech example, the 0.0001 smoothing question, the neural LM cat/dog automatic smoothing, RNN weight sharing (10 words, 10 uses) and RNN as the step before the Transformer all match the article. The article also cites 3.3 and 3.4, which are not embedded; their transcripts were read too: BPTT and slow training, 0.9 multiplied repeatedly going to 0, clipping, France/French and gating, bidirectional RNNs not being usable for next-word prediction without peeking, averaged word vectors being enough for finance-vs-not classification, sequence output as repeated classification, preferring tagging, and HW1 using Transformers all match. The embedded 3.1 has no obtainable YouTube transcript, so its spoken content was not checked word for word (the article makes no specific claims about it; only title, date 2025-09-01 and length 22:04 were confirmed).
 
 ## How do you put a word into a computer?
 
@@ -186,6 +162,30 @@ One thing to try tonight: take the three sentences on slide 10, count the window
 
 - The same material at Stanford: [CS224N Lecture 2: word2vec](/posts/ai/2026-08-22-cs224n-word-vectors-en), [CS224N Lecture 4: Language Models and RNNs](/posts/ai/2026-08-22-cs224n-rnn-language-models-en)
 - How NTU's courses divide the ground: [NTU AI/ML course map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=215BxEbYrCs
+title: ADL 3.1: Word Representations
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eVA_WTW4gXE
+title: ADL 3.2: Language Modeling
+```
+
+Original videos: [ADL 3.1: Word Representations](https://www.youtube.com/watch?v=215BxEbYrCs)、[ADL 3.2: Language Modeling](https://www.youtube.com/watch?v=eVA_WTW4gXE)、[ADL 3.3: Recurrent Neural Network](https://www.youtube.com/watch?v=e9Ef3dZcvjw)、[ADL 3.4: RNN Applications](https://www.youtube.com/watch?v=MyKrovk8tLM)、[ADL 4: Gating Mechanism (LSTM and GRU)](https://www.youtube.com/watch?v=LosffMy3BqM)、[5.1 Word Representation Review](https://www.youtube.com/watch?v=K2oYKdK--9U)、[5.3 Word2Vec Training](https://www.youtube.com/watch?v=4Vrd15ZwxH4)、[5.4 Word2Vec Variants](https://www.youtube.com/watch?v=cKor9hMjFLc)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The 3.2 transcript was read (15 minutes): the recognize-speech example, the 0.0001 smoothing question, the neural LM cat/dog automatic smoothing, RNN weight sharing (10 words, 10 uses) and RNN as the step before the Transformer all match the article. The article also cites 3.3 and 3.4, which are not embedded; their transcripts were read too: BPTT and slow training, 0.9 multiplied repeatedly going to 0, clipping, France/French and gating, bidirectional RNNs not being usable for next-word prediction without peeking, averaged word vectors being enough for finance-vs-not classification, sequence output as repeated classification, preferring tagging, and HW1 using Transformers all match. The embedded 3.1 has no obtainable YouTube transcript, so its spoken content was not checked word for word (the article makes no specific claims about it; only title, date 2025-09-01 and length 22:04 were confirmed).
 
 ## Update Log
 

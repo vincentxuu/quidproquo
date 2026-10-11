@@ -1,5 +1,5 @@
 ---
-title: "CS231N L14：生成模型（二）——Diffusion 為什麼加噪再去噪就能生成圖片"
+title: "生成模型（二）——Diffusion 為什麼加噪再去噪就能生成圖片｜Stanford CS231N 第 14 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,23 +33,6 @@ glossary:
 [CS231N](https://cs231n.stanford.edu/) 2026 年 5 月 19 日那一講，[課表](https://cs231n.stanford.edu/schedule.html)只寫了一個主題：Diffusion models。官方材料是 122 頁的 [lecture_14.pdf](https://cs231n.stanford.edu/slides/2026/lecture_14.pdf)，對應的公開錄影是 [Spring 2025 Lecture 14](https://www.youtube.com/watch?v=Edr4uZFh4EE)。
 
 投影片前 35 頁其實是 GAN，[上一篇](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)已經整理過，這裡從第 36 頁的 diffusion 開始。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 14 講（長度 1:12:08，講者依影片說明欄為 Justin Johnson），字幕有 GAN 與 discriminator、StyleGAN、rectified flow／flow matching、classifier-free guidance、latent diffusion、影片 diffusion 模型（Sora、Veo），與本文主題相符；字幕沒有 DDPM、DC-GAN 等名稱，那些細節來自投影片與作業。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=Edr4uZFh4EE
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2
-```
-
-原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 場景：一個「符號一團亂」的領域
 
@@ -222,6 +205,23 @@ $$x_t = a(t)\,x + b(t)\,z,\qquad y_{gt} = c(t)\,x + d(t)\,z,\qquad \mathcal{L} =
 ## 存取限制
 
 依[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這門課是 **A3**：2026 投影片、作業與起始碼公開，另有 2025 完整錄影。本講的缺口是 2026 錄影只放在 Canvas、限修課生觀看，Gradescope 的自動評分也不公開。
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 14 講（長度 1:12:08，講者依影片說明欄為 Justin Johnson），字幕有 GAN 與 discriminator、StyleGAN、rectified flow／flow matching、classifier-free guidance、latent diffusion、影片 diffusion 模型（Sora、Veo），與本文主題相符；字幕沒有 DDPM、DC-GAN 等名稱，那些細節來自投影片與作業。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=Edr4uZFh4EE
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2
+```
+
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

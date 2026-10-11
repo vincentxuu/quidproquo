@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L4：Skills and Memory——agent 怎麼不從零開始"
+title: "Skills and Memory——agent 怎麼不從零開始｜CMU 11-768 第 4 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -41,25 +41,6 @@ glossary:
 - **生命週期**：什麼時候該取用、檢查、修改、淘汰一個 skill？
 
 [上一講（L3）](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management)處理的是單一任務內的 context 管理；這一講處理的是跨任務的記憶。投影片在[官網](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4)。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 4 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=6zigF2a-2Pw
-title: CMU AI Agents 2026: 4. Memory and Skills for Agents
-```
-
-原始影片：[CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 75 分鐘），核對文章轉述的講者說法：三種更新位置與優缺點、課堂舉手與學生的 skill 使用經驗、episode／事實／skill 三類經驗與記憶 vs skill 的區分、OpenHands 部落格案例、SKILL.md 結構與漸進揭露、Hermes 索引約 3k token、課堂問答（skill 太多、觸發敏感度、為何用 markdown、大量 skill 的檢索）、SkillsBench 與 ReasoningBank 的口述結論、MemGPT／Mem0／Reflexion／Voyager／DreamCoder／AWM／ASI／SkillWeaver／PolySkill／TroVE 的講解、RL 訓練技能歸納；皆有依據。修正一處：文末「四組拉扯」與「誰來做決定」表是投影片內容，錄影沒講到，已改為標明投影片。論文表格的逐項數字（如 52.4、39.0 等）屬論文與投影片，字幕未涵蓋。
 
 ## 更新 agent 的三個位置
 
@@ -368,6 +349,25 @@ ASI 也測了跨網站：在 WebArena 上歸納的 `sort_listings` 預期點一�
 - [LLM Agent 的技能管理：從 Voyager 到 MUSE-Autoskill 的 Skill Lifecycle 全景](/posts/ai/2026-06-06-llm-agent-skill-lifecycle)
 - [Hermes Agent 的記憶與技能](/posts/ai/2026-08-18-hermes-agent-memory-skills)
 - [Agent Memory 系統：從 RAG 到 Read-Write 記憶的演化](/posts/ai/2026-03-19-agent-memory-systems)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 4 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=6zigF2a-2Pw
+title: CMU AI Agents 2026: 4. Memory and Skills for Agents
+```
+
+原始影片：[CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 75 分鐘），核對文章轉述的講者說法：三種更新位置與優缺點、課堂舉手與學生的 skill 使用經驗、episode／事實／skill 三類經驗與記憶 vs skill 的區分、OpenHands 部落格案例、SKILL.md 結構與漸進揭露、Hermes 索引約 3k token、課堂問答（skill 太多、觸發敏感度、為何用 markdown、大量 skill 的檢索）、SkillsBench 與 ReasoningBank 的口述結論、MemGPT／Mem0／Reflexion／Voyager／DreamCoder／AWM／ASI／SkillWeaver／PolySkill／TroVE 的講解、RL 訓練技能歸納；皆有依據。修正一處：文末「四組拉扯」與「誰來做決定」表是投影片內容，錄影沒講到，已改為標明投影片。論文表格的逐項數字（如 52.4、39.0 等）屬論文與投影片，字幕未涵蓋。
 
 ## 更新紀錄
 

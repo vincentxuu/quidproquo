@@ -1,5 +1,5 @@
 ---
-title: "CS224R L10: RL for LLM Reasoning and Test-Time Compute"
+title: "RL for LLM Reasoning and Test-Time Compute | Stanford CS224R Lecture 10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 > **Scope limits for this post**: The deck is 42 pages, mostly charts and screenshots, with under a thousand words of extractable text. Guest lectures are opinion-driven, and whatever the speaker added on stage isn't on the slides. This post covers only slide titles, bullet points, and numbers printed on figures, and doesn't fill in arguments for the speaker. The schedule also lists no assigned reading for this lecture.
 
 The [CS224R](https://cs224r.stanford.edu/) schedule calls this lecture "RL for LLMs: Reasoning." The guest speaker is Noam Brown, and the title slide lists OpenAI as his affiliation. [The previous lecture](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) ended on this point: learned reward models are unreliable, and switching to verifiable rewards like math and code led to reasoning models. This lecture picks up there, but its entry point isn't an algorithm. It's where compute should be spent.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=O2VpNnwB4lM
-title: Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)
-```
-
-Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)](https://www.youtube.com/watch?v=O2VpNnwB4lM)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L10 RL for LLM Reasoning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Aviral Kumar, and the topic matches this post. The speaker is Aviral Kumar (per the video description and transcript), matching the post's statement that the 2026 speaker differs and the video is background only; the transcript covers RL for LLM reasoning, process rewards, and PPO extending to GRPO, and says outright that CQL is not covered in this lecture. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The main argument: scaling gets a new dimension
 
@@ -150,7 +131,11 @@ A: sample once, ask for a written reasoning trace
 B: sample N times (N = 1, 4, 16, 64) and take the majority vote
 ```
 
-Plot accuracy against total output tokens, not against N. That's the score-versus-compute evaluation the slides argue for, and you'll see for yourself where majority voting stops improving.
+This comparison is designed for this guide, not an experiment already conducted by the lecturer. Fix 20 tasks, the model version, temperature, task prompt and answer format before running; do not replace tasks after seeing results. Require the same reasoning format in A and B. Set an output budget of 1024 tokens per task: A gets one call capped at 1024; B gets N calls capped at `1024/N` each. Truncation counts as consumption, and a missing final answer counts as failure. This tests budget allocation. A curve with unrestricted total output per task is a separate experiment and must be labeled accordingly.
+
+Write the parser and checker first. For a 24-game task, parse an expression and verify that it uses each of the four given numbers once, uses only allowed operations, and evaluates to 24. Group votes by normalized candidate answer; do not use the checker to select a correct candidate instead of voting. Resolve ties by a predeclared first-candidate rule. If different valid expressions are possible, define grouping explicitly so different strings do not silently split votes. Save each answer, correctness, actual tokens, latency and truncation status.
+
+Success criteria: test the checker with one known valid and one invalid answer; retain all 20 tasks, including failures. Report correct-task counts, total tokens and latency for A and each N, then repeat with another seed. Your results may show no plateau, or B may be worse; the lecturer's trend is not a guaranteed outcome. Equal output-token budgets are only an approximate cost control: they do not equalize hidden reasoning tokens, input costs or hardware compute.
 
 ## Further reading
 
@@ -159,6 +144,25 @@ Plot accuracy against total output tokens, not against N. That's the score-versu
 - [Reading Berkeley CS285 Spring 2026](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en): fuller RL theory background
 
 **Series**: previous [L9: RLHF, DPO, and preference optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en) | next [Default Project: fine-tuning an LLM on Countdown with SFT, IPO, and RLOO](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=O2VpNnwB4lM
+title: Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)
+```
+
+Original videos: [Spring 2025 Lecture 10: RL for LLM Reasoning (YouTube, different speaker, background only)](https://www.youtube.com/watch?v=O2VpNnwB4lM)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L10 RL for LLM Reasoning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Aviral Kumar, and the topic matches this post. The speaker is Aviral Kumar (per the video description and transcript), matching the post's statement that the 2026 speaker differs and the video is background only; the transcript covers RL for LLM reasoning, process rewards, and PPO extending to GRPO, and says outright that CQL is not covered in this lecture. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

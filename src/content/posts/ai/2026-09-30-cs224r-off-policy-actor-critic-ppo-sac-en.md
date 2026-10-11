@@ -1,5 +1,5 @@
 ---
-title: "CS224R L5: Off-Policy Actor-Critic — the Shared Skeleton of PPO and SAC"
+title: "Off-Policy Actor-Critic — the Shared Skeleton of PPO and SAC | Stanford CS224R Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,26 +30,6 @@ glossary:
 Two official sources back this post. The first is the 32-page slide deck [05_cs224r_offpolicy_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf). The second is the lecture's assigned reading on the schedule, [Mnih et al. 2013 (DQN)](https://arxiv.org/abs/1312.5602). The PPO paper, [Schulman et al. 2017](https://arxiv.org/abs/1707.06347), sits on the reading list of the previous lecture (L4). This lecture is where it gets unpacked. Access level: **A3**. The slides download anonymously. The 2026 recordings live only on Canvas.
 
 The companion video is [Spring 2025 Lecture 5: Off-Policy Actor Critic](https://www.youtube.com/watch?v=cRGKc-nAWho) (about 69 minutes). Treat it as a **supplement**. The title matches, but the slides have been updated for 2026, and details may differ. Everything below follows the 2026 slides.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=cRGKc-nAWho
-title: Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)](https://www.youtube.com/watch?v=cRGKc-nAWho)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L5 Off-Policy Actor Critic transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers replay buffers, importance weights and clipping (PPO's core idea) and SAC, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: data is expensive, yet each batch gets used once
 
@@ -190,6 +170,26 @@ The slide says both roads **benefit from seeding with imitation or demonstration
 Confirmed: the text and equations on the 2026 slides, the schedule dates and reading list, and the titles and lengths of the 2025 videos. Not confirmed: anything said aloud in the 2026 lecture (recordings are Canvas-only), and the specifics of the video demos on slides 25–28 (the PDF has only stills and citations). The hyperparameters on slide 14 are the slide's examples, not HW2's settings. For HW2's actual settings, see the homework post.
 
 Series navigation: previous [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic-en) | next [L6 Q-learning and How to Stabilize It](/posts/ai/2026-09-30-cs224r-q-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=cRGKc-nAWho
+title: Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 5: Off-Policy Actor Critic (YouTube, supplement)](https://www.youtube.com/watch?v=cRGKc-nAWho)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L5 Off-Policy Actor Critic transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers replay buffers, importance weights and clipping (PPO's core idea) and SAC, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

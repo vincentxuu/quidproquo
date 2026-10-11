@@ -1,5 +1,5 @@
 ---
-title: "CS224U Compositional Generalization: COGS, ReCOGS, and Assignment 3"
+title: "COGS, ReCOGS, and Assignment 3 | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -31,29 +31,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en) ended on an open question: what counts as a fair non-IID generalization test? This one answers it with a concrete benchmark.
 
 The [series overview](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en) already reproduced the COGS results table, whose headline is that the structural columns are almost all zeros. I won't repeat the numbers. This post covers where those zeros came from, how ReCOGS takes them apart, and what Assignment 3 asks you to do.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=g5zwxUqBzN8
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=tOh-1GYaDl8
-title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8), [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
-
-Content check: verified against the video transcript (2026-10-10): Video 27 (Compositionality) and video 28 (COGS and ReCOGS) were compared item by item with their transcripts: the compositionality principle and example, the caveat on 'infinite', systematicity and the mean apple pie example, the history, the COGS task and variable-numbering conventions, split categories, the all-zero columns, bigram frequencies, decoupling length from recursion (variable 45 vs 46), the PP-modifier hypothesis and three rewrites, ReCOGS's three modifications, and the four conceptual questions. All match. The post also cites the Homework 3 overview video (video 24, not embedded); its transcript could not be retrieved, so three claims drawn from it are marked as unchecked.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## What compositionality is and why test it
 
@@ -170,7 +147,7 @@ The whole assignment has one rule, stated at the top of the notebook and again i
 
 **Q1 is pure data analysis, no model training.** The overview slides give the spoiler outright: Charlie is only a theme in train and only an agent in gen; Lina is only an agent in train and only a theme in gen.
 
-**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest. In [screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0), Potts says the tokenizer was meant to be a homework question, but writing it was so painful for him that he decided to just provide it. (This point comes from the Homework 3 overview video, whose transcript was not read for this post, so it is unchecked.)
+**Before Q2 comes a long modeling interlude.** The notebook gives you all six pieces needed to train a ReCOGS model: a Hugging Face tokenizer, a PyTorch Dataset, `EncoderDecoderModel.from_pretrained("ReCOGS/ReCOGS-model")`, `RecogsLoss`, `RecogsModule`, and `RecogsModel`. If you aren't training your own model, treat the last one as an interface and skip the rest.
 
 Q2 uses this trained model to continue the Q1 analysis, and you see for yourself that a very good model makes most of its mistakes on exactly the names that appear in unfamiliar positions.
 
@@ -209,6 +186,31 @@ One thing to do tonight: download the 7 MB recogs.tgz, load `train.tsv` and `gen
 
 - The COGS results table and course status: [Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - General principles of evaluation design: [CS224N Lecture 11: Why LLM Benchmarks Expire](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en)
+
+> **Unverified source note**: An earlier note mentioned a discussion of the tokenizer assignment design in [Homework 3 screencast 24](https://www.youtube.com/watch?v=e73Ch08XhX0). This segment was not checked against its transcript. The note is not evidence for this guide and does not establish the lecturer’s motives.
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=g5zwxUqBzN8
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=tOh-1GYaDl8
+title: Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 3: Compositionality I Spring 2023](https://www.youtube.com/watch?v=g5zwxUqBzN8), [Stanford XCS224U: NLU I Behavioral Evaluation of NLU Models, Part 4: COGS and ReCOGS I Spring 2023](https://www.youtube.com/watch?v=tOh-1GYaDl8)
+
+Content check: verified against the video transcript (2026-10-10): Video 27 (Compositionality) and video 28 (COGS and ReCOGS) were compared item by item with their transcripts: the compositionality principle and example, the caveat on 'infinite', systematicity and the mean apple pie example, the history, the COGS task and variable-numbering conventions, split categories, the all-zero columns, bigram frequencies, decoupling length from recursion (variable 45 vs 46), the PP-modifier hypothesis and three rewrites, ReCOGS's three modifications, and the four conceptual questions. All match. The post also cites the Homework 3 overview video (video 24, not embedded); its transcript could not be retrieved, so three claims drawn from it are marked as unchecked.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

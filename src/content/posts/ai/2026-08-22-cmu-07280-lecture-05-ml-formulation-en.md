@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 5: Defining Machine Learning with Loss, Risk, and ERM"
+title: "Defining Machine Learning with Loss, Risk, and ERM | CMU 07-280 Lecture 5"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 5: ML Problem Formulation**. The first four lectures relied on human-defined transitions, constraints, utilities, and heuristics. This lecture turns to systems that rely primarily on examples, but it still does not choose a model. It first makes the input, output, and cost of error explicit.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf) and the following lecture's [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf) to verify how the formulation becomes a first model. No lecture recording is public.
-
-The course lists HW3 as online-only. An anonymous learner cannot inspect its prompt, answers, or Gradescope feedback. This article therefore does not claim assignment-level verification from HW3; its public practice connection begins with Recitation 3 and HW4.
 
 ## The inherited question: when rules cannot be written, what counts as learning well
 
@@ -93,6 +77,22 @@ Low training loss therefore does not by itself mean “the model learned.” The
 1. Choose a familiar problem and define `X`, `Y`, one `h`, and a computable loss.
 2. Calculate the empirical risk of two hypotheses on five toy examples.
 3. Make the loss asymmetric once and see whether the ERM choice changes.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf) and the following lecture's [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf) to verify how the formulation becomes a first model. No lecture recording is public.
+
+The course lists HW3 as online-only. An anonymous learner cannot inspect its prompt, answers, or Gradescope feedback. This article therefore does not claim assignment-level verification from HW3; its public practice connection begins with Recitation 3 and HW4.
 
 ## Update Log
 

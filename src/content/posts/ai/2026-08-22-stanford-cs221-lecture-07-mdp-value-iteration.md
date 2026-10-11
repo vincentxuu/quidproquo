@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 7：MDPs I：把隨機性放進狀態轉移"
+title: "MDPs I：把隨機性放進狀態轉移｜Stanford CS221 第 7 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 7**，2025-10-13 由 Percy Liang 主講。課程版本、作業與講次脈絡以[官方課程網站](https://stanford-cs221.github.io/autumn2025/)為準；本文逐段對照可執行的[官方 `mdp` 講義 artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=mdp)，並把程式中的資料結構與更新順序翻成可讀的推導。課程錄影可由 [Stanford Online 官方 CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN) 交叉觀看，講義原始碼則在[官方 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures)。
 
 > 材料缺口：官方講義與影片公開；本篇指定的本地 `mdp.py` 沒有提供完整課堂口述、Canvas 互動、作業解答或隱藏測資。因此下文只把原始碼直接示範或能由公式推出的內容寫成主張；沒有把其他學期、影片未見的細節或直覺補成 CS221 本講的結論。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 7 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 7 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
-title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 7 支）字幕，確認內容涵蓋 MDP 的機率轉移與 reward、policy evaluation、Q 值、折扣、value iteration，與本文的講次與主題相符，未發現錯配。
 
 ## 1. 從 search 開始：為什麼需要 MDP
 
@@ -176,6 +156,26 @@ memory 方面，`values`、`new_values`、`pi` 與 visited set 都隨可達 stat
 ## 10. 讀完這一講應帶走的模型
 
 不要只背「取最大」，要檢查新問題的契約：state 是否保留 Markov 所需資訊、actions 是否完整、probability 是否加總為 1、reward 是負成本還是效用、哪些 state terminal、γ 是否符合遠期偏好，以及可達 states 是否有限可枚舉。任一項不清楚，輸出就未必回答原問題。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 7 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 7 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=2ZtF1j3n6XE
+title: Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 7: Markov Decision Processes](https://www.youtube.com/watch?v=2ZtF1j3n6XE)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 7 支）字幕，確認內容涵蓋 MDP 的機率轉移與 reward、policy evaluation、Q 值、折扣、value iteration，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

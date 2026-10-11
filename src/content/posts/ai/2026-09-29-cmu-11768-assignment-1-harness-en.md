@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 A1: Build an Agent Harness by Hand — One ReAct Loop to Fix Bugs, Compact Context, and Play Chess"
+title: "Build an Agent Harness by Hand — One ReAct Loop to Fix Bugs, Compact Context, and Play Chess | CMU 11-768 Assignment 1"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -37,16 +37,6 @@ The first assignment in [CMU 11-768 AI Agents](https://www.cmu-agents.com/) ([se
 What makes the assignment interesting is its structure: one `Agent` base class and one ReAct loop have to carry three very different agents. You see firsthand that a harness's skeleton is generic; only the prompts, tools, and observation formats change with the domain. That is exactly the definition on the [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en) slides: Harness = prompts + tools + agent loop + context management.
 
 This post covers only the requirements, architecture, grading, and design trade-offs, and maps each TODO back to concepts from L1–L6. **It gives no solutions** and shows no TODO implementations.
-
-## Course video sources
-
-This is an assignment walkthrough with an official course entry. A dedicated recording for this assignment has not been verified. Some lectures are public, but they do not establish a dedicated assignment video.
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
 
 ## How the three parts connect
 
@@ -224,6 +214,16 @@ The assignment depends on Modal and course-provided model credits; outside the c
 - On this site: [Context compaction in coding agents](/posts/ai/2026-08-25-coding-agent-context-compaction-en)
 - On this site: [Code mode in coding agents](/posts/ai/2026-08-25-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
 - On this site: [Hooks, skills, and plugins in coding agents](/posts/ai/2026-08-25-coding-agent-hooks-skills-plugins-en)
+
+## Course video sources
+
+This is an assignment walkthrough with an official course entry. A dedicated recording for this assignment has not been verified. Some lectures are public, but they do not establish a dedicated assignment video.
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

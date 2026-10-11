@@ -1,5 +1,5 @@
 ---
-title: "Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡"
+title: "Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: ai
 type: deep-dive
@@ -24,31 +24,6 @@ draft: false
 這是**臨時換掉的一講**。他開場就說：原本這週要講神經網路可解釋性與 LLM 視覺化，但學生還沒學到 attention map 和 CNN，第五週講會太超前，所以把可解釋性挪到後面（就是 Lecture 10）。
 
 結構是前面約八成從零推導 Q-learning 與 DQN，最後約 15 分鐘（YouTube 自動章節標在約 1:30:24 起）講 **RLHF**——後面那段是這一講對做 LLM 應用的人最有價值的部分。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符；第二支為與本講相關的 AlphaGo 紀錄片（非課程錄影）。
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片：（1）4E27qlfYw0A 是 Lecture 5（Deep Reinforcement Learning，Kian 主講，長度 1:45:01 與文中「1 小時 45 分」相符，開場字幕說明臨時把可解釋性講次挪後），已讀字幕；（2）WXuK6gekU1Y 是 DeepMind 官方上傳的《AlphaGo – The Movie》紀錄片（1:30:28，非課程錄影），已讀字幕確認確是該紀錄片，字幕為旁白與訪談，不含課堂內容。講座部分逐項對過字幕，皆有對應：圍棋三個反駁、teach by example／experience、廣告、fog of war、回收的 Q table 與 γ=0.9、Bellman 方程、Breakout 前處理（灰階、四格）與 park the bus、終止狀態、experience replay 與 prioritized sweeping、ε=5%、騎腳踏車穿越校園、相撲、Netflix 的 AlphaGo 紀錄片、PPO、13,000 筆 InstructGPT、獎勵模型、稀疏獎勵、Karpathy「四天前」的影片（講者未播放，只說之後上傳）。Seaquest 一事字幕為「I think it was CQS, I forgot which one」，與文中說法一致。一處修正：「最後 20 分鐘講 RLHF」不符 YouTube 自動章節（RLHF Introduction 約 1:30:24 起，全長 1:45:01，約 15 分鐘），已改為約八成 Q-learning／DQN、最後約 15 分鐘 RLHF（含摘要）。
-
-```youtube
-url: https://www.youtube.com/watch?v=4E27qlfYw0A
-title: Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=WXuK6gekU1Y
-title: AlphaGo - The Movie | Full award-winning documentary
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo - The Movie | Full award-winning documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
-
-課程與錄影入口：
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-
-查核日期：2026-10-10。
 
 ## RL 憑什麼重要
 
@@ -336,6 +311,31 @@ PPO 有 **expected advantage** 的概念：不是告訴你這個動作多好，�
 第三點正是站上 [RAG 的三種形態與 evaluator paradox](/posts/ai/2026-08-10-rag-graph-agentic-variants) 那篇在處理的問題，只是 Katanforoosh 用圍棋把它講得更乾淨：**你永遠不會比你的評判者更強。**
 
 而 RLHF 那張對照表的實務意義是：**當你在 debug 一個 RLHF 過的模型時，你 debug 的是一個稀疏獎勵的序列決策問題。** 模型在第 300 個 token 講錯話，訊號要一路傳回去——這就是為什麼對齊常常在長回應上失效，而不是模型「不夠聽話」。
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符；第二支為與本講相關的 AlphaGo 紀錄片（非課程錄影）。
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片：（1）4E27qlfYw0A 是 Lecture 5（Deep Reinforcement Learning，Kian 主講，長度 1:45:01 與文中「1 小時 45 分」相符，開場字幕說明臨時把可解釋性講次挪後），已讀字幕；（2）WXuK6gekU1Y 是 DeepMind 官方上傳的《AlphaGo – The Movie》紀錄片（1:30:28，非課程錄影），已讀字幕確認確是該紀錄片，字幕為旁白與訪談，不含課堂內容。講座部分逐項對過字幕，皆有對應：圍棋三個反駁、teach by example／experience、廣告、fog of war、回收的 Q table 與 γ=0.9、Bellman 方程、Breakout 前處理（灰階、四格）與 park the bus、終止狀態、experience replay 與 prioritized sweeping、ε=5%、騎腳踏車穿越校園、相撲、Netflix 的 AlphaGo 紀錄片、PPO、13,000 筆 InstructGPT、獎勵模型、稀疏獎勵、Karpathy「四天前」的影片（講者未播放，只說之後上傳）。Seaquest 一事字幕為「I think it was CQS, I forgot which one」，與文中說法一致。一處修正：「最後 20 分鐘講 RLHF」不符 YouTube 自動章節（RLHF Introduction 約 1:30:24 起，全長 1:45:01，約 15 分鐘），已改為約八成 Q-learning／DQN、最後約 15 分鐘 RLHF（含摘要）。
+
+```youtube
+url: https://www.youtube.com/watch?v=4E27qlfYw0A
+title: Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=WXuK6gekU1Y
+title: AlphaGo - The Movie | Full award-winning documentary
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 5: Deep Reinforcement Learning](https://www.youtube.com/watch?v=4E27qlfYw0A)、[AlphaGo - The Movie | Full award-winning documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)、[Reinforcement learning is terrible – Andrej Karpathy](https://www.youtube.com/watch?v=36OBX5lQjGc)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

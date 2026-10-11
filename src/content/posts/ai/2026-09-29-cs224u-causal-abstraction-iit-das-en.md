@@ -1,5 +1,5 @@
 ---
-title: "CS224U Analysis Methods II: From \"The Information Is There\" to \"The Model Uses It\" with Interchange Interventions — Causal Abstraction, IIT, and DAS"
+title: "From \"The Information Is There\" to \"The Model Uses It\" with Interchange Interventions — Causal Abstraction, IIT, and DAS | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -34,29 +34,6 @@ glossary:
 I used four official sources: slides 41–61 of the [Analysis methods in NLP deck](https://web.stanford.edu/class/cs224u/slides/cs224u-analysis-2023-handout.pdf), videos 36–37 of the playlist, [`iit_equality.ipynb`](https://github.com/cgpotts/cs224u/blob/main/iit_equality.ipynb) in the repo, and the two files it depends on, [`iit.py`](https://github.com/cgpotts/cs224u/blob/main/iit.py) and [`torch_deep_neural_classifier_iit.py`](https://github.com/cgpotts/cs224u/blob/main/torch_deep_neural_classifier_iit.py). Access level: **A3 (historical offering)**.
 
 This is the steepest post in the series. I stick to intuition, use the notebook's equality task as the running example, and keep the formal definitions in a collapsed block.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=6pwpOOj33aw
-title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
-title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
-```
-
-Original videos: [Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw), [Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
-
-Content check: verified against the video transcript (2026-10-10): Video 36 (Causal Abstraction & IIT) and video 37 (DAS & Conclusion) were compared item by item with their transcripts: the addition-network interchange intervention example, the properties of IIA, the four 'because' findings, IIT's double update and four applications, DAS's two problems and rotation matrix, the Alpaca finding, the four future directions, and the scorecard. All match and nothing needed correcting. Notebook figures and slide numbers are not in the videos and were not checked against the transcripts.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Remember where the last post got stuck
 
@@ -216,6 +193,29 @@ Confirmed: the schedule's reading list, the slide content, videos 36–37, and t
 Further reading: the site's [CS224N interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) follows the agentic interpretability and concept discovery line, which makes a useful contrast.
 
 Series navigation: previous, [Analysis Methods I: probing and feature attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en) | next, [Methods and Metrics I: classifier and generation metrics](/posts/ai/2026-09-29-cs224u-methods-metrics-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=6pwpOOj33aw
+title: Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=fSx1Vj0BZj0
+title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23
+```
+
+Original videos: [Stanford XCS224U I Analysis NLU, Pt 4: Casual Abstraction & Interchange Intervention Training (IIT)](https://www.youtube.com/watch?v=6pwpOOj33aw), [Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS) & Conclusion I Spring 23](https://www.youtube.com/watch?v=fSx1Vj0BZj0)
+
+Content check: verified against the video transcript (2026-10-10): Video 36 (Causal Abstraction & IIT) and video 37 (DAS & Conclusion) were compared item by item with their transcripts: the addition-network interchange intervention example, the properties of IIA, the four 'because' findings, IIT's double update and four applications, DAS's two problems and rotation matrix, the Alpaca finding, the four future directions, and the scorecard. All match and nothing needed correcting. Notebook figures and slide numbers are not in the videos and were not checked against the transcripts.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L14: Text and Image Models Invade Each Other's Territory, Plus the Final Project"
+title: "Text and Image Models Invade Each Other's Territory, Plus the Final Project | NCCU Yen-Lung Tsai Generative AI Lecture 14"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 I used four official sources: the [lecture 14 recording](https://www.youtube.com/watch?v=AOLoR3p2Z0Q) (2025-05-27, 3 h 9 min), the slide deck [GenAI14 生成式 AI 新趨勢](https://drive.google.com/file/d/14gA0kgjU0E4Fyb7bOcZpg4TZwTN9KnWv/view) (60 slides, in Chinese), the schedule and final project notes on the [Chang Gung satellite section page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Chinese), and weeks 15–16 plus the grading section of the [Fall 2026 (1151) syllabus](https://drive.google.com/file/d/1hhigEPT9SdhJgtIpevACzSJsSNA0mw6T/view) (in Chinese).
 
 Access level is **A3**, with two gaps worth stating up front. First, the second half of the recording had on-site technical problems; the video description says to "refer to the slides for the second half" and lists the matching slide numbers. Second, only the final project rules are public; the list of 1132 projects is not.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=AOLoR3p2Z0Q
-title: 【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)
-```
-
-Original videos: [【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -212,6 +195,23 @@ This post stands on its own. To dig deeper:
 - Course map: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Series navigation: [series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | previous, [L13: Reinforcement Learning and Generative AI Applications](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en) | this is the last post in the series
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=AOLoR3p2Z0Q
+title: 【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)
+```
+
+Original videos: [【生成式 AI】14. 生成式 AI 新趨勢 (YouTube recording, 2025-05-27)](https://www.youtube.com/watch?v=AOLoR3p2Z0Q)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

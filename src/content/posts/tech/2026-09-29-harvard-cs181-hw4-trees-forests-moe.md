@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW4（下）：決策樹、隨機森林與 Mixture of Experts"
+title: "（下）：決策樹、隨機森林與 Mixture of Experts｜Harvard CS181 作業 4／第 3 部分"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, decision-trees, ensemble, mixture-of-experts, homework]
@@ -29,17 +29,6 @@ glossary:
 > ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) 的 `hw4_release.tex` 與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf) §3 為準，2026-09-29 實際打開。本課整體為 **A3**，官方課表未列對應講次的公開錄影、沒有作業解答。Week 7 的 Non-parametric Models / Decision Trees 講課投影片本篇沒有取得。Problem 3 是純紙筆題，notebook 裡沒有對應程式；題目標題沒寫總分，各小題標示加起來是 35 分。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 8 篇，HW4 的最後一題。前兩篇是 [Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 和 [Autoencoder 到 VAE](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## 先補：這題不考怎麼長一棵樹
 
@@ -144,6 +133,17 @@ HW4 到這裡結束。下一份作業 HW5 進入沒有標籤的學習：分群�
 
 - 上一篇：[HW4（中）：Autoencoder 為何不能生成，VAE 補了什麼](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)
 - 下一篇：[HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 17: Regular Expressions"
+title: "Regular Expressions | Stanford CS103 Lecture 17"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 19 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 17, Spring 2026 (2026-05-08)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not name a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Regular Expressions**. CS103 is not best read as a vocabulary list. For each topic, ask how the object is defined, which inputs are legal, what the claim demands, and what argument could support the conclusion. This article follows the definitions and examples visible in the deck and does not invent spoken material.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/)
 
 ## From closure properties to a language syntax
 
@@ -105,6 +97,14 @@ The public deck explicitly supports the sections on from closure properties to a
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rechecked from closure properties to a language syntax against the official deck, removed dead handout links, and revised metadata and wording after clean review.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/17/)
 
 ## References
 

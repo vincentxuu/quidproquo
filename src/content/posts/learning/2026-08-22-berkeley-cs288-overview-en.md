@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288 Spring 2026: 18 Slide Units, Three Assignments, and the Limits of Self-Study"
+title: "Language Models and NLP: From Foundational Representations to Retrieval and Agents | Berkeley CS288 Spring 2026 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, llm, self-study, open-course]
@@ -21,17 +21,6 @@ series:
 [Berkeley CS288 Spring 2026](https://cal-cs288.github.io/sp26/) is a graduate-level Advanced Natural Language Processing course. It does not begin with an LLM API. It builds from n-grams, word representations, classification, and sequence models before reaching Transformers, pre-training, post-training, RAG, inference-time compute, reasoning, and agents.
 
 This series is a guide to the materials, not a reconstruction of the classroom. The official site says that [recordings require a Berkeley login](https://cal-cs288.github.io/sp26/course_info/). Anonymous readers get 18 slide units, three assignments, two starter repositories, and project specifications. The articles stay within that evidence.
-
-## Course video sources
-
-The course info page says recordings are provided to enrolled students and Cal-affiliated auditors. Checked live on 2026-10-10: the course home page links a YouTube playlist labeled “Lecture recordings (Needs Berkeley log in)” (CS288 Spring 2026); opened without signing in, that playlist shows no videos. No public external recording was found; use the public slides.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://cal-cs288.github.io/sp26/course_info/)
-- [CS288 Spring 2026 lecture recordings playlist (Berkeley sign-in required)](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
-
-Checked: 2026-10-10.
 
 ## The prerequisites are operational
 
@@ -66,6 +55,17 @@ The materials and starter code are sufficient for meaningful work, hence A3. [Co
 Official assessment for [Assignments 2 and 3](https://cal-cs288.github.io/sp26/assignments/) additionally relies on hidden tests, Gradescope, and a course-provided OpenRouter wrapper. Off-campus readers do not receive those pieces. The [final project](https://cal-cs288.github.io/sp26/project/) adds in-course team matching and checkpoint feedback. The course home only acknowledges VESSL AI and Google Cloud project compute credits; it does not promise public access to them.
 
 A2's Transformer and A3's RAG can both incur compute costs. Start with small data, small models, and CPU baselines before renting a GPU.
+
+## Course video sources
+
+The course info page says recordings are provided to enrolled students and Cal-affiliated auditors. Checked live on 2026-10-10: the course home page links a YouTube playlist labeled “Lecture recordings (Needs Berkeley log in)” (CS288 Spring 2026); opened without signing in, that playlist shows no videos. No public external recording was found; use the public slides.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://cal-cs288.github.io/sp26/course_info/)
+- [CS288 Spring 2026 lecture recordings playlist (Berkeley sign-in required)](https://www.youtube.com/playlist?list=PLnocShPlK-Fv9YZIX7qdOyc2GJqnT3D-8)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

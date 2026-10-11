@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent"
+title: "Let a Model Judge, Then Guardrail the Agent | Stanford CS329Z Week 8"
 date: 2026-09-10
 updated: 2026-09-12
 category: ai
@@ -28,17 +28,6 @@ Open-ended answers have no answer key, and that is the week's starting point. Cl
 Human grading is the gold standard, at gold-standard prices and speed. Every prompt change cannot mean rehiring dozens of graduate students to vote again. The fix is asking a strong model to judge, validated end to end in the [MT-Bench paper](https://arxiv.org/abs/2306.05685). Anthropic's [eval guide](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) then slots the judge into the full agent-evaluation puzzle. Judges make mistakes too, and Wednesday's safety lecture answers the other question: why do agents that pass grading still fail in production?
 
 Of the three anchor readings, this guide reads the Anthropic eval guide and MT-Bench closely. The safety thread centers on [PrivacyLens](https://arxiv.org/abs/2409.00138), plus deployment-time guardrail practice.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## Three grader types: pick the right tool before automating
 
@@ -132,6 +121,17 @@ This is a voluntary, revisable company policy, and the assigned reading is histo
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-12: Added substantive guides to AutoLibra, CDI, prompt injection, and RSP, including the historical-version boundary for RSP.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

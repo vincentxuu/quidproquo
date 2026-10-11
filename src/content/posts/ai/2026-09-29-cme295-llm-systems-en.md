@@ -1,5 +1,5 @@
 ---
-title: "CME295 2026 Lecture 5 (Pre-Lecture Edition): LLM Systems, or How the Same Model Runs Several Times Faster"
+title: "(Pre-Lecture Edition): LLM Systems, or How the Same Model Runs Several Times Faster | Stanford CME295 Lecture 5"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,31 +39,6 @@ glossary:
 This post covers Lecture 5, "LLM systems," of the 2026 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en). The lecture did not exist in 2025. Its material was spread across the last ~40 slides of the 2025 [Lecture 3 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture3.pdf) (inference speedups) and ~50 slides in the middle of the [Lecture 4 deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf) (training optimizations). Our guides to [Lecture 3](/posts/ai/2026-09-29-cme295-large-language-models-en) and [Lecture 4](/posts/ai/2026-09-29-cme295-llm-training-en) each drew a map of these topics and deferred the details to this post.
 
 If you have used any LLM chat interface, you know the pattern: you send a question, wait a moment for the first word, and then words stream out at a steady pace. Those two waits are different kinds of work with different bottlenecks. The topic list for this lecture looks scattered, running from multi-GPU training to hardware choices, but most of it reduces to one idea: **moving data around a GPU often costs more than the computation itself**.
-
-## Course video sources
-
-This article is a pre-written guide to CME295 2026 Lecture 5 (LLM systems, October 30). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The two videos below are the public 2025 Lecture 3 and Lecture 4 recordings, included only as background; they are not the 2026 Lecture 5 recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=Q5baLehv5So
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
-
-Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Q5baLehv5So is Autumn 2025 Lecture 3 (MoE, decoding and sampling, prompting, KV cache, PagedAttention/MLA), and VlA_jt_3Qc4 is Autumn 2025 Lecture 4, LLM Training (pretraining and scaling laws, ZeRO data parallelism, model parallelism, Flash Attention, quantization, mixed precision, SFT/instruction tuning, LoRA/QLoRA). This confirms the post's statement that both are background only and not the 2026 Lecture 5 recording, and that they do cover LLM-systems topics (inference speedups, parallelism, Flash Attention, quantization).
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Where this lecture sits in the 2026 syllabus
 
@@ -394,6 +369,31 @@ Once the slides and video go up on October 30, this post will be revised against
 - Whether "hardware trade-offs" folds in quantization and number formats
 - Whether GQA, latent attention, and PagedAttention are taught here or stay in Lecture 2
 - Replacing the "Where the 2025 edition covered this" table with 2026 slide pages, and updating the self-check from the 2026 final
+
+## Course video sources
+
+This article is a pre-written guide to CME295 2026 Lecture 5 (LLM systems, October 30). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The two videos below are the public 2025 Lecture 3 and Lecture 4 recordings, included only as background; they are not the 2026 Lecture 5 recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q5baLehv5So
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 3 - Tranformers & Large Language Models](https://www.youtube.com/watch?v=Q5baLehv5So), [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+Content check: verified against the video transcript (2026-10-10): For both videos I sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). Q5baLehv5So is Autumn 2025 Lecture 3 (MoE, decoding and sampling, prompting, KV cache, PagedAttention/MLA), and VlA_jt_3Qc4 is Autumn 2025 Lecture 4, LLM Training (pretraining and scaling laws, ZeRO data parallelism, model parallelism, Flash Attention, quantization, mixed precision, SFT/instruction tuning, LoRA/QLoRA). This confirms the post's statement that both are background only and not the 2026 Lecture 5 recording, and that they do cover LLM-systems topics (inference speedups, parallelism, Flash Attention, quantization).
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

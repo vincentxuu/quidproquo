@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Deep Learning: The Two Moments Prompting Stops Being Enough"
+title: "Introduction to Deep Learning: The Two Moments Prompting Stops Being Enough | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: guide
@@ -27,26 +27,6 @@ First, which offering this is: **Stanford CS230 Deep Learning, Autumn 2025** —
 Also: **there is no Lecture 7.** November 4th was Democracy Day, class was cancelled, and the lecture numbering skips. This series skips with it.
 
 This post covers **[Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)** (2025/09/23, Andrew Ng, one hour). It's a course overview with no math, but Ng spends most of the hour on how he reads the industry and the job market.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Introduction to Deep Learning, Andrew Ng; 1:00:17 matches "1 hour", and the captions open with the course overview and flipped classroom). Checked item by item against the captions: "usually only up to an hour and 20 minutes" of in-person time, Ian Goodfellow building the dorm-room GPU server, predictable scaling (the Baidu paper is garbled by ASR) and OpenAI's scaling laws, traditional algorithms plateauing, Claude Code/Gemini CLI/Codex/Cursor/Windsurf, 2 a.m. hyperparameter tuning and going home at 3 or 7 a.m., the nephew and the GPUs, the 10x speed gap, the database migration that wiped records, punch cards to keyboards and assembly language, the syllabus unchanged since 2002, Tommy Nelson and Midjourney, 50,000 faces, CS129/229/230, the five modules, and "move fast and be responsible" all appear. The word COBOL is garbled in the captions, so only the remark about looking up old articles is confirmed; the closing comparison of the 2024 and 2025 syllabi is the site's own research, not video content.
-
-```youtube
-url: https://www.youtube.com/watch?v=_NLHFoVNlbg
-title: Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
-
-Course and recording entries:
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-
-Checked: 2026-10-10.
 
 ## Why the flipped classroom is built this way
 
@@ -245,6 +225,26 @@ RAG, vector databases, **evals and error analysis**, guardrails, knowledge-graph
 The direction is clear: **LLM and agent material grew from a footnote into core curriculum, foundational theory got compressed, and an entire lecture on opening up the model was added.** That L10 change is the interesting one — the old closing talk ran on 2021 slides, unchanged for three years running.
 
 **The official syllabus entry for Lecture 6 is still stale**: it lists "career advice / paper reading / healthcare AI guest" with 2024 slides, but the class actually recorded that day is **AI Project Strategy**. Careers is Lecture 9. Going by the website will send you to the wrong place.
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 1 (Introduction to Deep Learning, Andrew Ng; 1:00:17 matches "1 hour", and the captions open with the course overview and flipped classroom). Checked item by item against the captions: "usually only up to an hour and 20 minutes" of in-person time, Ian Goodfellow building the dorm-room GPU server, predictable scaling (the Baidu paper is garbled by ASR) and OpenAI's scaling laws, traditional algorithms plateauing, Claude Code/Gemini CLI/Codex/Cursor/Windsurf, 2 a.m. hyperparameter tuning and going home at 3 or 7 a.m., the nephew and the GPUs, the 10x speed gap, the database migration that wiped records, punch cards to keyboards and assembly language, the syllabus unchanged since 2002, Tommy Nelson and Midjourney, 50,000 faces, CS129/229/230, the five modules, and "move fast and be responsible" all appear. The word COBOL is garbled in the captions, so only the remark about looking up old articles is confirmed; the closing comparison of the 2024 and 2025 syllabi is the site's own research, not video content.
+
+```youtube
+url: https://www.youtube.com/watch?v=_NLHFoVNlbg
+title: Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 1: Introduction to Deep Learning](https://www.youtube.com/watch?v=_NLHFoVNlbg)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

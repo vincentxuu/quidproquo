@@ -1,5 +1,5 @@
 ---
-title: "李宏毅 ML 2026 HW8：多花推論算力，投票、Self-Certainty、DeepConf 各換到多少準確率"
+title: "多花推論算力，投票、Self-Certainty、DeepConf 各換到多少準確率｜台大李宏毅 機器學習 2026 Spring 作業 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)的 HW8。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 17 篇。官方材料有：作業投影片 [hw8.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw8.pdf)、[作業 Colab](https://colab.research.google.com/drive/1_z4JryPWnITLAwtytVwu75FZMx9giT3R?usp=sharing)（34 個 cell），以及助教的[說明影片](https://youtu.be/KAbM5gM6Isw)。課程頁寫 5/15 公告、截止 2026/06/04 23:59（UTC+8），助教是江履方、陳品睿、尹廷安、林育正，成績在 2026/06/07 前公布。
 
 存取分級是 **A3 減評分**：投影片裡印了全部 20 題的中英文版，Colab 可以公開下載執行。唯一拿不到的是 NTU COOL 上的測驗本身與成績。這份作業不走 JudgeBoi。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=KAbM5gM6Isw
-title: HW8 說明影片（YouTube）
-```
-
-原始影片：[HW8 說明影片（YouTube）](https://www.youtube.com/watch?v=KAbM5gM6Isw)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 先備：2025 年第七講 Reasoning
 
@@ -152,6 +133,25 @@ Part 2 的兩題就是：截圖 Colab 的準確率表（Q19），並依截圖回
 - **延伸閱讀**：[CME295 LLM Reasoning 導讀](/posts/ai/2026-09-29-cme295-llm-reasoning)整理了 reasoning 模型與推論時運算；站上的 [BrowseConf](/posts/ai/2026-09-19-browseconf-test-time-scaling) 把信心驅動的 test-time scaling 用在 browsing agent 上；RL 的基礎可看 [Berkeley CS285 policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW7：Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging)｜下一篇 [AI 自我成長（下）：改進 harness 與學會學習](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=KAbM5gM6Isw
+title: HW8 說明影片（YouTube）
+```
+
+原始影片：[HW8 說明影片（YouTube）](https://www.youtube.com/watch?v=KAbM5gM6Isw)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+影片字幕：2026-10-10 嘗試取得，但此影片沒有可取得的字幕，本文未核對影片口述內容；上述作業說明僅來自作業 PDF 與 Colab，沒有對影片內容做具體說法。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224U Information Retrieval: From Classical IR and IR Metrics to Neural IR"
+title: "From Classical IR and IR Metrics to Neural IR | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -39,29 +39,6 @@ glossary:
 Homework 1 was classification: you get a sentence and label its sentiment. Homework 2 is a different kind of problem: you get only a question, and you have to find the evidence to answer it. The 2023 schedule calls this unit "Retrieval augmented in-context learning" and splits it into two slide decks: information retrieval first (this post), then in-context learning (the next one). Homework 2 puts them together.
 
 This post answers one question: **why does a natural language understanding course spend a whole unit on search-engine technology?**
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=enRb6fp5_hw
-title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
-title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw), [Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
-
-Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas, 17:47) and Part 3 (IR metrics, 19:22) were compared item by item with their transcripts: the digestive-system example with no string overlap, standard QA versus OpenQA, knowledge-intensive tasks, the three search paradigms, the fabricated links and Bing citing the DSP paper, the SAIL blog; and, for metrics, the success / RR / precision / recall / average precision examples (with D3 slightly ahead of D2), the selection principles, non-accuracy dimensions, and the Pareto frontier. All match. Part 4 (Neural IR) and Part 5 (Datasets), which the post cites but does not embed, were read as well; the cross-encoder / DPR / ColBERT / SPLADE comparison, the reranking and centroid approaches, PLAID going from 287 ms to 58 ms, the dataset list, and the three topics left unexplored all match. The TF-IDF / BM25 formulas and the MS MARCO leaderboard figures come from the slides and were not checked against transcripts.
-
-Course and recording entries:
-
-- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Why an NLU course covers retrieval
 
@@ -216,6 +193,29 @@ One thing to do tonight: pick any search feature you use (an internal document s
 
 - The components of RAG and language agents: [CS224N Lecture 10: Six Components of RAG and Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents-en)
 - Course status and the assignment environment: [Reading Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=enRb6fp5_hw
+title: Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=9YCb-IxtbFQ
+title: Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Information Retrieval, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=enRb6fp5_hw), [Stanford XCS224U: NLU I Information Retrieval, Part 3: IR metrics I Spring 2023](https://www.youtube.com/watch?v=9YCb-IxtbFQ)
+
+Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas, 17:47) and Part 3 (IR metrics, 19:22) were compared item by item with their transcripts: the digestive-system example with no string overlap, standard QA versus OpenQA, knowledge-intensive tasks, the three search paradigms, the fabricated links and Bing citing the DSP paper, the SAIL blog; and, for metrics, the success / RR / precision / recall / average precision examples (with D3 slightly ahead of D2), the selection principles, non-accuracy dimensions, and the Pareto frontier. All match. Part 4 (Neural IR) and Part 5 (Datasets), which the post cites but does not embed, were read as well; the cross-encoder / DPR / ColBERT / SPLADE comparison, the reranking and centroid approaches, PLAID going from 287 ms to 58 ms, the dataset list, and the three topics left unexplored all match. The TF-IDF / BM25 formulas and the MS MARCO leaderboard figures come from the slides and were not checked against transcripts.
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

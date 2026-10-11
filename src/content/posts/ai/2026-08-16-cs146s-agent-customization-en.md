@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 4: What Goes in CLAUDE.md, What Hooks Should Block, Where Subagents Cut"
+title: "What Goes in CLAUDE.md, What Hooks Should Block, Where Subagents Cut | Stanford CS146S Week 4"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the fifth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 Three topics: what belongs in `CLAUDE.md` versus `AGENTS.md`, hooks for lint gates and test runs, and planner / implementer / reviewer subagent patterns. The guest is Boris Cherny — creator of Claude Code, who also spoke in Fall 2025; this time it's a fireside Q&A.
 
 The course actually lists **four** techniques for directing agents: instruction files, hooks, commands, and subagents. They look like four features. They are really **four answers to one question**: how do you get an agent to work your team's way every time, without repeating yourself every time.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## The course's division-of-labor table
 
@@ -182,6 +170,18 @@ Doing it in reverse — starting with three hundred lines of instructions — is
 - Claude Code currently reads `CLAUDE.md` rather than `AGENTS.md`; that can change between releases, so check current docs
 - The 60k project count is agents.md's own figure (linked to a GitHub search), not a third-party census
 - This site's hook configuration is a 2026-08-16 snapshot
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

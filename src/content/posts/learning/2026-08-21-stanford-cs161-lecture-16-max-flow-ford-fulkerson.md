@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 16：Ford–Fulkerson、殘餘網路與最大流最小割"
+title: "Ford–Fulkerson、殘餘網路與最大流最小割｜Stanford CS161 第 16 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 本文使用公開的 [notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/lecture16-slides.pdf) 與[官方 component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture16.md)。我沒有觀看 Canvas 錄影，也沒有使用 component 連出的歷史論文與 concept checks。
 
 上一講的 cut 幫 greedy 選出安全邊；這一講的 directed `s-t` cut 則提供 upper bound。Ford–Fulkerson 一面建構 flow，一面更新 residual graph。當 residual graph 再也沒有 `s→t` path，演算法不只停下，還從 reachability 直接讀出一個同值 cut。答案和證明一起出現，是這講最漂亮的地方。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
-
-查核日期：2026-10-10。
 
 ## Flow 與 cut
 
@@ -130,6 +120,16 @@ Residual graph 同時承擔執行與證明：過程中列出 forward 增流及 r
 ## 延伸
 
 工程實作可在每輪保留 parent edge 以重建 path，並以 64-bit integer 防止容量總和溢位。測試應檢查 capacity、conservation、reported value，以及終止後 residual reachable cut 是否同值。若輸入允許 antiparallel edges，應用明確的 edge identity 或反向索引，不能直接套 notes 為簡化定義的公式。這些是實作建議，不是講義額外 theorem。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

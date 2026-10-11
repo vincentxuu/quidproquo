@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L01: Course Introduction — A Map of Deep Learning, Why Depth Works, and Your First Training Loop"
+title: "Course Introduction — A Map of Deep Learning, Why Depth Works, and Your First Training Loop | MIT 6.7960 Lecture 1"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source**: based on **MIT 6.7960 Fall 2024 OCW** (corresponds to OCW Lec 01). Videos, slides, and assignments are all open on [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is the course introduction, taught by Sara Beery according to the OCW video description.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=6FkRvTtUc-o
-title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 01 transcript (Sara Beery, 1:00:51): the video is a course introduction covering the rise and history of deep learning (AlexNet and GPUs at about 30%), course rules and assignment policy (about 15%–25%), neural-network / MLP basics and optimization (about 40%–80%), and tensor and PyTorch concepts (about 13%–15% and 90%); the transcript has no line-by-line training-loop demo, and the old claims that "Lecture 1 is the only one with no math, no architecture" and that the "instructor team takes turns" did not hold and were rewritten.
 
 ## 1. Why deep learning exploded after the 2010s
 
@@ -117,6 +98,25 @@ If you're just auditing:
 - **Engineer**: skim L03 → L07 → L08 → L14 → L20 → L21 → L24, for theory and modern LLM engineering practice.
 - **Researcher**: read L03 through L24 in order, and actually do PS1–PS3.
 - **Practitioner**: L14–L17 + L18–L19 give you deployment and transfer judgment.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=6FkRvTtUc-o
+title: MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 01. Introduction to Deep Learning](https://www.youtube.com/watch?v=6FkRvTtUc-o)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 01. Introduction to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec01_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 01 transcript (Sara Beery, 1:00:51): the video is a course introduction covering the rise and history of deep learning (AlexNet and GPUs at about 30%), course rules and assignment policy (about 15%–25%), neural-network / MLP basics and optimization (about 40%–80%), and tensor and PyTorch concepts (about 13%–15% and 90%); the transcript has no line-by-line training-loop demo, and the old claims that "Lecture 1 is the only one with no math, no architecture" and that the "instructor team takes turns" did not hold and were rewritten.
 
 ## Update Log
 

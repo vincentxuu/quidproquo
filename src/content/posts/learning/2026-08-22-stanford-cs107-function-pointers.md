@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 12：Function Pointer 讓 Generic C 注入比較規則"
+title: "Function Pointer 讓 Generic C 注入比較規則｜Stanford CS107 第 12 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 C 沒有 template，仍能避免為每種型別複製演算法。Lecture 12 把泛型拆成資料定址與比較規則：`void *` 加 width 解決前者，function pointer 讓 caller 注入後者。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -258,6 +250,14 @@ Callback 雖能讀 global state 或修改資料，但結果若反覆變動，sor
 `void *` 是未知型別 object 的地址，不是未知寬度元素的 iterator；走訪時要另帶 width。Byte algorithm 只搬 object representation，range 與 lifetime 由 caller 保證。`memcpy` 要求不重疊，`memmove` 才定義 overlap。Function pointer 則把 client policy 變成參數，但 signature 與 ordering 契約仍要吻合。
 
 共同工作留在 library，資料寬度與決策交還 caller；型別保存得愈少，契約就必須愈精確。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L4: U-Nets, DiTs, and Latent Space"
+title: "U-Nets, DiTs, and Latent Space | MIT 6.S184 Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,24 +38,6 @@ Switch to a 1024×1024 color image and two things break at once:
 2. **The space is huge.** The notes do the arithmetic: 1024×1024×3 is about 3 million dimensions, and video multiplies that by the number of frames.
 
 Lecture 4 solves these two problems separately. Notes §6 covers architectures first and latent space second; Slides 4 reverses the order (Section 6 latent spaces, Section 7 architectures). This post follows the notes.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=g0MB1CCBmsI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read most of the captions (about 81 minutes): the motivation for latent spaces, autoencoders/VAEs and the KL term, the latent diffusion recipe, time/class/text embeddings (sinusoidal), patchifying and the DiT (self-attention, cross-attention, adaLN), the Stable Diffusion 3 and Movie Gen case studies (dropping the prompt 20% of the time, LAION, about 50 steps), and the closing literature guide. It matches this post with two clarifications: the video does not cover U-Nets, so the U-Net section here follows the lecture notes only; and the literature guide (time conventions, discrete time, the forward process, stochastic interpolants) is covered briefly at the end of the video but not summarized here. Both points have been added to the text.
 
 ## Problem one: how the network takes three inputs
 
@@ -293,6 +275,24 @@ Slides 4 also lists LAION as SD3's dataset, which the notes don't mention. The n
 - The full VAE derivation (ELBO view): [CMU 11-785 L22: Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - Transformers and attention from scratch: [Stanford CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 L18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - Diffusion from the DDPM perspective (time runs the opposite way): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=g0MB1CCBmsI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 04 - Latent Spaces, Neural networks (2026)](https://www.youtube.com/watch?v=g0MB1CCBmsI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read most of the captions (about 81 minutes): the motivation for latent spaces, autoencoders/VAEs and the KL term, the latent diffusion recipe, time/class/text embeddings (sinusoidal), patchifying and the DiT (self-attention, cross-attention, adaLN), the Stable Diffusion 3 and Movie Gen case studies (dropping the prompt 20% of the time, LAION, about 50 steps), and the closing literature guide. It matches this post with two clarifications: the video does not cover U-Nets, so the U-Net section here follows the lecture notes only; and the literature guide (time conventions, discrete time, the forward process, stochastic interpolants) is covered briefly at the end of the video but not summarized here. Both points have been added to the text.
 
 ## Update Log
 

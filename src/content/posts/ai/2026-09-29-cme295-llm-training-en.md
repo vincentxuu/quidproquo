@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 4: The Bill for Training an LLM, and Where Pretraining, SFT, and LoRA Spend It"
+title: "The Bill for Training an LLM, and Where Pretraining, SFT, and LoRA Spend It | Stanford CME295 Lecture 4"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -44,26 +44,6 @@ glossary:
 This post covers Lecture 4, "LLM training," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 17, 2025). The main source is the [128-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture4.pdf); the [recording](https://www.youtube.com/watch?v=VlA_jt_3Qc4) is there to watch alongside. Everything below is based only on the text and figures on the slides, not on anything said out loud in class.
 
 The first three lectures answered "what does an LLM look like?" Lecture 4 asks a different question: how does that machine go from random weights to an assistant that answers questions? The slides give a two-part answer. First **pretraining**, which teaches the model the patterns of language and code. Then **finetuning**, which teaches it to do what it's told. The two stages differ in cost by several orders of magnitude, and most of the lecture is about where the money and memory go and how to save them.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 4, LLM Training (page date 2025-10-17, length 1:47:27). Its chapters are pretraining, FLOPs, scaling laws and Chinchilla, ZeRO, model parallelism, Flash Attention, quantization, mixed precision, SFT, instruction tuning, LoRA and QLoRA, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Start with a counterexample: a pretrained model only continues text
 
@@ -301,6 +281,26 @@ These questions are adapted from Part IV, "LLM training," of the [2025 midterm](
 - Why GPUs are bottlenecked on data movement: [CS336 Lecture 5](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - ZeRO, FSDP, and 3D parallelism: [CS336 Lecture 8](/posts/ai/2026-08-22-cs336-parallelism-strategies-en)
 - RLHF after SFT: [CS336 Lecture 15](/posts/ai/2026-08-22-cs336-sft-rlhf-en), and [Lecture 5](/posts/ai/2026-09-29-cme295-preference-tuning-en) of this series
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=VlA_jt_3Qc4
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Training](https://www.youtube.com/watch?v=VlA_jt_3Qc4)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 4, LLM Training (page date 2025-10-17, length 1:47:27). Its chapters are pretraining, FLOPs, scaling laws and Chinchilla, ZeRO, model parallelism, Flash Attention, quantization, mixed precision, SFT, instruction tuning, LoRA and QLoRA, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

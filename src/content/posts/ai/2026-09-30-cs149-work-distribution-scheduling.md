@@ -1,5 +1,5 @@
 ---
-title: "CS149 L5 工作分配與排程：從 work queue 到 Cilk 的 work stealing"
+title: "工作分配與排程：從 work queue 到 Cilk 的 work stealing｜Stanford CS149 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,24 +34,6 @@ glossary:
 用到的官方材料是 [L5 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt1/05_progperf1.pdf)（63 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 5 錄影](https://www.youtube.com/watch?v=mmO2Ri_dJkk)當替代。本文內容以 2025 投影片為準，影片只列為聽講補充。這一講的存取等級是 **A3**：投影片完整公開，缺的是當期錄影。
 
 投影片「Today」列了三項：收尾 L4 的 grid solver、基本的負載平衡技巧、深入 Cilk 的排程器。本文只處理後兩項。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
-title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling
-```
-
-原始影片：[Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 5 - Performance Optimization I: Work Distribution and Scheduling》（1:17:39）。字幕涵蓋 static 與 dynamic assignment、task granularity、work queue、Cilk 的 spawn／sync（自動字幕寫成 silk）、child stealing 與 continuation stealing、greedy join，主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 三個互相打架的目標
 
@@ -222,6 +204,24 @@ Cilk 用的是 **greedy join scheduling**：
 延伸閱讀：OS 層級的 CPU 排程不在本講範圍，可以讀 [CS111 Lecture 8：CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling)。
 
 系列導覽：上一篇 [L4 平行化的思考流程](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)｜下一篇 [L6 Locality、通訊與 arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
+title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling
+```
+
+原始影片：[Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 5 - Performance Optimization I: Work Distribution and Scheduling》（1:17:39）。字幕涵蓋 static 與 dynamic assignment、task granularity、work queue、Cilk 的 spawn／sync（自動字幕寫成 silk）、child stealing 與 continuation stealing、greedy join，主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

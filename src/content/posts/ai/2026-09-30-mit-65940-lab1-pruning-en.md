@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lab 1: Nine Questions on Fine-Grained and Channel Pruning"
+title: "Nine Questions on Fine-Grained and Channel Pruning | MIT 6.5940 Lab 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,15 +32,6 @@ glossary:
 [Lecture 3](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en) and [Lecture 4](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en) turn pruning into a pipeline: pick a granularity, pick a criterion, set per-layer ratios, fine-tune, and check whether the hardware can use the result. Lab 1 walks the whole pipeline on a small model, and it deliberately compares the two extremes. One prunes as finely as possible (single weights); the other prunes as coarsely as possible (whole channels).
 
 The notebook opens with five goals. The last two matter most: get a basic understanding of the performance gains from pruning (such as speedup), and understand the differences and trade-offs between the two approaches.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
 
 ## When it runs and what you need
 
@@ -130,7 +121,26 @@ The [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) rele
 - The two lectures this lab uses: [Lecture 3](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en), [Lecture 4](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
 - PyTorch and CNN basics: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en), [Reading MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
 
+## Understand a mask with four weights first
+
+This is an invented example, not a Lab 1 solution. Weights are `[-0.1, 0.8, -0.3, 0.05]`. Zero the two smallest magnitudes. Absolute values are `[0.1, 0.8, 0.3, 0.05]`, so the mask is `[0, 1, 1, 0]`, giving `[0, 0.8, -0.3, 0]`.
+
+Two of four positions are now zero, giving sparsity `2/4=50%`. The tensor still has four positions: this does not automatically shrink a dense matrix’s shape, so more zeros alone do not establish half the latency.
+
+**Check:** What if only the smallest magnitude is zeroed? The result is `[-0.1, 0.8, -0.3, 0]`, with sparsity `25%`. There are no threshold ties here. Consult assignment requirements for equal magnitudes; a strict greater-than threshold alone does not guarantee an exact retained count.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab / Google Drive links).
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
 ## Update Log
+
+- 2026-10-11: Added an invented conceptual example and comprehension check while preserving the original materials and video-verification scope.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official public page: it still lists lecture recordings only, with none dedicated to this article, so the status is now “Checked: no corresponding recording link listed on the public official page.”

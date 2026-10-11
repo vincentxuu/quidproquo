@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 11: GPT-2 vs. T5 for Chinese Summarization — Left Padding, −100, and ROUGE"
+title: "NTHU NLP Guide 11: GPT-2 vs. T5 for Chinese Summarization — Left Padding, −100, and ROUGE | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,30 +35,6 @@ The previous part covered decoding strategies and ROUGE. This one puts both into
 The [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists this deck together with the PEFT deck in the W9 row, and doesn't say which of the two recordings is the tutorial. How I checked: at minutes 10, 40, and 75, Week 9 Tue. shows pages 9, 26, and 50 of this deck, so that one is the tutorial. In the captions of [Week 9 Thu.](https://www.youtube.com/live/zWMHxXc0QvA), the professor opens by saying "these slides are the PEFT material originally scheduled for week nine," which is the subject of [part 13](/posts/ai/2026-09-30-nthu-nlp-peft-en). The row's Topics column ("BERT and its Family") is a syllabus template, so I don't cite it.
 
 Like the [HF BERT tutorial](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en), this tutorial is the 2024 version. It has no assignment attached; treat it as a reference implementation.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=zgjO_t5eu_E
-title: Week 9 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=zWMHxXc0QvA
-title: Week 9 Thu.
-```
-
-Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read; the professor opens by saying these are the PEFT slides originally scheduled for week nine, and the content is PEFT rather than this post's GPT-2 / T5 tutorial, as the post states. The Week 9 Tue. YouTube page (the tutorial recording this post relies on) has no captions; "it is the tutorial" rests on frame captures only, and the post's description of the tutorial comes from the slides and notebooks, so it could not be checked against a transcript.
 
 ## One task, two architectures
 
@@ -175,6 +151,30 @@ Both notebooks pin the same versions: `torch==2.3.1` (cu121), `transformers==4.3
 - The Fall 2026 counterpart isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study).
 
 **Series navigation**: previous, [Decoding strategies and NLG evaluation](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en) | next, [GPT-3, InstructGPT, and RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read; the professor opens by saying these are the PEFT slides originally scheduled for week nine, and the content is PEFT rather than this post's GPT-2 / T5 tutorial, as the post states. The Week 9 Tue. YouTube page (the tutorial recording this post relies on) has no captions; "it is the tutorial" rests on frame captures only, and the post's description of the tutorial comes from the slides and notebooks, so it could not be checked against a transcript.
 
 ## Update Log
 

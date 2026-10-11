@@ -1,5 +1,5 @@
 ---
-title: "CS231N L13：生成模型（一）——自迴歸、VAE 與 GAN 各自在最佳化什麼"
+title: "生成模型（一）——自迴歸、VAE 與 GAN 各自在最佳化什麼｜Stanford CS231N 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 [CS231N](https://cs231n.stanford.edu/) 2026 年 5 月 14 日那一講是生成模型的上半場。[課表](https://cs231n.stanford.edu/schedule.html)上列了三個主題：Variational Autoencoders、Generative Adversarial Network、Autoregressive Models，建議閱讀是一篇部落格 [ELBO — What & Why](https://yunfanj.com/blog/2021/01/11/ELBO.html)。官方材料是 116 頁的 [lecture_13.pdf](https://cs231n.stanford.edu/slides/2026/lecture_13.pdf)；對應的公開錄影是 [Spring 2025 Lecture 13](https://www.youtube.com/watch?v=zbHXQRUNlH0)。
 
 有一件事要先講清楚：**2026 的 L13 投影片實際只講了自迴歸和 VAE。** 分類圖（第 46–47 頁）把自迴歸與 VAE 標成「Today」、GAN 與 diffusion 標成「Next Time」，最後一頁寫著「Next Time: Generative Adversarial Networks, Diffusion Models」。GAN 的內容在 [lecture_14.pdf](https://cs231n.stanford.edu/slides/2026/lecture_14.pdf) 第 8–35 頁。2025 年的投影片也是同樣的切法。本文照課表和系列規劃把 GAN 一起收進來，並標明它在投影片裡的實際位置；下一篇只從 diffusion 開始。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：第一支影片是 Spring 2025 第 13 講（長度 1:12:30，講者依影片說明欄為 Justin Johnson），字幕有生成式與判別式模型、density 與最大概似、chain rule、VAE 與 ELBO，與本文的前半（機制一自迴歸、機制二 VAE）相符；字幕幾乎沒有 GAN（只出現 2 次，GAN 在第 14 講）。GAN 段落在第 14 講（本篇只以文字連結列出、未嵌入），該影片的字幕已在 diffusion 篇核對，有 GAN、discriminator、StyleGAN。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=zbHXQRUNlH0
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
-```
-
-原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)
-其他相關影片（僅文字連結）：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 場景：分類器沒辦法說「這張圖不合理」
 
@@ -229,6 +211,24 @@ $$D^*_G(x) = \frac{p_{data}(x)}{p_{data}(x) + p_G(x)}$$
 ## 存取限制
 
 依[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，這門課是 **A3**：2026 投影片、作業與課程筆記公開，另有 2025 完整錄影。本講的缺口是 2026 錄影只放在 Canvas、限修課生觀看；期中考（5 月 12 日，本講前兩天）題目不公開。
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：第一支影片是 Spring 2025 第 13 講（長度 1:12:30，講者依影片說明欄為 Justin Johnson），字幕有生成式與判別式模型、density 與最大概似、chain rule、VAE 與 ELBO，與本文的前半（機制一自迴歸、機制二 VAE）相符；字幕幾乎沒有 GAN（只出現 2 次，GAN 在第 14 講）。GAN 段落在第 14 講（本篇只以文字連結列出、未嵌入），該影片的字幕已在 diffusion 篇核對，有 GAN、discriminator、StyleGAN。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=zbHXQRUNlH0
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1
+```
+
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 13: Generative Models 1](https://www.youtube.com/watch?v=zbHXQRUNlH0)
+其他相關影片（僅文字連結）：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 14: Generative Models 2](https://www.youtube.com/watch?v=Edr4uZFh4EE)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

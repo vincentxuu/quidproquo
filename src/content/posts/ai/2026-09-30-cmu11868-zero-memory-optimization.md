@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L18：ZeRO 怎麼把資料平行的記憶體切掉——optimizer state、梯度、參數各切一刀"
+title: "ZeRO 怎麼把資料平行的記憶體切掉——optimizer state、梯度、參數各切一刀｜CMU 11-868 第 18 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,16 +33,6 @@ glossary:
 > **本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 的 2026 春季版。** 這是 [CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)系列的第 13 篇。[上一篇](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)用切層、切矩陣、切專家處理「模型放不下」；本篇換一個角度：**不切模型，只把資料平行裡重複的東西去掉。**
 
 這一講是 [Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus) 第 11 週 3/23 的「Memory Optimization in Distributed Training」，reading 只有一篇：[ZeRO（Rajbhandari et al., SC 2020）](https://arxiv.org/abs/1910.02054)。[L18 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-18-zero-20eb6c8d8c1e7092e1b922abf03d8cdd.pdf)有 76 頁，其中第 18 到 63 頁是逐格動畫，一格只多畫一個步驟。官方課表未列本課公開錄影連結，以下根據投影片與論文摘要，頁碼指 PDF 頁碼。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 場景：資料平行省了通訊，卻浪費了記憶體
 
@@ -188,6 +178,16 @@ N = 8B、M = 16、K = 4：
 - 系列上一篇：[L16–L17 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 - 系列下一篇：[HW5：資料平行與管線平行](/posts/ai/2026-09-30-cmu11868-hw5-distributed-training)
 - 站內：[CS336 資源計算](/posts/ai/2026-08-22-cs336-resource-accounting)（每個參數要幾 bytes 的另一種算法）、[CS336 平行化機制](/posts/ai/2026-08-22-cs336-parallelism-mechanics)、[CS336 平行化策略](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

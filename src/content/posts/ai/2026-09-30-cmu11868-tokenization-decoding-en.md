@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L08–L09: Choosing a Vocabulary, Emitting Tokens, and Why Speculative Decoding Is Fast"
+title: "Choosing a Vocabulary, Emitting Tokens, and Why Speculative Decoding Is Fast | CMU 11-868 Lectures 8–9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,16 +34,6 @@ glossary:
 The [previous post](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en) covered the big block in the middle of the model. This one covers the two ends: how text is cut into tokens on the way in, and how tokens are emitted one by one on the way out.
 
 Neither sounds like a "systems" topic, but both are about cost. Vocabulary size determines how big the embedding table and output layer are, and how many tokens the same sentence takes. The decoding strategy determines how many forward passes it takes to generate a piece of text. The second half of L09 is more direct still: speculative decoding is an inference acceleration technique.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## L08: tokenization is a trade-off
 
@@ -160,6 +150,16 @@ The translation pipeline in [HW3](/posts/ai/2026-09-30-cmu11868-hw3-transformer-
 2. Open a tokenizer demo (slide 35 lists two), paste in a Chinese paragraph and an English one, and compare token counts
 3. Run the decoding notebook and compare greedy and beam search outputs
 4. Run the speculative decoding notebook, change N, and watch how the acceptance rate and speed move
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

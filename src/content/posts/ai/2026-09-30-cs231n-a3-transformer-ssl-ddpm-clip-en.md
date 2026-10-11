@@ -1,5 +1,5 @@
 ---
-title: "CS231N Assignment 3: Transformer Captioning, Self-Supervised Learning, DDPM, CLIP and DINO"
+title: "Transformer Captioning, Self-Supervised Learning, DDPM, CLIP and DINO | Stanford CS231N Assignment 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -47,15 +47,6 @@ The four questions span the course's third unit:
 | Q4 CLIP and DINO | `CLIP_DINO.ipynb` | [L16 Vision and Language](/posts/ai/2026-09-30-cs231n-vision-language-en) (CLIP), L12 (DINO) |
 
 This post covers only what the official page and the starter code show: questions, files and targets. **It gives no solutions.**
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [CS231N Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The basics
 
@@ -174,6 +165,15 @@ One thing to do tonight: open `Transformer_Captioning.ipynb`, read only the four
 - Attention and Transformers from the language-model side: [Reading Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en), [Reading Stanford CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
 - The full math of diffusion and flow matching: [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 - Another course's take on generative models: [CS230 adversarial examples and generative models](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Spring 2026 schedule lists no recording links, no public Spring 2026 playlist was found, and the Spring 2025 playlist has no single lecture matching this article’s scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [CS231N Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

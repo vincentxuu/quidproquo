@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 8: Advanced Policy Gradients — Performance Bounds, KL, PPO, and GAE"
+title: "Advanced Policy Gradients — Performance Bounds, KL, PPO, and GAE | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,31 +45,6 @@ Official materials used:
 Access level is **A3**. The imitation learning half of Lecture 7 is covered in [Part 10](/posts/ai/2026-09-30-cs234-imitation-learning-irl-en).
 
 This is the series' second mathematical peak. The main text sticks to intuition and results; proofs and definitions are in collapsible blocks.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
-title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: Lecture 7: Policy Search 3 (Spring 2024, YouTube)
-```
-
-Original videos: [Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)、[Lecture 7: Policy Search 3 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=4ngb0IZTg8I)
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: in Spring 2024 Lecture 6, "Policy Search 2", the later part (after about 53%) covers monotonic improvement, the performance difference lemma, KL/trust regions and the PPO clip, with GAE only mentioned at the very end; the first half of Lecture 7, "Policy Search 3" (before about 55%), covers GAE, monotonic improvement and PPO before turning to imitation learning. Both match this post; "YouTube chapters" became "transcript" and the minute mark is now approximate.
 
 ## The scenario: one step too far and performance collapses
 
@@ -255,6 +230,31 @@ The full assignment walkthrough is in the [A2 post](/posts/ai/2026-09-30-cs234-a
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 
 **Series navigation**: previous [Part 7: policy gradients — REINFORCE, baselines, actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en) | next [Part 9: A2 — implementing REINFORCE, baselines, and PPO](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: Lecture 7: Policy Search 3 (Spring 2024, YouTube)
+```
+
+Original videos: [Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)、[Lecture 7: Policy Search 3 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=4ngb0IZTg8I)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: in Spring 2024 Lecture 6, "Policy Search 2", the later part (after about 53%) covers monotonic improvement, the performance difference lemma, KL/trust regions and the PPO clip, with GAE only mentioned at the very end; the first half of Lecture 7, "Policy Search 3" (before about 55%), covers GAE, monotonic improvement and PPO before turning to imitation learning. Both match this post; "YouTube chapters" became "transcript" and the minute mark is now approximate.
 
 ## Update Log
 

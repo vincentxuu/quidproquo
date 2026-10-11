@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊，加上期末專題 Jailbreaking Olympics"
+title: "偏見、安全、幻覺與對齊，加上期末專題 Jailbreaking Olympics｜台大陳縕儂 深度學習之應用 2025 Fall 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -48,30 +48,6 @@ glossary:
 | Toxicity | Safety | 14–22 | 10.2 |
 | Hallucination | Factuality | 23–28 | 10.3 |
 | （調整模型往特定目標） | Alignment | 29–40 | 無 |
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=3BAFtBS27UI
-title: ADL 10.1: Fairness for Bias Mitigation（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=V2Pot_Uv31E
-title: ADL 10.2: Model Safety（YouTube）
-```
-
-原始影片：[ADL 10.1: Fairness for Bias Mitigation（YouTube）](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety（YouTube）](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation（YouTube）](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction（YouTube）](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge（YouTube）](https://www.youtube.com/watch?v=pZxBNlSqy6I)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 10.1（24:53）與 10.2（23:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章的內容依講義頁碼，沒有把任何說法歸給影片口述。兩支的上傳日是 2025-11-06、說明欄寫 2025/11/03，並註明投影片取材自 Stanford 與 CMU 課程。
 
 ## Bias → Fairness
 
@@ -190,6 +166,30 @@ title: ADL 10.2: Model Safety（YouTube）
 
 上一篇：[NLG：解碼、控制與評估](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
 下一篇：[Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=3BAFtBS27UI
+title: ADL 10.1: Fairness for Bias Mitigation（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=V2Pot_Uv31E
+title: ADL 10.2: Model Safety（YouTube）
+```
+
+原始影片：[ADL 10.1: Fairness for Bias Mitigation（YouTube）](https://www.youtube.com/watch?v=3BAFtBS27UI)、[ADL 10.2: Model Safety（YouTube）](https://www.youtube.com/watch?v=V2Pot_Uv31E)、[ADL 10.3: Factuality for Hallucination Mitigation（YouTube）](https://www.youtube.com/watch?v=v9Vqk_mfDyA)、[ADL 2025 Final Project Introduction（YouTube）](https://www.youtube.com/watch?v=UBe9eGPwRyg)、[ADL 2025 Final Project Grand Challenge（YouTube）](https://www.youtube.com/watch?v=pZxBNlSqy6I)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 10.1（24:53）與 10.2（23:46）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章的內容依講義頁碼，沒有把任何說法歸給影片口述。兩支的上傳日是 2025-11-06、說明欄寫 2025/11/03，並註明投影片取材自 Stanford 與 CMU 課程。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 18 | Information Theory: Surprise, entropy, information gain, and KL"
+title: "Information Theory: Surprise, entropy, information gain, and KL | Stanford CS109 Lecture 18"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 This is article 19 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 18: Information Theory** on July 22 with Chris Gregg. It follows the current [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture18-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture18-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture18-LLMPrompts.pdf), and the reader's [information theory](https://probabilitycoders.stanford.edu/spr26/information_theory) chapter. Current slides are unavailable and Canvas video is gated, preserving the L2 boundary.
 
 The artifacts intentionally have different agendas. The two-page worksheet/key contain formal P1–P5, with no P6 or challenge. The three-page guide has six concepts and additionally covers entropy code, KL divergence, and distribution comparisons. This article covers each source without inventing worksheet numbers.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
 
 ## P1: Review a recursive expectation
 
@@ -169,6 +156,19 @@ The six concepts are surprise, entropy, information gain, entropy code, KL diver
 - P5 is a pset5 item omitted from the public answer key and is computed only from the prompt.
 - Current slides are unavailable and video is gated; this L2 guide does not reconstruct missing lecture content.
 - The limited artifact scope qualifies for the short-material exception; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access. None of the lectures in the 2022 Stanford Online public playlist matches this lecture's title, so no public player is provided and recordings from other offerings are not passed off as this one.
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

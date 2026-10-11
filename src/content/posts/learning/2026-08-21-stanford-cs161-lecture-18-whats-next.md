@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 18：從演算法工具箱走向 LP、編碼與 ML"
+title: "從演算法工具箱走向 LP、編碼與 ML｜Stanford CS161 第 18 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -20,16 +20,6 @@ draft: false
 這是 [Stanford CS161 導讀](/series/stanford-cs161) 第十九篇，對應 **Winter 2026 Lecture 18**，由 Ellen Vitercik 於 2026 年 3 月 11 日主講；學期與講次範圍以 [Winter 2026 官方課程首頁](https://stanford-cs161.github.io/winter2026/)為準。Component 題名是 *What's next?*，slides 封面是 *What we’ve done and what’s to come*。
 
 先說清楚材料邊界：官方 component **只提供 52 頁 slides，沒有 lecture notes**。本文只使用[官方 slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture18.pdf)與[component metadata](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture18.md)，沒有觀看 Canvas 錄影，也沒有拿其他學期 notes 補洞。下列公式、例子與限制都以 slides 為界。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
-
-查核日期：2026-10-10。
 
 ## 十七講濃縮成十三張回顧
 
@@ -118,6 +108,16 @@ Slides 提到 Master Method、randomized QuickSort、Bellman–Ford、Floyd–Wa
 後續學習可以沿三條線走：最佳化課程補齊 LP algorithms 與 duality theorem；coding theory 補 finite fields、distance 與 decoding bounds；learning-augmented algorithms 研究預測錯誤時的 robust guarantees。這些是由 slides 指向的路線，不是本講已教授內容。
 
 若把整個系列當複習索引，最好的使用方式是先從這篇選工具，再回對應 lecture 查完整 proof。Lecture 18 的價值是地圖，而不是把每條路壓成一頁捷徑。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-18-what-s-next)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

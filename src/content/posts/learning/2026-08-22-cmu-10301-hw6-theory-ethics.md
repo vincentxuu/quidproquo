@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW6：Learning Theory、MLE／MAP 與公平指標"
+title: "Learning Theory、MLE／MAP 與公平指標｜CMU 10-301 作業 6"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, learning-theory, ai-ethics]
@@ -21,6 +21,18 @@ Learning theory 問從 sample 推到 population 的條件；MLE/MAP 問估計使
 ## 第一個檢查動作與完成判準
 
 第一個動作是打開 [ZIP 裡的 `fairness_dataset.csv`](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip)，先確認欄位、群體與 label/prediction 定義，再計算任何 metric。完成判準是：每個 bound／estimator 都列出假設；fairness 題能由 CSV 重算；社會影響題明確分開資料可支持的數學結果與價值判斷。官方沒有答案，不能把自算結果標為官方驗證。
+
+## 先辨識公平指標的分母
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編兩群資料：A 群有十個實際正例，其中八個被預測為正；B 群有五個實際正例，其中四個被預測為正。兩群 true-positive rate 都是 0.8，分母是實際正例數，不能拿全部群體人數代替。
+
+**檢查與答案：** 這能否證明所有公平條件都滿足？答案不能：沒有實際負例、錯誤預測與群體總數，就不能計算 false-positive rate 或選取率；相同 TPR 只是這個指標相同。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW6 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip)

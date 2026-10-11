@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L12 Transformer and LLM: The Architecture Seen Through an Efficiency Lens"
+title: "Transformer and LLM: The Architecture Seen Through an Efficiency Lens | MIT 6.5940 Lecture 12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ Up to Lecture 11, nearly every example in 6.5940 is a CNN: pruning VGG, quantizi
 This post takes only the **efficiency view**: which design choices cost memory, which cost compute, and what each later variant saves. For the full theory, the site has better starting points: [CS224N Lecture 5: from recurrence to Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CME295 Lecture 1](/posts/ai/2026-09-29-cme295-transformer-en) and [Lecture 2](/posts/ai/2026-09-29-cme295-transformer-tricks-en), and [CS336 on architectures and hyperparameters](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en).
 
 The Lecture Plan on page 6 has four parts: Transformer basics, design variants, LLMs, and advanced topics (multimodal LLMs).
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=EV6xb4xY708
-title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening (the ChatGPT-generated syllabus) and the ending (Llama 3, sliding-window attention, Chinchilla and the inference-cost trade-off) and spot-checked the middle: attention and multi-head attention, MQA/GQA, positional encodings such as RoPE, the KV cache (about 160GB for Llama-2-70B at batch 16), layer norm, encoder/decoder and tokenization. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Transformer basics: where the cost hides
 
@@ -182,6 +164,24 @@ Page 88 explains the capacity factor C with a small example: 6 tokens, 3 experts
 - Another take on inference cost: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - KV cache and serving systems: [CMU 11-868 serving at scale: prefill/decode disaggregation and the KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
 - MoE and model parallelism: [CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=EV6xb4xY708
+title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening (the ChatGPT-generated syllabus) and the ending (Llama 3, sliding-window attention, Chinchilla and the inference-cost trade-off) and spot-checked the middle: attention and multi-head attention, MQA/GQA, positional encodings such as RoPE, the KV cache (about 160GB for Llama-2-70B at batch 16), layer norm, encoder/decoder and tokenization. Topics and lecture number match this post. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-868 LLM Systems: Overview and Self-Study Paths — 28 Slide Decks and 7 Assignments Are Public, but No Public Video Links Listed and You Bring Your Own GPU"
+title: "LLM Systems: A Learning Path through Training, Inference, and Deployment | CMU 11-868 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,16 +35,6 @@ CMU 11-868 is a graduate course in the [Language Technologies Institute](https:/
 The homework centers on [MiniTorch](https://llmsystem.github.io/llmsystemhomework). The [assignment site overview](https://llmsystem.github.io/llmsystemhomework) says it began as a teaching framework by [Sasha Rush](https://rush-nlp.com/), and the course will "extend the original framework to support real cuda kernels." You write CUDA kernels first. Then you build autodiff, a Transformer, and fused kernels inside your own framework. Only near the end do you switch to industry frameworks like DeepSpeed and SGLang.
 
 The FAQ draws a clear line between this course and CMU's other LLM course, 11-667. 11-667 covers models, learning algorithms, and applications. 11-868 covers "building systems for LLM, including training, serving, and maintaining." The FAQ also says plainly that students who don't want to write low-level systems code should take 11-667.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The hard facts
 
@@ -220,6 +210,16 @@ You won't have teammates or a grader, but the project spec makes a good practice
 - [CME295 Lecture 5: LLM Systems](/posts/ai/2026-09-29-cme295-llm-systems-en): one lecture covering KV caches, distributed training, and inference speedups.
 - [Reading CMU 11-785 Deep Learning](/posts/ai/2026-08-22-cmu-11785-course-overview-en): background on autodiff and Transformers.
 - CMU 10-414/714 Deep Learning Systems ([dlsyscourse.org](https://dlsyscourse.org/)): another build-your-own-framework course. The site has no series for it yet; see the [CMU AI/ML course map](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en) for where it fits.
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

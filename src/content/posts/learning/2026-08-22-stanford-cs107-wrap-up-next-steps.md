@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 26：Wrap-up，六個系統問題與下一站"
+title: "Wrap-up，六個系統問題與下一站｜Stanford CS107 第 26 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,25 +20,6 @@ draft: false
 Lecture 26 不再加入一套新機制，而是回頭問：十週之後，我們現在能解釋哪些一開始只會使用的東西？從 `int` 的 bits、C string 的終止 byte、pointer 與 lifetime，到 generic memory operation、assembly execution 與 heap allocator，CS107 把「程式能跑」逐步改造成「能說明它如何表示、在哪裡存在、由誰維護契約」。
 
 本講公開投影片是 wrap-up 骨架，課堂 Q&A 沒有公開 transcript。本文因此只整理投影片明列的六個問題、程式成長對照、allocator 綜合例、learning goals、Sebastian C 與後續課程地圖；不替現場問答編造內容，也不把課程清單擴寫成選課保證。
-
-## 課程影片來源
-
-下列嵌入的是本文提到的 Sebastian C 相關影片（YouTube 頁面實際標題為《Program in C — The Memory Unsafety Anthem》，上傳者 fasterthanlime），它不是 Winter 2026 Lecture 26 的課堂錄影；原講次錄影未確認。本文先前把它標成已附影片，已更正。
-
-```youtube
-url: https://www.youtube.com/watch?v=G7LJC9vJluU
-title: Program in C — The Memory Unsafety Anthem
-```
-
-原始影片：[Program in C — The Memory Unsafety Anthem](https://www.youtube.com/watch?v=G7LJC9vJluU)
-
-2026-10-10 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-10-10。
-
-影片內容未核對：這支是歌曲式影片，我嘗試取得字幕或歌詞但沒有取到，因此只確認了頁面標題與上傳者，沒有對歌詞或內容做任何核對，本文也不對影片內容下結論。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -109,6 +90,25 @@ Exposure 則是 computer architecture、compiler 與 assembler basics。課程�
 再加一張責任清單：程式處理誰的資料、失敗會傷害誰、測試是否取得授權、logs 是否保存敏感資訊。若分析同時涵蓋 correctness、performance 與 ethics，就對應了投影片列出的 competency，而不是把倫理留在與 code 無關的一頁。
 
 Lecture 26 的結論不是「所有 systems topics 都學完了」。更準確的說法是：現在有六個穩定問題，可以帶進下一門課與下一個 bug。資料如何表示？文字契約在哪裡？記憶體何時有效？泛型拿掉哪些檢查？source 如何成為 execution？allocation 由哪些 invariants 支撐？能持續提出並驗證這些問題，就是 CS107 真正留下的工具。
+
+## 課程影片來源
+
+下列嵌入的是本文提到的 Sebastian C 相關影片（YouTube 頁面實際標題為《Program in C — The Memory Unsafety Anthem》，上傳者 fasterthanlime），它不是 Winter 2026 Lecture 26 的課堂錄影；原講次錄影未確認。本文先前把它標成已附影片，已更正。
+
+```youtube
+url: https://www.youtube.com/watch?v=G7LJC9vJluU
+title: Program in C — The Memory Unsafety Anthem
+```
+
+原始影片：[Program in C — The Memory Unsafety Anthem](https://www.youtube.com/watch?v=G7LJC9vJluU)
+
+2026-10-10 即時重查：官方 Winter 2026 課表說明錄影放在 Canvas／Panopto 且僅限修課學生，開啟 Canvas 入口會被導向 Stanford 登入頁；同學期未找到公開的 YouTube、Stanford Online 或 OCW 課堂錄影。本文也無法從公開投影片的文字確認該影片連結，僅沿用先前的說明。查核日期：2026-10-10。
+
+影片內容未核對：這支是歌曲式影片，我嘗試取得字幕或歌詞但沒有取到，因此只確認了頁面標題與上傳者，沒有對歌詞或內容做任何核對，本文也不對影片內容下結論。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 17: From Page Faults to Clock—Who Leaves When Memory Is Full?"
+title: "From Page Faults to Clock—Who Leaves When Memory Is Full? | Stanford CS111 Lecture 17"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 18 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 17**. Mendel Rosenblum taught it on 2026-05-06 under the official title [Demand Paging, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/17/Lecture17.pdf). The official Lecture 16 and 17 PDFs are byte-identical (both SHA-256 `65091d9719674258175c2dcf29e1ad82bca8ff8a82d3b66d73b9e40ad3287d9e`), not distinguishable decks. This article therefore emphasizes replacement policy while Lecture 16 emphasizes fault/fetching mechanism. Inaccessible Canvas/Panopto video prevents recovering the actual two-day spoken boundary.
 
 Lecture 16 establishes demand paging's promise: a program can execute without keeping all code and data in physical memory at once. Lecture 17 asks what follows. When should a page enter memory, and which resident page should leave once RAM is full? The former is **page fetching policy**; the latter is **page replacement policy**. Page faults, the present bit, and restartable instructions are mechanisms. FIFO, LRU, Clock, and global replacement are policies.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Complete agenda
 
@@ -153,11 +145,17 @@ Lecture 17 therefore marks demand paging's boundary. Mechanism can trap, page in
 
 For a fault, separate mechanism (valid address, source, restart), fetching (target only or prefetch), and replacement (free frame, global/local pool, reference/dirty cost). For a reference string, fix frame count, draw resident state, update policy on every hit/fault, and count faults. For a real slowdown, ask whether the working set fits: if the Clock hand races, fault I/O saturates, and useful work collapses, a victim-order tweak may not cure thrashing.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Rewritten against the complete 19-page official deck, restoring fetching/replacement, Clock, global policy, and thrashing.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Rewritten against the complete 19-page official deck, restoring fetching/replacement, Clock, global policy, and thrashing.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

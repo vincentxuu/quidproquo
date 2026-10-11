@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L5：Planning——agent 什麼時候該先想清楚，什麼時候該邊做邊改"
+title: "Planning——agent 什麼時候該先想清楚，什麼時候該邊做邊改｜CMU 11-768 第 5 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -32,25 +32,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 第 5 講（2026-09-08，Daniel Fried 主講；[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)）談 planning 與任務拆解，結尾順帶進入多 agent。講者開場就說這個主題的核心是一個取捨：agent 越死守一份計畫，人越容易理解和控制它；agent 越有彈性，越能處理途中冒出來的問題。整講都在這條軸上找位置。
 
 投影片在[官網](https://www.cmu-agents.com/slides/lecture-05-planning.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=S8v-dR4s29M&list=PLSN0qpDfUvTM&index=5)。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 5 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=S8v-dR4s29M
-title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
-```
-
-原始影片：[CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 75 分鐘，主講 Fried）；核對 GPU 採購開場、Plan Mode 舉手與學生理由、Mike Tyson 引言、CoT／Least-to-Most／Decomposed Prompting、STRIPS 與程式當計畫、workflow 與 adaptive 的取捨與部落格已過時的說明、planner/executor（grounding 7B、Plan-and-Act）、SayCan、ALFRED 重新規劃、Thinking vs Doing、overthinking、Vending-Bench 與 self-conditioning（含 Qwen3 32B 掉最多）、RAO、plan-then-execute 防注入、Cursor Plan Mode 示範、MACU 的 DAG／重新規劃預算實驗（固定圖約 25%）；皆有依據。修正六處：影片沒有的內容改標為投影片（「burn that bridge」玩笑、Fred Brooks 引言、「這只是計畫寫得差嗎」、Neubig 投影片），管理者模型的 Sonnet 說法改為字幕可辨的「最近的 Claude 系列模型」，Odysseys 資料來源改為 Google 瀏覽紀錄。TravelPlanner、各論文與 MACU 表格的精確數字屬論文與投影片，字幕未涵蓋；「9 月 8 日」上課日期字幕未提。
 
 ## 開場案例：幫實驗室買 GPU 工作站
 
@@ -352,6 +333,25 @@ Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/
 - [Stanford CS329Z 導讀 Week 5：該單幹還是開會——多智慧體與優化三軸](/posts/ai/2026-09-13-stanford-cs329z-week5-multiagent-optimization)
 - [AI-Native SDLC Playbook L4：Plan Mode 先寫計畫再寫程式](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode)
 - [Multi-Agent 的錯誤傳播與恢復](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 5 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=S8v-dR4s29M
+title: CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination
+```
+
+原始影片：[CMU AI Agents 2026: 5. Planning, Task Decomposition, and Multi-Agent Coordination](https://www.youtube.com/watch?v=S8v-dR4s29M)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 75 分鐘，主講 Fried）；核對 GPU 採購開場、Plan Mode 舉手與學生理由、Mike Tyson 引言、CoT／Least-to-Most／Decomposed Prompting、STRIPS 與程式當計畫、workflow 與 adaptive 的取捨與部落格已過時的說明、planner/executor（grounding 7B、Plan-and-Act）、SayCan、ALFRED 重新規劃、Thinking vs Doing、overthinking、Vending-Bench 與 self-conditioning（含 Qwen3 32B 掉最多）、RAO、plan-then-execute 防注入、Cursor Plan Mode 示範、MACU 的 DAG／重新規劃預算實驗（固定圖約 25%）；皆有依據。修正六處：影片沒有的內容改標為投影片（「burn that bridge」玩笑、Fred Brooks 引言、「這只是計畫寫得差嗎」、Neubig 投影片），管理者模型的 Sonnet 說法改為字幕可辨的「最近的 Claude 系列模型」，Odysseys 資料來源改為 Google 瀏覽紀錄。TravelPlanner、各論文與 MACU 表格的精確數字屬論文與投影片，字幕未涵蓋；「9 月 8 日」上課日期字幕未提。
 
 ## 更新紀錄
 

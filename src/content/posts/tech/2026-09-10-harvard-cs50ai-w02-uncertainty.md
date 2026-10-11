@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 2：Uncertainty——機率、貝氏網路、馬可夫模型與遺傳推斷"
+title: "Uncertainty——機率、貝氏網路、馬可夫模型與遺傳推斷｜Harvard CS50 AI 第 2 週"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 2 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=D8RRq3TbtHU
-title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
-
-課程與錄影入口：
-
-- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：原表的整體順序（機率→貝氏網路→推論→馬可夫模型→HMM）成立，但有數處內容字幕中找不到：D-separation、Variable Elimination、穩態分佈、PageRank 隨機漫步、維特比算法、前向算法（字幕只提到 HMM 的 filtering／prediction／smoothing／最可能解釋等任務），以及兩個專案介紹（Heredity、PageRank）；這些已從影片時間表移除。原精確時間碼（影片實長 1:54:30）無法驗證，改為依字幕估算的「約」值。專案與穩態分佈等內容仍屬本文講義，來源是課程官網而非這支影片。
 
 ## TL;DR
 
@@ -355,6 +335,26 @@ style50 pagerank.py
 - [ ] 能推導 PageRank 公式並解釋 damping factor 作用
 - [ ] 理解 Heredity 中「先驗 vs 遺傳」機率的切換邏輯
 - [ ] 兩專案 `check50` 全綠
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 2 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=D8RRq3TbtHU
+title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
+
+課程與錄影入口：
+
+- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：原表的整體順序（機率→貝氏網路→推論→馬可夫模型→HMM）成立，但有數處內容字幕中找不到：D-separation、Variable Elimination、穩態分佈、PageRank 隨機漫步、維特比算法、前向算法（字幕只提到 HMM 的 filtering／prediction／smoothing／最可能解釋等任務），以及兩個專案介紹（Heredity、PageRank）；這些已從影片時間表移除。原精確時間碼（影片實長 1:54:30）無法驗證，改為依字幕估算的「約」值。專案與穩態分佈等內容仍屬本文講義，來源是課程官網而非這支影片。
 
 ## 更新紀錄
 

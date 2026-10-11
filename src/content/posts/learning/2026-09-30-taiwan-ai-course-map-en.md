@@ -1,5 +1,5 @@
 ---
-title: "Taiwan AI Open Courses Beyond NTU: Using TAICA's Course Lists to Find NTHU, NCCU, NCKU, and NTUT Classes"
+title: "Taiwan AI Open Courses Beyond NTU: Using TAICA's Course Lists to Find NTHU, NCCU, NCKU, and NTUT Classes | Global AI/CS Course Map"
 date: 2026-09-30
 category: learning
 tags: [taiwan, ai-course, learning-path, open-course, nthu, nccu]
@@ -35,19 +35,6 @@ The [NTU map](/posts/learning/2026-09-30-ntu-ai-ml-course-map-en) covered Hung-y
 This post ties them together with one official source: the course list that TAICA (Taiwan AI College Alliance) publishes every semester. Ratings follow the A0–A3 scale from the [Global AI/CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en). A0 means only a catalog entry, A1 a syllabus, and A2 some substantive material or recordings. A3 means materials plus assignments are enough to form a coherent self-study path. The scale is this site's editorial judgment. It says nothing about credit or TA grading. NTU courses stay in the NTU post and are not repeated here. Everything below reflects checks made on **September 30, 2026**.
 
 All courses in this post are taught in Mandarin unless noted otherwise.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
-- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-- [assignment index](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
-- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-- [Introduction to Artificial Intelligence](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
-- [Lectures page](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
 
 ## What TAICA is: a list that tells you where each course streams
 
@@ -184,6 +171,19 @@ The public courses outside NTU share one trait. TAICA needs thousands of student
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-05: Corrected the description of Lin's Large Language Models and Information Security Systems (its focus is using LLMs for security, not protecting AI). Added an "AI security courses" section covering the status of TAICA's cybersecurity program and AI security courses at Chung Cheng, NCKU, NYCU, and NTU.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [IKMLab/NTHU_Natural_Language_Processing](https://github.com/IKMLab/NTHU_Natural_Language_Processing)
+- [Fall 2025](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+- [assignment index](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/README.md)
+- [GenerativeAI2025](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [Introduction to Artificial Intelligence](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/index.html)
+- [Lectures page](https://mmcv.csie.ncku.edu.tw/~wtchu/courses/2025f_AI/lectures.html)
 
 ## References
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 4：生成模型：從潛在空間到 diffusion"
+title: "生成模型：從潛在空間到 diffusion｜MIT 6.S191 第 4 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 4 講是 **生成模型：從潛在空間到 diffusion**。區分生成與判別問題，整理 VAE 與 GAN 的學習目標（本講影片沒有講 diffusion，講者把它留到 Lecture 6），並接到 Lab 2 的 DB-VAE。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=R8V8CbuxryI
-title: MIT 6.S191: Deep Generative Modeling
-```
-
-原始影片：[MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=R8V8CbuxryI)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：字幕涵蓋監督與非監督學習的對照、密度估計與樣本生成、autoencoder、VAE（均值與變異數、KL 正則化、reparameterization）、GAN（generator 與 discriminator）與 CycleGAN，並說明今天的 Lab 是用 VAE 對臉部偵測去偏。字幕沒有講 diffusion：講者明說 diffusion 留到「明天的 Lecture 6」，所以本文把 diffusion 與 denoising 寫成本講影片內容並不成立，已改為指向 Lecture 6 影片。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ VAE 把輸入編碼成分布、從 latent space 取樣，再解碼重建；GAN �
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=R8V8CbuxryI
+title: MIT 6.S191: Deep Generative Modeling
+```
+
+原始影片：[MIT 6.S191: Deep Generative Modeling](https://www.youtube.com/watch?v=R8V8CbuxryI)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋監督與非監督學習的對照、密度估計與樣本生成、autoencoder、VAE（均值與變異數、KL 正則化、reparameterization）、GAN（generator 與 discriminator）與 CycleGAN，並說明今天的 Lab 是用 VAE 對臉部偵測去偏。字幕沒有講 diffusion：講者明說 diffusion 留到「明天的 Lecture 6」，所以本文把 diffusion 與 denoising 寫成本講影片內容並不成立，已改為指向 Lecture 6 影片。
 
 ## 更新紀錄
 

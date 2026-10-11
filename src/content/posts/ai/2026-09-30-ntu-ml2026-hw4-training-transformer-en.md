@@ -1,5 +1,5 @@
 ---
-title: "NTU ML 2026 HW4: Drawing Pokémon with Next-Token Prediction on a Decoder-Only Transformer"
+title: "Drawing Pokémon with Next-Token Prediction on a Decoder-Only Transformer | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ The course page lists HW4 as released on 3/27 and due 04/16/2026 23:59, with TAs
 - The TA walkthrough video [ML 2026 Spring HW4 -- Training Transformers](https://youtu.be/QrqdoGf35Iw)
 
 Access level: the spec, sample code and dataset are all public, which makes this **A3**. What is missing is the grading chain, covered below.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=QrqdoGf35Iw
-title: Video: ML 2026 Spring HW4 -- Training Transformers
-```
-
-Original videos: [Video: ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## The task: an image as a sequence of tokens
 
@@ -131,8 +112,37 @@ The default GPT-2 config in the Colab matches this table (`n_embd` 64, `n_head` 
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Positional Embedding](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en) | Next: [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
+## Align four pixels into training pairs
+
+This is an invented teaching example, not a lecturer experiment or official assignment solution.
+
+An invented small image has four tokens `[2,5,1,3]`, not official Pokémon data. Applying sequence[:-1] and sequence[1:] gives inputs `[2,5,1]` and targets `[5,1,3]`: see 2 to predict 5; see 2,5 to predict 1; see 2,5,1 to predict 3. A causal mask prevents the first position from seeing 5 in advance.
+
+**Check and answer:** How long are training inputs and targets for the original 400-token images? Both have length 399. Validation completion supplies 240 and generates 160; these flows differ, and token accuracy does not replace FID/PDR.
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=QrqdoGf35Iw
+title: Video: ML 2026 Spring HW4 -- Training Transformers
+```
+
+Original videos: [Video: ML 2026 Spring HW4 -- Training Transformers](https://www.youtube.com/watch?v=QrqdoGf35Iw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
+
 ## Update Log
 
+
+- 2026-10-11: Added an invented worked example and comprehension check, preserving source limits and assignment scope.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.

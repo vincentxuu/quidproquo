@@ -1,5 +1,5 @@
 ---
-title: "CS231N L6: Training CNNs and CNN Architectures — Normalization, Initialization, Transfer Learning, and VGG to ResNet"
+title: "Training CNNs and CNN Architectures — Normalization, Initialization, Transfer Learning, and VGG to ResNet | Stanford CS231N Lecture 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,23 +41,6 @@ Official materials used here:
 Access level is **A3**. The 2026 class recordings are on Canvas only.
 
 First, one mismatch with the schedule: **the 2026 slides have no dedicated BatchNorm section.** The normalization example is LayerNorm. BatchNorm appears only in a figure on page 13 comparing four normalization schemes, captioned "You will implement some of these in assignment 2!" Implementing BatchNorm is left to [A2](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en) Q1. The [2025 lecture_6.pdf](https://cs231n.stanford.edu/slides/2025/lecture_6.pdf) has almost the same sections as the 2026 deck, so the 2025 recording likely follows this structure, but I did not check the video minute by minute.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 6 (length 1:11:07). Zane Durante introduces himself at the start as this lecture's speaker, and the transcript covers LayerNorm (BatchNorm only briefly early on), Dropout, activations, AlexNet/VGG/ResNet, initialization, data augmentation, transfer learning and hyperparameters, matching the article's topic. It has no GoogLeNet or Cutout. The article's remark that the 2026 slides have no dedicated BatchNorm page is compatible with the recording touching BatchNorm only briefly. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=aVJy4O5TOk8
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures
-```
-
-Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures](https://www.youtube.com/watch?v=aVJy4O5TOk8)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Map of the lecture
 
@@ -241,6 +224,23 @@ Not confirmed: who taught this lecture in 2026 (the lecturer column on the 2026 
 Further reading on this site: the [CMU 11-785 CNN lectures](/posts/ai/2026-08-22-cmu-11785-10-cnn-two-en) derive CNN training and architecture a different way.
 
 Series navigation: previous [L5: Image Classification with CNNs](/posts/ai/2026-09-30-cs231n-cnn-image-classification-en) | next [L7: Recurrent Neural Networks and Image Captioning](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en) | [series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 6 (length 1:11:07). Zane Durante introduces himself at the start as this lecture's speaker, and the transcript covers LayerNorm (BatchNorm only briefly early on), Dropout, activations, AlexNet/VGG/ResNet, initialization, data augmentation, transfer learning and hyperparameters, matching the article's topic. It has no GoogLeNet or Cutout. The article's remark that the 2026 slides have no dedicated BatchNorm page is compatible with the recording touching BatchNorm only briefly. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=aVJy4O5TOk8
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures
+```
+
+Original videos: [Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 6: CNN Architectures](https://www.youtube.com/watch?v=aVJy4O5TOk8)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

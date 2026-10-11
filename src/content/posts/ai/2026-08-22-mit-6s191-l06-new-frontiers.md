@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 6：新前沿：模型之外還要選問題"
+title: "新前沿：模型之外還要選問題｜MIT 6.S191 第 6 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 6 講是 **新前沿：模型之外還要選問題**。把深度學習放進新應用與真實限制，提醒讀者先定義資料、輸出、評量與失敗條件。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=ev7cLSd-ySE
-title: MIT 6.S191: Language Models and New Frontiers
-```
-
-原始影片：[MIT 6.S191: Language Models and New Frontiers](https://www.youtube.com/watch?v=ev7cLSd-ySE)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 universal approximation theorem、泛化與隨機標籤實驗、資料分布與 out-of-distribution（自駕車事故例）、adversarial attack、演算法偏差，再講 diffusion model（前向加噪與反向去噪）與 LLM（next token prediction、emergent abilities）。主題為「新前沿與限制」，與本文相符；字幕也是 diffusion 真正出現的地方（Lecture 4 影片沒有）。本文的 baseline 與 failure condition 屬本站整理的做法，影片沒有用這些詞。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: Language Models and New Frontiers
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=ev7cLSd-ySE
+title: MIT 6.S191: Language Models and New Frontiers
+```
+
+原始影片：[MIT 6.S191: Language Models and New Frontiers](https://www.youtube.com/watch?v=ev7cLSd-ySE)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片由 Ava Soleimany 主講，字幕涵蓋 universal approximation theorem、泛化與隨機標籤實驗、資料分布與 out-of-distribution（自駕車事故例）、adversarial attack、演算法偏差，再講 diffusion model（前向加噪與反向去噪）與 LLM（next token prediction、emergent abilities）。主題為「新前沿與限制」，與本文相符；字幕也是 diffusion 真正出現的地方（Lecture 4 影片沒有）。本文的 baseline 與 failure condition 屬本站整理的做法，影片沒有用這些詞。
 
 ## 更新紀錄
 

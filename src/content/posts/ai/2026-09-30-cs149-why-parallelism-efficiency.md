@@ -1,5 +1,5 @@
 ---
-title: "CS149 L1：單核為什麼不再變快，以及「快」為什麼不等於「有效率」"
+title: "單核為什麼不再變快，以及「快」為什麼不等於「有效率」｜Stanford CS149 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,23 +37,6 @@ glossary:
 > **本文依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 材料是 Lecture 1 的 [86 頁投影片](https://gfxcourses.stanford.edu/cs149/fall25content/media/efficiency/01_efficiency_hyF1AJq.pdf)（也有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)）；Fall 2025 錄影不公開，2023 年的 L1 錄影作為補充。這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列的第 1 篇，課程背景、公開程度與限制見總覽。
 
 2025 年 9 月 23 日的第一講標題是兩個問題：Why Parallelism? Why Efficiency? 這兩個問題決定了整門課的走向。前半講回答第一個：單核處理器為什麼不再自己變快。後半講回答第二個：就算程式平行了，為什麼還要在乎效率。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=V1tINV2-9p4
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?](https://www.youtube.com/watch?v=V1tINV2-9p4)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 1 - Why Parallelism? Why Efficiency?》（1:12:21）。字幕涵蓋課程介紹與講者、speedup 的定義與課堂示範、時脈頻率與功耗、以及結尾的記憶體延遲與 cache 基本概念，主題與本文一致；字幕只零星提到 energy，沒有本文那組 pJ 數字，與文中「影片裡自然也不會講到」的說法一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 平行電腦與 speedup
 
@@ -201,6 +184,23 @@ a = x*x + y*y + z*z
 ---
 
 **系列導覽**：[← 系列總覽](/posts/ai/2026-09-30-cs149-course-overview) ｜ 下一篇 [L2 現代多核處理器：multi-core、SIMD、multithreading →](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=V1tINV2-9p4
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 1 - Why Parallelism? Why Efficiency?](https://www.youtube.com/watch?v=V1tINV2-9p4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/efficiency/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 1 - Why Parallelism? Why Efficiency?》（1:12:21）。字幕涵蓋課程介紹與講者、speedup 的定義與課堂示範、時脈頻率與功耗、以及結尾的記憶體延遲與 cache 基本概念，主題與本文一致；字幕只零星提到 energy，沒有本文那組 pJ 數字，與文中「影片裡自然也不會講到」的說法一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

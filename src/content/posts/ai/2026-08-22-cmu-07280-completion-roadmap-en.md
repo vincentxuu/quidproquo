@@ -1,5 +1,5 @@
 ---
-title: "Completing CMU 07-280: What You Know, What Is Missing, and What Comes Next"
+title: "Completing CMU 07-280: What You Know, What Is Missing, and What Comes Next | CMU 07-280 Course Map"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, learning-path, machine-learning, self-study]
@@ -20,16 +20,6 @@ draft: false
 07-280 attempts a difficult compression: search, supervised learning, deep learning, NLP, and reinforcement learning—material previously spread across 15-281 and introductory ML—become one common foundation for 07-380. Spring 2026 was also the first complete offering, so its public material carries both curricular ambition and version risk.
 
 Reading every guide is therefore not course completion. The enrolled course combines exams, written and programming homework, pre-reading, recitation, and participation. Independent learners do not have the same feedback chain and must preserve inspectable artifacts instead. The standard below does not pretend to grant CMU credit.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## The course teaches integration interfaces
 
@@ -91,6 +81,16 @@ For NLP, vision, or RL, expand one artifact into a project with a dataset or env
 Stop adding videos. Spend seven days consolidating: repair search and supervised-model tests in the first two days; rerun CNN and GPT experiments on days three and four; verify RL and MCTS on day five; write limitations on day six; and draw the full data and control flow from search to self-play on blank paper on the final day.
 
 If one branch cannot be drawn, return to its lecture guide instead of restarting at Lecture 1. The value of 07-280 is not that it mentions every AI term once. It is learning how a system's representation, learning signal, inference procedure, and verification duties constrain one another.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 7: Linear Regression and the Normal Equation"
+title: "Linear Regression and the Normal Equation | CMU 07-280 Lecture 7"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is **CMU 07-280 Spring 2026 Lecture 7: Linear Regression**. Lecture 5's ERM is solved end to end: choose linear hypotheses, choose squared loss, stack the data into a matrix, and derive a closed-form optimum.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-I read the complete [Linear Regression lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Linear_Regression.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## The inherited question: what ERM becomes for a linear hypothesis class
 
@@ -116,6 +102,20 @@ Both routes optimize the same `J(θ)`. A closed form solves one equation; gradie
 1. Compute `Σxy/Σx²` for three one-dimensional points and verify it by differentiation.
 2. Write a design matrix with an intercept column and label the shapes of `X`, `θ`, and `y`.
 3. Construct a matrix with two identical feature columns and explain why `XᵀX` is singular.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+I read the complete [Linear Regression lecture notes](https://www.cs.cmu.edu/~07280/lectures/07_280_lecture_notes_Linear_Regression.pdf), [Optimization and Linear Regression pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Optimization_and_Linear_Regression.pdf), [Recitation 4](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4.pdf) and [solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec4_sol.pdf), and checked [HW4](https://www.cs.cmu.edu/~07280/assignments/hw4_blank.pdf). No lecture recording is public.
 
 ## Update Log
 

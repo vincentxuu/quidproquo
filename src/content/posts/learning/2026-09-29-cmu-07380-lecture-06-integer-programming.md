@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 6 導讀：Integer Programming，先鬆弛成 LP 再用 branch and bound 分支"
+title: "Integer Programming，先鬆弛成 LP 再用 branch and bound 分支｜CMU 07-380 第 6 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, linear-programming, optimization]
@@ -25,25 +25,6 @@ draft: false
 這一講的答案是 **branch and bound**：先假裝沒有整數限制，用 LP 算出一個樂觀的下界；解出來不是整數，就把問題切成兩半，繼續算。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- [Lec6 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf)，共 18 頁：LP → IP、圖解、relaxation、argmin 與 min 的記號、三個 poll、branch and bound 演算法與範例。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx)
-- [Desmos: IP](https://www.desmos.com/calculator/tnlo7p5plp)：課站在 Lec6 下列的唯一 demo，投影片 Poll 1 用它問「這個 LP 的解是什麼」
-- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)：課站把 Recitation 4（9/18）標為「ILP and PCA」，和 Recitation 3 共用這份 PDF。本篇用第 2 題 Baymax's Factory、第 3 題 Cargo Plane，並提到第 4 題 CSP as IP、第 5 題 4-Queens
-- Lec6 沒有 pre-reading 筆記，課站也沒有列指定閱讀
-
-**公開程度**：以上都能在校外下載，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。沒有錄影連結，Canvas checkpoint 只限校內。
 
 ## 承上問題：多一條 x ∈ ℤᴺ 會壞掉什麼
 
@@ -149,6 +130,25 @@ queue：1. (17, 6), 20.6   2. (18, 4.85), 20.91
 - 上一篇：[Lecture 5 導讀：Linear Programming，為什麼最優解落在可行域的頂點](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)
 - 下一篇：[Lecture 7 導讀：Low Rank Optimization，PCA 的重建誤差、投影變異數與 LoRA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- [Lec6 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming_inked.pdf)，共 18 頁：LP → IP、圖解、relaxation、argmin 與 min 的記號、三個 poll、branch and bound 演算法與範例。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec6_Integer_Programming.pptx)
+- [Desmos: IP](https://www.desmos.com/calculator/tnlo7p5plp)：課站在 Lec6 下列的唯一 demo，投影片 Poll 1 用它問「這個 LP 的解是什麼」
+- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)：課站把 Recitation 4（9/18）標為「ILP and PCA」，和 Recitation 3 共用這份 PDF。本篇用第 2 題 Baymax's Factory、第 3 題 Cargo Plane，並提到第 4 題 CSP as IP、第 5 題 4-Queens
+- Lec6 沒有 pre-reading 筆記，課站也沒有列指定閱讀
+
+**公開程度**：以上都能在校外下載，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。沒有錄影連結，Canvas checkpoint 只限校內。
 
 ## 更新紀錄
 

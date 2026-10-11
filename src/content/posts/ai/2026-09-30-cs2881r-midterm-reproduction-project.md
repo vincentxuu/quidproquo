@@ -1,5 +1,5 @@
 ---
-title: "CS2881R 期中：挑一張 headline figure 重現並延伸"
+title: "挑一張 headline figure 重現並延伸｜Harvard CS2881R 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 **系列位置**：上一篇 [L5：內容審核的老教訓如何搬到生成式 AI](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)｜下一篇 [L8：Scheming、reward hacking 與欺騙](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)｜[系列總覽](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 讀到這裡，你已經看過模型怎麼被訓練（L2）、怎麼被攻破（L3）、規範怎麼寫（L4）與怎麼執行（L5）。[CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 的期中作業要你把其中一個結果親手做一遍，然後問：它有多穩？
-
-## 課程影片來源
-
-本篇對應期中專題說明，不是某一講。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，沒有對應這份專題的講解影片，請由課表查看各講錄影。
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
 
 ## 作業在問什麼
 
@@ -154,8 +143,29 @@ head TA Roy Rinberg 在課程結束後的回顧文裡，對期中的描述是：
 - 另一門課的 jailbreak 專題設計：[台大 ADL 2025 第 10 講：偏見、安全、幻覺與對齊](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 - Prompt injection 的工程防線：[安全：prompt injection 只能在 harness 層做損害控制](/posts/ai/2026-08-10-agent-security-harness-layer)
 
+## 一個可解讀的重現與變化
+
+以下是本文自編的教學例子，不是講者的實驗或官方作業解答。
+
+以下是自編研究設計，不是任何安全論文的實驗結果。假設某方法在十個測試案例中成功八次，baseline 成功六次。重現時固定模型、資料與成功判準，得到七次與六次：方法的優勢仍出現，但幅度從 2/10 變成 1/10。報告應把原始與重現設定、原始計數與差異列出，不只寫「成功重現」。
+
+**檢查與答案：** 若延伸同時換模型與資料，而優勢消失，能否說是模型造成？答案不能；兩個變因混在一起。先各改一項，並增加案例或重複測試來評估不穩定性。十個案例的差異不能直接當成普遍結論。
+
+## 課程影片來源
+
+本篇對應期中專題說明，不是某一講。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，沒有對應這份專題的講解影片，請由課表查看各講錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
 ## 更新紀錄
 
+
+- 2026-10-11：補上自編推理例子與理解檢查，保留來源限制及原作業範圍。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方播放清單，沒有對應本篇的錄影，狀態維持僅附官方入口。
 

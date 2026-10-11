@@ -1,5 +1,5 @@
 ---
-title: "CS224U 開場：同一個問題問了四十年，2023 年的 NLU 課怎麼定義「理解」"
+title: "同一個問題問了四十年，2023 年的 NLU 課怎麼定義「理解」｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -31,29 +31,6 @@ glossary:
 [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) 是 Christopher Potts 教的專案導向 NLP 課，先修是 CS224N。2023 年 4 月 3 日的第一堂先說明 NLU 怎麼走到現在，並用這段歷史推出前兩個單元；整學期課程地圖的其餘部分與課務，Potts 在第二支錄影（開頭就說「day two」，並回顧「上次」的投影片）接著講完。
 
 本文依據的公開材料有四份：[intro 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-intro-2023-handout.pdf)（98 頁 handout）、YouTube 上 [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 [01](https://www.youtube.com/watch?v=K_Dh0Sxujuc) 與 [02](https://www.youtube.com/watch?v=J52Dtu40esQ) 支錄影、講次表在 Apr 3 那一格列的三篇讀物，以及 repo 裡的 [setup.ipynb](https://github.com/cgpotts/cs224u/blob/main/setup.ipynb)。這些材料都公開，屬於課程地圖分級裡的 A3（足以自學）歷史版本；Canvas 上的 quiz 和教室錄影拿不到。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
-title: Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=J52Dtu40esQ
-title: Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023](https://www.youtube.com/watch?v=K_Dh0Sxujuc)、[Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023](https://www.youtube.com/watch?v=J52Dtu40esQ)
-
-內容核對：已依字幕核對（2026-10-10）：影片 01（Intro & Evolution, Pt. 1）與影片 02（Course Overview, Part 2）的字幕逐項對照：美國州接壤題與 Chat-80／Wolfram Alpha／Ada／Babbage／Curie／davinci-instruct-beta／text-davinci-001 的各代回答、Levesque 鱷魚與棒球帽小翅膀（Davinci-2 與 Davinci-3 互相矛盾）、課堂上 Bard 的 Rule 3.06 與連結不存在的討論、benchmark 飽和時間軸、歷史階段與 Transformer／self-supervision、課程主題（COGS 全 0 欄、Cousteau、Strathern's law）、非同步課務、Colab／Cohere／OpenAI 5 美元額度，皆吻合。發現一處不符：影片 02 開頭明說這是第二天（回顧『上次』的投影片），課程地圖後半與課務並非都在 4 月 3 日第一堂講完，已改寫該句。配分比例與投影片頁碼屬投影片內容，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 一個問題問了四十年
 
@@ -211,6 +188,29 @@ pip install -r requirements.txt
 - [Stanford CS224U 導讀：總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)：開課狀態、三份作業、期末專案評分文件、自學環境的坑
 
 **系列導覽**：上一篇 [總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)｜下一篇 [上下文表徵 I：guiding ideas、Transformer 與位置編碼](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=K_Dh0Sxujuc
+title: Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=J52Dtu40esQ
+title: Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Intro & Evolution of Natural Language Understanding, Pt. 1 I Spring 2023](https://www.youtube.com/watch?v=K_Dh0Sxujuc)、[Stanford XCS224U: Natural Language Understanding I Course Overview, Part 2 I Spring 2023](https://www.youtube.com/watch?v=J52Dtu40esQ)
+
+內容核對：已依字幕核對（2026-10-10）：影片 01（Intro & Evolution, Pt. 1）與影片 02（Course Overview, Part 2）的字幕逐項對照：美國州接壤題與 Chat-80／Wolfram Alpha／Ada／Babbage／Curie／davinci-instruct-beta／text-davinci-001 的各代回答、Levesque 鱷魚與棒球帽小翅膀（Davinci-2 與 Davinci-3 互相矛盾）、課堂上 Bard 的 Rule 3.06 與連結不存在的討論、benchmark 飽和時間軸、歷史階段與 Transformer／self-supervision、課程主題（COGS 全 0 欄、Cousteau、Strathern's law）、非同步課務、Colab／Cohere／OpenAI 5 美元額度，皆吻合。發現一處不符：影片 02 開頭明說這是第二天（回顧『上次』的投影片），課程地圖後半與課務並非都在 4 月 3 日第一堂講完，已改寫該句。配分比例與投影片頁碼屬投影片內容，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

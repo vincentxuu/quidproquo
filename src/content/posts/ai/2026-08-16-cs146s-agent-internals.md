@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 1：coding agent 的內部構造，其實是一個 while 迴圈"
+title: "coding agent 的內部構造，其實是一個 while 迴圈｜Stanford CS146S 第 1 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程網站列出的兩堂課是「Course intro + build Claude Code in 200 lines」與「How state-of-the-art coding agents are designed: deep dive into the system prompts that define the agent」，主題三條：LLM 到底是什麼、agent loop 在底下長什麼樣、核心工具組（read、write、edit、bash）怎麼把任務跑完。
 
 值得注意的是這門課去年不是這樣開場的。Fall 2025 的第一週叫「Introduction to Coding LLMs and AI Development」，兩堂課分別是「how an LLM is made」跟「Power prompting for LLMs」。一年之間，開場從「模型是怎麼做出來的」換成「agent 是怎麼組起來的」。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## agent loop 有多小
 
@@ -151,6 +139,18 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 - Fall 2026 的作業與投影片尚未公布，本文的作業路線是依 Fall 2025 repo 推的
 - 「200 行」是 Fall 2026 講題的說法，實際程式碼還沒公開；本文引用的是 Fall 2025 同主題課堂的投影片
 - Claude Code 的 system prompt 分析文是第三方逆向，版本會漂
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

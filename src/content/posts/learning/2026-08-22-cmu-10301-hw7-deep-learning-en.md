@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW7: Move from Basic Neural Networks to Deep Learning"
+title: "Move from Basic Neural Networks to Deep Learning | CMU 10-301 Assignment 7"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, deep-learning, neural-network]
@@ -27,6 +27,18 @@ conda env create -f environment.yml
 ```
 
 Then run `test_runner.py` and validate/generate on tiny stories. Completion means passing public tests for the RNN cell, attention, hybrid LM, training, validation, and generation, and reproducing tiny loss/metric references within their expected tolerance. Public tests do not replace Gradescope hidden tests.
+
+## Practice diagnosis from loss records
+
+This is an invented teaching example, not an official assignment solution.
+
+Two invented runs: A’s training loss falls from 1.0 to 0.2 while validation rises from 1.0 to 1.3; B’s two losses stay at 1.0. A fits training better while validation worsens: inspect overfitting and distribution issues. B has not fit training: inspect the training path and gradients first.
+
+**Check and answer:** Does B alone prove insufficient network capacity? No. First check weight updates, nonzero gradients, and correct data/labels; then test fitting a tiny subset to narrow the diagnosis.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 - [HW7 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw7.zip)

@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 1: Stop Tuning Only the Model — State-of-the-Art Is Systems Engineering"
+title: "Stop Tuning Only the Model — State-of-the-Art Is Systems Engineering | Stanford CS329Z Week 1"
 date: 2026-09-09
 category: ai
 type: deep-dive
@@ -23,17 +23,6 @@ draft: false
 The first lecture of [CS329Z](https://cs329z.stanford.edu/) (Sep 23, Foundations & Landscape) assigns exactly one anchor reading: [The Shift from Models to Compound AI Systems](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) (BAIR Blog, 2024), led by Matei Zaharia with ten co-authors across Berkeley, Stanford, and Databricks. Opening with this piece states the whole course's position: the class makes no bets on what the next big model will unlock. It cares about one thing — engineering the best possible system out of today's parts. The three keywords of lecture one, decomposition, data, and evaluation, all grow out of this post.
 
 This guide follows the post's own argument: the definition, why systems are unavoidable, then its three design questions, three hard challenges, and four emerging directions. At the end I connect each section back to the course — what [HW1 actually asks you to hand in](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) is essentially the hands-on version of this article.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## The definition: system versus model in one sentence
 
@@ -99,12 +88,21 @@ The Week 1 syllabus lists two additional readings beyond the anchor. They are li
 - Wed 9/23 Foundations & Landscape: anchor reading Zaharia et al., Compound AI Systems (covered above); further reading Ng's four design patterns and Si et al. on execution-grounded research (see Further reading above).
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
-## Update log
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
+
+## Update Log
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
-
-## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L22、L24 LLM 服務：排程、RadixAttention 與 PagedAttention"
+title: "LLM 服務：排程、RadixAttention 與 PagedAttention｜CMU 11-868 第 22 堂／第 24 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,16 +39,6 @@ glossary:
 **系列位置**：上一篇 [L23 大模型的高效微調：LoRA 與 QLoRA](/posts/ai/2026-09-30-cmu11868-peft-lora)｜下一篇 [HW6：DeepSpeed ZeRO＋LoRA 訓練與 SGLang 推論](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 官方課序是 4/6 講 SGLang、4/8 講 PEFT、4/13 講 vLLM。本系列把兩講服務排在一起，因為它們在解同一個問題，而且投影片第 9 頁就寫明「SGLang / vLLM share similar arch」。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 場景：一台伺服器要同時接住很多請求
 
@@ -208,6 +198,16 @@ attention 計算時，依 block table 抓回不連續的 block，當場做 atten
 - 另一門課怎麼講推論：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
 - attention 本身怎麼變快：[L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)
 - 單機之後：[L26–L30 大規模服務：prefill／decode 拆分、KV cache 與異質硬體](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

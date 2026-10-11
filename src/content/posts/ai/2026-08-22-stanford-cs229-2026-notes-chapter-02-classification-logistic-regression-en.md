@@ -1,5 +1,5 @@
 ---
-title: "Classification and Logistic Regression: Decision Boundaries and Newton's Method"
+title: "Classification and Logistic Regression: Decision Boundaries and Newton's Method | Stanford CS229 Chapter 2"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This article reads Chapter 2, “Classification and logistic regression,” on printed pages 21–29 of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a **chapter reading of the 2026 notes**, not a reconstruction of a quarter's recordings.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=uJF_gL3jhxI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI), [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. The second half of Lecture 3 (about 62 minutes; from roughly 55% on) goes from binary classification and the sigmoid to logistic regression and likelihood, then Newton's method after about 80%, matching the chapter's main line; its first half is the probabilistic interpretation of linear regression (Chapter 1), and its YouTube title "Weighted Least Squares" does not match the content. Lecture 4 (about 74 minutes) covers the exponential family, GLMs and softmax multi-class classification and never mentions Newton's method, so it overlaps this chapter only at logistic regression and softmax; it was the only video embedded before, and Lecture 3 has been added.
 
 ## From a linear prediction to a class probability
 
@@ -96,6 +70,32 @@ Chapter 1 supplied the optimization and likelihood vocabulary. Chapter 3 derives
 ## Self-study exercise
 
 Create a two-dimensional binary dataset and train both logistic regression and a perceptron. Plot their boundaries, inspect how logistic probabilities change near the boundary, and compare gradient descent with Newton's method by both iteration count and elapsed computation.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI), [Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): both transcripts were read, and what was checked is how the video topics relate to this chapter. The second half of Lecture 3 (about 62 minutes; from roughly 55% on) goes from binary classification and the sigmoid to logistic regression and likelihood, then Newton's method after about 80%, matching the chapter's main line; its first half is the probabilistic interpretation of linear regression (Chapter 1), and its YouTube title "Weighted Least Squares" does not match the content. Lecture 4 (about 74 minutes) covers the exponential family, GLMs and softmax multi-class classification and never mentions Newton's method, so it overlaps this chapter only at logistic regression and softmax; it was the only video embedded before, and Lecture 3 has been added.
 
 ## Update Log
 

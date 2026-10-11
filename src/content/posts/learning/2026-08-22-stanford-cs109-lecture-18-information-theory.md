@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 18｜Information Theory：surprise、entropy、information gain 與 KL"
+title: "Information Theory：surprise、entropy、information gain 與 KL｜Stanford CS109 第 18 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,19 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 19 篇，對應 **Summer 2026 Lecture 18: Information Theory**，日期為 7 月 22 日，講者是 Chris Gregg。本文依當期 [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture18-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture18-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture18-LLMPrompts.pdf)與官方讀本的 [information theory](https://probabilitycoders.stanford.edu/spr26/information_theory) 章節整理。當期投影片 unavailable、Canvas 錄影 gated，因此維持 L2 邊界。
 
 這講的 artifacts 有刻意的 agenda 差異。worksheet／key 是兩頁、正式 P1–P5，沒有 P6 或 challenge。guide 則是三頁六 concepts，另含 entropy code、KL divergence 與 distribution comparisons。本文依各自材料涵蓋，不把 guide topics 虛構成 worksheet 題號。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
 
 ## P1：Recursive Expectation 複習
 
@@ -169,6 +156,19 @@ Weather forecast、Poisson fit 或 language-model next-token prediction 常自�
 - P5 是 pset5 題，公開 answer key 省略；本文只依 prompt 計算。
 - 當期投影片 unavailable、錄影 gated；L2 不重建缺失 lecture content。
 - 材料規模有限，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限。Stanford Online 公開的 2022 年版播放清單中找不到與本講標題對應的講次，因此不提供公開播放器，也不以其他學期影片冒充。
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

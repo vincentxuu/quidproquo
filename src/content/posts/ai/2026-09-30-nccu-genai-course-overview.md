@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀：總覽與自學路線"
+title: "總覽與自學路線｜政大蔡炎龍 生成式AI 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 這門課的定位很清楚：程式基礎不多的初學者，先弄懂神經網路、GAN、大型語言模型、RAG、AI Agents 與 diffusion 生圖的原理，再用 [Google Colab](https://colab.research.google.com/) 做出對話機器人、RAG 系統、Agent 與生圖 Web App。它在本站的課程導讀裡算是較淺的一條入口，深入的部分會用延伸閱讀連到其他系列。
 
 這篇是系列入口，只講課程是誰開的、校外讀者拿得到什麼、講次與作業怎麼對上、需要哪些工具，以及 Fall 2026 有什麼不同。每一講的內容留給後面各篇。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-- [YouTube 課程播放清單（Iveai - I've AI）](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
-
-查核日期：2026-10-10。
 
 ## 這門課是誰的：政大主講，長庚那頁是衛星班
 
@@ -204,6 +193,17 @@ TAICA 讓各校獨立評分，所以同一份作業在不同學校的份量不�
 - Diffusion 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；視覺生成：[Stanford CS231N 導讀](/posts/ai/2026-09-30-cs231n-course-overview)
 - 強化學習：[Berkeley CS285：模仿學習與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
 - 各校課程的公開程度比較：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+- [YouTube 課程播放清單（Iveai - I've AI）](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

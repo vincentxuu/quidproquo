@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 1：從課程地圖走進 Unix 命令列"
+title: "從課程地圖走進 Unix 命令列｜Stanford CS107 第 1 堂"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, unix, self-study]
@@ -20,14 +20,6 @@ draft: false
 Stanford CS107 的第一講不是急著教 C 語法，而是先把問題改寫。CS106B 問「怎麼用高階語言解題」，CS107 問「程式為什麼真的能這樣跑」。`int`、字串與結構在硬體上長什麼樣子？執行檔如何進入記憶體？`malloc` 背後又是誰管理那塊 heap？這些問題共同指向一件事：把看似理所當然的程式抽象拆開來看。
 
 這篇對應 [Stanford CS107 Winter 2026 官方 Lecture 1](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf)，不是整門課的總覽。主脊依照投影片順序走：先定義課程視角，再讀課程主題與學習目標，接著整理作業、lab、考試與求助規則，最後進入 Unix 命令列。即使不在 Stanford 修課，這一講仍有用，因為它替後面二十五講畫出了一張「抽象層往下走」的地圖。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 講次資料與材料邊界
 
@@ -177,6 +169,14 @@ rm old.c            # 刪除檔案
 1. 比較 GUI 檔案操作與 shell 命令，記錄哪些動作容易重複或組合。
 2. 找一支已編譯程式，先不要拆解內容，只辨認原始碼、編譯產物與執行檔各自位於哪裡。
 3. 把六大主題各寫成一個可驗證問題，往後每講回來更新答案。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

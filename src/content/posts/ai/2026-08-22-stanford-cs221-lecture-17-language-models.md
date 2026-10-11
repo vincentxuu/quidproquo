@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 17：Language Models：從 next-token prediction 到生成"
+title: "Language Models：從 next-token prediction 到生成｜Stanford CS221 第 17 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇只依 **Stanford CS221 Autumn 2025 Lecture 17** 的官方投影片 `language_models.pdf` 重寫。PDF 封面標示日期為 2025-11-17、講者為 Ken Liu；它開頭先提醒本講不會出現在當週考試，接著依序介紹語言模型的定義、建模理由、架構與系統，最後放回當時的產業與研究脈絡。
 
 > 材料缺口：以下以這份 PDF 的靜態投影片為準。投影片沒有完整 Transformer 推導、可重現訓練程式、系統 benchmark 表、課堂互動紀錄或 Canvas 內容；這些地方不以一般教科書內容補寫。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 17 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 17 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=3orP3u2-jcg
-title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 17: Language Models](https://www.youtube.com/watch?v=3orP3u2-jcg)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 17 支）字幕，確認內容涵蓋語言模型的定義與 next-token prediction、n-gram 計數、scaling、pre-training 與 post-training、結尾的機器人與多模態延伸，與本文的講次與主題相符，未發現錯配。
 
 ## 本講的地圖
 
@@ -157,6 +137,26 @@ PDF 把 agents 定義成能產生 tool token 使用 web search 或 command line�
 - 沒有公開本講 Canvas 互動、作業解答、隱藏測資或課堂討論。
 
 因此最可靠的收穫不是「next-token prediction 已解釋智慧」，而是一份可檢查的契約：語言被表示成 token sequence，joint probability 由 chain rule 分解，模型在每個位置做 vocabulary classification，training 與 post-training 改變不同行為，inference 逐 token 生成，而 architecture、data、systems、evaluation 共同決定這份契約能走多遠。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 17 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 17 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=3orP3u2-jcg
+title: Stanford CS221 | Autumn 2025 | Lecture 17: Language Models
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 17: Language Models](https://www.youtube.com/watch?v=3orP3u2-jcg)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 17 支）字幕，確認內容涵蓋語言模型的定義與 next-token prediction、n-gram 計數、scaling、pre-training 與 post-training、結尾的機器人與多模態延伸，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

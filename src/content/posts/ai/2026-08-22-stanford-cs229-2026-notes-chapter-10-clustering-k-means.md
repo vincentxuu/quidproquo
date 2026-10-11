@@ -1,5 +1,5 @@
 ---
-title: "分群與 k-means：交替最佳化的第一個範例"
+title: "分群與 k-means：交替最佳化的第一個範例｜Stanford CS229 第 10 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,27 +20,6 @@ draft: false
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 10 章（印刷頁 147–149）的逐章導讀，依官方主講義整理，**不是任何一季課堂錄影的重建**。這章只有三頁，核心任務很集中：看懂 k-means 為何是交替最佳化，以及「收斂」到底保證了什麼。
 
 前兩章處理有標記資料上的泛化與模型選擇。本章進入非監督式學習：只給 $x^{(1)},\ldots,x^{(n)}$，沒有 $y$，希望把資料整理成 $k$ 個內部相近的群。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=bSmIGBCoffA
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)](https://www.youtube.com/watch?v=bSmIGBCoffA)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 9，字幕開場說明本講處理 K-means 與其機率版 GMM，內容含指派、初始化與局部解問題，結尾預告下一堂的 EM 推導；K-means 部分與本章相符，GMM／EM 屬於後續章節，不在本章範圍。
 
 ## 演算法交替做硬指派與取平均
 
@@ -87,6 +66,27 @@ $k$ 必須事先指定，而 distortion 會隨 $k$ 增加自然下降，不能�
 ## 自學練習
 
 建立兩組二維資料：一組是三個尺度相近的圓形群，另一組是兩個拉長且交疊的月牙形群。對每組資料用十個隨機起點跑 k-means，記錄最後 distortion 與分群圖。比較「最低 distortion」和「符合你想像的群」是否總是同一件事。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=bSmIGBCoffA
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)](https://www.youtube.com/watch?v=bSmIGBCoffA)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 Spring 2026 Lecture 9，字幕開場說明本講處理 K-means 與其機率版 GMM，內容含指派、初始化與局部解問題，結尾預告下一堂的 EM 推導；K-means 部分與本章相符，GMM／EM 屬於後續章節，不在本章範圍。
 
 ## 更新紀錄
 

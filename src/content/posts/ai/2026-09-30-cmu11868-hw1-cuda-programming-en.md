@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 Assignment 1: Writing MiniTorch's map, zip, reduce, and matmul in CUDA"
+title: "Writing MiniTorch's map, zip, reduce, and matmul in CUDA | CMU 11-868 Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,16 +39,6 @@ The previous post covered threads, blocks, and the memory hierarchy. This one tu
 [MiniTorch](https://llmsystem.github.io/llmsystemhomework/) is the teaching framework shared by all seven assignments. The homework site says it comes from Sasha Rush's educational framework, extended by this course to run real CUDA kernels. The four kernels you write here stay with you: the first step in Assignment 2's README is copying your Assignment 1 `src/combine.cu` over.
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -122,6 +112,16 @@ One thing you can do tonight: clone [llmsys_hw1](https://github.com/llmsystem/ll
 
 - [Stanford CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en): why memory movement is often more expensive than compute, from the hardware side
 - [Stanford CS336: Kernels and Triton](/posts/ai/2026-08-22-cs336-kernels-triton-en): the same kernel optimization ideas, written in Triton
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

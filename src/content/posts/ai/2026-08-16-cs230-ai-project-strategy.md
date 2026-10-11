@@ -1,5 +1,5 @@
 ---
-title: "AI Project Strategy：三四個小時的試算表，省掉幾週的錯方向"
+title: "AI Project Strategy：三四個小時的試算表，省掉幾週的錯方向｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: ai
 type: guide
@@ -24,26 +24,6 @@ draft: false
 **先提醒一件事**：[官網 syllabus](https://cs230.stanford.edu/syllabus/) 的 Lecture 6 條目寫的是「職涯建議／論文閱讀／醫療 AI 客座」配 2024 年的投影片——**那是過期的**。實際錄下來的整堂課是 AI Project Strategy，開場第一句就是 "continue our discussion on AI project strategy"。職涯是 Lecture 9。
 
 這一講用兩個例子：前半是**語音控制檯燈的喚醒詞偵測**（end-to-end 單一模型），後半是 **AI deep researcher**（多元件 pipeline）。後半那段是全系列最能直接搬到 LLM 應用的內容。
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 6（Andrew Ng 主講，長度 1:15:18 與文中「1 小時 15 分」相符；開場字幕即「continue our discussion on AI project strategy」）。逐項對過字幕，皆有對應：Robert 檯燈、先做文獻搜尋與略讀、寄信給論文作者（約 10 分鐘、約 50% 回覆）、電玩只有約 20 種車、100 個訓練音檔／25 個 dev／0 個 test、97% 準確率等同 print zero、1:10 與 1:30 的不平衡說法、複製正例與拉長窗口、「語音活動偵測器」陷阱、debugging 而非 development、一天修一個問題與 4 小時／3 週的訓練週期、「慢兩倍」、nasa.gov 對 bobsbackyardastronomyblog.com、10 到 100 個查詢、百分比不必加總到 100%、「三四個小時」的 error analysis。字幕全程未提到投影片，「無專屬投影片」無法由字幕證實，但與字幕不矛盾。無需修改正文。
-
-```youtube
-url: https://www.youtube.com/watch?v=s6JVGzABKho
-title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
-
-課程與錄影入口：
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-
-查核日期：2026-10-10。
 
 ## 為什麼要教這個
 
@@ -265,6 +245,26 @@ Ng 用的例子已經是 LLM pipeline 了，所以幾乎不用轉譯。真正值
 站上 [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes) 那篇列了十種問題和對應解法，而這一講補上的是**你怎麼知道自己中的是哪一種**——那十種解法都很好，但如果你的問題其實在挑網頁那一步，換再多檢索策略都不會動。
 
 至於前半的喚醒詞案例，有一個洞見今天一樣成立：**「你會得到一個語音活動偵測器」**。當你用合成資料建 eval 集，如果所有正例都有某個共同的表面特徵，模型（或你的 judge）會學會抓那個特徵，而不是你真正想測的東西。這和站上 [上線才是工作的開始](/posts/ai/2026-08-10-enterprise-agent-case-studies) 講的落差是同一個機制的兩端。
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 6（Andrew Ng 主講，長度 1:15:18 與文中「1 小時 15 分」相符；開場字幕即「continue our discussion on AI project strategy」）。逐項對過字幕，皆有對應：Robert 檯燈、先做文獻搜尋與略讀、寄信給論文作者（約 10 分鐘、約 50% 回覆）、電玩只有約 20 種車、100 個訓練音檔／25 個 dev／0 個 test、97% 準確率等同 print zero、1:10 與 1:30 的不平衡說法、複製正例與拉長窗口、「語音活動偵測器」陷阱、debugging 而非 development、一天修一個問題與 4 小時／3 週的訓練週期、「慢兩倍」、nasa.gov 對 bobsbackyardastronomyblog.com、10 到 100 個查詢、百分比不必加總到 100%、「三四個小時」的 error analysis。字幕全程未提到投影片，「無專屬投影片」無法由字幕證實，但與字幕不矛盾。無需修改正文。
+
+```youtube
+url: https://www.youtube.com/watch?v=s6JVGzABKho
+title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

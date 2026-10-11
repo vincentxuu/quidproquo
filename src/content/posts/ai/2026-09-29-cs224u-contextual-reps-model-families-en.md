@@ -1,5 +1,5 @@
 ---
-title: "CS224U Contextual Representations II: What GPT, BERT, RoBERTa, ELECTRA, T5, BART, and Distillation Each Change in Pretraining"
+title: "What GPT, BERT, RoBERTa, ELECTRA, T5, BART, and Distillation Each Change in Pretraining | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -34,30 +34,6 @@ glossary:
 The last seven sections of the same [contextual representations slide deck](https://web.stanford.edu/class/cs224u/slides/cs224u-contextualreps-2023-handout.pdf) (GPT, BERT, RoBERTa, ELECTRA, seq2seq, Distillation, Wrap-up) match videos 07 through 13 in the [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp).
 
 The best way to read these seven sections is to keep asking one question: **which part of pretraining does this family change?**
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=sNw40lEhaIQ
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=H0Zw0_22JRg
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ), [Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
-Other related videos (text links only): [Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs), [Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU), [Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc), [Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI), [Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
-
-Content check: verified against the video transcript (2026-10-10): Video 04 (GPT) and video 05 (BERT) were compared item by item with their transcripts: the autoregressive loss, the attention mask, teacher forcing, 'the model predicts scores, not tokens', fine-tuning options, the GPT size table, MLM and NSP, [CLS] fine-tuning, BERT releases and the 512 limit, and the four known limitations. The five videos the post describes but does not embed (RoBERTa, ELECTRA, seq2seq, distillation, wrap-up) were also read, and their claims match. The one claim the transcripts cannot support, the 'about 6 to 14 minutes' running time, was removed.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist (videos 07–13)](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## The big picture
 
@@ -247,6 +223,30 @@ Running the whole notebook requires the course's [data.tgz](http://web.stanford.
 - This unit has no homework of its own. The first homework is where you actually fine-tune these models.
 
 **Series navigation**: Previous: [Contextual representations I: guiding ideas, the Transformer, and positional encoding](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en) | Next: [HW1: multi-domain sentiment analysis and the bake-off](/posts/ai/2026-09-29-cs224u-hw1-multidomain-sentiment-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=sNw40lEhaIQ
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=H0Zw0_22JRg
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 4: GPT I Spring 2023](https://www.youtube.com/watch?v=sNw40lEhaIQ), [Stanford XCS224U: NLU I Contextual Word Representations, Part 5: BERT I Spring 2023](https://www.youtube.com/watch?v=H0Zw0_22JRg)
+Other related videos (text links only): [Stanford XCS224U: NLU I Contextual Word Representations, Part 6: RoBERTa I Spring 2023](https://www.youtube.com/watch?v=ZIRQM-W02Cs), [Stanford XCS224U: NLU I Contextual Word Representations, Part 7: ELECTRA I Spring 2023](https://www.youtube.com/watch?v=QFMBRk26AjU), [Stanford XCS224U: NLU I Contextual Word Representations, Part 8: Seq2seq Architectures I Spring 2023](https://www.youtube.com/watch?v=ymKWRZgHwPc), [Stanford XCS224U: NLU I Contextual Word Representations, Part 9: Distillation I Spring 2023](https://www.youtube.com/watch?v=f9cfLq9T6MI), [Stanford XCS224U: NLU I Contextual Word Representations, Part 10: Wrap-up I Spring 2023](https://www.youtube.com/watch?v=ni3T4vStzBI)
+
+Content check: verified against the video transcript (2026-10-10): Video 04 (GPT) and video 05 (BERT) were compared item by item with their transcripts: the autoregressive loss, the attention mask, teacher forcing, 'the model predicts scores, not tokens', fine-tuning options, the GPT size table, MLM and NSP, [CLS] fine-tuning, BERT releases and the 512 limit, and the four known limitations. The five videos the post describes but does not embed (RoBERTa, ELECTRA, seq2seq, distillation, wrap-up) were also read, and their claims match. The one claim the transcripts cannot support, the 'about 6 to 14 minutes' running time, was removed.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist (videos 07–13)](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

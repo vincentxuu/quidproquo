@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 14 & 16: MLE vs MAP, Bias-Variance, Entropy and KL, Plus a Midterm Self-Check"
+title: "& 16: MLE vs MAP, Bias-Variance, Entropy and KL, Plus a Midterm Self-Check | Berkeley CS189 Lecture 14"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, bias-variance, information-theory, exam-prep]
@@ -26,31 +26,6 @@ The [previous post](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-13-1
 - **The logistic regression loss**: introduced as maximum likelihood. Lec 16 recasts it as cross-entropy, a measure in bits of how far apart two distributions are.
 
 The midterm (3/17) comes the week after these lectures, so the end of this post lays out a self-check using the official exam.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
-title: Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=ArSadC8hY-Q
-title: Lecture 16 recording: Entropy, Information, and Logistic Regression
-```
-
-Original videos: [Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 recording: Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 14 video (Z1KuNG9HyiQ, about 69 minutes) contrasts MLE and MAP using coin-bias estimation, connects it to ridge and least squares, then covers bias-variance and tuning on a validation set, matching the first two sections of this post; the transcript has no Chatbot Arena, Bradley–Terry, or five-question paper-reading checklist, so that part appears only in lec14.pdf. The Lecture 16 video (ArSadC8hY-Q, about 70 minutes) is indeed Entropy, Information, and Logistic Regression: entropy through compression (about 73 bits for the 100-day rain data, the horse race), cross-entropy and KL, then the logistic regression loss; the MNIST and CIFAR-10 dataset figures are not mentioned in the transcript, and the video ends with midterm logistics. The midterm section and the problem walkthrough videos are outside this check. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Where the materials are
 
@@ -167,6 +142,31 @@ Previous: [Lec 13 & 15: convergence, momentum, Adam, SGD](/posts/learning/2026-0
 1. Derive the ridge objective yourself from the negative log posterior, and write down which two variances λ is the ratio of.
 2. Compute the entropy H(0.8) for the Seattle example and confirm that 100 days come to roughly 73 bits.
 3. Pick an evening and sit the sp26 midterm under time, following the steps above.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Z1KuNG9HyiQ
+title: Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ArSadC8hY-Q
+title: Lecture 16 recording: Entropy, Information, and Logistic Regression
+```
+
+Original videos: [Lecture 14 recording: MLE, MAP and Bias-Variance Trade-off](https://www.youtube.com/watch?v=Z1KuNG9HyiQ)、[Lecture 16 recording: Entropy, Information, and Logistic Regression](https://www.youtube.com/watch?v=ArSadC8hY-Q)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 14 video (Z1KuNG9HyiQ, about 69 minutes) contrasts MLE and MAP using coin-bias estimation, connects it to ridge and least squares, then covers bias-variance and tuning on a validation set, matching the first two sections of this post; the transcript has no Chatbot Arena, Bradley–Terry, or five-question paper-reading checklist, so that part appears only in lec14.pdf. The Lecture 16 video (ArSadC8hY-Q, about 70 minutes) is indeed Entropy, Information, and Logistic Regression: entropy through compression (about 73 bits for the 100-day rain data, the horse race), cross-entropy and KL, then the logistic regression loss; the MNIST and CIFAR-10 dataset figures are not mentioned in the transcript, and the video ends with midterm logistics. The midterm section and the problem walkthrough videos are outside this check. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

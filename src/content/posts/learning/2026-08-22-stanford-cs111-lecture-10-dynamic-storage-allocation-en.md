@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 10: Dynamic Storage Management"
+title: "Dynamic Storage Management | Stanford CS111 Lecture 10"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -22,14 +22,6 @@ This is part 11 of [Reading Stanford CS111](/series/stanford-cs111), covering **
 Dynamic storage management asks how applications and operating systems manage memory or storage under unpredictable demand. The interface is tiny: `allocate(size) -> ptr` returns a block, and `free(ptr)` returns one. The allocator does not know how long a block will live or how large the next request will be. Memory is today's case; disk storage returns later in the course.
 
 The same requests leave different hole patterns when frees arrive in a different order. The allocator cannot see whether splitting a large block now will block a large future request. Placement is therefore an online decision made from current free-space state, with future fragmentation as a consequence.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Stack allocation trades ordering restrictions for constant time
 
@@ -92,6 +84,14 @@ The PDF combines sweep with copying/compaction; this article preserves that agen
 The slides give cost magnitudes of 10–20% of CPU time, 2–5× overallocation, and long pauses. These illustrate trade-offs, not guarantees for every runtime, heap, and workload. Generational, incremental, and concurrent designs lie outside the public deck. ([official lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/10/Lecture10.pdf))
 
 The lecture can be unified as prediction exchanged for efficiency. Predictable LIFO lifetime makes a stack pointer nearly free. Arbitrary heap lifetime needs free lists and placement. Fixed sizes enable slabs and bitmaps. Trackable ownership makes reference counts direct. General graph reachability requires collection and pays scan, space, and pause costs. No allocator simultaneously provides arbitrary lifetimes, zero fragmentation, constant time, immediate reclamation, and zero metadata.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

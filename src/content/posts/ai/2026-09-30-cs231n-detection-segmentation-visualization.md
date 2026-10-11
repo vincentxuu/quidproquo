@@ -1,5 +1,5 @@
 ---
-title: "CS231N L9：物件偵測、影像分割與模型可視化"
+title: "物件偵測、影像分割與模型可視化｜Stanford CS231N 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 **系列位置**：上一篇 [L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)｜下一篇 [L10：影片理解](/posts/ai/2026-09-30-cs231n-video-understanding)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
 
 到目前為止，CS231N 的模型都只回答一個問題：這張圖是什麼？第 9 講把問題拆細：圖裡有哪些東西、各在哪裡、每個像素屬於誰？最後再反過來問：模型做判斷時，到底在看哪裡？
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 9 講（長度 1:13:43，講者依影片說明欄為 Ehsan Adeli），字幕有語意分割與全卷積網路、upsampling／轉置卷積、R-CNN 與 region proposal、YOLO、DETR、Mask R-CNN、saliency、CAM／Grad-CAM 與 ViT 注意力可視化，與本文主題相符。YouTube 說明欄列的對抗樣本、DeepDream、風格轉換在字幕中也沒有出現，與本文說這幾個主題沒有被講到一致。字幕未見 U-Net 與 anchor 的名稱，那些細節來自投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=PTypu6GqEd4
-title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
-其他相關影片（僅文字連結）：[DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 先講一個落差：課表和投影片不一樣
 
@@ -173,6 +155,24 @@ title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmen
 - 對抗樣本、生成模型：[CS230 對抗樣本與生成模型](/posts/ai/2026-08-16-cs230-adversarial-and-generative)
 - 同一套 Transformer 基礎：[L8：Attention、Transformer 與 ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
 - 更完整的深度學習理論課：[MIT 6.7960 導讀](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 9 講（長度 1:13:43，講者依影片說明欄為 Ehsan Adeli），字幕有語意分割與全卷積網路、upsampling／轉置卷積、R-CNN 與 region proposal、YOLO、DETR、Mask R-CNN、saliency、CAM／Grad-CAM 與 ViT 注意力可視化，與本文主題相符。YouTube 說明欄列的對抗樣本、DeepDream、風格轉換在字幕中也沒有出現，與本文說這幾個主題沒有被講到一致。字幕未見 U-Net 與 anchor 的名稱，那些細節來自投影片。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=PTypu6GqEd4
+title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
+其他相關影片（僅文字連結）：[DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

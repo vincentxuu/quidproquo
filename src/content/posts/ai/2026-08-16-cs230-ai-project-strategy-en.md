@@ -1,5 +1,5 @@
 ---
-title: "AI Project Strategy: Three Hours in a Spreadsheet Buys Back Weeks"
+title: "AI Project Strategy: Three Hours in a Spreadsheet Buys Back Weeks | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: ai
 type: guide
@@ -24,26 +24,6 @@ This post covers **[Lecture 6: AI Project Strategy](https://www.youtube.com/watc
 **One warning first**: the [official syllabus](https://cs230.stanford.edu/syllabus/) entry for Lecture 6 lists "career advice / paper reading / healthcare AI guest" with 2024 slides — **that's stale.** The class actually recorded is AI Project Strategy, and the first sentence is "continue our discussion on AI project strategy." Careers is Lecture 9.
 
 The lecture uses two examples: the first half is **trigger-word detection for a voice-controlled lamp** (a single end-to-end model), the second is an **AI deep researcher** (a multi-component pipeline). That second half is the most directly portable content in the whole series for LLM applications.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (Andrew Ng; 1:15:18 matches "1 hour 15 minutes", and the captions open with "continue our discussion on AI project strategy"). Checked item by item against the captions, all appear: the Robert lamp, starting with a literature search and skimming, emailing paper authors (about 10 minutes, roughly 50% reply), video games having only about 20 car types, 100 training clips / 25 dev / 0 test, 97% accuracy equal to print zero, the 1:10 and 1:30 imbalance remarks, duplicating positives and lengthening the window, the "voice activity detector" trap, debugging rather than development, one problem a day and the 4-hour / 3-week training cycles, "twice as long", nasa.gov vs bobsbackyardastronomyblog.com, 10 to 100 queries, percentages not needing to sum to 100%, and "three, four hours" of error analysis. The captions never mention slides, so "no dedicated slides" cannot be confirmed from them but is not contradicted. No body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=s6JVGzABKho
-title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
-
-Course and recording entries:
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-
-Checked: 2026-10-10.
 
 ## Why teach this
 
@@ -265,6 +245,26 @@ Ng's example is already an LLM pipeline, so almost no translation is needed. Wha
 The site's [common RAG failure modes](/posts/ai/2026-03-12-rag-failure-modes-en) post lists ten problems and their fixes; what this lecture adds is **how you know which one you have.** All ten fixes are good, but if your actual problem is at the page-selection step, no amount of retrieval-strategy switching will move anything.
 
 As for the trigger-word half, one insight holds up perfectly today: **"you'll get a voice activity detector."** When you build an eval set with synthetic data and every positive shares some surface feature, the model (or your judge) learns to detect that feature rather than the thing you meant to test. That's the same mechanism as the gap described in the site's [shipping is where the work starts](/posts/ai/2026-08-10-enterprise-agent-case-studies-en) post, seen from the other end.
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 6 (Andrew Ng; 1:15:18 matches "1 hour 15 minutes", and the captions open with "continue our discussion on AI project strategy"). Checked item by item against the captions, all appear: the Robert lamp, starting with a literature search and skimming, emailing paper authors (about 10 minutes, roughly 50% reply), video games having only about 20 car types, 100 training clips / 25 dev / 0 test, 97% accuracy equal to print zero, the 1:10 and 1:30 imbalance remarks, duplicating positives and lengthening the window, the "voice activity detector" trap, debugging rather than development, one problem a day and the 4-hour / 3-week training cycles, "twice as long", nasa.gov vs bobsbackyardastronomyblog.com, 10 to 100 queries, percentages not needing to sum to 100%, and "three, four hours" of error analysis. The captions never mention slides, so "no dedicated slides" cannot be confirmed from them but is not contradicted. No body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=s6JVGzABKho
+title: Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 6: AI Project Strategy](https://www.youtube.com/watch?v=s6JVGzABKho)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

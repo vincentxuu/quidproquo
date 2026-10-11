@@ -1,5 +1,5 @@
 ---
-title: "CS234 從示範學：behavioral cloning、DAgger、inverse RL 與 MaxEnt IRL"
+title: "behavioral cloning、DAgger、inverse RL 與 MaxEnt IRL｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,31 +41,6 @@ glossary:
 到上一篇為止，reward 一直是題目給的。L7 後半換了一個問題：如果世界上已經有很好的決策者（人類司機、飛行員、醫師），我們能不能直接從他們的示範學，而不先寫出 reward？
 
 投影片用一句話交代動機：讓人類在 RL 演算法做決定時給 reward 訊號，是便宜的監督，但樣本複雜度很高。另一條路是 **imitation learning**。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=4ngb0IZTg8I
-title: 約第 45 分起「Introduction to imitation learning」
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=IEbuJtjqtMU
-title: 約第 4 分起
-```
-
-原始影片：[約第 45 分起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[約第 4 分起](https://www.youtube.com/watch?v=IEbuJtjqtMU)
-
-課程與錄影入口：
-
-- [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 7「Policy Search 3」（約 79 分鐘）前段是 GAE 與單調改進，約 55% 之後才開始講模仿學習，依序是 behavior cloning、ALVINN、DAgger，到最後約 15% 才進入 IRL 與 feature matching；Lecture 8「Offline RL 1」（約 74 分鐘）前段是模仿學習回顧與 MaxEnt IRL，約 70% 之後轉到 RLHF。全文的 mm:ss 時間碼都改成依字幕位置估算的「約」值並拿掉 &t= 連結，「YouTube 章節」改為「字幕」；影片與投影片的詳細程度比較沒有做，已拿掉「影片講得比投影片細」的說法。
 
 ## 投影片範圍與 2024 影片對照
 
@@ -207,6 +182,31 @@ L8 開頭把這段收成一頁「Imitation Learning Summary」：非常強大、
 
 - 同一主題在深度 RL 課裡的版本：[CS224R L2：模仿學習與多峰 policy](/posts/ai/2026-09-30-cs224r-imitation-learning)
 - 分布偏移的另一種講法：[Berkeley CS285 L1–4：模仿學習、分布偏移與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=4ngb0IZTg8I
+title: 約第 45 分起「Introduction to imitation learning」
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=IEbuJtjqtMU
+title: 約第 4 分起
+```
+
+原始影片：[約第 45 分起「Introduction to imitation learning」](https://www.youtube.com/watch?v=4ngb0IZTg8I)、[約第 4 分起](https://www.youtube.com/watch?v=IEbuJtjqtMU)
+
+課程與錄影入口：
+
+- [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 7「Policy Search 3」（約 79 分鐘）前段是 GAE 與單調改進，約 55% 之後才開始講模仿學習，依序是 behavior cloning、ALVINN、DAgger，到最後約 15% 才進入 IRL 與 feature matching；Lecture 8「Offline RL 1」（約 74 分鐘）前段是模仿學習回顧與 MaxEnt IRL，約 70% 之後轉到 RLHF。全文的 mm:ss 時間碼都改成依字幕位置估算的「約」值並拿掉 &t= 連結，「YouTube 章節」改為「字幕」；影片與投影片的詳細程度比較沒有做，已拿掉「影片講得比投影片細」的說法。
 
 ## 更新紀錄
 

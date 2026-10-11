@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 12｜General Inference：Bayesian networks、sampling 與 rare evidence"
+title: "General Inference：Bayesian networks、sampling 與 rare evidence｜Stanford CS109 第 12 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 13 篇，對應 **Summer 2026 Lecture 12: General Inference**，日期為 7 月 9 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture12-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture12-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture12-LLMPrompts.pdf)與跨 offering 共用的 Spring-dated 官方讀本 [computational inference](https://probabilitycoders.stanford.edu/spr26/computational_inference) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 正式 Summer worksheet 是 P1–P6 加 challenge 的兩頁，題號完整。官方 PDF 另夾一頁沒有講次標頭、題號，且 answer key 與 LLM guide 都未收錄的 **1-D Tracking**。本文把它標為 orphan supplemental artifact 並在文末涵蓋，不把它誤編為 P7。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=c0QGjtu9GZg
-title: Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15](https://www.youtube.com/watch?v=c0QGjtu9GZg)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 15「General Inference」字幕（約 73K 字元）：影片講 Bayesian network、joint distribution 與 rejection sampling，並只在結尾提到 MCMC 是更進階的演算法，與本講一致；本文 worksheet 題目（WebMD 較大網路、rare evidence 崩潰、1-D Tracking）不是影片內容。
 
 ## P1：再做一次 Bayes update
 
@@ -156,6 +134,28 @@ f(T=t|X=4)
 - P6 是 pset4 題，公開 answer key 刻意省略解答；本文不推測缺少的 network parameters。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - 正式 worksheet／guide 各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=c0QGjtu9GZg
+title: Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15](https://www.youtube.com/watch?v=c0QGjtu9GZg)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 15「General Inference」字幕（約 73K 字元）：影片講 Bayesian network、joint distribution 與 rejection sampling，並只在結尾提到 MCMC 是更進階的演算法，與本講一致；本文 worksheet 題目（WebMD 較大網路、rare evidence 崩潰、1-D Tracking）不是影片內容。
 
 ## 更新紀錄
 

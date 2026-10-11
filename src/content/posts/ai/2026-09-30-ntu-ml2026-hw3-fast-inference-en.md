@@ -1,5 +1,5 @@
 ---
-title: "NTU Hung-yi Lee ML 2026 Guide: HW3 LLM Fast Inference: Seven Speed-up Papers, Then Measuring Speculative Decoding, FlashAttention, and vLLM on a GPU"
+title: "NTU Hung-yi Lee ML 2026 Guide: HW3 LLM Fast Inference: Seven Speed-up Papers, Then Measuring Speculative Decoding, FlashAttention, and vLLM on a GPU | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **This guide is based on HW3 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 8 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous two posts covered [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) and [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en). This homework has you measure them on a real GPU, and it brings back Speculative Decoding, which the lecture skipped.
 
 Official materials used: the homework slides [hw3.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw3.pdf) (63 pages; the second half holds the questions in Mandarin and English), the [homework Colab](https://colab.research.google.com/drive/1vZNo6_PlaP2fvMqr3g5KoQA0rN79m24O?usp=sharing) (40 cells), and the TA walkthrough video [ML 2026 Spring HW3 LLM Fast Inference](https://youtu.be/rXfp9Yo5HwU) listed on the course page. The course page gives 3/20 as the release date, and the PDF sets the deadline at 2026/04/09 23:59:59 (UTC+8) with no late submissions. The TAs are 馮柏翰, 吳岳霖, and 蘇炳揚.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
-title: TA video: ML 2026 Spring HW3 LLM Fast Inference
-```
-
-Original videos: [TA video: ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Access level: A3, but no official answers
 
@@ -162,6 +143,25 @@ Verified: the full text and embedded links of hw3.pdf, the Colab's markdown and 
 Not verified: the TA video has no captions to pull, and this post did not transcribe it, so any extra hints in the video are not included. The official answers are not public, and this post deliberately gives no answers. The description of n-gram speed-up is based only on the `prompt_lookup_num_tokens` parameter in the Colab code.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) | Next: [Positional Embedding and Very Long Inputs](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=rXfp9Yo5HwU
+title: TA video: ML 2026 Spring HW3 LLM Fast Inference
+```
+
+Original videos: [TA video: ML 2026 Spring HW3 LLM Fast Inference](https://www.youtube.com/watch?v=rXfp9Yo5HwU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

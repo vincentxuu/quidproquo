@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 9 | Normal Distribution: Standardization, Phi, and continuity correction"
+title: "Normal Distribution: Standardization, Phi, and continuity correction | Stanford CS109 Lecture 9"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 10 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 9: The Normal Distribution** on July 6 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture09-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture09-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture09-LLMPrompts.pdf), and shared Spring-dated reader chapters on the [Normal](https://probabilitycoders.stanford.edu/spr26/normal) and [binomial approximation](https://probabilitycoders.stanford.edu/spr26/binomial_approx). The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The original worksheet has two pages: P1–P3 are on page one, while P4–P7 and the challenge are on page two. No problem number is missing. P5 and the challenge are problem-set items deliberately hidden from the public answer key; this guide distinguishes its derivations from officially printed solutions.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=rpB_NNXiWlM
-title: Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10](https://www.youtube.com/watch?v=rpB_NNXiWlM)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 10, "Normal Distribution" (about 75 minutes): it covers the Normal (Gaussian), standard deviation, Φ and the CDF, the Normal approximation to the binomial and continuity correction, matching this lecture. The transcript does not contain worksheet problems such as the submarine panel, which are not video content.
 
 ## P1: Review Exponential waiting time
 
@@ -190,6 +168,28 @@ The guide's six concepts are Normal parameters, standardization and `Φ`, symmet
 - P5 and the challenge are problem-set items deliberately omitted from the public answer key; this article derives them only from the public prompts.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. The short-material exception applies: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=rpB_NNXiWlM
+title: Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10](https://www.youtube.com/watch?v=rpB_NNXiWlM)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 10, "Normal Distribution" (about 75 minutes): it covers the Normal (Gaussian), standard deviation, Φ and the CDF, the Normal approximation to the binomial and continuity correction, matching this lecture. The transcript does not contain worksheet problems such as the submarine panel, which are not video content.
 
 ## Update Log
 

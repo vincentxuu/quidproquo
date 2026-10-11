@@ -1,5 +1,5 @@
 ---
-title: "台大李宏毅 ML 2026 導讀：AI 自我成長（下）——改進 harness、改進「改進的方法」，以及會不會失控"
+title: "台大李宏毅 ML 2026 導讀：AI 自我成長（下）——改進 harness、改進「改進的方法」，以及會不會失控｜台大李宏毅 機器學習 2026 Spring 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 **本文依據[台大李宏毅《機器學習 2026 Spring》](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) 5/22 那一週的教材。** 這是[台大李宏毅 機器學習 2026 Spring 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)系列第 18 篇，也是正課的最後一講。上一篇是 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)。它接的是兩週前的 [AI 自我成長（上）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)：上集談「由 AI 產生答案、reward 與 loss」，也就是怎麼更新**參數**；這一集談**harness**，以及更新規則本身能不能被更新。
 
 用到的官方材料：講義 [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf)（64 頁），以及課程頁列出的影片 [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I)。課程頁那一列的 ppt 連結寫成 `self-evolving-agent.ptx`，點下去是 404，改成 `.pptx` 才打得開。存取等級是 **A3**：投影片與錄影都公開，本講沒有對應的作業或測驗。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=cQLKVzbwN7I
-title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=s06mSAGN4gM
-title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
-```
-
-原始影片：[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：下集 cQLKVzbwN7I（1:09:08）字幕全文已讀；上集 s06mSAGN4gM（1:03:44）字幕已讀，用於核對本文對上集的回顧與 PostTrainBench 的說法。下集核對 L̂／L／H 的符號回顧、Agent = Harness + LLM、OPRO 的「先深呼吸」與提示寫法、類基因演算法的 pool、GEPA、記憶設計論文、Darwin Gödel Machine（10／60／200 三階段、摩根齒獸比喻）、DSPy、harness 與參數聯合更新的三篇論文、目標轉移與 TTT、Do Self-Evolving Agents Forget? 與 CPE、HyperAgent／Gödel Agent／Learning to Self-Evolve、SEAL、Meta Learning 的 φ／θ 說法、RNN 換句話說、參數是基因／context 是神經元、三層記憶、內在動機（curiosity／empowerment）、孔雀尾巴與《機械公敵》，皆與字幕一致。更正兩處：文中兩個精確時間點（上集「52:17」、2025 第 8 講「1:54:30」）無法在字幕驗證，已改為相對位置並註明未核對。投影片頁碼與論文編號屬講義內容，字幕無法驗證。
 
 ## 先把上集收成一條式子
 
@@ -221,6 +197,30 @@ SEAL 的模型身兼兩職：解任務，也決定怎麼訓練自己。它輸出
 不能確認：投影片多為圖表，論文裡的數字（例如 Darwin Gödel Machine 的分數、各表格的正確率）本文只寫字幕描述的趨勢，沒有抄數字。第 14 頁的記憶論文與第 24 頁的聯合演化論文，是依字幕描述（「26 年 2 月的 paper」「今年年初的論文」）對到投影片上的 arXiv 編號。字幕把 R-Zero 聽成「R1-Zero」、把 AlphaEvolve 聽成「AlphaEvo」，本文以投影片為準。AlphaEvolve 與 ShinkaEvolve 那一頁講課時沒有逐一解說，本文只寫投影片上的迴圈圖。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)｜下一篇 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=cQLKVzbwN7I
+title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
+```
+
+原始影片：[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：下集 cQLKVzbwN7I（1:09:08）字幕全文已讀；上集 s06mSAGN4gM（1:03:44）字幕已讀，用於核對本文對上集的回顧與 PostTrainBench 的說法。下集核對 L̂／L／H 的符號回顧、Agent = Harness + LLM、OPRO 的「先深呼吸」與提示寫法、類基因演算法的 pool、GEPA、記憶設計論文、Darwin Gödel Machine（10／60／200 三階段、摩根齒獸比喻）、DSPy、harness 與參數聯合更新的三篇論文、目標轉移與 TTT、Do Self-Evolving Agents Forget? 與 CPE、HyperAgent／Gödel Agent／Learning to Self-Evolve、SEAL、Meta Learning 的 φ／θ 說法、RNN 換句話說、參數是基因／context 是神經元、三層記憶、內在動機（curiosity／empowerment）、孔雀尾巴與《機械公敵》，皆與字幕一致。更正兩處：文中兩個精確時間點（上集「52:17」、2025 第 8 講「1:54:30」）無法在字幕驗證，已改為相對位置並註明未核對。投影片頁碼與論文編號屬講義內容，字幕無法驗證。
 
 ## 更新紀錄
 

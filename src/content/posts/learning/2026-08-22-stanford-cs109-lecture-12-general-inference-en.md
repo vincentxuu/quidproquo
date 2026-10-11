@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 12 | General Inference: Bayesian networks, sampling, and rare evidence"
+title: "General Inference: Bayesian networks, sampling, and rare evidence | Stanford CS109 Lecture 12"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 13 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 12: General Inference** on July 9 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture12-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture12-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture12-LLMPrompts.pdf), and the shared Spring-dated reader's [computational inference](https://probabilitycoders.stanford.edu/spr26/computational_inference) chapter. The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The canonical Summer worksheet is a complete two-page P1–P6 plus challenge. The PDF also contains an unnumbered **1-D Tracking** page with no lecture header and no counterpart in the answer key or LLM guide. This article covers it as an orphan supplemental artifact rather than inventing a P7.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=c0QGjtu9GZg
-title: Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15](https://www.youtube.com/watch?v=c0QGjtu9GZg)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 15, "General Inference" (about 73K characters): it covers Bayesian networks, joint distributions and rejection sampling, and only mentions MCMC near the end as a more advanced algorithm, matching this lecture. The worksheet problems in this post (the larger WebMD network, rare-evidence collapse, 1-D Tracking) are not video content.
 
 ## P1: One more Bayes update
 
@@ -156,6 +134,28 @@ The guide's six concepts are joint-table scale, Bayesian-network factorization, 
 - P6 is a pset4 item deliberately omitted from the public answer key; missing network parameters are not inferred.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The formal worksheet and guide are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=c0QGjtu9GZg
+title: Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I General Inference I 2022 I Lecture 15](https://www.youtube.com/watch?v=c0QGjtu9GZg)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 15, "General Inference" (about 73K characters): it covers Bayesian networks, joint distributions and rejection sampling, and only mentions MCMC near the end as a more advanced algorithm, matching this lecture. The worksheet problems in this post (the larger WebMD network, rare-evidence collapse, 1-D Tracking) are not video content.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading NCCU Yen-Lung Tsai Generative AI, L11: Text-to-Image AI, Principles and Practice — CLIP Reads the Prompt, Schedulers Decide Whether It Converges, LoRA Learns Only ΔW, and You Build a Web App with diffusers"
+title: "Text-to-Image AI, Principles and Practice — CLIP Reads the Prompt, Schedulers Decide Whether It Converges, LoRA Learns Only ΔW, and You Build a Web App with diffusers | NCCU Yen-Lung Tsai Generative AI Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,23 +32,6 @@ glossary:
 **This guide covers semester 1132 (spring 2025) of Yen-Lung Tsai's NCCU course *Generative AI: Text and Image Synthesis Principles and Practice*.** It is part 11 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L10, the adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en). Last week ended on the Stable Diffusion diagram. This week takes apart its CLIP and scheduler boxes, adds LoRA, the most common fine-tuning technique, and then writes code.
 
 It draws on four official sources: [video 11](https://www.youtube.com/watch?v=8VS6Dcxmp34) (2025-04-29, about 2 h 59 min), the 72-page GenAI11 slides in the instructor's [slide folder](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA), the [AI-Demo](https://github.com/yenlung/AI-Demo) notebook [`【Demo08g】打造Stable_Diffusion的WebUI`](https://yenlung.me/AI08g), and the week 11 homework on the [Chang Gung satellite course page](https://yangchihyuan.github.io/courses/GenerativeAI2025) (in Mandarin). Access level: **A3**. Demo08g was last committed on 2025-04-29, the day of the lecture. **What follows quotes the current repo version.**
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=8VS6Dcxmp34
-title: 【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）
-```
-
-Original videos: [【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=8VS6Dcxmp34)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week sits in the course
 
@@ -203,6 +186,23 @@ This guide stands on its own. To go deeper, the site has these:
 - The course landscape and access levels: [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 Previous: [L10 The adventure that starts with the VAE](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en) | Next: [L12 ControlNet and Fooocus](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en) | [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable (the player response on 2026-10-10 shows playableInEmbed true). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=8VS6Dcxmp34
+title: 【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）
+```
+
+Original videos: [【生成式 AI】11. 文字生圖AI的原理及實作（YouTube 錄影）](https://www.youtube.com/watch?v=8VS6Dcxmp34)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

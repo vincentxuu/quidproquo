@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 3: Building Task-Oriented Agents with Genie Worksheets"
+title: "Building Task-Oriented Agents with Genie Worksheets | Stanford CS224V Lecture 3"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, task-oriented-dialogue, semantic-parsing, genie]
@@ -19,27 +19,6 @@ description: "CS224V Building a Task-Oriented Agent, from dialogue state and the
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 3 addresses a concrete risk: a ride, course, or reservation agent must not invent unavailable options or execute an undeclared action. Genie Worksheets express task capability as an inspectable declarative specification. The LLM interprets language without freely deciding what the system can do.
-
-## Course video sources
-
-This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (the September 30 lecture on task-oriented agents) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
-
-Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 3 (about 1 h 29 min) on conversational agents that combine knowledge retrieval and task execution. The transcript covers task-oriented agents and dialogue, multi-turn slot filling, the Genie worksheet (a declarative programming language), and course-enrollment and restaurant-booking examples, matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video. The text had quoted "Building a task-oriented agent" as the lecture title, which appears neither in the transcript nor on the video page, so it is now an unquoted topic description.
-
-```youtube
-url: https://www.youtube.com/watch?v=DqHRDUdIhpw
-title: CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon
-```
-
-Original videos: [CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon](https://www.youtube.com/watch?v=DqHRDUdIhpw)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Agenda: from dialogue state to runtime
 
@@ -128,6 +107,27 @@ Before coding, specify a room-booking Worksheet: typed fields, fields requiring 
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 There is no public demo recording, and slide excerpts are not a complete language or API specification. This account does not use Autumn 2026 material to fill Fall 2025 gaps.
+
+## Course video sources
+
+This article is based on the Fall 2025 slides. The official course site (read on 2026-10-10) says lecture recordings are on Canvas, which requires sign-in; opening the current term’s Canvas entry myself redirected to the Stanford login page, so the original Fall 2025 recording could not be verified. The video below is the same-topic CS224V Fall 2024 lecture (the September 30 lecture on task-oriented agents) from the public StanfordCSVideos channel; it is a different term and may differ in content, so it is included only as related background and is not the Fall 2025 recording this article follows.
+
+Content check: verified against the video transcript (2026-10-10): the video is Fall 2024 Lecture 3 (about 1 h 29 min) on conversational agents that combine knowledge retrieval and task execution. The transcript covers task-oriented agents and dialogue, multi-turn slot filling, the Genie worksheet (a declarative programming language), and course-enrollment and restaurant-booking examples, matching the article's topic. The article's details come from the Fall 2025 slides and were not compared item by item with this earlier-term video. The text had quoted "Building a task-oriented agent" as the lecture title, which appears neither in the transcript nor on the video page, so it is now an unquoted topic description.
+
+```youtube
+url: https://www.youtube.com/watch?v=DqHRDUdIhpw
+title: CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon
+```
+
+Original videos: [CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon](https://www.youtube.com/watch?v=DqHRDUdIhpw)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

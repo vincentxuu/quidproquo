@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 6: Implementing Locks"
+title: "Implementing Locks | Stanford CS111 Lecture 6"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -21,14 +21,6 @@ This is part 7 of [Reading Stanford CS111](/series/stanford-cs111), covering **S
 
 Lecture 6 stops treating a lock as a black box. Its 16-page deck begins with interrupt masking on one core, then adds atomic exchange, spinning, blocking, and wakeup across successive multicore versions. Each change removes a concrete race and may expose the next one.
 
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
-
 ## Track the lock invariant version by version
 
 Across versions 1 through 5, follow only three pieces of state: whether the guard is held, whether the lock is available, and whether a waiter has entered the queue. The hard boundary is between observing failure and going to sleep, where a wakeup must not be lost. The sections therefore follow the versions rather than imposing a generic mechanism/policy template.
@@ -38,7 +30,7 @@ Across versions 1 through 5, follow only three pieces of state: whether the guar
 
 The slides first restrict the machine to one core, where only a trap or interrupt can switch threads. The kernel disables interrupts while inspecting `locked` and changing the wait queue, then restores them afterward. This is a privileged kernel critical section, not an implementation applications may freely copy.
 
-The waiting path exposes lost wakeup. If a thread queues itself, enables interrupts, and only then calls `blockThread`, an unlock may wake it in the gap. The original thread subsequently sleeps with nobody left to wake it. Queue insertion and transition to blocked must therefore appear atomic to unlock.
+The waiting path exposes lost wakeup. If a thread queues itself, enables interrupts, and only then calls `blockThread`, an interrupt may let the same core switch to another thread, which unlocks and wakes the waiter in the gap. The original thread subsequently sleeps with nobody left to wake it. Queue insertion and transition to blocked must therefore appear atomic to unlock.
 
 ## Multiple cores: atomic exchange protects only the inner guard
 
@@ -65,6 +57,14 @@ The public PDF has only 16 pages. Excluding title, reading, and announcement sli
 One useful extension is fault-injection reading. After every state transition, assume that the thread is descheduled, the process crashes, or the machine loses power, then record what an observer can see. This is not a claim about a required course test; it is a method for turning the design diagrams into verification cases.
 
 A second exercise is a mechanism/policy table. Put only capabilities on the left and selection or allocation rules on the right. An item that cannot be placed usually reveals two concepts that have not yet been separated.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

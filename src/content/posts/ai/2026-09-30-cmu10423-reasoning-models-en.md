@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L20: Reasoning Models — From Chain-of-Thought to o1, DeepSeek-R1, and GRPO, Plus a Look at Mechanistic Interpretability"
+title: "Reasoning Models — From Chain-of-Thought to o1, DeepSeek-R1, and GRPO, Plus a Look at Mechanistic Interpretability | CMU 10-423 Lecture 20"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html) and the [L20 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture20-reasoning.pdf) (39 pages, no inked version). The full title on the cover slide is "Reasoning Models + Mechanistic Interpretability," which adds the interpretability second half that the schedule leaves out. The schedule lists no readings for this lecture, so this post cites only the slides and the sources they credit. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post relies only on the slides.
 
 The question this lecture answers: **how do reasoning models differ from ordinary LLMs in training and inference?** The slides answer in three steps: get the model to write its reasoning out, reward correct reasoning with reinforcement learning, and let the model spend more compute thinking at inference time too.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## One thing first: the exam is tonight
 
@@ -194,6 +183,17 @@ Confirmed: the schedule's date and quiz coverage; the text, tables, figure capti
 Further reading: this site's [CME295 LLM reasoning post](/posts/ai/2026-09-29-cme295-llm-reasoning-en) and [CS336 RLVR post](/posts/ai/2026-08-22-cs336-rlvr-en) cover reasoning models and verifiable rewards from other angles; for interpretability, continue with the [CS224N interpretability post](/posts/ai/2026-08-22-cs224n-interpretability-en) and the [Harvard CS2881R interpretability post](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en).
 
 Series navigation: previous [L19 + L21: long context and state space / hybrid models](/posts/ai/2026-09-30-cmu10423-long-context-ssm-en) | next [L22 + L26: practical risks and the science of alignment](/posts/ai/2026-09-30-cmu10423-risks-alignment-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

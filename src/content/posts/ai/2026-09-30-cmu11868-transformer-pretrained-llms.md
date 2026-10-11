@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L06–L07：用系統的眼光讀 Transformer、T5、LLaMA 與 GPT-3"
+title: "用系統的眼光讀 Transformer、T5、LLaMA 與 GPT-3｜CMU 11-868 第 6–7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 前五篇在打地基：GPU 怎麼跑 kernel、框架怎麼自動微分、你自己的 MiniTorch 怎麼訓練一個情感分類器。從這一篇開始，課程第一次把「模型」搬上桌。
 
 11-868 講模型只用了兩堂：L06 講 Transformer，L07 講預訓練 LLM。跟 [Stanford CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning) 或 [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 比，這兩堂的篇幅很短。它們只負責一件事：讓你知道**接下來要加速、切分、服務的東西長什麼樣子**，語言模型為什麼有效則交給其他課。本文照這個角度讀：每個元件都問兩件事，它的矩陣形狀是什麼、它會吃掉什麼資源。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 先定位：三種語言模型
 
@@ -160,6 +150,16 @@ T5-11B 的 d_model 只有 1024，參數幾乎都堆在 FFN 的 65536 維。這�
 2. L07 的尺寸表是圖片，直接開 [LLaMA](https://arxiv.org/abs/2302.13971) Table 2 和 [GPT-3](https://arxiv.org/abs/2005.14165) Table 2.1、Table D.1
 3. 用 GPT-3 的數字算一次參數量、權重記憶體和訓練 FLOPs，當作進入後半學期的暖身
 4. L07 第 21 頁直接接到 [HW3 作業頁](https://llmsystem.github.io/llmsystemhomework/assignment_3/)，這份作業 2/4 發下，讀完本文與[下一篇](/posts/ai/2026-09-30-cmu11868-tokenization-decoding)就可以開始
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

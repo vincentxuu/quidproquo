@@ -1,5 +1,5 @@
 ---
-title: "CS149 Lecture 7: GPU Architecture and CUDA Programming"
+title: "GPU Architecture and CUDA Programming | Stanford CS149 Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,27 +36,6 @@ glossary:
 The first eight posts stayed on the CPU. This lecture moves to the GPU, but the GPU is not really new. The second slide brings back the "basic GPU architecture" diagram from [Lecture 2](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en): many cores, SIMD execution inside each core, and several threads interleaved on each core. A GPU pushes all three kinds of parallelism to a very large scale at once.
 
 So the question for this lecture is concrete: **how do CUDA's grid, block, and thread abstractions land on GPU hardware?** Mapping DNNs onto GPUs waits for [the Lecture 9 post](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en). This post covers only the execution model.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Its embedded player reports an owner restriction, so this page now links to YouTube instead. Playback on YouTube has not been tested. Checked: 2026-10-11.
-
-<figure class="video-embed">
-
-[Watch on YouTube ↗](https://www.youtube.com/watch?v=qQTDF0CBoxE)
-
-</figure>
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming](https://www.youtube.com/watch?v=qQTDF0CBoxE)
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 7 - GPU architecture and CUDA Programming” (1:18:47). The captions cover the GPU's move from the graphics pipeline to compute mode, CUDA's host/device and grid/block/thread, the 1D convolution example, shared memory, SMs and warps on Volta (the V100 is introduced as a Volta diagram), and thread block scheduling; the lecture ends with the point that thread blocks cannot assume any execution order, matching this post. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## From drawing triangles to running any program
 
@@ -201,6 +180,27 @@ One thing you can do tonight: copy down the `myFlag` example, write one sentence
 - The same GPU execution model from the LLM training angle: [CS336 Lecture 5: GPUs Win by Moving Data Less, Not by Making Each Thread Fast](/posts/ai/2026-08-22-cs336-gpu-tpu-en)
 - Another course's take on threads, blocks, the memory hierarchy, and tiling: [CMU 11-868 L02–L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 - Course positioning, the five assignments' environment needs, and the 2023 video mapping: [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Its embedded player reports an owner restriction, so this page now links to YouTube instead. Playback on YouTube has not been tested. Checked: 2026-10-11.
+
+<figure class="video-embed">
+
+[Watch on YouTube ↗](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+</figure>
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 7 - GPU architecture and CUDA Programming” (1:18:47). The captions cover the GPU's move from the graphics pipeline to compute mode, CUDA's host/device and grid/block/thread, the 1D convolution example, shared memory, SMs and warps on Volta (the V100 is introduced as a Volta diagram), and thread block scheduling; the lecture ends with the point that thread blocks cannot assume any execution order, matching this post. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

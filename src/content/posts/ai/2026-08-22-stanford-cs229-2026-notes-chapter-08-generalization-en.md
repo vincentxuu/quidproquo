@@ -1,5 +1,5 @@
 ---
-title: "Generalization: Bias–Variance, Double Descent, and Sample Complexity"
+title: "Generalization: Bias–Variance, Double Descent, and Sample Complexity | Stanford CS229 Chapter 8"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,27 +20,6 @@ draft: false
 This is a chapter-by-chapter reading of Chapter 8, printed pages 115–136, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) by Tengyu Ma and Andrew Ng. It is **not a reconstruction of any quarter's recordings or lecture schedule**. The aim is to preserve the chapter's line of argument, not reproduce every proof.
 
 The first seven chapters explain how models learn. Chapter 8 asks the harder question: why can a model with tiny training error still fail on new data? That question moves the course from algorithms into generalization and learning theory.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=iVOxMcumR4A
-title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-Original videos: [Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=iVOxMcumR4A)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. It is a 2018 Autumn Friday discussion section led by Anand Avati (not Andrew Ng's main lecture); the transcript covers bias-variance, approximation/estimation error, ERM, uniform convergence (union bound, Hoeffding) and VC dimension, which fits this chapter. It never mentions the double descent section, which rests on the notes alone.
 
 ## Decomposing test error into bias and variance
 
@@ -89,6 +68,27 @@ The chapter follows deep learning by separating successful optimization from suc
 ## Self-study exercise
 
 Generate several noisy datasets from the same quadratic function. Fit linear, quadratic, and fifth-degree polynomials to each dataset. Compare average test error and plot all fitted curves. The average displacement from the truth reflects bias; variation among curves trained on different samples reveals variance.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from the older public CS229 Autumn 2018 recordings (Andrew Ng); their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=iVOxMcumR4A
+title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+Original videos: [Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=iVOxMcumR4A)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. It is a 2018 Autumn Friday discussion section led by Anand Avati (not Andrew Ng's main lecture); the transcript covers bias-variance, approximation/estimation error, ERM, uniform convergence (union bound, Hoeffding) and VC dimension, which fits this chapter. It never mentions the double descent section, which rests on the notes alone.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS228: The Prerequisites Are One Sentence About Probability and Algorithms — But the Course Hasn't Run in Two Years"
+title: "The Prerequisites Are One Sentence About Probability and Algorithms — But the Course Hasn't Run in Two Years | Stanford CS228 Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -24,17 +24,7 @@ draft: false
 
 Its position on Stanford's AI course map is odd. Everyone knows it exists; few people take it. The obstacle isn't the entry bar. Its official prerequisites name no course at all, while [CS 234](https://explorecourses.stanford.edu/search?q=CS+234&view=catalog) next door demands CS229 or equivalent — a full level higher. The real obstacle is that the course hasn't been offered in two years, and its website is frozen in the shape it had the last time it ran.
 
-This post was written after opening four academic-year entries on ExploreCourses, the frozen course site, and every chapter of the public lecture notes. It covers what the hard rules say, how the five assignments are paced, how complete the notes really are, and how the course relates to CS236. It does **not** walk through the math chapter by chapter — that's the notes' job, and the notes are public. For where this course sits in the sequence, see the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en).
-
-## Course video sources
-
-The official course site (cs228.stanford.edu, which redirects to ermongroup.github.io/cs228 and is headed Winter 2023-24; read live on 2026-10-10) links its Lecture Videos to an external tool on canvas.stanford.edu; I opened it and was redirected to the Stanford login page, confirming that a course account is required. A web search found no public YouTube or OCW release of this course, so nothing is embedded and no other course’s videos are passed off as its recordings.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs228.stanford.edu/)
-
-Checked: 2026-10-10.
+This guide answers three self-study questions: how independence assumptions shrink probability tables, how representation, inference and learning connect, and where to begin practicing. An example created for this guide works through Naive Bayes, followed by a three-graph conditional-independence check. Prerequisites, access limits and historical checks appear in the relevant notes; this guide does not replace the notes’ chapter-by-chapter derivations. See the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en) for the sequence.
 
 ## The hard facts
 
@@ -107,7 +97,27 @@ And the closing chapter of the notes is [the variational autoencoder](https://er
 
 **Watch the timestamps, though.** The newest citations in these modernized passages stop at 2023 (ChatGPT, Child et al. 2021's Very Deep VAE), with nothing added since. So what the notes answer is "how modern generative models fit into the graphical-model frame, as of 2023" — not the 2026 version.
 
-## What the assignments look like
+## Work it through: Naive Bayes with two words
+
+This binary-classification example is created for this guide, not actual lecture or assignment data. Let `Y` indicate spam, `O` the presence of offer, and `M` the presence of meeting. Assume `O` and `M` are conditionally independent given `Y`. Set `P(Y=1)=0.4`, `P(O=1|Y=1)=0.75`, and `P(M=1|Y=1)=0.4`; the two word probabilities for non-spam are 0.25 and 0.8.
+
+If both words occur, the unnormalized spam score is `0.4×0.75×0.4=0.12`; the non-spam score is `0.6×0.25×0.8=0.12`. Divide by their sum, 0.24, to obtain spam probability 0.5. Although offer favors spam, meeting can offset that evidence; one word alone does not settle the classification.
+
+Now calculate “offer present, meeting absent” before checking: the spam score is `0.4×0.75×0.6=0.18`, and non-spam is `0.6×0.25×0.2=0.03`. Normalization gives `6/7≈0.857`. Success means the two class probabilities sum to one and you can explain why meeting's probability must be complemented. The answer holds within the assumed independent model; correlated words within a class can make the product model misestimate probabilities.
+
+## How to start
+
+One thing you can do tonight to find out whether you can get in at all.
+
+Open [the Bayesian networks chapter](https://ermongroup.github.io/cs228-notes/representation/directed/), read as far as the d-separation section, then cover the page and answer the independence question for three three-variable structures yourself — `X → Z → Y`, `X ← Z → Y`, and `X → Z ← Y` — in both cases, Z observed and Z unobserved.
+
+The third structure differs from the first two: **in the three-node graph, X and Y are guaranteed independent while Z is unobserved. Once Z is observed, the graph no longer guarantees independence. Explaining away can occur, although particular parameters can still leave X and Y independent.** With wet grass, Z is wet grass, X rain and Y sprinkler use. Observing wet grass while the sprinkler was off can raise the probability of rain. It reaches 1 only with an additional deterministic assumption that these are the only causes of wet grass, with no measurement noise. The graph alone supplies no such number.
+
+Check your answer: in the chain and fork, conditioning on Z guarantees conditional independence of X and Y; without Z, independence is not guaranteed. The collider reverses which condition gives the guarantee. Distinguishing “guaranteed independent” from “not guaranteed independent” completes this reading check. It is one foundation for studying inference, not evidence that you have mastered every inference algorithm. If the distinction remains unclear, reread the chapter’s three structures and conditioning examples.
+
+## Materials and version notes
+
+### What the assignments look like
 
 The course site doesn't publish assignment content (it all lives on Ed), but it does publish the full schedule, and the schedule carries information. Five assignments, each described as having "both written and programming parts," each built around one application. Against the ten-week lecture schedule they land like this:
 
@@ -127,7 +137,7 @@ The rules are strict. Six late days total, at most two on any single assignment,
 
 The final is a single three-hour exam. **There is no final project** — the opposite arrangement from CS236, taught by the same instructor, where the course project is 40% of the grade.
 
-## What a self-learner actually gets
+### What a self-learner actually gets
 
 Item by item, with the gettable and ungettable kept apart:
 
@@ -143,23 +153,13 @@ So the self-study path is clear and narrow: **you get a complete text, no record
 
 While you're at it, be careful with secondhand descriptions of this course online. Even Ermon's own [Stanford homepage](https://cs.stanford.edu/~ermon/) is off — the teaching list stops at Winter 2022/2023, while both ExploreCourses and the course site record the Winter 2024 offering with him as instructor.
 
-## How it relates to CS236: both are dormant
+### How it relates to CS236: both are dormant
 
 CS228 and [CS236: Deep Generative Models](https://deepgenerativemodels.github.io/) come from the same person. Many people assume CS228 is a prerequisite for CS236, and **the official pages don't support that**. CS236's stated prerequisite is "Basic knowledge about machine learning from at least one of CS 221, 228, 229 or 230." CS228 is one of four options, not a required stop.
 
 What's more informative is where both courses stand now. On ExploreCourses, CS236's status is `Last offered: Autumn 2023`, and its course site still carries the title "CS236 - Fall 2023" — the same shape as CS228's site frozen at Winter 2023-24. Neither course is currently running; the former is already scheduled for Spring 2027 with Ermon listed as PI, while CS228 did not run at all in 2025-26 (empty sections on ExploreCourses) but is listed in the 2026-27 Winter catalog with instructor TBD. As for why both went dark, no official page explains it — but the timeline speaks for itself: Ermon taught the final offerings of both courses personally, and since July 2024 he has been CEO of [Inception Labs](https://techcrunch.com/2025/02/26/inception-emerges-from-stealth-with-a-new-type-of-ai-model/), a diffusion-LLM startup. The teaching gap coincides exactly with the startup years (details in the appendix). These courses are paused, not cancelled.
 
 The division of labor is clean, though. CS228 teaches how to write independence assumptions into a graph and how to do inference and learning on it, ending at the VAE; CS236 starts at the VAE and fans out into GANs, normalizing flows, autoregressive, energy-based, and score-based models. So the last chapter of the notes is exactly the seam between the two. One practical difference: the CS236 site explicitly welcomes on-campus visitors ("we are very open to sitting-in guests if you are a member of the Stanford community"), and the CS228 site says nothing equivalent.
-
-## How to start
-
-One thing you can do tonight to find out whether you can get in at all.
-
-Open [the Bayesian networks chapter](https://ermongroup.github.io/cs228-notes/representation/directed/), read as far as the d-separation section, then cover the page and answer the independence question for three three-variable structures yourself — `X → Z → Y`, `X ← Z → Y`, and `X → Z ← Y` — in both cases, Z observed and Z unobserved.
-
-The third one (the v-structure, which the notes call explaining away) behaves the opposite way from the first two: **X and Y are independent when Z is unobserved, and become dependent once Z is observed.** The notes use wet grass — Z is "the grass is wet this morning," X is that it rained, Y is that the sprinkler ran. Knowing the grass is wet and that the sprinkler was off pushes the probability of rain to 1. Two causes with nothing to do with each other get tied together by observing their shared effect.
-
-If you can explain that to yourself, you can follow every inference algorithm in the course, because d-separation is the foundation each of them stands on. If you can't, reread the chapter before moving on — it's the highest-return section in the notes, and, not coincidentally, the topic of the course's first extra section.
 
 ## Appendix: the numbers and how they were checked
 
@@ -173,6 +173,16 @@ If you can explain that to yourself, you can follow every inference algorithm in
 - **Where the course site lives**: `cs228.stanford.edu` actually redirects to `ermongroup.github.io/cs228`, with the header marked Winter 2023-24. `web.stanford.edu/class/archive/cs/cs228/` returns 404 — this course has no past offerings in the Stanford archive.
 
 **Not confirmed**: (1) why CS228 skipped multiple consecutive academic years (2025-26 included), and why CS236 hasn't run since Autumn 2023 — no official page explains it, but the 26 August 2026 re-check lined up the timeline: ExploreCourses XML confirms the last offerings of both courses were taught by Ermon himself (CS228 Winter 2024 with 133 students; CS236 Autumn 2023 with 321), and he has been **CEO of Inception Labs**, a diffusion-LLM startup, since July 2024 — out of stealth February 2025, $50M seed November 2025 led by Menlo Ventures, whose interview describes the founders as having "walked away from tenure." The gap in teaching coincides exactly with the startup years, and Stanford's faculty startup policy requires a leave of absence for management roles. This is the strongest available explanation by indirect evidence, but no official source connects the two explicitly. The courses aren't dead: CS236 is scheduled for Spring 2027 with Ermon listed as PI, and CS228 is listed for Winter 2027 with instructor TBD. (2) Who will teach the CS228 slot listed for Winter of academic year 2026-27 — the ExploreCourses instructor field is currently blank (checked 26 August 2026). (3) The actual problems and difficulty spread of the five assignments — the content is locked on Ed, and everything said here about the assignments comes from the public schedule and grading policy, not from the assignments themselves.
+
+## Course video sources
+
+The official course site (cs228.stanford.edu, which redirects to ermongroup.github.io/cs228 and is headed Winter 2023-24; read live on 2026-10-10) links its Lecture Videos to an external tool on canvas.stanford.edu; I opened it and was redirected to the Stanford login page, confirming that a course account is required. A web search found no public YouTube or OCW release of this course, so nothing is embedded and no other course’s videos are passed off as its recordings.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs228.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L12–L13 TPU、JAX 與 Pallas：同一個 attention，在 TPU 上從 XLA 融合寫到 Splash Attention"
+title: "TPU、JAX 與 Pallas：同一個 attention，在 TPU 上從 XLA 融合寫到 Splash Attention｜CMU 11-868 第 12–13 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,16 +40,6 @@ glossary:
 兩講的講者都是 Google CoreML Frameworks 的 Srinath Mandalapu。官方材料是兩份投影片：[L12 Introduction to JAX/XLA/TPU](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-12-Introduction_to_JAX_XLA_TPU-f0450caf9e7e6707c009f7f77997a2be.pdf)（107 頁）與 [L13 Pallas and Splash Attention](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-13-pallas_splash_attention_srinath_mandalapu-b0bc7990950b84561ff9aa8e1791f727.pdf)（111 頁）。Syllabus 沒有替這兩講列 reading。存取等級 **A3**，但官方課表未列公開錄影連結，而且講義裡的 profiling 數字都在 TPU Ironwood 上量測，校外讀者多半無法重現。頁碼以 PDF 檔為準。
 
 整篇只回答一個問題：**換到 TPU 與 XLA，寫高效 kernel 的思路有什麼不同？**
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 場景：同一個 attention，換一台機器
 
@@ -252,6 +242,16 @@ def add_matrices_pipelined_param(x, y, *, bm=256, bn=256):
 - 上一篇：[L21 FlashAttention（Tri Dao 客座）](/posts/ai/2026-09-30-cmu11868-flashattention)
 - 下一篇：[L23 大模型的高效微調](/posts/ai/2026-09-30-cmu11868-peft-lora)
 - 系列總覽：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

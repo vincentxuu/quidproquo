@@ -1,5 +1,5 @@
 ---
-title: "CS149 L5 Work Distribution and Scheduling: From Work Queues to Cilk's Work Stealing"
+title: "Work Distribution and Scheduling: From Work Queues to Cilk's Work Stealing | Stanford CS149 Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 The official source is the [Lecture 5 slide PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/perfopt1/05_progperf1.pdf) (63 pages, with a [slide-by-slide web version](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)). Fall 2025 recordings are on Canvas only; the course homepage points to the 2023 recordings instead, here the [2023 Lecture 5 video](https://www.youtube.com/watch?v=mmO2Ri_dJkk). This post follows the 2025 slides and lists the video only as a listening supplement. Access level for this lecture is **A3**: the slides are fully public, and what's missing is the current-term recording.
 
 The "Today" slide lists three items: finishing Lecture 4's grid solver, basic load-balancing techniques, and a deep dive into Cilk's scheduler. This post covers the last two.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
-title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling
-```
-
-Original videos: [Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
-
-Course and recording entries:
-
-- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 5 - Performance Optimization I: Work Distribution and Scheduling” (1:17:39). The captions cover static and dynamic assignment, task granularity, work queues, Cilk's spawn/sync (transcribed as “silk”), child stealing versus continuation stealing and greedy join, matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Three goals that fight each other
 
@@ -221,6 +203,24 @@ Confirmed: the contents of the Lecture 5 slide PDF and the lecture date on the c
 Further reading: OS-level CPU scheduling is out of scope for this lecture; see [CS111 Lecture 8: CPU scheduling](/posts/learning/2026-08-22-stanford-cs111-lecture-08-cpu-scheduling-en).
 
 Series navigation: previous, [Lecture 4: the parallelization thought process](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en) | next, [Lecture 6: locality, communication, and arithmetic intensity](/posts/ai/2026-09-30-cs149-locality-communication-en) | [series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=mmO2Ri_dJkk
+title: Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling
+```
+
+Original videos: [Stanford CS149 I 2023 I Lecture 5 - Performance Optimization I: Work Distribution and Scheduling](https://www.youtube.com/watch?v=mmO2Ri_dJkk)
+
+Course and recording entries:
+
+- [CS149 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/perfopt1/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 5 - Performance Optimization I: Work Distribution and Scheduling” (1:17:39). The captions cover static and dynamic assignment, task granularity, work queues, Cilk's spawn/sync (transcribed as “silk”), child stealing versus continuation stealing and greedy join, matching this post's topic. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

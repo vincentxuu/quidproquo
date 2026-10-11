@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L4: Should a Model Spec State Principles or Detailed Rules?"
+title: "Should a Model Spec State Principles or Detailed Rules? | Harvard CS2881R Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,25 +41,6 @@ Official sources used here:
 There is no student-written LessWrong weekly summary for this lecture (the series only has them for Weeks 1, 2, 3, 5, and 6).
 
 Barak discloses his position up front. He focuses on the [OpenAI Model Spec](https://model-spec.openai.com/) for two reasons: he works at OpenAI and helped write it, so he knows it best; and he considers it the most detailed spec any lab has published. He hopes other companies will publish more detailed ones.
-
-## Course video sources
-
-The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
-
-```youtube
-url: https://www.youtube.com/watch?v=LQ0RRQKKluc
-title: CS2881R Fall 2025 L4: Model Specifications & Compliance
-```
-
-Original videos: [CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
-
-Official sources:
-
-- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 4: Model Specs” (2:06:03) and confirmed Barak's three alignment goals and his bet, common law versus civil law and the word-count chart (4,500 words for the US Constitution), KYC and a million marketing emails, the root/system/developer/user/guideline hierarchy and the `AGENTS.md` example, the resignation letter and Golden Gate Bridge nets, his flat-earth and drug-recipe translation tests, the Gödel/Riemann bad-rule example, the group exercise on ten roles (including IRB, the Agent-4 joke, the First Amendment and whistleblowing), and the closing mini-project preview; nothing needed correcting.
 
 ## Start with what people actually do with ChatGPT
 
@@ -232,6 +213,25 @@ The recording ends with a preview of the midterm mini-project: reproduce one of 
 Further reading on this site: [CS329Z on LLM-as-judge and safety evaluation](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety-en) covers the pitfalls of using models to grade models, a useful companion to SpecEval's three-way consistency design.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-cs2881r-course-overview-en) | Previous: [L3: Jailbreaks, prompt injection, and lessons borrowed from software security](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en) | Next: [L5: Content Policies](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies-en)
+
+## Course video sources
+
+The corresponding public YouTube recording was verified against the official Fall 2025 lecture schedule.
+
+```youtube
+url: https://www.youtube.com/watch?v=LQ0RRQKKluc
+title: CS2881R Fall 2025 L4: Model Specifications & Compliance
+```
+
+Original videos: [CS2881R Fall 2025 L4: Model Specifications & Compliance](https://www.youtube.com/watch?v=LQ0RRQKKluc)
+
+Official sources:
+
+- [CS2881R Fall 2025 official lecture schedule](https://boazbk.github.io/mltheoryseminar/fall2025/)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full auto-generated captions of “Lecture 4: Model Specs” (2:06:03) and confirmed Barak's three alignment goals and his bet, common law versus civil law and the word-count chart (4,500 words for the US Constitution), KYC and a million marketing emails, the root/system/developer/user/guideline hierarchy and the `AGENTS.md` example, the resignation letter and Golden Gate Bridge nets, his flat-earth and drug-recipe translation tests, the Gödel/Riemann bad-rule example, the group exercise on ten roles (including IRB, the Agent-4 joke, the First Amendment and whistleblowing), and the closing mini-project preview; nothing needed correcting.
 
 ## Update Log
 

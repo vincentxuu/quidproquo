@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L05: How a Deep Learning Framework Computes Gradients from a Computation Graph"
+title: "How a Deep Learning Framework Computes Gradients from a Computation Graph | CMU 11-868 Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 The first four lectures made individual operations fast on a GPU. This one moves up a level: when the network can have any shape and you assemble the loss yourself, how does a framework compute the gradient for **every parameter** automatically?
 
 That question leads straight into Assignment 2. Slide 7 frames it with a snippet of PyTorch: call `loss(input_logits, target_labels)`, then `output.backward()`, and ask two things. How is backward implemented? Why does it work for any network?
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The lecture's four parts
 
@@ -149,6 +139,16 @@ One thing you can do tonight: look only at the `backward_pass` on slide 27 and w
 
 - [CMU 11-785 Lecture 5: Backpropagation](/posts/ai/2026-08-22-cmu-11785-05-backpropagation-en): the same chain rule, derived from a deep learning course's angle
 - [Stanford CS336: Resource accounting](/posts/ai/2026-08-22-cs336-resource-accounting-en): how much compute the forward and backward passes each cost in training
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

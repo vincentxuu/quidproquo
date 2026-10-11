@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS285 L19–25: Exploration, RL Theory, Multitask Learning, and Open Problems"
+title: "Exploration, RL Theory, Multitask Learning, and Open Problems | Berkeley CS285 Spring 2026 Lectures 19–25"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, exploration, reinforcement-learning, multi-task-learning]
@@ -18,6 +18,32 @@ series:
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 The final seven items in the [official agenda](https://rail.eecs.berkeley.edu/deeprlcourse/) are Exploration, RL Theory, two Midterm Review lectures, Advanced Exploration, Multi-task RL, and Challenges and Open Problems. This is not miscellaneous cleanup. It asks when earlier algorithms are reliable and whether experience transfers to new tasks.
+
+## L19–20: exploration and guarantees
+
+Exploration balances immediate reward against information value. RL Theory turns intuitions into assumptions and bounds on samples, regret, or performance. Annotate every theoretical result with its conditions. Tabular structure, coverage, or realizability assumptions cannot silently migrate into deep-RL practice.
+
+## L21–22: review as diagnosis
+
+Use the two review lectures for closed-note reconstruction. Draw imitation learning, policy gradients, actor-critic, Q-learning, control as inference, model-based RL, and offline RL. Label each connection with the problem it solves and the risk it introduces.
+
+## L23–24: harder exploration and reuse
+
+Advanced Exploration reaches sparse rewards and representation-level information gathering. Multi-task RL asks whether tasks can share representations, policies, or data. Change the reward or dynamics of an environment you already solved. Observe whether the policy transfers directly, recovers after fine-tuning, or fails.
+
+## L25: turn an open problem into a test
+
+Produce a one-page research memo: problem, current approach, central assumption, failure case, and smallest experiment. Replace “sample efficiency matters” with a measurable question under a fixed interaction budget.
+
+The Spring 2026 lecture recordings are public in the RAIL YouTube channel's 2026 playlist (the [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) has not been updated and still says bCourses). If Fall 2023 or other historical videos on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) fill a conceptual gap, label their year and keep the 2026 slide agenda canonical. See the [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for the complete access boundary.
+
+## The cost of exploration: a two-option example
+
+This is an invented example, not the lecturer’s experiment. You have two actions left. A always returns `1`. B either always returns `0` or always returns `3`, with prior probability `0.5` each. Trying B once reveals which environment you are in.
+
+Choosing A twice returns `2`. Try B first: if it returns `0`, switch to A for a total of `1`; if it returns `3`, choose B again for a total of `6`. Expected total return is therefore `0.5×1+0.5×6=3.5`. Information has value because it changes the second action.
+
+**Check:** If the second action must be A regardless of the first result, what is expected total return? It is `0.5×0+0.5×3+1=2.5`. This analyzes only the specified two environments and two-step horizon; it is not a general exploration guarantee.
 
 ## Course video sources
 
@@ -44,25 +70,9 @@ Checked: 2026-10-10.
 
 Content check: verified against the video transcript (2026-10-10): the Lecture 19 transcript opens with midterm logistics and says this week is the last new exam material, exploration and RL theory, then covers exploration: multi-armed bandits, regret against an optimal Bayesian strategy, and exploration bonuses from state-density estimates; there is no clear discussion of named methods such as UCB or Thompson sampling, and RL theory belongs to the next lecture. The Lecture 25 transcript is a retrospective, explicitly "not deeply technical" lecture that surveys the semester and previews guest speakers, which fits the note's framing as open problems. The L21-24 sections and the "research memo" advice are the site's own framing, not video content.
 
-## L19–20: exploration and guarantees
-
-Exploration balances immediate reward against information value. RL Theory turns intuitions into assumptions and bounds on samples, regret, or performance. Annotate every theoretical result with its conditions. Tabular structure, coverage, or realizability assumptions cannot silently migrate into deep-RL practice.
-
-## L21–22: review as diagnosis
-
-Use the two review lectures for closed-note reconstruction. Draw imitation learning, policy gradients, actor-critic, Q-learning, control as inference, model-based RL, and offline RL. Label each connection with the problem it solves and the risk it introduces.
-
-## L23–24: harder exploration and reuse
-
-Advanced Exploration reaches sparse rewards and representation-level information gathering. Multi-task RL asks whether tasks can share representations, policies, or data. Change the reward or dynamics of an environment you already solved. Observe whether the policy transfers directly, recovers after fine-tuning, or fails.
-
-## L25: turn an open problem into a test
-
-Produce a one-page research memo: problem, current approach, central assumption, failure case, and smallest experiment. Replace “sample efficiency matters” with a measurable question under a fixed interaction budget.
-
-The Spring 2026 lecture recordings are public in the RAIL YouTube channel's 2026 playlist (the [syllabus](https://rail.eecs.berkeley.edu/deeprlcourse/syllabus/) has not been updated and still says bCourses). If Fall 2023 or other historical videos on the [official resources page](https://rail.eecs.berkeley.edu/deeprlcourse/resources/) fill a conceptual gap, label their year and keep the 2026 slide agenda canonical. See the [series overview](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en) for the complete access boundary.
-
 ## Update Log
+
+- 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Fixed an outdated recording statement. "Recordings are in bCourses" now says the lectures can be watched on the RAIL YouTube channel.

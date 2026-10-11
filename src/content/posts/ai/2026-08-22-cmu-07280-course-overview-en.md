@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-280: Why Search, GPT-2, and AlphaZero Belong in One Course"
+title: "Why Search, GPT-2, and AlphaZero Belong in One Course | CMU 07-280 Course Overview"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, search, reinforcement-learning]
@@ -22,16 +22,6 @@ CMU first offered **07-280 Artificial Intelligence and Machine Learning I** in S
 This is not a list that places “classic AI” beside fashionable models. The course's spine is: **learn to define states, objectives, models, and computational costs, then progressively add components that learn from data and interaction.** Search, supervised learning, language modeling, and reinforcement learning are different answers to how a system selects its next move.
 
 This series uses the **first completed Spring 2026 offering** as its canonical edition. The official home page has switched to Fall 2026, moving Spring links into HTML comments. Most `S26` slides, notes, recitations, written homework, and notebooks remain anonymously accessible through direct URLs, although a few old direct links now fail. The surviving material is sufficient to reconstruct the complete course spine, but the official schedule lists no public lecture-by-lecture video archive. The series will not invent spoken explanations or classroom discussion.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## What the redesign changed
 
@@ -117,6 +107,16 @@ The series contains 29 articles: this overview, 24 lecture readings, three stage
 For a first pass, begin with [Lecture 1: Introduction](/posts/ai/2026-08-22-cmu-07280-lecture-01-introduction-en), work through each lecture exercise, and pause at the three stage reviews to reorganize what you learned. Before starting, download the [Notation Guide](https://www.cs.cmu.edu/~07280/notes/07280_Notation_Guide.pdf) and [Math Background](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Math_Background.pdf), then open the [Recitation 1 Search worksheet](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec1.pdf). If you cannot define its state space, frontier, heuristic, and graph-search behavior, repair that foundation before jumping to the GPT-2 notebook. After all 24 lectures, use the [completion roadmap](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en) to test whether you produced executable evidence of learning.
 
 The value of 07-280 is precisely that it refuses to reduce modern AI to training a neural network. It starts from problem representation, moves through search, estimation, representation learning, and sequential decisions, and only then assembles landmark systems. Read in full, AlexNet, GPT-2, and AlphaZero become three integration exams—not marketing names placed in one syllabus.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

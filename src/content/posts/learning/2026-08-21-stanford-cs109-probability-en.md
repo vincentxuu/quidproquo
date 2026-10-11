@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109: A Probability Course That Turned \"How to Read This Lecture With an LLM\" Into Official Coursework"
+title: "A Probability Course That Turned \"How to Read This Lecture With an LLM\" Into Official Coursework | Stanford CS109 Topic Guide"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -25,19 +25,6 @@ draft: false
 The thing worth looking at isn't the syllabus. It's the column next to it. On the Summer 2026 schedule, every lecture's "Outside Class" cell links to an official document called the **LLM Learning Guide**. It isn't a policy notice. It's a per-lecture, copy-paste-ready prompt handout: a probability course that turned "how to prep for this lecture with a language model" into formal courseware.
 
 This piece was written after downloading those PDFs and reading them page by page, then cross-checking the course website, the [honor code handout](https://web.stanford.edu/class/cs109/handouts/honorCode.html), the syllabus, the lecture pages and the ExploreCourses entry. It covers the course's hard rules, the actual shape of that AI coursework and what it explicitly forbids, what the problem sets look like, and how much a self-learner really gets. It does **not** teach probability — that's the course's job, not a reading guide's. The layer above this one is the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map); this piece doesn't repeat that map's ordering.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so the official recording entry is linked and there is no public Summer 2026 player. A public Stanford Online playlist of the 2022 offering (29 videos, a different term) also exists; only the playlist link is given and nothing is embedded or treated as a Summer 2026 recording.
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -171,6 +158,19 @@ To keep going, treat the `worksheets/` directory as your main line: for each lec
 - **The honor code Rule 4 quote**: the original reads "LLMs do leave tell tail probabilistic distributions in their output." `tell tail` is presumably `tell-tale`; the quote is reproduced above exactly as published.
 - **A date typo on the homepage schedule**: the homepage's "This Week in CS109" labels June 25 as Tue, while the schedule lists that same lecture on Thu. Trust the schedule.
 - **Three things that could not be confirmed**: (1) whether Summer 2026 has six or seven problem sets — the schedule lists through Pset #6, while the syllabus and the sidebar menu both say seven, and psetapp requires a login so it can't be checked; (2) which quarter the LLM Learning Guide first appeared in — the archived Autumn 2024, Winter 2025 and Summer 2025 pages have no such column, but the archives are incomplete, so Summer 2026 can't be declared the first; (3) what the 25% in-class work is actually made of — the syllabus paragraphs on discussion sections and one-on-one pre-exam meetings are commented out on the live page, and it's unclear whether the summer offering still runs them.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so the official recording entry is linked and there is no public Summer 2026 player. A public Stanford Online playlist of the 2022 offering (29 videos, a different term) also exists; only the playlist link is given and nothing is embedded or treated as a Summer 2026 recording.
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

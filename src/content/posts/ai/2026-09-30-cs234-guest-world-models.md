@@ -1,5 +1,5 @@
 ---
-title: "CS234 客座：Shane Gu〈World of World Modeling〉——世界模型是 model-based RL 裡的那個 model"
+title: "Shane Gu〈World of World Modeling〉——世界模型是 model-based RL 裡的那個 model｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,17 +40,6 @@ glossary:
 > **版本說明**：本文依據 [CS234](https://web.stanford.edu/class/cs234/) Winter 2026 講義頁上的客座投影片 [ShaneGuCS234_2026.pdf](https://web.stanford.edu/class/cs234/slides/ShaneGuCS234_2026.pdf)（36 頁），2026-09-30 打開逐頁核對。存取等級 **A3**（定義見 [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但這一講有明確缺口：**只有投影片，沒有錄影**。2026 的錄影只放在 Canvas，公開的 [Spring 2024 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX) 裡沒有這場客座。投影片有很多頁只有圖、幾乎沒有文字，所以本文只寫投影片上看得到的東西；講者口頭怎麼串接、怎麼回答問題，我們拿不到。
 
 **系列位置**：上一篇 [價值對齊：對齊誰、對齊什麼](/posts/ai/2026-09-30-cs234-value-alignment-ethics)｜這是系列最後一篇｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-查核日期：2026-10-10。
 
 ## 這場客座放在哪裡
 
@@ -201,6 +190,17 @@ p.28 標題寫明「untested」：用 GDT 的策略函數去搜尋「到得了�
 - goal-conditioned RL 與 hindsight relabeling 的完整講法：[CS224R L12：多任務與 Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
 - 從電腦視覺角度看世界模型與機器人學習：[CS231N 收尾：World Modeling／Robot Learning](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
 - 深度 RL 的完整課程路線：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

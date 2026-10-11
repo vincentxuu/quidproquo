@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 9：Array 不是 Pointer，但它們在運算式裡合作"
+title: "Array 不是 Pointer，但它們在運算式裡合作｜Stanford CS107 第 9 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 「array 就是 pointer」有誤。`arr[i]` 與 `*(arr + i)` 取得同一元素，函式參數也只收到首元素位址；但 array object 擁有元素空間，pointer variable 只存位址。前者不能重新賦值，且原作用域中的 `sizeof` 會算整個陣列；後者則相反。
 
 Lecture 9 用「C strings 七誡」整理陷阱。每讀一行都要回答：這是 array object 還是 pointer value？字元存在哪裡？位址能否改指別處？透過它寫入是否合法？
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -262,6 +254,14 @@ C 仍然是 pass-by-value。被複製的是 `&str[0]` 這個位址值，不是�
 做 code review 時，可以對每個 `char *` 寫下「來源物件、可寫與否、已知容量、有效期限」四欄。若其中一欄只能靠猜，介面就少傳了資訊或少寫了前置條件。
 
 Lecture 9 最終不是要消除 array 與 pointer 的差別，而是理解它們為何能合作：陣列提供連續元素與儲存空間，轉換提供首元素位址，pointer arithmetic 提供導航，dereference 才真正存取元素。把四步分開，`arr[i]` 的便利就不會再掩蓋底下的記憶體契約。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 Wrap-up: The Practice Exam, the HW623 Paper Presentation, and the Final Project — How the Course Checks Learning, and How to Check Yourself"
+title: "Wrap-up: The Practice Exam, the HW623 Paper Presentation, and the Final Project — How the Course Checks Learning, and How to Check Yourself | CMU 10-423 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,17 +30,6 @@ glossary:
 Official materials used: the [syllabus on the course home page](https://www.cs.cmu.edu/~mgormley/courses/10423/), the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [coursework page](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html), the [practice exam](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf) (41 pages) and its [solutions](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf) (44 pages), the [HW623 handout](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/HW623.pdf) (4 pages), and the [project handout](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf) (12 pages). The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). Still, the real exam, the quiz and programming-test questions, Gradescope grading, and Piazza announcements covered here are all private. Outsiders get only the practice materials and the rules.
 
 The question for this post: **beyond homework, how does a course decide you've learned the material, and how can an outside reader check themselves with only the public materials?**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## Assessment at a glance
 
@@ -225,6 +214,17 @@ Confirmed: the syllabus weights, schedule dates, the coursework page's lists, th
 Further reading: to compare how other courses run projects and exams, see [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en) (also on this course's prerequisite list) and [Reading Stanford CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en).
 
 Series navigation: previous [L24–L26: audio, video generation, and interactive world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en) | this is the last post | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 1 講：什麼是機器學習與深度學習"
+title: "什麼是機器學習與深度學習｜台大陳縕儂 深度學習之應用 2025 Fall 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -22,30 +22,6 @@ draft: false
 **本文依據**：[Introduction 講義](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf)（46 頁），以及三支影片：[1.1 What is ML? 甚麼是機器學習?](https://youtu.be/Nls5bHxW6i0)（16:45）、[1.2 What is DL? 甚麼是深度學習?](https://youtu.be/asuLb0lLmJY)（41:26）、[1.3 How to Apply? 如何應用深度學習?](https://youtu.be/oT4UQj_PXYo)（10:11）。講義在 2026-09-30 打開核對；影片以中文講授，本文的頁碼都指講義 PDF。
 
 這一講沒有數學推導。它要讀者帶走兩個觀念：學習就是找函數；把任務寫成「輸入領域 → 輸出領域」之後，才知道該選什麼模型。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=Nls5bHxW6i0
-title: ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=asuLb0lLmJY
-title: ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）
-```
-
-原始影片：[ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? 如何應用深度學習?（YouTube）](https://www.youtube.com/watch?v=oT4UQj_PXYo)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：1.1 與 1.2 兩支都讀了字幕。1.1：評論情緒分類寫不出規則、學習就是找函數、training／testing、語音／影像／廣告／打電動等應用；1.2：生產線與 end-to-end training、deep vs shallow 的語音與影像對照、hidden layer 與 representation、神經元與 sigmoid、錯誤率下降約三分之一、大數據與 GPU、fat vs thin 的參數量比較，皆與文章對應段落相符。補充一點文章原本沒說的：這兩支的 YouTube 上傳日與說明欄都是 2024/09/04，是 Fall 2024 的錄影而非 2025 學期重錄（說明欄還註明投影片可在 adl.miulab.tw 取得）。第 21 頁時間線與 1.3 的內容文章未對影片下具體說法，1.3 未核對（未嵌入）。
 
 ## 寫不出規則的任務，改成讓機器找函數
 
@@ -126,6 +102,30 @@ title: ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）
 
 上一篇：[台大陳縕儂 深度學習之應用 2025 Fall 導讀：課程地圖、A2 分級與讀法](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 下一篇：[神經網路與反向傳播](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Nls5bHxW6i0
+title: ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=asuLb0lLmJY
+title: ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）
+```
+
+原始影片：[ADL 1.1: What is ML? 甚麼是機器學習?（YouTube）](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? 甚麼是深度學習?（YouTube）](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? 如何應用深度學習?（YouTube）](https://www.youtube.com/watch?v=oT4UQj_PXYo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：1.1 與 1.2 兩支都讀了字幕。1.1：評論情緒分類寫不出規則、學習就是找函數、training／testing、語音／影像／廣告／打電動等應用；1.2：生產線與 end-to-end training、deep vs shallow 的語音與影像對照、hidden layer 與 representation、神經元與 sigmoid、錯誤率下降約三分之一、大數據與 GPU、fat vs thin 的參數量比較，皆與文章對應段落相符。補充一點文章原本沒說的：這兩支的 YouTube 上傳日與說明欄都是 2024/09/04，是 Fall 2024 的錄影而非 2025 學期重錄（說明欄還註明投影片可在 adl.miulab.tw 取得）。第 21 頁時間線與 1.3 的內容文章未對影片下具體說法，1.3 未核對（未嵌入）。
 
 ## 更新紀錄
 

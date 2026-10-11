@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 10：software factory 不是自動化，是把回饋迴圈交出去"
+title: "software factory 不是自動化，是把回饋迴圈交出去｜Stanford CS146S 第 10 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：自我運行、自我改進的軟體系統；部署後的 agent 執行與安全；AI 軟體工程接下來往哪走。講題就叫「The Software Factory: self-running, self-improving software systems」。
 
 「software factory」這個詞也出現在課程描述的收尾：學生結業時應該能「apply software-factory principles to building and evolving software at greater speed and scale」。它是這門課的終點命題。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 拆開這個詞
 
@@ -135,6 +123,18 @@ W10 software factory   →  以上全部接成一條會自我強化的迴圈
 - Fall 2026 的 Week 10 客座尚未公布
 - 「software factory」目前主要是課程與少數廠商在用的說法，還沒有共識定義
 - 本文列的第二、三個缺口是我的判斷；第一個（責任歸屬）是課程自己列為 open question
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L12: Self-Supervised Learning — Learning Good Representations Without Labels"
+title: "Self-Supervised Learning — Learning Good Representations Without Labels | Stanford CS231N Lecture 12"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,24 +36,6 @@ glossary:
 > This is part 14 of the [Reading Stanford CS231N](/posts/ai/2026-09-30-cs231n-course-overview-en) series and the first lecture of the course's third unit, "Generative and Interactive Visual Intelligence."
 
 The lecture starts from something the course already showed. In the 4096-dimensional features from AlexNet's last layer, nearest neighbors are semantically similar images, while nearest neighbors in pixel space are not. **Learned representations are useful, but they need a lot of labeled data.** Can we train such representations without huge manually labeled datasets?
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 12 (length 1:14:41; speaker Ehsan Adeli per the video description). The transcript covers pretext tasks (rotation, jigsaw, colorization), MAE, linear probing, contrastive learning, MoCo, CPC and DINO, matching the article's topic. It has no inpainting, no InfoNCE or SimCLR as spelled, and no multisensory/audio section, the last consistent with the article saying the slides have no dedicated multisensory section. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=4howBU7THbM
-title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning](https://www.youtube.com/watch?v=4howBU7THbM)
-
-Course and recording entries:
-
-- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## The framework: pretext and downstream tasks
 
@@ -206,6 +188,24 @@ The paper's abstract lists two main findings: self-supervised ViT features expli
 - Suggested reading from the schedule: [Lilian Weng's Self-Supervised Representation Learning](https://lilianweng.github.io/lil-log/2019/11/10/self-supervised-learning.html)
 
 **Series navigation**: Previous: [L11: Large-Scale Distributed Training](/posts/ai/2026-09-30-cs231n-distributed-training-en) | Next: [L13: Generative Models I: VAEs, GANs, and Autoregressive Models](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 12 (length 1:14:41; speaker Ehsan Adeli per the video description). The transcript covers pretext tasks (rotation, jigsaw, colorization), MAE, linear probing, contrastive learning, MoCo, CPC and DINO, matching the article's topic. It has no inpainting, no InfoNCE or SimCLR as spelled, and no multisensory/audio section, the last consistent with the article saying the slides have no dedicated multisensory section. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=4howBU7THbM
+title: Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 12: Self-Supervised Learning](https://www.youtube.com/watch?v=4howBU7THbM)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

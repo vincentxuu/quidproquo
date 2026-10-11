@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW4：把 Logistic Regression 從 likelihood 寫成分類器"
+title: "把 Logistic Regression 從 likelihood 寫成分類器｜CMU 10-301 作業 4"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, logistic-regression, optimization]
@@ -21,6 +21,18 @@ series: { name: "CMU 10-301 機器學習完整課程導讀", order: 4 }
 ## 第一個可執行動作與完成判準
 
 先解開 [bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw4.zip)，執行 `python feature.py --help` 與 `python lr.py --help`，確認 starter 的參數介面；公開 ZIP 缺 Yelp train/validation/test，因此不能誠實給出一條可完成官方資料流程的命令。取得合法資料後，再做 finite-difference gradient check。完成判準是 feature 檔格式可重現、單筆 gradient 通過數值檢查、train/validation/test 輸出齊全；沒有官方資料與 hidden tests 時只能算部分完成。
+
+## 追蹤單筆 logistic 更新
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編單筆 x=2、y=1，模型 z=wx+b，從 w=b=0 開始。sigmoid(0)=0.5，cross-entropy loss=-ln0.5≈0.693。單筆梯度為 (p-y)x=-1，bias 梯度 p-y=-0.5。若 learning rate=0.1，一步 gradient descent 得 w=0.1、b=0.05。
+
+**檢查與答案：** 新 logit 是多少？答案 0.1×2+0.05=0.25，比原本零大；正標籤的機率因此上升。這不是官方 Yelp 資料結果。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW4 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw4.zip)

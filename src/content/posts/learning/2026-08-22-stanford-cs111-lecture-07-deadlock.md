@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 7：Deadlock 的四個必要條件與全域鎖順序"
+title: "Deadlock 的四個必要條件與全域鎖順序｜Stanford CS111 第 7 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 8 篇，對應 **Stanford CS111, Spring 2026, Lecture 7**。Mendel Rosenblum 在 2026-04-13 主講，官方題目是 [Deadlock](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/7/Lecture7.pdf)。本文只依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；Canvas／Panopto 錄影不是已讀來源。
 
 上一講建立 mutex 與 condition variable，也提醒 lock 太多會增加複雜度。本講從那個取捨的另一面開始。多把 locks 可以降低 contention，也能讓每個 data structure 自己封裝同步，但一條 thread 經常要同時持有多個 resources。只要取得順序互相衝突，所有 critical sections 都可能各自寫對，整個系統卻永遠停止前進。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 為什麼系統需要多把 locks
 
@@ -133,6 +125,14 @@ Process 2: mv b/z a/q
 這會造成實際痛點。有時 code 已持有高 rank lock，接著才發現需要低 rank resource。它不能直接取得，只能重構 control flow、提早取得、釋放後重試，或重新設計介面。global order 保住 safety，卻會穿過 module boundary，限制局部實作自由。
 
 讀完後，可以把 code review 變成一個具體動作：列出每條 path 同時持有的 locks，寫成 `L1 < L2 < ...`，再把所有 paths 合併成一張 ordering graph。若出現互相矛盾的 edges，就不要等測試重現；設計本身已允許 circular wait。若 graph 無 cycle，仍要另查其他三個條件與非 lock resources，但至少最常見的 prevention discipline 已可被檢查。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

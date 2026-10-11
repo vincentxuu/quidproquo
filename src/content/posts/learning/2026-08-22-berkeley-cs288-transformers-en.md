@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288 Part 2: Sequence Models, Seq2Seq, and Transformers"
+title: "Sequence Models, Seq2Seq, and Transformers | Berkeley CS288 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, transformer, sequence-model]
@@ -27,6 +27,18 @@ While reading equations, label every tensor shape and draw token-to-token depend
 [Assignment 2](https://cal-cs288.github.io/sp26/assignments/Sp2026_CS288_Assignment2.pdf) implements BPE, RMSNorm, SiLU, SwiGLU, RoPE, scaled dot-product attention, causal multi-head attention, Transformer blocks, and an LM, followed by training utilities, FLOPs, and memory estimates. Its [starter repository](https://github.com/zinengtang/cs288-sp26-a2) is public.
 
 Preserve the component tests. Verify shapes, masks, and numerical stability on tiny tensors before training TinyStories. Without a GPU, reduce layers, hidden size, and context length; correctness remains testable. Hidden tests and official Gradescope remain unavailable, so local success is not official completion.
+
+## A mask determines which positions are visible
+
+This is an invented teaching example, not an official assignment solution.
+
+For invented tokens A, B, C at positions 1, 2, 3, causal attention permits position 1 to read A, position 2 to read A and B, and position 3 to read all three. It includes the current position but excludes future positions. If position 2 reads C, training has used information unavailable at that inference step.
+
+**Check and answer:** How many entries of the three-by-three mask are visible? 1+2+3=6. This example has no padding; padding requires its own masking considerations.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 

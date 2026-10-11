@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Foundations L9–L10: From the Closed-Form Solution of Linear Regression to Gradient Descent for Logistic Regression"
+title: "From the Closed-Form Solution of Linear Regression to Gradient Descent for Logistic Regression | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 9–10"
 date: 2026-09-30
 category: ai
 type: guide
@@ -46,28 +46,6 @@ Official materials used:
 **Access level**: videos and slides alone are A2. With the Fall 2024 homework PDFs and the public LIBSVM data sets it reaches A3, but there are no official solutions and grading is for enrolled students only. The grading scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 **Version differences**: the Fall 2024 09u slides have only three sections; the MOOC section Linear Regression for Binary Classification is gone, and the Fall 2024 L11 slides (11u) open with Linear Models for Binary Classification. This post still covers the MOOC section. The [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) schedules L9–L10 for W5 (10/07); as of 2026-09-30 that week's 09u slides are not yet public.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=qGzjYrLV-4Y
-title: Linear Regression Problem
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=2LfdSCdcg1g
-title: Linear Regression Algorithm
-```
-
-Original videos: [Linear Regression Problem](https://www.youtube.com/watch?v=qGzjYrLV-4Y)、[Linear Regression Algorithm](https://www.youtube.com/watch?v=2LfdSCdcg1g)、[Generalization Issue](https://www.youtube.com/watch?v=lj2jK1FSwgo)、[Linear Regression for Binary Classification](https://www.youtube.com/watch?v=tF1HTirYbtc)、[Logistic Regression Problem](https://www.youtube.com/watch?v=4rPupwSdAac)、[Logistic Regression Error](https://www.youtube.com/watch?v=Uw62i3-Tr4Q)、[Gradient of Logistic Regression Error](https://www.youtube.com/watch?v=IZttt_v5tSw)、[Gradient Descent](https://www.youtube.com/watch?v=X9NTihvSdjw)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## Part 1: Linear regression
 
@@ -230,6 +208,28 @@ Problems in [HW3](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw3/hw3_red
 The next post, [Linear Models for Classification, SGD, Multiclass and Nonlinear Transforms](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), puts this post's three linear models on one error plot, turns gradient descent into stochastic gradient descent (SGD), and uses feature transforms to escape "straight lines only".
 
 Further reading: the Stanford CS229 chapter guides on [linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en) and [logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en); Stanford CS109 on [maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en) and [logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en) covers the same ground from a probability course.
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=qGzjYrLV-4Y
+title: Linear Regression Problem
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=2LfdSCdcg1g
+title: Linear Regression Algorithm
+```
+
+Original videos: [Linear Regression Problem](https://www.youtube.com/watch?v=qGzjYrLV-4Y)、[Linear Regression Algorithm](https://www.youtube.com/watch?v=2LfdSCdcg1g)、[Generalization Issue](https://www.youtube.com/watch?v=lj2jK1FSwgo)、[Linear Regression for Binary Classification](https://www.youtube.com/watch?v=tF1HTirYbtc)、[Logistic Regression Problem](https://www.youtube.com/watch?v=4rPupwSdAac)、[Logistic Regression Error](https://www.youtube.com/watch?v=Uw62i3-Tr4Q)、[Gradient of Logistic Regression Error](https://www.youtube.com/watch?v=IZttt_v5tSw)、[Gradient Descent](https://www.youtube.com/watch?v=X9NTihvSdjw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

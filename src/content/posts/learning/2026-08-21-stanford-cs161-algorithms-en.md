@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161: The Algorithms Course That Lists Writing Clearly as Its Third Learning Goal"
+title: "The Algorithms Course That Lists Writing Clearly as Its Third Learning Goal | Stanford CS161 Topic Guide"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -25,16 +25,6 @@ draft: false
 Start with the least obvious thing about it: the course has three stated goals, and the third is communication. The first lecture puts it on the same slide as design and analysis — **Communication: Learn to communicate clearly about algorithms**. That is not decoration. It is where the entire homework regime comes from, including why handwritten work scores zero from the second problem set onward.
 
 This piece covers the Winter 2026 offering: eighteen sets of lecture notes, eight homework PDFs, the course policies and the embedded ethics material, plus the places where the primary sources disagree with the course's public reputation. It does **not** teach the algorithms — the notes do that themselves, and they are all public.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -197,6 +187,16 @@ If you can't, the course you need isn't CS161, it's CS 103. This one assumes fro
 - **Course staff**: two instructors, one course manager, one head CA, seven CAs, plus one CA dedicated to ACE.
 - **The Stanford Online version**: five units, eight weeks, ten to twenty hours a week suggested, tuition $7,875 (the page notes it is subject to change), running June 22 to August 15 in 2026, and showing enrollment closed when I checked.
 - **What I could not confirm**: first, enrollment numbers — neither the course site nor ExploreCourses publishes them, and I found no citable source. Second, whether autumn and summer offerings return in 2026–2027 — ExploreCourses currently lists only winter and spring, but future-year data fills in gradually, so it is too early to call it a reduction. Third, whether the full course sites for offerings before Winter 2026 are still up. The directory `web.stanford.edu/class/archive/cs/cs161/` returns a 404 outright, and I found no browsable archive index; the only old material I could confirm still exists is the year-by-year notebook repos on GitHub, going back to Winter 2021.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

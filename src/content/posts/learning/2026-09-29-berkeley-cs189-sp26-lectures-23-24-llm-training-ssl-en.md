@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 23–24: LLM Training and Applications, Self-Supervised Learning"
+title: "LLM Training and Applications, Self-Supervised Learning | Berkeley CS189 Lectures 23–24"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, llm, post-training, self-supervised-learning, deep-learning]
@@ -30,31 +30,6 @@ glossary:
 This guide is based on the official materials of [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis): Lecture 23, [LLM Training And Applications](https://drive.google.com/drive/folders/1GP3T4TwZeXV2L28LUY6a0ei6rtcnQ3TJ) (4/16, `lec23.pdf`, 63 pages, [video](https://www.youtube.com/watch?v=m13yELgj02c)); Lecture 24, [Self-Supervised Learning](https://drive.google.com/drive/folders/1BVcz-ohHf6J8mtzVHnTTDw55M7JQZmbL) (4/21, `lec24.pdf`, 77 pages, [video](https://www.youtube.com/watch?v=iGcer6b6mp8)); and [Discussion 11](https://drive.google.com/file/d/11WJr0gQUuMON1ub34DSUhSMsDl8GuM06/view) (with [solutions](https://drive.google.com/file/d/11KGelwaG_trTVtxBHPgkUFrG_BhlZE7E/view) and a [walkthrough video](https://youtube.com/playlist?list=PL-ysCubq-Sa9h8mIf8s2L-vL68rx8_hx8)). All of them open without a login, and the course rates A3 (defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)).
 
 These two lectures come after [Lec 21–22: Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers-en) and [HW4](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en). You can already build a transformer. Here the questions are: how do you train it into something like ChatGPT? And how do you learn good representations when you have no labels? Both lectures share one core idea: **invent a fake supervised task**.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=m13yELgj02c
-title: Lecture 23 recording: LLM Training And Applications
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=iGcer6b6mp8
-title: Lecture 24 recording: Self-Supervised Learning
-```
-
-Original videos: [Lecture 23 recording: LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 recording: Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 23 video (m13yELgj02c, about 74 minutes) covers classification from the last token, GPT-3's scale, the "capital of California" next-token example, masked attention, the Llama architecture, and pretraining on 15.6T tokens; post-training (SFT, LoRA, RLHF, DPO) is only named at the start and in passing and is not developed, and Vicuna, RAG, chain-of-thought, agents, and the H100 GPU-hour figure could not be found in the transcript and appear only in the slides. The Lecture 24 video (iGcer6b6mp8, about 76 minutes) is indeed self-supervised learning: rotation prediction, colorization, super-resolution, clustering, transfer learning with a frozen feature extractor versus fine-tuning, and CLIP with zero-shot classification; autoencoders, inpainting, jigsaw puzzles, relative position, and SimCLR could not be found in the transcript, so those table rows appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## What I read, and the limits
 
@@ -199,6 +174,31 @@ Put the two lectures together: a decoder-only transformer first does next-token 
 - Series navigation: previous, [HW4 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert-en); next, [Lec 25–27: proteins, agents, and closing](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing-en); series entry, [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en).
 
 **Something you can do tonight**: following Lec 23's arithmetic, recompute GPT-3's attention and MLP parameter counts with D = 12288 and 96 layers, and confirm the MLP is about twice the size of attention. Then work Discussion 11, problem 3 with N = 1000 and see how many matrix multiplications the KV cache saves.
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=m13yELgj02c
+title: Lecture 23 recording: LLM Training And Applications
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=iGcer6b6mp8
+title: Lecture 24 recording: Self-Supervised Learning
+```
+
+Original videos: [Lecture 23 recording: LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 recording: Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 23 video (m13yELgj02c, about 74 minutes) covers classification from the last token, GPT-3's scale, the "capital of California" next-token example, masked attention, the Llama architecture, and pretraining on 15.6T tokens; post-training (SFT, LoRA, RLHF, DPO) is only named at the start and in passing and is not developed, and Vicuna, RAG, chain-of-thought, agents, and the H100 GPU-hour figure could not be found in the transcript and appear only in the slides. The Lecture 24 video (iGcer6b6mp8, about 76 minutes) is indeed self-supervised learning: rotation prediction, colorization, super-resolution, clustering, transfer learning with a frozen feature extractor versus fine-tuning, and CLIP with zero-shot classification; autoencoders, inpainting, jigsaw puzzles, relative position, and SimCLR could not be found in the transcript, so those table rows appear only in the slides. The transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

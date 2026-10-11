@@ -1,5 +1,5 @@
 ---
-title: "Career Advice in AI：投了 300 份履歷都失敗的 10x 工程師"
+title: "Career Advice in AI：投了 300 份履歷都失敗的 10x 工程師｜Stanford CS230 主題單元"
 date: 2026-08-16
 category: career
 type: guide
@@ -27,28 +27,6 @@ draft: false
 **時間錨點**：上課當天早上 **Gemini 3 發表**，Ng 現場說「今天早上才出，我還沒空玩」。
 
 ---
-
-## 課程影片來源
-
-下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（長度 1:45:09 與文中「1 小時 45 分」相符）。字幕由 Andrew Ng 先講、再介紹 Laurence Moroney 接手（約占字幕前四分之一），Moroney 部分約占其餘。逐項對過字幕，皆有對應：Gemini 3 當天早上發表、METR 與「每七個月翻倍」、工程師：PM 比例 4:1／7:1／8:1、Java 金流後端的學生、300 多個職缺的試算表與 10x 工程師、996、棒球與寫書、愛爾蘭女性生圖、技術債與房貸類比、macOS Swift UI、Replit 與「so what」、泡沫與 Titanic、pets.com、7B 等於昨天的 50B、Alipay 相簿搜尋、冰球影片、敘利亞證書（10 萬美元／年）、冰場非營利（15 萬美元／年）、威爾斯腦癌研究者、Google 面試兩次失敗與 20 多本書。「McKinsey 85%」與「YC 80%」兩個數字，講者確實是這樣說的，文中另附查證註記。三處修正：（1）觀看數與排名：2026-10-10 頁面顯示約 45.8 萬次，次於 Lecture 1（約 73 萬）與 Lecture 8（約 51 萬），原寫「第二高流量」已改；（2）「前 20 分鐘」字幕無時間碼，改為依字幕位置推估的「約前 20 多分鐘」；其餘無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=AuZoDsNmG_s
-title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
-```
-
-原始影片：[Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
-
-課程與錄影入口：
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
-
-查核日期：2026-10-10。
-
-# 第一部分：Andrew Ng
 
 ## AI 的進展有沒有變慢
 
@@ -467,6 +445,28 @@ ARM 的 **SME（Scalable Matrix Extensions）** 讓 AI 工作負載跑在 **CPU*
 而技術債那個框架之所以有用，正是因為它把「該不該用 AI 生這段程式碼」**從技術問題轉成財務問題**：你背了一筆債，它值不值得。這個問法比「vibe coding 好不好」有用太多，因為後者沒有答案，前者每次都有。
 
 至於大 AI vs 小 AI 的分岔——那是這一講唯一一個**可以拿去做決策**的前瞻判斷，而且它有一條乾淨的判準：**你的資料能不能離開你的機房。**
+
+## 課程影片來源
+
+下列影片取自 Stanford Online 的 CS230 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 9（長度 1:45:09 與文中「1 小時 45 分」相符）。字幕由 Andrew Ng 先講、再介紹 Laurence Moroney 接手（約占字幕前四分之一），Moroney 部分約占其餘。逐項對過字幕，皆有對應：Gemini 3 當天早上發表、METR 與「每七個月翻倍」、工程師：PM 比例 4:1／7:1／8:1、Java 金流後端的學生、300 多個職缺的試算表與 10x 工程師、996、棒球與寫書、愛爾蘭女性生圖、技術債與房貸類比、macOS Swift UI、Replit 與「so what」、泡沫與 Titanic、pets.com、7B 等於昨天的 50B、Alipay 相簿搜尋、冰球影片、敘利亞證書（10 萬美元／年）、冰場非營利（15 萬美元／年）、威爾斯腦癌研究者、Google 面試兩次失敗與 20 多本書。「McKinsey 85%」與「YC 80%」兩個數字，講者確實是這樣說的，文中另附查證註記。三處修正：（1）觀看數與排名：2026-10-10 頁面顯示約 45.8 萬次，次於 Lecture 1（約 73 萬）與 Lecture 8（約 51 萬），原寫「第二高流量」已改；（2）「前 20 分鐘」字幕無時間碼，改為依字幕位置推估的「約前 20 多分鐘」；其餘無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=AuZoDsNmG_s
+title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
+```
+
+原始影片：[Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+
+課程與錄影入口：
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [官方課程／講次來源](https://cs230.stanford.edu/syllabus/)
+
+查核日期：2026-10-10。
+
+# 第一部分：Andrew Ng
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329A: A Course on Self-Improvement That Says Out Loud What It Can't Improve"
+title: "A Course on Self-Improvement That Says Out Loud What It Can't Improve | Stanford CS329A Topic Guide"
 date: 2026-08-20
 category: ai
 type: deep-dive
@@ -25,32 +25,6 @@ draft: false
 It teaches a gap — and then, in its final lecture, says plainly how much of that gap current methods actually close.
 
 This piece was written after watching all nine public lectures, plus the three guest lectures from the first offering that sit on other channels. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
-
-## Course video sources
-
-The videos below come from the public CS329A Autumn 2025 recordings on Stanford Online; on 2026-10-10 the video pages for Parts 2, 6 and 9 were confirmed to exist with titles matching the lectures (Part 9 is a text link only).
-
-```youtube
-url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
-title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yVnmHSAy3ck
-title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
-```
-
-Original videos: [Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y), [Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck), [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
-
-Course and recording entries:
-
-- [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
-- [Official course / lecture source](https://cs329a.stanford.edu/)
-- [CS329A Part 1, Course Overview (Stanford Online public recordings, 9 parts)](https://www.youtube.com/watch?v=6YnLB0XbTnI)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (Part 2 and Part 6) were read. Part 2 covers Large Language Monkeys repeated sampling and the power law, the long tail of hard problems, the generation-verification gap where majority voting and reward models fall short of oracle coverage, the hardest problems being solved only a few times in thousands of samples, and Archon fusion beating oracle selection, all of which hold in this article; Part 6 covers STaR (rationalization giving no clear gain on GSM8K), DeepSeekMath (majority@K rising but pass@K not at 32 samples, "more consistent, not fundamentally smarter"), GRPO normalization failing when all rewards are equal, DAPO dynamic sampling and the Qwen-32B ladder from 30 to about 50, and the conclusion that none of the three improves fundamental capability, which also hold. The Chinese quotations in the article are paraphrases that match the English transcript in meaning with different wording; the transcripts never name the speakers, so the attribution rests on course information, not the transcripts. Claims about lecture 9, lecture 17, other lectures and the guest talks correspond to videos that are not embedded and were not checked this time.
 
 ## The hard facts
 
@@ -238,6 +212,32 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
 - 2026-10-10: Rechecked video status. Confirmed live that the Part 2, 6 and 9 video pages exist with matching titles, so the status is now videos included; the playlist link had an incomplete ID and now points to the Part 1 video.
 - 2026-10-10: Checked the video content against its transcript. Read the transcripts of both embedded videos; the Part 2 and Part 6 claims match, nothing needed correcting; claims from the non-embedded lectures 9 and 17 and the guest talks were not checked.
+
+## Course video sources
+
+The videos below come from the public CS329A Autumn 2025 recordings on Stanford Online; on 2026-10-10 the video pages for Parts 2, 6 and 9 were confirmed to exist with titles matching the lectures (Part 9 is a text link only).
+
+```youtube
+url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
+title: Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yVnmHSAy3ck
+title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
+```
+
+Original videos: [Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y), [Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck), [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+
+Course and recording entries:
+
+- [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
+- [Official course / lecture source](https://cs329a.stanford.edu/)
+- [CS329A Part 1, Course Overview (Stanford Online public recordings, 9 parts)](https://www.youtube.com/watch?v=6YnLB0XbTnI)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (Part 2 and Part 6) were read. Part 2 covers Large Language Monkeys repeated sampling and the power law, the long tail of hard problems, the generation-verification gap where majority voting and reward models fall short of oracle coverage, the hardest problems being solved only a few times in thousands of samples, and Archon fusion beating oracle selection, all of which hold in this article; Part 6 covers STaR (rationalization giving no clear gain on GSM8K), DeepSeekMath (majority@K rising but pass@K not at 32 samples, "more consistent, not fundamentally smarter"), GRPO normalization failing when all rewards are equal, DAPO dynamic sampling and the Qwen-32B ladder from 30 to about 50, and the conclusion that none of the three improves fundamental capability, which also hold. The Chinese quotations in the article are paraphrases that match the English transcript in meaning with different wording; the transcripts never name the speakers, so the attribution rests on course information, not the transcripts. Claims about lecture 9, lecture 17, other lectures and the guest talks correspond to videos that are not embedded and were not checked this time.
 
 ## References
 

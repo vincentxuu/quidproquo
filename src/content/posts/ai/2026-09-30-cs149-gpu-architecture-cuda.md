@@ -1,5 +1,5 @@
 ---
-title: "CS149 第 7 講：GPU 架構與 CUDA 程式設計"
+title: "GPU 架構與 CUDA 程式設計｜Stanford CS149 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,27 +36,6 @@ glossary:
 前八篇一直待在 CPU 上。這一講換到 GPU，但它其實不是新東西。投影片第二頁就把 [第 2 講](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading) 那張「基本 GPU 架構」圖搬回來：多核心、每個核心裡有 SIMD 執行、每個核心同時交錯執行多個 thread。GPU 就是把這三種平行同時推到很大的規模。
 
 所以這一講要回答的問題很具體：**CUDA 裡的 grid、block、thread 這些抽象，到底怎麼落到 GPU 硬體上？** 把 DNN 映射到 GPU 的部分留到 [第 9 講那一篇](/posts/ai/2026-09-30-cs149-dnn-on-gpus)，這裡只談執行模型。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-此影片的站內播放器顯示擁有者禁止嵌入，因此改提供 YouTube 觀看入口；原站是否可播放尚未實測。查核日期：2026-10-11。
-
-<figure class="video-embed">
-
-[前往 YouTube 觀看 ↗](https://www.youtube.com/watch?v=qQTDF0CBoxE)
-
-</figure>
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming](https://www.youtube.com/watch?v=qQTDF0CBoxE)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 7 - GPU architecture and CUDA Programming》（1:18:47）。字幕涵蓋 GPU 從圖形管線走到 compute mode、CUDA 的 host／device 與 grid／block／thread、1D 卷積範例、shared memory、Volta（字幕講 V100 時唸成 Volta）的 SM 與 warp、thread block 的排程；結尾講者強調 thread block 之間不能假設執行順序，與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 從畫三角形到跑任意程式
 
@@ -201,6 +180,27 @@ warp 裡的 thread 在執行同一條指令時，以 SIMD 方式一起跑，NVID
 - 同一套 GPU 執行模型從 LLM 訓練角度的講法：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 另一門課對 thread、block、記憶體階層與 tiling 的整理：[CMU 11-868 L02–L04 GPU 程式模型與加速](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 - 課程定位、五個作業的環境需求與 2023 錄影對照：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+此影片的站內播放器顯示擁有者禁止嵌入，因此改提供 YouTube 觀看入口；原站是否可播放尚未實測。查核日期：2026-10-11。
+
+<figure class="video-embed">
+
+[前往 YouTube 觀看 ↗](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+</figure>
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 7 - GPU architecture and CUDA Programming》（1:18:47）。字幕涵蓋 GPU 從圖形管線走到 compute mode、CUDA 的 host／device 與 grid／block／thread、1D 卷積範例、shared memory、Volta（字幕講 V100 時唸成 Volta）的 SM 與 warp、thread block 的排程；結尾講者強調 thread block 之間不能假設執行順序，與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

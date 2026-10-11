@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石 L13–L14：過擬合與正則化"
+title: "過擬合與正則化｜台大林軒田 機器學習基石與技法 第 13–14 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)的非線性轉換給了線性模型很大的力量，L12 的摘要把下一講預告成「the dark side of the force」。從 L13 開始，基石進入最後一段「How Can Machines Learn Better?」，先問力量用過頭會怎樣，再給第一個對策。
 
 讀完這篇，你應該能說出過擬合的四個成因、deterministic noise 跟一般雜訊差在哪裡、weight decay 的目標函數是怎麼從一個限制式推出來的，以及正則化在 VC 理論裡對應到什麼。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=BA76U3JBDdE
-title: What is Overfitting?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=6bfcLhHhgs0
-title: The Role of Noise and Data Size
-```
-
-原始影片：[What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 課程與教材對照
 
@@ -217,6 +195,28 @@ HW5 Q10 刻意用 E_in 選 λ，接下來的 Q11、Q12 改用驗證集和 3-fold
 - 深度學習裡的正則化：[MIT 6.7960：Regularization](/posts/tech/2026-09-17-mit-67960-regularization)
 - 技法篇會從正則化的角度重新看 SVM：[Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=BA76U3JBDdE
+title: What is Overfitting?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=6bfcLhHhgs0
+title: The Role of Noise and Data Size
+```
+
+原始影片：[What is Overfitting?](https://www.youtube.com/watch?v=BA76U3JBDdE)、[The Role of Noise and Data Size](https://www.youtube.com/watch?v=6bfcLhHhgs0)、[Deterministic Noise](https://www.youtube.com/watch?v=c_208kUQEis)、[Dealing with Overfitting](https://www.youtube.com/watch?v=r3bX1k7tcjc)、[Regularized Hypothesis Set](https://www.youtube.com/watch?v=Sno7I5slFUA)、[Weight Decay Regularization](https://www.youtube.com/watch?v=idWnPdW9znM)、[Regularization and VC Theory](https://www.youtube.com/watch?v=15JB2o4VUeY)、[General Regularizers](https://www.youtube.com/watch?v=PeQeKeeGu3A)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

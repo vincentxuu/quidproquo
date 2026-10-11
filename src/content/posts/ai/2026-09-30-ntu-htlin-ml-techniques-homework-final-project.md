@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法作業與期末專題：Fall 2024 HW6–HW7 與 HTMLB 勝負預測"
+title: "林軒田機器學習技法作業與期末專題：Fall 2024 HW6–HW7 與 HTMLB 勝負預測｜台大林軒田 機器學習基石與技法 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,20 +31,6 @@ glossary:
 **本文依據**：[Machine Learning, Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)（頁尾最後更新 2025-01-17）、[HW6 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)、[HW7 題目](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw7/hw7.pdf)、[期末專題說明](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/final/final.pdf)，以及 [Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)的排程，全部在 2026-09-30 下載或打開核對。題目敘述都從 PDF 讀出；「這題練哪一講」是依題目內容與題目明寫的 Lecture 編號歸類。
 
 這篇不給解答。每題只說它在練什麼、需要哪一篇的內容，以及怎麼自己驗證答案。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
-- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
-
-2026-10-10 已即時查過官方 MOOC 頁與兩份播放清單：播放清單只有講課影片，沒有這篇談的作業說明影片（題目是 NTU 課程頁上的 PDF）。
-
-查核日期：2026-10-10。
 
 ## 存取等級與缺口
 
@@ -226,6 +212,20 @@ Fall 2026 的評分改成 30% 作業、30% 考試、40% 專題（tentative），
 - 站內 [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：SVM、kernel 與 boosting 的另一種講法。
 
 系列導覽：上一篇 [基石作業導讀：Fall 2024 HW0–HW5](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)｜本篇是系列最後一篇，回到 [系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+2026-10-10 已即時查過官方 MOOC 頁與兩份播放清單：播放清單只有講課影片，沒有這篇談的作業說明影片（題目是 NTU 課程頁上的 PDF）。
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

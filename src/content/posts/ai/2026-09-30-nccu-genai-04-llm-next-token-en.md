@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L04: LLMs Are Simpler Than You Think — Next-Word Prediction, Temperature, and Your Own Benchmark"
+title: "LLMs Are Simpler Than You Think — Next-Word Prediction, Temperature, and Your Own Benchmark | NCCU Yen-Lung Tsai Generative AI Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,18 +29,6 @@ glossary:
 **This guide follows the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 4 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L03 GANs](/posts/ai/2026-09-30-nccu-genai-03-gan-en). The course is taught in Mandarin.
 
 Three official sources back this post: the [Lecture 4 recording](https://www.youtube.com/watch?v=LcSTLXCJrzA) (2025-03-11, 2 h 54 min), the slide deck [GenAI04 Large Language Models](https://drive.google.com/file/d/10mfLvj8o2H4z6sHI4xGXAr7OCgWxAoR5/view) (90 pages), and the week 4 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are public; grading runs through each school's platform, so outside readers can only self-assess.
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [Lecture 04: LLMs are simpler than you think (YouTube recording, 2025-03-11) (in Mandarin)](https://www.youtube.com/watch?v=LcSTLXCJrzA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week fits
 
@@ -209,6 +197,18 @@ for tau in (1, 0.5, 2):
 - Building a language model from scratch: [Stanford CS336 guide](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L03 GANs](/posts/ai/2026-09-30-nccu-genai-03-gan-en) | Next: [L05 Transformers, Explained](/posts/ai/2026-09-30-nccu-genai-05-transformers-math-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [Lecture 04: LLMs are simpler than you think (YouTube recording, 2025-03-11) (in Mandarin)](https://www.youtube.com/watch?v=LcSTLXCJrzA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

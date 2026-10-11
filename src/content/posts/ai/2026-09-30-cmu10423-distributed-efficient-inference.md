@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L17–L18：分散式訓練、FlashAttention 與高效解碼——一張 GPU 放不下、推論又太慢時從哪裡下手"
+title: "分散式訓練、FlashAttention 與高效解碼——一張 GPU 放不下、推論又太慢時從哪裡下手｜CMU 10-423 第 17–18 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,17 +33,6 @@ glossary:
 用到的官方材料：[Lecture 17 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed.pdf)與[手寫版](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture17-distributed-ink.pdf)、[Lecture 18 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture18-efficient.pdf)、[課程講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)。全部在 2026-09-30 下載核對。講次表這兩講沒有列 readings，本文引用的論文都是投影片上標註的出處。
 
 > **版本說明**：L17 投影片（3 月 18 日）的 PDF 建立於 2026 年 3 月，但提醒頁寫的是 HW4「Out: Thu, Oct 23」、HW623「Due: Mon, Dec 1」，是 Fall 2025 的日期，內容應是沿用上學期版本；投影片註明取材自 Henry Chai 與 Pat Virtue。L18（3 月 23 日）的提醒頁則是 Spring 2026 的日期，沒有手寫版。錄影只放在 CMU 內部的 Panopto，校外看不到。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## L17：分散式訓練
 
@@ -179,6 +168,17 @@ L18 的提醒頁寫明：3 月 30 日晚上的考試涵蓋 Lectures 1–15（與
 - 系統課的深入版：[CMU 11-868 LLM Systems 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)，特別是 [L14–L15 資料平行](/posts/ai/2026-09-30-cmu11868-data-parallel-training)、[L18 ZeRO](/posts/ai/2026-09-30-cmu11868-zero-memory-optimization)、[L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention)、[L22、L24 PagedAttention 與 LLM 服務](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm)
 
 系列導覽：上一篇 [L15–L16：Scaling laws 與 Mixture of Experts](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)｜下一篇 [L19、L21：長上下文與 State Space 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

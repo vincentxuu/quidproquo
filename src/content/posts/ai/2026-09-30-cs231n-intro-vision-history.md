@@ -1,5 +1,5 @@
 ---
-title: "CS231N L1：電腦視覺從哪裡來，這門課要走到哪裡"
+title: "電腦視覺從哪裡來，這門課要走到哪裡｜Stanford CS231N 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,23 +29,6 @@ glossary:
 [CS231N](https://cs231n.stanford.edu/) 2026 年的第一講在 3 月 31 日，由 Fei-Fei Li 與 Ehsan Adeli 主講。[課表](https://cs231n.stanford.edu/schedule.html)上它掛了兩份投影片：[part 1](https://cs231n.stanford.edu/slides/2026/lecture_1_part_1.pdf) 講電腦視覺與深度學習的簡史，[part 2](https://cs231n.stanford.edu/slides/2026/lecture_1_part_2.pdf) 講課程概覽與規則。
 
 這一講沒有公式。它的任務是讓你知道：這門課為什麼從「影像分類」開始，又為什麼一路走到生成模型、3D 與 world modeling。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 1 講（長度 1:02:52），字幕有 Fei-Fei Li 開場、寒武紀視覺起源與 camera obscura、AI winter、感知器與 Neocognitron、ImageNet 與 AlexNet、課程作業與評分安排，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=2fq9wYslV0A
-title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
-```
-
-原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction](https://www.youtube.com/watch?v=2fq9wYslV0A)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 一張文氏圖定位這門課
 
@@ -150,6 +133,23 @@ Part 2 的後半是行政。跟自學者有關的幾點：
 - [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)：同一段神經網路史，從一般深度學習課的角度
 
 **系列導覽**：上一篇 [總覽與自學路線](/posts/ai/2026-09-30-cs231n-course-overview)｜下一篇 [L2：影像分類、kNN 與線性分類器](/posts/ai/2026-09-30-cs231n-image-classification-linear)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 1 講（長度 1:02:52），字幕有 Fei-Fei Li 開場、寒武紀視覺起源與 camera obscura、AI winter、感知器與 Neocognitron、ImageNet 與 AlexNet、課程作業與評分安排，與本文主題相符。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=2fq9wYslV0A
+title: Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction
+```
+
+原始影片：[Stanford CS231N Deep Learning for Computer Vision | Spring 2025 | Lecture 1: Introduction](https://www.youtube.com/watch?v=2fq9wYslV0A)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

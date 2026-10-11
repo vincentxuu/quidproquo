@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 9: Transformers Leave Text Behind, and LLMs Stop Writing Left to Right"
+title: "Transformers Leave Text Behind, and LLMs Stop Writing Left to Right | Stanford CME295 Lecture 9"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ This post covers Lecture 9, "Current trends," of the 2025 edition of Stanford [C
 The first eight lectures took a sentence all the way to a model that reasons, uses tools, and can be graded. The last lecture pushes outward in two directions. First, can a Transformer look at pictures? Second, does an LLM really have to write left to right, one token at a time? The agenda has four parts: Recap, Beyond Transformer-based LLMs, Diffusion LLMs, and Closing thoughts.
 
 This lecture is not on the exam, and it is the most scattered of the nine. This post follows two threads in depth, the Vision Transformer and diffusion LLMs, and skims the rest. The math of diffusion is left for a separate post once the 2026 edition's dedicated lecture is out.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 9, Recap & Current Trends (page date 2025-12-05, length 1:51:31, matching the post). Its chapters are a recap of the earlier lectures, Vision Transformer, Diffusion-based LLMs and closing thoughts, consistent with the post's focus on ViT and diffusion LLMs. The post cites only the slides and does not relay spoken remarks.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## The whole quarter in eight pictures
 
@@ -276,6 +256,26 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 - The math of image diffusion: [CS229 Chapter 14: diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Why inference cost is bound by memory: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Back to the start: [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q86qzJ1K1Ss
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 9 - Recap & Current Trends](https://www.youtube.com/watch?v=Q86qzJ1K1Ss)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 9, Recap & Current Trends (page date 2025-12-05, length 1:51:31, matching the post). Its chapters are a recap of the earlier lectures, Vision Transformer, Diffusion-based LLMs and closing thoughts, consistent with the post's focus on ViT and diffusion LLMs. The post cites only the slides and does not relay spoken remarks.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

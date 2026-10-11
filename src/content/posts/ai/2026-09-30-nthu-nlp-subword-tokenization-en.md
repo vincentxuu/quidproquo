@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 7: Sub-word Tokenization, or Why a Model's Vocabulary Is Made of Word Pieces"
+title: "NTHU NLP Guide 7: Sub-word Tokenization, or Why a Model's Vocabulary Is Made of Word Pieces | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,25 +31,6 @@ glossary:
 The official material for this lecture is [W3_subword.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W3_subword.pdf) (43 slides), with the recording [Week 5 Thu.](https://www.youtube.com/live/FB0fgRTEbJE) (in Mandarin). The [Week 5 Tue.](https://www.youtube.com/live/Dpswwk6UMCc) recording in the same row, whose captions I read, covers the second half of the Transformer (positional encoding, multi-head, decoder) rather than this lecture, so it is now embedded in the [Transformer post](/posts/ai/2026-09-30-nthu-nlp-transformers-en) instead. As with the previous lecture, the W3 in the file name is an old week number; the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) places it in W5, the same row where HW2 is released. That row's Topics column is a syllabus template and is not cited here.
 
 The slides have three parts: recap, word segmentation, and sub-word tokenization.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube video is public and embeddable. After reading the captions, only Week 5 Thu. belongs to this lecture (it starts with assignment 2 and only then turns to subword tokenization). No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=FB0fgRTEbJE
-title: Week 5 Thu.
-```
-
-Original videos: [Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the Week 5 Thu. transcript was read through. It opens with the assignment 2 briefing (arithmetic with RNN/LSTM) and only then moves to subword tokenization: how a hidden state maps onto the vocabulary, OOV and [UNK], the limits of white-space segmentation, segmentation vs. tokenization, the BPE merge example and number of merges, and ULM choosing splits by language-model probability, all consistent with the post. The Week 5 Tue. transcript is about the Transformer (QKV, positional encoding, multi-head, Add & Norm, decoder, teacher forcing), not subword tokenization, so it was removed from this page and is now embedded in the Transformer post. The rest of the post relies on the slides only.
 
 ## Recap: the model outputs a probability over the whole vocabulary
 
@@ -190,6 +171,25 @@ Slides 42–43 wrap up. Sub-word tokenization handles unknown, misspelled and co
 - Solutions, quizzes and class discussion live on NTU COOL and are not available to outside readers. The Fall 2026 version of this lecture is not yet public.
 
 **Series navigation**: previous [Transformer and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en) | next [ELMo, BERT, T5, BART, GPT: Three Roads to Pretraining](/posts/ai/2026-09-30-nthu-nlp-bert-family-en) | [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: the YouTube video is public and embeddable. After reading the captions, only Week 5 Thu. belongs to this lecture (it starts with assignment 2 and only then turns to subword tokenization). No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=FB0fgRTEbJE
+title: Week 5 Thu.
+```
+
+Original videos: [Week 5 Thu.](https://www.youtube.com/watch?v=FB0fgRTEbJE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 5 Thu. transcript was read through. It opens with the assignment 2 briefing (arithmetic with RNN/LSTM) and only then moves to subword tokenization: how a hidden state maps onto the vocabulary, OOV and [UNK], the limits of white-space segmentation, segmentation vs. tokenization, the BPE merge example and number of merges, and ULM choosing splits by language-model probability, all consistent with the post. The Week 5 Tue. transcript is about the Transformer (QKV, positional encoding, multi-head, Add & Norm, decoder, teacher forcing), not subword tokenization, so it was removed from this page and is now embedded in the Transformer post. The rest of the post relies on the slides only.
 
 ## Update Log
 

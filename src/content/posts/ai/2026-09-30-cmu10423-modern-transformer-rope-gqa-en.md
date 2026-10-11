@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L4: Pre-training, Fine-tuning, and the Modern Transformer — What RoPE, GQA, and Sliding Windows Each Fix"
+title: "Pre-training, Fine-tuning, and the Modern Transformer — What RoPE, GQA, and Sliding Windows Each Fix | CMU 10-423 Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa.pdf) (44 pages) and the [inked in-class version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture4-rope-gqa-ink.pdf) (47 pages), plus the three readings on the schedule: [GQA](https://arxiv.org/pdf/2305.13245.pdf), [Longformer](https://arxiv.org/pdf/2004.05150.pdf), and [RoFormer](https://arxiv.org/pdf/2104.09864.pdf). The course is rated **A3** (see the grading in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). The recordings sit behind CMU's Panopto login, so this post relies entirely on the slides; anything said only out loud in class is out of reach.
 
 This is the last lecture of the text unit. The schedule marks "HW1 out (L1-L4)" on the same day, and Quiz 1 two days later also covers L1–L4. The three components in this lecture are exactly what the next post, [HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en), asks you to build.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## First half: what separates pre-training from fine-tuning
 
@@ -204,6 +193,17 @@ Confirmed: the schedule's dates and readings, the plain and inked slide content,
 Further reading: the site's [CME295 post on Transformer tricks](/posts/ai/2026-09-29-cme295-transformer-tricks-en) covers position encodings and attention variants from another course's angle. [CS336's architectures and hyperparameters post](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en) and its [attention and MoE post](/posts/ai/2026-08-22-cs336-attention-moe-en) survey the same modern components from the "train your own LM" angle.
 
 Series navigation: previous [L2–L3: Transformer LMs, LLM training, and decoding](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en) | next [HW1: adding RoPE and GQA to minGPT](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

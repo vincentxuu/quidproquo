@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L21 FlashAttention: Attention Is Slow Because of Data Movement, Not Math — Tri Dao from FA1 to FA4"
+title: "FlashAttention: Attention Is Slow Because of Data Movement, Not Math — Tri Dao from FA1 to FA4 | CMU 11-868 Lecture 21"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,16 +40,6 @@ The 4/1 lecture was a guest lecture by [Tri Dao](https://tridao.me), the author 
 This is one of the harder posts in the series. It starts with the scenario and intuition, and the derivation sits in a collapsible block. If GPU memory hierarchies are new to you, read [L02–L04 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en) and [L10 LightSeq](/posts/ai/2026-09-30-cmu11868-accelerating-transformer-lightseq-en) first.
 
 The whole post answers one question: **why is attention bottlenecked by IO rather than FLOPs?**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The scenario: longer sequences slow training down
 
@@ -189,6 +179,16 @@ The next post takes the same problem to TPUs: [L12–L13 TPU, JAX, and Pallas](/
 - Previous: [L19–L20 Model Quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - Next: [L12–L13 TPU, JAX, and Pallas/Splash Attention](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en)
 - Series overview: [Reading CMU 11-868 LLM Systems](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

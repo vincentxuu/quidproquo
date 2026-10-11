@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 18: Disk Geometry, Interrupts, and DMA"
+title: "Disk Geometry, Interrupts, and DMA | Stanford CS111 Lecture 18"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is part 19 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 18**. Mendel Rosenblum taught it on 2026-05-08; the official title is [Magnetic Disks](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/18/Lecture18.pdf). This article follows the public PDF page by page and uses the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not publicly accessible and is not treated as reviewed.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## An HDD is storage with moving parts
 
@@ -85,11 +77,17 @@ The final two pages show old magnetic tape and an IBM System/360 datacenter with
 
 Trace one request to test the lecture: a user requests a block; the OS builds a command; an MMIO doorbell notifies the device; the controller pays seek, rotation, and transfer; DMA writes memory; a response records completion; and an interrupt returns control to the kernel. Knowing who changes which state at every step matters more than memorizing HDD figures.
 
-## Update history
+## Course video sources
 
-- 2026-08-22: Rewritten against the official Lecture 18 PDF, with hardware figures explicitly scoped as slide snapshots.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
+
+- 2026-08-22: Rewritten against the official Lecture 18 PDF, with hardware figures explicitly scoped as slide snapshots.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.

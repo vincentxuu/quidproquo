@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 16：Logic II：量詞讓知識跨越單一命題"
+title: "Logic II：量詞讓知識跨越單一命題｜Stanford CS221 第 16 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 本篇依 **Stanford CS221 Autumn 2025 Lecture 16** 可執行材料 [first_order_logic](https://stanford-cs221.github.io/autumn2025-lectures/?trace=first_order_logic) 的順序整理。
 
 > 材料缺口：Canvas 課堂互動、作業解答與隱藏測資不公開。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 16 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 16 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=x9Mbqu06OVo
-title: Stanford CS221 | Autumn 2025 | Lecture 16: Logic II
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 16: Logic II](https://www.youtube.com/watch?v=x9Mbqu06OVo)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 16 支）字幕，確認內容涵蓋一階邏輯的 terms 與 predicates、語意、substitution、量詞（forall／exists）的翻譯例子，與本文的講次與主題相符，未發現錯配。
 
 ## TL;DR
 
@@ -268,6 +248,26 @@ definite-clause modus ponens 是 sound：`KB ⊢ f` 保證 `KB ⊧ f`；但不 c
 ## 10. 閱讀 executable lecture 的檢查表
 
 檢查型別、scope、model、propositionalization 假設與推理邊界。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 16 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 16 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=x9Mbqu06OVo
+title: Stanford CS221 | Autumn 2025 | Lecture 16: Logic II
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 16: Logic II](https://www.youtube.com/watch?v=x9Mbqu06OVo)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 16 支）字幕，確認內容涵蓋一階邏輯的 terms 與 predicates、語意、substitution、量詞（forall／exists）的翻譯例子，與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

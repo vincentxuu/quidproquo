@@ -1,5 +1,5 @@
 ---
-title: "CS234 Data Efficiency II: Bayesian Bandits, Thompson Sampling, and the Gittins Index"
+title: "Bayesian Bandits, Thompson Sampling, and the Gittins Index | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,26 +38,6 @@ glossary:
 The previous post's UCB assumes only that rewards are bounded; it makes no assumption about what the reward distribution looks like. Its exploration follows a deterministic rule: add a confidence width to each arm and pick the largest.
 
 L11 takes another angle: **if you have prior knowledge about rewards, can you use it?** The answer is Bayesian bandits, and their best-known algorithm, Thompson sampling, explores with a completely different logic. Instead of guessing high, it draws lots according to what you currently believe.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=gFJNsfg_35E
-title: Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"
-```
-
-Original videos: [Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"](https://www.youtube.com/watch?v=gFJNsfg_35E)
-
-Course and recording entries:
-
-- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 12, "Exploration 2" (about 65K characters): it goes through the UCB recap and regret, PAC, optimistic initialization, Bayesian bandits (Beta priors, the fracture example), Thompson sampling and probability matching, with Gittins only mentioned briefly at the end, matching this post; "YouTube chapters" became "transcript".
 
 ## Opening: a quiz on deterministic rewards
 
@@ -212,6 +192,26 @@ One thing you can do tonight: write a 20-line Bernoulli Thompson sampler with nu
 
 - Exploration in deep RL (count-based, posterior sampling, and more): [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Course positioning, access gaps, and the 2024 video mapping: [Reading Stanford CS234 (series overview)](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=gFJNsfg_35E
+title: Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"
+```
+
+Original videos: [Stanford CS234 Spring 2024 playlist, video 12 "Exploration 2"](https://www.youtube.com/watch?v=gFJNsfg_35E)
+
+Course and recording entries:
+
+- [Spring 2024 offering](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 12, "Exploration 2" (about 65K characters): it goes through the UCB recap and regret, PAC, optimistic initialization, Bayesian bandits (Beta priors, the fracture example), Thompson sampling and probability matching, with Gittins only mentioned briefly at the end, matching this post; "YouTube chapters" became "transcript".
 
 ## Update Log
 

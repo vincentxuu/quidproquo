@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107: The Same Course Weights Assignments at 40% One Quarter and 20% the Next"
+title: "The Same Course Weights Assignments at 40% One Quarter and 20% the Next | Stanford CS107 Topic Guide"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -27,14 +27,6 @@ Its job is to dismantle a mental model. High-level languages let you believe a v
 This site's [map of Stanford's CS course sequence](/posts/learning/2026-08-20-stanford-cs-course-map-en) puts CS107 among the five undergraduate core courses and calls it the most painful and the most worth it. That's a judgment about where the course sits on the ladder. This piece is about what happens once you're inside: what each of the seven assignments does, and which one is the actual break. Plus a more practical question — someone with no SUNet ID following this public site, how many steps in do they hit a wall?
 
 **Scope, up front.** Everything here comes from public web pages: the current quarter's course site, seven assignment specs, seven lab handouts with their solutions, three archived quarters (quarter codes and their terms are in the appendix), the ExploreCourses entry, and the Stanford Online for-credit page. **Not read: lecture recordings** (behind Canvas), **exams** (same), and the autograder's test suite (the course says explicitly it isn't released). So what follows is what's on those pages, not a report from someone who took the class.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## The hard facts
 
@@ -194,6 +186,14 @@ Three things I could not confirm. **First**, this site's Stanford CS course map 
 One more thing is deliberately left open: why the medians sit at the ceiling every quarter. Neither the announcements nor the syllabi explain it, and this piece offers no speculative mechanism. Quarters with a resubmission policy and quarters without have equally high medians, so any explanation linking the two needs evidence from outside these pages.
 
 And one thing wasn't unavailable so much as not attempted: the assignment and lab starter code lives on AFS behind a SUNet ID, this piece made no attempt to obtain it, and every description of assignment content here comes from the public assignment specs themselves.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 19–20：初始化、BatchNorm、CNN、early stopping 與 double descent"
+title: "初始化、BatchNorm、CNN、early stopping 與 double descent｜Berkeley CS189 第 19–20 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, neural-networks, cnn, batch-norm, deep-learning]
@@ -37,31 +37,6 @@ glossary:
 |---|---|
 | Lec 19 | 7.2.5 NN 初始化；7.4 到 7.4.2（資料正規化、batch norm）；第 10 章到 10.2.8，以及 10.3.2（CNN） |
 | Lec 20 | 9.1.2 no free lunch；9.3.1 early stopping；9.3.2 double descent |
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=-4PpBUsB_S4
-title: Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=4LrCyN7URuY
-title: Lecture 20 錄影：Convolutional Neural Networks (ctnd.)
-```
-
-原始影片：[Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 錄影：Convolutional Neural Networks (ctnd.)](https://www.youtube.com/watch?v=4LrCyN7URuY)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 19 影片（-4PpBUsB_S4，約 80 分鐘）從梯度消失談起，涵蓋有限差分的成本 O(N·L²)、初始化與全零造成的對稱問題、batch normalization 與推論時的移動平均、輸入單位尺度（公尺對公釐）的問題，後段開始 CNN（模板與邊緣偵測），結束在邊緣偵測示範，還沒講 pooling。Lecture 20 影片（4LrCyN7URuY，約 71 分鐘）涵蓋 pooling 與局部不變性、receptive field、權重共享、VGG／ResNet、用單一 hold-out 驗證集取代交叉驗證、凍結層的遷移學習、early stopping、dropout 與 double descent。He 初始化的具體係數、Nakkiran 論文名與 Discussion 9 內容只依講義，字幕未逐項核對。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## Lec 19 前段：收尾反向傳播
 
@@ -174,6 +149,31 @@ Discussion 9 兩題都沿用 Fall 2025 的 discussion（講義標注 F25 Dis8 Q1
 - 系列導覽：上一篇 [HW3 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)；下一篇 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：照 Discussion 9 第 2 題，用 NumPy 寫一個 1D 卷積，再把它改寫成 7×9 的矩陣乘法，確認兩者輸出一樣。做完你會直接看懂「15 個元素、只有 3 個參數」是什麼意思。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=-4PpBUsB_S4
+title: Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=4LrCyN7URuY
+title: Lecture 20 錄影：Convolutional Neural Networks (ctnd.)
+```
+
+原始影片：[Lecture 19 錄影：Neural Networks, Backpropagation (ctnd.) & Convolutional Neural Networks](https://www.youtube.com/watch?v=-4PpBUsB_S4)、[Lecture 20 錄影：Convolutional Neural Networks (ctnd.)](https://www.youtube.com/watch?v=4LrCyN7URuY)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 19 影片（-4PpBUsB_S4，約 80 分鐘）從梯度消失談起，涵蓋有限差分的成本 O(N·L²)、初始化與全零造成的對稱問題、batch normalization 與推論時的移動平均、輸入單位尺度（公尺對公釐）的問題，後段開始 CNN（模板與邊緣偵測），結束在邊緣偵測示範，還沒講 pooling。Lecture 20 影片（4LrCyN7URuY，約 71 分鐘）涵蓋 pooling 與局部不變性、receptive field、權重共享、VGG／ResNet、用單一 hold-out 驗證集取代交叉驗證、凍結層的遷移學習、early stopping、dropout 與 double descent。He 初始化的具體係數、Nakkiran 論文名與 Discussion 9 內容只依講義，字幕未逐項核對。字幕未自報講者姓名，講者歸屬未驗證。
 
 ## 更新紀錄
 

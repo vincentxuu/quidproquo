@@ -1,5 +1,5 @@
 ---
-title: "CS224R HW1: Regression BC, Flow Matching, and DAgger on Flappy Bird"
+title: "Regression BC, Flow Matching, and DAgger on Flappy Bird | Stanford CS224R Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,16 +30,6 @@ glossary:
 This is part 3 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en) series. It follows [L2 on imitation learning](/posts/ai/2026-09-30-cs224r-imitation-learning-en), which covered three ideas: why a policy needs to represent multimodal distributions, action chunking, and online interventions with DAgger. HW1 puts all three into one small game so you can see for yourself what problem each one solves.
 
 The course schedule says HW1 went out on Friday, April 3, the day of L2, and was due April 10 at 9 pm Pacific. It is worth 10% of the course grade.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## How much is public
 
@@ -205,6 +195,16 @@ Download the starter code, set up the environment with `installation.md`, write 
 - [CME295 Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en): diffusion-style methods applied to language models
 
 **Series navigation**: Previous [L2: Imitation Learning](/posts/ai/2026-09-30-cs224r-imitation-learning-en) | Next [L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

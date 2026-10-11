@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L3B：Guidance 與 classifier-free guidance"
+title: "B：Guidance 與 classifier-free guidance｜MIT 6.S184 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 這一講的主角是 **classifier-free guidance（CFG）**。它的推導只用到兩樣你已經有的東西：Bayes 定理，以及[第 3A 講](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)的 Proposition 1（高斯路徑下，向量場和 score 可以互換）。如果 Prop. 1 還不熟，先回去看那篇。
 
 時間慣例和整個系列一樣：t=0 是雜訊，t=1 是資料。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
-```
-
-原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：整支字幕（約 39 分鐘）讀完：vanilla guidance、classifier guidance 的 Bayes 推導、classifier-free guidance 與空 token、訓練時以約 20% 機率丟掉 label、取樣、w≥4 與 w<1 的討論、兩次網路呼叫使效率減半、文獻導覽延到下週。本文對影片的說法大致成立。唯一的小誤差：學生問的是 w<1，「負方向會避開 prompt」是講者自己接著提的，已改正。影片裡講者沒有報姓名，只有影片頻道與課程說明列出 Peter Holderrieth；第 1 講才有講者自我介紹。
 
 ## 先統一用詞：guided 不是 conditional
 
@@ -240,6 +222,24 @@ w>1 時，`X_1` 的分佈**不再**是 `p_data(·|y)`。講義說 CFG 主要是�
 - DDPM 視角的條件生成與 guidance（時間方向與本課相反）：[CMU 11-785 L23：Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 生成模型的整體介紹：[MIT 6.S191 L4：生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - CFG 原始論文：[Ho & Salimans, Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598)（講義參考文獻 [18]，也是 slides 的圖源）
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
+```
+
+原始影片：[MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：整支字幕（約 39 分鐘）讀完：vanilla guidance、classifier guidance 的 Bayes 推導、classifier-free guidance 與空 token、訓練時以約 20% 機率丟掉 label、取樣、w≥4 與 w<1 的討論、兩次網路呼叫使效率減半、文獻導覽延到下週。本文對影片的說法大致成立。唯一的小誤差：學生問的是 w<1，「負方向會避開 prompt」是講者自己接著提的，已改正。影片裡講者沒有報姓名，只有影片頻道與課程說明列出 Peter Holderrieth；第 1 講才有講者自我介紹。
 
 ## 更新紀錄
 

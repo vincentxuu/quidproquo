@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 5: SFT Can't Teach \"Don't Answer Like That\", So RLHF and DPO Add the Negative Signal"
+title: "SFT Can't Teach \"Don't Answer Like That\", So RLHF and DPO Add the Negative Signal | Stanford CME295 Lecture 5"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -37,26 +37,6 @@ glossary:
 This post covers Lecture 5, "LLM tuning," of the 2025 edition of Stanford's [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en) (October 31, 2025). The main source is the [111-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture5.pdf); the [recording](https://www.youtube.com/watch?v=PmW_TMQ3l0I) runs 1 hour 47 minutes if you want to follow along.
 
 Every model in the first four lectures learned the same way: here is the right answer, copy it. This lecture switches to a different kind of training signal. It is the steepest step in the series, a jump from supervised learning straight into reinforcement learning, so we spend one section on why the jump is necessary before getting to any equations.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 5, LLM Tuning (page date 2025-10-31, length 1:47:41, matching the post's "1 hour 47 minutes"). Its chapters are preference tuning, data collection, RLHF, reward models and Bradley-Terry, PPO (clip and KL-penalty variants), on-policy versus off-policy, Best-of-N, and DPO, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Why SFT isn't enough
 
@@ -323,6 +303,26 @@ These are paraphrased from Section I, "LLM tuning," of the [2025 final exam](htt
 - A more implementation- and data-focused take: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - What comes after PPO: [CS336 Lecture 16: RLVR and GRPO](/posts/ai/2026-08-22-cs336-rlvr-en), and [Lecture 6: reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en) in this series
 - RL fundamentals, deriving policy gradients and actor-critic from scratch: [Berkeley CS285 L5–10](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=PmW_TMQ3l0I
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 5 - LLM tuning](https://www.youtube.com/watch?v=PmW_TMQ3l0I)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 5, LLM Tuning (page date 2025-10-31, length 1:47:41, matching the post's "1 hour 47 minutes"). Its chapters are preference tuning, data collection, RLHF, reward models and Bradley-Terry, PPO (clip and KL-penalty variants), on-policy versus off-policy, Best-of-N, and DPO, consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

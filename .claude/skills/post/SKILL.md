@@ -47,7 +47,11 @@ description: Convert a conversation, notes, or experience into a structured Mark
 3. **前置 metadata gate**：補齊 category、type、title direction、slug、tags（先查既有 tag 避免分裂）、references required、glossary needed。分類、標題方向、slug 與 tags 由 agent 自行判斷。只有無法查證的個人事實或必要範圍條件才問一個精準問題，**不要編造**。frontmatter 細節見 `references/frontmatter-schema.md`。
 4. **抽資訊**：從對話／筆記抽出主體段落。先研究可查證的資訊；無法查證的個人經驗才問。
 
-### 1a. 多來源導讀與英文練習
+### 1a. 課程導讀必讀與驗收
+
+課程總覽、單堂／跨堂、作業、週次文章，動筆前直接讀 `references/course-guide-contract.md`，把範圍卡存到 `.work/`。按文章角色對齊學習目標、正文例子與自我檢查；中文完整標題採「主題｜課程 第 N 堂」，英文用 Lecture N，不從 series.order 推原課堂次。教學重寫完成前依規格列正文證據，無例子／無判準則修正文，不靠 verify 綠宣稱教學完成。
+
+### 1b. 多來源導讀與英文練習
 
 遵守 `docs/content-source-writing-rules.md`（repo 根目錄）：先定讀者問題，再區分原始內容、官方核實與二手整理；明示全文／部分／轉述的讀取範圍。
 

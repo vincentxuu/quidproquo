@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L6: Coding Agents — From Completing a Line to Fixing a Whole Repo"
+title: "Coding Agents — From Completing a Line to Fixing a Whole Repo | CMU 11-768 Lecture 6"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -36,25 +36,6 @@ Lecture 6 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/) opens the Domai
 He splits "AI that writes code" into three levels: writing a snippet (a single completion), modifying a repository (changing several files at once), and doing software development (the whole lifecycle of requirements, implementation, review, deployment, and maintenance). Every agent has three ingredients — prompt, tools, LLM. Prompting was covered in the previous lectures ([L4 Skills and Memory](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory-en) and [L5 Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning-en)), so this one focuses on the other two: how a model learns to code, and which tools the agent should get.
 
 This post follows the lecture's order through seven parts: training code models, evaluating generated code, the agentic coding loop, toolset design, evaluating and training coding agents, frontend development, and development tasks beyond the inner loop. The final section, on models that predict code behavior, ran out of class time; I cover it from the slides.
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 6, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=1BWeH1oOM7k
-title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
-```
-
-Original videos: [CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 79 min) and checked the Neubig statements and class Q&A the article relays: the three single-step capabilities, pre-training and data cleaning (StarCoder, licenses, truffleHog), tokenizers and whitespace, language biases (Python/React), mid-training (Code Llama, Qwen2.5-Coder mixtures and YaRN lengths), infilling, diff/CI/execution-trace data, BLEU to execution-based evaluation and test-quality problems, the efficiency and comment-spam Q&A, localize-edit-verify, Agentless, the bash-only tool and the 85-90% tool-call answer, the search/replace format and Gemini edit-format issue, SWE-bench with SWE-Gym, SWE-smith and the continuously updated dataset, multi-harness training, front-end work and the GLM 5.2 remark, outer-loop tasks and the Microsoft 15% survey, and the unfinished code world model segment; all supported. Two fixes: the "InCoder let tokens span whitespace, about 40% fewer" remark was another person's answer that Neubig repeated, not his own, and the Agentless first author is called an assistant professor (not associate) in the captions. Exact per-paper figures (EvalPlus, AlphaCode, Aider, etc.) come from the papers, not the transcript.
 
 ## 1. Models that write code
 
@@ -266,6 +247,25 @@ L6 is the first Domain lecture after the Capabilities module, landing the pieces
 - On this site: [Edit tool trade-offs in coding agents](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
 - On this site: [Toolset design philosophy in coding agents](/posts/ai/2026-08-25-coding-agent-toolset-design-philosophy-en)
 - On this site: [The verification gate in coding agents](/posts/ai/2026-08-25-coding-agent-verification-gate-en)
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 6, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=1BWeH1oOM7k
+title: CMU AI Agents 2026: 6. Agents for Coding and Software Development
+```
+
+Original videos: [CMU AI Agents 2026: 6. Agents for Coding and Software Development](https://www.youtube.com/watch?v=1BWeH1oOM7k)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 79 min) and checked the Neubig statements and class Q&A the article relays: the three single-step capabilities, pre-training and data cleaning (StarCoder, licenses, truffleHog), tokenizers and whitespace, language biases (Python/React), mid-training (Code Llama, Qwen2.5-Coder mixtures and YaRN lengths), infilling, diff/CI/execution-trace data, BLEU to execution-based evaluation and test-quality problems, the efficiency and comment-spam Q&A, localize-edit-verify, Agentless, the bash-only tool and the 85-90% tool-call answer, the search/replace format and Gemini edit-format issue, SWE-bench with SWE-Gym, SWE-smith and the continuously updated dataset, multi-harness training, front-end work and the GLM 5.2 remark, outer-loop tasks and the Microsoft 15% survey, and the unfinished code world model segment; all supported. Two fixes: the "InCoder let tokens span whitespace, about 40% fewer" remark was another person's answer that Neubig repeated, not his own, and the Agentless first author is called an assistant professor (not associate) in the captions. Exact per-paper figures (EvalPlus, AlphaCode, Aider, etc.) come from the papers, not the transcript.
 
 ## Update Log
 

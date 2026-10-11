@@ -1,5 +1,5 @@
 ---
-title: "CS234 Assignment 3: Reward Engineering, RLHF, DPO on Hopper, and Best Arm Identification"
+title: "Reward Engineering, RLHF, DPO on Hopper, and Best Arm Identification | Stanford CS234 Assignment 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,17 +41,6 @@ The PDF's introduction is direct. RLHF was a key tool behind ChatGPT's performan
 This post covers only the question structure, points, what the starter code looks like, and what to know before you start. **No solutions.**
 
 > **An ordering issue first**: Q4, best arm identification, uses bandit concepts that the course only teaches in L9. In this series that is the next post, [order 13](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en). Do Q1–Q3 and Q5 first, and come back to Q4 after reading it.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-Checked: 2026-10-10.
 
 ## Schedule, submission, and points
 
@@ -227,6 +216,17 @@ One thing you can do tonight: download the Drive zip, set up the environment, an
 - The same RLHF/DPO material in CS224R (deep RL and LLM perspective): [CS224R L9: RLHF, DPO, and Preference Optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 - Where SFT and RLHF sit in the LLM training pipeline: [CS336 Lecture 15: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en)
 - Another route through exploration and open problems: [Berkeley CS285 L19–25: Exploration, RL Theory, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. No public lecture matching this article's scope was found, so nothing is embedded.
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

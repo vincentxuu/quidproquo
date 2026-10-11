@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lab 2：親手實作 K-means 與線性量化，做出整數推論的 VGG"
+title: "親手實作 K-means 與線性量化，做出整數推論的 VGG｜MIT 6.5940 實驗 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,15 +35,6 @@ glossary:
 **存取等級 A3，但有缺口**：notebook、預訓練權重與資料集都能直接下載，notebook 裡也附了幾個驗證函式。拿不到的是官方解答與評分：作業透過 MIT 的 Canvas 繳交，校外讀者沒有評分回饋。這篇**不寫解答**，只說每題在問什麼、對應課堂哪一段。
 
 **Fall 2026 對照**：Fall 2026 的課程頁把 Lab 2 標為「Quantization」，排在 10 月 1 日發布；2026-10-01 再查時還沒有連結。放出後會在這裡補上差異。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab／Google Drive 連結提供）。
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
 
 ## 這份 lab 要你做到什麼
 
@@ -138,6 +129,15 @@ Q_bias   = q_bias − Linear[Z_input, q_weight]
 - 系列入口與課程狀態：[MIT 6.5940 導讀（系列總覽）](/posts/ai/2026-09-30-mit-65940-course-overview)
 - 同一套流程練剪枝：[Lab 1：Pruning](/posts/ai/2026-09-30-mit-65940-lab1-pruning)
 - LLM 的 4-bit 權重量化：[Lab 4＋Lab 5：AWQ 與筆電上的 LLM](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab／Google Drive 連結提供）。
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

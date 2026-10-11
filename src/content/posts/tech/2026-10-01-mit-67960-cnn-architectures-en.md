@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L05: CNN Architectures — From Convolution Kernels to Translation Equivariance"
+title: "CNN Architectures — From Convolution Kernels to Translation Equivariance | MIT 6.7960 Lecture 5"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,25 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 [MIT 6.7960 Fall 2024 OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/) Lecture 4 [Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/) (YouTube: `bxVkZ4M-hIE`) is taught by Sara Beery. This lecture first asks why structural assumptions (inductive bias) should be built into the architecture, then derives convolution from locality and weight sharing, leading to CNN's three design principles: **local connectivity**, **weight sharing**, and **translation equivariance**. Paired with [Vision Book Ch.24](https://visionbook.mit.edu/convolutional_neural_nets.html) as required reading, this article restructures the lecture highlights into a practical CNN design framework with runnable PyTorch code.
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW. The “L05” in this article’s title is this site’s series numbering; the matching OCW lecture is Lec 04 Architectures: Grids (CNNs and grid data). The video's actual order of topics is given in "How This Maps to the Video" below.
-
-```youtube
-url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
-title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids](https://www.youtube.com/watch?v=bxVkZ4M-hIE)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of Lec 04 Architectures: Grids (video length 1:23:56); the lecturer is Sara Beery, not Phillip Isola as the article said, and was corrected; the old "video timestamps" table (including the LeNet→AlexNet→VGG→GoogLeNet segment) did not match the transcript and was replaced with an approximate topic order estimated from relative transcript positions, with the classic-architecture history and group-representation theory marked as this site's supplement.
 
 ## Why MLPs Fail on Images
 
@@ -278,6 +259,25 @@ The video runs 1 h 23 min 56 s. The transcript has no timecodes, so the "about" 
 - About 70–84 min: back to MLPs, positional encodings, the idea of applying one function to every patch, and Q&A
 
 The "LeNet → AlexNet → VGG → GoogLeNet architecture evolution", the detailed dilated-convolution derivation and the "translation equivariance proof" that this section used to list have no matching passage in the transcript (AlexNet is mentioned once when comparing filter sizes; LeNet, VGG and GoogLeNet are not covered); those parts of the article are this site's supplement.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW. The “L05” in this article’s title is this site’s series numbering; the matching OCW lecture is Lec 04 Architectures: Grids (CNNs and grid data). The video's actual order of topics is given in "How This Maps to the Video" below.
+
+```youtube
+url: https://www.youtube.com/watch?v=bxVkZ4M-hIE
+title: MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 04. Architectures: Grids](https://www.youtube.com/watch?v=bxVkZ4M-hIE)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 04. Architectures: Grids](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec04_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of Lec 04 Architectures: Grids (video length 1:23:56); the lecturer is Sara Beery, not Phillip Isola as the article said, and was corrected; the old "video timestamps" table (including the LeNet→AlexNet→VGG→GoogLeNet segment) did not match the transcript and was replaced with an approximate topic order estimated from relative transcript positions, with the classic-architecture history and group-representation theory marked as this site's supplement.
 
 ## Update Log
 

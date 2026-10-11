@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Stage Review I: From Search Problems to Supervised Learning"
+title: "Stage Review I: From Search Problems to Supervised Learning | CMU 07-280 Topic Guide"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, search, supervised-learning, machine-learning]
@@ -20,16 +20,6 @@ draft: false
 The first twelve lectures of 07-280 can look like two courses bolted together. Lectures 2–4 cover classical AI search; Lectures 5–12 pivot to supervised learning and neural networks. Their real connection is a shared engineering question: **how do you represent candidate solutions, score them, and find a useful answer in a space too large to enumerate?**
 
 This stage review does not replace the lecture guides. It places the Spring 2026 Search Fundamentals and ML Fundamentals modules on one map so that you can test whether you understand the computational structure rather than merely remember algorithm names. Because no complete public lecture recording set exists, the reconstruction is limited to the syllabus, public notes, recitations, and assignments.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## One pipeline: represent, score, move
 
@@ -86,6 +76,16 @@ Independent learners lack the complete Gradescope feedback loop, but can preserv
 You should be able to translate a natural-language problem into a representation, objective, and update rule; explain what a heuristic, feature, loss, and regularizer preserve or prefer; and calculate one backpropagation example by hand. If one of those remains a memorized definition, return to the corresponding lecture guide and recitation before moving to AlexNet.
 
 The next stage assembles these parts into concrete systems: CNNs add spatial structure to image representations, GPT-2 lets sequence representations interact through attention, and a training framework executes the resulting computation graphs on hardware.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

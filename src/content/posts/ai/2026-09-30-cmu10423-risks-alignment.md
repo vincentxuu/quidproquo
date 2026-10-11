@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L22 + L26：實務風險與對齊科學——版權、越獄、幻覺、偏見、碳排，以及對齊為什麼有理論上的極限"
+title: "實務風險與對齊科學——版權、越獄、幻覺、偏見、碳排，以及對齊為什麼有理論上的極限｜CMU 10-423 第 22 堂／第 26 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,17 +40,6 @@ glossary:
 用到的官方材料：[課程首頁的 Course Description](https://www.cs.cmu.edu/~mgormley/courses/10423/)、[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[L22 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture22-practical-considerations.pdf)（66 頁）、[L26 對齊投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture26-alignment.pdf)（35 頁）。兩講都沒有手寫版，講次表也沒列 readings。L22 有幾頁頁尾還留著 2024 年的日期（例如 9/25/24、10/9/24），可見部分內容沿用自往年版本。L26 的前半份投影片「Interactive World Models」放在 [order 22](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)。這門課的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，本篇只依投影片撰寫，而且這兩份投影片大多是論文截圖，能確認的是截圖上的文字與圖說。
 
 這一篇回答的問題是：**生成模型會在哪些地方出錯，對齊研究又怎麼處理？**
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 課綱承諾了什麼，投影片實際講了什麼
 
@@ -244,6 +233,17 @@ glossary:
 延伸閱讀：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)整門課都在談 AI 安全，其中[對抗式穩健性](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness)與[經濟衝擊](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts)兩講和本篇最接近；[CME295 的偏好調整篇](/posts/ai/2026-09-29-cme295-preference-tuning)補 RLHF 的細節。
 
 系列導覽：上一篇 [L20：推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)｜下一篇 [L23：程式生成與自主 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

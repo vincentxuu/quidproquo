@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 14：從 C 到 x86-64，第一次讀懂反組譯輸出"
+title: "從 C 到 x86-64，第一次讀懂反組譯輸出｜Stanford CS107 第 14 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 一個 `for` 迴圈到了處理器眼中，不再有變數名稱、`int` 型別或陣列語法，只剩放在不同位址的 bytes、暫存器中的值，以及改變下一條指令位置的跳躍。Stanford CS107 Lecture 14 是課程由 C 記憶體模型轉進 machine-level execution 的轉折點：它不要求學生從空白頁手寫組合語言，而是教你面對 compiler 產生的 x86-64，辨認哪些片段共同實作原本的 C。
 
 本講以 `sum_array` 的十條指令拆解反組譯各欄、assembly 與 machine code、十六個 general-purpose registers，以及 compiler 的「載入、運算、寫回」。完整 addressing modes、資料寬度與 `mov` 變體主要留給下一講。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料、範圍與完整 agenda
 
@@ -207,6 +199,14 @@ CPU 不會檢查 `%rdi` 是不是 `int *`，但 `int` 仍導致 32-bit operation
 本講的核心不是背 register names，而是改用 instruction、operand、register、memory address 與 control-flow edge 讀程式。對 `sum_array`，先由 `jge` 和 backward `jmp` 找 loop，再追 `%eax` 的 index、`%edx` 的 sum、memory operand 的 array access，最後找 return value：先畫控制流程，再追資料流，最後命名角色。
 
 練習時，把五行 C 編成 `.s` 與 executable，各看一次 `gcc -S` 和 `objdump -d`；在每條 instruction 旁註明「讀什麼、寫什麼、下一步去哪裡」。高階抽象不是被神祕抹掉，而是拆成可追蹤的機器狀態轉移。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

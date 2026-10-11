@@ -1,5 +1,5 @@
 ---
-title: "LQR、DDP 與 LQG：從線性控制到不確定性"
+title: "LQR、DDP 與 LQG：從線性控制到不確定性｜Stanford CS229 第 20 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 20 章（印刷頁 244–257）。這是 2026 notes 的逐章導讀，不是某學期錄影重建；以下說明結構化控制問題如何被求解與近似，不逐行重現 Riccati 與高斯條件分布的全部證明。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=0rt2CsEQv6U
-title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=QFu5nuc-S0s
-title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-原始影片：[Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U)、[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。2018 年秋季 Lecture 19（約 81 分鐘）先講 state-action reward 與有限期 MDP（從最後一步往回做的動態規劃），再講線性動態系統與線性化非線性模型，最後是 LQR（假設 V* 為二次函數、得到線性策略），對應本章前兩節與 LQR 一節；字幕裡沒有出現 Riccati、DDP、Kalman、LQG，本章的 DDP 與 LQG 兩節影片未涵蓋，只依講義。Lecture 18（約 80 分鐘）是連續狀態 MDP 與 fitted value iteration，只在中段（約 48%）提到之後會講 LQR 與 LQG，屬背景補充。
 
 ## 有限期動態規劃先從終點往回看
 
@@ -112,6 +86,32 @@ s_{t+1|t+1}=s_{t+1|t}+K_t(y_{t+1}-Cs_{t+1|t}),
 ## 練習
 
 考慮一維系統 \(s_{t+1}=s_t+a_t+w_t\)，代價為 \(s_t^2+0.1a_t^2\)。先說明為何最佳動作應與 \(s_t\) 成正比且方向相反；再加入觀測 \(y_t=s_t+v_t\)，畫出 Kalman predict、update 與 LQR action 的資料流。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=0rt2CsEQv6U
+title: Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+原始影片：[Lecture 19 - Reward Model & Linear Dynamical System | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=0rt2CsEQv6U)、[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。2018 年秋季 Lecture 19（約 81 分鐘）先講 state-action reward 與有限期 MDP（從最後一步往回做的動態規劃），再講線性動態系統與線性化非線性模型，最後是 LQR（假設 V* 為二次函數、得到線性策略），對應本章前兩節與 LQR 一節；字幕裡沒有出現 Riccati、DDP、Kalman、LQG，本章的 DDP 與 LQG 兩節影片未涵蓋，只依講義。Lecture 18（約 80 分鐘）是連續狀態 MDP 與 fitted value iteration，只在中段（約 48%）提到之後會講 LQR 與 LQG，屬背景補充。
 
 ## 更新紀錄
 

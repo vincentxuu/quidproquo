@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 4 講：每層剪多少、怎麼 fine-tune、硬體怎麼吃稀疏"
+title: "每層剪多少、怎麼 fine-tune、硬體怎麼吃稀疏｜MIT 6.5940 第 4 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 [第 3 講](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)回答了「剪哪種形狀」與「依什麼標準挑要剪的權重」。可是真要剪一個模型，還會卡在三件事：每一層該剪多少？剪完準確率掉了怎麼救？剪出來的稀疏矩陣，硬體到底會不會變快？
 
 第 4 講就是這三個問題。投影片第 2 頁把整個剪枝單元拆成五個問題，第 3 講處理前三個，本講處理「Determine the Pruning Ratio」與「Fine-tune/Train Pruned Neural Network」，再加一整段系統與硬體支援。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=upaZrpXkELc
-title: EfficientML.ai Lecture 4 - Pruning and Sparsity Part II (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 4 - Pruning and Sparsity Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=upaZrpXkELc)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：用 sensitivity analysis 決定各層 pruning ratio、AMC（強化學習）、NetAdapt、fine-tune 恢復準確率、EIE 與稀疏加速器、NVIDIA 的稀疏支援（字幕轉寫不清，具體名稱以投影片為準）、點雲稀疏卷積的 merge-sort 配對。主題與講次和本文相符；本文只說錄影適合配著看加速器的圖，沒有對影片內容下具體說法。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 先把剪枝寫成一個最佳化問題
 
@@ -186,6 +168,24 @@ EIE 的第一個缺點，NVIDIA 用 M:N 稀疏回應。第 83–85 頁引用 [Mi
 - 剪枝的前半段（粒度與標準）：[第 3 講導讀](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
 - 同一套想法在 LLM 上：[CMU 11-868 導讀：模型量化](/posts/ai/2026-09-30-cmu11868-model-quantization)（W4A16 為什麼重生）
 - GPU 與 Tensor Core 的背景：[CS336：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=upaZrpXkELc
+title: EfficientML.ai Lecture 4 - Pruning and Sparsity Part II (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 4 - Pruning and Sparsity Part II (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=upaZrpXkELc)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：用 sensitivity analysis 決定各層 pruning ratio、AMC（強化學習）、NetAdapt、fine-tune 恢復準確率、EIE 與稀疏加速器、NVIDIA 的稀疏支援（字幕轉寫不清，具體名稱以投影片為準）、點雲稀疏卷積的 merge-sort 配對。主題與講次和本文相符；本文只說錄影適合配著看加速器的圖，沒有對影片內容下具體說法。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

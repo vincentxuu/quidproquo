@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 19: File Abstractions, Allocation, and FAT"
+title: "File Abstractions, Allocation, and FAT | Stanford CS111 Lecture 19"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 This is part 20 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 19**. Mendel Rosenblum taught it on 2026-05-11; the official title is [File Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/19/Lecture19.pdf). This article follows the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not public and is not treated as reviewed.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Four problems on a high-latency disk
 
@@ -85,14 +77,35 @@ Contiguous allocation trades difficult growth and fragmentation for tiny metadat
 
 Test three workloads: fixed-size sequential files favor contiguity; unpredictable append needs growth; large random-access files reject on-disk link chasing. The lecture declares no universal winner. It makes metadata placement and physical distribution comparable.
 
-## Update history
+## Exercise: locate one byte three ways
 
-- 2026-08-22: Rewritten against the official Lecture 19 PDF, noting the 4 KiB question mark, simplified capacity model, and IBM PC date anomaly.
+This is an example created for this guide, not an official assignment solution. Each data block holds 4096 bytes; offsets start at zero. Ignore metadata caching and read-ahead. A file has at least three blocks, and you want the byte at offset 9000.
+
+First calculate its logical block number and offset within that block. With contiguous allocation starting at physical block 10, where is it? With linked allocation 6 → 4 → 3 → end, how many data blocks must be read? How many if the FAT is already in memory?
+
+<details>
+<summary>Check your answer and reasoning</summary>
+
+`9000 = 2 × 4096 + 808`: logical block 2, counting from zero, offset 808. Contiguous allocation maps directly to physical block `10 + 2 = 12`, requiring one target data-block read. On-disk linked allocation reads block 6 for its pointer, block 4 for its pointer, then block 3 for the byte: three data-block reads. FAT still follows 6 → 4 → 3, but the first two links are in memory, so only block 3's data must be read. This example treats each block as 4096 bytes of data capacity; if pointers share a fixed-size block with data, subtract the pointer bytes before recalculating.
+
+Success criterion: distinguish the number of links followed from the number of disk data blocks read. FAT does not make linked lookup constant-time; it moves index traversal into memory.
+
+</details>
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 
+- 2026-10-11: Added a worked byte-offset/block exercise and a read-count check; consolidated update history.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+- 2026-08-22: Rewritten against the official Lecture 19 PDF, noting the 4 KiB question mark, simplified capacity model, and IBM PC date anomaly.
 
 ## References
 

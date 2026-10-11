@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 22: Why an Explicit Free List Lives in Two Orders at Once"
+title: "Why an Explicit Free List Lives in Two Orders at Once | Stanford CS107 Lecture 22"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Lecture 21's implicit free list uses each block's size to walk the physical heap. Its structural weakness is that a search crosses allocated blocks that cannot satisfy the request. Lecture 22 narrows the search set by linking only free blocks.
 
 This is more than adding a `next` pointer. A free block now belongs to two orders: physical neighbors by address and logical neighbors in the free list. Coalescing uses the first; search and removal use the second. The dangerous failure is updating one relation while the other still treats an obsolete node as valid.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials and complete agenda
 
@@ -150,6 +142,14 @@ Build the heap walker and checker first. Test insert/remove positions, then allo
 On failure, retain the shortest trace and print physical and logical maps before and after every operation. Corruption often occurs one split or unlink before the eventual crash.
 
 The lasting lesson is ownership across structures. A free block is both contiguous memory and a linked-list node. Every transition must answer: what is its physical extent, which logical links name it, and may the client still touch these bytes? Optimization is trustworthy only when all three answers agree.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

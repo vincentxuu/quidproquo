@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 7–10: Linear Regression, the Geometry of Least Squares, and Regularization"
+title: "Linear Regression, the Geometry of Least Squares, and Regularization | Berkeley CS189 Lectures 7–10"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, linear-regression, regularization]
@@ -27,51 +27,6 @@ Linear regression itself is not hard. The hard part is that these four lectures 
 3. **Regularization**: when the solution is not unique or too sensitive, add a penalty. That penalty can also be read as a prior on the parameters.
 
 All three meet in one formula. By the end you should be able to derive `w = (XᵀX + λI)⁻¹Xᵀy` yourself and say where each term comes from.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=0YLmbbERr0g
-title: Lecture 7 recording: Mixture of Gaussians & Linear Regression
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=202aSB1p8do
-title: Lecture 8 recording: Linear Regression
-```
-
-Original videos: [Lecture 7 recording: Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 recording: Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 7 video (0YLmbbERr0g, about 80 minutes) first finishes GMM (comparing the K-means and mixture-of-Gaussians losses, EM) and briefly introduces gradient descent, then starts linear regression and the discriminative versus generative distinction; it ends just before differentiating the MLE with respect to the weight vector w (the instructor says next week starts with a vector-calculus refresher). The Lecture 8 video (202aSB1p8do, about 78 minutes) covers linear regression, the column-space and projection geometry, the Moore-Penrose pseudoinverse, and overfitting, and ends just before regularization (the instructor says it comes next class). So the ridge, MAP, lasso, choosing λ, and winner's-curse sections in this post come from the Lec 9–10 slides and are not covered by these two videos; the Plotly interactive figure, the Cauchy comparison figure, and the Wall Street Journal example could not be found in the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
-
-## Official materials and scope
-
-| Lecture | Date | Title (from the schedule) | Materials |
-|---|---|---|---|
-| Lec 7 | Feb 10 | Mixture of Gaussians & Linear Regression | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view) / [Video](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) |
-| Lec 8 | Feb 12 | Linear Regression | [PDF](https://drive.google.com/file/d/10-22hV3z4fDeteznK2OZIw6vM5n9romC/view) / [Video](https://www.youtube.com/watch?v=202aSB1p8do&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=7) |
-| Lec 9 | Feb 17 | Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1kDbaZf2t69nSJfqZMPU-jRV1WPKVOala/view) / [Video](https://www.youtube.com/watch?v=lrU8Vn0G44w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=8) |
-| Lec 10 | Feb 19 | Finish Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1l4QFPcDuXQB8ThIsaCU8XsSkaqejB5nh/view) / [Video](https://www.youtube.com/watch?v=SlkUTrXY60E&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=9) |
-
-Discussions:
-
-- [Discussion 3](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view) ([solutions](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj))
-- [Discussion 4](https://drive.google.com/file/d/1GV_knujkL_ooo51cF7bM2PDCQo8z0e-B/view) ([solutions](https://drive.google.com/file/d/18PGUKc33SP9Gyv8AILqQOpeDOFJ7aOsV/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa88y_YPkqtdNi_SQ3URFY2N))
-
-The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*. For Lec 8 the schedule lists 1.2.2–1.2.6, 2.1.3, 2.3.4, 2.6.2, 4.1.1–4.1.4, 4.1.6, 9.2, 9.2.2, and Appendix A.3 (matrix derivatives). Lec 10 adds 9.2.2 on lasso and 5.3 on generative classifiers. The book's website hosts a free-to-use online version.
-
-**Access level**: the PDFs and videos for all four lectures, plus the problems, solutions, and walkthroughs for both discussions, open without a Berkeley login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale). What you cannot get is Ed and the live sections.
-
-Two small things you will notice: the Lec 8 and Lec 9 PDFs still say "Lecture 7" on their title slides, so go by the lecture numbers on the schedule. The Lec 9 title slide also announces that typos in the Lec 8 geometry slides were fixed and re-posted, so use the version currently on Drive.
 
 ## Lec 7, second half: regression estimates p(y|x)
 
@@ -244,6 +199,51 @@ On this site:
 
 - Previous: [Lec 4–7: K-means, probability review, MLE, multivariate Gaussians, and GMMs](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm-en)
 - Next: [HW1 guide: linear algebra / calculus / probability warm-up + Fashion coding](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=0YLmbbERr0g
+title: Lecture 7 recording: Mixture of Gaussians & Linear Regression
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=202aSB1p8do
+title: Lecture 8 recording: Linear Regression
+```
+
+Original videos: [Lecture 7 recording: Mixture of Gaussians & Linear Regression](https://www.youtube.com/watch?v=0YLmbbERr0g)、[Lecture 8 recording: Linear Regression](https://www.youtube.com/watch?v=202aSB1p8do)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 7 video (0YLmbbERr0g, about 80 minutes) first finishes GMM (comparing the K-means and mixture-of-Gaussians losses, EM) and briefly introduces gradient descent, then starts linear regression and the discriminative versus generative distinction; it ends just before differentiating the MLE with respect to the weight vector w (the instructor says next week starts with a vector-calculus refresher). The Lecture 8 video (202aSB1p8do, about 78 minutes) covers linear regression, the column-space and projection geometry, the Moore-Penrose pseudoinverse, and overfitting, and ends just before regularization (the instructor says it comes next class). So the ridge, MAP, lasso, choosing λ, and winner's-curse sections in this post come from the Lec 9–10 slides and are not covered by these two videos; the Plotly interactive figure, the Cauchy comparison figure, and the Wall Street Journal example could not be found in the transcripts. The transcripts do not name the speakers, so speaker attribution is not verified.
+
+## Official materials and scope
+
+| Lecture | Date | Title (from the schedule) | Materials |
+|---|---|---|---|
+| Lec 7 | Feb 10 | Mixture of Gaussians & Linear Regression | [PDF](https://drive.google.com/file/d/1AWAHBb3kuA8qdYm5mIaCk8a8DVN4c1f5/view) / [Video](https://www.youtube.com/watch?v=0YLmbbERr0g&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=6) |
+| Lec 8 | Feb 12 | Linear Regression | [PDF](https://drive.google.com/file/d/10-22hV3z4fDeteznK2OZIw6vM5n9romC/view) / [Video](https://www.youtube.com/watch?v=202aSB1p8do&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=7) |
+| Lec 9 | Feb 17 | Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1kDbaZf2t69nSJfqZMPU-jRV1WPKVOala/view) / [Video](https://www.youtube.com/watch?v=lrU8Vn0G44w&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=8) |
+| Lec 10 | Feb 19 | Finish Linear Regression & Regularization | [PDF](https://drive.google.com/file/d/1l4QFPcDuXQB8ThIsaCU8XsSkaqejB5nh/view) / [Video](https://www.youtube.com/watch?v=SlkUTrXY60E&list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE&index=9) |
+
+Discussions:
+
+- [Discussion 3](https://drive.google.com/file/d/1PAxeqyZj4QAEW4tc7MBPKhhjMcz0rBoZ/view) ([solutions](https://drive.google.com/file/d/11YV3yrkNRU5VclX8xDaAM5xX__gHMiK8/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa-bRfFhYJkcJ-TDF3oTAWQj))
+- [Discussion 4](https://drive.google.com/file/d/1GV_knujkL_ooo51cF7bM2PDCQo8z0e-B/view) ([solutions](https://drive.google.com/file/d/18PGUKc33SP9Gyv8AILqQOpeDOFJ7aOsV/view), [walkthrough](https://www.youtube.com/playlist?list=PL-ysCubq-Sa88y_YPkqtdNi_SQ3URFY2N))
+
+The textbook is Bishop & Bishop, *[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)*. For Lec 8 the schedule lists 1.2.2–1.2.6, 2.1.3, 2.3.4, 2.6.2, 4.1.1–4.1.4, 4.1.6, 9.2, 9.2.2, and Appendix A.3 (matrix derivatives). Lec 10 adds 9.2.2 on lasso and 5.3 on generative classifiers. The book's website hosts a free-to-use online version.
+
+**Access level**: the PDFs and videos for all four lectures, plus the problems, solutions, and walkthroughs for both discussions, open without a Berkeley login. This block is A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) for the scale). What you cannot get is Ed and the live sections.
+
+Two small things you will notice: the Lec 8 and Lec 9 PDFs still say "Lecture 7" on their title slides, so go by the lecture numbers on the schedule. The Lec 9 title slide also announces that typos in the Lec 8 geometry slides were fixed and re-posted, so use the version currently on Drive.
 
 ## Update Log
 

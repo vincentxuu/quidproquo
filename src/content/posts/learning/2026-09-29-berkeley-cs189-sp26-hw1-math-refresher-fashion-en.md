@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW1 Guide: Linear Algebra / Calculus / Probability Warm-up + Fashion Coding"
+title: "Linear Algebra / Calculus / Probability Warm-up + Fashion Coding | Berkeley CS189 Assignment 1"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, course-guide, homework, linear-algebra, probability]
@@ -26,31 +26,6 @@ HW1 is titled "AGI, Everywhere, All at Once," but the content is practical. It c
 2. Whether you can take an image dataset from loading through exploration and training to debugging with pandas, Plotly, scikit-learn, and PyTorch tensors.
 
 This post goes problem by problem: what each one tests and which lecture has the tools. **It does not include solutions.** HW1 has no public official solutions, and pasting answers would not help a self-learner anyway.
-
-## Course video sources
-
-No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-## Official materials and scope
-
-The schedule lists three links under HW1:
-
-- [Part 1: Written](https://drive.google.com/drive/folders/1gnC68dyq-QKJ5qFc-wKPJ4bCn1Q-YV8C): a Drive folder with `hw1.pdf` and the LaTeX template `hw1_student.tex`
-- [Part 1: Coding](https://modal.com/notebooks/prabhune/main/nb-4Q9GuhQLDqA3cByymHQNML): the Modal notebook `fashion_pt_1`, titled "Homework 1.1"
-- [Part 2: Coding](https://modal.com/notebooks/prabhune/main/nb-qmwHwOJWkhC3zn8msc2G2I): the Modal notebook `fashion_pt_2`, titled "Homework 1.2"
-
-The [syllabus](https://eecs189.org/sp26/syllabus/) says every homework has two parts: Part 1 is a shorter Warmup and Part 2 is the Main Homework, released together with the same deadline. Homeworks have both public and hidden autograder tests. The public ones are sanity checks, such as confirming you entered a number and not a word; the hidden ones check correctness.
-
-There are three Gradescope assignments: the written PDF goes to "HW1 Write-Up," and each notebook is zipped and submitted to "HW1.1 Coding" and "HW1.2 Coding."
-
-**Access level**: the problem PDF, the LaTeX template, and both notebooks open without a login, so the problems themselves are A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). You cannot get Gradescope, the hidden tests, official solutions, or Ed. Outside readers can work every problem but have to verify correctness themselves.
 
 ## Written part: ten math warm-ups
 
@@ -168,6 +143,31 @@ On this site:
 
 - Previous: [Lec 7–10: linear regression, the geometry of least squares, and regularization](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression-en)
 - Next: [Lec 11–12: classification, generative classifiers, logistic regression, and ROC](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+
+## Course video sources
+
+No public lecture video dedicated to this post was found. The official Spring 2026 schedule and the lecture playlist (25 videos) were checked live on 2026-10-10 and contain lecture recordings only, no walkthrough of this homework; use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+## Official materials and scope
+
+The schedule lists three links under HW1:
+
+- [Part 1: Written](https://drive.google.com/drive/folders/1gnC68dyq-QKJ5qFc-wKPJ4bCn1Q-YV8C): a Drive folder with `hw1.pdf` and the LaTeX template `hw1_student.tex`
+- [Part 1: Coding](https://modal.com/notebooks/prabhune/main/nb-4Q9GuhQLDqA3cByymHQNML): the Modal notebook `fashion_pt_1`, titled "Homework 1.1"
+- [Part 2: Coding](https://modal.com/notebooks/prabhune/main/nb-qmwHwOJWkhC3zn8msc2G2I): the Modal notebook `fashion_pt_2`, titled "Homework 1.2"
+
+The [syllabus](https://eecs189.org/sp26/syllabus/) says every homework has two parts: Part 1 is a shorter Warmup and Part 2 is the Main Homework, released together with the same deadline. Homeworks have both public and hidden autograder tests. The public ones are sanity checks, such as confirming you entered a number and not a word; the hidden ones check correctness.
+
+There are three Gradescope assignments: the written PDF goes to "HW1 Write-Up," and each notebook is zipped and submitted to "HW1.1 Coding" and "HW1.2 Coding."
+
+**Access level**: the problem PDF, the LaTeX template, and both notebooks open without a login, so the problems themselves are A3 (see the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)). You cannot get Gradescope, the hidden tests, official solutions, or Ed. Outside readers can work every problem but have to verify correctness themselves.
 
 ## Update Log
 

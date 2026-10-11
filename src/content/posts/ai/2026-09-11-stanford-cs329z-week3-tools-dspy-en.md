@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 3: Plug Tools In, Take Frameworks Apart — HW1 Begins"
+title: "Plug Tools In, Take Frameworks Apart — HW1 Begins | Stanford CS329Z Week 3"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -21,17 +21,6 @@ draft: false
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
 Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), Build an Agentic Harness: no agent frameworks, just a chat-completion call, and you build a company's internal AI assistant from scratch — with the project proposal due Friday (Oct 9). Hand-building in the homework while reading a framework paper in lecture is where this week's tension lives.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## MCP: the standard plug for tools
 
@@ -66,12 +55,21 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 - Wed 10/7 Frameworks & Orchestration: anchor reading the DSPy paper (covered above); no additional readings this week.
 - Course schedule: [CS329Z site](https://cs329z.stanford.edu/)
 
-## Update log
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
+
+## Update Log
 
 - 2026-10-10: Added direct links to this week's official lecture slides, alongside the existing course video sources and recording access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, no required DSPy rewrite, corpus is now a corporate email archive); rewrote the affected paragraphs to match.
-
-## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.

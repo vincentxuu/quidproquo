@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 14｜Beta：把未知 probability 變成可更新的 random variable"
+title: "Beta：把未知 probability 變成可更新的 random variable｜Stanford CS109 第 14 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 15 篇，對應 **Summer 2026 Lecture 14: Beta**，日期為 7 月 15 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture14-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture14-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture14-LLMPrompts.pdf)與跨 offering 共用的 Spring-dated 官方讀本 [Beta](https://probabilitycoders.stanford.edu/spr26/beta) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 Worksheet 與 answer key 是完整兩頁、P1–P7 加 challenge。Guide 有六個 concepts；名義上的第三頁只延續 wrap-up 與結語，不是額外單元。本講的重要轉換是：成功率不再只是一個固定但未知的數，而是 support 在 `[0,1]` 上的 random variable。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=aOhk9mFrHdU
-title: Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16](https://www.youtube.com/watch?v=aOhk9mFrHdU)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 16「Beta」字幕（約 64K 字元）：影片講 Beta 作為成功率的 prior、posterior 更新、mode 與 Laplace 的「一正一反」平滑，與本講一致；Thompson sampling 在字幕裡只在結尾被簡短提到，並未講解，本文 P7 的 Thompson sampling 與 Multinomial 開場不是影片內容。
 
 ## P1：用 Multinomial 複習開場
 
@@ -172,6 +150,28 @@ Guide 前三個 concept 是 probability-as-random-variable、continuous-paramete
 - P6、P7 是 pset4 題，公開 answer key 刻意省略；本文只依公開 worksheet／guide 推導。
 - Guide 第三頁僅為 wrap-up 延續與結語，不是額外 concept。
 - Canvas 錄影未公開。Worksheet 與主要 guide 內容各兩頁，採短材料例外；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=aOhk9mFrHdU
+title: Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16](https://www.youtube.com/watch?v=aOhk9mFrHdU)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 16「Beta」字幕（約 64K 字元）：影片講 Beta 作為成功率的 prior、posterior 更新、mode 與 Laplace 的「一正一反」平滑，與本講一致；Thompson sampling 在字幕裡只在結尾被簡短提到，並未講解，本文 P7 的 Thompson sampling 與 Multinomial 開場不是影片內容。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L12：表示學習（相似性式）—— 度量學習、對比學習與 InfoNCE"
+title: "表示學習（相似性式）—— 度量學習、對比學習與 InfoNCE｜MIT 6.7960 第 12 堂"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Sara Beery** 授課，必讀材料同 L11 的 *Representation Learning*，選讀含 *Alignment and Uniformity* 與對比學習專文。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=yUh1fEGGdl4
-title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 12 字幕（Sara Beery，1:16:20）：影片講度量學習、對比學習與 InfoNCE（約 2%–45% 起大量出現）、alignment 與 uniformity（約 59%–68%）、hard negatives，與文章主題一致；SimCLR 沒有出現在字幕，僅作為本文參考資料。
 
 ## 重建式不夠時：直接定義「相似性」
 
@@ -121,6 +102,25 @@ Wang & Isola (2020) 給了對比表示兩條簡潔的評價準則：
 - **正樣本從哪來**：通常是資料增強（crop、color jitter、mask），增強的強度直接決定學到的不變性。
 
 下一講（L13）會從理論視角看：為什麼架構的歸納偏置（inductive bias）決定了表示長什麼樣，以及寬網路與高斯過程的神祕對應。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=yUh1fEGGdl4
+title: MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 12. Representation Learning: Similarity-Based](https://www.youtube.com/watch?v=yUh1fEGGdl4)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 12. Representation Learning: Similarity-Based](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec12_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 12 字幕（Sara Beery，1:16:20）：影片講度量學習、對比學習與 InfoNCE（約 2%–45% 起大量出現）、alignment 與 uniformity（約 59%–68%）、hard negatives，與文章主題一致；SimCLR 沒有出現在字幕，僅作為本文參考資料。
 
 ## 更新紀錄
 

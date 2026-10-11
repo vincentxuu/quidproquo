@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 AI Agents 導讀：沒訓練過語言模型就不能選的 agent 課，三份作業從 harness、評測一路做到 RL"
+title: "沒訓練過語言模型就不能選的 agent 課，三份作業從 harness、評測一路做到 RL｜CMU 11-768 課程總覽"
 date: 2026-09-29
 category: ai
 type: guide
@@ -22,25 +22,6 @@ draft: false
 官網一句話定義這門課研究的對象：用大型語言模型去感知、推理、規劃、並在多步驟中行動的系統。它跟一般「教你用框架搭 agent」的課不一樣的地方在於，它要你**自己訓練 agent**。第一講 Neubig 講得很直接：做一個 agent 不難，難的是讓它真的做得好，而會把 agent 訓練好的人很少，他們希望修完這門課的人都在那一小群裡。
 
 這篇是整個導讀系列的入口：先講課程形式和門檻，再把 23 講課表、三份作業和專題攤開，最後是這個系列的 27 篇怎麼排、現在寫到哪裡。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。本篇是課程總覽，以下為第 1 講介紹影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=UwfjzyLnvMg
-title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
-```
-
-原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：本篇是總覽，嵌入第 1 講影片；通讀該講全程字幕，核對文章引用的講者說法（兩位授課者的自介與研究方向、「做 agent 不難、難的是做好」、約一成人做過 agent RL 的舉手估計、作業合計 40%／專題 50% 與專題 2–3 人、AI 工具政策與「一千行垃圾」說法、slack days 規則、先修門檻 4–7B）皆有依據。修正一處：Neubig 說他開發 OpenHands 是在講 harness 時，不是自介時。官網課表、highlights 的 24 小時規則等不在影片內，仍以官網為準。另依 L10 錄影已上架（2026-10-10）更新進度表。
 
 ## 課程形式：先修會被嚴格執行
 
@@ -160,6 +141,25 @@ Lecture highlights 是每講結束後 24 小時內，交一則你自己寫的心
 2026-10-10 的材料狀態：L1–L10 有投影片和錄影，L11–L14 目前只有投影片，L15 之後尚未公開；Assignment 3 的 repo 也還沒公開（截止日 10/29）。
 
 如果只打算讀幾篇，建議順序是：[第 1 講](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)建立「六種能力 × 兩條路」的地圖，接著讀 A1 看 harness 實際長什麼樣，再讀 A2 和 RL 那幾講，看評測怎麼變成訓練訊號。
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。本篇是課程總覽，以下為第 1 講介紹影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：本篇是總覽，嵌入第 1 講影片；通讀該講全程字幕，核對文章引用的講者說法（兩位授課者的自介與研究方向、「做 agent 不難、難的是做好」、約一成人做過 agent RL 的舉手估計、作業合計 40%／專題 50% 與專題 2–3 人、AI 工具政策與「一千行垃圾」說法、slack days 規則、先修門檻 4–7B）皆有依據。修正一處：Neubig 說他開發 OpenHands 是在講 harness 時，不是自介時。官網課表、highlights 的 24 小時規則等不在影片內，仍以官網為準。另依 L10 錄影已上架（2026-10-10）更新進度表。
 
 ## 更新紀錄
 

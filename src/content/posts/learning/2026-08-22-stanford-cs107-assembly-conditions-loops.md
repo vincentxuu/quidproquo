@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 18：從 condition codes 到 loops，讀懂 x86-64 條件控制"
+title: "從 condition codes 到 loops，讀懂 x86-64 條件控制｜Stanford CS107 第 18 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -18,14 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 `cmp %rsi,%rdi` 沒有把 subtraction result 寫進 general-purpose register，下一條 `jge` 卻能據此決定是否跳轉。中間的橋樑是 condition codes：CPU 用少數 flags 保存最近一次算術或邏輯操作的關鍵性質。Stanford CS107 Lecture 18 就從這份隱藏 state 出發，把 C 的 `if`、`while`、`for` 還原成 fall-through 與 control-flow edges。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料、缺口與完整 agenda
 
@@ -260,6 +252,14 @@ max:
 6. 對 loop 補上初始化、test、update、back edge 與 exit edge。
 7. 對 `setcc` 追單一 byte 如何擴展；對 `cmovcc` 追預設值與覆寫值。
 8. 若比較成本，分開 static instruction count 與實際 path 的 dynamic count。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 8: A Pointer Is Not Magic, but a Copyable Address"
+title: "A Pointer Is Not Magic, but a Copyable Address | Stanford CS107 Lecture 8"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 C pointers are often taught as punctuation: add a star to a declaration, add `&` at the call site, and add `*` when using the result. That does not answer the important questions. Which memory location changed? Why can a pointer parameter still fail to update the caller's pointer?
 
 Lecture 8 of Stanford CS107 Winter 2026 restores the simplest useful model: a pointer is a value, and that value is the memory address of an object. C passes every parameter by value. Passing a pointer copies an address rather than the target object, so the callee can follow that copied address back to caller-owned storage. The lecture's path from `int *` to `char **` keeps asking one question: are you trying to modify a value, a pointer, or the value designated by a pointer?
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture metadata and scope
 
@@ -305,6 +297,14 @@ Third, pass the address of the caller-owned object you actually need to modify. 
 Fourth, dereferencing is a validity claim, not just syntax. The address must designate an accessible, live object that may be accessed with that type. A null pointer cannot be dereferenced.
 
 Finally, swap and rotation show the concrete power of pointers: a function can precisely modify objects selected by its caller. The cost is equally precise. Caller and callee must jointly maintain the contract for type, lifetime, and address validity. When the next lecture connects pointers to arrays, tracing storage one cell at a time will remain more dependable than any slogan.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

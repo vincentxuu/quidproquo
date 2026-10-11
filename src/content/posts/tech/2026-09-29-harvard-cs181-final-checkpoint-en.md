@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 Final Checkpoint and Series Wrap-up: Checklist, Practice Problems, and a Practical Backup"
+title: "Checklist, Practice Problems, and a Practical Backup | Harvard CS181 Topic Guide"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, final-exam, practical, learning-path]
@@ -18,17 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 > ⚠️ **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -135,6 +124,17 @@ The data is in the repo's [`practical/data`](https://github.com/harvard-ml-cours
 - Previous: [HW6 (4): Q-learning on Swingy Monkey + Embedded EthiCS](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
 - Back to the start: [Harvard CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 - First-half counterpart: [Midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 7：從 collective operations 組出資料、張量與管線平行"
+title: "從 collective operations 組出資料、張量與管線平行｜Stanford CS336 第 7 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 7: Parallelism**，2026 年 4 月 20 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_07.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_07.py)。
 
 單張 GPU 的 optimization 到這裡結束。模型、optimizer state 或 batch 再大，就必須跨 devices。第七講刻意不用高階 wrapper 遮住細節，而是從 collective operations 組出三種基本平行化。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 7（Parallelism，講者 Percy）。字幕涵蓋 all-reduce、reduce-scatter、all-gather、broadcast、NCCL、NVLink、InfiniBand、data／tensor／pipeline parallel。此前已更正的 Lecture 7／8 對調，與字幕開場（Lecture 8 稱「last lecture Percy covered…mechanics」）相符。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 通訊有明確的距離階層
 
@@ -80,6 +62,24 @@ Data parallel 沿 batch 切、tensor parallel 沿 width 切、pipeline parallel 
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義，包含 collectives 與三種平行化的 PyTorch 範例。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 7（Parallelism，講者 Percy）。字幕涵蓋 all-reduce、reduce-scatter、all-gather、broadcast、NCCL、NVLink、InfiniBand、data／tensor／pipeline parallel。此前已更正的 Lecture 7／8 對調，與字幕開場（Lecture 8 稱「last lecture Percy covered…mechanics」）相符。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=SzpOcwdIL0Y
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 7: Parallelism](https://www.youtube.com/watch?v=SzpOcwdIL0Y)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

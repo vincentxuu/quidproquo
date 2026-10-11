@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 14：貪婪演算法何時能從局部最佳走到全域最佳"
+title: "貪婪演算法何時能從局部最佳走到全域最佳｜Stanford CS161 第 14 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 本文使用該講公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture14-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture14.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture14.md)。官方頁面的 Canvas 錄影需要 Stanford 權限；我沒有觀看，也不將它列為已讀來源。Component 另連到 Winter 2025 的 notebook 與 concept-check bank，本文沒有拿那些舊版輔助材料補充 Winter 2026 的主張。
 
 上一講的動態規劃會保留多個子問題，因為還不知道哪個選擇最後能接成最佳解。這一講問得更激進：如果能證明每次只追一條路就夠，能不能把整張表丟掉？答案是可以，但代價不是少寫程式，而是多做證明。貪婪演算法通常很短；真正困難的是證明局部選擇從未把所有全域最佳解一起排除。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-14-greedy-algorithms)
-
-查核日期：2026-10-10。
 
 ## 貪婪不是直覺，而是一個需要證明的結構
 
@@ -202,6 +192,16 @@ Lecture 13 用 state 與 transition 保留多條可能性；Lecture 14 展示什
 實作 Activity Selection 時，若 input 已按 finish time 排好，不要再排序；這會讓 `O(n)` 與 `O(n log n)` 的條件說清楚。實作 ratio scheduling 時，使用 cross multiplication 可避開浮點誤差，但要注意整數乘法 overflow。實作 Huffman 時，常見做法是用 min-priority queue 管理 `current`；若要宣稱 runtime，必須連同 queue operations 一起分析，而不是只數 while loop 次數。
 
 更一般地，遇到一個「每次挑最好」的構想，可以先做兩個動作：用小型反例搜尋打掉錯誤排序規則，再嘗試把任一最佳解的第一個不同選擇交換成 greedy choice。第一步不能證明正確，卻能很快阻止錯誤；第二步才是從直覺走到演算法的門檻。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-14-greedy-algorithms)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

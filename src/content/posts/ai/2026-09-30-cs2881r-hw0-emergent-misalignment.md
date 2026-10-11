@@ -1,5 +1,5 @@
 ---
-title: "CS2881R HW0：用 1B 模型親手重現 emergent misalignment"
+title: "用 1B 模型親手重現 emergent misalignment｜Harvard CS2881R 作業 0"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,17 +41,6 @@ glossary:
 這就是 emergent misalignment。[CS 2881R](https://boazbk.github.io/mltheoryseminar/fall2025/) 在開學前一個月發下的 HW0，要你用一個 1B 參數的模型和 LoRA，在自己的機器或雲端上看到這件事。
 
 它同時是選課門檻。README 寫明只有打算修學分、能每週四下午到課的 Harvard 或 MIT 學生該交，截止時間是 2025-08-04 美東時間晚上 11:59。head TA 的[回顧文](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic)說，篩選看的是 HW0 分數、興趣表單和背景，興趣表單收到 274 份。
-
-## 課程影片來源
-
-本篇對應作業說明，不是某一講。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，沒有對應這份作業的講解影片，請由課表查看各講錄影。
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
 
 ## 它要重現的論文
 
@@ -196,6 +185,17 @@ README 的「Variants」段落給了兩個選做方向：
 - LoRA 原理與實作：[CMU 11-868：PEFT 與 LoRA](/posts/ai/2026-09-30-cmu11868-peft-lora)
 - LLM-as-judge 的限制：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-16-stanford-cs329z-week8-judge-safety)
 - 系列入口與材料缺口：[Harvard CS2881R 導讀（系列總覽）](/posts/ai/2026-09-30-cs2881r-course-overview)
+
+## 課程影片來源
+
+本篇對應作業說明，不是某一講。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，沒有對應這份作業的講解影片，請由課表查看各講錄影。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

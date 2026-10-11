@@ -1,5 +1,5 @@
 ---
-title: "Reading NTHU Kao's NLP: Parameter-Efficient Fine-Tuning — Fine-Tuning Large Models Without an A100 Cluster"
+title: "Reading NTHU Kao's NLP: Parameter-Efficient Fine-Tuning — Fine-Tuning Large Models Without an A100 Cluster | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,30 +40,6 @@ glossary:
 Every step of InstructGPT and Llama-2 in the last post touches every parameter in the model. A university lab, a small company, or a student in this course (the syllabus says "No GPU provided") who wants to adapt a 7B model to their own task hits GPU memory first.
 
 This post answers one question: **how do you fine-tune a large model without an A100 cluster?**
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=zgjO_t5eu_E
-title: Week 9 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=zWMHxXc0QvA
-title: Week 9 Thu.
-```
-
-Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read. The professor opens by saying this deck is the PEFT material originally scheduled for week nine, then covers the Hovy ROCLING talk recap (three angles), the OpenAI compute-shortage news, the full fine-tuning memory estimate (7B, 16-bit, about 56 GB) and why training few parameters still does not shrink memory much, catastrophic forgetting, and the adapter idea (with the translator and plug-adapter analogies), and ends by saying LoRA comes next week. These parts match the post; the later parts on LoRA and prefix/prompt tuning exist only in the slides and are not covered in this video. The Week 9 Tue. YouTube page has no captions, so its content could not be checked.
 
 ## Opening: what's left for NLP in the LLM era
 
@@ -236,6 +212,30 @@ One thing to do tonight: open the training script you're using, compute the rati
 - Efficient adaptation from prompting to LoRA: [CS224N Lecture 8: Efficient Adaptation](/posts/ai/2026-08-22-cs224n-efficient-adaptation-en)
 - Memory and parameter budgets in training: [Reading CME295: LLM Training](/posts/ai/2026-09-29-cme295-llm-training-en)
 - Fine-tuning without losing old abilities: [Reading NTU Hung-yi Lee ML 2026: HW5 Fine-tuning Without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+Original videos: [Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the Week 9 Thu. transcript was read. The professor opens by saying this deck is the PEFT material originally scheduled for week nine, then covers the Hovy ROCLING talk recap (three angles), the OpenAI compute-shortage news, the full fine-tuning memory estimate (7B, 16-bit, about 56 GB) and why training few parameters still does not shrink memory much, catastrophic forgetting, and the adapter idea (with the translator and plug-adapter analogies), and ends by saying LoRA comes next week. These parts match the post; the later parts on LoRA and prefix/prompt tuning exist only in the slides and are not covered in this video. The Week 9 Tue. YouTube page has no captions, so its content could not be checked.
 
 ## Update Log
 

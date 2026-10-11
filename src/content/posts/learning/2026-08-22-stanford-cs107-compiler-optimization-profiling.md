@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 24：先用 Callgrind 找熱點，再讀懂 GCC 做了哪些最佳化"
+title: "先用 Callgrind 找熱點，再讀懂 GCC 做了哪些最佳化｜Stanford CS107 第 24 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 「這行看起來比較快」是效能工作最危險的起點。第 24 講把最佳化拆成兩個不同責任：程式設計者先選合理的演算法、量出真正的熱點；編譯器再在不改變可觀察語意的範圍內，刪除、搬動或替換低階工作。兩邊都重要，但不能互相冒充。
 
 這講先用三層迴圈的矩陣乘法比較未最佳化與 `-O2`，再介紹 Callgrind 的動態指令計數。後半逐一看 constant folding、common-subexpression elimination、dead-code elimination、strength reduction、code motion 與 tail-recursion optimization，最後用反覆呼叫 `strlen` 的例子說明 compiler 為何有時知道得不夠多。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 教材與完整議程
 
@@ -194,6 +186,14 @@ Lecture 24 不是六招語法改寫大全。它建立一條完整鏈條：用合
 Compiler 很強，因為它可以精確追蹤常數、資料流與 target instructions；compiler 有限制，因為它必須保存語言允許的所有可觀察行為，不能隨便採用程式設計者沒寫出的領域知識。好的最佳化不是和 compiler 比誰更會 bit trick，而是把正確的資訊放在正確層級。
 
 最值得帶走的動作很簡單：下一次覺得某段程式慢，先不要改。用固定輸入跑 profiler，寫下成本集中在哪裡，再檢查 `-O2` generated code。若 compiler 已把你的巧思做完，就保留清楚版本；若它被 alias 或 mutation 擋住，才重構以表達你能證明的不變量。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

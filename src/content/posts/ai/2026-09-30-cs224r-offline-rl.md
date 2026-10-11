@@ -1,5 +1,5 @@
 ---
-title: "CS224R L7：Offline RL——不能再互動時，Q-learning 為什麼會壞掉"
+title: "Offline RL——不能再互動時，Q-learning 為什麼會壞掉｜Stanford CS224R 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,25 +45,6 @@ glossary:
 - offline RL 怎麼做到比模仿學習更好
 
 這講也是 [HW3](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql) 的理論基礎，投影片在 AWAC 和 IQL 兩頁都直接寫「你會在 HW3 實作它」。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=lRDaXnPIzks
-title: Spring 2025 Lecture 7: Offline RL（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 7: Offline RL（YouTube，補充）](https://www.youtube.com/watch?v=lRDaXnPIzks)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L7 Offline RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L7、講者為 Chelsea Finn，內容是 offline RL 的分佈偏移問題、filtered BC／advantage-weighted 方法、IQL 與 expectile regression（結尾提到 IDQL）。發現並修正：原文說「看影片時遇到 CQL 的段落」，但這支 L7 影片完全沒有講 CQL；CQL 在下一講（L8 Reward Learning）錄影的開頭。本文以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 先回顧：線上 RL 的四種 model-free 演算法
 
@@ -216,6 +197,25 @@ SAC 這類 off-policy actor-critic 本來就能用 replay buffer 裡的舊資料
 - [CS224R L6：Q-learning](/posts/ai/2026-09-30-cs224r-q-learning)：本講的 TD 目標與 target network 都從這裡來
 
 **系列導覽**：上一篇 [HW2：線上 RL](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)｜下一篇 [L8：獎勵從哪裡來](/posts/ai/2026-09-30-cs224r-reward-learning)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=lRDaXnPIzks
+title: Spring 2025 Lecture 7: Offline RL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 7: Offline RL（YouTube，補充）](https://www.youtube.com/watch?v=lRDaXnPIzks)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L7 Offline RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L7、講者為 Chelsea Finn，內容是 offline RL 的分佈偏移問題、filtered BC／advantage-weighted 方法、IQL 與 expectile regression（結尾提到 IDQL）。發現並修正：原文說「看影片時遇到 CQL 的段落」，但這支 L7 影片完全沒有講 CQL；CQL 在下一講（L8 Reward Learning）錄影的開頭。本文以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

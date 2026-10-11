@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 8: Using LLMs to Judge LLMs, and the Three Biases to Guard Against"
+title: "Using LLMs to Judge LLMs, and the Three Biases to Guard Against | Stanford CME295 Lecture 8"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,26 +39,6 @@ This post covers Lecture 8, "LLM evaluation," of the 2025 edition of Stanford [C
 You change one line of a system prompt and want to know whether answers got better. The model produces free-form text, so there is no answer key. Ask a colleague to rate them? Two people may score the same response differently, and rating a hundred examples takes a day. That is the question this lecture answers: how do you evaluate LLM output, and how far can each method be trusted?
 
 The slides first scope the word. "Evaluation" can mean **output quality** (instruction following, coherence, factuality) or **system performance** (latency, pricing, reliability). This lecture is about the former.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=8fNP4N46RRo
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 8, LLM Evaluation (page date 2025-11-21, length 1:49:25). Its chapters are inter-rater agreement, rule-based metrics (METEOR/BLEU/ROUGE), LLM-as-a-judge and its biases (position, verbosity, self-enhancement), factuality, agent evaluation, and benchmarks (MMLU, AIME/PIQA, SWE-bench, HarmBench, Tau-Bench), consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## Human rating: closest to the truth, with three problems
 
@@ -270,6 +250,26 @@ These questions are adapted from Section IV, "LLM evaluation," of the [2025 fina
 - From perplexity to agent and safety evaluation: [CS336 Lecture 12](/posts/ai/2026-08-22-cs336-evaluation-en)
 - The practical side, with golden sets, blind judging and statistical tests: [How to rigorously compare an agent before and after a change](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
 - Turning every agent tool call into a traceable span: [Agent observability: from OTel traces to catching hallucinations, tool misuse and infinite loops](/posts/ai/2026-06-04-agent-observability-failure-detection-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=8fNP4N46RRo
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 8, LLM Evaluation (page date 2025-11-21, length 1:49:25). Its chapters are inter-rater agreement, rule-based metrics (METEOR/BLEU/ROUGE), LLM-as-a-judge and its biases (position, verbosity, self-enhancement), factuality, agent evaluation, and benchmarks (MMLU, AIME/PIQA, SWE-bench, HarmBench, Tau-Bench), consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

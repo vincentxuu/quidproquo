@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 4: Learning III: Deep Networks as Composable Computation Graphs"
+title: "Learning III: Deep Networks as Composable Computation Graphs | Stanford CS221 Lecture 4"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 4**, taught by Percy Liang on 2025-10-01. The [course site](https://stanford-cs221.github.io/autumn2025/) provides the schedule and assignments; the primary artifact is [deep_learning](https://stanford-cs221.github.io/autumn2025-lectures/?trace=deep_learning).
 
 > Material gap: Executable PyTorch examples are public; the recording is available separately in the official playlist.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 4, the same term and lecture number this article follows. It matches item 4 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=89NND-Ca0yY
-title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 4: Learning III](https://www.youtube.com/watch?v=89NND-Ca0yY)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 4) and confirmed it covers the move to PyTorch, nonlinear features, multilayer MLPs with ReLU, training stability, and SGD versus GD, matching this article's lecture and topic; no mismatch found.
 
 ## The route through the lecture
 
@@ -92,6 +72,26 @@ The second method is layer normalization: avoid activations whose magnitude beco
 The third method is proper initialization. The artifact sets `input_dim=16384` and `output_dim=32`, draws normal weights and inputs, and computes `y=x@w`; each element of `y` scales with `sqrt(input_dim)`, and large values can blow up gradients and destabilize training. Dividing the weights by `sqrt(input_dim)` aims to make the scale invariant to input dimension. The source connects this idea, up to a constant, to Xavier initialization and uses a normal distribution truncated to `[-3,3]` to avoid outliers. It cites Glorot and Bengio 2010; this article does not present the simplified construction as a complete rule for every initialization method.
 
 The fourth method is a stochastic optimizer. A full-data gradient sums contributions from all training examples; on a large dataset, that is too much work for one update. Each step can instead sample a subset and use an unbiased gradient estimate. The artifact uses four gradients `[1,2]`, `[3,4]`, `[5,6]`, and `[7,8]`, computes their full mean, then fixes seed 1, samples a batch of size 2, and computes the sampled mean. In practice it does not independently sample forever: it permutes examples each epoch and takes consecutive chunks, then compares the mean of the batch gradients with the full gradient. The source ends by pointing to Adam as a more sophisticated alternative to SGD.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 4, the same term and lecture number this article follows. It matches item 4 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=89NND-Ca0yY
+title: Stanford CS221 | Autumn 2025 | Lecture 4: Learning III
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 4: Learning III](https://www.youtube.com/watch?v=89NND-Ca0yY)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 4) and confirmed it covers the move to PyTorch, nonlinear features, multilayer MLPs with ReLU, training stability, and SGD versus GD, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

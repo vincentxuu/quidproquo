@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 7 | Variance and Poisson: From spread to rare-event counts"
+title: "Variance and Poisson: From spread to rare-event counts | Stanford CS109 Lecture 7"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 8 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 7: Poisson** on July 1 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture07-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture07-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture07-LLMPrompts.pdf), and the shared Spring-dated [course reader](https://probabilitycoders.stanford.edu/spr26/poisson) problem by problem. The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 Although the official title is Poisson, the worksheet first completes another part of the previous lecture's agenda. Expectation locates a distribution's center; variance and standard deviation describe its spread. The worksheet then turns to counts in a fixed interval.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=QV3IRiG6dVs
-title: Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lecture 8
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lecture 8](https://www.youtube.com/watch?v=QV3IRiG6dVs)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 8, "Poisson": it covers variance, the Poisson distribution, the Poisson approximation to the binomial and ends on Atlantic hurricane data, matching this lecture's topic. The transcript has no geometric distribution, so the P1 geometric warm-up and the DNA challenge in this post are not from the video.
 
 ## P1: Reconnect expectation
 
@@ -159,6 +137,28 @@ For each problem, record the random variable and unit, independence assumptions,
 - P4 is not missing; the earlier reading was a PDF page-boundary extraction artifact.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are only two pages each. This article uses the short-material exception: complete problem coverage without generic padding. It remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=QV3IRiG6dVs
+title: Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lecture 8
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Poisson I 2022 I Lecture 8](https://www.youtube.com/watch?v=QV3IRiG6dVs)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 8, "Poisson": it covers variance, the Poisson distribution, the Poisson approximation to the binomial and ends on Atlantic hurricane data, matching this lecture's topic. The transcript has no geometric distribution, so the P1 geometric warm-up and the DNA challenge in this post are not from the video.
 
 ## Update Log
 

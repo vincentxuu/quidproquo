@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 Lecture 5: Number Formats, K-Means Quantization, and Linear Quantization"
+title: "Number Formats, K-Means Quantization, and Linear Quantization | MIT 6.5940 Lecture 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,24 +33,6 @@ glossary:
 Pruning cuts the *number* of weights. Quantization cuts the *bits* per weight. Lecture 5 is the first half of the quantization unit, and the Lecture Plan on page 2 lists three goals: review number formats, learn the basic concept of quantization, and learn three common methods (K-means, linear, and binary/ternary).
 
 In practice, Lecture 5 covers only the first two methods. The summary on page 69 lists K-means and linear quantization only, and the comparison table on page 68 has a question mark in the binary/ternary column. The Lecture Plan of [Lecture 6](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en) is where binary and ternary quantization appear as a formal item. This post follows what the slides actually cover and leaves binary/ternary for the next one.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=ymAzUz3qlIA
-title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): I read the full L5 transcript: data types (unsigned/signed integers, two's complement, fixed point, FP32 sign/exponent/fraction and subnormals, FP16, BF16), the two conversion exercises (−7 and 2.5), FP8 E4M3/E5M2, the FP4 layouts, K-means quantization (the 4×4 example going from 64 bytes to 20 bytes, the roughly 3.2x ratio and the 32/n derivation), Deep Compression, and the linear-quantization scale/zero-point derivation with integer matrix multiplication. The content matches this post section by section and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why bit width matters
 
@@ -220,6 +202,24 @@ Fall 2026's Lab 2 is labeled Quantization and had not been released as of 2026-0
 - Quantization formats from a user's point of view (GGUF, Q4/Q8): [Understanding AI models: quantization](/posts/ai/2026-08-26-understanding-ai-models-quantization-en)
 - How an LLM systems course teaches quantization: [Reading CMU 11-868: model quantization](/posts/ai/2026-09-30-cmu11868-model-quantization-en)
 - The previous stop on the same road: [Lecture 4: pruning ratios and system support](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=ymAzUz3qlIA
+title: EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 5 - Quantization Part I (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=ymAzUz3qlIA)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): I read the full L5 transcript: data types (unsigned/signed integers, two's complement, fixed point, FP32 sign/exponent/fraction and subnormals, FP16, BF16), the two conversion exercises (−7 and 2.5), FP8 E4M3/E5M2, the FP4 layouts, K-means quantization (the 4×4 example going from 64 bytes to 20 bytes, the roughly 3.2x ratio and the 32/n derivation), Deep Compression, and the linear-quantization scale/zero-point derivation with integer matrix multiplication. The content matches this post section by section and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

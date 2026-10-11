@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 1 講：用計算思維把會幻覺的 LLM 變成可靠助理"
+title: "用計算思維把會幻覺的 LLM 變成可靠助理｜Stanford CS224V 第 1 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, conversational-ai, llm, computational-thinking]
@@ -19,27 +19,6 @@ description: "逐段拆解 Stanford CS224V Fall 2025 Introduction：幻覺問題
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-introduction.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 這是 Stanford CS224V Fall 2025 的第一堂，不是 2026 年改名後尚未公開的 Agentic AI 新課綱。這堂課先給一個很硬的判斷：LLM 即使接上 RAG，仍可能忽略檢索內容、混入參數記憶，或把沒有根據的句子寫得很順。課程的答案不是「換更大的模型」，而是把助理做成一串可以個別檢查的步驟。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 1 講「Introduction」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 1 講（約 1 小時 29 分），與本文的 Fall 2025 第 1 講同為課程介紹，字幕有課程簡介、知識工作與自動化、LLM 幻覺能否靠更大模型消除、需要查核每個主張並過濾不實內容的做法、助教與專題安排。本文的論述與數字取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
-
-```youtube
-url: https://www.youtube.com/watch?v=cNxlGYO4YME
-title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
-```
-
-原始影片：[CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon](https://www.youtube.com/watch?v=cNxlGYO4YME)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：這堂課實際走了什麼
 
@@ -136,6 +115,27 @@ Human evaluation 仍然需要，但題目必須明確。「哪個回答比較好
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開資料只有投影片，沒有錄影與完整講者註記；投影片也明示部分內容刻意留給課堂。因此本文只重建可見的論證骨架，不補猜課堂答案。Fall 2025 官網與 2026–27 新課名必須分開看。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（第 1 講「Introduction」）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 1 講（約 1 小時 29 分），與本文的 Fall 2025 第 1 講同為課程介紹，字幕有課程簡介、知識工作與自動化、LLM 幻覺能否靠更大模型消除、需要查核每個主張並過濾不實內容的做法、助教與專題安排。本文的論述與數字取自 Fall 2025 講義，未逐項對照這支上一屆的影片。
+
+```youtube
+url: https://www.youtube.com/watch?v=cNxlGYO4YME
+title: CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon
+```
+
+原始影片：[CS224V Fall 2024 Lecture 1: Introduction on 9 23 2024 Mon](https://www.youtube.com/watch?v=cNxlGYO4YME)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

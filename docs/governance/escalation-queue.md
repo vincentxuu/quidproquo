@@ -413,3 +413,13 @@
 - Q-031 補記（2026-10-10 CS329Z 教材更新）：本次中英總導讀、Week 1–3 與系列描述已更新；astro check／lint 通過，共享目錄完整 verify 當時受 AI model family 新稿阻擋；後續隔離 worktree verify 通過並提交 `151b1176`，已核對其位於 origin/main 歷史。接手先讀 /tmp/cs329z-update/verify-final.log 及 references.log／post-quality.log／tw.log，再確認並行新稿狀態。
 
 - Q-031 更新（2026-10-10 未提交改動整理）：共享 main 已同步遠端並整合真正的本機增量；完整 `pnpm verify` 已全綠，後續兩筆內容提交的 pre-commit 亦全綠。十二篇模型家族文章以 `draft: true` 保存於 `47bcda8a`，完整事實審稿待續。正式站播放驗收仍未在本次任務執行，不能以本機品質閘門代替播放證據。盤點與驗證紀錄位於 `/tmp/quidproquo-commit-audit/`；原始工作目錄快照為 stash `74074e534ddfc151adb38559327128be34606138`。
+
+# Done
+
+## Q-032 ✅ 已完成：課程系列命名與導讀檢查機制（2026-10-11）
+
+- 核准：使用者明確要求「要全數完成」，整批操作已授權。
+- 完成：48 系列／801 中英組／1602 檔全數格式檢查，1600 舊標題統一；來源區後移、重複更新紀錄合併、頁尾依主系列。逐系列代表文章閱讀與已確認教學缺陷修正完成，獨立改動審稿通過。
+- 防復發：五個 skill 共用規格，verify 納入全站嚴格 title/layout gate 與 17 回歸；歷史 baseline 不再豁免。
+- 證據：docs/course-guide-migration-2026-10-11.md；.work/course-full-completion/。最新 main worktree /tmp/quidproquo-course-final（fix/course-guide-completion）。
+- 範圍界線：未宣稱全部 801 組全文教學認證；未 commit／push／deploy。

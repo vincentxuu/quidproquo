@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 15: Data Efficiency III: PAC for MDPs, MBIE-EB, PSRL, and Strategic Exploration"
+title: "Data Efficiency III: PAC for MDPs, MBIE-EB, PSRL, and Strategic Exploration | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,26 +43,6 @@ glossary:
 Official materials used: the [Lecture 12 slides (post-class version), "Fast RL Continued"](https://web.stanford.edu/class/cs234/slides/lecture12post.pdf). The PDF has 54 pages; the slides number themselves up to 52, with two extra pages of Decision-Pretrained Transformer figures. For listening, the matching video is [video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ) in the [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX). Per the transcript, it covers MBIE-EB, PAC analysis, the simulation lemma, Bayesian MDPs and PSRL, concurrent RL, and seed sampling.
 
 Access grade **A3 (enough to self-study)**, as defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): the slides are public. The gaps: 2026 recordings are on Canvas only, and the Winter 2023 problem session PDFs the simulation lemma slide cites (`sessions/CS234_Win23_ProblemSession2.pdf` and its solutions) both returned 404 when I checked on 2026-09-30.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=pc7oayCSZmQ
-title: Stanford CS234 Spring 2024 video 13, "Exploration 3"
-```
-
-Original videos: [Stanford CS234 Spring 2024 video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ)
-
-Course and recording entries:
-
-- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 13, "Exploration 3" (about 70 minutes): the video covers optimism and MBIE-EB, PAC and the simulation lemma, Bayesian MDPs and PSRL, and concurrent RL and seed sampling, with contextual/linear bandits, Montezuma's Revenge and the Decision-Pretrained Transformer briefly near the end, matching this post. "YouTube chapters" became "transcript".
 
 ## What this lecture is for
 
@@ -245,6 +225,26 @@ One thing to try tonight: take `riverswim.py` from Assignment 1, wrap a counter 
 
 - How another deep RL course covers exploration and RL theory: [Berkeley CS285 L19–25: Exploration, RL Theory, Multitask Learning, and Open Problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
 - Learning to explore in the meta-RL setting: [CS224R L13: Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=pc7oayCSZmQ
+title: Stanford CS234 Spring 2024 video 13, "Exploration 3"
+```
+
+Original videos: [Stanford CS234 Spring 2024 video 13, "Exploration 3"](https://www.youtube.com/watch?v=pc7oayCSZmQ)
+
+Course and recording entries:
+
+- [public 2024 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 13, "Exploration 3" (about 70 minutes): the video covers optimism and MBIE-EB, PAC and the simulation lemma, Bayesian MDPs and PSRL, and concurrent RL and seed sampling, with contextual/linear bandits, Montezuma's Revenge and the Decision-Pretrained Transformer briefly near the end, matching this post. "YouTube chapters" became "transcript".
 
 ## Update Log
 

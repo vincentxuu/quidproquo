@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 7：從字串搜尋到 Buffer Overflow，輸入驗證不是容量檢查"
+title: "從字串搜尋到 Buffer Overflow，輸入驗證不是容量檢查｜Stanford CS107 第 7 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 Lecture 6 把 C string 定義成一份記憶體契約：從某個 `char *` 起點向後讀，必須在合法範圍內遇到 `\0`。Lecture 7 先利用這份契約做更靈活的搜尋，再把鏡頭轉向契約破裂時的後果。這個順序很關鍵。Buffer overflow 不是一種離字串很遠的「資安魔法」，而是程式把輸入寫進固定空間時，沒有證明資料放得下。
 
 本講最值得留下的區分是：**內容有效不等於記憶體操作安全。** 密碼可以全部由允許字元組成，也不含任何禁用片段，卻仍可能長到塞不進目的陣列。`strspn` 與 `strstr` 回答內容規則；capacity reasoning 回答寫入邊界。把兩種檢查混成一種，正是漏洞容易躲進正常業務邏輯的地方。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -212,6 +204,14 @@ char *gets(char *s);
 這套順序把抽象的「小心 buffer overflow」變成能逐行查核的動作。它也解釋本講為何花一半時間談搜尋函式：`strchr`、`strstr` 與 spans 都回傳帶有邊界意義的結果。正確使用它們，需要維持進度、處理 `NULL`、理解 alias 與 terminator；安全不是最後才加上的章節，而是同一套指標推理的延伸。
 
 Lecture 7 的收束可以濃縮成一句話：**驗證文字寫了什麼，和證明記憶體放得下，是兩份不同的工作。** 前者讓產品規則成立，後者讓程式仍在 C 語言允許的範圍內執行。可靠的系統程式必須同時完成兩份證明。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

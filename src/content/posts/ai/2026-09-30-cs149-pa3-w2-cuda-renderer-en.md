@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA3 and Written 2: A CUDA Circle Renderer That Must Be Both Correctly Ordered and Fast"
+title: "and Written 2: A CUDA Circle Renderer That Must Be Both Correctly Ordered and Fast | Stanford CS149 Programming Assignment 3 / Written Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,14 +31,6 @@ glossary:
 **Series**: Previous: [Lecture 8: Data-Parallel Thinking](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en) | Next: [Lecture 9: DNNs on GPUs](/posts/ai/2026-09-30-cs149-dnn-on-gpus-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 [Lecture 7](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en) covered how CUDA's abstractions land on the GPU, and [Lecture 8](/posts/ai/2026-09-30-cs149-data-parallel-thinking-en) covered replacing locks with primitives like scan and sort. PA3 tests both. The README says the renderer is very simple, but parallelizing it requires you to design and implement **data structures that can be efficiently constructed and manipulated in parallel**. Then, in bold: seriously, start early.
-
-## Course video sources
-
-Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
 
 ## Where it sits in the course, and the environment
 
@@ -154,6 +146,14 @@ One thing you can do tonight: clone [asst3](https://github.com/stanford-cs149/as
 - Another course's introductory CUDA assignment: [CMU 11-868 Assignment 1: Writing MiniTorch's map, zip, reduce, and matmul in CUDA](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming-en)
 - A different explanation of threads, blocks, and shared-memory tiling: [CMU 11-868 L02–L04 GPU Programming and Acceleration](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration-en)
 - The environment requirements of all five assignments in one table: [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
+
+## Course video sources
+
+Official course and existing recording entries are linked below. A single public video matching this article has not been verified for embedding. Rechecked live on 2026-10-10: the official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and offers only the 2023 playlist, which has no video matching this article's scope. Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/slide_17)
 
 ## Update Log
 

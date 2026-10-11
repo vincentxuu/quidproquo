@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L10 MCUNet：在只有 320kB SRAM 的微控制器上跑神經網路"
+title: "MCUNet：在只有 320kB SRAM 的微控制器上跑神經網路｜MIT 6.5940 第 10 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 前九講的壓縮手法——剪枝、量化、NAS、蒸餾——都在回答「模型怎麼變小」。L10 換一個問法：小到多小才夠？答案取決於你要部署的那顆晶片。這一講把目標設在最極端的一端：微控制器（MCU），一顆可能只賣幾塊美元、沒有作業系統、SRAM 以 kB 計的晶片。
 
 投影片第 2 頁的 Lecture Plan 有四項：什麼是 tinyML、tinyML 的挑戰、tiny 神經網路設計、應用（視覺、語音、時間序列／異常偵測）。本篇照這個順序走。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=uR1KKhIhHEk
-title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭議程、結尾（含 AITA 助教示範）並抽查中段：MCU 記憶體限制、TinyNAS 的搜尋空間、MCUNetV2 的 patch-based inference（峰值 SRAM 從 1372kB 降到 172kB，3×3 patch 約 5 倍）、視覺／語音（keyword spotting）／異常偵測／時間序列應用。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 什麼是 tinyML：從雲端一路縮到 IoT
 
@@ -167,6 +149,24 @@ Song Han 用一條光譜開場（第 5–8 頁）：**Cloud AI → Mobile AI →
 - CNN 基礎與 MobileNet 類 building block：[CS231N L5：用 CNN 做影像分類](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
 - 本系列的 NAS 兩講：[L7 搜尋空間與策略](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)、[L8 硬體感知 NAS](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware)
 - 指標定義（#Params、peak activation）：[L1–L2 效率指標](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=uR1KKhIhHEk
+title: EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 10 - MCUNet and TinyML (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=uR1KKhIhHEk)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭議程、結尾（含 AITA 助教示範）並抽查中段：MCU 記憶體限制、TinyNAS 的搜尋空間、MCUNetV2 的 patch-based inference（峰值 SRAM 從 1372kB 降到 172kB，3×3 patch 約 5 倍）、視覺／語音（keyword spotting）／異常偵測／時間序列應用。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

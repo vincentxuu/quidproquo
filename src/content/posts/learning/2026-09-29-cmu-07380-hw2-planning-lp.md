@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 HW2 導讀：Classical and Motion Planning，從 robot-cook PDDL 到 RRT* 再到 LP 圖解"
+title: "Classical and Motion Planning，從 robot-cook PDDL 到 RRT* 再到 LP 圖解｜CMU 07-380 作業 2"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, planning, rrt, linear-programming]
@@ -25,29 +25,6 @@ draft: false
 **本文不附解答**。課程有 academic integrity 規定，程式作業頁也寫明會比對提交之間的邏輯相似度。這裡只講每題在考什麼、需要哪個概念、怎麼在本機驗證。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#assignments)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-| 部分 | 材料 | 公開程度 |
-|---|---|---|
-| 程式作業 | [Classical and Motion Planning 作業頁](https://www.cs.cmu.edu/~07380/assignments/planning/)、[`planning.zip`](https://www.cs.cmu.edu/~07380/assignments/planning/planning.zip) | 公開，含本機 autograder |
-| 書面作業 | [`hw2_blank.pdf`](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf)、[`hw2.zip`](https://www.cs.cmu.edu/~07380/assignments/hw2.zip)（LaTeX 範本） | 公開 |
-| 線上題 | Gradescope | 只限校內 |
-| 解答 | — | 課站沒有公開 |
-
-`hw2.zip` 裡有 `hw2.tex`、四題各自的 `.tex`、協作聲明 `q_collaboration.tex`，以及 `figures/` 下的 `graphplan.png`、`feasible_regions.png` 和畫圖用的 `plot_graph.py`。
-
-**公開程度**：程式與書面都能在校外完整重做，只少了線上題和官方解答，這份作業達 A3。全課仍是 A2（進行中），分級見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 程式作業：Robot Cook 與 RRT
 
@@ -146,6 +123,29 @@ python3.12 autograder.py -t test_cases/q2/04_segmentBlocked   # 單一測試
 - 上一篇：[Lecture 4 導讀：Motion Planning，RRT 在連續空間用取樣找路](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
 - 下一篇：[Lecture 5 導讀：Linear Programming](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+| 部分 | 材料 | 公開程度 |
+|---|---|---|
+| 程式作業 | [Classical and Motion Planning 作業頁](https://www.cs.cmu.edu/~07380/assignments/planning/)、[`planning.zip`](https://www.cs.cmu.edu/~07380/assignments/planning/planning.zip) | 公開，含本機 autograder |
+| 書面作業 | [`hw2_blank.pdf`](https://www.cs.cmu.edu/~07380/assignments/hw2_blank.pdf)、[`hw2.zip`](https://www.cs.cmu.edu/~07380/assignments/hw2.zip)（LaTeX 範本） | 公開 |
+| 線上題 | Gradescope | 只限校內 |
+| 解答 | — | 課站沒有公開 |
+
+`hw2.zip` 裡有 `hw2.tex`、四題各自的 `.tex`、協作聲明 `q_collaboration.tex`，以及 `figures/` 下的 `graphplan.png`、`feasible_regions.png` 和畫圖用的 `plot_graph.py`。
+
+**公開程度**：程式與書面都能在校外完整重做，只少了線上題和官方解答，這份作業達 A3。全課仍是 A2（進行中），分級見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)。
 
 ## 更新紀錄
 

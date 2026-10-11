@@ -1,5 +1,5 @@
 ---
-title: "CS224U 上下文表徵 I：「break」有八種意思，Transformer 怎麼讓每個詞看情境"
+title: "「break」有八種意思，Transformer 怎麼讓每個詞看情境｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -33,29 +33,6 @@ CS224U 2023 年 4 月 5 日那堂的主題是 contextual word representations。
 本篇處理前三節，對應第 [04](https://www.youtube.com/watch?v=FEFeeRONEdw)、[05](https://www.youtube.com/watch?v=yqV_YfBBtK0)、[06](https://www.youtube.com/watch?v=JERXX2Byr90) 支影片。後七節是各個模型家族，放在[下一篇](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)。
 
 Potts 在第 04 支影片一開頭就說明了取捨：以前的版本會花大約兩週講靜態向量，2023 年這版直接跳到上下文表徵。靜態向量變成課程網站上的[背景材料](https://web.stanford.edu/class/cs224u/background.html)。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=FEFeeRONEdw
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yqV_YfBBtK0
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas）與 Part 2（Transformer）的字幕逐項對照：兩週靜態向量的取捨、break／flat／crane／any 例子、四階段與五個里程碑、四塊積木、Transformer block 逐步計算與 d_k 例外、multi-head、BERT-base 結構；文中引用的 Part 3（Positional Encoding，未嵌入）也讀過，兩個問題與三種位置編碼的比較、相對位置窗口與結論皆吻合。未發現需修正之處。
-
-課程與錄影入口：
-
-- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 場景：同一個「break」，八種意思
 
@@ -206,6 +183,29 @@ $$\alpha_{ij} = \mathrm{softmax}\left(\frac{(x_i W^Q)^\top (x_j W^K + a^K_{ij})}
 - 投影片第 27 頁的文字檔在相對位置編碼下仍印著兩條「Limitations」，但錄影明確說相對位置編碼兩題都過。PDF 抽出的文字看不出原投影片是否有刪除線，本文以錄影的說法為準。
 
 **系列導覽**：上一篇 [開場：NLU 的演進與課程地圖](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)｜下一篇 [上下文表徵 II：GPT、BERT、RoBERTa、ELECTRA、seq2seq 與蒸餾](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=FEFeeRONEdw
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yqV_YfBBtK0
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw)、[Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Part 1（Guiding Ideas）與 Part 2（Transformer）的字幕逐項對照：兩週靜態向量的取捨、break／flat／crane／any 例子、四階段與五個里程碑、四塊積木、Transformer block 逐步計算與 d_k 例外、multi-head、BERT-base 結構；文中引用的 Part 3（Positional Encoding，未嵌入）也讀過，兩個問題與三種位置編碼的比較、相對位置窗口與結論皆吻合。未發現需修正之處。
+
+課程與錄影入口：
+
+- [XCS224U 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

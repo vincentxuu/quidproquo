@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 13: Data Does Not Fall from the Sky, and Every Source Has Access and License Costs"
+title: "Data Does Not Fall from the Sky, and Every Source Has Access and License Costs | Stanford CS336 Lecture 13"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**, taught by Percy Liang on May 11, 2026. Its primary source is the official executable lecture, [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py). This guide summarizes course material and is not legal advice.
 
 Data is easily hidden behind “we used internet text.” Lecture 13 follows the path from a live service to a raw snapshot and later processed data, asking about origin, acquisition, and rights before Lecture 14 handles filtering, deduplication, and mixing.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 13 (Data: sources, datasets). The captions cover Common Crawl/WARC, robots.txt, paywalls, copyright and fair use, licenses and Creative Commons, Wikipedia, GitHub, Stack Exchange, Project Gutenberg, shadow libraries and related lawsuits, and the dataset lineage from BERT, GPT-2 WebText, GPT-3, The Pile and C4. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=-qm0ln33G24
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## A web crawl is not a download of the entire internet
 
@@ -76,6 +58,24 @@ Lecture 13 is not a request for a longer source list. It treats acquisition as a
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete executable artifact. Legal sections summarize the course's framework and engineering implications; specific uses require jurisdiction-specific professional advice.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 13 (Data: sources, datasets). The captions cover Common Crawl/WARC, robots.txt, paywalls, copyright and fair use, licenses and Creative Commons, Wikipedia, GitHub, Stack Exchange, Project Gutenberg, shadow libraries and related lawsuits, and the dataset lineage from BERT, GPT-2 WebText, GPT-3, The Pile and C4. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=-qm0ln33G24
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

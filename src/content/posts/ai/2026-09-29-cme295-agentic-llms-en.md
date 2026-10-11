@@ -1,5 +1,5 @@
 ---
-title: "CME295 Lecture 7: Agentic LLMs, or Letting the Model Look Things Up, Call Functions, and Run Its Own Loop"
+title: "Agentic LLMs, or Letting the Model Look Things Up, Call Functions, and Run Its Own Loop | Stanford CME295 Lecture 7"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -45,26 +45,6 @@ The previous lecture on [reasoning models](/posts/ai/2026-09-29-cme295-llm-reaso
 | One call isn't enough | Agents (ReAct) | Chain lookups and calls into a loop until the task is done |
 
 The lecture keeps Lecture 1's teddy bear. "Where is Cuddly?", "Find a bear near me!", and "My teddy bear is cold." map to the three parts.
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-```youtube
-url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 7, Agentic LLMs (page date 2025-11-14, length 1:49:22, matching the post's "1 hour 49 minutes"). Its chapters are RAG (SBERT/bi-encoders, BM25, HyDE and contextual retrieval, prompt caching, cross-encoder re-ranking, NDCG/MRR), tool calling, tool selection, MCP, ReAct agents, and safety, consistent with the post's sections. The post cites only the slides and does not relay spoken remarks, so there were no spoken claims to check.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-Checked: 2026-10-10.
 
 ## RAG: look it up before answering
 
@@ -298,6 +278,26 @@ These questions are adapted from Part III, "Agentic LLMs," of the [2025 final ex
 - The full landscape of RAG generations and variants: [The Complete Guide to RAG System Patterns](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 - The chunk-contextualizing technique from the slides: [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en)
 - How the agent loop is built in real coding agents: [Learning Agent Design from Mature Coding Agents (2): The Shape of the Agent Loop](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+```youtube
+url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
+```
+
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 7, Agentic LLMs (page date 2025-11-14, length 1:49:22, matching the post's "1 hour 49 minutes"). Its chapters are RAG (SBERT/bi-encoders, BM25, HyDE and contextual retrieval, prompt caching, cross-encoder re-ranking, NDCG/MRR), tool calling, tool selection, MCP, ReAct agents, and safety, consistent with the post's sections. The post cites only the slides and does not relay spoken remarks, so there were no spoken claims to check.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

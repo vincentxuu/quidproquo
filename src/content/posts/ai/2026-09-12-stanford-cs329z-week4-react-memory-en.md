@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 4: Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT"
+title: "Learn to Think While Doing, Then Learn to Remember — ReAct and MemGPT | Stanford CS329Z Week 4"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Picture hiring a research assistant with two failure modes: one sits at the desk
 Monday (Oct 12, Agent Patterns) assigns Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629) (ICLR 2023): let the model interleave "thinking" (Thought) with "doing" (Action), checking the environment's reply (Observation) after every step. Wednesday (Oct 14, Memory & Multi-Agent) assigns Packer et al.'s [MemGPT](https://arxiv.org/abs/2310.08560) (ICLR 2024): borrow hierarchical memory from operating systems and page information between a finite window and external storage through function calls. The same week lands mid-way through [HW1](https://cs329z.stanford.edu/), where the loop's shape and the memory layout are the two decisions to lock in before the harness grows further.
 
 For orientation: [Week 3](/posts/ai/2026-09-11-stanford-cs329z-week3-tools-dspy-en) released HW1 — build a company's internal AI assistant with no agent frameworks, just a chat-completion call and your own code, starting from pipelines that retrieve and reason over a real corporate email archive and growing into a harness with tools, a terminal, memory, and a human in the loop. Week 4 hands you two papers as construction blueprints, and the [course guide](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en) frames the whole course as engineering — this is the week the drawings get unrolled.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## ReAct: the think-act-observe loop
 
@@ -88,6 +77,17 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: HW1 was restructured (no more Part A / Part B split, the corpus is now a corporate email archive, memory and human-in-the-loop are explicit requirements); rewrote the opening, the ReAct/MemGPT "What to do" notes, and the course-position section to match
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

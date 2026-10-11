@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint"
+title: "Score Honestly, Scale Data — Midterm Checkpoint | Stanford CS329Z Week 7"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Week 7 is midterm checkpoint week. Monday (Nov 2) covers data selection and qual
 A framework first, for newcomers. The course defines an agent evaluation as a 4-tuple: the request states the task, the environment is the world the agent can act in, the stopping criteria say when it is done, and the scorer decides the grade. Drop any one of the four and the number means nothing.
 
 Take bug-fixing as the running example. The request is "fix this issue," the environment is the repo plus a terminal, the stopping criterion is submitting a patch, and the scorer runs the tests. The three anchor readings divide the labor: [Zhu et al.'s best practices](https://arxiv.org/abs/2507.02825) show how easily scorers go wrong, [Shankar et al.'s validators study](https://arxiv.org/abs/2404.12272) shows how to align LLM-assisted grading with humans, and [Yang et al.'s SWE-smith](https://arxiv.org/abs/2504.21798) shows how to scale up task data.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## Scoring is more fragile than it looks
 
@@ -76,6 +65,17 @@ After Week 7 comes judgment: Wednesday's demo video argues with scores, Friday's
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-09-29: the midpoint demo became a recorded video (due Wed Nov 4 at 11:59 p.m., no in-class presentation); rewrote the opening and course-position passages to match
 - 2026-10-10: Rechecked video status. The official Logistics page says recordings require logging into the course Canvas, opening the entry confirmed the sign-in wall, and no public recording was found; the status is now sign-in required.
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## References
 

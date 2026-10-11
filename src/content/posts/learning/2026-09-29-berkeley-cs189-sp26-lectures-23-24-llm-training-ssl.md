@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 23–24：LLM 訓練與應用、自監督學習"
+title: "LLM 訓練與應用、自監督學習｜Berkeley CS189 第 23–24 堂"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, llm, post-training, self-supervised-learning, deep-learning]
@@ -30,37 +30,6 @@ glossary:
 本文依 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）的官方教材寫成：第 23 講 [LLM Training And Applications](https://drive.google.com/drive/folders/1GP3T4TwZeXV2L28LUY6a0ei6rtcnQ3TJ)（4/16，`lec23.pdf` 63 頁，[錄影](https://www.youtube.com/watch?v=m13yELgj02c)）、第 24 講 [Self-Supervised Learning](https://drive.google.com/drive/folders/1BVcz-ohHf6J8mtzVHnTTDw55M7JQZmbL)（4/21，`lec24.pdf` 77 頁，[錄影](https://www.youtube.com/watch?v=iGcer6b6mp8)），以及 [Discussion 11](https://drive.google.com/file/d/11WJr0gQUuMON1ub34DSUhSMsDl8GuM06/view)（附[解答](https://drive.google.com/file/d/11KGelwaG_trTVtxBHPgkUFrG_BhlZE7E/view)與 [walkthrough 影片](https://youtube.com/playlist?list=PL-ysCubq-Sa9h8mIf8s2L-vL68rx8_hx8)）。以上都能匿名打開，整門課判 A3（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
 
 這兩講接在 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers) 和 [HW4](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert) 之後。你已經會搭一個 transformer，這裡要回答兩個問題：怎麼把它訓練成 ChatGPT 這類的東西？沒有標籤的時候，要怎麼學到好的表徵？兩講共用一個核心想法：**自己造一個假的監督任務**。
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=m13yELgj02c
-title: Lecture 23 錄影：LLM Training And Applications
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=iGcer6b6mp8
-title: Lecture 24 錄影：Self-Supervised Learning
-```
-
-原始影片：[Lecture 23 錄影：LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 錄影：Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 23 影片（m13yELgj02c，約 74 分鐘）涵蓋用最後一個 token 做分類、GPT-3 規模、「加州首都」的 next-token 例子、masked attention、Llama 架構與 15.6T token 的預訓練；後訓練（SFT、LoRA、RLHF、DPO）只在開場與中段點到名稱，沒有展開，Vicuna、RAG、chain-of-thought、agent 與 H100 GPU 時數在字幕中找不到，只見於講義。Lecture 24 影片（iGcer6b6mp8，約 76 分鐘）確為自監督學習：旋轉預測、上色、超解析度、聚類、凍結特徵抽取器與微調的遷移學習、CLIP 與 zero-shot；自編碼器、補洞、拼圖、相對位置與 SimCLR 的內容在字幕中找不到，那些表格列只見於講義。字幕未自報講者姓名，講者歸屬未驗證。
-
-## 讀取範圍與限制
-
-我實際打開並讀過的：兩份講義 PDF 的文字層、Discussion 11 題目與解答、兩支錄影的標題。講義很多圖（架構圖、生成結果、熱圖）沒有文字層，我只轉述投影片上有字的部分；兩支錄影的自動字幕已於 2026-10-10 抽樣比對（見上方「內容核對」），但本文仍以講義為準。
-
-**指定閱讀的一個疑點**：排程頁和 `lec23.pdf` 最後一頁都寫 Lec 23 讀 Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》第 10 章。但依 Springer 的目錄，第 10 章是 [Convolutional Networks](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_10)，Transformers 是[第 12 章](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_12)。我照官方寫法列出，不替課程改章號；想找 LLM 相關的內容，建議直接翻第 12 章。Lec 24 的講義寫「部分內容見第 11 章」，第 11 章的標題是 [Structured Distributions](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_11)，我沒有讀到章內小節，無法確認哪些段落對應。
 
 ## Lec 23：把 transformer 變成語言模型
 
@@ -199,6 +168,37 @@ Discussion 11 的三題都標著「F25 Dis11」，題目沿用 Fall 2025。它�
 - 系列導覽：上一篇 [HW4 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)；下一篇 [Lec 25–27：蛋白質、agents 與完課](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：照 Lec 23 的算法，用 D = 12288、96 層重算一次 GPT-3 的 attention 與 MLP 參數量，確認 MLP 大約是 attention 的兩倍。接著做 Discussion 11 第 3 題，把 N = 1000 代進去，看 KV cache 省下多少次矩陣乘法。
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（Spring 2026 Lectures，25 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影都在清單中。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=m13yELgj02c
+title: Lecture 23 錄影：LLM Training And Applications
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=iGcer6b6mp8
+title: Lecture 24 錄影：Self-Supervised Learning
+```
+
+原始影片：[Lecture 23 錄影：LLM Training And Applications](https://www.youtube.com/watch?v=m13yELgj02c)、[Lecture 24 錄影：Self-Supervised Learning](https://www.youtube.com/watch?v=iGcer6b6mp8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10；以多處抽樣與關鍵字比對為主，非逐字核對）：Lecture 23 影片（m13yELgj02c，約 74 分鐘）涵蓋用最後一個 token 做分類、GPT-3 規模、「加州首都」的 next-token 例子、masked attention、Llama 架構與 15.6T token 的預訓練；後訓練（SFT、LoRA、RLHF、DPO）只在開場與中段點到名稱，沒有展開，Vicuna、RAG、chain-of-thought、agent 與 H100 GPU 時數在字幕中找不到，只見於講義。Lecture 24 影片（iGcer6b6mp8，約 76 分鐘）確為自監督學習：旋轉預測、上色、超解析度、聚類、凍結特徵抽取器與微調的遷移學習、CLIP 與 zero-shot；自編碼器、補洞、拼圖、相對位置與 SimCLR 的內容在字幕中找不到，那些表格列只見於講義。字幕未自報講者姓名，講者歸屬未驗證。
+
+## 讀取範圍與限制
+
+我實際打開並讀過的：兩份講義 PDF 的文字層、Discussion 11 題目與解答、兩支錄影的標題。講義很多圖（架構圖、生成結果、熱圖）沒有文字層，我只轉述投影片上有字的部分；兩支錄影的自動字幕已於 2026-10-10 抽樣比對（見上方「內容核對」），但本文仍以講義為準。
+
+**指定閱讀的一個疑點**：排程頁和 `lec23.pdf` 最後一頁都寫 Lec 23 讀 Bishop《[Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)》第 10 章。但依 Springer 的目錄，第 10 章是 [Convolutional Networks](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_10)，Transformers 是[第 12 章](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_12)。我照官方寫法列出，不替課程改章號；想找 LLM 相關的內容，建議直接翻第 12 章。Lec 24 的講義寫「部分內容見第 11 章」，第 11 章的標題是 [Structured Distributions](https://link.springer.com/chapter/10.1007/978-3-031-45468-4_11)，我沒有讀到章內小節，無法確認哪些段落對應。
 
 ## 更新紀錄
 

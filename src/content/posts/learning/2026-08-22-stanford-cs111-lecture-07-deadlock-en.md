@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 7: Deadlock Conditions and Global Lock Ordering"
+title: "Deadlock Conditions and Global Lock Ordering | Stanford CS111 Lecture 7"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 8 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 7**. Mendel Rosenblum taught it on 2026-04-13; the official title is [Deadlock](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/7/Lecture7.pdf). This article uses only the public PDF and [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The Canvas/Panopto recording is not treated as a source read.
 
 The previous lecture established mutexes and condition variables while warning that more locks create complexity. This lecture starts from the other side of that tradeoff. Multiple locks can reduce contention and let each data structure encapsulate synchronization, but a thread often needs several resources simultaneously. Conflicting acquisition orders can leave every critical section locally correct while the system as a whole stops forever.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Why systems use multiple locks
 
@@ -131,6 +123,14 @@ The lecture's final insight is that deadlock breaks modularity. A module can pro
 This constraint can be painful. Code may hold a high-rank lock and later discover that it needs a low-rank resource. It cannot acquire directly; control flow or interfaces must change, or it must release and retry. Global order preserves safety by crossing module boundaries and restricting local implementation freedom.
 
 A concrete code-review action follows: list locks held together on every path as `L1 < L2 < ...`, then merge all paths into one ordering graph. Contradictory edges mean the design permits circular wait; do not wait for a test to reproduce it. An acyclic graph does not discharge the other three conditions or cover non-lock resources, but it makes the common prevention discipline auditable.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

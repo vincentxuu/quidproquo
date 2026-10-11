@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 Serving at Scale: Prefill/Decode Disaggregation, KV Cache, and Heterogeneous Hardware"
+title: "Prefill/Decode Disaggregation, KV Cache, and Heterogeneous Hardware | CMU 11-868 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 [Two posts back](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en) we stayed inside a single inference server: continuous batching, PagedAttention, RadixAttention. This post zooms out. Requests come from thousands of users, GPUs span several racks, and the KV cache no longer fits in GPU memory. The question becomes: **how do you place compute and KV cache so you serve the most requests within your latency targets?**
 
 The five speakers come from academia, NVIDIA, an open-source project, and a Chinese LLM service company, and their angles differ a lot. I've reordered them by argument rather than by file number.
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The five decks
 
@@ -187,6 +177,16 @@ One thing to do tonight: open the [vLLM disaggregated serving example](https://d
 - The single-server step before this one: [L22 + L24 LLM serving: scheduling, RadixAttention, PagedAttention](/posts/ai/2026-09-30-cmu11868-llm-serving-sglang-vllm-en)
 - Another course's take on inference: [Stanford CS336: Inference](/posts/ai/2026-08-22-cs336-inference-en)
 - vLLM's own architecture: [The vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

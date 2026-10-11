@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 24：Journaling、Transaction 與 Checkpoint"
+title: "Journaling、Transaction 與 Checkpoint｜Stanford CS111 第 24 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 25 篇，對應 **Stanford CS111, Spring 2026, Lecture 24**。2026-05-22 由 Mendel Rosenblum 主講，行事曆上的題目是 [File System Crash Recovery, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)。本文只使用[公開講義 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)；錄影位於 Canvas／Panopto 後方，不算已讀來源。
 
 先說材料的異常：Lecture 23 與 Lecture 24 的 PDF 都有 23 頁，逐頁標題、條列與順序相同。兩個檔案的 SHA-256 不同，但抽出的文字只差 `/lost+found` 的斜線與四處句點。公開資料因此沒有一份獨立的「continued」[投影片](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/24/Lecture24.pdf)。本文不虛構不存在的內容，而是把第 1–15 頁交給 Lecture 23，從第 16 頁起專注 write-ahead logging、transaction、checkpoint，以及 consistency 與 durability 的分界。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 從前講接續：公開素材相同，閱讀問題不同
 
@@ -69,6 +61,14 @@ log entry 可以描述 logical operation，例如「把某區塊設為 inode 的
 - 第 16–18 頁：logical／physical entry、idempotence、consistent group、Assignment 8 transaction。
 - 第 19–22 頁：checkpoint、metadata-only logging、優缺點、delayed log writes、`fsync`、裝置失效。
 - 第 23 頁：performance、durability、consistency 與可恢復失敗範圍的取捨。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

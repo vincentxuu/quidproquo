@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L2–L3：Transformer 語言模型、LLM 訓練與解碼——從 RNN 會遺忘講到 KV cache"
+title: "Transformer 語言模型、LLM 訓練與解碼——從 RNN 會遺忘講到 KV cache｜CMU 10-423 第 2–3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,17 +33,6 @@ glossary:
 [上一篇](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)結束在 RNN 語言模型：把前面所有字壓成一個固定長度的向量，再預測下一個字。這兩講要回答三個問題：這個向量為什麼不夠用、換成 attention 之後模型長什麼樣、這種模型怎麼訓練和生成。
 
 兩講之間有分工。第 2 講只講**架構**；第 3 講講**訓練、效率與解碼**。HW1 要你在 minGPT 上加 RoPE 和 GQA，這兩講是它的地基。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 「大型語言模型」比 Transformer 還老
 
@@ -202,6 +191,17 @@ L3 的投影片停在這裡。解碼的效率問題，講次表排在 L18「Flas
 - 另一門課怎麼講 Transformer：[CS224N：Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CMU 11-785 第 18 講：Attention 與 Transformer](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)、[CME295：Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - Tokenizer 從零實作：[CS336 第 1 講：總覽與 tokenization](/posts/ai/2026-08-22-cs336-overview-tokenization)
 - KV cache 與推論的系統面：[CS336：Inference](/posts/ai/2026-08-22-cs336-inference)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

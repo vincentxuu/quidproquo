@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 3: Learning II: Linear Classification, Features, and Cross-Entropy"
+title: "Learning II: Linear Classification, Features, and Cross-Entropy | Stanford CS221 Lecture 3"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article follows the executable artifact's order: it reviews linear regression, then runs prediction_task, machine_learning_problem, hypothesis_class, zero_one_loss_function, zero_one_loss_optimization, logistic_loss_function, logistic_loss_optimization, multiclass_classification, and representing_text. The order matters because each representation or loss answers a problem exposed by the previous step.
 
 > Public-material gap: the source explicitly links an Autumn 2023 linear-classification module; course, artifact, repository, and playlist links are below. The source gives sentiment classification as a task example, but provides neither hidden sentiment-assignment tests nor solutions, so they are not reconstructed here.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 3, the same term and lecture number this article follows. It matches item 3 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=Mbe5ICIUw5Q
-title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 3: Learning II](https://www.youtube.com/watch?v=Mbe5ICIUw5Q)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 3) and confirmed it covers linear classification, 0-1 loss, logits and cross-entropy, and multiclass classification (with a short tokenization/vocabulary demo at the end), matching this article's lecture and topic; no mismatch found.
 
 ## From linear regression to linear classification
 
@@ -126,6 +106,26 @@ For a bag-of-words representation, represent each token as a one-hot vector and 
 - Maximum likelihood turns a product of target probabilities into a minimizable loss through logs and negation.
 - Multiclass models compute one logit per class and use softmax; for a one-hot label, cross-entropy is the negative log target-class probability.
 - Text becomes tensors through tokenization and one-hot representation; code can use indices directly. Bag of words is fixed-dimensional but discards word order.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 3, the same term and lecture number this article follows. It matches item 3 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=Mbe5ICIUw5Q
+title: Stanford CS221 | Autumn 2025 | Lecture 3: Learning II
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 3: Learning II](https://www.youtube.com/watch?v=Mbe5ICIUw5Q)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 3) and confirmed it covers linear classification, 0-1 loss, logits and cross-entropy, and multiclass classification (with a short tokenization/vocabulary demo at the end), matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

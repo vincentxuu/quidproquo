@@ -1,5 +1,5 @@
 ---
-title: "CS224R L5：Off-Policy Actor-Critic——PPO 與 SAC 的共同骨架"
+title: "Off-Policy Actor-Critic——PPO 與 SAC 的共同骨架｜Stanford CS224R 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,26 +31,6 @@ glossary:
 用到的官方材料有兩份：當期投影片 [05_cs224r_offpolicy_actor_critic_2026.pdf](https://cs224r.stanford.edu/slides/05_cs224r_offpolicy_actor_critic_2026.pdf)（32 頁），以及課表上這一講的指定閱讀 [Mnih et al. 2013（DQN）](https://arxiv.org/abs/1312.5602)。PPO 原論文 [Schulman et al. 2017](https://arxiv.org/abs/1707.06347) 在課表上掛在前一講 L4 的閱讀清單，這講才正式展開。存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas。
 
 配套影片是 [Spring 2025 Lecture 5: Off-Policy Actor Critic](https://www.youtube.com/watch?v=cRGKc-nAWho)（約 69 分鐘），屬於**補充教材**：標題相同，但投影片已換成 2026 版，細節可能不一樣。以下內容以 2026 投影片為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=cRGKc-nAWho
-title: Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）](https://www.youtube.com/watch?v=cRGKc-nAWho)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L5 Off-Policy Actor Critic 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 replay buffer、importance weight 與 clip（PPO 的核心想法）、SAC，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：資料很貴，但每批只用一次
 
@@ -191,6 +171,26 @@ n 步 advantage 與 GAE：
 可以確認：2026 投影片的文字與公式、課表日期與閱讀清單、2025 影片的標題與長度。不能確認：2026 課堂上的口頭補充（錄影只在 Canvas），以及投影片第 25–28 頁影片示範的具體內容（PDF 只有截圖和出處）。第 14 頁的超參數是投影片上的範例，不是 HW2 的設定；HW2 的實際設定見作業那篇。
 
 系列導覽：上一篇 [L4 Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)｜下一篇 [L6 Q-learning 與它的穩定化](/posts/ai/2026-09-30-cs224r-q-learning)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=cRGKc-nAWho
+title: Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 5: Off-Policy Actor Critic（YouTube，補充）](https://www.youtube.com/watch?v=cRGKc-nAWho)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L5 Off-Policy Actor Critic 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 replay buffer、importance weight 與 clip（PPO 的核心想法）、SAC，與本文主題相符。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [CS224R Spring 2025 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

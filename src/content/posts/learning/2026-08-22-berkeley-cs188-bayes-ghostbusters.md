@@ -1,5 +1,5 @@
 ---
-title: "CS188 Bayes Nets 與 Ghostbusters：看不見 Ghost 時怎麼推論"
+title: "看不見 Ghost 時怎麼推論｜Berkeley CS188 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, bayesian-network, probabilistic-inference, particle-filter]
@@ -19,6 +19,32 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [Lecture 13–18](https://inst.eecs.berkeley.edu/~cs188/sp26/)從 probability、Bayes nets、exact inference、sampling 一路進到 HMM 與 particle filtering。[Project 4 Ghostbusters](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)把這些概念放進一個具體任務：Pacman 看不見 ghost，只拿得到帶雜訊的 Manhattan distance，要維護位置的 belief distribution 並追上目標。
+
+## Factor 操作不是機械表格
+
+Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加總；variable elimination 的計算成本與中間 factor 大小會隨消去順序改變；在相同 query 與 evidence 下，正確的精確推論應得到相同結果。實作每一步都應先寫出「目前 factor 代表哪個條件分布」，再檢查 unconditioned／conditioned variables，而不是只對 dictionary key 做操作。
+
+## Observe 與 elapse time 是兩種更新
+
+收到 sensor reading 時，belief 依 likelihood 重新加權並 normalize；時間前進而沒有直接觀察時，則用 ghost movement model 推進分布。兩者交替，就是 filtering 的核心。[官方 P4 規格](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)明載，若所有粒子權重變成零，particle filter 必須重新初始化，不能從空分布抽樣。
+
+官方畫面會以亮暗呈現 posterior。這不只是視覺效果：寫完每個 update 後，先問「新證據應讓哪些格子變亮」「移動模型應把質量往哪裡推」，再看 autograder。能預測圖形方向，比只看到 test passed 更能證明理解。
+
+## 自學順序
+
+先手算一個兩變數 factor 的 join／eliminate，再做 exact inference；確認 belief 更新與 normalize 正確後，才進 particle filtering。最後讓 greedy BustersAgent 依各 ghost 最可能位置行動，觀察「最可能」與完整不確定性之間的取捨。
+
+系列導航：[上一篇：MDP 與強化學習](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)｜[下一篇：決策與機器學習](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
+
+## 用兩個位置走完一次 belief 更新
+
+以下是本文自編的教學例子，不是官方作業答案。Ghost 只可能在 A 或 B，原先機率各為 `0.5`。收到感測值 z，假設 `P(z|A)=0.8`、`P(z|B)=0.2`。
+
+先把 prior 乘上 likelihood，得到 A 的未正規化權重 `0.5×0.8=0.4`、B 的 `0.5×0.2=0.1`。總和是 `0.5`，各除以總和後，posterior 是 A `0.8`、B `0.2`。這就是 observe：新證據改變位置的相對可信度。
+
+接著假設每個位置都有 `0.75` 的機率停在原地、`0.25` 移到另一位置。沒有新感測值時，下一步 A 的機率是 `0.8×0.75+0.2×0.25=0.65`，B 則是 `0.35`。這就是 elapse time：把現在的 belief 經過移動模型往前推。兩步都得到總和為一的分布，但使用的資訊不同。
+
+**自我檢查：** 如果感測值在 A、B 出現的機率都相同，observe 後會是多少？答案仍是 `0.5、0.5`：相同 likelihood 不偏向任何位置。若全部權重為零，就不能除以零；粒子版應依官方規格重新初始化。
 
 ## 課程影片來源
 
@@ -40,23 +66,9 @@ title: CS188 Spring 2026 Lecture 13: Probability
 
 內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 13，主題為機率論（probability）；開場先聊時事，接著說明本講講機率論的記號與定律、下一堂接 Bayes nets 的表示法，銜接本文 Lecture 13–18 範圍的起點。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
 
-## Factor 操作不是機械表格
-
-Join factors 把相容資訊合起來，eliminate 則對不再需要的變數加總；variable elimination 的結果與順序密切相關。實作每一步都應先寫出「目前 factor 代表哪個條件分布」，再檢查 unconditioned／conditioned variables，而不是只對 dictionary key 做操作。
-
-## Observe 與 elapse time 是兩種更新
-
-收到 sensor reading 時，belief 依 likelihood 重新加權並 normalize；時間前進而沒有直接觀察時，則用 ghost movement model 推進分布。兩者交替，就是 filtering 的核心。[官方 P4 規格](https://inst.eecs.berkeley.edu/~cs188/sp26/projects/proj4/)明載，若所有粒子權重變成零，particle filter 必須重新初始化，不能從空分布抽樣。
-
-官方畫面會以亮暗呈現 posterior。這不只是視覺效果：寫完每個 update 後，先問「新證據應讓哪些格子變亮」「移動模型應把質量往哪裡推」，再看 autograder。能預測圖形方向，比只看到 test passed 更能證明理解。
-
-## 自學順序
-
-先手算一個兩變數 factor 的 join／eliminate，再做 exact inference；確認 belief 更新與 normalize 正確後，才進 particle filtering。最後讓 greedy BustersAgent 依各 ghost 最可能位置行動，觀察「最可能」與完整不確定性之間的取捨。
-
-系列導航：[上一篇：MDP 與強化學習](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)｜[下一篇：決策與機器學習](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
-
 ## 更新紀錄
+
+- 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Spring 2026 課表與 YouTube 播放清單即時核對，嵌入的講課錄影在清單中，狀態改為已附影片。

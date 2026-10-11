@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L24–L26: Audio, Video Generation, and Interactive World Models — Taking Generative Models from Images to Sound, Time, and Worlds You Can Act In"
+title: "Audio, Video Generation, and Interactive World Models — Taking Generative Models from Images to Sound, Time, and Worlds You Can Act In | CMU 10-423 Lectures 24–26"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,17 +43,6 @@ glossary:
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [L24 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture24-audio.pdf) (38 pages) and [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture24-audio-ink.pdf) (38 pages), the [L25 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture25-video.pdf) (34 pages), and the [L26 world models slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture26-world-models.pdf) (40 pages). L26's other deck, "Science of Alignment," is covered in [part 20](/posts/ai/2026-09-30-cmu10423-risks-alignment-en). None of the three lectures lists readings on the schedule. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login and the audio and video demos survive only as links, so this post relies entirely on slide text and figure captions.
 
 All three lectures share one question: **how do the tokenizers, Transformers, and latent diffusion you learned on text and images extend to sound, to the time axis, and to worlds that respond to a user's actions?** The answer keeps the same shape. First find a good representation (a spectrogram, discrete tokens, a latent space), then apply a generative model you already know.
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## L24: understanding and synthesizing audio
 
@@ -244,6 +233,17 @@ Confirmed: schedule dates and titles, the text and figure captions of the three 
 Further reading: for the math of diffusion and flow matching, see [Reading MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); for the role of world models in reinforcement learning, see [CS234 guest lecture: World of World Modeling](/posts/ai/2026-09-30-cs234-guest-world-models-en).
 
 Series navigation: previous [L23: code generation and autonomous agents](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) | next [Wrap-up: practice exam, HW623, and the final project](/posts/ai/2026-09-30-cmu10423-exam-hw623-project-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

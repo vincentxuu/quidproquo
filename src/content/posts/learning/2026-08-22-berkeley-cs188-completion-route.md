@@ -1,5 +1,5 @@
 ---
-title: "CS188 結業路線：把 28 講與 P0–P5 變成作品集"
+title: "把 28 講與 P0–P5 變成作品集｜Berkeley CS188 Spring 2026 課程總覽"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs188, artificial-intelligence, portfolio, learning-path]
@@ -19,26 +19,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)最後三講分別處理 AI for Global Nuclear Monitoring、AI Safety 與 Further Thoughts。它們不是突然插入的新聞單元，而是在問：前面學到的 search、decision、uncertainty 與 learning，放進真實制度後還缺什麼？
-
-## 課程影片來源
-
-官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
-title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
-```
-
-原始影片：[CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
-- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 26，主題為AI 用於全球核試驗監測；字幕說明這是建立在 Bayesian networks 與機率程式（probabilistic programs）上的應用，並介紹禁止核試驗條約與如何查證遵約，與本文對 Lecture 26 的描述相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
 
 ## 校外結業的標準
 
@@ -61,6 +41,26 @@ title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
 完成後再選下一門課：偏數學型 ML 可接 CS189，偏深度 RL 可接 CS285，偏 NLP 可先補入門 NLP 再讀 CS288。CS188 的角色不是涵蓋所有 AI，而是提供一套可重複使用的問題表示語言。
 
 系列導航：[上一篇：決策與機器學習](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)｜[回到課程總覽](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview)
+
+## 課程影片來源
+
+官方 Spring 2026 課表與官方 YouTube 播放清單（[CS188 SP26] Live Lectures，28 支）已於 2026-10-10 即時核對，本文嵌入的講課錄影在清單中（課表標為 Recording）。此處不提供未核對的時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=H5AQ5s-n0ck
+title: CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring
+```
+
+原始影片：[CS188 Spring 2026 Lecture 26: AI for Global Nuclear Monitoring](https://www.youtube.com/watch?v=H5AQ5s-n0ck)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://inst.eecs.berkeley.edu/~cs188/sp26/)
+- [CS188 Spring 2026 Recordings](https://www.youtube.com/playlist?list=PLp8QV47qJEg5tSxKiwcZt4LVwN_ek2Kxy)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：抽樣核對（只讀字幕開頭約五千字元）：確認嵌入的是 Lecture 26，主題為AI 用於全球核試驗監測；字幕說明這是建立在 Bayesian networks 與機率程式（probabilistic programs）上的應用，並介紹禁止核試驗條約與如何查證遵約，與本文對 Lecture 26 的描述相符。本文其餘章節講的是同單元其他講次與 Project，不是這支影片的內容。
 
 ## 更新紀錄
 

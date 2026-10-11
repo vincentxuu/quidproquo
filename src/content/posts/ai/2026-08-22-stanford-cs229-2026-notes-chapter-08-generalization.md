@@ -1,5 +1,5 @@
 ---
-title: "泛化：偏差變異、雙降與樣本複雜度"
+title: "泛化：偏差變異、雙降與樣本複雜度｜Stanford CS229 第 8 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,27 +20,6 @@ draft: false
 這是 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf) 2026 版第 8 章（印刷頁 115–136）的逐章導讀。本文依 Tengyu Ma 與 Andrew Ng 編寫的官方主講義整理，**不是任何一學期錄影或課堂進度的重建**；目標是抓住推導主脊，不重製每一個證明。
 
 前七章回答「模型怎麼學」，第 8 章開始問更難的問題：訓練誤差很低，為什麼測試誤差仍可能很高？這個轉折把課程從演算法帶進泛化與學習理論。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=iVOxMcumR4A
-title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-原始影片：[Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=iVOxMcumR4A)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季由 Anand Avati 帶的 Friday discussion section（不是 Andrew Ng 的主課），字幕內容為 bias-variance、approximation／estimation error、ERM、一致收斂（union bound、Hoeffding）與 VC dimension，主題與本章相符；字幕沒有提到本章的雙降（double descent），該段僅依講義。
 
 ## 從偏差與變異拆開測試誤差
 
@@ -89,6 +68,27 @@ $$
 ## 自學練習
 
 產生同一個二次函數的多組含雜訊資料，各自擬合一次、二次與五次多項式。記錄每種模型的平均測試誤差，再畫出不同訓練集下的預測曲線。不要只看單次結果：曲線之間的平均偏移對應偏差，曲線彼此的散布才是變異。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=iVOxMcumR4A
+title: Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+原始影片：[Discussion Section: Learning Theory | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=iVOxMcumR4A)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是影片主題與本章的關係。這支是 2018 年秋季由 Anand Avati 帶的 Friday discussion section（不是 Andrew Ng 的主課），字幕內容為 bias-variance、approximation／estimation error、ERM、一致收斂（union bound、Hoeffding）與 VC dimension，主題與本章相符；字幕沒有提到本章的雙降（double descent），該段僅依講義。
 
 ## 更新紀錄
 

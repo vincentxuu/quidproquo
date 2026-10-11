@@ -1,5 +1,5 @@
 ---
-title: "CS224R Lecture 8: Where Rewards Come From, Learned from Examples and Preferences"
+title: "Where Rewards Come From, Learned from Examples and Preferences | Stanford CS224R Lecture 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -40,25 +40,6 @@ The slides give two learning goals:
 - methods for learning rewards from human supervision
 
 The plan has two parts. Part one is an offline RL recap and example, marked "Part of HW3." Part two is reward learning, where the preference subsection is marked "Part of default project" and "How LLMs are supervised!"
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=PDIxDhA9Z6Y
-title: Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L8 Reward Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript opens by finishing offline RL (including conservative methods such as CQL), then covers why task specification is hard, goal classifiers and exploitation, and learning rewards from human preferences, confirming the post's statement that the 2025 recording's opening review is about conservative methods and differs from 2026. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Wrapping up offline RL
 
@@ -214,6 +195,25 @@ Pick an agent or LLM feature you work on and write down what its "reward" is tod
 - [CS336: SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en): the post-training pipeline from the implementation side
 
 **Series navigation**: Previous: [Lecture 7: Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en) | Next: [HW3: AWAC, IQL, and Stitching on AntMaze](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=PDIxDhA9Z6Y
+title: Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 8: Reward Learning (YouTube, supplement)](https://www.youtube.com/watch?v=PDIxDhA9Z6Y)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L8 Reward Learning transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript opens by finishing offline RL (including conservative methods such as CQL), then covers why task specification is hard, goal classifiers and exploitation, and learning rewards from human preferences, confirming the post's statement that the 2025 recording's opening review is about conservative methods and differs from 2026. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

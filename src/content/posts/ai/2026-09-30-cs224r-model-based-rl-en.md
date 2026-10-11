@@ -1,5 +1,5 @@
 ---
-title: "CS224R L11: Model-Based RL, or Learn a Simulator and Don't Trust It Too Much"
+title: "Model-Based RL, or Learn a Simulator and Don't Trust It Too Much | Stanford CS224R Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,25 +37,6 @@ Official sources used:
 Access level is **A3**: the slides download anonymously, and the 2026 recordings live only on Canvas.
 
 Companion video (**supplementary**): [Spring 2025 Lecture 11: Model-Based RL](https://www.youtube.com/watch?v=PvqyGnOirgA) (about 73 minutes). The two years split the material differently. [The 2025 L11 slides](https://cs224r.stanford.edu/spring_2025/slides/11_cs224r_mbrl_2025.pdf) cover planning first, then data generation, and end with a dexterous-manipulation case study. [The 2025 L12 slides](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf) open by continuing with synthetic data generation and when to use model-based RL. I read the transcripts: the L11 recording ends with the dexterous-hand case study and then announces that the last part of model-based RL and multi-task RL come next time, so synthetic data generation (the MBPO part) is not in this video but at the start of the L12 recording. This post follows the 2026 slides.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=PvqyGnOirgA
-title: Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)
-```
-
-Original videos: [Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)](https://www.youtube.com/watch?v=PvqyGnOirgA)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L11 Model-Based RL transcript and searched keywords (not a word-by-word comparison). The video is L11 and the speaker is Chelsea Finn. It runs through an algorithm recap, learning a dynamics model, gradient-based and sampling-based planning and replanning, and ends with a dexterous robot-hand case study (using an ensemble, about 4 hours of data for 90-degree turns), then announces that the last part of model-based RL and multi-task RL come next time. So synthetic data generation (the MBPO part) is indeed not in this video; it is at the start of the L12 recording. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: ten lectures, and nobody learned the environment
 
@@ -234,6 +215,25 @@ The next lecture moves from learning the environment to learning many tasks at o
 Confirmed: the text, algorithm steps and captions of the 2026 slides, the schedule date and assigned reading, how the 2025 slides split the lectures, and the title and length of the 2025 L11 video. Not confirmed: the detailed conclusion of the MBPO figure on page 16 (the slide shows only the figure), the in-class answer to "how does this compare to PPO and SAC" on page 18, and anything said aloud in the 2026 lecture.
 
 Series navigation: previous [Default Project: RL fine-tuning for LLMs](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en) | next [L12 Multi-Task and Goal-Conditioned RL](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=PvqyGnOirgA
+title: Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 11: Model-Based RL (YouTube, supplementary)](https://www.youtube.com/watch?v=PvqyGnOirgA)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L11 Model-Based RL transcript and searched keywords (not a word-by-word comparison). The video is L11 and the speaker is Chelsea Finn. It runs through an algorithm recap, learning a dynamics model, gradient-based and sampling-based planning and replanning, and ends with a dexterous robot-hand case study (using an ensemble, about 4 hours of data for 90-degree turns), then announces that the last part of model-based RL and multi-task RL come next time. So synthetic data generation (the MBPO part) is indeed not in this video; it is at the start of the L12 recording. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

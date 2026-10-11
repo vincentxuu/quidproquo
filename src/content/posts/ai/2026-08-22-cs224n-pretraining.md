@@ -1,5 +1,5 @@
 ---
-title: "CS224N 第 7 講：預訓練、subword 與 in-context learning"
+title: "預訓練、subword 與 in-context learning｜Stanford CS224N 第 7 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 [CS224N Winter 2026 官方課表](https://web.stanford.edu/class/cs224n/)把第 7 講排在 2026 年 1 月 27 日，但未列講者；本文因此只歸因於 course staff。[官方投影片](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture07-pretraining.pdf)題為 **Pretraining (Scaling, Systems, Data)**。agenda 有六段：動機、subword、從詞向量走到模型預訓練、三種架構、預訓練學到什麼，以及大型模型與 in-context learning。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 2023 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
-
-```youtube
-url: https://www.youtube.com/watch?v=DGfCRXuNA2w
-title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
-```
-
-原始影片：[Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining](https://www.youtube.com/watch?v=DGfCRXuNA2w)
-
-課程與錄影入口：
-
-- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：核對的是 2023 年 Lecture 9（約 79 分鐘，2023 年 9 月上傳）與本文（以 Winter 2026 投影片〈Pretraining (Scaling, Systems, Data)〉為準）的主題關係，不是 2026 課堂錄影，也不是 2024 年版。字幕涵蓋 subword 與 BPE 類的詞彙設計、pre-training／fine-tuning 範式、decoder、encoder（BERT 的 masked language modeling）與 encoder-decoder（span corruption／T5）三種預訓練方式、parameter-efficient fine-tuning，結尾講 GPT-3 的 in-context learning、chain-of-thought 與 Chinchilla 一句話帶過規模問題，主題與本文前半相符。2023 版沒有 Winter 2026 版的 systems 與 data 兩個主軸（字幕沒有 GPU、資料過濾或去重的討論，scaling 只有結尾的 Chinchilla 提及），本文那幾節只依 Winter 2026 投影片，不是影片內容。
 
 ## 為什麼預訓練能擴張
 
@@ -132,6 +112,26 @@ Context 中例子越多不一定越好。長 prompt 會增加成本，relevant e
 ## 材料缺口與編號註記
 
 Winter 2026 錄影不公開。投影片封面保留「Lecture 6: Pretraining」舊標籤，但官方課表、日期、檔名與前後序列都確認它是本學期 regular Lecture 7。本文依課表編號，不推測舊標籤來源。
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 2023 同主題錄影為補充教材，不是 Winter 2026 課堂錄影（Winter 2026 錄影在 Canvas，需登入；官方說明不對非修課者開放）。
+
+```youtube
+url: https://www.youtube.com/watch?v=DGfCRXuNA2w
+title: Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining
+```
+
+原始影片：[Stanford CS224N NLP with Deep Learning | 2023 | Lecture 9 - Pretraining](https://www.youtube.com/watch?v=DGfCRXuNA2w)
+
+課程與錄影入口：
+
+- [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：核對的是 2023 年 Lecture 9（約 79 分鐘，2023 年 9 月上傳）與本文（以 Winter 2026 投影片〈Pretraining (Scaling, Systems, Data)〉為準）的主題關係，不是 2026 課堂錄影，也不是 2024 年版。字幕涵蓋 subword 與 BPE 類的詞彙設計、pre-training／fine-tuning 範式、decoder、encoder（BERT 的 masked language modeling）與 encoder-decoder（span corruption／T5）三種預訓練方式、parameter-efficient fine-tuning，結尾講 GPT-3 的 in-context learning、chain-of-thought 與 Chinchilla 一句話帶過規模問題，主題與本文前半相符。2023 版沒有 Winter 2026 版的 systems 與 data 兩個主軸（字幕沒有 GPU、資料過濾或去重的討論，scaling 只有結尾的 Chinchilla 提及），本文那幾節只依 Winter 2026 投影片，不是影片內容。
 
 ## 更新紀錄
 

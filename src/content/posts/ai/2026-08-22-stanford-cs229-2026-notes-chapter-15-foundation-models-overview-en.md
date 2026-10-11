@@ -1,5 +1,5 @@
 ---
-title: "Foundation Models Overview: Linear Probes, Fine-Tuning, and LoRA"
+title: "Foundation Models Overview: Linear Probes, Fine-Tuning, and LoRA | Stanford CS229 Chapter 15"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,18 +18,6 @@ series:
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 This article reads Chapter 15, printed pages 191–195, of the [2026 CS229 main notes](https://cs229.stanford.edu/main_notes.pdf). It is a chapter guide to the current public notes, not a reconstruction of any quarter's recordings or lecture schedule. The goal is to explain the derivational spine and practical choices, not reproduce every proof.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. Both public playlists were checked live (Spring 2026: 17 videos; Autumn 2018: 21 videos), and no single lecture could be matched to this chapter's topic, so nothing is embedded. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
 
 ## Why pretrain first and adapt later
 
@@ -79,6 +67,18 @@ Chapter 14 showed how a diffusion model can be trained as a generative model. Th
 ## Exercise
 
 For a \(4096\times4096\) weight matrix and LoRA rank \(r=16\), calculate the trainable parameter counts and ratio for full fine-tuning versus LoRA. Then explain why that ratio is not also the reduction in inference memory or computation.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. Both public playlists were checked live (Spring 2026: 17 videos; Autumn 2018: 21 videos), and no single lecture could be matched to this chapter's topic, so nothing is embedded. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

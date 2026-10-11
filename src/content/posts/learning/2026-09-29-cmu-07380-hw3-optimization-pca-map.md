@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 HW3 導讀：Optimization，自己寫 LP 求解器和 branch and bound，書面串起 PCA 與 MAP"
+title: "Optimization，自己寫 LP 求解器和 branch and bound，書面串起 PCA 與 MAP｜CMU 07-380 作業 3"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, optimization, linear-programming, pca, homework]
@@ -21,30 +21,6 @@ draft: false
 [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/) 的 HW3 把課程第二段「優化」收尾：[Lecture 5 LP](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming)、[Lecture 6 整數規劃](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)、[Lecture 7 PCA](/posts/learning/2026-09-29-cmu-07380-lecture-07-pca-low-rank)，再加上剛開始的[Lecture 8 MAP](/posts/learning/2026-09-29-cmu-07380-lecture-08-map)。依課站 2026-09-29 的 Assignments 表，截止時間是 **10/1（週四）晚上 11:59**。
 
 作業還沒到期，而且課程的 AI Tools and Collaboration Policy 禁止查看、分享任何要繳交的產出（程式、虛擬碼、圖、文字）。所以這篇只做三件事：講清楚每題在考什麼、要回頭看哪份材料、哪裡容易踩坑。**不附任何答案**，修課學生請不要把這篇當成解答來源。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-課站的 HW3 列有三個部分：
-
-| 部分 | 內容 | 我能不能讀 |
-|---|---|---|
-| Online | [Gradescope](https://www.gradescope.com/courses/1340181) 線上題 | 不能，只限校內 |
-| Written | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) 加上 [hw3_tex.zip](https://www.cs.cmu.edu/~07380/assignments/hw3.zip)（LaTeX 範本） | 能，已讀全文 |
-| Programming | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/)，附 `optimization.zip` 與本機 autograder | 能，已讀頁面、確認 zip 可下載 |
-
-`hw3.zip` 裡是 `hw3.tex` 和四題各自的 `.tex`（`q1_ip`、`q2_ethics`、`q3_pca`、`q4_map`），加上一份合作聲明 `q_collaboration.tex` 和兩張 PCA 題用的圖。線上題的內容我看不到，下面不談。
-
-以本站 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)來看，書面和程式兩部分都公開、還有本機 autograder，校外讀者可以完整練習（A3 等級）；但沒有官方解答，也拿不到 Gradescope 的評分回饋。
 
 ## 程式作業：從頂點枚舉到 branch and bound
 
@@ -150,6 +126,30 @@ python3 autograder.py -q q1 --no-graphics
 1. 下載 [optimization.zip](https://www.cs.cmu.edu/~07380/assignments/optimization/optimization.zip)，先只寫 Q1 的 2 維版本，用 `-t test_cases/q1/test2D_1` 讓第一個測資變綠。
 2. 讀課程筆記的 branch and bound 範例，照著畫一次搜尋樹，再動手寫 Q5。
 3. 書面第 4 題動筆前，先把高斯先驗等價 L2 的推導自己寫一遍，確認你能把 −log 後驗拆成「損失 + 懲罰」兩項。
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+課站的 HW3 列有三個部分：
+
+| 部分 | 內容 | 我能不能讀 |
+|---|---|---|
+| Online | [Gradescope](https://www.gradescope.com/courses/1340181) 線上題 | 不能，只限校內 |
+| Written | [hw3.pdf](https://www.cs.cmu.edu/~07380/assignments/hw3_blank.pdf) 加上 [hw3_tex.zip](https://www.cs.cmu.edu/~07380/assignments/hw3.zip)（LaTeX 範本） | 能，已讀全文 |
+| Programming | [Linear and Integer Programming](https://www.cs.cmu.edu/~07380/assignments/optimization/)，附 `optimization.zip` 與本機 autograder | 能，已讀頁面、確認 zip 可下載 |
+
+`hw3.zip` 裡是 `hw3.tex` 和四題各自的 `.tex`（`q1_ip`、`q2_ethics`、`q3_pca`、`q4_map`），加上一份合作聲明 `q_collaboration.tex` 和兩張 PCA 題用的圖。線上題的內容我看不到，下面不談。
+
+以本站 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)來看，書面和程式兩部分都公開、還有本機 autograder，校外讀者可以完整練習（A3 等級）；但沒有官方解答，也拿不到 Gradescope 的評分回饋。
 
 ## 更新紀錄
 

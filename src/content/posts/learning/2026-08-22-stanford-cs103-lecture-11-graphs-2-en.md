@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 10: Walks, Graph Complements, and the Pigeonhole Principle"
+title: "Walks, Graph Complements, and the Pigeonhole Principle | Stanford CS103 Lecture 10"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 12 in the [Stanford CS103 Guide](/series/stanford-cs103), corresponding to **Spring 2026 Lecture 10 (April 22, 2026)**. Its official title is **Graph Theory, Part Two**, and its agenda moves through walks, paths, and reachability; graph complements; and the pigeonhole principle. The public page names Cynthia Bailey Lee and Alex Aiken as the course team but does not identify a speaker for each meeting, so this guide does not guess one.
 
 The preceding lecture defined a graph as `G = (V, E)`, where `V` is a node set and each member of `E` is an unordered pair of distinct nodes. This lecture asks dynamic questions: what counts as moving through a graph, when can one node reach another, what happens when all nonedges become edges, and how can “more objects than places” force a mathematical structure?
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)
 
 ## Adjacency is the basis of every movement definition
 
@@ -145,6 +137,14 @@ The [official lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs10
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt the bilingual article item by item from the complete official deck, covering walks, reachability, graph complements, the pigeonhole principle, and Ramsey theory.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/10/)
 
 ## References
 

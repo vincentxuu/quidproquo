@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI L01：為什麼要研究生成式 AI，課程介紹與 Colab"
+title: "為什麼要研究生成式 AI，課程介紹與 Colab｜政大蔡炎龍 生成式AI 第 1 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,18 +31,6 @@ glossary:
 > **版本說明**：本文依據政大 1132 學期（2025-02-18）第 1 講的[直播錄影](https://www.youtube.com/watch?v=4BRBxy0EMT8)（2 小時 52 分）與 [GenAI01 投影片](https://yenlung.me/1132GenAI)（121 頁）。作業題目與評分標準出自[長庚衛星班頁面](https://yangchihyuan.github.io/courses/GenerativeAI2025)，是長庚版本。事實皆於 2026-09-30 打開官方材料核對。
 
 第一講的標題是「為什麼要研究生成式 AI？」。它有三件事：說明這門課怎麼上、回答為什麼要花時間學原理、讓每個人在 Colab 上跑出第一張圖。對程式基礎不多的讀者，第三件事最重要，因為接下來 13 講的作業全部在 Colab 上完成。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-原始影片：[【生成式 AI】01. 為什麼要研究生成式 AI？（課程介紹）](https://www.youtube.com/watch?v=4BRBxy0EMT8)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 這一講在課程中的位置
 
@@ -214,6 +202,18 @@ interact(draw, n=(1., 10.))
 - 課程歸屬、評分版本與完整作業表：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
 - 另一門也用 Colab 從零開始的台灣課程：[台大李宏毅 機器學習 2026 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 - 各校課程公開程度的比較：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+原始影片：[【生成式 AI】01. 為什麼要研究生成式 AI？（課程介紹）](https://www.youtube.com/watch?v=4BRBxy0EMT8)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

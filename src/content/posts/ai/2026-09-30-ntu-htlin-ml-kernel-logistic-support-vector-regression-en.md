@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Techniques T5–T6: Kernel Logistic Regression and Support Vector Regression — the SVM Is a Regularized Model"
+title: "Kernel Logistic Regression and Support Vector Regression — the SVM Is a Regularized Model | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Lectures 5–6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,28 +32,6 @@ glossary:
 This is part 11 of [Reading NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en). It covers Lecture 5, Kernel Logistic Regression, and Lecture 6, Support Vector Regression, of [Machine Learning Techniques](https://www.csie.ntu.edu.tw/~htlin/mooc/). Together they close the first part of Techniques, "Embedding Numerous Features: Kernel Models".
 
 **Sources**: the MOOC slides [205_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/205_handout.pdf) and [206_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/206_handout.pdf), videos 18–25 of the [Techniques YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2), the [Fall 2024 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) and its [205u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/205u_handout.pdf), the [Fall 2026 course page](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/), and [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf), all opened and checked on 2026-09-30.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Bc8bg5ZkRdk
-title: Soft-Margin SVM as Regularized Model
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=5K44AgZvcDk
-title: SVM versus Logistic Regression
-```
-
-Original videos: [Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-Checked: 2026-10-10.
 
 ## First: these two lectures are barely taught in the NTU classroom
 
@@ -249,6 +227,28 @@ For the other HW6 problems, see the table in the [previous post](/posts/ai/2026-
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): the English course on the same textbook.
 
 Series navigation: previous, [Kernel trick and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | next, [Blending, bagging, and AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against Hsuan-Tien Lin's official MOOC page and its two official free YouTube playlists (lectures and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc8bg5ZkRdk
+title: Soft-Margin SVM as Regularized Model
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=5K44AgZvcDk
+title: SVM versus Logistic Regression
+```
+
+Original videos: [Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

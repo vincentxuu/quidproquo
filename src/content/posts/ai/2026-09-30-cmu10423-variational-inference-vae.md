@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L8–L9：變分推論、VAE 與擴散模型的 ELBO"
+title: "變分推論、VAE 與擴散模型的 ELBO｜CMU 10-423 第 8–9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,17 +33,6 @@ glossary:
 這是整個系列數學最陡的一篇。先給一句直覺：**VAE 和擴散模型都在最大化同一種下界。** 兩者都有潛變數，都算不出 log p_θ(x)，也都改去推高一個算得出來、而且保證比 log p_θ(x) 小的量——ELBO。L7 說「讓學到的反向一步貼近 q(x_{t−1} | x_t, x₀)」，理由就在這裡。
 
 如果機率與高斯的基礎還不熟，可以先讀 [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)的前置知識段落，再回來。所有推導都收在可展開的區塊裡，第一次讀可以先跳過。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## L8 前半：把擴散模型收尾
 
@@ -211,6 +200,17 @@ L_simple = E_{t, x_0, ε}[ ‖ε − ε_θ(√ᾱ_t x_0 + √(1 − ᾱ_t) ε, t
 - [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)與 [Lab 3：DiT、VAE 與 latent diffusion](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion)——擴散與 VAE 的另一套數學語言
 - [CMU 11-785 導讀：變分自編碼器](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders)
 - [Stanford CS231n 導讀：生成模型（VAE 與 GAN）](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

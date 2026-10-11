@@ -1,5 +1,5 @@
 ---
-title: "CS224R HW1：Flappy Bird 上的回歸式 BC、Flow Matching 與 DAgger"
+title: "Flappy Bird 上的回歸式 BC、Flow Matching 與 DAgger｜Stanford CS224R 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,16 +31,6 @@ glossary:
 這是 [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)系列第 3 篇，接在 [L2 模仿學習](/posts/ai/2026-09-30-cs224r-imitation-learning)後面。L2 講了三件事：為什麼 policy 要能表達多峰分佈、action chunking、以及用 DAgger 做線上介入。HW1 就是把這三件事放進同一個小遊戲裡，讓你親手看到它們各自解決什麼問題。
 
 課程首頁的時間表寫著：HW1 在 4 月 3 日（週五）L2 當天發出，4 月 10 日晚上 9 點（太平洋時間）截止，占總成績 10%。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## 公開到什麼程度
 
@@ -206,6 +196,16 @@ Problem 2 和 Problem 3 是兩種不同的解法：一個讓模型能表達多�
 - [CME295 Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms)：diffusion 系方法用在語言模型
 
 **系列導覽**：上一篇 [L2：模仿學習](/posts/ai/2026-09-30-cs224r-imitation-learning)｜下一篇 [L3：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

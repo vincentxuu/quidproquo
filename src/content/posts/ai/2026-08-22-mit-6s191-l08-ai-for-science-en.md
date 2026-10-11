@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 8: AI for Science: Putting Domain Structure into Learning"
+title: "AI for Science: Putting Domain Structure into Learning | MIT 6.S191 Lecture 8"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 8 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **AI for Science: Putting Domain Structure into Learning**. It Uses the scientific-discovery loop to show how simulators, AI emulators, and experiments cooperate instead of reducing science to generic prediction. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=rZACoZD8AG8
-title: MIT 6.S191: AI for Science
-```
-
-Original videos: [MIT 6.S191: AI for Science](https://www.youtube.com/watch?v=rZACoZD8AG8)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Chris Bishop of Microsoft Research AI for Science. The transcript follows the scientific method (hypotheses tested against experiment), introduces simulation as a path enabled by digital computers, then using simulator data to train an AI emulator as a third path, and discusses invariance, equivariance and conservation laws as model constraints, matching this note. The video says "emulator" and never "surrogate".
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Draw the data flow among hypothesis, experiment, simulator, and AI emulator for 
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=rZACoZD8AG8
+title: MIT 6.S191: AI for Science
+```
+
+Original videos: [MIT 6.S191: AI for Science](https://www.youtube.com/watch?v=rZACoZD8AG8)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Chris Bishop of Microsoft Research AI for Science. The transcript follows the scientific method (hypotheses tested against experiment), introduces simulation as a path enabled by digital computers, then using simulator data to train an AI emulator as a third path, and discusses invariance, equivariance and conservation laws as model constraints, matching this note. The video says "emulator" and never "surrogate".
 
 ## Update Log
 

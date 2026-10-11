@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW2：從資訊量手算到完整 Decision Tree"
+title: "從資訊量手算到完整 Decision Tree｜CMU 10-301 作業 2"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, decision-tree, information-theory]
@@ -27,6 +27,18 @@ python inspection.py small_train.tsv small_inspect.txt
 ```
 
 完成判準是 `small_inspect.txt` 與公開 reference 一致，且 depth-3 tree 的 train/test labels、metrics 與文字樹可重現；再用完美可分、全同特徵與同分 feature 三組自造資料驗證停止與 tie-breaking。Gradescope 仍會使用未公開資料。
+
+## 手算一次完全切分
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編四筆標籤為 0、0、1、1，兩類各半，entropy 是 -0.5 log₂0.5-0.5 log₂0.5=1 bit。假設某 feature 把兩個 0 分到左邊、兩個 1 分到右邊，兩個子節點都純，entropy 為零，資訊增益就是 1-0=1 bit。
+
+**檢查與答案：** 若左右各含一個 0 和一個 1，資訊增益是多少？答案零：加權子節點 entropy 仍為 1 bit。相同增益的 tie-breaking 另依 handout。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW2 public bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw2.zip)

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L2: How Tool Use Turns Tokens into Actions — Schemas, Constrained Decoding, MCP, and Parallel Calls"
+title: "How Tool Use Turns Tokens into Actions — Schemas, Constrained Decoding, MCP, and Parallel Calls | CMU 11-768 Lecture 2"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -33,25 +33,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) is a Fall 2026 graduate course from Carnegie Mellon's Language Technologies Institute (LTI), taught by Daniel Fried and Graham Neubig. It runs from tools, context, memory, and planning through training, safety, and interaction. Lecture 2 (Aug 27; [slides](https://www.cmu-agents.com/slides/lecture-02-tool-use.pdf), [recording](https://www.youtube.com/watch?v=jXChFB4JSyw)) is Neubig on Tool Use. He opens with a definition: calling tools is the most fundamental thing that separates an agent from a language model.
 
 This lecture is not "how to add a `tools` parameter to your API call." It cuts tool calling open from top to bottom: why models need tools, what a tool call looks like at the token level, how the harness parses and dispatches it, how to guarantee well-formed output, how REST and MCP differ, how to run calls in parallel, and how to evaluate the whole thing. These are exactly the pieces [Assignment 1 (Harness)](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en) makes you write by hand. This guide follows the lecture order and flags where each section shows up in A1.
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 2, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=jXChFB4JSyw
-title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
-```
-
-Original videos: [CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 57 min) and checked the Neubig statements the article relays (two kinds of tool benefit, RAG is not dead, CodeAct and its costs, per-model tool-call formats and the special-token Q&A, call IDs and Anthropic errors, XGrammar and the out-of-tokens exception, MCP as a credential layer, parallel calls and RL, BFCL, OpenRouter provider error rates and FP8 vs FP4); all supported. Slide-only figures (the 6.4 s example, 15.1%, etc.) are not spoken in the video and remain slide-sourced.
 
 ## What a tool is, and when it's worth calling
 
@@ -235,6 +216,25 @@ The schedule lists four:
 - [MCP (Model Context Protocol): The Standardized Protocol for AI Agent Tool Invocation](/posts/ai/2026-03-22-mcp-model-context-protocol-en)
 - [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en): complements this lecture's REST vs MCP section
 - [Code Mode: Moving Tool Definitions from Context into Code](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en): the CodeAct idea implemented on top of MCP
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 2, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=jXChFB4JSyw
+title: CMU AI Agents 2026: 2. Tool Use for Language Model Agents
+```
+
+Original videos: [CMU AI Agents 2026: 2. Tool Use for Language Model Agents](https://www.youtube.com/watch?v=jXChFB4JSyw)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 57 min) and checked the Neubig statements the article relays (two kinds of tool benefit, RAG is not dead, CodeAct and its costs, per-model tool-call formats and the special-token Q&A, call IDs and Anthropic errors, XGrammar and the out-of-tokens exception, MCP as a credential layer, parallel calls and RL, BFCL, OpenRouter provider error rates and FP8 vs FP4); all supported. Slide-only figures (the 6.4 s example, 15.1%, etc.) are not spoken in the video and remain slide-sourced.
 
 ## Update Log
 

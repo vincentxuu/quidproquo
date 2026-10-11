@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀 17：價值對齊——對齊誰、對齊什麼"
+title: "價值對齊——對齊誰、對齊什麼｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -52,30 +52,6 @@ glossary:
 - 課表 Week 10 標著「Alignment, Impacts」，但講義頁上 L15、L16 的 PDF 在 2026-09-30 查核時都是 404，所以本文只能依據上面兩份客座投影片
 - 投影片有好幾頁是圖片或討論題，沒有講者的答案；本文照實寫出題目，不替講者補結論
 - 2024 公開播放清單裡真正對應的是[影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)：依字幕，開頭先是 DPO／RLHF 小測回顧與 AlphaZero 收尾（約前 15 分鐘），[約第 15 分起](https://www.youtube.com/watch?v=FOlPpjNbHjE)是 Dan Webber 的 value alignment，主題依序是 misalignment、定義 AI 目標、對齊偏好（約第 28 分）、對齊最佳利益（約第 36 分）、LLM 個人化研究（約第 41 分）、社會與道德對齊（約第 59 分），跟 2026 投影片的主軸大致相同；字幕裡沒有出現 sycophancy 這個詞，agentic AI 本站沒有逐段確認。標題叫〈Value Alignment〉的[影片 16](https://www.youtube.com/watch?v=eenJzay5aLo)字幕實際是小考檢討、課程回顧與 RL 應用案例，不是本篇的內容
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=FOlPpjNbHjE
-title: Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eenJzay5aLo
-title: 影片 16〈Value Alignment〉
-```
-
-原始影片：[Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[影片 16〈Value Alignment〉](https://www.youtube.com/watch?v=eenJzay5aLo)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Lecture 15（約 74 分鐘，Emma Brunskill 與 Dan Webber）一開始是 DPO／RLHF 小測回顧與 AlphaZero 收尾，約 22% 之後 Dan Webber 講 value alignment（paperclip、意圖、偏好、最佳利益、道德與倫理），與本文主題大致相同，字幕裡沒有 sycophancy 這個詞；Lecture 16（約 70 分鐘）是最後一講，內容為課程回顧、小考討論與 RL 應用，不是 value alignment。已把 mm:ss 時間碼改成「約」值並移除 &t= 連結、「YouTube 章節」改為「字幕」，並更正「sycophancy 章節看不出來」的說法。
 
 ## 為什麼 RL 課要談這個
 
@@ -201,6 +177,30 @@ bottom-up 的延伸是 participatory AI，把「向人學習」擴大成：
 - 以對齊為主軸的整門課：[Harvard CS2881R 導讀：第一門 AI 安全研究所課](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 另一門入門課怎麼講 AI 對齊：[CMU 07-280 第 13 講：AI 對齊](/posts/ai/2026-08-22-cmu-07280-lecture-13-ai-alignment)
 - RLHF 在 LLM 後訓練裡的位置：[CS224N 第 8 講：從 instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=FOlPpjNbHjE
+title: Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eenJzay5aLo
+title: 影片 16〈Value Alignment〉
+```
+
+原始影片：[Stanford CS234 Spring 2024 影片 15〈Emma Brunskill & Dan Webber〉](https://www.youtube.com/watch?v=FOlPpjNbHjE)、[影片 16〈Value Alignment〉](https://www.youtube.com/watch?v=eenJzay5aLo)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Lecture 15（約 74 分鐘，Emma Brunskill 與 Dan Webber）一開始是 DPO／RLHF 小測回顧與 AlphaZero 收尾，約 22% 之後 Dan Webber 講 value alignment（paperclip、意圖、偏好、最佳利益、道德與倫理），與本文主題大致相同，字幕裡沒有 sycophancy 這個詞；Lecture 16（約 70 分鐘）是最後一講，內容為課程回顧、小考討論與 RL 應用，不是 value alignment。已把 mm:ss 時間碼改成「約」值並移除 &t= 連結、「YouTube 章節」改為「字幕」，並更正「sycophancy 章節看不出來」的說法。
 
 ## 更新紀錄
 

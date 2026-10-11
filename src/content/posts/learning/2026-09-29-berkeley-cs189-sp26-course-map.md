@@ -1,5 +1,5 @@
 ---
-title: "CS189 有三個版本：Spring 2026 底本、Spring 2025 經典版、Fall 2026 進行中"
+title: "Spring 2026 底本、Spring 2025 經典版、Fall 2026 進行中｜Berkeley CS189 課程地圖"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, learning-path]
@@ -21,18 +21,6 @@ draft: false
 [Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) 是 Berkeley 的機器學習入門課。問題在於，網路上搜得到的 CS189 不只一個：Shewchuk 教的 Spring 2025、Norouzi 與 Gonzalez 教的 Fall 2025 和 Fall 2026、Listgarten 與 Dimakis 教的 Spring 2026。四個學期的課序、課本、作業都不一樣。本系列的 [order 1 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)寫於 Spring 2026 課站重新上線之前；這篇重新盤點版本，決定後面的講次與作業導讀要以哪一個學期為準。
 
 結論先講：**從本篇開始，講次與作業導讀一律以 [CS189 Spring 2026](https://eecs189.org/sp26/)（Jennifer Listgarten／Alex Dimakis）為底本。** 它是目前唯一同時公開講課影片、講義、附解答的 discussion，而且作業完整公開到 notebook 的版本。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：Spring 2026 官方 YouTube 播放清單（25 支講課）可公開觀看；Spring 2025 的正式講課錄影放在 bCourses，開啟後導向 CalNet 登入頁，公開的只有 Google Drive 上的 screen-only 備份錄影；Fall 2026 不在這次查核範圍。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
-
-查核日期：2026-10-10。
 
 ## 四個版本並排看
 
@@ -144,6 +132,18 @@ Spring 2025 的講課 notes 和整本 `machlearn.pdf` 都能匿名下載，作�
 - [Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)：CS189 在 Berkeley 課程地圖上的位置
 - [Stanford CS109 機率導讀](/posts/learning/2026-08-21-stanford-cs109-probability)：先修機率不熟時的補課路線
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)：另一門數學型 ML 入門課，可以對照
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次。2026-10-10 即時核對：Spring 2026 官方 YouTube 播放清單（25 支講課）可公開觀看；Spring 2025 的正式講課錄影放在 bCourses，開啟後導向 CalNet 登入頁，公開的只有 Google Drive 上的 screen-only 備份錄影；Fall 2026 不在這次查核範圍。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

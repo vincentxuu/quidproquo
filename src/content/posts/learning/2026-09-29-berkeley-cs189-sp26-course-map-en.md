@@ -1,5 +1,5 @@
 ---
-title: "Three Versions of CS189: Spring 2026 as the Base, Spring 2025 as the Classic, Fall 2026 in Progress"
+title: "Three Versions of CS189: Spring 2026 as the Base, Spring 2025 as the Classic, Fall 2026 in Progress | Berkeley CS189 Course Map"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, learning-path]
@@ -21,18 +21,6 @@ draft: false
 [Berkeley CS189/289A Introduction to Machine Learning](https://eecs189.org/sp26/) is Berkeley's intro machine learning course. The catch is that a search turns up more than one CS189. Shewchuk taught Spring 2025. Norouzi and Gonzalez taught Fall 2025 and are teaching Fall 2026. Listgarten and Dimakis taught Spring 2026. The four semesters differ in lecture order, textbook and homework. The [order 1 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en) in this series was written before the Spring 2026 site came back online. This post takes stock of the versions again and decides which semester the lecture and homework guides will follow.
 
 The short answer: **from this post on, every lecture and homework guide follows [CS189 Spring 2026](https://eecs189.org/sp26/) (Jennifer Listgarten / Alex Dimakis).** It is the only version that currently publishes lecture videos, slides and discussions with solutions, plus homework all the way down to the notebooks.
-
-## Course video sources
-
-This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
-
-Checked: 2026-10-10.
 
 ## The four versions side by side
 
@@ -144,6 +132,18 @@ The series follows the official Spring 2026 order, with each homework guide plac
 - [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en): where CS189 sits among Berkeley's courses
 - [Stanford CS109 probability guide](/posts/learning/2026-08-21-stanford-cs109-probability-en): a route for catching up on probability
 - [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en): another math-heavy intro ML course to compare against
+
+## Course video sources
+
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

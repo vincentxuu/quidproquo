@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 3：Agent Skills 是一個資料夾，難的是那兩行 description"
+title: "Agent Skills 是一個資料夾，難的是那兩行 description｜Stanford CS146S 第 3 週"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ draft: false
 課程主題三條：skills 是什麼、SKILL.md 加腳本怎麼把一套工作流編碼起來、web skills 與把 agent 能力延伸到 repo 之外，再加上「working effectively from the CLI」。客座是 [Lee Robinson](https://leerob.com/cursor)，他在 2025 年 7 月從 Vercel 轉去 Cursor 做開發者教育。
 
 這一週在 Fall 2025 完全不存在——那時 Agent Skills 還沒發表。
-
-## 課程影片來源
-
-本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
-
-官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
-
-查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 規格小得有點可疑
 
@@ -134,6 +122,18 @@ Anthropic 給的四條開發建議，濃縮起來是：
 - 「web skills」是 Fall 2026 syllabus 的用詞，課程尚未公布具體定義
 - Agent Skills 成為跨平台標準後各家實作進度不一，能不能直接搬要個別確認
 - 本站 repo 的 skill 數字是 2026-08-16 當下的狀態
+
+## 課程影片來源
+
+本文導讀 Fall 2026 課綱與指定閱讀；尚未核對到本文主題的當期公開課堂錄影。
+
+官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
+
+查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://themodernsoftware.dev/)
 
 ## 更新紀錄
 

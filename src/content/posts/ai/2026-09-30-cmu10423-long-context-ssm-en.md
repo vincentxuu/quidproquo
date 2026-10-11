@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L19 + L21: Long Context and State Space / Hybrid Models — Three Ways Out When Attention Cost Grows Quadratically"
+title: "Long Context and State Space / Hybrid Models — Three Ways Out When Attention Cost Grows Quadratically | CMU 10-423 Lecture 19 / Lecture 21"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 Official materials used: the [schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html), the [L19 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long.pdf) and the [inked version](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture19-long-ink.pdf) (40 pages each), and the [L21 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture21-ssm.pdf) (42 pages, no inked version). The schedule lists no readings for either lecture, so this post cites only the slides and the papers the slides credit. The course's access grade is **A3** (definitions in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en)), but the recordings sit behind a CMU Panopto login, so this post relies entirely on the slides; what was said in class is not available.
 
 Lecture 20 on reasoning models sits between L19 and L21. This guide puts the two together because they answer the same question: **attention cost grows with the square of sequence length, so what other routes are there?**
-
-## Course video sources
-
-The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
-
-Course and recording entries:
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-Checked: 2026-10-10.
 
 ## What the problem looks like: one video blows the context
 
@@ -216,6 +205,17 @@ Confirmed: the schedule's dates, speakers, and quiz coverage; the text, tables, 
 Further reading: this site's [CS336 architectures and hyperparameters post](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en) and [inference post](/posts/ai/2026-08-22-cs336-inference-en) discuss position encodings and the KV cache from the angle of training your own LM; the [CMU 11-868 guide](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en) covers distributed training and inference from the systems side.
 
 Series navigation: previous [L17–L18: distributed training, FlashAttention, and efficient decoding](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en) | next [L20: reasoning models](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) | [series overview](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+
+## Course video sources
+
+The course links Spring 2026 recordings through SCS Panopto. On 2026-10-10 the anonymous Panopto folder listed no videos and prompted sign-in. The course homepage and schedule link no public (YouTube) recordings; an instructor post dated 2026-04-08 said YouTube recordings were “coming very soon”, but no such link had appeared on the official pages when checked. This article follows the public slides and assignments; recording access is governed by course authorization.
+
+Course and recording entries:
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

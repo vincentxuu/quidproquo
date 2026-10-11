@@ -1,5 +1,5 @@
 ---
-title: "CS149 L2: Multi-Core, SIMD, and Hardware Multithreading, and the Problem Each One Solves"
+title: "Multi-Core, SIMD, and Hardware Multithreading, and the Problem Each One Solves | Stanford CS149 Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,23 +41,6 @@ glossary:
 The slides frame it as "computer architecture from a software engineer's perspective," built around three key concepts. Two concern parallel execution (multi-core and SIMD), and one addresses memory latency (multithreading). Understanding them helps you optimize your own parallel programs and build intuition for which workloads benefit from parallel machines.
 
 Several later slides use GPUs as examples. This series saves GPUs for [post 9, L7 GPU architecture and CUDA](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda-en), so this post covers CPUs only.
-
-## Course video sources
-
-This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=CKmNpAO5rS4
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
-```
-
-Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
-
-Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 2 - A Modern Multi-Core Processor” (1:16:13). The captions cover parallelizing the sinx example with pthreads, SIMD and divergent branches, instruction-level parallelism (ILP), and the exercise of using several hardware threads to hide load latency and reach 100% utilization, matching this post's topic. I also found the claim that the final stretch of the 2023 video belongs to the next post does not match the captions: the video ends on thread utilization and hardware multithreading, with the speaker saying memory and superscalar come next time, and there is no A[i] × B[i] bandwidth example in the captions. This has been corrected. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Opening review
 
@@ -243,6 +226,23 @@ The 2023 [Lecture 2 video](https://www.youtube.com/watch?v=CKmNpAO5rS4) (about 1
 ---
 
 **Series navigation**: [← Previous: L1 Why parallelism, why efficiency](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en) | [Series overview](/posts/ai/2026-09-30-cs149-course-overview-en) | Next: [L3 Latency vs. bandwidth + ISPC →](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en)
+
+## Course video sources
+
+This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=CKmNpAO5rS4
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor
+```
+
+Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 2 - A Modern Multi-Core Processor](https://www.youtube.com/watch?v=CKmNpAO5rS4)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore1/)
+
+Content check: verified against the video transcript (2026-10-10): I read the auto-generated captions of the Fall 2023 recording “Lecture 2 - A Modern Multi-Core Processor” (1:16:13). The captions cover parallelizing the sinx example with pthreads, SIMD and divergent branches, instruction-level parallelism (ILP), and the exercise of using several hardware threads to hide load latency and reach 100% utilization, matching this post's topic. I also found the claim that the final stretch of the 2023 video belongs to the next post does not match the captions: the video ends on thread utilization and hardware multithreading, with the speaker saying memory and superscalar come next time, and there is no A[i] × B[i] bandwidth example in the captions. This has been corrected. I checked how the video's topic relates to this post's topic; the post itself follows the Fall 2025 slides and was not compared segment by segment against the video.
 
 ## Update Log
 

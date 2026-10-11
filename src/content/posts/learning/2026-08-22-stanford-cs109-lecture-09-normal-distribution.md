@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 9｜Normal Distribution：標準化、Φ 與 continuity correction"
+title: "Normal Distribution：標準化、Φ 與 continuity correction｜Stanford CS109 第 9 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 這是 [Stanford CS109 導讀](/series/stanford-cs109)的第 10 篇，對應 **Summer 2026 Lecture 9: The Normal Distribution**，日期為 7 月 6 日，講者是 Chris Gregg。本文依 Summer [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture09-Worksheet.pdf)、[answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture09-AnswerKey.pdf)、[LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture09-LLMPrompts.pdf)及跨 offering 共用的 Spring-dated 官方讀本 [Normal](https://probabilitycoders.stanford.edu/spr26/normal) 與 [binomial approximation](https://probabilitycoders.stanford.edu/spr26/binomial_approx) 章節整理。Canvas 錄影未公開，因此不重建課堂口述。
 
 原始 worksheet 共兩頁：P1–P3 在第一頁，P4–P7 與 challenge 在第二頁，題號完整。P5 與 challenge 屬 problem set，公開 answer key 刻意隱藏解答；本文會明確區分官方刊出的答案與依公開題目自行推導的部分。
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=rpB_NNXiWlM
-title: Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10](https://www.youtube.com/watch?v=rpB_NNXiWlM)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 10「Normal Distribution」字幕（約 75 分鐘）：影片講 Normal（Gaussian）、standard deviation、Φ 與 CDF、用 Normal 近似 binomial 與 continuity correction，與本講一致；字幕沒有 submarine panel 等 worksheet 題目，那些題目不是影片內容。
 
 ## P1：用 Exponential 複習銜接
 
@@ -190,6 +168,28 @@ P(W<5) = Φ((5-3)/√10) ≈ Φ(0.632) ≈ 0.736
 - P5 與 challenge 是 problem-set 題，官方公開 answer key 刻意省略解答；本文只依公開題目自行推導。
 - Canvas 錄影未公開，不推測其中額外例子或講者說法。
 - Worksheet 與 guide 各兩頁，採短材料例外，以逐題完整為準；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=rpB_NNXiWlM
+title: Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Normal Distribution I 2022 I Lecture 10](https://www.youtube.com/watch?v=rpB_NNXiWlM)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 10「Normal Distribution」字幕（約 75 分鐘）：影片講 Normal（Gaussian）、standard deviation、Φ 與 CDF、用 Normal 近似 binomial 與 continuity correction，與本講一致；字幕沒有 submarine panel 等 worksheet 題目，那些題目不是影片內容。
 
 ## 更新紀錄
 

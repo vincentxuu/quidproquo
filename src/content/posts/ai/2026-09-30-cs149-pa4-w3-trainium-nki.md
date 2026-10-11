@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA4 + Written 3：在 Trainium2 上自己搬資料——NKI、SBUF/PSUM 與 fused conv+maxpool"
+title: "在 Trainium2 上自己搬資料——NKI、SBUF/PSUM 與 fused conv+maxpool｜Stanford CS149 程式作業 4／書面作業 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,14 +39,6 @@ glossary:
 先講公開程度。整門課是 A3（足以自學），但 **PA4 這一份實質只到 A2**：程式碼與 README 完全公開，可以讀、可以理解；要真的跑起來，得有 AWS Trainium2 機器，而官方的環境設定用的是只開放給修課學生的 private AMI（細節見文末「校外能做到哪」）。Written 3 的 PDF 公開，但沒有解答。
 
 本文只寫題目在練什麼、該觀察什麼現象，**不貼解答**。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
 
 ## 從 CUDA 換到 Trainium：少了 cache 這個保母
 
@@ -223,6 +215,14 @@ Written 3 的標題頁寫著 **Improving locality on Specialized Hardware**。�
 - 想看 GPU 上的對應版本（Triton kernel），可以讀 [CS336 Kernels 與 Triton 導讀](/posts/ai/2026-08-22-cs336-kernels-triton)。
 
 系列導覽：上一篇 [L11 專用硬體的程式系統](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)｜下一篇 [L12 把 AI 應用映射到資料中心](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/proghardware/slide_10)
 
 ## 更新紀錄
 

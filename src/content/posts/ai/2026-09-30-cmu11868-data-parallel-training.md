@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L14–L15：分散式訓練與資料平行，梯度同步的代價從哪裡來"
+title: "分散式訓練與資料平行，梯度同步的代價從哪裡來｜CMU 11-868 第 14–15 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,16 +36,6 @@ glossary:
 > **版本說明**：本文依據 [CMU 11-868 LLM Systems](https://llmsystem.github.io/llmsystem2026spring/) 2026 春季版。事實皆於 2026-09-30 打開[課程 Syllabus](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus)、[L14 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-14-distributed-training-b27c3d1dc185e680c6f5cc924e9ec9d7.pdf)（48 頁）、[L15 投影片](https://llmsystem.github.io/llmsystem2026spring/assets/files/llmsys-15-ddp-165dbe3873fac21eb8b339e64bcfee28.pdf)（26 頁）與 [PyTorch DDP 論文](https://www.vldb.org/pvldb/vol13/p3005-li.pdf)核對。存取等級 **A3**，但**官方課表未列本課公開錄影連結**。以下頁碼一律指 PDF 頁數；L14 投影片角落印的編號比 PDF 頁數大 2 到 3，對照時請以 PDF 為準。
 
 **系列位置**：上一篇 [HW4：Softmax 與 LayerNorm 的 CUDA 融合 kernel](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration)｜下一篇 [L16–L17 模型平行與 MoE](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)｜[系列總覽](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 這兩講在回答什麼
 
@@ -211,6 +201,16 @@ L15 第 8 頁引用論文列出的兩個目標：
 
 - 用 collective 組出資料、張量與管線平行，含通訊量推導：[CS336 Lecture 7：從 collective operations 組出資料、張量與管線平行](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 - ZeRO、FSDP 與硬體拓撲：[CS336 Lecture 8：ZeRO、FSDP 與 3D Parallelism 怎麼對齊硬體拓撲](/posts/ai/2026-08-22-cs336-parallelism-strategies)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

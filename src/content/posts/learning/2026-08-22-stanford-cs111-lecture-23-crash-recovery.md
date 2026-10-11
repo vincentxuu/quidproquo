@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 23：從 fsck、Ordered Writes 到 Write-Ahead Logging"
+title: "從 fsck、Ordered Writes 到 Write-Ahead Logging｜Stanford CS111 第 23 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 24 篇，對應 **Stanford CS111, Spring 2026, Lecture 23**。2026-05-20 由 Mendel Rosenblum 主講，官方題目是 [File System Crash Recovery](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/23/Lecture23.pdf)。公開 PDF 有 23 頁。它與 Lecture 24 的 SHA-256 不同，內容卻近乎完全相同；文字只差 `/lost+found` 的斜線與四處句點，因此不能用 hash 不同推論為獨立素材。本文負責 crash model、`fsck`、ordered writes 與 WAL 入口；Lecture 24 接續 transaction、checkpoint 與 durability。錄影位於 Canvas／Panopto 後方，本文不把未觀看的口述內容當成來源。
 
 這講只問一個尖銳的問題：一個檔案系統操作需要修改 free map、inode、directory entry 等多個 disk blocks，但硬碟不提供任意多 block 的 atomic write；如果機器剛好在中間斷電，重開機後該相信哪個版本？投影片依序比較三條路：事後用 `fsck` 掃描修復、事前約束寫入順序，以及先寫 log 再套用更新。三者都在處理一致性，卻對資料遺失、啟動時間與正常路徑成本做出不同選擇。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 崩潰後，大部分 OS 狀態可以重來，檔案系統不行
 
@@ -68,6 +60,14 @@ draft: false
 - 第 11–14 頁：ordered writes、pointer rules、resource leak、synchronous writes、buffer-cache dependencies 與 cycles。
 - 第 15 頁：以 WAL／journaling 作為第三種復原策略的入口。
 - 第 16–23 頁：由 Lecture 24 接續 entry、transaction、checkpoint、`fsync` 與最終取捨。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

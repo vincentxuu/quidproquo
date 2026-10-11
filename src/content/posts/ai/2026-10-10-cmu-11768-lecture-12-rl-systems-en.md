@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 Lecture 12: RL Systems — Inference and Training Are Two Different Workloads, and Agent Trajectories Break Assumptions on Both Sides"
+title: "Reinforcement Learning Systems: Connecting Inference and Training | CMU 11-768 Lecture 12"
 date: 2026-10-10
 category: ai
 type: deep-dive
@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Reading CMU 11-768 AI Agents"
   order: 13
-tldr: "Apurva Gandhi splits an LLM RL framework into two engines with opposite profiles: an inference engine (decode-heavy, no gradients) that samples, and a trainer engine (prefill-style, autograd) that updates, joined by weight sync. The lecture lists the optimizations on each side, then the places where agent trajectories break assumptions — sequence extension, chat templates, token-in token-out, async RL — and compares a single-program design with an everything-as-a-service design, ending with a table of debugging metrics."
-description: "A guide to CMU 11-768 AI Agents Lecture 12, RL Systems (written from the slides): the two RL workloads, the five stages of a training step, KV caching / prefix caching / continuous batching / speculative decoding, activation checkpointing and prefix sharing, weight sync and Rollout Routing Replay, agentic RL's sequence extension and TITO, sync vs. async RL, harness-agnostic and service-based designs, and training debug metrics."
+tldr: "An RL system samples with an inference engine, assigns rewards through verification, recomputes logprobs and gradients in a trainer, then synchronizes new weights back to inference. Walk through these five stages in an invented example before examining caching, preserved histories, and asynchronous updates."
+description: "Understand how reinforcement learning systems connect inference and training through a complete simplified update loop, then explore caching, token transfer, weight synchronization, and asynchronous RL. Based on the CMU 11-768 Lecture 12 slides, with comprehension questions and answers."
 draft: false
 glossary:
   - term: "sequence extension"
@@ -30,21 +30,13 @@ glossary:
 
 **Video status: the official public page lists no recording.** [Video sources and notes](#course-video-sources)
 
-> **This post is written from the slides; I'll add the video when it's published.** As of 2026-10-10, the [official schedule](https://www.cmu-agents.com/#/schedule) lists only [slides](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf) for Lecture 12 (Oct 1), with no recording. Everything below comes from the slides, not from what the lecturer said; where the slides are silent and I'm interpreting, I say so.
+> **This guide uses the public slides, not the lecturer’s spoken explanation. Additional interpretations and invented examples are labeled.**
 
 Lecture 12 of [CMU 11-768 AI Agents](https://www.cmu-agents.com/), given by [Apurva Gandhi](https://apga.github.io/), closes the training module. The previous two lectures ([9](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics-en), [11](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)) covered algorithms: how to compute advantages, how to clip ratios. This one asks a different question: **an algorithm is one line of math on paper, so what does the system look like when it runs on hundreds of GPUs?**
 
 If you only want a small RL experiment, the first half (two workloads, optimizations on each side) is enough. If you are building a training platform, the design choices in the second half are the point.
 
-## Course video sources
-
-This post is written from the slides. I checked the official schedule: Lecture 12 lists slides only, with no recording link. That means the public page has none, not that none exists internally.
-
-Official source:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked: 2026-10-10.
+**After reading, you should be able to draw the data flow of one RL update, explain why the trainer recomputes logprobs, and identify when new weights reach inference.** Walk through the small example below first, then consider which bottlenecks caching, asynchronous execution, and separate services address.
 
 ## Why not hand-roll it in PyTorch
 
@@ -73,6 +65,32 @@ flowchart LR
 ```
 
 Stage 3 is easy to overlook: the trainer recomputes logprobs itself, with gradients tracked, rather than reusing the numbers the inference engine returned. Why that matters shows up with R3 below.
+
+## One complete update: answering an arithmetic question
+
+This is **a simplified example I invented to explain the data flow, not the lecturer’s experiment**. We use a synchronous loop with one task: “answer `2 + 3`.” The verifier accepts only `5`. There are no tool calls or history rewrites, so we can focus on the handoff between engines.
+
+| Stage | What happens this round | Data passed onward |
+|---|---|---|
+| 1. sample | The inference engine uses weight version `v0` and answers `5` | Original input and generated token IDs, sampling logprobs, version `v0` |
+| 2. verify | The verifier compares the answer with `5` and assigns reward `1`; assume the algorithm has computed trajectory advantage `+1` | The same trajectory, with reward and advantage |
+| 3. forward | The trainer reads the same token IDs and recomputes answer-token logprobs under `v0`, retaining the computation graph | Logprobs connected to gradients |
+| 4. backward | Compute a simplified policy-gradient loss on answer tokens and backpropagate | Weight gradients |
+| 5. optim_step + sync | The optimizer produces `v1`, then weights are synchronized to inference | The next round samples with `v1` |
+
+Treat the answer as a single action and assume its probability under `v0` is `0.2`. Consider only the simplest policy-gradient term, ignoring clipping, KL, and other training terms:
+
+```text
+loss = -advantage × log P(answer | question)
+     = -1 × ln(0.2)
+     ≈ 1.609
+```
+
+In this simplified setup, the loss encourages an answer with positive advantage to become more probable. If its probability after another update were `0.25`, the same term would become `-ln(0.25) ≈ 1.386`. **These numbers compare directions; they do not predict the result of one optimizer step.** One correct answer also does not establish an improvement in overall ability.
+
+Return to stage 3: even if inference returned `ln(0.2)`, that is a number in the sampling record, without the trainer’s computation graph connecting it to weights. The trainer must run forward itself so backward can determine which parameters to update. Keep the sampling record too: the asynchronous RL section will need it to identify which policy produced the data.
+
+Finally, having `v1` on the trainer does not mean inference is already using it. Our synchronous example waits for weight synchronization before the next round. Overlapping rollouts with updates instead introduces the stale-data problem discussed below.
 
 ## Inference side: four optimizations, all especially good for agents
 
@@ -173,9 +191,19 @@ The slides end with a table, which I've reorganized as "what you see → what to
 | trainer MFU | Drops from padding, imbalance or small microbatches |
 | rollout / update / stall / total timing | Stall > 0: the trainer is waiting on rollouts |
 
+## Check your understanding of the handoff
+
+Try these before reading the answers:
+
+1. Draw the five stages of one update. The verifier says the answer is correct and you have inference logprobs. Why can’t you jump directly to the optimizer?
+2. The trainer has updated to `v1`, but inference still uses `v0`. Which version belongs on the next trajectory’s record?
+3. After synchronization, the next answer is wrong. Does that alone prove weight synchronization failed?
+
+**Suggested answers:** First, the sequence is sample → verify → forward → backward → optim_step + sync. You cannot skip stages because you still need the trainer’s forward computation graph and the gradients computed by backward; reward and logged logprobs cannot replace them. Second, record `v0`, the version that actually sampled the trajectory, rather than overwriting it with the trainer’s current version. Third, no: one sampled result cannot locate the fault. Check the weight version actually used, then consult held-out evaluations and debugging metrics.
+
 ## What you can do tonight
 
-- **Measure your rollouts' prefix overlap.** Compare trajectories in a batch pairwise for longest common prefix and compute the share of duplicate tokens. If it's over half, prefix caching and prefix sharing are the first optimizations to check.
+- **Measure your rollouts' prefix overlap.** First sum the token counts of all trajectories in a batch independently, then organize identical token prefixes into a tree, counting each shared prefix once. The duplicate fraction is `1 − prefix-tree token count / original total token count`. Do not sum pairwise comparisons, which can count the same prefix repeatedly. This fraction identifies shareable data; measure actual changes in time and memory before deciding to use prefix caching or prefix sharing.
 - **Rebuild an old trajectory with your chat template.** Take turn 2's prompt and check whether it extends turn 1's prompt plus generation. If not, sequence extension is broken.
 - **Put all the metrics above on one dashboard.** At minimum: reward, a held-out eval, entropy and stall time. When something breaks, which one moved first tells you where to look.
 
@@ -185,7 +213,13 @@ The slides end with a table, which I've reorganized as "what you see → what to
 - Algorithm side: [Lecture 11: advanced RL algorithms](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl-en)
 - Async RL system: [AReaL](https://arxiv.org/abs/2505.24298)
 
+## Course video sources
+
+This guide uses the [Lecture 12 slides](https://www.cmu-agents.com/slides/lecture-12-rl-systems.pdf), not the lecturer’s spoken explanation. Checked: 2026-10-10; at that time the [official schedule and recording index](https://www.cmu-agents.com/#/schedule) listed slides only for Lecture 12 (Oct 1), with no recording link. This describes the public page at that date, not whether an internal recording exists.
+
 ## Changelog
+
+- 2026-10-11: Adopted a topic-first title, condensed repeated source notes, and added an invented worked update loop and comprehension questions.
 
 - 2026-10-10: Added this post, written from the Lecture 12 slides; no recording on the official public page yet.
 

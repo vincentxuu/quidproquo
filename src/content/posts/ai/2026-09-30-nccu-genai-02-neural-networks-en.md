@@ -1,5 +1,5 @@
 ---
-title: "NCCU Generative AI L02: Neural Network Concepts"
+title: "Neural Network Concepts | NCCU Yen-Lung Tsai Generative AI Lecture 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,18 +35,6 @@ glossary:
 Last lecture said an AI model is a "dopey AI robot": you only need to know what its input and output look like. This lecture answers the next question. What's inside the machine, and how does it "learn"?
 
 The slides come in five parts: building the dopey AI robot, neural networks, our distance from the truth, gradient descent, and building a first neural network. The first four are concepts. The last is hands-on, and the homework starts from it.
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [recording](https://www.youtube.com/watch?v=s1QqujRMEUk)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Part 1: inputs and outputs have to be numbers
 
@@ -256,6 +244,18 @@ The Fall 2026 syllabus describes week 2 as core neural network concepts (percept
 
 - The full version of neural networks, backpropagation, and CNNs/RNNs: [Reading CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en)
 - Course ownership and the full homework table: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [recording](https://www.youtube.com/watch?v=s1QqujRMEUk)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

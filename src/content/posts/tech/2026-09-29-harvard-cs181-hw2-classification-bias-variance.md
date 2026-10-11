@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW2：分類與偏差—變異，兩種不確定性怎麼分"
+title: "分類與偏差—變異，兩種不確定性怎麼分｜Harvard CS181 作業 2"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, classification, bias-variance, logistic-regression, gradient-descent, homework]
@@ -35,17 +35,6 @@ glossary:
 > "This homework is about classification, bias-variance trade-offs, and uncertainty quantification."
 
 [上一篇 HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression) 還在做連續值迴歸。HW2 把輸出換成類別，同時丟出一個更難的問題：**模型說「觀測到的機率是 0.3」，和「10 個模型在這點各說各話」，是同一種不確定嗎？** 本篇沿著這個問題逐題走，說明每題在考什麼、要準備哪份 section。**不給解答。**
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -174,6 +163,17 @@ flowchart LR
 - 上一篇：[HW1 迴歸](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)
 - 下一篇：[HW3 核方法、神經網路與 Scaling Law](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)
 - 系列總覽：[CS181 導讀總覽](/posts/tech/2026-08-27-harvard-cs181-overview)
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

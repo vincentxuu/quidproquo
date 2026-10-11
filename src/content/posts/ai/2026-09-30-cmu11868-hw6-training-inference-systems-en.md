@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 HW6: Training Llama-2-7B with DeepSpeed ZeRO + LoRA, Serving with SGLang"
+title: "Training Llama-2-7B with DeepSpeed ZeRO + LoRA, Serving with SGLang | CMU 11-868 Assignment 6"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,16 +35,6 @@ In HW1 through HW5 you kept adding to your own [MiniTorch](https://llmsystem.git
 Put differently, the first five assignments showed you what a framework looks like inside. This one has you use the real thing, running ZeRO, LoRA, and RadixAttention from earlier lectures on a 7B model.
 
 This post covers only the problem structure, points, required resources, and where outside readers get stuck. **It does not provide solutions to any problem.**
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## Where it sits in the course
 
@@ -130,6 +120,16 @@ The page also notes that SGLang's backend is built on [FlashInfer](https://arxiv
 
 - Parallelism in another course: [CS336 Parallelism Mechanics](/posts/ai/2026-08-22-cs336-parallelism-mechanics-en)
 - Another take on inference systems: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

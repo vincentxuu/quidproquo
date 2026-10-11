@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 HW5: Teach Llama Math Without Making It Forget How to Refuse"
+title: "Teach Llama Math Without Making It Forget How to Refuse | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **This post covers HW5 of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is Part 12 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. There are four official materials: the slides [hw5.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw5.pdf), the [Colab notebook](https://colab.research.google.com/drive/1H5FZA-l5n7QD1Q8vnBEUSlldVKlpchku) (34 cells), the [Kaggle version](https://www.kaggle.com/code/b10901024sillydinos/ml2026hw5/edit/run/306310732) linked from the course page, and the TAs' [walkthrough video](https://youtu.be/HlSGih7bnrs) (in Chinese). The TAs are 謝翔, 尹廷安, and 蘇炳揚; the slides also credit 馮柏翰, 劉建蘴, and 吳典叡 as authors. It was released 4/10 and due 2026/04/30 23:59:59 (UTC+8), with no late submissions.
 
 Access is **A3 minus grading**: the task, starter code, and data links are public. Scores come only from uploading to [JudgeBoi](https://ml.ee.ntu.edu.tw/home), which returned 502 on 2026-09-30. Code goes to NTU COOL, which needs an NTU account.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=HlSGih7bnrs
-title: HW5 walkthrough video (YouTube, in Chinese)
-```
-
-Original videos: [HW5 walkthrough video (YouTube, in Chinese)](https://www.youtube.com/watch?v=HlSGih7bnrs)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## What the assignment asks
 
@@ -153,6 +134,25 @@ The slides' references point to 2025 material: ML2025 [hw6.pdf](https://speech.e
 - The previous lecture in this course, making models stronger without touching weights: [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
 Series navigation: Previous [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en) | Next [Self-Correction: Can a Model Fix Its Own Mistakes?](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=HlSGih7bnrs
+title: HW5 walkthrough video (YouTube, in Chinese)
+```
+
+Original videos: [HW5 walkthrough video (YouTube, in Chinese)](https://www.youtube.com/watch?v=HlSGih7bnrs)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

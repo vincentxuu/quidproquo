@@ -1,5 +1,5 @@
 ---
-title: "CS224U In-Context Learning: Origins, Core Concepts, and Suggested Methods"
+title: "Origins, Core Concepts, and Suggested Methods | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -45,29 +45,6 @@ The previous post covered how to find evidence. This one covers how to put evide
 At the start of the [ICL Part 4 video](https://www.youtube.com/watch?v=0mXbM2j3Dzs), Potts hedges: he's nearly certain someone will discover a more powerful technique within months, making the video look dated. So the point of this unit isn't the specific 2023 tricks. It's how the course defines the problem and how it judges whether a technique is worth using.
 
 The slides have five sections: Origins, Core concepts, The current moment, Techniques, and Suggested methods.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
-title: Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=eyNLkiQ89KI
-title: Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs), [Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
-
-Content check: verified against the video transcript (2026-10-10): Part 4 (Techniques and Suggested Methods) and Part 1 (Origins) were compared item by item with their transcripts: Potts's warning that the lecture will date, how to choose demonstrations and the four approaches, the ELMo demonstration-filtering example, CoT / generic step-by-step / self-consistency (dsp.majority) / Self-Ask / iterative rewriting, the reading of the DSP results, and the four suggestions; and, from Origins, ChomskyBot, Brants 2007, decaNLP, GPT-2's TL;DR and translation, and the GPT-3 abstract. All match. Part 2 (Core Concepts) and Part 3 (Current Moment), which the post cites but does not embed, were read as well; the term definitions, the unverifiable condition (2), generation as an imposed rule, Potts choosing answer 4, and Alpaca's 175 seed tasks and 52,000 examples all match. The HotPotQA figures (28.3 / 36.9 / 51.4) and the Mina Lee guest talk come from slides (the guest talk has no recording) and were not checked against transcripts.
-
-Course and recording entries:
-
-- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Origins: from n-grams to GPT-3
 
@@ -202,6 +179,29 @@ One thing to do tonight: pick a task you regularly hand to a model, write 10 dev
 
 - Where in-context learning fits in pretraining: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
 - Instruction tuning and RLHF in detail: [CS224N Lecture 8: From Instruction Tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=0mXbM2j3Dzs
+title: Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=eyNLkiQ89KI
+title: Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I In-context Learning, Part 4: Techniques and Suggested Methods I Spring 2023](https://www.youtube.com/watch?v=0mXbM2j3Dzs), [Stanford XCS224U: Natural Language Understanding I In-context Learning, Pt 1: Origins I Spring 2023](https://www.youtube.com/watch?v=eyNLkiQ89KI)
+
+Content check: verified against the video transcript (2026-10-10): Part 4 (Techniques and Suggested Methods) and Part 1 (Origins) were compared item by item with their transcripts: Potts's warning that the lecture will date, how to choose demonstrations and the four approaches, the ELMo demonstration-filtering example, CoT / generic step-by-step / self-consistency (dsp.majority) / Self-Ask / iterative rewriting, the reading of the DSP results, and the four suggestions; and, from Origins, ChomskyBot, Brants 2007, decaNLP, GPT-2's TL;DR and translation, and the GPT-3 abstract. All match. Part 2 (Core Concepts) and Part 3 (Current Moment), which the post cites but does not embed, were read as well; the term definitions, the unverifiable condition (2), generation as an imposed rule, Potts choosing answer 4, and Alpaca's 175 seed tasks and 52,000 examples all match. The HotPotQA figures (28.3 / 36.9 / 51.4) and the Mina Lee guest talk come from slides (the guest talk has no recording) and were not checked against transcripts.
+
+Course and recording entries:
+
+- [XCS224U playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

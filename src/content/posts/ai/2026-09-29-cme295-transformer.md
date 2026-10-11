@@ -1,5 +1,5 @@
 ---
-title: "CME295 第 1 講：從切字到 Transformer，一句話怎麼被翻成另一種語言"
+title: "從切字到 Transformer，一句話怎麼被翻成另一種語言｜Stanford CME295 第 1 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -37,31 +37,6 @@ glossary:
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-stanford-cme295-transformers-llms) 第 1 講「Transformer」。主要來源是 2025 版的[錄影](https://www.youtube.com/watch?v=Ub3GoFaUcds)與 [135 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)，另外對照 2026 年 9 月 25 日剛上的新版[錄影](https://www.youtube.com/watch?v=114i2Kz-LZA)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)。
 
 整堂課只用一句例句：「A cute teddy bear is reading.」這句話先被切成 token、變成向量，再交給 RNN，然後說明 RNN 為什麼撐不住，最後由 Transformer 翻成法文「Un ours en peluche mignon lit.」。跟著這句話走一遍，就是這一講的全部路線。
-
-## 課程影片來源
-
-第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 1 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 1 講所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
-
-```youtube
-url: https://www.youtube.com/watch?v=Ub3GoFaUcds
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=114i2Kz-LZA
-title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers
-```
-
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
-
-內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Ub3GoFaUcds 是 Autumn 2025 第 1 講 Transformer（頁面日期 2025-09-26，長 1:41:59），章節含 NLP overview（情緒分析、NER、翻譯與 BLEU／ROUGE／perplexity 等指標）、tokenization、word representation、RNN、self-attention、Transformer 架構、詳細範例（teddy bear 句子）。114i2Kz-LZA 是 Autumn 2026 第 1 講 Transformers（1:44:28），章節從 timeline 接 tokenization、word2vec、RNN／LSTM、attention、Transformer 與 end-to-end 範例，沒有 NLP overview 與評估指標（字幕裡 BLEU／ROUGE／perplexity 都沒出現），且開場有「與去年版本的差異」並提到 agent。這與本文「2026 版刪掉 NLP overview、時間軸帶過、加入 agent 時代」的說法相符，沒有需修正之處。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
-
-查核日期：2026-10-10。
 
 ## 第一步：把句子切成 token
 
@@ -186,6 +161,31 @@ flowchart LR
 - RNN 與梯度消失：[CS224N 第 4 講：語言模型、RNN 與消失梯度](/posts/ai/2026-08-22-cs224n-rnn-language-models)
 - 從 recurrence 到 Transformer 的另一種講法：[CS224N 第 5 講](/posts/ai/2026-08-22-cs224n-transformers)
 - 自己實作 BPE：[CS336 Lecture 1](/posts/ai/2026-08-22-cs336-overview-tokenization)
+
+## 課程影片來源
+
+第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 1 講）；第二支是官方 2026 課表（https://cme295.stanford.edu/syllabus/）第 1 講所列的 Autumn 2026 錄影。兩支的講次標題與影片 ID 已於 2026-10-10 即時對照，相符。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ub3GoFaUcds
+title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=114i2Kz-LZA
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers
+```
+
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 1 - Transformer](https://www.youtube.com/watch?v=Ub3GoFaUcds)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 1 - Transformers](https://www.youtube.com/watch?v=114i2Kz-LZA)
+
+內容核對：已依字幕核對（2026-10-10）：兩支影片都抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。Ub3GoFaUcds 是 Autumn 2025 第 1 講 Transformer（頁面日期 2025-09-26，長 1:41:59），章節含 NLP overview（情緒分析、NER、翻譯與 BLEU／ROUGE／perplexity 等指標）、tokenization、word representation、RNN、self-attention、Transformer 架構、詳細範例（teddy bear 句子）。114i2Kz-LZA 是 Autumn 2026 第 1 講 Transformers（1:44:28），章節從 timeline 接 tokenization、word2vec、RNN／LSTM、attention、Transformer 與 end-to-end 範例，沒有 NLP overview 與評估指標（字幕裡 BLEU／ROUGE／perplexity 都沒出現），且開場有「與去年版本的差異」並提到 agent。這與本文「2026 版刪掉 NLP overview、時間軸帶過、加入 agent 時代」的說法相符，沒有需修正之處。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

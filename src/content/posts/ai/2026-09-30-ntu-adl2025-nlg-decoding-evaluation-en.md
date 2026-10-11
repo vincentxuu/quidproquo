@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 9: Decoding, Generation Control, and Evaluation for NLG"
+title: "Decoding, Generation Control, and Evaluation for NLG | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,30 +39,6 @@ This is post 12 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/
 The earlier lectures taught a model to learn a distribution over the next word. This one deals with what happens after training: you have the distribution, so **which word do you actually output**? And **how do you tell whether the resulting text is any good**?
 
 There is no homework attached to this lecture. The series-wide [access grade](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) is A2, and this lecture has no gaps of its own: slides and videos are all public. The TA session from the same week, LLM Inference & Evaluation, is covered in the series' [TA sessions post](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=1d9WhPS6gv8
-title: ADL 9.1: Natural Language Generation (YouTube, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=agHrC93u7w8
-title: ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)
-```
-
-Original videos: [ADL 9.1: Natural Language Generation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Ly67whCaS4M)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (9.1 and 9.2) were read. 9.1: NLG tasks, conditional LM, teacher forcing, exposure bias and "one wrong step, all wrong", scheduled sampling (including the image-captioning experiment), and why LLMs skip scheduled sampling given their data volume. 9.2: greedy not being globally optimal, beam search and the beam-size trade-off (including the "What do you do for a living?" example), the long-tail problem of sampling and the white-rabbit example, top-k, the dynamic set of nucleus sampling, temperature not being a decoding algorithm, and why the full probability distribution should not be fed as the next input (the happy-laugh / sad-cry example). All match the article, and no video claim needed correcting. The article's version note is also confirmed: both videos were uploaded on 2025-10-27 while the description says 2023/10/26 and credits Hung-Yi Lee for the slides. 9.3 to 9.5 are not embedded and were not checked; the BLEU, ROUGE, perplexity, LLM-Eval and RL for NLG sections rest on the slides.
 
 ## From language models to conditional LMs
 
@@ -200,6 +176,30 @@ One thing you can do tonight: pick a generation feature you use often, write dow
 
 Previous: [RAG + HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 Next: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=1d9WhPS6gv8
+title: ADL 9.1: Natural Language Generation (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=agHrC93u7w8
+title: ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 9.1: Natural Language Generation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=1d9WhPS6gv8)、[ADL 9.2: Decoding Algorithms (YouTube, in Mandarin)](https://www.youtube.com/watch?v=agHrC93u7w8)、[ADL 9.3: Generation Control (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Jxg6MLpgKPM)、[ADL 9.4: NLG Evaluation (YouTube, in Mandarin)](https://www.youtube.com/watch?v=gAsEAga1icM)、[ADL 9.5: RL for NLG (YouTube, in Mandarin)](https://www.youtube.com/watch?v=Ly67whCaS4M)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (9.1 and 9.2) were read. 9.1: NLG tasks, conditional LM, teacher forcing, exposure bias and "one wrong step, all wrong", scheduled sampling (including the image-captioning experiment), and why LLMs skip scheduled sampling given their data volume. 9.2: greedy not being globally optimal, beam search and the beam-size trade-off (including the "What do you do for a living?" example), the long-tail problem of sampling and the white-rabbit example, top-k, the dynamic set of nucleus sampling, temperature not being a decoding algorithm, and why the full probability distribution should not be fed as the next input (the happy-laugh / sad-cry example). All match the article, and no video claim needed correcting. The article's version note is also confirmed: both videos were uploaded on 2025-10-27 while the description says 2023/10/26 and credits Hung-Yi Lee for the slides. 9.3 to 9.5 are not embedded and were not checked; the BLEU, ROUGE, perplexity, LLM-Eval and RL for NLG sections rest on the slides.
 
 ## Update Log
 

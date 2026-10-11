@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 12: Bayesian Networks I: From Joint Distributions to Factorization"
+title: "Bayesian Networks I: From Joint Distributions to Factorization | Stanford CS221 Lecture 12"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 12**, taught by Percy Liang on 2025-10-29. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments; the primary artifact is [bayes](https://stanford-cs221.github.io/autumn2025-lectures/?trace=bayes).
 
 > Material gap: Official lecture material and video are public; Canvas interactions, assignment solutions, and hidden tests are unavailable.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 12, the same term and lecture number this article follows. It matches item 12 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=ec2rCf4iIqU
-title: Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I](https://www.youtube.com/watch?v=ec2rCf4iIqU)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 12) and confirmed it covers joint distributions, marginalization and conditioning, the steps for building a Bayesian network with local conditional distributions, and rejection sampling, matching this article's lecture and topic; no mismatch found.
 
 ## TL;DR: what this lecture actually builds
 
@@ -312,6 +292,26 @@ This is why Bayesian networks require a mindset shift from ordinary classifiers.
 Starting with `P(S, R)`, conditioning is not just “apply Bayes.” Select compatible assignments, compute the probability of the evidence, and normalize. Treating tables as tensors makes `einsum` labels expose which axes are retained, aligned, or summed out. Bayesian networks then use a DAG and local conditional tables to define a joint; alarm shows explaining away; medical diagnosis shows how evidence can travel through another cause.
 
 Autoregressive language models connect the same factorization to token sequences. Probabilistic programs express the joint through sampling code. Rejection sampling estimates `P(query | evidence)` by filtering and counting, with flexibility but poor efficiency for rare evidence. The usable contract is to write down variables, evidence, query, local assumptions, normalization, and both representation and inference costs before trusting the answer. The source closes by pointing to better probabilistic inference next time.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 12, the same term and lecture number this article follows. It matches item 12 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=ec2rCf4iIqU
+title: Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 12: Bayesian Networks I](https://www.youtube.com/watch?v=ec2rCf4iIqU)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 12) and confirmed it covers joint distributions, marginalization and conditioning, the steps for building a Bayesian network with local conditional distributions, and rejection sampling, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

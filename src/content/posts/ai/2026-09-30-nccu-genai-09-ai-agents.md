@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI 導讀 L09：為什麼大家說 2025 是 AI Agents 元年——吳恩達的四個設計模式，用 AISuite 做出 Reflection 與兩階段 CoT"
+title: "為什麼大家說 2025 是 AI Agents 元年——吳恩達的四個設計模式，用 AISuite 做出 Reflection 與兩階段 CoT｜政大蔡炎龍 生成式AI 第 9 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 **本文依據政大蔡炎龍《生成式 AI：文字與圖像生成的原理與實務》1132 學期（2025 春季）。** 這是[政大蔡炎龍 生成式AI 導讀](/posts/ai/2026-09-30-nccu-genai-course-overview)系列第 9 篇，接在 [L08 RAG 的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)之後，也是文字生成這半學期的最後一講。下一講起，課程轉向圖像生成。
 
 用到的官方材料有四份：[錄影 09](https://www.youtube.com/watch?v=49fwh6oc5Nc)（2025-04-15，約 2 小時 58 分）、投影片 GenAI09（33 頁，在主講者的[投影片資料夾](https://drive.google.com/drive/folders/1c6A9Pa-c7cNi5kHUp7j-ccgYBRy9JpeA)）、[AI-Demo](https://github.com/yenlung/AI-Demo) repo 的 [`【Demo07a】AI代理設計模式_Reflection`](https://yenlung.me/AI07a) 與 [`【Demo07c】AI代理設計模式_員瑛式思考生成器Two_Stage_CoT版`](https://yenlung.me/AI07c)，以及[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)的第九週作業。存取等級是 **A3**。要特別注意：這兩份 notebook 在 GitHub 上最近一次 commit 都是 2025-10-28，已經在 1132 學期結束之後，**以下引用的是 repo 目前版本，不是上課當時的原版**。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=49fwh6oc5Nc
-title: 【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）
-```
-
-原始影片：[【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）](https://www.youtube.com/watch?v=49fwh6oc5Nc)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -235,6 +218,23 @@ Gradio 介面兩欄：左邊是五個理由，右邊是最終貼文。
 - 課程全貌與開放程度分級：[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)
 
 上一篇：[L08 RAG 的原理及實作](/posts/ai/2026-09-30-nccu-genai-08-rag)｜下一篇：[L10 從變分自編碼器（VAE）開始的冒險旅程](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)｜[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入（2026-10-10 播放器回應 playableInEmbed 為 true）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=49fwh6oc5Nc
+title: 【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）
+```
+
+原始影片：[【生成式 AI】09.為什麼大家說2025年是AI Agents元年（YouTube 錄影）](https://www.youtube.com/watch?v=49fwh6oc5Nc)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

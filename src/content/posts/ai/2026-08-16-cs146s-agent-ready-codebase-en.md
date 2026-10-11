@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 5: Express Scores 28, CockroachDB Scores 74 — Agent Readiness Is Measurable"
+title: "Express Scores 28, CockroachDB Scores 74 — Agent Readiness Is Measurable | Stanford CS146S Week 5"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the sixth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 Three topics: what makes a repo agent-ready (structure, docs, tests, checks), scoring and auditing readiness, and the common gaps that block agents in real repos. The guest is [Factory](https://factory.ai/) co-founder and CTO Eno Reyes, speaking on agent readiness.
 
 This may be **the most counterintuitive week in the new syllabus**: it argues that when your agent underperforms, the model usually isn't the problem.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## This week didn't appear from nowhere
 
@@ -150,6 +138,18 @@ That said, the closing line is true regardless of vendor interest:
 - The three published scores are a snapshot; repos change
 - Individual criteria within the eight pillars will shift as the product iterates
 - Fall 2026's actual materials and assignment for this week land after classes start
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

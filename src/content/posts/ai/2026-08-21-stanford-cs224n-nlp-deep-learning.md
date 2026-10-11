@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224N 導讀：打開 2019 年那版課表，Transformer 還排在第 14 堂"
+title: "打開 2019 年那版課表，Transformer 還排在第 14 堂｜Stanford CS224N 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -27,18 +27,6 @@ draft: false
 這篇就是做這件事。主軸是逐屆比對課表與作業清單，涵蓋 [Winter 2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/)、[Winter 2022](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1224/)、[Winter 2023](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/)、[Winter 2024](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1244/)、[Spring 2024](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1246/)、[Winter 2025](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/) 六個封存版本與現行的 Winter 2026。**不包含**逐堂投影片精讀，也不包含錄影逐字內容——現行這屆的錄影鎖在 Canvas 裡，非選課者拿不到。
 
 課程網站只列出課表與作業，**它從來沒有解釋任何一次改動的理由**。所以底下講的全部是「改了什麼」，不是「為什麼改」。
-
-## 課程影片來源
-
-已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影是 2024 年版播放清單；下方另附 Winter 2019 播放清單。這些都不是 Winter 2026 課堂錄影，因此只附清單連結、不嵌入，也不當成當期錄影。
-
-課程與錄影入口：
-
-- [CS224N Winter 2019 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
-- [CS224N Spring 2024 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -166,6 +154,18 @@ CS224N 是 NLP 分支的樞紐，這件事在 ExploreCourses 的先修欄位裡�
 - **講次總數**：Winter 2019 課表列出 20 堂編號講次；Winter 2026 的投影片檔名編到 `lecture19`，其中四堂是客座（tokenization 與多語言、可解釋性、多模態、Tinker 與 LoRA）。
 - **A4 handout 的內部矛盾**：檔案第一頁的標題行寫「CS 224N Winter 2025 Assignment 4」，但每一頁的頁首寫的是 Winter 2026，截止日期（2 月 19 日星期四）與 Winter 2026 課表一致。Winter 2025 的 A4 是 Transformer 自監督與微調、2 月 13 日截止，所以標題行是複製時留下的舊字串。
 - **未能確認**：課程網站沒有公開任何一屆的選課人數，也沒有說明任何一次課綱改動的理由——「為什麼砍掉機器翻譯」「為什麼加一堂 NLP 歷史」在一手材料上查不到答案，本篇不做推測。Winter 2020、Winter 2021、Winter 2017 等其餘封存版本我沒有逐一打開，所以上面的「最後一次出現」判斷只在我實際比對過的六個版本範圍內成立。
+
+## 課程影片來源
+
+已即時查核 CS224N 官方課程頁：Winter 2026 課堂錄影放在 Canvas（需登入），官方說明無法開放給非修課者，Canvas 入口實際導向 Stanford 登入頁。官方指向的公開錄影是 2024 年版播放清單；下方另附 Winter 2019 播放清單。這些都不是 Winter 2026 課堂錄影，因此只附清單連結、不嵌入，也不當成當期錄影。
+
+課程與錄影入口：
+
+- [CS224N Winter 2019 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
+- [CS224N Spring 2024 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L2：影像分類、kNN 與線性分類器"
+title: "影像分類、kNN 與線性分類器｜Stanford CS231N 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,23 +31,6 @@ glossary:
 [CS231N](https://cs231n.stanford.edu/) 的第二講在 4 月 2 日，也是 A1 發佈的那一天。[課表](https://cs231n.stanford.edu/schedule.html)列出的主題是：data-driven 方法、k-nearest neighbor、線性分類器的代數／視覺／幾何三種看法、softmax loss。對應的官方筆記是 [Image Classification](https://cs231n.github.io/classification/) 與 [Linear Classification](https://cs231n.github.io/linear-classify/)。
 
 這一講介紹兩個最簡單的分類器。它們在實務上都不夠用，但後面每一講都建立在它們留下的框架上：資料怎麼切、分數怎麼算、loss 怎麼定。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 2 講（長度 1:07:01），字幕有 semantic gap、邊緣偵測的舊做法、data-driven 與最近鄰、L1／L2 距離、hyperparameter 與交叉驗證、線性分類器的代數／視覺／幾何看法與 softmax，與本文主題相符；字幕沒有 SVM／hinge loss，與本文說 2026 投影片只講 softmax 一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=pdqofxJeBN8
-title: Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers](https://www.youtube.com/watch?v=pdqofxJeBN8)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 問題：電腦看到的只是數字
 
@@ -181,6 +164,23 @@ Q2 很實用：訓練剛開始若 loss 明顯不是 log(C)，通常代表程式�
 - [Stanford CS231N 導讀：總覽與自學路線](/posts/ai/2026-09-30-cs231n-course-overview)
 
 **系列導覽**：上一篇 [L1：電腦視覺從哪裡來，這門課要走到哪裡](/posts/ai/2026-09-30-cs231n-intro-vision-history)｜下一篇 [L3：正則化與最佳化](/posts/ai/2026-09-30-cs231n-regularization-optimization)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 2 講（長度 1:07:01），字幕有 semantic gap、邊緣偵測的舊做法、data-driven 與最近鄰、L1／L2 距離、hyperparameter 與交叉驗證、線性分類器的代數／視覺／幾何看法與 softmax，與本文主題相符；字幕沒有 SVM／hinge loss，與本文說 2026 投影片只講 softmax 一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=pdqofxJeBN8
+title: Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers](https://www.youtube.com/watch?v=pdqofxJeBN8)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

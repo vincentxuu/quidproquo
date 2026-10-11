@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS2881R 導讀：第一門 AI 安全研究所課，校外讀者拿得到什麼"
+title: "AI 安全：從風險辨識到實驗與研究的學習路線｜Harvard CS2881R 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,17 +34,6 @@ glossary:
 它的 head TA Roy Rinberg 在[期末回顧文](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic)的標題裡叫它「Harvard 的第一門 AI 安全課」。這門課的公開程度在研究所研討課裡少見：講課錄影、學生寫的週摘要、作業 repo、期末論文和海報都能在校外拿到。
 
 這篇只回答三件事：去哪裡找材料、哪些東西拿得到、這個系列要怎麼讀。每一講的內容放在後面各篇。
-
-## 課程影片來源
-
-本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對：有第 1–4、6–12 講的講課錄影、第 5 與第 8 講的學生實驗影片、第 8 講的開場錄影與期末口頭報告；第 5 講沒有客座講課錄影。同一播放清單也混有 Fall 2026 的第 1、3 講，那是另一個學期，本系列不使用。
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
 
 ## 課站在哪裡：網址沿用舊的 ML theory seminar
 
@@ -164,6 +153,17 @@ HW0 頁自己也說，去年的講課和筆記可以參考，但領域變化快�
 - Harvard 其他課：[Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
 今晚可以做的一件事：打開 [HW0 repo](https://github.com/Harvard-CS-2881/harvard-cs-2881-hw0) 的 README，看完「Instructions」三步，判斷你手上的 GPU 或雲端額度跑不跑得動 1B 模型的 LoRA 微調。
+
+## 課程影片來源
+
+本篇涵蓋多個講次，請由官方錄影索引依主題與講次選擇影片。官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對：有第 1–4、6–12 講的講課錄影、第 5 與第 8 講的學生實驗影片、第 8 講的開場錄影與期末口頭報告；第 5 講沒有客座講課錄影。同一播放清單也混有 Fall 2026 的第 1、3 講，那是另一個學期，本系列不使用。
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

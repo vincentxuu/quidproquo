@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 2: Uncertainty — Probability, Bayesian Networks, Markov Models & Genetic Inference"
+title: "Uncertainty — Probability, Bayesian Networks, Markov Models & Genetic Inference | Harvard CS50 AI Week 2"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 2 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=D8RRq3TbtHU
-title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-Original videos: [Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
-
-Course and recording entries:
-
-- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The overall order (probability, Bayesian networks, inference, Markov models, HMMs) holds, but several items could not be found in the transcript: d-separation, variable elimination, stationary distributions, PageRank random walks, the Viterbi and forward algorithms (the lecture only names HMM tasks such as filtering, prediction, smoothing and most likely explanation), and the two project introductions (Heredity, PageRank). They were removed from the video timeline. The original exact timecodes (the video runs 1:54:30) could not be verified and are now approximate values estimated from the transcript. Projects and stationary distributions remain in the guide but come from the course site, not this video.
 
 ## TL;DR
 
@@ -355,6 +335,26 @@ style50 pagerank.py
 - [ ] Can derive PageRank formula and explain damping factor role
 - [ ] Understand Heredity's "prior vs inheritance" probability switching logic
 - [ ] Both projects pass `check50` clean
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 2 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=D8RRq3TbtHU
+title: Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+Original videos: [Uncertainty - Lecture 2 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=D8RRq3TbtHU)
+
+Course and recording entries:
+
+- [CS50 AI Week 2 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/2/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The overall order (probability, Bayesian networks, inference, Markov models, HMMs) holds, but several items could not be found in the transcript: d-separation, variable elimination, stationary distributions, PageRank random walks, the Viterbi and forward algorithms (the lecture only names HMM tasks such as filtering, prediction, smoothing and most likely explanation), and the two project introductions (Heredity, PageRank). They were removed from the video timeline. The original exact timecodes (the video runs 1:54:30) could not be verified and are now approximate values estimated from the transcript. Projects and stationary distributions remain in the guide but come from the course site, not this video.
 
 ## Update Log
 

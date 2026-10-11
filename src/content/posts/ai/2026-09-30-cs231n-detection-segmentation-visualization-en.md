@@ -1,5 +1,5 @@
 ---
-title: "CS231N L9: Object Detection, Image Segmentation, and Visualization"
+title: "Object Detection, Image Segmentation, and Visualization | Stanford CS231N Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **Series**: previous [L8: Attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en) | next [L10: Video Understanding](/posts/ai/2026-09-30-cs231n-video-understanding-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 Every CS231N model so far answers one question: what is this image? Lecture 9 breaks that question apart. What's in the image, where is each thing, and which object does each pixel belong to? At the end it turns the question around: when the model decides, where is it actually looking?
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 9 (length 1:13:43; speaker Ehsan Adeli per the video description). The transcript covers semantic segmentation and fully convolutional networks, upsampling/transposed convolution, R-CNN and region proposals, YOLO, DETR, Mask R-CNN, saliency, CAM/Grad-CAM and ViT attention visualization, matching the article's topic. The adversarial examples, DeepDream and style transfer listed in the YouTube description do not appear in the transcript either, consistent with the article saying those topics are not covered. U-Net and anchors are not named in the transcript as captioned; those details come from the slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=PTypu6GqEd4
-title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
-Other related videos (text links only): [DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## First, a gap: the schedule and the slides disagree
 
@@ -171,6 +153,24 @@ The last part shifts from how to do the tasks to how to understand the model.
 - Adversarial examples and generative models: [CS230 on adversarial examples and generative models](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
 - The Transformer groundwork: [L8: Attention, Transformers, and ViT](/posts/ai/2026-09-30-cs231n-attention-transformers-vit-en)
 - A fuller deep learning theory course: [MIT 6.7960 guide](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 9 (length 1:13:43; speaker Ehsan Adeli per the video description). The transcript covers semantic segmentation and fully convolutional networks, upsampling/transposed convolution, R-CNN and region proposals, YOLO, DETR, Mask R-CNN, saliency, CAM/Grad-CAM and ViT attention visualization, matching the article's topic. The adversarial examples, DeepDream and style transfer listed in the YouTube description do not appear in the transcript either, consistent with the article saying those topics are not covered. U-Net and anchors are not named in the transcript as captioned; those details come from the slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=PTypu6GqEd4
+title: Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 9: Object Detection, Image Segmentation, Visualizing](https://www.youtube.com/watch?v=PTypu6GqEd4)
+Other related videos (text links only): [DETR - End to end object detection with transformers (ECCV2020)](https://www.youtube.com/watch?v=utxbUlo9CyY)
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

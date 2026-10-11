@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS231N 導讀：總覽與自學路線（Spring 2026）"
+title: "總覽與自學路線（Spring 2026）｜Stanford CS231N 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,15 +28,6 @@ glossary:
 首頁的課程描述把重點放在「端到端學習」：10 週內，學生要自己實作、訓練神經網路，並讀懂電腦視覺的前沿研究。課程首頁上還放了一個在瀏覽器裡即時分類 CIFAR-10 圖片的小型 CNN，旁邊寫著「By the end of the class, you will know exactly what all these numbers mean」。
 
 這篇回答三個問題：這門課教什麼、校外讀者實際拿得到什麼、怎麼排 10 週把它讀完。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Spring 2026 課表沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；Spring 2025 的公開播放清單沒有對應本文範圍的單一講次。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [Stanford CS231N Deep Learning for Computer Vision I 2025（YouTube 播放清單）](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 這門課的硬事實
 
@@ -160,6 +151,15 @@ Discussion section 有六次：Python/Numpy、Backprop、Final Project 說明、
 - [Berkeley CS285 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)：想接著看 robot learning 的讀者
 
 **系列導覽**：下一篇 [L1：電腦視覺從哪裡來，這門課要走到哪裡](/posts/ai/2026-09-30-cs231n-intro-vision-history)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Spring 2026 課表沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；Spring 2025 的公開播放清單沒有對應本文範圍的單一講次。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [Stanford CS231N Deep Learning for Computer Vision I 2025（YouTube 播放清單）](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

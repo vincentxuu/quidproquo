@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習基石與技法導讀：總覽與自學路線"
+title: "林軒田機器學習基石與技法導讀：總覽與自學路線｜台大林軒田 機器學習基石與技法 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -24,20 +24,6 @@ draft: false
 這篇是系列入口，只講課程結構、校外讀者拿得到什麼、該照什麼順序讀。各講內容留給後面各篇。
 
 **本文依據**：[MOOC 頁](https://www.csie.ntu.edu.tw/~htlin/mooc/)（頁尾最後更新 2024-08-30）、[基石](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)與[技法](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)兩份 YouTube 播放清單、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)與 [policy.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/doc/policy.pdf)、[Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)與各份作業 PDF、[Coursera 基石上課頁](https://www.coursera.org/learn/ntumlone-mathematicalfoundations)、[臺大開放式課程的 Coursera 政策說明](https://ocw.aca.ntu.edu.tw/courses/mooc0016)，全部在 2026-09-30 打開核對。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
-- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
-
-2026-10-10 已即時對照官方 MOOC 頁與兩份播放清單（基石 65 支、技法 65 支）；本文是總覽，沒有單一對應講次，因此不嵌入影片。
-
-查核日期：2026-10-10。
 
 ## 兩門 MOOC：七個問題、32 講、130 支影片
 
@@ -175,6 +161,20 @@ W5 以後的列目前只有投影片連結（例如 `09u_handout.pdf`），打�
 - [CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：其他學校的 ML 入門課。
 
 下一篇：[學習問題、PLA 與學習的種類](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron)
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [基石 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [技法 官方免費 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+2026-10-10 已即時對照官方 MOOC 頁與兩份播放清單（基石 65 支、技法 65 支）；本文是總覽，沒有單一對應講次，因此不嵌入影片。
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

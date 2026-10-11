@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 2 Words, Tokens, Edit Distance, and N-grams: Decide What the Model Sees First"
+title: "Words, Tokens, Edit Distance, and N-grams: Decide What the Model Sees First | Stanford CS124 Week 2"
 date: 2026-08-22
 category: ai
 type: deep-dive

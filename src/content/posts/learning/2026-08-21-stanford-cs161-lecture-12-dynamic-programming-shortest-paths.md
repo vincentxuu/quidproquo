@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 12：用動態規劃重寫 Bellman–Ford 與 Floyd–Warshall"
+title: "用動態規劃重寫 Bellman–Ford 與 Floyd–Warshall｜Stanford CS161 第 12 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, dynamic-programming, shortest-path]
@@ -20,16 +20,6 @@ series:
 這是 [Stanford CS161 導讀](/series/stanford-cs161)第 13 篇，對應 **Stanford CS161, Winter 2026, Lecture 12**。官方課名是 **Dynamic Programming: Bellman-Ford and Floyd-Warshall**，上課日期為 2026 年 2 月 18 日，講師是 Ellen Vitercik。
 
 本文依照[官方 Lecture 12 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)、公開 notes 與 slides PDF 整理。Canvas-only 錄影未作為來源。Lecture 11 從 relaxation 與權重條件比較 Dijkstra、Bellman–Ford；這一講刻意重訪 Bellman–Ford，但重點換成「狀態、遞迴式、填表順序」，再把同一套方法推到 all-pairs shortest paths。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
-
-查核日期：2026-10-10。
 
 ## Bellman–Ford 其實已經是一張 DP 表
 
@@ -170,6 +160,16 @@ Lecture 11 的核心對比是 greedy finalization：Dijkstra 挑目前 estimate 
 講義引用 Richard Bellman 對「dynamic programming」名稱的回憶：在政治環境下，他選了聽來難以反對的詞來描述 multistage decision process。這段歷史有助理解名稱，但不是演算法定義；判斷一個方法是不是 DP，仍應回到 state、recurrence、overlap 與 evaluation order。
 
 Slides 也提到 APSP 存在漸進上更快的研究結果。那不是本講 required knowledge，也不改變 Floyd–Warshall 作為標準 DP 範例的價值；本篇不把研究型界線混進課堂演算法保證。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-12-dynamic-programming-bellman-ford-and-floyd-warshall)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

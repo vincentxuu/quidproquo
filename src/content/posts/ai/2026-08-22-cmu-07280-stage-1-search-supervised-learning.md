@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 階段複習一：從搜尋問題走到監督式學習"
+title: "從搜尋問題走到監督式學習｜CMU 07-280 主題單元"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, search, supervised-learning, machine-learning]
@@ -20,16 +20,6 @@ draft: false
 07-280 的前十二講看起來像兩門課硬接在一起：Lecture 2–4 是傳統 AI 搜尋，Lecture 5–12 則轉進監督式學習與神經網路。真正連接兩段的不是「都叫 AI」，而是同一個工程問題：**你如何表示候選解，如何衡量它，如何在不可能窮舉的空間裡找到夠好的答案？**
 
 這篇是第一階段整合，不取代逐講文章。它把 Spring 2026 syllabus 的 Search Fundamentals 與 ML Fundamentals 放在同一張圖上，讓你檢查自己是否只記得演算法名稱，還是真的能把問題寫成可計算的形式。官方課表未列完整逐講公開錄影連結，因此以下只根據 syllabus、公開講義、recitation 與 homework 規格重建。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
 
 ## 同一條主線：表示、評分、移動
 
@@ -86,6 +76,16 @@ dy/db = (dy/dz)(dz/db) = 2z
 你應該能從自然語言題目寫出 representation、objective 與 update rule；能說清楚 heuristic、feature、loss 與 regularizer 各自壓縮或偏好什麼；也能手算一次 backpropagation。如果其中一項只能背定義，就回到對應逐講文章與 recitation worksheet，不要急著進 AlexNet。
 
 下一階段會把這些零件裝進三個具體系統：CNN 讓影像表示具有空間結構，GPT-2 讓序列表示透過 attention 互動，而訓練框架負責把計算圖真正跑在硬體上。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

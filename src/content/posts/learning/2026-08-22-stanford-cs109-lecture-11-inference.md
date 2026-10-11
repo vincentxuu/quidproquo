@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 11｜Inference：prior × likelihood → normalize"
+title: "Inference：prior × likelihood → normalize｜Stanford CS109 第 11 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -25,35 +25,6 @@ draft: false
 posterior[h] = prior[h] × likelihood(observation | h)
 normalize(posterior)
 ```
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=fvgQBAsg5Zo
-title: Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=d0ImA7m4BEg
-title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12](https://www.youtube.com/watch?v=fvgQBAsg5Zo)
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13](https://www.youtube.com/watch?v=d0ImA7m4BEg)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支影片字幕：2022 Lecture 12「Inference」（約 75K 字元）講用 Bayes 更新 belief，結尾預告 Stanford Acuity Test；2022 Lecture 13「Inference II」講 belief 更新迴圈、Acuity Test、normalization、離散化與 due-date（baby）例子，與本講一致。字幕沒有 carbon dating 與 mutation clock，本文 P5、P6 不是影片內容。
 
 ## P1：一次 Bayes update
 
@@ -182,6 +153,35 @@ Posterior 就是 prior 乘上 indicator 再正規化。所有 `d≤-17` 的 mass
 - P6 是 pset4 題，公開 answer key 刻意省略解答；本文只依公開題目建立 likelihood 與 posterior。
 - Canvas 錄影未公開，不推測額外課堂內容。
 - Worksheet 與 guide 各兩頁，採短材料例外；以逐題完整為準，維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=fvgQBAsg5Zo
+title: Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d0ImA7m4BEg
+title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12](https://www.youtube.com/watch?v=fvgQBAsg5Zo)
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13](https://www.youtube.com/watch?v=d0ImA7m4BEg)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支影片字幕：2022 Lecture 12「Inference」（約 75K 字元）講用 Bayes 更新 belief，結尾預告 Stanford Acuity Test；2022 Lecture 13「Inference II」講 belief 更新迴圈、Acuity Test、normalization、離散化與 due-date（baby）例子，與本講一致。字幕沒有 carbon dating 與 mutation clock，本文 P5、P6 不是影片內容。
 
 ## 更新紀錄
 

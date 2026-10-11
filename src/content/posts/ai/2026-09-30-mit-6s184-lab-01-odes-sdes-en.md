@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 Lab 1: Simulating ODEs and SDEs"
+title: "Simulating ODEs and SDEs | MIT 6.S184 Lab 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -30,15 +30,6 @@ glossary:
 **Series position**: Previous: [L1: Generation Is Sampling, and ODEs and SDEs Are the Machine](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en) | Next: [L2: Flow Matching, Learning the Marginal Vector Field from Conditional Paths](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | [Series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 
 [Lecture 1](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en) gave two update rules, Euler and Euler–Maruyama. Lab 1 has you turn them into code and use them to watch three kinds of SDEs. No neural network is trained anywhere in this lab; every vector field is written by hand. The point is to get a feel for simulating an SDE before anything is learned.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
 
 ## Before you start
 
@@ -141,6 +132,15 @@ The lab ends with a short derivation in two parts:
 
 - These simulators come back in Lab 2, paired with trained vector fields: [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
 - The formal treatment of scores and Langevin dynamics: [L3A: Score Functions, SDE Sampling, and Score Matching](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

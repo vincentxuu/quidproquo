@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP RAG（下）：檢索器接上生成器之後——從 ORQA、REALM 到 Self-RAG"
+title: "清大 NLP RAG（下）：檢索器接上生成器之後——從 ORQA、REALM 到 Self-RAG｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）的 [W11_RAG.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/W11_RAG.pdf) 第 60–125 頁，以及 [W11 週二](https://www.youtube.com/live/chIewpk4-q0)、[W11 週四](https://www.youtube.com/live/cRSaBtoTDag)兩支錄影的中文字幕軌。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與錄影公開，本單元沒有對應作業（實作放在 [RAG 助教課與 HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)）。
 
 **系列位置**：上一篇 [RAG（上）：幻覺與檢索器](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)｜下一篇 [LLM API 助教課](/posts/ai/2026-09-30-nthu-nlp-llm-api)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=chIewpk4-q0
-title: W11 週二錄影（Fall 2025）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=cRSaBtoTDag
-title: W11 週四錄影（Fall 2025）
-```
-
-原始影片：[W11 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：W11 週二與週四兩支字幕都完整讀過。表格列的內容皆成立：週二先宣布期末專題換題，再依序講 TF-IDF、BM25、CLS 不夠穩、Siamese／Sentence-BERT、SimCSE、DPR、GTR，結尾講到檢索器與 reader 的分界；週四開頭是期末專題 check point 與同儕互評、宣布 HW4 延一週，之後講 ORQA／ICT／REALM，最後講到 RAG 論文並說下週再接著講。文中轉述的老師說法（ICT 與自己微調 encoder 的提醒、REALM 難練、RAG 論文的評語）也都找得到。週四前半與後半的分界原寫「19 分鐘」，字幕沒有時間碼，已改成「約 20 分鐘」。REPLUG 以後的內容兩支影片都沒講到，維持只依投影片。
 
 ## 這一篇接在哪裡，錄影對到哪裡
 
@@ -172,6 +148,30 @@ title: W11 週四錄影（Fall 2025）
 - 另一門課怎麼講同一件事：[CS224N 第 10 講：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
 - 檢索評估與 neural IR：[CS224U 資訊檢索](/posts/ai/2026-09-29-cs224u-information-retrieval)
 - 工程實作全景：[RAG 系統模式完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=chIewpk4-q0
+title: W11 週二錄影（Fall 2025）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cRSaBtoTDag
+title: W11 週四錄影（Fall 2025）
+```
+
+原始影片：[W11 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=chIewpk4-q0)、[W11 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=cRSaBtoTDag)、[W12 週二錄影（Fall 2025）](https://www.youtube.com/watch?v=XGWuVpVTwTQ)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：W11 週二與週四兩支字幕都完整讀過。表格列的內容皆成立：週二先宣布期末專題換題，再依序講 TF-IDF、BM25、CLS 不夠穩、Siamese／Sentence-BERT、SimCSE、DPR、GTR，結尾講到檢索器與 reader 的分界；週四開頭是期末專題 check point 與同儕互評、宣布 HW4 延一週，之後講 ORQA／ICT／REALM，最後講到 RAG 論文並說下週再接著講。文中轉述的老師說法（ICT 與自己微調 encoder 的提醒、REALM 難練、RAG 論文的評語）也都找得到。週四前半與後半的分界原寫「19 分鐘」，字幕沒有時間碼，已改成「約 20 分鐘」。REPLUG 以後的內容兩支影片都沒講到，維持只依投影片。
 
 ## 更新紀錄
 

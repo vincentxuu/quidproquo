@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 2: A First C Program, Binary, and Hexadecimal"
+title: "A First C Program, Binary, and Hexadecimal | Stanford CS107 Lecture 2"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, binary, hexadecimal]
@@ -20,14 +20,6 @@ draft: false
 CS107 Lecture 2 joins two lines that may initially look separate: writing a first C program with Unix tools and representing numbers with bit patterns. The first half asks what happens between a source file and an executable. The second asks what a program value becomes in memory. Together, they form the real starting point of a systems course.
 
 This article follows the [official Winter 2026 Lecture 2 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/02/Lecture02.pdf) in full. It does not treat C as a smaller C++, nor binary conversion as an isolated arithmetic puzzle. The organizing question is consistent: when a language removes some high-level protection, which layers must the programmer manage directly?
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture metadata and source limits
 
@@ -303,6 +295,14 @@ The next lecture continues through integer representations, unsigned and signed 
 1. Use `man printf` to verify the argument types for `%d`, `%s`, and `%zu` against your code.
 2. Test unquoted text, double quotes, an empty string, and a wildcard as shell arguments; record what happens before program launch.
 3. Draw a source → preprocessing/compilation/linking → executable → process troubleshooting map, marking details not supplied by this lecture for later verification.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

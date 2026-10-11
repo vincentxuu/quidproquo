@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: HW9 Flow Matching — From VAE to MeanFlow, Then Counting Inference Steps on a Swiss Roll"
+title: "Reading NTU ML 2026: HW9 Flow Matching — From VAE to MeanFlow, Then Counting Inference Steps on a Swiss Roll | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **This post follows HW9 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 19 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The previous post covers the last regular lecture, [Can AI Improve Itself? (Part 2)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en). This homework doesn't map to any lecture this semester; the generative-modeling background comes from prerequisite videos.
 
 Official materials used: the homework slides [hw9.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw9.pdf) (the first 23 pages explain the task; the rest are the questions in Chinese and English), the [homework Colab](https://colab.research.google.com/drive/1R1CNujj6-kVPkl53RQLt5kE7tYVS-Zmp?usp=sharing) (57 cells), and the TA video listed on the course page, [ML 2026 Spring HW9 - Flow Matching](https://youtu.be/wAAeuMQ9r5c). The course page lists 5/22 as the release date; the deadline is 2026/06/11 23:59:59 (UTC+8), no late submissions, with grades out by 2026/06/14. The TAs are 林育正, 吳岳霖, 林禹融, 蘇炳揚, 陳品睿, and 江履方.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=wAAeuMQ9r5c
-title: TA video: ML 2026 Spring HW9 - Flow Matching
-```
-
-Original videos: [TA video: ML 2026 Spring HW9 - Flow Matching](https://www.youtube.com/watch?v=wAAeuMQ9r5c)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Access level: A3, but no official answers
 
@@ -175,6 +156,25 @@ Verified: the full text and embedded links of hw9.pdf; the Colab's markdown and 
 Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. The saved Colab contains some execution output; this post deliberately quotes none of those values so they don't become answers. No official answers have been released.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Can AI Improve Itself? (Part 2)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en) | Next: [HW10: Spoken Language Model](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=wAAeuMQ9r5c
+title: TA video: ML 2026 Spring HW9 - Flow Matching
+```
+
+Original videos: [TA video: ML 2026 Spring HW9 - Flow Matching](https://www.youtube.com/watch?v=wAAeuMQ9r5c)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

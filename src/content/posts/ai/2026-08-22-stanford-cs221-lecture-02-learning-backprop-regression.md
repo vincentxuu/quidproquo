@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 2：Learning I：從計算圖到線性迴歸"
+title: "Learning I：從計算圖到線性迴歸｜Stanford CS221 第 2 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 這篇只依兩份可執行 artifact 整理：[`backpropagation.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=backpropagation) 和 [`linear_regression.py`](https://stanford-cs221.github.io/autumn2025-lectures/?trace=linear_regression)。主線很集中：先用 tensor 與 `einsum` 熟悉「軸怎麼被保留或消去」，再把一個 scalar loss 拆成計算圖，最後把同一套微分與更新步驟接到線性迴歸。文章中的數值、名稱、形狀與演算法流程，都以這兩個檔案實際寫出的內容為準。
 
 > 材料缺口：來源檔提供可執行講義與程式碼，但沒有公開課堂問答、完整口頭講解、額外實驗結果或作業解答。以下不替這些缺口補上看似合理的結論。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 2 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 2 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=ypZJaTqrNdk
-title: Stanford CS221 | Autumn 2025 | Lecture 2: Learning I
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 2: Learning I](https://www.youtube.com/watch?v=ypZJaTqrNdk)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 2 支）字幕，確認內容涵蓋 einops 複習、計算圖與 backprop、梯度、線性迴歸（hypothesis class、loss、梯度下降），與本文的講次與主題相符，未發現錯配。
 
 ## 議程：從張量操作到學習迴圈
 
@@ -133,6 +113,26 @@ bias   = bias   - learning_rate * grad[1]
 還要分清楚三個層次。第一，forward pass 只是依圖或 predictor 算出值；第二，loss 把預測和 targets 的差距整理成可優化的 scalar；第三，backward 與 gradient descent 才把 loss 對參數的敏感度轉成更新。缺任何一層，都不能只靠名詞說自己完成了 learning。尤其是梯度精確不等於模型合理：hypothesis class 可能太窄，feature 可能漏掉訊息，training loss 也可能不能代表未見資料的表現。
 
 本講交付的是可檢查的表示法：確認 `einsum` 軸與 scalar objective，用 finite difference 檢查局部變化，再以 graph、chain rule 與 reverse-mode 求 gradient，最後接上線性迴歸更新。更大模型與 optimizer 比較仍是材料缺口。
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 2 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 2 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=ypZJaTqrNdk
+title: Stanford CS221 | Autumn 2025 | Lecture 2: Learning I
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 2: Learning I](https://www.youtube.com/watch?v=ypZJaTqrNdk)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 2 支）字幕，確認內容涵蓋 einops 複習、計算圖與 backprop、梯度、線性迴歸（hypothesis class、loss、梯度下降），與本文的講次與主題相符，未發現錯配。
 
 ## 更新紀錄
 

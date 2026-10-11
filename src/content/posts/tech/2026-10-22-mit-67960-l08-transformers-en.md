@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L08: Transformers — Tokens, Attention, Positional Codes, and How They Relate to MLPs/CNNs/GNNs"
+title: "Transformers — Tokens, Attention, Positional Codes, and How They Relate to MLPs/CNNs/GNNs | MIT 6.7960 Lecture 8"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; the required reading is the *Transformers* note (examples are visual, but the architecture applies to any data).
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
-title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 08 transcript (Phillip Isola, 1:14:35): the video covers tokens, attention (query/key/softmax), positional codes, and compares Transformers side by side with MLPs, CNNs and GNNs, matching the article; nothing needed correcting.
 
 ## The three core ideas
 
@@ -114,6 +95,25 @@ So the Transformer does not "overturn" earlier architectures — it expands the 
 - **Do not mythologize the Transformer**: it is an architecture with very weak inductive bias (global attention assumes almost no structure), so its data efficiency is usually worse than CNNs (vision) or GNNs (graphs), yet its ceiling is highest when data is abundant.
 - **Attention is not free**: the `O(n²)` sequence-length complexity means long sequences are VRAM-hungry. In practice mitigate with FlashAttention, sparse attention, or chunking long sequences.
 - **Positional encoding is a hidden landmine**: if your task is order-sensitive (most are) and you forget positional codes, performance collapses.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q1HOKrNeh2M
+title: MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 08. Architectures: Transformers](https://www.youtube.com/watch?v=Q1HOKrNeh2M)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 08. Architectures: Transformers](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec08_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 08 transcript (Phillip Isola, 1:14:35): the video covers tokens, attention (query/key/softmax), positional codes, and compares Transformers side by side with MLPs, CNNs and GNNs, matching the article; nothing needed correcting.
 
 ## Update Log
 

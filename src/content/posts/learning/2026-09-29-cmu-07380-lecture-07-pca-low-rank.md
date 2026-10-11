@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 7 導讀：Low Rank Optimization，PCA 的重建誤差、投影變異數與 LoRA"
+title: "Low Rank Optimization，PCA 的重建誤差、投影變異數與 LoRA｜CMU 07-380 第 7 堂"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, pca, dimensionality-reduction]
@@ -25,27 +25,6 @@ draft: false
 先講結論：**PCA 的兩個常見定義，最小化重建誤差和最大化投影變異數，是同一個 argmin**。解出來是共變異數矩陣的特徵向量，也就是資料矩陣 SVD 裡的右奇異向量。
 
 依 [2026-09-29 課站](https://www.cs.cmu.edu/~07380/#schedule)狀態整理；課站註明 schedule 可能變動。
-
-## 課程影片來源
-
-已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-- [Lec7 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA_inked.pdf)，共 41 頁：定義、MRI 生長板例子、置中、座標轉換、PCA 演算法、兩種 objective、等價證明、Lagrange 乘數、選 K、SVD。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA.pptx)
-- [PR4 PCA 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_PCA.pdf)（checkpoint 截止 9/15）：scalar／vector projection、旋轉與 projection matrix、共變異數矩陣
-- 兩個 Desmos：[Projection](https://www.desmos.com/calculator/7x11plypr0)、[Projection of points](https://www.desmos.com/calculator/dsfa42s9ln)
-- [`pca_2d_exercise.ipynb`（Colab）](https://colab.research.google.com/drive/1DQJ4cjImkuWOxGibw4oONuuPaVhnxBfC?usp=drive_link)：公開可下載
-- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)第 6 題 PCA Walkthrough（Recitation 4，9/18）
-- 課站指定閱讀：[Bishop《Pattern Recognition and Machine Learning》](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) §12.1（12.1.1 maximum variance、12.1.2 minimum-error 兩種推導都有）；Murphy §12.2；[LoRA 論文（Hu et al., 2021）](https://arxiv.org/abs/2106.09685)
-
-**公開程度**：投影片、筆記、Desmos、notebook、Recitation 與解答都能在校外取得，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。兩個例外：Murphy 的連結走 CMU 圖書館的 EBSCO，需要校內帳號，本篇沒有讀；課站沒有錄影連結。
 
 ## 承上問題：低秩最佳化是什麼
 
@@ -170,6 +149,27 @@ Recitation 第 6 題的資料是 (1,2)、(2,3)、(3,2)、(4,3)。
 - 上一篇：[Lecture 6 導讀：Integer Programming，先鬆弛成 LP 再用 branch and bound 分支](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
 - 下一篇：[Lecture 8 導讀：MAP，先驗怎麼進入估計，為什麼等價於正則化](/posts/learning/2026-09-29-cmu-07380-lecture-08-map)
 - 系列總覽：[CMU 07-380 Fall 2026 總覽](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)
+
+## 課程影片來源
+
+已核對 Fall 2026 官方課表及作業清單：公開來源列出投影片、預讀、示範與作業，未列對應講次的公開錄影連結。本文因此以官方教材導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+- [Lec7 投影片（inked PDF）](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA_inked.pdf)，共 41 頁：定義、MRI 生長板例子、置中、座標轉換、PCA 演算法、兩種 objective、等價證明、Lagrange 乘數、選 K、SVD。另有 [pptx 版](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec7_Low_Rank_Optimization_PCA.pptx)
+- [PR4 PCA 預讀筆記](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_PCA.pdf)（checkpoint 截止 9/15）：scalar／vector projection、旋轉與 projection matrix、共變異數矩陣
+- 兩個 Desmos：[Projection](https://www.desmos.com/calculator/7x11plypr0)、[Projection of points](https://www.desmos.com/calculator/dsfa42s9ln)
+- [`pca_2d_exercise.ipynb`（Colab）](https://colab.research.google.com/drive/1DQJ4cjImkuWOxGibw4oONuuPaVhnxBfC?usp=drive_link)：公開可下載
+- [Recitation 3-4 講義](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26.pdf)與[解答](https://www.cs.cmu.edu/~07380/recitations/Recitation3-4_07380_f26_sol.pdf)第 6 題 PCA Walkthrough（Recitation 4，9/18）
+- 課站指定閱讀：[Bishop《Pattern Recognition and Machine Learning》](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) §12.1（12.1.1 maximum variance、12.1.2 minimum-error 兩種推導都有）；Murphy §12.2；[LoRA 論文（Hu et al., 2021）](https://arxiv.org/abs/2106.09685)
+
+**公開程度**：投影片、筆記、Desmos、notebook、Recitation 與解答都能在校外取得，這一講的材料已到 A3 等級（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。兩個例外：Murphy 的連結走 CMU 圖書館的 EBSCO，需要校內帳號，本篇沒有讀；課站沒有錄影連結。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 11 | Inference: Prior times likelihood, then normalize"
+title: "Inference: Prior times likelihood, then normalize | Stanford CS109 Lecture 11"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -25,35 +25,6 @@ The original worksheet is two pages with complete numbering: P1–P2 appear on p
 posterior[h] = prior[h] × likelihood(observation | h)
 normalize(posterior)
 ```
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=fvgQBAsg5Zo
-title: Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=d0ImA7m4BEg
-title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13
-```
-
-Original videos:
-- [Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12](https://www.youtube.com/watch?v=fvgQBAsg5Zo)
-- [Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13](https://www.youtube.com/watch?v=d0ImA7m4BEg)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: 2022 Lecture 12, "Inference", covers updating beliefs with Bayes and ends by previewing the Stanford Acuity Test; 2022 Lecture 13, "Inference II", covers the belief-update loop, the Acuity Test, normalization, discretization and the due-date (baby) example, matching this lecture. Neither transcript contains carbon dating or the mutation clock, so P5 and P6 in this post are not video content.
 
 ## P1: One Bayes update
 
@@ -182,6 +153,35 @@ The guide's six concepts are belief updating, the belief-table loop, normalizati
 - P6 is a pset4 item deliberately omitted from the public answer key; this article derives only its likelihood and posterior from the public prompt.
 - The Canvas recording is inaccessible, so no additional spoken examples or claims are inferred.
 - The worksheet and guide are two pages each. The short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=fvgQBAsg5Zo
+title: Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d0ImA7m4BEg
+title: Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13
+```
+
+Original videos:
+- [Stanford CS109 Probability for Computer Scientists I Inference I 2022 I Lecture 12](https://www.youtube.com/watch?v=fvgQBAsg5Zo)
+- [Stanford CS109 Probability for Computer Scientists I Inference II I 2022 I Lecture 13](https://www.youtube.com/watch?v=d0ImA7m4BEg)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: 2022 Lecture 12, "Inference", covers updating beliefs with Bayes and ends by previewing the Stanford Acuity Test; 2022 Lecture 13, "Inference II", covers the belief-update loop, the Acuity Test, normalization, discretization and the due-date (baby) example, matching this lecture. Neither transcript contains carbon dating or the mutation clock, so P5 and P6 in this post are not video content.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 1 Guide: Introduction, and What AI & ML II Adds After 07-280"
+title: "Introduction, and What AI & ML II Adds After 07-280 | CMU 07-380 Lecture 1"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, machine-learning, learning-path]
@@ -21,28 +21,6 @@ draft: false
 This is Lecture 1 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026. The whole-course map lives in the [series overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en). This post covers only Lec1: what the slides say, how the Schedule and Policies on the course site group the 26 lectures into modules, and which materials you can reach from outside CMU.
 
 Everything below follows the course site as fetched on 2026-09-29. The site marks its schedule `Subject to change`, so dates and topics may still move.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-Materials read for this post:
-
-- [Lec1 slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction.pdf) and the [inked version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction_inked.pdf) (pptx is also on the site)
-- The course site's [Schedule](https://www.cs.cmu.edu/~07380/#schedule), [Policies](https://www.cs.cmu.edu/~07380/#policies) and [FAQ](https://www.cs.cmu.edu/~07380/#faq)
-- The Schedule lists AIMA (Russell & Norvig, 4th ed.) Ch. 1 as optional reading. I did not cite AIMA page by page
-
-Lec1 has no pre-reading, no recitation and no homework. The site links no recordings. The inked PDF has the same text as the plain one, plus the instructor's handwriting, such as a note on the course map that says "280/380 overlap with AI courses."
-
-Openness: the Lec1 slides, Schedule and Policies are all public, so this lecture's material is complete. The course as a whole is still A2 (in progress) on the [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en). Canvas, Gradescope, Piazza and the in-class polls are CMU-only.
 
 ## The thread of the slides: intelligence means doing well under uncertainty
 
@@ -150,6 +128,28 @@ For prerequisites, the site asks for 07-280 plus one probability course, each wi
 3. Before Lec2, read the [PR1 Propositional Logic notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf). The course puts syntax and model checking in the pre-reading, and Lec2 starts straight from algorithms.
 
 Next: [Lecture 2 guide: Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Previous: [series overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en).
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+Materials read for this post:
+
+- [Lec1 slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction.pdf) and the [inked version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec1_Introduction_inked.pdf) (pptx is also on the site)
+- The course site's [Schedule](https://www.cs.cmu.edu/~07380/#schedule), [Policies](https://www.cs.cmu.edu/~07380/#policies) and [FAQ](https://www.cs.cmu.edu/~07380/#faq)
+- The Schedule lists AIMA (Russell & Norvig, 4th ed.) Ch. 1 as optional reading. I did not cite AIMA page by page
+
+Lec1 has no pre-reading, no recitation and no homework. The site links no recordings. The inked PDF has the same text as the plain one, plus the instructor's handwriting, such as a note on the course map that says "280/380 overlap with AI courses."
+
+Openness: the Lec1 slides, Schedule and Policies are all public, so this lecture's material is complete. The course as a whole is still A2 (in progress) on the [A0–A3 scale](/posts/learning/2026-08-21-global-ai-cs-course-map-en). Canvas, Gradescope, Piazza and the in-class polls are CMU-only.
 
 ## Update Log
 

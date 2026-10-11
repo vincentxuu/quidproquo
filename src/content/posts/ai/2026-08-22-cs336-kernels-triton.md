@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 6：寫 Triton kernel 前，先學會 benchmark 與 profile"
+title: "寫 Triton kernel 前，先學會 benchmark 與 profile｜Stanford CS336 第 6 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 6: Kernels, Triton**，2026 年 4 月 15 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_06.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_06.py)。
 
 第五講說明資料搬運、tiling 與 fusion；第六講要求你實際量測並寫 kernel。順序不能顛倒：沒有可靠 benchmark 與 profiler，手寫 kernel 只是在替猜測最佳化。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 6（YouTube 標題為 Kernels, Triton, XLA；講者 Percy，開場接續 Tatsu 的 GPU 講次）。字幕涵蓋 Triton、PTX、GeLU 的 fusion、softmax、matmul、occupancy、thread coarsening、shared-memory bank conflict 與 benchmark 同步／warm-up。字幕沒有 XLA 相關內容的跡象不影響本文（本文未提 XLA）。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=xnDHaNUvHBg
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 正確性、效能與診斷是三層工作
 
@@ -79,6 +61,24 @@ Triton 降低了 CUDA 的語法負擔，沒有移除硬體限制。第六講真�
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義，包含可執行 benchmark、profiler 與四組 Triton 範例。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 6（YouTube 標題為 Kernels, Triton, XLA；講者 Percy，開場接續 Tatsu 的 GPU 講次）。字幕涵蓋 Triton、PTX、GeLU 的 fusion、softmax、matmul、occupancy、thread coarsening、shared-memory bank conflict 與 benchmark 同步／warm-up。字幕沒有 XLA 相關內容的跡象不影響本文（本文未提 XLA）。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=xnDHaNUvHBg
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 6: Kernels, Triton, XLA](https://www.youtube.com/watch?v=xnDHaNUvHBg)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

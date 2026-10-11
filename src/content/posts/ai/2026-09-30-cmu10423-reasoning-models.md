@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-423 L20：推理模型——從 chain-of-thought 到 o1、DeepSeek-R1 與 GRPO，再看一眼機制可解釋性"
+title: "推理模型——從 chain-of-thought 到 o1、DeepSeek-R1 與 GRPO，再看一眼機制可解釋性｜CMU 10-423 第 20 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,17 +37,6 @@ glossary:
 用到的官方材料：[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)與 [L20 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture20-reasoning.pdf)（39 頁，沒有手寫版）。投影片封面的完整標題是「Reasoning Models + Mechanistic Interpretability」，比講次表多了後半的可解釋性。講次表沒有列這一講的 readings，本文只引投影片和它標註的出處。這門課的存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)），但錄影放在要 CMU 登入的 Panopto，本篇只依投影片撰寫。
 
 這一講要回答的問題是：**推理模型和一般 LLM 的訓練與推論方式差在哪？** 投影片的答案分三步：先讓模型把推理寫出來，再用強化學習獎勵寫對的推理，最後讓推論時也能花更多算力想久一點。
-
-## 課程影片來源
-
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
-
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
 
 ## 先交代一件事：這天晚上考試
 
@@ -194,6 +183,17 @@ R1 在 R1-Zero 的基礎上改用混合訓練策略。投影片引的圖列出�
 延伸閱讀：站上 [CME295 的 LLM 推理篇](/posts/ai/2026-09-29-cme295-llm-reasoning)、[CS336 的 RLVR 篇](/posts/ai/2026-08-22-cs336-rlvr)從不同角度談推理模型與可驗證獎勵；可解釋性可以接著讀 [CS224N 可解釋性篇](/posts/ai/2026-08-22-cs224n-interpretability)與 [Harvard CS2881R 可解釋性篇](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)。
 
 系列導覽：上一篇 [L19 + L21：長上下文與 State Space／Hybrid 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)｜下一篇 [L22 + L26：實務風險與對齊科學](/posts/ai/2026-09-30-cmu10423-risks-alignment)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+
+## 課程影片來源
+
+官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+
+課程與錄影入口：
+
+- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

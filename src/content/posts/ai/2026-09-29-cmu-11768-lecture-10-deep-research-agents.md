@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 導讀 L10：Deep Research Agent 怎麼評、怎麼訓、怎麼檢索"
+title: "Deep Research Agent 怎麼評、怎麼訓、怎麼檢索｜CMU 11-768 第 10 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -35,25 +35,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 是 Daniel Fried 與 Graham Neubig 在 2026 秋季開的 agent 課，Domains 模組依序講 coding agent、computer use agent，第三個領域就是 deep research。第 10 講（9/24）由 [Akari Asai](https://akariasai.github.io/) 客座主講，她是 [OpenScholar](https://arxiv.org/abs/2411.14199)（arXiv:2411.14199，Nature 2026）的第一作者、[DR Tulu](https://arxiv.org/abs/2511.19399)（arXiv:2511.19399，ICML 2026）的共同第一作者，所以這一講有一半是在講她自己怎麼做這件事。
 
 Deep research agent 指的是：接到一個需要多次搜尋、跨多份文件綜合的研究問題，自己規劃、搜尋、反思、再搜尋，最後交出一份附引用的長答案。投影片把一堂課切成三塊——**評測**（benchmark、rubric、引用支持）、**建模**（怎麼學會搜尋與綜合）、**檢索**（怎麼替 agent 的下一步找到證據）。這篇照同樣的順序走。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 10 講的公開錄影（Akari Asai 主講）；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=nKUBrXFQBUM
-title: CMU AI Agents 2026: 10. Deep Research
-```
-
-原始影片：[CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完前半字幕、後半以關鍵字搜尋（影片約 72 分鐘，講者 Akari Asai），逐項對照〈課堂問答與講者的口述補充〉全部數字與說法（每次 RL 搜尋 API 約 3,000–4,000 美元、Serper、BM25／4B 嵌入模型、rubric 一份近一小時、GPT-4.1 產生 rubric 比 Qwen 約好 10 個百分點、600 步 RL 約 40% 與 5% SFT 多約 10 個百分點、約 20% 的無搜尋 BrowseComp 成績、需封鎖 Hugging Face、benchmark 選題建議）以及正文引述的字幕可見數字（BrowseComp 人類專家 25%、微調後 50%、BrowseComp-Plus 約 830 題／十萬文件、rubric 專家一致率約 80%、ResearchQA 約 15% 錯誤），皆有依據。字幕沒有的投影片細節與論文數字仍屬投影片與論文來源。「9/24」的上課日期字幕未提，仍屬官網課表。
 
 ## 一次搜尋和很多次搜尋差在哪
 
@@ -344,6 +325,25 @@ L10 是 Domains 模組的第三講，也是 Training 模組中間插進來的一
 - [從搜尋結果到可靠引用：URL 去重、來源分級與 Claim-Source Mapping](/posts/ai/2026-08-22-search-results-reliable-citations)
 - [CS336 Lecture 16：RLVR 用可驗證獎勵擴大推理，但 GRPO 不是免費的 PPO](/posts/ai/2026-08-22-cs336-rlvr)
 - [Stanford CS329Z 導讀 Week 7：分數別騙自己，資料再做大——期中驗收週](/posts/ai/2026-09-15-stanford-cs329z-week7-eval-benchmarks)
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 10 講的公開錄影（Akari Asai 主講）；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=nKUBrXFQBUM
+title: CMU AI Agents 2026: 10. Deep Research
+```
+
+原始影片：[CMU AI Agents 2026: 10. Deep Research](https://www.youtube.com/watch?v=nKUBrXFQBUM)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完前半字幕、後半以關鍵字搜尋（影片約 72 分鐘，講者 Akari Asai），逐項對照〈課堂問答與講者的口述補充〉全部數字與說法（每次 RL 搜尋 API 約 3,000–4,000 美元、Serper、BM25／4B 嵌入模型、rubric 一份近一小時、GPT-4.1 產生 rubric 比 Qwen 約好 10 個百分點、600 步 RL 約 40% 與 5% SFT 多約 10 個百分點、約 20% 的無搜尋 BrowseComp 成績、需封鎖 Hugging Face、benchmark 選題建議）以及正文引述的字幕可見數字（BrowseComp 人類專家 25%、微調後 50%、BrowseComp-Plus 約 830 題／十萬文件、rubric 專家一致率約 80%、ResearchQA 約 15% 錯誤），皆有依據。字幕沒有的投影片細節與論文數字仍屬投影片與論文來源。「9/24」的上課日期字幕未提，仍屬官網課表。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 8：AI for Science：把領域結構放進學習流程"
+title: "AI for Science：把領域結構放進學習流程｜MIT 6.S191 第 8 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 8 講是 **AI for Science：把領域結構放進學習流程**。以科學發現循環為主線，說明 simulator、AI emulator 與實驗如何合作，而不是把科學簡化成通用預測。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=rZACoZD8AG8
-title: MIT 6.S191: AI for Science
-```
-
-原始影片：[MIT 6.S191: AI for Science](https://www.youtube.com/watch?v=rZACoZD8AG8)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Microsoft Research AI for Science 的 Chris Bishop。字幕以「科學家提出假說、用實驗檢驗」的科學方法為主線，說明數位電腦帶來 simulator 這條路徑，再以 simulator 產生資料訓練 AI emulator 作為第三條路徑，並談 invariance、equivariance 與守恆律作為模型限制；與本文相符。影片用的詞是 emulator，沒有用 surrogate。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: AI for Science
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=rZACoZD8AG8
+title: MIT 6.S191: AI for Science
+```
+
+原始影片：[MIT 6.S191: AI for Science](https://www.youtube.com/watch?v=rZACoZD8AG8)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：這是客座講，講者是 Microsoft Research AI for Science 的 Chris Bishop。字幕以「科學家提出假說、用實驗檢驗」的科學方法為主線，說明數位電腦帶來 simulator 這條路徑，再以 simulator 產生資料訓練 AI emulator 作為第三條路徑，並談 invariance、equivariance 與守恆律作為模型限制；與本文相符。影片用的詞是 emulator，沒有用 surrogate。
 
 ## 更新紀錄
 

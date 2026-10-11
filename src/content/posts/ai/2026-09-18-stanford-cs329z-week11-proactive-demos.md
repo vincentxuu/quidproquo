@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 11（最終回）：從等指令到先出手——proactive agent 與 Demo Day"
+title: "（最終回）：從等指令到先出手——proactive agent 與 Demo Day｜Stanford CS329Z 第 11 週"
 date: 2026-09-10
 updated: 2026-09-12
 category: ai
@@ -26,17 +26,6 @@ draft: false
 差別不在模型大小，在誰先出手。reactive agent 的迴圈起點是你的指令，proactive agent 的迴圈起點是它對你的觀察。觀察需要一雙眼睛，推測需要一個使用者模型，出手需要一套何時該打斷的規矩。這三件東西，剛好就是本週主讀物的三個主角。
 
 Week 11 的安排很像收官。週一（Proactive Agents）的主讀物是 Shaikh 等人的 [General User Models](https://arxiv.org/abs/2505.10831)，另有 Next Action Prediction 延伸論文與隱私信任的討論。週三（Open Problems & Final Demos）沒有單一讀物。課程把 multimodal、web 與 computer-use、science agent、long-running 架構、production observability 攤開，收斂成三個開放方向。以下對週三的整理標示為課程視角，而非某篇論文的主張。paper video 的 peer review 也在週一截止，Demo Day 排在 finals week，主題是 Making Life at Stanford Better with Agents。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## GUM：把螢幕痕跡變成使用者模型
 
@@ -95,6 +84,17 @@ production observability 是同一週的另一半。tracing、monitoring、cost 
 - 週三 12/2 Open Problems & Final Demos：無單一主讀物。延伸閱讀 [OSWorld](https://arxiv.org/abs/2404.07972)（真實作業系統中的開放式電腦任務基準）與 [WebShop](https://arxiv.org/abs/2207.01206)（模擬電商站上的語言 grounding 基準）。兩者的具體數字見上文週三一節。
 - Week 10（11/23、11/25）：官方課表兩堂均標為 `No Class — Thanksgiving Recess`，指定與延伸閱讀皆為空。
 - 課表原文：[CS329Z 官網 Week 11](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

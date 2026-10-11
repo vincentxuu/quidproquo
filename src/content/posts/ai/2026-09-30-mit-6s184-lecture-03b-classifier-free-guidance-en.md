@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 L3B: Guidance and Classifier-Free Guidance"
+title: "B: Guidance and Classifier-Free Guidance | MIT 6.S184 Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ Up to this point, the course's models can only "generate an image." You can't sa
 The star is **classifier-free guidance (CFG)**. Its derivation needs only two things you already have: Bayes' rule, and Proposition 1 from [Lecture 3A](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en) (for Gaussian paths, vector fields and scores are interchangeable). If Prop. 1 is shaky, go back to that post first.
 
 The time convention matches the rest of the series: t=0 is noise, t=1 is data.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
-title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
-```
-
-Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 39 minutes): vanilla guidance, the Bayes derivation of classifier guidance, classifier-free guidance with a null token, dropping the label with roughly 20% probability in training, sampling, the discussion of w≥4 and w<1, two network calls halving efficiency, and the literature guide being postponed to next week. This post's statements about the video largely hold. One small inaccuracy: the student asked about w<1, and the “negative direction means avoiding the prompt” remark was the lecturer's own follow-up; this has been corrected. The lecturer does not state a name in this video; Peter Holderrieth is listed as the uploader and instructor in the video description, and the self-introduction is in Lecture 1.
 
 ## First, vocabulary: guided is not conditional
 
@@ -240,6 +222,24 @@ Both the notes and slides use Stable Diffusion 3 as an example. Slides 3 gives S
 - Conditional generation and guidance from the DDPM perspective (time runs the opposite way): [CMU 11-785 L23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - A general introduction to generative models: [MIT 6.S191 L4: Generative Modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - The original CFG paper: [Ho & Salimans, Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598) (reference [18] in the notes and the image source for the slides)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=8oWZ1bHwyRI
+title: MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)
+```
+
+Original videos: [MIT 6.S184: Flow Matching and Diffusion Models - Lecture 03B - Classifier-free Guidance (2026)](https://www.youtube.com/watch?v=8oWZ1bHwyRI)
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 39 minutes): vanilla guidance, the Bayes derivation of classifier guidance, classifier-free guidance with a null token, dropping the label with roughly 20% probability in training, sampling, the discussion of w≥4 and w<1, two network calls halving efficiency, and the literature guide being postponed to next week. This post's statements about the video largely hold. One small inaccuracy: the student asked about w<1, and the “negative direction means avoiding the prompt” remark was the lecturer's own follow-up; this has been corrected. The lecturer does not state a name in this video; Peter Holderrieth is listed as the uploader and instructor in the video description, and the self-introduction is in Lecture 1.
 
 ## Update Log
 

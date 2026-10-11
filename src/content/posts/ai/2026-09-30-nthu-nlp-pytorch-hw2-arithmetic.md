@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP HW2：把算式當成一種語言——PyTorch 助教課、兩層 LSTM 與 teacher forcing"
+title: "把算式當成一種語言——PyTorch 助教課、兩層 LSTM 與 teacher forcing｜清大高宏宇 自然語言處理 作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,30 +34,6 @@ glossary:
 - **Assignment 2**：[資料夾](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment2)裡有題目說明 [NLP_HW2_arithmetic.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment2/NLP_HW2_arithmetic.pdf)、起始碼 [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment2/main.ipynb)、`arithmetic_train.csv`、`arithmetic_eval.csv`，另有[說明影片](https://youtu.be/nFQCFaRs0kE)（標題「Week 5 Thu. - Assignment 2」；[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把 HW2 掛在 W5 那一列）。
 
 存取等級是 **A3**：題目、起始碼和完整資料都公開，缺的是解答與評分腳本（在 NTU COOL）。Fall 2026 的 HW2 還沒公布，本篇內容全部是 2025 版。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=INIrdjLVMEU
-title: Fall 2025 W4 Tue 助教課錄影
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=nFQCFaRs0kE
-title: 2025 HW2 說明影片
-```
-
-原始影片：[Fall 2025 W4 Tue 助教課錄影](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 說明影片](https://www.youtube.com/watch?v=nFQCFaRs0kE)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 4 Tue. 助教課的字幕完整讀過。文中對這支影片的描述（Anaconda 與依 CUDA 版本安裝 PyTorch、以多項式例子帶出模型／loss／optimizer、view 與 reshape 的差別、nn.ModuleList 與 Python list 的差異、autograd 的相依計數與三種關閉梯度的方法、訓練迴圈、Dataset／DataLoader 與 collate、「I love AI」的 RNN 資料流與 teacher forcing 對比、結尾用 Hugging Face 載入 BERT）都能在字幕找到；100×100 張量正規化的秒數（0.127／0.000088）與頁碼來自投影片，字幕只說矩陣運算快很多。HW2 說明影片（nFQCFaRs0kE）的 YouTube 頁面沒有字幕，無法核對，文中作業內容只依 PDF 與起始碼。
 
 ## 助教課：交作業前的工具箱
 
@@ -156,6 +132,30 @@ PDF 建議數據盡量用文字呈現，不要只貼圖，方便批改。繳交�
 - 本系列下一篇：[Transformer 與 Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers)
 - 英文課的 RNN 段落：[CMU 11-785：RNN（一）](/posts/ai/2026-08-22-cmu-11785-13-rnn-one)、[CMU 11-785：RNN（二）](/posts/ai/2026-08-22-cmu-11785-14-rnn-two)
 - 回到[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=INIrdjLVMEU
+title: Fall 2025 W4 Tue 助教課錄影
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=nFQCFaRs0kE
+title: 2025 HW2 說明影片
+```
+
+原始影片：[Fall 2025 W4 Tue 助教課錄影](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 說明影片](https://www.youtube.com/watch?v=nFQCFaRs0kE)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 4 Tue. 助教課的字幕完整讀過。文中對這支影片的描述（Anaconda 與依 CUDA 版本安裝 PyTorch、以多項式例子帶出模型／loss／optimizer、view 與 reshape 的差別、nn.ModuleList 與 Python list 的差異、autograd 的相依計數與三種關閉梯度的方法、訓練迴圈、Dataset／DataLoader 與 collate、「I love AI」的 RNN 資料流與 teacher forcing 對比、結尾用 Hugging Face 載入 BERT）都能在字幕找到；100×100 張量正規化的秒數（0.127／0.000088）與頁碼來自投影片，字幕只說矩陣運算快很多。HW2 說明影片（nFQCFaRs0kE）的 YouTube 頁面沒有字幕，無法核對，文中作業內容只依 PDF 與起始碼。
 
 ## 更新紀錄
 

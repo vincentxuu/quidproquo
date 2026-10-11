@@ -1,5 +1,5 @@
 ---
-title: "CS224R L9: RLHF, DPO, and Preference Optimization"
+title: "RLHF, DPO, and Preference Optimization | Stanford CS224R Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,25 +35,6 @@ glossary:
 The [CS224R](https://cs224r.stanford.edu/) schedule calls this lecture "RL for LLMs: Preference Optimization," given by guest lecturer Archit Sharma. The deck is titled "The Post-Training Frontier: RLHF, DPO and Modern Preference Optimization," and the cover says "Based on slides from CS224N," Stanford's NLP course.
 
 The previous eleven posts were about robots and control. This lecture jumps to language models. Lining the two up first makes the derivations much easier to follow.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=XKLGuwvSKvI
-title: Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)
-```
-
-Original videos: [Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L9 RL for LLMs (preference optimization guest lecture) transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Archit Sharma, and the topic matches this post. The speaker is Archit Sharma (the description lists him as lead author of DPO), the same speaker the post names; the transcript covers reward models, Bradley-Terry, the KL-regularized RLHF objective and DPO, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Mapping LLMs onto RL vocabulary
 
@@ -224,6 +205,25 @@ Compute them with any small model and plug them into the DPO formula. Before tra
 - [Reading CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en): the course these slides were adapted from
 
 **Series**: previous [HW3: Offline RL with AWAC and IQL](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en) | next [L10: RL for LLM reasoning and test-time compute](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=XKLGuwvSKvI
+title: Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)
+```
+
+Original videos: [Spring 2025 Lecture 9: RL for LLMs (YouTube, supplementary)](https://www.youtube.com/watch?v=XKLGuwvSKvI)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L9 RL for LLMs (preference optimization guest lecture) transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Archit Sharma, and the topic matches this post. The speaker is Archit Sharma (the description lists him as lead author of DPO), the same speaker the post names; the transcript covers reward models, Bradley-Terry, the KL-regularized RLHF objective and DPO, matching the post's topic. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

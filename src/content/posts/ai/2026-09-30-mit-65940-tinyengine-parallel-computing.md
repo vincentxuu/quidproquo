@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L11 TinyEngine 與平行運算：從 loop tiling 到 in-place depthwise"
+title: "TinyEngine 與平行運算：從 loop tiling 到 in-place depthwise｜MIT 6.5940 第 11 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 [L10](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml) 說 MCUNet 是 TinyNAS 加 TinyEngine 的協同設計，但只講了 TinyNAS。L11 補上另一半：模型定了之後，系統層要怎麼讓它跑得快、吃得少。
 
 這講的程式碼比前面多，但骨架很單純。前半段用**同一個矩陣乘法**，依序套上 loop 優化、SIMD、multithreading、CUDA，每一步都報加速倍數；後半段換成卷積，講四個 TinyEngine 會用到的推論技巧。第 2 頁的 Lecture Plan 就是這三段：Edge AI 與 MCU 的特性、平行運算技巧、推論最佳化。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=wl1UEnIOVek
-title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾（含 Winograd 段與 TinyChat／Lab 4–5 的銜接）並抽查中段：loop reordering（影片說 12 倍）、tiling（19 倍）、4 thread（4.1 倍）、SIMD、im2col、in-place depthwise、NHWC 與 NCHW 的取捨、Winograd 把 36 次乘法降到 16 次（2.25 倍）。這些倍數和本文一致。主題與講次相符；字幕沒有 CUDA 94 倍與 loop unrolling 2.85 倍的說法，這兩個數字以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## MCU 到底小在哪
 
@@ -167,6 +149,24 @@ for i in range(N):
 - 局部性與 arithmetic intensity：[CS149 L6 Locality 與通訊](/posts/ai/2026-09-30-cs149-locality-communication)
 - GPU 與 Triton kernel：[CS336 Lecture 5：GPU](/posts/ai/2026-08-22-cs336-gpu-tpu)、[CS336 Lecture 6：Triton kernel](/posts/ai/2026-08-22-cs336-kernels-triton)
 - CUDA 作業實戰：[CMU 11-868 HW1：CUDA 程式設計](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=wl1UEnIOVek
+title: EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 11 - TinyEngine (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=wl1UEnIOVek)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭、結尾（含 Winograd 段與 TinyChat／Lab 4–5 的銜接）並抽查中段：loop reordering（影片說 12 倍）、tiling（19 倍）、4 thread（4.1 倍）、SIMD、im2col、in-place depthwise、NHWC 與 NCHW 的取捨、Winograd 把 36 次乘法降到 16 次（2.25 倍）。這些倍數和本文一致。主題與講次相符；字幕沒有 CUDA 94 倍與 loop unrolling 2.85 倍的說法，這兩個數字以投影片為準。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

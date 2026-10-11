@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 9: One Person Wiring Up MCP Is Fine; Three Hundred Need a Gate"
+title: "One Person Wiring Up MCP Is Fine; Three Hundred Need a Gate | Stanford CS146S Week 9"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the tenth post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 Three topics: MCP portals and centralized, permissioned tool access; LLM gateways, model routing, and cost optimization; org-wide adoption patterns. The session is "Coding agents in big teams."
 
 This week handles what the first eight sidestepped: **what happens when the user is a company rather than a person.**
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Where "everyone wires their own" breaks
 
@@ -133,6 +121,18 @@ And one refreshingly honest one: the inference team treats it like a "slot machi
 - Anthropic's internal usage figures are self-reported, single point in time, single company
 - The MCP registry and enterprise portal product landscape moves fast; this post covers responsibilities, not products
 - Model pricing and capability tiers reshuffle every few months, so routing strategy needs re-validation
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

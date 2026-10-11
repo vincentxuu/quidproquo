@@ -1,5 +1,5 @@
 ---
-title: "Dissecting the Lobster: Hung-yi Lee Takes OpenClaw Apart Until Only Next-Token Prediction and a Few .md Files Remain"
+title: "Dissecting the Lobster: Hung-yi Lee Takes OpenClaw Apart Until Only Next-Token Prediction and a Few .md Files Remain | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -20,25 +20,6 @@ draft: false
 **This post is based on the 3/6 lecture of [Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 1 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The official materials are the slide deck [Dissecting the Lobster: How AI Agents Work, Using OpenClaw as an Example](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pdf) (60 slides, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/intro.pptx)) and the [lecture recording](https://youtu.be/2rcJdFuNbZQ). Both are in Mandarin. Access is A3: slides and video are public, and this lecture has no assignment or quiz attached.
 
 Slide 16 carries a one-line disclaimer: OpenClaw is an open-source project that changes constantly, and the course focuses on concepts. So does this post. It only takes apart the agent mechanisms the way the lecture presents them. For OpenClaw's installation, channels, gateway, and configuration, see the site's [Reading the OpenClaw Docs](/posts/ai/2026-03-28-openclaw-overview-en) series.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
-title: Lecture recording: Dissecting the Lobster (YouTube)
-```
-
-Original videos: [Lecture recording: Dissecting the Lobster (YouTube)](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video 2rcJdFuNbZQ (83:17; the transcript obtained is a machine-translated English version with some mistranslated proper nouns) was read. Checked the opening demo of Xiao Jin creating a YouTube channel, the system prompt exceeding 4,000 tokens, every turn starting fresh (the amnesia analogy), the Read/Write/exec flow, TTS verification up to five times and the self-written TTS_check script, sub-agents (spawn) and disabling them at the code level, SKILLs being tradable, the Koi finding of 341 malicious skills (the transcript says 341 out of nearly 3,000), memory writing and memory search, HEARTBEAT, compaction and pruning (soft trim), and the AI email-deletion incident and safety advice; all match the transcript and no errors were found. The Puppeteer/ElevenLabs/FFmpeg pipeline inside the example SKILL.md, framework release dates and slide page numbers have no counterpart in the transcript; they come from the slides and cannot be verified from the video.
 
 ## What the lobster can do
 
@@ -173,6 +154,25 @@ The last two slides (59–60) return to safety. Lee cites an incident where an A
 - The language-model prerequisite: [Introduction to Generative AI and Machine Learning 2025, Lecture 1](https://youtu.be/TigfpYPJk1s) (in Mandarin)
 
 Series navigation: previous, [series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | next, [HW1: LLM malicious instruction defense](/posts/ai/2026-09-30-ntu-ml2026-hw1-malicious-instruction-defense-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=2rcJdFuNbZQ
+title: Lecture recording: Dissecting the Lobster (YouTube)
+```
+
+Original videos: [Lecture recording: Dissecting the Lobster (YouTube)](https://www.youtube.com/watch?v=2rcJdFuNbZQ)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video 2rcJdFuNbZQ (83:17; the transcript obtained is a machine-translated English version with some mistranslated proper nouns) was read. Checked the opening demo of Xiao Jin creating a YouTube channel, the system prompt exceeding 4,000 tokens, every turn starting fresh (the amnesia analogy), the Read/Write/exec flow, TTS verification up to five times and the self-written TTS_check script, sub-agents (spawn) and disabling them at the code level, SKILLs being tradable, the Koi finding of 341 malicious skills (the transcript says 341 out of nearly 3,000), memory writing and memory search, HEARTBEAT, compaction and pruning (soft trim), and the AI email-deletion incident and safety advice; all match the transcript and no errors were found. The Puppeteer/ElevenLabs/FFmpeg pipeline inside the example SKILL.md, framework release dates and slide page numbers have no counterpart in the transcript; they come from the slides and cannot be verified from the video.
 
 ## Update Log
 

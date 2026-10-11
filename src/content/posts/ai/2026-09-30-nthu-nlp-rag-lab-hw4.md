@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP RAG 助教課＋HW4：用 LangChain 和手刻兩種方式，做一個回答貓咪冷知識的 RAG"
+title: "用 LangChain 和手刻兩種方式，做一個回答貓咪冷知識的 RAG｜清大高宏宇 自然語言處理 作業 4／助教課"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,28 +28,6 @@ glossary:
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）的 [rag_tutorial_1.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_1.pdf)（封面 2024/11/28）、[rag_tutorial_2.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/rag_tutorial_2.pdf)（封面 2024/12/05）、[RAG_tutorial_1.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/RAG_tutorial_1.ipynb)、[RAG_lab_2](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/RAG_lab_2)，以及 [Assignment4](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment4) 的說明 PDF、`main.ipynb`、`cat-facts.txt`、`questions_answers.txt`。兩份助教課投影片沿用 2024 年版。錄影是 W13 的 [RAG1](https://youtube.com/live/anCghHOjzV0)、[RAG2](https://youtube.com/live/RpLqfqR2OZI) 和 [HW4 說明影片](https://youtu.be/JvThEbeOZbs)，三支都沒有字幕軌，本文沒有逐段核對錄影內容。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：題目、starter code 與資料都公開；拿不到的是繳交用的 NTU COOL、評分腳本與解答。
 
 **系列位置**：上一篇 [LLM API 助教課](/posts/ai/2026-09-30-nthu-nlp-llm-api)｜下一篇 [課程總結與 LLM Reasoning 筆記](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=JvThEbeOZbs
-title: HW4 說明影片
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=anCghHOjzV0
-title: W13 週二錄影：RAG1
-```
-
-原始影片：[HW4 說明影片](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 週二錄影：RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 週四錄影：RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 週四錄影](https://www.youtube.com/watch?v=cRSaBtoTDag)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
 
 ## 時間線：作業比助教課先發
 
@@ -171,6 +149,28 @@ MMR 在站上有[專文](/posts/ai/2026-03-12-mmr-diversity-reranking)可以補�
 - 切塊策略：[Chunking 策略：切塊方式決定 RAG 能不能找到答案](/posts/ai/2026-03-12-chunking-strategies)
 - RAG 怎麼評估：[RAG 評估框架與工具選型](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 - 另一門課的 RAG 作業：[CS224U 作業二：OpenQA 與 DSPy](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=JvThEbeOZbs
+title: HW4 說明影片
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=anCghHOjzV0
+title: W13 週二錄影：RAG1
+```
+
+原始影片：[HW4 說明影片](https://www.youtube.com/watch?v=JvThEbeOZbs)、[W13 週二錄影：RAG1](https://www.youtube.com/watch?v=anCghHOjzV0)、[W13 週四錄影：RAG2](https://www.youtube.com/watch?v=RpLqfqR2OZI)、[W11 週四錄影](https://www.youtube.com/watch?v=cRSaBtoTDag)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

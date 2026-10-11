@@ -1,5 +1,5 @@
 ---
-title: "NTU ADL 2025 Lecture 11: Reasoning, Memory, Planning, and Multi-Agent Systems in Language Agents"
+title: "Reasoning, Memory, Planning, and Multi-Agent Systems in Language Agents | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,30 +36,6 @@ This is post 14 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/
 **Series**: Previous: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en) | Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 
 There is no homework for this lecture. Slides and videos are public, with no extra gaps beyond the series-wide A2 grade. The question it answers: **everyone talks about agents, but what exactly is one, and what do reasoning, memory, planning, and multiple agents each solve?**
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=R0YBJve0NoI
-title: ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=UO527XuWEzg
-title: ADL 11.2: Reasoning (YouTube, in Mandarin)
-```
-
-Original videos: [ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory (YouTube, in Mandarin)](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems (YouTube, in Mandarin)](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Both transcripts (11.1 and 11.2) were read. 11.1: the supportive and sceptical voices on agents (Bill Gates, Andrew Ng, Sam Altman, and "just an LLM wrapper"), the general definition of perceiving and acting, rational agents maximizing utility, the internal actions and self-reflection of a language agent, the logical / neural / language agent comparison on expressiveness, reasoning and adaptability, and the three key concepts (reasoning, memory, planning). 11.2: reasoning updating short-term memory (the context window), CoT intermediate steps, the robot-cooking-without-salt example, ReAct's reasoning plus acting with human-editable thoughts, reasoning enlarging the action space and making decisions harder, and LLMs relying on reasoning priors from pretraining. All match the corresponding sections. The article's version note is also supported: 11.1 opens by saying "this is the second-to-last class of the semester", consistent with the 2024/12/04 description, so these are Fall 2024 recordings rather than the 2025/11/10 lecture itself. 11.3 to 11.5 are not embedded, and the memory, planning and multi-agent sections were not compared against transcripts.
 
 ## What an agent is, and what language agents add
 
@@ -163,6 +139,30 @@ One thing you can do tonight: take an agent you use or are building, and followi
 
 Previous: [Bias, Safety, Hallucination, and Alignment + Final Project](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 Next: [Reasoning (videos only)](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=R0YBJve0NoI
+title: ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=UO527XuWEzg
+title: ADL 11.2: Reasoning (YouTube, in Mandarin)
+```
+
+Original videos: [ADL 11.1: Language Agents Introduction (YouTube, in Mandarin)](https://www.youtube.com/watch?v=R0YBJve0NoI)、[ADL 11.2: Reasoning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=UO527XuWEzg)、[ADL 11.3: Memory (YouTube, in Mandarin)](https://www.youtube.com/watch?v=nAcLNc-H5Sc)、[ADL 11.4: Planning (YouTube, in Mandarin)](https://www.youtube.com/watch?v=ny7qcF1BzaA)、[ADL 11.5: Multi-Agent Systems (YouTube, in Mandarin)](https://www.youtube.com/watch?v=0b8NdMfZ8Fs)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Both transcripts (11.1 and 11.2) were read. 11.1: the supportive and sceptical voices on agents (Bill Gates, Andrew Ng, Sam Altman, and "just an LLM wrapper"), the general definition of perceiving and acting, rational agents maximizing utility, the internal actions and self-reflection of a language agent, the logical / neural / language agent comparison on expressiveness, reasoning and adaptability, and the three key concepts (reasoning, memory, planning). 11.2: reasoning updating short-term memory (the context window), CoT intermediate steps, the robot-cooking-without-salt example, ReAct's reasoning plus acting with human-editable thoughts, reasoning enlarging the action space and making decisions harder, and LLMs relying on reasoning priors from pretraining. All match the corresponding sections. The article's version note is also supported: 11.1 opens by saying "this is the second-to-last class of the semester", consistent with the 2024/12/04 description, so these are Fall 2024 recordings rather than the 2025/11/10 lecture itself. 11.3 to 11.5 are not embedded, and the memory, planning and multi-agent sections were not compared against transcripts.
 
 ## Update Log
 

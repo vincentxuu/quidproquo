@@ -1,5 +1,5 @@
 ---
-title: "CS224U Contextual Representations I: \"Break\" Has Eight Meanings, and How the Transformer Lets Each Word Read Its Context"
+title: "\"Break\" Has Eight Meanings, and How the Transformer Lets Each Word Read Its Context | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -32,29 +32,6 @@ The CS224U session on April 5, 2023 covered contextual word representations. The
 This post covers the first three sections, which match videos [04](https://www.youtube.com/watch?v=FEFeeRONEdw), [05](https://www.youtube.com/watch?v=yqV_YfBBtK0), and [06](https://www.youtube.com/watch?v=JERXX2Byr90). The remaining seven sections, on the model families, are in [the next post](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en).
 
 Potts explains the trade-off at the start of video 04. Earlier versions of the course spent about two weeks on static vectors. The 2023 version goes straight to contextual representations and moves static vectors to the course's [background materials](https://web.stanford.edu/class/cs224u/background.html).
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=FEFeeRONEdw
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=yqV_YfBBtK0
-title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw), [Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
-
-Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas) and Part 2 (Transformer) were compared item by item with their transcripts: the two-weeks-of-static-vectors trade-off, the break/flat/crane/any examples, the four stages and five milestones, the four building blocks, the step-by-step Transformer block and the d_k exception, multi-head attention, and the BERT-base structure. Part 3 (Positional Encoding), which the post cites but does not embed, was read as well; the two guiding questions, the comparison of three schemes, the relative-position window, and the conclusion all match. Nothing needed correcting.
-
-Course and recording entries:
-
-- [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## The scene: one "break," eight meanings
 
@@ -205,6 +182,29 @@ Here $a^K_{ij}$ and $a^V_{ij}$ depend on the relative distance $j - i$, clipped 
 - In the extracted text of slide 27, the relative encoding slide still shows two "Limitations" lines, but the video says clearly that relative encoding passes both questions. The PDF text doesn't show whether the original slide strikes them out, so this post follows the video.
 
 **Series navigation**: Previous: [Opening lecture: the evolution of NLU and the course map](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en) | Next: [Contextual representations II: GPT, BERT, RoBERTa, ELECTRA, seq2seq, and distillation](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=FEFeeRONEdw
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=yqV_YfBBtK0
+title: Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Contextual Word Representations, Part 1: Guiding Ideas I Spring 2023](https://www.youtube.com/watch?v=FEFeeRONEdw), [Stanford XCS224U: NLU I Contextual Word Representations, Part 2: Transformer I Spring 2023](https://www.youtube.com/watch?v=yqV_YfBBtK0)
+
+Content check: verified against the video transcript (2026-10-10): Part 1 (Guiding Ideas) and Part 2 (Transformer) were compared item by item with their transcripts: the two-weeks-of-static-vectors trade-off, the break/flat/crane/any examples, the four stages and five milestones, the four building blocks, the step-by-step Transformer block and the d_k exception, multi-head attention, and the BERT-base structure. Part 3 (Positional Encoding), which the post cites but does not embed, was read as well; the two guiding questions, the comparison of three schemes, the relative-position window, and the conclusion all match. Nothing needed correcting.
+
+Course and recording entries:
+
+- [XCS224U YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

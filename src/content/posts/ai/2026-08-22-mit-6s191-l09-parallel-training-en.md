@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 9: Massively Parallel Training: Memory and Communication Set the Boundary"
+title: "Massively Parallel Training: Memory and Communication Set the Boundary | MIT 6.S191 Lecture 9"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 Lecture 9 of [MIT 6.S191 2026](https://introtodeeplearning.com/) is **Massively Parallel Training: Memory and Communication Set the Boundary**. It Starts with GPU memory pressure and moves through checkpointing, offloading, ZeRO, FSDP, and multiple forms of parallelism. This note uses only the official 2026 slides and video; it does not mix in similarly named material from 2025.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=UZZD9d9YqnQ
-title: MIT 6.S191: Secrets of Massively Parallel Training
-```
-
-Original videos: [MIT 6.S191: Secrets of Massively Parallel Training](https://www.youtube.com/watch?v=UZZD9d9YqnQ)
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Mathias Lechner, co-founder and CTO of Liquid AI (YouTube titles and describes it as "Lecture 8", length 52:40). The transcript covers memory components (parameters, gradients, optimizer state, activations), activation checkpointing, offloading, data/tensor/pipeline (including the pipeline bubble)/context parallelism, and ZeRO and FSDP, matching this note item by item.
 
 ## What to take away
 
@@ -61,6 +43,24 @@ Make a four-column memory budget for a model, then choose checkpointing, shardin
 ## Scope and limits
 
 6.S191 is a high-intensity introduction, and this article is only a lecture guide. It does not replace the full recording, rigorous derivations, or instructor feedback. Use a semester course or primary papers when a topic needs theoretical depth.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=UZZD9d9YqnQ
+title: MIT 6.S191: Secrets of Massively Parallel Training
+```
+
+Original videos: [MIT 6.S191: Secrets of Massively Parallel Training](https://www.youtube.com/watch?v=UZZD9d9YqnQ)
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): this is a guest lecture by Mathias Lechner, co-founder and CTO of Liquid AI (YouTube titles and describes it as "Lecture 8", length 52:40). The transcript covers memory components (parameters, gradients, optimizer state, activations), activation checkpointing, offloading, data/tensor/pipeline (including the pipeline bubble)/context parallelism, and ZeRO and FSDP, matching this note item by item.
 
 ## Update Log
 

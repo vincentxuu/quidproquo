@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP 導讀 11：GPT-2 和 T5 拿來做中文摘要，實作上差在哪——left padding、−100 與 ROUGE"
+title: "清大 NLP 導讀 11：GPT-2 和 T5 拿來做中文摘要，實作上差在哪——left padding、−100 與 ROUGE｜清大高宏宇 自然語言處理 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -36,30 +36,6 @@ glossary:
 [2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)把這份投影片和 PEFT 投影片一起掛在 W9 列，兩支錄影沒標哪支是助教課。我的確認方式：Week 9 Tue. 在第 10、40、75 分鐘的畫面分別是這份投影片的第 9、26、50 頁，所以這一支是助教課。[Week 9 Thu.](https://www.youtube.com/live/zWMHxXc0QvA) 的字幕開頭教授說「這部分的投影片是本來排定在第九週上的這個 PEFT」，是[下下篇](/posts/ai/2026-09-30-nthu-nlp-peft)的內容。W9 列 Topics 欄寫的「BERT and its Family」是課綱模板，不引用。
 
 這份助教課和 [HF BERT 助教課](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)一樣是 2024 年版，沒有對應的作業，定位是參考實作。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=zgjO_t5eu_E
-title: Week 9 Tue.
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=zWMHxXc0QvA
-title: Week 9 Thu.
-```
-
-原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：Week 9 Thu. 的字幕讀過，教授開頭說這是原定第九週的 PEFT 投影片，內容是 PEFT 而不是本文的 GPT-2／T5 助教課，與文中說法一致。Week 9 Tue.（本文主要依據的助教課錄影）的 YouTube 頁面沒有字幕，「它是助教課」只依畫面截圖判斷，文中對助教課內容的描述來自投影片與 notebook，沒有影片字幕可核對。
 
 ## 一個任務、兩種架構
 
@@ -176,6 +152,30 @@ labels = torch.where(
 - Fall 2026 的對應單元還沒公開。依[全球課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)的分級，Fall 2025 是 A3（足以自學）。
 
 **系列導覽**：上一篇 [解碼策略與 NLG 評估](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)｜下一篇 [GPT-3、InstructGPT 與 RLHF](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=zgjO_t5eu_E
+title: Week 9 Tue.
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=zWMHxXc0QvA
+title: Week 9 Thu.
+```
+
+原始影片：[Week 9 Tue.](https://www.youtube.com/watch?v=zgjO_t5eu_E)、[Week 9 Thu.](https://www.youtube.com/watch?v=zWMHxXc0QvA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：Week 9 Thu. 的字幕讀過，教授開頭說這是原定第九週的 PEFT 投影片，內容是 PEFT 而不是本文的 GPT-2／T5 助教課，與文中說法一致。Week 9 Tue.（本文主要依據的助教課錄影）的 YouTube 頁面沒有字幕，「它是助教課」只依畫面截圖判斷，文中對助教課內容的描述來自投影片與 notebook，沒有影片字幕可核對。
 
 ## 更新紀錄
 

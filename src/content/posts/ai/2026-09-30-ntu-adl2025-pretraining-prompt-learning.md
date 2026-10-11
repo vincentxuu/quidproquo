@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：預訓練三大類與 Prompt Learning——從 BERT、GPT、T5 到「人不懂沒關係機器懂就好」"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：預訓練三大類與 Prompt Learning——從 BERT、GPT、T5 到「人不懂沒關係機器懂就好」｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,30 +35,6 @@ glossary:
 - 補充：播放清單上的 [6.0 QA](https://youtu.be/-3mUrFm8lIo)（26:15）是課堂問答，沒有講義。
 
 存取等級沿用系列的 **A2**：本講的講義與影片都公開，本週沒有新作業（HW2 的題目在[第 10 篇](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)，只有說明影片）。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=suX2F2TqKuE
-title: 6.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=cnd91AbBQ74
-title: 6.2
-```
-
-原始影片：[6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：6.1 與 6.2 兩支都讀了字幕。6.1：預訓練的定義與大規模資料、BookCorpus 與「合理使用 vs. 著作權」爭議、各國規範仍在演變，與文章「預訓練是什麼」相符（影片另外談了 Anthropic 買實體書掃描與盜版書賠償等判決，文章沒有寫）；6.2：encoder／decoder／encoder-decoder 三類架構、BERT 的 15% 遮罩與 RoBERTa、SpanBERT、GPT-1 約 7000 本書與 12 層、GPT-2、GPT-3 的資料與規模增長、BART 與 T5 的去噪輸出差異、分類微調差異、T5 多任務預訓練像今日 post-training，皆與文章對應段落相符。講義第 23 頁「BART 在多數欄位分數較高」是講義表格的說法，影片口述則是兩者表現不相上下，文章已標明出處為講義。6.3–6.6 與 6.0 未嵌入，未核對。
 
 ## 預訓練是什麼
 
@@ -190,6 +166,30 @@ Hard prompt 的問題在第 55 頁：
 延伸閱讀：站上 [CS224N 第 7 講：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)講同樣的三種架構與 in-context learning；[CS336 的 scaling laws 基礎](/posts/ai/2026-08-22-cs336-scaling-laws-foundations)把 Kaplan 與 Chinchilla 講得更深；[CS224U 的 in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)從 prompt 設計與 DSPy 的角度延伸。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [HW1 中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)｜下一篇 [後訓練：Instruction Tuning、RLHF 與 InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=suX2F2TqKuE
+title: 6.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=cnd91AbBQ74
+title: 6.2
+```
+
+原始影片：[6.1](https://www.youtube.com/watch?v=suX2F2TqKuE)、[6.2](https://www.youtube.com/watch?v=cnd91AbBQ74)、[6.3](https://www.youtube.com/watch?v=tdMuyQO6kLs)、[6.4](https://www.youtube.com/watch?v=fpNxjqJjtT4)、[6.5](https://www.youtube.com/watch?v=Wrzz7mG1ZDU)、[6.6](https://www.youtube.com/watch?v=CCZfyLCNrQk)、[6.0 QA](https://www.youtube.com/watch?v=-3mUrFm8lIo)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：6.1 與 6.2 兩支都讀了字幕。6.1：預訓練的定義與大規模資料、BookCorpus 與「合理使用 vs. 著作權」爭議、各國規範仍在演變，與文章「預訓練是什麼」相符（影片另外談了 Anthropic 買實體書掃描與盜版書賠償等判決，文章沒有寫）；6.2：encoder／decoder／encoder-decoder 三類架構、BERT 的 15% 遮罩與 RoBERTa、SpanBERT、GPT-1 約 7000 本書與 12 層、GPT-2、GPT-3 的資料與規模增長、BART 與 T5 的去噪輸出差異、分類微調差異、T5 多任務預訓練像今日 post-training，皆與文章對應段落相符。講義第 23 頁「BART 在多數欄位分數較高」是講義表格的說法，影片口述則是兩者表現不相上下，文章已標明出處為講義。6.3–6.6 與 6.0 未嵌入，未核對。
 
 ## 更新紀錄
 

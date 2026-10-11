@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 3 Logistic Regression and Text Classification：從特徵到機率與 loss"
+title: "Logistic Regression and Text Classification：從特徵到機率與 loss｜Stanford CS124 第 3 週"
 date: 2026-08-22
 category: ai
 type: deep-dive

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 17: From Multiply and Divide to x86-64 Control Flow"
+title: "From Multiply and Divide to x86-64 Control Flow | Stanford CS107 Lecture 17"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 An `addq` result still fits in one 64-bit register, but multiplying two 64-bit values can require 128 bits. Division is stranger still: the dividend spans `%rdx:%rax`, and the quotient and remainder return to those two registers. Stanford CS107 Lecture 17 first completes this family of ALU operations—one written operand with several implicit register effects—then asks a more fundamental question: how does the CPU know where the next instruction is?
 
 The answer is `%rip`. Ordinarily it advances by the encoded length of the current instruction; at a `jmp`, it becomes the named target. This lecture deliberately stops at unconditional jumps. It does not yet introduce condition codes or conditional branches. Importing later flags, `cmp`/`test`, `jcc`, or function-call stack mechanics would obscure the basic model built here from instruction bytes.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Materials, gaps, and complete agenda
 
@@ -229,6 +221,14 @@ For control flow:
 3. At `jmp`, replace that default successor with the target.
 4. Record a fixed edge for a direct jump; trace the target value for an indirect jump.
 5. Reconstruct only loops or skips supported by those edges; do not assume an unseen condition.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

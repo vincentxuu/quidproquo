@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L05：深度學習框架怎麼從計算圖自動算出梯度"
+title: "深度學習框架怎麼從計算圖自動算出梯度｜CMU 11-868 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 前四講在 GPU 上把單一運算寫快。這一講往上一層問：當網路是任意形狀、損失函數也由你自己組起來時，框架怎麼替**每一個參數**自動算出梯度？
 
 這個問題直接連到作業二。投影片第 7 頁把它寫成一段 PyTorch：`loss(input_logits, target_labels)` 之後呼叫 `output.backward()`，然後問兩件事：backward 是怎麼實作的？為什麼它對任何網路都有效？
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 這一講的四段結構
 
@@ -149,6 +139,16 @@ glossary:
 
 - [CMU 11-785 第 5 講：反向傳播](/posts/ai/2026-08-22-cmu-11785-05-backpropagation)：同一套連鎖律，從深度學習課的角度推導
 - [Stanford CS336：資源估算](/posts/ai/2026-08-22-cs336-resource-accounting)：訓練時前向與反向各花多少計算量
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

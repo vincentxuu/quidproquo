@@ -1,5 +1,5 @@
 ---
-title: "NCCU Yen-Lung Tsai Generative AI L03: GANs — How Do Two Competing Networks End Up Drawing Pictures?"
+title: "GANs — How Do Two Competing Networks End Up Drawing Pictures? | NCCU Yen-Lung Tsai Generative AI Lecture 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,18 +29,6 @@ glossary:
 **This guide follows the Spring 2025 offering (NCCU term 1132) of Yen-Lung Tsai's "Generative AI: Text and Image Synthesis Principles and Practice" at National Chengchi University.** It is part 3 of the [Reading NCCU Yen-Lung Tsai Generative AI](/posts/ai/2026-09-30-nccu-genai-course-overview-en) series and follows [L02 Neural Networks](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en). The course is taught in Mandarin.
 
 Three official sources back this post: the [Lecture 3 recording](https://www.youtube.com/watch?v=akt4A3OJ9h4) (2025-03-04, 2 h 45 min), the slide deck [GenAI03 GAN](https://drive.google.com/file/d/1UqnoeRSgHfNC0o6X5ENeWmLKqZNagskI/view) (91 pages), and the week 3 homework on the [Chang Gung satellite class page](https://yangchihyuan.github.io/courses/GenerativeAI2025). Access level: **A3**. Recordings, slides, homework prompts, and rubrics are all public. Submission and grading run through each school's own platform, so outside readers can only self-assess.
-
-## Course video sources
-
-Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
-
-Original videos: [Lecture 03: GANs, once all the rage (YouTube recording, 2025-03-04) (in Mandarin)](https://www.youtube.com/watch?v=akt4A3OJ9h4)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-Checked: 2026-10-10.
 
 ## Where this week fits
 
@@ -221,6 +209,18 @@ This post stands on its own. To dig deeper:
 - How cross entropy relates to maximum likelihood: [CMU 07-280 Lecture 16: Maximum Likelihood](/posts/ai/2026-08-22-cmu-07280-lecture-16-maximum-likelihood-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-nccu-genai-course-overview-en) | Previous: [L02 Neural Networks](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en) | Next: [L04 LLMs Are Simpler Than You Think](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en)
+
+## Course video sources
+
+Video sources were checked against the official course page (Checked: 2026-10-10) and the lecture-to-link mapping matches, but this video's YouTube player response marks it as not embeddable (playableInEmbed is false, and oEmbed returned 401 earlier), so the embed block below will not play; open the original video link instead (it is publicly viewable). The video has no obtainable captions: the recording chapters and times this post cites come from the video description, were checked only against that description, and were not listened to, so there is no "verified against the transcript" mark. No timestamp is supplied.
+
+Original videos: [Lecture 03: GANs, once all the rage (YouTube recording, 2025-03-04) (in Mandarin)](https://www.youtube.com/watch?v=akt4A3OJ9h4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

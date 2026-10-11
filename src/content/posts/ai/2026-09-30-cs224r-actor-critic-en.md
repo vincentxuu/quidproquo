@@ -1,5 +1,5 @@
 ---
-title: "CS224R L4: Actor-Critic and Value Estimation — Learn to Judge Good and Bad, Then Do More of the Good"
+title: "Actor-Critic and Value Estimation — Learn to Judge Good and Bad, Then Do More of the Good | Stanford CS224R Lecture 4"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,26 +37,6 @@ This is part 5 of the [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-cour
 - How to use those estimates to build a more efficient RL algorithm
 
 This lecture has more formulas than L3, but one idea runs through it: **instead of waiting for rewards to tell you what is good, train a network to predict it.**
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=oejFZShW9hU
-title: Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)
-```
-
-Original videos: [Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)](https://www.youtube.com/watch?v=oejFZShW9hU)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L4 Actor-Critic Methods transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers the critic and value function, Monte Carlo versus bootstrapped targets, n-step returns, advantages and the discount factor, which line up with the post's sections. This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## The setting: policy gradient wastes data
 
@@ -235,6 +215,26 @@ That comparison maps out the next few lectures. L5 covers PPO and SAC, and L6 co
 - [CME295: Preference Tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en): what the KL constraint looks like in LLM preference optimization
 
 **Series navigation**: Previous [L3: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) | Next [L5: Off-Policy Actor-Critic (PPO and SAC)](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=oejFZShW9hU
+title: Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)
+```
+
+Original videos: [Spring 2025 Lecture 4: Actor-Critic Methods (YouTube, Stanford Online)](https://www.youtube.com/watch?v=oejFZShW9hU)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L4 Actor-Critic Methods transcript and searched keywords (not a word-by-word comparison). The video is the lecture it is labeled as, the speaker is Chelsea Finn, and the topic matches this post. The transcript covers the critic and value function, Monte Carlo versus bootstrapped targets, n-step returns, advantages and the discount factor, which line up with the post's sections. This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [CS224R Spring 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPwxE0ONYRa_itZFdaKCylL)
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

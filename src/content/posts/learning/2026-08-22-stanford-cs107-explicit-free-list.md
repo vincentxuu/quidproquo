@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 23：把 realloc 留在原地，必須守住哪些 allocator 不變量"
+title: "把 realloc 留在原地，必須守住哪些 allocator 不變量｜Stanford CS107 第 23 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 前兩講先做出 implicit allocator，再把所有 free blocks 串成 explicit free list。第 23 講問的是更棘手的一步：當 client 用 `realloc` 改變大小，allocator 能不能讓資料留在原地址？答案是有時可以，但「沒有搬家」不等於「沒有工作」。縮小可能產生新的 free block，放大可能要把右鄰從 free list 拆下來，任何一步漏更新 metadata 或 links，都會留下重疊區塊。
 
 這講的主脊是一次 `realloc` 狀態轉換。先確認現有 block 的實際容量，再依序考慮 padding、縮小切割、吸收相鄰 free blocks，最後才走 allocate-copy-free。三個原地案例表面不同，實際都在維持同一組條件：alignment 不變、heap 仍被不重疊 blocks 完整切分、每個 free block 恰好出現在 free list 一次、舊資料的有效前綴不能改變。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 教材與完整議程
 
@@ -186,6 +178,14 @@ Lecture 23 不只是教一個更快的 `realloc`。它讓 allocator 的三種視
 實作時最有效的順序是把每個 helper 的前置與後置條件寫清楚：它接收的 node 是否已在 list、回傳時 remainder 是否已插入、metadata 何時可被覆寫、失敗時哪個 pointer 仍有效。把複雜操作拆成「unlink、改 physical range、必要時 reinsert」，每階段都能檢查，會比一口氣改六個 pointers 容易除錯。
 
 原地成長的效能收益很直觀，真正的課程價值卻是更樸素的原則：先保存仍需要的結構資訊，再讓舊表示失效；先證明 remainder 是合法 block，再把它放進索引；先確保新 allocation 成功，再結束舊物件生命週期。Allocator 沒有容錯空間，因為一次 stale link 最後會變成另一個 caller 的重疊記憶體。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 Lecture 2 Guide: Logical Agents, Proving a Square Safe with Model Checking, DPLL and Forward Chaining"
+title: "Logical Agents, Proving a Square Safe with Model Checking, DPLL and Forward Chaining | CMU 07-380 Lecture 2"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, logic, algorithms]
@@ -21,27 +21,6 @@ draft: false
 This is Lecture 2 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fall 2026: Logical Agents. The previous post ([Lecture 1 guide](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en)) noted that the early part of 07-380 stays in a world without uncertainty. This lecture is the first stop: an agent sees a few clues and has to **prove** a square is safe, not guess.
 
 Everything below follows the course site and materials as fetched on 2026-09-29.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-- [Lec2 slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents.pdf) and the [inked version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents_inked.pdf) (pptx is also on the site)
-- Pre-reading: [PR1 Propositional Logic notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf) (listed as Prop Logic.pdf, checkpoint due 8/25)
-- [Recitation 1 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26_sol.pdf)
-- The two examples on the site: Minesweeper and the [Wumpus World simulator](https://thiagodnf.github.io/wumpus-world-simulator/)
-
-The Schedule also lists AIMA Ch. 7.1–7 as optional reading, which I did not cite page by page. The official syllabus lists no public recording link. The pre-reading checkpoint lives on Canvas and is CMU-only.
-
-Openness: the slides, notes, recitation and solutions are all public, which is enough to self-study this lecture.
 
 ## The question: not a path, but "what can I be sure of right now?"
 
@@ -184,6 +163,27 @@ One thing to watch in the [Recitation 1 solutions](https://www.cs.cmu.edu/~07380
 3. Write a DPLL in under 20 lines. Start with early termination and branching only, then add unit clauses, and compare recursion counts on the same CNF.
 
 Previous: [Lecture 1 guide: Introduction](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction-en). Next: [HW1 guide: Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en).
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+- [Lec2 slides (pdf)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents.pdf) and the [inked version](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec2_Logical_Agents_inked.pdf) (pptx is also on the site)
+- Pre-reading: [PR1 Propositional Logic notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Propositional_Logic.pdf) (listed as Prop Logic.pdf, checkpoint due 8/25)
+- [Recitation 1 handout](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26.pdf) and [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation1_07380_f26_sol.pdf)
+- The two examples on the site: Minesweeper and the [Wumpus World simulator](https://thiagodnf.github.io/wumpus-world-simulator/)
+
+The Schedule also lists AIMA Ch. 7.1–7 as optional reading, which I did not cite page by page. The official syllabus lists no public recording link. The pre-reading checkpoint lives on Canvas and is CMU-only.
+
+Openness: the slides, notes, recitation and solutions are all public, which is enough to self-study this lecture.
 
 ## Update Log
 

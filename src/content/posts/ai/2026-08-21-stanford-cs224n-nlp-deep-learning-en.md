@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224N: Open the 2019 Syllabus and Transformers Are Still Lecture 14"
+title: "Open the 2019 Syllabus and Transformers Are Still Lecture 14 | Stanford CS224N Topic Guide"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -27,18 +27,6 @@ It also does something no other course manages: **the course site keeps every of
 That is what this piece does. The spine is a lecture-by-lecture and assignment-by-assignment comparison across [Winter 2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/), [Winter 2022](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1224/), [Winter 2023](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/), [Winter 2024](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1244/), [Spring 2024](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1246/), [Winter 2025](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/) and the current Winter 2026. It does **not** do a close reading of individual slide decks, and it does not cover lecture transcripts — this year's recordings are locked in Canvas and non-enrolled students can't reach them.
 
 The course site lists syllabi and assignments and nothing else. **It has never explained the reasoning behind a single change.** So everything below is what changed, not why.
-
-## Course video sources
-
-Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The public recordings the official page points to are the 2024 playlist, and a Winter 2019 playlist is linked as well. None of these is a Winter 2026 lecture recording, so only the playlist links are given and nothing is embedded.
-
-Course and recording entries:
-
-- [CS224N Winter 2019 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
-- [CS224N Spring 2024 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
 
 ## The hard facts
 
@@ -166,6 +154,18 @@ If you would rather watch lectures first, the order to use is: watch lectures 1,
 - **Lecture counts**: the Winter 2019 syllabus lists 20 numbered lectures; Winter 2026's slide filenames run up to `lecture19`, four of them guest lectures (tokenization and multilinguality, interpretability, multimodality, Tinker and LoRA).
 - **An internal contradiction in the A4 handout**: the title line on page one reads "CS 224N Winter 2025 Assignment 4," but the running header on every page says Winter 2026, and the due date (Thursday, February 19) matches the Winter 2026 syllabus. Winter 2025's A4 was Transformer self-supervision and fine-tuning, due February 13, so the title line is a leftover string from copying.
 - **Not confirmed**: the course site publishes no enrollment numbers for any offering, and gives no reason for any syllabus change — "why drop machine translation" and "why add a history lecture" have no answer in the primary materials, and this piece does not speculate. I did not open the remaining archived offerings such as Winter 2020, Winter 2021 or Winter 2017, so the "last appeared in" claims above hold only within the six versions I actually compared.
+
+## Course video sources
+
+Checked live on the official CS224N page: Winter 2026 lecture videos are on Canvas (sign-in required) and the course says they cannot be opened to non-enrolled students; the Canvas entry redirects to the Stanford sign-in page. The public recordings the official page points to are the 2024 playlist, and a Winter 2019 playlist is linked as well. None of these is a Winter 2026 lecture recording, so only the playlist links are given and nothing is embedded.
+
+Course and recording entries:
+
+- [CS224N Winter 2019 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)
+- [CS224N Spring 2024 public recording playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

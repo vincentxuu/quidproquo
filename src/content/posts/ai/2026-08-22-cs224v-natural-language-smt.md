@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 11 講：把臨床試驗條件翻成 SMT，而不是讓 LLM 直接判資格"
+title: "把臨床試驗條件翻成 SMT，而不是讓 LLM 直接判資格｜Stanford CS224V 第 11 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, formal-methods, smt, semantic-parsing]
@@ -19,18 +19,6 @@ description: "CS224V Natural Language Constraints with SMT：臨床試驗配對�
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-semantics.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第十一講是一個形式方法研究案例，不是醫療建議。它問：病人紀錄與臨床試驗 eligibility criteria 都是自然語言時，如何在大量候選中找出「約束可同時成立」的配對？課程不讓 LLM 直接下資格判決，而是把語言轉成 solver 能檢查的表示。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：從既有 matching 到 SMT pipeline
 
@@ -137,6 +125,18 @@ NL-to-SMT 可能漏否定、混淆 hard 與 soft constraint，或把臨床判斷
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片沒有驗證過的臨床部署 protocol、完整 parser code 或課堂錄影。講義列出的規模與結果屬研究背景，本文不據此提出臨床效能主張。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

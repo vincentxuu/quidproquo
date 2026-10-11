@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 13: Virtual Memory"
+title: "Virtual Memory | Stanford CS111 Lecture 13"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 14 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 13**. Mendel Rosenblum taught the lecture on 2026-04-27; its official title is [Virtual Memory](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/13/Lecture13.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 Earlier lectures shared one core among concurrent threads. This lecture starts sharing one physical memory among concurrent processes. The PDF uses a historical sequence so each mechanism answers the previous design's failure rather than presenting virtual memory as magic.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Single-tasking and four memory-sharing goals
 
@@ -98,6 +90,14 @@ Segments grow, shrink, swap, and move independently for compaction. Processes ca
 Segmentation still has a fixed number of segments, making arbitrary mappings such as many `mmap` files difficult. Variable-length physical allocations still fragment, and the address space is rigidly divided according to program or ISA-visible segments.
 
 Paging will next replace variable-size regions with fixed-size pages. Lecture 13's method is to retain the four goals while locating an insufficient representation at each generation: load-time relocation lacks runtime protection, base/bound has one region, and segmentation retains fixed-count and variable-length limits.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

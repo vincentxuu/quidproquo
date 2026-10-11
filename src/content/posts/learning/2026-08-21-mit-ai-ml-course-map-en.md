@@ -1,5 +1,5 @@
 ---
-title: "MIT AI/ML Course Guide: Course 6-4 Is a Real AI Degree, but Its Public Materials Span Three Eras"
+title: "From Programming and Mathematics to AI: A Learning Path through Open Courses | Global AI/CS Course Map"
 date: 2026-08-21
 category: learning
 tags: [mit, ai-course, machine-learning, learning-path, open-course]
@@ -26,19 +26,6 @@ That does not mean MIT publishes a seamless online path from a first Python less
 3. **OCW, Open Learning Library, and archived course sites** are often the most usable for self-study, but may use an old subject number or an earlier syllabus.
 
 This guide keeps those layers separate. It does not pretend that an outside learner can “take an MIT degree online.” It builds a path whose links open and whose missing pieces are explicit. The site already has a detailed [guide to MIT 6.S191](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en); this article places that short course inside the larger MIT structure.
-
-## Course video sources
-
-This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
-
-Course and recording entries:
-
-- [**MIT has a formal AI degree.**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
-- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
-- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
-- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
-- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
-- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
 
 ## Two numbering systems: Course 6-4 is not subject 6.4
 
@@ -180,6 +167,19 @@ The most valuable thing to borrow from MIT is not a list of famous subjects. It 
 - 2026-08-26: Backfilled an internal link — the [6.7960 deep dive](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en) is now live; linked it from the two-edition comparison passage.
 
 - 2026-08-22: Corrected 6.S191 2026 to a nine-week spring course rather than a one-week IAP bootcamp.
+
+## Course video sources
+
+This is a course overview or resource map with no single corresponding lecture. Use the official course entries and playlists to find recordings.
+
+Course and recording entries:
+
+- [**MIT has a formal AI degree.**](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-4-artificial-intelligence-and-decision-making/)
+- [6.S184](https://diffusion.csail.mit.edu/2026/index.html)
+- [MIT EECS — 6-4_2025 Degree Requirements](https://eecsis.mit.edu/degree_requirements.pcgi?program=6-4)
+- [MIT Catalog — Course 6-4 Degree Chart](https://catalog.mit.edu/degree-charts/artifical-intelligence-decision-making-course-6-4/)
+- [MIT EECS — New Subject Numbering](https://www.eecs.mit.edu/academics/subject-numbering/)
+- [MIT EECS — Old and New Subject Number Crosswalk](https://eecsis.mit.edu/numbering.html)
 
 ## References
 

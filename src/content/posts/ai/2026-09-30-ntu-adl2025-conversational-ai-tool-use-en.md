@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Conversational AI and Tool Use — From LU/DST/Policy/NLG to LaMDA, WebGPT, and Toolformer"
+title: "Reading NTU ADL 2025 Fall: Conversational AI and Tool Use — From LU/DST/Policy/NLG to LaMDA, WebGPT, and Toolformer | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,30 +45,6 @@ Official materials used:
 | 13.9 | [Conversation Evaluation](https://youtu.be/gjiKrxiAyNI) | Judging how good a dialogue system is | 13:07 | 99–106 |
 
 The "matching pages" column is my own topic match. Public information cannot confirm that the videos actually show these pages.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
-title: 13.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=LHhxbXKfnKs
-title: 13.2 LaMDA
-```
-
-Original videos: [13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded 13.1 (15:02) and 13.2 (13:15) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos, takes its content from the Fall 2024 slides, and only cites titles, subtitles, lengths and descriptions for the videos. Both were uploaded on 2025-11-25 with a description dated 2025/11/24, which matches the article.
 
 ## Two branches of dialogue systems
 
@@ -172,6 +148,30 @@ Not confirmed: whether the Fall 2025 videos use this 2024 deck, or how much it c
 - This series' [RAG + HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en) also covers WebGPT; this post focuses on its tool-use side.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en) | Next: [Beyond Supervised Learning and Multimodality](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
+title: 13.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=LHhxbXKfnKs
+title: 13.2 LaMDA
+```
+
+Original videos: [13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded 13.1 (15:02) and 13.2 (13:15) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos, takes its content from the Fall 2024 slides, and only cites titles, subtitles, lengths and descriptions for the videos. Both were uploaded on 2025-11-25 with a description dated 2025/11/24, which matches the article.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224N Lecture 11: Why LLM Benchmarks Expire"
+title: "Why LLM Benchmarks Expire | Stanford CS224N Lecture 11"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 The [official CS224N Winter 2026 schedule](https://web.stanford.edu/class/cs224n/) places lecture 11 on February 10, 2026, but does not name a lecturer; this article therefore attributes it only to the course staff. The [official deck](https://web.stanford.edu/class/cs224n/slides_w26/cs224n-2026-lecture11-evaluation.pdf) has four agenda parts: the recent saga of LLM benchmarks, benchmark design, evaluation metrics, and cautions and open questions. The task is not to memorize another leaderboard but to decide whether a score still supports a decision.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
-
-```youtube
-url: https://www.youtube.com/watch?v=TO0CqzqiArM
-title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois
-```
-
-Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
-
-Course and recording entries:
-
-- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 11 (about 84 minutes; the YouTube title credits Yann Dubois, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers the overall evaluation framework, close-ended tasks (multiple choice, MMLU, SuperGLUE and multi-task averaging), open-ended evaluation (reference-based metrics, human evaluation and annotator selection, LLM-as-judge such as AlpacaEval), perplexity, robustness of rankings to small prompt changes, contamination and dynamic test sets, matching this article's topic. It never mentions Goodhart or construct validity and has no adversarial design or concrete procedures such as an "evaluation contract" or "contamination audit", so those sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
 ## Benchmark shelf lives are shrinking
 
@@ -112,6 +92,26 @@ Document construct through cost, classify twenty errors, rerun prompt paraphrase
 ## Material gap
 
 Winter 2026 recordings are not public. This article covers the deck's four agenda sections and subtopics but does not reconstruct the lecturer's spoken judgments about particular leaderboards.
+
+## Course video sources
+
+This article uses Winter 2026 materials. The Spring 2024 recording(s) below cover the same topic as supplementary material and are not Winter 2026 lecture recordings (Winter 2026 recordings are on Canvas behind sign-in, and the course says they are not open to non-enrolled students).
+
+```youtube
+url: https://www.youtube.com/watch?v=TO0CqzqiArM
+title: Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois
+```
+
+Original videos: [Stanford CS224N: NLP with Deep Learning | Spring 2024 | Lecture 11 - Benchmarking by Yann Dubois](https://www.youtube.com/watch?v=TO0CqzqiArM)
+
+Course and recording entries:
+
+- [CS224N Spring 2024 public recordings (supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224n/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the Spring 2024 Lecture 11 (about 84 minutes; the YouTube title credits Yann Dubois, but the transcript itself never names the speaker) relates to this article, which is based on the Winter 2026 slides; it is not the 2026 classroom recording. The transcript covers the overall evaluation framework, close-ended tasks (multiple choice, MMLU, SuperGLUE and multi-task averaging), open-ended evaluation (reference-based metrics, human evaluation and annotator selection, LLM-as-judge such as AlpacaEval), perplexity, robustness of rankings to small prompt changes, contamination and dynamic test sets, matching this article's topic. It never mentions Goodhart or construct validity and has no adversarial design or concrete procedures such as an "evaluation contract" or "contamination audit", so those sections rest on the Winter 2026 slides and this site's own additions, not on the video.
 
 ## Update Log
 

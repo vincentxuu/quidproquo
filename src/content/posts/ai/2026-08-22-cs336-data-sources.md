@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 13：語料不會從天上掉下來，每個來源都有存取與授權成本"
+title: "語料不會從天上掉下來，每個來源都有存取與授權成本｜Stanford CS336 第 13 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 本篇對應 **CS336 Spring 2026 Lecture 13: Data (sources, datasets)**，2026 年 5 月 11 日由 Percy Liang 主講。主要來源是官方可執行講義 [`lecture_13.py`](https://github.com/stanford-cs336/lectures/blob/main/lecture_13.py)。本文整理課程內容，不構成法律意見。
 
 資料是最容易被一句「我們用網路語料」掩蓋的部分。第十三講從 live service 一路追到 raw snapshot，再到後續 processed data，先問來源、取得方式與權利，下一講才談 filtering、deduplication 與 mixing。
-
-## 課程影片來源
-
-下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 13（Data：sources, datasets）。字幕涵蓋 Common Crawl／WARC、robots.txt、paywall、著作權與 fair use、license 與 Creative Commons、Wikipedia、GitHub、Stack Exchange、Project Gutenberg、影子圖書館與相關訴訟、BERT／GPT-2 WebText／GPT-3／The Pile／C4 等資料集沿革。逐句未比對，正文無需修改。
-
-```youtube
-url: https://www.youtube.com/watch?v=-qm0ln33G24
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
-```
-
-原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
-
-課程與錄影入口：
-
-- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## Web crawl 不是下載整個網路
 
@@ -76,6 +58,24 @@ BERT 使用 Wikipedia 與 BooksCorpus，GPT-2 以 Reddit outbound links 建 WebT
 ## 材料完整度
 
 本講有 Spring 2026 當期 schedule 與完整可執行講義。法律段落僅轉述課堂框架與工程含意；具體使用仍須依司法管轄區與法律專業意見判斷。
+
+## 課程影片來源
+
+下列為 Stanford Online 發布的 Spring 2026 對應講次錄影。2026-10-10 已依官方播放清單逐講核對講次編號與影片 ID。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Lecture 13（Data：sources, datasets）。字幕涵蓋 Common Crawl／WARC、robots.txt、paywall、著作權與 fair use、license 與 Creative Commons、Wikipedia、GitHub、Stack Exchange、Project Gutenberg、影子圖書館與相關訴訟、BERT／GPT-2 WebText／GPT-3／The Pile／C4 等資料集沿革。逐句未比對，正文無需修改。
+
+```youtube
+url: https://www.youtube.com/watch?v=-qm0ln33G24
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)
+```
+
+原始影片：[Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 13: Data (Sources, Datasets)](https://www.youtube.com/watch?v=-qm0ln33G24)
+
+課程與錄影入口：
+
+- [CS336 Spring 2026 官方錄影](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [官方課程／講次來源](https://cs336.stanford.edu/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 20：Fireside Chat, Conclusion：把二十講收束成建模選擇"
+title: "Fireside Chat, Conclusion：把二十講收束成建模選擇｜Stanford CS221 第 20 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,26 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 本篇對應 **Stanford CS221, Autumn 2025, Lecture 20**（2025-12-03）。這場 fireside chat 由 Ken 主持、Percy Liang 回答學生問題。課程順序以[官方網站](https://stanford-cs221.github.io/autumn2025/)為準；主要材料是 [Stanford Online 影片](https://www.youtube.com/watch?v=5u5I5jvWR5k)。
-
-## 課程影片來源
-
-下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 20 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 20 支。
-
-```youtube
-url: https://www.youtube.com/watch?v=5u5I5jvWR5k
-title: Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion
-```
-
-原始影片：[Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion](https://www.youtube.com/watch?v=5u5I5jvWR5k)
-
-課程與錄影入口：
-
-- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 20 支）字幕，確認內容涵蓋 Ken 主持、Percy Liang 回答：從 Percy 的求學與研究經歷、AI 展望、CS221 改版與課程定位，到職涯與研究建議，最後是結語致謝（錄影開頭與結尾的主持人致謝也核對了），與本文的講次與主題相符，未發現錯配。精確時間碼處理：原文各段末尾的 `?t=` 深連結是精確到秒的時間點，而字幕沒有時間碼、無法驗證到秒，因此全部移除，只保留主題順序；依字幕相對位置估算，主題順序（求學與早期語言模型 → 公眾認知轉變 → 課程改版 → 研究選題 → 職涯建議）與本文一致。
 
 ## 材料範圍與閱讀方法
 
@@ -144,6 +124,26 @@ Percy 對「AI 是不是泡沫」的回答很直接：當然有泡沫，但 AI �
 編者的收束是：工具愈強，愈要判斷什麼值得做；基礎概念仍是拆解新系統的工具；學習、適應、合作與好問題比履歷標籤耐久；評估還要看可靠、透明與真實結果。這不是 Percy 的逐字四點原則。、、、
 
 影片最後，Percy 感謝 Ken、教學團隊與學生並祝大家學期順利。本講沒有投影片；因此保留字幕缺口、區分材料與推論，比補造隱藏 agenda 更忠實。、
+
+## 課程影片來源
+
+下方影片是 Stanford Online 公開的 CS221 Autumn 2025 第 20 講錄影，學期與講次編號都與本文採用的課程版本一致；標題已對照即時抓取的官方播放清單第 20 支。
+
+```youtube
+url: https://www.youtube.com/watch?v=5u5I5jvWR5k
+title: Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion
+```
+
+原始影片：[Stanford CS221 | Autumn 2025 | Lecture 20: Fireside Chat, Conclusion](https://www.youtube.com/watch?v=5u5I5jvWR5k)
+
+課程與錄影入口：
+
+- [Stanford Online 官方 CS221 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [官方課程／講次來源](https://stanford-cs221.github.io/autumn2025/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀完本講影片（播放清單第 20 支）字幕，確認內容涵蓋 Ken 主持、Percy Liang 回答：從 Percy 的求學與研究經歷、AI 展望、CS221 改版與課程定位，到職涯與研究建議，最後是結語致謝（錄影開頭與結尾的主持人致謝也核對了），與本文的講次與主題相符，未發現錯配。精確時間碼處理：原文各段末尾的 `?t=` 深連結是精確到秒的時間點，而字幕沒有時間碼、無法驗證到秒，因此全部移除，只保留主題順序；依字幕相對位置估算，主題順序（求學與早期語言模型 → 公眾認知轉變 → 課程改版 → 研究選題 → 職涯建議）與本文一致。
 
 ## 更新紀錄
 

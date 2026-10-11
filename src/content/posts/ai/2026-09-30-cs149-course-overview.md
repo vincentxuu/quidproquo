@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS149 導讀：Fall 2025 平行計算課程總覽"
+title: "Fall 2025 平行計算課程總覽｜Stanford CS149 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -28,15 +28,6 @@ glossary:
 > **本系列依據 [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25) 的 Fall 2025 版。** 2026-09-30 查核時，`cs149.stanford.edu` 仍轉址到 fall25 課站，fall26 網址回 404。這是本系列第 0 篇，也是總覽；後面每一篇都回到這裡查材料與限制。
 
 現在的 AI 工程師幾乎都在跟平行硬體打交道：訓練跑在 GPU 叢集，推論要擠 kernel 效能，連手機都有 NPU。但多數人對「為什麼 GPU 快」「為什麼加了核心卻沒變快」只有模糊印象。[CS149: Parallel Computing](https://gfxcourses.stanford.edu/cs149/fall25) 就是補這一塊的課。
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
 
 ## 這門課教什麼
 
@@ -207,6 +198,15 @@ Course info 列的評分：
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [L1 為什麼要平行、為什麼要效率](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單（Stanford Online）](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/)
 
 ## 更新紀錄
 

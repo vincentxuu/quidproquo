@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288（二）：Sequence Models、Seq2Seq 與 Transformer"
+title: "Sequence Models、Seq2Seq 與 Transformer｜Berkeley CS288 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, nlp, transformer, sequence-model]
@@ -27,6 +27,18 @@ RNN 的隱狀態把過去壓進固定大小的向量，長距離訊息必須走�
 [Assignment 2](https://cal-cs288.github.io/sp26/assignments/Sp2026_CS288_Assignment2.pdf) 要求從頭實作 BPE、RMSNorm、SiLU、SwiGLU、RoPE、scaled dot-product attention、causal multi-head attention、Transformer blocks 與 LM，再補 cross-entropy、optimizer、scheduler、gradient clipping、FLOPs 與 memory estimation。[starter repository](https://github.com/zinengtang/cs288-sp26-a2) 可匿名取得。
 
 校外讀者最值得保留的是 component tests。先用極小 tensor 驗證 shape、mask 與數值穩定，再跑 TinyStories；沒有 GPU 時縮小 layers、hidden size 與 context length，仍能驗證正確性。hidden tests 與正式 Gradescope 不公開，所以「本機 tests 通過」不能寫成「完成官方驗收」。
+
+## 遮罩先決定哪些位置能看
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編三詞輸入是 A、B、C，位置依序為 1、2、3。因果 attention 中，第 1 個位置可看 A，第 2 個可看 A、B，第 3 個可看 A、B、C；包含自己但不看未來。若第 2 個位置讀到 C，訓練時已取得推論時尚不存在的資訊。
+
+**檢查與答案：** 三乘三遮罩共有幾個可見位置？答案是 1+2+3=6。這裡沒有 padding；加入 padding 時還需處理其遮罩，不能只看三角形。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 Lab 3: From DiT and VAE to Latent Diffusion"
+title: "From DiT and VAE to Latent Diffusion | MIT 6.S184 Lab 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,15 +38,6 @@ The first two labs did unconditional generation on 2D toy distributions. Lab 3 u
 - **Images**: MNIST is resized to 32×32, so each image has 1024 dimensions. An MLP isn't enough; you need the diffusion transformer from [L4](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures-en).
 
 So finish L3B and L4 before opening this lab.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
-
-Course and recording entries:
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-Checked: 2026-10-10.
 
 ## Getting it, doing it, checking your answers
 
@@ -218,6 +209,15 @@ One thing worth computing yourself: this latent holds 128×4×4 = 2048 numbers, 
 - Transformers and attention from scratch: [Stanford CS224N: Transformers](/posts/ai/2026-08-22-cs224n-transformers-en), [CMU 11-785 L18: Attention and Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers-en)
 - The VAE ELBO derivation: [CMU 11-785 L22: Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders-en)
 - The previous lab: [Lab 2: Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the public page lists lecture recordings only and no recording dedicated to this article (the lab is provided as Colab notebooks and GitHub solutions).
+
+Course and recording entries:
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

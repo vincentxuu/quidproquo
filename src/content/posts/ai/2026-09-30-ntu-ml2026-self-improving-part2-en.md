@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: Can AI Improve Itself? (Part 2) — Improving the Harness, Improving the Improver, and Whether Growth Can Run Away"
+title: "Reading NTU ML 2026: Can AI Improve Itself? (Part 2) — Improving the Harness, Improving the Improver, and Whether Growth Can Run Away | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ glossary:
 **This post follows the 5/22 week of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) (taught in Mandarin).** It is part 18 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series, and it covers the last regular lecture. The previous post is [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en). It picks up from [Can AI Improve Itself? (Part 1)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en) two weeks earlier. Part 1 covered AI-generated answers, rewards, and losses, which is to say how to update **parameters**. This part covers the **harness**, and whether the update rule itself can be updated.
 
 Official materials used: the slide deck [self-evolving-agent.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/self-evolving-agent.pdf) (64 pages) and the lecture video listed on the course page, [AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://youtu.be/cQLKVzbwN7I) ("Is AI about to cross the Rubicon? How far are we from self-improving AI, part 2", in Mandarin). The ppt link in that row of the course page reads `self-evolving-agent.ptx` and returns 404; change it to `.pptx` and it opens. Access level is **A3**: slides and recording are public. This lecture has no homework or quiz attached.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=cQLKVzbwN7I
-title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=s06mSAGN4gM
-title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
-```
-
-Original videos: [Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10): Part 2 (cQLKVzbwN7I, 1:09:08) was read in full; Part 1 (s06mSAGN4gM, 1:03:44) was read to check the post's recap of Part 1 and its PostTrainBench statement. For Part 2 I checked the L̂/L/H notation recap, Agent = Harness + LLM, OPRO's "take a deep breath" and prompt wording, the genetic-algorithm-style pool, GEPA, the memory-design paper, the Darwin Gödel Machine (10/60/200 staged evaluation, the morganucodon analogy), DSPy, the three papers on joint harness-and-parameter updates, goal shift and TTT, Do Self-Evolving Agents Forget? and CPE, HyperAgent/Gödel Agent/Learning to Self-Evolve, SEAL, the φ/θ description of meta learning, the RNN reframing, parameters as genes and context as neurons, the three memory layers, intrinsic motivation (curiosity/empowerment), and the peacock tail and I, Robot examples; all match the transcript. Two corrections: the two precise timestamps in the post ("52:17" in Part 1 and "1:54:30" in lecture 8 of 2025) cannot be verified from the transcripts and were replaced with relative positions marked as unchecked. Slide page numbers and paper IDs come from the slides and cannot be verified from the transcripts.
 
 ## Part 1 in one formula
 
@@ -221,6 +197,30 @@ Verified: the text and embedded links of all 64 slides, the zh-TW captions of th
 Not verified: most slides are figures, so for numbers inside the papers (Darwin Gödel Machine scores, accuracy tables) this post only reports the trends described in the captions. The memory paper on slide 14 and the joint-evolution paper on slide 24 were matched to their arXiv IDs from the captions' descriptions ("a February 2026 paper", "a paper from early this year"). The captions render R-Zero as "R1-Zero" and AlphaEvolve as "AlphaEvo"; this post follows the slides. The AlphaEvolve and ShinkaEvolve slide wasn't walked through in the lecture, so this post describes only the loop diagram on it.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en) | Next: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=cQLKVzbwN7I
+title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=s06mSAGN4gM
+title: Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)
+```
+
+Original videos: [Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (下集)](https://www.youtube.com/watch?v=cQLKVzbwN7I)、[Video: AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多遠 (上集)](https://www.youtube.com/watch?v=s06mSAGN4gM)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10): Part 2 (cQLKVzbwN7I, 1:09:08) was read in full; Part 1 (s06mSAGN4gM, 1:03:44) was read to check the post's recap of Part 1 and its PostTrainBench statement. For Part 2 I checked the L̂/L/H notation recap, Agent = Harness + LLM, OPRO's "take a deep breath" and prompt wording, the genetic-algorithm-style pool, GEPA, the memory-design paper, the Darwin Gödel Machine (10/60/200 staged evaluation, the morganucodon analogy), DSPy, the three papers on joint harness-and-parameter updates, goal shift and TTT, Do Self-Evolving Agents Forget? and CPE, HyperAgent/Gödel Agent/Learning to Self-Evolve, SEAL, the φ/θ description of meta learning, the RNN reframing, parameters as genes and context as neurons, the three memory layers, intrinsic motivation (curiosity/empowerment), and the peacock tail and I, Robot examples; all match the transcript. Two corrections: the two precise timestamps in the post ("52:17" in Part 1 and "1:54:30" in lecture 8 of 2025) cannot be verified from the transcripts and were replaced with relative positions marked as unchecked. Slide page numbers and paper IDs come from the slides and cannot be verified from the transcripts.
 
 ## Update Log
 

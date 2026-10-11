@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 2: Neural Nets as Universal Approximators"
+title: "Neural Nets as Universal Approximators | CMU 11-785 Lecture 2"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 2: Neural Nets as Universal Approximators**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec2.universal.pdf) and [official YouTube recording](https://youtu.be/dUukTSXi20c). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=dUukTSXi20c
-title: Lecture 2 official YouTube recording
-```
-
-Original videos: [Lecture 2 official YouTube recording](https://www.youtube.com/watch?v=dUukTSXi20c)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for Boolean functions, depth, width, XOR and activations. The transcript confirms a lecture on representational capacity and depth/width, but it does not argue that representation power is not trainability (it only says at the end that training comes next), so the description of the video's topic was rewritten. The English article had been written as Lecture 22 (VAE: latent variables, ELBO) and was corrected to this lecture.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=dUukTSXi20c
+title: Lecture 2 official YouTube recording
+```
+
+Original videos: [Lecture 2 official YouTube recording](https://www.youtube.com/watch?v=dUukTSXi20c)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the auto-generated transcript (about 84 minutes); sampled the start, middle and end and searched for Boolean functions, depth, width, XOR and activations. The transcript confirms a lecture on representational capacity and depth/width, but it does not argue that representation power is not trainability (it only says at the end that training comes next), so the description of the video's topic was rewritten. The English article had been written as Lecture 22 (VAE: latent variables, ELBO) and was corrected to this lecture.
 
 ## Update Log
 

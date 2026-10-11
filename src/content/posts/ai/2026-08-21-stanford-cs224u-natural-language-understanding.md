@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224U 導讀：課程網站停在 2023 年春季，但整套教材可以 clone 下來跑"
+title: "課程網站停在 2023 年春季，但整套教材可以 clone 下來跑｜Stanford CS224U 主題單元"
 date: 2026-08-21
 category: ai
 type: deep-dive
@@ -27,15 +27,6 @@ draft: false
 這篇要回答的是「進去之後會發生什麼事」。它跟 CS224N 到底怎麼分工、三份作業各要你做什麼、期末專案那份評分文件寫死了哪些要求，以及**今天** clone 下來還跑不跑得動。
 
 **不包含**逐篇論文精讀，也不包含 XCS224U 這個付費線上版的課內材料——那些在登入牆後面，我沒有存取權。（2026-08-26 更新：Stanford Online 頁面已標明此課程自 2025 年 5 月 19 日起停止提供，YouTube 上的 Spring 2023 免費錄影成為唯一公開的授課紀錄。）
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方課程頁與 Spring 2023 播放清單（50 支）列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 這門課的硬事實
 
@@ -202,6 +193,15 @@ cd cs224u
 - **作業配分**：三份作業都是 9 + 1（bake-off 參賽 1 分），原創系統那題在三份裡都是 3 分。bake-off 榜首另有 0.5 分加分，遲交的參賽項目可以收但拿不到加分。
 - **檔案大小**：ColBERTv2 checkpoint 約 406 MB、課程的預建索引約 600 MB，兩個連結在 2026-08-21 都還可下載（HTTP 200）。
 - **未能確認的項目**：(1) 2026-27 春季會不會開、由誰授課——那兩節在 2026-09-29 已從 XML 消失，原因沒有公開說明；在那之前，ExploreCourses 講師欄位是空的（2026-08-26 重查仍空白；對照同季的 CS224N 與 CS336 講師都已填上，確認是未指派而非資料缺欄），Potts 的授課頁最新只寫到 2024-25，GitHub repo 也沒有任何新學期準備的跡象。間接線索偏向 Potts 回鍋：他的 Linguistics 系主任任期到 2025 年 8 月屆滿，Amazon Scholar 的兼任也在 2024 年 12 月結束——卸任後隔一個學年，課就排回來了。但不能寫死。(2) 停開三年的原因——沒有任何官方頁面說明，但背景拼圖在 2026-08-26 補齊了大半：個人層面，系主任任期（2020-09 至 2025-08）與 Amazon Scholar 兼任（2022-10 至 2024-12）正好覆蓋停開的兩年，且他 2025 年 1 月起共同創辦 AI agent 監控新創 [Bigspin AI](https://bigspin.ai) 任 Chief Scientist，2025–26 年的公開活動全是外部演講與 webinar、零教學紀錄——「重心移轉」證據很強，「不回鍋」則只是推測。校級層面，XCS224U 的下架也不是孤立事件：Stanford 因預算砍 $140M 並裁員，[2026 年 1 月直接裁撤了數位教育副教務長辦公室](https://stanforddaily.com/2026/01/18/stanford-digital-education-shuts-doors/)（Stanford Daily 報導），付費自學課程線批量 sunset——收的是低量產品線，同期 XCS224N 等熱門課仍在招生。他停開期間仍有教其他課，「太忙所以不教書」不成立；最後一堂校內課（2023 春）經 ExploreCourses XML 反查確認是他本人 PI。(3) 校外人士能否旁聽校內班——Stanford Bulletin 的 [auditing 政策](https://bulletin.stanford.edu/academic-polices/enrollment/auditing)明文只開放已註冊學生、postdoc、訪問學者與教職員；校外一般人要走付費的 Permit to Attend 且需講師、系所、註冊組三層核准，實務上等於不能免費坐進去。付費遠端的部分見下一節：XCS224U 已於 2025 年 5 月正式停開（同一波 Stanford Online 還收了 XCS330，但 XCS224N 仍在招生），官方只有一句通用的「periodically sunset」說法，沒有逐門理由。(4) 上述那個資料載入問題我沒有實際建環境執行，結論是由三份公開文件推得的。
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方課程頁與 Spring 2023 播放清單（50 支）列的是逐講錄影；本文是整門課的導讀，不對應單一講次，因此只列入口，各講錄影見對應的逐講導讀。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 參考資料
 

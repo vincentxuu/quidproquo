@@ -1,5 +1,5 @@
 ---
-title: "深度學習：模組、反向傳播與向量化"
+title: "深度學習：模組、反向傳播與向量化｜Stanford CS229 第 7 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 7 章〈Deep learning〉，講義頁碼 80–113。它是 **2026 notes 的逐章導讀**，不是某一學期深度學習錄影的重建。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=fRM41w9jzQo
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=ne2ngVAoMG8
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)](https://www.youtube.com/watch?v=fRM41w9jzQo)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)](https://www.youtube.com/watch?v=ne2ngVAoMG8)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 7（約 80 分鐘）回顧損失函數與 cross entropy、SGD 與 mini-batch、ReLU 與兩層網路的記號，約 80% 之後講 residual connection 與 layer norm，與本章前半（非線性、MLP、模組）與「現代網路模組」一節相符；Lecture 8（約 62 分鐘）講反向傳播：chain rule、Jacobian、forward／backward pass，與本章反向傳播一節相符。本章最後的「跨樣本向量化」，Lecture 8 字幕沒有出現（vectorize、batch 皆零次），該節只依講義。
 
 ## 從固定特徵到學習表徵
 
@@ -88,6 +62,32 @@ a^{[k]}=\sigma(W^{[k]}a^{[k-1]}+b^{[k]}).
 ## 自學練習
 
 只用矩陣運算實作一個兩層 MLP：ReLU 隱藏層加二元 logistic loss。手寫 forward 與 backward，使用有限差分檢查每個參數梯度，再把逐筆版本改成 batch-first 向量化版本，核對兩者梯度一致。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=fRM41w9jzQo
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=ne2ngVAoMG8
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)](https://www.youtube.com/watch?v=fRM41w9jzQo)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)](https://www.youtube.com/watch?v=ne2ngVAoMG8)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 7（約 80 分鐘）回顧損失函數與 cross entropy、SGD 與 mini-batch、ReLU 與兩層網路的記號，約 80% 之後講 residual connection 與 layer norm，與本章前半（非線性、MLP、模組）與「現代網路模組」一節相符；Lecture 8（約 62 分鐘）講反向傳播：chain rule、Jacobian、forward／backward pass，與本章反向傳播一節相符。本章最後的「跨樣本向量化」，Lecture 8 字幕沒有出現（vectorize、batch 皆零次），該節只依講義。
 
 ## 更新紀錄
 

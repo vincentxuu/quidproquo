@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L1–L2＋Lab 0：模型「大」要怎麼量？參數、activation、MAC 與 latency 各在量什麼"
+title: "模型「大」要怎麼量？參數、activation、MAC 與 latency 各在量什麼｜MIT 6.5940 第 1–2 堂／實驗 0"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,29 +39,6 @@ glossary:
 - [Lab 0：PyTorch Tutorial](https://colab.research.google.com/drive/1gvxq7mIAeIBAtmLKH1Q1GknA-GRsK7Q6)（Colab）
 
 以下頁碼都是 PDF 的頁數，投影片角落印的頁碼有時差一兩頁。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
-title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=I0nKjPpZmMU
-title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：抽樣核對兩支影片。L1 的開場、HAN Lab 專案預告（含微控制器偵測、TinyChat、AWQ、Jetson Orin、BEVFusion）與課務；L2 的神經網路術語、參數量與 model size、activation 才是記憶體瓶頸、MAC／FLOP、latency 與 throughput、AlexNet 逐層計算。主題與講次都和本文對應，沒發現矛盾。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 問題：模型長得比硬體快
 
@@ -231,6 +208,29 @@ Fall 2026 的 [L1 投影片](https://www.dropbox.com/scl/fi/yi5oq4f9yzg9sikwcxm3
 - [Stanford CS336 導讀：GPU 與 TPU](/posts/ai/2026-08-22-cs336-gpu-tpu)：從記憶體頻寬看 latency
 
 **系列導覽**：上一篇 [系列入口](/posts/ai/2026-09-30-mit-65940-course-overview)｜下一篇 [Pruning I：剪枝的粒度與準則](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
+title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=I0nKjPpZmMU
+title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w)、[EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：抽樣核對兩支影片。L1 的開場、HAN Lab 專案預告（含微控制器偵測、TinyChat、AWQ、Jetson Orin、BEVFusion）與課務；L2 的神經網路術語、參數量與 model size、activation 才是記憶體瓶頸、MAC／FLOP、latency 與 throughput、AlexNet 逐層計算。主題與講次都和本文對應，沒發現矛盾。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

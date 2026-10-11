@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 12：可信任的定義、隔離、驗證與從不信任建立信任"
+title: "可信任的定義、隔離、驗證與從不信任建立信任｜Stanford CS111 第 12 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 13 篇，對應 **Stanford CS111, Spring 2026, Lecture 12**。2026-04-24 由 Mendel Rosenblum 主講，官方題目是 [Trust and Operating Systems](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/12/Lecture12.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 PDF 定義 trust 為：trustor 基於 trustee 會完成重要行動的 expectation，**自願讓自己暴露於對方行動的 vulnerability**，即使無法 monitor 或 control 對方。哲學版本更直接：trust 是停止持續質疑 dependability、先假定它會運作的態度。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Trust 擴張 agency，也建立 vulnerability
 
@@ -92,6 +84,14 @@ PDF 標示 April 2026 decision：AI use 很難完全 detect/stop，部分用途�
 Proxy 也成為新的 trustee，可能誤判、漏判或被繞過；把安全交給另一個 LLM 不會消除 trust，只會移動 boundary。仍需 inference evidence、least privilege、independent logs 與 recovery。
 
 實作時可列四欄：trustor 承受什麼 vulnerability；trustee 有哪些可重現 evidence；failure 時由什麼 independent backup 接手；哪些設計或 institution 可能誘發 over-trust。OS 位於 root of trust 不代表盲信，而是越接近 TCB，越需要以 distrust 建立 inference 與 substitution。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

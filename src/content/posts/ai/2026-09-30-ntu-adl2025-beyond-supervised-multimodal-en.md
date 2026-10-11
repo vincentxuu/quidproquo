@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Beyond Supervised Learning and Multimodality — Auto-Encoders, VAE, Dual Learning, Contrastive Learning, and CLIP"
+title: "Reading NTU ADL 2025 Fall: Beyond Supervised Learning and Multimodality — Auto-Encoders, VAE, Dual Learning, Contrastive Learning, and CLIP | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,30 +42,6 @@ Official materials used:
 | 14.7 | [Multimodality](https://youtu.be/Q0-8988uEiU) | Seeing, hearing, and speaking like a human | 19:52 | none found |
 
 The "matching pages" column is my own topic match. Public information cannot confirm that the videos actually show these pages.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=j5XknQ4MGw0
-title: 14.1
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=rQyhxK-fDyI
-title: 14.2 Auto-Encoder
-```
-
-Original videos: [14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded 14.1 (21:19) and 14.2 (14:40) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos and only cites titles, subtitles, lengths and descriptions. Both videos were uploaded on 2025-12-02 with a description dated 2025/12/01, which matches the article.
 
 ## Why unlabeled data helps (pages 2–11)
 
@@ -179,6 +155,30 @@ Not confirmed: whether the Fall 2025 videos use this 2024 deck, or how much it c
 The next post leaves the lectures for the side track: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Conversational AI and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en) | Next: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=j5XknQ4MGw0
+title: 14.1
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=rQyhxK-fDyI
+title: 14.2 Auto-Encoder
+```
+
+Original videos: [14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded 14.1 (21:19) and 14.2 (14:40) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos and only cites titles, subtitles, lengths and descriptions. Both videos were uploaded on 2025-12-02 with a description dated 2025/12/01, which matches the article.
 
 ## Update Log
 

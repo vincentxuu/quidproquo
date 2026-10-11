@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Synthesis (2): Project Portfolio — All 12 Projects Compared, Difficulty Tiered & Skill Mapped"
+title: "Synthesis (2): Project Portfolio — All 12 Projects Compared, Difficulty Tiered & Skill Mapped | Harvard CS50 AI Course Overview"
 date: 2026-08-30
 category: tech
 type: deep-dive
@@ -21,17 +21,6 @@ draft: false
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: Lecture videos are **Spring 2020 recordings (Weeks 0–5) and 2023 re-record (Week 6)**; project specs, distribution code, and check50 slugs follow the 2026 OCW site.
-
-## Course video sources
-
-This post is a cross-week synthesis or wrap-up with no single corresponding lecture. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10 and has no video dedicated to this post; go back to the weekly lecture recordings by topic.
-
-Course and recording entries:
-
-- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
-
-Checked: 2026-10-10.
 
 ## TL;DR
 
@@ -210,6 +199,17 @@ Statistical/Symbolic NLP (Parser, Questions)
 - [Synthesis 1: Knowledge Arc](/posts/tech/2026-10-15-harvard-cs50ai-synthesis-1-en) (order 8)
 - **This Post: Synthesis 2** (order 9)
 - [Wrap-up: Timeless vs Changed, Next Steps](/posts/tech/2026-10-29-harvard-cs50ai-wrapup-en) (order 10)
+
+## Course video sources
+
+This post is a cross-week synthesis or wrap-up with no single corresponding lecture. The official CS50 YouTube playlist (8 videos: an introduction plus the Week 0–6 lectures) was checked live on 2026-10-10 and has no video dedicated to this post; go back to the weekly lecture recordings by topic.
+
+Course and recording entries:
+
+- [CS50 AI — official course playlist](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+- [CS50 AI — official course page](https://cs50.harvard.edu/ai/)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

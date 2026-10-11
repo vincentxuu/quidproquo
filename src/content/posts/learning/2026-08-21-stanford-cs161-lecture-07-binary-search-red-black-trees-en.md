@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 7: Binary Search Trees, Red-Black Trees, and the Source of Worst-Case O(log n)"
+title: "Binary Search Trees, Red-Black Trees, and the Source of Worst-Case O(log n) | Stanford CS161 Lecture 7"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, binary-search-tree, red-black-tree]
@@ -22,16 +22,6 @@ This is article 8 in [Reading Stanford CS161](/en/series/stanford-cs161), coveri
 I used the [official Lecture 7 anchor](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees), the public notes, and the public slides. The deck centers on binary search trees and red-black trees; the notes also contain a substantial section on heaps. I label that material as a notes supplement instead of presenting it as an equal part of the live deck. I did not use the Canvas-only recording.
 
 The lecture asks a more precise question than “what is a tree?” A sorted array supports fast search but expensive updates. An unsorted linked list makes local updates cheap but search expensive. Can one mutable set retain fast search, insertion, and deletion? A BST tries to combine those benefits, but its performance depends on its shape. A red-black tree turns “the shape must not become too bad” into invariants that an update algorithm can maintain.
-
-## Course video sources
-
-Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
-
-Checked: 2026-10-10.
 
 ## Start from the operations, not the picture
 
@@ -190,6 +180,16 @@ The next lecture narrows the requirement. If an application only needs membershi
 A useful exercise is to insert the same key sequence three ways: sorted order into an ordinary BST, an approximately median-first order into another BST, and red-black insertion. Record the height and search path after every update. The keys remain identical while the shape—and therefore the cost—changes.
 
 For implementation practice, begin with rotations rather than a full red-black tree. Run an in-order traversal before and after every rotation; any changed sequence reveals a pointer error. Then compute the black counts of all paths to `NIL` before attempting insertion fix-up. These are practice suggestions from this article, not added Winter 2026 requirements.
+
+## Course video sources
+
+Checked live: on the official Winter 2026 lecture page every recording link points to Canvas / Panopto, and opening one lands on a Panopto sign-in page that requires a Stanford account. A search of public channels such as Stanford Online found no public recording of the same (Winter 2026) offering, so no video is embedded and recordings from other years are not passed off as this term's.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-7-binary-search-trees-and-red-black-trees)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

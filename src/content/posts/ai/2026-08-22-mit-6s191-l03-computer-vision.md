@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 3：電腦視覺：卷積如何保留空間結構"
+title: "電腦視覺：卷積如何保留空間結構｜MIT 6.S191 第 3 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 3 講是 **電腦視覺：卷積如何保留空間結構**。從影像張量、卷積與 pooling 走到辨識系統，替 Lab 2 的 MNIST 與臉部偵測打底。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=pqIcoskUuWs
-title: MIT 6.S191: Convolutional Neural Networks
-```
-
-原始影片：[MIT 6.S191: Convolutional Neural Networks](https://www.youtube.com/watch?v=pqIcoskUuWs)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：字幕涵蓋影像即數值矩陣、扁平化會丟掉空間結構、卷積（patch、filter、feature map、stride 重疊的問答）、ReLU 與 max pooling、CNN 的特徵學習加分類兩段式架構；與本文相符。本文提到的 Lab 2 內容我只核對了字幕開頭，未逐段確認。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: Convolutional Neural Networks
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=pqIcoskUuWs
+title: MIT 6.S191: Convolutional Neural Networks
+```
+
+原始影片：[MIT 6.S191: Convolutional Neural Networks](https://www.youtube.com/watch?v=pqIcoskUuWs)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋影像即數值矩陣、扁平化會丟掉空間結構、卷積（patch、filter、feature map、stride 重疊的問答）、ReLU 與 max pooling、CNN 的特徵學習加分類兩段式架構；與本文相符。本文提到的 Lab 2 內容我只核對了字幕開頭，未逐段確認。
 
 ## 更新紀錄
 

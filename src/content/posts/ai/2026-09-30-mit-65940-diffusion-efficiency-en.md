@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L18 Efficient Diffusion Models: Save on Steps, Resolution, and Compute per Step"
+title: "Efficient Diffusion Models: Save on Steps, Resolution, and Compute per Step | MIT 6.5940 Lecture 18"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 Picture yourself editing a photo with Stable Diffusion on a laptop. You only want to paint out a horse in the corner. When you hit generate, the model redraws the entire image from noise forty times, even though you touched less than 2% of the pixels. This lecture asks how much of that work is wasted.
 
 The Lecture Plan on page 6 has three parts. Part one covers diffusion basics: DDPM, conditional generation, latent diffusion, image editing, personalization. Part two covers fast sampling: DDIM and distillation. Part three covers acceleration: sparsity, quantization, parallelism. You can find the first two parts in other courses. The third is almost entirely MIT HAN Lab's own research, and it is what this course adds.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=LXrqmQrscf0
-title: EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LXrqmQrscf0)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and keyword-checked the middle: DDPM and a generative-model recap, conditioning and guidance, latent diffusion (including DC-AE), image editing and personalization, distillation, spatial sparsity, quantization, and DistriFusion (reusing the previous step's stale activations so communication overlaps with compute, about 2x or more on four GPUs). The lecture and topics match this post. The captions are automatic and garble names such as DDIM and SIGE, so those names follow the slides. The speaker slips and says “lecture 16” at the start; the video title and course page say Lecture 18. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why it is slow: DDPM's two processes
 
@@ -167,6 +149,24 @@ The comparison on page 89 is convincing. The original takes 12.3 s on one GPU. N
 
 - An introductory take on diffusion: [CS231N Lecture 14: why adding and removing noise generates images](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
 - The same outlier problem, solved for LLMs: [Lecture 13 on LLM deployment](/posts/ai/2026-09-30-mit-65940-llm-deployment-en), [Lecture 6 on PTQ and QAT](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=LXrqmQrscf0
+title: EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 18 - Diffusion Models (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=LXrqmQrscf0)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening and closing summary and keyword-checked the middle: DDPM and a generative-model recap, conditioning and guidance, latent diffusion (including DC-AE), image editing and personalization, distillation, spatial sparsity, quantization, and DistriFusion (reusing the previous step's stale activations so communication overlaps with compute, about 2x or more on four GPUs). The lecture and topics match this post. The captions are automatic and garble names such as DDIM and SIGE, so those names follow the slides. The speaker slips and says “lecture 16” at the start; the video title and course page say Lecture 18. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

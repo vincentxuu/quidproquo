@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-785 Lecture 17: Language Models and Translation"
+title: "Language Models and Translation | CMU 11-785 Lecture 17"
 date: 2026-08-22
 category: ai
 tags: [cmu, deep-learning, neural-networks, course-guide]
@@ -19,25 +19,6 @@ series:
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 
 This article covers CMU 11-785 Spring 2026 **Lecture 17: Language Models and Translation**. Its primary evidence is the [official slide deck](https://deeplearning.cs.cmu.edu/S26/documents/slides/lec17.recurrent.pdf) and [official YouTube recording](https://youtu.be/runV7SlN5Zg). It reconstructs only what those materials support and does not invent classroom dialogue or unpublished remarks.
-
-## Course video sources
-
-Recording links have been checked against the official course page for the edition used by this article.
-
-```youtube
-url: https://www.youtube.com/watch?v=runV7SlN5Zg
-title: Lecture 17 official YouTube recording
-```
-
-Original videos: [Lecture 17 official YouTube recording](https://www.youtube.com/watch?v=runV7SlN5Zg)
-
-Course and recording entries:
-
-- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The Lecture 17 video (about 82 minutes, YouTube title "Modeling Sequence-to-Sequence models") covers language models that predict the next word from previous words (an RNN with one-hot inputs), a generative mode that feeds outputs back as inputs, conditional translation models, and beam search. The transcript does not use the terms autoregressive factorization or teacher forcing, so the wording was changed and the teacher-forcing exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## What this lecture addresses
 
@@ -66,6 +47,25 @@ For more implementation work, select a related notebook from the [official recit
 ## After the lecture
 
 Close the slides and write the lecture's input, output, objective, and one failure mode on a blank page. Continue only when you can explain all four without notes. Otherwise return to the small example and reduce its input until every operation can be checked manually.
+
+## Course video sources
+
+Recording links have been checked against the official course page for the edition used by this article.
+
+```youtube
+url: https://www.youtube.com/watch?v=runV7SlN5Zg
+title: Lecture 17 official YouTube recording
+```
+
+Original videos: [Lecture 17 official YouTube recording](https://www.youtube.com/watch?v=runV7SlN5Zg)
+
+Course and recording entries:
+
+- [cmu-11785-deep-learning — official course materials and recording index](https://deeplearning.cs.cmu.edu/S26/pages/tables/lectures_table.html)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The Lecture 17 video (about 82 minutes, YouTube title "Modeling Sequence-to-Sequence models") covers language models that predict the next word from previous words (an RNN with one-hot inputs), a generative mode that feeds outputs back as inputs, conditional translation models, and beam search. The transcript does not use the terms autoregressive factorization or teacher forcing, so the wording was changed and the teacher-forcing exercise is marked as site supplement. I sampled the beginning, middle, and end and searched by keyword; this is not a word-for-word check.
 
 ## Update Log
 

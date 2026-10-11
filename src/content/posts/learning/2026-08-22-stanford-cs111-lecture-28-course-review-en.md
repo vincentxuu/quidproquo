@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 28: Four Ideas Connecting Concurrency, Memory, and Storage"
+title: "Four Ideas Connecting Concurrency, Memory, and Storage | Stanford CS111 Lecture 28"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 29 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 28**. Mendel Rosenblum taught it on 2026-06-03, and its official title is [Course Review](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/28/Lecture28.pdf). This article follows the ten-page public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar) page by page. The recording is behind Canvas/Panopto and is not treated as a source read here.
 
 The artifact audit found no duplicate deck: Lecture 28 has a different hash, page count, and title from Lectures 26 and 27. Nor is this final review merely a recitation of chapter names. Pages 2–7 inventory mechanisms along the three threads of concurrency, memory, and storage. Page 8 then extracts four cross-cutting ideas: virtualization, atomicity, locality, and layering. The real takeaway is how the latter four recur across the former three.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Thread one: concurrency is more than “running at the same time”
 
@@ -89,6 +81,14 @@ If the compelling part of CS111 was how abstractions reach the kernel, continue 
 - Pages 6–7: disk I/O, file access, inodes, block layouts, free space, caching, scheduling, links, crash recovery, and FTL.
 - Page 8: virtualization, concurrency, atomicity, locality, and layering.
 - Pages 9–10: directions for further courses and the closing slide.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

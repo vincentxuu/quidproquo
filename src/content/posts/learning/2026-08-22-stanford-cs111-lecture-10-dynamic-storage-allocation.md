@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 10：allocator 介面、free list、fragmentation 與 placement policy"
+title: "allocator 介面、free list、fragmentation 與 placement policy｜Stanford CS111 第 10 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -22,14 +22,6 @@ draft: false
 Dynamic storage management 問的是：如何管理一段 memory 或 storage，讓 applications 與 OS 都能滿足不可預測的需求？現在先談 memory，disk storage 留到後面。介面很小：`allocate(size) -> ptr` 取得指定 bytes，`free(ptr)` 歸還先前配置的 block。困難不在 API，而在 allocator 不知道 block 多久後會被 free，也不知道下一個 request 多大。
 
 同一串 requests 只要 free 順序不同，就會留下完全不同的 hole pattern；allocator 當下也看不到未來，無法知道現在切開的大 block 是否稍後正好有大型需求。這使 placement 成為 online decision：只能依目前 free-space state 選擇，並承擔之後的 fragmentation。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Stack allocation：限制順序換取常數時間
 
@@ -92,6 +84,14 @@ Garbage-collected model 沒有顯式 `free`；程式刪除 pointers，collector 
 PDF 給出成本量級：在使用 GC 的 systems 中可能花 10–20% CPU time、需要 2–5× overallocation，並造成 long pauses。這些是講義用來說明代價的量級，不是所有 runtime、heap size 與 workload 的保證；generational、incremental 或 concurrent collectors 的行為可能不同，但不在本講公開材料內。（[官方講義](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/10/Lecture10.pdf)）
 
 整講可用「預測能力換效率」串起來。LIFO 生命週期最可預測，所以 stack pointer 幾乎免費；任意 heap lifetime 需要 free lists 與 placement policy；固定 size 可用 slabs/bitmaps 換快路徑；ownership 可追蹤時 reference count 很直接；一般 graph reachability 則交給 collector，支付 scan、space 與 pause 成本。沒有一種 allocator 同時取得 arbitrary lifetime、零 fragmentation、常數時間、立即回收與零 metadata。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

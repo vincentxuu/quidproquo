@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 1 講：agent 是跑在迴圈裡的模型，難的是讓它真的做得好"
+title: "agent 是跑在迴圈裡的模型，難的是讓它真的做得好｜CMU 11-768 第 1 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -40,25 +40,6 @@ glossary:
 [CMU 11-768 AI Agents](https://www.cmu-agents.com/) 的第一講（2026-08-25，[錄影](https://www.youtube.com/watch?v=UwfjzyLnvMg)、[投影片](https://www.cmu-agents.com/slides/lecture-01-agents.pdf)）分成兩半。前半由 Daniel Fried 把 agent 拆到最小：一個語言模型，加上一個會執行工具的迴圈。後半由 Graham Neubig 問下一個問題：迴圈寫出來不難，要怎麼讓它真的做得好？他的答案是一張「六種能力 × 兩條路」的地圖，整門課的課表就是照這張地圖排的。
 
 這篇照課堂順序走：開場的成功與失敗案例、agent 的定義、從語言模型走到 agent 的三步、六種能力、訓練與 harness 的取捨、agent 系統的五個組成，最後是這門課的學習目標。課程形式、評分和作業細節放在[系列總覽](/posts/ai/2026-09-29-cmu-11768-course-overview)。
-
-## 課程影片來源
-
-已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
-
-```youtube
-url: https://www.youtube.com/watch?v=UwfjzyLnvMg
-title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
-```
-
-原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 68 分鐘），對照 Fried／Neubig 分工、開場案例（16 個 agent 編譯器、OpenClaw 刪信與 context 壓縮）、JY Koh 與 OpenHands 示範、六種能力與 harness／訓練取捨、舉手估計約一成人做過 agent RL、OpenAI 入侵 Hugging Face 事件的口述版本、系統五塊與 OpenRouter 供應商數、評分與 AI 政策；皆有依據。修正一處：OpenHands 示範中強調「agent 自己除錯」的是 Neubig 的旁白，不是 Fried。字幕沒講的細節（Summer Yue 姓名、10 萬行、各投影片頁碼）屬投影片或外部來源。
 
 ## 開場：agent 已經能做大事，也會闖大禍
 
@@ -296,6 +277,25 @@ Neubig 接著強調：agent 比你在其他機器學習課碰過的東西都複�
 - 站內：[OpenClaw Agent Loop 拆解](/posts/ai/2026-03-28-openclaw-agent-loop)，開場事故主角的迴圈怎麼寫
 - 站內：[Stanford CS329Z 導讀](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，同樣要你從零寫 harness，但不碰訓練
 - 站內：[CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms)，從 RAG 和 function calling 的角度講同一件事
+
+## 課程影片來源
+
+已核對 CMU 11-768 Fall 2026 第 1 講的公開錄影；影片由課程教師 Graham Neubig 的頻道發布，影片標題與說明對應本課程。
+
+```youtube
+url: https://www.youtube.com/watch?v=UwfjzyLnvMg
+title: CMU AI Agents 2026: 1. What are Agents and How Do They Work?
+```
+
+原始影片：[CMU AI Agents 2026: 1. What are Agents and How Do They Work?](https://www.youtube.com/watch?v=UwfjzyLnvMg)
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：通讀全程字幕（約 68 分鐘），對照 Fried／Neubig 分工、開場案例（16 個 agent 編譯器、OpenClaw 刪信與 context 壓縮）、JY Koh 與 OpenHands 示範、六種能力與 harness／訓練取捨、舉手估計約一成人做過 agent RL、OpenAI 入侵 Hugging Face 事件的口述版本、系統五塊與 OpenRouter 供應商數、評分與 AI 政策；皆有依據。修正一處：OpenHands 示範中強調「agent 自己除錯」的是 Neubig 的旁白，不是 Fried。字幕沒講的細節（Summer Yue 姓名、10 萬行、各投影片頁碼）屬投影片或外部來源。
 
 ## 更新紀錄
 

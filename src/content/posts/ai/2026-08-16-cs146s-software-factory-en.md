@@ -1,5 +1,5 @@
 ---
-title: "CS146S Week 10: The Software Factory Isn't Automation — It's Handing Over the Feedback Loop"
+title: "The Software Factory Isn't Automation — It's Handing Over the Feedback Loop | Stanford CS146S Week 10"
 date: 2026-08-16
 category: ai
 tags:
@@ -28,18 +28,6 @@ This is the final post in the [CS146S series](/posts/ai/2026-08-16-cs146s-course
 Three topics: self-running, self-improving software systems; running and securing agents post-deployment; where AI software engineering goes next. The session title is "The Software Factory: self-running, self-improving software systems."
 
 "Software factory" also closes the course description: graduates should be able to "apply software-factory principles to building and evolving software at greater speed and scale." It is the course's terminal proposition.
-
-## Course video sources
-
-This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
-
-Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
-
-Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Unpacking the term
 
@@ -135,6 +123,18 @@ To study on your own, [the complete Fall 2025 materials](https://themodernsoftwa
 - The Week 10 guest for Fall 2026 is unannounced
 - "Software factory" is currently used mostly by this course and a few vendors, with no consensus definition
 - The second and third gaps above are my assessment; the first (accountability) is the course's own open question
+
+## Course video sources
+
+This article covers the Fall 2026 syllabus and assigned readings. A public lecture recording for this topic has not been verified.
+
+Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
+
+Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://themodernsoftware.dev/)
 
 ## Update Log
 

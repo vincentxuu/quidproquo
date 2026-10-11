@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 5：Bit shifts、bit tricks 與 GDB"
+title: "Bit shifts、bit tricks 與 GDB｜Stanford CS107 第 5 堂"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, bitwise-operators, gdb]
@@ -20,14 +20,6 @@ draft: false
 Bitmask 能選位置，shift 則能把位置搬到需要的地方。兩者合起來，可以抽出 byte、翻轉欄位、找相鄰的 1、判斷 power of two，甚至在不使用比較運算子的情況下組出 absolute value。這些技巧很短，前提卻很多：型別寬度、signedness、右移補什麼，以及 shift count 是否合法。
 
 CS107 第五講也第一次正式把 GDB 納入日常工具。重點不是記住一串縮寫，而是建立可重複的觀察循環：停在 breakpoint、控制下一步、用不同格式看值、檢查記憶體與 call stack，再回到原始碼修正。本文依 [Winter 2026 Lecture 5 官方投影片](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/05/Lecture05.pdf) 完整展開。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 講次資料與材料邊界
 
@@ -287,6 +279,14 @@ quit
 6. GDB 的核心循環是 breakpoint、run、next／step、inspect、backtrace；修改原始碼後要重新 build。
 
 下一講會進入 `char` 與 C strings。此時 GDB 的 `x` 與 `/c` 顯示會開始特別有用：字串不再只是畫面上的文字，而是連續 bytes、terminating null 與 address 所組成的 representation。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S184 Lab 3：DiT、VAE 到 latent diffusion"
+title: "DiT、VAE 到 latent diffusion｜MIT 6.S184 實驗 3"
 date: 2026-09-30
 category: ai
 type: guide
@@ -38,15 +38,6 @@ glossary:
 - **圖片**：MNIST 被縮放成 32×32，每張圖是 1024 維。MLP 不夠用，要換成 [L4](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures) 的 diffusion transformer。
 
 所以先讀完 L3B 和 L4 再開這個 lab。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
-
-課程與錄影入口：
-
-- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
-
-查核日期：2026-10-10。
 
 ## 怎麼拿、怎麼做、怎麼對答案
 
@@ -218,6 +209,15 @@ patch_size=1 代表 4×4 的 latent 切成 16 個 token，每個 token 是一個
 - Transformer 與 attention 從頭講：[Stanford CS224N：Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CMU 11-785 L18：Attention 與 Transformers](/posts/ai/2026-08-22-cmu-11785-18-attention-transformers)
 - VAE 的 ELBO 推導：[CMU 11-785 L22：Variational Autoencoders](/posts/ai/2026-08-22-cmu-11785-22-variational-autoencoders)
 - 前一個 lab：[Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由 Colab notebook 與 GitHub 解答提供）。
+
+課程與錄影入口：
+
+- [mit-6s184 — official course materials and recording index](https://diffusion.csail.mit.edu/2026/index.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

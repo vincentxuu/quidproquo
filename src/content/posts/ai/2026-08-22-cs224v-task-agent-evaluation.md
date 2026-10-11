@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 4 講：任務型 Agent 評估不能只看回答像不像人"
+title: "任務型 Agent 評估不能只看回答像不像人｜Stanford CS224V 第 4 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, agent-evaluation, task-oriented-dialogue, genie]
@@ -19,18 +19,6 @@ description: "CS224V Evaluation of Task-Oriented Agents：架構比較、Workshe
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/l-Worksheet2.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第四講不是第三講的結果頁，而是在問「可靠」要怎麼量。回答自然、意圖分類正確，都不等於 agent 完成了任務；同樣地，一次成功也看不出系統是在遵守知識查詢結果，還是剛好猜對。
-
-## 課程影片來源
-
-官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-查核日期：2026-10-10。
 
 ## Agenda：先釐清架構，再設計測試
 
@@ -137,6 +125,18 @@ Semantic parsing metrics 對準第一箭頭；state consistency 看跨 turn 累�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 投影片提供評估摘要，沒有公開完整真人對話、標註規範與統計細節；本文因此不重算或擴大解讀表格數字。沒有 Fall 2025 課堂錄影。
+
+## 課程影片來源
+
+官方課程網站（2026-10-10 即時讀取）寫明：講課錄影放在 Canvas。我實際開啟目前這屆的 Canvas 入口，被導向 Stanford 登入頁，確認有登入牆。本文對應的 Fall 2025（或 Fall 2026 課程介紹）沒有查到公開 YouTube／OCW 錄影；StanfordCSVideos 頻道只公開 Fall 2024 的 19 支，課綱與本文這一講沒有可確定對上的講次，所以不嵌入。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支，非本文學期）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

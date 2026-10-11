@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 15：page、frame、page table、TLB 與多層頁表"
+title: "page、frame、page table、TLB 與多層頁表｜Stanford CS111 第 15 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 16 篇，對應 **Stanford CS111, Spring 2026, Lecture 15**。2026-05-01 由 Mendel Rosenblum 主講，官方題目是 [Paging](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Segmentation 仍以 variable-size regions 配置 physical memory，留下 external fragmentation。Paging 的 key idea 是 virtual 與 physical address spaces 都切成 fixed-size chunks：virtual **pages** 對應 physical **page frames**。[官方 PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/15/Lecture15.pdf) 舉 4 KB（並戲稱 x86 myth）與 MacBook 16 KB 為常見例子；這是課堂快照，不是所有機器規格。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. VPN、offset 與 PTE
 
@@ -104,6 +96,14 @@ System call `write(fd, buffer, length)` 把 user virtual pointer 交給 kernel�
 Paging 消除 processes 之間的 **external fragmentation**：任何 free frame 都可服務任何 virtual page，不需要整個 segment contiguous。但 page 內最後未使用 bytes 是 **internal fragmentation**；通常每 segment 最後一頁有浪費，page 越大，最壞浪費越大。
 
 Lecture 15 的取捨因此是一組連動：fixed pages 簡化 allocation 並支援 sparse mappings；multi-level tables 節省 table memory卻增加 walk；TLB 以 locality 隱藏 walk，卻增加 invalidation/context-switch responsibility；large pages 減少 metadata/TLB pressure，卻增加 internal waste。後續 demand paging 才會討論 present=0 時如何從 disk 補頁。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

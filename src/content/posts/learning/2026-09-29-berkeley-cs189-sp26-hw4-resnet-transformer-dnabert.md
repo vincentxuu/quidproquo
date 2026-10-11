@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW4 導讀：ResNet/Transformer 論文題與 CNN、ResNet、Transformer、DNABERT、ConvNeXt 實作"
+title: "ResNet/Transformer 論文題與 CNN、ResNet、Transformer、DNABERT、ConvNeXt 實作｜Berkeley CS189 作業 4"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, course-guide, homework, transformer, cnn, pytorch, fine-tuning]
@@ -32,17 +32,6 @@ glossary:
 它接在 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers) 之後。講義只講到 attention 的主幹，位置編碼、encoder／decoder、訓練與推論的細節，都在這份作業裡自己動手做。
 
 **這篇不寫解法**。HW1–4 沒有公開的官方解答；我只描述每題在問什麼、為什麼這樣設計、要注意哪裡。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
 
 ## 校外讀者拿得到什麼
 
@@ -168,6 +157,17 @@ flowchart LR
 - 系列導覽：上一篇 [Lec 21–22：Transformers](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)；下一篇 [Lec 23–24：LLM 訓練與自監督學習](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：下載 `hw4_part1.ipynb`，只跑到「Load the Data」那一格，確認 `timm/mini-imagenet` 能載入，再動手寫 1a 的 CNN，把最後一層卷積輸出的形狀印出來。
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

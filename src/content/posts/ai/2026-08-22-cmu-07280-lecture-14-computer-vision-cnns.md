@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 14：CNN 如何把影像的空間結構寫進模型"
+title: "CNN 如何把影像的空間結構寫進模型｜CMU 07-280 第 14 堂"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, computer-vision, cnn, alexnet]
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 第 14 講 **Computer Vision** 日期為 2026 年 3 月 10 日。它把前兩講的 neural network 與 backprop 放進影像：不再把每個 pixel 當成彼此無關的 feature，而是讓同一個小型 kernel 在不同位置重複使用。官方課表未列逐講公開錄影連結，本文只依 lecture note、CNN pre-reading、Recitation 8 與作業材料整理。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-核心來源是 [Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf)、[CNN pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_CNNs.pdf)、[Recitation 8 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec8_sol.pdf)、HW7 與 HW8。HW7 仍以單 hidden-layer network 做訓練診斷；HW8 才正式做 AlexNet 與 transfer experiments。
 
 ## 承上問題：fully connected network 忽略了影像的什麼
 
@@ -90,6 +76,20 @@ Lecture 15 會進一步利用已學好的 visual representation。當新任務�
 ## 今晚可以做的動作
 
 手算一個 `1×4×4` 輸入與 `2×2` kernel 的 valid convolution，逐格寫出四項乘積。再為 `3×64×64 → Conv(32,3×3,pad=1) → MaxPool(2)` 算 output shapes 與參數。最後刻意把 output positions 乘進參數量，再指出為什麼那是錯的。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+核心來源是 [Computer Vision lecture note](https://www.cs.cmu.edu/~07280/lectures/07280_Computer_Vision.pdf)、[CNN pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_CNNs.pdf)、[Recitation 8 解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec8_sol.pdf)、HW7 與 HW8。HW7 仍以單 hidden-layer network 做訓練診斷；HW8 才正式做 AlexNet 與 transfer experiments。
 
 ## 更新紀錄
 

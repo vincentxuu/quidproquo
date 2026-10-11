@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Guide: Nine Lectures and Three Labs Are Public, but the Full Path Still Uses Three External Services"
+title: "Nine Lectures and Three Labs Are Public, but the Full Path Still Uses Three External Services | MIT 6.S191 Topic Guide"
 date: 2026-08-21
 category: ai
 type: guide
@@ -24,15 +24,6 @@ The 2026 edition of [MIT 6.S191: Introduction to Deep Learning](https://introtod
 This guide therefore does more than repeat nine video titles. It asks how the lectures fit together, what the labs actually make you build, and exactly where identity, compute, services, and feedback become boundaries.
 
 I audited the 2026 course site, all nine slide entries, the official repository README, the labs and public solutions, plus the 2025 archive and both years' code branches. I **did not watch all nine recordings end to end**. This is an audit of structure and executability, not a review of presentation quality.
-
-## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official course page on 2026-10-10: the 2026 edition lists public YouTube recordings for all nine lectures (matching the first nine items of the official playlist); the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
-
-Course and recording entries:
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-Checked: 2026-10-10.
 
 ## Decide whether this is the course you need
 
@@ -160,6 +151,15 @@ Give it ninety minutes. If you can explain the tensor shapes, gradients, and pur
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Live-checked the official entry: per-lecture recordings are listed there and embedded in each lecture article; the status stays “Official entry or recording index only.”
 - 2026-08-22: Added the bilingual nine-lecture and three-lab series, and pinned all lab links to the official `2026` branch.
+
+## Course video sources
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live official course page on 2026-10-10: the 2026 edition lists public YouTube recordings for all nine lectures (matching the first nine items of the official playlist); the three labs have no dedicated recording. Per-lecture videos are embedded in each lecture article.
+
+Course and recording entries:
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+Checked: 2026-10-10.
 
 ## References
 

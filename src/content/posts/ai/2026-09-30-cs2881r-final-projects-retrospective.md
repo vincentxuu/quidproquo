@@ -1,5 +1,5 @@
 ---
-title: "CS2881R 期末專題與課程回顧：19 份學生研究、評分表與第一屆的教訓"
+title: "19 份學生研究、評分表與第一屆的教訓｜Harvard CS2881R 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -25,42 +25,6 @@ draft: false
 **本文依據 Harvard CS 2881R 的 Fall 2025 學期。** 這是 [Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)系列的第 15 篇，也是最後一篇。上一篇 [L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035) 收掉了課程的最後一講；這一篇回答兩個問題：一學期下來，學生做出了什麼研究？這種「重現 + 延伸」的課程設計，哪裡有效、哪裡要改？
 
 前半篇是給想自己跑一次期末專題的讀者：規格、評分表、題目清單、19 份成果怎麼分布。後半篇是給想開類似課程、或想判斷這門課值不值得跟的讀者：助教與學生事後怎麼評價它。
-
-## 課程影片來源
-
-官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，列有期末口頭報告錄影（約 75 分鐘）；本文「口頭報告影片」一節即依這支影片整理。
-
-```youtube
-url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
-title: AI Safety (CS 2881) Oral presentations of student projects
-```
-
-原始影片：[AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Oral presentations of student projects》（1:15:40）的完整自動字幕：確認 7 組報告的出場順序（AI-induced Psychosis、Who Said That?、Improving GCG、法律幻覺、Phase Transitions in Backdoor Learning、Subliminal Learning、Evolutionary Alignment）、開場說明每組 10 分鐘（含提問），以及後門組被問 QLoRA 4-bit 量化、Evolutionary Alignment 組被問 ES 是否只是 GRPO 的正則化這兩個問答。字幕沒有時間碼，原表的精確起始時間與 `?t=` 深連結無法驗證，已改為只標出場順序。
-
-## 用到的官方材料與存取狀態
-
-| 材料 | 內容 | 狀態 |
-|---|---|---|
-| [Student Projects 頁](https://boazbk.github.io/mltheoryseminar/student_projects) | 19 份期末論文 PDF、17 份海報 PDF、摘要 | 公開 |
-| [口頭報告影片](https://youtu.be/Xr9FNl0S66Q) | 「AI Safety (CS 2881) Oral presentations of student projects」，1:15:40，2026-01-07 上傳 | 公開 |
-| [Final Project Outline](https://docs.google.com/document/d/1cB_zHcHQuCua-UlwcbDwNaxN2YQEtp5vKHKmBS9_63I) | 分組、兩種專題、交件要求、時程、附 mentor 的題目清單 | 公開（Google Docs） |
-| [Final Project Grading Rubric](https://docs.google.com/document/d/1JA-p0g91_LIB-uTfbZ5PtOfk7KFkIoOC-odrwf-HAiM) | 100 分評分表 | 公開（Google Docs） |
-| [Reflections on TA-ing Harvard's first AI safety course](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) | head TA Roy Rinberg 的回顧，2026-01-15 | 公開 |
-| [Learnings from AI safety course so far](https://www.lesswrong.com/posts/2pZWhCndKtLAiWXYv) | Boaz Barak 的期中心得，2025-09-27 | 公開 |
-| [Harvard Q-report](https://boazbk.github.io/mltheoryseminar/assets/q_report.pdf) | 官方匿名課程評鑑，8 頁 | 公開 |
-
-本篇用到的材料全部公開，拿不到的只有兩樣：每組的成績與助教回饋，以及沒放上專題頁的組別。head TA 回顧寫「約 23 組期末專題」，專題頁實際列 19 份論文，差額沒有說明。
-
-系列整體的存取分級（A3，附缺口清單）見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
 ## 期末專題的規格
 
@@ -249,6 +213,42 @@ Q-report 的文字意見與 head TA 回顧附的 Google 表單摘要（21 份）
 - 上一篇：[L12 AI 2035](/posts/ai/2026-09-30-cs2881r-lecture-12-ai-2035)
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 本篇是系列最後一篇。
+
+## 課程影片來源
+
+官方 Fall 2025 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，列有期末口頭報告錄影（約 75 分鐘）；本文「口頭報告影片」一節即依這支影片整理。
+
+```youtube
+url: https://www.youtube.com/watch?v=Xr9FNl0S66Q
+title: AI Safety (CS 2881) Oral presentations of student projects
+```
+
+原始影片：[AI Safety (CS 2881) Oral presentations of student projects](https://www.youtube.com/watch?v=Xr9FNl0S66Q)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Oral presentations of student projects》（1:15:40）的完整自動字幕：確認 7 組報告的出場順序（AI-induced Psychosis、Who Said That?、Improving GCG、法律幻覺、Phase Transitions in Backdoor Learning、Subliminal Learning、Evolutionary Alignment）、開場說明每組 10 分鐘（含提問），以及後門組被問 QLoRA 4-bit 量化、Evolutionary Alignment 組被問 ES 是否只是 GRPO 的正則化這兩個問答。字幕沒有時間碼，原表的精確起始時間與 `?t=` 深連結無法驗證，已改為只標出場順序。
+
+## 用到的官方材料與存取狀態
+
+| 材料 | 內容 | 狀態 |
+|---|---|---|
+| [Student Projects 頁](https://boazbk.github.io/mltheoryseminar/student_projects) | 19 份期末論文 PDF、17 份海報 PDF、摘要 | 公開 |
+| [口頭報告影片](https://youtu.be/Xr9FNl0S66Q) | 「AI Safety (CS 2881) Oral presentations of student projects」，1:15:40，2026-01-07 上傳 | 公開 |
+| [Final Project Outline](https://docs.google.com/document/d/1cB_zHcHQuCua-UlwcbDwNaxN2YQEtp5vKHKmBS9_63I) | 分組、兩種專題、交件要求、時程、附 mentor 的題目清單 | 公開（Google Docs） |
+| [Final Project Grading Rubric](https://docs.google.com/document/d/1JA-p0g91_LIB-uTfbZ5PtOfk7KFkIoOC-odrwf-HAiM) | 100 分評分表 | 公開（Google Docs） |
+| [Reflections on TA-ing Harvard's first AI safety course](https://www.lesswrong.com/posts/gcFB2RT5vpKHbH4ic) | head TA Roy Rinberg 的回顧，2026-01-15 | 公開 |
+| [Learnings from AI safety course so far](https://www.lesswrong.com/posts/2pZWhCndKtLAiWXYv) | Boaz Barak 的期中心得，2025-09-27 | 公開 |
+| [Harvard Q-report](https://boazbk.github.io/mltheoryseminar/assets/q_report.pdf) | 官方匿名課程評鑑，8 頁 | 公開 |
+
+本篇用到的材料全部公開，拿不到的只有兩樣：每組的成績與助教回饋，以及沒放上專題頁的組別。head TA 回顧寫「約 23 組期末專題」，專題頁實際列 19 份論文，差額沒有說明。
+
+系列整體的存取分級（A3，附缺口清單）見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)。
 
 ## 更新紀錄
 

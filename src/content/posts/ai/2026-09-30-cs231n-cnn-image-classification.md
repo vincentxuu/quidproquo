@@ -1,5 +1,5 @@
 ---
-title: "CS231N L5：用 CNN 做影像分類——從手工特徵到卷積與池化"
+title: "用 CNN 做影像分類——從手工特徵到卷積與池化｜Stanford CS231N 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,24 +41,6 @@ glossary:
 存取等級是 **A3**：投影片、筆記與錄影都公開，但 2026 年的錄影只放在 Canvas，限修課生。
 
 有一個小地方要先說明。這份 2026 投影片每頁頁尾印的日期是「April 14, 2025」，但第 2 頁的行政公告寫 A1 在「Wednesday 4/16」截止，跟 2026 課表一致。本文只把它當成 2026 課表連結的版本，不推論它和 2025 版差多少。對照 [2025 年的 lecture_5.pdf](https://cs231n.stanford.edu/slides/2025/lecture_5.pdf)，章節順序幾乎一樣，差別是 2025 版多了 Bag of Words 一頁，以及一段「往年投影片」附錄。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 5 講（長度 1:08:04），字幕開場 Justin Johnson 自我介紹為這堂的講者，內容有手工特徵與 HOG、AlexNet、卷積層的 padding／stride／參數量、感受野、池化與平移等變性，與本文主題相符；字幕沒有提到 Bag of Words 或 LeNet（本文說 Bag of Words 那一頁在 2025 投影片，錄影可能略過了）。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=f3g1zGdxptI
-title: Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs](https://www.youtube.com/watch?v=f3g1zGdxptI)
-
-課程與錄影入口：
-
-- [Stanford CS231N Spring 2025 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 從線性分類器的極限講起
 
@@ -198,6 +180,24 @@ Conv(Translate(X)) = Translate(Conv(X))
 延伸閱讀：站上 [CMU 11-785 的 CNN 第一講](/posts/ai/2026-08-22-cmu-11785-09-cnn-one)從掃描式 MLP 推導卷積，是另一條進路；[CMU 07-280 第 14 講](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)是更入門的電腦視覺與 CNN 介紹。
 
 系列導覽：上一篇 [A1 導讀：kNN、Softmax、兩層網路與全連接網路](/posts/ai/2026-09-30-cs231n-a1-knn-softmax-fcnet)｜下一篇 [L6：訓練 CNN 與經典架構](/posts/ai/2026-09-30-cs231n-training-cnns-architectures)｜[系列總覽](/posts/ai/2026-09-30-cs231n-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 5 講（長度 1:08:04），字幕開場 Justin Johnson 自我介紹為這堂的講者，內容有手工特徵與 HOG、AlexNet、卷積層的 padding／stride／參數量、感受野、池化與平移等變性，與本文主題相符；字幕沒有提到 Bag of Words 或 LeNet（本文說 Bag of Words 那一頁在 2025 投影片，錄影可能略過了）。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=f3g1zGdxptI
+title: Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 5: Image Classification with CNNs](https://www.youtube.com/watch?v=f3g1zGdxptI)
+
+課程與錄影入口：
+
+- [Stanford CS231N Spring 2025 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

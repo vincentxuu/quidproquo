@@ -1,5 +1,5 @@
 ---
-title: "CS234 作業一：有效視野、reward hacking、Bellman residual 與 RiverSwim"
+title: "有效視野、reward hacking、Bellman residual 與 RiverSwim｜Stanford CS234 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,17 +41,6 @@ glossary:
 依 2026 課表，作業一在 Week 1 發下，**1 月 16 日下午 6 點（PST）截止**，也就是跟 L3「Policy Evaluation」、L4「Q-learning and function approximation」同一週。所以校內學生是一邊學 model-free 方法、一邊交這份 model-based 作業。
 
 本文只講每題在練什麼、需要哪些前一講的工具、做的時候容易卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-查核日期：2026-10-10。
 
 ## 繳交方式與配分
 
@@ -210,6 +199,17 @@ glossary:
 
 - 同一套 MDP、value iteration 與 Q-learning 在另一門課的講法：[CS221 第 7 講：MDP 與 value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)
 - 深度 RL 的完整課程路線與作業：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

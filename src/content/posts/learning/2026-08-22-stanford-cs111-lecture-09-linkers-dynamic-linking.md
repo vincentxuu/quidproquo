@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 9：object file、symbol、relocation、static 與 dynamic linking"
+title: "object file、symbol、relocation、static 與 dynamic linking｜Stanford CS111 第 9 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 10 篇，對應 **Stanford CS111, Spring 2026, Lecture 9**。2026-04-17 由 Mendel Rosenblum 主講，官方題目是 [Linkers and Dynamic Linking](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/9/Lecture9.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 Lecture 9 是課程的轉折：前一個三分之一完成 CPU、threads、processes、synchronization 與 scheduling；接著進入 main memory、process layout、virtual memory 與 paging，最後才是 storage 和 file systems。linker 看似是編譯工具，卻剛好把「程式如何成為記憶體中的 process」接起來。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Main memory 與 process layout 的問題
 
@@ -117,6 +109,14 @@ Shared libraries 允許多個 processes 在 memory 共用 library code 的 singl
 本講最終交付的不是 `ld` 旗標清單，而是一條 representation pipeline。source 的名字與結構先被 compiler 降成 assembly；assembler 產生含 placeholders 的 relocatable objects；linker 以 section sizes、symbols、unresolved references 建 executable；loader 才把它變成記憶體中的 process。每一層只在擁有足夠資訊時作決定。
 
 Static linking 在 build time 完成 resolution，換取自足但可能重複的 executable；dynamic linking 把 library placement 延後，換取共享與彈性，也新增 loader、jump table 與 compatibility 的執行期契約。下一段課程要討論 virtual memory 與 paging；到時「兩個 processes 為何都能看見自己的 address 0」以及 shared pages 如何成立，就有了可銜接的 code/data layout。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

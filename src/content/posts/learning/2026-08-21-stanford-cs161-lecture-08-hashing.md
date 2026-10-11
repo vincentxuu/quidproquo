@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 8：雜湊、碰撞與期望 O(1) 到底保證什麼"
+title: "雜湊、碰撞與期望 O(1) 到底保證什麼｜Stanford CS161 第 8 堂"
 date: 2026-08-21
 category: learning
 tags: [cs161, algorithms, stanford, hashing, randomized-algorithms]
@@ -22,16 +22,6 @@ series:
 本篇依照[官方 Lecture 8 頁面](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)、公開 notes 與 slides 整理。投影片的主線走到 universal hashing；notes 還延伸到 balls-and-bins 與 birthday paradox，我會明確標成講義延伸。官方頁另連到沿用 `winter2025-extra` 的 Colab notebook，但本文沒有把它當成 Winter 2026 新製教材。Canvas-only 錄影未作為來源。
 
 Lecture 7 的紅黑樹已把搜尋、插入、刪除壓到最壞 `O(log n)`。Lecture 8 進一步問：若我們不需要排序順序，只想做 membership，能不能接近期望常數時間？雜湊表的答案不是「找到一個永遠均勻的神奇公式」，而是把隨機性放進演算法，對任何預先固定的 key 集合控制碰撞機率。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
-
-查核日期：2026-10-10。
 
 ## 為什麼 direct addressing 不夠
 
@@ -229,6 +219,16 @@ Lecture 9 開始進入 graph algorithms。Adjacency list 中「某 vertex 的 ne
 要把 universal hashing 的證明變成自己的，可以固定一個小 prime，例如 `p=11`、`n=5`，列出幾組 `(a,b)`，手算兩個不同 keys 碰撞的比例。重點不是得到漂亮分布，而是核對比例不超過 `1/n`。
 
 若在寫實作，另做一張觀測表：每次插入後記錄 load factor、最大 chain 長度與平均成功 lookup 掃描數。當 load factor 超過門檻時才實作 resize / rehash，並另外分析那串操作的 amortized cost。這些是本站的練習建議，不是 Winter 2026 課堂新增結論。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 近似理論（Approximation Theory）—— 萬能近似、Barron 定理與深度為何有用"
+title: "近似理論（Approximation Theory）—— 萬能近似、Barron 定理與深度為何有用｜MIT 6.7960 主題單元"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **教材版本**：基於 **MIT 6.7960 Fall 2024 OCW**（對應 OCW Lec 03）。影片、投影片、作業全公開於 [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/)。本講由 **Jeremy Bernstein** 授課，選讀含 *Deep Learning Theory Notes*（第 2、5 節）。
 
 ---
-
-## 課程影片來源
-2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
-
-```youtube
-url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
-title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
-```
-
-原始影片：[MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
-
-課程與錄影入口：
-
-- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Lec 03 Approximation Theory 字幕（Jeremy Bernstein，1:22:42）：影片以「該擴寬度還是加深度」開場，主體是用 ReLU 單元疊出矩形／三角函數的萬能近似構造（約 28%–60%）、維度與寬度的關係，以及深度的角色（約 61%–80%）；Barron 定理只被帶過一次，已在該節加註為本站補充。
 
 ## 一個最根本的問題
 
@@ -113,6 +94,25 @@ print("final MSE:", loss.item())
 - **寬度不是唯一槓桿**：低維、平滑的問題淺網就夠；高維、組合結構的問題，優先加深。
 - **不要盲目堆寬度**：超寬淺網在理論上能逼近，但訓練與泛化都差，深網的歸納偏置更適合真實資料。
 - **理論給了「為什麼深」的答案**：不是潮流，是表達效率（這也回扣 L13 的歸納偏置與 NTK 視角——極寬極限反而退化成線性核方法）。
+
+## 課程影片來源
+2026-10-10 已即時回 MIT OCW Fall 2024 官方錄影列表核對講次，影片公開且允許嵌入；講次與主題以 OCW 的標示為準。
+
+```youtube
+url: https://www.youtube.com/watch?v=ySaoWrv3T_Q
+title: MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory
+```
+
+原始影片：[MIT 6.7960 Fall 2024 — Lec 03. Approximation Theory](https://www.youtube.com/watch?v=ySaoWrv3T_Q)
+
+課程與錄影入口：
+
+- [MIT OCW — Lec 03. Approximation Theory](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec03_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Lec 03 Approximation Theory 字幕（Jeremy Bernstein，1:22:42）：影片以「該擴寬度還是加深度」開場，主體是用 ReLU 單元疊出矩形／三角函數的萬能近似構造（約 28%–60%）、維度與寬度的關係，以及深度的角色（約 61%–80%）；Barron 定理只被帶過一次，已在該節加註為本站補充。
 
 ## 更新紀錄
 

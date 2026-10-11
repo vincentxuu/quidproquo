@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 5 Embeddings and Social NLP: Context Vectors and the Public-Evidence Boundary"
+title: "Embeddings and Social NLP: Context Vectors and the Public-Evidence Boundary | Stanford CS124 Week 5"
 date: 2026-08-22
 category: ai
 type: deep-dive

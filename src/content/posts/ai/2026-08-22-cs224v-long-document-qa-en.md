@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 8: SLIDERS Turns Long-Document Sets into Queryable Tables"
+title: "SLIDERS Turns Long-Document Sets into Queryable Tables | Stanford CS224V Lecture 8"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, long-context, information-extraction, sliders]
@@ -19,18 +19,6 @@ description: "CS224V Long-Document QA: training versus chunking, SLIDERS schemat
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-longdoc-new.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 Lecture 8 scales to sets of long documents. Comparing annual reports, medical records, news, or invoices requires evidence scattered across sections and files. A larger context window does not itself integrate documents or expose queryable intermediate state. SLIDERS converts text into a table tailored to the question.
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## Agenda: two approaches, then SLIDERS
 
@@ -111,6 +99,18 @@ Take three reports and one comparison question. Hand-design five fields and reta
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The deck explicitly calls its evaluation preliminary. It does not establish a mature production benchmark or publish the complete pipeline, cost analysis, or recording. This article preserves that research-stage qualification.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

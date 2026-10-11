@@ -1,5 +1,5 @@
 ---
-title: "強化學習：MDP、價值迭代與連續狀態"
+title: "強化學習：MDP、價值迭代與連續狀態｜Stanford CS229 第 19 章"
 date: 2026-08-22
 type: deep-dive
 category: ai
@@ -18,32 +18,6 @@ series:
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 本文導讀 [CS229 2026 主講義](https://cs229.stanford.edu/main_notes.pdf)第 19 章（印刷頁 227–243）。這是 2026 notes 的逐章導讀，不是任何學期錄影重建；本文整理決策問題的數學骨架與近似方法，不逐一複製全部證明。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=QFu5nuc-S0s
-title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=d5gaWTo6kDM
-title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
-```
-
-原始影片：[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)、[Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。2018 年秋季 Lecture 17（約 79 分鐘）講 MDP 五元組、Bellman 方程、value iteration 與 policy iteration，並開始處理由資料估計轉移機率與探索，連續狀態只在約 58% 預告「下次再講」，對應本章前兩節；Lecture 18（約 80 分鐘）講連續狀態 MDP：discretization、model／simulator、以線性迴歸近似價值函數的 fitted value iteration，對應本章連續狀態一節。原本嵌的 Spring 2026 Lecture 16（YouTube 標題「Basic Concept in RL, Policy Gradient」）字幕實為 attention 變體、MoE、in-context learning 與 SFT，完全沒有 MDP、Bellman 或 value iteration，已換成 Lecture 18（那支 2026 影片改放在第 17 章）。
 
 ## MDP 把延遲後果放進模型
 
@@ -96,6 +70,32 @@ s_{t+1}=As_t+Ba_t+\epsilon_t,
 ## 練習
 
 為一個含位置與速度的簡化平衡車寫出 \(S,A,P,R,\gamma\)。比較每維各切 20 格的離散化狀態數，與使用十個 basis functions 的線性價值近似。指出兩者各自最可能遺失的資訊。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自舊版 CS229 Autumn 2018（Andrew Ng）的公開錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=QFu5nuc-S0s
+title: Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=d5gaWTo6kDM
+title: Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)
+```
+
+原始影片：[Lecture 18 - Continous State MDP & Model Simulation | Stanford CS229: Machine Learning (Autumn 2018)](https://www.youtube.com/watch?v=QFu5nuc-S0s)、[Lecture 17 - MDPs & Value/Policy Iteration | Stanford CS229: Machine Learning Andrew Ng (Autumn2018)](https://www.youtube.com/watch?v=d5gaWTo6kDM)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係，且發現原嵌的一支與本章不符。2018 年秋季 Lecture 17（約 79 分鐘）講 MDP 五元組、Bellman 方程、value iteration 與 policy iteration，並開始處理由資料估計轉移機率與探索，連續狀態只在約 58% 預告「下次再講」，對應本章前兩節；Lecture 18（約 80 分鐘）講連續狀態 MDP：discretization、model／simulator、以線性迴歸近似價值函數的 fitted value iteration，對應本章連續狀態一節。原本嵌的 Spring 2026 Lecture 16（YouTube 標題「Basic Concept in RL, Policy Gradient」）字幕實為 attention 變體、MoE、in-context learning 與 SFT，完全沒有 MDP、Bellman 或 value iteration，已換成 Lecture 18（那支 2026 影片改放在第 17 章）。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 11-768 L4: Skills and Memory — How Agents Stop Starting Over"
+title: "Skills and Memory — How Agents Stop Starting Over | CMU 11-768 Lecture 4"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -39,25 +39,6 @@ Three questions organize the whole lecture:
 - **Lifecycle**: when should a skill be retrieved, checked, revised, or forgotten?
 
 The [previous lecture (L3)](/posts/ai/2026-09-29-cmu-11768-lecture-03-context-management-en) handled context management within a single task; this one handles memory across tasks. Slides are on the [course site](https://www.cmu-agents.com/slides/lecture-04-memory-and-skills.pdf) and the recording is on [YouTube](https://www.youtube.com/watch?v=6zigF2a-2Pw&list=PLSN0qpDfUvTM&index=4).
-
-## Course video sources
-
-Verified public recording for CMU 11-768 Fall 2026 lecture 4, published on course instructor Graham Neubig’s channel; its title and description identify this course.
-
-```youtube
-url: https://www.youtube.com/watch?v=6zigF2a-2Pw
-title: CMU AI Agents 2026: 4. Memory and Skills for Agents
-```
-
-Original videos: [CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
-
-Official sources:
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-Checked on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min) and checked the speaker statements the article relays: the three places an agent can update and their trade-offs, the show of hands and students' skill experiences, the episode/fact/skill kinds of experience and memory vs skill, the OpenHands blog example, SKILL.md structure and progressive disclosure, the Hermes index of about 3k tokens, the Q&A (too many skills, trigger sensitivity, why markdown, retrieval over large skill sets), the spoken conclusions on SkillsBench and ReasoningBank, the walk-throughs of MemGPT, Mem0, Reflexion, Voyager, DreamCoder, AWM, ASI, SkillWeaver, PolySkill and TroVE, and RL for skill induction; all supported. One fix: the closing "four tensions" and "who decides" table are slide content that the recording does not reach, and are now labeled as slides. Per-paper figures (52.4, 39.0, etc.) come from the papers and slides, not the transcript.
 
 ## Three places to update an agent
 
@@ -366,6 +347,25 @@ The closing slide (not covered in the recording) lays out four tensions: exact e
 - [The Skill Management Revolution for LLM Agents: From Voyager to MUSE-Autoskill](/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
 - [Memory and Skills in Hermes Agent](/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
 - [Agent Memory Systems: From RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems-en)
+
+## Course video sources
+
+Verified public recording for CMU 11-768 Fall 2026 lecture 4, published on course instructor Graham Neubig’s channel; its title and description identify this course.
+
+```youtube
+url: https://www.youtube.com/watch?v=6zigF2a-2Pw
+title: CMU AI Agents 2026: 4. Memory and Skills for Agents
+```
+
+Original videos: [CMU AI Agents 2026: 4. Memory and Skills for Agents](https://www.youtube.com/watch?v=6zigF2a-2Pw)
+
+Official sources:
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+Checked on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the full transcript (about 75 min) and checked the speaker statements the article relays: the three places an agent can update and their trade-offs, the show of hands and students' skill experiences, the episode/fact/skill kinds of experience and memory vs skill, the OpenHands blog example, SKILL.md structure and progressive disclosure, the Hermes index of about 3k tokens, the Q&A (too many skills, trigger sensitivity, why markdown, retrieval over large skill sets), the spoken conclusions on SkillsBench and ReasoningBank, the walk-throughs of MemGPT, Mem0, Reflexion, Voyager, DreamCoder, AWM, ASI, SkillWeaver, PolySkill and TroVE, and RL for skill induction; all supported. One fix: the closing "four tensions" and "who decides" table are slide content that the recording does not reach, and are now labeled as slides. Per-paper figures (52.4, 39.0, etc.) come from the papers and slides, not the transcript.
 
 ## Update Log
 

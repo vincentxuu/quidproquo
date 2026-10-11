@@ -1,5 +1,5 @@
 ---
-title: "Berkeley AI／ML 課程導讀：從 CS61A 到 CS288，最新公開教材怎麼排"
+title: "Berkeley AI／ML 課程導讀：從 CS61A 到 CS288，最新公開教材怎麼排｜世界名校 AI／CS 課程地圖"
 date: 2026-08-21
 category: learning
 tags: [berkeley, ai-course, machine-learning, learning-path, open-course]
@@ -22,19 +22,6 @@ draft: false
 這和 MIT 的 Course 6-4 很不一樣。MIT 有正式的 Artificial Intelligence and Decision Making 學位；Berkeley 比較像一張可自行組合的網。你可以從 CS188 進入搜尋、推理與規劃，也可以從 CS189 進入數學較重的機器學習，之後再接深度學習、自然語言處理、電腦視覺或強化學習。
 
 麻煩在於，課號和公開程度都會誤導人。CS185 與 CS285 是同一主題的大學部／研究所配對，CS180 與 CS280A 也是；但 CS C280 又是另一門研究所視覺課。某個學期曾公開的網址，隔年也可能變成 404。這篇因此同時檢查官方 prerequisites、2025–2026 實際課站，以及匿名讀者現在拿不拿得到講義、作業、程式碼與錄影。
-
-## 課程影片來源
-
-本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
-
-課程與錄影入口：
-
-- [Berkeley EECS 的學士方案比較](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)
-- [UC Berkeley EECS — CS Lower-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-lowerdiv/)
-- [UC Berkeley EECS — CS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-upperdiv/)
-- [UC Berkeley EECS — EECS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/eecs-2/degree-reqs-upperdiv-2/)
-- [CS61A — Fall 2025](https://www-inst.eecs.berkeley.edu/~cs61a/fa25/)
-- [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 
 ## 先打地基：61A、61B、70 與數學
 
@@ -178,6 +165,19 @@ CSDIY 目前有 Berkeley **CS188、CS189、CS285** 的獨立頁面。它很適�
 Berkeley 最值得借用的不是一份官方 AI checklist，而是兩個入口加多條專題分支的結構。先決定你要補的是「智慧系統如何推理」還是「模型如何從資料學習」，再用公開程度挑版本，會比照著課號由小排到大有效得多。
 
 延伸閱讀：[MIT AI／ML 課程導讀](/posts/learning/2026-08-21-mit-ai-ml-course-map)採的是另一種結構——正式 AI 學位先定義能力中心，再去找可公開自學的版本。兩篇對照著看，能更清楚分辨「學位課綱」與「校外可執行路線」不是同一件事。
+
+## 課程影片來源
+
+本文是課程總覽或資源地圖，沒有單一對應講次；請從官方課程入口與播放清單查找影片。
+
+課程與錄影入口：
+
+- [Berkeley EECS 的學士方案比較](https://eecs.berkeley.edu/academics/undergraduate/compare-majors/)
+- [UC Berkeley EECS — CS Lower-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-lowerdiv/)
+- [UC Berkeley EECS — CS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/cs/degree-reqs-upperdiv/)
+- [UC Berkeley EECS — EECS Upper-Division Requirements](https://eecs.berkeley.edu/resources/undergrads/eecs-2/degree-reqs-upperdiv-2/)
+- [CS61A — Fall 2025](https://www-inst.eecs.berkeley.edu/~cs61a/fa25/)
+- [CS188 — Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/)
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L07: Scaling Rules for Optimization — Spectral View, Feature Learning, Hyperparameter Transfer"
+title: "Scaling Rules for Optimization — Spectral View, Feature Learning, Hyperparameter Transfer | MIT 6.7960 Lecture 7"
 date: 2026-08-30
 category: tech
 type: guide
@@ -29,25 +29,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Jeremy Bernstein**; the required reading is his note *Steepest Descent*.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=VcGPE4s_oNw
-title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 07 transcript (Jeremy Bernstein, 1:20:55): the video does cover how the best learning rate drifts with width and depth, and uses steepest descent, norms and spectral norms (about 64%–76%) to make it width-independent; μP, lazy training, feature learning and critical batch size do not appear in the transcript, so those passages are now marked as this site's supplement.
 
 ## Why devote a whole lecture to "scaling rules for optimization"
 
@@ -122,6 +103,25 @@ This article ties three scattered ideas into one story (μP and critical batch s
 3. **Scaling is predictable**: μP handles width transfer, the critical batch size handles compute allocation.
 
 The most direct engineering lesson: the next time you scale from 100M to 10B parameters, tune hyperparameters with μP on a small net first, then extrapolate linearly — rather than launching a fresh grid search.
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=VcGPE4s_oNw
+title: MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 07. Scaling Rules for Optimization](https://www.youtube.com/watch?v=VcGPE4s_oNw)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 07. Scaling Rules for Optimization](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec07_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 07 transcript (Jeremy Bernstein, 1:20:55): the video does cover how the best learning rate drifts with width and depth, and uses steepest descent, norms and spectral norms (about 64%–76%) to make it width-independent; μP, lazy training, feature learning and critical batch size do not appear in the transcript, so those passages are now marked as this site's supplement.
 
 ## Update Log
 

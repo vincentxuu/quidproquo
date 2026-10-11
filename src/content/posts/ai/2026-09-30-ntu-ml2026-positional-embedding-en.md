@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ML 2026: Positional Embedding — How Models Know Token Order and Handle Very Long Inputs"
+title: "Reading NTU ML 2026: Positional Embedding — How Models Know Token Order and Handle Very Long Inputs | NTU Hung-yi Lee Machine Learning 2026 Spring Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 **This guide follows the 3/27 materials of [NTU Machine Learning 2026 Spring by Hung-yi Lee](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 9 of the [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) series. The two previous lectures asked why generation is slow: [Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) deals with memory traffic, [KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) deals with repeated computation, and [HW3](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en) measured both on a GPU. This lecture asks a different question. **Agents routinely feed models hundreds of thousands of tokens. How does the model know where each token sits? And why does it break on inputs longer than anything it saw in training?**
 
 The course schedule titles this row "inside the model: how models handle very long inputs". The official materials are the slides [pos.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pdf) (64 pages, also as [pptx](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/pos.pptx)) and the video [How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://youtu.be/Ll-wk8x3G_g) (in Mandarin). Access level is **A3**: slides and recording are public, and this lecture has no quiz or leaderboard.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
-title: Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding
-```
-
-Original videos: [Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://www.youtube.com/watch?v=Ll-wk8x3G_g)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): video Ll-wk8x3G_g (1:29:43) was read in full. Checked the "you hit me / I hit you" order problem, the Sinusoidal clock-hand analogy and periods (about 6.3, 628.3, 54,000+), the relative-position motivation, ALiBi (hand-set b, different per head) and T5 (trainable bias, worse than ALiBi), the RoPE rotation derivation, adoption by Llama/Qwen/Gemma, KV Cache compatibility, the Colab demo showing attention does not simply decay with distance, Train Short Test Long and Position Interpolation (still needs fine-tuning), frequency-based methods, NTK-Aware (from a Reddit post, LLaMA 7B), YaRN, Dynamic Scaling (and its KV Cache compatibility issue), LongRoPE (evolutionary search, two million tokens), NoPE and DroPE; all match the transcript and no errors were found. Slide page numbers and paper titles come from the slides and cannot be verified from the transcript.
 
 ## The problem: "you hit me" vs. "I hit you"
 
@@ -151,6 +132,25 @@ Not confirmed: I did not transcribe the video, so examples and numbers the lectu
 - The CMU 11-785 guide on [Transformer architectures](/posts/ai/2026-08-22-cmu-11785-19-transformer-architectures-en)
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW3: LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en) | Next: [HW4: Training a Transformer](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ll-wk8x3G_g
+title: Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding
+```
+
+Original videos: [Video: How does a Transformer know the order of input tokens? Absolute, Relative, RoPE, and no Positional Embedding](https://www.youtube.com/watch?v=Ll-wk8x3G_g)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): video Ll-wk8x3G_g (1:29:43) was read in full. Checked the "you hit me / I hit you" order problem, the Sinusoidal clock-hand analogy and periods (about 6.3, 628.3, 54,000+), the relative-position motivation, ALiBi (hand-set b, different per head) and T5 (trainable bias, worse than ALiBi), the RoPE rotation derivation, adoption by Llama/Qwen/Gemma, KV Cache compatibility, the Colab demo showing attention does not simply decay with distance, Train Short Test Long and Position Interpolation (still needs fine-tuning), frequency-based methods, NTK-Aware (from a Reddit post, LLaMA 7B), YaRN, Dynamic Scaling (and its KV Cache compatibility issue), LongRoPE (evolutionary search, two million tokens), NoPE and DroPE; all match the transcript and no errors were found. Slide page numbers and paper titles come from the slides and cannot be verified from the transcript.
 
 ## Update Log
 

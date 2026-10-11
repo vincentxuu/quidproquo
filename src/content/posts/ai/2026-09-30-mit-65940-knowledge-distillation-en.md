@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L9 Knowledge Distillation: Teaching a Small Model Means Matching More Than Output Probabilities"
+title: "Knowledge Distillation: Teaching a Small Model Means Matching More Than Output Probabilities | MIT 6.5940 Lecture 9"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,24 +42,6 @@ This is part 11 of the [Reading MIT 6.5940](/posts/ai/2026-09-30-mit-65940-cours
 - Video: [EfficientML.ai Lecture 9 - Knowledge Distillation](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
 
 The access grade from the [course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en) is **A3, enough for self-study**, though this lecture has no lab. **Fall 2026 comparison**: as of 2026-09-30, the [Fall 2026 course page](https://hanlab.mit.edu/courses/2026-fall-65940) has released only L1–L6. This lecture is not up yet.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
-title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the opening, the closing summary and the middle: temperature, the six things that can be aligned (logits, intermediate weights, features, gradients/attention maps, sparsity patterns, relations), self and online distillation, distillation for detection, segmentation, GANs and NLP, and network augmentation. The lecture and topics match this post. The automatic captions garble some terms (for example “sparsity” appears as “sparity”), so author and paper names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Why a course on efficiency covers distillation
 
@@ -172,6 +154,24 @@ The summary on slide 81 restates the five parts and previews the next lecture, [
 If you want the essentials: the temperature example in part 1 (slides 7–10) and the six matching targets in part 2 (slides 12–28) are the core of KD. NetAug in part 5 (slides 67–80) is this course's own angle and directly answers why tiny models are hard to train.
 
 If you came from [Lab 3](/posts/ai/2026-09-30-mit-65940-lab3-nas-en): the lab extracts subnets straight from the OFA super network with no retraining. This lecture offers another path: once the architecture is fixed, distillation or NetAug can still train it better.
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=Ubj3QXv4rjw
+title: EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 9 - Knowledge Distillation (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=Ubj3QXv4rjw)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the opening, the closing summary and the middle: temperature, the six things that can be aligned (logits, intermediate weights, features, gradients/attention maps, sparsity patterns, relations), self and online distillation, distillation for detection, segmentation, GANs and NLP, and network augmentation. The lecture and topics match this post. The automatic captions garble some terms (for example “sparsity” appears as “sparity”), so author and paper names follow the slides. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

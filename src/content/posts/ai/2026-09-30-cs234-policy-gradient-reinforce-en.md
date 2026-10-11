@@ -1,5 +1,5 @@
 ---
-title: "Reading CS234, Part 7: Policy Gradients — Score Functions, REINFORCE, Baselines, and Actor-Critic"
+title: "Policy Gradients — Score Functions, REINFORCE, Baselines, and Actor-Critic | Stanford CS234 Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -43,31 +43,6 @@ Official materials used:
 - [Video 05, "Policy Search 1"](https://www.youtube.com/watch?v=L6OVEmV3NcE) and [video 06, "Policy Search 2"](https://www.youtube.com/watch?v=8PwvNQ5WS-o) from the public 2024 recordings. Per their transcripts, video 05 runs from policy gradients and the likelihood ratio to REINFORCE and baselines, and the first half of video 06 continues with the baseline derivation and actor-critic.
 
 Access level is **A3**, with the same gaps as the rest of the series: the 2026 recordings are on Canvas only, and live poll results and Ed discussions are not public.
-
-## Course video sources
-
-This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=L6OVEmV3NcE
-title: Lecture 5: Policy Search 1 (Spring 2024, YouTube)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
-title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
-```
-
-Original videos: [Lecture 5: Policy Search 1 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
-
-Course and recording entries:
-
-- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
-
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 5, "Policy Search 1" (about 61K characters), goes through policy gradients, the likelihood ratio/score function, REINFORCE and baselines, with a ChatGPT/PPO mention near the start; Lecture 6, "Policy Search 2" (about 66K characters), continues with baselines and actor-critic early on and turns to monotonic improvement and PPO later. Both match this post; "YouTube chapters" became "transcript".
 
 ## Why not keep learning values?
 
@@ -229,6 +204,31 @@ Vanilla PG throws away each batch after a single gradient step, and its step siz
 - [CS229 notes, Chapter 21: policy gradient variants](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants-en)
 
 **Series navigation**: previous [Part 6: DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en) | next [Part 8: advanced policy gradients — performance bounds, KL, PPO, GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
+
+## Course video sources
+
+This article uses Winter 2026 materials. The public Spring 2024 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=L6OVEmV3NcE
+title: Lecture 5: Policy Search 1 (Spring 2024, YouTube)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2 (Spring 2024, YouTube)
+```
+
+Original videos: [Lecture 5: Policy Search 1 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2 (Spring 2024, YouTube)](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
+
+Course and recording entries:
+
+- [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [Official course / lecture source](https://web.stanford.edu/class/cs234/)
+
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read both transcripts: Spring 2024 Lecture 5, "Policy Search 1" (about 61K characters), goes through policy gradients, the likelihood ratio/score function, REINFORCE and baselines, with a ChatGPT/PPO mention near the start; Lecture 6, "Policy Search 2" (about 66K characters), continues with baselines and actor-critic early on and turns to monotonic improvement and PPO later. Both match this post; "YouTube chapters" became "transcript".
 
 ## Update Log
 

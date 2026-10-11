@@ -1,5 +1,5 @@
 ---
-title: "CS234 導讀 7：策略梯度——score function、REINFORCE、baseline 與 actor-critic"
+title: "策略梯度——score function、REINFORCE、baseline 與 actor-critic｜Stanford CS234 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -44,31 +44,6 @@ glossary:
 - 2024 公開錄影的[影片 05〈Policy Search 1〉](https://www.youtube.com/watch?v=L6OVEmV3NcE)與[影片 06〈Policy Search 2〉](https://www.youtube.com/watch?v=8PwvNQ5WS-o)。依字幕，影片 05 從 policy gradient、likelihood ratio 講到 REINFORCE 與 baseline，影片 06 前半接著講 baseline 推導與 actor-critic。
 
 存取等級 **A3**，缺口同系列其他篇：2026 錄影只在 Canvas、課堂小測的即時結果與 Ed 討論不公開。
-
-## 課程影片來源
-
-本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=L6OVEmV3NcE
-title: Lecture 5: Policy Search 1（Spring 2024，YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
-title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
-```
-
-原始影片：[Lecture 5: Policy Search 1（Spring 2024，YouTube）](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2（Spring 2024，YouTube）](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 5「Policy Search 1」（約 61K 字元）依序是策略梯度、likelihood ratio／score function、REINFORCE 與 baseline，開頭附近也提到 ChatGPT 與 PPO；Lecture 6「Policy Search 2」（約 66K 字元）前段接著講 baseline 與 actor-critic，後段轉到單調改進與 PPO。與本文主題一致；「YouTube 章節」改為「字幕」。
 
 ## 為什麼不繼續學價值就好
 
@@ -230,6 +205,31 @@ vanilla PG 每批資料只走一步梯度就丟掉，而且步長很難選。L6 
 - [CS229 筆記第 21 章：策略梯度變體](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants)
 
 **系列導覽**：上一篇 [order 6：DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)｜下一篇 [order 8：進階策略梯度——performance bound、KL、PPO、GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
+
+## 課程影片來源
+
+本文以 Winter 2026 教材為準；下列 Spring 2024 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=L6OVEmV3NcE
+title: Lecture 5: Policy Search 1（Spring 2024，YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8PwvNQ5WS-o
+title: Lecture 6: Policy Search 2（Spring 2024，YouTube）
+```
+
+原始影片：[Lecture 5: Policy Search 1（Spring 2024，YouTube）](https://www.youtube.com/watch?v=L6OVEmV3NcE)、[Lecture 6: Policy Search 2（Spring 2024，YouTube）](https://www.youtube.com/watch?v=8PwvNQ5WS-o)
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。 查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了兩支字幕：Spring 2024 Lecture 5「Policy Search 1」（約 61K 字元）依序是策略梯度、likelihood ratio／score function、REINFORCE 與 baseline，開頭附近也提到 ChatGPT 與 PPO；Lecture 6「Policy Search 2」（約 66K 字元）前段接著講 baseline 與 actor-critic，後段轉到單調改進與 PPO。與本文主題一致；「YouTube 章節」改為「字幕」。
 
 ## 更新紀錄
 

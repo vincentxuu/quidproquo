@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW2: Classification, Bias-Variance, and Telling Two Kinds of Uncertainty Apart"
+title: "Classification, Bias-Variance, and Telling Two Kinds of Uncertainty Apart | Harvard CS181 Assignment 2"
 date: 2026-09-29
 category: tech
 tags: [cs181, harvard, classification, bias-variance, logistic-regression, gradient-descent, homework]
@@ -35,17 +35,6 @@ glossary:
 > "This homework is about classification, bias-variance trade-offs, and uncertainty quantification."
 
 [HW1](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en) was about continuous regression. HW2 switches the output to classes and asks a harder question: **when a model says "the probability of observing it is 0.3," and when 10 models disagree about the same point, is that the same kind of uncertainty?** This post walks through each problem around that question: what it tests and which section to prepare. **No solutions.**
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## TL;DR
 
@@ -174,6 +163,17 @@ Submission per the assignment: the writeup PDF goes to Gradescope `HW2` with pag
 - Previous: [HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en)
 - Next: [HW3 Kernels, Neural Networks, and Scaling Laws](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling-en)
 - Series overview: [CS181 overview](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

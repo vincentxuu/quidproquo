@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 9: Logistic Regression as Probability Estimation"
+title: "Logistic Regression as Probability Estimation | CMU 07-280 Lecture 9"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, logistic-regression, classification]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 This is Lecture 9 of CMU 07-280 Spring 2026, officially titled **Logistic Regression** and dated February 10, 2026. It connects linear regression and optimization to classification by estimating the probability of an event rather than making an immediate hard decision. No lecture-by-lecture public recording exists, so this reading uses only the public lecture document, pre-reading, Recitation 5, and homework prompts.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -102,6 +92,16 @@ Lecture 10 addresses the next limitation: the boundary remains linear in the ori
 ## What to do tonight
 
 Take three two-dimensional examples and perform two SGD updates from `θ=0`. For each step, write down `z`, `p̂`, cross-entropy, `(p̂-y)x`, and the new `θ`. Flip one label and identify which gradient component changes most. Then add an `x1²` feature to prepare for Lecture 10.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

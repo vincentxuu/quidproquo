@@ -1,5 +1,5 @@
 ---
-title: "CS224U: Writing NLP Papers, Submitting, and Giving Talks"
+title: "Writing NLP Papers, Submitting, and Giving Talks | Stanford CS224U Topic Guide"
 date: 2026-09-29
 category: ai
 type: guide
@@ -24,30 +24,6 @@ The sources are the course's [Presenting your research slides](https://web.stanf
 The 2023 [schedule](https://web.stanford.edu/class/cs224u/) put this lecture in the closing "Your projects" unit. The final paper was due June 10 at 11:30 am Pacific.
 
 **Access (A3, historical edition):** the slides, videos, projects.md, and most of the schedule's readings are public. The past example papers linked on slide 3 (`restricted/past-final-projects/`) redirect to a Stanford login. Also, the schedule's link to David Goss's "hints on mathematical style" returned 404 when checked on 2026-09-29.
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=teEA1DACM40
-title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=K-AqbhLJMgU
-title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
-```
-
-Original videos: [Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40), [Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
-Other related videos (text links only): [Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY), [Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
-
-Content check: verified against the video transcript (2026-10-10): The Part 2 (Writing NLP Papers) and Part 4 (Giving Talks) videos were compared item by item with their transcripts: the paper outline and 4/8-page format, how to write the intro and related work, Shieber's three styles and rational reconstruction, McCarthy's single thread, Goss's 'have mercy on the reader', Blackburn on honesty, ELMo and GloVe as examples; and the talk structure, Pullum's six rules, minimalist versus comparative slides (Potts says he leans comparative), overlays / color / size / boxes and arrows, the pre-talk chores (notifications, power save, PDF backup, being ready without slides), and the advice on the discussion period. All match. Part 1 and Part 3 (Your Papers, Conference Submission) are not embedded and were not read; the conference-submission details (anonymity period, bidding, review form) come from the slides and projects.md and were not checked against transcripts.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Part 1: course-specific rules for the final paper
 
@@ -214,6 +190,30 @@ Take something you wrote recently (a design doc, a blog post, a report) and run 
 - Next in the series: [Reading Stanford CS224U, Part 17: Two Extension Lectures](/posts/ai/2026-09-29-cs224u-guest-lectures-en)
 - Context for dataset trade-offs and Datasheets: [CS224U Methods and Metrics II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
 - The final-project part of the site's CS224N series: [CS224N Lecture 6: Turn a Final Project into a Testable Question](/posts/ai/2026-08-22-cs224n-final-projects-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=teEA1DACM40
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=K-AqbhLJMgU
+title: Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023
+```
+
+Original videos: [Stanford XCS224U: NLU I Presenting Your Research, Part 2: Writing NLP Papers I Spring 2023](https://www.youtube.com/watch?v=teEA1DACM40), [Stanford XCS224U: NLU I Presenting Your Research, Part 4: Giving Talks I Spring 2023](https://www.youtube.com/watch?v=K-AqbhLJMgU)
+Other related videos (text links only): [Stanford XCS224U: NLU I Presenting Your Research, Part 1: Your Papers I Spring 2023](https://www.youtube.com/watch?v=L0ISjkoUoZY), [Stanford XCS224U: NLU I Presenting Your Research, Part 3: NLP Conference Submission I Spring 2023](https://www.youtube.com/watch?v=9tDtzLlfdxM)
+
+Content check: verified against the video transcript (2026-10-10): The Part 2 (Writing NLP Papers) and Part 4 (Giving Talks) videos were compared item by item with their transcripts: the paper outline and 4/8-page format, how to write the intro and related work, Shieber's three styles and rational reconstruction, McCarthy's single thread, Goss's 'have mercy on the reader', Blackburn on honesty, ELMo and GloVe as examples; and the talk structure, Pullum's six rules, minimalist versus comparative slides (Potts says he leans comparative), overlays / color / size / boxes and arrows, the pre-talk chores (notifications, power save, PDF backup, being ready without slides), and the advice on the discussion period. All match. Part 1 and Part 3 (Your Papers, Conference Submission) are not embedded and were not read; the conference-submission details (anonymity period, bidding, review form) come from the slides and projects.md and were not checked against transcripts.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

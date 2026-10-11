@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：Reasoning——只有影片的一講，五步從 CoT 走到 RL"
+title: "台大陳縕儂 ADL 2025 Fall 導讀：Reasoning——只有影片的一講，五步從 CoT 走到 RL｜台大陳縕儂 深度學習之應用 2025 Fall 主題單元"
 date: 2026-09-30
 category: ai
 type: guide
@@ -25,30 +25,6 @@ glossary:
 **本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)播放清單上的 L12 影片。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 15 篇。上一篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 把 reasoning 當成 agent 的三個關鍵概念之一；這一篇把它單獨拉出來問：**模型怎麼學會「先想再答」？**
 
 先講清楚這篇的限制：**L12 沒有公開投影片。** 課程頁 12/01 那一列只寫「Reasoning」，沒有講義也沒有影片連結；五支影片只出現在 [2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)。本文沒有逐字聽寫影片，所以下面能寫的只有影片標題、長度與說明欄，加上前一講講義裡跟 reasoning 有關的頁面。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=paTmY2nZ8XI
-title: 12.1 What is Reasoning?
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=VHNdIld9sAg
-title: 12.2 Short CoT
-```
-
-原始影片：[12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-字幕嘗試（2026-10-10）：嵌入的 12.1（10:21）與 12.2（12:06）在 YouTube 上沒有可取得的字幕，影片內容未逐字核對；本文對這兩支只依標題、中文副標、長度、上傳日與說明欄，這些與頁面一致。
 
 ## 五支影片
 
@@ -113,7 +89,41 @@ L12 沒有投影片，但 [Language Agents 講義（251110_LangAgent.pdf）](htt
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents)｜下一篇 [對話系統與工具使用](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)
 
+## 分清楚「推論時想」與「訓練時學」
+
+以下是本文自編的概念檢查，不代表未核對的 L12 影片內容。固定同一個模型，請它回答「三盒筆，每盒四支，共幾支？」第一次直接回答 `12`，第二次先寫 `3×4=12` 再回答。這兩次只改變生成過程，沒有更新權重，因此都屬於推論時的使用方式。
+
+另一個流程是把這類題目與示範步驟收成資料，計算訓練 loss 並更新權重。這才是「訓練時學」：改變的是模型參數，不只是這一次的回答長度。這個區分對應本文由影片標題辨識的推論／訓練轉折，但不據此推測影片採用的具體演算法。
+
+**檢查：** 讓同一模型對同一道題產生五個候選，再選一個答案，算不算重新訓練？答案是不算，除非另外執行了權重更新。候選更多也不保證更正確；還要有可靠的選擇或驗證方式。
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=paTmY2nZ8XI
+title: 12.1 What is Reasoning?
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=VHNdIld9sAg
+title: 12.2 Short CoT
+```
+
+原始影片：[12.1 What is Reasoning?](https://www.youtube.com/watch?v=paTmY2nZ8XI)、[12.2 Short CoT](https://www.youtube.com/watch?v=VHNdIld9sAg)、[12.3 Test-Time Scaling](https://www.youtube.com/watch?v=wc0SKCyXbaA)、[12.4 Learning to Reason](https://www.youtube.com/watch?v=VBhFnYMPeO4)、[12.5 RL for Reasoning](https://www.youtube.com/watch?v=WT2f7nBLGJA)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+字幕嘗試（2026-10-10）：嵌入的 12.1（10:21）與 12.2（12:06）在 YouTube 上沒有可取得的字幕，影片內容未逐字核對；本文對這兩支只依標題、中文副標、長度、上傳日與說明欄，這些與頁面一致。
+
 ## 更新紀錄
+
+- 2026-10-11：補上自編概念例子與理解檢查，保留原教材與影片核對範圍。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。

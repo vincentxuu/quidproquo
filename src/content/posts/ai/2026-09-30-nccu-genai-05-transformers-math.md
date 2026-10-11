@@ -1,5 +1,5 @@
 ---
-title: "政大蔡炎龍 生成式AI L05：Transformers 全攻略——用線性代數讀懂 Q/K/V、位置編碼與殘差連結"
+title: "Transformers 全攻略——用線性代數讀懂 Q/K/V、位置編碼與殘差連結｜政大蔡炎龍 生成式AI 第 5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,18 +31,6 @@ glossary:
 用到的官方材料有兩份：[第 5 講錄影](https://www.youtube.com/watch?v=mhjegVhqb_M)（2025-03-18，3 小時 3 分）與投影片 [GenAI05 Transformers 的數學原理](https://drive.google.com/file/d/1Am2WvzkxWNnsXEQVLcPU5NL072GRWyR_/view)（67 頁，封面標題是「RNN 及 transformers 的數學原理」）。[長庚衛星班課程頁](https://yangchihyuan.github.io/courses/GenerativeAI2025)上這週的課名是「Transformers 全攻略」，作業欄寫「無作業」。存取等級是 **A3**。
 
 > **不想碰數學的讀者**：這篇是整個系列最陡的一段。你可以只讀每節的第一段直覺、跳過所有折疊區，或者直接跳到 [L06 LLM 的應用與倫理](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)，後面的應用課不會卡住。
-
-## 課程影片來源
-
-影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
-
-原始影片：[【生成式 AI】05. Transformers 全攻略（YouTube 錄影，2025-03-18）](https://www.youtube.com/watch?v=mhjegVhqb_M)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
-
-查核日期：2026-10-10。
 
 ## 本週在課程中的位置
 
@@ -245,6 +233,18 @@ print(softmax(scores / np.sqrt(5)).round(2))  # [0.4  0.29 0.11 0.08 0.11]
 - 中文授課的另一條路線：[台大李宏毅 ML 2026 導讀](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-nccu-genai-course-overview)｜上一篇 [L04 大型語言模型原來這麼簡單](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)｜下一篇 [L06 LLM 的應用與倫理挑戰](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)
+
+## 課程影片來源
+
+影片來源已對照官方課程頁（查核日期：2026-10-10），講次與影片連結一致；這支影片的 YouTube 播放器回應標示不允許嵌入（playableInEmbed 為 false，先前 oEmbed 也回 401），所以下方的嵌入區塊不會播放，請直接開原始影片連結（公開可看）。影片沒有可取得的字幕，本篇引用的錄影章節時間與主題都是影片說明欄的標示，只對照說明欄、沒有逐段聽過內容，因此不加「已依字幕核對」標記。不提供時間跳轉。
+
+原始影片：[【生成式 AI】05. Transformers 全攻略（YouTube 錄影，2025-03-18）](https://www.youtube.com/watch?v=mhjegVhqb_M)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

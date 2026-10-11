@@ -1,5 +1,5 @@
 ---
-title: "Hung-yi Lee ML 2026 HW8: Spending More Inference Compute — What Voting, Self-Certainty, and DeepConf Each Buy in Accuracy"
+title: "Spending More Inference Compute — What Voting, Self-Certainty, and DeepConf Each Buy in Accuracy | NTU Hung-yi Lee Machine Learning 2026 Spring Assignment 8"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ glossary:
 **This post covers HW8 of [NTU Hung-yi Lee's Machine Learning 2026 Spring](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php).** It is part 17 of the series [Reading NTU Hung-yi Lee Machine Learning 2026 Spring](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). Official materials: the slides [hw8.pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2026-course-data/hw8.pdf), the [assignment Colab](https://colab.research.google.com/drive/1_z4JryPWnITLAwtytVwu75FZMx9giT3R?usp=sharing) (34 cells), and the TA's [walkthrough video](https://youtu.be/KAbM5gM6Isw). The course page lists it as released 5/15 and due 2026/06/04 23:59 (UTC+8), with TAs 江履方, 陳品睿, 尹廷安, and 林育正. Grades were due by 2026/06/07.
 
 Access rating: **A3 minus grading**. The slides print all 20 questions in both Chinese and English, and the Colab can be downloaded and run by anyone. The only things you can't get are the NTU COOL quiz itself and the grades. This assignment doesn't use JudgeBoi.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=KAbM5gM6Isw
-title: HW8 walkthrough video (YouTube)
-```
-
-Original videos: [HW8 walkthrough video (YouTube)](https://www.youtube.com/watch?v=KAbM5gM6Isw)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
-
-Checked: 2026-10-10.
-
-Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Prerequisite: 2025 Lecture 7 on Reasoning
 
@@ -152,6 +133,25 @@ Everything else is available. **Something you can do tonight**: copy the Colab, 
 - **Related reading**: [CME295 LLM Reasoning](/posts/ai/2026-09-29-cme295-llm-reasoning-en) covers reasoning models and inference-time compute. [BrowseConf](/posts/ai/2026-09-19-browseconf-test-time-scaling-en) applies confidence-driven test-time scaling to browsing agents. For RL fundamentals, see [Berkeley CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW7: Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en) | Next: [Self-Improving AI (Part 2): improving the harness and learning to learn](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=KAbM5gM6Isw
+title: HW8 walkthrough video (YouTube)
+```
+
+Original videos: [HW8 walkthrough video (YouTube)](https://www.youtube.com/watch?v=KAbM5gM6Isw)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)
+
+Checked: 2026-10-10.
+
+Video transcript: attempted on 2026-10-10, but no transcript could be obtained for this video, so the spoken content was not checked; the assignment details above come only from the PDF and the Colab, and the post makes no specific claims about the video.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW1：先用數學與 Python 找出機器學習地基缺口"
+title: "先用數學與 Python 找出機器學習地基缺口｜CMU 10-301 作業 1"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, python, linear-algebra]
@@ -27,6 +27,18 @@ python majority_vote.py heart_train.tsv heart_test.tsv heart_train_labels.txt he
 ```
 
 再測欄位順序與全同標籤的小資料。完成判準是：能說明主要數學題的每個 shape，且 heart 與 education 的 labels／metrics 都逐行符合 ZIP 內 reference output；這不等於通過未公開 hidden tests。
+
+## 先手算一個 majority-vote classifier
+
+以下是自編小資料，不是官方測資。訓練標籤是 `1, 0, 1, 1`：`1` 出現三次、`0` 一次，因此不看特徵，所有預測都輸出 `1`。訓練集四筆中錯一筆，error 是 `1/4=0.25`。
+
+測試標籤是 `0, 0, 1`。繼續使用從訓練集得到的 majority `1`，測試預測是 `1, 1, 1`，錯兩筆，error 是 `2/3`。不能重新在測試集選 majority，否則已用測試答案改了分類器。
+
+**檢查：** 把測試標籤換成 `1, 1, 0, 1`，預測與 error 是什麼？答案是四個 `1`，error `1/4=0.25`。這裡刻意避免訓練標籤平手；平手規則、欄位與輸出格式須依官方 handout，不由這個例子代訂。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 
 ## 參考資料
 - [Spring 2026 coursework](https://www.cs.cmu.edu/~mgormley/courses/10601/coursework.html)

@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW5（上）：K-means、HAC 與 PCA，沒有標籤時怎麼整理手寫數字"
+title: "（上）：K-means、HAC 與 PCA，沒有標籤時怎麼整理手寫數字｜Harvard CS181 作業 5／第 1 部分"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, homework, clustering, k-means, pca, unsupervised-learning]
@@ -31,17 +31,6 @@ glossary:
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 9 篇。上一篇是 [HW4（下）：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)，下一篇是 [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)。
 
 到 HW4 為止，每份作業都有標籤：溫度、貸款核准、影像類別。HW5 標題是「Clustering, PCA, SSL」，四題都拿掉了標籤。這篇講後兩題（Problem 3 分群、Problem 4 PCA），它們是講課順序裡先上的古典方法；Problem 1–2 的 SimCLR 與 GAN 留到下一篇。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## HW5 在 2026 課表的位置
 
@@ -143,6 +132,17 @@ Section 7 第 3 節把 PCA 講成三件事，剛好對應這四題：
 
 - 站內 [Stanford CS229 講義第 10 章：分群與 k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means)，從交替最佳化角度再講一次 K-means。
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)，另一門大學 ML 課怎麼安排非監督學習。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

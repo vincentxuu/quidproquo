@@ -1,5 +1,5 @@
 ---
-title: "CS149 PA5 在 H100 上寫最快的 kernel：五道 AI kernel 題，評分看工作日誌不看排名"
+title: "在 H100 上寫最快的 kernel：五道 AI kernel 題，評分看工作日誌不看排名｜Stanford CS149 程式作業 5"
 date: 2026-09-30
 category: ai
 type: guide
@@ -31,14 +31,6 @@ glossary:
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 18 篇，接續 [L13 DSL 與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)，範圍是 [Programming Assignment 5（stanford-cs149/asst5-kernels）](https://github.com/stanford-cs149/asst5-kernels)。課程首頁把它列為「Assignment 5: Make the World's Fastest CUDA Kernels」，截止日是 2025 年 12 月 4 日，而且 README 寫明這份作業**沒有遲交天數**。
 
 本文只寫題目在練什麼、該先量什麼、往哪個方向想。**不附解答。**
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## 這份作業跟前四份不一樣
 
@@ -172,6 +164,14 @@ README 把這個迴圈寫成四步：執行、量測、用對程式的理解加�
 延伸閱讀：FlashAttention 的完整推導與演進看 [CMU 11-868 L21](/posts/ai/2026-09-30-cmu11868-flashattention)；Triton 的程式模型看 [CS336 kernels 與 Triton](/posts/ai/2026-08-22-cs336-kernels-triton)；GPU 程式設計的另一種講法看 [CMU 11-868 GPU programming](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)。
 
 系列導覽：上一篇 [L13 DSL 與 AI 驅動的效能最佳化](/posts/ai/2026-09-30-cs149-dsl-ai-driven-optimization)｜下一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。尚未核對到可直接嵌入、且對應本文範圍的單支公開影片。2026-10-10 已即時重查：官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的播放清單，而該清單沒有對應本文範圍的影片。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25)
 
 ## 更新紀錄
 

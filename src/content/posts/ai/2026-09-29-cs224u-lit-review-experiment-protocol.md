@@ -1,5 +1,5 @@
 ---
-title: "CS224U 期末專案流程：文獻回顧與實驗計畫"
+title: "文獻回顧與實驗計畫｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -20,46 +20,6 @@ draft: false
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 15 篇。上一篇 [方法與指標 II](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation) 講了 baseline、切分與統計比較；這一篇把那些方法論放進期末專案真正要交的兩份文件裡。
 
 CS224U 的期末專案占成績一半，拆成三段：文獻回顧、實驗計畫、期末論文。三段的評分軸——「不看結果好壞，看指標是否恰當、方法是否紮實、對自身極限是否誠實」——系列總覽的[期末專案一節](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)已經整理過，這裡不重複。本篇只做一件事：**把前兩段交件拆成可以照著做的步驟。**第三段期末論文放在[下一篇](/posts/ai/2026-09-29-cs224u-presenting-research)。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
-title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=myAuZuXXPcI
-title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA)、[Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Lit Review Overview 與 Experiment Protocol Overview 的字幕逐項對照：productive dialogue 的目的、約 6 頁上限 8 頁與 ACL 模板、1／2／3 人讀 5／7／9 篇、五個建議段落、六步搜尋迴圈與『不要讀完整篇』、AI 助手輸出須加引號的政策與 GPT-4 示範、七個必填段落、短文件與上限 8 頁、不要求結果但歡迎、盡快有完整管線、『沒有假設其實也是假設』，皆吻合。projects.md／projects.html 的細節與 Siyan 的專案分享屬文件與投影片內容（該分享沒有錄影），未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
-
-## 用到的官方材料與存取狀態
-
-| 材料 | 內容 | 狀態 |
-|---|---|---|
-| [Lit review overview 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-litreview-overview-2023.pdf)（9 頁） | 目的、找論文六步驟、抄襲政策 | 公開 |
-| [Experiment protocol overview 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-protocol-overview-2023.pdf)（6 頁） | 目的、五條提示 | 公開 |
-| [Siyan 的期末專案分享投影片](https://web.stanford.edu/class/cs224u/slides/siyan-projects-cs224u.pdf)（25 頁） | 一位學生怎麼做 lit review 與實驗設計 | 公開 |
-| [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) 影片 32、38 | Lit Review Overview、Experiment Protocol Overview | 公開 |
-| [projects.html](https://web.stanford.edu/class/cs224u/projects.html) 的 #litreview、#protocol | 頁數上限、必填段落、Overleaf 模板 | 公開 |
-| [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md) | 各段落的長篇說明與 FAQ | 公開 |
-| 投影片上的「Gradescope submission format」與「rubric」頁 | 只有標題，內容是截圖 | 截圖文字無法從 PDF 抽出，本文不描述 |
-| 往年優秀期末論文 | 範例 | 需 Stanford 登入（302 轉登入頁） |
-
-整體是 **A3（歷史版）**：要求文件完整公開，但評分細則的實際內容與範例論文拿不到。
-
-2023 年的時程：Lit review overview 排在 Analysis methods 單元（5 月 8 日起），截止 5 月 17 日；Experiment protocol overview 排在 NLP methods 單元（5 月 17 日起），截止 5 月 29 日。兩份相隔不到兩週。
 
 ## 兩份交件的共同目的
 
@@ -194,6 +154,46 @@ Protocol overview 投影片第 5 頁：
 - 同系列下一篇：[CS224U 寫 NLP 論文、投稿與上台報告](/posts/ai/2026-09-29-cs224u-presenting-research)
 - 評分軸與成績配比：[系列總覽](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 - 站內 CS224N 系列的期末專案篇：[CS224N 第 6 講：把期末專案收斂成可驗證的研究問題](/posts/ai/2026-08-22-cs224n-final-projects)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc-2yPz8cGA
+title: Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=myAuZuXXPcI
+title: Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: Natural Language Understanding I Lit Review Overview I Spring 2023](https://www.youtube.com/watch?v=Bc-2yPz8cGA)、[Stanford XCS224U: Natural Language Understanding I Experiment Protocol Overview I Spring 2023](https://www.youtube.com/watch?v=myAuZuXXPcI)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Lit Review Overview 與 Experiment Protocol Overview 的字幕逐項對照：productive dialogue 的目的、約 6 頁上限 8 頁與 ACL 模板、1／2／3 人讀 5／7／9 篇、五個建議段落、六步搜尋迴圈與『不要讀完整篇』、AI 助手輸出須加引號的政策與 GPT-4 示範、七個必填段落、短文件與上限 8 頁、不要求結果但歡迎、盡快有完整管線、『沒有假設其實也是假設』，皆吻合。projects.md／projects.html 的細節與 Siyan 的專案分享屬文件與投影片內容（該分享沒有錄影），未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
+
+## 用到的官方材料與存取狀態
+
+| 材料 | 內容 | 狀態 |
+|---|---|---|
+| [Lit review overview 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-litreview-overview-2023.pdf)（9 頁） | 目的、找論文六步驟、抄襲政策 | 公開 |
+| [Experiment protocol overview 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-protocol-overview-2023.pdf)（6 頁） | 目的、五條提示 | 公開 |
+| [Siyan 的期末專案分享投影片](https://web.stanford.edu/class/cs224u/slides/siyan-projects-cs224u.pdf)（25 頁） | 一位學生怎麼做 lit review 與實驗設計 | 公開 |
+| [YouTube](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp) 影片 32、38 | Lit Review Overview、Experiment Protocol Overview | 公開 |
+| [projects.html](https://web.stanford.edu/class/cs224u/projects.html) 的 #litreview、#protocol | 頁數上限、必填段落、Overleaf 模板 | 公開 |
+| [projects.md](https://github.com/cgpotts/cs224u/blob/main/projects.md) | 各段落的長篇說明與 FAQ | 公開 |
+| 投影片上的「Gradescope submission format」與「rubric」頁 | 只有標題，內容是截圖 | 截圖文字無法從 PDF 抽出，本文不描述 |
+| 往年優秀期末論文 | 範例 | 需 Stanford 登入（302 轉登入頁） |
+
+整體是 **A3（歷史版）**：要求文件完整公開，但評分細則的實際內容與範例論文拿不到。
+
+2023 年的時程：Lit review overview 排在 Analysis methods 單元（5 月 8 日起），截止 5 月 17 日；Experiment protocol overview 排在 NLP methods 單元（5 月 17 日起），截止 5 月 29 日。兩份相隔不到兩週。
 
 ## 更新紀錄
 

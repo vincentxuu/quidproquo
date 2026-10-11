@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 23：從 Approximate Q-learning 到 DQN"
+title: "從 Approximate Q-learning 到 DQN｜CMU 07-280 第 23 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 Tabular Q-learning 要為每個 `(state, action)` 保存一個數字。**CMU 07-280 Spring 2026 Lecture 23** 的 Deep Reinforcement Learning 段落處理 state explosion：用 features 與 neural network 近似 `Q(s,a)`，讓一筆 experience 同時影響許多相似 states。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-這篇有一個必須先說清楚的缺口。課程首頁列出的 Spring 2026 Lecture 23 `Deep_RL` slides 與 pptx 直鏈，在 2026-08-22 都回傳 404。本文因此**不宣稱讀過 Lecture 23 slides**，也不補寫投影片順序。
-
-可用的一手材料是 [Approximate Q-learning pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Approx_Q-learning.pdf)、[Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf)、[Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf)。官方頁也沒有 Spring 2026 逐講公開錄影。本文是這些公開材料的導讀，不是完整課堂重建。
 
 ## 承上問題：Q-table 甚至來不及把 states 看一遍
 
@@ -117,6 +101,22 @@ Tabular Q-learning 的一格更新不會直接破壞別格；function approximat
 ## 今晚可做動作
 
 先不要上 Atari。用上面兩維線性 features，手算三筆 transitions 的 `y`、TD error 與 weight update，再寫 unit tests 比對。之後實作兩個版本：每一步用目前 network 算 target，以及每十步才同步一次 target network。畫出的不是只有 reward，還要包含 TD loss、Q-value magnitude 與 target／online prediction 差距。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+這篇有一個必須先說清楚的缺口。課程首頁列出的 Spring 2026 Lecture 23 `Deep_RL` slides 與 pptx 直鏈，在 2026-08-22 都回傳 404。本文因此**不宣稱讀過 Lecture 23 slides**，也不補寫投影片順序。
+
+可用的一手材料是 [Approximate Q-learning pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Approx_Q-learning.pdf)、[Recitation 13](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec13_sol.pdf)、[Recitation 14](https://www.cs.cmu.edu/~07280/recitations/07280_S26_rec14.pdf) 與[解答](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec14_sol.pdf)。官方頁也沒有 Spring 2026 逐講公開錄影。本文是這些公開材料的導讀，不是完整課堂重建。
 
 ## 更新紀錄
 

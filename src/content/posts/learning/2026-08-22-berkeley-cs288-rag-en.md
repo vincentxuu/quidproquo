@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS288 Part 4: Turning Retrieval, RAG, and Advanced Architectures into a System"
+title: "Turning Retrieval, RAG, and Advanced Architectures into a System | Berkeley CS288 Spring 2026 Topic Guide"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs288, rag, retrieval, llm, evaluation]
@@ -31,6 +31,18 @@ The grading environment has no GPU, 4GB RAM, fixed dependencies and entry points
 The PDF is public; hidden data, the official wrapper, and Gradescope are not. Solutions must not be distributed. Impact and Social Implications appears on the schedule without anonymous slides, so this article recommends recording crawl scope, personal-data handling, refresh policy, and citations without pretending those recommendations summarize the private lecture.
 
 Try this tonight: crawl ten public EECS pages, write ten short-answer questions, build a BM25 baseline, save top-k evidence, and classify each failure as retrieval or generation.
+
+## Separate retrieval and generation failures
+
+This is an invented teaching example, not an official assignment solution.
+
+An invented question asks for a classroom; the correct source says Room 101. In case one, top-k documents contain no room information and the model answers Room 202: mark a retrieval miss. In case two, top-k includes Room 101 but the answer remains Room 202: evidence was retrieved, so mark a generation miss. Both final answers are wrong, but diagnosis differs.
+
+**Check and answer:** With correct evidence retrieved for eight of ten questions and six correct answers, does 60% end-to-end accuracy alone justify replacing the generator? No: inspect retrieval misses separately from failures despite available evidence.
+
+## Changelog
+
+- 2026-10-11: Added an invented example, worked calculation or reasoning, and a comprehension check with an answer.
 
 ## References
 

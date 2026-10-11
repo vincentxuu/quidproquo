@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 12: Induction, Counterfeit Coins, and Invariants"
+title: "Induction, Counterfeit Coins, and Invariants | Stanford CS103 Lecture 12"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is article 14 in the [Stanford CS103 guide](/series/stanford-cs103), corresponding to **official Lecture 12, Spring 2026 (2026-04-27)**. The course team was Cynthia Bailey Lee and Alex Aiken. The public page does not identify a speaker for each meeting, so this article does not guess. The [lecture page](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/) and [complete slides](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/Lecture%20Slides.pdf) are public; recordings and transcripts require Canvas/Panopto access and were not used.
 
 The official topic is **Mathematical Induction, Part I**. The deck begins with a room doing the wave, states the induction principle, develops a formal proof through a sum of powers of two, turns the counterfeit-coin problem into a recursive strategy, and finishes with a false proof and the MU puzzle to show why a base case and an invariant matter. These are not disconnected examples. Each asks how one property can be transmitted reliably from a current state to a next state.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)
 
 ## The wave: induction's two gears
 
@@ -178,6 +170,14 @@ The next lecture is previewed as covering later starting points, larger steps, a
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Rebuilt the lost body from the complete official Lecture 12 deck, restoring the powers-of-two proof, counterfeit-coin strategy, false induction, and MU puzzle invariant.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/12/)
 
 ## References
 

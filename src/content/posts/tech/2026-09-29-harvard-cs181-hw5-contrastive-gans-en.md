@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW5 (Part 2): SimCLR and GANs — Representations Without Labels, Generation Without Likelihoods"
+title: "(Part 2): SimCLR and GANs — Representations Without Labels, Generation Without Likelihoods | Harvard CS181 Assignment 5 / Part 3"
 date: 2026-09-29
 category: tech
 tags: [harvard, cs181, machine-learning, homework, self-supervised-learning, contrastive-learning, gan, generative-models]
@@ -31,17 +31,6 @@ glossary:
 This is part 10 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW5 (Part 1): K-means, HAC, and PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en). Next: [HW6 (Part 1): Decoding, KV Cache, and Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en).
 
 K-means and PCA in the previous post were both about reconstruction: rebuild each image from a centroid or a few components and keep the error small. These two problems take a different route. SimCLR reconstructs nothing; it only asks the network to recognize that two crops came from the same image. A GAN never computes a data likelihood; it only needs samples that fool a discriminator. What ties them together is the title of section 5 in [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf): **learning viewed as a classification problem**.
-
-## Course video sources
-
-Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
-
-Official sources:
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-Checked on 2026-10-10.
 
 ## Where this sits in the 2026 schedule
 
@@ -156,6 +145,17 @@ The assignment has no EBM question; EBMs appear only in Section 8.
 
 - [CS230 guide: supervised, self-supervised, and weakly supervised learning](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en), which goes from triplet loss to the motivation for SimCLR.
 - The original papers: [Chen et al., SimCLR (2020)](https://arxiv.org/abs/2002.05709) and [Goodfellow et al., Generative Adversarial Networks (2014)](https://arxiv.org/abs/1406.2661).
+
+## Course video sources
+
+Checked the official CS1810 Spring 2026 schedule and syllabus. This guide uses homework, section, or exam materials; the corresponding entries do not list a public lecture video. Slides and section materials are provided. No public listing does not mean that a recording never existed.
+
+Official sources:
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

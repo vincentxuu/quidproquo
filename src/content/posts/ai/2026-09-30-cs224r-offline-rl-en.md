@@ -1,5 +1,5 @@
 ---
-title: "CS224R Lecture 7: Offline RL, or Why Q-Learning Breaks When You Can't Collect More Data"
+title: "Offline RL, or Why Q-Learning Breaks When You Can't Collect More Data | Stanford CS224R Lecture 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,25 +45,6 @@ The slides state three learning goals:
 - how offline RL can improve over imitation learning
 
 The lecture is also the theory behind [HW3](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en). Both the AWAC slide and the IQL slide say "You will implement it in homework 3!"
-
-## Course video sources
-
-This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
-
-```youtube
-url: https://www.youtube.com/watch?v=lRDaXnPIzks
-title: Spring 2025 Lecture 7: Offline RL (YouTube, supplement)
-```
-
-Original videos: [Spring 2025 Lecture 7: Offline RL (YouTube, supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L7 Offline RL transcript and searched keywords (not a word-by-word comparison). The video is L7 and the speaker is Chelsea Finn; it covers the offline RL distribution-shift problem, filtered BC and advantage-weighted methods, and IQL with expectile regression (ending with a mention of IDQL). Found and fixed: the post said CQL sections would appear in the video, but this L7 video never covers CQL; CQL is at the start of the next lecture's recording (L8 Reward Learning). This post follows the 2026 slides; the video is supplementary only.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs224r.stanford.edu/)
-
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Recap: four model-free online RL algorithms
 
@@ -216,6 +197,25 @@ Draw the nine-state graph on paper. Suppose the data holds only two trajectories
 - [CS224R Lecture 6: Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en): where this lecture's TD targets and target networks come from
 
 **Series navigation**: Previous: [HW2: Online RL](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en) | Next: [Lecture 8: Where Rewards Come From](/posts/ai/2026-09-30-cs224r-reward-learning-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The public Spring 2025 recordings below are supplementary; lecture numbering and content may differ.
+
+```youtube
+url: https://www.youtube.com/watch?v=lRDaXnPIzks
+title: Spring 2025 Lecture 7: Offline RL (YouTube, supplement)
+```
+
+Original videos: [Spring 2025 Lecture 7: Offline RL (YouTube, supplement)](https://www.youtube.com/watch?v=lRDaXnPIzks)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the Spring 2025 L7 Offline RL transcript and searched keywords (not a word-by-word comparison). The video is L7 and the speaker is Chelsea Finn; it covers the offline RL distribution-shift problem, filtered BC and advantage-weighted methods, and IQL with expectile regression (ending with a mention of IDQL). Found and fixed: the post said CQL sections would appear in the video, but this L7 video never covers CQL; CQL is at the start of the next lecture's recording (L8 Reward Learning). This post follows the 2026 slides; the video is supplementary only.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs224r.stanford.edu/)
+
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
 
 ## Update Log
 

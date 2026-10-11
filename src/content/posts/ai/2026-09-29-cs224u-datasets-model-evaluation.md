@@ -1,5 +1,5 @@
 ---
-title: "CS224U 方法與指標 II：資料集、資料切分與模型比較"
+title: "資料集、資料切分與模型比較｜Stanford CS224U 主題單元"
 date: 2026-09-29
 category: ai
 type: guide
@@ -20,30 +20,6 @@ draft: false
 **本文依據 CS224U 2023 春季版。** 這是 [Stanford CS224U 導讀](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)系列的第 14 篇。上一篇 [方法與指標 I](/posts/ai/2026-09-29-cs224u-methods-metrics) 處理「分數怎麼算」：confusion matrix、F1 的幾種平均、BLEU 與 perplexity。這一篇接著處理另一個問題：**就算指標選對了，你的實驗能不能說服一個不信任你的審稿人？**
 
 課程把這件事放在同一份 [methods 投影片](https://web.stanford.edu/class/cs224u/slides/cs224u-methods-2023-handout.pdf)的後三節：Datasets、Data organization、Model evaluation。對應 [YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)的第 42 到 44 支影片，以及 repo 裡的 [evaluation_methods.ipynb](https://github.com/cgpotts/cs224u/blob/main/evaluation_methods.ipynb)。投影片開頭的「Associated materials」另外指定了 Noah Smith《Linguistic Structure Prediction》的 [Appendix B](http://www.cs.cmu.edu/~nasmith/LSP/)——那一章標題就叫 Experimentation，內容涵蓋 train/dev/test、交叉驗證、無重複實驗的比較，以及假設檢定。
-
-## 課程影片來源
-
-下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
-
-```youtube
-url: https://www.youtube.com/watch?v=zFtA0fjaXPE
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=7zZRaoHr-8g
-title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
-```
-
-原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
-其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
-
-內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Datasets）與 Part 6（Model Evaluation & Conclusion）的字幕逐項對照：資料集的六種用途與三個『兩者都要』問題、DynaSent 提示條件、Bowman 與 Dahl 的反方意見與 Potts 的回應、MoNLI 例子、baseline 與任務特定 baseline、超參數搜尋 50／100／500 的算例與 20 萬 GPU 小時、六種妥協、分類器比較四種工具、early stopping 與學習曲線、隨機初始化與 XOR 8／10、結論五項，皆吻合。投影片與 notebook 專屬的細節（Data organization 切分、Dynascore 表格）不在這兩支影片內，未以字幕驗證。
-
-課程與錄影入口：
-
-- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 這一單元在課程裡的位置
 
@@ -218,6 +194,30 @@ methods 投影片的 Conclusion 以一頁收尾，標題是「An ideal moment fo
 - 同系列上一篇：[CS224U 方法與指標 I：分類指標與生成指標](/posts/ai/2026-09-29-cs224u-methods-metrics)
 - 同系列下一篇：[CS224U 期末專案流程：文獻回顧與實驗計畫](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 - 站內 CS224N 系列的評估篇：[CS224N 第 11 講：Benchmark 與 LLM 評估為什麼會過期](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)
+
+## 課程影片來源
+
+下列影片是 Stanford Online 發布的 Spring 2023 對應講次錄影，與本文採用的 2023 年春季版課程一致。2026-10-10 已對照官方播放清單（50 支）比較影片標題與影片 ID。
+
+```youtube
+url: https://www.youtube.com/watch?v=zFtA0fjaXPE
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=7zZRaoHr-8g
+title: Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023
+```
+
+原始影片：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 4: Datasets I Spring 2023](https://www.youtube.com/watch?v=zFtA0fjaXPE)、[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 6: Model Evaluation & Conclusion I Spring 2023](https://www.youtube.com/watch?v=7zZRaoHr-8g)
+其他相關影片（僅文字連結）：[Stanford XCS224U: NLU I NLP Methods and Metrics, Part 5: Data Organization I Spring 2023](https://www.youtube.com/watch?v=JJ5TE2_-_uM)
+
+內容核對：已依字幕核對（2026-10-10）：影片 Part 4（Datasets）與 Part 6（Model Evaluation & Conclusion）的字幕逐項對照：資料集的六種用途與三個『兩者都要』問題、DynaSent 提示條件、Bowman 與 Dahl 的反方意見與 Potts 的回應、MoNLI 例子、baseline 與任務特定 baseline、超參數搜尋 50／100／500 的算例與 20 萬 GPU 小時、六種妥協、分類器比較四種工具、early stopping 與學習曲線、隨機初始化與 XOR 8／10、結論五項，皆吻合。投影片與 notebook 專屬的細節（Data organization 切分、Dynascore 表格）不在這兩支影片內，未以字幕驗證。
+
+課程與錄影入口：
+
+- [XCS224U Spring 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224u/)
 
 ## 更新紀錄
 

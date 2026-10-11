@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 HW2 導讀：Chatbot Arena 論文題、回歸、MLE/MAP、GMM 到 flow matching"
+title: "Chatbot Arena 論文題、回歸、MLE/MAP、GMM 到 flow matching｜Berkeley CS189 作業 2"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, homework, linear-regression, generative-models]
@@ -23,30 +23,6 @@ draft: false
 Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **3/13（週五）晚上 11:59 PT**，也就是期中考前四天。它涵蓋的範圍比講次進度更廣：前面幾題複習線性回歸和 MLE/MAP，後面兩大題則把 GMM 往前推到 robust clustering 和 flow matching 這種生成模型。
 
 這篇只講每題在考什麼、需要回頭看哪一講、哪裡容易卡住。**不附任何答案。** HW1–4 沒有公開的官方解答，而且 [Syllabus](https://eecs189.org/sp26/syllabus/) 的 GenAI 政策明文禁止把作業題目貼進 GenAI 工具，修課學生請不要把這篇當成解答來源。
-
-## 課程影片來源
-
-未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-排程上 HW2 的 Assignment 連到一個 [Drive 資料夾](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm)，裡面只有兩個檔案：
-
-| 檔案 | 內容 | 我能不能讀 |
-|---|---|---|
-| `hw2.pdf` | 20 頁題目 | 能，已讀全文 |
-| `hw2_student.tex` | 作答用的 LaTeX 範本，題目文字和 PDF 相同 | 能，已讀全文 |
-
-繳交方式是把整份 PDF 上傳到 Gradescope 的「HW2 Write-Up」，每題從新的一頁開始。HW2 沒有 notebook 或 coding 部分。Syllabus 說每份作業分成 Part 1 Warmup 和 Part 2 Main，但 HW2 的資料夾裡看不出這種分拆。
-
-依本站 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)，題目本身是完整公開的，校外讀者能從頭寫到尾。拿不到的是官方解答、Gradescope 評分和 Ed 上的討論。
 
 ## 十題一覽
 
@@ -128,6 +104,30 @@ Homework 2 在排程上和 Lec 11 同一天（2/24）發布，截止時間是 **
 1. 下載 `hw2_student.tex`，先寫第 4 題 MLE vs MAP，確認你能把後驗整理回 Beta 分布的形式。
 2. 打開 Chatbot Arena 論文，只讀 introduction，試著用自己的話回答第 1 題的 a 到 d。
 3. 動第 9 題前，先用 NumPy 做個小實驗：從高斯加 5% Cauchy 抽樣，跑 k = 1 的 k-means，看中心會不會亂跳。
+
+## 課程影片來源
+
+未核對到本文專屬的公開講次影片。2026-10-10 即時核對官方 Spring 2026 課表與講課播放清單（25 支）：只有講課錄影，沒有這份作業的講解影片；請從官方課程入口查找錄影與教材。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+排程上 HW2 的 Assignment 連到一個 [Drive 資料夾](https://drive.google.com/drive/folders/1DfylGxAbv2yfybYhAmSa2b4m8dPjLMBm)，裡面只有兩個檔案：
+
+| 檔案 | 內容 | 我能不能讀 |
+|---|---|---|
+| `hw2.pdf` | 20 頁題目 | 能，已讀全文 |
+| `hw2_student.tex` | 作答用的 LaTeX 範本，題目文字和 PDF 相同 | 能，已讀全文 |
+
+繳交方式是把整份 PDF 上傳到 Gradescope 的「HW2 Write-Up」，每題從新的一頁開始。HW2 沒有 notebook 或 coding 部分。Syllabus 說每份作業分成 Part 1 Warmup 和 Part 2 Main，但 HW2 的資料夾裡看不出這種分拆。
+
+依本站 [A0–A3 分級](/posts/learning/2026-08-21-global-ai-cs-course-map)，題目本身是完整公開的，校外讀者能從頭寫到尾。拿不到的是官方解答、Gradescope 評分和 Ed 上的討論。
 
 ## 更新紀錄
 

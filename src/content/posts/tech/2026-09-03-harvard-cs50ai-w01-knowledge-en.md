@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 1: Knowledge — Propositional Logic, Model Checking, Inference Rules & Knowledge Representation"
+title: "Knowledge — Propositional Logic, Model Checking, Inference Rules & Knowledge Representation | Harvard CS50 AI Week 1"
 date: 2026-08-30
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **Video status: Videos included.** [Source details](#course-video-sources)
 
 > ⚠️ **Version note**: This week's lecture videos were **recorded in Spring 2020**; project specs, distribution code, and check50 slugs follow the 2026 OCW site (i.e., `ai50/projects/2024/x/...`).
-
-## Course video sources
-
-The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 1 lecture recording is listed there.
-
-```youtube
-url: https://www.youtube.com/watch?v=HWQLez87vqM
-title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-Original videos: [Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=HWQLez87vqM)
-
-Course and recording entries:
-
-- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The nine topics appear in the stated order, but the original table lumped Clue and Mastermind together: Clue is around minutes 41–53 and Mastermind around 62–65, with the Hogwarts logic puzzle between them. The original exact timecodes (ending at 1:22:00 for a 1:47:44 video) could not be verified and are now approximate values estimated from the transcript. The transcript never mentions the Knights or Minesweeper projects; those come from the course site.
 
 ## TL;DR
 
@@ -409,6 +389,26 @@ style50 minesweeper.py
 - [ ] Understand Knights project: "identity constraints" vs "utterance constraints" logical encoding
 - [ ] Understand Minesweeper: why `mark_mine`/`mark_safe` adjust `count` differently
 - [ ] Both projects pass `check50` clean
+
+## Course video sources
+
+The official CS50 YouTube playlist (CS50’s Introduction to Artificial Intelligence with Python, 8 videos) was checked live on 2026-10-10; the Week 1 lecture recording is listed there.
+
+```youtube
+url: https://www.youtube.com/watch?v=HWQLez87vqM
+title: Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+Original videos: [Knowledge - Lecture 1 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=HWQLez87vqM)
+
+Course and recording entries:
+
+- [CS50 AI Week 1 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/1/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The nine topics appear in the stated order, but the original table lumped Clue and Mastermind together: Clue is around minutes 41–53 and Mastermind around 62–65, with the Hogwarts logic puzzle between them. The original exact timecodes (ending at 1:22:00 for a 1:47:44 video) could not be verified and are now approximate values estimated from the transcript. The transcript never mentions the Knights or Minesweeper projects; those come from the course site.
 
 ## Update Log
 

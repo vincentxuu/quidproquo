@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP Guide 9: One BERT That Scores and Classifies at Once — The Hugging Face Tutorial and HW3 Multi-Output Learning"
+title: "NTHU NLP Guide 9: One BERT That Scores and Classifies at Once — The Hugging Face Tutorial and HW3 Multi-Output Learning | NTHU Hung-Yu Kao Natural Language Processing Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -32,28 +32,6 @@ The previous part covered how the BERT family is pretrained. This one is hands-o
 - The matching notebook [bert-huggingface.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Reference/bert-huggingface.ipynb)
 - The assignment handout [NLP_HW3_Multi_output_learning.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/NLP_HW3_Multi_output_learning.pdf) (24 pages) and starter code [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment3/main.ipynb)
 - Recordings: the tutorial [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw) and the HW3 walkthrough [NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=VErSpYgZGiw
-title: NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=Fe1roWMVdUI
-title: NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025
-```
-
-Original videos: [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw)、[NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
 
 ## Recordings and weeks: sorting out what goes where
 
@@ -193,6 +171,28 @@ What I noticed reading [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Langu
 - This tutorial is the 2024 version, and the Fall 2026 counterpart isn't public yet. Under the grading in the [global course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), Fall 2025 is A3 (enough for self-study); the gaps are solutions and grading.
 
 **Series navigation**: previous, [ELMo, BERT, T5, BART, GPT](/posts/ai/2026-09-30-nthu-nlp-bert-family-en) | next, [Decoding strategies and NLG evaluation](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en) | [Series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=VErSpYgZGiw
+title: NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Fe1roWMVdUI
+title: NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025
+```
+
+Original videos: [NLP (Prof. Hung-Yu Kao) Week 8 Tue. [助教課] TA session (2024 recording)](https://www.youtube.com/watch?v=VErSpYgZGiw)、[NLP (Prof. Hung-Yu Kao) Week 8 Thu. Assignment 3, Fall 2025](https://www.youtube.com/watch?v=Fe1roWMVdUI)、[W7 Thu. 4qDUML9TeHM](https://www.youtube.com/watch?v=4qDUML9TeHM)、[W7 Tue.](https://www.youtube.com/watch?v=NtPrXea8qSE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

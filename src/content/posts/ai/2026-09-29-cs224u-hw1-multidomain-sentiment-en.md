@@ -1,5 +1,5 @@
 ---
-title: "CS224U Homework 1: Multi-Domain Sentiment and the Bake-Off"
+title: "Multi-Domain Sentiment and the Bake-Off | Stanford CS224U Assignment 1"
 date: 2026-09-29
 category: ai
 type: guide
@@ -41,24 +41,6 @@ The previous two posts covered the Transformer and its model families. This one 
 It is also the template for every assignment in the course. At the start of the [Homework 1 overview video](https://www.youtube.com/watch?v=PzvvtyK0QOk), Potts says the later assignments follow the same rhythm and philosophy. Understanding this one's structure pays off.
 
 This post covers the question structure, the points, the resources you need, and where the notebook breaks if you run it unchanged today. **It gives no solutions.**
-
-## Course video sources
-
-The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
-
-```youtube
-url: https://www.youtube.com/watch?v=PzvvtyK0QOk
-title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off
-```
-
-Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
-
-Content check: verified against the video transcript (2026-10-10): The Homework 1 Overview: Bake Off video was compared item by item with its transcript: the opening about assignments sharing a rhythm, the background-material advice, the three datasets and the mystery sentences, the test-set honor code and the 'sin' remark, unit tests, each Q1/Q2 task and the advice to do the background sections first, the original-system rule and originality grading, the START/STOP COMMENT lines and the written description, the bake-off prediction column and file names, and the closing teaching-team report. All match. Data-loading compatibility, point values, and compute needs come from the notebook and web pages, not the video, and were not checked against the transcript.
-
-Course and recording entries:
-
-- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
-- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Where it sits in the course
 
@@ -170,6 +152,24 @@ One thing to do tonight: open the notebook, read only the four directions in Que
 
 - Course status, all three assignments, and environment pitfalls: [Reading Stanford CS224U (series overview)](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding-en)
 - Pretraining and fine-tuning basics: [CS224N Lecture 7: Pretraining, Subwords, and In-Context Learning](/posts/ai/2026-08-22-cs224n-pretraining-en)
+
+## Course video sources
+
+The videos below are the corresponding Spring 2023 recordings published by Stanford Online, matching the 2023 course version this article uses. Titles and video IDs were checked against the official 50-video playlist on 2026-10-10.
+
+```youtube
+url: https://www.youtube.com/watch?v=PzvvtyK0QOk
+title: Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off
+```
+
+Original videos: [Stanford XCS224U: Natural Language Understanding I Homework 1 I Overview: Bake Off](https://www.youtube.com/watch?v=PzvvtyK0QOk)
+
+Content check: verified against the video transcript (2026-10-10): The Homework 1 Overview: Bake Off video was compared item by item with its transcript: the opening about assignments sharing a rhythm, the background-material advice, the three datasets and the mystery sentences, the test-set honor code and the 'sin' remark, unit tests, each Q1/Q2 task and the advice to do the background sections first, the original-system rule and originality grading, the START/STOP COMMENT lines and the written description, the bake-off prediction column and file names, and the closing teaching-team report. All match. Data-loading compatibility, point values, and compute needs come from the notebook and web pages, not the video, and were not checked against the transcript.
+
+Course and recording entries:
+
+- [XCS224U Spring 2023 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOwvldxftJTmoR3kRcWkJBp)
+- [Official course / lecture source](https://web.stanford.edu/class/cs224u/)
 
 ## Update Log
 

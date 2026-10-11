@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 5 導讀：用 Loss、Risk 與 ERM 定義機器學習"
+title: "用 Loss、Risk 與 ERM 定義機器學習｜CMU 07-280 第 5 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 **CMU 07-280 Spring 2026 Lecture 5：ML Problem Formulation**。前四講由人定義 transitions、constraints、utility 與 heuristic；這一講轉向「主要依賴 examples」的系統，但仍不急著選模型。它先要求把輸入、輸出與錯誤代價寫清楚。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf)，並讀取下一講指定的 [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf)以確認概念如何落到第一個模型。官方課表未列逐講公開錄影連結。
-
-課程表將 HW3 列為 online-only；匿名讀者拿不到題面、答案或 Gradescope feedback。本文不會聲稱已用 HW3 驗證本講細節，練習對應只能接到公開的 Recitation 3 與 HW4。
 
 ## 承上問題：不能手寫規則時，何謂「學得好」
 
@@ -93,6 +77,22 @@ Empirical risk 使用已看過的有限 samples，risk 卻定義在未知分布�
 1. 選一個熟悉問題，寫出 `X`、`Y`、一個 `h` 與 loss；每項都要能計算。
 2. 用五筆玩具資料手算兩個 hypotheses 的 empirical risk。
 3. 改變一次 loss 的不對稱代價，觀察 ERM 選擇是否改變。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [ML Problem Formulation notes](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec5_MLFormulation.pdf)，並讀取下一講指定的 [Decision Trees pre-reading](https://www.cs.cmu.edu/~07280/notes/07280_S26_Notes_Decision_Trees.pdf)以確認概念如何落到第一個模型。官方課表未列逐講公開錄影連結。
+
+課程表將 HW3 列為 online-only；匿名讀者拿不到題面、答案或 Gradescope feedback。本文不會聲稱已用 HW3 驗證本講細節，練習對應只能接到公開的 Recitation 3 與 HW4。
 
 ## 更新紀錄
 

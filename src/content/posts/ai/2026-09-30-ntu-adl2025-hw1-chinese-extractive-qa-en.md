@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: HW1 Chinese Extractive QA — Finding the Answer Span Among Four Paragraphs"
+title: "Reading NTU ADL 2025 Fall: HW1 Chinese Extractive QA — Finding the Answer Span Among Four Paragraphs | NTU Yun-Nung Chen Applied Deep Learning 2025 Fall Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,25 +33,6 @@ Official materials used:
 - Assignment video [ADL 2025 Fall Homework 1](https://youtu.be/DVjBNRHUWc0) (about 24 minutes 50 seconds, uploaded 2025-09-09, description: BERT for Chinese Question Answering). The video is linked from the course page but is not in the 77-video Fall 2025 playlist.
 
 **Access**: this is the only ADL Fall 2025 assignment with a fully public spec, and a main reason the series is rated **A2**. The spec, baseline settings, and report questions are visible. The data lives on Kaggle, though: the slide's Kaggle link is an invite link that this guide did not open, so it is unknown whether downloads or submissions still work. Code and reports go to NTU COOL, which requires an NTU account.
-
-## Course video sources
-
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=DVjBNRHUWc0
-title: Video: ADL 2025 Fall Homework 1
-```
-
-Original videos: [Video: ADL 2025 Fall Homework 1](https://www.youtube.com/watch?v=DVjBNRHUWc0)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-Checked: 2026-10-10.
-
-Transcript attempt (2026-10-10): the embedded HW1 briefing video (24:50, uploaded 2025-09-09, unlisted, description "BERT for Chinese Question Answering") has no obtainable transcript, so its content was not checked. The article already states that it did not transcribe the video and takes the assignment spec from the spec slides; the title, length, upload date and description match the article.
 
 ## The task: two-stage extractive QA
 
@@ -190,6 +171,25 @@ Not confirmed: the assignment video was not transcribed, so the TAs' spoken addi
 Further reading: the full NLP project workflow (data, the Hugging Face text-classification Colab) is left to the series' final post on [TA recitations](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en). For contrast, the site's [CS224U HW2 open-domain QA guide](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en) takes the retrieval-plus-LLM route instead of BERT span extraction.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [BERT and Its Family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | Next: [Pre-training Families and Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
+
+## Course video sources
+
+These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=DVjBNRHUWc0
+title: Video: ADL 2025 Fall Homework 1
+```
+
+Original videos: [Video: ADL 2025 Fall Homework 1](https://www.youtube.com/watch?v=DVjBNRHUWc0)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+Checked: 2026-10-10.
+
+Transcript attempt (2026-10-10): the embedded HW1 briefing video (24:50, uploaded 2025-09-09, unlisted, description "BERT for Chinese Question Answering") has no obtainable transcript, so its content was not checked. The article already states that it did not transcribe the video and takes the assignment spec from the spec slides; the title, length, upload date and description match the article.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Career Advice in AI: The 10x Engineer Who Failed 300 Applications"
+title: "Career Advice in AI: The 10x Engineer Who Failed 300 Applications | Stanford CS230 Topic Guide"
 date: 2026-08-16
 category: career
 type: guide
@@ -27,28 +27,6 @@ This post covers **[Lecture 9: Career Advice in AI](https://www.youtube.com/watc
 **Time anchor**: **Gemini 3 launched** the morning of this class, and Ng says live, "it came out this morning, I haven't had a chance to play with it yet."
 
 ---
-
-## Course video sources
-
-The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (1:45:09, matching "1 hour 45 minutes"). The captions have Andrew Ng speaking first and then introducing Laurence Moroney (Ng's part is roughly the first quarter of the captions, Moroney the rest). Checked item by item against the captions, all appear: Gemini 3 released that morning, METR and "doubling every seven months", engineer:PM ratios of 4:1/7:1/8:1, the student assigned to the Java payment backend, the 300+ job spreadsheet and the 10x engineer, 996, baseball and writing books, the Irish-woman image test, technical debt with the mortgage analogy, macOS Swift UI, Replit and "so what", the bubble and Titanic, pets.com, today's 7B being as smart as yesterday's 50B, Alipay photo search, the ice hockey video, the Syrian certificate ($100,000 a year), the ice-rink nonprofit ($150,000 a year), the Welsh brain-cancer researcher, and failing Google twice with 20+ books. The speaker really does cite "McKinsey 85%" and "YC 80%"; the article already adds its own verification notes on both. Two corrections: (1) view count and rank: the page showed about 458,000 views on 2026-10-10, behind Lecture 1 (about 731,000) and Lecture 8 (about 511,000), so "second most-watched" was changed; (2) "first 20 minutes" has no timestamp support in the captions, so it now reads as roughly the first 20-plus minutes, estimated from caption position. Nothing else needed changing.
-
-```youtube
-url: https://www.youtube.com/watch?v=AuZoDsNmG_s
-title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
-```
-
-Original videos: [Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
-
-Course and recording entries:
-
-- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
-- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
-
-Checked: 2026-10-10.
-
-# Part one: Andrew Ng
 
 ## Has AI progress slowed down?
 
@@ -464,6 +442,28 @@ There's one claim running through the whole session, and it's the opposite of mo
 And the reason the technical-debt framework is useful is that it turns "should AI generate this code" **from a technical question into a financial one**: you've taken on a debt, is it worth it? That question is far more useful than "is vibe coding good or bad," because the latter has no answer and the former has one every time.
 
 As for the big-AI / small-AI fork — it's the one forward-looking judgment in this lecture **you can actually make a decision with**, and it has a clean criterion: **can your data leave your data center?**
+
+## Course video sources
+
+The videos below come from Stanford Online’s official CS230 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (1:45:09, matching "1 hour 45 minutes"). The captions have Andrew Ng speaking first and then introducing Laurence Moroney (Ng's part is roughly the first quarter of the captions, Moroney the rest). Checked item by item against the captions, all appear: Gemini 3 released that morning, METR and "doubling every seven months", engineer:PM ratios of 4:1/7:1/8:1, the student assigned to the Java payment backend, the 300+ job spreadsheet and the 10x engineer, 996, baseball and writing books, the Irish-woman image test, technical debt with the mortgage analogy, macOS Swift UI, Replit and "so what", the bubble and Titanic, pets.com, today's 7B being as smart as yesterday's 50B, Alipay photo search, the ice hockey video, the Syrian certificate ($100,000 a year), the ice-rink nonprofit ($150,000 a year), the Welsh brain-cancer researcher, and failing Google twice with 20+ books. The speaker really does cite "McKinsey 85%" and "YC 80%"; the article already adds its own verification notes on both. Two corrections: (1) view count and rank: the page showed about 458,000 views on 2026-10-10, behind Lecture 1 (about 731,000) and Lecture 8 (about 511,000), so "second most-watched" was changed; (2) "first 20 minutes" has no timestamp support in the captions, so it now reads as roughly the first 20-plus minutes, estimated from caption position. Nothing else needed changing.
+
+```youtube
+url: https://www.youtube.com/watch?v=AuZoDsNmG_s
+title: Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI
+```
+
+Original videos: [Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+
+Course and recording entries:
+
+- [Stanford CS230 Autumn 2025 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
+- [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
+
+Checked: 2026-10-10.
+
+# Part one: Andrew Ng
 
 ## Update Log
 

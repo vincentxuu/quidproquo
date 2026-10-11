@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 14 | Beta: Turn an unknown probability into an updatable random variable"
+title: "Beta: Turn an unknown probability into an updatable random variable | Stanford CS109 Lecture 14"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,28 +20,6 @@ draft: false
 This is article 15 in [Reading Stanford CS109](/series/stanford-cs109), covering **Summer 2026 Lecture 14: Beta** on July 15 with Chris Gregg. Its Summer agenda follows the [worksheet](https://web.stanford.edu/class/cs109/worksheets/Lecture14-Worksheet.pdf), [answer key](https://web.stanford.edu/class/cs109/worksheets/Lecture14-AnswerKey.pdf), [LLM Learning Guide](https://web.stanford.edu/class/cs109/worksheets/Lecture14-LLMPrompts.pdf), and the shared Spring-dated reader's [Beta](https://probabilitycoders.stanford.edu/spr26/beta) chapter. The Canvas recording is inaccessible, so spoken material is not reconstructed.
 
 The worksheet and answer key contain complete two-page P1–P7 plus challenge material. The guide has six concepts; its nominal third page only continues the wrap-up and closing note. The lecture's conceptual move is to treat an unknown success probability as a random variable supported on `[0,1]`, not merely a fixed unknown number.
-
-## Course video sources
-
-Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
-
-```youtube
-url: https://www.youtube.com/watch?v=aOhk9mFrHdU
-title: Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16
-```
-
-Original videos: [Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16](https://www.youtube.com/watch?v=aOhk9mFrHdU)
-
-Official sources:
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 16, "Beta" (about 64K characters): it covers Beta as a prior over a success rate, posterior updates, the mode and Laplace's "one imagined head and one imagined tail" smoothing, matching this lecture. Thompson sampling is only mentioned briefly near the end and is not taught, so P7 (Thompson sampling) and the Multinomial opening in this post are not video content.
 
 ## P1: Open with a Multinomial review
 
@@ -172,6 +150,28 @@ The six concepts are probability as a random variable, continuous-parameter Baye
 - P6 and P7 are pset4 items deliberately omitted from the public answer key; this article derives only what the public worksheet and guide support.
 - The guide's third page only continues the wrap-up and closing note, not another concept.
 - The Canvas recording is inaccessible. The worksheet and substantive guide content are two pages each, so the short-material exception applies; the article remains `draft: true` pending independent review.
+
+## Course video sources
+
+Verified the official Summer 2026 archive: the course is recorded and its syllabus says recordings are available through Canvas. The archived homepage's Videos link redirects to Stanford Canvas login and requires course access, so there is no public Summer 2026 player. The 2022 Stanford Online public recording(s) below cover the same topic but come from a different offering with different lecture numbering; they are supplementary material, not Summer 2026 lecture recordings.
+
+```youtube
+url: https://www.youtube.com/watch?v=aOhk9mFrHdU
+title: Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16
+```
+
+Original videos: [Stanford CS109 Probability for Computer Scientists I Beta I 2022 I Lecture 16](https://www.youtube.com/watch?v=aOhk9mFrHdU)
+
+Official sources:
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 public playlist (different offering, supplementary)](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Read the transcript of 2022 Lecture 16, "Beta" (about 64K characters): it covers Beta as a prior over a success rate, posterior updates, the mode and Laplace's "one imagined head and one imagined tail" smoothing, matching this lecture. Thompson sampling is only mentioned briefly near the end and is not taught, so P7 (Thompson sampling) and the Multinomial opening in this post are not video content.
 
 ## Update Log
 

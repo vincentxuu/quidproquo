@@ -1,5 +1,5 @@
 ---
-title: "Reading Stanford CS329Z Week 9: Coding Agents Need Their Own IDE First"
+title: "Coding Agents Need Their Own IDE First | Stanford CS329Z Week 9"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ Week nine is coding week. Monday the sixteenth brings a guest session. Wednesday
 The week's question is simple: hand an agent a GitHub issue and see if it can fix the bug on its own. The end-to-end loop has five steps: read the request, find the relevant code, write a reproduction script, edit the code, and run the tests. What comes out is a patch plus a green test suite.
 
 Think of the coding agent as an apprentice engineer with a computer: give it a task and tools, and let it fail and recover inside a sandbox. Two anchor readings carry the week. [SWE-agent](https://arxiv.org/abs/2405.15793) asks the interface question: what tools does an agent need before it can change code at all? [OpenHands](https://arxiv.org/abs/2407.16741) asks the platform question: how do sandboxes, tool libraries, and benchmarks snap into one general base? The guest lecture lists no required reading, so this guide skips it.
-
-## Course video sources
-
-The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-10.
 
 ## ACI: the agent is a new kind of end user
 
@@ -84,6 +73,17 @@ Three further readings round out the week. [Anthropic's Claude Code best practic
 - Monday 11/16 guest lecture: no required reading.
 - Wednesday 11/18 Coding & Software Agents: anchors SWE-agent and OpenHands (covered above); further reading Anthropic's Claude Code best practices, Young on harnesses for long-running agents, Jimenez et al. on SWE-bench.
 - Schedule: [CS329Z Week 9](https://cs329z.stanford.edu/)
+
+## Course video sources
+
+The Lecture Recordings section of the official Logistics page (read live on 2026-10-10) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://cs329z.stanford.edu/)
+- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

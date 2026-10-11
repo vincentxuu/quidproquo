@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224W 第 16 講：LLM + GNN：讓語言模型讀圖，也讓圖模型讀文字"
+title: "LLM + GNN：讓語言模型讀圖，也讓圖模型讀文字｜Stanford CS224W 第 16 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,19 +18,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 這是 Stanford **CS224W: Machine Learning with Graphs（Fall 2025）第 16 講**，官方日期 2025-11-18。本文依[課程 schedule](https://web.stanford.edu/class/cs224w/)與[該列官方投影片](https://web.stanford.edu/class/cs224w/slides/Lecture16.pdf)整理；講者以投影片署名為準。
-
-## 課程影片來源
-
-已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
-- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
-- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
-- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
-
-查核日期：2026-10-10。
 
 ## 材料與缺口
 
@@ -143,6 +130,19 @@ Instruction/QA data若由同一graph triples生成，train/test questions可能�
 最終做四格 evidence ablation：保留文字刪圖、保留圖刪文字、保留retrieved subgraph但打亂relation、保留relation但替換node text。這四格分別測language prior、structure、relation semantics與attribute semantics。每格固定LLM、prompt與token budget，報retrieval recall、answer accuracy、unsupported claims與latency。若combined只比text-only多一點卻成本翻倍，結論應是增量有限；若打亂relation仍不降，系統可能根本沒使用graph結構。另以unanswerable queries測abstention，確保沒有evidence時不靠世界知識硬答。
 
 把 pipeline 拆成 graph construction、retrieval 或 sampling、encoder、prediction head 與 evaluation。每次只替換一個部件，保留成本與失敗 trace，才知道改動是否真的有效。
+
+## 課程影片來源
+
+已即時查核：Fall 2025 的官方封存頁沒有列出公開錄影連結（Canvas 欄位為空）；現行 Fall 2026 官方頁說明課堂錄影只放在 Canvas 供修課學生使用，Canvas 入口實際導向 Stanford 登入頁。Stanford Online 的公開 YouTube 播放清單目前只有 2021 與 2023 年版本，講次內容與本文採用的 Fall 2025 不同，因此不嵌入，也不當成 Fall 2025 錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224w/)
+- [CS224W Fall 2025 官方封存頁](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+- [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

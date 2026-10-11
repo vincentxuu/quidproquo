@@ -1,5 +1,5 @@
 ---
-title: "林軒田機器學習技法 T5–T6：Kernel 邏輯迴歸與支援向量迴歸——SVM 其實是正則化模型"
+title: "Kernel 邏輯迴歸與支援向量迴歸——SVM 其實是正則化模型｜台大林軒田 機器學習基石與技法 第 5–6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,28 +33,6 @@ glossary:
 這是[台大林軒田 機器學習基石與技法 導讀](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)系列第 11 篇，範圍是[機器學習技法](https://www.csie.ntu.edu.tw/~htlin/mooc/)第 5 講 Kernel Logistic Regression 與第 6 講 Support Vector Regression，也是技法第一段「Embedding Numerous Features: Kernel Models」的收尾。
 
 **本文依據**：MOOC 投影片 [205_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/205_handout.pdf) 與 [206_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/206_handout.pdf)、[技法 YouTube 播放清單](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)第 18–25 支、[Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/)與它的 [205u_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/doc/205u_handout.pdf)、[Fall 2026 課程頁](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/)，以及 [Fall 2024 HW6](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw6/hw6_red.pdf)，全部在 2026-09-30 打開核對。
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=Bc8bg5ZkRdk
-title: Soft-Margin SVM as Regularized Model
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=5K44AgZvcDk
-title: SVM versus Logistic Regression
-```
-
-原始影片：[Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-
-查核日期：2026-10-10。
 
 ## 先說清楚：這兩講在台大課堂上幾乎不教
 
@@ -250,6 +228,28 @@ HW6 其他題目的對照見[上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-kernel
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：同一本教科書的英文課。
 
 系列導覽：上一篇 [Kernel 技巧與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)｜下一篇 [Blending、Bagging 與 AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照林軒田官方 MOOC 頁與兩份官方免費 YouTube 播放清單（講次與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=Bc8bg5ZkRdk
+title: Soft-Margin SVM as Regularized Model
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=5K44AgZvcDk
+title: SVM versus Logistic Regression
+```
+
+原始影片：[Soft-Margin SVM as Regularized Model](https://www.youtube.com/watch?v=Bc8bg5ZkRdk)、[SVM versus Logistic Regression](https://www.youtube.com/watch?v=5K44AgZvcDk)、[T5-3](https://www.youtube.com/watch?v=pNfvZYH5iFg)、[T5-4](https://www.youtube.com/watch?v=AbaIkcQUQuo)、[T6-1](https://www.youtube.com/watch?v=5uUob0VX83Y)、[T6-2](https://www.youtube.com/watch?v=rMTD31FFY3g)、[T6-3](https://www.youtube.com/watch?v=0ZIKMdSAJio)、[T6-4](https://www.youtube.com/watch?v=9OBWkHnzr2k)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "分類與邏輯斯迴歸：從決策邊界到 Newton 法"
+title: "分類與邏輯斯迴歸：從決策邊界到 Newton 法｜Stanford CS229 第 2 章"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,32 +18,6 @@ draft: false
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
 這篇讀的是 [2026 CS229 主講義](https://cs229.stanford.edu/main_notes.pdf)第 2 章〈Classification and logistic regression〉，講義頁碼 21–29。這是 **2026 notes 的逐章導讀**，不是某一學期錄影內容的重建。
-
-## 課程影片來源
-
-本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
-
-```youtube
-url: https://www.youtube.com/watch?v=uJF_gL3jhxI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
-```
-
-原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
-
-課程與錄影入口：
-
-- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [官方課程／講次來源](https://cs229.stanford.edu/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 3（約 62 分鐘）後半段（約 55% 起）從二元分類、sigmoid 與 logistic regression 講到概似、約 80% 後講 Newton 法，與本章主線相符；它前半段是線性迴歸的機率解釋（屬第 1 章），YouTube 標題「Weighted Least Squares」與內容不符。Lecture 4（約 74 分鐘）講指數族、GLM 與 softmax 多類別分類，字幕完全沒有出現 Newton 法，與本章只有 logistic regression 與 softmax 的交集；原本只嵌這支，已補上 Lecture 3。
 
 ## 從線性預測改成機率分類
 
@@ -96,6 +70,32 @@ P(y=j\mid x)=\frac{e^{\theta_j^Tx}}{\sum_{s=1}^k e^{\theta_s^Tx}}.
 ## 自學練習
 
 建立一個二維二元分類資料集，同時訓練邏輯斯迴歸與感知器。畫出決策邊界，檢查邏輯斯機率在邊界附近如何變化，再比較梯度下降與 Newton 法每次迭代的損失及實際計算時間。
+
+## 課程影片來源
+
+本文依 2026 主講義逐章導讀，章節編號不等於影片講次。下方影片取自Stanford Online 公開的 CS229 Spring 2026 錄影，標題與本章主題相符，但只是相關補充，不是本章的逐段來源，本章原講次的錄影也未確認。官方 CS229 課程頁目前是 Summer 2026，講次錄影與教材連到需 Stanford 登入的 Canvas，因此以下只用公開的 YouTube 播放清單。
+
+```youtube
+url: https://www.youtube.com/watch?v=uJF_gL3jhxI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=8gVi4Rk21Eg
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
+```
+
+原始影片：[Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares](https://www.youtube.com/watch?v=uJF_gL3jhxI)、[Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification](https://www.youtube.com/watch?v=8gVi4Rk21Eg)
+
+課程與錄影入口：
+
+- [Stanford CS229 Machine Learning｜Spring 2026 播放清單（Stanford Online，17 支）](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng｜Autumn 2018 播放清單（21 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [官方課程／講次來源](https://cs229.stanford.edu/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：兩支都讀了字幕，核對的是影片主題與本章的關係。Lecture 3（約 62 分鐘）後半段（約 55% 起）從二元分類、sigmoid 與 logistic regression 講到概似、約 80% 後講 Newton 法，與本章主線相符；它前半段是線性迴歸的機率解釋（屬第 1 章），YouTube 標題「Weighted Least Squares」與內容不符。Lecture 4（約 74 分鐘）講指數族、GLM 與 softmax 多類別分類，字幕完全沒有出現 Newton 法，與本章只有 logistic regression 與 softmax 的交集；原本只嵌這支，已補上 Lecture 3。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS109 Lecture 8｜Continuous Random Variables：PDF、CDF、Uniform 與 Exponential"
+title: "Continuous Random Variables：PDF、CDF、Uniform 與 Exponential｜Stanford CS109 第 8 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -25,28 +25,6 @@ draft: false
 P(a≤X≤b) = ∫[a,b] f(x) dx
 F(a) = P(X≤a) = ∫[-∞,a] f(x) dx
 ```
-
-## 課程影片來源
-
-已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=OFgBn4rQkqc
-title: Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9
-```
-
-原始影片：[Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9](https://www.youtube.com/watch?v=OFgBn4rQkqc)
-
-官方來源：
-
-- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
-- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
-- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
-- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 9「Continuous Random Variables」字幕（約 76 分鐘）：影片講連續隨機變數、密度（PDF）、CDF、Uniform 與 Exponential（含地震例子），與本講一致；字幕沒有 memorylessness 和高維邊界（curse of dimensionality），本文對應的 worksheet 段落不是影片內容。
 
 ## P1：先從 Poisson counts 接回來
 
@@ -175,6 +153,28 @@ P(X>s+t | X>s)
 - P3 是 pset3 題，官方 answer key 刻意省略解答；本文只依公開題目自行推導。
 - Canvas 錄影未公開，不推測其中額外例子或講者說法。
 - Worksheet 與 guide 各僅兩頁，採短材料例外，以逐題完整為準，不用通用段落灌長度；維持 `draft: true` 等待獨立審稿。
+
+## 課程影片來源
+
+已查核 Summer 2026 官方封存頁：課程有錄影，官方 syllabus 說明錄影透過 Canvas 提供；封存首頁的 Videos 入口實際導向 Stanford Canvas 登入頁，需要課程存取權限，因此沒有 Summer 2026 的公開播放器。下列 Stanford Online 公開的 2022 年版錄影主題與本講對應，但學期不同、講次編號也不同，僅作補充教材，不是 Summer 2026 課堂錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=OFgBn4rQkqc
+title: Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9
+```
+
+原始影片：[Stanford CS109 Probability for Computer Scientists I Continuous Random Variables I 2022 I Lecture 9](https://www.youtube.com/watch?v=OFgBn4rQkqc)
+
+官方來源：
+
+- [CS109 Summer 2026 — Canvas lecture recordings (login required)](https://canvas.stanford.edu/courses/217477/external_tools/69960)
+- [CS109 Summer 2026 — archived official schedule](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/schedule.html)
+- [CS109 Summer 2026 — archived syllabus and recording policy](https://web.stanford.edu/class/archive/cs/cs109/cs109.1268/handouts/syllabus.html)
+- [Stanford Online CS109 2022 公開播放清單（不同學期，補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了 2022 Lecture 9「Continuous Random Variables」字幕（約 76 分鐘）：影片講連續隨機變數、密度（PDF）、CDF、Uniform 與 Exponential（含地震例子），與本講一致；字幕沒有 memorylessness 和高維邊界（curse of dimensionality），本文對應的 worksheet 段落不是影片內容。
 
 ## 更新紀錄
 

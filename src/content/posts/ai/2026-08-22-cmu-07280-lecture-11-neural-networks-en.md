@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 11: Building a Neural Network from Logistic Regression"
+title: "Building a Neural Network from Logistic Regression | CMU 07-280 Lecture 11"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, machine-learning, neural-network, representation-learning]
@@ -18,16 +18,6 @@ draft: false
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 11, **Neural Networks**, took place on February 17, 2026. It does not introduce a neural network as an unrelated mysterious model. It stacks familiar linear and logistic operations: every neuron forms a weighted sum and applies an activation, while multiple neurons allow the feature transform itself to be learned. No lecture-by-lecture public recording exists, so this article uses the written material only.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
 
 ## Official material and scope
 
@@ -97,6 +87,16 @@ Lecture 12 addresses the computational question. Expanding a separate chain rule
 ## What to do tonight
 
 Draw a `2→3→2` network and label the shape of every `W`, `b`, `z`, and `a`. Count all parameters. Choose one two-dimensional input and small integer weights, then compute a complete forward pass. Finally, derive the loss gradient for one output-layer weight to prepare for Lecture 12.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

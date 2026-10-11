@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L12 Transformer 與 LLM：從效率角度重看一次架構"
+title: "Transformer 與 LLM：從效率角度重看一次架構｜MIT 6.5940 第 12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 這篇只取**效率視角**：哪個設計吃記憶體、哪個吃算力、後來的變體各省了什麼。Transformer 的完整原理，本站有幾個更適合的起點：[CS224N 第 5 講：從 recurrence 到 Transformer](/posts/ai/2026-08-22-cs224n-transformers)、[CME295 第 1 講](/posts/ai/2026-09-29-cme295-transformer)與[第 2 講](/posts/ai/2026-09-29-cme295-transformer-tricks)、[CS336 的架構與超參數](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)。
 
 第 6 頁的 Lecture Plan 有四段：Transformer 基礎、設計變體、LLM、進階主題（多模態 LLM）。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=EV6xb4xY708
-title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭（ChatGPT 生成課綱的開場）、結尾（Llama 3、sliding window attention、Chinchilla 與推論成本取捨）並抽查中段：attention 與 multi-head、MQA／GQA、RoPE 等位置編碼、KV cache（Llama-2-70B 在 batch 16 下約 160GB）、layer norm、encoder／decoder 與 tokenization。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## Transformer 基礎：成本藏在哪
 
@@ -182,6 +164,24 @@ Perceiver Resampler 的設計本身就是效率選擇：視覺 token 越少，LL
 - 推論成本的另一種講法：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - KV cache 與 serving 系統：[CMU 11-868 大規模服務：prefill／decode 拆分與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
 - MoE 與模型平行：[CMU 11-868 L16–L17](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=EV6xb4xY708
+title: EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 12 - Transformer and LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=EV6xb4xY708)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭（ChatGPT 生成課綱的開場）、結尾（Llama 3、sliding window attention、Chinchilla 與推論成本取捨）並抽查中段：attention 與 multi-head、MQA／GQA、RoPE 等位置編碼、KV cache（Llama-2-70B 在 batch 16 下約 160GB）、layer norm、encoder／decoder 與 tokenization。主題與講次和本文相符。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

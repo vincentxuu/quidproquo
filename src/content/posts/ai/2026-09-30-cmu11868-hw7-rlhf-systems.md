@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 RLHF 系統與作業七：reward model、GAE 與 PPO 的 VERL 風格訓練流程"
+title: "reward model、GAE 與 PPO 的 VERL 風格訓練流程｜CMU 11-868 作業 7"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,16 +37,6 @@ glossary:
 課程描述裡列了一項「RLHF 的高效實作」，對應的是這一講和作業七。兩者公開程度差很多：講題只有名字和一篇 reading，作業卻有完整的說明、起始碼和評分標準。本文先交代講題能讀到什麼，再講作業要你做什麼。
 
 **不提供任何題目的解答。** RLHF 演算法本身（PPO 的推導、reward model 的理論）不在這裡展開，文末連到其他課的導讀。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
-
-官方來源：
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-查核日期：2026-10-10。
 
 ## 4/15 這一講：只有標題和一篇論文
 
@@ -144,6 +134,16 @@ HybridFlow 摘要的論證分三步：
 - [Stanford CS336：RLVR](/posts/ai/2026-08-22-cs336-rlvr)：從 PPO 走到 GRPO 與可驗證獎勵，也談 rollout 系統的成本
 - [Berkeley CS285：策略與價值方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)：policy gradient、DQN、SAC 等 policy-based 與 value-based 方法
 - [Berkeley CS285 系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+
+## 課程影片來源
+
+已核對 Spring 2026 官方 Syllabus：各講公開列出 slides、reading 與 homework，未列對應講次的公開錄影連結。本文因此以投影片、論文或作業導讀，沒有對應講次播放器；這項結論只限官方公開頁面，不代表校內沒有錄影。
+
+官方來源：
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

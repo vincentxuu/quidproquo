@@ -1,5 +1,5 @@
 ---
-title: "CS224R L18：Deep RL 的前沿問題，以及怎麼做研究"
+title: "Deep RL 的前沿問題，以及怎麼做研究｜Stanford CS224R 第 18 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,25 +37,6 @@ glossary:
 存取等級是 **A3**：投影片、專題規格和專題報告都匿名可讀，2026 錄影只放在 Canvas。
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 18: Frontiers](https://www.youtube.com/watch?v=FacJ_1tTSx4)（約 71 分鐘）。我對照過 [2025 版投影片](https://cs224r.stanford.edu/spring_2025/slides/18_cs224r_frontiers_how_to_research.pdf)（53 頁）和 2026 版：2026 版多了開頭三頁的整學期總整理和一頁研究案例，其餘前沿問題和研究建議的文字幾乎一樣。所以 2025 影片可以涵蓋本講大部分內容，只是開頭的總整理要以 2026 投影片為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=FacJ_1tTSx4
-title: Spring 2025 Lecture 18: Frontiers（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 18: Frontiers（YouTube，補充）](https://www.youtube.com/watch?v=FacJ_1tTSx4)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L18 Frontiers 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕依序談問題設定、方法、部署與評估的開放問題，再談做研究的建議與專題，並有講者博士第二年實習做影片生成模型（約 1300 次引用）的故事，支持文中「2025 影片可以涵蓋本講大部分內容」的說法。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 場景：學完整套工具之後，還剩什麼沒解決
 
@@ -319,6 +300,25 @@ Default 類的題目都建立在 [Default Project](/posts/ai/2026-09-30-cs224r-d
 - 第 43 頁那篇影片生成論文是哪一篇，投影片沒寫標題
 
 系列導覽：上一篇 [L17 VLA 的 RL](/posts/ai/2026-09-30-cs224r-rl-for-vlas)｜這是最後一篇｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=FacJ_1tTSx4
+title: Spring 2025 Lecture 18: Frontiers（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 18: Frontiers（YouTube，補充）](https://www.youtube.com/watch?v=FacJ_1tTSx4)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L18 Frontiers 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕依序談問題設定、方法、部署與評估的開放問題，再談做研究的建議與專題，並有講者博士第二年實習做影片生成模型（約 1300 次引用）的故事，支持文中「2025 影片可以涵蓋本講大部分內容」的說法。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

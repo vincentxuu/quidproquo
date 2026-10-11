@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-380 HW1 Guide: Logic and the Hybrid Wumpus Agent, Logical Inference Plus A* Planning"
+title: "Logic and the Hybrid Wumpus Agent, Logical Inference Plus A* Planning | CMU 07-380 Assignment 1"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, logic, pacman, homework]
@@ -26,24 +26,6 @@ Two things up front:
 - **The online questions are not visible.** HW1's Online link goes to the Gradescope course page, which needs a CMU account. I have not seen those questions and will not guess.
 
 Everything below follows the assignment page as fetched on 2026-09-29.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and what I read
-
-- Assignment page: [assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
-- Code: [logic_plan.zip](https://www.cs.cmu.edu/~07380/assignments/logic_plan/logic_plan.zip) (a HEAD request on 2026-09-29 returned 200)
-- Due date: 9/3 Thu 11:59 pm per the Assignments table, already past
-
-Openness: the write-up, starter code and local autograder are public, so you can redo the whole programming assignment from outside CMU. The Gradescope online questions and official grading are CMU-only.
 
 ## What the assignment is about
 
@@ -184,6 +166,24 @@ The local autograder does not record grades. Official submission means uploading
 Previous: [Lecture 2 guide: Logical Agents](/posts/learning/2026-09-29-cmu-07380-lecture-02-logical-agents-en). Next: [Lecture 3 guide: Classical Planning](/posts/learning/2026-09-29-cmu-07380-lecture-03-classical-planning-en).
 
 For how this family of Pacman assignments evolved, see the [Pacman AI project lineage](/posts/learning/2026-08-22-pacman-ai-project-lineage-en).
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and what I read
+
+- Assignment page: [assignments/logic_plan/](https://www.cs.cmu.edu/~07380/assignments/logic_plan/)
+- Code: [logic_plan.zip](https://www.cs.cmu.edu/~07380/assignments/logic_plan/logic_plan.zip) (a HEAD request on 2026-09-29 returned 200)
+- Due date: 9/3 Thu 11:59 pm per the Assignments table, already past
+
+Openness: the write-up, starter code and local autograder are public, so you can redo the whole programming assignment from outside CMU. The Gradescope online questions and official grading are CMU-only.
 
 ## Update Log
 

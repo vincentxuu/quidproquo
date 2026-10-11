@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-768 第 11 講：進階 RL 演算法——credit assignment、穩定更新、reward hacking 與蒸餾"
+title: "進階 RL 演算法——credit assignment、穩定更新、reward hacking 與蒸餾｜CMU 11-768 第 11 堂"
 date: 2026-09-29
 category: ai
 type: deep-dive
@@ -41,16 +41,6 @@ glossary:
 第 9 講 Fried 用猜數字把 REINFORCE、baseline、GRPO 推了一遍，但刻意把三件事留到這一講：importance ratio、clipping、參考模型的 KL 項（中間的第 10 講是 deep research agents 的客座課，跟 RL 無關）。投影片開頭的路線圖把這一講放在中間：前面的 RL 基礎是「reward → advantage → policy gradient」，這一講要處理四件事——**有用的回饋、少一點等待、穩定的更新、可靠的獎勵**，最後加上「向老師學」；下一講（第 12 講，助教 Apurva Gandhi）才談記憶體、平行化與大規模執行。
 
 這一講塞了五個以上的演算法，還有 reward hacking 和蒸餾。我的處理方式是：演算法收進一張對照表，reward hacking 單獨成一節，蒸餾放折疊區。
-
-## 課程影片來源
-
-本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
-
-官方來源：
-
-- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
-
-查核日期：2026-10-10。
 
 ## 範例：修一個 retry 設定的 bug
 
@@ -365,6 +355,16 @@ $$L_{\text{OPD}} = \mathbb{E}_{h \sim d_\mu}\big[D_{\text{KL}}(\pi_\theta(\cdot 
 - [Deep Reinforcement Learning：把 RLHF 放回強化學習的框架裡](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)（CS230）
 - [CME295 第 6 講：reasoning model 怎麼學會想久一點，GRPO 又省掉了 PPO 的什麼](/posts/ai/2026-09-29-cme295-llm-reasoning)
 - [CME295 第 5 講：RLHF 與 DPO 怎麼補上負面訊號](/posts/ai/2026-09-29-cme295-preference-tuning)
+
+## 課程影片來源
+
+本篇依投影片撰寫。已查官方課表、講師頻道與本文講次標題搜尋，仍未取得可核對的直接錄影；官方課表抽取只取得後半段，講師頻道抽取未提供完整影片清單。因此本講錄影狀態尚待確認，不能判定沒有影片。
+
+官方來源：
+
+- [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

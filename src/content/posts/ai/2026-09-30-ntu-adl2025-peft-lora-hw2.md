@@ -1,5 +1,5 @@
 ---
-title: "台大 ADL 2025 第 7.5 講：PEFT——Adapter、LoRA、Prompt Tuning 與 HW2"
+title: "PEFT——Adapter、LoRA、Prompt Tuning 與 HW2｜台大陳縕儂 深度學習之應用 2025 Fall 第 7.5 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,30 +29,6 @@ glossary:
 **本文依據**：[LLM Adaptation 講義](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250922_Adaptation.pdf)（14 頁）、影片 [7.5 Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型](https://youtu.be/ii2kMoUyNOs)（19:21），以及 HW2 說明影片 [ADL 2025 Fall Homework 2](https://youtu.be/_QiIp0WTRzI)（13:05，2025-10-06 上傳）。全部在 2026-09-30 打開核對。講義只有 14 頁，而且多數頁是示意圖，所以這篇比前一篇短。
 
 **系列位置**：上一篇 [後訓練：Instruction Tuning、RLHF 與 InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)｜下一篇 [RAG 與 HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
-
-## 課程影片來源
-
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=ii2kMoUyNOs
-title: ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=_QiIp0WTRzI
-title: ADL 2025 Fall Homework 2（YouTube）
-```
-
-原始影片：[ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）](https://www.youtube.com/watch?v=ii2kMoUyNOs)、[ADL 2025 Fall Homework 2（YouTube）](https://www.youtube.com/watch?v=_QiIp0WTRzI)、[ADL TA Recitation: LLM LoRA Training（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：7.5 讀了字幕（19 分鐘）：full fine-tuning 太貴、efficient adaptation 的動機、Adapter（h 加 Δh、可插拔、省儲存、較不易過擬合）、LoRA 的低秩更新與和 Adapter 的比較、prompt tuning 屬於參數高效調整、Mao 等人的比較結論「沒有一種方法最好」，皆與文章相符；影片結尾另宣布 HW2 做 LoRA tuning 並放假兩週，與文章「HW2 是 LLM 調整與 prompt tuning」不衝突。文章的 GPT-3 175B 實驗、投影片頁碼與 LoRA 的式子來自講義與論文，影片未逐項提到。嵌入的 HW2 說明影片（13:05，2025-10-06 上傳，非公開連結）取不到字幕，只確認了說明欄題目與長度，內容未核對，與文章「這支影片沒有字幕」的說法一致。
 
 ## 問題：整個模型微調太貴
 
@@ -138,6 +114,30 @@ B ∈ R^(d×r),  A ∈ R^(r×k),  r ≪ min(d, k)
 - [CS224N 第 18 講：Tinker and LoRA Without Regret 材料缺口紀錄](/posts/ai/2026-08-22-cs224n-tinker-lora)
 
 下一篇：[RAG 與 HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)
+
+## 課程影片來源
+
+以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=ii2kMoUyNOs
+title: ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=_QiIp0WTRzI
+title: ADL 2025 Fall Homework 2（YouTube）
+```
+
+原始影片：[ADL 7.5: Parameter-Efficient Fine-Tuning (Adaptor, LoRA) 如何低成本微調模型（YouTube）](https://www.youtube.com/watch?v=ii2kMoUyNOs)、[ADL 2025 Fall Homework 2（YouTube）](https://www.youtube.com/watch?v=_QiIp0WTRzI)、[ADL TA Recitation: LLM LoRA Training（YouTube）](https://www.youtube.com/watch?v=eGQMzbhokg0)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：7.5 讀了字幕（19 分鐘）：full fine-tuning 太貴、efficient adaptation 的動機、Adapter（h 加 Δh、可插拔、省儲存、較不易過擬合）、LoRA 的低秩更新與和 Adapter 的比較、prompt tuning 屬於參數高效調整、Mao 等人的比較結論「沒有一種方法最好」，皆與文章相符；影片結尾另宣布 HW2 做 LoRA tuning 並放假兩週，與文章「HW2 是 LLM 調整與 prompt tuning」不衝突。文章的 GPT-3 175B 實驗、投影片頁碼與 LoRA 的式子來自講義與論文，影片未逐項提到。嵌入的 HW2 說明影片（13:05，2025-10-06 上傳，非公開連結）取不到字幕，只確認了說明欄題目與長度，內容未核對，與文章「這支影片沒有字幕」的說法一致。
 
 ## 更新紀錄
 

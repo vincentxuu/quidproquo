@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 階段複習二：用 AlexNet 與 GPT-2 把模型真正組起來"
+title: "用 AlexNet 與 GPT-2 把模型真正組起來｜CMU 07-280 主題單元"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, alexnet, gpt-2, deep-learning]
@@ -20,16 +20,6 @@ draft: false
 07-280 最有辨識度的設計，是不在講完 neural network 後停在兩層 MLP。課程要求學生沿著兩個 landmark systems 繼續組裝：先在 HW8 建 AlexNet，再在 HW11 建 GPT-2。這兩份作業不是要複製歷史模型的榜單成績，而是讓抽象的 feature learning、autograd、optimization 與 generalization 變成會失敗的程式。
 
 這篇把影像與語言階段合併檢查。它不會假裝有公開逐講錄影，也不會把 notebook 能開啟等同於完整自學體驗；正式班仍有 Gradescope、算力、助教與解答回饋。校外讀者能做的是沿公開 written spec 重建驗收標準。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
 
 ## AlexNet：空間結構如何進入表示
 
@@ -85,6 +75,16 @@ p_i = exp(z_i / T) / Σ_j exp(z_j / T)
 AlexNet 與 GPT-2 的輸入、layer 與輸出不同，實驗責任卻相同：檢查 tensor shapes、讓 forward pass 可追、確認 gradient 真正流到預期參數、建立 baseline，再一次只改一個變因。Autograd 幫你算導數，不會替你發現資料洩漏、mask 方向錯誤或 validation split 被污染。
 
 因此第二階段的通關條件不是「我跑過兩個 notebook」。你應該能從一張 tensor-shape 表重建 forward pass，能解釋 frozen parameters 為何沒有 gradient，也能把 loss／perplexity 曲線連回一個具體假設。做到這裡，模型架構才從圖變成系統。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

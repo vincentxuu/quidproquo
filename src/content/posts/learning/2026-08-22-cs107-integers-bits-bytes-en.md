@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 3: Integers, Bytes, and Two's Complement"
+title: "Integers, Bytes, and Two's Complement | Stanford CS107 Lecture 3"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, binary, integer-overflow]
@@ -20,14 +20,6 @@ draft: false
 A bit string has no intrinsic sign. `1011` can be unsigned 11 or 4-bit two's-complement -5. The storage does not change; the interpretation does. CS107 Lecture 3 builds precisely that distinction: establish a width, define an encoding, and only then interpret arithmetic results.
 
 This article follows the [official Winter 2026 Lecture 3 deck](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/03/Lecture03.pdf) in full. Its organizing question is how a finite bit pattern can support unsigned values, signed values, and addition. By the end, you should be able to decode small patterns by hand and explain why “the processor appears to wrap” does not mean “C promises signed overflow will wrap.”
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture metadata and source limits
 
@@ -247,6 +239,14 @@ A useful exercise for tonight is to draw a four-bit wheel and label every patter
 6. Overflow is a value-range design problem. Beyond choosing a type, define limits, check boundaries, and test long-term accumulation.
 
 The next lecture turns bit patterns from passive number representations into fields that programs actively manipulate: AND, OR, XOR, NOT, and masks. Without a clean separation between signed and unsigned interpretation, that material degenerates into a truth table. Once the same bits can be seen under multiple numeric meanings, bitwise operators become tools that can be reasoned about.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Update Log
 

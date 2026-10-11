@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 L1–L2 + Lab 0: How Do You Measure a Model's Size? Parameters, Activations, MACs, and Latency"
+title: "How Do You Measure a Model's Size? Parameters, Activations, MACs, and Latency | MIT 6.5940 Lectures 1–2 / Lab 0"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,29 +39,6 @@ Official materials covered here:
 - [Lab 0: PyTorch Tutorial](https://colab.research.google.com/drive/1gvxq7mIAeIBAtmLKH1Q1GknA-GRsK7Q6) (Colab)
 
 Page numbers below are PDF page numbers. The number printed in the slide corner is sometimes off by one or two.
-
-## Course video sources
-Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
-
-```youtube
-url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
-title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=I0nKjPpZmMU
-title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
-```
-
-Original videos: [EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w), [EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
-
-Course and recording entries:
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): Spot-checked both videos. L1: the opening, the HAN Lab project previews (microcontroller detection, TinyChat, AWQ, Jetson Orin, BEVFusion) and course logistics. L2: terminology, parameter count and model size, activations (not parameters) as the memory bottleneck, MACs/FLOPs, latency vs. throughput and the AlexNet layer-by-layer count. Topics and lecture numbers match this post and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## The problem: models grow faster than hardware
 
@@ -231,6 +208,29 @@ The [Fall 2026 Lab 0](https://colab.research.google.com/drive/1PfVYxikSaVpCSD-cn
 - [Stanford CS336: GPUs and TPUs](/posts/ai/2026-08-22-cs336-gpu-tpu-en): latency from the memory-bandwidth angle
 
 **Series navigation**: previous [Series entry point](/posts/ai/2026-09-30-mit-65940-course-overview-en) | next [Pruning I: granularity and criteria](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria-en)
+
+## Course video sources
+Rechecked against the live official course page on 2026-10-10: the lecture numbers and recording links match and the videos are public and embeddable.
+
+```youtube
+url: https://www.youtube.com/watch?v=U7EPZv8Kh9w
+title: EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=I0nKjPpZmMU
+title: EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)
+```
+
+Original videos: [EfficientML.ai Lecture 1 - Introduction (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=U7EPZv8Kh9w), [EfficientML.ai Lecture 2 - Basics of Neural Networks (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=I0nKjPpZmMU)
+
+Course and recording entries:
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): Spot-checked both videos. L1: the opening, the HAN Lab project previews (microcontroller detection, TinyChat, AWQ, Jetson Orin, BEVFusion) and course logistics. L2: terminology, parameter count and model size, activations (not parameters) as the memory bottleneck, MACs/FLOPs, latency vs. throughput and the AlexNet layer-by-layer count. Topics and lecture numbers match this post and no contradictions turned up. Page numbers and slide figures follow the slides and were not checked sentence by sentence against the video.
 
 ## Update Log
 

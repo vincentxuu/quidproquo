@@ -1,5 +1,5 @@
 ---
-title: "CMU 10-301 HW7：從基礎神經網路走到 Deep Learning"
+title: "從基礎神經網路走到 Deep Learning｜CMU 10-301 作業 7"
 date: 2026-08-22
 category: learning
 tags: [cmu, machine-learning, deep-learning, neural-network]
@@ -27,6 +27,18 @@ conda env create -f environment.yml
 ```
 
 接著用 `test_runner.py` 跑公開測試，再以 tiny stories 執行 validation/generation。完成判準是 RNN cell、attention、hybrid LM、train、validate、generation 公開 tests 通過，並重現 tiny loss/metrics 的允許範圍；公開 tests 與 tiny references 不能代替 Gradescope hidden tests。
+
+## 用 loss 記錄練習診斷
+
+以下是本文自編的教學例子，不是官方作業答案。
+
+自編兩次實驗：A 的 training loss 從 1.0 降到 0.2，validation 從 1.0 升到 1.3；B 的兩個 loss 都停在 1.0。A 顯示訓練集擬合變好、驗證變差，先查過擬合與資料分布；B 沒有成功擬合訓練資料，先查訓練流程與梯度。
+
+**檢查與答案：** 能否只憑 B 說網路容量太小？答案不能。先確認權重有更新、梯度非零與資料/label 正確，再用極小子集測能否 overfit，才縮小診斷範圍。
+
+## 更新紀錄
+
+- 2026-10-11：補上自編例子、完整計算或推理，以及理解檢查答案。
 
 ## 參考資料
 - [HW7 official bundle](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw7.zip)

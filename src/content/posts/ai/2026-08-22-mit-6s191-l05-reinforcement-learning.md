@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.S191 Lecture 5：強化學習：用回報取代標準答案"
+title: "強化學習：用回報取代標準答案｜MIT 6.S191 第 5 堂"
 date: 2026-08-22
 category: ai
 type: guide
@@ -18,24 +18,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 [MIT 6.S191 2026](https://introtodeeplearning.com/) 第 5 講是 **強化學習：用回報取代標準答案**。把 agent、environment、state、action、reward 與 policy 接成互動迴圈，理解信用分配與探索。這篇只依 2026 官方投影片與影片整理；不把 2025 的同名內容混進來。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=1ij3dweHu-0
-title: MIT 6.S191: Reinforcement Learning
-```
-
-原始影片：[MIT 6.S191: Reinforcement Learning](https://www.youtube.com/watch?v=1ij3dweHu-0)
-
-課程與錄影入口：
-
-- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：字幕涵蓋 agent／environment／state／action／reward、discounted return、Q function 與 deep Q network（Atari Breakout 例子）、policy gradient、sparse／延遲 reward、探索與利用的取捨，以及 RL 用在 LLM 對齊；與本文相符。
 
 ## 這一講要帶走什麼
 
@@ -61,6 +43,24 @@ title: MIT 6.S191: Reinforcement Learning
 ## 這篇沒有涵蓋什麼
 
 6.S191 是高強度入門課，本篇也只做單講導航，不替代完整影片、數學推導或正式作業回饋。若某個主題需要嚴格理論，應接一學期制課程或原始論文。
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=1ij3dweHu-0
+title: MIT 6.S191: Reinforcement Learning
+```
+
+原始影片：[MIT 6.S191: Reinforcement Learning](https://www.youtube.com/watch?v=1ij3dweHu-0)
+
+課程與錄影入口：
+
+- [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：字幕涵蓋 agent／environment／state／action／reward、discounted return、Q function 與 deep Q network（Atari Breakout 例子）、policy gradient、sparse／延遲 reward、探索與利用的取捨，以及 RL 用在 LLM 對齊；與本文相符。
 
 ## 更新紀錄
 

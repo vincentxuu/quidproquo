@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS103 Lecture 5：一階邏輯 II——巢狀量詞、否定與唯一性"
+title: "一階邏輯 II——巢狀量詞、否定與唯一性｜Stanford CS103 第 5 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS103 導讀](/series/stanford-cs103)的第 7 篇，對應 **Spring 2026 官方 Lecture 5（2026-04-10）**。課程團隊是 Cynthia Bailey Lee 與 Alex Aiken；公開頁面沒有逐堂講者欄位，因此本文不猜講者。[講次頁面](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)與[完整投影片](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/Lecture%20Slides.pdf)公開，錄影與逐字稿只在 Canvas／Panopto，本文沒有使用。
 
 上一講建立 predicate、function 與 quantifier 等零件，這一講真正開始翻譯。難點不在符號本身，而是一句自然語言常同時藏著範圍、依賴、例外與唯一性。可靠的方法是先保留句子骨架，再逐層替換，不要看完一句話後憑直覺一次寫完整串公式。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
 
 ## 四個 Aristotelian forms
 
@@ -181,6 +173,14 @@ CS103 允許 `∀x ∈ S. P(x)` 與 `∃x ∈ S. P(x)`。前者等同 `∀x. (x 
 ## 材料缺口與閱讀界線
 
 公開完整投影片足以核對四種句型、兩個 love 例子、量詞順序、空集合翻譯、否定表、限制量詞與唯一性，因此本講通過 material-fidelity gate。投影片沒有保存所有口頭轉折、學生提問或臨場例子；本文的檢查流程是依投影片步驟整理的學習框架，不冒充講師逐字內容。下一講預告 functions、first-order definitions 與 proofs with definitions，本文不提前展開。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs103/cs103.1266/lectures/05/)
 
 ## 更新紀錄
 

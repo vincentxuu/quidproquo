@@ -1,5 +1,5 @@
 ---
-title: "CS189 Spring 2026 Lec 1–3: ML Problem Framing, Data Tools, Terminology and Techniques"
+title: "ML Problem Framing, Data Tools, Terminology and Techniques | Berkeley CS189 Lectures 1–3"
 date: 2026-09-29
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, scikit-learn, pandas]
@@ -30,31 +30,6 @@ Most machine learning courses start deriving algorithms in week one. CS189 Sprin
 | Discussion 1 | Week 2 | [Worksheet](https://drive.google.com/file/d/13TjzfhCv8lbf8pxoQjOx4RoEY0oS5-9b/view?usp=sharing) / [Solutions](https://drive.google.com/file/d/1rvdrRJ6YBEDrIhxeulEjq80H1iI2qwVR/view?usp=sharing) / [Walkthrough](https://www.youtube.com/watch?v=dTdHuJEHOsM&list=PL-ysCubq-Sa8_GGY5otoIkzjneKo-qfW3) | — |
 
 The textbook is Bishop and Bishop's *Deep Learning: Foundations and Concepts*. [bishopbook.com](https://www.bishopbook.com) hosts a free online reading version.
-
-## Course video sources
-
-The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 1. No unverified timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=IzfaWKuxThw
-title: Lecture 2 recording: Data Tools
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=oVo_RajZ3aE
-title: Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques
-```
-
-Original videos: [Lecture 2 recording: Data Tools](https://www.youtube.com/watch?v=IzfaWKuxThw)、[Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques](https://www.youtube.com/watch?v=oVo_RajZ3aE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 2 video (IzfaWKuxThw, about 80 minutes) is indeed Data Tools: it opens by recapping Lec 1's three-way split (engineering, ML, and human problems) and generalization, then spends most of its time on pandas (selection, joins, group by, and so on); visualization gets only a brief mention of Matplotlib and Plotly, and Weights & Biases does not appear. The Lecture 3 video (oVo_RajZ3aE, about 76 minutes) is indeed ML Mechanics: the FashionHub example, train/validation/test, one-hot encoding and log transforms, standardization, the COVID accuracy example, no free lunch, underfitting and overfitting, and an announcement that HW1 is released on Friday. The instructor stops with a few slides left, so the homework pages, grid search, predict_proba, and ImageNetV2 appear only on the slides, not in the transcript. Statements in this post that are attributed to "the slides" were not compared page by page, and the transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Lec 1: which problems belong to ML
 
@@ -175,6 +150,31 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 - [Stanford CS109 L3: Bayes' theorem](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en): background for the Discussion 1 probability question
 - [Stanford CS229 notes Ch. 1: linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en): how another course starts from linear models
 - [CMU 11-785 L1: introduction](/posts/ai/2026-08-22-cmu-11785-01-introduction-en): the same basics from a deep learning angle
+
+## Course video sources
+
+The official Spring 2026 schedule and the official YouTube playlist (Spring 2026 Lectures, 25 videos) were checked live on 2026-10-10; the lecture recordings embedded here are listed there. The official schedule lists no recording for Lecture 1. No unverified timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=IzfaWKuxThw
+title: Lecture 2 recording: Data Tools
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=oVo_RajZ3aE
+title: Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques
+```
+
+Original videos: [Lecture 2 recording: Data Tools](https://www.youtube.com/watch?v=IzfaWKuxThw)、[Lecture 3 recording: Machine Learning Mechanics - Terminology and Techniques](https://www.youtube.com/watch?v=oVo_RajZ3aE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcripts (2026-10-10; mostly spot samples and keyword searches, not word by word): the Lecture 2 video (IzfaWKuxThw, about 80 minutes) is indeed Data Tools: it opens by recapping Lec 1's three-way split (engineering, ML, and human problems) and generalization, then spends most of its time on pandas (selection, joins, group by, and so on); visualization gets only a brief mention of Matplotlib and Plotly, and Weights & Biases does not appear. The Lecture 3 video (oVo_RajZ3aE, about 76 minutes) is indeed ML Mechanics: the FashionHub example, train/validation/test, one-hot encoding and log transforms, standardization, the COVID accuracy example, no free lunch, underfitting and overfitting, and an announcement that HW1 is released on Friday. The instructor stops with a few slides left, so the homework pages, grid search, predict_proba, and ImageNetV2 appear only on the slides, not in the transcript. Statements in this post that are attributed to "the slides" were not compared page by page, and the transcripts do not name the speakers, so speaker attribution is not verified.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V 第 3 講：用 Genie Worksheets 建立不亂編動作的任務型 Agent"
+title: "用 Genie Worksheets 建立不亂編動作的任務型 Agent｜Stanford CS224V 第 3 堂"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, task-oriented-dialogue, semantic-parsing, genie]
@@ -19,27 +19,6 @@ description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態�
 本文依據[官方 Fall 2025 講義](https://web.stanford.edu/class/cs224v/lectures/3-task-oriented-agent.pdf)重建本講；下文的系統設計與講義所報結果，除非在主張處另連原論文，均歸屬這份歷史課程材料。
 
 第三講處理一個很實際的風險：叫車、選課或訂位 agent 不能憑語感補出不存在的選項，也不能執行規格外動作。Genie Worksheets 的做法是把任務能力寫成可檢查的宣告式規格，讓 LLM 處理語言理解，卻不讓它自由決定系統能做什麼。
-
-## 課程影片來源
-
-本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（9 月 30 日，任務導向 agent）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 3 講（約 1 小時 29 分），主題是結合知識檢索與任務執行的對話 agent，字幕有任務導向 agent 與 dialogue、逐格填 slot 的多輪對話、Genie worksheet（宣告式程式語言）、課程註冊與訂餐廳等例子，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。原文把這支影片的標題寫成「Building a task-oriented agent」並加引號，字幕與影片頁面找不到這個標題，已改成不加引號的主題描述。
-
-```youtube
-url: https://www.youtube.com/watch?v=DqHRDUdIhpw
-title: CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon
-```
-
-原始影片：[CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon](https://www.youtube.com/watch?v=DqHRDUdIhpw)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
-- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
-
-查核日期：2026-10-10。
 
 ## Agenda：從對話狀態到完整 runtime
 
@@ -144,6 +123,27 @@ Worksheet 不是零成本抽象。每個 domain 都要定義 fields、relations�
 > **本文建議：** 以下是依本講方法延伸的實作或檢核方式，不是投影片所報研究結果。
 
 公開投影片沒有課堂 demo 錄影，部分語法頁也不是完整語言規格；本文不把投影片片段當成可直接執行的 API 文件。Autumn 2026 新課綱沒有用來補這堂 Fall 2025 內容。
+
+## 課程影片來源
+
+本文依據 Fall 2025 講義。官方課程網站（2026-10-10 讀取）寫明講課錄影放在 Canvas，需要登入，我實際開啟目前這屆的 Canvas 入口，也被導向 Stanford 登入頁，所以 Fall 2025 的原講次錄影未能確認。下方是 StanfordCSVideos 頻道公開的 CS224V Fall 2024 同主題講次（9 月 30 日，任務導向 agent）；學期不同、內容可能有出入，只作相關補充，不是本文依據的 Fall 2025 錄影。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Fall 2024 第 3 講（約 1 小時 29 分），主題是結合知識檢索與任務執行的對話 agent，字幕有任務導向 agent 與 dialogue、逐格填 slot 的多輪對話、Genie worksheet（宣告式程式語言）、課程註冊與訂餐廳等例子，與本文主題相符；本文細節取自 Fall 2025 講義，未逐項對照這支上一屆的影片。原文把這支影片的標題寫成「Building a task-oriented agent」並加引號，字幕與影片頁面找不到這個標題，已改成不加引號的主題描述。
+
+```youtube
+url: https://www.youtube.com/watch?v=DqHRDUdIhpw
+title: CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon
+```
+
+原始影片：[CS224V Fall 2024 Lecture 3: Introduction to Agents on 9 30 2024 Mon](https://www.youtube.com/watch?v=DqHRDUdIhpw)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/cs224v/schedule.html)
+- [CS224V Fall 2024 公開播放清單（StanfordCSVideos，19 支）](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+- [官方課程首頁（錄影在 Canvas）](https://cs224v.stanford.edu/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

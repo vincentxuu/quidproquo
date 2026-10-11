@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS181 HW0：開學前先做這 4 題，卡哪題就先補哪裡"
+title: "開學前先做這 4 題，卡哪題就先補哪裡｜Harvard CS181 作業 0"
 date: 2026-08-27
 category: tech
 tags: [harvard, cs181, machine-learning, linear-algebra, calculus, probability, linear-regression, python]
@@ -21,17 +21,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本**：本文以 [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0)（`hw0.tex` due 2026-02-02）為主，`Spring 2025` 同題（`cs181-s25-homeworks/hw0`）作對照。`syllabus` 先修與計分見 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [CS181 2025 課程站](https://harvard-ml-courses.github.io/cs181-web-2025/)。
-
-## 課程影片來源
-
-已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
-
-官方來源：
-
-- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
-- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
-
-查核日期：2026-10-10。
 
 ## TL;DR
 
@@ -93,8 +82,29 @@ HW0 不計難度、只計完整度（`Homework zero (4%)`，[2026 syllabus](http
 
 HW0 通過後，[HW1 Regression](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)（冰芯溫度）、[HW2 Classification](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)、[HW3 Kernels & Neural Networks](/posts/tech/2026-09-29-harvard-cs181-hw3-kernels-neural-networks-scaling)、[HW4 Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)、[HW5 Clustering/PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)、[HW6 Sequential Models](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman) 才會是「新知」而非「補洞」。2025 的 `practical`（Kaggle 型）可視為 HW0-6 後的綜合實作，2026 未提供則可用 2025 版自練。
 
+## 自編兩點，走完代入與矩陣
+
+以下是本文自編的教學例子，不是講者的實驗或官方作業解答。
+
+不用官方題目數值，自編資料是 (x,y)=(0,1)、(2,5)。y=w₀+w₁x，第一點得 w₀=1；代入第二點，5=1+2w₁，因此 w₁=2。矩陣寫法是 X=[[1,0],[1,2]]、w=[1,2]、y=[1,5]，相乘確實得到 y。X 為 2×2、w 與 y 各長二。
+
+**檢查與答案：** 若改成 (0,1)、(0,5)，仍能唯一解嗎？答案不能：同一輸入要求不同輸出，無法用一條函數直線同時穿過，X 的兩列相同也不可逆。這說明先檢查資料與 rank，再選求解方式。
+
+## 課程影片來源
+
+已核對 CS1810 Spring 2026 官方課表與 syllabus：本文依據作業、section 或考試教材導讀，對應條目未列公開講課影片；官方提供講課投影片與 section 教材。這表示公開課表未提供對應影片，不代表課程從未錄影。
+
+官方來源：
+
+- [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
+- [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
+
+查核日期：2026-10-10。
+
 ## 更新紀錄
 
+
+- 2026-10-11：補上自編推理例子與理解檢查，保留來源限制及原作業範圍。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
 

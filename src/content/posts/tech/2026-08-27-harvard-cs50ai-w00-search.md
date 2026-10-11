@@ -1,5 +1,5 @@
 ---
-title: "Harvard CS50 AI Week 0：Search——從 DFS、BFS、A* 到 Minimax 與 Alpha-Beta 剪枝"
+title: "Search——從 DFS、BFS、A* 到 Minimax 與 Alpha-Beta 剪枝｜Harvard CS50 AI 第 0 週"
 date: 2026-08-27
 category: tech
 type: guide
@@ -21,26 +21,6 @@ draft: false
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
 > ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年 OCW 官網最新版為準（`ai50/projects/2024/x/...`）。
-
-## 課程影片來源
-
-官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 0 講課錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=WbzNRTTrX0g
-title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020
-```
-
-原始影片：[Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=WbzNRTTrX0g)
-
-課程與錄影入口：
-
-- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
-- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：全部 7 個時間區段的主題順序大致成立，但原表的精確時間碼與實際位置差很多（例如 Minimax 實際約在第 73 分鐘以後，原表寫 52:00），且原表末段到 1:22:00，與影片總長 1:49:30 不符，已改為依字幕相對位置估算的「約」值；原表「七週大綱」改為字幕實際說的七大主題；字幕全程未提到本週專案（Degrees、Tic-Tac-Toe），專案說明來自課程官網而非影片。
 
 ## TL;DR
 
@@ -298,6 +278,26 @@ style50 tictactoe.py
 - [ ] 能寫出 Minimax 遞迴骨架與 Alpha-Beta 剪枝條件
 - [ ] 理解 `result` 必須深拷貝的原因（Minimax 會並行探索多棋盤狀態）
 - [ ] 兩個專案 `check50` 全綠
+
+## 課程影片來源
+
+官方 CS50 YouTube 播放清單（CS50's Introduction to Artificial Intelligence with Python，8 支）已於 2026-10-10 即時核對，Week 0 講課錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=WbzNRTTrX0g
+title: Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020
+```
+
+原始影片：[Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020](https://www.youtube.com/watch?v=WbzNRTTrX0g)
+
+課程與錄影入口：
+
+- [CS50 AI Week 0 — official video, slides and notes](https://cs50.harvard.edu/ai/weeks/0/)
+- [CS50's Introduction to AI with Python — official YouTube playlist (8 videos)](https://www.youtube.com/playlist?list=PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：全部 7 個時間區段的主題順序大致成立，但原表的精確時間碼與實際位置差很多（例如 Minimax 實際約在第 73 分鐘以後，原表寫 52:00），且原表末段到 1:22:00，與影片總長 1:49:30 不符，已改為依字幕相對位置估算的「約」值；原表「七週大綱」改為字幕實際說的七大主題；字幕全程未提到本週專案（Degrees、Tic-Tac-Toe），專案說明來自課程官網而非影片。
 
 ## 更新紀錄
 

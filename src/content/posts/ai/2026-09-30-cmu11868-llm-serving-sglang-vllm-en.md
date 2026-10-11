@@ -1,5 +1,5 @@
 ---
-title: "CMU 11-868 L22 and L24 LLM Serving: Scheduling, RadixAttention, and PagedAttention"
+title: "LLM Serving: Scheduling, RadixAttention, and PagedAttention | CMU 11-868 Lecture 22 / Lecture 24"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,16 +39,6 @@ glossary:
 **Series**: Previous [L23 Efficient Fine-Tuning: LoRA and QLoRA](/posts/ai/2026-09-30-cmu11868-peft-lora-en) | Next [HW6: DeepSpeed ZeRO + LoRA Training and SGLang Inference](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en) | [Series overview](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 The official order is SGLang on April 6, PEFT on April 8, and vLLM on April 13. This series puts the two serving lectures together because they solve the same problem, and page 9 of Lecture 22 says outright that "SGLang / vLLM share similar arch".
-
-## Course video sources
-
-The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
-
-Checked on 2026-10-10.
 
 ## The setting: one server, many requests
 
@@ -208,6 +198,16 @@ Suggested order:
 - Another course's take on inference: [CS336 Inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Making attention itself faster: [L21 FlashAttention](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 - Beyond one machine: [L26–L30 Serving at Scale: Prefill/Decode Disaggregation, KV Cache, and Heterogeneous Hardware](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
+
+## Course video sources
+
+The official Spring 2026 syllabus has been checked: it publicly lists slides, readings and homework, but no recording link for the corresponding lectures. This article therefore guides readers through slides, papers or assignments and has no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
+
+Checked on 2026-10-10.
 
 ## Update Log
 

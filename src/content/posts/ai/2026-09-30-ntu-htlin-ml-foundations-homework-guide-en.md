@@ -1,5 +1,5 @@
 ---
-title: "Hsuan-Tien Lin's ML Foundations Homework Guide: What Fall 2024 HW0–HW5 Practice and Need, Plus Fall 2026 hw0/hw1"
+title: "Hsuan-Tien Lin's ML Foundations Homework Guide: What Fall 2024 HW0–HW5 Practice and Need, Plus Fall 2026 hw0/hw1 | NTU Hsuan-Tien Lin Machine Learning Foundations & Techniques Topic Guide"
 date: 2026-09-30
 category: ai
 type: guide
@@ -42,20 +42,6 @@ This is part 17 of the [Reading NTU Hsuan-Tien Lin Machine Learning Foundations 
 2. **Grading is for enrolled students only.** Homework goes to Gradescope, and discussion happens on Discord and NTU COOL (course 40495 in Fall 2024, 63348 in Fall 2026), all of which need enrollment or an NTU account.
 
 So this post **gives no answers**. It covers what each problem practices, what data it needs, and how to check your own results. The access levels are defined in the [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
-
-## Course video sources
-
-No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
-- [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
-- [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
-
-On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
-
-Checked: 2026-10-10.
 
 ## What the homework looks like
 
@@ -209,6 +195,20 @@ hw2 onward are scheduled to appear from 10/07; none was public as of 2026-09-30.
 The Techniques homework, HW6 and HW7, and the final project (predicting wins in a fictional baseball league, HTMLB) are in the next post, [Techniques Homework and the Final Project](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project-en). The previous post is [T16 Finale and the modern deep learning supplement](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en).
 
 Lecture guides matching each assignment: [L1–L3](/posts/ai/2026-09-30-ntu-htlin-ml-learning-problem-perceptron-en), [L4](/posts/ai/2026-09-30-ntu-htlin-ml-feasibility-of-learning-en), [L5–L6](/posts/ai/2026-09-30-ntu-htlin-ml-training-vs-testing-growth-function-en), [L7–L8](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), [L9–L10](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), [L11–L12](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), [L13–L14](/posts/ai/2026-09-30-ntu-htlin-ml-overfitting-regularization-en), [L15–L16](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en).
+
+## Course video sources
+
+No dedicated public lecture recording was verified for this article. Use the official course entry for recordings and materials.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://www.csie.ntu.edu.tw/~htlin/mooc/)
+- [Foundations: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf)
+- [Techniques: official free YouTube playlist](https://www.youtube.com/playlist?list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2)
+
+On 2026-10-10 the official MOOC page and both playlists were checked live: the playlists hold lecture videos only, with no walkthrough video for the homework this post covers (the problems are PDFs on the NTU course pages).
+
+Checked: 2026-10-10.
 
 ## Update Log
 

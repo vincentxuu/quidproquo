@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 全課總結：學會什麼、缺什麼，以及下一門怎麼選"
+title: "學會什麼、缺什麼，以及下一門怎麼選｜CMU 07-280 課程地圖"
 date: 2026-08-22
 category: ai
 tags: [cmu, ai-course, learning-path, machine-learning, self-study]
@@ -20,16 +20,6 @@ draft: false
 07-280 想做一件很難的事：把原本分散在 15-281 與入門 ML 課裡的搜尋、監督式學習、深度學習、NLP 與 reinforcement learning，壓進一門可以接 07-380 的共同地基。Spring 2026 又是首次完整班次，教材同時保留探索痕跡與版本風險。
 
 所以「讀完整套導讀」不能當作完成課程。官方正式班用 exams、written/programming homework、pre-reading、recitation 與 participation 多面評量；校外讀者沒有相同 feedback chain，必須自己留下可檢查的 artifacts。這篇給出一套不冒充 CMU 學分的結業標準。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
 
 ## 07-280 真正教的是整合介面
 
@@ -91,6 +81,16 @@ draft: false
 不要再看新影片。用七天整理既有成果：前兩天補齊搜尋與監督式模型測試；第三、四天重跑 CNN／GPT 實驗；第五天驗證 RL／MCTS；第六天寫每個 artifact 的 limitations；最後一天用空白紙畫出整門課從 search 到 self-play 的資料與控制流。
 
 若其中一條畫不出來，就回到對應逐講，而不是從 Lecture 1 全部重看。07-280 的價值不在於把 AI 名詞都教一次，而在於讓你知道一個 AI system 的問題表示、學習訊號、推論程序與驗證責任如何互相牽動。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

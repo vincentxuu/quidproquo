@@ -1,5 +1,5 @@
 ---
-title: "Diffusion Models: Forward Noise, Reverse Generation, and the ELBO"
+title: "Diffusion Models: Forward Noise, Reverse Generation, and the ELBO | Stanford CS229 Chapter 14"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,27 +18,6 @@ draft: false
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
 This is a chapter-by-chapter reading of Chapter 14, printed pages 180–190, in the 2026 [CS229 Lecture Notes](https://cs229.stanford.edu/main_notes.pdf). It follows the official notes and is **not a reconstruction of any quarter's recordings or schedule**. The chapter begins generative modeling by choosing a fixed path from data to Gaussian noise, then learning how to denoise every step in reverse.
-
-## Course video sources
-
-This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
-
-```youtube
-url: https://www.youtube.com/watch?v=dqUMCzWjZSI
-title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models
-```
-
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models](https://www.youtube.com/watch?v=dqUMCzWjZSI)
-
-Course and recording entries:
-
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 11 (about 83 minutes); the transcript covers the noising forward process (adding Gaussian noise step by step and unrolling x0 to xt in one expression), learning the reverse process (recovering a clean image from noise), the ELBO (after about 70%, auto-captioned as "elbow") and the training objective, with a continuous-time digression around 55%. It matches this chapter. The chapter's last section on why a score appears in continuous time is not covered: the word "score" never appears in the transcript and continuous time is only a digression, so that section rests mainly on the notes.
 
 ## The forward process gradually washes data into a Gaussian
 
@@ -108,6 +87,27 @@ This chapter directly reuses Chapter 11's ELBO, treating the full noise trajecto
 ## Self-study exercise
 
 Choose one normalized small image and three values of $\bar\alpha_t$. Sample noise and construct each $x_t$ with the closed-form equation. Pretend a perfect model knows $\epsilon$ and solve algebraically for $x_0$. Then perturb the predicted noise slightly and observe how reconstruction error is amplified at low signal-to-noise timesteps.
+
+## Course video sources
+
+This article follows the 2026 main notes chapter by chapter, and chapter numbers are not lecture numbers. The video(s) below come from Stanford Online's public CS229 Spring 2026 recordings; their titles match this chapter's topic, but they are related supplements, not a line-by-line source for this chapter, and the original lecture recording for the chapter has not been verified. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+
+```youtube
+url: https://www.youtube.com/watch?v=dqUMCzWjZSI
+title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models
+```
+
+Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models](https://www.youtube.com/watch?v=dqUMCzWjZSI)
+
+Course and recording entries:
+
+- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [Official course / lecture source](https://cs229.stanford.edu/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this chapter. This is Spring 2026 Lecture 11 (about 83 minutes); the transcript covers the noising forward process (adding Gaussian noise step by step and unrolling x0 to xt in one expression), learning the reverse process (recovering a clean image from noise), the ELBO (after about 70%, auto-captioned as "elbow") and the training objective, with a continuous-time digression around 55%. It matches this chapter. The chapter's last section on why a score appears in continuous time is not covered: the word "score" never appears in the transcript and continuous time is only a digression, so that section rests mainly on the notes.
 
 ## Update Log
 

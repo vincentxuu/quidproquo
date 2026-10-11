@@ -1,5 +1,5 @@
 ---
-title: "CS149 L3：處理器很快，資料送不過來——延遲 vs 頻寬，以及 ISPC 教你分清「抽象」與「實作」"
+title: "處理器很快，資料送不過來——延遲 vs 頻寬，以及 ISPC 教你分清「抽象」與「實作」｜Stanford CS149 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 Fall 2025 的錄影只放在 Stanford Canvas。課程首頁指向 2023 年的公開錄影，本講對應 [2023 Lecture 3](https://www.youtube.com/watch?v=F4bVSyz_jxo)，標題相同。本文以 2025 投影片為準，影片只當聽講補充。整門課的公開程度是 A3（足以自學），缺口列在[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)。
 
 這一講分兩半，看起來不相干：前半講**記憶體頻寬**，後半講 **ISPC 程式模型**。它們其實共用一個前提——上一篇的三種硬體平行（多核、SIMD、硬體多執行緒）讓處理器的算力暴增，接下來的問題是「資料送不送得過來」與「程式設計師該怎麼描述平行」。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=F4bVSyz_jxo
-title: Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions
-```
-
-原始影片：[Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
-
-課程與錄影入口：
-
-- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions》（1:16:18）。字幕涵蓋上一講的硬體多執行緒與延遲回顧、頻寬與記憶體延遲（約過半處）、指令管線的吞吐量，以及結尾約最後六分之一的 ISPC（gang、program instance，並要求學生確認「抽象」可以有多種合法的「實作」），主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 投影片開頭先補上一講沒講完的
 
@@ -200,6 +182,24 @@ ISPC 就是用來練這件事的例子。
 延伸閱讀：想看頻寬限制在大型模型訓練上的樣子，可以接著讀站上的 [CS336 GPU 與 TPU 導讀](/posts/ai/2026-08-22-cs336-gpu-tpu)。
 
 系列導覽：上一篇 [L2 現代多核處理器](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading)｜下一篇 [PA1 + Written 1：四核 CPU 效能分析](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=F4bVSyz_jxo
+title: Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions
+```
+
+原始影片：[Stanford CS149 I 2023 I Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions](https://www.youtube.com/watch?v=F4bVSyz_jxo)
+
+課程與錄影入口：
+
+- [CS149 2023 公開錄影播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/multicore2/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 3 - Multi-core Arch Part II + ISPC Programming Abstractions》（1:16:18）。字幕涵蓋上一講的硬體多執行緒與延遲回顧、頻寬與記憶體延遲（約過半處）、指令管線的吞吐量，以及結尾約最後六分之一的 ISPC（gang、program instance，並要求學生確認「抽象」可以有多種合法的「實作」），主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

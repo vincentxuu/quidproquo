@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 9: Scaling Laws Are Extrapolation Tools, Not Crystal Balls"
+title: "Scaling Laws Are Extrapolation Tools, Not Crystal Balls | Stanford CS336 Lecture 9"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 9: Scaling laws**, taught by Tatsunori Hashimoto on April 27, 2026. Its primary source is the official [`lecture_09.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf).
 
 Discovering that a model is too large, data too scarce, or the learning rate wrong during the final run wastes an irreversible budget. Scaling laws use a set of smaller experiments to establish simple, testable relationships and predict an expensive region. They are not guaranteed laws of the future but tools for experimental design and uncertainty management.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (Scaling Laws, Tatsu; the captions describe it as the first of two scaling-law lectures). The captions cover power laws/log-log plots, intrinsic dimension, Kaplan vs Chinchilla, IsoFLOPs, joint fits, LSTM vs Transformer scaling comparisons, critical batch size and MoE scaling. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Why power laws appear as straight lines
 
@@ -82,6 +64,24 @@ Lecture 9's value is not a permanent exponent. It turns “we think scaling will
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide covers data scaling, model engineering, and compute-optimal scaling without importing Lecture 11's practical material early.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 9 (Scaling Laws, Tatsu; the captions describe it as the first of two scaling-law lectures). The captions cover power laws/log-log plots, intrinsic dimension, Kaplan vs Chinchilla, IsoFLOPs, joint fits, LSTM vs Transformer scaling comparisons, critical batch size and MoE scaling. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=Q15rhEWZPQ4
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 9: Scaling Laws](https://www.youtube.com/watch?v=Q15rhEWZPQ4)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

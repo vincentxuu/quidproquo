@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS224V Lecture 14: Scaling Language Models When Data Is the Bottleneck"
+title: "Scaling Language Models When Data Is the Bottleneck | Stanford CS224V Lecture 14"
 date: 2026-08-22
 category: ai
 tags: [cs224v, stanford, language-model, data-efficiency, synthetic-data]
@@ -19,18 +19,6 @@ description: "CS224V Training LLMs and Data-Efficient Language Modeling: data bo
 This guide reconstructs the lecture from the [official Fall 2025 deck](https://web.stanford.edu/class/cs224v/lectures/l-training.pdf); system descriptions and reported results below are attributed to that historical course material unless a paper is linked at the claim.
 
 The schedule abbreviates the final session as “Training LLMs,” but the deck's precise title is “Data-Efficient Language Modeling.” It is not a tokenizer-to-RLHF recipe. It asks how fixed high-quality data can be used better as compute grows, and whether synthetic data can add genuine generalization value.
-
-## Course video sources
-
-The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
-- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
-- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
-
-Checked: 2026-10-10.
 
 ## Agenda: use existing data, then make new data
 
@@ -125,6 +113,18 @@ Fix a real-token budget for a small continued-pretraining study. Compare repeate
 > **Author extension:** The following is an implementation or review method derived from the lecture, not a result reported by the deck.
 
 The public deck is a research talk, not a complete training recipe. Several results belong to preprints or specific experimental regimes. Without a recording, full code, and all hyperparameters, this article does not generalize them to arbitrary model scales.
+
+## Course video sources
+
+The official course site (read live on 2026-10-10) says lecture recordings are on Canvas. I opened the current term’s Canvas entry and was redirected to the Stanford login page, confirming the sign-in wall. No public YouTube or OCW recording was found for the Fall 2025 term this article follows (or, for the course overview, Fall 2026); the StanfordCSVideos channel only publishes 19 Fall 2024 videos, and none maps definitely to this lecture, so nothing is embedded.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/cs224v/schedule.html)
+- [Official course home page (recordings on Canvas)](https://cs224v.stanford.edu/)
+- [CS224V Fall 2024 public playlist (StanfordCSVideos, 19 videos; a different term)](https://www.youtube.com/playlist?list=PLYxk7xb0yXslcWlWqnNF5yx4Z8z10p6Zl)
+
+Checked: 2026-10-10.
 
 ## Update Log
 

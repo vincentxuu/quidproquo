@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.7960 L09: Hacker's Guide to Deep Learning — Practical Know-How to Make Nets Actually Obey"
+title: "Hacker's Guide to Deep Learning — Practical Know-How to Make Nets Actually Obey | MIT 6.7960 Lecture 9"
 date: 2026-08-30
 category: tech
 type: guide
@@ -28,25 +28,6 @@ additionalSeries:
 > **Source version**: based on **MIT 6.7960 Fall 2024 OCW**. Videos, slides, and assignments are public at [MIT OCW](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/). This lecture is taught by **Phillip Isola**; references include *Recipes for Training Neural Networks* and Google's *Rules of ML*.
 
 ---
-
-## Course video sources
-Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
-
-```youtube
-url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
-title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
-```
-
-Original videos: [MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
-
-Course and recording entries:
-
-- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
-- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the Lec 09 transcript (Phillip Isola, 1:15:50): the video is indeed about practical know-how (look at data and statistics, overfit a small batch first, data augmentation, a basic recipe of Adam + Transformer + cross-entropy, "always tune your learning rate"); regularization gets only a closing remark and batch norm is advised against, so a note was added to section 4 saying that its list is this site's supplement.
 
 ## What gap this lecture fills
 
@@ -117,6 +98,25 @@ When loss won't drop, check in this order:
 ## Why this matters in practice
 
 The value of this lecture is not any single trick but **establishing a controllable experiment flow**. With a repeatable recipe, every failed experiment becomes diagnosable instead of "try a different random seed".
+
+## Course video sources
+Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: the lecture number matches and the video is public and embeddable. Lecture numbering and topics follow OCW.
+
+```youtube
+url: https://www.youtube.com/watch?v=DC2Hw9DiLCg
+title: MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning
+```
+
+Original videos: [MIT 6.7960 Fall 2024 — Lec 09. Hacker's Guide to Deep Learning](https://www.youtube.com/watch?v=DC2Hw9DiLCg)
+
+Course and recording entries:
+
+- [MIT OCW — Lec 09. Hacker's Guide to Deep Learning](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/resources/mit6_7960f24_lec09_mp4/)
+- [MIT 6.7960 Fall 2024 — official lecture video gallery](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the Lec 09 transcript (Phillip Isola, 1:15:50): the video is indeed about practical know-how (look at data and statistics, overfit a small batch first, data augmentation, a basic recipe of Adam + Transformer + cross-entropy, "always tune your learning rate"); regularization gets only a closing remark and batch norm is advised against, so a note was added to section 4 saying that its list is this site's supplement.
 
 ## Update Log
 

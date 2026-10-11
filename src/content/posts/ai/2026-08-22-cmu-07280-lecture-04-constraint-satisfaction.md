@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 4 導讀：CSP、AC-3 與搜尋順序"
+title: "CSP、AC-3 與搜尋順序｜CMU 07-280 第 4 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,20 +18,6 @@ draft: false
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 這是 **CMU 07-280 Spring 2026 Lecture 4：Constraint Satisfaction Problems**。CSP 仍是搜尋，但它不把 state 當成黑盒。Variables、domains 與 constraints 直接暴露結構，讓演算法在完成整份 assignment 之前就能刪掉不可能的值。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf)、官方[backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。官方課表未列逐講公開錄影連結；demo 展示演算法狀態，不提供講者口述。
 
 ## 承上問題：能否不用走完整條錯路才知道失敗
 
@@ -78,6 +64,20 @@ Arc consistency 能提早偵測很多矛盾，但不能保證找到解，也不�
 1. 用三色重做澳洲地圖 CSP：列 variables、domains 與每條 binary constraint。
 2. 對一條三節點鏈手跑 AC-3，逐步寫 queue 與被刪除的值。
 3. 打開官方 demo，對同一題分別選 forward checking 與 AC-3，記錄何時第一次發現 dead end。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec4_CSPs_inked.pdf)、官方[backtracking demo](https://www.cs.cmu.edu/~07280/demos/csp_backtracking/)、[Recitation 2](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2.pdf)與[solution](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec2_sol.pdf)，並核對 [HW2](https://www.cs.cmu.edu/~07280/assignments/hw2_blank.pdf)。官方課表未列逐講公開錄影連結；demo 展示演算法狀態，不提供講者口述。
 
 ## 更新紀錄
 

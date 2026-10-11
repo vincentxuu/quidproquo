@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀：不准用框架，只給你一個 chat-completion 呼叫，從零長出 agent harness"
+title: "不准用框架，只給你一個 chat-completion 呼叫，從零長出 agent harness｜Stanford CS329Z 主題單元"
 date: 2026-08-21
 updated: 2026-10-10
 category: ai
@@ -26,17 +26,6 @@ draft: false
 課程官網開宗明義給的框架是「compound AI systems」：由 LLM、檢索器、工具、優化器多個元件組成、彼此互動的系統。官網說這代表 AI 應用建構方式的一次根本改變。整學期的三條軸線寫在第一堂的描述裡——拆解（decomposition）、資料（data）、評估（evaluation）。
 
 這篇對過四邊的一手資料：課程官網、它背後那個公開的 GitHub repo、ExploreCourses，以及已經公開的投影片（目前已放到第五堂）。涵蓋這門課實際怎麼運作、作業長什麼樣、課綱在開學前後被改了什麼，以及它跟另外兩門也叫 agent 的 Stanford 課差在哪。**不包含**逐堂內容拆解——課程 9 月 23 日才開始，逐週內容由[系列的週導讀](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)接手。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 這門課的硬事實
 
@@ -210,6 +199,17 @@ Part 1 先做 email 優先級分類、每日摘要、從零寫 BM25，以及多�
 - **投影片與官網的出入**：第一堂投影片寫 HW-based quiz 是「15-min oral check-in on any part of your submission」，官網寫 10 分鐘、閉書；投影片寫錄影會「posted online」，官網寫放在 Canvas。投影片以 Google Drive 公開連結發布，2026-09-29 下載，第一堂 71 頁、第二堂 176 頁。
 - **ExploreCourses 授課者**：8/21 讀取時只列 Ryan, M. 與 Yang, D.；9/29 讀取時已列 Ryan, M.、Yang, D.、Yang, J. 三位 PI，教室也已顯示 Skilling。
 - **未能確認**：兩場客座的講者；錄影最終是否公開；Stanford Bulletin 是否已收錄 CS329Z 條目（其課程目錄是動態載入的前端應用，未能以一手方式確認）。
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

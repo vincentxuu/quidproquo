@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 3：工具接進來，框架拆開看——HW1 開工"
+title: "工具接進來，框架拆開看——HW1 開工｜Stanford CS329Z 第 3 週"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -21,17 +21,6 @@ draft: false
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
 Week 3 是轉折週。週一（10/5，Tool Use & Function Calling）的主讀物是 [MCP 規範](https://modelcontextprotocol.io/specification/2025-06-18)：工具從此有統一插頭，不用每接一家重寫一遍。週三（10/7，Frameworks & Agent Design）的主讀物是 Khattab 等人的 [DSPy](https://arxiv.org/abs/2310.03714)（ICLR 2024）：prompt 模板從手工藝變成可編譯、可優化的程式。同一個週一，[HW1 發布](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)：Build an Agentic Harness，不准用任何 agent 框架，只給一個 chat-completion 呼叫，從零刻一個公司內部的 AI 助理，週五（10/9）還要交 project proposal。一邊手刻、一邊在課堂上讀框架論文，這週的張力就在這裡。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## MCP：工具的統一插頭
 
@@ -65,6 +54,17 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 - 週一 10/5 Tool Use & Function Calling：主讀物 MCP 規範（本文已導讀）；本週無 additional readings。
 - 週三 10/7 Frameworks & Orchestration：主讀物 DSPy 論文（本文已導讀）；本週無 additional readings。
 - 課表原文：[CS329Z 官網 Week 3](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

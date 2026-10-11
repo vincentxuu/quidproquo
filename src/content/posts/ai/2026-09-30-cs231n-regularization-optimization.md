@@ -1,5 +1,5 @@
 ---
-title: "CS231N L3：正則化與最佳化——從隨機亂試到 AdamW 與學習率排程"
+title: "正則化與最佳化——從隨機亂試到 AdamW 與學習率排程｜Stanford CS231N 第 3 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -45,23 +45,6 @@ glossary:
 [2026 課表](https://cs231n.stanford.edu/schedule.html)把這一講列為四個主題：正則化、隨機梯度下降、Momentum／AdaGrad／Adam、學習率排程。它屬於「Deep Learning Basics」單元，是後面每一個模型（CNN、RNN、Transformer、diffusion）都會重複用到的訓練工具箱。
 
 這篇是本系列第一篇硬文章，照五層走：先給場景，再講直覺，機制的公式收在折疊區塊裡，然後連回這門課的模型，最後列出想深入可以讀什麼。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 3 講（長度 1:08:39，講者依影片說明欄為 Zane Durante），字幕有 L1／L2 正則化、數值梯度、minibatch SGD、momentum、RMSProp、Adam、cosine 學習率排程、二階方法為何不適用，與本文主題相符；字幕沒有 AdaGrad，本文說 AdaGrad 推導放在投影片附錄，與此一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
-
-```youtube
-url: https://www.youtube.com/watch?v=dyNGd06MWn4
-title: Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization
-```
-
-原始影片：[Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization](https://www.youtube.com/watch?v=dyNGd06MWn4)
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 場景：在霧裡下山
 
@@ -259,6 +242,23 @@ L3 的尾巴已經開始鋪下一講：線性分類器分不開的資料（投�
 3. 把投影片上的 RMSProp 與 Adam 程式碼抄進 notebook，在一個二維的窄長碗形函式上跑，畫出軌跡。
 
 今晚可以做的一件事：在 numpy 裡寫一個 f(x, y) = x² + 20y²，分別用 SGD 和 SGD + Momentum（ρ = 0.9）從同一點出發跑 50 步，畫出兩條路徑，親眼看「陡的方向震盪、平的方向很慢」是什麼樣子。
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準。官方 Spring 2026 課表（2026-10-10 即時查證）沒有列出錄影連結，也沒有找到 Spring 2026 的公開播放清單；下列 Spring 2025 錄影來自 Stanford Online 的公開播放清單，是講次標題相同的相關補充影片，內容可能與 2026 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：影片是 Spring 2025 第 3 講（長度 1:08:39，講者依影片說明欄為 Zane Durante），字幕有 L1／L2 正則化、數值梯度、minibatch SGD、momentum、RMSProp、Adam、cosine 學習率排程、二階方法為何不適用，與本文主題相符；字幕沒有 AdaGrad，本文說 AdaGrad 推導放在投影片附錄，與此一致。本文的投影片細節以 2026 投影片為準，未逐項對照這支上一屆的錄影。
+
+```youtube
+url: https://www.youtube.com/watch?v=dyNGd06MWn4
+title: Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization
+```
+
+原始影片：[Stanford CS231N | Spring 2025 | Lecture 3: Regularization and Optimization](https://www.youtube.com/watch?v=dyNGd06MWn4)
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs231n.stanford.edu/schedule.html)
 
 ## 更新紀錄
 

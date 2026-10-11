@@ -1,5 +1,5 @@
 ---
-title: "MIT 6.5940 第 15 講：長上下文 LLM——上下文拉長時，先爆的是 KV cache"
+title: "長上下文 LLM——上下文拉長時，先爆的是 KV cache｜MIT 6.5940 第 15 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -39,24 +39,6 @@ glossary:
 **官方材料**：[Lec15-Long-Context-LLM.pdf](https://www.dropbox.com/scl/fi/aorbruqhmbu3cpqtnbuyo/Lec15-Long-Context-LLM.pdf?rlkey=i7d5urg0m4mm96wc82nx76lgs&st=nssefmxf&dl=0)（78 頁，以下頁碼皆指這份 PDF）、[第 15 講錄影](https://youtu.be/kgTWKjbnrBA)。F24 課頁把這講排在 2024 年 10 月 29 日。存取等級 **A3**：投影片與錄影公開，這一講沒有對應的 lab。2026-09-30 核對。
 
 **Fall 2026 對照**：[Fall 2026 課頁](https://hanlab.mit.edu/courses/2026-fall-65940)同樣排了「Long Context LLM」（11 月 3 日，第 15 講），截至 2026-09-30 投影片與錄影還沒上線。
-
-## 課程影片來源
-2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
-
-```youtube
-url: https://www.youtube.com/watch?v=kgTWKjbnrBA
-title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
-```
-
-原始影片：[EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
-
-課程與錄影入口：
-
-- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：RoPE 與上下文長度（2k 到 32k 的微調）、LongLoRA、lost-in-the-middle 與 needle-in-a-haystack 評估、StreamingLLM 的 attention sink、DuoAttention、Quest、Mamba／SSM 與混合架構。主題與講次和本文相符。第 75–78 頁的 WorldModelBench 公告在字幕裡沒有出現，本文已標明那幾頁和本講內容無關。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 這一講在解什麼
 
@@ -197,6 +179,24 @@ Window attention 很省，但**開頭的 token 一被踢出 cache，模型就崩
 - KV cache：[CMU 11-868 大規模服務與 KV cache](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)、[台大李宏毅 ML 2026：KV Cache 與瘦身法](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 - 長上下文與 SSM：[CMU 10-423 L19 + L21：長上下文與 State Space／Hybrid 模型](/posts/ai/2026-09-30-cmu10423-long-context-ssm)
 - 推論系統：[CS336 推論](/posts/ai/2026-08-22-cs336-inference)
+
+## 課程影片來源
+2026-10-10 已即時回官方課程頁核對講次與影片連結，影片公開且允許嵌入。
+
+```youtube
+url: https://www.youtube.com/watch?v=kgTWKjbnrBA
+title: EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)
+```
+
+原始影片：[EfficientML.ai Lecture 15 - Long-Context LLM (MIT 6.5940, Fall 2024)](https://www.youtube.com/watch?v=kgTWKjbnrBA)
+
+課程與錄影入口：
+
+- [mit-6-5940 — official course materials and recording index](https://hanlab.mit.edu/courses/2024-fall-65940)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了開頭與結尾總結並抽查中段：RoPE 與上下文長度（2k 到 32k 的微調）、LongLoRA、lost-in-the-middle 與 needle-in-a-haystack 評估、StreamingLLM 的 attention sink、DuoAttention、Quest、Mamba／SSM 與混合架構。主題與講次和本文相符。第 75–78 頁的 WorldModelBench 公告在字幕裡沒有出現，本文已標明那幾頁和本講內容無關。頁碼與投影片數字以投影片為準，未逐句比對影片。
 
 ## 更新紀錄
 

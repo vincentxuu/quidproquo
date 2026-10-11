@@ -1,5 +1,5 @@
 ---
-title: "CS336 Lecture 11: Scaling Laws in Practice Must Scale Learning Rate and Batch Too"
+title: "Scaling Laws in Practice Must Scale Learning Rate and Batch Too | Stanford CS336 Lecture 11"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,24 +20,6 @@ draft: false
 This post covers **CS336 Spring 2026 Lecture 11: Scaling — case study and details**, taught by Tatsunori Hashimoto on May 4, 2026. Its primary source is the official [`lecture_11.pdf`](https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf).
 
 Lecture 9 explains scaling-law principles. This lecture inspects how public teams implement them. Choosing model size and token count is not enough; initialization, learning rate, batch size, and schedules must remain comparable as scale changes.
-
-## Course video sources
-
-The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): The video is Lecture 11 (the second scaling-laws lecture, Tatsu). The captions cover the MiniCPM, DeepSeek, Qwen and Llama scaling recipes, WSD vs cosine schedules, learning-rate/batch-size grids, muP and IsoFLOPs. Not checked line by line; no body changes needed.
-
-```youtube
-url: https://www.youtube.com/watch?v=vTfEyOyzV9E
-title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
-```
-
-Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
-
-Course and recording entries:
-
-- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
-- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Public recipes share a common skeleton
 
@@ -78,6 +60,24 @@ Lecture 11's conclusion is deliberately unglamorous. Scaling laws do not remove 
 ## Material fidelity
 
 This lecture has a Spring 2026 schedule entry and a complete official PDF. This guide follows its public recipes, optimizer scaling, and μP sections.
+
+## Course video sources
+
+The video below is the corresponding Spring 2026 lecture published by Stanford Online. Lecture number and video ID were checked against the official playlist on 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): The video is Lecture 11 (the second scaling-laws lecture, Tatsu). The captions cover the MiniCPM, DeepSeek, Qwen and Llama scaling recipes, WSD vs cosine schedules, learning-rate/batch-size grids, muP and IsoFLOPs. Not checked line by line; no body changes needed.
+
+```youtube
+url: https://www.youtube.com/watch?v=vTfEyOyzV9E
+title: Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws
+```
+
+Original videos: [Stanford CS336 Language Modeling from Scratch | Spring 2026 | Lecture 11: Scaling Laws](https://www.youtube.com/watch?v=vTfEyOyzV9E)
+
+Course and recording entries:
+
+- [CS336 Spring 2026 official recordings](https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV)
+- [Official course / lecture source](https://cs336.stanford.edu/)
 
 ## Update Log
 

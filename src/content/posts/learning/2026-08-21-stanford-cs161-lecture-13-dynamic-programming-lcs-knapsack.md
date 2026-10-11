@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS161 Lecture 13：從 LCS、背包到樹上獨立集的動態規劃設計法"
+title: "從 LCS、背包到樹上獨立集的動態規劃設計法｜Stanford CS161 第 13 堂"
 date: 2026-08-21
 category: learning
 type: deep-dive
@@ -22,16 +22,6 @@ draft: false
 這篇只依據該講公開的 [lecture notes](https://stanford-cs161.github.io/winter2026/assets/files/lecture13-notes.pdf)、[slides](https://stanford-cs161.github.io/winter2026/assets/files/Lecture13.pdf) 與[官方 lecture component](https://raw.githubusercontent.com/stanford-cs161/winter2026/main/_components/lecture13.md)。課程頁另有需要 Stanford 權限的 Canvas 錄影；我沒有觀看，也不把它當成來源。Slides 有 116 頁，很多是同一張表逐格出現的動畫，因此本文整理的是完整推導，不用頁數假裝內容比較多。
 
 Lecture 12 才剛用 Bellman–Ford 與 Floyd–Warshall 建立動態規劃的語言，Lecture 13 馬上把那套語言搬到三種外觀完全不同的問題：字串、容量限制、樹。真正要學的不是三條公式，而是如何判斷「子問題到底要記哪些資訊」。如果 state 少記一個條件，演算法可能重複使用同一個物品；如果 state 選得剛好，原本在一般圖上 NP-hard 的問題，限制在樹上後可以線性解完。
-
-## 課程影片來源
-
-已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
-
-查核日期：2026-10-10。
 
 ## 本講的五步動態規劃 recipe
 
@@ -240,6 +230,16 @@ Lecture 12 用最短路徑第一次完整介紹 recurrence、重疊子問題與�
 LCS 若只要長度，可用兩列；若還要重建而不想保留完整 `mn` table，需要更進階的 divide-and-conquer reconstruction。0-1 knapsack 可壓成一維，但必須讓 `x` 從 `W` 往下走；unbounded 則通常從小往大，因為同一物品可在同輪重用。兩者看似只是迴圈方向不同，背後其實是在控制 transition 讀到「本輪新值」還是「上一輪舊值」。
 
 樹上 MWIS 若要回傳 vertices，可在每個 `u` 記錄 `A(u)` 是由「選 u」還是「不選 u」取得，再從 root 往下重建。Tie 時可任選，或同時保留多個最佳解。這些做法都不改變本講的 correctness argument，但會把第四步「找實際解」補完整。
+
+## 課程影片來源
+
+已即時查核 Winter 2026 官方講次頁：每講的錄影連結都指向 Canvas／Panopto，實際打開是 Panopto 登入頁，需要 Stanford 帳號。另以搜尋查過 Stanford Online 等公開頻道，未找到同期（Winter 2026）公開錄影，因此不嵌入影片，也不以其他年份影片冒充當期錄影。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-13-more-dynamic-programming-lcs-knapsack-independent-set)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 18：N-gram 如何訓練、取樣與失敗"
+title: "N-gram 如何訓練、取樣與失敗｜CMU 07-280 第 18 堂"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
 Lecture 17 決定 tokens；**CMU 07-280 Spring 2026 Lecture 18** 才把 token sequence 變成可訓練、可生成的模型。官方 inked slides 題為 *NLP: N-gram LMs*，主線是 joint probability、Markov approximation、corpus counts、sampling 與 temperature，最後把問題交給 feature learning。
-
-## 課程影片來源
-
-已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
-
-官方來源：
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-查核日期：2026-10-10。
-
-## 官方材料與讀取範圍
-
-本文完整讀取 [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf)。未標註版直鏈在 2026-08-22 回傳 404，但 inked 版可匿名取得且內容完整。官方頁沒有 Spring 2026 逐講公開錄影，因此本文不描述教師當場如何講解 polls 或 worksheet。
-
-投影片把上一講的 tokenization 接到 language model 定義：模型近似某語言 token sequence 的 joint probability。接著用 chain rule 拆解，再以 N-gram Markov assumption 限制 context。
 
 ## 承上問題：有 bigram counts，不代表已經有完整模型
 
@@ -96,6 +80,22 @@ N-gram 的優點是可檢查：一個機率可以追回某個 count。缺點也�
 ## 今晚可做動作
 
 沿用上一講的小 corpus，建立 unigram、bigram、trigram counts。對同一個開頭各生成三段文字：greedy、`T=0.5` sampling、`T=2` sampling。記錄第一個 zero-count context 在第幾步出現，並寫下你會選 smoothing、backoff 還是縮短 context；不要只評價哪段「比較像人話」。
+
+## 課程影片來源
+
+已核對 Spring 2026 官方課表：對應講次公開列出投影片、講義與練習，未列本課講次的公開錄影連結，因此本文提供教材入口，沒有對應講次播放器。課表中的 Géron／Karpathy 影片是延伸閱讀，CMU-Qatar NumPy 錄影是另列的 Recitation 0，均不能當成本文講次錄影。
+
+官方來源：
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+查核日期：2026-10-10。
+
+## 官方材料與讀取範圍
+
+本文完整讀取 [Lecture 18 inked slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec18_NLP_N-grams_inked.pdf)。未標註版直鏈在 2026-08-22 回傳 404，但 inked 版可匿名取得且內容完整。官方頁沒有 Spring 2026 逐講公開錄影，因此本文不描述教師當場如何講解 polls 或 worksheet。
+
+投影片把上一講的 tokenization 接到 language model 定義：模型近似某語言 token sequence 的 joint probability。接著用 chain rule 拆解，再以 N-gram Markov assumption 限制 context。
 
 ## 更新紀錄
 

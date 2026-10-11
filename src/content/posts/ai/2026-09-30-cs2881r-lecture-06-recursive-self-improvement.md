@@ -1,5 +1,5 @@
 ---
-title: "CS2881R L6：AI 做 AI 研發會不會觸發智慧爆炸"
+title: "AI 做 AI 研發會不會觸發智慧爆炸｜Harvard CS2881R 第 6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -34,38 +34,6 @@ glossary:
 先說明一個文風轉換。[上一篇 L10](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability) 看的是單一模型的內部：activation、steering vector、CoT。這一篇把鏡頭拉遠到整個產業的速度：如果 AI 開始替人類做 AI 研發，進步曲線會長什麼樣？工具也從線性代數換成成長經濟學的微分方程。導讀把官方第 6 講排在第 10 講之後，是因為「偵測工具」和「時間軸」是兩種不同的問題，先把前者講完，再處理後者。
 
 課站替這一講寫的聚焦問題只有一句：Is AI R&D an "AI-complete" task？意思是：要自動化 AI 研發，是不是得先有能做所有事的通用 AI，還是一個只會寫程式、跑實驗的窄 AI 就夠了？
-
-## 課程影片來源
-
-官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
-
-```youtube
-url: https://www.youtube.com/watch?v=wzep3Rnv6iw
-title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
-```
-
-原始影片：[AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
-
-課程與錄影入口：
-
-- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
-- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
-
-查核日期：2026-10-10。
-
-內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 6: Recursive Self Improvement》（2:29:32）的完整自動字幕：確認 Boaz 請 GPT-5 外推 METR 曲線、Chad Jones 的 GDP 圖與「週末聊過」、十人經濟體的例子（字幕沒有念出 Baumol 之名）、智慧函數與 p 值的奇點討論、學生的多 agent 實驗（LangGraph、Inspect、Kaggle）、各桌五分鐘估 X、250 倍與 2,000 倍的倍率、新宗教玩笑、Windows 3.1 與 OpenAI 章程；字幕沒有二元樹 0.916 等實驗數字與 Lifland／Jurkovic 的估計，這些來自週摘要與投影片。學生實驗的位置原寫精確時間，字幕無時間碼，已改為約略位置。
-
-## 用到的官方材料與存取狀態
-
-| 材料 | 狀態 |
-|---|---|
-| [講課錄影](https://youtu.be/wzep3Rnv6iw)（約 2 小時 30 分） | 公開；Boaz 主講，無客座 |
-| [講課投影片](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/ESGsKxa1G79Gv4T9O4g9ZJkBIZd4CWudXEzLmBvdpLbkmg?e=fci9ky)（Harvard SharePoint） | 公開，不需登入可下載（`AISafety_Fall25_lec6_rsi.pptx`，31 張）；本文的方程、Baumol 例子、AI 2027 估計與結論清單都已對照投影片文字。第 5–6、20–22、25 張等是純圖片頁 |
-| [LessWrong Week 6 摘要](https://www.lesswrong.com/posts/DonyTLfGkyRyvJqwG/cs-2881r-week-6-recursive-self-improvement)（Joshua Qin、Mohammad Khan、Jaray Liu） | 公開；整理了課堂的方程式與學生實驗數字 |
-| 閱讀清單 | 公開，四篇 pre-reading，另有十篇延伸 |
-| 學生實驗 | 課站「Experiment」欄寫 To be determined，並附上一句構想：做一個實驗，看寫程式或 AI 這類窄任務的成功，需要多少廣泛的通用能力。錄影與 LessWrong 摘要則顯示有一組學生報告了多 agent 實驗（見下文），但課站沒有列出投影片或 GitHub |
-
-系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，沒有作業或實驗程式可以跟著做，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**：錄影、學生摘要、閱讀清單足以理解論證，練習要靠自己。
 
 ## 開場討論：預測的數字越多，越要小心
 
@@ -218,6 +186,38 @@ AI 2027 的起飛階段依序是：superhuman coder 讓研發加速約 5 倍，s
 - 系列入口：[Harvard CS2881R 導讀](/posts/ai/2026-09-30-cs2881r-course-overview)
 - 上一篇：[L10：看模型內部與看 chain of thought](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
 - 下一篇：[L7：能力怎麼量，安全門檻怎麼設](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
+
+## 課程影片來源
+
+官方 Fall 2025 課表與官方 YouTube 播放清單（AI Safety，17 支）已於 2026-10-10 即時核對，本講錄影在清單中。
+
+```youtube
+url: https://www.youtube.com/watch?v=wzep3Rnv6iw
+title: AI Safety (CS 2881) Lecture 6: Recursive Self Improvement
+```
+
+原始影片：[AI Safety (CS 2881) Lecture 6: Recursive Self Improvement](https://www.youtube.com/watch?v=wzep3Rnv6iw)
+
+課程與錄影入口：
+
+- [harvard-cs2881r — official course materials and recording index](https://boazbk.github.io/mltheoryseminar/fall2025/)
+- [CS2881R Fall 2025 official YouTube playlist (AI Safety, 17 videos)](https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W)
+
+查核日期：2026-10-10。
+
+內容核對：已依字幕核對（2026-10-10）：讀了《Lecture 6: Recursive Self Improvement》（2:29:32）的完整自動字幕：確認 Boaz 請 GPT-5 外推 METR 曲線、Chad Jones 的 GDP 圖與「週末聊過」、十人經濟體的例子（字幕沒有念出 Baumol 之名）、智慧函數與 p 值的奇點討論、學生的多 agent 實驗（LangGraph、Inspect、Kaggle）、各桌五分鐘估 X、250 倍與 2,000 倍的倍率、新宗教玩笑、Windows 3.1 與 OpenAI 章程；字幕沒有二元樹 0.916 等實驗數字與 Lifland／Jurkovic 的估計，這些來自週摘要與投影片。學生實驗的位置原寫精確時間，字幕無時間碼，已改為約略位置。
+
+## 用到的官方材料與存取狀態
+
+| 材料 | 狀態 |
+|---|---|
+| [講課錄影](https://youtu.be/wzep3Rnv6iw)（約 2 小時 30 分） | 公開；Boaz 主講，無客座 |
+| [講課投影片](https://hu-my.sharepoint.com/:p:/g/personal/boaz_seas_harvard_edu/ESGsKxa1G79Gv4T9O4g9ZJkBIZd4CWudXEzLmBvdpLbkmg?e=fci9ky)（Harvard SharePoint） | 公開，不需登入可下載（`AISafety_Fall25_lec6_rsi.pptx`，31 張）；本文的方程、Baumol 例子、AI 2027 估計與結論清單都已對照投影片文字。第 5–6、20–22、25 張等是純圖片頁 |
+| [LessWrong Week 6 摘要](https://www.lesswrong.com/posts/DonyTLfGkyRyvJqwG/cs-2881r-week-6-recursive-self-improvement)（Joshua Qin、Mohammad Khan、Jaray Liu） | 公開；整理了課堂的方程式與學生實驗數字 |
+| 閱讀清單 | 公開，四篇 pre-reading，另有十篇延伸 |
+| 學生實驗 | 課站「Experiment」欄寫 To be determined，並附上一句構想：做一個實驗，看寫程式或 AI 這類窄任務的成功，需要多少廣泛的通用能力。錄影與 LessWrong 摘要則顯示有一組學生報告了多 agent 實驗（見下文），但課站沒有列出投影片或 GitHub |
+
+系列整體的存取分級是 A3（附缺口清單，見[系列入口](/posts/ai/2026-09-30-cs2881r-course-overview)）。單看這一講，沒有作業或實驗程式可以跟著做，比較接近[課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)定義的 **A2**：錄影、學生摘要、閱讀清單足以理解論證，練習要靠自己。
 
 ## 更新紀錄
 

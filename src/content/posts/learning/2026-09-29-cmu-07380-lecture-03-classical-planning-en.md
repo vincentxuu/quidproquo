@@ -1,5 +1,5 @@
 ---
-title: "Reading CMU 07-380 Lecture 3: Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics"
+title: "Classical Planning, PDDL, State-Space Search, and Relaxation Heuristics | CMU 07-380 Lecture 3"
 date: 2026-09-29
 category: learning
 tags: [cmu, 07-380, ai-course, course-guide, planning, pddl]
@@ -23,26 +23,6 @@ This is Lecture 3 of [CMU 07-380 AI & ML II](https://www.cs.cmu.edu/~07380/), Fa
 The short version: **planning is not a new problem, it is the same search problem with a different state representation.** Once states are factored, a planner can read the action descriptions and compute its own heuristic, without a human staring at the puzzle.
 
 Everything here reflects the [course site as of 2026-09-29](https://www.cs.cmu.edu/~07380/#schedule); the site notes that the schedule is subject to change.
-
-## Course video sources
-
-The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
-
-Official sources:
-
-- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
-
-Checked on 2026-10-10.
-
-## Official materials and scope
-
-- [Lec3 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec3_Classical_Planning_inked.pdf): pre-reading polls, SATPlan, STRIPS, Blocks world, PDDL, state-space search, and the start of GraphPlan
-- The **first half** of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): GraphPlan mutexes, backward search, the delete-relaxed planning graph, Fast Forward, Fast Downward. The motion-planning half is covered in the [next post on RRT](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
-- [PR2 Planning pre-reading notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Planning.pdf) (checkpoint due 8/30)
-- [Recitation 2](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26.pdf) and its [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) (9/4): successor-state axioms, GraphPlan vocabulary, the Crane problem, h<sub>max</sub>/h<sub>add</sub>
-- The site assigns AIMA Ch. 11.1-3. This post does not draw on the textbook; it only lists the range
-
-**Access level**: slides, notes, recitation, and solutions for this lecture are all public, so this part reaches A3 (enough to self-study). Canvas checkpoint questions are CMU-only. The course as a whole is still A2 (in progress); the grading scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## The problem carried over: logic cannot easily say "change"
 
@@ -188,6 +168,26 @@ Check it yourself: both subgoals need the same "toasted bread" fact, so h<sub>ad
 - Previous: [HW1 guide: Logic and the Hybrid Wumpus Agent](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus-en)
 - Next: [Lecture 4 guide: Motion Planning, RRT samples its way through continuous space](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
 - Series overview: [CMU 07-380 Fall 2026 overview](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview-en)
+
+## Course video sources
+
+The official Fall 2026 schedule and assignment list have been checked: public resources include slides, pre-readings, demonstrations and assignments, but no public recording link for the corresponding lectures. This article is therefore a materials-based guide with no corresponding lecture player. This observation concerns the public official page and does not establish whether internal recordings exist.
+
+Official sources:
+
+- [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
+
+Checked on 2026-10-10.
+
+## Official materials and scope
+
+- [Lec3 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec3_Classical_Planning_inked.pdf): pre-reading polls, SATPlan, STRIPS, Blocks world, PDDL, state-space search, and the start of GraphPlan
+- The **first half** of the [Lec4 slides (inked PDF)](https://www.cs.cmu.edu/~07380/lectures/07380_F26_Lec4_Planning_II_inked.pdf): GraphPlan mutexes, backward search, the delete-relaxed planning graph, Fast Forward, Fast Downward. The motion-planning half is covered in the [next post on RRT](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt-en)
+- [PR2 Planning pre-reading notes](https://www.cs.cmu.edu/~07380/notes/07380_F26_Notes_Planning.pdf) (checkpoint due 8/30)
+- [Recitation 2](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26.pdf) and its [solutions](https://www.cs.cmu.edu/~07380/recitations/Recitation2_07380_f26_sol.pdf) (9/4): successor-state axioms, GraphPlan vocabulary, the Crane problem, h<sub>max</sub>/h<sub>add</sub>
+- The site assigns AIMA Ch. 11.1-3. This post does not draw on the textbook; it only lists the range
+
+**Access level**: slides, notes, recitation, and solutions for this lecture are all public, so this part reaches A3 (enough to self-study). Canvas checkpoint questions are CMU-only. The course as a whole is still A2 (in progress); the grading scale is defined in the [global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en).
 
 ## Update Log
 

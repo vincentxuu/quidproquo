@@ -7,6 +7,22 @@ description: 'Update an existing Markdown post under a category directory in src
 
 更新既有的 quidproquo 文章，但**不破壞**它的身份（slug、檔名、原始發文日期都不動）。
 
+## 課程文章更新（必讀）
+
+涉及課程總覽、單堂導讀、作業或週次文章，動筆前必須直接讀 `../post/references/course-guide-contract.md`，先辨識文章角色與此次更新範圍。中文單堂標題採「主題｜課程 第 N 堂」，英文使用 `Lecture N`；跨堂、週次、作業與總覽依該規格各自處理，原課堂次不能用 `series.order` 代替。
+
+- 使用者只要求補影片、來源或修連結時，維持既有教學主體；不能順便全面改寫、改標題或增加整套練習。既有標題不合規可列為後續項目。
+- 使用者要求改善導讀時，按文章角色修讀者目標、概念解釋、完整例子與理解檢查；總覽不套單堂教學規準。
+- 來源查詢、登入測試、頁碼核對與重試歷程存研究筆記；正文只保留影響理解或可操作性的來源限制，以及會影響結論的衝突。不要把每次更新的查核工作量寫進開頭。
+- 保留 slug、date、lang、series 等身份資料；既有來源與更新紀錄不能因改寫失去必要的證據。同步受影響的中英文內容。
+- 回報分列「本次更新完成」「事實查證」「教學品質」。只補來源不能宣稱完成教學改寫；機械檢查通過不能代替導讀品質驗收。
+
+若此次改到課程標題，另對本次檔案執行獨立檢查（不掃全站、不代替 `pnpm verify`）：
+
+```bash
+node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<category>/<檔名>.md
+```
+
 ## 何時用 post-update vs 重發新文章
 
 | 情境 | 用 post-update | 重發新文章 |

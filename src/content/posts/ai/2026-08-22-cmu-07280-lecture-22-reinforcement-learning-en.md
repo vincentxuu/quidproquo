@@ -1,5 +1,5 @@
 ---
-title: "CMU 07-280 Lecture 22: Q-learning When Dynamics Are Unknown"
+title: "Q-learning When Dynamics Are Unknown | CMU 07-280 Lecture 22"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -18,22 +18,6 @@ series:
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
 Lecture 21 could sum over every successor because `P` and `R` were known. **CMU 07-280, Spring 2026, Lecture 22** removes that privilege. An agent chooses an action, observes a reward and next state, and learns from samples. The official title is simply *Reinforcement Learning*.
-
-## Course video sources
-
-The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
-
-Official sources:
-
-- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
-
-Checked on 2026-10-10.
-
-## Official materials and reading scope
-
-This article fully reads the [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf), [Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf), and the public [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/). The official site has no public Spring 2026 lecture recording, so this reading relies only on published slides, recitation material, and code scaffolding.
-
-Parts of the programming directory are anonymously visible. Gradescope tests, submission, and staff feedback are not. Visible code is not the same as a completely gradeable course assignment.
 
 ## The inherited problem: where does `P` in the Bellman expectation come from?
 
@@ -106,6 +90,22 @@ Tabular Q-learning also assumes one storage cell for every `(s,a)`. Pac-Man, ima
 ## An action for tonight
 
 Create a deterministic MDP with two states and two actions and write down its true optimal Q-table. Hand-calculate the first three Q-learning updates from a fixed transition sequence, then reproduce them in code. Enable `ε=0.2` for 1,000 steps and record both visit counts and Q error for every action; do not inspect cumulative reward alone.
+
+## Course video sources
+
+The official Spring 2026 schedule has been checked: it lists slides, notes and exercises, but no public recording link for the lectures covered here. This article therefore links to course materials and has no corresponding lecture player. Géron/Karpathy videos are supplementary readings; the CMU-Qatar NumPy recording is a separate Recitation 0, not the lecture covered here.
+
+Official sources:
+
+- [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
+
+Checked on 2026-10-10.
+
+## Official materials and reading scope
+
+This article fully reads the [Lecture 22 slides](https://www.cs.cmu.edu/~07280/lectures/07280_S26_Lec22_RL.pdf), [Recitation 12](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12.pdf), its [solutions](https://www.cs.cmu.edu/~07280/recitations/07280_S26_Rec12_sol.pdf), and the public [RL programming assignment](https://www.cs.cmu.edu/~07280/assignments/reinforcement/). The official site has no public Spring 2026 lecture recording, so this reading relies only on published slides, recitation material, and code scaffolding.
+
+Parts of the programming directory are anonymously visible. Gradescope tests, submission, and staff feedback are not. Visible code is not the same as a completely gradeable course assignment.
 
 ## Update Log
 

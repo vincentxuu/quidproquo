@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS189 Spring 2025 Overview: HW1–7 with Code and Data You Can Run, Plus What Fall 2026 Looks Like"
+title: "Spring 2025 Overview: HW1–7 with Code and Data You Can Run, Plus What Fall 2026 Looks Like | Berkeley CS189 Course Overview"
 date: 2026-08-22
 category: learning
 tags: [berkeley, cs189, machine-learning, open-course, learning-path]
@@ -21,18 +21,6 @@ draft: false
 [Berkeley CS189 Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s25/) is the math-heavy ML entry point at Berkeley. It does not follow [CS188 Spring 2026](https://inst.eecs.berkeley.edu/~cs188/sp26/); the two are parallel. The [Berkeley AI/ML Course Guide](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) frames them as search/reasoning vs. statistical learning — this post makes CS189 executable.
 
 **To self-study lecture by lecture with this series, use [Spring 2026](https://eecs189.org/sp26/); for the classic SVM / decision tree / PCA / boosting route, use Spring 2025; to see what next term looks like, watch Fall 2026.** Spring 2026 publishes lecture notes, 25 lecture videos, discussions with solutions, and the HW1–5 handouts, and this series uses it as the base from post 2 onward (see [Three Versions of CS189](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en)). Spring 2025 at `people.eecs.berkeley.edu/~jrs/189s25/` keeps 25 lectures of notes, HW1–7, code/data and past exams (A3 in this site's [A0–A3 scale](https://quidproquo.cc/posts/learning/2026-08-21-global-ai-cs-course-map-en)); its official recordings are on bCourses and require a login. Fall 2026 at `eecs189.org/fa26` just published a 27-lecture calendar (`Lec01 Introduction + ML Problem Framing` to `Lec27 Closing`), but most decks and assignments are still TBD and the rotating `eecs189.org` domain 302s to the current term, so old URLs can 404.
-
-## Course video sources
-
-This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
-
-Course and recording entries:
-
-- [Official course and recording entry](https://eecs189.org/sp26/)
-- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
-- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
-
-Checked: 2026-10-10.
 
 ## How public is it
 
@@ -103,9 +91,24 @@ Still unavailable, and only noted as existing in the series: the Spring 2026 fin
 2. On Spring 2026, open the [Lec 1–3 guide](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics-en) and label each [HW1](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en) warm-up problem as derivation, data analysis, or programming.
 3. If the linear algebra or probability warm-ups stall you, patch fundamentals via CS70 notes or [CS61B](https://fa25.datastructur.es/) before jumping ahead.
 
+## Course video sources
+
+This post is a course overview or resource map with no single corresponding lecture. Checked live on 2026-10-10: the Spring 2026 official YouTube playlist (25 lecture videos) is publicly viewable. The Spring 2025 official lecture videos are on bCourses and redirect to a CalNet sign-in page; the only public Spring 2025 recordings are screen-only backup screencasts on Google Drive. Fall 2026 was not part of this check.
+
+Course and recording entries:
+
+- [Official course and recording entry](https://eecs189.org/sp26/)
+- [CS189 Spring 2026 Lectures — official YouTube playlist (25 videos)](https://www.youtube.com/playlist?list=PLuHtd0SzXhx4B8oOmp9PBEroMuV5n0MWE)
+- [CS189 Spring 2025 course page (Shewchuk)](https://people.eecs.berkeley.edu/~jrs/189s25/)
+
+Checked: 2026-10-10.
+
 ## Update Log
 
 - 2026-10-10: Rechecked video status. Confirmed the Spring 2026 YouTube playlist is public and that Spring 2025 official recordings sit behind a CalNet sign-in; the status stays official entry only for this overview.
+
+- 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-09-29: Expanded the series to 18 posts with Spring 2026 as the base; added a "Posts in this series" table of contents and a list of unreleased parts; corrected the "HW1–7 route" section, which had presented the Spring 2026/Fall 2026 sequence as Spring 2025's HW topics, rewriting it from the lecture titles on the 189s25 course page and noting that Spring 2025 recordings need a bCourses login; added Spring 2026 to the access table; pointed the starter steps at the series posts.
 
 ## References
 
@@ -118,9 +121,3 @@ Still unavailable, and only noted as existing in the series: the Spring 2026 fin
 - [CS70 Fall 2025](https://fa25.eecs70.org/)
 - [CS61B Fall 2025](https://fa25.datastructur.es/)
 - [CSDIY — Berkeley CS189](https://csdiy.wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CS189/)
-
-## Update log
-
-
-- 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-09-29: Expanded the series to 18 posts with Spring 2026 as the base; added a "Posts in this series" table of contents and a list of unreleased parts; corrected the "HW1–7 route" section, which had presented the Spring 2026/Fall 2026 sequence as Spring 2025's HW topics, rewriting it from the lecture titles on the 189s25 course page and noting that Spring 2025 recordings need a bCourses login; added Spring 2026 to the access table; pointed the starter steps at the series posts.

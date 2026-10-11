@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 11: Dynamic Storage Management, Continued"
+title: "Dynamic Storage Management, Continued | Stanford CS111 Lecture 11"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 This is part 12 of [Reading Stanford CS111](/series/stanford-cs111), covering **Stanford CS111, Spring 2026, Lecture 11**. Mendel Rosenblum taught the lecture on 2026-04-22; its official title is [Dynamic Storage Management, Continued](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf). This article uses the public PDF and the [course calendar](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar). The recording is behind Canvas/Panopto and is not treated as a source read for this article.
 
 The material has an important anomaly: official `Lecture10.pdf` and `Lecture11.pdf` have the same SHA-256 (`368092c0...e67cb`) and are byte-identical 22-page files, although the calendar calls April 22 **Dynamic Storage Management, Continued**. The Canvas recording is unavailable, so the actual in-room continuation cannot be reconstructed. This article does not invent boundary tags or other absent content; it focuses on storage reclamation explicitly present in the repeated deck's latter half.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. Placement and reclamation are different questions
 
@@ -72,6 +64,14 @@ Compaction also reduces external fragmentation, but pointer updates are a hard i
 The slides give magnitudes of 10–20% of CPU time, 2–5× overallocation, and long pauses. They communicate trade-offs, not benchmarks for every runtime, heap, collector, and workload. Generational, incremental, and concurrent techniques are not in these 22 pages. ([official lecture PDF](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/11/Lecture11.pdf))
 
 The conclusion is not that GC always beats manual free. Reference counting buys local decisions but misses cycles; tracing GC buys global reachability while paying scan, space, and pause costs; manual reclamation leaves programmers exposed to dangling pointers and leaks. The duplicated artifact justifies this article's shorter length: these seven sections cover every reclamation item in the PDF without padding the article by repeating Lecture 10's placement discussion.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## Update Log
 

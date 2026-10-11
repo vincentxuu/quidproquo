@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 1: From the Course Map to the Unix Command Line"
+title: "From the Course Map to the Unix Command Line | Stanford CS107 Lecture 1"
 date: 2026-08-22
 category: learning
 tags: [cs107, stanford, c-language, systems-programming, unix, self-study]
@@ -20,14 +20,6 @@ draft: false
 Stanford CS107 does not begin by rushing into C syntax. Lecture 1 first changes the question. CS106B asks how to solve problems with a high-level language; CS107 asks why programs actually work. What do an `int`, a string, and a structure look like in hardware? How does an executable enter memory? Who manages the heap behind `malloc`? Together, these questions dismantle abstractions that normally feel automatic.
 
 This article covers [the official Winter 2026 Lecture 1](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/lectures/01/Lecture01.pdf), not the entire course. It follows the slide order: the course's point of view, topics and learning goals, assignments, labs, exams and support, and finally the Unix command line. Even outside Stanford, the lecture is useful because it supplies a map for the next twenty-five lectures: a controlled descent through layers of abstraction.
-
-## Course video sources
-
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## Lecture metadata and source limits
 
@@ -184,6 +176,14 @@ The next lecture turns the map into a first C program: headers, `main`, `printf`
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
 - 2026-08-22: Corrected the Lecture 1 deck length to 33 pages from the official PDF.
+
+## Course video sources
+
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Winter 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+
+Course and recording entries:
+
+- [Official course / lecture source](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## References
 

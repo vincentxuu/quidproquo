@@ -1,5 +1,5 @@
 ---
-title: "CS221 Lecture 8: MDPs II: Learning Q-Values Without a Transition Model"
+title: "MDPs II: Learning Q-Values Without a Transition Model | Stanford CS221 Lecture 8"
 date: 2026-08-22
 category: ai
 type: deep-dive
@@ -20,26 +20,6 @@ draft: false
 This article covers **Stanford CS221, Autumn 2025, Lecture 8**, taught by Percy Liang on 2025-10-15. The [official course site](https://stanford-cs221.github.io/autumn2025/) fixes the offering and assignments. The executable spine is the official [reinforcement_learning artifact](https://stanford-cs221.github.io/autumn2025-lectures/?trace=reinforcement_learning); its code can be checked in the [CS221 Autumn 2025 lecture repository](https://github.com/stanford-cs221/autumn2025-lectures), and the video entry point is Stanford Online's [CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN).
 
 > Material gap: The local copy of the official artifact covers MDPs, tabular model-free methods, SARSA, and Q-learning. It does not provide features or linear approximation in this file, so this article marks that gap rather than importing material from another lecture. Canvas interactions, assignment solutions, and hidden tests are also unavailable.
-
-## Course video sources
-
-The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 8, the same term and lecture number this article follows. It matches item 8 of the official playlist (title checked against the live playlist page).
-
-```youtube
-url: https://www.youtube.com/watch?v=34Hk2v2kwg4
-title: Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning
-```
-
-Original videos: [Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning](https://www.youtube.com/watch?v=34Hk2v2kwg4)
-
-Course and recording entries:
-
-- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
-- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 8) and confirmed it covers the agent get-action/incorporate-feedback interface, exploration policies and estimating an MDP, epsilon-greedy, and Q-learning/SARSA, matching this article's lecture and topic; no mismatch found.
 
 ## TL;DR
 
@@ -149,6 +129,26 @@ The lecture starts with a known MDP: policy, rollout, policy evaluation, and val
 Model-based learning reconstructs an estimated MDP from feedback and reuses value iteration. Model-free Monte Carlo directly accumulates complete-rollout utilities as Q-values. Epsilon-greedy ensures that the agent does not simply repeat its current favorite action. Because complete returns arrive too late, SARSA bootstraps from the next action actually selected. Finally, Q-learning keeps exploratory action selection but builds its target from the greedy next action, moving from on-policy to off-policy learning.
 
 If the question changes to features, linear approximation, or huge state spaces, this Lecture 8 artifact has already marked the boundary: find the next official material instead of inventing missing sections here.
+
+## Course video sources
+
+The video below is the public Stanford Online recording of CS221 Autumn 2025 Lecture 8, the same term and lecture number this article follows. It matches item 8 of the official playlist (title checked against the live playlist page).
+
+```youtube
+url: https://www.youtube.com/watch?v=34Hk2v2kwg4
+title: Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning
+```
+
+Original videos: [Stanford CS221 | Autumn 2025 | Lecture 8: Reinforcement Learning](https://www.youtube.com/watch?v=34Hk2v2kwg4)
+
+Course and recording entries:
+
+- [Official Stanford Online CS221 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)
+- [Official course / lecture source](https://stanford-cs221.github.io/autumn2025/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): read the transcript of this lecture video (playlist item 8) and confirmed it covers the agent get-action/incorporate-feedback interface, exploration policies and estimating an MDP, epsilon-greedy, and Q-learning/SARSA, matching this article's lecture and topic; no mismatch found.
 
 ## Update Log
 

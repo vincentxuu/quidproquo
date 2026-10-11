@@ -1,5 +1,5 @@
 ---
-title: "CS224R L12：多任務與 Goal-Conditioned RL——共享權重，也共享資料"
+title: "多任務與 Goal-Conditioned RL——共享權重，也共享資料｜Stanford CS224R 第 12 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -41,25 +41,6 @@ glossary:
 存取等級是 **A3**：投影片匿名可下載，2026 錄影只放在 Canvas 上。
 
 配套影片（**補充教材**）：[Spring 2025 Lecture 12: Multi-Task RL](https://www.youtube.com/watch?v=qNdsI_4AQJw)（約 70 分鐘）。[2025 年的 L12 投影片](https://cs224r.stanford.edu/spring_2025/slides/12_cs224r_mtrl_gcrl_2025.pdf)前半段還在收尾 model-based RL（合成資料生成、什麼時候用 model-based RL），我讀過字幕，錄影開頭確實先收尾 model-based RL（合成資料生成與何時使用 model-based RL），才進入多任務。以下以 2026 投影片為準。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=qNdsI_4AQJw
-title: Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）](https://www.youtube.com/watch?v=qNdsI_4AQJw)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L12 Multi-Task RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L12、講者為 Chelsea Finn；開頭明說「今天先收尾 model-based RL（用 learned model 生成合成資料、何時使用 model-based RL）」，接著才講多任務模仿與 RL、任務識別碼、goal-conditioned 與 hindsight relabeling，與本文所述前段是 model-based 收尾相符。本文以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 為什麼要一次學很多任務
 
@@ -216,6 +197,25 @@ goal-conditioned 的優缺點：
 可以確認：2026 投影片的文字、演算法和總結表，課表日期與指定閱讀，2025 HW4 題目 PDF 的內容與算力規定，2025 L12 影片的標題與長度。不能確認：第 9 頁思考題在課堂上的討論、第 15–18 頁影片素材的內容，以及 relabeling 三個前提在課堂上的口頭解釋（上面折疊區是我的推論）。
 
 系列導覽：上一篇 [L11 Model-Based RL](/posts/ai/2026-09-30-cs224r-model-based-rl)｜下一篇 [L13 Meta-RL](/posts/ai/2026-09-30-cs224r-meta-rl)｜[系列入口](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=qNdsI_4AQJw
+title: Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 12: Multi-Task RL（YouTube，補充）](https://www.youtube.com/watch?v=qNdsI_4AQJw)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L12 Multi-Task RL 字幕（前／中／後段加關鍵字搜尋，非逐字比對）。確認影片是 L12、講者為 Chelsea Finn；開頭明說「今天先收尾 model-based RL（用 learned model 生成合成資料、何時使用 model-based RL）」，接著才講多任務模仿與 RL、任務識別碼、goal-conditioned 與 hindsight relabeling，與本文所述前段是 model-based 收尾相符。本文以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

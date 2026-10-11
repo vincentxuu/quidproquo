@@ -1,5 +1,5 @@
 ---
-title: "CS149 第 8 講：資料平行思維，用 map、scan 與 sort 取代鎖"
+title: "資料平行思維，用 map、scan 與 sort 取代鎖｜Stanford CS149 第 8 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,24 +35,6 @@ glossary:
 到這裡為止，課程教你用「worker 做什麼」和「怎麼把工作分給 worker」來想平行程式。第 8 講第一頁就說，今天換一種描述法：**把演算法寫成對資料序列的操作**。
 
 投影片列的清單是 map、filter、fold/reduce、scan/segmented scan、sort、groupBy、join、partition/flatten。主張只有一句：這些操作都有高效的平行實作，所以用它們寫成的程式，往往能在平行機器上跑得很好。後面加了一個星號：**前提是你沒被頻寬卡住**。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 8 - Data-Parallel Thinking》（1:17:48）。字幕涵蓋 map 與 fold／reduce、scan（含 work-efficient 版本與 warp／block 層級的 CUDA 實作）、segmented scan 與稀疏矩陣乘、gather／scatter、用 sort 建粒子格點與 histogram，最後以幾句 Spark 收尾，主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 為什麼要這麼多平行度
 
@@ -188,6 +170,24 @@ index 有重複時，scatter 得做成 `output[index[i]] = atomicOp(output[index
 - 用 CUDA 實作 map、zip、reduce 與 matmul 的作業：[CMU 11-868 作業一：用 CUDA 寫 MiniTorch 的 map、zip、reduce 與 matmul](/posts/ai/2026-09-30-cmu11868-hw1-cuda-programming)
 - GPU 為什麼怕搬資料：[CS336 Lecture 5：GPU 快不是因為每個 thread 快，而是資料少搬幾次](/posts/ai/2026-08-22-cs336-gpu-tpu)
 - 系列總覽與 2023 錄影對照（2023 版第 9 講 Spark 在 Fall 2025 沒有對應講次）：[Stanford CS149 導讀（系列總覽）](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=Ba3TqxSgnTk
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 8 - Data-Parallel Thinking](https://www.youtube.com/watch?v=Ba3TqxSgnTk)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/dataparallel/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 8 - Data-Parallel Thinking》（1:17:48）。字幕涵蓋 map 與 fold／reduce、scan（含 work-efficient 版本與 warp／block 層級的 CUDA 實作）、segmented scan 與稀疏矩陣乘、gather／scatter、用 sort 建粒子格點與 histogram，最後以幾句 Spark 收尾，主題與本文一致。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

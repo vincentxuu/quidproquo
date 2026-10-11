@@ -1,5 +1,5 @@
 ---
-title: "CS124 Week 8 Speech and the PA7/Git Lab: Auditing Information Loss in a TTS-to-STT Pipeline"
+title: "Speech and the PA7/Git Lab: Auditing Information Loss in a TTS-to-STT Pipeline | Stanford CS124 Week 8 / Programming Assignment 7"
 date: 2026-08-22
 category: ai
 type: deep-dive

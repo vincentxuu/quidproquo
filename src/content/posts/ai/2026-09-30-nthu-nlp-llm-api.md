@@ -1,5 +1,5 @@
 ---
-title: "清大 NLP LLM API 助教課：用 Gemini、OpenAI、Claude 跑 NLI 分類——prompts.yaml、JSON 輸出、few-shot 與 token 計數"
+title: "用 Gemini、OpenAI、Claude 跑 NLI 分類——prompts.yaml、JSON 輸出、few-shot 與 token 計數｜清大高宏宇 自然語言處理 助教課"
 date: 2026-09-30
 category: ai
 type: guide
@@ -25,23 +25,6 @@ glossary:
 > **版本說明**：本文依據清大資工高宏宇《自然語言處理》Fall 2025（114-1）[2025 課表](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) W12 列掛的 [llm_api_tutorial.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Slides/llm_api_tutorial.pdf)，以及 [LLM_API_lab](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Reference/LLM_API_lab) 裡的 `llm_api.ipynb` 與 `utils.py`。投影片封面日期是 **2024/11/21**，代表沿用 2024 年的助教課。錄影是 [W12 週四那支](https://www.youtube.com/live/xGwQYvya_Ag)（課表標為「Video2(LLM_API)」，2025-11-19，56:35），它沒有字幕軌，本文沒有逐段核對錄影內容。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片與 notebook 公開，但 notebook 讀取的 `prompts.yaml` 沒有放在 repo 裡（見下文）。
 
 **系列位置**：上一篇 [RAG（下）：從 ODQA 到 Self-RAG](/posts/ai/2026-09-30-nthu-nlp-rag-qa-advanced)｜下一篇 [RAG 助教課 1/2＋HW4](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4)｜[系列總覽](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
-
-## 課程影片來源
-
-影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
-
-```youtube
-url: https://www.youtube.com/watch?v=xGwQYvya_Ag
-title: W12 週四錄影（Fall 2025）
-```
-
-原始影片：[W12 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=xGwQYvya_Ag)
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-查核日期：2026-10-10。
 
 ## 為什麼要用 API
 
@@ -127,7 +110,7 @@ Gemini 那段示範得最完整：
 
 ## 自學怎麼做
 
-1. 先照投影片第 10、15、23 頁的截圖寫出 `prompts.yaml`，只要 key 對得上，notebook 就能跑。
+1. 先照投影片第 10、15、23 頁的截圖寫出 `prompts.yaml`，先確認 key 對得上，讓 prompt 讀取與替換這一步能跑；API 呼叫仍須處理前述型號、SDK 與程式問題。
 2. 只挑一家有免費額度的 API 跑完整條流程：基本呼叫、JSON 輸出、few-shot、token 計數。三家的差別看投影片第 29–31 頁就夠了。
 3. 用 10 筆 SemEval 資料比較 zero-shot 和 few-shot 的正確率。這就是 API 比網頁版好用的地方。
 
@@ -138,7 +121,34 @@ Gemini 那段示範得最完整：
 - prompt 調整的方法：[Prompt Engineering 迭代指南](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
 - 從 API 走向 agent：[CME295 第 7 講：Agentic LLM](/posts/ai/2026-09-29-cme295-agentic-llms)
 
+## 不連 API，先確認分類與輸出契約
+
+這是自編測試，不是 notebook 的官方資料。Premise 是「小美有一隻貓」，hypothesis 是「小美有動物」。前者成立時後者必然成立，因此標籤是 `ENTAILMENT`，預期回覆為 `{"result":"ENTAILMENT"}`。
+
+把 hypothesis 換成「小美沒有任何動物」，標籤是 `CONTRADICTION`；換成「小美有兩隻貓」，則是 `NEUTRAL`，因為原句沒有給足資訊判定數量。三筆分別測肯定、衝突與資訊不足，不能把「原句沒寫」一律判成矛盾。
+
+**檢查：** 回覆 `{"result":"NEUTRAL"}` 可以解析成 JSON，但第一題是否答對？答案是不對。程式應分別檢查 JSON 是否合法、`result` 是否屬於三個合法標籤、標籤是否符合題目。若只有兩筆預測正確，三筆資料的 accuracy 是 `2/3`；格式通過不能替代語意正確。
+
+## 課程影片來源
+
+影片來源已對照官方課程頁，並於 2026-10-10 即時查核：講次與影片一致，YouTube 公開且可嵌入。不提供時間跳轉。
+
+```youtube
+url: https://www.youtube.com/watch?v=xGwQYvya_Ag
+title: W12 週四錄影（Fall 2025）
+```
+
+原始影片：[W12 週四錄影（Fall 2025）](https://www.youtube.com/watch?v=xGwQYvya_Ag)
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+查核日期：2026-10-10。
+
 ## 更新紀錄
+
+- 2026-10-11：補上自編概念例子與理解檢查，保留原教材與影片核對範圍。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。

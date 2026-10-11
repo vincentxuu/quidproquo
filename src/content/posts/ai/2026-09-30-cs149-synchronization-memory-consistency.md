@@ -1,5 +1,5 @@
 ---
-title: "CS149 L15 記憶體一致性：write buffer 讓 r1 = r2 = 0 變成可能"
+title: "記憶體一致性：write buffer 讓 r1 = r2 = 0 變成可能｜Stanford CS149 第 15 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **本文依據 [CS149](https://gfxcourses.stanford.edu/cs149/fall25) Fall 2025 版。** 這是 [Stanford CS149 導讀](/posts/ai/2026-09-30-cs149-course-overview)系列第 20 篇，接續 [L14 Cache coherence](/posts/ai/2026-09-30-cs149-cache-coherence)，範圍是 Lecture 15（2025-11-13）。
 
 用到的官方材料是 [L15 投影片 PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/sync_consistency/15_consistency.pdf)（60 頁，另有[逐頁網頁版](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)）。Fall 2025 的錄影只放在 Canvas，官方首頁指向 2023 年版的 [Lecture 12 Memory Consistency 錄影](https://www.youtube.com/watch?v=nFXWmo9MFiY)當替代。本文以 2025 投影片為準，影片只列為聽講補充。存取等級是 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）：投影片完整公開，缺的是當期錄影。
-
-## 課程影片來源
-
-本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
-
-```youtube
-url: https://www.youtube.com/watch?v=nFXWmo9MFiY
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency
-```
-
-原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency](https://www.youtube.com/watch?v=nFXWmo9MFiY)
-
-課程與錄影入口：
-
-- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
-- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
-
-內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 12 - Memory Consistency》（1:19:15）。影片開頭先收尾 cache coherence，之後講 memory consistency：字幕涵蓋 sequential consistency、write buffer 造成的重排（字幕有 TSO／PSO 與 fence）、relaxed consistency 與 data race，主題與本文一致；字幕沒有 x86 的 lfence／sfence／mfence 細節與 release consistency 的名稱，講者結尾說語言層級的 memory model 下週再講。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 先說清楚這一講的範圍
 
@@ -206,6 +188,24 @@ x86 大致是 TSO，軟體需要模型沒保證的順序時，可以用 `_mm_lfe
 延伸閱讀：作業系統角度的鎖實作與 atomic 操作，可以讀 [CS111 Lecture 6：Implementing locks](/posts/learning/2026-08-22-stanford-cs111-lecture-06-implementing-locks)。
 
 系列導覽：上一篇 [L14 Cache coherence：MSI、MESI 與 false sharing](/posts/ai/2026-09-30-cs149-cache-coherence)｜下一篇 [L16 細粒度鎖與 lock-free](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)｜[系列總覽](/posts/ai/2026-09-30-cs149-course-overview)
+
+## 課程影片來源
+
+本文以 Fall 2025 教材為準。官方 Fall 2025 課程頁寫明今年的講課錄影不對外公開，只提供 2023 年版本的 YouTube 播放清單；下列 Fall 2023 錄影是主題相近的相關補充影片，內容可能與 2025 版不同，原講次錄影未確認。查核日期：2026-10-10。
+
+```youtube
+url: https://www.youtube.com/watch?v=nFXWmo9MFiY
+title: Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency
+```
+
+原始影片：[Stanford CS149 I Parallel Computing I 2023 I Lecture 12 - Memory Consistency](https://www.youtube.com/watch?v=nFXWmo9MFiY)
+
+課程與錄影入口：
+
+- [CS149 2023 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp)
+- [官方課程／講次來源](https://gfxcourses.stanford.edu/cs149/fall25/lecture/sync_consistency/)
+
+內容核對：已依字幕核對（2026-10-10）：讀了 Fall 2023 錄影《Lecture 12 - Memory Consistency》（1:19:15）。影片開頭先收尾 cache coherence，之後講 memory consistency：字幕涵蓋 sequential consistency、write buffer 造成的重排（字幕有 TSO／PSO 與 fence）、relaxed consistency 與 data race，主題與本文一致；字幕沒有 x86 的 lfence／sfence／mfence 細節與 release consistency 的名稱，講者結尾說語言層級的 memory model 下週再講。 核對的是影片主題與本文主題的關係；本文內容以 Fall 2025 投影片為準，沒有逐段比對兩版。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "Berkeley CS285 作業與期末專案：CPU、GPU、H100 成本分界"
+title: "CPU、GPU、H100 成本分界｜Berkeley CS285 Spring 2026 主題單元"
 date: 2026-08-22
 category: learning
 tags: [cs285, berkeley, deep-reinforcement-learning, gpu, self-study]
@@ -18,17 +18,6 @@ series:
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 [Spring 2026 starter repository](https://github.com/berkeleydeeprlcourse/homework_spring2026) 公開 HW1–5 與兩個預設 final project 的 code，採 MIT License。這讓自學真正可執行；完整的公開／限修課資產分界見[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。本篇只負責作業算力與專案取捨。
-
-## 課程影片來源
-
-本文討論作業與期末專案，沒有單一對應講次。2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支）；播放清單只有講課與客座演講，沒有作業講解影片。課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。
-
-課程與錄影入口：
-
-- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
-- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
-
-查核日期：2026-10-10。
 
 ## 五份作業的成本表
 
@@ -57,6 +46,17 @@ series:
 ## 交付邊界
 
 能做到的是公開作業的自我驗證版本，不是聲稱完成 Berkeley 學分課。影片、討論、評分與課程支援的完整清單統一維護在[系列總覽](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
+
+## 課程影片來源
+
+本文討論作業與期末專案，沒有單一對應講次。2026-10-10 即時核對：講師已把 Spring 2026 講課錄影公開在 RAIL 的 YouTube 頻道（27 支）；播放清單只有講課與客座演講，沒有作業講解影片。課程 syllabus 仍寫錄影在 bCourses，課站也仍連到 Fall 2023 播放清單。
+
+課程與錄影入口：
+
+- [官方課程與錄影入口](https://rail.eecs.berkeley.edu/deeprlcourse/)
+- [CS 185/285: Deep Reinforcement Learning (Spring 2026) — official RAIL YouTube playlist (27 videos)](https://www.youtube.com/playlist?list=PLKq1TCpsv3Y4)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP HW1: Testing Word Vectors on Google Analogy — Pretrained GloVe vs. Word2Vec Trained on 20% of Wikipedia"
+title: "Testing Word Vectors on Google Analogy — Pretrained GloVe vs. Word2Vec Trained on 20% of Wikipedia | NTHU Hung-Yu Kao Natural Language Processing Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -29,25 +29,6 @@ glossary:
 This is post 3 of the [Reading NTHU Hung-Yu Kao Natural Language Processing](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en) series. It follows [Word Embeddings and Language Models](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models-en), which covered how word vectors are trained. This post puts them to a test: **do word vectors really learn that king is to queen as man is to woman, and how far behind is a model you train yourself?**
 
 The sources are the Fall 2025 [Assignment 1 folder](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment1) in the [IKMLab course repo](https://github.com/IKMLab/NTHU_Natural_Language_Processing): the handout [NLP_HW1_word_emb.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/NLP_HW1_word_emb.pdf), the starter [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment1/main.ipynb), the processed `questions-words.csv`, and the TA's [walkthrough video](https://youtu.be/nCS3GpHwqr8) (titled "Week 2 Thu. - Assignment 1" and listed in the W2 row of the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)). The video is in Mandarin. Access level is **A3**: the handout, starter code, and data are public. Solutions and grading scripts live on NTU COOL, which outside readers cannot reach.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=nCS3GpHwqr8
-title: 2025 HW1 walkthrough video
-```
-
-Original videos: [2025 HW1 walkthrough video](https://www.youtube.com/watch?v=nCS3GpHwqr8)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the whole HW1 walkthrough (about 15 minutes) was read. The TA's account of the Google word-analogy dataset, seven TODOs worth 55% in total, the 45% report, the pre-cleaned Wikipedia split into 11 files, using only 20% of the data, requirements.txt and the .docx report, 5-point deductions for naming and similar violations, and the three-week deadline all agree with the post; the video also uses the same "King + Queen − Man" wording that the post flags in the slides. On plagiarism the video says "zero outright" while the post follows the PDF ("100 points off for both"); these do not conflict, so nothing was changed.
 
 ## What the assignment tests
 
@@ -140,6 +121,25 @@ So if you study with the 2025 materials, you are doing the same assignment as th
 - Next in this series: [Seq2seq, LSTM, and Attention](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en)
 - The same topic in an English-language course: [CS224N: Word Vectors](/posts/ai/2026-08-22-cs224n-word-vectors-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=nCS3GpHwqr8
+title: 2025 HW1 walkthrough video
+```
+
+Original videos: [2025 HW1 walkthrough video](https://www.youtube.com/watch?v=nCS3GpHwqr8)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the whole HW1 walkthrough (about 15 minutes) was read. The TA's account of the Google word-analogy dataset, seven TODOs worth 55% in total, the 45% report, the pre-cleaned Wikipedia split into 11 files, using only 20% of the data, requirements.txt and the .docx report, 5-point deductions for naming and similar violations, and the three-week deadline all agree with the post; the video also uses the same "King + Queen − Man" wording that the post flags in the slides. On plagiarism the video says "zero outright" while the post follows the PDF ("100 points off for both"); these do not conflict, so nothing was changed.
 
 ## Update Log
 

@@ -1,5 +1,5 @@
 ---
-title: "CS231N L11: Large-Scale Distributed Training — Splitting One Model Across Tens of Thousands of GPUs"
+title: "Large-Scale Distributed Training — Splitting One Model Across Tens of Thousands of GPUs | Stanford CS231N Lecture 11"
 date: 2026-09-30
 category: ai
 type: guide
@@ -37,24 +37,6 @@ glossary:
 **Why does a computer vision course teach distributed training?** The [previous post](/posts/ai/2026-09-30-cs231n-video-understanding-en) computed that 5 minutes of 24 fps video becomes 1.41 million ViT tokens. The next post, on self-supervised learning, notes that SimCLR needs large batches and its ImageNet experiments ran distributed on TPUs. Once vision models reach foundation-model scale, fitting them onto many GPUs becomes everyone's problem.
 
 This is the most systems-heavy lecture in the course. Its running example is [Llama3-405B](https://arxiv.org/abs/2407.21783), and the slides explain why. The GPT-4 technical report explicitly withheld architecture, model size, hardware, and training compute, starting a trend of not sharing model details. Llama3, released by Meta in April 2024, shared many model and training details in its paper.
-
-## Course video sources
-
-This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 11 (length 1:12:53). The transcript covers H100/B200 and GPU compute growth, the Llama 3 cluster, all-reduce, FSDP/HSDP, activation checkpointing, context/tensor/pipeline parallelism, microbatches and MFU/HFU (the 30% and 40% thresholds), matching the article's topic. Figures such as 1.875 PB do not appear in the transcript; they come from the slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
-
-```youtube
-url: https://www.youtube.com/watch?v=9MvD-XsowsE
-title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
-```
-
-Original videos: [Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training](https://www.youtube.com/watch?v=9MvD-XsowsE)
-
-Course and recording entries:
-
-- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
-- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Part 1: GPUs and clusters
 
@@ -198,6 +180,24 @@ Finally, use TP, CP, PP, and DP at once. Arrange the GPUs in a 4D grid, and each
 - Why large-batch contrastive learning needs distributed training: the next post, [L12: Self-Supervised Learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
 
 **Series navigation**: Previous: [L10: Video Understanding](/posts/ai/2026-09-30-cs231n-video-understanding-en) | Next: [L12: Self-Supervised Learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en) | [Series overview](/posts/ai/2026-09-30-cs231n-course-overview-en)
+
+## Course video sources
+
+This article uses Spring 2026 materials. The official Spring 2026 schedule (checked live on 2026-10-10) lists no recording links, and no public Spring 2026 playlist was found. The Spring 2025 recordings below come from the public Stanford Online playlist and share the lecture title, but their content may differ from the 2026 lecture, and the original recording has not been verified. Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the video is Spring 2025 Lecture 11 (length 1:12:53). The transcript covers H100/B200 and GPU compute growth, the Llama 3 cluster, all-reduce, FSDP/HSDP, activation checkpointing, context/tensor/pipeline parallelism, microbatches and MFU/HFU (the 30% and 40% thresholds), matching the article's topic. Figures such as 1.875 PB do not appear in the transcript; they come from the slides. The article's slide details follow the 2026 deck and were not compared item by item with this earlier-term recording.
+
+```youtube
+url: https://www.youtube.com/watch?v=9MvD-XsowsE
+title: Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training
+```
+
+Original videos: [Stanford CS231N | Spring 2025 | Lecture 11: Large Scale Distributed Training](https://www.youtube.com/watch?v=9MvD-XsowsE)
+
+Course and recording entries:
+
+- [Stanford CS231N 2025 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)
+- [Official course / lecture source](https://cs231n.stanford.edu/schedule.html)
 
 ## Update Log
 

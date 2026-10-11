@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS329Z 導讀 Week 5：該單幹還是開會——多智慧體與優化三軸"
+title: "該單幹還是開會——多智慧體與優化三軸｜Stanford CS329Z 第 5 週"
 date: 2026-09-10
 category: ai
 type: deep-dive
@@ -25,17 +25,6 @@ draft: false
 但開過會的人都知道，會議本身有成本。誰先發言、結論誰寫、錯了算誰的，一樣都少不了。模型開會也一樣，而且錯得更安靜：上游 agent 的幻覺，會變成下游 agent 深信不疑的事實。週一（10/19，Multi-Agent Systems）的主讀物是 Wu 等人的 [AutoGen](https://arxiv.org/abs/2308.08155)（COLM 2024）：把開會規則寫成程式的框架。
 
 週三（10/21，Optimization）換了一個問題：不管單幹還是開會，系統要變強只有三個地方能調。改 prompt（換說明書）、改權重（換腦袋）、加推理算力（想久一點）。主讀物是 Snell 等人的 [test-time compute 論文](https://arxiv.org/abs/2408.03314)（ICLR 2025）與 Agrawal 等人的 [GEPA](https://arxiv.org/abs/2507.19457)。時間點很現實：[HW1 在 10/30 截止](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，這是交卷前最後一個完整週。這篇幫你決定力氣花在哪一軸。
-
-## 課程影片來源
-
-官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-10。
 
 ## 單體 vs 多體：AutoGen 把分工寫成對話
 
@@ -88,6 +77,17 @@ Week 5 之後只剩一週：Week 6 是嘉賓演講加 Data for Agentic Systems�
 - 週一 10/19 Multi-Agent Systems：主讀物 AutoGen（本文已導讀）。[Cemri 等人收了 1600 多條多智慧體軌跡](https://arxiv.org/abs/2503.13657)，做成 MAST-Data。失敗模式按設計問題、智慧體對不齊、缺驗證分堆，給開會出事點名。呼應週一主題：協調失敗有結構，不是運氣。[Neubig](https://openhands.dev/blog/dont-sleep-on-single-agent-systems)拿 [OpenHands](https://github.com/OpenHands/OpenHands) 經驗幫單體說話：多體的痛在結構僵硬、交接漏上下文、維護貴。一個強模型配通用工具箱加長 prompt，多數分工都吃得下。[Liu 等人的 DyLAN](https://arxiv.org/abs/2310.02170)先選隊再動態組網：在特定 [MMLU](https://arxiv.org/abs/2009.03300) 子集上，選對隊伍最多拉高 25% 準確率。誰上場本身就是可優化的變數。
 - 週三 10/21 Optimization：主讀物 Snell 等人 test-time compute、GEPA（本文已導讀）。[Soylu 等人把微調權重和優化 prompt 交替做](https://aclanthology.org/2024.emnlp-main.597/)，讓同一個模型自己教自己。在多跳問答和數學推理上，一起做贏過只做一邊。[Opsahl-Ong 等人的 MIPRO](https://arxiv.org/abs/2406.11695)把多階段程式每段的指令和示範一起優化，用小批量代理評估解跨模組歸因。最強的一組拉高 13 個百分點，優化器已收進 [DSPy](https://dspy.ai)。它的後續版本 MIPROv2，正是 GEPA 論文鎖定的最強基線。
 - 課表原文：[CS329Z 官網 Week 5](https://cs329z.stanford.edu/)
+
+## 課程影片來源
+
+官方 Logistics 頁（2026-10-10 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs329z.stanford.edu/)
+- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

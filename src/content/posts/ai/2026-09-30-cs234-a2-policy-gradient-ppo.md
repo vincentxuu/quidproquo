@@ -1,5 +1,5 @@
 ---
-title: "CS234 作業二：REINFORCE、baseline 與 PPO 實作，外加策略誘導的分布"
+title: "REINFORCE、baseline 與 PPO 實作，外加策略誘導的分布｜Stanford CS234 作業 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -35,17 +35,6 @@ glossary:
 依 2026 課表，作業二在 Week 2 發下，**2026 年 2 月 1 日（週日）下午 6 點（PST）截止**。截止那週（Week 4）課堂正在講 Policy Search 與模仿學習，所以 PPO 的課才剛講完，程式就要交。
 
 本文只講每題在練什麼、要用哪些講次的工具、做的時候容易卡在哪。**不提供任何題目的解答。**
-
-## 課程影片來源
-
-下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
-
-課程與錄影入口：
-
-- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
-- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
-
-查核日期：2026-10-10。
 
 ## 繳交方式與配分
 
@@ -199,6 +188,17 @@ glossary:
 
 - 同一套 policy gradient 在另一門課怎麼講：[CS224R L3：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)、[CS224R L5：PPO 與 SAC 的共同骨架](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac)
 - Berkeley 的版本：[CS285 L5–10：Policy Gradient、Actor-Critic、DQN 與 SAC](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+
+## 課程影片來源
+
+下方提供官方課程與既有錄影入口。Winter 2026 官方課程頁的 Lecture Materials 只列投影片，沒有列錄影；公開 YouTube 播放清單是 Spring 2024。沒有找到與本文範圍相符的公開單支講次，因此不嵌入。
+
+課程與錄影入口：
+
+- [Stanford CS234 Spring 2024 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
+- [官方課程／講次來源](https://web.stanford.edu/class/cs234/)
+
+查核日期：2026-10-10。
 
 ## 更新紀錄
 

@@ -1,5 +1,5 @@
 ---
-title: "CS224R L2：模仿學習與能表達多峰分佈的 policy"
+title: "模仿學習與能表達多峰分佈的 policy｜Stanford CS224R 第 2 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -47,25 +47,6 @@ glossary:
 學習目標也寫得很具體：怎麼用神經網路表示分佈、為什麼表達力對模仿學習很重要、什麼是 compounding errors 以及怎麼處理。
 
 課表在這一講列了兩篇 optional reading：[Diffusion Policy（Chi et al.）](https://arxiv.org/abs/2303.04137v5) 和 [Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware（Zhao et al.，也就是 ALOHA/ACT）](https://arxiv.org/abs/2304.13705)。
-
-## 課程影片來源
-
-本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
-
-```youtube
-url: https://www.youtube.com/watch?v=WxRDyObrm_M
-title: Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）
-```
-
-原始影片：[Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)
-
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L2 Imitation Learning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 mixture／diffusion 形式的表達力 policy、compounding errors 與 DAgger 式的線上介入；字幕沒有出現 flow matching，所以本文 flow matching 的段落來自 2026 投影片，不是影片。本文敘述以 2026 投影片為準，影片只當補充。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs224r.stanford.edu/)
-
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 第一個問題：平均值不是答案
 
@@ -225,6 +206,25 @@ print("落在平均值附近 ±0.2 的示範比例:", np.mean(np.abs(a - a.mean(
 - [CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)：同一套雜訊與去噪框架用在語言模型
 
 **系列導覽**：上一篇 [L1：把做決策寫成 RL 問題](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)｜下一篇 [HW1：Flappy Bird 模仿學習](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)
+
+## 課程影片來源
+
+本文以 Spring 2026 教材為準；下列 Spring 2025 公開錄影是補充教材，講次與內容可能有出入。
+
+```youtube
+url: https://www.youtube.com/watch?v=WxRDyObrm_M
+title: Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）
+```
+
+原始影片：[Spring 2025 Lecture 2: Imitation Learning（YouTube，補充）](https://www.youtube.com/watch?v=WxRDyObrm_M)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取 Spring 2025 L2 Imitation Learning 的字幕（前／中／後段加關鍵字搜尋，非逐字比對），確認影片確實是這一講、講者為 Chelsea Finn、主題與本文相符。字幕談到 mixture／diffusion 形式的表達力 policy、compounding errors 與 DAgger 式的線上介入；字幕沒有出現 flow matching，所以本文 flow matching 的段落來自 2026 投影片，不是影片。本文敘述以 2026 投影片為準，影片只當補充。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://cs224r.stanford.edu/)
+
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
 
 ## 更新紀錄
 

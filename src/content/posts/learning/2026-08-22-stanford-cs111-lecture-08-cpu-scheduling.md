@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS111 Lecture 8：FIFO、round robin、priority 與多核心排程"
+title: "FIFO、round robin、priority 與多核心排程｜Stanford CS111 第 8 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 這是 [Stanford CS111 導讀](/series/stanford-cs111)的第 9 篇，對應 **Stanford CS111, Spring 2026, Lecture 8**。2026-04-15 由 Mendel Rosenblum 主講，官方題目是 [Scheduling](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/lectures/8/Lecture8.pdf)。本文依公開 PDF 與[課程行事曆](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)整理；錄影在 Canvas／Panopto 後面，沒有把它當成已讀來源。
 
 這講接續 dispatching：dispatcher 已經能保存暫存器、切換 stack，現在才問「下一個該切給誰」。因此 **dispatch 是 mechanism，scheduling 是 policy**。輸入是一組 ready threads 與若干 CPU cores；輸出則是每個 core 跑哪個 thread、跑多久。官方 PDF 先用單核心建立直覺，再把同一政策搬到多核心；錄影只在 Canvas，本文不補寫投影片沒有的口頭內容。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 1. FIFO：最簡單的 ready queue 已經是一項政策
 
@@ -117,6 +109,14 @@ scheduler 是回應事件而執行的 code，**不是一條常駐 thread**。PDF
 CPU scheduling 的重要性也隨硬體與 workload 改變。timesharing 時代 CPU 稀缺，政策極重要；單一使用者 PC 可較多交由 user 調整；多核心讓一般 CPU time 不再總是最稀缺。但 datacenter 又把問題放大到數百、數千台 servers，還要讓 latency-critical web service 與 CPU-heavy ML training 共存。
 
 最後的契約是：scheduler algorithm 不應改變程式產生的結果，但會深刻影響效率與 response time。最好的方案通常 adaptive，依 workload 調整；那些看似奇怪的 constants 可能大幅左右行為。真正最優需要預測未來，實際系統只能用過去估計未來，並在 response time、utilization、overhead、公平與 locality 之間持續折衷。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Spring 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs111/cs111.1266/calendar)
 
 ## 更新紀錄
 

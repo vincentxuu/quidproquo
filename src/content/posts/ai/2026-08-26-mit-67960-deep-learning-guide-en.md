@@ -1,5 +1,5 @@
 ---
-title: "Reading MIT 6.7960: One Course, Two Official Editions — Complete the OCW 2024 Package, Read the 2025 Decks for What's New"
+title: "One Course, Two Official Editions — Complete the OCW 2024 Package, Read the 2025 Decks for What's New | MIT 6.7960 Topic Guide"
 date: 2026-08-26
 category: ai
 type: guide
@@ -22,17 +22,6 @@ draft: false
 This is not, however, a fully open course. Problem sets are released through [Gradescope](https://www.gradescope.com/courses/1110115), their solutions sit on [Canvas](https://canvas.mit.edu/courses/33933), and so do the lecture recordings — all three require MIT credentials. Under this site's four-tier rubric from the [Global AI and CS Course Map](/posts/learning/2026-08-21-global-ai-cs-course-map-en), the course rates **A2: partially open materials**. A materials-level deep dive is possible; the gaps must be stated plainly.
 
 This post answers four questions: what the course teaches, how the three instructors divide it, how the 21 lectures connect, and how far an outside learner can get using two free textbooks. My verification covered the complete Fall 2025 schedule, grading section, and policies on the official site; I did not open every slide deck to audit its inner pages, so descriptions of individual lectures come from the official site's own summaries.
-
-## Course video sources
-This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Per-lecture videos are embedded in each lecture article.
-
-Course and recording entries:
-
-- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): this post embeds no video, so only its statements about the videos were checked: I read the transcripts and descriptions of the 18 lecture videos Lec 01–18 (Lec 19 onward not read) and confirmed that the Fall 2024 lecturers were Isola, Bernstein and Beery (Beery did not only join in 2025); the old "taught by Isola and Bernstein" omitted Beery and was corrected.
 
 ## First, decide if this is your course
 
@@ -129,6 +118,17 @@ For background, pair this with the [MIT AI/ML Course Map](/posts/learning/2026-0
 ## Bottom line
 
 6.7960 Fall 2025 is a rigorously designed A2 course: 21 public decks, curated readings, and an open project guidelines document make materials-level self-study entirely feasible, while closed psets, solutions, and current-year recordings mark the real boundary for outsiders. Substitute textbooks for lectures, fill recordings from OCW 2024, and close with a mini project — you won't get MIT credit, but you will reach the core of the course.
+
+## Course video sources
+This article covers multiple lectures; choose recordings by topic and lecture from the official index. Rechecked against the live MIT OCW Fall 2024 gallery on 2026-10-10: it lists public recordings for Lec 01–21, Lec 23, Lec 24 and a PyTorch Tutorial; OCW marks Lec 22 as not available. Per-lecture videos are embedded in each lecture article.
+
+Course and recording entries:
+
+- [mit-6-7960-fall-2024-ocw — official course materials and recording index](https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/video_galleries/lecture-videos/)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): this post embeds no video, so only its statements about the videos were checked: I read the transcripts and descriptions of the 18 lecture videos Lec 01–18 (Lec 19 onward not read) and confirmed that the Fall 2024 lecturers were Isola, Bernstein and Beery (Beery did not only join in 2025); the old "taught by Isola and Bernstein" omitted Beery and was corrected.
 
 ## Update Log
 

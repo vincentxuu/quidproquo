@@ -1,5 +1,5 @@
 ---
-title: "NTHU NLP HW2: Arithmetic as a Language — PyTorch TA Session, a Two-Layer LSTM, and Teacher Forcing"
+title: "Arithmetic as a Language — PyTorch TA Session, a Two-Layer LSTM, and Teacher Forcing | NTHU Hung-Yu Kao Natural Language Processing Assignment 2"
 date: 2026-09-30
 category: ai
 type: guide
@@ -33,30 +33,6 @@ The post draws on two sets of material in the [IKMLab course repo](https://githu
 - **Assignment 2**: the [folder](https://github.com/IKMLab/NTHU_Natural_Language_Processing/tree/main/2025/Assignments/Assignment2) holds the handout [NLP_HW2_arithmetic.pdf](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment2/NLP_HW2_arithmetic.pdf), the starter [main.ipynb](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/Assignments/Assignment2/main.ipynb), `arithmetic_train.csv`, and `arithmetic_eval.csv`. There is also a [walkthrough video](https://youtu.be/nFQCFaRs0kE) titled "Week 5 Thu. - Assignment 2"; the [2025 schedule](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md) lists HW2 in the W5 row.
 
 Access level is **A3**: the handout, starter code, and full data are public. Solutions and grading scripts are on NTU COOL. Fall 2026 has not released HW2 yet, so everything here is the 2025 version.
-
-## Course video sources
-
-Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
-
-```youtube
-url: https://www.youtube.com/watch?v=INIrdjLVMEU
-title: Fall 2025 W4 Tue TA session recording
-```
-
-```youtube
-url: https://www.youtube.com/watch?v=nFQCFaRs0kE
-title: 2025 HW2 walkthrough video
-```
-
-Original videos: [Fall 2025 W4 Tue TA session recording](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 walkthrough video](https://www.youtube.com/watch?v=nFQCFaRs0kE)
-
-Course and recording entries:
-
-- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
-
-Checked: 2026-10-10.
-
-Content check: verified against the video transcript (2026-10-10): the whole Week 4 Tue. TA-session transcript was read. What the post says about it (Anaconda and installing PyTorch by CUDA version, the polynomial example introducing model/loss/optimizer, view vs reshape, nn.ModuleList vs a Python list, autograd dependency counting and the three ways to disable gradients, the training loop, Dataset/DataLoader and collate, the "I love AI" RNN data flow and teacher forcing vs generative training, and loading BERT with Hugging Face at the end) is all found in the captions; the 100x100 normalization timings (0.127 / 0.000088 s) and page numbers come from the slides, while the captions only say the matrix version is much faster. The HW2 walkthrough (nFQCFaRs0kE) has no captions on its YouTube page, so it could not be checked; the assignment details in the post rely on the PDF and starter code alone.
 
 ## The TA session: a toolbox for the assignment
 
@@ -155,6 +131,30 @@ The handout asks for results as text rather than only images, to make grading ea
 - Next in this series: [Transformers and Self-Attention](/posts/ai/2026-09-30-nthu-nlp-transformers-en)
 - RNNs in an English-language course: [CMU 11-785: RNNs, part 1](/posts/ai/2026-08-22-cmu-11785-13-rnn-one-en), [CMU 11-785: RNNs, part 2](/posts/ai/2026-08-22-cmu-11785-14-rnn-two-en)
 - Back to the [series overview](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+
+## Course video sources
+
+Video sources were checked against the official course page and rechecked live on 2026-10-10: lecture and video match, and the YouTube videos are public and embeddable. No timestamp is supplied.
+
+```youtube
+url: https://www.youtube.com/watch?v=INIrdjLVMEU
+title: Fall 2025 W4 Tue TA session recording
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=nFQCFaRs0kE
+title: 2025 HW2 walkthrough video
+```
+
+Original videos: [Fall 2025 W4 Tue TA session recording](https://www.youtube.com/watch?v=INIrdjLVMEU)、[2025 HW2 walkthrough video](https://www.youtube.com/watch?v=nFQCFaRs0kE)
+
+Course and recording entries:
+
+- [Official course and recording entry](https://github.com/IKMLab/NTHU_Natural_Language_Processing/blob/main/2025/README.md)
+
+Checked: 2026-10-10.
+
+Content check: verified against the video transcript (2026-10-10): the whole Week 4 Tue. TA-session transcript was read. What the post says about it (Anaconda and installing PyTorch by CUDA version, the polynomial example introducing model/loss/optimizer, view vs reshape, nn.ModuleList vs a Python list, autograd dependency counting and the three ways to disable gradients, the training loop, Dataset/DataLoader and collate, the "I love AI" RNN data flow and teacher forcing vs generative training, and loading BERT with Hugging Face at the end) is all found in the captions; the 100x100 normalization timings (0.127 / 0.000088 s) and page numbers come from the slides, while the captions only say the matrix version is much faster. The HW2 walkthrough (nFQCFaRs0kE) has no captions on its YouTube page, so it could not be checked; the assignment details in the post rely on the PDF and starter code alone.
 
 ## Update Log
 

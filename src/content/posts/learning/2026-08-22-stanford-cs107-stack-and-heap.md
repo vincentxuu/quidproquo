@@ -1,5 +1,5 @@
 ---
-title: "Stanford CS107 Lecture 10：Stack 與 Heap 的差別不是速度，而是 Lifetime 與 Ownership"
+title: "Stack 與 Heap 的差別不是速度，而是 Lifetime 與 Ownership｜Stanford CS107 第 10 堂"
 date: 2026-08-22
 category: learning
 type: deep-dive
@@ -20,14 +20,6 @@ draft: false
 本講問資料活多久、誰結束生命。Local array 隨函式 frame 存活；heap allocation 可跨越函式返回，但程式必須保存 ownership 並 `free`。
 
 `create_string` 確實建立 `"aaaa"` 並回傳當時的位址；但 pointer 抵達 caller 時，pointee 已結束 lifetime。Heap 修正生命週期，不會自動修正容量、初始化、配置失敗或釋放責任。
-
-## 課程影片來源
-
-本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 本講資料與完整 agenda
 
@@ -272,6 +264,14 @@ Failure to free 造成 leak：allocated object 已不再需要，程式卻沒有
 接著逐條畫出 lifetime：automatic object 到 scope／activation 結束；allocated object到 `free`；literal 具有 static duration 但不可修改。Pointer 本身的 lifetime 與 pointee 分開畫，Mayday 的錯誤會立刻顯現——caller 的 `str` 活著，不代表它指向的 local array 還活著。
 
 Lecture 10 的核心不是背 segment 圖，而是把「位址」與「可合法使用的期間」綁在一起。Stack 用控制流程自動管理 lifetime；heap 讓 lifetime 與呼叫堆疊脫鉤，換來明確 ownership。選 heap 不是取得永久記憶體，而是接下一份必須完成的 cleanup 工作。
+
+## 課程影片來源
+
+本文使用公開教材；當期錄影入口在 Canvas／Panopto，需要修課帳號。下方保留官方來源；不以其他年份影片冒充當期錄影。 2026-10-10 即時重查：官方頁面說明錄影放在 Canvas／Panopto，開啟該入口會被導向 Stanford Canvas 登入頁；Winter 2026 同學期未找到公開的 YouTube、Stanford Online 或 OCW 錄影（搜到的 YouTube 錄影屬於其他年份或其他課程版本，不採用）。查核日期：2026-10-10。
+
+課程與錄影入口：
+
+- [官方課程／講次來源](https://web.stanford.edu/class/archive/cs/cs107/cs107.1264/calendar.html)
 
 ## 更新紀錄
 
