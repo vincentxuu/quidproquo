@@ -47,11 +47,12 @@ flowchart TB
   PL["Spotify plugins<br/>Insights / Soundcheck / RBAC / Skill Exchange"]
   P["Portal by Spotify<br/>commercial platform built on Backstage"]
   X["Xirp<br/>desktop app for multiple coding agents"]
-  C["Confidence<br/>experiments and feature flags on your own warehouse"]
   B --> PL
   B --> P
   P -. "optional: org context over MCP" .-> X
-  C -. "official: same loop; no integration docs found" .- P
+  subgraph S2["Standalone: official says same loop, no integration docs found"]
+    C["Confidence<br/>experiments and feature flags on your own warehouse"]
+  end
 ```
 
 - **Solid lines** are documented dependencies: the plugins install into Backstage; Portal is built on Backstage. The Portal page on the official site lists those four plugins as included.

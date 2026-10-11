@@ -47,11 +47,12 @@ flowchart TB
   PL["Spotify 外掛<br/>Insights／Soundcheck／RBAC／Skill Exchange"]
   P["Portal by Spotify<br/>建在 Backstage 上的商業平台"]
   X["Xirp<br/>管理多個 coding agent 的桌面 App"]
-  C["Confidence<br/>實驗與 feature flag，跑在你的資料倉儲上"]
   B --> PL
   B --> P
   P -. "選配：用 MCP 提供組織脈絡" .-> X
-  C -. "官方稱同屬一個循環，未找到技術整合文件" .- P
+  subgraph S2["獨立產品：官方稱同屬一個循環，但未找到技術整合文件"]
+    C["Confidence<br/>實驗與 feature flag，跑在你的資料倉儲上"]
+  end
 ```
 
 - **實線**是文件寫明的依賴：外掛是裝在 Backstage 上的；Portal 是建在 Backstage 上的。官網的 Portal 頁面列出內含這四個外掛。
