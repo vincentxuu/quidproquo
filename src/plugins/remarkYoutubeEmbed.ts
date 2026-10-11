@@ -16,6 +16,7 @@ import type { Root } from 'mdast';
  * `url` and `title` are required (title feeds the iframe's accessible name and the
  * fallback link); `start` is optional, in seconds. `captions` optionally requests
  * visible captions in the specified language. `end` must be later than `start`
+ * `embed: false` renders only the external watch link for known restrictions.
  * (default 0); `loop` accepts true or false and requests single-video looping.
  * Bounded loops use the IFrame API controller initialized by PostLayout;
  * whole-video loops use native player parameters.
@@ -32,6 +33,7 @@ export interface YoutubeEmbedSpec {
   end?: number;
   loop?: boolean;
   captions?: string;
+  embed?: boolean;
 }
 
 export function extractVideoId(raw: string): string | null {
@@ -55,7 +57,7 @@ export function extractVideoId(raw: string): string | null {
 export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
   const fields: Record<string, string> = {};
   for (const line of body.split('\n')) {
-    const match = line.match(/^\s*(url|title|start|end|loop|captions)\s*:\s*(.*?)\s*$/);
+    const match = line.match(/^\s*(url|title|start|end|loop|captions|embed)\s*:\s*(.*?)\s*$/);
     if (match) fields[match[1]] = match[2];
   }
 
@@ -88,14 +90,18 @@ export function parseYoutubeBlock(body: string): YoutubeEmbedSpec {
   if (captions !== undefined && !/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(captions)) {
     throw new Error(`youtube embed: "captions" must be a language code (got "${captions}")`);
   }
-  return { id, title: fields.title, start, ...(end !== undefined ? { end } : {}), ...(loop !== undefined ? { loop } : {}), ...(captions ? { captions } : {}) };
+  if (fields.embed !== undefined && fields.embed !== 'true' && fields.embed !== 'false') {
+    throw new Error('youtube embed: "embed" must be true or false');
+  }
+  return { id, title: fields.title, start, ...(end !== undefined ? { end } : {}), ...(loop !== undefined ? { loop } : {}), ...(captions ? { captions } : {}), ...(fields.embed !== undefined ? { embed: fields.embed === 'true' } : {}) };
 }
 
 const escapeHtml = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-export function renderYoutubeEmbed({ id, title, start, end, loop, captions }: YoutubeEmbedSpec): string {
+export function renderYoutubeEmbed({ id, title, start, end, loop, captions, embed }: YoutubeEmbedSpec): string {
   const params = new URLSearchParams();
+  params.set('enablejsapi', '1');
   if (start) params.set('start', String(start));
   if (end !== undefined) params.set('end', String(end));
   const segmentLoop = loop && end !== undefined;
@@ -112,12 +118,15 @@ export function renderYoutubeEmbed({ id, title, start, end, loop, captions }: Yo
   const embedSrc = `https://www.youtube-nocookie.com/embed/${id}${query ? `?${query}` : ''}`;
   const watchHref = `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`;
   const safeTitle = escapeHtml(title);
+  if (embed === false) {
+    return `<figure class="video-embed"><p>請前往 YouTube 觀看 / Watch on YouTube</p><figcaption><a href="${escapeHtml(watchHref)}" target="_blank" rel="noopener noreferrer">YouTube：${safeTitle} ↗</a></figcaption></figure>`;
+  }
   const loopAttributes = segmentLoop ? ` data-youtube-loop-start="${start ?? 0}" data-youtube-loop-end="${end}"` : '';
   const permissions = `${segmentLoop ? 'autoplay; ' : ''}accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen`;
   return [
     '<figure class="video-embed">',
     '<div class="video-embed__frame">',
-    `<iframe src="${escapeHtml(embedSrc)}" title="${safeTitle}" loading="lazy"${loopAttributes} referrerpolicy="strict-origin-when-cross-origin" allow="${permissions}" allowfullscreen></iframe>`,
+    `<iframe src="${escapeHtml(embedSrc)}" title="${safeTitle}" loading="lazy" data-youtube-player${loopAttributes} referrerpolicy="strict-origin-when-cross-origin" allow="${permissions}" allowfullscreen></iframe>`,
     '</div>',
     `<figcaption><a href="${escapeHtml(watchHref)}" target="_blank" rel="noopener noreferrer">YouTube：${safeTitle}</a></figcaption>`,
     '</figure>',

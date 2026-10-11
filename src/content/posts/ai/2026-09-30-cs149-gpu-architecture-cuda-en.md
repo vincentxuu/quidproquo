@@ -27,7 +27,7 @@ glossary:
 
 > 🌏 [中文版](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)
 
-**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
+**Video status: The supplementary recording cannot be embedded; use the original YouTube link. Playback on YouTube has not been verified.** [Source details](#course-video-sources)
 
 > **Version note**: This post is based on the slides for Lecture 7 of [Stanford CS149](https://gfxcourses.stanford.edu/cs149/fall25), Fall 2025 (October 14), [GPU Architecture and CUDA Programming](https://gfxcourses.stanford.edu/cs149/fall25/lecture/gpuarch/) ([PDF](https://gfxcourses.stanford.edu/cs149/fall25content/media/gpuarch/07_gpuarch.pdf), 74 pages), checked on 2026-09-30. Fall 2025 recordings are on Canvas only; the substitute the official homepage points to is the [2023 Lecture 7 video](https://www.youtube.com/watch?v=qQTDF0CBoxE). I did not compare the two versions segment by segment, so the 2025 slides are the authority here. Access grade **A3**: full slides are public, and only an older recording is available.
 
@@ -41,10 +41,13 @@ So the question for this lecture is concrete: **how do CUDA's grid, block, and t
 
 This article uses Fall 2025 materials. The official Fall 2025 course page states that this year's lecture videos cannot be distributed to the public and points to a 2023 YouTube playlist instead. The Fall 2023 recording below covers a closely related topic but its content may differ from the 2025 lecture, and the original recording has not been verified. Checked: 2026-10-10.
 
-```youtube
-url: https://www.youtube.com/watch?v=qQTDF0CBoxE
-title: Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming
-```
+Its embedded player reports an owner restriction, so this page now links to YouTube instead. Playback on YouTube has not been tested. Checked: 2026-10-11.
+
+<figure class="video-embed">
+
+[Watch on YouTube ↗](https://www.youtube.com/watch?v=qQTDF0CBoxE)
+
+</figure>
 
 Original videos: [Stanford CS149 I Parallel Computing I 2023 I Lecture 7 - GPU architecture and CUDA Programming](https://www.youtube.com/watch?v=qQTDF0CBoxE)
 
@@ -200,6 +203,8 @@ One thing you can do tonight: copy down the `myFlag` example, write one sentence
 - Course positioning, the five assignments' environment needs, and the 2023 video mapping: [Reading Stanford CS149 (series overview)](/posts/ai/2026-09-30-cs149-course-overview-en)
 
 ## Update Log
+
+- 2026-10-11: Replaced the restricted embed with the original YouTube link; playback on YouTube remains unverified.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Official sources only have Fall 2023 recordings, so the status is now related supplementary video only, and video titles use the original titles.

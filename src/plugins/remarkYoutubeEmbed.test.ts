@@ -66,7 +66,7 @@ describe('renderYoutubeEmbed', () => {
   it('uses the no-cookie domain, lazy loading and an escaped title', () => {
     const html = renderYoutubeEmbed({ id: 'MN9dGgmLyso', title: 'A "quoted" <b>', start: 91 });
 
-    expect(html).toContain('src="https://www.youtube-nocookie.com/embed/MN9dGgmLyso?start=91"');
+    expect(html).toContain('src="https://www.youtube-nocookie.com/embed/MN9dGgmLyso?enablejsapi=1&amp;start=91"');
     expect(html).toContain('loading="lazy"');
     expect(html).toContain('title="A &quot;quoted&quot; &lt;b&gt;"');
     expect(html).toContain('href="https://www.youtube.com/watch?v=MN9dGgmLyso&amp;t=91s"');
@@ -99,7 +99,7 @@ describe('renderYoutubeEmbed', () => {
 
   it('keeps caption settings absent unless requested', () => {
     const html = renderYoutubeEmbed({ id: 'MN9dGgmLyso', title: 'x' });
-    expect(html).toContain('src="https://www.youtube-nocookie.com/embed/MN9dGgmLyso"');
+    expect(html).toContain('src="https://www.youtube-nocookie.com/embed/MN9dGgmLyso?enablejsapi=1"');
     expect(html).not.toContain('cc_load_policy');
     expect(html).not.toContain('end=');
     expect(html).not.toContain('loop=');
@@ -110,6 +110,14 @@ describe('renderYoutubeEmbed', () => {
 });
 
 describe('remarkYoutubeEmbed', () => {
+  it('renders known restricted videos as external links without an iframe', () => {
+    const spec = parseYoutubeBlock('url: https://youtu.be/qQTDF0CBoxE\ntitle: GPU <lecture>\nstart: 90\nembed: false');
+    const html = renderYoutubeEmbed(spec);
+    expect(html).not.toContain('<iframe');
+    expect(html).toContain('watch?v=qQTDF0CBoxE&amp;t=90s');
+    expect(html).toContain('GPU &lt;lecture&gt;');
+    expect(() => parseYoutubeBlock('url: https://youtu.be/qQTDF0CBoxE\ntitle: GPU\nembed: yes')).toThrow(/embed/);
+  });
   it('replaces youtube code nodes and leaves other fences alone', () => {
     const tree = {
       type: 'root',

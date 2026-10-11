@@ -28,12 +28,32 @@ export function createClipLoop(player: ClipPlayer, start: number, end: number) {
 }
 
 type YoutubeAPI = { Player: new (iframe: HTMLIFrameElement, options: {
-  events: { onStateChange(event: { data: number; target: ClipPlayer }): void };
+  events: { onStateChange(event: { data: number; target: ClipPlayer }): void; onError(event: { data: number }): void };
 }) => ClipPlayer };
 type YoutubeWindow = Window & { YT?: YoutubeAPI; onYouTubeIframeAPIReady?: () => void };
 let apiPromise: Promise<YoutubeAPI> | undefined;
 const attached = new WeakSet<HTMLIFrameElement>();
 const controllers = new Set<ReturnType<typeof createClipLoop>>();
+let observer: IntersectionObserver | undefined;
+let generation = 0;
+
+export function youtubeErrorMessage(code: number, english = false): string {
+  if (code === 101 || code === 150) return english ? 'This video cannot be embedded. Open it on YouTube.' : '此影片禁止站內嵌入，請前往 YouTube 觀看。';
+  if (code === 100) return english ? 'This video is unavailable or private. Check the original YouTube page.' : '此影片無法取得或已設為私人，請查看 YouTube 原始頁面。';
+  if (code === 153) return english ? 'The embedded player could not be configured. Try the YouTube link.' : '站內播放器設定失敗，請使用 YouTube 原始連結。';
+  return english ? 'The embedded player could not play this video. Try the YouTube link.' : '站內播放器無法播放此影片，請使用 YouTube 原始連結。';
+}
+
+export function showYoutubeFallback(frame: HTMLIFrameElement, code: number) {
+  const container = frame.closest('.video-embed__frame');
+  if (!container) return;
+  const message = document.createElement('p');
+  message.setAttribute('role', 'status');
+  message.textContent = youtubeErrorMessage(code, document.documentElement.lang.startsWith('en'));
+  container.classList.remove('video-embed__frame');
+  container.replaceChildren(message);
+  // The original watch link remains outside the replaced frame container.
+}
 
 function loadAPI(): Promise<YoutubeAPI> {
   const win = window as YoutubeWindow;
@@ -57,13 +77,14 @@ function loadAPI(): Promise<YoutubeAPI> {
       document.head.appendChild(script);
     }
   });
-  return apiPromise;
+  return apiPromise.catch((error: unknown) => { apiPromise = undefined; throw error; });
 }
 
 export async function initYoutubeClipLoops() {
-  const frames = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-loop-start][data-youtube-loop-end]')]
+  const frames = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-youtube-player]')]
     .filter((frame) => !attached.has(frame));
   if (!frames.length) return;
+  const currentGeneration = generation;
   // Set origin immediately, before an API download could overlap a user's play.
   for (const frame of frames) {
     const src = new URL(frame.src);
@@ -74,18 +95,35 @@ export async function initYoutubeClipLoops() {
   }
   try {
     const api = await loadAPI();
-    for (const frame of frames) {
-      if (!frame.isConnected || attached.has(frame)) continue;
+    if (generation !== currentGeneration) return;
+    const attach = (frame: HTMLIFrameElement) => {
+      if (!frame.isConnected || attached.has(frame)) return;
       const start = Number(frame.dataset.youtubeLoopStart);
       const end = Number(frame.dataset.youtubeLoopEnd);
-      if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end <= start) continue;
+      const segmentLoop = frame.dataset.youtubeLoopStart !== undefined && Number.isFinite(start) && Number.isFinite(end) && start >= 0 && end > start;
       let controller: ReturnType<typeof createClipLoop> | undefined;
       new api.Player(frame, { events: { onStateChange(event) {
+        if (!segmentLoop) return;
         controller ??= createClipLoop(event.target, start, end);
         controllers.add(controller);
         controller.onStateChange(event.data);
+      }, onError(event) {
+        controller?.dispose();
+        if (controller) controllers.delete(controller);
+        showYoutubeFallback(frame, event.data);
       } } });
       attached.add(frame);
+    };
+    if (typeof IntersectionObserver === 'undefined') {
+      frames.forEach(attach);
+    } else {
+      observer ??= new IntersectionObserver((entries) => {
+        for (const entry of entries) if (entry.isIntersecting) {
+          observer?.unobserve(entry.target);
+          attach(entry.target as HTMLIFrameElement);
+        }
+      }, { rootMargin: '200px' });
+      frames.forEach((frame) => observer?.observe(frame));
     }
   } catch {
     // The original iframe and its controls still work when the API cannot load.
@@ -93,6 +131,9 @@ export async function initYoutubeClipLoops() {
 }
 
 export function disposeYoutubeClipLoops() {
+  generation++;
+  observer?.disconnect();
+  observer = undefined;
   for (const controller of controllers) controller.dispose();
   controllers.clear();
 }
