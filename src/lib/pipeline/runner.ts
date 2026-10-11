@@ -222,11 +222,7 @@ async function runPostQualityJob(
   const stepId = await createStep(db, jobId, 'post-quality', 'module', 'Run Worker-safe quality and reference checks')
 
   const posts = await loadCloudPosts(db, input)
-  const knownRoutes = new Set(
-    posts
-      .map((post) => [`/posts/${post.slug}`, `/en/posts/${post.slug}`])
-      .flat(),
-  )
+  const knownRoutes = new Set(posts.map((post) => `/posts/${post.slug}`))
   const qualityReports = runPostQualityCheck(posts, knownRoutes)
   const referenceReports = runReferenceCheck(posts)
 
@@ -512,10 +508,7 @@ async function runTranslationJob(
 
   const translatedPost = toTranslatedCloudPost(sourcePost, draftResult.draftMarkdown)
   const allPosts = await loadCloudPosts(db)
-  const knownRoutes = new Set<string>([
-    ...allPosts.map((post) => `/posts/${post.slug}`),
-    ...allPosts.map((post) => `/en/posts/${post.slug}`),
-  ])
+  const knownRoutes = new Set<string>(allPosts.map((post) => `/posts/${post.slug}`))
 
   const qualityStepId = await createStep(db, jobId, 'quality-check', 'module', 'Run post-quality check')
   const qualityStartedAt = Date.now()
@@ -1400,10 +1393,7 @@ function buildDraftCloudPost(
 }
 
 function buildDraftKnownRoutes(allPosts: CloudPost[], draftSlug: string): Set<string> {
-  const knownRoutes = new Set<string>([
-    ...allPosts.map((post) => `/posts/${post.slug}`),
-    ...allPosts.map((post) => `/en/posts/${post.slug}`),
-  ])
+  const knownRoutes = new Set<string>(allPosts.map((post) => `/posts/${post.slug}`))
   knownRoutes.add(`/posts/${draftSlug}`)
   return knownRoutes
 }
