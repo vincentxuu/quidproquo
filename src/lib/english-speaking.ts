@@ -161,6 +161,18 @@ export const speakingCards = [
   { id: 'interview-probe-not-worked', scenario: 'interview', family: 'interview', context: '面試官問到你沒用過的工具。', zh: '我沒用過那個函式庫，不過我會先讀它的文件。', en: 'I haven’t worked with that library before, but I’d approach it by reading its docs first.', swap: '換成框架：I haven’t worked with that framework before, but I’d approach it by building something small first.' },
   { id: 'interview-probe-workable', scenario: 'interview', family: 'interview', context: '面試官追問你的設計，你承認它不漂亮，但做得出來。', zh: '這個做法不太漂亮，但行得通。', en: 'It’s not very elegant, but it’s workable.', swap: '換成效率：It’s not very efficient, but it’s workable.' },
   { id: 'interview-probe-more-context', scenario: 'interview', family: 'interview', context: '你回答完一段，想確認對方要不要更多細節。', zh: '需要我再多講一點背景嗎？', en: 'Would you like more context?', swap: '換成細節：Would you like more detail?' },
+  { id: 'interview-design-requirements', scenario: 'interview', family: 'interview', context: '系統設計題一開始，你先說要從哪裡談起。', zh: '我想先列出功能需求。', en: 'The first thing I want to lay out is the functional requirements.', swap: '換成非功能需求：The next thing I want to lay out is the non-functional requirements.' },
+  { id: 'interview-design-users', scenario: 'interview', family: 'interview', context: '題目沒說規模，你先問使用者數量。', zh: '有多少使用者？', en: 'How many users are there?', swap: '問資料量：How much data do we expect to handle?' },
+  { id: 'interview-design-rps', scenario: 'interview', family: 'interview', context: '你想估算系統要承受的流量。', zh: '預期每秒有多少請求？', en: 'How many requests per second do we expect?', swap: '問使用方式：How are they going to use it?' },
+  { id: 'interview-design-read-write', scenario: 'interview', family: 'interview', context: '你想知道系統是讀多還是寫多。', zh: '預期的讀寫比是多少？', en: 'What is the expected read to write ratio?', swap: '問輸入與輸出：What are the inputs and outputs of the system?' },
+  { id: 'interview-design-scope', scenario: 'interview', family: 'interview', context: '你想確認某個功能要不要做。', zh: '刪除的情況要包含在這次的設計範圍裡嗎？', en: 'Do you want to handle the delete case in the scope of this design?', swap: '換成留言：Do you want to handle comments in the scope of this design?' },
+  { id: 'interview-design-assumption', scenario: 'interview', family: 'interview', context: '有件事題目沒說，你決定先假設，並說出口。', zh: '我先假設使用者都已經登入。', en: 'I’m going to make the assumption that users are already logged in.', swap: '換成用戶端：I’m going to make the assumption that we have a web client and a mobile client.' },
+  { id: 'interview-design-pin', scenario: 'interview', family: 'interview', context: '談到一個細節，你想先放著，晚點再回來。', zh: '這個我先記著，晚點再回來談。', en: 'I’m going to put a pin in that. We will come back to that.', swap: '說明接下來做什麼：For the time being, I want to jump into the design.' },
+  { id: 'interview-design-cost', scenario: 'interview', family: 'interview', context: '你提出一個做法，同時說它的代價。', zh: '我們可以加一個佇列，但代價是延遲會變高。', en: 'We can add a queue, but it will come at the cost of latency.', swap: '換成快取：We can add a cache, but it will come at the cost of consistency.' },
+  { id: 'interview-design-decide', scenario: 'interview', family: 'interview', context: '你比較完兩種做法，說出決定和理由。', zh: '我選事件佇列，因為我寧可使用者最後一定拿到正確的資料。', en: 'I’m going to go with an event queue because I’d rather the user always get the right information eventually.', swap: '換成同步呼叫：I’m going to go with an API call because it’s a simpler system.' },
+  { id: 'interview-design-bottleneck', scenario: 'interview', family: 'interview', context: '面試官問流量變大時哪裡會先撐不住。', zh: '我會說同步服務是瓶頸。', en: 'I would say the synchronization service is the bottleneck.', swap: '換成資料庫：I would say the database is the bottleneck.' },
+  { id: 'interview-design-rethink', scenario: 'interview', family: 'interview', context: '講到一半，你發現原本的選擇不合適，當場改口。', zh: '現在想一想，用 NoSQL 資料庫可能比較合理。', en: 'It may actually make more sense, now that I’m thinking about this, to use a NoSQL database.', swap: '換成拆服務：It may actually make more sense, now that I’m thinking about this, to split it into two services.' },
+  { id: 'interview-design-check-in', scenario: 'interview', family: 'interview', context: '你講完一段設計，想確認面試官跟得上、也同意方向。', zh: '你覺得這樣合理嗎？', en: 'Do you think that makes sense?', swap: '短一點：Does that make sense?' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -240,6 +252,16 @@ const googleTips = { title: 'Google Careers：Interview prep', url: 'https://www
 const amazonLoopTips = { title: 'Amazon：Interview loop', url: 'https://amazon.jobs/content/en/how-we-hire/interview-loop' };
 const ieltsNote = '句子出自 IELTS 口說測驗的準備建議，不是求職面試的教材；用在面試是自行套用。Google 的面試準備頁寫明，告訴面試官你需要一點時間整理想法是可以的。';
 const probe = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: probePost });
+const designPost = '/posts/learning/2026-10-12-system-design-interview-english';
+const sdPrimer = { title: 'System Design Primer（GitHub 上的社群教材）：How to approach a system design interview question', url: 'https://github.com/donnemartin/system-design-primer#how-to-approach-a-system-design-interview-question' };
+const googleSystems = { title: 'Life at Google：Prepare for Your Google Interview: Systems Design（影片）', url: 'https://www.youtube.com/watch?v=Gg318hR5JY0' };
+const ioGuide = { title: 'interviewing.io：System Design Interview Guide for Senior Engineers（模擬面試平台的指南）', url: 'https://interviewing.io/guides/system-design-interview' };
+const ioMock = (slug: string, title: string) => ({ title: `interviewing.io 模擬面試逐字稿：${title}`, url: `https://interviewing.io/mocks/${slug}` });
+const ioPhoto = ioMock('faang-system-design-photo-sharing-service', 'Photo Sharing Service');
+const ioInventory = ioMock('faang-system-design-inventory-orders', 'Inventory and Orders');
+const ioChat = ioMock('faang-system-design-designing-whatsapp', 'Designing WhatsApp');
+const mockNote = '來源是匿名模擬面試的逐字稿，由語音轉成文字，保留了口語的重複與停頓；卡片整理成完整的句子。模擬面試不是真正的徵才面試。';
+const design = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: designPost });
 const captionNote = '來源是影片的自動字幕，沒有標點，也保留了說話時的停頓與重複；卡片整理成完整的句子。';
 const coding = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: codingPost });
 const britishNote = 'BBC 主持人說明，這類委婉的說法是英國職場的習慣，各地不同；要做決定或交辦事情時，直接一點比較清楚。';
@@ -396,6 +418,18 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-probe-not-worked': probe(adapted([neuTechnical], 'Northeastern University 的面試指引原句：I haven’t worked with that library before, but I’d approach it by…，放在「不要硬撐」那一段；後半的做法是自行填入。')),
   'interview-probe-workable': probe(adapted([googleExample], 'Google 示範面試裡，面試官追問如果要回傳配對該怎麼設計，應徵者說完做法後自己評價：I mean it’s not very elegant but it’s workable；卡片拿掉 I mean。', captionNote)),
   'interview-probe-more-context': probe(adapted([amazonLoopTips], 'Amazon 的面試頁原文：A good tip: Pause after your answer and ask if your interviewer would like more context。來源是建議，沒有給出要說的句子；卡片把它改成直接問句。')),
+  'interview-design-requirements': design(direct([ioInventory, googleSystems], '模擬面試裡應徵者的原話：Okay, so I— the, the first thing I want to lay out is the functional requirements；卡片拿掉開頭的停頓。Google 的系統設計面試說明寫：We’ll expect you to gather requirements and to develop an initial solution in the first 20 minutes。', mockNote)),
+  'interview-design-users': design(direct([sdPrimer, ioPhoto], 'System Design Primer 第一步列的問題原句：How many users are there?。模擬面試裡應徵者問的是 What type of scale do you want to design this for?。')),
+  'interview-design-rps': design(direct([sdPrimer, googleSystems], 'System Design Primer 原句：How many requests per second do we expect?。Google 的說明也要求給出數字估計：such as how many requests per second the system can handle。')),
+  'interview-design-read-write': design(direct([sdPrimer], 'System Design Primer 原句：What is the expected read to write ratio?。只有這一份來源給出句子。')),
+  'interview-design-scope': design(adapted([ioPhoto], '模擬面試裡應徵者的原話：do you want to go through the delete case in the scope of this design or should we just… handle the creation and the visibility case?；卡片只留前半，把 go through 換成 handle。面試官事後的回饋稱讚這位應徵者把功能需求問得很清楚。', mockNote)),
+  'interview-design-assumption': design(adapted([ioPhoto], '模擬面試裡應徵者的原話：I’m going to go ahead and make the assumption that all our clients are going to come from a variety of different types；卡片拿掉 go ahead and，假設的內容是自行填入。', mockNote)),
+  'interview-design-pin': design(direct([ioPhoto], '模擬面試裡應徵者的原話：I’m going to put a pin in that. We will come back to that if we dive into it a little bit more. For the time being, though, I want to jump into the design。面試官事後的回饋把這個做法列為優點：先說會回來，表示沒有忘記。', mockNote)),
+  'interview-design-cost': design(adapted([ioChat, googleSystems, cambridgeWord('trade-off', 'trade-off')], '模擬面試裡，面試官問有沒有更好的選項，應徵者回答：we can definitely suggest, but it will come at the cost of consistency, and latency。Google 的說明用同一個說法舉例：pay less money for the storage at the cost of increased latency。佇列是自行填入的內容。', mockNote)),
+  'interview-design-decide': design(adapted([ioInventory, ioGuide], '模擬面試結束時，面試官示範應徵者該怎麼說：okay, so I’m going to go with an event queue because I’d rather the user get, you know, the right— always get the right information eventually；卡片拿掉中間的停頓。interviewing.io 的指南也給了同樣結構的示範：And based on all these tradeoffs, I’ll use THAT type of DB。', '這一句是面試官給的示範，不是應徵者自己說的。指南的重點是比較完一定要下決定。')),
+  'interview-design-bottleneck': design(adapted([ioChat, googleSystems, cambridgeWord('bottleneck', 'bottleneck')], '模擬面試裡，面試官問流量變大時哪個元件會是瓶頸，應徵者回答：I would say synchronisation service, I think is the bottleneck；卡片整理成一句。Google 的說明列出應該自問的問題：Is there a bottleneck in the design?', mockNote)),
+  'interview-design-rethink': design(adapted([ioPhoto], '模擬面試裡應徵者的原話：So it may actually make more sense now that I’m thinking about this, to throw a higher availability, higher write throughput database…；卡片把後半換成 use a NoSQL database。面試官事後的回饋稱讚這段對資料庫選擇的說明。', mockNote)),
+  'interview-design-check-in': design(direct([ioInventory, googleSystems], '模擬面試裡，應徵者講完打算先談哪幾項之後問：Do you think that makes sense?。Google 的說明要求應徵者把想法說出來並多發問：tell us how you plan to solve those problems, and be sure to ask questions。', mockNote)),
   'interview-follow-up': adapted([bbcJobs('241007', 'After the interview')], 'BBC 節目裡，受訪的招募人員轉述一封信的大意：Can I just ask, following up, what the outcome of the interview is。卡片拿掉說話時插進去的 following up，其餘照原句。同一集另有 please can I have some feedback on the interview。', '來源的設定是寫信，而且是口頭轉述，不是信件範本。'),
 };
 export type Rating = 0 | 1 | 2;
@@ -531,6 +565,20 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', cardId: 'interview-probe-not-worked', zh: '我沒用過那個函式庫，不過我會先讀它的文件。', en: 'I haven’t worked with that library before, but I’d approach it by reading its docs first.' },
     { who: 'them', en: 'And the workaround you described earlier, what do you think of it now?' },
     { who: 'you', cardId: 'interview-probe-workable', zh: '說它不太漂亮但行得通，再問對方要不要多聽一點背景。', en: 'It’s not very elegant, but it’s workable. Would you like more context?' },
+  ] },
+  { id: 'interview-design', scenario: 'interview', title: '系統設計面試：問規模、講取捨、下決定', role: '你是應徵者，面試官請你設計一個相片分享服務。', note: '自己寫的練習示例，不是真實面試，也不是來源逐字稿裡的對話。', turns: [
+    { who: 'them', en: 'I’d like you to design a photo sharing service.' },
+    { who: 'you', cardId: 'interview-design-requirements', zh: '說你想先列出功能需求，再問有多少使用者。', en: 'The first thing I want to lay out is the functional requirements. How many users are there?' },
+    { who: 'them', en: 'About 500 million.' },
+    { who: 'you', cardId: 'interview-design-read-write', zh: '預期的讀寫比是多少？', en: 'What is the expected read to write ratio?' },
+    { who: 'them', en: 'People view far more photos than they upload.' },
+    { who: 'you', cardId: 'interview-design-assumption', zh: '我先假設使用者都已經登入。', en: 'I’m going to make the assumption that users are already logged in.' },
+    { who: 'them', en: 'That’s fine. How would you keep the feed fast?' },
+    { who: 'you', cardId: 'interview-design-cost', zh: '提議加快取，並說代價是一致性。', en: 'We can add a cache, but it will come at the cost of consistency.' },
+    { who: 'them', en: 'Would you still add it?' },
+    { who: 'you', cardId: 'interview-design-decide', zh: '說你選快取，因為寧可動態牆載入得快。', en: 'I’m going to go with the cache because I’d rather the feed load quickly.' },
+    { who: 'them', en: 'Where do you expect problems as traffic grows?' },
+    { who: 'you', cardId: 'interview-design-bottleneck', zh: '說資料庫會是瓶頸，再問對方覺得這樣合不合理。', en: 'I would say the database is the bottleneck. Do you think that makes sense?' },
   ] },
 ];
 /** Role-plays offered for one scenario; none when the tool is switched off. */

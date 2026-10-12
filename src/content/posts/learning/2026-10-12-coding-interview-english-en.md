@@ -193,7 +193,7 @@ The standard for rating yourself is whether you can get the meaning across, not 
 - **Accuracy of the automatic captions.** The quotations from the Google video come from automatic captions, which have no punctuation and may misrecognize individual words. I did not check each sentence against the audio.
 - **British and American differences.** Three of the sources are American companies and a university, and the Tech Interview Handbook is a community resource by an individual author. There is no British source, and no source explains regional differences in usage.
 - **Transcripts of real interviews.** interviewing.io publishes transcripts of mock interviews. I only read fragments in search results, not the full pages, so I did not use them as evidence.
-- **What is not done yet.** System design interviews are not covered in this post. How to respond to follow-up questions and how to ask for time to think are in [the next post](/posts/learning/2026-10-12-interview-thinking-time-english-en).
+- **What is not done yet.** How to respond to follow-up questions and how to ask for time to think are in [the next post](/posts/learning/2026-10-12-interview-thinking-time-english-en), and system design interviews are in [the one after that](/posts/learning/2026-10-12-system-design-interview-english-en).
 
 ## Overall
 
