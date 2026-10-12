@@ -1,5 +1,5 @@
 ---
-title: "生成式 AI：從機率模型到語言與多模態生成｜CMU 10-423 課程總覽"
+title: "生成式 AI 學習路線：40 篇核心怎麼讀｜CMU 10-423 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -8,207 +8,139 @@ lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
   order: 0
-tldr: "CMU 10-423/623/723 是 Matt Gormley 與 Aran Nayebi 合授的生成式 AI 課，Spring 2026 用 26 講走完文字模型、影像生成、模型調適、多模態、規模化與進階主題。投影片、HW1–HW4 的題目與起始碼、附解答的練習考卷和專案說明都公開，可評為 A3；拿不到的是 Panopto 錄影、HW0 題目檔、HW3/HW4 的 recitation 投影片、小考與 Gradescope 評分。它的作業政策也值得一看：每份作業分兩次交，第一次只准人工作答，第二次才准用 AI。"
-description: "CMU 10-423/623/723 Generative AI（Spring 2026）系列總覽：課程定位、先修、三種課號的差異、配分、Slot A／Slot B 的 AI 使用規則、6 個單元與 26 講的地圖、A3 存取等級與缺口表、四份作業的算力需求，以及自學路線與站內延伸閱讀。"
+tldr: "這個系列依 CMU 10-423/623/723 Generative AI 的 Spring 2026 公開材料整理。"
+description: "Spring 2026 公開課程材料教學：生成式 AI 學習路線：40 篇核心怎麼讀｜CMU 10-423 課程總覽"
 draft: false
-glossary:
-  - term: "Slot A / Slot B"
-    definition: "CMU 10-423 的作業繳交制度。每份作業有兩個截止日：Slot A 只收純人工作答、不准用 AI；助教批改並告知錯題後三天是 Slot B，可以用 AI、也可以完全合作，但只重新批改 Slot A 答錯的題目。每題取兩次的最高分。"
-    context: "寫在 Spring 2026 課綱的 Homework 一節，第一講投影片也用一頁說明。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** 本文依公開投影片與作業整理，數值例子為本站補充，不是課堂逐字稿。
 
-> **版本說明**：本系列依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) 的 Spring 2026 版。這是 2025–2026 年最近一個完整學期：講次表最後一筆是 4 月 30 日的期末報告截止，頁尾寫著「Last updated April 20, 2026」；`10423-f26/` 目前回 404，沒有 Fall 2026 課站。所有事實都在 2026-09-30 打開課程首頁、[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)、[Coursework](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)、[Previous](https://www.cs.cmu.edu/~mgormley/courses/10423/previous.html) 頁與投影片、作業檔核對。存取等級 **A3**（定義見[全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)）。
+這個系列依 CMU 10-423/623/723 Generative AI 的 Spring 2026 公開材料整理。你要學的不是記住一串模型名字，而是能追蹤：資料如何進入模型、訓練訊號如何更新參數、生成時如何產生下一步，以及如何判斷輸出與實驗可信。原課的 26 堂與本站的文章數是不同計數；同堂含不同教學任務時，這裡會拆篇，作業與評量也各有位置。
 
-**系列位置**：本篇是總覽｜下一篇 [L1：RNN 語言模型與 autodiff（含 HW0）](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
+重建後是 **40 篇核心教學，加上 12 篇保留導覽**，不是 52 堂課。核心依學習先備排序；保留導覽承接既有網址、比較相關機制並指向完整單元，不拿導覽代替逐項教學。部分原堂分成 A/B，表示本站依內容拆分，不是官方新增了講次。
 
-CMU 10-423 是卡內基美隆大學機器學習系的生成式 AI 課，Spring 2026 由 [Aran Nayebi](https://anayebi.github.io/) 與 [Matt Gormley](http://www.cs.cmu.edu/~mgormley/) 合授。同一堂課掛三個課號：10-423、10-623、10-723，內容相同，差在要交的東西。
+## 先判斷自己缺哪一段
 
-課程描述把範圍寫得很廣：怎麼建構生成模型與其他大型基礎模型（視覺與語言的 Transformer、diffusion model）、怎麼訓練（預訓練、微調）與高效調適（adapter、in-context learning）、怎麼擴展到大規模資料（多 GPU／分散式最佳化）、怎麼在日常使用現成模型（生成程式碼、讓生成模型參與寫程式的流程），以及會出什麼錯（bias、hallucination、adversarial attack、data contamination）與怎麼處理。
+讀者需要 Python、線性代數的向量/矩陣、條件機率、微分與基本機器學習。你不需要先訓練過大型模型，但需要能區分 shape、參數與資料。若矩陣相乘或 loss 梯度還不熟，先做下面的短診斷，再決定是否回補。
 
-這篇回答三件事：這門課教什麼、校外讀者拿得到哪些東西、該怎麼自學。各講細節留給後面的篇章。
+自擬診斷 A：三個 token 的條件機率為 0.5、0.4、0.25，字首機率多少？答案 0.05。若把它們相加，先從 RNN 篇的鏈式法則開始。診斷 B：ŷ=wx，x=2、w=1、y=5，L=(ŷ−y)²/2，∂L/∂w 多少？答案 −6。若只知道 loss 變大卻無法追導數，先做作業 0 的 scalar 例子。
 
-## 這門課的硬事實
+診斷 C：4×4 灰階圖切成 2×2 不重疊 patches，共多少 tokens、每個原始 patch 幾維？答案 4 個、4 維。若答 16 個，先讀 CNN/ViT，釐清畫素與 patch 的關係。這些題目是本站的定位工具，不是 CMU 入學或考試要求。
 
-| 項目 | Spring 2026 |
-|---|---|
-| 授課 | Aran Nayebi、Matt Gormley |
-| 時間 | 週一、三、五 14:00–15:20（DH 2210）；週一、三上課，週五偶爾有 recitation |
-| 先修 | 10301、10315、10601、10701、10715、11485、11685、11785 擇一 |
-| 教科書 | 沒有，readings 都是免費的線上論文與書章 |
-| 作業語言 | Python |
-| 往年課站 | Fall 2025、Spring 2025、Fall 2024、Spring 2024（Previous 頁） |
+## 三條路線，各有明確起點
 
-先修清單有兩條線：機器學習導論（10-301/315/601/701/715）或深度學習導論（11-485/685/785）。第一講投影片補了一句：深度學習和 PyTorch 都**不是**先修，看你修的是哪門先修課、哪個學期，可能學過也可能沒學過，兩種情況都可以。
+**語言模型路線**：從 RNN 的序列機率、作業 0 的梯度走到 causal attention、訓練/解碼、RoPE/GQA，再做作業 1。然後讀 PEFT、ICL、SFT/RLHF 與 DPO。每一步分清「更新參數」「改上下文」「從分佈抽輸出」，避免把不同適應方法混用。
 
-站內對應的先修導讀有兩篇：[CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)與 [CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)。
+**影像與多模態路線**：先確認 CNN/ViT 的表示，再讀 GAN、擴散 I/II、VAE 與作業 2。之後接 latent diffusion、VLM、cross-attention/DiT 與 Q-Former。音訊先拆表示/辨識與生成，影片另談時間關聯，世界模型再加入動作介入；一張漂亮圖或一段順暢影片不能替所有能力驗收。
 
-## 三種課號差在哪
+**系統與研究路線**：已有模型基礎的人可從 scaling laws、MoE、分散式訓練與推論效能切入，再接長上下文、推理模型、SSM、風險、程式 agent 與對齊。最後用練習考卷找觀念缺口，用論文報告與專案把問題、baseline、消融與結果連成證據。效能路線仍需 attention 的 shape 與 autograd 先備，不是跳過基礎公式。
 
-課綱寫得很直接：三個課號內容完全相同，10-623 多做 HW623，10-723 再多一個 Quiz723。
+## 核心閱讀地圖
 
-| 課號 | 作業 | 小考 | 程式測驗 | 考試 | 專案 | 參與 |
-|---|---|---|---|---|---|---|
-| 10-423 | 30%（5 份） | 10%（6 次，最低分半權重） | 10%（2 次） | 20%（1 次） | 25% | 5% |
-| 10-623 | 30%（6 份，含 HW623） | 10%（同上） | 10% | 20% | 25% | 5% |
-| 10-723 | 30%（6 份） | 10%（6 次，等權重） | 10% | 20% | 25% | 5% |
+下表使用本站閱讀 order，**不是原課堂次**。原課範圍寫在第二欄；相同堂次有多篇時，各自負責獨立學習目標。文章中的自擬例子附計算與答案，不假裝是講者口述或官方解答。
 
-「5 份作業」指 HW0 到 HW4。HW623 依第一講投影片的作業表，是讀一篇近期生成式 AI 論文、分析後錄成影片報告。
-
-有兩處官方材料彼此對不上，讀的時候以首頁課綱為準：
-
-- 第一講投影片的「Syllabus Highlights」頁寫「40% homework」、沒有程式測驗，「Reminders」頁的 HW0 日期是 8 月 27 日發布，看起來是沿用前一學期的投影片。第二講投影片的 HW0 日期已經改成 1 月 14 日發布、1 月 26 日截止，和講次表一致。
-- Coursework 頁寫「There will be 5 quizzes」，下面卻列了 Quiz 1 到 Quiz 6，課綱也寫 6 次。
-
-## 作業政策：先靠自己，再用 AI
-
-這門課最有特色的設計是作業的兩段式繳交。課綱的理由是：這門課最重要的學習，發生在你硬啃作業難題的過程。
-
-- **Slot A（只准人工作答）**：個人完成，只允許有限度的合作，不准任何形式的 AI 協助。助教批改後告訴你哪些題目錯了。Office hours 和 Piazza 只在 Slot A 期間開放。
-- **Slot B（可以用 AI、可以完全合作）**：收到回饋後三天截止，只重新批改 Slot A 答錯的題目。
-- **分數**：每題取兩次的最高分，Slot A 拿到超過一半的分數另有加分。
-
-<details>
-<summary>課綱上的完整計分公式</summary>
-
-$$
-s = 0.95 \times \sum_{q \in HW} \max(s_{A,q}, s_{B,q}) + 0.05 \times \mathbb{1}(s_A > 0.50)
-$$
-
-$s_{A,q}$、$s_{B,q}$ 是第 $q$ 題在兩次繳交的分數，$s_A$ 是 Slot A 的總分。
-
-</details>
-
-把 AI 協助的作答當成人工作答交到 Slot A，會被認定違反學術誠信，罰則可能是整門課不及格。遲交規則也只適用 Slot B：Slot A 不收遲交，也不能用 grace day；Slot B 遲一天 75%、兩天 50%、三天 25%，全學期有 6 天 grace day。
-
-第一講投影片花了好幾頁為這套設計辯護，包括一個很坦白的讓步：這些題目對 LLM 或 coding agent 來說確實不難，但你要在沒人解過的問題上用好 code assistant，得先看得懂大量生成的程式碼、在看似正確的程式碼裡抓 bug、說清楚問題是什麼。
-
-**對自學者的意義**：沒有人幫你批改 Slot A，但你可以照同樣的順序自律。先不開 AI 寫完一輪，對照練習考卷的解答或單元測試找出錯處，再開 AI 修正。
-
-## 6 個單元、26 講的地圖
-
-講次表把 26 講分成 6 個單元，每份作業只考前面那幾講：HW1 對應 L1–L4、HW2 對應 L5–L8、HW3 對應 L9–L12、HW4 對應 L12–L14。本系列照這個節奏排，每個單元最後放一篇作業。
-
-| 單元 | 講次 | 本系列篇章 |
+| 閱讀順序 | 原課範圍 | 核心教學 |
 |---|---|---|
-| Generative models of text | L1 RNN LMs / Autodiff；L2 Transformer LMs；L3 Learning LLMs / Decoding；L4 Pre-training, fine-tuning / Modern Transformers | [1 RNN LM 與 autodiff](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)、[2 Transformer LM 與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)、[3 現代 Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)、[4 HW1](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa) |
-| Generative models of images | L5 CNNs / Encoder-only Transformers / ViT；L6 GANs / PGM；L7–L8 Diffusion models | [5 CNN／BERT／ViT](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)、[6 GAN](/posts/ai/2026-09-30-cmu10423-gans)、[7 Diffusion](/posts/ai/2026-09-30-cmu10423-diffusion-models)、[8 VI 與 VAE](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)、[9 HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm) |
-| Applying and adapting foundation models | L9 VAEs；L10 Parameter-efficient fine tuning；L11 In-Context Learning / Prompt Engineering / Instruction Fine-tuning / RLHF | [10 PEFT 與 ICL](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning)、[11 IFT／RLHF／DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)、[12 HW3](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) |
-| Multimodal foundation models | L12 DPO / Text-to-image / Latent diffusion；L13 Vision-language models；L14 Cross-Attention / DiT / Prompt-to-Prompt | [13 文生圖與 VLM](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)、[14 Cross-attention／DiT／Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)、[15 HW4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image) |
-| Scaling Up | L15 Querying Transformer / Scaling Laws；L16 Mixture of Experts；L17 Distributed training；L18 Flash Attention / Efficient decoding | [16 Scaling laws 與 MoE](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)、[17 分散式訓練與高效推論](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference) |
-| Advanced Topics | L19 Long Context；L20 Reasoning Models；L21 State Space / Hybrid Models；L22 Real-world Issues；L23 Code Generation / Autonomous Agents；L24 Audio；L25 Video；L26 Interactive World Models + Science of Alignment | [18 長上下文與 SSM](/posts/ai/2026-09-30-cmu10423-long-context-ssm)、[19 推理模型](/posts/ai/2026-09-30-cmu10423-reasoning-models)、[20 風險與對齊](/posts/ai/2026-09-30-cmu10423-risks-alignment)、[21 程式生成與 agent](/posts/ai/2026-09-30-cmu10423-code-generation-agents)、[22 語音、影片與世界模型](/posts/ai/2026-09-30-cmu10423-audio-video-world-models) |
+| 0 | 總覽 | [生成式 AI 學習路線：40 篇核心怎麼讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview) |
+| 1 | L1 | [RNN 語言模型：序列機率與梯度怎麼接起來](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff) |
+| 2 | HW0／助教課 | [自動微分實作：把手算梯度接上訓練迴圈](/posts/ai/2026-10-11-cmu10423-hw0-autodiff) |
+| 3 | L2 | [因果注意力：從 Q、K、V 算到下一個 token](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention) |
+| 4 | L3 | [訓練與解碼：同一組 logits 為何生成不同句子](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding) |
+| 5 | L4 | [現代 Transformer：位置旋轉與 KV 共享改了甚麼](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa) |
+| 6 | HW1 | [minGPT 實作驗收：用形狀、遮罩與位置找錯](/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa) |
+| 7 | L5 | [CNN 與 ViT：一張圖怎麼變成模型的輸入](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit) |
+| 8 | L6 | [GAN：生成器與判別器各自在學甚麼](/posts/ai/2026-09-30-cmu10423-gans) |
+| 9 | L7 | [擴散模型入門：加噪為何能成為生成的訓練題](/posts/ai/2026-09-30-cmu10423-diffusion-models) |
+| 10 | L8 | [擴散模型進階：訓練抽時間，生成走逆向鏈](/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling) |
+| 11 | L9 | [VAE：重建誤差、KL 與重參數化如何合作](/posts/ai/2026-10-11-cmu10423-lecture-09-vae) |
+| 12 | HW2 | [DDPM 實作驗收：時間係數怎麼對上 batch](/posts/ai/2026-09-30-cmu10423-hw2-ddpm) |
+| 13 | L10 | [LoRA 如何少改參數而改模型行為](/posts/ai/2026-10-11-cmu10423-peft) |
+| 14 | L11A／L9 ICL部分 | [ICL 的示例如何改變預測而不更新參數](/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning) |
+| 15 | L11B | [SFT與RLHF如何把偏好轉成訓練訊號](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf) |
+| 16 | L12A | [DPO 為什麼能由偏好對直接更新模型](/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo) |
+| 17 | HW3 | [LoRA 微調的資料、參數與評估如何驗收](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) |
+| 18 | L12B | [latent diffusion怎麼用文字控制去噪](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion) |
+| 19 | L13 | [VLM怎麼讓LLM讀到影像資訊](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language) |
+| 20 | L14 | [cross-attention與DiT如何注入條件](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit) |
+| 21 | L15A | [Q-Former 如何橋接凍結的兩個模型](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer) |
+| 22 | HW4 | [凍結GPT-2／DiT後，橋接模組怎麼驗收](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image) |
+| 23 | L15B | [固定算力如何分配模型與資料](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws) |
+| 24 | L16 | [MoE怎麼增加容量而限制單token運算](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts) |
+| 25 | L17 | [多GPU如何分割資料、模型與狀態](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training) |
+| 26 | L18 | [FlashAttention與KV cache省的是什麼](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference) |
+| 27 | L19 | [長上下文為什麼不只增加位置上限](/posts/ai/2026-10-11-cmu10423-lecture-19-long-context) |
+| 28 | L20 | [推理時多花算力何時可能改善答案](/posts/ai/2026-09-30-cmu10423-reasoning-models) |
+| 29 | L21 | [SSM怎麼用狀態更新處理序列](/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models) |
+| 30 | L22 | [風險如何從抽象名詞變成可測試失敗](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks) |
+| 31 | L23 | [程式生成評估如何延伸到agent迴圈](/posts/ai/2026-09-30-cmu10423-code-generation-agents) |
+| 32 | L24A | [聲音如何表示並被模型轉錄](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr) |
+| 33 | L24B | [codec token生成與音訊擴散差在哪](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation) |
+| 34 | L25 | [影片生成如何維持時間上的關聯](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation) |
+| 35 | L26A | [世界模型怎麼對動作預測下一狀態](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models) |
+| 36 | L26B | [對齊為什麼有不能靠調參抹掉的限制](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment) |
+| 37 | 官方練習考卷 | [怎麼用公開練習題診斷觀念缺口](/posts/ai/2026-10-11-cmu10423-practice-exam) |
+| 38 | HW623 | [論文報告怎麼建立可核對的論證](/posts/ai/2026-10-11-cmu10423-hw623-paper-report) |
+| 39 | 期末專案 | [研究問題怎麼變成可重現的實驗](/posts/ai/2026-10-11-cmu10423-final-project) |
 
-最後一篇 [23 練習考卷、HW623 與期末專案](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)收尾。
 
-有三講的投影片跨了兩個主題：L9 的檔名是 `vae-icl`、L12 是 `dpo-text2img`、L15 是 `querying-scaling`。本系列依主題拆到兩篇，所以篇章和講次不是一對一。
+## 作業如何用來學，而不是隻用來打勾
 
-## 評量時程
+作業 0 用手算對 autograd；作業 1 驗證 shape、mask、位置與 GQA；作業 2 把 diffusion 的時間係數與 batch 對上；作業 3 確認 adapter 參數與資料切分；作業 4 追凍結底座與可訓練橋接的梯度。下載 starter、建立未修改基準、跑指定測試、做自擬變式、再訓練，是有順序的流程。
 
-| 日期（2026） | 事件 |
-|---|---|
-| 1/14 | HW0 發布 |
-| 1/26 | HW0 Slot A 截止、HW1 發布 |
-| 1/28 | Quiz 1（L1–L4） |
-| 2/9 | HW1 Slot A 截止、HW2 發布 |
-| 2/16 | Quiz 2（L5–L9） |
-| 2/21 | HW2 Slot A 截止、HW3 發布 |
-| 2/25 | 程式測驗 HW1/HW2、Quiz 3（L9–L12） |
-| 3/12 | HW3 Slot A 截止、HW4 發布 |
-| 3/16 | Quiz 4（L12–L15） |
-| 3/23 | HW4 Slot A 截止、HW623 與練習題發布 |
-| 3/27 | 程式測驗 HW3/HW4 |
-| 3/30 | 考試（晚上舉行） |
-| 4/3、4/13 | 專案 proposal、midway report 截止 |
-| 4/6、4/20 | Quiz 5（L16–L20）、Quiz 6（L21–L24）；4/20 HW623 截止 |
-| 4/26–4/30 | 專案海報截止、期末發表、期末報告截止 |
+官方 Spring 2026 的作業有 Slot A/B 政策，早期 human-only 提交與之後允許 AI 協助的修訂具有不同規範。若你是修課學生，依當學期 handout 與課綱執行；本站自學例子不取代官方規範或提交答案。公開材料存在也不代表評分系統、人工標準與所有助教補充都可取得。
 
-L15 之後沒有程式作業。後半段的驗收交給 Quiz 5–6、HW623 和專案；專案三人一組，在學期最後四週做完。
+自學可以先用 CPU 跑小數例與單元測試，不代表完整作業訓練成本也相同。GPU 是否需要、環境與資料大小，要按各 handout 與你的實驗規模確認。記錄實際完成的步驟，不把 test green、生成一個樣本與品質評估合成一句「模型完成」。
 
-## 存取等級：A3，但缺口要講清楚
+## 保留導覽的用途
 
-這門課評為 A3，因為自學需要的核心材料都在：26 講的投影片（講次表連到 40 個 PDF，其中 13 份是課堂上的手寫註記版，L26 有兩份投影片）、HW1–HW4 的 zip（題目 PDF、起始碼、單元測試、LaTeX 模板）、每份作業的 Overleaf 唯讀模板、HW623 說明、[附解答的練習考卷](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)，以及[專案說明](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf)。
+下面 12 篇維持原網址，提供主題關係、比較與完整核心入口。讀核心遇到需要比較時再回來看；它們不排成第 40 堂以後的課程。
 
-練習考卷是 Spring 2026 版，41 頁、167 分、13 大題，從 AutoDiff／RNN-LM 一路考到 Scaling Laws，正好可以拿來對照每個單元的自我檢核。
+- [音訊、影片與世界模型](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)
+- [Cross-attention、DiT 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)
+- [分散式訓練與推論效能](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)
+- [考試、論文報告與專案](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)
+- [SFT、RLHF 與 DPO](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)
+- [長上下文與 SSM](/posts/ai/2026-09-30-cmu10423-long-context-ssm)
+- [PEFT 與 ICL](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning)
+- [風險與對齊](/posts/ai/2026-09-30-cmu10423-risks-alignment)
+- [Scaling laws 與 MoE](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)
+- [文生圖與 VLM](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)
+- [Transformer 與解碼](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)
+- [變分推論與 VAE](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)
 
-2026-09-30 逐一測試拿不到的東西：
+## 來源能支援甚麼
 
-| 材料 | 狀態 | 影響 |
-|---|---|---|
-| 講課與 recitation 錄影 | 放在 SCS Panopto，講次表標明「Andrew ID Required」，要用 Canvas 登入；直播連結放在 Piazza | 全系列只能依投影片撰寫 |
-| 往年錄影 | F25、S25、F24、S24 四個往年課站也都只連到 Panopto，沒有公開影片 | 不用舊版影片補充 |
-| HW0 PyTorch Primer 題目檔 | Google Drive 連結回 401 | 只能讀公開的 HW0 recitation Colab |
-| HW1 recitation 投影片 | Google Slides 公開 | 可讀 |
-| HW1 Supplemental Material | Drive 回 401 | 缺 |
-| HW2 recitation 投影片 | Google Slides 公開 | 可讀 |
-| HW3、HW4 recitation 投影片 | 回 401 | 作業篇會註明 |
-| 白板筆記 | 講次表寫有 OneNote 筆記本，但連結是空的 | 缺 |
-| Gradescope、6 次小考、2 次程式測驗、正式考卷、Piazza | 修課學生限定 | 沒有批改，只能靠練習考卷解答與單元測試自評 |
+主要底本是官方課表、公開投影片、公開作業與評量材料。課表是索引，投影片實際範圍可能更廣：例如第 8 堂含 VAE 引介，第 9 堂末段含 zero/few-shot，第 26 堂有世界模型與對齊兩份 deck。因此分篇不是隻按檔名猜題目。
 
-另外，講次表從 L9 起多數講次沒有列 readings。本系列照原樣處理，只引用投影片本身，不自己補書單。
+本系列提供本站的教學解說與雙語文章，不是課堂逐字稿。錄影入口位於 SCS Panopto；匿名資料夾無法載入並提示登入，這只能說明尚未取得公開播放內容，不能推論課程沒有錄影。各篇保留官方入口；未取得原音、字幕或白板口述的部分，不補成講者說過的話。
 
-## 四份作業的算力門檻
+現在可以選一條路線，先完成它的第一個數值驗收，再往後走。若只能重述模型名、不能解釋例子的輸入與結果，停在那一篇補問題，不需要急著把整張課表讀完。
 
-| 作業 | 主題（依第一講投影片） | 已核對的環境說明 |
-|---|---|---|
-| HW0 | PyTorch Primer：影像與文字分類器 | 題目檔 401；recitation Colab 教 PyTorch、LSTM、Weights & Biases、einops |
-| HW1 | Large Language Models：在 Transformer LM 加上 GQA 與 RoPE | 題目 PDF 截止 2/9、總分 62；附 Colab（免費 T4）與 Kaggle（每週 30 小時 T4／V100）的設定說明 |
-| HW2 | Image Generation：diffusion model | 本系列 HW2 篇另行核對 |
-| HW3 | Adapters for LLMs：GPT-2 + LoRA | 題目 PDF 截止 3/12、總分 66；附 `run_in_colab.ipynb` 與 `wandb_api.json`，handout 寫明 Colab 有免費 T4 |
-| HW4 | Multimodal Foundation Models：文生圖 | 題目 PDF 截止 3/23、總分 79；附 `download_data.sh` 與 `run_in_cloud.ipynb`，handout 建議用 CMU 信箱申請 Colab Pro、優先用 A100 |
-
-HW4 的 Colab Pro 建議需要 CMU 信箱，校外讀者得自己找 GPU。細節留到各作業篇。
-
-## 自學路線
-
-**只想建立概念**：照講次表順序讀投影片，每個單元讀完，拿練習考卷對應的大題自我檢核。不做作業也能跟上，但你會錯過這門課最重的部分。
-
-**要做作業**：
-
-1. 先跑 [HW0 recitation Colab](https://colab.research.google.com/drive/1F-ik4J0hf8kUdQAH_1HdlpBufuF9j9ny?usp=sharing)，確認 PyTorch 和 W&B 都會用。
-2. 每個單元讀完投影片後做對應作業：HW1 → HW2 → HW3 → HW4。書面題照 Slot A 的規矩先自己寫，程式題用 zip 裡的單元測試驗證。
-3. 做完四份作業後寫練習考卷，再對解答。
-4. 後半段（L15–L26）沒有作業，可以挑一個主題照[專案說明](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf)的格式做小專案。
-
-**今晚可以做的一件事**：打開[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)，下載 L1 投影片，同時開 HW0 recitation Colab 跑第一個 cell。
-
-## 延伸閱讀
-
-這門課和站內幾個系列有重疊。本系列每篇都會把內容講完整，下面只是想往深處走時的去處：
-
-- 從零打造語言模型、scaling、平行化與推論：[Stanford CS336 導讀](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)
-- Transformer、LLM 訓練、偏好調整與 agent：[Stanford CME295 導讀](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
-- Diffusion 與 flow matching 的數學：[MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
-- LLM 的系統面（CUDA、分散式、服務）：[CMU 11-868 導讀](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
-- 先修：[CMU 10-301 導讀](/posts/learning/2026-08-22-cmu-10301-overview)、[CMU 11-785 導讀](/posts/ai/2026-08-22-cmu-11785-course-overview)
+[下一篇](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
 
 ## 課程影片來源
 
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+官方錄影入口位於 SCS Panopto。匿名資料夾未載入並提示登入；這表示未取得公開播放內容，不代表沒有錄影。原音與字幕須依課程授權存取。
 
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
-
-## 更新紀錄
-
-- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。確認登入牆屬實（匿名開啟 Panopto 資料夾無影片並提示登入），官方頁面也沒有公開 YouTube 版本，狀態維持不變。
+- [Official Panopto recording index](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [Official course homepage](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## 參考資料
 
-- [CMU 10-423/623/723 Generative AI 課程首頁（Spring 2026）](https://www.cs.cmu.edu/~mgormley/courses/10423/)：課程描述、學習成果、先修、配分、Slot A/B 政策、遲交規則
-- [Schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)：26 講、6 單元、readings、作業與小考時程、Panopto 說明
-- [Coursework](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)：HW0–HW4、HW623、小考範圍、練習考卷、專案 milestones
-- [Previous Course Homepages](https://www.cs.cmu.edu/~mgormley/courses/10423/previous.html)：Fall 2025 到 Spring 2024 四個往年課站
-- [Lecture 1 投影片：Course Overview + RNN-LMs + Automatic Differentiation](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview.pdf)：作業表、先修說明、作業政策的論證
-- [Lecture 2 投影片：Transformer Language Models](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture2-transformer.pdf)：Spring 2026 的 HW0 日期
-- [HW1 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip)、[HW3 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw3.zip)、[HW4 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw4.zip)：截止日、總分與算力說明
-- [Practice Exam](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf) 與 [Solutions](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)：Spring 2026，41 頁、167 分、13 大題
-- [Project handout](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf)
+- [Official course homepage and syllabus](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+- [Spring 2026 schedule](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)
+- [Coursework](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)
+- [Previous](https://www.cs.cmu.edu/~mgormley/courses/10423/previous.html)
+- [Aran Nayebi](https://anayebi.github.io/)
+- [Matt Gormley](http://www.cs.cmu.edu/~mgormley/)
+- [附解答的練習考卷](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)
+- [專案說明](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/project.pdf)
 - [HW0 recitation Colab](https://colab.research.google.com/drive/1F-ik4J0hf8kUdQAH_1HdlpBufuF9j9ny?usp=sharing)
+- [Lecture 1 投影片：Course Overview + RNN-LMs + Automatic Differentiation](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture1-overview.pdf)
+- [Lecture 2 投影片：Transformer Language Models](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture2-transformer.pdf)
+- [HW1 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw1.zip)
+- [HW3 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw3.zip)
+- [HW4 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw4.zip)
+- [Practice Exam](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf)

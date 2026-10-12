@@ -1,5 +1,5 @@
 ---
-title: "擴散模型入門——從加噪到學會去噪｜CMU 10-423 第 7 堂"
+title: "擴散模型入門：加噪為何能成為生成的訓練題｜CMU 10-423 第 7 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,196 +7,75 @@ tags: [cmu-10423, ai-course, cmu, generative-ai, diffusion-model, deep-learning]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 7
-tldr: "L7 把擴散模型拆成兩條 Markov 鏈：固定的前向過程一步步把圖片加噪成高斯雜訊，學出來的反向過程一步步去噪。精確的反向過程算不出來，但給定原圖 x₀ 時的後驗是封閉形式的高斯，所以可以拿它當學習目標。投影片比較三種參數化，實務上最好的是讓 U-Net 預測當初加進去的雜訊 ε，訓練迴圈只有八行。"
-description: "CMU 10-423/623 Generative AI（Spring 2026）Lecture 7 導讀：無監督學習的共同目標、GAN→VAE→Diffusion 的模型對照、U-Net 架構、DDPM 的前向與反向過程、noise schedule、三個關鍵性質、預測均值／原圖／雜訊三種參數化，以及 ε 預測的訓練演算法與 L8 開頭的取樣演算法。"
+  order: 9
+tldr: "GAN 用判別器取得生成訊號，擴散模型則先定義一個會逐漸破壞資料的過程，再學習反方向的條件分佈。"
+description: "Spring 2026 公開課程材料教學：擴散模型入門：加噪為何能成為生成的訓練題｜CMU 10-423 第 7 堂"
 draft: false
-glossary:
-  - term: "forward process"
-    aliases: ["前向過程", "加噪過程"]
-    definition: "擴散模型中固定、不需學習的 Markov 鏈 q(x_t | x_{t−1})，每一步把圖片縮放並加上高斯雜訊，走完 T 步後接近標準高斯。"
-    context: "10-423 L7 用它和學出來的反向過程 p_θ(x_{t−1} | x_t) 對照。"
-  - term: "noise schedule"
-    aliases: ["雜訊排程"]
-    definition: "前向過程每一步的係數 α_t 構成的固定序列，選擇原則是讓 q(x_T) 接近 N(0, I)，與反向過程的起點 p_θ(x_T) 一致。"
-    context: "L7 投影片的 Defining the Forward Process 一節。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-cmu10423-diffusion-models-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：錄影需登入或課程授權。** 本文依公開投影片與作業整理，數值例子為本站補充，不是課堂逐字稿。
 
-> **版本說明**：本文依據 [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/) Spring 2026。主要材料是 [Lecture 7 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture7-diffusion.pdf)（Diffusion models Part I，47 頁 PDF），取樣演算法一節取自 [Lecture 8 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf)開頭的複習段；readings 依[講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)。事實皆於 2026-09-30 打開官方材料核對。存取等級 **A3**：投影片、作業與練習考卷公開；課堂錄影在 CMU Panopto，校外看不到。
+GAN 用判別器取得生成訊號，擴散模型則先定義一個會逐漸破壞資料的過程，再學習反方向的條件分佈。聽起來像「把噪聲擦掉」，但只有說出前向看到甚麼、訓練預測甚麼、生成從哪裡開始，才算真的理解。本篇只處理加噪與噪聲預測；逆向均值與參數化留給下一堂。
 
-**系列位置**：上一篇 [L6：生成對抗網路（GAN）](/posts/ai/2026-09-30-cmu10423-gans)｜下一篇 [L8–L9：變分推論、VAE 與擴散模型的 ELBO](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
+先備是高斯亂數、平方誤差，以及第 6 堂的機率圖與條件分佈。圖片可以看成很多實數畫素的向量；以下先用一維訊號，避免 shape 掩蓋機制。所有數字都是本站自擬教學例子。
 
-GAN 能畫圖，但它有一個根本限制：算不出一張圖的機率 p_θ(x)，只能改用對抗遊戲來訓練。L7（2026 年 2 月 4 日）介紹的擴散模型走另一條路：先定義一個「把圖片慢慢變成雜訊」的過程，再訓練一個網路把這個過程倒著走回來。這也是 [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm) 程式題要從零實作的模型。
+## 前向鏈有訊號縮放，也有隨機噪聲
 
-## 先把三種模型放在同一張表上
+一步前向過程是 xₜ=√αₜ xₜ₋₁+√(1−αₜ)εₜ，其中 αₜ=1−βₜ，εₜ 是標準高斯。它不是單純在 x 上加固定雜訊：舊訊號也被縮小，讓很多步之後分佈可以接近標準高斯。
 
-投影片開頭用「無監督學習」重新定義問題：資料來自某個真實分布 p\*(x₀)，我們選一個容易取樣的 p_θ(x₀)，目標是讓 p_θ ≈ p\*。三種模型的差別在於「能不能直接最大化 log p_θ(x₀)」：
+設 x₀=2、α₁=α₂=0.8，本次抽到 ε₁=1、ε₂=−1。第一步 x₁=√0.8×2+√0.2×1≈2.2361；第二步 x₂=√0.8×2.2361−√0.2≈1.5528。單次數值不必單調接近零：噪聲可能正也可能負，前向分佈的訊號佔比與個別路徑的數值是不同的概念。
 
-| 模型 | 能直接做 MLE 嗎 | 投影片的理由 | 實際怎麼學 |
-|---|---|---|---|
-| 自迴歸 LM | 可以 | 每一步是 Categorical，祖先取樣精確又快 | 對 log p_θ(x₀) 做梯度上升 |
-| GAN | 不行 | 連 log p_θ(x₀) 或它的梯度都算不出來 | 改最佳化 minimax 損失 |
-| VAE／擴散模型 | 「算是可以」 | 梯度算不出來 | 改最佳化變分下界（L8 詳談） |
+展開兩步：x₂=0.8x₀+0.4ε₁+√0.2 ε₂。因為兩個噪聲獨立，總噪聲方差是 0.16+0.2=0.36；訊號係數是 0.8。因此條件分佈可直接寫成 x₂=0.8x₀+0.6ε，ε 仍是標準高斯。
 
-接著投影片用一張「GAN → VAE → Diffusion」對照圖把三者都寫成潛變數模型：GAN 是 z ~ N(0, I) 加上一個確定性的 G_θ(z)；VAE 是 z 加上高斯解碼器，另配一個編碼器 q_φ(z | x)；擴散模型則是一整串潛變數 z_T → … → z_1 → z₀ = x。這張圖在 L8 和 L9 還會再出現兩次，值得先記住。
+這次路徑的有效 ε=(1.5528−1.6)/0.6≈−0.0787。它不是第二步抽到的 −1，而是前兩步噪聲的加權合成。把逐步 εₜ 跟閉式公式的一個總 ε 混用，會造成錯誤的訓練標籤。
 
-## 先認識 U-Net
+## 任意時間點都可以直接取樣
 
-擴散模型的去噪網路需要「輸入一張圖、輸出同樣大小的東西」，所以投影片先介紹 U-Net。它原本是為生物醫學影像分割設計的，關鍵性質是輸出層和輸入圖有相同的空間尺寸（通道數可以不同）。
+定義 ᾱₜ=α₁⋯αₜ，閉式前向取樣為 xₜ=√ᾱₜ x₀+√(1−ᾱₜ)ε。這來自線性高斯鏈的展開，不需要真的從 x₀ 跑到第 t 步才取得一筆訓練輸入。前例 ᾱ₂=0.64，所以係數就是 0.8 與 0.6。
 
-- **收縮路徑**：每個 block 是兩層 3×3 卷積、ReLU、stride 2 的 max-pooling，重複 N 次，每次通道數加倍。
-- **擴張路徑**：每個 block 是 2×2 卷積上採樣、和收縮路徑對應層的特徵串接、再兩層 3×3 卷積與 ReLU，重複 N 次，每次通道數減半。
+時間 t 不能省略。相同 xₜ 數值可能在不同噪聲尺度出現，去噪網路需要知道目前的 signal/noise 比例。實際模型通常把 t 編成 embedding，送進網路不同層。
 
-投影片順帶介紹了 semantic segmentation（每個像素一個標籤）和 instance segmentation（還要區分同類別的不同個體），說明「逐像素預測」為什麼不是單純的分類問題。
+## 噪聲預測怎麼形成 loss
 
-## 兩條方向相反的鏈
+訓練時從資料取 x₀、抽 t、抽 ε，用公式建構 xₜ。網路 εθ(xₜ,t) 預測此次加進去的總噪聲。以原始 DDPM 常用的 simplified MSE 為例，loss 是 ε 與 εθ 的平方差；batch 與畫素上通常再取平均。這是對論文目標的介紹，作業 2 的指定實作另有 L1 loss，不能照抄 MSE 取代作業規範。
 
-擴散模型由兩個過程組成：
+用 x₀=2、ᾱₜ=0.64、ε=1，得到 xₜ=2.2。若網路預測 εθ=0.5，一維 MSE 為 (1−0.5)²=0.25。若預測變成 1，這筆噪聲 loss 為零。訓練標籤容易取得，因為噪聲由我們自己抽出，不需要人工標註每張噪聲圖的答案。
 
-- **前向過程**：q(x₀) 是資料分布，每一步 q(x_t | x_{t−1}) 往圖片上加一點雜訊，走 T 步後變成純雜訊。這一步是固定的，不用學。
-- **反向過程**：從 p_θ(x_T) = N(0, I) 開始，每一步 p_θ(x_{t−1} | x_t) 去掉一點雜訊，最後得到圖片。這是要學的部分。
+但是同一個 noisy value 可能由不同 x₀ 與 ε 形成，網路不可能僅憑一個數值辨認每次真實來源。平方損失的最優預測與條件期望有關；一筆自擬例子的零誤差不代表所有樣本都能完美還原。
 
-投影片問了一個課堂問題：擴散模型的潛變數是哪些？（答案欄在講義版是空的，但從圖上看得出來：x₁ 到 x_T。）
+## 生成與訓練的起點不同
 
-在 DDPM（[Ho et al. 2020](https://arxiv.org/abs/2006.11239)）裡，兩個過程都是高斯：
+訓練知道 x₀，才能製造噪聲與標籤。生成時沒有乾淨目標圖片，而是從近似標準高斯的 x_T 開始，多次使用學到的逆向分佈產生 xₜ₋₁。它不是把某張訓練圖加噪後再還原，就算完成無條件生成。
 
-<details>
-<summary>DDPM 的前向與反向過程定義（投影片第 28 頁）</summary>
+生成的噪聲預測也不等於知道當初真實加了甚麼；在沒有 x₀ 的情況下，模型提供與資料分佈相符的逆向訊號。取樣步數、噪聲日程與模型誤差都影響結果。下一篇會把「預測噪聲」轉成「逆向均值」，避免把簡單相減誤當完整 DDPM。
 
-```text
-前向： q(x_{0:T}) = q(x_0) Π_{t=1..T} q(x_t | x_{t−1})
-      q(x_t | x_{t−1}) = N( √α_t · x_{t−1}, (1 − α_t) I )
+## 變式題與答案
 
-反向： p_θ(x_{0:T}) = p_θ(x_T) Π_{t=1..T} p_θ(x_{t−1} | x_t)
-      p_θ(x_T) = N(0, I)
-      p_θ(x_{t−1} | x_t) = N( μ_θ(x_t, t), Σ_θ(x_t, t) )
-```
+固定 x₀=2、ᾱ=0.64，把 ε 改成 −1，xₜ=1。若網路仍預測 0.5，MSE=2.25；若它預測 −1，loss=0。資料來源與時間相同，也必須配合這次抽到的噪聲。
 
-</details>
+兩步例子若 α₁=0.9、α₂=0.8，ᾱ₂=0.72，訊號係數約 0.8485，總噪聲標準差約 0.5292。不是把 0.1 和 0.2 直接相加當成 0.3 的總噪聲方差。能算出這兩個係數，就能接下一堂的訓練與取樣資料流。
 
-既然前向過程很簡單，為什麼不直接把它精確地倒過來？投影片的回答是：q(x_{t−1} | x_t) 要把其他所有變數積分掉，而其中牽涉到 q(x₀)——真實資料分布一點也不簡單，所以這個反向條件分布算不出來。
-
-**Noise schedule**：α_t 照一個固定排程選，目標是讓 q(x_T) 接近 N(0, I)，正好和反向過程的起點 p_θ(x_T) 對上。
-
-## 高斯的四條規則，與兩個常見疑問
-
-投影片插了一頁「高斯小抄」，後面反覆回來引用：兩個高斯相加、相減仍是高斯；高斯的均值如果是另一個高斯變數的**線性**函數，邊際和後驗都是高斯；如果是**非線性**函數，一般就不是高斯。
-
-用這四條可以回答兩個疑問：
-
-- **前向過程只是加噪，反向過程為什麼學得到有趣的東西？** 因為 q(x₀) 本身不是雜訊，p_θ 必須捕捉資料的變化。
-- **每一步都是高斯，最後的 p_θ(x₀) 不也是高斯嗎？** 不是。前向過程把中間變數積分掉後仍是高斯（線性），但反向過程的均值 μ_θ 是神經網路（非線性），積分掉之後一般不是高斯。投影片說，T 夠長的擴散模型可以捕捉任何平滑的目標分布。
-
-## 三個讓訓練變簡單的性質
-
-**性質 1：一步跳到任意時間點。** 定義 ᾱ_t = α₁·α₂·…·α_t，就有 q(x_t | x₀) = N(√ᾱ_t x₀, (1 − ᾱ_t) I)。寫成取樣式：x_t = √ᾱ_t x₀ + √(1 − ᾱ_t) ε，ε ~ N(0, I)。投影片特別註明，這跟 VAE 用的 reparameterization trick 是同一招。
-
-**性質 2：給定 x₀，反向一步是封閉形式。** q(x_{t−1} | x_t) 算不出來，但加上條件 x₀ 之後，q(x_{t−1} | x_t, x₀) 是一個均值為 μ̃_q(x_t, x₀)、變異數為 σ_t² 的高斯，兩者都有公式。
-
-**性質 3：換一種寫法表示這個均值。** 把性質 1 移項得到 x₀ = (x_t − √(1 − ᾱ_t) ε) / √ᾱ_t，代回性質 2 的均值，就能用 x_t 和 ε 來表示 μ̃_q。投影片說，這種參數化在經驗上有助於學習 p_θ。
-
-<details>
-<summary>性質 2、3 的公式（投影片第 47、51 頁）</summary>
-
-```text
-q(x_{t−1} | x_t, x_0) = N( μ̃_q(x_t, x_0), σ_t² I )
-
-μ̃_q(x_t, x_0) = [√ᾱ_{t−1}(1 − α_t) / (1 − ᾱ_t)] · x_0
-              + [√α_t (1 − ᾱ_{t−1}) / (1 − ᾱ_t)] · x_t
-σ_t² = (1 − ᾱ_{t−1})(1 − α_t) / (1 − ᾱ_t)
-
-代入 x_0 = (x_t − √(1 − ᾱ_t) ε) / √ᾱ_t 之後：
-μ̃_q = (1/√α_t) · ( x_t − (1 − α_t)/√(1 − ᾱ_t) · ε )
-```
-
-</details>
-
-## 網路要預測什麼：三種選擇
-
-直覺是：面對一張特定的訓練圖 x₀，學到的反向一步 p_θ(x_{t−1} | x_t) 應該盡量接近「精確的」q(x_{t−1} | x_t, x₀)。（為什麼這樣做是對的，要等 L8 用 ELBO 證明。）投影片據此提出兩個想法：
-
-- **想法 1**：變異數不用學，直接設 Σ_θ = σ_t² I。
-- **想法 2**：讓 μ_θ 靠近 μ̃_q，有三種參數化方式：
-
-| 選項 | U-Net 預測什麼 | 損失（逐步） |
-|---|---|---|
-| A | 直接預測均值 μ̃_q | ‖μ̃_q − μ_θ(x_t, t)‖² |
-| B | 預測原圖 x₀ | ‖x₀ − x_θ⁽⁰⁾(x_t, t)‖² |
-| C | 預測當初加進去的雜訊 ε | ‖ε − ε_θ(x_t, t)‖² |
-
-三種都把 t 當成 U-Net 的額外輸入特徵。投影片的結論是：**選項 C 在經驗上最好。**
-
-## 訓練與取樣
-
-選項 C 的訓練演算法只有八行：
-
-<details>
-<summary>Algorithm 1：Training（Option C，投影片第 55 頁）</summary>
-
-```text
-1: initialize θ
-2: for e ∈ {1, …, E} do
-3:   for x_0 ∈ D do
-4:     t ~ Uniform(1, …, T)
-5:     ε ~ N(0, I)
-6:     x_t ← √ᾱ_t x_0 + √(1 − ᾱ_t) ε
-7:     ℓ_t(θ) ← ‖ε − ε_θ(x_t, t)‖²
-8:     θ ← θ − ∇_θ ℓ_t(θ)
-```
-
-</details>
-
-每張圖每次只隨機挑一個時間點 t，利用性質 1 一步生成 x_t，再讓網路猜雜訊。L8 開頭的複習還補了選項 A 在「所有時間點都算」的版本，以及 A、B 的訓練迴圈。
-
-取樣則是從 x_T ~ N(0, I) 開始，t 從 T 倒數到 1，每一步用網路算出 μ̂_t，再加上 σ_t 倍的新雜訊。以選項 C 為例，每一步先用 ε_θ 估出 x̂₀，再用性質 2 的公式組出 μ̂_t。這段演算法出現在 L8 投影片第 22–26 頁。
-
-## 這一講在作業與考試裡的位置
-
-- [HW2](/posts/ai/2026-09-30-cmu10423-hw2-ddpm)（總分 60）的第 6 題 Understanding Diffusion Models 占 14 分，程式題 Programming: Diffusion Models 占 21 分：在 AFHQ 貓圖上實作 DDPM。
-- Quiz 2（2 月 16 日）範圍是 L5–L9。
-- [練習考卷](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf)第 8 大題 Diffusion Models 共 8 分，附[解答](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)。
-
-## 自學怎麼做
-
-1. 先把「GAN → VAE → Diffusion」對照圖看懂，確定自己分得出三者的潛變數。
-2. 自己推一次性質 1：只用「高斯相加仍是高斯」這條規則，從 q(x_t | x_{t−1}) 推到 q(x_t | x₀)。
-3. 讀 [DDPM 論文](https://arxiv.org/abs/2006.11239)的 Algorithm 1 與 2，對照投影片的選項 C 訓練與取樣演算法。
-4. 想知道擴散模型最早的出發點，讀 [Sohl-Dickstein et al. 2015](https://arxiv.org/abs/1503.03585)。
-5. 用 PyTorch 寫一個玩具版：2D 資料點、T = 100、一個小 MLP 當 ε_θ，跑完上面的八行迴圈。這就是 HW2 程式題的縮小版。
-
-## 延伸閱讀
-
-- [MIT 6.S184 導讀](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)與[第 1 講：flow 與擴散模型](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)——用 ODE／SDE 的角度重看擴散模型
-- [CMU 11-785 導讀：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
-- [Stanford CS231n 導讀：生成模型與擴散](/posts/ai/2026-09-30-cs231n-generative-models-diffusion)
+[上一篇](/posts/ai/2026-09-30-cmu10423-gans)｜[下一篇](/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling)｜[系列總覽](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)
 
 ## 課程影片來源
 
-官方課站將 Spring 2026 錄影放在 SCS Panopto；2026-10-10 重查：匿名開啟 Panopto 資料夾時沒有影片、提示登入；課程首頁與課表也沒有公開的 YouTube 錄影連結（講者 2026-04-08 的貼文說 YouTube 錄影「很快」會放上，但查核時官方頁面尚無連結）。本文依公開投影片與作業導讀，錄影需依課程授權存取。
+官方錄影入口位於 SCS Panopto。匿名資料夾未載入並提示登入；這表示未取得公開播放內容，不代表沒有錄影。原音與字幕須依課程授權存取。
 
-課程與錄影入口：
-
-- [CMU 10-423/623/723 Spring 2026 — official Panopto recordings](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
-- [cmu-10-423-generative-ai — official course materials and recording index](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-
-查核日期：2026-10-10。
-
-## 更新紀錄
-
-- 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。確認登入牆屬實（匿名開啟 Panopto 資料夾無影片並提示登入），官方頁面也沒有公開 YouTube 版本，狀態維持不變。
+- [Official Panopto recording index](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222fe20532-6905-4f5e-b391-b3c901534e6b%22)
+- [Official course homepage](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## 參考資料
 
-- [CMU 10-423/623/723 Generative AI 課程首頁（Spring 2026）](https://www.cs.cmu.edu/~mgormley/courses/10423/)
-- [講次表（Schedule）](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)——L7 日期、標題與 readings
-- [Lecture 7 投影片：Diffusion Models（Part I）](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture7-diffusion.pdf)——本文主要依據
-- [Lecture 8 投影片：Diffusion Models（Part II）+ Intro to VAEs](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf)——訓練演算法 A/B 與取樣演算法
-- [Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)與 [HW2 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw2.zip)——HW2 配分表
-- [Practice exam（Spring 2026）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf)與[解答](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)
-- [Sohl-Dickstein et al., Deep Unsupervised Learning using Nonequilibrium Thermodynamics（ICML 2015）](https://arxiv.org/abs/1503.03585)——講次表 reading
-- [Ho, Jain & Abbeel, Denoising Diffusion Probabilistic Models（NeurIPS 2020）](https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html)——講次表 reading；[arXiv 版](https://arxiv.org/abs/2006.11239)
+- [Lecture 7 slides](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture7-diffusion.pdf)
+- [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- [Nonequilibrium Thermodynamics](https://arxiv.org/abs/1503.03585)
+- [CMU 10-423/623/723 Generative AI](https://www.cs.cmu.edu/~mgormley/courses/10423/)
+- [Lecture 8 投影片](https://www.cs.cmu.edu/~mgormley/courses/10423/slides/lecture8-diffusion-vae.pdf)
+- [講次表](https://www.cs.cmu.edu/~mgormley/courses/10423/schedule.html)
+- [練習考卷](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam.pdf)
+- [解答](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/practice_exam_solutions.pdf)
+- [Coursework 頁](https://www.cs.cmu.edu/~mgormley/courses/10423/coursework.html)
+- [HW2 handout（zip）](https://www.cs.cmu.edu/~mgormley/courses/10423/homework/hw2.zip)
+- [Ho, Jain & Abbeel, Denoising Diffusion Probabilistic Models（NeurIPS 2020）](https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html)

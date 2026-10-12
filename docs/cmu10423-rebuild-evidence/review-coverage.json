@@ -1,0 +1,423 @@
+{
+  "status": "pass",
+  "count": 104,
+  "issues": [],
+  "files": {
+    "src/content/posts/ai/2026-10-11-cmu10423-peft.md": {
+      "sha256": "f2cfc939b86b423a0a1c849d9484f143800fdf8f5afd4d911c33d66a7f14de16",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-peft-en.md": {
+      "sha256": "ad2bd12c703dbd8681c56cbd53177ece46b1e3d0360a41a81e323953aa0487d2",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning.md": {
+      "sha256": "fa28810289bad14d0fe6f71b5cb1fa25ffb64774a0be865209676c258d2ee6f6",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en.md": {
+      "sha256": "17350ef060e7680d28143c32100da0e4aa29ea130d0b4c1a058695cbff77cc64",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf.md": {
+      "sha256": "4083c269b70e0814ae846c3ecbaec41a18e6baad5949531236bb2c4ab042d31a",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en.md": {
+      "sha256": "bf757839330eab876d5c0593eec3b826eaa0cd7897efbe3a80fbdc79f8afa6d1",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo.md": {
+      "sha256": "8d60d724b8365cea8f18a56ccaf047ecada97f87ceaf45a75c8eb1a13333e0e7",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en.md": {
+      "sha256": "7df7668bd3b1c13ea01557afde12a0d55377e7a597487eb2c97d8f8759df7958",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2.md": {
+      "sha256": "f1294a1777e8b307deac99f21f7ce1c0da2bd1ae7eaa8c94b23c23d854602275",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en.md": {
+      "sha256": "b38f7fa1d339fb30131a67431bd1bde926df9fa7b1674210a5530ae6c07b2fbf",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion.md": {
+      "sha256": "7e4e6ec6f09ddfcce370a1919b88e4f202e11c0383220961420a18ad6e2223a5",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en.md": {
+      "sha256": "b5e7c3bff4c586150dfc4115e83b49342683d99b720b9c85a98070becd4968e8",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language.md": {
+      "sha256": "8691779c4a4f243bd9df0257d2b50740146dd3bde6a314df7dd84149b53e7bf3",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language-en.md": {
+      "sha256": "5aa37c8d877737ad14273c1f132d4cf291ad2644f31c5d67c254e02c9101597d",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit.md": {
+      "sha256": "bfb59477b5d15e3d0c3b5243e940734e312b9e7e96b7814dea9ad268e4f477f1",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en.md": {
+      "sha256": "bdce55e124f481f7f94f48a8b6b4e24674beed82d47bac599eb883d9b3da31a3",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer.md": {
+      "sha256": "24799b5e0d6eabb9b22953190d785c39d95c1e07d945a7c3e2ca521afc5addf3",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en.md": {
+      "sha256": "7fd05a3e13a7a91ba9da0881f8c5ff22119cbd69a7016f538292191b1e276398",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image.md": {
+      "sha256": "c57107e799d118a5b01de78cf545413c505e3a9076ff4820f86dc6a588db1e30",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en.md": {
+      "sha256": "8c6e59417c28c1b785ca1eacb0f5fc8fe0b684415cce15bf8629b698b047de78",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws.md": {
+      "sha256": "d7a8ed19a1aa8a31b5bf38c7a956033b8753cf4338b1a8689c70a4ecbc46f59b",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en.md": {
+      "sha256": "e5af31e20a37a658a767ec7daa123ea532ebb542a3a58f4228047b52ed9cc1ac",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts.md": {
+      "sha256": "04fb44ec8995bd348adb25dcb366ba24123e52cad1af3627d7f621836e6286e6",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts-en.md": {
+      "sha256": "21e421a09eef7e82a78b68056d851812c97448f87b20a4d7dd50243eb0c100b6",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training.md": {
+      "sha256": "1064f8c6384951c61d77ddc917776298d73f356feb83b1cc60af8569126293d1",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en.md": {
+      "sha256": "567fc87c5b6e4cf8ea63290102e10ef4a9cb6493c3ea351970bf9908daafdde0",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference.md": {
+      "sha256": "3a51f41c3d4dfa1c43dcd6d4e43716a41797465b7e1797dc8b50c2539be1ef85",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference-en.md": {
+      "sha256": "d1dc0e8969f23a5230a6494a5c04820035987f2049c8ac0a19b4d2c19c255fb0",
+      "review": "review-adaptation.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-practice-exam.md": {
+      "sha256": "1d76e189413dd55ddbd003aa0653bc7c2715db2a662faeed44b5a731f2f62f2c",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-practice-exam-en.md": {
+      "sha256": "39d64dac1b12ed2f9a3aabf6e76316ad573877d1747b3be133c05702bc29f735",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-hw623-paper-report.md": {
+      "sha256": "daae71bc1d92dfe81d9d98d298cbb48973d18aafac298e4473d88204c0a54420",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-hw623-paper-report-en.md": {
+      "sha256": "e6006e725e80568a47d55b16c0992ff68e08be58e1b318af381b12f8497e8fa0",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-final-project.md": {
+      "sha256": "dd27fd1ddb3e79e8267409edb0b8b5cb5971e97789112a839e371168d55b93b1",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-final-project-en.md": {
+      "sha256": "b3a5159bf89aacfd59cd7de3951149e48ff300066a0d385a3320575ec62611d4",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding.md": {
+      "sha256": "ea93fdde6bba56ebcfde54d563c6df93f88038f907088d1957f6c4a8d9d49aa0",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en.md": {
+      "sha256": "2a62671e372b5f2bdabd3a42b1d4347f123055956bb38058d10732aacebefb69",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-variational-inference-vae.md": {
+      "sha256": "7e9d2f51b26c3d231c01bd22dd0b089fdfc0d90661ac1f005c215d22fda6732b",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en.md": {
+      "sha256": "fd55814a948b0f14029f01a130ad2ec5589951ab38b0ca1752987cfe0c8e254b",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-peft-in-context-learning.md": {
+      "sha256": "1d4cb9311b99a48c5d25e5c6f9f3da5a6dedc47c4ecdaa350f8b62503f63bfd0",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en.md": {
+      "sha256": "469aba978357b2b35323cb0498733f50fe8368b54e42aef2892d0e461e7e5c32",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo.md": {
+      "sha256": "dd6d5592957a2ab7d3782d1d870322110734685b42f9b1bd9ad6a3e9b61e06f9",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en.md": {
+      "sha256": "c529c5f5d1b82903e2de38adc9c8afd1c3cc581433908466166132e6256095fe",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-text-to-image-vlm.md": {
+      "sha256": "332c2823273fc81657764c7dd66b1d7a29d27e5c0f5af847cc5a81946cf29d85",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en.md": {
+      "sha256": "8ab665545e8d91cbbe48b32a6242cddef9b583ee778b82babc8cd166c4a5cd60",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer.md": {
+      "sha256": "860220bc1a0bca10bd877befabd52ef6ef0dcea1eefd394d2f003ff1535a8c71",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en.md": {
+      "sha256": "4076546489e1aca91d6f0a7f5f4804e97acb397aee7bf2ae45047e9dfa083dad",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-scaling-laws-moe.md": {
+      "sha256": "95326826c0e4aa7ebffc1976dec3030828b63a6bf7c6c8e8a9ddc5938228f0f8",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en.md": {
+      "sha256": "729ef6b77a3eb09a7669716773de664f745df11910a454383ae2429a6e969674",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference.md": {
+      "sha256": "a5238a1effc4fb85f86e2fd76a6fff0e99699a14a40c284bb6afd8d0d4b098f4",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en.md": {
+      "sha256": "b2fd55eb550ea3cc4bab704050edd408b60cb352215067c84536555d44f3a395",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-long-context-ssm.md": {
+      "sha256": "5dd91e49358745a7080c890d167906c91b0bfc24f0060b817fa3ad253c0f1d15",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-long-context-ssm-en.md": {
+      "sha256": "def550b060da17ab204c6bc5dd3c413c8529d4e13909eac0a7ead0747d883a7d",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-risks-alignment.md": {
+      "sha256": "8191979f619d44446f9c10854bf4c0f86f1631aba55b5b483e02aeb98fbace07",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-risks-alignment-en.md": {
+      "sha256": "13d4bd562195fba2e1b28f7965909f9e111b42cfc82ce143a6edbda56f81a1c5",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-audio-video-world-models.md": {
+      "sha256": "a1da8693cbe7ec568bac5f2e562c4e0de0c91bcfbb523ea04a54ba8c9937ad22",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en.md": {
+      "sha256": "e4b3eff415e1c302d87d8d53bcbda971780ad796782813280c9cd78a9b5c5fff",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-exam-hw623-project.md": {
+      "sha256": "255a2ed3f5c400673ba070cb785b56b24d132dde6f6e1731c8e685d4f276a5eb",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-exam-hw623-project-en.md": {
+      "sha256": "e0b0328acccb7cbdc08fcecf3360158c188f372cddff61190687266f206950c8",
+      "review": "adaptation/review-main.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-generative-ai-overview.md": {
+      "sha256": "c609749d6189b7e76b5f26f493e8eda45c8b85f564a0cfa7439472f2b8743603",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en.md": {
+      "sha256": "f60df5aab8c61674bf012e1f364e5256f1c42d05f25bf316cb2efe0f4613af78",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff.md": {
+      "sha256": "bafd3df38f42d0b7eb97ca292f86287ab82a9e1e2bc3ac14281f6b7089809ff5",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en.md": {
+      "sha256": "9abaeae06eb20f1f129b6b0112aab7ef5f79feb5a29ffb048d2aad9c8a4a0b35",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-hw0-autodiff.md": {
+      "sha256": "38931cbd2fb06f2b781cb788241d7ceef116a47562c106ca7e8a116281f65661",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-hw0-autodiff-en.md": {
+      "sha256": "a7ee38af14963538eb43529de68c534481593884f33ea95f6de4c3803e735552",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention.md": {
+      "sha256": "223de0bbcee2174c0605b6f29876a450733b78e4f9cc6d3b7034dccaf99a9035",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en.md": {
+      "sha256": "b1130dbe57c2f73c2f650b5e320f35599e5cb8926a4990d42a887a4eb0203052",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding.md": {
+      "sha256": "f6f2fa1ea93f8601b31e940c3d417c3bddbd71d687e864733f15df756e08234c",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding-en.md": {
+      "sha256": "0e57de1d07b5c9f36f3275a3835ecf227b828876a2365dc82fa3c5bc338568c5",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa.md": {
+      "sha256": "18e1f013064f836e99970d255e125960090415ddb6e2b0e40174e25fee4d8025",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en.md": {
+      "sha256": "5806545a65cfb78a84b7ebcb5066cc412cdcf830bf1d5e945b967af6451bc04c",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa.md": {
+      "sha256": "125281af07b4fb2e4d5616fce08196acf26f6e23dfd2c6197833e99ecbf9f043",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en.md": {
+      "sha256": "3c7eb659e5691f5a2db16b9c47500036a76622e66e6a4ef34ded5f7d7f1db791",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-cnn-bert-vit.md": {
+      "sha256": "4fac5813440c16ca60b86e2f3f7595d008262aa919f6a14e8ccaf7dfee3aba10",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-cnn-bert-vit-en.md": {
+      "sha256": "8aa747038d908cb752cfbe0cf46a40d437dae89a3139195cb1727bfcd8c08be6",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-gans.md": {
+      "sha256": "c43cec84c1e162eae8d948273fdb9af9a1c1c0dbf9e022db408c89ae81118a5c",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-gans-en.md": {
+      "sha256": "4ec69e2ecbe2df9c96b29d7621785ca032b25dee4772c38f55809967de083d3a",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-diffusion-models.md": {
+      "sha256": "8622ee04ae338cc3653378614bbdf3f6c9b2463abf585739fa35d53f4d61b37b",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-diffusion-models-en.md": {
+      "sha256": "dffc6773a82c1fee8d6818f63dee479d02160690797cf30a8ac55eccc7be11f6",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling.md": {
+      "sha256": "130216347a63cd2ef9c99ee36604c2013bc46e922304bf5cfdf9fb4486efc166",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling-en.md": {
+      "sha256": "6206bab85cce5112d9d92b0485c91acfb5f24866871de92a4827860d6108e8b9",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-09-vae.md": {
+      "sha256": "51f9fa00e39353120b409099bd81ef003500e351ddf25fdc2510ad793d516120",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-09-vae-en.md": {
+      "sha256": "4850b223f98b510a037e24f4ab1560ebefb4881b49012c2ee96f8ade1936b59f",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw2-ddpm.md": {
+      "sha256": "93c438ee4cf39f73b16bb41985f1e56b685856fcfaf53f289e418c2b5c766d46",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en.md": {
+      "sha256": "5a300dd1bbd2f4e937a5384bdb773c85680a4b0c5e18d94e423eb4736c812c8f",
+      "review": "advanced/review-foundations.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr.md": {
+      "sha256": "d4bcfe02d9d729bb82a050d4be0d552aee80fc3b239cf3e419c8112ade780c74",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en.md": {
+      "sha256": "565a31893a32118c673dbe996fe996aa37d12474d64846eede0f76161fbfdd4a",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation.md": {
+      "sha256": "aa1ebdebf9b0fac3364985fb80127e500be16b8c6163ec3ae8d05084ab0df9f4",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en.md": {
+      "sha256": "fc9b8103704b7984b42bbd1f03aa6cd2790242528bcefd471bfce7590a379ce8",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation.md": {
+      "sha256": "256159491036b856f5ca4fc5b8212762bb4e7fffd7040b5212b17255abdfe325",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation-en.md": {
+      "sha256": "1691785309d05c29178327942a64072d4e8e1b457bd86eba02fd1e1b15704354",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models.md": {
+      "sha256": "9bfee8e1aac338a5c54e5f741f5574cfb1971eb0ad391ad66e7b9a56c6836949",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en.md": {
+      "sha256": "7ab67e5b428f634e2b859de4d05d3e33fdb6a6b65a85774fef243426414dd227",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment.md": {
+      "sha256": "3c4731dc71740374d9a588495d18f7a9f5d31dee69c96f2f28ec9ecdaa978c0e",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en.md": {
+      "sha256": "55c1224d6b5ccf5b93d05c31feeb7e33dd91b82794562996bfd7dd3625369bac",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-19-long-context.md": {
+      "sha256": "b93b15447aafb7cc7279051e06c2a8a3dedb6f04a06844c0d2de1537142b5011",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-19-long-context-en.md": {
+      "sha256": "1edbb0565ea73f0ca769438a59f18588aa90274778dd02a95761bb671eeed0a3",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-reasoning-models.md": {
+      "sha256": "71c042bc351cb5500c8c18745f23d6186f111df5a459e7f8fb6eccdaccb273e1",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-reasoning-models-en.md": {
+      "sha256": "b945da7217ff870fb65d36dbe765be8d7e17a615adc25ca2cbdd5ba7b4320f64",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models.md": {
+      "sha256": "4ed04f37111a668f4b2f6ec0fbce5884e78a59162723e96fa9ed812ff533dab3",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models-en.md": {
+      "sha256": "dec96975cf4150ff771a66e4f39180a609d49a3b418cdaaa834e2a6eb8e1bc78",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks.md": {
+      "sha256": "7f98aabfe26ce44c036af8fb33b0054b92eab1747b36e0b3212d5953bd813975",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en.md": {
+      "sha256": "57a6ed5e8d356e231bdc349d47d58bbabbb032b353f018f80263b61367af4ad8",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-code-generation-agents.md": {
+      "sha256": "98913823e8d627c3ca7d9e76d2c89880c45aa482f33a09a0b06abc4b729acfc3",
+      "review": "foundations/advanced-independent-review.md"
+    },
+    "src/content/posts/ai/2026-09-30-cmu10423-code-generation-agents-en.md": {
+      "sha256": "7452964d414735606c0162a74e43f1379e84a584713f68b97d015f67b3938fff",
+      "review": "foundations/advanced-independent-review.md"
+    }
+  }
+}

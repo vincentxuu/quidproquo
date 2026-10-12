@@ -807,8 +807,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'CMU 10-423 導讀', en: 'Reading CMU 10-423' },
     descriptions: {
-      'zh-TW': '以 Spring 2026 的 26 講投影片、HW1–HW4 起始碼與練習考卷為主線，讀 CMU 10-423/623/723 生成式 AI 從語言模型到擴散模型、多模態與規模化的路線。',
-      en: 'Reading CMU 10-423/623/723 Generative AI through the Spring 2026 edition: 26 lecture decks, HW1–HW4 starter code, and the practice exam, from language models to diffusion, multimodal models and scaling.',
+      'zh-TW': '依 Spring 2026 公開教材重建的 40 篇核心教學，從語言模型、擴散與調適到多模態、規模化、世界模型及評量；另保留 12 篇主題導覽，每篇分清原課範圍與本站學習順序。',
+      en: 'A 40-guide core path based on the public Spring 2026 materials, from language models and diffusion to adaptation, multimodal systems, scaling, world models, and assessment, with 12 additional topic maps.',
     },
   },
   {

@@ -424,3 +424,10 @@
 - 防復發：五個 skill 共用規格，verify 納入全站嚴格 title/layout gate 與 17 回歸；歷史 baseline 不再豁免。
 - 證據：docs/course-guide-migration-2026-10-11.md；.work/course-full-completion/。最新 main worktree /tmp/quidproquo-course-final（fix/course-guide-completion）。
 - 範圍界線：未宣稱全部 801 組全文教學認證；未 commit／push／deploy。
+
+## Q-033 ✅ CMU 10-423 全系列教學重建完成（2026-10-12）
+- 授權：使用者已明確說「可以開始」，規劃與>20檔批次操作授權完成。
+- 完成：40篇核心+12篇保留網址導覽，中英文104檔；舊24組全部重寫、新28組教學已解除draft，URL/date保留。
+- 驗收：104檔獨立語意審稿、最後hash一致；完整例子、答案、雙語與來源分界核對，shared及最新origin隔離worktree `pnpm verify`全綠。
+- 證據：`docs/cmu10423-rebuild-2026-10-12.md`及`docs/cmu10423-rebuild-evidence/`。
+- 界線：使用者已授權commit/push，新增稿解除draft；CI發布另行驗證。未取得課堂錄影／逐字稿，未宣稱所有PDF圖表視覺核對或GPU訓練。

@@ -1,0 +1,839 @@
+{
+  "status": "pass",
+  "issues": [],
+  "files": [
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en.md",
+      "hash": "e4b3eff415e1c302d87d8d53bcbda971780ad796782813280c9cd78a9b5c5fff",
+      "order": 50,
+      "lang": "en",
+      "draft": false,
+      "chars": 7543
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-audio-video-world-models.md",
+      "hash": "a1da8693cbe7ec568bac5f2e562c4e0de0c91bcfbb523ea04a54ba8c9937ad22",
+      "order": 50,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 5240
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-cnn-bert-vit-en.md",
+      "hash": "8aa747038d908cb752cfbe0cf46a40d437dae89a3139195cb1727bfcd8c08be6",
+      "order": 7,
+      "lang": "en",
+      "draft": false,
+      "chars": 6145
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-cnn-bert-vit.md",
+      "hash": "4fac5813440c16ca60b86e2f3f7595d008262aa919f6a14e8ccaf7dfee3aba10",
+      "order": 7,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3543
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-code-generation-agents-en.md",
+      "hash": "7452964d414735606c0162a74e43f1379e84a584713f68b97d015f67b3938fff",
+      "order": 31,
+      "lang": "en",
+      "draft": false,
+      "chars": 4693
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-code-generation-agents.md",
+      "hash": "98913823e8d627c3ca7d9e76d2c89880c45aa482f33a09a0b06abc4b729acfc3",
+      "order": 31,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 2505
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en.md",
+      "hash": "4076546489e1aca91d6f0a7f5f4804e97acb397aee7bf2ae45047e9dfa083dad",
+      "order": 45,
+      "lang": "en",
+      "draft": false,
+      "chars": 4972
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer.md",
+      "hash": "860220bc1a0bca10bd877befabd52ef6ef0dcea1eefd394d2f003ff1535a8c71",
+      "order": 45,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3097
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-diffusion-models-en.md",
+      "hash": "dffc6773a82c1fee8d6818f63dee479d02160690797cf30a8ac55eccc7be11f6",
+      "order": 9,
+      "lang": "en",
+      "draft": false,
+      "chars": 6322
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-diffusion-models.md",
+      "hash": "8622ee04ae338cc3653378614bbdf3f6c9b2463abf585739fa35d53f4d61b37b",
+      "order": 9,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3385
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference-en.md",
+      "hash": "b2fd55eb550ea3cc4bab704050edd408b60cb352215067c84536555d44f3a395",
+      "order": 47,
+      "lang": "en",
+      "draft": false,
+      "chars": 5178
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference.md",
+      "hash": "a5238a1effc4fb85f86e2fd76a6fff0e99699a14a40c284bb6afd8d0d4b098f4",
+      "order": 47,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3281
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-exam-hw623-project-en.md",
+      "hash": "e0b0328acccb7cbdc08fcecf3360158c188f372cddff61190687266f206950c8",
+      "order": 51,
+      "lang": "en",
+      "draft": false,
+      "chars": 4504
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-exam-hw623-project.md",
+      "hash": "255a2ed3f5c400673ba070cb785b56b24d132dde6f6e1731c8e685d4f276a5eb",
+      "order": 51,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 2408
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-gans-en.md",
+      "hash": "4ec69e2ecbe2df9c96b29d7621785ca032b25dee4772c38f55809967de083d3a",
+      "order": 8,
+      "lang": "en",
+      "draft": false,
+      "chars": 5870
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-gans.md",
+      "hash": "c43cec84c1e162eae8d948273fdb9af9a1c1c0dbf9e022db408c89ae81118a5c",
+      "order": 8,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3240
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en.md",
+      "hash": "f60df5aab8c61674bf012e1f364e5256f1c42d05f25bf316cb2efe0f4613af78",
+      "order": 0,
+      "lang": "en",
+      "draft": false,
+      "chars": 14158
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-generative-ai-overview.md",
+      "hash": "c609749d6189b7e76b5f26f493e8eda45c8b85f564a0cfa7439472f2b8743603",
+      "order": 0,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 8561
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa-en.md",
+      "hash": "3c7eb659e5691f5a2db16b9c47500036a76622e66e6a4ef34ded5f7d7f1db791",
+      "order": 6,
+      "lang": "en",
+      "draft": false,
+      "chars": 6573
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw1-mingpt-rope-gqa.md",
+      "hash": "125281af07b4fb2e4d5616fce08196acf26f6e23dfd2c6197833e99ecbf9f043",
+      "order": 6,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3690
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en.md",
+      "hash": "5a300dd1bbd2f4e937a5384bdb773c85680a4b0c5e18d94e423eb4736c812c8f",
+      "order": 12,
+      "lang": "en",
+      "draft": false,
+      "chars": 7033
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw2-ddpm.md",
+      "hash": "93c438ee4cf39f73b16bb41985f1e56b685856fcfaf53f289e418c2b5c766d46",
+      "order": 12,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 4141
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en.md",
+      "hash": "b38f7fa1d339fb30131a67431bd1bde926df9fa7b1674210a5530ae6c07b2fbf",
+      "order": 17,
+      "lang": "en",
+      "draft": false,
+      "chars": 8249
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2.md",
+      "hash": "f1294a1777e8b307deac99f21f7ce1c0da2bd1ae7eaa8c94b23c23d854602275",
+      "order": 17,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 4650
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en.md",
+      "hash": "8c6e59417c28c1b785ca1eacb0f5fc8fe0b684415cce15bf8629b698b047de78",
+      "order": 22,
+      "lang": "en",
+      "draft": false,
+      "chars": 9010
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image.md",
+      "hash": "c57107e799d118a5b01de78cf545413c505e3a9076ff4820f86dc6a588db1e30",
+      "order": 22,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 5294
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo-en.md",
+      "hash": "c529c5f5d1b82903e2de38adc9c8afd1c3cc581433908466166132e6256095fe",
+      "order": 43,
+      "lang": "en",
+      "draft": false,
+      "chars": 5331
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo.md",
+      "hash": "dd6d5592957a2ab7d3782d1d870322110734685b42f9b1bd9ad6a3e9b61e06f9",
+      "order": 43,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3403
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-long-context-ssm-en.md",
+      "hash": "def550b060da17ab204c6bc5dd3c413c8529d4e13909eac0a7ead0747d883a7d",
+      "order": 48,
+      "lang": "en",
+      "draft": false,
+      "chars": 5991
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-long-context-ssm.md",
+      "hash": "5dd91e49358745a7080c890d167906c91b0bfc24f0060b817fa3ad253c0f1d15",
+      "order": 48,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 4027
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en.md",
+      "hash": "5806545a65cfb78a84b7ebcb5066cc412cdcf830bf1d5e945b967af6451bc04c",
+      "order": 5,
+      "lang": "en",
+      "draft": false,
+      "chars": 6342
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa.md",
+      "hash": "18e1f013064f836e99970d255e125960090415ddb6e2b0e40174e25fee4d8025",
+      "order": 5,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3643
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en.md",
+      "hash": "469aba978357b2b35323cb0498733f50fe8368b54e42aef2892d0e461e7e5c32",
+      "order": 42,
+      "lang": "en",
+      "draft": false,
+      "chars": 6032
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-peft-in-context-learning.md",
+      "hash": "1d4cb9311b99a48c5d25e5c6f9f3da5a6dedc47c4ecdaa350f8b62503f63bfd0",
+      "order": 42,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3927
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-reasoning-models-en.md",
+      "hash": "b945da7217ff870fb65d36dbe765be8d7e17a615adc25ca2cbdd5ba7b4320f64",
+      "order": 28,
+      "lang": "en",
+      "draft": false,
+      "chars": 5225
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-reasoning-models.md",
+      "hash": "71c042bc351cb5500c8c18745f23d6186f111df5a459e7f8fb6eccdaccb273e1",
+      "order": 28,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 2640
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-risks-alignment-en.md",
+      "hash": "13d4bd562195fba2e1b28f7965909f9e111b42cfc82ce143a6edbda56f81a1c5",
+      "order": 49,
+      "lang": "en",
+      "draft": false,
+      "chars": 6894
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-risks-alignment.md",
+      "hash": "8191979f619d44446f9c10854bf4c0f86f1631aba55b5b483e02aeb98fbace07",
+      "order": 49,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 4793
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en.md",
+      "hash": "9abaeae06eb20f1f129b6b0112aab7ef5f79feb5a29ffb048d2aad9c8a4a0b35",
+      "order": 1,
+      "lang": "en",
+      "draft": false,
+      "chars": 7446
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff.md",
+      "hash": "bafd3df38f42d0b7eb97ca292f86287ab82a9e1e2bc3ac14281f6b7089809ff5",
+      "order": 1,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 4140
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en.md",
+      "hash": "729ef6b77a3eb09a7669716773de664f745df11910a454383ae2429a6e969674",
+      "order": 46,
+      "lang": "en",
+      "draft": false,
+      "chars": 5338
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-scaling-laws-moe.md",
+      "hash": "95326826c0e4aa7ebffc1976dec3030828b63a6bf7c6c8e8a9ddc5938228f0f8",
+      "order": 46,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3369
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-text-to-image-vlm-en.md",
+      "hash": "8ab665545e8d91cbbe48b32a6242cddef9b583ee778b82babc8cd166c4a5cd60",
+      "order": 44,
+      "lang": "en",
+      "draft": false,
+      "chars": 5155
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-text-to-image-vlm.md",
+      "hash": "332c2823273fc81657764c7dd66b1d7a29d27e5c0f5af847cc5a81946cf29d85",
+      "order": 44,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3092
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en.md",
+      "hash": "2a62671e372b5f2bdabd3a42b1d4347f123055956bb38058d10732aacebefb69",
+      "order": 40,
+      "lang": "en",
+      "draft": false,
+      "chars": 5363
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding.md",
+      "hash": "ea93fdde6bba56ebcfde54d563c6df93f88038f907088d1957f6c4a8d9d49aa0",
+      "order": 40,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3351
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en.md",
+      "hash": "fd55814a948b0f14029f01a130ad2ec5589951ab38b0ca1752987cfe0c8e254b",
+      "order": 41,
+      "lang": "en",
+      "draft": false,
+      "chars": 5361
+    },
+    {
+      "file": "src/content/posts/ai/2026-09-30-cmu10423-variational-inference-vae.md",
+      "hash": "7e9d2f51b26c3d231c01bd22dd0b089fdfc0d90661ac1f005c215d22fda6732b",
+      "order": 41,
+      "lang": "zh-TW",
+      "draft": false,
+      "chars": 3257
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-final-project-en.md",
+      "hash": "b3a5159bf89aacfd59cd7de3951149e48ff300066a0d385a3320575ec62611d4",
+      "order": 39,
+      "lang": "en",
+      "draft": true,
+      "chars": 5660
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-final-project.md",
+      "hash": "dd27fd1ddb3e79e8267409edb0b8b5cb5971e97789112a839e371168d55b93b1",
+      "order": 39,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2621
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-hw0-autodiff-en.md",
+      "hash": "a7ee38af14963538eb43529de68c534481593884f33ea95f6de4c3803e735552",
+      "order": 2,
+      "lang": "en",
+      "draft": true,
+      "chars": 6035
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-hw0-autodiff.md",
+      "hash": "38931cbd2fb06f2b781cb788241d7ceef116a47562c106ca7e8a116281f65661",
+      "order": 2,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 3250
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-hw623-paper-report-en.md",
+      "hash": "e6006e725e80568a47d55b16c0992ff68e08be58e1b318af381b12f8497e8fa0",
+      "order": 38,
+      "lang": "en",
+      "draft": true,
+      "chars": 5820
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-hw623-paper-report.md",
+      "hash": "daae71bc1d92dfe81d9d98d298cbb48973d18aafac298e4473d88204c0a54420",
+      "order": 38,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2619
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en.md",
+      "hash": "b1130dbe57c2f73c2f650b5e320f35599e5cb8926a4990d42a887a4eb0203052",
+      "order": 3,
+      "lang": "en",
+      "draft": true,
+      "chars": 5502
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention.md",
+      "hash": "223de0bbcee2174c0605b6f29876a450733b78e4f9cc6d3b7034dccaf99a9035",
+      "order": 3,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2709
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding-en.md",
+      "hash": "0e57de1d07b5c9f36f3275a3835ecf227b828876a2365dc82fa3c5bc338568c5",
+      "order": 4,
+      "lang": "en",
+      "draft": true,
+      "chars": 5976
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding.md",
+      "hash": "f6f2fa1ea93f8601b31e940c3d417c3bddbd71d687e864733f15df756e08234c",
+      "order": 4,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2924
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling-en.md",
+      "hash": "6206bab85cce5112d9d92b0485c91acfb5f24866871de92a4827860d6108e8b9",
+      "order": 10,
+      "lang": "en",
+      "draft": true,
+      "chars": 4842
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-08-diffusion-training-sampling.md",
+      "hash": "130216347a63cd2ef9c99ee36604c2013bc46e922304bf5cfdf9fb4486efc166",
+      "order": 10,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2644
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-09-vae-en.md",
+      "hash": "4850b223f98b510a037e24f4ab1560ebefb4881b49012c2ee96f8ade1936b59f",
+      "order": 11,
+      "lang": "en",
+      "draft": true,
+      "chars": 5713
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-09-vae.md",
+      "hash": "51f9fa00e39353120b409099bd81ef003500e351ddf25fdc2510ad793d516120",
+      "order": 11,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 3089
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en.md",
+      "hash": "17350ef060e7680d28143c32100da0e4aa29ea130d0b4c1a058695cbff77cc64",
+      "order": 14,
+      "lang": "en",
+      "draft": true,
+      "chars": 4990
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning.md",
+      "hash": "fa28810289bad14d0fe6f71b5cb1fa25ffb64774a0be865209676c258d2ee6f6",
+      "order": 14,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2382
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en.md",
+      "hash": "bf757839330eab876d5c0593eec3b826eaa0cd7897efbe3a80fbdc79f8afa6d1",
+      "order": 15,
+      "lang": "en",
+      "draft": true,
+      "chars": 4759
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf.md",
+      "hash": "4083c269b70e0814ae846c3ecbaec41a18e6baad5949531236bb2c4ab042d31a",
+      "order": 15,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2467
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en.md",
+      "hash": "7df7668bd3b1c13ea01557afde12a0d55377e7a597487eb2c97d8f8759df7958",
+      "order": 16,
+      "lang": "en",
+      "draft": true,
+      "chars": 4675
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo.md",
+      "hash": "8d60d724b8365cea8f18a56ccaf047ecada97f87ceaf45a75c8eb1a13333e0e7",
+      "order": 16,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2643
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en.md",
+      "hash": "b5e7c3bff4c586150dfc4115e83b49342683d99b720b9c85a98070becd4968e8",
+      "order": 18,
+      "lang": "en",
+      "draft": true,
+      "chars": 4433
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion.md",
+      "hash": "7e4e6ec6f09ddfcce370a1919b88e4f202e11c0383220961420a18ad6e2223a5",
+      "order": 18,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2401
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language-en.md",
+      "hash": "5aa37c8d877737ad14273c1f132d4cf291ad2644f31c5d67c254e02c9101597d",
+      "order": 19,
+      "lang": "en",
+      "draft": true,
+      "chars": 4586
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language.md",
+      "hash": "8691779c4a4f243bd9df0257d2b50740146dd3bde6a314df7dd84149b53e7bf3",
+      "order": 19,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2468
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en.md",
+      "hash": "bdce55e124f481f7f94f48a8b6b4e24674beed82d47bac599eb883d9b3da31a3",
+      "order": 20,
+      "lang": "en",
+      "draft": true,
+      "chars": 4429
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit.md",
+      "hash": "bfb59477b5d15e3d0c3b5243e940734e312b9e7e96b7814dea9ad268e4f477f1",
+      "order": 20,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2653
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en.md",
+      "hash": "7fd05a3e13a7a91ba9da0881f8c5ff22119cbd69a7016f538292191b1e276398",
+      "order": 21,
+      "lang": "en",
+      "draft": true,
+      "chars": 4509
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer.md",
+      "hash": "24799b5e0d6eabb9b22953190d785c39d95c1e07d945a7c3e2ca521afc5addf3",
+      "order": 21,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2564
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en.md",
+      "hash": "e5af31e20a37a658a767ec7daa123ea532ebb542a3a58f4228047b52ed9cc1ac",
+      "order": 23,
+      "lang": "en",
+      "draft": true,
+      "chars": 4448
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws.md",
+      "hash": "d7a8ed19a1aa8a31b5bf38c7a956033b8753cf4338b1a8689c70a4ecbc46f59b",
+      "order": 23,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2413
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts-en.md",
+      "hash": "21e421a09eef7e82a78b68056d851812c97448f87b20a4d7dd50243eb0c100b6",
+      "order": 24,
+      "lang": "en",
+      "draft": true,
+      "chars": 4365
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts.md",
+      "hash": "04fb44ec8995bd348adb25dcb366ba24123e52cad1af3627d7f621836e6286e6",
+      "order": 24,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2601
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en.md",
+      "hash": "567fc87c5b6e4cf8ea63290102e10ef4a9cb6493c3ea351970bf9908daafdde0",
+      "order": 25,
+      "lang": "en",
+      "draft": true,
+      "chars": 4339
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training.md",
+      "hash": "1064f8c6384951c61d77ddc917776298d73f356feb83b1cc60af8569126293d1",
+      "order": 25,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2481
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference-en.md",
+      "hash": "d1dc0e8969f23a5230a6494a5c04820035987f2049c8ac0a19b4d2c19c255fb0",
+      "order": 26,
+      "lang": "en",
+      "draft": true,
+      "chars": 4534
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference.md",
+      "hash": "3a51f41c3d4dfa1c43dcd6d4e43716a41797465b7e1797dc8b50c2539be1ef85",
+      "order": 26,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2743
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-19-long-context-en.md",
+      "hash": "1edbb0565ea73f0ca769438a59f18588aa90274778dd02a95761bb671eeed0a3",
+      "order": 27,
+      "lang": "en",
+      "draft": true,
+      "chars": 4805
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-19-long-context.md",
+      "hash": "b93b15447aafb7cc7279051e06c2a8a3dedb6f04a06844c0d2de1537142b5011",
+      "order": 27,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2608
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models-en.md",
+      "hash": "dec96975cf4150ff771a66e4f39180a609d49a3b418cdaaa834e2a6eb8e1bc78",
+      "order": 29,
+      "lang": "en",
+      "draft": true,
+      "chars": 4653
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models.md",
+      "hash": "4ed04f37111a668f4b2f6ec0fbce5884e78a59162723e96fa9ed812ff533dab3",
+      "order": 29,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2752
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en.md",
+      "hash": "57a6ed5e8d356e231bdc349d47d58bbabbb032b353f018f80263b61367af4ad8",
+      "order": 30,
+      "lang": "en",
+      "draft": true,
+      "chars": 5080
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks.md",
+      "hash": "7f98aabfe26ce44c036af8fb33b0054b92eab1747b36e0b3212d5953bd813975",
+      "order": 30,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2306
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en.md",
+      "hash": "565a31893a32118c673dbe996fe996aa37d12474d64846eede0f76161fbfdd4a",
+      "order": 32,
+      "lang": "en",
+      "draft": true,
+      "chars": 5598
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr.md",
+      "hash": "d4bcfe02d9d729bb82a050d4be0d552aee80fc3b239cf3e419c8112ade780c74",
+      "order": 32,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2866
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en.md",
+      "hash": "fc9b8103704b7984b42bbd1f03aa6cd2790242528bcefd471bfce7590a379ce8",
+      "order": 33,
+      "lang": "en",
+      "draft": true,
+      "chars": 5648
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation.md",
+      "hash": "aa1ebdebf9b0fac3364985fb80127e500be16b8c6163ec3ae8d05084ab0df9f4",
+      "order": 33,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2983
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation-en.md",
+      "hash": "1691785309d05c29178327942a64072d4e8e1b457bd86eba02fd1e1b15704354",
+      "order": 34,
+      "lang": "en",
+      "draft": true,
+      "chars": 5219
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation.md",
+      "hash": "256159491036b856f5ca4fc5b8212762bb4e7fffd7040b5212b17255abdfe325",
+      "order": 34,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2776
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en.md",
+      "hash": "7ab67e5b428f634e2b859de4d05d3e33fdb6a6b65a85774fef243426414dd227",
+      "order": 35,
+      "lang": "en",
+      "draft": true,
+      "chars": 5488
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models.md",
+      "hash": "9bfee8e1aac338a5c54e5f741f5574cfb1971eb0ad391ad66e7b9a56c6836949",
+      "order": 35,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2615
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en.md",
+      "hash": "55c1224d6b5ccf5b93d05c31feeb7e33dd91b82794562996bfd7dd3625369bac",
+      "order": 36,
+      "lang": "en",
+      "draft": true,
+      "chars": 5930
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment.md",
+      "hash": "3c4731dc71740374d9a588495d18f7a9f5d31dee69c96f2f28ec9ecdaa978c0e",
+      "order": 36,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2664
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-peft-en.md",
+      "hash": "ad2bd12c703dbd8681c56cbd53177ece46b1e3d0360a41a81e323953aa0487d2",
+      "order": 13,
+      "lang": "en",
+      "draft": true,
+      "chars": 4742
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-peft.md",
+      "hash": "f2cfc939b86b423a0a1c849d9484f143800fdf8f5afd4d911c33d66a7f14de16",
+      "order": 13,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2378
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-practice-exam-en.md",
+      "hash": "39d64dac1b12ed2f9a3aabf6e76316ad573877d1747b3be133c05702bc29f735",
+      "order": 37,
+      "lang": "en",
+      "draft": true,
+      "chars": 5219
+    },
+    {
+      "file": "src/content/posts/ai/2026-10-11-cmu10423-practice-exam.md",
+      "hash": "1d76e189413dd55ddbd003aa0653bc7c2715db2a662faeed44b5a731f2f62f2c",
+      "order": 37,
+      "lang": "zh-TW",
+      "draft": true,
+      "chars": 2635
+    }
+  ],
+  "scope": "identity, orders, bilingual identity and local links only; no semantic teaching certification"
+}

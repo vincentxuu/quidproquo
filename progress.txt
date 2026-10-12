@@ -1,4 +1,4 @@
-# quidproquo progress — daily-digest-report 2026-10-12 日報已產出 — CS329A 總覽＋11篇中英導讀完成，獨立審稿／verify／26本機頁通過；使用者已授權commit push，原音跟讀待驗
+# quidproquo progress — daily-digest-report 2026-10-12 日報已產出 — CS329A 總覽＋11篇中英導讀完成，獨立審稿／verify／26本機頁通過；使用者已授權commit push，原音跟讀待驗；CMU10423完成40核心+12導覽中英文重寫、104檔獨立審稿，全綠驗證後依使用者授權commit push
 Last updated: 2026-10-12
 - **YouTube 嵌入限制 2026-10-11**：所有播放器加入 onError fallback，保留原始連結、片段循環與延遲初始化；CS149 GPU/CUDA 中英改觀看卡片。批次 API 查核工具與文件已新增，無 key 可建立清單。38 targeted tests 與 Chromium 模擬 fallback 通過，完整閘門於發布 worktree 執行。
 - **六組模型家族上線（2026-10-11，待發布）**：隔離工作區查證並同步12篇中英稿，修正模態／上下文／權重授權與工具執行邊界，補系列 order 26–31、解除草稿；保留共享目錄其他改動。修正測試對已搬移flow範例的路徑，全部719測試通過；待最終verify、push及正式站讀回。 格式續作：29組主篇、3組比較篇與7個skill已統一，Gemini英文3.8同步；完整verify與專項檢查通過，準備提交發布。
