@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考路徑：多模態那張，官方建議教材換成一份免費教材加一門課"
+title: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考路徑：與 NCA-GENL 同價同級，重心換成實驗與多模態"
 date: 2026-08-18
 type: guide
 category: ai
@@ -52,7 +52,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 
 ## 官方建議教材：一份免費教材加一門課
 
-[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)在每一塊權重底下列了「Recommended Training」。2026-10-08 查到的內容，各塊配的不一樣：
+[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)在每一塊權重底下列了「Recommended Training」。2026 年 10 月列的內容，各塊配的不一樣：
 
 | 權重區塊 | 開源深度學習教材（免費） | 多模態 agent 課 |
 |---|---|---|
@@ -67,11 +67,11 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 兩項分別是：
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**：NVIDIA 深度學習入門課的教材，放在 GitHub 上，**免費**。最重的 Experimentation 那 25% 只配這一項。
-- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**：DLI 的多模態 agent 課，8 小時，**只有講師版**。2026-10-08 查 NVIDIA 的課程頁與價格資料，這門課沒有公開定價（講師課依場次報價），也查不到對應的自學版；8 月時認證頁標的是 $500。Multimodal Data 那 15% 只配這一項。
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**：DLI 的多模態 agent 課，8 小時，**只有講師版**。這門課沒有公開定價（講師課依場次報價），也沒有對應的自學版（2026-10-08）；8 月時認證頁標的是 $500。Multimodal Data 那 15% 只配這一項。
 
 每一塊另外附「Suggested Reading」，是免費的文章與課程，例如 Hugging Face 的 LLM Course 與 Diffusion Models Course。
 
-**這和 8 月不一樣。** 本文初版時官方列了五門課，其中兩門只有 $500 的講師版，所以當時把「自學路線先天蓋不滿」當成這張最大的成本問題。現在五門縮成兩項，對話式 AI 與擴散模型的課都不在清單上了。
+**較早的備考整理多半還列著五門課。** 2026 年秋天以前，官方列了五門，其中兩門只有 $500 的講師版，自學路線蓋不滿官方清單。現在五門縮成兩項，對話式 AI 與擴散模型的課都不在清單上了。
 
 **實務建議**：先跑完 GitHub 上那份開源教材，它一項就對應了七塊裡的五塊。Multimodal Data 那 15% 是唯一只配付費課的一塊；不想買課的話，用官方延伸閱讀列的多模態綜述與對比學習文章，加上自己實作一個圖文對齊的小模型來補。
 
@@ -137,7 +137,7 @@ NCA-GENM 跟 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) **同�
 
 跟其他三張 NVIDIA 證照相同：兩年、只能靠重考續期、**沒有繼續教育路徑也沒有折扣**。兩年後再付 $125。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|

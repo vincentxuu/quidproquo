@@ -133,7 +133,7 @@ As with the other three: **12 months, with on-time renewal free and unproctored*
 
 **None of the four is a ladder**; choose by the work you do. Anthropic's own framing for this one is that "Associates **escalate** more complex or technical work" — it is explicitly designed as the role that hands technical problems upward.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

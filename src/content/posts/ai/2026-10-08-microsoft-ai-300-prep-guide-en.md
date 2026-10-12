@@ -150,7 +150,7 @@ Associate certifications are valid for one year. Per the [official renewal page]
 
 If you already hold DP-100: the warning on the [DP-100 certification page](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/) states that both the certification and its renewal assessment are retired. When the old certification expires there is no renewal path, and keeping an active credential means passing AI-300.
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

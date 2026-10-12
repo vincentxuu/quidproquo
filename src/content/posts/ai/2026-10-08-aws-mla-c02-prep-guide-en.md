@@ -155,7 +155,7 @@ The official preparation entry point is the [MLA-C02 exam prep page on AWS Skill
 
 The certification is valid for three years. Per AWS's [recertification page](https://aws.amazon.com/certification/recertification/), there are three options: retake the latest MLA, pass AIP-C01 (each extends it by three years), or maintain the certification on AWS Skill Builder (requires a paid subscription and extends it by one year). Passing the latest MLA also renews AIF-C01. The full renewal graph is in [Choosing among AWS's three AI certifications](/posts/ai/2026-08-19-aws-certifications-which-one-en).
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

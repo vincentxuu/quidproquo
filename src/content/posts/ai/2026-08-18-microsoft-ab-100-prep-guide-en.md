@@ -1,5 +1,5 @@
 ---
-title: "Microsoft AB-100 (Agentic AI Business Solutions Architect): The Architect Exam — Don't Prepare From the Blurb on Its Own Page"
+title: "Microsoft AB-100 (Agentic AI Business Solutions Architect): The Architect Exam Tests Judgment, Not Implementation"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,28 +8,18 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 13
-tldr: "AB-100 is the architect tier of Microsoft's agent line, weighted 25-30 / 25-30 / 40-45 with deployment and governance heaviest. Its outline runs on verbs like design, recommend, and propose — it tests judgment, not configuration. Three things to know first: the scope blurb on the official exam page is wrong (it is information-protection and DLP boilerplate, which I verified verbatim), so prepare from the study guide instead; it has a free practice assessment, the only one of Microsoft's three agent credentials that does; and it has a prerequisite: besides passing AB-100 you must hold one of the associate certifications on the official list (AI-103, AB-620, and AI-300 are all on it). Official specs: $165 in the US, 13 languages including Traditional Chinese, pass at 700, one-year validity."
-description: "A preparation guide for Microsoft AB-100 (Agentic AI Business Solutions Architect), covering the three weighted areas of planning, design, and deployment governance, the misplaced blurb on the official page, the free practice assessment, what the 15-certification list actually means, and how it divides from AI-500 and AB-620."
+tldr: "AB-100 is the architect tier of Microsoft's agent line, weighted 25-30 / 25-30 / 40-45 with deployment and governance heaviest. Its outline runs on verbs like design, recommend, and propose — it tests judgment, not configuration. Three things to know first: it has a prerequisite — besides passing AB-100 you must hold one of the associate certifications on the official list (AI-103, AB-620, and AI-300 are all on it); it has a free practice assessment, the only one of Microsoft's three agent credentials that does; and one blurb on the exam page describes a compliance exam instead, so prepare from the study guide. Official specs: $165 in the US, 13 languages including Traditional Chinese, pass at 700, one-year validity."
+description: "A preparation guide for Microsoft AB-100 (Agentic AI Business Solutions Architect), covering the three weighted areas of planning, design, and deployment governance, the prerequisite list of associate certifications, the free practice assessment, which document to follow where the exam-page blurb and the study guide disagree, and how it divides from AI-500 and AB-620."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)
 >
-> This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100). No leaked questions. Verified 2026-08-18 against "Skills measured as of **July 22, 2026**." Rechecked 2026-10-08: the study guide now reads "Skills measured as of **October 14, 2026**", with a change log marking three minor changes and the same three weights. The prerequisite and the languages changed materially and are updated below.
+> This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100). No leaked questions. Verified 2026-10-08. The current study guide reads "Skills measured as of **October 14, 2026**"; its change log marks three minor changes, and the three weights are the same as in the July version.
 
 AB-100 is the architect tier of Microsoft's three agent certifications — [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en) builds, [AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en) codes, and **AB-100 decides whether to do it at all, computes the ROI, and governs the result**.
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
-
-## First, an Error on the Official Page
-
-The Schedule exam block of the [official exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/) contains this line:
-
-> This exam measures your ability to accomplish the following technical tasks: implement information protection; implement data loss prevention and retention; manage risks, alerts, and activities.
-
-**That is wrong.** Information protection, DLP and retention, risk and alert management — that is boilerplate from Microsoft's compliance exams, has nothing to do with AB-100, and **contradicts the "Assessed on this exam" list further down the same page** (Plan / Design / Deploy AI-powered business solutions).
-
-**The implication**: **prepare from the study guide, not from that blurb.** This is the third time in this series that official documents contradict each other — after [NVIDIA's blueprint descriptions](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en) and [AI-103's documentation links](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). Cross-check official sources; one page is not enough.
 
 ## Official Specs at a Glance
 
@@ -60,8 +50,6 @@ Passing AB-100 is not enough on its own. You need one of the listed associate ce
 The list spans Dynamics 365, Power Platform, and the AI line. The exam page shows fifteen: MB-280, PL-200, MB-330, PL-400, MB-230, MB-310, MB-500, MB-800, MB-820, AI-300, **AI-103**, **AB-620**, AB-210, AB-410, and AB-250. The certification page's list omits MB-280 and PL-200 and has thirteen. The two pages disagree, and the certification page is the safer reference before you register.
 
 For readers of this series, the three most natural entry points are [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en) (low-code), [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) (code-first), and [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide-en) (MLOps). The real cost is therefore two exams' worth of fees and time.
-
-**This section was rewritten on 2026-10-08.** The August version read the official wording at the time ("current possible associate certs that can be used for this expert certification") as optional. Microsoft has since replaced it with the explicit requirement quoted above.
 
 ## The Three Weighted Areas
 
@@ -103,7 +91,7 @@ On extensibility: **designing solutions with custom models in Microsoft Foundry*
 
 **Responsible AI, security, governance, risk, compliance**: designing agent security and governance and model security; **analyzing vulnerabilities and mitigations including prompt manipulation**; reviewing adherence to responsible AI principles; **validating data residency and movement compliance**; access controls on grounding data and model tuning; **audit trails for model and data changes**.
 
-**How to prepare**: this 40–45% is four sub-areas, and **each is about designing a process rather than performing an operation**. Turn each into your own checklist — for instance, "the five things ALM must cover before an agent goes live." The study guide has a change log; confirm you are reading the July 22 version.
+**How to prepare**: this 40–45% is four sub-areas, and **each is about designing a process rather than performing an operation**. Turn each into your own checklist — for instance, "the five things ALM must cover before an agent goes live." The study guide has a change log; confirm you are reading the October 14 version.
 
 ## Scheduling, and What the Official Course Is For
 
@@ -131,17 +119,21 @@ The self-study route is the free Microsoft Learn path [Architect agentic AI busi
 
 **There are now two official ladders.** AI-103 → AI-500 names a single prerequisite. AB-100 requires any one associate on its list, and AB-620, AI-103, and AI-300 all qualify, so AB-620 → AB-100 on the low-code side is now one of the officially recognized paths.
 
-## A Cross-Page Naming Inconsistency
+## Two Inconsistencies on the Official Pages
 
-Worth recording: AB-100's exam page describes candidate competencies using "**Azure AI services**," "**Azure OpenAI**," and "**Azure AI Foundry**," while [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en)'s objectives have moved entirely to "**Microsoft Foundry**" and "**Foundry Tools**."
+**One blurb on the exam page describes a different exam.** The Schedule exam block of the [official exam page](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/) contains this line:
 
-Same company, same product line, two pages updated in the same month, two vocabularies. **When dating study material, don't treat one page's terminology as the company's current state.**
+> This exam measures your ability to accomplish the following technical tasks: implement information protection; implement data loss prevention and retention; manage risks, alerts, and activities.
 
-## Things That Will Go Stale (Check These Next Time)
+Information protection, DLP and retention, and risk and alert management belong to Microsoft's compliance exams, and they do not match the "Assessed on this exam" list further down the same page (Plan / Design / Deploy AI-powered business solutions). Prepare from the study guide, not from that blurb.
+
+**Two pages use two product vocabularies.** AB-100's exam page describes candidate competencies using "**Azure AI services**," "**Azure OpenAI**," and "**Azure AI Foundry**," while [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en)'s objectives have moved entirely to "**Microsoft Foundry**" and "**Foundry Tools**." When dating study material, don't treat one page's terminology as the company's current state.
+
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
-| The misplaced blurb | Still the information-protection/DLP boilerplate | Quarterly (update this article when fixed) |
+| The misplaced blurb | Still the information-protection/DLP boilerplate | Quarterly |
 | The three weights | 25-30 / 25-30 / 40-45 | Quarterly |
 | Objectives version | Skills measured as of 2026-10-14, with a change log (three minor changes) | Quarterly |
 | Prerequisite list | 15 on the exam page, 13 on the certification page (no MB-280 or PL-200) | Quarterly |

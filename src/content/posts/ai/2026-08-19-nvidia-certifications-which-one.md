@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA 四張怎麼選：兩張還不能報名，入門兩張的建議教材剛換過，官方文件還在打架"
+title: "NVIDIA 四張生成式 AI 證照怎麼選：兩張還不能報名，真實成本要把課程算進去"
 date: 2026-08-19
 type: guide
 category: ai
@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 23
-tldr: "NVIDIA 生成式 AI 線有四張：NCA-GENL、NCA-GENM（各 $125，associate）、NCP-GENL、NCP-AAI（各 $200，professional）。選之前先看三件別家沒有的事：一、兩張 professional 的 Register 按鈕都標著「Coming soon」，近期計畫直接只剩兩張 associate；二、官方建議教材的成本兩級差很多：兩張 associate 在 2026 年秋天換成一份免費的開源教材加一門課，兩張 professional 仍是五門付費課，NCP-GENL 官方清單列價合計 $1,620；三、官方文件自相矛盾——NCP-AAI 的權重網頁加總 98%、PDF 加總 92%，NCP-GENL 網頁表格有兩格描述錯置（其中一格是 OpenUSD 的文字）。另外綁定程度差很多：NCP-AAI 只有 7% 綁 NVIDIA 產品，NCP-GENL 有 31% 在考 GPU 與模型壓縮。"
-description: "NVIDIA 四張生成式 AI 證照（NCA-GENL、NCA-GENM、NCP-GENL、NCP-AAI）的選擇指南：從報名狀態、含課程的真實總成本、官方文件矛盾與廠商綁定程度四個決策輸入切入，附四種讀者情境的建議與續期成本試算。"
+tldr: "NVIDIA 生成式 AI 線有四張：NCA-GENL、NCA-GENM（各 $125，associate）、NCP-GENL、NCP-AAI（各 $200，professional）。選之前先看三件別家沒有的事：一、兩張 professional 的 Register 按鈕都標著「Coming soon」，近期計畫直接只剩兩張 associate；二、官方建議教材的成本兩級差很多：兩張 associate 在 2026 年秋天換成一份免費的開源教材加一門課，兩張 professional 仍是五門付費課，NCP-GENL 官方清單列價合計 $1,620；三、官方網頁與 PDF 有幾處對不上——NCP-AAI 有兩項權重不同，NCP-GENL 網頁表格有兩格描述錯置，這兩張準備時要以 PDF 為準或當成區間看。另外綁定程度差很多：NCP-AAI 只有 7% 綁 NVIDIA 產品，NCP-GENL 有 31% 在考 GPU 與模型壓縮。"
+description: "NVIDIA 四張生成式 AI 證照（NCA-GENL、NCA-GENM、NCP-GENL、NCP-AAI）的選擇指南：從報名狀態、含課程的真實總成本、官方網頁與 PDF 不一致時以哪份為準、廠商綁定程度四個決策輸入切入，附四種讀者情境的建議與續期成本試算。"
 draft: false
 ---
 
@@ -21,7 +21,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
 
-## 先講最硬的限制：兩張現在報不了名
+## 決策輸入一：兩張現在報不了名
 
 在比考綱、比難度、比含金量之前，先看報名按鈕。
 
@@ -38,7 +38,7 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 
 反過來說，如果你沒有期限、只是想照考綱盤點自己的能力缺口，兩張 professional 的 blueprint 已經完整公開，可以現在就當檢核表用 —— 只是別把「考過」排進近期計畫。
 
-## 決策輸入二：訓練全部要付費，所以真實成本不是考試費
+## 決策輸入二：真實成本不只考試費，還要算官方建議課程
 
 其他廠商的官方備考材料幾乎都免費 —— AWS Skill Builder 的 Exam Prep Plan、微軟的 Microsoft Learn 路徑、Google Skills、Anthropic Academy 都是。**NVIDIA 的兩張 professional 不是**：認證頁的 Certification Learning Path 區塊直接把課程標價列出來，$30 到 $500 不等。兩張 associate 原本也是，但官方在 2026 年秋天把建議教材換成一份放在 [GitHub 上的免費開源深度學習教材](https://github.com/NVDLI/fundamentals-of-deep-learning)加一門 DLI 課，頁面不再列價格。
 
@@ -59,19 +59,19 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 
 **三、兩張 associate 的建議教材換過了。** 8 月時 NCA-GENL 列五門付費課（自學版合計 $390），NCA-GENM 的五門裡有兩門只有 $500 講師版。現在兩張都改成一份免費的開源深度學習教材加一門課：NCA-GENL 配 LLM 應用開發課，NCA-GENM 配多模態 agent 課。免費教材一項就對應兩張大部分的權重區塊，所以這兩張的官方路徑現在可以不花課程費走完大半。細節見 [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide) 與 [NCA-GENM](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide) 兩篇。
 
-**四、NCP-GENL 是列價最貴的一張。** 官方清單五門合計 **$1,620**（$90 + $500 + $500 + $500 + $30），其中還有一個怪處：Deploying RAG Pipelines for Production at Scale 被標成「Self-Paced」卻要 $500，而 NCP-AAI 頁面上名稱相近的 **Introduction to** Deploying RAG Pipelines… 只要 $90 —— 兩者課程代碼不同（`C-FX-18` 與 `S-FX-19`），是不同的課，**買之前一定要核對代碼**。
+**四、NCP-GENL 是列價最貴的一張。** 官方清單五門合計 **$1,620**（$90 + $500 + $500 + $500 + $30），其中有一處要留意：Deploying RAG Pipelines for Production at Scale 被標成「Self-Paced」卻要 $500，而 NCP-AAI 頁面上名稱相近的 **Introduction to** Deploying RAG Pipelines… 只要 $90 —— 兩者課程代碼不同（`C-FX-18` 與 `S-FX-19`），是不同的課，**買之前一定要核對代碼**。
 
 **買課的順序建議**：先買 $30 那門對應你目標證照的，再依權重補 $90 的，$500 的講師課只有在公司出錢時才考慮。NCP-GENL 若公司願意出，Model Parallelism 那門 $500 最對應它的核心（GPU Acceleration 14% 幾乎整塊）。
 
-## 決策輸入三：哪些官方數字可以信
+## 決策輸入三：官方網頁與 PDF 對不上時看哪一份
 
 這條在別家證照通常不用討論，但 NVIDIA 這四張要。**同一個廠商的網頁與 PDF 對不上，而且不只一次。**
 
-| 證照 | 矛盾內容 | 現況 |
+| 證照 | 不一致的內容 | 現況 |
 |---|---|---|
 | **NCP-AAI** | 權重表兩處不同：Deployment and Scaling **網頁 13% / PDF 5%**；Run, Monitor, and Maintain **網頁 5% / PDF 7%**。兩版加總分別是 **98%** 與 **92%**，**沒有一版加總到 100%** | 兩份都是 nvidia.com 官方文件 |
-| **NCP-GENL** | 網頁權重表有兩格描述文字錯置：Model Optimization（17%）那格寫的是**部署**內容（容器化推論、Kubernetes、Triton），Fine-Tuning（13%）那格寫的是 **OpenUSD 的資料交換**，跟微調毫無關係 | **權重本身是對的，壞掉的只有描述**；PDF study guide 裡兩塊的描述正常 |
-| **NCA-GENL / NCA-GENM** | 題數：官方頁面內文寫「includes 50 questions」，規格欄寫「50–60 multiple-choice」 | 兩個數字並存於同一頁 |
+| **NCP-GENL** | 網頁權重表有兩格描述文字錯置：Model Optimization（17%）那格寫的是**部署**內容（容器化推論、Kubernetes、Triton），Fine-Tuning（13%）那格寫的是 **OpenUSD 的資料交換**，跟微調毫無關係 | **權重本身是對的，錯置的只有描述**；PDF study guide 裡兩塊的描述正常 |
+| **NCA-GENM** | 題數：官方頁面內文寫「includes 50 questions」，規格欄寫「50–60 multiple-choice」 | 兩個數字並存於同一頁；NCA-GENL 的頁面現在只寫 50–60 |
 
 **怎麼用這些資訊做決定**：
 
@@ -153,15 +153,15 @@ NVIDIA 的生成式 AI 認證線目前有四張，兩張 associate、兩張 prof
 | 最重的塊 | Core ML 30% | Experimentation 25% | Model Optimization 17% + GPU 14% | 架構 15% + 開發 15% |
 | 自學課程成本 | 開源教材免費；另一門課 $90 | 開源教材免費；另一門課無自學版 | $620（三門，含一門標自學卻 $500） | **$300（四門）** |
 | NVIDIA 綁定 | 低 | 中（四個 SDK） | **高（31% 硬體層）** | **最低（7%）** |
-| 官方文件問題 | 題數兩個數字 | 題數兩個數字 | 網頁兩格描述錯置 | 權重網頁 98%／PDF 92% |
+| 官方文件不一致 | 無 | 題數兩個數字 | 網頁兩格描述錯置 | 權重網頁 98%／PDF 92% |
 | 適合誰 | 職缺點名 NVIDIA GenAI／LLM | 做影像、音訊、跨模態 | 訓練與推論最佳化工程師 | 做 production agent 系統 |
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-19 查證） | 什麼時候要重查 |
 |---|---|---|
 | 兩張 professional 的報名狀態 | 仍是 Coming soon | **每月** |
-| NCP-AAI 權重矛盾 | 網頁 98%、PDF 92%，兩項數字不同 | 開放報名時 |
+| NCP-AAI 兩項權重不一致 | 網頁 98%、PDF 92%，兩項數字不同 | 開放報名時 |
 | NCP-GENL 網頁兩格錯置描述 | 仍是錯的（Model Optimization 寫部署、Fine-Tuning 寫 OpenUSD） | 每季 |
 | DLI 課程與價格 | professional 兩張：$30 / $90 / $500 三檔；associate 兩張：頁面不列價格 | 每季 |
 | 考試費與效期 | $125 / $200、兩年、只能重考 | 每半年 |

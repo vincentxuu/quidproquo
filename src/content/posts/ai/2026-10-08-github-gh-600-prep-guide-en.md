@@ -175,7 +175,7 @@ The durations in the Microsoft Learn catalog add up to about 5.8 hours, and the 
 
 Same as GH-300. The certification page says GitHub certifications are valid for two years and are moving to Microsoft's recertification process, which will let you maintain the credential without retaking the full exam. Certifications that expire before the new process launches are extended by 6 months. Details are in the [renewal section of the GH-300 guide](/posts/ai/2026-10-08-github-gh-300-prep-guide-en).
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

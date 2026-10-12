@@ -124,7 +124,7 @@ The CLI group has five objectives, the most of the four groups in this area (thr
 
 ## Known Traps
 
-1. **The outline follows the product.** The current version took effect August 7, 2026, and the study guide's change log marks three minor changes (IDE use, features and capabilities, safeguards and troubleshooting). The change log does not say what changed. My own test for study material is whether it covers the sub-agent delegation, Spaces, Spark, and Copilot CLI named in the current objectives; if it does not, it probably trails the current outline.
+1. **The outline follows the product.** The current version took effect August 7, 2026, and the study guide's change log marks three minor changes (IDE use, features and capabilities, safeguards and troubleshooting). The change log does not say what changed. One test for study material is whether it covers the sub-agent delegation, Spaces, Spark, and Copilot CLI named in the current objectives; if it does not, it probably trails the current outline.
 2. **The instructor-led course page is old.** The GH-300T00-A page was last updated in June 2025, and its audience profile still lists "Policy Makers and Regulators". It predates the current outline by more than a year and should not be used to judge scope.
 3. **The official list has an extra line.** See the note under the weights table.
 4. **The renewal text in the study guide is Microsoft boilerplate.** The "Useful links" table says "Microsoft associate, expert, and specialty certifications expire annually". That is template text. GitHub certifications are valid for two years, as the certification page says.
@@ -139,7 +139,7 @@ GitHub certifications will move to Microsoft's style of renewal without a full r
 
 In practice there is nothing to do for two years. Near expiry, check the certification page to see whether the new process has launched. If it has not, write to the GitHub Certification team for the extension instead of waiting for it to apply itself.
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

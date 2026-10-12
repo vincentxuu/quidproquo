@@ -19,11 +19,11 @@ draft: false
 
 如果你看到的職缺寫「NVIDIA Generative AI / LLM 相關認證」，多半指的就是這張 NCA-GENL —— 它是 NVIDIA 生成式 AI 線的入門級，$125、一小時。
 
-但它有兩件事跟直覺不同，而且都會影響你怎麼準備。
+但有兩件事會影響你怎麼準備：考綱和名字有落差，官方建議教材也剛換過。
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
 
-## 第一個落差：名字寫 LLM，考綱一半是傳統 ML
+## 名字寫 LLM，考綱一半是傳統 ML
 
 官方 Exam Study Guide 的權重表：
 
@@ -43,7 +43,7 @@ draft: false
 
 ## 官方建議教材：現在只有兩項，其中一項免費
 
-[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)在每一塊權重底下都列了「Recommended Training」。2026-10-08 查到的內容是：
+[官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/)在每一塊權重底下都列了「Recommended Training」。2026 年 10 月列的是：
 
 | 權重區塊 | 官方建議教材 |
 |---|---|
@@ -60,7 +60,7 @@ draft: false
 
 每一塊另外附一份「Suggested Reading」，是免費的文章與論文，例如 Prompt Engineering Guide 與《Attention Is All You Need》。
 
-**這和 8 月不一樣。** 本文初版時官方列的是五門付費課（深度學習入門、加速資料科學、Transformer NLP、prompt engineering、LLM 應用開發），自學版全買 $390，所以當時寫「NVIDIA 是本系列唯一沒有免費官方教材的廠商」。那個說法現在不成立：最重的四塊都有一份免費教材可用。
+**較早的備考整理多半還列著五門付費課。** 2026 年秋天以前，官方列的是深度學習入門、加速資料科學、Transformer NLP、prompt engineering、LLM 應用開發五門，自學版全買 $390。現在最重的四塊都有一份免費教材可用，看到舊清單不用照買。
 
 **實務建議**：先把 GitHub 上那份開源教材跑完，它對應的是多數考生最弱的 Core ML 與實驗設計。LLM 應用開發課（$90）要不要買，看你是不是已經在做 LLM 應用；已經在做的人，延伸閱讀加自己的實作經驗通常夠。
 
@@ -95,7 +95,7 @@ draft: false
 
 **官方考什麼**：在指導下協助部署與評估；建立 LLM 用例；熟悉 Python NL 套件；**辨識滿足使用者需求所需的系統資料、硬體或軟體元件**；**監控資料蒐集、實驗與其他軟體流程的運作**；用 Python 套件實作傳統 ML 分析；**在指導下撰寫軟體元件或腳本**。
 
-**怎麼準備**：注意這塊的條目與 Core ML 那塊**高度重疊**（同樣的 spaCy／NumPy、同樣的 LLM 用例、同樣的部署協助）。這不是我歸納錯，是官方 blueprint 本身就這樣寫。實務上代表：**這 24% 不需要另外準備**，把 Core ML 那塊讀熟就同時涵蓋。
+**怎麼準備**：官方 blueprint 裡，這塊的條目與 Core ML 那塊**高度重疊**（同樣的 spaCy／NumPy、同樣的 LLM 用例、同樣的部署協助）。實務上代表：**這 24% 不需要另外準備**，把 Core ML 那塊讀熟就同時涵蓋。
 
 ### Experimentation（22%）
 
@@ -141,7 +141,7 @@ draft: false
 
 把這條算進總成本：$125 考試 +（依需要）$90 的 DLI 課 + 每兩年 $125 續期。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|

@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 6
-tldr: "AB-620 is the low-code branch of Microsoft's agent certification line — it tests agent flows, adaptive cards, computer use, MCP tools, A2A, and Fabric data agents in Copilot Studio, not Python. The three skill areas weigh 30-35 / 40-45 / 20-25, with integration the heaviest. Official specs: $165, 120 minutes, pass at 700, one-year validity, and 13 languages including Traditional Chinese — the only localized exam of Microsoft's three agent credentials. It is generally available, but the practice assessment is not out yet."
+tldr: "AB-620 is the low-code branch of Microsoft's agent certification line — it tests agent flows, adaptive cards, computer use, MCP tools, A2A, and Fabric data agents in Copilot Studio, not Python. The three skill areas weigh 30-35 / 40-45 / 20-25, with integration the heaviest. Official specs: $165, 120 minutes, pass at 700, one-year validity, and 13 languages including Traditional Chinese. It is generally available, but the practice assessment is not out yet."
 description: "A preparation guide for Microsoft AB-620 (AI Agent Builder Associate), built on the official study guide's three weighted skill areas covering Copilot Studio agent building, enterprise integration, and ALM, with a five-week schedule and its derivation, how it divides from AI-103 and AB-100, and the one-year validity and free renewal rules."
 draft: false
 ---
@@ -105,7 +105,7 @@ At 5–7 hours a week over five weeks:
 | 3–4 | **Integrate and extend (40–45%)**: [multi-agent solutions](https://learn.microsoft.com/en-us/training/paths/design-build-multi-agent-solutions-copilot-studio/) (2h 54m) and [enterprise system integration](https://learn.microsoft.com/en-us/training/paths/integrate-agents-enterprise-systems-copilot-studio/) (3h 18m) | The heaviest area, split into "multi-agent" and "external integration" |
 | 5 | Test and manage (20–25%) + full review | ALM concepts close it out |
 
-**The instructor-led course is not out yet**: [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) (three days) carries the notice "**This course will be available on 10/9/2026**" (in August it said September 18; the date has slipped) — but the three learning paths above are self-serve today, so there is nothing to wait for.
+**The instructor-led course**: the availability notice that used to sit on the [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) page (three days) is gone (2026-10-12); the three learning paths above are self-serve, so there is no need to wait for the course.
 
 **Failure cost**: Microsoft's [retake policy](https://learn.microsoft.com/en-us/credentials/support/retake-policy) is 24 hours after a first failure, then 14 days between subsequent attempts, with at most five attempts per 12 months, paying each time.
 
@@ -125,9 +125,9 @@ AB-620 does appear in AB-100's list of "current possible associate certs that ca
 
 The same as AI-103: **one-year validity, free renewal**, taken online, unproctored and open book, available only in the six months before expiry, with a lapse forcing a full retake. The full rules are in [the last section of the AI-103 article](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en).
 
-One small oddity worth knowing: **AB-620's dedicated renewal page does not exist yet** (`/ai-agent-builder-associate/renew/` returns 404) — only the general renewal policy page. That normally means the first cohort has not reached its renewal window, not that there is no renewal path.
+One thing worth knowing: **AB-620's dedicated renewal page does not exist yet** (`/ai-agent-builder-associate/renew/` returns 404) — only the general renewal policy page. That normally means the first cohort has not reached its renewal window, not that there is no renewal path.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
@@ -139,6 +139,7 @@ One small oddity worth knowing: **AB-620's dedicated renewal page does not exist
 
 ## Changelog
 
+- 2026-10-12: The availability notice on the instructor-led course page is gone; the language sentence is reworded, since AB-100 now offers Traditional Chinese too.
 - 2026-10-08 (recheck): the instructor-led course date moved from 9/18 to 10/9; AB-100 is now offered in 13 languages including Traditional Chinese and requires an associate certification, and the comparisons here are updated; the AI-500 beta label has been removed.
 - 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 

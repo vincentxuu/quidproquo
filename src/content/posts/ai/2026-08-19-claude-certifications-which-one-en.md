@@ -30,9 +30,9 @@ So there are two ways to read this post:
 - **You are inside a partner organization** (Accenture, Deloitte, PwC, EPAM, and Wipro are among the firms that have publicly committed to certifying people at scale): read on for which of the four to pick.
 - **You are not**: you cannot sit any of them, but **the four weight tables are Anthropic's definition of these four roles** — what "using Claude to do work," "building against the API," "designing solutions," and "facing compliance and customers" each require, and in what proportion. As a map for your own positioning, or for designing internal training, that is more useful than the badge.
 
-## The official specs (reconciled from the four prep posts)
+## The official specs
 
-Each of the four prep posts carries its own comparison table. **Checked cell by cell, the four tables agree — there are no conflicting numbers among them.** Consolidated:
+The four specs side by side:
 
 | | [CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en) | [CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide-en) | [CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide-en) | [CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide-en) |
 |---|---|---|---|---|
@@ -122,7 +122,7 @@ The test is simple: **if your responsibility stops at "get the system built," th
 | Face customer compliance and security, own architecture and delivery | **CCAR-P $175** | Governance 14% plus stakeholder 14% |
 | The organization is certifying for tier standing | Anything but CCAO-F | Only those three count toward partner program standing |
 
-**The four are not a ladder.** No exam guide lists any of them as a prerequisite for another, and CCAR-F is not a prerequisite for CCAR-P — the basis for choosing is scope of responsibility, not seniority. (There is one place where the official sources disagree on this; see the next section.)
+**The four are not a ladder.** No exam guide lists any of them as a prerequisite for another, and CCAR-F is not a prerequisite for CCAR-P — the basis for choosing is scope of responsibility, not seniority. (The official sources differ on this in one place; see the next section.)
 
 ## Rules all four share
 
@@ -137,8 +137,6 @@ Within this series that penalty sits in the middle: stricter than AWS's unlimite
 **Delivery**: all four are proctored (online or at a Pearson test center) with identity verification, and passing issues a digital badge through Credly by Pearson.
 
 ## Two places the official sources disagree
-
-Per this series' discipline, **when official sources conflict, cite both and mark it uncertain rather than picking one as fact.**
 
 **One: is it a ladder or not?**
 
@@ -156,7 +154,7 @@ Three versus four is reconcilable (Architect has both a Foundations and a Profes
 
 ## What Anthropic has not published (do not estimate it)
 
-Anthropic publishes less about these four than any other vendor in this series. Below is what is **verifiably absent**; this post does not fill the gaps:
+Anthropic publishes less about these four than any other vendor in this series. It has not published the following:
 
 | Item | Status |
 |---|---|
@@ -166,7 +164,7 @@ Anthropic publishes less about these four than any other vendor in this series. 
 | Scenario-draw structure | **Documented for CCAR-F only** (six scenario banks, four drawn); the other three guides say nothing equivalent, which is not evidence they share the structure |
 | Individual registration path | Does not exist — this is not "unpublished," it is officially partner-organizations-only |
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 | Item | Status as of 2026-08-19 | Recheck |
 |---|---|---|

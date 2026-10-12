@@ -112,7 +112,7 @@ Two global rules worth repeating: **none of the three offers a "take a course in
 **Your company isn't primarily on AWS**
 → Pick the cloud first, then the certification. Google's ecosystem has one technical AI exam open for registration today, [PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide-en) (the new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) opens GA registration on November 2, 2026), and its rules — especially the retake penalties — differ sharply from AWS's.
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 | Item | Status (verified 2026-09-12) | When to recheck |
 |---|---|---|

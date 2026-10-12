@@ -114,7 +114,7 @@ Associate, expert, and specialty certifications need a renewal assessment every 
 
 The usual next step is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en). The four implementation themes carry over, and the four minimal programs from AI-901 can grow into the agent that AI-103's second skill area asks for.
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

@@ -39,13 +39,11 @@ draft: false
 
 > In addition to passing the AB-100 required exam, you must also earn at least one of the prerequisite Associate-level certifications listed below.
 
-清單裡有 AB-620、AI-103、AI-300，以及多張 Dynamics 365 與 Power Platform 的 associate。所以 AB-100 的入口不只一個：低程式碼這側走 AB-620 → AB-100，code-first 這側走 AI-103 → AB-100 都可以。
+清單裡有 AB-620、AI-103、AI-300，以及多張 Dynamics 365 與 Power Platform 的 associate（完整清單見 [AB-100 那篇](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)）。所以 AB-100 的入口不只一個：低程式碼這側走 AB-620 → AB-100，code-first 這側走 AI-103 → AB-100 都可以。
 
 **AB-620 與 AI-103 沒有任何先修條件**，可以直接考。
 
-本文 8 月初版寫的是「只有一條官方階梯」。當時 AB-100 的官方文字只說那份清單「can be used」，沒有寫必須；官方之後改成上面那句明確的要求。細節見 [AB-100 那篇](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。
-
-## 四張總表（彙整四篇的比較表）
+## 四張總表
 
 | | **AI-103** | **AI-500** | **AB-620** | **AB-100** |
 |---|---|---|---|---|
@@ -102,8 +100,6 @@ AB-100 是四張裡唯一不考「怎麼做」的。它的 Plan 那塊考 ROI �
 | **AB-620**（13 種語言） | |
 | **AB-100**（13 種語言） | |
 
-2026-10-08 複查四張考試頁的語言欄位：AI-103、AB-620、AB-100 都列了 Chinese (Traditional)，只有 AI-500 是 English。本文 8 月初版時 AB-100 還是僅英文，之後才開放其他語言。
-
 **現在的狀況**：code-first 這條線走到 expert（AI-500）一定要能讀英文考題，而且連準備材料都只有英文官方文件可用（見下一節）。架構師這條線（AB-100）則可以全程用繁中應考。
 
 **實務建議**：如果英文閱讀速度是你的瓶頸，先用 AB-620 或 AI-103 拿到第一張（繁中考題可以把「看不懂題目」和「不會這個技術」分開），再決定往哪一張 expert 走。要留意微軟說在地化版本通常在英文版更新後約八週才跟上。
@@ -115,16 +111,14 @@ AB-100 是四張裡唯一不考「怎麼做」的。它的 Plan 那塊考 ROI �
 | | 官方學習路徑 | 講師課 | 練習測驗 |
 |---|---|---|---|
 | **AI-103** | ✅ 四條全部可用（等同講師課 AI-103T00-A 的教材） | 有 | 已搬到 AI Skills Navigator，**免費與否官方未說明** |
-| **AI-500** | ❌ 考試頁列了四條，**公開網址全部 404**；認證頁自己寫「Learning paths or modules are not yet available for this certification」 | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) 標示 **2026/9/30** 開課 | ❌ 尚未提供 |
-| **AB-620** | ✅ 三條可用（標示時數合計 8 小時 29 分） | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) 標示 **2026/9/18** 開課 | ❌ 尚未提供（官方寫「usually available within 8 weeks of the exam being out of beta and generally available」） |
+| **AI-500** | ❌ 考試頁列了四條，**公開網址全部 404**；認證頁自己寫「Learning paths or modules are not yet available for this certification」 | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天），開課預告已拿掉 | ❌ 尚未提供 |
+| **AB-620** | ✅ 三條可用（標示時數合計 8 小時 29 分） | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天），開課預告已拿掉 | ❌ 尚未提供（官方寫「usually available within 8 weeks of the exam being out of beta and generally available」） |
 | **AB-100** | ✅ [Architect agentic AI business solutions](https://learn.microsoft.com/en-us/training/paths/architect-agentic-ai-business-solutions/) | 有，但官方自述非考前準備課 | ✅ **有，而且免費** |
-
-（AI-500 的認證頁那句「Learning paths or modules are not yet available」我在 2026-08-19 重新取頁確認仍在。）
 
 **三個可操作的結論**：
 
-1. **AI-500 現在不適合排讀書計畫。** 唯一可用的官方材料是 study guide 的 22 條目標、Microsoft Foundry 文件與 exam sandbox。如果你沒實際做過多 agent 上線，等 9/30 的課上線再開始，成本會低很多；如果你已經在做，那 22 條就是很好的自我盤點清單。而且它還在 beta ——**beta 期間只能考一次**，沒過要等正式上線才能重考，成績也要等重新計分。
-2. **AB-620 可以現在開始，但要接受沒有模擬題。** 三條學習路徑現在就能自學，不用等 9/18 的講師課；練習測驗的缺口只能用實作與 exam sandbox 補。
+1. **AI-500 現在不適合排讀書計畫。** 唯一可用的官方材料是 study guide 的 22 條目標、Microsoft Foundry 文件與 exam sandbox。如果你沒實際做過多 agent 上線，等講師課或學習路徑上線再開始，成本會低很多；如果你已經在做，那 22 條就是很好的自我盤點清單。官方頁面已在 2026 年 9 月底拿掉 beta 標示，但沒有公告正式上線，報名前以考試頁當下顯示的內容為準。
+2. **AB-620 可以現在開始，但要接受沒有模擬題。** 三條學習路徑現在就能自學，不用等講師課；練習測驗的缺口只能用實作與 exam sandbox 補。
 3. **AB-100 是四張裡唯一「學習路徑 + 免費練習測驗」都齊的。** 這在準備節奏上是實質優勢——但別忘了它考的是判斷，練習測驗補得了熟悉度，補不了專案經驗。
 
 AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Learn**，改到 AI Skills Navigator 且需登入。微軟的通用政策說「Some exams have free Practice Assessments… delivered through Learn」，但這張已經不在 Learn 上，**那句話不適用，官方也沒在新位置說明是否免費**。所以「AB-100 是唯一有免費練習測驗的」這個說法，準確的講法是：**AB-100 是四張裡唯一確定免費的**，AI-103 未知，另外兩張確定沒有。
@@ -133,7 +127,7 @@ AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Lea
 
 以下都以每週 5–8 小時估算，時程換算依據寫在各張的備考路徑篇裡。
 
-**一、Azure 上寫 AI 應用的工程師** → **AI-103**（六週，$165）。這是四張裡唯一「有繁中 + 教材完整 + 直接對應日常工作」的組合。要注意的是 [Foundry 換代](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)：考綱整份重寫，prompt flow、Azure AI Studio、Azure OpenAI Service、Azure AI Agent Service 這些名詞在技能目標裡一個都沒出現，圍繞它們寫的舊教材講的是 Foundry 之前的世界。
+**一、Azure 上寫 AI 應用的工程師** → **AI-103**（六週，$165）。有繁體中文、教材完整，而且直接對應日常工作。要注意的是 [Foundry 換代](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)：考綱整份重寫，prompt flow、Azure AI Studio、Azure OpenAI Service、Azure AI Agent Service 這些名詞在技能目標裡一個都沒出現，圍繞它們寫的舊教材講的是 Foundry 之前的世界。
 
 **二、已經在做多 agent 系統、想要 expert 頭銜** → **AI-103 → AI-500**（總計 $330）。先花六週拿 AI-103（本來就是硬性先修），其中「Develop AI agents on Azure」那條學習路徑與 AI-500 第二塊重疊度最高。AI-500 本身，有實務經驗的話四到六週補齊缺口；沒有的話建議等官方學習路徑上線。
 
@@ -158,28 +152,26 @@ AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Lea
 
 **換算成成本**：一張 $165 拿到，之後每年 45 分鐘免費維持。如果你拿了 AI-103 + AI-500 兩張，就是每年兩次評量、兩個各自的六個月窗口要記。**忘記一次，那張就要重付 $165 整張重考**——而 AI-500 還會連帶要求你當時的 AI-103 仍然有效。
 
-一個查證上的細節：**AB-620 的專屬續期頁在 2026-08-18 查證時仍回 404**（`/ai-agent-builder-associate/renew/`），AI-500 的也尚未上線，只有 AB-100 的已上線。這通常代表第一批持證者還沒進入續期窗口，不是沒有續期路徑，但值得在你接近到期時重新確認。
+**AB-620 的專屬續期頁還沒上線**（`/ai-agent-builder-associate/renew/` 在 2026-10-12 仍回 404），AI-500 的也尚未上線，只有 AB-100 的已上線。這通常代表第一批持證者還沒進入續期窗口，不是沒有續期路徑，但值得在你接近到期時重新確認。
 
 **重考規則四張相同**：第一次沒過等 [24 小時](https://learn.microsoft.com/en-us/credentials/support/retake-policy)，之後每次間隔 14 天，同一張考試 12 個月內最多 5 次，每次都要付費。AI-500 在 beta 期間只能考一次；它的頁面現在已拿掉 beta 標示。
 
-## 資料之間的不一致（照實記錄）
+## 看官方資料時要留意
 
-**一、本系列前幾篇對「唯一繁中」的說法不一致。** [AI-103 那篇](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)寫 AI-103 是「本系列裡除了 AWS AIF-C01 之外唯一提供繁中的」，[AB-620 那篇](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)寫 AB-620 是「微軟三張 agent 證照裡唯一在地化的」。我在 2026-08-19 逐頁確認：**AI-103 與 AB-620 兩張都有繁體中文**，當時 AI-500 與 AB-100 都沒有（AB-100 之後也開放了繁中，見上方語言一節）。AB-620 那句在它自己的範圍（AB-620／AI-500／AB-100 三張）內成立，AI-103 那句的範圍寫得太寬。**以本文這張表為準。**
+**一、「微軟三張 agent 證照」這個說法會漏掉 AI-103。** 一般把 AB-620／AI-500／AB-100 稱為三張 agent 證照，但 AI-103 最重的一塊正是「Implement generative AI and agentic solutions」（30–35%），而且它是 AI-500 的唯一入口，也是 AB-100 可用的先修之一。**要做選擇時，四張要一起看**，這也是本文用四欄表而不是三欄表的原因。
 
-**二、「微軟三張 agent 證照」這個框架會漏掉 AI-103。** AB-620 與 AB-100 兩篇都用「三張 agent 證照」指 AB-620／AI-500／AB-100，但 AI-103 最重的一塊正是「Implement generative AI and agentic solutions」（30–35%），而且它是 AI-500 的唯一入口，也是 AB-100 可用的先修之一。**要做選擇時，四張要一起看**，這也是本文用四欄表而不是三欄表的原因。
+**二、有兩處官方頁面與 study guide 對不上，都以 study guide 為準。** AI-103 的 study guide 目標區已全面改用 Microsoft Foundry 命名，但同一頁的「Find documentation」連結區塊仍指向 Azure AI services、Azure AI Vision、Azure OpenAI 等舊名；AB-100 的[考試頁簡介段落](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)寫的是資訊保護與 DLP（「implement information protection; implement data loss prevention and retention…」），和同頁下方的「Assessed on this exam」不一致。
 
-**三、微軟自己的頁面互相打架，兩處已知**：AI-103 的 study guide 目標區已全面改用 Microsoft Foundry 命名，但**同一頁的「Find documentation」連結區塊仍指向 Azure AI services、Azure AI Vision、Azure OpenAI 等舊名**；AB-100 的[考試頁簡介段落](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)則是資訊保護與 DLP 的樣板文（「implement information protection; implement data loss prevention and retention…」），與同頁下方的「Assessed on this exam」自相矛盾。**兩處都以 study guide 為準。**
+**三、產品命名有兩套。** AB-100 的考試頁用「Azure AI Foundry」「Azure AI services」「Azure OpenAI」，AI-103 的技能目標已全面改用「Microsoft Foundry」與「Foundry Tools」。判斷教材新舊時別把單一頁面的用詞當成全公司現況。
 
-**四、命名不一致**：AB-100 的考試頁用「Azure AI Foundry」「Azure AI services」「Azure OpenAI」，AI-103 的技能目標已全面改用「Microsoft Foundry」與「Foundry Tools」。同一家公司、同一條產品線，兩套命名。判斷教材新舊時別把單一頁面的用詞當成全公司現況。
-
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-19 查證） | 什麼時候要重查 |
 |---|---|---|
-| AI-500 beta 狀態 | 頁面已無 beta 標示（2026-10-08 複查）；未見官方正式上線公告 | 每月 |
+| AI-500 beta 狀態 | 頁面已無 beta 標示（2026-10-08）；未見官方正式上線公告 | 每月 |
 | AI-500 學習路徑 | 考試頁列了四條，公開網址全部 404；認證頁寫尚未提供 | 每月 |
 | AI-500T00 講師課 | 開課預告已拿掉 | 每季 |
-| AB-620T00-A 講師課 | 標示 2026/10/9 開課（原為 9/18） | 10 月中 |
+| AB-620T00-A 講師課 | 開課預告已拿掉（2026-10-12） | 每季 |
 | AB-620 練習測驗 | 尚未提供 | 每月 |
 | AI-103 練習測驗是否免費 | 已搬到 AI Skills Navigator，官方未說明 | 登入即可確認 |
 | 四張的權重 | 見上方權重表 | 每季／改版時 |
@@ -195,10 +187,10 @@ AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Lea
 - [Multi-Agent AI Solutions Expert 認證頁（AI-500，含先修條件）](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)
 - [Exam AI-500 頁面](https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-500/)
 - [AI-500 官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500)
-- [課程 AI-500T00（標示 2026/9/30 開課）](https://learn.microsoft.com/en-us/training/courses/ai-500t00)
+- [課程 AI-500T00（四天講師課）](https://learn.microsoft.com/en-us/training/courses/ai-500t00)
 - [AI Agent Builder Associate 認證頁（AB-620）](https://learn.microsoft.com/en-us/credentials/certifications/ai-agent-builder-associate/)
 - [AB-620 官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-620)
-- [課程 AB-620T00-A（標示 2026/9/18 開課）](https://learn.microsoft.com/en-us/training/courses/ab-620t00)
+- [課程 AB-620T00-A（三天講師課）](https://learn.microsoft.com/en-us/training/courses/ab-620t00)
 - [Agentic AI Business Solutions Architect 認證頁（AB-100）](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-business-solutions-architect/)
 - [Exam AB-100 頁面（含那段錯置的簡介與 15 張 associate 清單）](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)
 - [AB-100 官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)
@@ -221,5 +213,6 @@ AI-103 的練習測驗狀態要特別講清楚：它**已經搬離 Microsoft Lea
 
 ## 更新紀錄
 
+- 2026-10-12：AI-500 的準備建議與重考說明改依頁面已無 beta 標示的現況；AB-620 與 AI-500 講師課頁面的開課預告都已拿掉。
 - 2026-10-08（複查）：依官方頁面現況更新。AB-100 現在明寫必須另外持有一張指定的 associate 認證，並開放 13 種語言含繁體中文，所以「只有一條官方階梯」與「兩張 expert 都只有英文」兩個結論不再成立，硬規則、語言兩節與第四種人的建議已改寫。AI-500 的頁面已拿掉 beta 標示。AB-620 講師課延到 10/9。
 - 2026-10-08：開頭原寫「微軟在 2026 年一口氣把 AI 認證線鋪成四張」，這個說法不準確。微軟官方目錄裡名稱帶 AI 或 agent 的認證不只四張，本文比較的是其中 agent 線的四張。已改寫開頭，補上 AI-901、AI-200、AI-300 與 GitHub 兩張的備考路徑連結，並補上台灣考場的價格（$83）。四個分岔與建議路線未變動。

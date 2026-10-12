@@ -17,7 +17,7 @@ draft: false
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide, all listed at the end. Verified 2026-08-18.
 
-This is the technical deep-dive track of the [AI Certification Prep series](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en). The first fifteen posts were one certification each; this one inverts that: **it takes "multi-agent system architecture" — a topic five certifications test in parallel — and covers the shared core once, then marks what each vendor tests that nobody else does.**
+This is the technical deep-dive track of the [AI Certification Prep series](/en/series/ai-cert-prep/). The first fifteen posts were one certification each; this one inverts that: **it takes "multi-agent system architecture" — a topic five certifications test in parallel — and covers the shared core once, then marks what each vendor tests that nobody else does.**
 
 Reading the shared core first is the time-efficient move, because it accounts for most of the multi-agent content on every one of these exams. But **the shared core alone won't pass any of them**, which is why the fourth section matters just as much.
 
@@ -102,9 +102,9 @@ What separates multi-agent observability from ordinary service observability is 
 
 **Agent replay is AI-500's own wording** and the one most worth understanding separately — it asks you to be able to replay a full run, not merely read logs afterwards.
 
-**One verification trap worth flagging**: for NCP-AAI's Run, Monitor, and Maintain block, **the official web page says 5% and the official PDF study guide says 7%** — both on nvidia.com. Deployment and Scaling in the same table also disagrees (13% on the page, 5% in the PDF). Treat these as uncertainty ranges; don't pick one and call it fact.
+**NVIDIA publishes two figures for this NCP-AAI block**: Run, Monitor, and Maintain is **5% on the official web page and 7% in the official PDF study guide**, and Deployment and Scaling in the same table differs too (13% on the page, 5% in the PDF). Budget them as ranges.
 
-**Maps back to**: AI-500 Evaluate (20–25%), NCP-AAI Run/Monitor/Maintain (5–7%, sources conflict), AB-620 Integrate, AB-100 Deploy (40–45%).
+**Maps back to**: AI-500 Evaluate (20–25%), NCP-AAI Run/Monitor/Maintain (5% web, 7% PDF), AB-620 Integrate, AB-100 Deploy (40–45%).
 
 ### 6. Human-in-the-loop
 
@@ -127,7 +127,7 @@ AI-500's guardrail framing is the most structured of the five: "**a multi-interv
 
 On deployment: AI-500 names **DTAP, blue/green, and canary**; NCP-AAI has **containerized scaling (Docker, Kubernetes) with load balancing** plus MLOps CI/CD; AB-100 requires **separate ALM designs** for Copilot Studio agents/connectors/actions, the Foundry Agents service, and custom models, along with **audit trails for model and data changes**.
 
-**Maps back to**: AI-500 Secure/Govern/Deploy (20–25%), NCP-AAI Deployment and Scaling (5–13%, sources conflict) plus Safety/Ethics/Compliance (5%), AB-100 Deploy (40–45%).
+**Maps back to**: AI-500 Secure/Govern/Deploy (20–25%), NCP-AAI Deployment and Scaling (13% web, 5% PDF) plus Safety/Ethics/Compliance (5%), AB-100 Deploy (40–45%).
 
 ## One idea, four vendor names
 
@@ -198,14 +198,14 @@ After this post was published, the series added a preparation path for [GitHub A
 
 **A seventh is on the way**: section 3.3 of the exam guide for Google's new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers orchestration with MCP and A2A and multi-agent handoffs. Its beta registration is closed and general availability registration opens November 2, 2026; it will be added to this comparison after that. This does not change what is said above about PMLE, which still does not test multi-agent coordination.
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 | Item | Status (verified 2026-08-18) | Recheck when |
 |---|---|---|
-| AI-500 status | Still beta; the official blog says GA is expected 2026-10 | Monthly |
+| AI-500 status | No beta label on the pages (2026-10-08); no official GA announcement | Monthly |
 | AI-500 four weights | 15-20 / 30-35 / 20-25 / 20-25 | After GA |
 | NCP-AAI registration | Coming soon; not yet open | Monthly |
-| NCP-AAI weight conflict | Web page totals 98%, PDF totals 92%; two entries differ | When registration opens |
+| NCP-AAI: two weights that differ | Web page totals 98%, PDF totals 92%; two entries differ | When registration opens |
 | AB-620 / AB-100 weights | 30-35 / 40-45 / 20-25; 25-30 / 25-30 / 40-45 | Quarterly |
 | CCAR-F weights | 27 / 18 / 20 / 20 / 15 (Exam Guide v1.0, effective July 2026) | Quarterly |
 | How A2A and MCP are tested | Three Microsoft exams name A2A; NCP-AAI names no protocol | Quarterly |

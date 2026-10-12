@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-AAI（Agentic AI Professional）備考路徑：還不能報名，而且官方兩份文件的權重互相矛盾"
+title: "NVIDIA NCP-AAI（Agentic AI Professional）備考路徑：十個領域只有 7% 綁 NVIDIA 產品，但現在還不能報名"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,50 +8,24 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 10
-tldr: "NCP-AAI 是 NVIDIA 的 agentic AI 專業級認證，$200、120 分鐘、60–70 題、效期兩年。但兩件事要先知道：一、官方頁面的 Register 按鈕旁標著「Coming soon」，現在還不能報名；二、官方網頁與官方 PDF study guide 的權重表互相矛盾——Deployment and Scaling 網頁寫 13%、PDF 寫 5%，Run/Monitor/Maintain 網頁寫 5%、PDF 寫 7%，而且兩版加總分別只有 98% 與 92%。兩份都是 nvidia.com。文章把它標成範圍與不確定性，不挑一個當事實。"
-description: "NVIDIA NCP-AAI（Agentic AI Professional）備考指南，逐項拆解十個主題領域，處理官方網頁與 PDF 權重表互相矛盾的問題，說明尚未開放報名的現況、五門 DLI 課程的取捨，以及兩年效期只能重考的規則。"
+tldr: "NCP-AAI 是 NVIDIA 的 agentic AI 專業級認證，$200、120 分鐘、60–70 題、效期兩年。十個領域裡最重的是 Agent Architecture and Design 15% 與 Agent Development 15%，只有 NVIDIA Platform Implementation 7% 明確綁自家產品，其餘是通用的 agentic 工程。兩件事要先知道：官方頁面的 Register 按鈕旁標著「Coming soon」，現在還不能報名；官方網頁與 PDF study guide 有兩項權重不同（Deployment and Scaling 13% 對 5%、Run/Monitor/Maintain 5% 對 7%），配時間時當成區間看。"
+description: "NVIDIA NCP-AAI（Agentic AI Professional）備考指南，逐項拆解十個主題領域與權重，說明尚未開放報名的現況、官方網頁與 PDF 兩項權重不一致時怎麼配時間、五門 DLI 課程的取捨，以及兩年效期只能重考的規則。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en)
 >
-> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試（現階段也無法報考，見下）。所有「考什麼」都指回 [NVIDIA 官方認證頁](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)與官方 Exam Study Guide，不含考古題。查證日期：2026-08-18。
+> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試（現階段也無法報考，見下）。所有「考什麼」都指回 [NVIDIA 官方認證頁](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/)與官方 Exam Study Guide，不含考古題。查證日期：2026-08-18；報名狀態、規格與權重於 2026-10-12 再確認。
 
-NCP-AAI 是**少數專攻 agentic AI 的專業級認證**，跟微軟的 AI-500 同屬這個稀有類別。但在你花時間準備之前，有兩件事會直接影響可行性。
+NCP-AAI 是**少數專攻 agentic AI 的專業級認證**，跟微軟的 AI-500 同屬這個稀有類別。十個領域裡只有一塊（7%）明確綁 NVIDIA 產品，其餘是通用的 agentic 工程。不過它現在還不能報名，這會影響你怎麼安排準備。
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
 
-## 一、現在還不能報名
+## 報名狀態：尚未開放
 
 官方認證頁的 Register for Exam 按鈕旁邊，標著 **「(Coming soon)」**。同一頁的姊妹張 NCP-GENL 也是同樣狀態，而兩張 associate 級（NCA-GENL、NCA-GENM）則直接連到 Certiverse 結帳頁。
 
 **NVIDIA 沒有公布開放日期。** 所以這篇的定位是：考綱已經公開，你可以先照它盤點自己的缺口與安排實作，但別把「考過」排進近期計畫。
-
-## 二、官方兩份文件的權重不一致
-
-這是我在查證時撞到、而且**兩邊都逐字核對過**的問題。
-
-**官方網頁的表格**：
-
-| 主題 | 網頁 |
-|---|---|
-| Agent Architecture and Design | 15% |
-| Agent Development | 15% |
-| Evaluation and Tuning | 13% |
-| **Deployment and Scaling** | **13%** |
-| Cognition, Planning, and Memory | 10% |
-| Knowledge Integration and Data Handling | 10% |
-| NVIDIA Platform Implementation | 7% |
-| **Run, Monitor, and Maintain** | **5%** |
-| Safety, Ethics, and Compliance | 5% |
-| Human-AI Interaction and Oversight | 5% |
-| **合計** | **98%** |
-
-**官方 PDF study guide** 對其中兩項寫了不同數字：**Deployment and Scaling 是 5%**、**Run, Monitor, and Maintain 是 7%**，其餘相同 —— 加總是 **92%**。
-
-兩份都是 nvidia.com 的官方文件，**沒有一版加總到 100%**。
-
-**怎麼處理**：不要挑一個當事實。實務上把 Deployment and Scaling 當成 **5% 到 13% 之間的不確定區間**，準備時取中間偏保守（當它是 10% 左右）；其餘八項兩版一致，可以照數字配時間。這種官方內部不一致的情況，也是「別把單一來源當定論」的好例子 —— 同一個廠商的網頁與 PDF 都可能對不上。
 
 ## 官方規格速覽
 
@@ -74,7 +48,23 @@ NCP-AAI 是**少數專攻 agentic AI 的專業級認證**，跟微軟的 AI-500 
 
 ## 十個主題領域
 
-NVIDIA 把這張切得比其他證照細，十個領域。以下的主題描述取自官方網頁表格。
+NVIDIA 把這張切得比其他證照細，共十個領域。權重與主題描述都取自官方網頁的表格：
+
+| 主題 | 權重 |
+|---|---|
+| Agent Architecture and Design | 15% |
+| Agent Development | 15% |
+| Evaluation and Tuning | 13% |
+| **Deployment and Scaling** | **13%** |
+| Cognition, Planning, and Memory | 10% |
+| Knowledge Integration and Data Handling | 10% |
+| NVIDIA Platform Implementation | 7% |
+| **Run, Monitor, and Maintain** | **5%** |
+| Safety, Ethics, and Compliance | 5% |
+| Human-AI Interaction and Oversight | 5% |
+| **合計** | **98%** |
+
+**有兩項權重，官方網頁與 PDF 不一樣。** PDF study guide 把 **Deployment and Scaling 寫成 5%**、**Run, Monitor, and Maintain 寫成 7%**，其餘相同；網頁加總 98%、PDF 加總 92%，兩版都不到 100%。配時間時把 Deployment and Scaling 當成 5% 到 13% 的區間，取 10% 左右；其餘八項兩版一致，照數字配。
 
 **Agent Architecture and Design（15%）** —— 官方描述：「agentic AI 系統的基礎結構與設計，聚焦 agent 在其環境中如何互動、推理與溝通」。條目包含 **ReAct 這類推理與行動框架**、**agent 對 agent 的通訊協定**、短期與長期記憶管理、多 agent 工作流編排、**用邏輯樹與 prompt 鏈做多步推理**、**整合知識圖譜做關聯推理**。
 
@@ -82,7 +72,7 @@ NVIDIA 把這張切得比其他證照細，十個領域。以下的主題描述�
 
 **Evaluation and Tuning（13%）** —— 「測量、比較與最佳化 agent 效能」。條目包含評估管線與任務 benchmark、跨任務與資料集比較、**結構化使用者回饋的蒐集與整合**、**準確度與延遲效率的取捨調校**。
 
-**Deployment and Scaling（5–13%，兩版矛盾）** —— 「將 agentic 系統營運化與規模化」。條目包含生產規模的多 agent 部署與編排、**MLOps 的 CI/CD、監控與治理**、分散式負載下的效能剖析、**容器化擴展（Docker、Kubernetes）與負載平衡**、成本最佳化與高可用。
+**Deployment and Scaling（網頁 13%、PDF 5%）** —— 「將 agentic 系統營運化與規模化」。條目包含生產規模的多 agent 部署與編排、**MLOps 的 CI/CD、監控與治理**、分散式負載下的效能剖析、**容器化擴展（Docker、Kubernetes）與負載平衡**、成本最佳化與高可用。
 
 **Cognition, Planning, and Memory（10%）** —— 「智慧 agent 行為背後的核心認知歷程」。條目包含短長期 context 的記憶機制、**推理框架（chain-of-thought、任務分解）**、序列與多步決策的規劃策略、**有狀態編排**、依過往經驗調整推理策略。
 
@@ -90,7 +80,7 @@ NVIDIA 把這張切得比其他證照細，十個領域。以下的主題描述�
 
 **NVIDIA Platform Implementation（7%）** —— 這是唯一綁定 NVIDIA 產品的一塊：**整合 NeMo Guardrails** 做合規與安全、**部署 NIM microservices** 做高效能推論、**用 NeMo Agent Toolkit 最佳化工作流**、**用 TensorRT-LLM 與 Triton Inference Server 降低延遲**、在 NVIDIA 硬體上管理多模態輸入管線。
 
-**Run, Monitor, and Maintain（5–7%，兩版矛盾）** —— 監控儀表板與可靠性指標、日誌與異常追蹤、**持續與前版做 benchmark**、自動化調校與重訓練與版控。
+**Run, Monitor, and Maintain（網頁 5%、PDF 7%）** —— 監控儀表板與可靠性指標、日誌與異常追蹤、**持續與前版做 benchmark**、自動化調校與重訓練與版控。
 
 **Safety, Ethics, and Compliance（5%）** —— 系統安全與稽核軌跡、合規 guardrail、偏誤與毒性緩解、**分層安全框架（過濾器、升級協定）**、授權與法規遵循。
 
@@ -103,7 +93,7 @@ NVIDIA 把這張切得比其他證照細，十個領域。以下的主題描述�
 | | NCP-AAI | 微軟 AI-500 |
 |---|---|---|
 | 費用 | $200 | $165（另需先考 $165 的 AI-103） |
-| 現況 | **尚未開放報名** | beta，GA 預計 2026/10 |
+| 現況 | **尚未開放報名** | 可報名，頁面已無 beta 標示 |
 | 最重的塊 | 架構 15% + 開發 15% | 開發 30–35% |
 | 平台綁定 | **只有 7%** 明確綁 NVIDIA 產品 | 全篇繞著 Microsoft Foundry |
 | 先修 | 1–2 年 AI/ML 且做過 production agentic 專案 | **必須持有 AI-103 認證** |
@@ -113,7 +103,7 @@ NVIDIA 把這張切得比其他證照細，十個領域。以下的主題描述�
 
 ## 官方建議的五門課
 
-NVIDIA 在頁面上列出建議訓練，每門標價（**全部付費**，這是 NVIDIA 的一貫作法）：
+NVIDIA 在頁面上列出建議訓練，每門都標了價格，沒有免費的：
 
 | 課程 | 形式 | 價格 | 時數 |
 |---|---|---|---|
@@ -137,12 +127,12 @@ NVIDIA 在頁面上列出建議訓練，每門標價（**全部付費**，這是
 
 站內的 [Agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)與 [RAG 評估框架](/posts/ai/2026-03-12-rag-evaluation-frameworks)可以直接對應到 Safety 那 5% 與 Evaluation 那 13%。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
 | 報名狀態 | **Coming soon，尚未開放** | 每月 |
-| 權重矛盾 | 網頁 98%、PDF 92%，兩項數字不同 | 開放報名時 |
+| 兩項權重不一致 | 網頁加總 98%、PDF 加總 92% | 開放報名時 |
 | 費用與題數 | $200、60–70 題、120 分鐘 | 開放報名時 |
 | DLI 課程與價格 | 五門，$30–$500 | 每季 |
 | 語言 | 僅英文 | 每半年 |

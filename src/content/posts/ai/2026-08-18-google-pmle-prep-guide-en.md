@@ -170,7 +170,7 @@ Two 2026 changes affect the math:
 
 Given how often Google renames things, expect another vocabulary shift in two years. Budget "$100 every two years plus a re-read of the guide" and decide from there.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

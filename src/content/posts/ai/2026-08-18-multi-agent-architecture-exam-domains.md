@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 study guide，來源逐條列在文末。查證日期：2026-08-18。
 
-這是 [AI 證照備考系列](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)的技術深潛篇。系列前十五篇是一張證照一篇，這篇反過來：**把「多 agent 系統架構」這個被五張證照重複考的主題抽出來，一次講完交集，再標出各家不能互相取代的部分。**
+這是 [AI 證照備考系列](/series/ai-cert-prep/)的技術深潛篇。系列前十五篇是一張證照一篇，這篇反過來：**把「多 agent 系統架構」這個被五張證照重複考的主題抽出來，一次講完交集，再標出各家不能互相取代的部分。**
 
 省時間的方式是先看交集——因為交集佔了每張證照多 agent 那塊的大半。但**只讀交集會過不了任何一張**，所以第四節那份獨有考點清單同樣重要。
 
@@ -102,9 +102,9 @@ AI-500 更進一步，**把四種 context window 失效模式逐一命名**：
 
 **agent replay 是 AI-500 獨有的措辭**，也是最值得單獨弄懂的一個——它要求你能把一次執行完整重放，而不只是看日誌。
 
-**一個查證上的坑要順帶標記**：NCP-AAI 的 Run, Monitor, and Maintain 這塊，**官方網頁寫 5%、官方 PDF study guide 寫 7%**，兩份都在 nvidia.com。同一份表格的 Deployment and Scaling 也對不上（網頁 13%、PDF 5%）。準備時把它當不確定區間，別挑一個當事實。
+**NCP-AAI 這塊的權重官方有兩個數字**：Run, Monitor, and Maintain **官方網頁寫 5%、官方 PDF study guide 寫 7%**；同一份表格的 Deployment and Scaling 也不同（網頁 13%、PDF 5%）。配時間時當成區間看。
 
-**要點回指**：AI-500 Evaluate（20–25%）、NCP-AAI Run/Monitor/Maintain（5–7%，兩版矛盾）、AB-620 Integrate、AB-100 Deploy（40–45%）。
+**要點回指**：AI-500 Evaluate（20–25%）、NCP-AAI Run/Monitor/Maintain（網頁 5%、PDF 7%）、AB-620 Integrate、AB-100 Deploy（40–45%）。
 
 ### 六、人在迴圈
 
@@ -127,7 +127,7 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 
 部署面：AI-500 明列 **DTAP、藍綠、金絲雀**；NCP-AAI 是**容器化擴展（Docker、Kubernetes）與負載平衡**加 MLOps 的 CI/CD；AB-100 則要求為 Copilot Studio 的 agent／connector／action、Foundry Agents service、自訂模型**分別設計 ALM**，並設計**模型與資料變更的稽核軌跡**。
 
-**要點回指**：AI-500 Secure/Govern/Deploy（20–25%）、NCP-AAI Deployment and Scaling（5–13%，兩版矛盾）＋ Safety/Ethics/Compliance（5%）、AB-100 Deploy（40–45%）。
+**要點回指**：AI-500 Secure/Govern/Deploy（20–25%）、NCP-AAI Deployment and Scaling（網頁 13%、PDF 5%）＋ Safety/Ethics/Compliance（5%）、AB-100 Deploy（40–45%）。
 
 ## 同一件事，四家四個名字
 
@@ -198,14 +198,14 @@ AI-500 的 guardrail 框架是這五份裡最結構化的：「**多重介入的
 
 **還有第七張在路上**：Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 官方考試指南第 3.3 節考 MCP 與 A2A 編排、多 agent 交接。它的 beta 報名已關閉，正式版 2026 年 11 月 2 日開放報名，開放後再併入對照。這不影響上面對 PMLE 的說明，PMLE 仍然不考多 agent 協調。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
-| AI-500 狀態 | 仍是 beta，官方部落格寫 GA 預計 2026/10 | 每月 |
+| AI-500 狀態 | 頁面已無 beta 標示（2026-10-08）；未見官方正式上線公告 | 每月 |
 | AI-500 四塊權重 | 15-20 / 30-35 / 20-25 / 20-25 | GA 之後 |
 | NCP-AAI 報名 | Coming soon，尚未開放 | 每月 |
-| NCP-AAI 權重矛盾 | 網頁合計 98%、PDF 合計 92%，兩項數字不同 | 開放報名時 |
+| NCP-AAI 兩項權重不一致 | 網頁合計 98%、PDF 合計 92%，兩項數字不同 | 開放報名時 |
 | AB-620 / AB-100 權重 | 30-35 / 40-45 / 20-25；25-30 / 25-30 / 40-45 | 每季 |
 | CCAR-F 權重 | 27 / 18 / 20 / 20 / 15（Exam Guide v1.0, Effective July 2026） | 每季 |
 | A2A 與 MCP 的考法 | 三張微軟證照點名 A2A；NCP-AAI 不指名協定 | 每季 |

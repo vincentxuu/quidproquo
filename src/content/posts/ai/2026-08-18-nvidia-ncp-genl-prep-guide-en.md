@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-GENL (Generative AI LLMs Professional): 31% Is GPU and Model Optimization, and Two Cells of the Official Table Are Broken"
+title: "NVIDIA NCP-GENL (Generative AI LLMs Professional): 31% Is GPU and Model Optimization, and Registration Isn't Open Yet"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,33 +8,22 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 11
-tldr: "NCP-GENL is NVIDIA's professional-level LLM credential — $200, 120 minutes, 60–70 items. What separates it from every other GenAI exam is where the weight sits: Model Optimization 17% plus GPU Acceleration 14% is 31% on quantization, distillation, pruning, distributed parallelism, and CUDA profiling — not on calling APIs. Two things first: the Register button says Coming soon, so you cannot sit it yet; and two description cells in the official weight table are corrupted — Fine-Tuning is described with OpenUSD data-interchange text and Model Optimization with deployment text. I verified both verbatim; the correct descriptions are in the official PDF."
-description: "A preparation guide for NVIDIA NCP-GENL (Generative AI LLMs Professional), covering the ten weighted areas, the two corrupted cells in NVIDIA's own blueprint table, the not-yet-open registration, the five paid DLI courses and how to choose among them, and how it divides from NCA-GENL and NCP-AAI."
+tldr: "NCP-GENL is NVIDIA's professional-level LLM credential — $200, 120 minutes, 60–70 items. What separates it from every other GenAI exam is where the weight sits: Model Optimization 17% plus GPU Acceleration 14% is 31% on quantization, distillation, pruning, distributed parallelism, and CUDA profiling — not on calling APIs. Two things to know first: the Register button says Coming soon, so you cannot sit it yet; and the description text for Model Optimization and Fine-Tuning in the web page's weight table is misplaced, so prepare those two areas from the official PDF study guide."
+description: "A preparation guide for NVIDIA NCP-GENL (Generative AI LLMs Professional), covering the ten weighted areas, the not-yet-open registration, which document to follow where two description cells in the web table are misplaced, the five paid DLI courses and how to choose among them, and how it divides from NCA-GENL and NCP-AAI."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide)
 >
-> This is a preparation path built from official material, not an exam-day account — I have not sat this exam, and at present nobody can. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18.
+> This is a preparation path built from official material, not an exam-day account — I have not sat this exam, and at present nobody can. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18; registration status, specs, and weights re-confirmed 2026-10-12.
 
 If you picture NCP-GENL as "NCA-GENL but harder," you will study the wrong things. **This exam's center of gravity is hardware and model optimization** — Model Optimization at 17% plus GPU Acceleration and Optimization at 14% is **31%** on quantization, distillation, pruning, distributed parallelism, and CUDA profiling.
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
-## Two Things to Know First
+## Registration: Not Open Yet
 
-**One: registration is not open.** The Register button carries the label **"(Coming soon)"**, the same state as [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en). NVIDIA publishes no opening date.
-
-**Two: two description cells in the official web table are broken.** I checked both verbatim, and both are genuinely misplaced:
-
-| Area (weight) | What NVIDIA's page says | The problem |
-|---|---|---|
-| **Model Optimization (17%)** | "Deploying LLMs in production environments. Includes building containerized inference pipelines, configuring model serving and orchestration (e.g., Kubernetes, NVIDIA Triton™)…" | That is a **deployment** description, nearly duplicating Model Deployment (9%) in the same table |
-| **Fine-Tuning (13%)** | "Creating conceptual data mapping documents, custom importers, exports, and scripts for interchange of data with **OpenUSD**" | Copied from **NVIDIA's OpenUSD exam**; nothing to do with fine-tuning |
-
-**The weights are fine; only the prose is corrupted.** The official PDF study guide has the correct descriptions: Model Optimization covers pruning, sparsity, quantization, knowledge distillation, hyperparameter search, advanced sampling, and TensorRT; Fine-Tuning covers SFT and RLHF (including DPO and GRPO), contrastive loss for embeddings, LoRA / adapters / P-tuning, and early stopping.
-
-**The practical implication**: **prepare from the PDF, not from those two cells.** It is also the recurring lesson of this series — official sources disagree with each other, and one vendor's web page and PDF can be out of sync.
+The Register button carries the label **"(Coming soon)"**, the same state as [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide-en). NVIDIA publishes no opening date.
 
 ## Official Specs at a Glance
 
@@ -73,7 +62,16 @@ These sum to 100% — unlike [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-
 
 **The top two areas total 31%, and both are about making models smaller and faster.** This is the only certification in the series that tests the hardware layer at scale — other GenAI credentials ask how to use a model; this one asks how to make it run better on a GPU.
 
-## Area by Area (Using the PDF's Correct Descriptions)
+**Two description cells in the web page's weight table are misplaced, so follow the official PDF study guide for those two areas.** The weights themselves are fine.
+
+| Area (weight) | What NVIDIA's page says | What it actually is |
+|---|---|---|
+| **Model Optimization (17%)** | "Deploying LLMs in production environments. Includes building containerized inference pipelines, configuring model serving and orchestration (e.g., Kubernetes, NVIDIA Triton™)…" | That is a **deployment** description, nearly duplicating Model Deployment (9%) in the same table |
+| **Fine-Tuning (13%)** | "Creating conceptual data mapping documents, custom importers, exports, and scripts for interchange of data with **OpenUSD**" | Copied from **NVIDIA's OpenUSD exam**; nothing to do with fine-tuning |
+
+The PDF describes both areas correctly: Model Optimization covers pruning, sparsity, quantization, knowledge distillation, hyperparameter search, advanced sampling, and TensorRT; Fine-Tuning covers SFT and RLHF (including DPO and GRPO), contrastive loss for embeddings, LoRA / adapters / P-tuning, and early stopping. The area-by-area section below uses the PDF descriptions.
+
+## Area by Area
 
 ### Model Optimization (17%, the heaviest)
 
@@ -117,7 +115,7 @@ These sum to 100% — unlike [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-
 | [Deploying RAG Pipelines for Production at Scale](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-18+V1) | Labelled "Self-Paced" | **$500** | 8 |
 | [Optimizing CUDA ML Codes With NVIDIA Nsight's Profiling Tools](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-AC-03+V2) | Self-paced | **$30** | 4 |
 
-**Two oddities in that list**, reported exactly as NVIDIA prints them: the fourth is labelled "Self-Paced" yet costs $500 while every other self-paced course is $30–$90, and the similarly named "**Introduction to** Deploying RAG Pipelines…" on the NCP-AAI page costs $90 — different course codes (`C-FX-18` versus `S-FX-19`), so check the code before buying.
+**Two things to watch in that list**: the fourth is labelled "Self-Paced" yet costs $500 while every other self-paced course is $30–$90, and the similarly named "**Introduction to** Deploying RAG Pipelines…" on the NCP-AAI page costs $90 — different course codes (`C-FX-18` versus `S-FX-19`), so check the code before buying.
 
 **Selection advice**: the **$500 Model Parallelism workshop maps most directly onto this exam's core** (essentially all of GPU Acceleration's 14%) — take it if your employer pays. Paying yourself, **the $30 Nsight profiling course is the best value on the list**; cover quantization and distillation from documentation and open tooling.
 
@@ -132,12 +130,12 @@ These sum to 100% — unlike [NCP-AAI](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-
 
 **The two professional exams are siblings, not a ladder** — NCP-GENL drills down into models and hardware, NCP-AAI builds up into systems and agents. NVIDIA does not make the associate exams prerequisites either; both professional exams state prerequisites in years of experience rather than in credentials.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
 | Registration | **Coming soon, not open** | Monthly |
-| The two corrupted table cells | Model Optimization and Fine-Tuning still wrong | Quarterly (update this article when NVIDIA fixes them) |
+| The two misplaced table cells | Model Optimization and Fine-Tuning still wrong | Quarterly |
 | The ten weights | 17/14/13/13/9/9/7/7/6/5, totalling 100% | When registration opens |
 | DLI courses and prices | Five, $30–$500 | Quarterly |
 

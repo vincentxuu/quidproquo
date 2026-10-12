@@ -19,11 +19,11 @@ draft: false
 
 When a job posting asks for an "NVIDIA Generative AI / LLM certification," this is usually the one it means — NCA-GENL, the entry level of NVIDIA's generative AI line, $125 and one hour.
 
-Two things about it defy expectation, and both change how you prepare.
+Two things change how you prepare: the blueprint does not match the name, and the official recommended training was recently replaced.
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
-## Divergence One: The Name Says LLM, Half the Blueprint Is Classical ML
+## The Name Says LLM, Half the Blueprint Is Classical ML
 
 The weights from the official Exam Study Guide:
 
@@ -60,7 +60,7 @@ The two items are:
 
 Each area also carries a "Suggested Reading" list of free articles and papers, such as the Prompt Engineering Guide and "Attention Is All You Need".
 
-**This differs from August.** When this post was first published, NVIDIA listed five paid courses (deep learning, accelerated data science, Transformer NLP, prompt engineering, LLM application development) at $390 for the self-paced set, which is why it said NVIDIA was the only vendor in this series without free official material. That no longer holds: the four heaviest areas all have free material.
+**Older prep write-ups mostly still list five paid courses.** Until autumn 2026 NVIDIA listed deep learning, accelerated data science, Transformer NLP, prompt engineering, and LLM application development, at $390 for the self-paced set. The four heaviest areas now all have free material, so there is no need to buy from the old list.
 
 **Practical advice**: work through the open-source materials on GitHub first. They cover Core ML and experiment design, where most candidates are weakest. Whether to buy the LLM application development course ($90) depends on whether you already build LLM applications; if you do, the suggested readings and your own experience usually suffice.
 
@@ -95,7 +95,7 @@ Each area also carries a "Suggested Reading" list of free articles and papers, s
 
 **What it tests**: assisting with deployment and evaluation under supervision; building LLM use cases; familiarity with Python NL packages; **identifying the system data, hardware, or software components required to meet user needs**; **monitoring data collection, experiments, and other software processes**; using Python packages for traditional ML analyses; **writing software components or scripts under supervision**.
 
-**How to prepare**: note how heavily these bullets **overlap with Core ML** — the same spaCy/NumPy, the same LLM use cases, the same deployment assistance. That is NVIDIA's own blueprint text, not my summary. Practically it means **this 24% needs no separate preparation**; covering Core ML covers it.
+**How to prepare**: in NVIDIA's blueprint these bullets **overlap heavily with Core ML** — the same spaCy/NumPy, the same LLM use cases, the same deployment assistance. Practically it means **this 24% needs no separate preparation**; covering Core ML covers it.
 
 ### Experimentation (22%)
 
@@ -141,7 +141,7 @@ The FAQ is blunter: "NVIDIA certifications are valid for two years, after which 
 
 Budget accordingly: $125 for the exam, plus DLI courses as needed, plus $125 every two years.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

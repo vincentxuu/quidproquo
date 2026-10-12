@@ -84,7 +84,7 @@ This is the only area that touches AI directly, and it does so through vector se
 
 PostgreSQL has six objectives, the most detailed of the three, and it is the only place in the whole outline where the term "RAG" appears.
 
-**How to prepare**: three learning paths: [Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/), and [Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/). The most effective exercise is to **load the same set of embeddings into all three services and run a similarity search on each**, then answer three questions: how the index is built, how the query changes with a metadata filter, and what the unit of cost is (RUs, compute tier, memory). The outline lists the three services as separate groups of objectives. Having worked with all three is the safer preparation for questions that span them; that is my inference, and Microsoft does not say the exam has comparison questions.
+**How to prepare**: three learning paths: [Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/), [Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/), and [Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/). The most effective exercise is to **load the same set of embeddings into all three services and run a similarity search on each**, then answer three questions: how the index is built, how the query changes with a metadata filter, and what the unit of cost is (RUs, compute tier, memory). The outline lists the three services as separate groups of objectives. Having worked with all three is the safer preparation for questions that span them; that is this guide's inference, and Microsoft does not say the exam has comparison questions.
 
 How to evaluate retrieval quality is not tested here. For that, see [Where RAG and retrieval evaluation overlap across exams](/posts/ai/2026-08-18-rag-evaluation-exam-domains-en).
 
@@ -140,7 +140,7 @@ Associate certifications are valid for one year. Per the [official renewal page]
 
 AI-200 and AI-103 are separate certifications, each with its own one-year clock and its own renewal. If you hold both, you take two renewal assessments a year.
 
-## Things That Will Go Stale
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-10-08) | When to recheck |
 |---|---|---|

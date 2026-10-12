@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 18
-tldr: "Governance carries more weight on these exams than most engineers expect — CCAR-P is 14% governance plus 14% stakeholder work (28% non-technical), CCAO-F is 15%, AB-100's deploy-and-govern block is 40–45%, AIF-C01 is 14% responsible AI plus 14% security/compliance/governance. But across all fifteen official exam guides in this series, not one names the EU AI Act, the NIST AI RMF, or ISO/IEC 42001; the only regulations any of them names are CCAR-P's GDPR, HIPAA, and FedRAMP. So the use of this post isn't memorizing frameworks for an exam — it's using the three frameworks as a skeleton to file six certifications' scattered governance objectives. The three split cleanly: the EU AI Act is law (fully applicable 2026-08-02, high-risk duties pushed to 2027-12-02 by the AI Omnibus), the NIST AI RMF is voluntary (GOVERN/MAP/MEASURE/MANAGE, and 1.0 is currently being revised), and ISO/IEC 42001 is a certifiable management system standard whose clauses sit behind a paywall — so this post uses only what ISO's own public page states."
+tldr: "Governance carries more weight on these exams than most engineers expect — CCAR-P is 14% governance plus 14% stakeholder work (28% non-technical), CCAO-F is 15%, AB-100's deploy-and-govern block is 40–45%, AIF-C01 is 14% responsible AI plus 14% security/compliance/governance. But across all fifteen official exam guides in this series, not one names the EU AI Act, the NIST AI RMF, or ISO/IEC 42001; the only regulations any of them names are CCAR-P's GDPR, HIPAA, and FedRAMP. So the use of this post isn't memorizing frameworks for an exam — it's using the three frameworks as a skeleton to file six certifications' scattered governance objectives. The three split cleanly: the EU AI Act is law (fully applicable 2026-08-02, high-risk duties pushed to 2027-12-02 by the AI Omnibus), the NIST AI RMF is voluntary (GOVERN/MAP/MEASURE/MANAGE, and 1.0 is currently being revised), and ISO/IEC 42001 is a certifiable management system standard whose clauses are paid, so this post covers only what is on ISO's public page."
 description: "A cross-certification breakdown of AI governance objectives: first the governance weights and objectives from six official exam guides, then the EU AI Act, NIST AI RMF 1.0, and ISO/IEC 42001 compared on scope, binding force, and timeline from the European Commission's, NIST's, and ISO's own pages, then each exam's governance objectives mapped to the framework it most resembles."
 draft: false
 ---
@@ -17,11 +17,11 @@ draft: false
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide; every framework fact points back to the European Commission, NIST, or ISO. All sources are listed at the end. Verified 2026-08-18.
 
-This is a technical deep-dive in the [AI Certification Prep series](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en), written the same way as [B1 on multi-agent architecture](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en): take one topic several certifications test in parallel, cover it once, then mark what doesn't transfer.
+This is a technical deep-dive in the [AI Certification Prep series](/en/series/ai-cert-prep/), written the same way as [the multi-agent architecture post](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en): take one topic several certifications test in parallel, cover it once, then mark what doesn't transfer.
 
-One difference from B1 has to come first, though:
+One difference from the multi-agent post has to come first, though:
 
-**Across all fifteen A-track exam guides in this series, not one official guide names the EU AI Act, the NIST AI RMF, or ISO/IEC 42001.** The only regulations named verbatim anywhere in the series are in [CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide-en)'s governance domain: **GDPR, HIPAA, FedRAMP** — none of which is AI-specific legislation.
+**Across the official exam guides behind the first fifteen preparation paths in this series, not one names the EU AI Act, the NIST AI RMF, or ISO/IEC 42001.** The only regulations named verbatim anywhere in the series are in [CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide-en)'s governance domain: **GDPR, HIPAA, FedRAMP** — none of which is AI-specific legislation.
 
 So this post is not "memorize three frameworks to pass an exam." **It is the inverse: use the three frameworks as a skeleton for filing six certifications' governance objectives**, which are scattered, differently worded, and vendor-specific. That is worth doing, because the duties those objectives describe almost all have a prototype in one of the three frameworks — renamed, and cited nowhere.
 
@@ -76,7 +76,7 @@ The Commission's official page divides risk into four tiers:
 
 For high-risk systems, the Commission's page lists seven pre-market obligations: **adequate risk assessment and mitigation, high-quality datasets to minimise discriminatory outcomes, logging of activity for traceability, detailed documentation for authorities, clear information to the deployer, appropriate human oversight measures, and a high level of robustness, cybersecurity, and accuracy.**
 
-I separately confirmed the corresponding article numbers by reading the regulation text on EUR-Lex (**this is the original 2024 text — see the uncertainty note below**):
+The corresponding article numbers, from the regulation text on EUR-Lex (**this is the original 2024 text — see the uncertainty note below**):
 
 | Article | Heading | What it means in engineering terms |
 |---|---|---|
@@ -97,7 +97,7 @@ Post-market, the Commission's page states that **authorities handle market surve
 
 **Part of this is actively moving and must be marked uncertain**: the **AI Omnibus** simplification package was **adopted 2025-11-19**, reached **political agreement 2026-05-07**, and **entered into force 2026-07-27**. It pushed the high-risk application dates back (Annex III to 2027-12-02, Annex I to 2028-08-02), added the ninth prohibition, reinforced the AI Office's powers, and widened regulatory sandboxes and SME simplifications. **The article table above therefore comes from the 2024 original text on EUR-Lex, and the consolidated post-Omnibus text may differ** — cite article numbers from the consolidated version; all this post guarantees is that those numbers carried those headings in the original.
 
-**This post does not state penalty amounts.** The penalty provisions were not within what I could read end to end here, and a blank is better than a wrong figure.
+**This post does not state penalty amounts**; read the penalty provisions in the regulation text when you need them.
 
 ### NIST AI RMF: four functions, seven trustworthiness characteristics
 
@@ -120,9 +120,9 @@ NIST's own page is explicit about its status: **"intended for voluntary use"**, 
 
 **The biggest staleness risk in this whole post lives here**: NIST's page says it twice, in the banner and in the body — **"The AI RMF 1.0 is being revised as part of the White House AI Action Plan."** The 1.0 you read today is being rewritten. Memorize the structure (four functions, seven characteristics); the details are a moving target.
 
-### ISO/IEC 42001: paywalled, so this section only states what ISO's public page states
+### ISO/IEC 42001: the clauses are paid, so this section covers only ISO's public page
 
-What ISO's own page supports:
+What ISO's public page says:
 
 - Full title **ISO/IEC 42001:2023, Information technology — Artificial intelligence — Management system**
 - **Edition 1, published 2023-12-18, 51 pages**, status Published (stage 60.60)
@@ -132,7 +132,7 @@ What ISO's own page supports:
 - ISO describes it as **the world's first AI management system standard**, built on the **Plan-Do-Check-Act** methodology, and a management system standard (MSS) rather than a technical standard about specific AI applications
 - Related standards ISO itself lists: **ISO/IEC 22989** (terminology), **ISO/IEC 23053** (ML framework), **ISO/IEC 23894** (AI risk management guidance), and **ISO/IEC 42005** (impact assessment)
 
-**Clause-level content is not stated here, because it is behind the paywall.** Which clauses exist, what Annex A's controls are, what the certification procedure involves — **not verified**. Second-hand summaries listing 42001's controls as fact are not a source until someone has read the standard itself. This is the one section of this post that has to stay blank, and blank beats wrong.
+**Clause-level content is not stated here, because the standard itself is paid.** Which clauses exist, what Annex A's controls are, and what the certification procedure involves can only be settled from the standard; check any second-hand list of 42001's controls against it before citing.
 
 **Maps back to**: CCAR-P Governance (14%) "ensure regulatory compliance"; CCAO-F Governance (15%) "apply data sensitivity, regulatory, and privacy considerations" and "follow organizational AI policies and governance standards"; AB-100 Deploy (40–45%) "validate data residency and data movement compliance".
 
@@ -177,16 +177,13 @@ Governance questions are situational judgment, not definitions. These seven are 
 
 **Maps back to**: EU AI Act Art 6 / 9 / 10 / 12 / 14 / 50; NIST GOVERN (cross-cutting) + MEASURE / MANAGE; ISO/IEC 42001's PDCA; AB-100 Deploy (40–45%), AIP-C01 chapter 3 (20%), AIF-C01 chapters 4 and 5 (14% each), CCAR-P Governance (14%), CCAO-F Governance (15%), NCP-AAI Human-AI Interaction (5%).
 
-## Verification traps hit along the way
+## If you read the originals
 
-This section is here because these will directly affect your own attempt to check any of this:
+- The official page for ISO/IEC 42001 is `iso.org/standard/42001` (equivalently `81230.html`). Adding `.html` to the first form lands on **ISO 12164-4:2008**, a machine-tool hollow taper interface standard that has nothing to do with AI.
+- Open EUR-Lex and ISO pages in a browser. Command-line fetchers get a 202 or a 403, which is not evidence that the source doesn't exist.
+- The Commission's page says both "became applicable on 2 August 2026" and "the transparency rules will come into effect in August 2026". They are compatible; quote the precise one.
 
-- **`iso.org/standard/42001.html` is not ISO/IEC 42001.** That URL serves **ISO 12164-4:2008** (a hollow taper interface for machine tools, withdrawn years ago). The correct page is `iso.org/standard/42001` (equivalently `81230.html`). **The `.html` variant is a completely different standard, and taking it at face value would corrupt an entire section.**
-- **HTTP 200 does not mean the page exists.** The Commission site's `standardisation-and-ai-act` path returns 200 with a body reading "Page not found". A status code cannot detect a soft 404 — you have to read the body.
-- **EUR-Lex and ISO both block automated fetching**: EUR-Lex answers `curl` with **202** (not content), ISO with **403**. Both were only readable through a fetcher that executes JavaScript. **A 202 or 403 is not evidence that a source doesn't exist.**
-- **The same page can state a date two ways**: the Commission's page says both "became applicable on 2 August 2026" and "the transparency rules will come into effect in August 2026". Compatible, different precision — quote the precise one.
-
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 This is the fastest-ageing topic in the series: two of the three frameworks are in motion.
 
@@ -201,8 +198,8 @@ This is the fastest-ageing topic in the series: two of the three frameworks are 
 | NIST critical-infrastructure profile | 2026-04-07 concept note only — **not yet a profile** | Quarterly |
 | NIST GenAI Profile | NIST-AI-600-1, released 2024-07-26 | Alongside the AI RMF revision |
 | ISO/IEC 42001 edition | Edition 1 (2023-12); has not entered systematic review (stage 90) | Every six months |
-| ISO/IEC 42001 clause content | **Not verified (paywalled, CHF 225)** | If the standard itself is obtained |
-| EU AI Act penalty amounts | **Not stated in this post** (penalty provisions not read) | If the consolidated text is read |
+| ISO/IEC 42001 clause content | Not covered here (the standard is paid, CHF 225) | If the standard itself is obtained |
+| EU AI Act penalty amounts | Not covered in this post | — |
 | Regulations CCAR-P names | GDPR, HIPAA, FedRAMP — **still no AI-specific law** | Each exam guide revision |
 | Whether any exam starts testing AI-specific law | All fifteen exam guides name **none** of the three frameworks | Quarterly — most likely to change now that the Act is fully applicable |
 

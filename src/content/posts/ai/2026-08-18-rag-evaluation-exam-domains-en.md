@@ -17,7 +17,7 @@ draft: false
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam guide or blueprint, all listed at the end. Verified 2026-08-18.
 
-This is the second technical deep-dive in the [AI Certification Prep series](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en), following [multi-agent architecture across five exams](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en). Same method: **take a topic several certifications test in parallel — here, RAG and retrieval evaluation — cover the shared core once, then mark what doesn't transfer.**
+This is the second technical deep-dive in the [AI Certification Prep series](/en/series/ai-cert-prep/), following [multi-agent architecture across five exams](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en). Same method: **take a topic several certifications test in parallel — here, RAG and retrieval evaluation — cover the shared core once, then mark what doesn't transfer.**
 
 One thing belongs up front, though: **pick the wrong certification and none of this gets tested at all.**
 
@@ -228,11 +228,11 @@ The output side and post-launch monitoring is where the vendors diverge most int
 
 **Golden datasets are named only by AIP-C01**, and **AI-500's vector-only recall** is the one named failure mode across these sources that directly describes what pure vector retrieval misses — for anyone building RAG, that term is more useful than its home in a multi-agent exam guide suggests.
 
-**One weight caveat on NCP-AAI**: Run, Monitor, and Maintain is **5% on the official web page and 7% in the official PDF study guide**, both on nvidia.com. The same table disagrees on Deployment and Scaling too (13% web, 5% PDF). Treat it as an uncertainty range; don't pick one and call it fact.
+**One weight caveat on NCP-AAI**: Run, Monitor, and Maintain is **5% on the official web page and 7% in the official PDF study guide**, both on nvidia.com. The same table disagrees on Deployment and Scaling too (13% web, 5% PDF). Budget it as a range.
 
 [RAG observability and tracing](/posts/ai/2026-03-12-rag-observability-tracing-en), [RAG failure modes](/posts/ai/2026-03-12-rag-failure-modes-en), and [RAG A/B testing](/posts/ai/2026-03-12-rag-ab-testing-en) cover this section.
 
-**Maps back to**: AIF-C01 chapter 5 (14%) objective 5.1.5, AIP-C01 Domain 4 (12%) task 4.3 and Domain 3 (20%) task 3.1, NCP-AAI Run/Monitor/Maintain (5–7%, sources conflict), AI-500 Evaluate (20–25%), PMLE chapter 6 (~13%).
+**Maps back to**: AIF-C01 chapter 5 (14%) objective 5.1.5, AIP-C01 Domain 4 (12%) task 4.3 and Domain 3 (20%) task 3.1, NCP-AAI Run/Monitor/Maintain (5% web, 7% PDF), AI-500 Evaluate (20–25%), PMLE chapter 6 (~13%).
 
 ## Same idea, four vocabularies
 
@@ -251,7 +251,7 @@ The output side and post-launch monitoring is where the vendors diverge most int
 
 **Anthropic's absence from this table is itself the finding**: across these ten rows, CCDV-F's eight domains fill exactly one cell — cost control (token budgeting, prompt caching, cache check-pointing, compaction).
 
-**The cells worth studying hardest are the "Not tested" ones.** They aren't gaps in my research — the official considerations and blueprints genuinely have nothing there. Time spent on chunking and vector stores while preparing for PMLE will not be repaid by the exam.
+**The cells worth studying hardest are the "Not tested" ones.** The official considerations and blueprints genuinely have nothing there. Time spent on chunking and vector stores while preparing for PMLE will not be repaid by the exam.
 
 ## What doesn't transfer
 
@@ -294,7 +294,7 @@ Shortest paths to the non-transferable objectives: for AWS, chapter 3 of the [AI
 
 For RAG methodology on this site, [the complete RAG patterns guide](/posts/ai/2026-03-14-rag-patterns-complete-guide-en) is the entry point.
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 | Item | Status (verified 2026-08-18) | Recheck when |
 |---|---|---|
@@ -303,8 +303,8 @@ For RAG methodology on this site, [the complete RAG patterns guide](/posts/ai/20
 | AIP-C01 five-chapter weights | 31 / 26 / 20 / 12 / 11 | Every revision |
 | AIP-C01 scope | Includes Bedrock AgentCore (2026-03 refresh) | After each AWS re:Invent |
 | NCP-AAI registration | Coming soon; not yet open | Monthly |
-| NCP-AAI weight conflict | Web page totals 98%, PDF totals 92%; two entries differ | When registration opens |
-| AI-500 status | Still beta; the official blog says GA is expected 2026-10 | Monthly |
+| NCP-AAI: two weights that differ | Web page totals 98%, PDF totals 92%; two entries differ | When registration opens |
+| AI-500 status | No beta label on the pages (2026-10-08); no official GA announcement | Monthly |
 | Whether PMLE adds retrieval objectives | Considerations currently hold one LLM-as-a-judge line | After Google Cloud Next |
 | Whether CCDV-F adds retrieval objectives | None across the blueprint's eight domains today | Every guide revision |
 

@@ -9,7 +9,7 @@ series:
   name: "AI 證照備考"
   order: 24
 tldr: "選 Claude 四張認證之前有一個比所有考點都重要的前提：報考只開放給 Claude Partner Network 的組織，個人無法自行報名。過得了這關的人，實際的分岔點有四個——CCAO-F $99 不計入 partner tier 資格（另外三張計入）；Claude Code 在 CCAR-F 佔 20%、在 CCDV-F 只佔 3.1%，架構師那張考這個工具比開發者那張重；CCAR-P 有 28% 是治理與利害關係人溝通，系列裡沒有第二張這樣；CCAO-F 最便宜但 Prompting 只有 14%，輸出評估 21% 才是主軸。四張效期都是 12 個月，重考間隔 14 / 30 / 90 天、12 個月內最多 4 次。"
-description: "Anthropic 四張認證（CCAO-F、CCDV-F、CCAR-F、CCAR-P）的選擇指南：先講清楚只有 partner 組織能報名這道門檻，再用官方 exam guide 的領域權重比對四張的實際分工，含 partner tier 計入差異、Claude Code 權重反轉、28% 非技術內容，以及官方來源互相打架與尚未公布的部分。"
+description: "Anthropic 四張認證（CCAO-F、CCDV-F、CCAR-F、CCAR-P）的選擇指南：先講清楚只有 partner 組織能報名這道門檻，再用官方 exam guide 的領域權重比對四張的實際分工，含 partner tier 計入差異、Claude Code 權重反轉、28% 非技術內容，以及官方資料不一致與尚未公布的部分。"
 draft: false
 ---
 
@@ -30,9 +30,9 @@ draft: false
 - **你在 partner 組織裡**（Accenture、Deloitte、PwC、EPAM、Wipro 這類已公開承諾大規模認證的公司都在名單上）：往下讀是四張的選擇依據。
 - **你不在**：這四張你考不了，但**四份 exam guide 的權重表就是 Anthropic 對這四種角色的定義**——它認為「用 Claude 做事」「寫程式串 Claude」「設計方案」「面對法遵與客戶」各自該會什麼、各佔多少比重。這份定義拿來對照自己的職涯位置、或設計團隊的內訓路徑，比證照本身有用。
 
-## 四張的官方規格（四篇對照表彙整）
+## 四張的官方規格
 
-四篇備考文各自都帶了一張比較表。**逐格核對後四張表彼此一致，沒有互相矛盾的數字**，彙整如下：
+四張的規格彙整如下：
 
 | | [CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide) | [CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide) | [CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide) | [CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide) |
 |---|---|---|---|---|
@@ -122,7 +122,7 @@ CCAR-P 的七個領域是 19 / 17 / 16 / 14 / 14 / 13 / 7，其中兩塊是它�
 | 面對客戶法遵與資安、主導架構決策與交付 | **CCAR-P $175** | 治理 14% + 利害關係人 14% |
 | 組織是為了衝 partner tier | 除 CCAO-F 外任一張 | 只有那三張計入 partner program standing |
 
-**四張不是階梯。** 官方 exam guide 沒有把任何一張設為另一張的先修條件，CCAR-F 也不是 CCAR-P 的前置 —— 選的依據是職責範圍，不是年資。（這句話有一個官方來源打架的地方，見下一節。）
+**四張不是階梯。** 官方 exam guide 沒有把任何一張設為另一張的先修條件，CCAR-F 也不是 CCAR-P 的前置 —— 選的依據是職責範圍，不是年資。（官方資料在這點上有一處不一致，見下一節。）
 
 ## 四張共用的規則
 
@@ -136,9 +136,7 @@ CCAR-P 的七個領域是 19 / 17 / 16 / 14 / 14 / 13 / 7，其中兩塊是它�
 
 **考試形式**：四張都是 proctored（線上監考或 Pearson 考場），需驗證身分，通過後透過 Credly by Pearson 發數位徽章。
 
-## 兩處官方來源互相打架
-
-依系列紀律，**遇到官方來源不一致時兩邊都引、標成不確定，不挑一個當事實。**
+## 官方資料的兩處不一致
 
 **一、四張是不是階梯？**
 
@@ -156,7 +154,7 @@ CCAR-P 的七個領域是 19 / 17 / 16 / 14 / 14 / 13 / 7，其中兩塊是它�
 
 ## 官方沒公布的東西（不要靠估）
 
-Anthropic 在這四張上公布的資訊比本系列其他廠商少。以下是**查得到「沒有」的部分**，這篇不填空：
+Anthropic 在這四張上公布的資訊比本系列其他廠商少。以下幾項官方沒有公布：
 
 | 項目 | 狀態 |
 |---|---|
@@ -166,7 +164,7 @@ Anthropic 在這四張上公布的資訊比本系列其他廠商少。以下是*
 | 情境抽題結構 | **只有 CCAR-F 公布**「六個情境題庫隨機抽四個」；另外三張的 guide 沒有對應敘述，不代表它們也是這個結構 |
 | 個人報考管道 | 不存在（不是「未公布」，是官方明說只開放 partner 組織） |
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-19 查證） | 什麼時候要重查 |
 |---|---|---|

@@ -11,8 +11,8 @@ tags:
   - ipas
 lang: zh-TW
 type: deep-dive
-tldr: "2026 年工程師能報名的 AI 證照逐張列出：AWS 三張（AIP-C01 / MLA-C01 / AIF-C01）、Google PMLE、微軟 AI-103 與 AI-500、NVIDIA 目錄十二張、Databricks、Snowflake、Oracle Agentic AI、IBM watsonx、Salesforce Agentforce、GitHub GH-300、Anthropic Claude 四張、iPAS AI 應用規劃師初中級，另有 IAPP AIGP 與 ISACA AAISM / AAIA 這條治理稽核線，價格、效期、報考門檻全部對照官方頁面。兩個會影響荷包的重點：Google PMLE 的考試大綱已把 Vertex AI 全面改名為 Gemini Enterprise Agent Platform，2026 年年中以前的教材等同作廢；iPAS 中級證書效期是 5 年而非永久。"
-description: "2026 年工程師能報名的 AI 證照完整規格：AWS AIP-C01 / MLA-C01 / AIF-C01、Google Professional ML Engineer、微軟 AI-103 與 Agent 認證線、NVIDIA 十二張證照、Databricks、Snowflake、Oracle、IBM、Salesforce、GitHub Copilot GH-300、Anthropic Claude 四張、iPAS 初中級，以及 IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP 的治理稽核線，價格、效期、報考門檻與考試大綱異動全部對照官方頁面。"
+tldr: "2026 年工程師能報名的 AI 證照逐張列出：AWS 三張（AIP-C01 / MLA-C02 / AIF-C01）、Google PMLE、微軟 AI-103 與 AI-500、NVIDIA 目錄十二張、Databricks、Snowflake、Oracle Agentic AI、IBM watsonx、Salesforce Agentforce、GitHub GH-300、Anthropic Claude 四張、iPAS AI 應用規劃師初中級，另有 IAPP AIGP 與 ISACA AAISM / AAIA 這條治理稽核線，價格、效期、報考門檻全部對照官方頁面。兩個會影響荷包的重點：Google PMLE 的考試大綱已把 Vertex AI 全面改名為 Gemini Enterprise Agent Platform，2026 年年中以前的教材等同作廢；iPAS 中級證書效期是 5 年而非永久。"
+description: "2026 年工程師能報名的 AI 證照完整規格：AWS AIP-C01 / MLA-C02 / AIF-C01、Google Professional ML Engineer、微軟 AI-103 與 Agent 認證線、NVIDIA 十二張證照、Databricks、Snowflake、Oracle、IBM、Salesforce、GitHub Copilot GH-300、Anthropic Claude 四張、iPAS 初中級，以及 IAPP AIGP、ISACA AAISM / AAIA、CertNexus CAIP 的治理稽核線，價格、效期、報考門檻與考試大綱異動全部對照官方頁面。"
 glossary:
   - term: "Gemini Enterprise Agent Platform"
     aliases: ["Agent Platform"]
@@ -36,13 +36,13 @@ draft: false
 | 證照 | 費用 | 時長 / 題數 | 效期 |
 |---|---|---|---|
 | [AWS Certified Generative AI Developer – Professional](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) (AIP-C01) | $300 | 180 分 / 75 題 | 3 年 |
-| [AWS Certified ML Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) (MLA-C01) | $150 | 130 分 / 65 題 | 3 年 |
+| [AWS Certified ML Engineer – Associate](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) (MLA-C02) | 正式版 $150；英文 beta $75 | beta 170 分 / 85 題；正式版 65 題 | 3 年 |
 | [AWS Certified AI Practitioner](https://aws.amazon.com/certification/certified-ai-practitioner) (AIF-C01) | $100 | 90 分 / 65 題 | 3 年 |
 | [Google Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) | $200 | 120 分 / 50–60 題 | 2 年 |
 | [NVIDIA NCA-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/) | $125 | 60 分 / 50–60 題 | 2 年 |
 | [Databricks GenAI Engineer Associate](https://www.databricks.com/learn/certification/genai-engineer-associate) | $200 | 90 分 / 45 題 | 2 年 |
 
-微軟與 Anthropic 沒放進這張表：微軟整條認證線今年剛改版，代碼要單獨對；Anthropic 沒有公開價格。兩家在下面各自處理。iPAS 是台灣本地的，規則跟國際廠商不同，也單獨一節。NVIDIA 這格只列了入門的 NCA-GENL，它的目錄實際上有十二張，往下有完整表；Snowflake、Oracle、IBM、Salesforce、GitHub 這幾家在「其他生態系」一節；治理與稽核那條線（IAPP、ISACA、CertNexus）跟工程師證照是兩回事，也單獨一節。
+微軟與 Anthropic 沒放進這張表：微軟整條認證線今年剛改版，代碼要單獨對；Anthropic 的四張只開放給 partner 組織報名。兩家在下面各有一節。iPAS 是台灣本地的，規則跟國際廠商不同，也單獨一節。NVIDIA 這格只列了入門的 NCA-GENL，它的目錄實際上有十二張，往下有完整表；Snowflake、Oracle、IBM、Salesforce、GitHub 這幾家在「其他生態系」一節；治理與稽核那條線（IAPP、ISACA、CertNexus）跟工程師證照是兩回事，也單獨一節。
 
 ## 該考哪張
 
@@ -50,7 +50,7 @@ draft: false
 
 | 你的環境 / 目標 | 建議路徑 |
 |---|---|
-| AWS，想快速起步 | AIF-C01（$100）→ MLA-C01（$150） |
+| AWS，想快速起步 | AIF-C01（$100）→ MLA-C02（$150，目前為英文 beta $75） |
 | AWS，做 GenAI 應用 | 直接 AIP-C01（$300），需 2 年 AWS + 1 年 GenAI 經驗 |
 | Google Cloud | PMLE（$200），且**只用 2026 年中之後的教材** |
 | Azure / 微軟生態 | AI-103（associate）；想做 agent 再加 AI-500（expert） |
@@ -64,9 +64,9 @@ draft: false
 
 單純想補基礎而不是拿證照的話，站內另有一篇 [2026 年該上哪些 AI 課程](/posts/ai/2026-07-10-ai-courses-2026-guide)，把 OpenAI、Anthropic、Google 三家官方課程按能力層級重排過。
 
-**這張表只回答「考哪張」，不回答「怎麼準備」。** 後者站內另有一整個系列 —— [AI 證照備考](/posts/ai/2026-08-18-aws-aif-c01-prep-guide)，以各家官方 exam guide 的 domain 權重為骨架，一張證照一篇。挑不定的話，從各家的「怎麼選」那篇開始最省時間：
+**這張表只回答「考哪張」，不回答「怎麼準備」。** 後者站內另有一整個系列 —— [AI 證照備考](/series/ai-cert-prep/)：先讀[怎麼排考日與讀書順序](/posts/ai/2026-08-07-ai-certification-prep-method)，再讀單張的備考路徑，以各家官方 exam guide 的 domain 權重為骨架，一張證照一篇，另有五篇跨證照的考點對照。挑不定的話，從各家的「怎麼選」那篇開始最省時間：
 
-- [AWS 三張怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one) —— 含 MLA-C01 英文版 2026/9/28 停考造成的時間分支
+- [AWS 三張怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one) —— 含 MLA-C02 beta 與正式版的差別
 - [微軟四張怎麼選](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one) —— code-first 與低程式碼兩條線的分界
 - [NVIDIA 四張怎麼選](/posts/ai/2026-08-19-nvidia-certifications-which-one) —— 兩張 professional 尚未開放報名且官方課要付費；兩張 associate 的建議教材已改成一份免費開源教材加一門課
 - [Claude 四張怎麼選](/posts/ai/2026-08-19-claude-certifications-which-one) —— 個人無法報名，只開放 Claude Partner Network 組織
@@ -75,37 +75,35 @@ draft: false
 
 ## AWS：三張差在價位與經驗門檻
 
-三張都能直接報名，差別在深度與價格：[AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) $100、90 分鐘、65 題，是入門那張；[MLA-C01](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) $150、130 分鐘、65 題，往 ML 工程實作走；最上面是 [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) $300、180 分鐘、75 題，官方建議先有 **2 年 AWS 經驗加 1 年 GenAI 開發經驗**，是三張裡唯一專攻 GenAI 應用開發的。
+三張的差別在深度與價格：[AIF-C01](https://aws.amazon.com/certification/certified-ai-practitioner) $100、90 分鐘、65 題，是入門那張；[MLA-C02](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate) 往 ML 工程實作走，正式版 $150、65 題，目前開放的是英文 beta（$75、170 分鐘、85 題）；最上面是 [AIP-C01](https://aws.amazon.com/certification/certified-generative-ai-developer-professional) $300、180 分鐘、75 題，官方建議先有 **2 年 AWS 經驗加 1 年 GenAI 開發經驗**，是三張裡唯一專攻 GenAI 應用開發的。
 
-**MLA-C01 剩不到六週，別現在開始準備。** [官方認證頁](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate)頂端掛著改版公告：
+**MLA 現在考的是 C02 的英文 beta。** MLA-C01 英文版已在 2026 年 9 月 28 日停考，[官方認證頁](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate)自 9 月 29 日起交付 MLA-C02 beta（考試代碼 ME1-C02）；日文、韓文與簡體中文仍是 C01，要等 C02 正式上線才換。C02 的四章名稱都加上了 AI 或基礎模型，考什麼與怎麼準備見 [MLA-C02 備考路徑](/posts/ai/2026-10-08-aws-mla-c02-prep-guide)。
 
-> This exam is being updated. Registration for the updated version (MLA-C02) opens September 1, 2026. The last day to take the current exam (MLA-C01) in English is September 28, 2026. The current exam in other languages (Korean, Japanese, and Simplified Chinese) will remain available until general availability of MLA-C02.
+**AIF-C01 有繁體中文。** 這張的考試語言有 12 種，含 Traditional Chinese —— 是 AWS 三張裡唯一提供繁中的；MLA 與 AIP-C01 沒有繁體中文，Google PMLE 只有英文與日文。母語考試對閱讀速度的影響值得算進去。
 
-也就是說：**英文版最後考試日 2026/9/28**，日韓與簡中版可撐到 C02 正式上線。C02 的 exam guide 目前**還沒公布**（`machine-learning-engineer-associate-02` 的官方文件網址回 404），所以現在沒人知道它考什麼。想考 associate 這級的，理性選擇是等 9/1 看 C02 的規格，而不是花八週準備一張九月底就停考的考試。
-
-**AIF-C01 有繁體中文。** 這張的考試語言有 12 種，含 Traditional Chinese —— 是本文所有證照裡唯一提供繁中的。相對地 MLA-C01 與 AIP-C01 只有英文、日文、韓文、簡體中文，Google PMLE 只有英文與日文。母語考試對閱讀速度的影響值得算進去。
+**沒考過要等 14 個日曆天才能重考，每次付全額。** 這是 [After Testing 政策](https://aws.amazon.com/certification/policies/after-testing/)的規定，次數不限；成績最多五個工作天公布。
 
 三張效期都是 3 年，但續期規則比多數整理文寫得複雜，[官方 recertification 頁](https://aws.amazon.com/certification/recertification/)列得很清楚：
 
-**AI 這三張沒有「上課換效期」的選項。** AWS 整體上有兩條路 —— renew（+3 年）與 maintain（+1 年，在 AWS Skill Builder 上完成，需付費訂閱）—— 但 maintain 只開放給 SAA、Developer、CloudOps/SysOps、SAP、DOP 那幾張。AIF-C01、MLA-C01、AIP-C01 的 Options 欄位裡沒有 maintain，只有考試。
+**AI 這三張沒有「上課換效期」的選項。** AWS 整體上有兩條路 —— renew（+3 年）與 maintain（+1 年，在 AWS Skill Builder 上完成，需付費訂閱）—— 但 maintain 只開放給 SAA、Developer、CloudOps/SysOps、SAP、DOP 那幾張。AIF-C01、MLA、AIP-C01 的 Options 欄位裡沒有 maintain，只有考試。
 
 **但考高階的會把低階一起續掉。** 這條最省錢，也最少人寫：
 
 | 你持有的 | 續期方式（皆 +3 年） |
 |---|---|
-| AI Practitioner（AIF-C01） | 重考 AIF-C01、**或考過 MLA-C01**、**或考過 AIP-C01** |
-| ML Engineer – Associate（MLA-C01） | 重考 MLA-C01、**或考過 AIP-C01** |
+| AI Practitioner（AIF-C01） | 重考 AIF-C01、**或考過 MLA**、**或考過 AIP-C01** |
+| ML Engineer – Associate（MLA） | 重考 MLA、**或考過 AIP-C01** |
 | GenAI Developer – Professional（AIP-C01） | 只能重考 AIP-C01 |
 
-也就是說，考一張 AIP-C01 同時把 AIF-C01、MLA-C01 與 Data Engineer – Associate 全部往後推三年。
+也就是說，考一張 AIP-C01 同時把 AIF-C01、MLA 與 Data Engineer – Associate 全部往後推三年。
 
 **續期有五折券。** 官方頁三張的 Cost 欄都寫「Use the 50% discount voucher in your AWS Certification Account」—— 三年後的續期成本是 $50 / $75 / $150，不是原價。
 
-備考路徑見 [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide) 與 [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide)，三張的取捨見 [AWS 三張怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
+備考路徑見 [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide)、[MLA-C02](/posts/ai/2026-10-08-aws-mla-c02-prep-guide) 與 [AIP-C01](/posts/ai/2026-08-18-aws-aip-c01-prep-guide)，三張的取捨見 [AWS 三張怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
 
-## Google：只有 PMLE 一張，但教材要挑 2026 年中之後的
+## Google：現在能考的是 PMLE，教材要挑 2026 年中之後的
 
-Google 的 AI 認證只有兩張：[Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader)（基礎級）與 [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer)（專業級），[官方認證總覽頁](https://cloud.google.com/learn/certification)的 Professional 級共 9 張，沒有任何 GenAI 或 Agent 工程師認證。Google 的策略是**把 agentic 內容塞進既有的 PMLE，而不是另開證照** —— 所以在 Google 生態要證明 GenAI / Agent 能力，**PMLE 就是唯一那張**。
+Google 現在能報名的 AI 認證有兩張：[Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader)（基礎級）與 [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer)（專業級）。第三張 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 專考 agent 的開發、編排與治理，正式版 2026 年 11 月 2 日開放報名。在那之前，要在 Google 生態證明 GenAI 或 agent 能力，工程師能考的只有 PMLE；它的新考綱也已經把 agentic 內容放進去。
 
 Generative AI Leader 不建議工程師花這 $99。官方對適用對象講得很白：
 
@@ -143,7 +141,7 @@ Google 在 Cloud Next '26 把 Vertex AI 整併進 [Gemini Enterprise Agent Platf
 | 3. Scaling prototypes into ML models | ~21% |
 | 4. Serving and scaling models | ~20% |
 | 5. Automating and orchestrating ML pipelines | ~18% |
-| 6. Monitoring AI solutions | 其餘 |
+| 6. Monitoring AI solutions | ~13% |
 
 幾個傳統 ML 教材不會教的新考點：**LLM-as-a-judge 評估**、**prompt and context engineering**、**Gemini 應用的 cost / latency / availability 最佳化**、**用 BigQuery fine-tune Gemini 模型**。
 
@@ -175,7 +173,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 **AB-100 也有先修。** 官方現在明寫，除了考過 AB-100，還必須持有清單中任一張 associate 認證（AB-620、AI-103、AI-300 等都在清單上），細節見 [AB-100 備考路徑](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。
 
-微軟這邊還有一個別家沒有的好處：續期有**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試。掛在微軟認證傘下的 [GitHub Copilot 認證（GH-300）](https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/)則還沒有這個好處：100 分鐘、效期 2 年、Pearson VUE 監考，考的是 Copilot 的責任使用、prompt 設計、agent mode 與 MCP、內容排除與稽核。官方說 GitHub 認證正在轉換到微軟的續期流程，新流程尚未上線。價格依考場所在國家而定，認證頁的國家選單選美國顯示 **$99**、選台灣顯示 **$50**。備考路徑見 [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide) 與 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
+微軟的續期是**免費線上 renewal assessment**，不用像 AWS、Google 那樣重考正式考試；Claude 四張準時續期也是免費的評量。掛在微軟認證傘下的 [GitHub Copilot 認證（GH-300）](https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/)則還沒有這個好處：100 分鐘、效期 2 年、Pearson VUE 監考，考的是 Copilot 的責任使用、prompt 設計、agent mode 與 MCP、內容排除與稽核。官方說 GitHub 認證正在轉換到微軟的續期流程，新流程尚未上線。價格依考場所在國家而定，認證頁的國家選單選美國顯示 **$99**、選台灣顯示 **$50**。備考路徑見 [GH-300](/posts/ai/2026-10-08-github-gh-300-prep-guide) 與 [GH-600](/posts/ai/2026-10-08-github-gh-600-prep-guide)。
 
 四張的備考路徑見 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)、[AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)、[AB-100](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)，取捨見 [微軟四張怎麼選](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one)。Azure AI 開發線另外三張的備考路徑：入門級的 [AI-901](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide)、考後端與向量資料庫的 [AI-200](/posts/ai/2026-10-08-microsoft-ai-200-prep-guide)、考 MLOps 與 GenAIOps 的 [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide)。
 
@@ -223,7 +221,7 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 工程師對應的是 **Claude Certified Developer: Foundations**，官方描述為「for engineers building applications with Claude, and includes training on the Claude API, tool use, and agent development」。
 
-**四張的價格與效期官方都有公開**，只是路徑很深：Pearson VUE 頁 → [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/) 的各證照頁 → 每張自己的 exam guide PDF。PDF 裡有「Exam Details at a Glance」表，逐字寫著費用與效期：
+四張的價格與效期寫在各自的 exam guide PDF 裡，從 [Anthropic Partner Academy](https://anthropic-partners.skilljar.com/) 的各證照頁下載：
 
 | 證照 | 代碼 | 題數 | 時間 | 費用 | 效期 |
 |---|---|---|---|---|---|
@@ -238,11 +236,11 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 重考規則在 [Pearson VUE 頁](https://www.pearsonvue.com/us/en/anthropic.html)：第一次沒過等 14 天、第二次 30 天、第三次 90 天，**同一張考試在任何 12 個月內最多 4 次**。
 
-報考門檻則有官方依據。Pearson VUE 頁面（最後更新 2026-07-08）寫：
+報考門檻寫在 Pearson VUE 頁面：
 
 > Certification is open to organizations in the Claude Partner Network and counts toward partner program standing.
 
-網路上聲稱個人可自由報名考試的說法，我找不到官方來源支持 —— **規劃時請當作需要透過 partner 組織**。
+官方沒有開放個人報名的管道，**規劃時要透過 partner 組織**。考前訓練同樣只開放給 Claude Partner Network 成員；公司加入 Partner Network 不收費，所以第一步是確認自家公司在不在裡面。
 
 四張的備考路徑見 [CCAR-F](/posts/ai/2026-08-18-claude-certified-architect-foundations-guide)、[CCAR-P](/posts/ai/2026-08-18-claude-certified-architect-professional-prep-guide)、[CCDV-F](/posts/ai/2026-08-18-claude-certified-developer-prep-guide)、[CCAO-F](/posts/ai/2026-08-18-claude-certified-associate-prep-guide)，取捨見 [Claude 四張怎麼選](/posts/ai/2026-08-19-claude-certifications-which-one)。
 
@@ -250,7 +248,7 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 依[官方考試資訊](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info)，中級科目 1「人工智慧技術應用與規劃」必考，科目 2「大數據處理分析與應用」與科目 3「機器學習技術與應用」擇一，兩科都要 ≥70 分。費用是 115–116 年度優惠價 **500 元/科**（原價 1,500 元），兩科合計 1,000 元，117 年起恢復原價。
 
-「約 25% Python 程式閱讀題」的說法屬實且有官方依據 —— iPAS 發過[中級程式題型比重說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e)，自 114 年第二梯次起，科目 2 與科目 3 加入程式碼判讀題。
+**中級約有 25% 是 Python 程式題。** 依 iPAS 的[中級程式題型比重說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/news/ffdba0fcdbda40baadeef2a1bdc0230e)，自 114 年第二梯次起，科目 2 與科目 3 加入程式碼判讀題，題型含單選題與題組題；題組是一段程式碼配多題，讀錯一次會連錯好幾題。
 
 **效期是最常被寫錯的一條**，連 [104 的證照指南](https://nabi.104.com.tw/posts/nabi_post_57d88633-27b9-4b3f-9535-501d4b781617)都寫「證書永久有效」。[115 年度 AI 應用規劃師能力鑑定簡章](https://www.ipas.org.tw/api/proxy/uploads/certification/AIAP/115%E5%B9%B4%E5%BA%A6AI%E6%87%89%E7%94%A8%E8%A6%8F%E5%8A%83%E5%B8%AB%E8%83%BD%E5%8A%9B%E9%91%91%E5%AE%9A%E7%B0%A1%E7%AB%A0(%E5%88%9D%E3%80%81%E4%B8%AD%E7%B4%9A)_0105_20260105184002.pdf)寫得很清楚：
 
@@ -261,7 +259,7 @@ Oracle 這條線今年改了兩件事會影響你怎麼查資料：[官方公告
 
 換證有一條對工程師友善的設計：**每一年 AI 相關工作年資可折抵 8 小時訓練時數**。本職就在做 AI 的話，五年年資折 40 小時，再補 8 小時課程就能換證。
 
-時間上有個硬期限：依[官方報名說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-registration)，115 年度中級只考兩場（5/23、11/14），第二場個人報名到 **2026/9/22 中午 12 點**截止。
+場次很少：依[官方報名說明](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-registration)，115 年度中級只考兩場（5/23、11/14），第二場的個人報名已在 2026/9/22 截止。錯過就要等下一個年度的場次。
 
 ### 中級拿到的是分流證書，而且單科成績可以留
 
@@ -295,31 +293,54 @@ ISACA 那兩張的門檻要看清楚：**它們是加掛在既有證照上的進
 
 AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的負責任開發、部署與治理框架，適合法務、風控、PM 兼治理的角色，不適合拿來證明工程能力。
 
-## 三個常被誤列的，但錯的地方各不相同
+## 考試費之外：課程費與省錢機制
 
-搜尋排名前段的推薦文很多是 2025 年寫好之後只改了標題年份。除了推已經換掉的舊代碼，這三個常出現在清單上的東西也不該被當成「你可以去考的 AI 證照」—— 但它們錯的地方完全不同：一個不存在，一個不是發給個人的，一個存在且現在就能拿、只是它不是認證。
+課程費和考試費是分開的兩筆：不用先上課才能報考。各家免費的那一層大多夠用。
 
-**「Google Cloud GenAI Engineer」從來不存在。** 這是被憑空創造出來的名字，三種方式交叉驗證：直接請求 `cloud.google.com/learn/certification/generative-ai-engineer`，頁面內容是「404. Page Not Found — The requested URL was not found on this server」（HTTP 狀態碼實際回 200，是軟性 404，所以「連結沒壞」不能當成這張證照存在的證據）；官方認證總覽頁的 AI 項目只有 Generative AI Leader 與 Professional ML Engineer；Professional 級 9 張裡沒有任何 GenAI 或 Agent 工程師認證。
+| 廠商 | 免費的部分 | 要付費的 |
+|---|---|---|
+| AWS | Skill Builder 免費帳號的 20 題 Official Practice Question Set 與 Exam Prep 課程 | 訂閱 **$29/月**或 **$449/年**：完整的 Official Practice Exam 與 lab；年費版多 Digital Classroom |
+| Google | 官方學習路徑與 sample questions | 視課程而定 |
+| 微軟 | Microsoft Learn 學習路徑；續期評量也免費 | 講師課 |
+| NVIDIA | 兩張 associate 的建議教材含一份免費的開源教材 | DLI 課程，$30–$500 |
+| Databricks | Academy 三門免費隨選課（Databricks Fundamentals、AI Agent Fundamentals、Generative AI Fundamentals，各約 1.5 小時） | 講師課 |
+| Claude | Partner Academy 的考前訓練（限 Partner Network 成員） | — |
+
+**AWS 的 $29 月費是少數值得付的一筆。** 完整模擬考只在付費層，免費那 20 題不足以判斷自己會不會過。考前一個月訂、考完退訂，比失手後等 14 天再付一次全額便宜。
+
+幾家有固定的省錢機制，報名前先知道規則：
+
+- **AWS**：2026 年的 Professional／Specialty 預付考試券含一次免費重考，但依[活動條款](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions)，券必須在 2026/6/30 前買好，初考要在 12/31 前完成。已經持券的人，AIP-C01 沒過那次不用再付 $300。
+- **Google**：續證有五折碼，公司是 Google Cloud 客戶的話還有 Get Certified 的免費考前訓練，兩者都在前面 Google 一節。
+- **微軟**：新認證的 beta 期常有前 300 名八折的公開折扣碼，公布在該認證的公告裡。AI-500 那一檔已在 2026/8/5 截止。
+- **Databricks**：Virtual Learning Festival 期間完成一條指定的學習路徑，可拿一張 5 折認證券（價值 $100）與 Academy Labs 8 折券。最近一場是 [2026/3/16–4/3](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220)。
+- **NVIDIA**：[GTC 現場](https://www.nvidia.com/en-us/training/)的監考認證考試含在會議通行證內。
+
+**先問公司。** 企業方案與團隊考試券的金額通常比個人拿得到的折扣大，報名前先問內部有沒有名額。
+
+## 三個不是個人 AI 證照的東西
+
+這三個常出現在推薦清單上，但都不是「你可以去考的 AI 證照」：一個不存在，一個不是認證，一個不是發給個人的。
+
+**「Google Cloud GenAI Engineer」不存在。** Google 官方認證總覽頁上與 AI 直接相關的是 Generative AI Leader、Professional ML Engineer 與新開的 Professional Agentic Architect，沒有叫這個名字的認證。
 
 **OpenAI 與 Anthropic 的免費課程證書不是認證。** 兩家官方都把界線寫死：[OpenAI Academy 說明頁](https://help.openai.com/en/articles/20001270-openai-academy-courses)寫課程完成證書「are not OpenAI Certifications, do not represent a formal OpenAI credential」；[Claude Academy FAQ](https://academy.claude.com/help/faq) 對「這跟認證是不是同一件事」的回答是「No — they're two different things」。這些課程本身值得上，但它們證明的是你上完課，不是通過鑑定，**不該被寫進要求「AI / ML 專業認證」的欄位**。OpenAI 那套真正的監考認證則仍在雇主 pilot 階段，沒有公開報名、價格與日期。
 
-**CNCF「Certified Kubernetes AI Conformance」是真的認證，但不是發給人的。** 它是[發給平台與廠商的相容性認證](https://www.cncf.io/announcements/2025/11/11/cncf-launches-certified-kubernetes-ai-conformance-program-to-standardize-ai-workloads-on-kubernetes/)，證明某個 Kubernetes 發行版能可靠跑 AI 工作負載，由廠商提交自評清單取得。CNCF 給個人的證照清單（CKA、CKAD、CKS、KCNA、CNPA、CNPE 等）裡**目前沒有任何 AI 專屬證照**。被寫進「AI 證照推薦」是分類錯誤。
+**CNCF「Certified Kubernetes AI Conformance」是真的認證，但不是發給人的。** 它是[發給平台與廠商的相容性認證](https://www.cncf.io/announcements/2025/11/11/cncf-launches-certified-kubernetes-ai-conformance-program-to-standardize-ai-workloads-on-kubernetes/)，證明某個 Kubernetes 發行版能可靠跑 AI 工作負載，由廠商提交自評清單取得。CNCF 給個人的證照清單（CKA、CKAD、CKS、KCNA、CNPA、CNPE 等）裡**目前沒有任何 AI 專屬證照**。
 
 ## 報名前的三個提醒
 
 **教材的新鮮度比證照本身重要。** PMLE 是最好的例子：名字沒變、價格沒變、官網長得一樣，但拿舊教材去考會直接撞牆。報名前花十分鐘打開官方 exam guide 對一遍服務名稱，ROI 遠高於多刷一百題。
 
-**找不到不等於不存在。** 這篇初版寫「Anthropic 沒有公開 Claude 認證的價格與效期」，那是錯的 —— 官方公開了，資料在 Pearson 頁往下兩層的 exam guide PDF 裡，四張的費用、題數、效期、domain 權重一應俱全。我當時只看了 Pearson 那一頁就下結論。查廠商規格時，官網首頁沒有不代表沒有，要往「認證頁 → exam guide / blueprint 下載」這條路徑點到底。
+**規格常常不在認證首頁。** Claude 四張的費用、題數、效期與 domain 權重都在 exam guide PDF 裡，NVIDIA 的完整考綱也在 PDF study guide。查規格時往「認證頁 → exam guide / blueprint 下載」這條路徑點到底。
 
-**同一個官方網域內，不同頁面的新鮮度可以差好幾個月。** 微軟 Q&A 上仍有回答說 AI-103 在 beta，但認證頁早已拿掉 `(beta)` 後綴、標記 `hidden: false`、更新於 `2026-07-23`。看官方來源也要看是哪一頁、什麼時候更新的。
-
-順帶一提，常見的「PMLE 是就業市場提及頻率最高的 AI 證照」這類說法，**查不到可信的職缺統計來源支撐**。當參考，別當事實。
+**看官方頁面也要看更新日期。** 社群問答與舊公告常比認證頁慢好幾個月，例如微軟 Q&A 上仍有回答說 AI-103 在 beta，認證頁早已不是。以認證頁與 study guide 為準。
 
 ## 整體來說
 
 **先對雲，再對證照。** 這些廠商的證照沒有通用的，選錯生態系的那張在履歷上幾乎不加分。唯一的例外是 CertNexus CAIP —— 它走 ISO/IEC 17024 認可、廠商中立，代價是不會證明你會用任何一家的平台。
 
-**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年。AWS 的 AI 三張只能靠考試續期，但有五折券、而且考高階會連帶續掉低階；Google 的 PMLE 目前也只能重考，但有續期五折碼，而且繼續教育續期已經開給另外四張證照、官方說之後會擴大。微軟的免費線上更新評量仍是這幾家裡最省的一個。
+**把效期算進總成本。** AWS 三年、Google 兩年、NVIDIA 與 Databricks 兩年。AWS 的 AI 三張只能靠考試續期，但有五折券、而且考高階會連帶續掉低階；Google 的 PMLE 目前也只能重考，但有續期五折碼，而且繼續教育續期已經開給另外四張證照、官方說之後會擴大。微軟與 Claude 的免費線上更新評量是這幾家裡最省的。
 
 **證照的半衰期比想像中短。** 微軟整條 AI 認證線換代碼、PMLE 考綱換掉所有產品名、Claude 從一張擴成四張，全部發生在 2026 上半年。任何超過三個月的證照推薦文，預設它至少有一條已經失效 —— 包括這篇，報名前還是打開官方頁面對一次。
 
@@ -329,6 +350,8 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
+- 2026-10-12：新增「考試費之外：課程費與省錢機制」一節；Google 一節補上 11 月開放報名的 Professional Agentic Architect，PMLE 第 6 章權重補為約 13%；iPAS 第二場報名已截止；AWS 補重考規則，Claude 補考前訓練的門檻，iPAS 補題組題；「三個不是個人 AI 證照的東西」與「報名前的三個提醒」改寫。
+- 2026-10-12：系列入口改連系列頁與準備方法文。AWS 一節改依現況：MLA-C01 英文版已於 9/28 停考，現在交付的是 MLA-C02 英文 beta，並補上 MLA-C02 備考路徑的連結；「唯一提供繁中」改為 AWS 三張裡唯一。
 - 2026-10-08（複查）：AI-500 的官方頁面已拿掉 beta 標示，相關說法更新；補上 AB-100 現在要求另持一張 associate 認證；補上 Google Professional Agentic Architect；Google PMLE 考試指南的舊網址已失效，改連官方 PDF。
 - 2026-10-08：修正 GH-300 一段的兩處錯誤。原文寫官方頁面「沒有列出金額」，實際上價格是依國家動態載入，美國 $99、台灣 $50；原文寫微軟的免費續期評量「也涵蓋」GH-300，實際上 GitHub 認證效期 2 年，續期流程仍在轉換、尚未上線。另補上系列新增五篇（AI-901、AI-200、AI-300、GH-300、GH-600）的連結。
 - 2026-08-19：補上到「AI 證照備考」系列 24 篇的導流連結——原本 50 個檔案連到本文，本文只連回 1 篇。「該考哪張」表之後新增系列入口與四篇「怎麼選」，各家段落末尾各補該廠備考路徑。內容與結論未變動。
@@ -339,7 +362,13 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 **AWS**
 
 - [AWS Certified Generative AI Developer – Professional (AIP-C01)](https://aws.amazon.com/certification/certified-generative-ai-developer-professional)
-- [AWS Certified Machine Learning Engineer – Associate (MLA-C01)](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate)
+- [AWS Certification：After Testing 政策（重考等待期與成績公布時間）](https://aws.amazon.com/certification/policies/after-testing/)
+- [AWS Skill Builder 訂閱方案與價格](https://aws.amazon.com/training/digital/)
+- [AWS 優惠券活動條款與條件（專業級／專家級含免費重考）](https://aws.amazon.com/tw/certification/bulk-voucher/terms-and-conditions)
+- [Google Cloud Certification：Vouchers & Discounts（續證 50% 折扣碼）](https://support.google.com/cloud-certification/answer/10055456)
+- [Databricks Virtual Learning Festival FAQ（5 折券規則）](https://community.databricks.com/t5/training-offerings/faq-for-virtual-learning-festival-16-march-03-april-2026/td-p/150220)
+- [NVIDIA Training（GTC 現場課程與認證考試）](https://www.nvidia.com/en-us/training/)
+- [AWS Certified Machine Learning Engineer – Associate (MLA-C02)](https://aws.amazon.com/certification/certified-machine-learning-engineer-associate)
 - [AWS Certified AI Practitioner (AIF-C01)](https://aws.amazon.com/certification/certified-ai-practitioner)
 - [AWS Recertification 政策（三年效期）](https://aws.amazon.com/certification/policies/recertification/)
 

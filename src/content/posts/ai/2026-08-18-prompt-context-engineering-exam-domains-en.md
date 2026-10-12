@@ -17,7 +17,7 @@ draft: false
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide, all listed at the end. Verified 2026-08-18.
 
-This is the technical deep-dive track of the [AI Certification Prep series](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en), following [the multi-agent architecture crossover](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en).
+This is the technical deep-dive track of the [AI Certification Prep series](/en/series/ai-cert-prep/), following [the multi-agent architecture crossover](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en).
 
 Start with the counter-intuitive part: **prompting is a smaller slice of these exams than almost anyone expects.**
 
@@ -223,7 +223,7 @@ After this post was published, the series added three certifications with prompt
 
 Two things are worth noting. **GH-300 is this topic inside a single product**: per the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300), "how context is determined" is asked about Copilot as a product, and the same outline separately lists "input processing and prompt building" under data and architecture. It is not asking how your own application assembles context. **AI-300 puts topics 5 and 6 in one group**: per the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-300), version control and variant comparison are adjacent objectives, which amounts to requiring a comparable record whenever a prompt changes. The single AI-901 objective comes from [its study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901).
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 | Item | Status (verified 2026-08-18) | Recheck when |
 |---|---|---|
@@ -231,7 +231,7 @@ Two things are worth noting. **GH-300 is this topic inside a single product**: p
 | CCAO-F seven-domain weights | 21 / 16 / 15 / 14 / 12 / 12 / 10 | Quarterly |
 | CCAR-F five-domain weights | 27 / 18 / 20 / 20 / 15 (Exam Guide v1.0, effective July 2026) | Quarterly |
 | CCDV-F eight-domain weights | 33.1 / 16.8 / 14.7 / 11.0 / 10.6 / 8.1 / 3.1 / 2.6 | Quarterly |
-| AI-500 status and weights | Still beta; 15-20 / 30-35 / 20-25 / 20-25 | Monthly |
+| AI-500 status and weights | No beta label on the pages (2026-10-08); 15-20 / 30-35 / 20-25 / 20-25 | Monthly |
 | NCP-GENL blueprint completeness | The official PDF skips objective 2.3 under Prompt Engineering with no published content | When registration opens |
 | AWS prompt product names | Bedrock Prompt Management, Bedrock Prompt Flows | Quarterly |
 | AB-100 / AB-620 weights | 25-30 / 25-30 / 40-45; 30-35 / 40-45 / 20-25 | Quarterly |

@@ -150,7 +150,7 @@ Associate 級的效期是一年。依[官方續期說明](https://learn.microsof
 
 已經持有 DP-100 的人要注意：[DP-100 認證頁](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-scientist/)的警示寫明這張認證與它的續期評量都已退場，舊認證到期後沒有續期這條路，要維持就得考 AI-300。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-10-08 查證） | 什麼時候要重查 |
 |---|---|---|

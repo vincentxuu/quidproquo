@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCP-AAI (Agentic AI Professional): Registration Isn't Open, and the Official Weights Contradict Each Other"
+title: "NVIDIA NCP-AAI (Agentic AI Professional): Only 7% Is NVIDIA-Specific, but Registration Isn't Open Yet"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,50 +8,24 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 10
-tldr: "NCP-AAI is NVIDIA's professional-level agentic AI credential — $200, 120 minutes, 60–70 items, two-year validity. Two things come first: registration is not open (the Register button carries a 'Coming soon' label), and NVIDIA's own web page and PDF study guide disagree on the weights — Deployment and Scaling is 13% on the page and 5% in the PDF, Run/Monitor/Maintain is 5% on the page and 7% in the PDF, and the two versions total 98% and 92% respectively. Both are nvidia.com. This guide treats that as a range and an uncertainty rather than picking one."
-description: "A preparation guide for NVIDIA NCP-AAI (Agentic AI Professional), covering all ten topic areas, the contradiction between NVIDIA's web and PDF weightings, the not-yet-open registration status, how to choose among the five paid DLI courses, and the two-year retake-only recertification rule."
+tldr: "NCP-AAI is NVIDIA's professional-level agentic AI credential — $200, 120 minutes, 60–70 items, two-year validity. Of its ten areas the heaviest are Agent Architecture and Design at 15% and Agent Development at 15%; only NVIDIA Platform Implementation at 7% is explicitly tied to NVIDIA products, and the rest is general agentic engineering. Two things to know first: registration is not open (the Register button carries a 'Coming soon' label), and the web page and the PDF study guide differ on two weights (Deployment and Scaling 13% versus 5%, Run/Monitor/Maintain 5% versus 7%), so budget those as a range."
+description: "A preparation guide for NVIDIA NCP-AAI (Agentic AI Professional), covering all ten topic areas and their weights, the not-yet-open registration status, how to budget time where the web page and PDF weights differ, how to choose among the five paid DLI courses, and the two-year retake-only recertification rule."
 draft: false
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-18-nvidia-ncp-aai-prep-guide)
 >
-> This is a preparation path built from official material, not an exam-day account — I have not sat this exam, and at present nobody can. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18.
+> This is a preparation path built from official material, not an exam-day account — I have not sat this exam, and at present nobody can. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18; registration status, specs, and weights re-confirmed 2026-10-12.
 
-NCP-AAI is one of the few **professional-level credentials dedicated to agentic AI**, a category it shares with Microsoft's AI-500. Before investing preparation time, two things determine feasibility.
+NCP-AAI is one of the few **professional-level credentials dedicated to agentic AI**, a category it shares with Microsoft's AI-500. Only one of its ten areas (7%) is explicitly tied to NVIDIA products; the rest is general agentic engineering. Registration is not open yet, though, and that shapes how you should prepare.
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
-## One: You Cannot Register Yet
+## Registration: Not Open Yet
 
 Next to the "Register for Exam" button on the official certification page sits the label **"(Coming soon)"**. Its sibling NCP-GENL is in the same state, while both associate exams (NCA-GENL, NCA-GENM) link straight to a Certiverse checkout.
 
 **NVIDIA publishes no opening date.** So this article's purpose is: the objectives are public, so use them to audit your gaps and plan hands-on work — but don't put "passed" on a near-term roadmap.
-
-## Two: NVIDIA's Own Documents Disagree on the Weights
-
-I hit this during verification and **checked both sides verbatim**.
-
-**The official web table**:
-
-| Topic area | Web page |
-|---|---|
-| Agent Architecture and Design | 15% |
-| Agent Development | 15% |
-| Evaluation and Tuning | 13% |
-| **Deployment and Scaling** | **13%** |
-| Cognition, Planning, and Memory | 10% |
-| Knowledge Integration and Data Handling | 10% |
-| NVIDIA Platform Implementation | 7% |
-| **Run, Monitor, and Maintain** | **5%** |
-| Safety, Ethics, and Compliance | 5% |
-| Human-AI Interaction and Oversight | 5% |
-| **Total** | **98%** |
-
-**The official PDF study guide** prints two of those differently: **Deployment and Scaling at 5%** and **Run, Monitor, and Maintain at 7%**, with the rest identical — totalling **92%**.
-
-Both are official nvidia.com documents, and **neither version sums to 100%**.
-
-**How to handle it**: don't pick one. Treat Deployment and Scaling as an **uncertainty band of 5–13%** and plan conservatively around the middle (call it 10%); the other eight areas agree across both versions and can be scheduled by their numbers. This is also a clean example of why a single source is not a verdict — the same vendor's web page and PDF can disagree.
 
 ## Official Specs at a Glance
 
@@ -74,7 +48,23 @@ Note "**production-level agentic AI projects**" — not a gap you can read your 
 
 ## The Ten Topic Areas
 
-NVIDIA slices this exam more finely than its others. The descriptions below come from the official web table.
+NVIDIA slices this exam more finely than its others, into ten areas. The weights and descriptions both come from the table on the official web page:
+
+| Topic area | Weight |
+|---|---|
+| Agent Architecture and Design | 15% |
+| Agent Development | 15% |
+| Evaluation and Tuning | 13% |
+| **Deployment and Scaling** | **13%** |
+| Cognition, Planning, and Memory | 10% |
+| Knowledge Integration and Data Handling | 10% |
+| NVIDIA Platform Implementation | 7% |
+| **Run, Monitor, and Maintain** | **5%** |
+| Safety, Ethics, and Compliance | 5% |
+| Human-AI Interaction and Oversight | 5% |
+| **Total** | **98%** |
+
+**Two weights differ between the web page and the PDF.** The PDF study guide prints **Deployment and Scaling at 5%** and **Run, Monitor, and Maintain at 7%**, with the rest identical; the web page totals 98% and the PDF 92%, so neither reaches 100%. When budgeting time, treat Deployment and Scaling as a 5–13% range and plan around 10%; the other eight areas agree across both versions and can be scheduled by their numbers.
 
 **Agent Architecture and Design (15%)** — officially, "foundational structuring and design of agentic AI systems, focusing on how agents interact, reason, and communicate within their environments." Bullets include **reasoning and action frameworks such as ReAct**, **agent-to-agent communication protocols**, short- and long-term memory management, multi-agent workflow orchestration, **logic trees and prompt chains for multi-step reasoning**, and **integrating knowledge graphs for relational reasoning**.
 
@@ -82,7 +72,7 @@ NVIDIA slices this exam more finely than its others. The descriptions below come
 
 **Evaluation and Tuning (13%)** — "measuring, comparing, and optimizing agent performance." Bullets include evaluation pipelines and task benchmarks, cross-task and cross-dataset comparison, **collecting and integrating structured user feedback**, and **tuning for accuracy-versus-latency tradeoffs**.
 
-**Deployment and Scaling (5–13%, the contradiction)** — "operationalizing and scaling agentic systems." Bullets include production-scale multi-agent deployment and orchestration, **MLOps for CI/CD, monitoring, and governance**, performance profiling under distributed load, **containerized scaling with Docker and Kubernetes plus load balancing**, and cost optimization with high availability.
+**Deployment and Scaling (13% on the web page, 5% in the PDF)** — "operationalizing and scaling agentic systems." Bullets include production-scale multi-agent deployment and orchestration, **MLOps for CI/CD, monitoring, and governance**, performance profiling under distributed load, **containerized scaling with Docker and Kubernetes plus load balancing**, and cost optimization with high availability.
 
 **Cognition, Planning, and Memory (10%)** — "core cognitive processes underlying intelligent agent behavior." Bullets include memory mechanisms for short- and long-term context, **reasoning frameworks (chain-of-thought, task decomposition)**, planning for sequential and multi-step decisions, **stateful orchestration**, and adapting reasoning from prior experience.
 
@@ -90,7 +80,7 @@ NVIDIA slices this exam more finely than its others. The descriptions below come
 
 **NVIDIA Platform Implementation (7%)** — the only NVIDIA-specific area: **integrating NeMo Guardrails** for compliance and safety, **deploying NIM microservices** for high-performance inference, **optimizing workflows with the NeMo Agent Toolkit**, **using TensorRT-LLM and Triton Inference Server to cut latency**, and managing multimodal input pipelines on NVIDIA hardware.
 
-**Run, Monitor, and Maintain (5–7%, the contradiction)** — monitoring dashboards and reliability metrics, log and anomaly tracking, **continuous benchmarking against prior versions**, automated tuning, retraining, and versioning.
+**Run, Monitor, and Maintain (5% on the web page, 7% in the PDF)** — monitoring dashboards and reliability metrics, log and anomaly tracking, **continuous benchmarking against prior versions**, automated tuning, retraining, and versioning.
 
 **Safety, Ethics, and Compliance (5%)** — system security and audit trails, compliance guardrails, bias and toxicity mitigation, **layered safety frameworks (filters, escalation protocols)**, and licensing and regulatory compliance.
 
@@ -103,7 +93,7 @@ Both are professional-level agentic AI exams, so they belong side by side:
 | | NCP-AAI | Microsoft AI-500 |
 |---|---|---|
 | Fee | $200 | $165 (plus the required $165 AI-103 first) |
-| Status | **Registration not open** | Beta; GA expected 2026-10 |
+| Status | **Registration not open** | Open; the page no longer carries a beta label |
 | Heaviest areas | Architecture 15% + Development 15% | Development 30–35% |
 | Platform lock-in | **Only 7%** is explicitly NVIDIA product content | The whole exam revolves around Microsoft Foundry |
 | Prerequisites | 1–2 years AI/ML with production agentic work | **Must hold the AI-103 certification** |
@@ -113,7 +103,7 @@ Both are professional-level agentic AI exams, so they belong side by side:
 
 ## The Five Recommended Courses
 
-NVIDIA lists recommended training on the page with a price on each (**all paid**, as usual for NVIDIA):
+NVIDIA lists recommended training on the page with a price on each; none is free:
 
 | Course | Format | Price | Hours |
 |---|---|---|---|
@@ -137,12 +127,12 @@ Since you cannot register, the right move is not a study plan but a **gap audit 
 
 On this site, [the harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en) and [RAG evaluation frameworks](/posts/ai/2026-03-12-rag-evaluation-frameworks-en) map directly onto the Safety 5% and Evaluation 13%.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
 | Registration | **Coming soon, not open** | Monthly |
-| Weight contradiction | Web totals 98%, PDF totals 92%, two figures differ | When registration opens |
+| Two weights that differ | Web totals 98%, PDF totals 92% | When registration opens |
 | Fee and item count | $200, 60–70 items, 120 minutes | When registration opens |
 | DLI courses and prices | Five, $30–$500 | Quarterly |
 | Language | English only | Every six months |

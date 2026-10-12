@@ -17,7 +17,7 @@ draft: false
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide, all listed at the end. Verified 2026-08-18.
 
-This is the technical deep-dive track of the [AI Certification Prep series](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide-en). The A-track posts cover one certification each; this one inverts that: **it takes "cost, latency, and availability optimization" — a topic six certifications test in parallel — covers the shared core once, then marks what each vendor tests that nobody else does.**
+This is the technical deep-dive track of the [AI Certification Prep series](/en/series/ai-cert-prep/). The preparation-path posts cover one certification each; this one inverts that: **it takes "cost, latency, and availability optimization" — a topic six certifications test in parallel — covers the shared core once, then marks what each vendor tests that nobody else does.**
 
 There is one key difference from the [multi-agent architecture post](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en): **multi-agent's shared core is the same thing at the same altitude; this one is not.** The six certifications name similar levers, but they sit at different levels of abstraction — NVIDIA asks why this kernel is slow, AIP-C01 and Microsoft ask whether this request should reach the model at all, Google asks how the serving backend should scale, and foundational-level AIF-C01 only asks whether you know cost scales with tokens. **Memorizing only the shared core will lose you points on every one of them, in the details of its own layer.**
 
@@ -57,7 +57,7 @@ There is one key difference from the [multi-agent architecture post](/posts/ai/2
 
 One, **AIP-C01's cost and latency objectives are not confined to that 12%.** Operational Efficiency is its own chapter, but resilience design (1.2), deployment strategy and model routing (2.2, 2.4), and token-efficiency-to-latency-quality ratios (5.1) are scattered across three other chapters. **Budgeting study time against "12%" underestimates how much of this exam the topic actually is.**
 
-Two, **NCP-GENL's official web page has a broken description in the Model Optimization row** — the text there describes deployment (containerized inference pipelines, Kubernetes, Triton), nearly duplicating Model Deployment (9%) in the same table. **The weight is correct; only the description text is broken**, and the correct description (pruning, sparsification, quantization, knowledge distillation, hyperparameter search, advanced sampling, TensorRT) is in the official PDF study guide. Prepare this block from the PDF. Details in the [NCP-GENL prep guide](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en).
+Two, **NCP-GENL's official web page has a misplaced description in the Model Optimization row** — the text there describes deployment (containerized inference pipelines, Kubernetes, Triton), nearly duplicating Model Deployment (9%) in the same table. **The weight is correct; only the description text is misplaced**, and the correct description (pruning, sparsification, quantization, knowledge distillation, hyperparameter search, advanced sampling, TensorRT) is in the official PDF study guide. Prepare this block from the PDF. Details in the [NCP-GENL prep guide](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide-en).
 
 ## The shared core: eight levers
 
@@ -155,11 +155,11 @@ On the serving side:
 
 - **PMLE Ch. 4**: **scale the serving backend by throughput**; the boundaries between four deployment options (Agent Platform, Cloud Run, GKE, batch inference); public versus private endpoints.
 - **AIP-C01 4.1**: capacity planning, **auto-scaling**, **provisioned throughput optimization**; 2.2's deployment strategy mixes Lambda on-demand invocation, Bedrock provisioned throughput, and SageMaker endpoints.
-- **NCP-AAI Deployment and Scaling**: **containerized scaling (Docker, Kubernetes) and load balancing**, performance profiling under distributed load. (Two official versions disagree on this block's weight — **the web page says 5%, the PDF says 13%**, both on nvidia.com. Treat it as an uncertainty range.)
+- **NCP-AAI Deployment and Scaling**: **containerized scaling (Docker, Kubernetes) and load balancing**, performance profiling under distributed load. (NVIDIA publishes two figures for this block's weight: **13% on the web page and 5% in the PDF**. Budget it as a range.)
 
 **"On-demand versus reserved capacity" is the core judgment in this lever** — AWS tests it through provisioned throughput, Google through "scale the serving backend by throughput". **Reserve for steady high traffic, on-demand for unpredictable spikes** is the general answer, but both vendors give you cost figures to reason over — which is exactly why **price is the one thing in this topic you must always look up fresh**.
 
-**Maps back to**: PMLE Ch. 3 (~21%) + Ch. 4 (~20%), NCP-GENL GPU Acceleration (14%), AIP-C01 4.1 / 2.2, NCP-AAI Deployment and Scaling (5–13%, versions conflict).
+**Maps back to**: PMLE Ch. 3 (~21%) + Ch. 4 (~20%), NCP-GENL GPU Acceleration (14%), AIP-C01 4.1 / 2.2, NCP-AAI Deployment and Scaling (13% web, 5% PDF).
 
 ### 7. Availability: SLAs, degradation, and multi-region
 
@@ -243,9 +243,9 @@ Availability is where the six diverge most, because it is simultaneously an arch
 - **Building LLM applications**: read Chapter 4 of the [AIP-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html). It is the most complete list of application-layer cost and latency levers of the six — caching, tokens, batching, routing, observability, nothing missing — and it is free public HTML. The downside is that every line carries an AWS service name you have to strip off.
 - **Building agent systems**: read the third block of the [AI-500 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500). Its naming of four concept groups — three cache tiers, three-point token governance, chargeback, SLAs — is the cleanest of the six.
 - **Not solid on rung one yet**: read Chapters 2 and 3 of the [AIF-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html). It is the only one of the six that treats "where the cost comes from" as an objective rather than an assumption, and reading it first makes AIP-C01's Chapter 4 much cheaper. Make sure you read **v1.1** (effective 2026-04-30) — the token pricing objective is new.
-- **Building models and inference infrastructure**: [NCP-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) is the only route, and you must read the official PDF study guide rather than the web page (that row's description is broken).
+- **Building models and inference infrastructure**: [NCP-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) is the only route, and you must read the official PDF study guide rather than the web page (that row's description is misplaced).
 
-## What will go stale (check here next time)
+## What may change (re-check before you register)
 
 **This section matters more here than in any other post in the series.** Cost and latency is **the fastest-rotting body of knowledge in it** — model prices, GPU generations, and vendors' reserved-capacity offerings all move roughly quarterly.
 
@@ -256,14 +256,18 @@ Availability is where the six diverge most, because it is simultaneously an arch
 | Model prices and per-token rates | **deliberately omitted here** | Look up the official pricing page whenever you need to cost something |
 | GPU generations and specs | **deliberately omitted here** | Same |
 | NCP-GENL ten-domain weights | 17/14/13/13/9/9/7/7/6/5, summing to 100% | When registration opens (currently Coming soon) |
-| NCP-GENL broken web descriptions | Model Optimization and Fine-Tuning rows still wrong | Quarterly |
-| NCP-AAI Deployment and Scaling weight | **web page 5%, PDF 13% — versions conflict** | When registration opens |
+| NCP-GENL misplaced web descriptions | Model Optimization and Fine-Tuning rows still wrong | Quarterly |
+| NCP-AAI Deployment and Scaling weight | 13% on the web page, 5% in the PDF | When registration opens |
 | AIP-C01 five-chapter weights | 31 / 26 / 20 / 12 / 11 | On each AWS refresh |
 | PMLE six-chapter weights | 13 / 16 / 21 / 20 / 18 / 13 | On each objectives update |
 | PMLE product naming | Now Gemini Enterprise Agent Platform | After Google Cloud Next |
-| AI-500 status and weights | Beta; 15-20 / 30-35 / 20-25 / 20-25 | After GA |
+| AI-500 status and weights | No beta label on the pages (2026-10-08); 15-20 / 30-35 / 20-25 / 20-25 | Quarterly |
 | AI-103 five-block weights | 25-30 / 30-35 / 10-15 / 10-15 / 10-15 | Quarterly |
 | AIF-C01 five-chapter weights and version | 20 / 24 / 28 / 14 / 14, exam guide v1.1 (2026-04-30) | On each AWS refresh |
+
+## Changelog
+
+- 2026-10-12: Corrected the NCP-AAI Deployment and Scaling weight — the official web page says 13% and the PDF 5%; the earlier text had them reversed. The AI-500 status row now reflects pages without a beta label.
 
 ## References
 

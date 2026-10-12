@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 blueprint，來源逐條列在文末。查證日期：2026-08-18。
 
-這是 [AI 證照備考系列](/posts/ai/2026-08-18-aws-aip-c01-prep-guide)的技術深潛篇第二篇，接在[多 agent 架構的考點交集](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)之後。做法一樣：**把「RAG 與檢索評估」這個被重複考的主題抽出來，一次講完交集，再標出不能互相取代的部分。**
+這是 [AI 證照備考系列](/series/ai-cert-prep/)的技術深潛篇第二篇，接在[多 agent 架構的考點交集](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)之後。做法一樣：**把「RAG 與檢索評估」這個被重複考的主題抽出來，一次講完交集，再標出不能互相取代的部分。**
 
 但這個主題有一件事得放在最前面講：**選錯證照，這塊完全不會被考到。**
 
@@ -232,7 +232,7 @@ AIP-C01 還有一條別家沒有的**存取機制**：function calling、**用 M
 
 站內的 [RAG 可觀測性與 tracing](/posts/ai/2026-03-12-rag-observability-tracing)、[RAG 失效模式](/posts/ai/2026-03-12-rag-failure-modes)、[RAG A/B 測試](/posts/ai/2026-03-12-rag-ab-testing)對應這節。
 
-**要點回指**：AIF-C01 第 5 章（14%）5.1.5、AIP-C01 第 4 章（12%）4.3 ＋ 第 3 章（20%）3.1、NCP-AAI Run/Monitor/Maintain（5–7%，兩版矛盾）、AI-500 Evaluate（20–25%）、PMLE 第 6 章（~13%）。
+**要點回指**：AIF-C01 第 5 章（14%）5.1.5、AIP-C01 第 4 章（12%）4.3 ＋ 第 3 章（20%）3.1、NCP-AAI Run/Monitor/Maintain（網頁 5%、PDF 7%）、AI-500 Evaluate（20–25%）、PMLE 第 6 章（~13%）。
 
 ## 同一件事，四家四個名字
 
@@ -251,7 +251,7 @@ AIP-C01 還有一條別家沒有的**存取機制**：function calling、**用 M
 
 **Anthropic 不在這張表上，那本身就是結論**：CCDV-F 的八個領域在這十列裡只填得出「成本控制」一格（token 預算、prompt caching、cache check-pointing、compaction）。
 
-**這張表最該看的是「不考」那些格。** 它們不是我沒查到，是官方 considerations／blueprint 裡確實沒有 —— 你在 PMLE 的準備時間裡讀 chunking 與向量庫，考試不會回報你。
+**這張表最該看的是「不考」那些格。** 官方 considerations／blueprint 裡確實沒有這些內容 —— 你在 PMLE 的準備時間裡讀 chunking 與向量庫，考試不會回報你。
 
 ## 不能互相取代的部分
 
@@ -294,7 +294,7 @@ AIP-C01 還有一條別家沒有的**存取機制**：function calling、**用 M
 
 站內想一次補完 RAG 方法論的話，[RAG patterns 完整指南](/posts/ai/2026-03-14-rag-patterns-complete-guide)是入口。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
@@ -303,8 +303,8 @@ AIP-C01 還有一條別家沒有的**存取機制**：function calling、**用 M
 | AIP-C01 五章權重 | 31 / 26 / 20 / 12 / 11 | 每次改版 |
 | AIP-C01 考綱內容 | 已含 Bedrock AgentCore（2026-03 refresh） | 每次 AWS re:Invent 之後 |
 | NCP-AAI 報名 | Coming soon，尚未開放 | 每月 |
-| NCP-AAI 權重矛盾 | 網頁合計 98%、PDF 合計 92%，兩項數字不同 | 開放報名時 |
-| AI-500 狀態 | 仍是 beta，官方部落格寫 GA 預計 2026/10 | 每月 |
+| NCP-AAI 兩項權重不一致 | 網頁合計 98%、PDF 合計 92%，兩項數字不同 | 開放報名時 |
+| AI-500 狀態 | 頁面已無 beta 標示（2026-10-08）；未見官方正式上線公告 | 每月 |
 | PMLE 是否加入檢索考點 | 目前 considerations 只有一條 LLM-as-a-judge | Google Cloud Next 之後 |
 | CCDV-F 是否加入檢索考點 | 目前 blueprint 八個領域皆無 | 每次 guide 改版 |
 

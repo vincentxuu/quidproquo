@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 study guide，來源逐條列在文末。查證日期：2026-08-18。
 
-這是 [AI 證照備考系列](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)的技術深潛篇，接在[多 agent 架構的考點交集](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)後面。
+這是 [AI 證照備考系列](/series/ai-cert-prep/)的技術深潛篇，接在[多 agent 架構的考點交集](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)後面。
 
 先講最反直覺的一件事：**prompt 在這些證照裡佔的比例，比大家想的小。**
 
@@ -223,7 +223,7 @@ draft: false
 
 兩個值得注意的地方。**GH-300 是這個主題在單一產品裡的版本**：依[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300)，它問的「context 怎麼決定」是放在 Copilot 這個產品裡問的，同一份考綱的資料與架構那塊另有「輸入處理與 prompt 組裝」，問的不是你自己的應用怎麼組 context。**AI-300 把第五與第六件事放在同一組**：依[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-300)，版本控制與變體比較是相鄰的兩條，等於要求改 prompt 的同時留下可比較的紀錄。AI-901 的那一條出自[它的 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901)。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
@@ -231,7 +231,7 @@ draft: false
 | CCAO-F 七領域權重 | 21 / 16 / 15 / 14 / 12 / 12 / 10 | 每季 |
 | CCAR-F 五領域權重 | 27 / 18 / 20 / 20 / 15（Exam Guide v1.0, Effective July 2026） | 每季 |
 | CCDV-F 八領域權重 | 33.1 / 16.8 / 14.7 / 11.0 / 10.6 / 8.1 / 3.1 / 2.6 | 每季 |
-| AI-500 狀態與權重 | 仍是 beta；四塊 15-20 / 30-35 / 20-25 / 20-25 | 每月 |
+| AI-500 狀態與權重 | 頁面已無 beta 標示（2026-10-08）；四塊 15-20 / 30-35 / 20-25 / 20-25 | 每月 |
 | NCP-GENL 考綱完整度 | 官方 PDF 的 Prompt Engineering 跳過 2.3 編號，未公布內容 | 開放報名時 |
 | AWS 的 prompt 產品名 | Bedrock Prompt Management、Bedrock Prompt Flows | 每季 |
 | AB-100 / AB-620 權重 | 25-30 / 25-30 / 40-45；30-35 / 40-45 / 20-25 | 每季 |

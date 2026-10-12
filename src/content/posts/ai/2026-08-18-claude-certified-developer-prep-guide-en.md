@@ -165,7 +165,7 @@ Retake rules (the [Pearson VUE page](https://www.pearsonvue.com/us/en/anthropic.
 
 **Neither is a prerequisite for the other** — Anthropic has not made the Foundations exams a ladder. Choose on your actual work: **call the API daily, take CCDV-F; design solutions for clients, take CCAR-F.**
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

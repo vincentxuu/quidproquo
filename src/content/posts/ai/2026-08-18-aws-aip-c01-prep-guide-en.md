@@ -306,7 +306,7 @@ Passing AIP-C01 can also renew **existing, active** AIF-C01, MLA-C01, and Data E
 
 The [retake policy](https://aws.amazon.com/certification/policies/after-testing/) requires a fourteen-calendar-day wait after a failed attempt and a new payment for each retake. After passing, you cannot retake the same exam for two years. A new exam guide **and a new exam code** allow you to take the new version; a minor guide update alone is not that exception.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-09-12 | When to re-check |
 |---|---|---|

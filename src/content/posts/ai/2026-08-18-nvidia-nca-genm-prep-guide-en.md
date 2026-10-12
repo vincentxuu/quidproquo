@@ -1,5 +1,5 @@
 ---
-title: "NVIDIA NCA-GENM (Generative AI Multimodal Associate): The Multimodal One, Now With One Free Set of Materials and One Course"
+title: "NVIDIA NCA-GENM (Generative AI Multimodal Associate): Same Price and Level as NCA-GENL, Weighted Toward Experimentation and Multimodal Data"
 date: 2026-08-18
 type: guide
 category: ai
@@ -67,11 +67,11 @@ The [official certification page](https://www.nvidia.com/en-us/learn/certificati
 The two items are:
 
 - **[Fundamentals of Deep Learning — Open-Source Course Materials](https://github.com/NVDLI/fundamentals-of-deep-learning)**: the materials for NVIDIA's introductory deep learning course, hosted on GitHub and **free**. It is the only item listed for Experimentation, the heaviest area at 25%.
-- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**: the DLI course on multimodal agents, 8 hours and **instructor-led only**. Checked 2026-10-08 against NVIDIA's course page and price data: it has no public price (workshops are quoted per session) and no self-paced counterpart could be found. In August the certification page listed it at $500. It is the only item listed for Multimodal Data (15%).
+- **[Building AI Agents With Multimodal Models](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-17+V1)**: the DLI course on multimodal agents, 8 hours and **instructor-led only**. It has no public price (workshops are quoted per session) and no self-paced counterpart (2026-10-08); in August the certification page listed it at $500. It is the only item listed for Multimodal Data (15%).
 
 Each area also carries a "Suggested Reading" list of free articles and courses, such as the Hugging Face LLM Course and Diffusion Models Course.
 
-**This differs from August.** When this post was first published, NVIDIA listed five courses, two of them available only as $500 workshops, and the post treated "self-study cannot cover the official set" as this exam's main cost problem. The five have since shrunk to two items, and the conversational AI and diffusion courses are off the list.
+**Older prep write-ups mostly still list five courses.** Until autumn 2026 NVIDIA listed five, two of them available only as $500 workshops, so self-study could not cover the official set. The five have since shrunk to two items, and the conversational AI and diffusion courses are off the list.
 
 **Practical advice**: work through the open-source materials on GitHub first; that single item covers five of the seven areas. Multimodal Data (15%) is the only area paired solely with the paid course. If you do not want to buy it, use the multimodal survey and contrastive learning articles in the suggested readings and build a small image-text alignment model yourself.
 
@@ -137,7 +137,7 @@ Replace week 1 with a Transformer introduction (the suggested readings list chap
 
 The same as NVIDIA's other three: two years, renewable only by retaking, **no continuing-education path and no discount**. In two years you pay $125 again.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

@@ -17,7 +17,7 @@ draft: false
 
 The Claude Certified Architect — Foundations (CCAR-F) exam tests your practical design ability for agentic systems. Questions are organized around scenarios, requiring you to make the right architectural decisions in concrete production contexts. This article covers all key exam domains, common pitfalls, and the most effective preparation approaches.
 
-> Every claim here is checked section by section against the official **CCAR-F Exam Guide (Version 1.0, Effective July 2026)**. This article supersedes a March 2026 piece of the same name, written when this was Anthropic's only certification; the old URL `/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en` now redirects here. Anthropic has four certifications today; for the full landscape and how to choose, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
+> This guide follows the official **CCAR-F Exam Guide (Version 1.0, Effective July 2026)**. Anthropic has four certifications today; for the full landscape and how to choose, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en).
 >
 > A note on sourcing: I have not sat this exam. Everything below comes from the official exam guide and certification pages — no exam-day account, and no leaked questions.
 
@@ -498,9 +498,9 @@ These concepts appear repeatedly in sample questions:
 
 ---
 
-## What Changed Since the March Version
+## Changelog
 
-This article supersedes a March 2026 piece. Re-verified in full against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026): The five domain weights (27/18/20/20/15), the 720 cut score, and the four-of-six scenario structure all matched the original text and needed no change. **One correction**: the article said all questions were multiple choice with a single correct answer; the guide specifies multiple-choice *and* multiple-response items, each stating how many responses to select. **One removal**: the claim that there is no penalty for wrong answers has no basis in the guide. **Additions**: $125 fee, 12-month validity, 60 items / 120 minutes, criterion-referenced scoring with per-domain percent-correct, the Claude Partner Network registration gate, retake intervals (14 / 30 / 90 days, 4 attempts per 12 months), free non-proctored renewal versus full-price retake after lapse, and the seven free official courses. An opening note now places this article against the current four-certification lineup.
+- 2026-08-18: Rebuilt from the March 2026 article of the same name against the official CCAR-F Exam Guide (Version 1.0, Effective July 2026); the old URL redirects here. Item types corrected to multiple-choice and multiple-response, each stating how many responses to select; removed "no penalty for wrong answers," which the guide does not state; added the $125 fee, 12-month validity, 60 items / 120 minutes, criterion-referenced scoring, the Claude Partner Network registration gate, retake intervals, renewal rules, and the seven free official courses. The five domain weights, the 720 cut score, and the four-of-six scenario structure are unchanged.
 
 ## References
 

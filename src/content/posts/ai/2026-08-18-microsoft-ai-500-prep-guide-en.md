@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 7
-tldr: "AI-500 is a rare thing among the major clouds — an expert-level certification dedicated to multi-agent systems, weighted 15-20 / 30-35 / 20-25 / 20-25, naming Agent Framework, LangGraph, Hugging Face Transformers, MCP servers on Azure Functions / Logic Apps / API Management, A2A, Key Vault, and the AI Red Teaming Agent. Two constraints come first: it requires AI-103 before you can take it, and the official training is not live, with the four learning paths listed on the exam page all returning 404. Microsoft removed the beta label from its pages at the end of September 2026."
+tldr: "AI-500 is a rare thing among the major clouds — an expert-level certification dedicated to multi-agent systems, weighted 15-20 / 30-35 / 20-25 / 20-25, naming Agent Framework, LangGraph, Hugging Face Transformers, MCP servers on Azure Functions / Logic Apps / API Management, A2A, Key Vault, and the AI Red Teaming Agent. Two constraints come first: it requires AI-103 before you can take it, and neither the official learning paths nor a practice assessment is live yet. Microsoft removed the beta label from its pages at the end of September 2026."
 description: "A preparation guide for Microsoft AI-500 (Multi-Agent AI Solutions Expert), built on the official study guide's four weighted areas covering multi-agent architecture, development, evaluation and monitoring, and security, governance and deployment — plus the AI-103 prerequisite, the beta scoring and retake rules, and how to prepare while the official training is still unpublished."
 draft: false
 ---
@@ -17,13 +17,13 @@ draft: false
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500). No leaked questions. Verified 2026-08-18.
 
-AI-500 is **the only expert-level certification among the major clouds dedicated to multi-agent systems**. Its objectives are unusually concrete — Agent Framework, LangGraph, Hugging Face Transformers, MCP servers on Azure Functions / Logic Apps / API Management, A2A, Key Vault, the AI Red Teaming Agent, DTAP and blue/green and canary deployment.
+AI-500 is **one of the few expert-level certifications among the major clouds dedicated to multi-agent systems**. Its objectives are unusually concrete — Agent Framework, LangGraph, Hugging Face Transformers, MCP servers on Azure Functions / Logic Apps / API Management, A2A, Key Vault, the AI Red Teaming Agent, DTAP and blue/green and canary deployment.
 
 Before deciding to prepare, though, **three things determine whether it is even feasible right now**.
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
-## Three Preconditions
+## Three Things to Know First
 
 **One: you must hold AI-103 first.** The Certification prerequisites section of the [official page](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) states:
 
@@ -31,9 +31,9 @@ For prices, validity, and gates across vendors, see [What AI certifications engi
 
 The page's field reads `Prerequisites: 1 certification`. So the real path is [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide-en) ($165) → AI-500 ($165), $330 total, with roughly six weeks of AI-103 preparation in front of it.
 
-**Two: the beta label is gone, but Microsoft has not announced general availability.** When this post was first published in August, both the certification and exam pages carried the beta notice (scores are not immediate and are rescored after the exam goes live). Rechecked 2026-10-08: neither page title says "(beta)" any more, the notice is gone, and the pages were last updated September 29. I found no Microsoft post that says the exam is generally available, so all that can be stated is that the page status changed. Go by what the exam page shows when you register.
+**Two: the beta label is gone, but Microsoft has not announced general availability.** The certification and exam page titles dropped "(beta)" at the end of September 2026, and the beta scoring notice (scores are not immediate and are rescored after the exam goes live) went with it; Microsoft has published no separate general-availability announcement (2026-10-08). Go by what the exam page shows when you register.
 
-**Three: the official training is not live yet.** This is the easiest thing to misjudge. The exam page's "Two ways to prepare" section lists four learning-path identifiers in its source, but **all four public URLs return 404 today** (I checked each), and the certification page itself says "Learning paths or modules are not yet available for this certification." The page for the instructor-led course [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) (four days) used to announce availability on September 30; that notice is now gone.
+**Three: the official training is not live yet.** The exam page's "Two ways to prepare" section corresponds to four learning paths, but none of the four public URLs opens yet (they return 404), and the certification page says "Learning paths or modules are not yet available for this certification." The page for the instructor-led course [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) (four days) used to announce availability on September 30; that notice is now gone.
 
 In other words: **the objectives exist, the training does not.** That shapes the whole preparation strategy — see "Preparing Without Training Material" below.
 
@@ -115,7 +115,7 @@ This is the practical problem today. The four learning paths are unpublished and
 
 **The substitute path**: work through AI-103's four learning paths first, since that certification is a prerequisite anyway. Its "Develop AI agents on Azure" path overlaps most with this exam's second area. Fill the rest from product documentation.
 
-**On scheduling**: because the training is missing, this exam depends more than usual on what you have already built. **If you have never shipped a multi-agent system**, my recommendation is not a study plan — it is to **wait for the September 30 course or the learning paths to go live**. Self-teaching 22 expert objectives from documentation costs more than waiting two months.
+**On scheduling**: because the training is missing, this exam depends more than usual on what you have already built. **If you have never shipped a multi-agent system**, hold off on a study plan and **wait for the instructor-led course or the learning paths to go live**. Self-teaching 22 expert objectives from documentation costs more than waiting for the material.
 
 **If you already run multi-agent systems in production**, the 22 objectives make a good gap-analysis checklist, and four to six weeks is enough to close what is missing.
 
@@ -129,19 +129,20 @@ These are the rules that applied during the beta, kept for readers who sat it th
 - Microsoft's beta-exam policy page lists countries whose candidates are not eligible to sit beta exams (China, India, Pakistan, and Türkiye)
 - Microsoft's blog states GA is expected in **October 2026** (forward-looking, and absent from the certification page)
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
-| Beta status | No beta label on the pages (rechecked 2026-10-08); no official general availability announcement found | Monthly |
-| The four weights | 15-20 / 30-35 / 20-25 / 20-25 | After GA |
+| Beta status | No beta label on the pages (2026-10-08); no official general availability announcement | Monthly |
+| The four weights | 15-20 / 30-35 / 20-25 / 20-25 | Quarterly |
 | Learning paths | Four listed on the exam page, **all public URLs 404** | Monthly |
 | Course AI-500T00 | Availability notice removed; page lists four days | Quarterly |
 | Practice assessment | Not yet available | Within 8 weeks of GA |
-| Languages | English only | After GA |
+| Languages | English only | Quarterly |
 
 ## Changelog
 
+- 2026-10-12: The scheduling advice no longer waits on the September 30 course date; it now says to wait for the instructor-led course or the learning paths to go live.
 - 2026-10-08 (recheck): the official certification and exam pages no longer carry the beta label or the beta scoring notice, and the instructor-led course's availability notice is gone. The four learning paths still return 404 and there is still no practice assessment. The affected paragraphs, spec table, and tldr are updated. No Microsoft announcement of general availability was found, and the text says so.
 - 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 

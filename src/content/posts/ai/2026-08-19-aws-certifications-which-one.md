@@ -9,7 +9,7 @@ series:
   name: "AI 證照備考"
   order: 21
 tldr: "AIF-C01、MLA-C02、AIP-C01 不是難度階梯，是三個職能切面：AIF 考能否判斷 AI 的商業應用；MLA 考能否把傳統 ML、基礎模型與 agentic workflow 上線並維運；AIP 考能否整合基礎模型做 GenAI 系統。MLA-C02 的英文 beta 已開放報名，9/29 開始交付；正式版日期與非英文版本仍未公布。"
-description: "AWS 三張 AI 證照（AIF-C01 / MLA-C02 / AIP-C01）的選擇指南：用官方 exam guide 的職能範圍與 domain 權重對照實際分界，說明 MLA-C02 beta 的報名、交付與正式版狀態，並更新續期關係與選擇路徑。"
+description: "AWS 三張 AI 證照（AIF-C01 / MLA-C02 / AIP-C01）的選擇指南：用官方 exam guide 的職能範圍與 domain 權重對照實際分界，說明 MLA-C02 beta 的報名、交付與正式版狀態，以及續期關係與選擇路徑。"
 draft: false
 ---
 
@@ -114,7 +114,7 @@ MLA-C02 仍是需要實作的 associate 考試。它要求至少一年使用 Sag
 **如果你的公司主力不是 AWS**
 → 先確認雲端廠商再挑證照。Google 生態現在能報名的技術類 AI 證照只有 [PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide) 一張（新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 正式版 2026 年 11 月 2 日開放報名），規則（尤其是重考罰則）跟 AWS 差很多。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-09-12 查證） | 什麼時候要重查 |
 |---|---|---|

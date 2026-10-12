@@ -1,5 +1,5 @@
 ---
-title: "微軟 AB-100（Agentic AI Business Solutions Architect）備考路徑：架構師那張，別照官方頁面那段簡介準備"
+title: "微軟 AB-100（Agentic AI Business Solutions Architect）備考路徑：架構師那張，考的是判斷而不是實作"
 date: 2026-08-18
 type: guide
 category: ai
@@ -8,28 +8,18 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 13
-tldr: "AB-100 是微軟 agent 線的架構師版，三塊權重 25-30 / 25-30 / 40-45，重心在部署與治理。它的 outline 幾乎全是 design、recommend、propose 這類動詞——考的是情境判斷而不是實作。三個要先知道的：官方考試頁的簡介段落是錯的（寫成資訊保護與 DLP 的樣板文，我逐字驗過），準備要以 study guide 為準；它有免費練習測驗，是微軟三張 agent 證照裡唯一有的；而且它有先修：除了考過 AB-100，還必須持有官方清單裡的任一張 associate 認證（AI-103、AB-620、AI-300 都在清單上）。官方規格：美國 $165、13 種語言含繁體中文、及格 700、效期一年。"
-description: "微軟 AB-100（Agentic AI Business Solutions Architect）備考指南，依官方 study guide 的三塊權重拆解規劃、設計與部署治理，說明官方頁面簡介錯置的問題、免費練習測驗、15 張 associate 證照清單的實際效力，以及與 AI-500、AB-620 的分工。"
+tldr: "AB-100 是微軟 agent 線的架構師版，三塊權重 25-30 / 25-30 / 40-45，重心在部署與治理。它的 outline 幾乎全是 design、recommend、propose 這類動詞——考的是情境判斷而不是實作。三個要先知道的：它有先修，除了考過 AB-100，還必須持有官方清單裡的任一張 associate 認證（AI-103、AB-620、AI-300 都在清單上）；它有免費練習測驗，是微軟三張 agent 證照裡唯一有的；考試頁有一段簡介寫的是合規類考試的內容，準備要以 study guide 為準。官方規格：美國 $165、13 種語言含繁體中文、及格 700、效期一年。"
+description: "微軟 AB-100（Agentic AI Business Solutions Architect）備考指南，依官方 study guide 的三塊權重拆解規劃、設計與部署治理，說明先修的 associate 認證清單、免費練習測驗、考試頁簡介與 study guide 對不上時以哪份為準，以及與 AI-500、AB-620 的分工。"
 draft: false
 ---
 
 > 🌏 [English version](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en)
 >
-> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)，不含考古題。查證日期：2026-08-18，對照的是「Skills measured as of **July 22, 2026**」那一版。2026-10-08 複查：study guide 已換成「Skills measured as of **October 14, 2026**」，變更紀錄標三條小改、其餘不變，三塊權重相同；先修與語言有實質變動，已更新在下文。
+> 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)，不含考古題。查證日期：2026-10-08。現行 study guide 是「Skills measured as of **October 14, 2026**」那一版，變更紀錄標三條小改，三塊權重與 7 月版相同。
 
 AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide) 建東西、[AI-500](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide) 寫程式、**AB-100 決定要不要做、怎麼算 ROI、怎麼治理**。
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
-
-## 先講一個官方頁面的錯誤
-
-[官方考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)的 Schedule exam 區塊裡，有這麼一段：
-
-> This exam measures your ability to accomplish the following technical tasks: implement information protection; implement data loss prevention and retention; manage risks, alerts, and activities.
-
-**這段是錯的。** 資訊保護、資料外洩防護與保留、風險與警示管理 —— 這是微軟合規類考試的樣板文，跟 AB-100 毫無關係，而且**跟同一頁下方的「Assessed on this exam」自相矛盾**（那裡列的是 Plan／Design／Deploy AI-powered business solutions）。
-
-**實務含意**：**照 study guide 準備，不要照那段簡介。** 這是本系列第三次遇到官方文件內部打架（前兩次是 [NVIDIA 的權重表與描述](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide)、[AI-103 的文件連結區塊](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)）—— 官方來源要交叉比對，不能單看一頁。
 
 ## 官方規格速覽
 
@@ -60,8 +50,6 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 清單橫跨 Dynamics 365、Power Platform 與 AI 線。考試頁列了 15 張：MB-280、PL-200、MB-330、PL-400、MB-230、MB-310、MB-500、MB-800、MB-820、AI-300、**AI-103**、**AB-620**、AB-210、AB-410、AB-250。認證頁的清單少了 MB-280 與 PL-200，只有 13 張；兩頁不一致，報名前以認證頁為準比較保險。
 
 對本系列的讀者來說，最順的三張入口是 [AB-620](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide)（低程式碼）、[AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)（code-first）與 [AI-300](/posts/ai/2026-10-08-microsoft-ai-300-prep-guide)（MLOps）。實際成本因此是兩張考試的費用與時間。
-
-**這一節在 2026-10-08 改寫過。** 本文 8 月初版依當時的官方文字（「current possible associate certs that can be used for this expert certification」）判斷這份清單是可以搭配、不是必須；官方之後把文字改成上面那句明確的要求。
 
 ## 三塊權重
 
@@ -103,7 +91,7 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 
 **負責任 AI、安全、治理、風險與合規**：設計 agent 的安全與治理、模型安全；**分析方案與 AI 的漏洞與緩解，含 prompt manipulation**；審視是否符合負責任 AI 原則；**驗證資料落地與資料移動的合規**；設計 grounding 資料與模型調校的存取控制；**設計模型與資料變更的稽核軌跡**。
 
-**怎麼準備**：這 40–45% 是四個子塊的總和，而且**每一塊都是「設計流程」而不是「執行操作」**。準備方式是把每個子塊寫成一份你自己的檢核表 —— 例如「一個 agent 上線前，ALM 要涵蓋哪五件事」。官方 study guide 有 change log，值得對照確認自己讀的是 7 月 22 日那版。
+**怎麼準備**：這 40–45% 是四個子塊的總和，而且**每一塊都是「設計流程」而不是「執行操作」**。準備方式是把每個子塊寫成一份你自己的檢核表 —— 例如「一個 agent 上線前，ALM 要涵蓋哪五件事」。官方 study guide 有 change log，值得對照確認自己讀的是 10 月 14 日那版。
 
 ## 時程與官方課程的定位
 
@@ -131,17 +119,21 @@ AB-100 是微軟三張 agent 認證裡的架構師版 —— [AB-620](/posts/ai/
 
 **官方階梯現在有兩條。** AI-103 → AI-500 是指定單一先修；AB-100 則要求清單中任一張 associate，AB-620、AI-103、AI-300 都符合。所以低程式碼這一側的 AB-620 → AB-100 現在是官方認可的路徑之一。
 
-## 一個跨頁面的命名不一致
+## 官方頁面的兩處不一致
 
-值得順帶記錄：AB-100 的考試頁描述考生能力時，用的是「**Azure AI services**」「**Azure OpenAI**」「**Azure AI Foundry**」；而 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的技能目標已經全面改用「**Microsoft Foundry**」與「**Foundry Tools**」。
+**考試頁有一段簡介寫的是別張考試。** [官方考試頁](https://learn.microsoft.com/en-us/credentials/certifications/exams/ab-100/)的 Schedule exam 區塊有這麼一段：
 
-同一家公司、同一條產品線、同一個月更新的兩個頁面，用著兩套命名。**判斷教材新舊時，別把單一頁面的用詞當成全公司的現況。**
+> This exam measures your ability to accomplish the following technical tasks: implement information protection; implement data loss prevention and retention; manage risks, alerts, and activities.
 
-## 會過期的東西（下次複查看這裡）
+資訊保護、資料外洩防護與保留、風險與警示管理是微軟合規類考試的內容，和同一頁下方「Assessed on this exam」列的 Plan／Design／Deploy AI-powered business solutions 對不上。準備時照 study guide，不要照那段簡介。
+
+**兩個頁面用兩套產品命名。** AB-100 的考試頁描述考生能力時，用的是「**Azure AI services**」「**Azure OpenAI**」「**Azure AI Foundry**」；而 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide) 的技能目標已經全面改用「**Microsoft Foundry**」與「**Foundry Tools**」。判斷教材新舊時，別把單一頁面的用詞當成全公司的現況。
+
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
-| 頁面簡介錯置 | 仍寫著資訊保護／DLP 的樣板文 | 每季（修好就更新本文） |
+| 頁面簡介錯置 | 仍寫著資訊保護／DLP 的樣板文 | 每季 |
 | 三塊權重 | 25-30 / 25-30 / 40-45 | 每季 |
 | 技能目標版本 | Skills measured as of 2026-10-14，有 change log（三條小改） | 每季 |
 | 先修清單 | 考試頁列 15 張、認證頁列 13 張（少 MB-280 與 PL-200） | 每季 |

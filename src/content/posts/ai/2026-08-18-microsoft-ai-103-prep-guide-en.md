@@ -29,7 +29,7 @@ The audience profile in the official study guide is specific:
 
 **Python is assumed**, and so is actually building on Foundry. That is a different posture from AWS's AIF-C01, which states outright that its candidate "uses but does not necessarily build."
 
-**A fit** if your company runs on Azure and you write AI applications or agents. **It is offered in Traditional Chinese** — one of only two exams in this series that is, alongside AWS AIF-C01.
+**A fit** if your company runs on Azure and you write AI applications or agents. **It is offered in Traditional Chinese**; on the Microsoft side so are AB-620, AB-100, AI-901, and AI-200, while AI-500 and AI-300 are English only.
 
 **Not a fit** if you are not on Azure, or if you want to prove modeling ability: there is no model training or feature engineering here. This exam is about assembling, deploying, and governing on Foundry.
 
@@ -143,7 +143,7 @@ This is Microsoft's biggest structural difference from the other vendors, and th
 
 **This certification is also a gate.** Microsoft's expert-level [AI-500 (Multi-Agent AI Solutions Expert)](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/) lists AI-103 as a **hard prerequisite**: "you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification." If you want Microsoft's multi-agent expert track, AI-103 is the only way in.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
@@ -155,6 +155,7 @@ This is Microsoft's biggest structural difference from the other vendors, and th
 
 ## Changelog
 
+- 2026-10-12: Reworded the Traditional Chinese sentence. On the Microsoft side AB-620, AB-100, AI-901, and AI-200 now offer it too.
 - 2026-10-08: Added the Taiwan test-center price ($83 USD) to the fee row. It previously listed only the US price of $165; Microsoft prices by the country where the exam is proctored, and the certification page has a country selector. Nothing else changed.
 
 ## References

@@ -134,7 +134,7 @@ One more clause worth noting: **if exam content changes significantly, Anthropic
 
 **None of the four is a ladder** — Anthropic sets no exam as a prerequisite for another. Choose by the scope you own, not by seniority.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|

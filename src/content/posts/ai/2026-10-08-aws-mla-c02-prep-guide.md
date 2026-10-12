@@ -155,7 +155,7 @@ beta 欄取自[官方認證頁](https://aws.amazon.com/certification/certified-m
 
 效期三年。依 AWS 的[續期頁](https://aws.amazon.com/certification/recertification/)，續期有三條路：重考最新版的 MLA、考過 AIP-C01（兩者各延長三年），或在 AWS Skill Builder 上維持認證（需付費訂閱，延長一年）。考過最新版 MLA 也能把 AIF-C01 一起續掉。完整的續期關係圖在 [AWS 三張 AI 證照怎麼選](/posts/ai/2026-08-19-aws-certifications-which-one)。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-10-08 查證） | 什麼時候要重查 |
 |---|---|---|

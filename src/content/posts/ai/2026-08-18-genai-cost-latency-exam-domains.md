@@ -17,7 +17,7 @@ draft: false
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 study guide，來源逐條列在文末。查證日期：2026-08-18。
 
-這是 [AI 證照備考系列](/posts/ai/2026-08-18-microsoft-ai-500-prep-guide)的技術深潛篇。系列 A 軌是一張證照一篇，這篇反過來：**把「成本、延遲、可用性最佳化」這個被六張證照重複考的主題抽出來，一次講完交集，再標出各家不能互相取代的部分。**
+這是 [AI 證照備考系列](/series/ai-cert-prep/)的技術深潛篇。系列的備考路徑是一張證照一篇，這篇反過來：**把「成本、延遲、可用性最佳化」這個被六張證照重複考的主題抽出來，一次講完交集，再標出各家不能互相取代的部分。**
 
 這個主題跟 [多 agent 架構那篇](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)有個關鍵差別：**多 agent 的交集是同一高度上的同一件事，成本延遲的交集不是。** 六張證照講的槓桿名字很像，但它們站在不同的抽象層——NVIDIA 在問「這個 kernel 為什麼慢」，AIP-C01 與微軟在問「這個請求該不該打到模型」，Google 在問「這個服務後端該怎麼擴」，而 foundational 級的 AIF-C01 只問「你知不知道成本是隨 token 走的」。**只把交集背下來，任何一張都會在自己那層的細節上失血。**
 
@@ -57,7 +57,7 @@ draft: false
 
 一、**AIP-C01 的成本延遲考點不只在那 12%。** 官方把 Operational Efficiency 單獨列成第 4 章，但韌性設計（1.2）、部署策略與模型路由（2.2、2.4）、token 效率與延遲品質比（5.1）分散在另外三章裡。**照「12%」分配讀書時間會低估這個主題在這張的實際份量。**
 
-二、**NCP-GENL 官方網頁的 Model Optimization 那格描述是壞的**——網頁寫的是部署內容（容器化推論管線、Kubernetes、Triton），跟同表 Model Deployment（9%）幾乎重複。**權重是對的，壞的只有描述文字**，正確描述（剪枝、稀疏化、量化、知識蒸餾、超參數搜尋、進階取樣、TensorRT）在官方 PDF study guide 裡。準備這塊時以 PDF 為準。細節見 [NCP-GENL 備考路徑](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide)。
+二、**NCP-GENL 官方網頁的 Model Optimization 那格描述錯置**——網頁寫的是部署內容（容器化推論管線、Kubernetes、Triton），跟同表 Model Deployment（9%）幾乎重複。**權重是對的，錯置的只有描述文字**，正確描述（剪枝、稀疏化、量化、知識蒸餾、超參數搜尋、進階取樣、TensorRT）在官方 PDF study guide 裡。準備這塊時以 PDF 為準。細節見 [NCP-GENL 備考路徑](/posts/ai/2026-08-18-nvidia-ncp-genl-prep-guide)。
 
 ## 交集：八根槓桿
 
@@ -155,11 +155,11 @@ AIP-C01 的 4.1 列的是同一組再加兩個機制：**語意快取、結果�
 
 - **PMLE 第 4 章**：**依吞吐量擴展服務後端**；四個部署選項（Agent Platform、Cloud Run、GKE、批次推論）的分界；公開與私有 endpoint。
 - **AIP-C01 4.1**：容量規劃、**自動擴展**、**provisioned throughput 最佳化**；2.2 的部署策略是 Lambda 隨選呼叫、Bedrock provisioned throughput、SageMaker endpoint 三者混合。
-- **NCP-AAI Deployment and Scaling**：**容器化擴展（Docker、Kubernetes）與負載平衡**、分散式負載下的效能剖析。（這塊的權重官方兩版矛盾——**網頁寫 5%、PDF 寫 13%**，兩份都在 nvidia.com，準備時當不確定區間看。）
+- **NCP-AAI Deployment and Scaling**：**容器化擴展（Docker、Kubernetes）與負載平衡**、分散式負載下的效能剖析。（這塊的權重官方有兩個數字：**網頁寫 13%、PDF 寫 5%**，配時間時當成區間看。）
 
 **「隨選 vs 預留容量」是這根槓桿的核心判斷**，AWS 用 provisioned throughput 這個詞考它，Google 用「依吞吐量擴展」考它。**穩定高流量選預留、尖峰不可測選隨選**是通用答案，但兩家的題目都會給你成本數字要你算——這也是為什麼**價格是這個主題唯一必須現查的東西**。
 
-**要點回指**：PMLE 第 3 章（~21%）＋第 4 章（~20%）、NCP-GENL GPU Acceleration（14%）、AIP-C01 4.1／2.2、NCP-AAI Deployment and Scaling（5–13%，兩版矛盾）。
+**要點回指**：PMLE 第 3 章（~21%）＋第 4 章（~20%）、NCP-GENL GPU Acceleration（14%）、AIP-C01 4.1／2.2、NCP-AAI Deployment and Scaling（網頁 13%、PDF 5%）。
 
 ### 七、可用性：SLA、降級與跨區
 
@@ -243,9 +243,9 @@ AIP-C01 的 4.1 列的是同一組再加兩個機制：**語意快取、結果�
 - **做 LLM 應用**：讀 [AIP-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html) 的第 4 章。它是六份裡把應用層成本延遲槓桿列得最全的——快取、token、批次、路由、可觀測性一條不漏，而且是免費公開的 HTML。缺點是每一條都掛著 AWS 服務名，要自己剝掉。
 - **做 agent 系統**：讀 [AI-500 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500) 的第三塊。快取三層、token 三點式治理、chargeback、SLA 這四組概念的命名是這六份裡最乾淨的。
 - **還沒踩穩第一階**：讀 [AIF-C01 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html) 的第 2、3 章。它是六份裡唯一把「成本從哪裡來」當成考點而不是前提的，讀完再回頭看 AIP-C01 第 4 章會省很多力氣。注意要讀 **v1.1**（2026-04-30 起），token 計價那條是新加的。
-- **做模型與推論基礎設施**：只有 [NCP-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) 這條路，而且要讀官方 PDF study guide 而不是網頁（網頁那格描述是壞的）。
+- **做模型與推論基礎設施**：只有 [NCP-GENL](https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/) 這條路，而且要讀官方 PDF study guide 而不是網頁（網頁那格描述錯置）。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 **這一節在這個主題上比其他主題重要得多。** 成本延遲是整個系列裡**知識腐敗最快的一塊**——模型價格、GPU 世代、供應商的預留容量方案幾乎每季都在動。
 
@@ -257,13 +257,17 @@ AIP-C01 的 4.1 列的是同一組再加兩個機制：**語意快取、結果�
 | GPU 世代與規格 | **本文刻意不列** | 同上 |
 | NCP-GENL 十塊權重 | 17/14/13/13/9/9/7/7/6/5，合計 100% | 開放報名時（目前 Coming soon） |
 | NCP-GENL 網頁描述錯置 | Model Optimization 與 Fine-Tuning 兩格仍錯 | 每季 |
-| NCP-AAI Deployment and Scaling 權重 | **網頁 5%、PDF 13%，兩版矛盾** | 開放報名時 |
+| NCP-AAI Deployment and Scaling 權重 | 網頁 13%、PDF 5% | 開放報名時 |
 | AIP-C01 五章權重 | 31 / 26 / 20 / 12 / 11 | 每次 AWS 改版 |
 | PMLE 六章權重 | 13 / 16 / 21 / 20 / 18 / 13 | 每次考綱更新 |
 | PMLE 產品命名 | 已改為 Gemini Enterprise Agent Platform | Google Cloud Next 之後 |
-| AI-500 狀態與權重 | beta；15-20 / 30-35 / 20-25 / 20-25 | GA 之後 |
+| AI-500 狀態與權重 | 頁面已無 beta 標示（2026-10-08）；15-20 / 30-35 / 20-25 / 20-25 | 每季 |
 | AI-103 五塊權重 | 25-30 / 30-35 / 10-15 / 10-15 / 10-15 | 每季 |
 | AIF-C01 五章權重與版本 | 20 / 24 / 28 / 14 / 14，exam guide v1.1（2026-04-30） | 每次 AWS 改版 |
+
+## 更新紀錄
+
+- 2026-10-12：更正 NCP-AAI Deployment and Scaling 的權重，官方網頁是 13%、PDF 是 5%，原文寫反；AI-500 狀態改為頁面已無 beta 標示。
 
 ## 參考資料
 

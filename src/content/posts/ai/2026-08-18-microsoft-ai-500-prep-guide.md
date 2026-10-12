@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 7
-tldr: "AI-500 是主流雲端業者裡少見的多 agent 系統專家級認證，四塊權重 15-20 / 30-35 / 20-25 / 20-25，官方點名 Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions / Logic Apps / API Management、A2A、Key Vault、AI Red Teaming Agent。有兩個限制要先知道：必須先取得 AI-103 才能考、而且官方學習路徑尚未上線——考試頁列的四條路徑網址目前全部 404。官方頁面已在 2026 年 9 月底拿掉 beta 標示。"
+tldr: "AI-500 是主流雲端業者裡少見的多 agent 系統專家級認證，四塊權重 15-20 / 30-35 / 20-25 / 20-25，官方點名 Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions / Logic Apps / API Management、A2A、Key Vault、AI Red Teaming Agent。有兩個限制要先知道：必須先取得 AI-103 才能考，而且官方學習路徑尚未上線、練習測驗也還沒有。官方頁面已在 2026 年 9 月底拿掉 beta 標示。"
 description: "微軟 AI-500（Multi-Agent AI Solutions Expert）備考指南，依官方 study guide 的四塊權重逐條拆解多 agent 架構、開發、評估監控與資安治理部署，說明 AI-103 先修條件、beta 期間的規則與目前狀態，以及官方教材尚未上線時的替代準備路徑。"
 draft: false
 ---
@@ -17,13 +17,13 @@ draft: false
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-500)，不含考古題。查證日期：2026-08-18。
 
-AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證**。它的考綱寫得非常具體 —— Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions／Logic Apps／API Management、A2A、Key Vault、AI Red Teaming Agent、DTAP 與藍綠金絲雀部署。
+AI-500 是主流雲端業者裡**少數專攻多 agent 系統的專家級認證**。它的考綱寫得非常具體 —— Agent Framework、LangGraph、Hugging Face Transformers、MCP server 架在 Azure Functions／Logic Apps／API Management、A2A、Key Vault、AI Red Teaming Agent、DTAP 與藍綠金絲雀部署。
 
 但在你決定準備之前，**有三件事會直接影響可行性**，先講完再談內容。
 
 各家證照的價格、效期與門檻對照見站內的[2026 年工程師 AI 證照有哪些](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)，本文不重複。
 
-## 三個先決條件
+## 先知道三件事
 
 **一、必須先有 AI-103。** [官方認證頁](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)的 Certification prerequisites 寫：
 
@@ -31,9 +31,9 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 頁面欄位另標 `Prerequisites: 1 certification`。所以實際路徑是 [AI-103](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)（$165）→ AI-500（$165），總成本 $330，時間上要先花六週左右拿下 AI-103。
 
-**二、beta 標示已經拿掉，但官方沒有發文宣布正式上線。** 本文 8 月初版時，認證與考試頁都掛著 beta 的說明（成績不會當場出、要等正式上線後重新計分）。2026-10-08 複查：兩頁的標題已不再有「(beta)」，那段說明也不在了，頁面更新日期是 9 月 29 日。我沒有找到微軟明說「已正式上線」的公告，所以這裡只能說頁面狀態變了；報名前以考試頁當下顯示的內容為準。
+**二、頁面已無 beta 標示，但官方沒有公告正式上線。** 認證頁與考試頁的標題在 2026 年 9 月底拿掉了「(beta)」，beta 期間的計分說明（成績不會當場出、要等正式上線後重新計分）也一併移除；微軟沒有另外發布正式上線的公告（2026-10-08）。報名前以考試頁當下顯示的內容為準。
 
-**三、官方教材尚未上線。** 這點最容易誤判。考試頁的「Two ways to prepare」區塊在原始碼裡列了四條學習路徑的識別碼，但**四條的公開網址目前全部回 404**（我逐一測過）；認證頁自己也寫著「Learning paths or modules are not yet available for this certification」。講師課 [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天）的頁面原本標示 9 月 30 日開放，現在那則預告已經拿掉。
+**三、官方教材尚未上線。** 考試頁的「Two ways to prepare」區塊對應四條學習路徑，但四條的公開網址目前都打不開（回 404）；認證頁也寫著「Learning paths or modules are not yet available for this certification」。講師課 [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天）的頁面原本標示 9 月 30 日開放，那則預告現在已經拿掉。
 
 換句話說：**考綱有了，官方教材還沒有。** 這決定了你的準備方式，下面「沒有教材怎麼準備」那節會處理。
 
@@ -115,7 +115,7 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 
 **替代路徑**：先把 AI-103 的四條學習路徑做完（那是先修條件，本來就要做），其中「Develop AI agents on Azure」那條與本張考試的第二塊重疊度最高。剩下的缺口用官方文件補。
 
-**時程建議**：因為缺教材，這張的時程比同級證照更依賴你的既有經驗。**如果你沒有實際做過多 agent 上線**，我的建議不是排讀書計畫，而是**先等 9/30 的講師課或學習路徑上線**再開始 —— 用 22 條目標當檢核表自學，成本會高於等兩個月。
+**時程建議**：因為缺教材，這張的時程比同級證照更依賴你的既有經驗。**如果你沒有實際做過多 agent 上線**，建議先不要排讀書計畫，**等講師課或學習路徑上線**再開始 —— 用 22 條目標當檢核表自學，成本會高於等教材。
 
 **如果你已經在做多 agent 系統**，那 study guide 的 22 條就是很好的自我盤點清單，四到六週足夠補齊缺口。
 
@@ -129,19 +129,20 @@ AI-500 是三大雲端業者裡**唯一專攻多 agent 系統的專家級認證*
 - 微軟另有規定，位於部分國家的考生不能參加 beta 考試（官方 beta 說明頁列出中國、印度、巴基斯坦與土耳其）
 - 官方部落格寫 GA 預計在 **2026 年 10 月**（前瞻性說法，認證頁未載明）
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
-| beta 狀態 | 頁面已無 beta 標示（2026-10-08 複查）；未見官方正式上線公告 | 每月 |
-| 四塊權重 | 15-20 / 30-35 / 20-25 / 20-25 | GA 之後 |
+| beta 狀態 | 頁面已無 beta 標示（2026-10-08）；未見官方正式上線公告 | 每月 |
+| 四塊權重 | 15-20 / 30-35 / 20-25 / 20-25 | 每季 |
 | 學習路徑 | 考試頁列了四條，**公開網址全部 404** | 每月 |
 | 講師課 AI-500T00 | 開課預告已拿掉，頁面標示四天 | 每季 |
 | 練習測驗 | 尚未提供 | GA 後 8 週內 |
-| 語言 | 僅英文 | GA 之後 |
+| 語言 | 僅英文 | 每季 |
 
 ## 更新紀錄
 
+- 2026-10-12：時程建議不再以 9/30 的講師課為等待目標，改為等講師課或學習路徑上線。
 - 2026-10-08（複查）：官方認證頁與考試頁已拿掉 beta 標示與 beta 計分說明，講師課的開課預告也拿掉了；四條學習路徑仍然 404，練習測驗仍未提供。相關段落、規格表與 tldr 已更新。未找到微軟宣布正式上線的公告，文中照實說明。
 - 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 

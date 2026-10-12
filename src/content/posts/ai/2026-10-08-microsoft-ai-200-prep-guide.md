@@ -84,7 +84,7 @@ draft: false
 
 PostgreSQL 那組有六條，是三者裡最細的，而且是整份考綱唯一出現「RAG」這個詞的地方。
 
-**怎麼準備**：三條學習路徑：[Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/)、[Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/)、[Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/)。最有效的練習是**把同一批 embedding 分別放進三個服務，各跑一次相似度搜尋**，然後回答三個問題：索引怎麼建、帶 metadata 篩選時查詢怎麼寫、成本單位是什麼（RU、運算規格、記憶體）。考綱把三種服務各列一組條目。三種都做過，才有把握應付跨服務的題目；這是我的推測，官方沒有說會出比較題。
+**怎麼準備**：三條學習路徑：[Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-cosmos-db/)、[Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-database-postgresql/)、[Azure Managed Redis](https://learn.microsoft.com/en-us/training/paths/enhance-ai-solutions-azure-managed-redis/)。最有效的練習是**把同一批 embedding 分別放進三個服務，各跑一次相似度搜尋**，然後回答三個問題：索引怎麼建、帶 metadata 篩選時查詢怎麼寫、成本單位是什麼（RU、運算規格、記憶體）。考綱把三種服務各列一組條目。三種都做過，才有把握應付跨服務的題目；這是本文的推測，官方沒有說會出比較題。
 
 檢索品質本身怎麼評估，這張不考。那部分見站內的[RAG 與檢索評估的考點交集](/posts/ai/2026-08-18-rag-evaluation-exam-domains)。
 
@@ -140,7 +140,7 @@ Associate 級的效期是一年。依[官方續期說明](https://learn.microsof
 
 要留意的是它與 AI-103 是兩張獨立的認證，各自有一年效期、各自要續。兩張都拿的人，每年要做兩次續期評量。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-10-08 查證） | 什麼時候要重查 |
 |---|---|---|

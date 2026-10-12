@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "AI 證照備考"
   order: 6
-tldr: "AB-620 是微軟 agent 認證線裡的低程式碼那條——考的是 Copilot Studio 上的 agent flows、adaptive cards、computer use、MCP tools、A2A 與 Fabric data agent，不是寫 Python。三塊權重 30-35 / 40-45 / 20-25，最重的是整合與擴充。官方規格：$165、120 分鐘、及格 700、效期一年、13 種語言含繁體中文，是微軟三張 agent 證照裡唯一有在地化的。已經 GA，但練習測驗還沒開放。"
+tldr: "AB-620 是微軟 agent 認證線裡的低程式碼那條——考的是 Copilot Studio 上的 agent flows、adaptive cards、computer use、MCP tools、A2A 與 Fabric data agent，不是寫 Python。三塊權重 30-35 / 40-45 / 20-25，最重的是整合與擴充。官方規格：$165、120 分鐘、及格 700、效期一年、13 種語言含繁體中文。已經 GA，但練習測驗還沒開放。"
 description: "微軟 AB-620（AI Agent Builder Associate）備考指南，依官方 study guide 的三塊技能權重拆解 Copilot Studio 的 agent 建置、企業系統整合與 ALM，附五週時程換算依據、與 AI-103 及 AB-100 的分工，以及一年效期與免費續期規則。"
 draft: false
 ---
@@ -105,7 +105,7 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 | 第 3–4 週 | **Integrate and extend（40–45%）**：[多 agent 方案](https://learn.microsoft.com/en-us/training/paths/design-build-multi-agent-solutions-copilot-studio/)（2 小時 54 分）＋[企業系統整合](https://learn.microsoft.com/en-us/training/paths/integrate-agents-enterprise-systems-copilot-studio/)（3 小時 18 分） | 最重的一塊，兩週分別做「多 agent」與「外部整合」 |
 | 第 5 週 | Test and manage（20–25%）+ 全面複習 | ALM 概念收尾 |
 
-**講師課要等**：對應的講師課 [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天）頁面寫著「**This course will be available on 10/9/2026**」（8 月時標的是 9 月 18 日，已延後）——但上面那三條學習路徑現在就能自學，不用等課。
+**講師課**：對應的講師課 [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天）頁面上原本的開課預告已經拿掉（2026-10-12）；上面那三條學習路徑可以直接自學，不必等課。
 
 **失敗成本**：微軟的[重考政策](https://learn.microsoft.com/en-us/credentials/support/retake-policy)是第一次沒過等 24 小時、之後每次 14 天、12 個月內最多 5 次，每次都要付費。
 
@@ -127,7 +127,7 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 
 有一個小狀況值得知道：**AB-620 的專屬續期頁目前還不存在**（`/ai-agent-builder-associate/renew/` 回 404），只有通用的續期規則頁。這通常代表第一批持證者還沒到續期窗口，不是沒有續期路徑。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
@@ -139,6 +139,7 @@ Topics 那半段：把 agent flow 加進 topic、設定回應格式、在 topic 
 
 ## 更新紀錄
 
+- 2026-10-12：講師課頁面的開課預告已拿掉；語言一句改寫，AB-100 現在也有繁體中文。
 - 2026-10-08（複查）：講師課開課日由 9/18 延到 10/9；AB-100 現在有 13 種語言含繁中，且要求另外持有一張 associate 認證，相關對照已更新；AI-500 的 beta 標示已拿掉。
 - 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 

@@ -51,13 +51,25 @@ description: Fact-layer verification for a post draft under a category directory
 | 固定欄位或表格抽取 | Groundlane `web_extract` |
 | 程式碼 / GitHub 議題 / API spec 導向 | GitHub MCP / `gh api` / 官方 repo；需要讀公開頁再用 Groundlane |
 
-**三條硬規則**：
+**四條硬規則**：
 
 1. **搜尋摘要不能作為 Confirmed 的依據。** Groundlane `web_search` 回傳的片段只能拿來找候選來源。要判 Confirmed，必須對那個來源做過 `web_fetch` 或來源專用 API 抽取。
 2. **抽取驗證用的來源時優先完整讀頁。** 主要來源用 Groundlane `web_fetch`；需要 selector/table 欄位才用 `web_extract`。
 3. **Groundlane 未掛載或請求失敗要明講。** 先檢查完整 callable inventory；依上方邊界使用允許的 fallback。使用者指定 Groundlane-only 時才停在該路徑 blocker，不能用 fallback 冒充成功。
+4. **抽取結果要先驗收，才能當來源用。** 動態載入的頁面會讓同一個 URL 在不同時刻回傳不同內容，而兩次都長得像官方頁面。驗收清單見下。
 
 取不到全文的繞路順序 → `../deep-research/references/mcp-tools.md`
+
+### 抽取結果的驗收（判 Confirmed 之前跑一次）
+
+| 症狀 | 意義 | 動作 |
+|---|---|---|
+| 內容裡出現 `Loading`、`...`、空的 list item | 動態欄位還沒填 | **視為抽取失敗**，重抓；不可拿這份內容判定任何 verdict |
+| 該有的欄位整個不見（價格、語言、版本、日期） | 同上，常見於 SPA 型的官方文件站 | 重抓；仍缺就換工具或改用瀏覽器 |
+| 同一 URL 兩次抽取結果不同 | **先懷疑自己的抽取，再懷疑對方的頁面** | 以欄位較完整的那份為準；不要寫成「官方頁面前後不一致」 |
+| 兩個不同 URL 但 title 完全相同 | 很可能是同一頁（其一為 redirect / alias） | 比對 canonical 或內文，別把它當成「兩個頁面互相矛盾」 |
+
+本站踩過：把 Microsoft AI-103 的語言清單寫成「認證總覽頁與考試頁不一致」，實際上是同一頁的價格與語言欄位動態載入，抓取工具在載入完成前取到半成品；同一份抽取裡「Skills earned upon completion」還顯示 `Loading`。
 
 ## 執行步驟
 

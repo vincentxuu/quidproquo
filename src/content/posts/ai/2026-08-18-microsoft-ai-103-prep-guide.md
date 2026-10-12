@@ -29,7 +29,7 @@ draft: false
 
 **要會 Python**，而且是實際在 Foundry 上建東西的人。這跟 AWS 的 AIF-C01（明講「使用但不一定要會建」）是完全不同的定位。
 
-**適合**：公司用 Azure、你在寫 AI 應用或 agent 的人。**這張有繁體中文**，是本系列裡除了 AWS AIF-C01 之外唯一提供繁中的。
+**適合**：公司用 Azure、你在寫 AI 應用或 agent 的人。**這張有繁體中文**；微軟這條線裡 AB-620、AB-100、AI-901、AI-200 也有，AI-500 與 AI-300 只有英文。
 
 **不適合**：不碰 Azure 的人，以及想證明 ML 建模能力的人 —— 這張沒有模型訓練、特徵工程那一塊，它考的是在 Foundry 上組裝、部署、治理。
 
@@ -143,7 +143,7 @@ Agent 那半段更具體：定義 agent 角色、目標、對話追蹤方式與*
 
 **這張還是另一張的門票。** 微軟的 expert 級 [AI-500（Multi-Agent AI Solutions Expert）](https://learn.microsoft.com/en-us/credentials/certifications/multi-agent-ai-solutions-expert/)把 AI-103 列為**硬性先修**：官方寫「you must earn the Microsoft Certified: Azure AI Apps and Agents Developer Associate certification」。想走微軟的多 agent 專家線，AI-103 是唯一入口。
 
-## 會過期的東西（下次複查看這裡）
+## 會變動的資訊（報名前再確認）
 
 | 項目 | 現況（2026-08-18 查證） | 什麼時候要重查 |
 |---|---|---|
@@ -155,6 +155,7 @@ Agent 那半段更具體：定義 agent 角色、目標、對話追蹤方式與*
 
 ## 更新紀錄
 
+- 2026-10-12：繁體中文一句改寫。微軟這條線現在有繁中的還有 AB-620、AB-100、AI-901、AI-200。
 - 2026-10-08：費用欄補上台灣考場的價格（$83 USD）。原本只寫美國價 $165；微軟依考場所在國家定價，認證頁的國家選單可切換。其餘內容未變動。
 
 ## 參考資料

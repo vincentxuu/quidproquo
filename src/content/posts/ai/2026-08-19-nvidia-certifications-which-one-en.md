@@ -1,5 +1,5 @@
 ---
-title: "Choosing Among NVIDIA's Four: Two Can't Be Registered For, the Associate Training Just Changed, and the Docs Contradict Themselves"
+title: "Choosing Among NVIDIA's Four Generative AI Certifications: Two Can't Be Registered For, and the Real Cost Includes the Courses"
 date: 2026-08-19
 type: guide
 category: ai
@@ -8,8 +8,8 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 23
-tldr: "NVIDIA's generative AI line has four exams: NCA-GENL and NCA-GENM ($125 each, associate), NCP-GENL and NCP-AAI ($200 each, professional). Three decision inputs no other vendor forces on you. One: both professional exams still show 'Coming soon' next to Register, so any near-term plan is down to the two associates. Two: the cost of the official recommended training differs sharply by level. In autumn 2026 the two associate exams switched to one free open-source set of materials plus one course, while the two professional exams still list five paid courses, $1,620 at list price for NCP-GENL. Three: the official documents disagree with themselves — NCP-AAI's weights total 98% on the web page and 92% in the PDF, and two cells of NCP-GENL's web table carry misplaced text, one of it about OpenUSD. Lock-in also varies sharply: NCP-AAI is 7% NVIDIA-specific, NCP-GENL is 31% GPU and model-compression work."
-description: "A guide to choosing among NVIDIA's four generative AI certifications (NCA-GENL, NCA-GENM, NCP-GENL, NCP-AAI), built around four decision inputs — registration status, true cost including paid training, contradictions between official documents, and degree of vendor lock-in — with per-reader recommendations and recertification math."
+tldr: "NVIDIA's generative AI line has four exams: NCA-GENL and NCA-GENM ($125 each, associate), NCP-GENL and NCP-AAI ($200 each, professional). Three decision inputs no other vendor forces on you. One: both professional exams still show 'Coming soon' next to Register, so any near-term plan is down to the two associates. Two: the cost of the official recommended training differs sharply by level. In autumn 2026 the two associate exams switched to one free open-source set of materials plus one course, while the two professional exams still list five paid courses, $1,620 at list price for NCP-GENL. Three: the official web pages and PDFs differ in a few places — two NCP-AAI weights do not match, and two cells of NCP-GENL's web table carry misplaced text — so for those two exams follow the PDF or budget a range. Lock-in also varies sharply: NCP-AAI is 7% NVIDIA-specific, NCP-GENL is 31% GPU and model-compression work."
+description: "A guide to choosing among NVIDIA's four generative AI certifications (NCA-GENL, NCA-GENM, NCP-GENL, NCP-AAI), built around four decision inputs — registration status, true cost including paid training, which document to follow where the web page and PDF differ, and degree of vendor lock-in — with per-reader recommendations and recertification math."
 draft: false
 ---
 
@@ -21,7 +21,7 @@ NVIDIA's generative AI certification line currently has four exams — two assoc
 
 For prices, validity, and gates across vendors, see [What AI certifications engineers can take in 2026](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en) — not repeated here.
 
-## The Hardest Constraint First: Two of Them Can't Be Registered For
+## Decision Input One: Two of Them Can't Be Registered For
 
 Before comparing blueprints, difficulty, or resume value, look at the register button.
 
@@ -38,7 +38,7 @@ That constraint bites harder than it looks. **If your need has a deadline** — 
 
 Conversely, if you have no deadline and simply want to audit your own gaps against a blueprint, both professional blueprints are fully published and usable as a checklist today — just don't put "passed" on a near-term plan.
 
-## Decision Input Two: All Training Is Paid, So the Real Cost Isn't the Exam Fee
+## Decision Input Two: The Real Cost Is the Exam Fee Plus the Recommended Courses
 
 Almost every other vendor's official prep material is free — AWS Skill Builder's Exam Prep Plans, Microsoft Learn paths, Google Skills, Anthropic Academy. **NVIDIA's two professional exams are not**: their certification pages list recommended courses with prices attached in the Certification Learning Path block, from $30 to $500. The two associate exams used to do the same, but in autumn 2026 NVIDIA replaced their recommended training with [free open-source deep learning materials on GitHub](https://github.com/NVDLI/fundamentals-of-deep-learning) plus one DLI course, and those pages no longer show prices.
 
@@ -59,19 +59,19 @@ A few conclusions you can act on:
 
 **Three: the recommended training for the two associate exams was replaced.** In August NCA-GENL listed five paid courses ($390 for the self-paced set), and two of NCA-GENM's five existed only as $500 workshops. Both now list one free open-source set of deep learning materials plus one course: the LLM application development course for NCA-GENL and the multimodal agent course for NCA-GENM. The free materials alone map to most weighted areas of both exams, so most of the official path can now be followed without paying for courses. Details are in the [NCA-GENL](/posts/ai/2026-08-18-nvidia-nca-genl-prep-guide-en) and [NCA-GENM](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en) guides.
 
-**Four: NCP-GENL carries the highest list price.** Its five recommended courses total **$1,620** ($90 + $500 + $500 + $500 + $30), and one oddity sits inside that: Deploying RAG Pipelines for Production at Scale is labelled "Self-Paced" yet priced at $500, while the similarly named **Introduction to** Deploying RAG Pipelines… on the NCP-AAI page is $90. The course codes differ (`C-FX-18` versus `S-FX-19`) — they are different courses, so **check the code before buying**.
+**Four: NCP-GENL carries the highest list price.** Its five recommended courses total **$1,620** ($90 + $500 + $500 + $500 + $30), and one thing to watch inside that: Deploying RAG Pipelines for Production at Scale is labelled "Self-Paced" yet priced at $500, while the similarly named **Introduction to** Deploying RAG Pipelines… on the NCP-AAI page is $90. The course codes differ (`C-FX-18` versus `S-FX-19`) — they are different courses, so **check the code before buying**.
 
 **Suggested buying order**: start with the $30 course belonging to your target exam, add $90 courses by domain weight, and consider a $500 workshop only when your employer is paying. For NCP-GENL specifically, if the company pays, Model Parallelism at $500 is the one that maps onto its core (essentially all of GPU Acceleration's 14%).
 
-## Decision Input Three: Which Official Numbers to Trust
+## Decision Input Three: Which Document to Follow When the Web Page and PDF Differ
 
 This section is unnecessary for most vendors. It is necessary here. **NVIDIA's own web pages and PDFs disagree, and more than once.**
 
-| Exam | The contradiction | Status |
+| Exam | What differs | Status |
 |---|---|---|
 | **NCP-AAI** | Two rows differ: Deployment and Scaling is **13% on the web page, 5% in the PDF**; Run, Monitor, and Maintain is **5% on the web page, 7% in the PDF**. The two versions total **98%** and **92%** — **neither adds to 100%** | Both are nvidia.com official documents |
-| **NCP-GENL** | Two cells of the web weight table carry misplaced description text: the Model Optimization (17%) cell describes **deployment** (containerized inference, Kubernetes, Triton), and the Fine-Tuning (13%) cell describes **data interchange with OpenUSD**, which has nothing to do with fine-tuning | **The weights themselves are correct; only the descriptions are broken.** The PDF study guide describes both domains normally |
-| **NCA-GENL / NCA-GENM** | Item count: the page body says "includes 50 questions" while the spec block says "50–60 multiple-choice" | Both numbers coexist on the same page |
+| **NCP-GENL** | Two cells of the web weight table carry misplaced description text: the Model Optimization (17%) cell describes **deployment** (containerized inference, Kubernetes, Triton), and the Fine-Tuning (13%) cell describes **data interchange with OpenUSD**, which has nothing to do with fine-tuning | **The weights themselves are correct; only the descriptions are misplaced.** The PDF study guide describes both domains normally |
+| **NCA-GENM** | Item count: the page body says "includes 50 questions" while the spec block says "50–60 multiple-choice" | Both numbers coexist on the same page; the NCA-GENL page now says only 50–60 |
 
 **How to use this when deciding:**
 
@@ -153,15 +153,15 @@ So the long-run cost of each credential is "first attempt plus a full-price reta
 | Heaviest domain | Core ML 30% | Experimentation 25% | Model Optimization 17% + GPU 14% | Architecture 15% + Development 15% |
 | Self-paced course cost | open-source materials free; other course $90 | open-source materials free; other course has no self-paced version | $620 (three, one "self-paced" at $500) | **$300 (four)** |
 | NVIDIA lock-in | Low | Medium (four SDKs) | **High (31% hardware layer)** | **Lowest (7%)** |
-| Official-doc problem | two item counts | two item counts | two misplaced cells | weights: web 98% / PDF 92% |
+| Official-doc inconsistency | none | two item counts | two misplaced cells | weights: web 98% / PDF 92% |
 | Who it fits | postings naming NVIDIA GenAI/LLM | image, audio, cross-modal work | training and inference optimization | production agent systems |
 
-## What Will Go Stale (Check Here Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status (verified 2026-08-19) | Recheck |
 |---|---|---|
 | Registration status of both professionals | still Coming soon | **monthly** |
-| NCP-AAI weight contradiction | web 98%, PDF 92%; two rows differ | when registration opens |
+| NCP-AAI: two weights that differ | web 98%, PDF 92%; two rows differ | when registration opens |
 | NCP-GENL's two misplaced web cells | still wrong (Model Optimization describes deployment, Fine-Tuning describes OpenUSD) | quarterly |
 | DLI courses and prices | professional exams: three tiers, $30 / $90 / $500; associate exams: no prices on the page | quarterly |
 | Exam fees and validity | $125 / $200, two years, retake only | every six months |

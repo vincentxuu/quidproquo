@@ -8,7 +8,7 @@ lang: en
 series:
   name: "AI Certification Prep"
   order: 1
-tldr: "The AIF-C01 exam guide moved to v1.1 on April 30, 2026, adding seven objectives — MCP, multi-agent patterns, context engineering, token-based pricing, and hallucination detection all became testable, with Bedrock AgentCore, Kiro, and Strands Agents joining in-scope services. Almost every summary online describes the older version. This guide builds on the official five-domain weighting, integrating AWS's four-step prep method and field-tested advice from 10+ candidates who passed. $100, 90 minutes, 65 questions (50 scored), pass at 700, valid 3 years — the only exam in this series offered in Traditional Chinese."
+tldr: "The AIF-C01 exam guide moved to v1.1 on April 30, 2026, adding seven objectives — MCP, multi-agent patterns, context engineering, token-based pricing, and hallucination detection all became testable, with Bedrock AgentCore, Kiro, and Strands Agents joining in-scope services. Almost every summary online describes the older version. This guide builds on the official five-domain weighting, integrating AWS's four-step prep method and field-tested advice from 10+ candidates who passed. $100, 90 minutes, 65 questions (50 scored), pass at 700, valid 3 years — and it is offered in Traditional Chinese."
 description: "AWS Certified AI Practitioner (AIF-C01) preparation guide built on exam guide v1.1: domain-by-domain breakdown with community-sourced exam insights, the official four-step study method, AI-assisted study strategies, Skill Builder resource guide, and renewal rules."
 draft: false
 ---
@@ -29,7 +29,7 @@ For prices, validity, and gates across vendors, see [What AI certifications engi
 
 **None** of the following is tested: coding models or algorithms, data engineering and feature engineering, hyperparameter tuning, building AI/ML pipelines or infrastructure, mathematical or statistical analysis of models, implementing security or compliance protocols, developing governance frameworks.
 
-**A fit** for PMs, sales, marketing, and compliance people who need to talk to an AI team, or engineers new to AWS AI services who want the vocabulary in one pass. **It is the only exam in this series offered in Traditional Chinese** — candidates who chose it report acceptable translation quality, and the exam interface lets you switch to the English original on any question.
+**A fit** for PMs, sales, marketing, and compliance people who need to talk to an AI team, or engineers new to AWS AI services who want the vocabulary in one pass. **It is offered in Traditional Chinese, the only one of AWS's three AI exams that is** — candidates who chose it report acceptable translation quality, and the exam interface lets you switch to the English original on any question.
 
 **Not a fit** for proving engineering ability. **AIF tests whether you can describe it, MLA tests whether you can build it** — the boundary is clean.
 
@@ -238,7 +238,7 @@ All resources below are on [AWS Skill Builder](https://skillbuilder.aws). Free a
 
 AIF-C01 **has no "take a course instead" path** (the maintain mechanism only covers SAA, Developer, etc.), and **you cannot retake the same exam within two years of passing**.
 
-## Things That Will Go Stale (Check These Next Time)
+## What May Change (Re-check Before You Register)
 
 | Item | Status as of 2026-08-18 | When to re-check |
 |---|---|---|
@@ -251,6 +251,7 @@ AIF-C01 **has no "take a course instead" path** (the maintain mechanism only cov
 
 ## Changelog
 
+- 2026-10-12: "The only exam in this series offered in Traditional Chinese" now reads as the only one of AWS's three; five Microsoft exams added to the series later offer it too.
 - 2026-09-10: Full rewrite — restructured around the official four-step prep method, integrated field-tested advice from 10+ candidates across all sections (study materials, AI-assisted strategies, the perfect-score four-layer method, exam-day tips, common pitfalls), added Skill Builder resource guide, prerequisites, and language retirement note
 
 ## References
