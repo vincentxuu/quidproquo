@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, cissp, comptia, aws, career, roi]
 lang: zh-TW
-tldr: "Security+（$439）2–3 個月自學、首次通過率 50–65%、薪資溢價 +$10K–$20K；AWS Security Specialty（$300）2–3 個月、通過率 45–55%、ROI 最高（40–67x）；CISSP（$749）3–6 個月、通過率 50–60%、薪資溢價 +$25K–$35K 但需 5 年經驗。五年取得加維護總成本（含教材估算）：Security+ 約 $619、AWS Security $200–$350（無年費）、CISSP 約 $1,524。"
+tldr: "Security+（$439）2–3 個月自學、官方不公布通過率、薪資溢價 +$10K–$20K；AWS Security Specialty（$300）2–3 個月、通過率 45–55%、ROI 最高（40–67x）；CISSP（$749）3–6 個月、通過率 50–60%、薪資溢價 +$25K–$35K 但需 5 年經驗。五年取得加維護總成本（含教材估算）：Security+ 約 $619、AWS Security $200–$350（無年費）、CISSP 約 $1,524。"
 description: "用真實數據比較 Security+、AWS Security Specialty、CISSP 三張經典資安證照的準備時間、通過率、考試費、五年維護成本與薪資溢價，幫你算清楚每一塊錢的回報。"
 draft: false
 series:
@@ -92,16 +92,16 @@ AWS Security Specialty 的五年持有成本最低，特別是你已經有其他
 
 ### Security+
 
-依 [SecuSpark 2026 統計分析](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)：
+CompTIA 不公布任何考試的通過率。依 [SecuSpark 的整理](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)，網路上的百分比來自培訓商自報、論壇投票或互相轉引，都沒有可查的方法。能確定的只有官方規則和你自己的模擬考表現：
 
-| 情境 | 首次通過率（估） |
+| 項目 | 內容 |
 |---|---|
-| 自學（100+ 小時） | 50–65% |
-| 搭配培訓 | 85–93% |
-| 模擬考穩定 85%+ 再報名 | 90%+ |
-| 準備不足 | < 50% |
+| 及格分數 | 750（量尺 100–900，不是百分比） |
+| 重考 | 第一次沒過可立即重考；之後每次須間隔 14 天，每次都付全額 |
+| 建議準備時數 | 80–120 小時以上（不含被動看影片） |
+| 報名前的門檻 | 在沒看過的題目上、至少兩個不同題庫來源，穩定 85% 以上 |
 
-**關鍵指標**：模擬考分數是最強的預測因子。如果你在練習題上穩定拿 85%+，真實考試通過率超過 90%。
+**關鍵指標**：看的是沒做過的題目。SecuSpark 自家資料顯示，同一批學員第一次看到題目的正確率是 73.5%，第二次作答升到 90.5%，重複刷同一份題庫會高估實力。
 
 ### AWS Security Specialty
 
@@ -148,18 +148,19 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 
 ### 台灣市場
 
-依 [CloudInsight 2026 薪資調查](https://cloudinsight.cc/zh/blog/security-engineer-guide)：
+[CloudInsight 的資安工程師指南](https://cloudinsight.cc/zh/blog/security-engineer-guide)引用 104 薪資情報「資安工程師」的統計（2026/9/28 更新、有效樣本 543）：
 
-| 年資 | 月薪範圍 (NTD) | 年薪估算 |
+| 年資 | 月薪 P25–P75 (NTD) | 月均薪 |
 |---|---|---|
-| 0–2 年 | 40,000–55,000 | 52–72 萬 |
-| 3–5 年 | 55,000–80,000 | 72–104 萬 |
-| 5–8 年 | 80,000–120,000 | 104–156 萬 |
-| 8 年以上 | 120,000–200,000+ | 156–260 萬+ |
+| 1 年以下 | 41,000–60,000 | 55,000 |
+| 1–3 年 | 45,000–63,000 | 56,000 |
+| 3–5 年 | 46,000–68,000 | 59,000 |
+| 5–10 年 | 51,000–74,000 | 63,000 |
+| 10 年以上 | 51,000–87,000 | 72,000 |
 
-持有 CISSP / OSCP 等高階證照，薪資可多 **10–20%**。金融業薪資最高，外商比本土高 20–50%。
+資安主管與 CISO 另列為其他職務，不在表內。金融業薪資水平最高，科技業次之。該文對證照的說法是：CISSP、OSCP 是談薪的加分項，但沒有實務經驗、光靠證照，對薪資的幫助有限。
 
-台灣的薪資溢價幅度沒有美國那麼誇張（$25K–$35K 約等於 NT$80 萬–NT$112 萬，在台灣幾乎是一整個 junior 的年薪），但在升遷和跳槽的談判上，證照仍然是硬指標。特別是 CISSP——在台灣持證者不多，稀缺性讓它在面對企業客戶時有很強的信任信號。
+台灣的薪資溢價幅度沒有美國那麼誇張（$25K–$35K 約等於 NT$80 萬–NT$112 萬，在台灣幾乎是一整個 junior 的年薪），但在升遷和跳槽的談判上，證照仍然是硬指標。特別是 CISSP——在台灣持證者不多，稀缺性讓它在面對企業客戶時有很強的信任訊號。
 
 ## ROI 排名
 
@@ -183,6 +184,7 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 
 ## 更新紀錄
 
+- 2026-10-12：Security+ 通過率與台灣薪資兩段原本引用的數字，來源頁改版後已不再支持；通過率改寫為官方規則與備考門檻，薪資表改用來源現在引用的 104 薪資情報統計，並移除「證照多 10–20%」「外商高 20–50%」。
 - 2026-10-08：CISSP 年費由 $125 更正為 $135，Security+ 考試費改用調價後的 $439，五年總成本與 ROI 倍數隨之重算；補上 Security+ V8 上線與 SY0-701 退役時程；tldr 的成本數字原本與內文表格不一致，已對齊；移除無來源的「台灣約 500 人持有 CISSP」；修正恆逸 CISSP 連結。
 
 ## 參考資料
@@ -190,7 +192,7 @@ CISSP 的難不在單一題目，在於它的 CAT（電腦適性測驗）格式�
 - [CompTIA Security+ 官方認證頁](https://www.comptia.org/certifications/security)
 - [AWS Certified Security – Specialty（SCS-C03）](https://aws.amazon.com/certification/certified-security-specialty/)
 - [ISC2 CISSP 認證頁](https://www.isc2.org/certifications/cissp)
-- [SecuSpark — Security+ Pass Rate Statistics 2026](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)
+- [SecuSpark — Security+ Pass Rate 2026: Why There Is No Official Number](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)
 - [Training Camp — CISSP Pass Rate 2026](https://trainingcamp.com/articles/cissp-pass-rate-what-the-numbers-actually-show-in-2026)
 - [Pruvos — AWS SCS-C03 Practice Tests & Pass Rate](https://www.pruvos.com/certifications/cloud-computing/aws-scs-c03)
 - [CyberSecJobs — Best Cybersecurity Certifications 2026（ROI 分析）](https://cybersecjobs.com/best-cybersecurity-certifications)

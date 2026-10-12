@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, ai-security, owasp, llm, prompt-injection]
 lang: en
-tldr: "Four AI security certs, four different bets: SecAI+ ($359) is CompTIA's mid-level expansion play, CAISP ($999 all-in) has the strongest hands-on labs and fullest OWASP LLM Top 10 coverage, GAIPS ($999/$9K) is the SANS gold-standard defender cert with CyberLive exams, and AAISM ($459+) is governance-layer but requires CISM or CISSP first. Under $400 → SecAI+. Want to actually hack and fix → CAISP. Company paying → GAIPS. For the offensive side (AI red teaming), OSAI+, HTB COAE, and COASP launched in 2026 and form their own group; see the section near the end."
+tldr: "Four AI security certs, four different bets: SecAI+ ($298) is CompTIA's mid-level expansion play, CAISP ($1,099 all-in) has the strongest hands-on labs and fullest OWASP LLM Top 10 coverage, GAIPS ($999/$9K) is the SANS gold-standard defender cert with CyberLive exams, and AAISM ($459+) is governance-layer but requires CISM or CISSP first. Under $400 → SecAI+. Want to actually hack and fix → CAISP. Company paying → GAIPS. For the offensive side (AI red teaming), OSAI+, HTB COAE, and COASP launched in 2026 and form their own group; see the section near the end."
 description: "A head-to-head comparison of four emerging AI security certifications — exam domains, formats, OWASP LLM Top 10 coverage, and real exam-taker reviews — to help AI platform developers pick the right one."
 draft: false
 series:
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [中文版](/posts/tech/2026-09-10-ai-security-cert-showdown)
 
-ISACA launched AAISM in August 2025. CompTIA shipped SecAI+ in February 2026. GIAC opened GASAE in April, then GAIPS in July. In 18 months, four major certification bodies each placed their bet on AI security. Per [Practical DevSecOps market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), the share of cybersecurity job postings requiring AI skills doubled from 14.2% to 28.5% between October 2025 and March 2026. Demand is real — but which cert actually teaches you something?
+ISACA launched AAISM in August 2025. CompTIA shipped SecAI+ in February 2026. GIAC opened GASAE in April, then GAIPS in July. In 18 months, four major certification bodies each placed their bet on AI security. Per Cisco AI Workforce Consortium data cited in [Practical DevSecOps' market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), 28.5% of cybersecurity job postings between October 2025 and March 2026 required AI skills, up from 14.2% in the same period a year earlier. Demand is real — but which cert actually teaches you something?
 
 This post uses the OWASP LLM Top 10 v2.0 as the measuring stick, then takes apart each certification's exam domains, format, and real-world reviews to help you pick.
 
@@ -53,7 +53,7 @@ CompTIA's first AI-security-only certification, launched February 17, 2026. Part
 | Exam code | CY0-001 |
 | Questions / time | Up to 60 (multiple-choice + PBQs) / 60 minutes |
 | Passing score | 600/900 |
-| Cost | **$359** (exam voucher only; study materials sold separately) |
+| Cost | **$298** (exam voucher only; study materials sold separately; $359 at the February 2026 launch) |
 | Validity | 3 years, CEU renewal |
 | Recommended experience | 3–4 years IT + 2 years cybersecurity |
 
@@ -76,24 +76,24 @@ Concept-level coverage of Prompt Injection, Data Poisoning, Supply Chain, and Im
 
 ### Best for
 
-Someone with Security+ or equivalent who wants to quickly add "AI security" to their resume on a budget ($359 voucher + $30–$100 materials). CompTIA's brand recognition with HR departments is a real advantage.
+Someone with Security+ or equivalent who wants to quickly add "AI security" to their resume on a budget ($298 voucher + $30–$100 materials). CompTIA's brand recognition with HR departments is a real advantage.
 
 ## Practical DevSecOps CAISP
 
 ### Positioning
 
-A hands-on AI security certification from Practical DevSecOps, available since late 2024. Not a multiple-choice exam — you get 6 hours to hack and fix an LLM pipeline, then 24 hours to write the report.
+A hands-on AI security certification from Practical DevSecOps, available since the second half of 2024 (the earliest archived copy of the official course page is from September 2024). Not a multiple-choice exam — you get 6 hours to hack and fix an LLM pipeline, then 24 hours to write the report.
 
 ### Exam format
 
 | Detail | Info |
 |---|---|
-| Cost | **$999–$1,099 all-in** (course videos, PDF, 60-day lab, 24/7 Mattermost support, 1 exam attempt) |
+| Cost | **$1,099 all-in** (course videos, PDF, 60-day lab, 24/7 Mattermost support, 1 exam attempt) |
 | Exam format | 6h practical (5 challenges, 100 points, 80 to pass) + 24h report |
 | Validity | Lifetime |
 | Prerequisites | None |
 
-**Pricing structure matters**: SecAI+'s $359 buys only the exam voucher — materials and training are extra. CAISP's $999–$1,099 includes everything. Per [Practical DevSecOps' comparison](https://www.practical-devsecops.com/caisp-vs-comptia-secai-plus), SecAI+ with an Infosec Institute boot camp totals over $2,500.
+**Pricing structure matters**: SecAI+'s $298 buys only the exam voucher — materials and training are extra. CAISP's $1,099 includes everything. Per [Practical DevSecOps' comparison](https://www.practical-devsecops.com/caisp-vs-comptia-secai-plus), SecAI+ with an Infosec Institute boot camp totals over $2,500.
 
 ### Course content and labs
 
@@ -188,7 +188,7 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 
 | | SecAI+ | CAISP | GAIPS | AAISM |
 |---|---|---|---|---|
-| **Cost** | $359 (voucher only) | $999–$1,099 (all-in) | ~$999 exam / ~$9K with course | $459–$599 |
+| **Cost** | $298 (voucher only) | $1,099 (all-in) | ~$999 exam / ~$9K with course | $459–$599 |
 | **Exam format** | 60 questions / 60 min | 6h hands-on + 24h report | CyberLive hands-on | 90 questions / 150 min |
 | **Hands-on depth** | PBQs (limited) | **Highest** (real labs) | **High** (VM environment) | None (multiple-choice) |
 | **Brand recognition** | CompTIA (strong with HR) | Practical DevSecOps (niche) | SANS/GIAC (industry gold) | ISACA (strong in governance) |
@@ -218,7 +218,7 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 
 | Budget | Pick | Why |
 |---|---|---|
-| < $400 | **SecAI+** | $359 voucher, CompTIA brand recognition |
+| < $400 | **SecAI+** | $298 voucher, CompTIA brand recognition |
 | ~$1,000 | **CAISP** | All-inclusive with labs, strongest hands-on |
 | Company-funded | **GAIPS** (with SEC545) | SANS gold standard + CyberLive |
 | Already hold CISSP/CISM | Add **AAISM** | AI security governance specialization |
@@ -237,7 +237,7 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 
 | You want... | Choose |
 |---|---|
-| Fast resume boost | SecAI+ (60-minute exam, $359) |
+| Fast resume boost | SecAI+ (60-minute exam, $298) |
 | Actual defensive skills | CAISP (6h practical, lab memory) |
 | Top-tier brand credential | GAIPS (SANS/GIAC) |
 | AI governance framework | AAISM (ISACA) |
@@ -302,6 +302,7 @@ If you can only pick one: for AI Agent platform developers, CAISP's lab training
 
 ## Update log
 
+- 2026-10-12: SecAI+ exam fee changed from $359 to the current $298. CAISP updated to its current $1,099. Fixed the wording of the AI job-posting statistic (28.5% compares with 14.2% in the same period a year earlier).
 - 2026-10-08: Added the section "New in 2026: four offensive-side certifications" (COASP, OSAI+, HTB COAE, GOAA) and entries for SC-500, AAIR, and TAISE. Corrected ISC2's status (the original said "CCAI in pilot," which was wrong; development was only announced in July 2026). OSAI changed from "coming soon" to available.
 
 ## References

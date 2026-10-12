@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, ai-security, owasp, llm, prompt-injection]
 lang: zh-TW
-tldr: "四張 AI 安全證照各有定位：SecAI+（$359）是 CompTIA 品牌的中階擴充、CAISP（$999 全包）實作最強且 OWASP LLM Top 10 覆蓋最完整、GAIPS（$999/$9K）是 SANS 金字招牌的防禦側 CyberLive 考試、AAISM（$459+）偏治理但需先持有 CISM 或 CISSP。預算 $400 以下選 SecAI+，想動手做選 CAISP，公司出錢選 GAIPS。想走攻擊側（AI 紅隊），2026 年新上線的 OSAI+、HTB COAE、COASP 另成一組，見文末補充。"
+tldr: "四張 AI 安全證照各有定位：SecAI+（$298）是 CompTIA 品牌的中階擴充、CAISP（$1,099 全包）實作最強且 OWASP LLM Top 10 覆蓋最完整、GAIPS（$999/$9K）是 SANS 金字招牌的防禦側 CyberLive 考試、AAISM（$459+）偏治理但需先持有 CISM 或 CISSP。預算 $400 以下選 SecAI+，想動手做選 CAISP，公司出錢選 GAIPS。想走攻擊側（AI 紅隊），2026 年新上線的 OSAI+、HTB COAE、COASP 另成一組，見文末補充。"
 description: "深入比較 2025–2026 年四張新興 AI 安全證照的考域、考試格式、OWASP LLM Top 10 覆蓋度與真實考生口碑，幫 AI 平台開發者選出最適合的一張。"
 draft: false
 series:
@@ -15,7 +15,7 @@ series:
 
 > 🌏 [English version](/posts/tech/2026-09-10-ai-security-cert-showdown-en)
 
-2025 年 8 月 ISACA 推出 AAISM，2026 年 2 月 CompTIA 上線 SecAI+，4 月 GIAC 開賣 GASAE，7 月再加 GAIPS——18 個月內四大認證機構各自押寶 AI 安全。依 [Practical DevSecOps 的市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)，2025/10 至 2026/3 之間，要求 AI 技能的資安職缺比例從 14.2% 翻倍到 28.5%。需求在那裡，但哪張證照真的教你東西？
+2025 年 8 月 ISACA 推出 AAISM，2026 年 2 月 CompTIA 上線 SecAI+，4 月 GIAC 開賣 GASAE，7 月再加 GAIPS——18 個月內四大認證機構各自押寶 AI 安全。依 [Practical DevSecOps 的市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)引用的 Cisco AI Workforce Consortium 數據，2025/10 至 2026/3 之間有 28.5% 的資安職缺要求 AI 技能，前一年同期是 14.2%。需求在那裡，但哪張證照真的教你東西？
 
 這篇拿 OWASP LLM Top 10 v2.0 當標尺，拆解四張 AI 安全證照的考域、考試格式和真實口碑，幫你選出最適合的一張。
 
@@ -53,7 +53,7 @@ CompTIA 在 2026/2/17 推出的第一張 AI 安全專屬證照，屬於「Expans
 | 考試代碼 | CY0-001 |
 | 題數 / 時間 | 最多 60 題（選擇 + 情境實作 PBQ）/ 60 分鐘 |
 | 及格線 | 600/900 |
-| 費用 | **$359**（考券 only，教材另購） |
+| 費用 | **$298**（考券 only，教材另購；2026/2 上線時為 $359） |
 | 效期 | 3 年，需 CEU 續期 |
 | 建議經驗 | 3–4 年 IT + 2 年資安 |
 
@@ -76,24 +76,24 @@ Prompt Injection、Data Poisoning、Supply Chain、Improper Output Handling 都�
 
 ### 適合誰
 
-已有 Security+ 或同等經驗，想快速在履歷上加一行「AI 安全」，預算有限（$359 考券 + $30–$100 教材）。CompTIA 品牌在 HR 端的辨識度是真實優勢。
+已有 Security+ 或同等經驗，想快速在履歷上加一行「AI 安全」，預算有限（$298 考券 + $30–$100 教材）。CompTIA 品牌在 HR 端的辨識度是真實優勢。
 
 ## Practical DevSecOps CAISP
 
 ### 定位
 
-由 Practical DevSecOps 推出的實作導向 AI 安全證照，從 2024 Q4 開始販售。不是選擇題考試——6 小時實戰 + 24 小時報告，你得真的攻破和修復 LLM pipeline。
+由 Practical DevSecOps 推出的實作導向 AI 安全證照，2024 下半年開始販售（官方課程頁最早的存檔是 2024/9）。不是選擇題考試——6 小時實戰 + 24 小時報告，你得真的攻破和修復 LLM pipeline。
 
 ### 考試格式
 
 | 項目 | 內容 |
 |---|---|
-| 費用 | **$999–$1,099 全包**（含課程影片、PDF、60 天 lab、24/7 Mattermost 支援、1 次考試） |
+| 費用 | **$1,099 全包**（含課程影片、PDF、60 天 lab、24/7 Mattermost 支援、1 次考試） |
 | 考試格式 | 6h 實作（5 題，滿分 100，80 分及格）+ 24h 報告撰寫 |
 | 效期 | 終身有效 |
 | 先決條件 | 無 |
 
-**價格結構很重要**：SecAI+ 的 $359 只買到考券，教材和培訓另算；CAISP 的 $999–$1,099 已含所有教材、60 天 lab 和一次考試。依 [Practical DevSecOps 的比較](https://www.practical-devsecops.com/caisp-vs-comptia-secai-plus)，SecAI+ 加上 Infosec Institute 的 boot camp 總成本超過 $2,500。
+**價格結構很重要**：SecAI+ 的 $298 只買到考券，教材和培訓另算；CAISP 的 $1,099 已含所有教材、60 天 lab 和一次考試。依 [Practical DevSecOps 的比較](https://www.practical-devsecops.com/caisp-vs-comptia-secai-plus)，SecAI+ 加上 Infosec Institute 的 boot camp 總成本超過 $2,500。
 
 ### 課程內容與 Lab
 
@@ -188,7 +188,7 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 
 | | SecAI+ | CAISP | GAIPS | AAISM |
 |---|---|---|---|---|
-| **費用** | $359（考券 only） | $999–$1,099（全包） | ~$999 考 / ~$9K 含課 | $459–$599 |
+| **費用** | $298（考券 only） | $1,099（全包） | ~$999 考 / ~$9K 含課 | $459–$599 |
 | **考試格式** | 60 題 / 60 分鐘 | 6h 實戰 + 24h 報告 | CyberLive 實作 | 90 題 / 150 分鐘 |
 | **動手程度** | PBQ（有限） | **最高**（真實 lab） | **高**（VM 環境） | 無（純選擇題） |
 | **品牌認可** | CompTIA（HR 端強） | Practical DevSecOps（利基） | SANS/GIAC（業界最高） | ISACA（治理圈強） |
@@ -218,7 +218,7 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 
 | 預算 | 首選 | 原因 |
 |---|---|---|
-| < $400 | **SecAI+** | $359 考券，CompTIA 品牌辨識度高 |
+| < $400 | **SecAI+** | $298 考券，CompTIA 品牌辨識度高 |
 | $1,000 左右 | **CAISP** | 全包含 lab，實作最強 |
 | 公司出錢 | **GAIPS**（含 SEC545 課程） | SANS 金字招牌 + CyberLive 實作 |
 | 已有 CISSP/CISM | 加考 **AAISM** | 治理層面的 AI 安全專門化 |
@@ -237,7 +237,7 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 
 | 你要的是… | 選這張 |
 |---|---|
-| 履歷快速加分 | SecAI+（60 分鐘考完，$359） |
+| 履歷快速加分 | SecAI+（60 分鐘考完，$298） |
 | 真的會動手防禦 | CAISP（6h 實戰，有 lab 記憶） |
 | 頂級品牌背書 | GAIPS（SANS/GIAC） |
 | AI 治理框架 | AAISM（ISACA） |
@@ -302,6 +302,7 @@ AI 安全證照市場極度年輕——18 個月前這些證照一張都不存�
 
 ## 更新紀錄
 
+- 2026-10-12：SecAI+ 考試費由 $359 改為現行的 $298；CAISP 改為現價 $1,099；修正 AI 職缺比例的敘述（28.5% 對比的是前一年同期的 14.2%）。
 - 2026-10-08：新增「2026 年新上線：攻擊側的四張」一節（COASP、OSAI+、HTB COAE、GOAA），補上 SC-500、AAIR、TAISE；更正 ISC2 的進度（原文寫「CCAI pilot 中」有誤，實際是 2026/7 才宣布開始開發）；OSAI 由「即將推出」改為已上線。
 
 ## 參考資料

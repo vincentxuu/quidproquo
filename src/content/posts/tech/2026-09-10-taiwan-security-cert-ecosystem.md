@@ -5,8 +5,8 @@ category: tech
 type: guide
 tags: [cybersecurity, certification, taiwan, career, cissp, comptia, training]
 lang: zh-TW
-tldr: "台灣資安法 2.0 已三讀、金管會三級制度到位，但都不強制指定證照——真正的需求來自徵才市場。台灣有 7+ 家培訓機構可選：恆逸課程最齊全（SecAI+、COASP、OSAI+ 三種 AI 安全實體班都有）、WUSON 吳文智是 CISSP 圈的傳奇（月月額滿）、DEVCORE 是首家引進 OffSec 原廠講師的機構。考場在台北信義區和高雄，多數證照也支援在家線上監考。"
-description: "台灣資安證照生態的完整指南：資安法 2.0 與金管會管控指引的實際影響、7 家培訓機構比較、考場位置、iPAS 在地證照、備考資源與免費起步路徑。"
+tldr: "台灣資安法 2.0 已三讀、金管會三級制度到位，但都不強制指定證照——真正的需求來自徵才市場。台灣有 7+ 家培訓機構可選：恆逸課程最齊全（SecAI+、COASP、OSAI+ 三種 AI 安全實體班都有）、WUSON 吳文智是 CISSP 圈的傳奇（月月額滿）、DEVCORE 是首家引進 OffSec 原廠講師的機構。ISC2 考場在台北信義區和高雄，多數證照也支援在家線上監考。"
+description: "台灣資安證照生態的完整指南：資安法 2.0、金管會資安人力分級與證交所管控指引的實際影響、7 家培訓機構比較、考場位置、iPAS 在地證照、備考資源與免費起步路徑。"
 draft: false
 series:
   name: "資安證照攻略"
@@ -19,7 +19,7 @@ series:
 
 ## 法規：推力在哪裡
 
-### 資安法 2.0（2025/8/29 三讀，2026 上半年子法施行）
+### 資安法 2.0（2025/8/29 三讀，2025/12/1 施行，子法 2026/1 修正發布）
 
 依 [SSDLC by 飛飛的法規分析](https://ssdlc.feifei.tw/taiwan-legal-compliance-guide-pdpa-cybersecurity-act-ssdlc)，本次是資安法自 2019 年施行以來的首次重大修正：
 
@@ -37,9 +37,9 @@ series:
 - 每人每 2 年 ≥3 小時專業訓練
 - 每年 ≥3 小時通識教育
 
-### 金管會上市櫃資通安全管控指引
+### 金管會資安人力分級與證交所管控指引
 
-依 [ICSDA 問答整理](https://icsda.org.tw/)，上市櫃公司依規模分三級：
+這裡是兩份文件，常被合稱「金管會指引」。有強制力的是金管會 2021/12/28 的函令（金管證審字第 11003656544 號，依《公開發行公司建立內部控制制度處理準則》第 9 條之 1）。依[證交所的宣導簡報](https://www.twse.com.tw/staticFiles/news/event/8a8216d69236c2e3019240ce8ac7000c.pdf)，上市櫃公司依規模分三級配置資安人力，等級只升不降：
 
 | 級別 | 條件 | 資安人力要求 | 完成時程 |
 |---|---|---|---|
@@ -47,7 +47,7 @@ series:
 | 第二級 | 其餘未連續虧損 | 資安專責主管 + ≥1 名專責人員 | 2023 年底 |
 | 第三級 | 連續虧損或每股淨值低於面額 | 鼓勵 ≥1 名 | 無固定 |
 
-指引「建議」的證照：**CISSP、CISM、中級資訊安全工程師**。但同樣不強制。
+另一份是證交所與櫃買中心發布的《上市上櫃公司資通安全管控指引》，共十章，涵蓋政策與組織、風險評估、防護控制、委外管理、事件通報等，屬參考性質，公司可依產業特性與規模適度採行。[指引本文](https://dsp.tpex.org.tw/storage/co_download/%E4%B8%8A%E5%B8%82%E4%B8%8A%E6%AB%83%E5%85%AC%E5%8F%B8%E8%B3%87%E9%80%9A%E5%AE%89%E5%85%A8%E7%AE%A1%E6%8E%A7%E6%8C%87%E5%BC%95.pdf)沒有提到任何證照，只要求資安主管與人員每年接受專業課程訓練。證期局的內控處理準則問答集提到公司可「給予適當之教育訓練或要求取得相關之資通安全職能證照」，但沒有指定哪一張。常聽到的 **CISSP、CISM、中級資訊安全工程師**，是 ICSDA 等民間單位的實務建議，不是指引的要求。
 
 **真正的推力來自徵才市場**。依 [國泰證券 2025 永續報告](https://www.cathaysec.com.tw/download/2025年永續報告書.pdf)，其 11 名資安專責人員共持有 25 張國際證照，分布：ISO 27701 主導稽核員（20 張）、CEH（6 張）、CompTIA Security+（4 張）、CISM（2 張）、CISSP（1 張）、CCSP（1 張）。[華南銀行 2026/09 的 104 職缺](https://www.104.com.tw/job/7o6p3)則直接列出認可清單：CISSP、CISM、Security+、AWS Security Specialty、CEH、CCSP、CSSLP。
 
@@ -69,11 +69,11 @@ series:
 | 機構 | 授權 | 主要證照課程 | 特色 | 參考價格帶 |
 |---|---|---|---|---|
 | [恆逸教育訓練中心](https://www.uuu.com.tw/Course/Show/47/CISSP) | EC-Council / CompTIA / ISC2 | CISSP、CCSP、CSSLP、SSCP、[Security+](https://www.uuu.com.tw/Course/Show/1607/CompTIA-Security-)、[SecAI+](https://www.uuu.com.tw/Course/Show/3328/CompTIA-SecAI-)、CySA+、CEH、CPENT、CCT、[COASP AI 資安專家](https://www.uuu.com.tw/Course/Show/3332/COASP)、[OSAI+](https://www.uuu.com.tw/Course/Show/3408/OSAI)、CCSE | **課程最齊全**——SecAI+、COASP、OSAI+ 三種 AI 安全實體班都有；三大認證機構授權都有 | NT$42,000–$65,000（依證照）；COASP NT$68,000、OSAI+ NT$149,000 |
-| [全智網科技 AI Network](https://ainetwork-training.com/) | ISC2 / Cisco / CompTIA / Palo Alto | CISSP、CCSP、CEH、SecAI+、CCNA | 台北實體小班制，CISSP 附 2 天總複習班（市值 NT$20,000）；2026/09 正在推 SecAI+ webinar | NT$32,200+（CISSP 假日班特價） |
+| [全智網科技 AI Network](https://ainetwork-training.com/) | ISC2 / Cisco / CompTIA / Palo Alto | CISSP、CCSP、Security+、SecAI+、CCNA | 台北實體小班制，CISSP 附 2 天總複習班（市值 NT$20,000）；2026/09 正在推 SecAI+ webinar | NT$36,000（CISSP 假日班早鳥，定價 NT$56,000） |
 | [WUSON 吳文智老師](https://wentzwu.com/courses) | — | **CISSP 專精** | 台灣唯一 CISSP 進階認證大滿貫（ISSAP + ISSEP + ISSMP）；每月開班，2026 全年到 2027 中已排滿且長期額滿；有 WUSON 志工教練團做考前社群輔導；以「WISE 資安基礎架構」教學法著稱 | 請洽官網 |
 | [iSpan 資展國際](https://www.ispan.com.tw/CISSP) | — | CISSP 輔導班 | 37 小時實體課，週末班；適合有底子想短期衝刺的人 | 請洽官網 |
-| [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OffSec 合作 | OSCP、OSWA、OSDA、OSEE | 台灣首家引進 OffSec 原廠講師實體課程；偏攻擊面，適合想走滲透測試的人 | NT$109,000（OSCP，依 [HackMD 整理](https://hackmd.io/@hiiii/ryOzgaf0a)） |
-| 巨匠電腦 | CompTIA | Security+、iPAS、基礎資安 | 全台連鎖、入門導向、價格較親民 | NT$10,000–$30,000（估） |
+| [DEVCORE](https://netmag.tw/2024/07/19/devcore-bring-global-security-training-agency-offsec-introduces-factory-instructor-physical-course-to-alive-taiwan-security-talent) | OffSec 合作 | OSCP+、OSEP、OSWE | 2024 年開出台灣首個 OffSec 原廠講師實體課程（當年為 OSCP、OSWA、OSDA、OSEE）；[2026 年](https://training.devco.re/2026)以 DEVCORE 講師中文授課為主；偏攻擊面，適合想走滲透測試的人 | NT$109,000（OSCP，依 [HackMD 整理](https://hackmd.io/@hiiii/ryOzgaf0a)） |
+| 巨匠電腦 | CompTIA | Security+、iPAS 資訊安全工程師初級 | 全台連鎖、入門導向；也是 Pearson VUE 合作考場 | 官網未標價 |
 
 ### AI 安全證照去哪上課
 
@@ -85,7 +85,7 @@ series:
 | COASP | [恆逸](https://www.uuu.com.tw/Course/Show/3332/COASP)（40 小時，NT$68,000，含一次考試） | [EC-Council](https://iclass.eccouncil.org/our-courses/certified-offensive-ai-security-professional) on-demand $1,699 起、線上直播 $2,499 起 |
 | OSAI+ | [恆逸](https://www.uuu.com.tw/Course/Show/3408/OSAI)（40 小時，NT$149,000） | [OffSec](https://www.offsec.com/courses/ai-300/) $1,749（90 天自學 + 1 次考試） |
 | HTB COAE | 沒查到 | [HTB Academy](https://academy.hackthebox.com/preview/certifications/htb-certified-offensive-ai-expert) AI Red Teamer 路徑，訂閱制 |
-| CAISP | 沒查到 | [Practical DevSecOps](https://www.practical-devsecops.com/certified-ai-security-professional/) $999–$1,099，含 60 天 lab 與考試 |
+| CAISP | 沒查到 | [Practical DevSecOps](https://www.practical-devsecops.com/certified-ai-security-professional/) $1,099，含 60 天 lab 與考試 |
 | GAIPS | 沒查到 | [SANS SEC545](https://www.sans.org/cyber-security-courses/genai-llm-application-security)，5 天直播或自學 |
 | AAISM | 沒查到 | [ISACA](https://www.isaca.org/credentialing/aaism) 官方 Online Review Course |
 | TAISE | 沒查到 | [CSA](https://cloudsecurityalliance.org/education/taise) $795，課程與考試綁售 |
@@ -104,7 +104,7 @@ series:
 | CISSP 一次考過 | **WUSON 吳文智** 或 **恆逸** | WUSON 是台灣 CISSP 圈公認最強講師，但要提早搶位；恆逸有 ISC2 原廠教材 + 總複習班 |
 | Security+ 入門 | **恆逸** 或 **全智網** | 兩家都有 CompTIA 授權，全智網小班制 |
 | AI 安全證照（SecAI+ / COASP / OSAI+） | **恆逸** | 三種 AI 安全認證實體班都有開 |
-| OSCP 攻擊面 | **DEVCORE** | 台灣首家引進 OffSec 原廠講師實體課 |
+| OSCP 攻擊面 | **DEVCORE** | 2024 年首個引進 OffSec 原廠講師實體課，現由 DEVCORE 講師中文授課 |
 | 預算有限、純入門 | **巨匠** 或自學 | iPAS + Security+ 的自學路線最省錢 |
 | 金融業法定時數 | **台灣金融研訓院** | 法定認可，含 AI 資安專題 |
 
@@ -135,8 +135,10 @@ series:
 
 | 地點 | 地址 | 電話 | 適用證照 |
 |---|---|---|---|
-| **台北** | 信義區基隆路一段 163 號 12 樓之 3（聯合世紀大樓） | (02) 2756-7808 | CISSP、CCSP、Security+、SecAI+、CEH、CISM 等 |
-| **高雄** | 苓雅區新光路 38 號 4 樓之 1（亞太財經廣場） | (07) 536-1199 | 同上 |
+| **台北** | 信義區基隆路一段 163 號 12 樓之 3（聯合世紀大樓） | (02) 2756-7808 | CISSP、CCSP、Security+、SecAI+ 等（Pearson 直營考場） |
+| **高雄** | 苓雅區新光路 38 號 4 樓之 1（亞太財經廣場） | (07) 536-1199 分機 115 | 同上（恆逸的 Pearson VUE 授權考場） |
+
+ISC2 的考試在台灣只有這兩處可考。CompTIA（Security+、SecAI+）另可在[恆逸各地中心](https://www.uuu.com.tw/TestCenter/Info)與巨匠等 Pearson VUE 授權考場應試；ISACA 的 CISM、CRISC 走 PSI 考試中心，不在 Pearson VUE。
 
 依 [全智網 CISSP 課程頁](https://ainetwork-training.com/courses/cissp)，考試採隨報隨考，但座位有限，建議提早預約。
 
@@ -170,18 +172,20 @@ series:
 
 ### 薪資行情
 
-依 [CloudInsight 2026 資安工程師指南](https://cloudinsight.cc/zh/blog/security-engineer-guide)：
+[CloudInsight 的資安工程師指南](https://cloudinsight.cc/zh/blog/security-engineer-guide)引用 104 薪資情報「資安工程師」的統計（2026/9/28 更新、有效樣本 543）：
 
-| 年資 | 月薪 (NTD) | 年薪估算 | 證照影響 |
-|---|---|---|---|
-| 0–2 年 | 40,000–55,000 | 52–72 萬 | iPAS / Security+ 有加分 |
-| 3–5 年 | 55,000–80,000 | 72–104 萬 | CEH / AWS Security 明顯加分 |
-| 5–8 年 | 80,000–120,000 | 104–156 萬 | CISSP / OSCP 可多 10–20% |
-| 8 年以上 | 120,000–200,000+ | 156–260 萬+ | CISSP 幾乎是標配 |
+| 年資 | 月薪 P25–P75 (NTD) | 月均薪 |
+|---|---|---|
+| 1 年以下 | 41,000–60,000 | 55,000 |
+| 1–3 年 | 45,000–63,000 | 56,000 |
+| 3–5 年 | 46,000–68,000 | 59,000 |
+| 5–10 年 | 51,000–74,000 | 63,000 |
+| 10 年以上 | 51,000–87,000 | 72,000 |
 
+- 資安主管與 CISO 另列為其他職務，不在表內
 - **金融業**薪資最高，科技業次之
-- **外商**比本土高 20–50%
-- 台灣 CISSP 持證者僅約 500 人，稀缺性極高
+- 證照的作用：該文建議完全沒經驗的人先考一張入門證照（Security+ 或 iPAS）比較好找工作；CISSP、OSCP 是談薪的加分項，但沒有實務經驗、光靠證照幫助有限
+- 台灣 CISSP 持證者不多：依[吳文智整理的 ISC2 分國統計](https://wentzwu.com/wp-content/uploads/2022/02/CISSP-Member-Count_20220101.pdf)，2022 年 1 月為 465 人，之後的分國數字未見公開來源
 
 ### 產業需求趨勢
 
@@ -225,7 +229,7 @@ series:
 
 台灣的資安證照生態有三個特色：
 
-1. **法規推但不指定**：資安法 2.0 和金管會管控指引都要求設置資安人員和定期訓練，但不強制指定哪張證照。真正的需求來自徵才市場——看 104 的職缺描述比看法規條文更準。
+1. **法規推但不指定**：資安法 2.0、金管會的人力分級和證交所的管控指引都要求設置資安人員或定期訓練，但不強制指定哪張證照。真正的需求來自徵才市場——看 104 的職缺描述比看法規條文更準。
 
 2. **培訓資源比想像的豐富**：恆逸的課程齊全度在亞洲可能也數一數二（同時有 ISC2、CompTIA、EC-Council 三家授權加上 AI 安全新課），WUSON 吳文智的 CISSP 班是台灣圈內公認的傳奇。不是只有自學一條路。
 
@@ -233,13 +237,14 @@ series:
 
 這是「資安證照攻略」系列的最後一篇。回顧整個系列：
 
-- [第一篇：全景地圖](/posts/tech/2026-09-10-security-cert-landscape)——16 張證照的分類框架與三階段路線圖
+- [第一篇：全景地圖](/posts/tech/2026-09-10-security-cert-landscape)——22 張證照的分類框架與三階段路線圖
 - [第二篇：AI 安全證照橫評](/posts/tech/2026-09-10-ai-security-cert-showdown)——SecAI+ vs CAISP vs GAIPS vs AAISM
 - [第三篇：ROI 拆解](/posts/tech/2026-09-10-security-cert-roi)——Security+ → AWS Security → CISSP 的投資報酬
 - **第四篇（本篇）**：台灣生態——法規、培訓、考場、在地資源
 
 ## 更新紀錄
 
+- 2026-10-12：資安法補上施行日（2025/12/1）與子法發布時間；薪資表原本引用的數字在來源頁改版後已不存在，改用來源現在引用的 104 薪資情報統計，並移除「CISSP / OSCP 可多 10–20%」「外商高 20–50%」；台灣 CISSP 人數改為有年份的統計；CAISP 改為現價 $1,099。法規一段更正：人力分級出自金管會函令，管控指引是證交所與櫃買中心發布的參考文件，指引本文沒有建議任何證照；考場表改為依發證機構區分，移除 CEH、CISM；DEVCORE、全智網、巨匠的課程與價格依官網現況更新。
 - 2026-10-08：恆逸新增 OffSec OSAI+ 實體班（NT$149,000），AI 安全實體班由兩種變三種；補上 COASP 課程價格；DEVCORE 的 OffSec 課程由「獨家」改為「首家引進」；新增「AI 安全證照去哪上課」對照表。
 
 ## 參考資料
@@ -273,3 +278,12 @@ series:
 - [網安智慧 — CompTIA SecAI+ 課程](https://www.nsit.com.tw/course_detail/46)
 - [資展國際 iSpan — CompTIA SecAI+ 認證班](https://www.ispan.com.tw/comptia-secai-plus/)
 - [SANS SEC545: GenAI and LLM Application Security](https://www.sans.org/cyber-security-courses/genai-llm-application-security)
+- [Wentz Wu — CISSP by Countries（ISC2 member counts，2022/1/1）](https://wentzwu.com/wp-content/uploads/2022/02/CISSP-Member-Count_20220101.pdf)
+- [理律法律事務所 — 總統公布修正資通安全管理法](https://www.leeandli.com/TW/NewslettersDetail/7505.htm)
+- [證交所 — 上市公司資通安全宣導（資安人力分級）](https://www.twse.com.tw/staticFiles/news/event/8a8216d69236c2e3019240ce8ac7000c.pdf)
+- [證交所／櫃買中心 — 上市上櫃公司資通安全管控指引（113.9 修正）](https://dsp.tpex.org.tw/storage/co_download/%E4%B8%8A%E5%B8%82%E4%B8%8A%E6%AB%83%E5%85%AC%E5%8F%B8%E8%B3%87%E9%80%9A%E5%AE%89%E5%85%A8%E7%AE%A1%E6%8E%A7%E6%8C%87%E5%BC%95.pdf)
+- [證交所資安專區（含內控處理準則問答集）](https://dsp.twse.com.tw/informationSecurity/list)
+- [恆逸 — 考試中心資訊](https://www.uuu.com.tw/TestCenter/Info)
+- [DEVCORE Training 2026](https://training.devco.re/2026)
+- [OffSec — OSCP+ Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
+- [暨南大學計網中心 — 資通安全管理法自 114/12/1 施行](https://cc.ncnu.edu.tw/p/406-1001-31660,r471.php?Lang=zh-tw)

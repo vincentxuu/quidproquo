@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [cybersecurity, certification, cissp, comptia, aws, career, roi]
 lang: en
-tldr: "Security+ ($439) takes 2–3 months, 50–65% self-study pass rate, +$10K–$20K salary premium. AWS Security Specialty ($300) takes 2–3 months, 45–55% pass rate, highest ROI at 40–67x. CISSP ($749) takes 3–6 months, 50–60% pass rate, +$25K–$35K premium but requires 5 years of experience. Five-year cost to earn and maintain (including estimated study materials): Security+ about $619, AWS Security $200–$350 (no annual fee), CISSP about $1,524."
+tldr: "Security+ ($439) takes 2–3 months, no published pass rate, +$10K–$20K salary premium. AWS Security Specialty ($300) takes 2–3 months, 45–55% pass rate, highest ROI at 40–67x. CISSP ($749) takes 3–6 months, 50–60% pass rate, +$25K–$35K premium but requires 5 years of experience. Five-year cost to earn and maintain (including estimated study materials): Security+ about $619, AWS Security $200–$350 (no annual fee), CISSP about $1,524."
 description: "A data-driven comparison of Security+, AWS Security Specialty, and CISSP — study time, pass rates, exam fees, five-year maintenance costs, and salary premiums — to help you calculate the return on every dollar."
 draft: false
 series:
@@ -92,16 +92,16 @@ All three certification bodies **do not publish official pass rates**. The follo
 
 ### Security+
 
-Per [SecuSpark 2026 statistical analysis](https://www.secuspark.com/blog/security-plus-pass-rate-statistics):
+CompTIA publishes no pass rate for any exam. Per [SecuSpark's write-up](https://www.secuspark.com/blog/security-plus-pass-rate-statistics), the percentages found online come from training vendors reporting their own students, forum polls, or articles copying each other, none with a stated method. What you can rely on is the official rules and your own practice results:
 
-| Scenario | Estimated first-attempt pass rate |
+| Item | Detail |
 |---|---|
-| Self-study (100+ hours) | 50–65% |
-| Structured training | 85–93% |
-| Practice exam scores consistently 85%+ | 90%+ |
-| Minimal preparation | < 50% |
+| Passing score | 750 on a 100–900 scale (not a percentage) |
+| Retakes | No wait before a second attempt; 14 days before each attempt after that, full price every time |
+| Suggested study time | 80–120+ hours (not counting passive video watching) |
+| Bar before booking | 85%+ on questions you have not seen before, from at least two different sources |
 
-**Key predictor**: Practice exam scores are the strongest indicator. If you consistently score 85%+ on practice tests, your real exam pass rate exceeds 90%.
+**Key predictor**: scores on unseen questions. SecuSpark's own data shows the same learners going from 73.5% on first sight to 90.5% on the second try, so drilling one question bank overstates readiness.
 
 ### AWS Security Specialty
 
@@ -148,16 +148,17 @@ Per [Kore1 Salary Guide](https://www.kore1.com/cybersecurity-salary-guide): "CIS
 
 ### Taiwan market
 
-Per [CloudInsight 2026 salary survey](https://cloudinsight.cc/zh/blog/security-engineer-guide) (in Mandarin):
+[CloudInsight's security engineer guide](https://cloudinsight.cc/zh/blog/security-engineer-guide) (in Mandarin) cites 104 Salary data for the "security engineer" role (updated September 28, 2026; 543 valid samples):
 
-| Experience | Monthly salary range (NTD) | Annual estimate |
+| Experience | Monthly salary P25–P75 (NTD) | Monthly average |
 |---|---|---|
-| 0–2 years | 40,000–55,000 | 520K–720K |
-| 3–5 years | 55,000–80,000 | 720K–1.04M |
-| 5–8 years | 80,000–120,000 | 1.04M–1.56M |
-| 8+ years | 120,000–200,000+ | 1.56M–2.6M+ |
+| Under 1 year | 41,000–60,000 | 55,000 |
+| 1–3 years | 45,000–63,000 | 56,000 |
+| 3–5 years | 46,000–68,000 | 59,000 |
+| 5–10 years | 51,000–74,000 | 63,000 |
+| 10+ years | 51,000–87,000 | 72,000 |
 
-Holding advanced certifications like CISSP or OSCP adds **10–20%** to salary. Financial sector pays highest; foreign companies pay 20–50% above local firms.
+Security managers and CISOs are counted as separate roles and are not in this table. The financial sector pays highest, tech second. On certifications, the guide says CISSP and OSCP help in salary negotiation, but without hands-on experience a certificate alone does little for pay.
 
 Taiwan's absolute premium is less dramatic than the US ($25K–$35K is roughly NT$800K–1.12M — close to a full junior annual salary in Taiwan), but certifications remain a hard signal for promotions and job switches. CISSP in particular — with few holders in Taiwan, its scarcity creates a strong trust signal for enterprise clients.
 
@@ -183,6 +184,7 @@ If you're taking three: add **CISSP** when the time is right. No rush — CISSP 
 
 ## Update log
 
+- 2026-10-12: The Security+ pass-rate and Taiwan salary passages cited figures that their source pages no longer carry after revisions. The pass-rate section now covers official rules and readiness thresholds, the salary table uses the 104 Salary data the source cites today, and the "certifications add 10–20%" and "foreign companies pay 20–50% more" claims are removed.
 - 2026-10-08: Corrected the CISSP annual fee from $125 to $135 and switched the Security+ exam fee to the post-increase $439, then recalculated five-year totals and ROI multiples. Added the Security+ V8 launch and SY0-701 retirement dates. The cost figures in the tldr did not match the tables in the body and are now aligned. Removed the unsourced "about 500 CISSP holders in Taiwan." Fixed the Uuu CISSP link.
 
 ## References
@@ -190,7 +192,7 @@ If you're taking three: add **CISSP** when the time is right. No rush — CISSP 
 - [CompTIA Security+ Official Certification Page](https://www.comptia.org/certifications/security)
 - [AWS Certified Security – Specialty (SCS-C03)](https://aws.amazon.com/certification/certified-security-specialty/)
 - [ISC2 CISSP Certification](https://www.isc2.org/certifications/cissp)
-- [SecuSpark — Security+ Pass Rate Statistics 2026](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)
+- [SecuSpark — Security+ Pass Rate 2026: Why There Is No Official Number](https://www.secuspark.com/blog/security-plus-pass-rate-statistics)
 - [Training Camp — CISSP Pass Rate 2026](https://trainingcamp.com/articles/cissp-pass-rate-what-the-numbers-actually-show-in-2026)
 - [Pruvos — AWS SCS-C03 Practice Tests & Pass Rate](https://www.pruvos.com/certifications/cloud-computing/aws-scs-c03)
 - [CyberSecJobs — Best Cybersecurity Certifications 2026 (ROI Analysis)](https://cybersecjobs.com/best-cybersecurity-certifications)
