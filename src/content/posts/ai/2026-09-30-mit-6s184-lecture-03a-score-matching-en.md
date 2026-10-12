@@ -249,7 +249,7 @@ On Gaussian paths, what each side learns converts into the other via Proposition
 ## Further reading
 
 - The DDPM view: [CMU 11-785 Lecture 23: Diffusion Models](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en). **Watch out: the time direction is reversed.** The "A guide to the diffusion literature" section of Slides 3 distinguishes the flow time convention (data at t=1, noise at t=0; used in this course) from the diffusion time convention (data at t=0, noise as t→∞). Appendix E of the notes also warns that the popular convention puts `p_data` at t=0. DDPM belongs to the latter, so flip t before comparing formulas.
-- The diffusion chapter of another set of notes: [Stanford CS229 2026 notes, chapter 14: Diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en)
+- The diffusion chapter of another set of notes: [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en)
 - Appendix E of the notes (A Guide to the Diffusion Model Literature): discrete vs continuous time, forward processes vs probability paths, the inverted time convention, and how flow matching relates to stochastic interpolants, mapping the literature back onto this course's language
 
 Series navigation: previous, [L2: Flow Matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en) | next, [Lab 2: Writing Flow Matching and Score Matching by Hand](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en) | [back to the series overview](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)

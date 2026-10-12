@@ -219,7 +219,7 @@ These series on the site overlap with CS234. This series does not cut content be
 
 - [Reading Stanford CS224R](/posts/ai/2026-09-30-cs224r-course-overview-en): Stanford's deep RL course, more focused on robotics and LLM applications. Related posts: [Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en), [Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl-en), [RLHF and preference optimization](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 - [Reading Berkeley CS285 Spring 2026](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en): another graduate deep RL course. Related posts: [imitation learning and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en), [policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en), [exploration and open problems](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en)
-- [Reinforcement learning: MDPs, value iteration, and continuous states (CS229 notes chapter 19)](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en): the RL chapter of a prerequisite course
+- [Stanford CS229 Lecture 18: reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en): the RL chapter of a prerequisite course
 - [Global AI/CS course map](/posts/learning/2026-08-21-global-ai-cs-course-map-en): where the A0–A3 tiers are defined
 
 **Series navigation**: next, [What RL is and the language of MDPs](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)

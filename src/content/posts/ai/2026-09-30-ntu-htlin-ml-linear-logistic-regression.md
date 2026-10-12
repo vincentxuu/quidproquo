@@ -207,7 +207,7 @@ L10 Logistic Regression：
 
 下一篇[線性分類模型、SGD、多類別與非線性轉換](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform)會把本篇的三個線性模型放在同一張誤差圖上比較，把梯度下降改成隨機梯度下降（SGD），再用特徵轉換跳出「只能畫直線」的限制。
 
-延伸閱讀：Stanford CS229 的[線性迴歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)與[邏輯迴歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression)兩章導讀；Stanford CS109 的[最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)與[邏輯迴歸](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression)從機率課的角度講同一件事。
+延伸閱讀：Stanford CS229 的[Stanford CS229 第 2 堂：監督式學習設定與線性迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)與[Stanford CS229 第 3 堂：最大概似與邏輯斯迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)兩章導讀；Stanford CS109 的[最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)與[邏輯迴歸](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression)從機率課的角度講同一件事。
 
 ## 課程影片來源
 

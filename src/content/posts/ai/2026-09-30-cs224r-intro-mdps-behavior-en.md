@@ -190,7 +190,7 @@ Then ask two questions. Is your observation Markov? If not, how much history doe
 ## Further reading
 
 - [Berkeley CS285 L1–4: imitation learning, distribution shift and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en): another telling of the same material
-- [Reinforcement learning: MDPs, value iteration and continuous states (CS229 notes ch. 19)](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en): the full math of MDPs
+- [Stanford CS229 Lecture 18: reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en): the full math of MDPs
 - [Reading CS221](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en): the RL prerequisite the course recommends
 
 **Series navigation**: Previous: [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en) | Next: [L2: Imitation learning and policies that can represent multimodal distributions](/posts/ai/2026-09-30-cs224r-imitation-learning-en)

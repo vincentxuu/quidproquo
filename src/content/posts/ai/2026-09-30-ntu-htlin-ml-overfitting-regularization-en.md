@@ -190,7 +190,7 @@ One thing to try tonight: take any linear model you have, sweep the L2 coefficie
 
 ## Further reading
 
-- Other takes on the same topic: [CS229 notes chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en), [Why do ridge, lasso, and weight decay make models steadier?](/posts/learning/2026-08-29-im-stat-regularization-en)
+- Other takes on the same topic: [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en), [Why do ridge, lasso, and weight decay make models steadier?](/posts/learning/2026-08-29-im-stat-regularization-en)
 - Regularization in deep learning: [MIT 6.7960: Regularization](/posts/tech/2026-09-17-mit-67960-regularization-en)
 - ML Techniques revisits SVMs from the regularization angle: [Kernel Logistic Regression and Support Vector Regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)

@@ -184,7 +184,7 @@ Discussion 5 雖然排在 Lec 11 那週，三題的內容都是回歸與估計�
 
 站內延伸：
 
-- 同一主題的另一種講法：[Stanford CS229 講義第 2 章：分類與 logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression)、[第 4 章：生成式學習演算法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms)
+- 同一主題的另一種講法：[Stanford CS229 第 3 堂：最大概似與邏輯斯迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)、[Stanford CS229 第 5 堂：高斯判別分析與 Naive Bayes](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis)
 - 機率角度：[Stanford CS109 Lecture 20：Logistic Regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression)、[Lecture 21：比較分類器](/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers)
 - 系列入口：[CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)、[Berkeley AI／ML 課程地圖](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 

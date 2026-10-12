@@ -191,7 +191,7 @@ reward：
 ## 延伸閱讀
 
 - [Berkeley CS285 L1–4：模仿學習、分布偏移與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)：同一段內容的另一種講法
-- [強化學習：MDP、價值迭代與連續狀態（CS229 講義第 19 章）](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)：MDP 的完整數學定義
+- [Stanford CS229 第 18 堂：強化學習基礎與 Policy Gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)：MDP 的完整數學定義
 - [CS221 導讀](/posts/ai/2026-08-21-stanford-cs221-ai-principles)：官網推薦的 RL 前置課
 
 **系列導覽**：上一篇 [系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)｜下一篇 [L2：模仿學習與能表達多峰分佈的 policy](/posts/ai/2026-09-30-cs224r-imitation-learning)

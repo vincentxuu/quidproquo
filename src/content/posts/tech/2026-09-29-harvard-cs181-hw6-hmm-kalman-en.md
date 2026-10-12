@@ -138,7 +138,7 @@ The 2024 term's [Lecture 19 scribe notes](https://harvard-ml-courses.github.io/c
 
 Posts on this site that approach the same ideas from another angle; they don't replace this one:
 
-- [LQR, DDP, and LQG: From Linear Control to Uncertainty](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg-en) (CS229 notes; the multi-dimensional Kalman filter's role in control)
+- [CS229 lecture notes, chapter 20: LQR, DDP, and LQG](https://cs229.stanford.edu/main_notes.pdf) (CS229 notes; the multi-dimensional Kalman filter's role in control)
 - [CS221 Lecture 14: Bayesian Networks III: From Counts and Smoothing to EM](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em-en)
 
 ## Next

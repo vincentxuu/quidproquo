@@ -184,7 +184,7 @@ If you are reading this series in order, do Discussion 5 after this post and bef
 
 On this site:
 
-- The same topics told differently: [Stanford CS229 notes, chapter 2: classification and logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en) and [chapter 4: generative learning algorithms](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en)
+- The same topics told differently: [Stanford CS229 Lecture 3: maximum likelihood and logistic regression](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en) and [Stanford CS229 Lecture 5: Gaussian discriminant analysis and Naive Bayes](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en)
 - The probability angle: [Stanford CS109 Lecture 20: logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en), [Lecture 21: comparing classifiers](/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers-en)
 - Series entry points: [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 

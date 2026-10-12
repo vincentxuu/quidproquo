@@ -124,7 +124,7 @@ That wraps up HW4. HW5 moves to learning without labels: clustering, PCA, and se
 ## Further reading
 
 - [CS336 Lecture 4: attention alternatives and MoE](/posts/ai/2026-08-22-cs336-attention-moe-en): the systems side of MoE routing, load balancing, and expert parallelism
-- [Generalization: bias-variance, double descent, and sample complexity (CS229 notes chapter 8)](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en): another use of Hoeffding's inequality, in learning theory
+- [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en): another use of Hoeffding's inequality, in learning theory
 - [Breiman 2001, Random Forests](https://doi.org/10.1023/A:1010933404324): the original random forest paper
 
 ## Previous / next

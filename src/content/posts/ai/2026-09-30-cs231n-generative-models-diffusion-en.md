@@ -197,7 +197,7 @@ Taken together, the two lectures show that none of the four paradigms wiped out 
 **Related posts on this site** (each is self-contained; overlap is kept)
 
 - [Reading MIT 6.S184: Flow Matching and Diffusion](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en) — a whole course on the math of flow matching and diffusion
-- [CS229 2026 notes, chapter 14: diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en) — derived from the ELBO side
+- [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en) — derived from the ELBO side
 - [CMU 11-785 Lecture 23: Diffusion](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - [Berkeley CS189 HW2: regression, GMMs, and flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en)
 - [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en) — diffusion applied to text

@@ -173,7 +173,7 @@ One thing to try tonight: open the code from your last model evaluation and make
 
 ## Further reading
 
-- Another take on the same topic: [CS229 notes chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
+- Another take on the same topic: [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
 - ML Foundations ends here. ML Techniques starts from the problem that feature transforms are expensive; first stop: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)
 - Intro ML at other schools: [Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en), [Berkeley CS189](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en)

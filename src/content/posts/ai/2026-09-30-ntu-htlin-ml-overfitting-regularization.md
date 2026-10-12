@@ -191,7 +191,7 @@ HW5 Q10 刻意用 E_in 選 λ，接下來的 Q11、Q12 改用驗證集和 3-fold
 
 ## 延伸閱讀
 
-- 同一主題的其他講法：[CS229 講義第 9 章：正規化與模型選擇](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)、[Ridge、Lasso、weight decay 為什麼能讓模型穩一點？](/posts/learning/2026-08-29-im-stat-regularization)
+- 同一主題的其他講法：[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)、[Ridge、Lasso、weight decay 為什麼能讓模型穩一點？](/posts/learning/2026-08-29-im-stat-regularization)
 - 深度學習裡的正則化：[MIT 6.7960：Regularization](/posts/tech/2026-09-17-mit-67960-regularization)
 - 技法篇會從正則化的角度重新看 SVM：[Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)

@@ -175,7 +175,7 @@ HW5 的 Q4 已經是技法 T1 的 hard-margin SVM，留給[下一篇](/posts/ai/
 
 ## 延伸閱讀
 
-- 同一主題的其他講法：[CS229 講義第 9 章：正規化與模型選擇](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)
+- 同一主題的其他講法：[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
 - 基石到此結束。技法從「特徵轉換太貴」這個問題出發，第一站是 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)
 - 其他學校的 ML 入門：[Stanford CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[Berkeley CS189](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)

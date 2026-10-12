@@ -269,7 +269,7 @@ k = 1
 ## 延伸閱讀
 
 - [CS221 L7：MDPs 與 value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration)：先修課對同一組演算法的講法
-- [強化學習：MDP、價值迭代與連續狀態（CS229 講義第 19 章）](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)
+- [Stanford CS229 第 18 堂：強化學習基礎與 Policy Gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)
 - [CS224R L1：把做決策寫成 RL 問題](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)
 - [Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 

@@ -197,7 +197,7 @@ $$x_t = a(t)\,x + b(t)\,z,\qquad y_{gt} = c(t)\,x + d(t)\,z,\qquad \mathcal{L} =
 **站內延伸閱讀**（各自完整，重疊部分不刪）
 
 - [MIT 6.S184 導讀：Flow Matching 與 Diffusion](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)——整門課專講 flow matching 與 diffusion 的數學
-- [CS229 2026 講義第 14 章：擴散模型](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)——從 ELBO 角度推導
+- [Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)——從 ELBO 角度推導
 - [CMU 11-785 Lecture 23：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - [Berkeley CS189 HW2：迴歸、GMM 與 flow matching](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
 - [CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)——把 diffusion 用在文字上

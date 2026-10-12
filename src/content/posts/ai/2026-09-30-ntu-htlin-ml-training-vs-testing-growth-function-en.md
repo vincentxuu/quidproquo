@@ -211,7 +211,7 @@ Per the course schedule, Fall 2026 hw2 comes out on 10/07. As of 2026-09-30 it i
 
 The next post, [VC Dimension, Noise and Error Measures](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error-en), gives "the largest non-break point" its formal name, the VC dimension d<sub>VC</sub>. It proves that d-dimensional perceptrons have d<sub>VC</sub> = d + 1, then extends the theory to noisy data.
 
-Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en) approaches the same question by a different route.
+Further reading: the Stanford CS229 [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en) approaches the same question by a different route.
 
 ## Course video sources
 

@@ -191,7 +191,7 @@ Lasso 的 MAP 推導與 bias-variance 分解，則出現在 Discussion 5，本�
 
 站內延伸：
 
-- 同一套推導的另一種講法：[Stanford CS229 講義第 1 章：線性回歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)、[第 9 章：正則化與模型選擇](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)
+- 同一套推導的另一種講法：[Stanford CS229 第 2 堂：監督式學習設定與線性迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)、[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
 - MLE 的機率基礎：[Stanford CS109 Lecture 19：最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)
 - 系列入口：[CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)、[Berkeley AI／ML 課程地圖](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 

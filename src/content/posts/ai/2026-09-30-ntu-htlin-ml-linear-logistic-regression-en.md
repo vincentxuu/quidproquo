@@ -207,7 +207,7 @@ Problems in [HW3](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/hw3/hw3_red
 
 The next post, [Linear Models for Classification, SGD, Multiclass and Nonlinear Transforms](/posts/ai/2026-09-30-ntu-htlin-ml-linear-classification-nonlinear-transform-en), puts this post's three linear models on one error plot, turns gradient descent into stochastic gradient descent (SGD), and uses feature transforms to escape "straight lines only".
 
-Further reading: the Stanford CS229 chapter guides on [linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en) and [logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en); Stanford CS109 on [maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en) and [logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en) covers the same ground from a probability course.
+Further reading: the Stanford CS229 chapter guides on [Stanford CS229 Lecture 2: supervised learning setup and linear regression](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en) and [Stanford CS229 Lecture 3: maximum likelihood and logistic regression](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en); Stanford CS109 on [maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en) and [logistic regression](/posts/learning/2026-08-22-stanford-cs109-lecture-20-logistic-regression-en) covers the same ground from a probability course.
 
 ## Course video sources
 

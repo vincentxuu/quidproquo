@@ -148,7 +148,7 @@ These map almost one-to-one onto the prerequisites behind the HW1 written questi
 ## Further reading
 
 - [Stanford CS109 L3: Bayes' theorem](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en): background for the Discussion 1 probability question
-- [Stanford CS229 notes Ch. 1: linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en): how another course starts from linear models
+- [Stanford CS229 Lecture 2: supervised learning setup and linear regression](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en): how another course starts from linear models
 - [CMU 11-785 L1: introduction](/posts/ai/2026-08-22-cmu-11785-01-introduction-en): the same basics from a deep learning angle
 
 ## Course video sources

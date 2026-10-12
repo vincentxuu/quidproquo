@@ -154,7 +154,7 @@ flowchart LR
 
 ## 延伸閱讀
 
-- [Stanford CS229 2026 筆記第 2 章：分類與 logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression)：同一套分類概念的另一種講法
+- [Stanford CS229 第 3 堂：最大概似與邏輯斯迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)：同一套分類概念的另一種講法
 - [Stanford CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
 - [Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map)：CS181 在 Harvard 課程裡的位置
 

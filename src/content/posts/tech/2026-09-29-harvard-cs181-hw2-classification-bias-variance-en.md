@@ -154,7 +154,7 @@ Submission per the assignment: the writeup PDF goes to Gradescope `HW2` with pag
 
 ## Further reading
 
-- [Stanford CS229 2026 notes, Chapter 2: classification and logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en): the same ideas from another course
+- [Stanford CS229 Lecture 3: maximum likelihood and logistic regression](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en): the same ideas from another course
 - [Stanford CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 - [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en): where CS181 sits among Harvard courses
 

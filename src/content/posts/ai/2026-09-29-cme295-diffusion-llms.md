@@ -69,7 +69,7 @@ flowchart TB
 
 ### 直覺：先把字變成向量，再照影像的方法加雜訊
 
-連續 diffusion 就是影像生成用的那一套。[DDPM](https://arxiv.org/abs/2006.11239)（Ho et al., 2020）對一張圖分很多步加上高斯雜訊，最後變成純雜訊；模型學的是每一步「這張圖裡的雜訊長什麼樣」，生成時從隨機雜訊出發，一步步扣掉。論文設定走 T = 1000 步。這部分的推導，站上 [CS229 第 14 章](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)與 [CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)都寫過。
+連續 diffusion 就是影像生成用的那一套。[DDPM](https://arxiv.org/abs/2006.11239)（Ho et al., 2020）對一張圖分很多步加上高斯雜訊，最後變成純雜訊；模型學的是每一步「這張圖裡的雜訊長什麼樣」，生成時從隨機雜訊出發，一步步扣掉。論文設定走 T = 1000 步。這部分的推導，站上 [Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)與 [CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)都寫過。
 
 文字的麻煩在於 token 是離散的，「在 teddy 上加一點點雜訊」沒有意義。最直接的辦法是先把每個 token 變成 embedding 向量，在向量空間做 diffusion，最後再把向量「取整」回最近的字。[Diffusion-LM](https://arxiv.org/abs/2205.14217)（Li et al., 2022）就是這樣做：在標準 diffusion 前後各加一個 embedding 步驟與 rounding 步驟，embedding 跟模型一起端到端訓練。
 
@@ -362,7 +362,7 @@ Fast-dLLM 的解法是不固定每步解幾格，改設一個**信心門檻**：
 
 ## 想深入
 
-- 從頭把 diffusion 的機率推導走一遍：[CS229 第 14 章：擴散模型](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)、[MIT 6.S191 生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
+- 從頭把 diffusion 的機率推導走一遍：[Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)、[MIT 6.S191 生成模型](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling)
 - 想親手跑：[MDLM](https://s-sahoo.com/mdlm) 與 [Block Diffusion](https://m-arriola.com/bd3lms) 的專案頁都附程式碼與教學；[LLaDA 專案頁](https://ml-gsai.github.io/LLaDA-demo/)有權重與取樣程式
 - 同一個瓶頸的另一種解法：[order 10：LLM systems](/posts/ai/2026-09-29-cme295-llm-systems)、[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - 本系列的入門段落：[order 9：第 9 講 Current trends](/posts/ai/2026-09-29-cme295-current-trends)；回到[系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)

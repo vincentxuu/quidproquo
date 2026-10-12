@@ -219,7 +219,7 @@ Tutorials 是 2026 版的新設計。[第一講投影片](https://web.stanford.e
 
 - [Stanford CS224R 導讀](/posts/ai/2026-09-30-cs224r-course-overview)：同校的深度 RL 課，更偏機器人與 LLM 應用；相關篇目有[Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients)、[Offline RL](/posts/ai/2026-09-30-cs224r-offline-rl)、[RLHF 與偏好最佳化](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 - [Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)：另一門深度 RL 研究所課；相關篇目有[模仿學習與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)、[policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)、[探索與開放問題](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
-- [強化學習：MDP、價值迭代與連續狀態（CS229 講義第 19 章）](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)：先修課裡的 RL 章節
+- [Stanford CS229 第 18 堂：強化學習基礎與 Policy Gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)：先修課裡的 RL 章節
 - [全球 AI／CS 課程地圖](/posts/learning/2026-08-21-global-ai-cs-course-map)：A0–A3 分級的定義
 
 **系列導覽**：下一篇 [RL 是什麼、MDP 的語言](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)

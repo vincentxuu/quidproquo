@@ -1,0 +1,20 @@
+Downloading yt-dlp (3.0MiB)
+ Downloaded yt-dlp
+Installed 1 package in 21ms
+01 | DATnpGoGhM8 | 36:59 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+02 | cmNIMjPYdgM | 1:18:10 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 2: Supervised Learning Setup
+03 | uJF_gL3jhxI | 1:02:14 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 3: Weighted Least Squares
+04 | 8gVi4Rk21Eg | 1:14:12 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 4: Exponential Family, GLMs Classification
+05 | zRdE8A4UZes | 1:21:38 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 5: Gaussian Discriminant Analysis
+06 | llnEgyyuYkQ | 1:18:27 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 6: Dataset Split, ML Advice
+07 | fRM41w9jzQo | 1:20:28 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 7: Neural Networks 1 (Architecture)
+08 | ne2ngVAoMG8 | 1:02:13 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 8: Neural Networks 2 (Backprop)
+09 | bSmIGBCoffA | 1:16:30 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 9: K-Means and GMM (non-EM)
+10 | sUS-eTa0l6s | 1:20:06 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 10: GMM (EM), PCA
+11 | dqUMCzWjZSI | 1:22:31 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 11: Diffusion Models
+12 | _kREM2UAiJ8 | 1:15:57 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 12: Representation Learning
+13 | lNTajqxxOn4 | 1:00:42 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 13: LLMs, Next-Word Prediction Loss
+14 | pwQ0l4hFCVI | 1:17:32 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 14: Transformers, In-Context Learning
+15 | hHC-SF3utxg | 1:13:19 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 16: Basic Concept in RL, Policy Gradient
+16 | xveNBYVTrqw | 1:16:25 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 18: GMM (EM), PCA
+17 | J7CossjMvEg | 1:18:56 | Stanford CS229 Machine Learning | Spring 2026 | Lecture 20: GMM (EM), PCA

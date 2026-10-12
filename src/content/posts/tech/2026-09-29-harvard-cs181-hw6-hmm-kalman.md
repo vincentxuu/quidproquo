@@ -139,7 +139,7 @@ N(x; μ_a, σ_a²) · N(x; μ_b, σ_b²)
 
 站內從不同角度講同一批概念，不取代本篇：
 
-- [LQR、DDP 與 LQG：從線性控制到不確定性](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg)（CS229 講義，多維 Kalman filter 在控制裡的角色）
+- [CS229 主講義第 20 章：LQR、DDP 與 LQG](https://cs229.stanford.edu/main_notes.pdf)（CS229 講義，多維 Kalman filter 在控制裡的角色）
 - [CS221 Lecture 14：Bayesian Networks III：從計數、平滑到 EM](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em)
 
 ## 下一篇

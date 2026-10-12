@@ -168,7 +168,7 @@ Discussion 3 的 MLE 題是這四講最重要的練習：它把 Lec 5 的 MLE �
 
 - [Stanford CS109 L19：最大概似估計](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation)：MLE 的另一種講法
 - [Stanford CS109 L9：常態分布](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution)：一維高斯的前置
-- [Stanford CS229 講義 Ch.4：生成式學習演算法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms)：多變量高斯在分類上的用法
+- [Stanford CS229 第 5 堂：高斯判別分析與 Naive Bayes](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis)：多變量高斯在分類上的用法
 
 ## 課程影片來源
 

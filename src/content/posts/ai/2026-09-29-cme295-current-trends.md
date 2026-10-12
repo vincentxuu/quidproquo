@@ -148,7 +148,7 @@ diffusion 原本是影像生成的方法。投影片給的直覺有三點：雜�
 1. **forward process**：對一張圖一步步加雜訊，直到變成純雜訊
 2. **reverse process**：訓練模型學會把雜訊一步步去掉
 
-生成時從一團隨機雜訊出發，重複去噪，就得到一張新圖。圖片 diffusion 的推導，站上 [CS229 第 14 章](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)與 [CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)都寫過。
+生成時從一團隨機雜訊出發，重複去噪，就得到一張新圖。圖片 diffusion 的推導，站上 [Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)與 [CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)都寫過。
 
 ### 搬到文字：雜訊換成 [MASK]
 
@@ -253,7 +253,7 @@ diffusion LLM 目前離日常使用還有距離：投影片上的 Gemini Diffusi
 
 - 多模態的完整取捨：[CS336 Lecture 17：多模態模型](/posts/ai/2026-08-22-cs336-multimodal-alignment)、[CS224N 第 17 講：Multimodality](/posts/ai/2026-08-22-cs224n-multimodality)
 - 2026 年的多模態模型實況：[2026 上半年多模態模型盤點](/posts/ai/2026-08-18-multimodal-models-2026-landscape)
-- 影像 diffusion 的數學：[CS229 第 14 章：擴散模型](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
+- 影像 diffusion 的數學：[Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)、[CMU 11-785 第 23 講](/posts/ai/2026-08-22-cmu-11785-23-diffusion)
 - 推論成本為什麼卡在記憶體：[CS336 Lecture 10：LLM 推論](/posts/ai/2026-08-22-cs336-inference)
 - 回到起點：[本系列總覽](/posts/ai/2026-09-29-stanford-cme295-transformers-llms)
 

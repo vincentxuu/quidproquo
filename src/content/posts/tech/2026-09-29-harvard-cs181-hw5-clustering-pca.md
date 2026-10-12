@@ -130,7 +130,7 @@ Section 7 第 3 節把 PCA 講成三件事，剛好對應這四題：
 
 ## 延伸閱讀
 
-- 站內 [Stanford CS229 講義第 10 章：分群與 k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means)，從交替最佳化角度再講一次 K-means。
+- 站內 [Stanford CS229 第 9 堂：k-means 與高斯混合模型](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm)，從交替最佳化角度再講一次 K-means。
 - [Berkeley CS189 Spring 2025 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)，另一門大學 ML 課怎麼安排非監督學習。
 
 ## 課程影片來源

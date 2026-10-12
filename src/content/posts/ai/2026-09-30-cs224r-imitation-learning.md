@@ -202,7 +202,7 @@ print("落在平均值附近 ±0.2 的示範比例:", np.mean(np.abs(a - a.mean(
 ## 延伸閱讀
 
 - [Berkeley CS285 L1–4：模仿學習、分布偏移與 RL 基礎](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)：DAgger 和分布偏移的另一種講法
-- [擴散模型：正向加噪、反向生成與 ELBO（CS229 講義第 14 章）](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)：diffusion 的數學背景
+- [Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)：diffusion 的數學背景
 - [CME295：Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)：同一套雜訊與去噪框架用在語言模型
 
 **系列導覽**：上一篇 [L1：把做決策寫成 RL 問題](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior)｜下一篇 [HW1：Flappy Bird 模仿學習](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)｜[系列總覽](/posts/ai/2026-09-30-cs224r-course-overview)

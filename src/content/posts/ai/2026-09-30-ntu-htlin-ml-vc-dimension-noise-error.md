@@ -191,7 +191,7 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 
 下一篇[線性迴歸與邏輯迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression)進入「How Can Machines Learn?」，用本篇的平方誤差推出線性迴歸的閉式解，再從 likelihood 推出 cross-entropy 與梯度下降。
 
-延伸閱讀：Stanford CS229 的[泛化一章導讀](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)用 bias–variance 的角度看同一個問題；Caltech 版的 Lecture 8 也是 Bias-Variance Tradeoff，跟林軒田把 L8 排成 Noise and Error 的路線不同，可以對照著看。
+延伸閱讀：Stanford CS229 的[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)用 bias–variance 的角度看同一個問題；Caltech 版的 Lecture 8 也是 Bias-Variance Tradeoff，跟林軒田把 L8 排成 Noise and Error 的路線不同，可以對照著看。
 
 ## 課程影片來源
 

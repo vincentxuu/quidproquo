@@ -85,7 +85,7 @@ flowchart TD
   D --> D1["Add data, augment, regularize more, shrink the model, early stopping"]
 ```
 
-For derivations and sample complexity, see the site's [CS229 notes, chapter 8: generalization](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en).
+For derivations and sample complexity, see the site's [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en).
 
 The U-curve is not the whole story. [Belkin et al.](https://arxiv.org/abs/1812.11118) point out that modern neural networks are often trained to exactly fit (interpolate) the training data, which the classical view would call overfitting, yet they frequently keep high accuracy on test data. Their double descent curve contains the classical U inside it: once capacity passes the interpolation point, test performance improves again. Why large models don't overfit badly is often explained as "implicit regularization", but the mechanism is still an open research question.
 
@@ -100,7 +100,7 @@ Overfitting is the model memorizing noise in the training data; regularization l
 - **Dropout**: [Hinton et al.](https://arxiv.org/abs/1207.0580) originally described randomly omitting half of the feature detectors for each training example, which prevents complex co-adaptation among neurons. [PyTorch's implementation](https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html) zeroes elements with probability p during training and scales the output by `1/(1-p)`, so evaluation is just the identity; this is inverted dropout.
 - **Early stopping**: stop when validation loss stops improving. In the simple quadratic-approximation case it is equivalent to L2 regularization (same chapter of the book), at the cost of holding out a validation set.
 
-The Transformer itself uses two of these. The [original paper](https://arxiv.org/abs/1706.03762)'s base model applies dropout of 0.1 to each sub-layer output (before the residual add) and to the sum of embeddings and positional encodings; it also uses label smoothing, which the paper says hurts perplexity but improves accuracy and BLEU. For how regularization fits with model selection, see [CS229 notes, chapter 9](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en).
+The Transformer itself uses two of these. The [original paper](https://arxiv.org/abs/1706.03762)'s base model applies dropout of 0.1 to each sub-layer output (before the residual add) and to the sum of embeddings and positional encodings; it also uses label smoothing, which the paper says hurts perplexity but improves accuracy and BLEU. For how regularization fits with model selection, see [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en).
 
 The next section covers a classic trap: with Adam, "L2 regularization" and "weight decay" are not the same thing.
 
@@ -775,8 +775,8 @@ The line-number links for amit, pal and aeg point to the main branch as of 2026-
 **More on this site**
 
 - [AI Engineer interview overview](/posts/ai/2026-08-20-ai-engineer-interview-overview-en)
-- [CS229 notes, chapter 8: generalization](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en)
-- [CS229 notes, chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
+- [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
+- [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
 - [CS224N lecture 5: from recurrence to Transformer](/posts/ai/2026-08-22-cs224n-transformers-en)
 - [CS224N lecture 14: how tokenization creates multilingual cost gaps](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality-en)
 - [CS336 lecture 3: stable defaults for Transformer architecture](/posts/ai/2026-08-22-cs336-architectures-hyperparameters-en)

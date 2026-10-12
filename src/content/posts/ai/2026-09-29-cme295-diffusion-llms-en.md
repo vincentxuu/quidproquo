@@ -69,7 +69,7 @@ flowchart TB
 
 ### Intuition: turn tokens into vectors, then add noise the way images do
 
-Continuous diffusion is the image-generation recipe. [DDPM](https://arxiv.org/abs/2006.11239) (Ho et al., 2020) adds Gaussian noise to an image over many steps until it is pure noise; at each step the model learns what the noise in the image looks like, and generation starts from random noise and subtracts it step by step. The paper uses T = 1000 steps. The derivation is covered on this site in [CS229 Chapter 14](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en) and [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en).
+Continuous diffusion is the image-generation recipe. [DDPM](https://arxiv.org/abs/2006.11239) (Ho et al., 2020) adds Gaussian noise to an image over many steps until it is pure noise; at each step the model learns what the noise in the image looks like, and generation starts from random noise and subtracts it step by step. The paper uses T = 1000 steps. The derivation is covered on this site in [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en) and [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en).
 
 The trouble with text is that tokens are discrete. "Add a little noise to teddy" means nothing. The most direct fix is to map each token to an embedding vector, run diffusion in vector space, and "round" each vector back to the nearest word at the end. [Diffusion-LM](https://arxiv.org/abs/2205.14217) (Li et al., 2022) does exactly this: it adds an embedding step and a rounding step around standard diffusion, and trains the embeddings end to end with the model.
 
@@ -362,7 +362,7 @@ Lecture 8 is new in the 2026 edition, and neither the [2025 midterm](https://cme
 
 ## Going deeper
 
-- Work through the probabilistic derivation of diffusion: [CS229 Chapter 14: Diffusion Models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en), [MIT 6.S191 generative modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
+- Work through the probabilistic derivation of diffusion: [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en), [MIT 6.S191 generative modeling](/posts/ai/2026-08-22-mit-6s191-l04-generative-modeling-en)
 - Run it yourself: the [MDLM](https://s-sahoo.com/mdlm) and [Block Diffusion](https://m-arriola.com/bd3lms) project pages include code and tutorials; the [LLaDA project page](https://ml-gsai.github.io/LLaDA-demo/) links weights and sampling code
 - Another answer to the same bottleneck: [order 10: LLM systems](/posts/ai/2026-09-29-cme295-llm-systems-en), [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - This series' introductory treatment: [order 9: Lecture 9, Current trends](/posts/ai/2026-09-29-cme295-current-trends-en); back to the [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)

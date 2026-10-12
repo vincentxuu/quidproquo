@@ -52,7 +52,7 @@ The update always has the same shape:
 
 $$\Delta w = \alpha \big(\text{target} - \hat{Q}(s, a; w)\big) \nabla_w \hat{Q}(s, a; w)$$
 
-If gradient descent on parameters is still new to you, read the [deep learning chapter](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning-en) of the [CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) first. This post swaps $\hat{Q}$ for a convolutional network, but the update itself does not change.
+If gradient descent on parameters is still new to you, read the [Stanford CS229 Lecture 7: neural network architecture](/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture-en) of the [CS229 guide](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en) first. This post swaps $\hat{Q}$ for a convolutional network, but the update itself does not change.
 
 ## The problem: tables converge, function approximation can diverge
 
@@ -169,7 +169,7 @@ This series does not give answers. The other three questions of A2 (policy gradi
 
 - [Reading CS224R: Q-learning](/posts/ai/2026-09-30-cs224r-q-learning-en): how another Stanford RL course covers Q-learning and replay
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en): the same material in Berkeley's version
-- [CS229 notes, Chapter 19: reinforcement learning](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en): the prerequisite course's treatment of MDPs and value iteration
+- [Stanford CS229 Lecture 18: reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en): the prerequisite course's treatment of MDPs and value iteration
 
 **Series navigation**: previous [Part 5: model-free control](/posts/ai/2026-09-30-cs234-model-free-control-function-approx-en) | next [Part 7: policy gradients — REINFORCE, baselines, actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 

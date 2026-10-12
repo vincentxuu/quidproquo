@@ -222,7 +222,7 @@ T2-2 的影片標題在 YouTube 上拼成「Largange Dual SVM」，投影片是�
 
 ## 延伸閱讀
 
-- 站內 [CS229 2026 講義第 6 章：支援向量機](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines)：另一種 SVM 推導方式，可以和本篇的 QP 寫法對照。
+- [CS229 主講義第 6 章：支援向量機](https://cs229.stanford.edu/main_notes.pdf)：另一種 SVM 推導方式，可以和本篇的 QP 寫法對照。
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：Abu-Mostafa 用同一本教科書開的英文課。
 
 系列導覽：上一篇 [驗證與三個學習原則](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)｜下一篇 [Kernel 技巧與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)

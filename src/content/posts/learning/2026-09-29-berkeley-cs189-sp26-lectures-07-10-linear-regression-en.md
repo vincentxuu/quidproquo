@@ -191,7 +191,7 @@ The MAP derivation for lasso and the bias-variance decomposition appear in Discu
 
 On this site:
 
-- The same derivations told differently: [Stanford CS229 notes, chapter 1: linear regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en) and [chapter 9: regularization and model selection](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en)
+- The same derivations told differently: [Stanford CS229 Lecture 2: supervised learning setup and linear regression](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en) and [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en)
 - The probability behind MLE: [Stanford CS109 Lecture 19: maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en)
 - Series entry points: [CS189 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), [Berkeley AI/ML course map](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 

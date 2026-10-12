@@ -164,7 +164,7 @@ Discussion 11 的三題都標著「F25 Dis11」，題目沿用 Fall 2025。它�
 ## 想深入
 
 - Fall 2026 對應講次：[CS189 Fall 2026](https://eecs189.org/fa26/) 的 Lec 19–20 LLM、Lec 25 Post-training: Fine-tuning, LoRA, PEFT, and Distillation。Fall 2026 的排程上沒有獨立的自監督學習講次。
-- 站內同主題的其他課導讀（只是延伸，不重複本課內容）：[Stanford CME295：LLM 訓練](/posts/ai/2026-09-29-cme295-llm-training)、[Stanford CME295：偏好微調](/posts/ai/2026-09-29-cme295-preference-tuning)、[CMU 11-785 第 20 講：大型語言模型](/posts/ai/2026-08-22-cmu-11785-20-large-language-models)、[CMU 11-785 第 21 講：表徵與自編碼器](/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders)、[CMU 11-768 第 8 講：SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft)、[Stanford CS229 講義第 16 章：表徵學習](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning)。
+- 站內同主題的其他課導讀（只是延伸，不重複本課內容）：[Stanford CME295：LLM 訓練](/posts/ai/2026-09-29-cme295-llm-training)、[Stanford CME295：偏好微調](/posts/ai/2026-09-29-cme295-preference-tuning)、[CMU 11-785 第 20 講：大型語言模型](/posts/ai/2026-08-22-cmu-11785-20-large-language-models)、[CMU 11-785 第 21 講：表徵與自編碼器](/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders)、[CMU 11-768 第 8 講：SFT](/posts/ai/2026-09-29-cmu-11768-lecture-08-sft)、[Stanford CS229 第 13 堂：對比學習與語意檢索](/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search)。
 - 系列導覽：上一篇 [HW4 導讀](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw4-resnet-transformer-dnabert)；下一篇 [Lec 25–27：蛋白質、agents 與完課](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-25-27-protein-agents-closing)；系列入口 [CS189 總覽](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)。
 
 **今晚能做的事**：照 Lec 23 的算法，用 D = 12288、96 層重算一次 GPT-3 的 attention 與 MLP 參數量，確認 MLP 大約是 attention 的兩倍。接著做 Discussion 11 第 3 題，把 N = 1000 代進去，看 KV cache 省下多少次矩陣乘法。

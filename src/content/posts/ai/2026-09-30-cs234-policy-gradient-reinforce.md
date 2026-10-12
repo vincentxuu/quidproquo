@@ -202,7 +202,7 @@ vanilla PG 每批資料只走一步梯度就丟掉，而且步長很難選。L6 
 
 - [CS224R 導讀：Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients) 與 [Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic)：同校深度 RL 課的講法，更偏機器人與實作
 - [Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
-- [CS229 筆記第 21 章：策略梯度變體](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants)
+- [Stanford CS229 第 18 堂：強化學習基礎與 Policy Gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)
 
 **系列導覽**：上一篇 [order 6：DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning)｜下一篇 [order 8：進階策略梯度——performance bound、KL、PPO、GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 

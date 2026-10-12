@@ -268,7 +268,7 @@ Then read [Sutton & Barto](http://incompleteideas.net/book/RLbook2018.pdf) secti
 ## Further reading
 
 - [CS221 L7: MDPs and value iteration](/posts/ai/2026-08-22-stanford-cs221-lecture-07-mdp-value-iteration-en): the same algorithms in a prerequisite course
-- [Reinforcement learning: MDPs, value iteration, and continuous states (CS229 notes chapter 19)](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en)
+- [Stanford CS229 Lecture 18: reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en)
 - [CS224R L1: Writing decision making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
 

@@ -191,7 +191,7 @@ Per the course schedule, Fall 2026 hw2 comes out on 10/07. As of 2026-09-30 it i
 
 The next post, [Linear Regression and Logistic Regression](/posts/ai/2026-09-30-ntu-htlin-ml-linear-logistic-regression-en), moves on to "How Can Machines Learn?". It derives the closed-form solution of linear regression from this post's squared error, then derives cross-entropy and gradient descent from likelihood.
 
-Further reading: the Stanford CS229 [generalization chapter guide](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en) looks at the same problem through bias–variance. Caltech's Lecture 8 is also Bias-Variance Tradeoff, a different path from Lin's choice of Noise and Error for L8, and the two are worth comparing.
+Further reading: the Stanford CS229 [Stanford CS229 Lecture 6: bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en) looks at the same problem through bias–variance. Caltech's Lecture 8 is also Bias-Variance Tradeoff, a different path from Lin's choice of Noise and Error for L8, and the two are worth comparing.
 
 ## Course video sources
 

@@ -209,7 +209,7 @@ Fall 2026 的 hw2 依課程頁排程在 10/07 公布，截至 2026-09-30 還沒�
 
 下一篇[VC 維度、雜訊與誤差衡量](/posts/ai/2026-09-30-ntu-htlin-ml-vc-dimension-noise-error)會把「最大的非 break point」正式命名為 VC 維度 d<sub>VC</sub>，證明 d 維感知器的 d<sub>VC</sub> = d + 1，再把理論推廣到有雜訊的資料。
 
-延伸閱讀：Stanford CS229 的[泛化一章導讀](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)用不同的路線講同一個問題，可以對照。
+延伸閱讀：Stanford CS229 的[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)用不同的路線講同一個問題，可以對照。
 
 ## 課程影片來源
 

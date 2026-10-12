@@ -130,7 +130,7 @@ One detail: the K-means objective is computed on `large_dataset` (5000 images), 
 
 ## Further reading
 
-- [Stanford CS229 notes, chapter 10: clustering and k-means](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means-en), which revisits K-means as alternating optimization.
+- [Stanford CS229 Lecture 9: k-means and Gaussian mixture models](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm-en), which revisits K-means as alternating optimization.
 - [Berkeley CS189 Spring 2025 overview](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview-en), for how another university ML course schedules unsupervised learning.
 
 ## Course video sources

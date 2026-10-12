@@ -224,7 +224,7 @@ There are no official solutions. For Q1, you can write a kernel perceptron and c
 
 ## Further reading
 
-- The site's [CS229 2026 notes, chapter 6: support vector machines](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines-en): another derivation of the SVM to compare with the QP view here.
+- [CS229 lecture notes, chapter 6: support vector machines](https://cs229.stanford.edu/main_notes.pdf): another derivation of the SVM to compare with the QP view here.
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): Abu-Mostafa's English course on the same textbook.
 
 Series navigation: previous, [Validation and three learning principles](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en) | next, [Kernel trick and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)

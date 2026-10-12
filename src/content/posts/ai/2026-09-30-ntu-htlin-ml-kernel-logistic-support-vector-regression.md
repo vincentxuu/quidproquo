@@ -224,7 +224,7 @@ HW6 其他題目的對照見[上一篇](/posts/ai/2026-09-30-ntu-htlin-ml-kernel
 
 ## 延伸閱讀
 
-- 站內 [CS229 2026 講義第 5 章：kernel 方法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods)：kernel 化的另一種推導。
+- [CS229 主講義第 5 章：kernel 方法](https://cs229.stanford.edu/main_notes.pdf)：kernel 化的另一種推導。
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：同一本教科書的英文課。
 
 系列導覽：上一篇 [Kernel 技巧與軟邊界 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm)｜下一篇 [Blending、Bagging 與 AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)

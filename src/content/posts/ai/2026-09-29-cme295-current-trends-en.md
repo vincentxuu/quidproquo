@@ -148,7 +148,7 @@ The goal is to learn a transformation from noise to the data distribution. Follo
 1. **Forward process**: add noise to an image step by step until it is pure noise
 2. **Reverse process**: train a model to remove the noise step by step
 
-To generate, start from random noise and denoise repeatedly. For the derivation of image diffusion, see this site's posts on [CS229 Chapter 14](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en) and [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en).
+To generate, start from random noise and denoise repeatedly. For the derivation of image diffusion, see this site's posts on [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en) and [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en).
 
 ### Moving to text: noise becomes [MASK]
 
@@ -253,7 +253,7 @@ Lecture 9 is not covered by the [2025 final exam](https://cme295.stanford.edu/ex
 
 - Full trade-offs of multimodality: [CS336 Lecture 17 on multimodal models](/posts/ai/2026-08-22-cs336-multimodal-alignment-en), [CS224N Lecture 17: Multimodality](/posts/ai/2026-08-22-cs224n-multimodality-en)
 - Where multimodal models actually stand in 2026: [H1 2026 multimodal model landscape](/posts/ai/2026-08-18-multimodal-models-2026-landscape-en)
-- The math of image diffusion: [CS229 Chapter 14: diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
+- The math of image diffusion: [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en), [CMU 11-785 Lecture 23](/posts/ai/2026-08-22-cmu-11785-23-diffusion-en)
 - Why inference cost is bound by memory: [CS336 Lecture 10: LLM inference](/posts/ai/2026-08-22-cs336-inference-en)
 - Back to the start: [series overview](/posts/ai/2026-09-29-stanford-cme295-transformers-llms-en)
 

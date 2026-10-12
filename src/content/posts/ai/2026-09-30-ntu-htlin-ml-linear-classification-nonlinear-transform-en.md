@@ -163,7 +163,7 @@ One thing to try tonight: use d̃ = C(Q+d, d) − 1 to compute the dimension for
 
 ## Further reading
 
-- Other takes on the same material: [CS229 notes chapter 2: classification and logistic regression](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en), [Berkeley CS189 Lec 11–12: classification and logistic regression](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
+- Other takes on the same material: [Stanford CS229 Lecture 3: maximum likelihood and logistic regression](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en), [Berkeley CS189 Lec 11–12: classification and logistic regression](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic-en)
 - The trade-off between feature transforms and regularization: [CMU 07-280 Lecture 10: Feature Engineering and Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization-en)
 - ML Techniques hands the "high dimensions cost you" problem to SVMs and kernels: [Linear SVM and Dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 - Homework overview: [Foundations homework guide](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide-en)

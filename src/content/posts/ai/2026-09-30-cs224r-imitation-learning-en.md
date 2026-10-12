@@ -201,7 +201,7 @@ Almost no demonstrations sit near the mean. Then download the [HW1 starter code]
 ## Further reading
 
 - [Berkeley CS285 L1–4: imitation learning, distribution shift and RL basics](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics-en): another take on DAgger and distribution shift
-- [Diffusion models: forward noising, reverse generation and the ELBO (CS229 notes ch. 14)](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en): the math behind diffusion
+- [Stanford CS229 Lecture 11: diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en): the math behind diffusion
 - [CME295: Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en): the same noise-and-denoise framework applied to language models
 
 **Series navigation**: Previous: [L1: Framing decision-making as an RL problem](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en) | Next: [HW1: Imitation learning on Flappy Bird](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en) | [Series overview](/posts/ai/2026-09-30-cs224r-course-overview-en)

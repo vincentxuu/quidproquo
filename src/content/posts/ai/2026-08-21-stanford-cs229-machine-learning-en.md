@@ -1,220 +1,204 @@
 ---
-title: "Notes Rewritten Every Year, Public Problem Sets Frozen at 2020, and an Official Self-Test From 2008 | Stanford CS229 Topic Guide"
+title: "From Linear Regression to Training Reasoning Models: A Course Map and Reading Routes | Stanford CS229 Course Overview"
 date: 2026-08-21
 category: ai
-type: deep-dive
+type: guide
 tags: [cs229, ai-course, stanford, machine-learning, deep-learning, self-study]
 lang: en
 series:
   name: "Reading Stanford CS229"
-  order: 1
+  order: 0
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 9
-tldr: "The three things you need to self-study CS229 run on three different clocks. The lecture notes are 278 pages and were recompiled in August 2026. The newest problem sets you can download are from summer 2020. The self-assessment Stanford Online tells you to attempt before enrolling is a PDF created in 2008. Seventeen lectures from spring 2026 are public, and the last three are mislabeled."
-description: "A full walkthrough of Stanford CS229: Machine Learning — what the 278-page notes actually cover and where chapter 1 gets hard, how the 2018 and 2026 syllabi diverge, the three problem sets still downloadable, how Stanford itself positions CS229 against CS230, and exactly what a self-learner can get."
+tldr: "CS229 is the Stanford course that works through the mathematical derivations of machine learning. The Spring 2026 recordings make 17 lectures public: the first ten cover linear models, neural networks, and unsupervised learning, and the last seven go on to diffusion models, LLMs, and training reasoning models with reinforcement learning. This series has one post per lecture, and this post is the map: what each lecture actually teaches, where the video titles don't match, and where to pick up what the lecture notes cover but the lectures skipped."
+description: "An overview of Stanford CS229: Machine Learning: what the 17 public Spring 2026 lectures actually cover and which lecture-note chapters they map to, the gaps in the video numbering and titles, the prerequisites and how to test yourself, the problem sets you can still get, and reading routes for self-study."
 draft: false
+math: true
 ---
 
 > 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
 
-**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
+**Video status: Videos included.** This post is the overview of the whole course. The video embedded below is Spring 2026 Lecture 1 (the course introduction); the recording for each lecture sits at the top of that lecture's guide.
 
-[CS229: Machine Learning](https://cs229.stanford.edu/) is Stanford CS's main machine learning course, three to four units, cross-listed with statistics as STATS 229. It is not an AI survey and it is not a deep learning course. It is the course that walks through the **mathematical derivations** behind supervised learning, unsupervised learning, learning theory, and reinforcement learning.
+[CS229: Machine Learning](https://cs229.stanford.edu/) is the main machine learning course in Stanford's computer science department, cross-listed in statistics as STATS 229. Its subject is derivation: which probabilistic assumption a model's loss function comes from, how to compute the gradient, and why the algorithm converges. Plenty of people can call a library to train a model. This course wants you to be able to write out the equations yourself.
 
-It also has the most complete public self-study materials of any Stanford course: the notes are a public PDF, the lectures are on YouTube, and the problem sets and starter code are still sitting on the server. That is why it deserves its own post — **an abundance of material is not the same as consistent material**. Those four resources are frozen at four different years, and nothing on any page tells you so.
-
-This piece was written after reading through the notes PDF chapter by chapter, putting the 2018 and 2026 syllabi side by side, and downloading and working through every problem set still reachable. It covers what the course teaches, where chapter 1 gets hard, what changed between the two syllabi, what the assignments look like, and how much someone without a Stanford account can actually get. It does **not** include a lecture-by-lecture listen — that is a different order of work, and the [CS329A post](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) in this series is the one that does it. For where this course sits on the prerequisite ladder, see the [map post](/posts/learning/2026-08-20-stanford-cs-course-map-en) that opens the series.
-
-## The hard facts
-
-The prerequisites are spelled out concretely on the course site, in three parts. You can write non-trivial Python/NumPy (CS106A or CS106B level); probability to the level of CS109 or MATH151; multivariable calculus and linear algebra to the level of MATH51 or CS205L. All three are phrased as "equivalent to" — you do not need to have taken those course numbers.
-
-What fewer people notice is that **the course runs four times a year, taught by a different team each time**. The [ExploreCourses entry for CS 229](https://explorecourses.stanford.edu/search?q=CS+229&view=catalog) lists autumn, winter, spring, and summer for 2025–2026. Autumn is Moses Charikar, Carlos Guestrin, and Andrew Ng; winter is Sanmi Koyejo; spring is Tengyu Ma and Chris Ré; summer is Jehangir Amjad and Anand Avati. So "what does CS229 teach" is strictly a question you have to ask about a specific quarter. The course summaries floating around online rarely say which one.
-
-On auditing, the site leaves no room:
-
-> All links will require you to be logged into your Stanford email to access. Course documents are only shared with Stanford University affiliates.
-
-The current syllabus, assignments, and FAQ all live behind Google Drive and Canvas, locked to a Stanford account. The official route for non-degree students is SCPD, and the [Stanford Online CS229 page](https://online.stanford.edu/courses/cs229-machine-learning) requires a bachelor's degree and an undergraduate GPA of 3.0 or higher to apply. This term adds one more thing: the course is part of a Stanford academic integrity task force pilot for proctored in-person exams.
-
-## The notes: 278 pages, recompiled two days ago
-
-[main_notes.pdf](https://cs229.stanford.edu/main_notes.pdf) is the most valuable public asset this course has. It currently runs 278 pages, the title page credits Tengyu Ma and Andrew Ng, and the date reads August 18, 2026 — three days before this post. The `Last-Modified` header the server returns falls in the same week. This is not a stale document gathering dust.
-
-It is organized into six parts: supervised learning, deep learning, generalization and regularization, unsupervised learning, generative models and foundation models, reinforcement learning and control, followed by an appendix on Gaussians and KL divergence plus a bibliography. The map post described it as running "all the way through self-supervised learning and foundation models" — **that description is now an understatement**. Part V contains diffusion models, LoRA, contrastive learning, semantic retrieval and RAG, tokenization, the transformer architecture, attention variants, MoE, in-context learning, and SFT. The final chapter is called Reasoning in LLMs and covers chain-of-thought and long-reasoning training under RLVR. In the RL part, the policy gradient chapter has grown from REINFORCE alone to REINFORCE plus PPO.
-
-None of this is a scattering of small additions. Pull down the [frozen autumn 2022 notes](https://cs229.stanford.edu/notes2022fall/main_notes.pdf) and the picture is unambiguous: back then, "self-supervised learning and foundation models" was a single eight-page chapter. The same material today occupies five chapters and nearly fifty pages. **Almost all of the sixty-odd pages added over four years land in that one block.** The chapters on linear regression, GLMs, SVMs, EM, and PCA are essentially unchanged apart from shifted page numbers.
-
-One aside: the header on the 2026 table of contents still prints "CS229 Spring 2022". That is a leftover string from an old layout template and has nothing to do with the content — don't use it to date the file.
-
-### What chapter 1 covers, and where it gets hard
-
-The map post uses "can you get through chapter 1 of the notes" as the dividing line between CS229 and CS230. Concretely, chapter 1 is **linear regression**, twelve pages, starting from the square footage and sale price of 47 houses in Portland. It has four parts: the LMS update rule with batch and stochastic gradient descent, the closed-form normal equations, the probabilistic interpretation of least squares, and locally weighted linear regression.
-
-What stops people is not gradient descent — anyone can read that section. It is the two things that come next.
-
-**The first is §1.2.1, matrix derivatives.** To avoid having to "write reams of algebra and pages full of matrices of derivatives," the notes define the gradient of a function mapping matrices to real numbers. They then use two identities — `∇x bᵀx = b`, and `∇x xᵀAx = 2Ax` when A is symmetric — to reduce the gradient of `J(θ)` to `XᵀXθ − Xᵀy` in about five lines. Neither identity is proved; you get one sentence: "for more details, see Section 4.3 of Linear Algebra Review and Reference." That [linear algebra review](https://cs229.stanford.edu/section/cs229-linalg.pdf) is public and sits on the same server. If you cannot verify those five lines yourself, every later chapter moves at the same density.
-
-**The second is §1.3, the probabilistic interpretation.** This section assumes the error terms are i.i.d. zero-mean Gaussian, writes down the likelihood, takes logs, and lets the least-squares cost function fall out on its own. On a single page it asks you to juggle conditional probability notation, why `p(y|x; θ)` uses a semicolon rather than a comma, and why maximizing likelihood can be swapped for maximizing log-likelihood. This is the grammar lesson for the whole course: GLMs, GDA, EM, and diffusion models are all variations on it.
-
-**Something you can do tonight**: open the notes at §1.2.2 and derive `∇θ J(θ)` from `½(Xθ − y)ᵀ(Xθ − y)` down to `XᵀXθ − Xᵀy` on paper. If it comes out, you can carry this course's mathematical load. If it doesn't, go finish CS230 or a linear algebra course first. That test beats any self-assessment rubric.
-
-## 2018 and 2026 are not the same course
-
-Most people self-studying CS229 are still watching Andrew Ng's version. [Stanford CS229: Machine Learning led by Andrew Ng](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) is the autumn 2018 playlist, and lecture 1 alone has over four million views. The recordings are good, but what they teach diverges from today's CS229 more than most people assume.
-
-Put the [autumn 2018 syllabus](https://web.archive.org/web/20190704115541/http://cs229.stanford.edu/syllabus-autumn2018.html) (Wayback capture) next to the [spring 2026 playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw):
-
-| | Autumn 2018 | Spring 2026 |
-|---|---|---|
-| Neural networks | 2 lectures (basics, training) | 2 lectures (architecture, backprop) |
-| Generative models | none | 1 lecture on diffusion |
-| Representation learning | none | 1 lecture |
-| Large language models | none | at least 3 lectures (next-token prediction, transformers and in-context learning, attention variants and SFT) |
-| Reinforcement learning | 4 lectures, ending at POMDPs | 2 lectures, ending at PPO and RLVR for long chains of thought |
-| Decision trees and ensembles | 1 lecture | none |
-| Factor analysis | 1 lecture | none |
-| Extra resources section | still listing Matlab and Octave tutorials | — |
-
-Eight years ago, CS229 was a tour of machine learning algorithms with deep learning as a two-lecture guest. Today the first half is nearly untouched and the second half has been replaced by a single line running from representation learning to transformers to training reasoning models with RL. **Decision trees, ensemble methods, and factor analysis vanished from the syllabus and the notes together** — if you came for gradient boosting, this course no longer teaches it.
-
-In the lecture on attention variants, the speaker is candid about how the remaining sessions are arranged: "the rest of the lectures are a bunch of small topics which are pretty kind of almost trivial but I have to mention all of them in some sense to clarify the concept" (from the YouTube auto-generated captions, unpunctuated; spring is split between Ma and Ré, and neither the video titles nor their descriptions identify who teaches which lecture, so which of them said this cannot be confirmed from public information).
-
-### Two traps in the 2026 recordings
-
-First, **the playlist is incomplete**. It has 17 videos, numbered 1 through 14 in the titles, then jumping to 16, 18, 20. The lectures in between were never posted.
-
-Second, **the last three titles do not match their contents**. Three videos share the title "GMM (EM), PCA" — number 10 really is about GMMs and PCA, the other two are not. Open the one labeled "Lecture 18: GMM (EM), PCA" and the opening line is "Starting from this week, we're going to talk about uh reinforcement learning." Open "[Lecture 20: GMM (EM), PCA](https://www.youtube.com/watch?v=J7CossjMvEg)" and the speaker says this is the last lecture of the quarter, then covers PPO and training long chains of thought with RL. And the one labeled "Lecture 16: Basic Concept in RL, Policy Gradient" opens by reviewing the previous week's material on attention. The titles have slipped roughly one slot behind. Stanford Online offers no explanation.
-
-Practically, this means **you cannot build a study plan off the titles in this playlist — you have to open each video and listen to the first thirty seconds.** Worth knowing too is how unevenly the views are distributed: the transformer lecture is close to a hundred thousand, the k-means lecture is a rounding error next to it. Same course, same uploader, same week.
-
-## What the assignments look like
-
-The current term's assignments are out of reach. But three problem sets from the summers of 2019 and 2020 are still on the server, PDFs and starter code archives both downloadable, with the datasets, `util.py`, and LaTeX answer templates included. Taking the [summer 2020 batch](https://cs229.stanford.edu/summer2020/ps1.pdf) as the reference:
-
-- **PS1 (five problems)**: linear classifiers (derive and implement logistic regression and GDA, each twice over), an incomplete-labeling problem where only positives are labeled, Poisson regression, a proof that the negative log-likelihood of a GLM is convex, and polynomial regression with different feature maps.
-- **PS2 (six problems)**: training stability of logistic regression, spam SMS classification with naive Bayes, proving the validity of eight kernel constructions, a kernelized perceptron, MNIST handwritten digit recognition, and the Bayesian interpretation of regularization.
-- **PS3 (six problems)**: reinforcement learning on the inverted pendulum, KL divergence and maximum likelihood, k-means image compression, semi-supervised EM, PCA, and solving the cocktail party problem with ICA.
-
-Each set is built on the same two-track structure — derive first, then implement — with the written and coding parts graded separately. **The watershed is problem 5 of PS2**: it is the only one that asks you to write the forward pass and backprop of a single-hidden-layer network from scratch, run it on fifty thousand MNIST training images, and then repeat the run with L2 regularization as a control. Most of the implementation work before that is translating a closed form or an iterative rule into NumPy. This one asks you to derive the chain rule yourself.
-
-You can't route around it, because of one hard rule on the first page of every assignment: "For the coding problems, you may not use any libraries except those defined in the provided environment.yml file. In particular, ML-specific libraries such as scikit-learn are not permitted." And `environment.yml` contains only NumPy, SciPy, matplotlib, and Pillow. **No scikit-learn, no PyTorch, no TensorFlow.** This is the biggest felt difference between CS229 and CS230, and it isn't in the notes — it's in a dependency list.
-
-One trap to know going in: that `environment.yml` pins Python 3.6.6 and NumPy 1.15.0, both long out of maintenance. The starter code doesn't reach for anything obscure, so modern versions usually run fine, but you are on your own to sort it out. Nobody is updating this for you.
-
-## CS229 and CS230: the official line is complementary, not either-or
-
-The map post says these two are "not either-or, they're complementary." There are two layers of official evidence behind that, and both are more explicit than the usual secondhand version.
-
-**The first layer is the prerequisites field on ExploreCourses.** CS 230's prerequisites read: "Familiarity with programming in Python and Linear Algebra (matrix / vector multiplications). CS 229 may be taken concurrently." Note the wording — not "CS229 recommended first," but "may be taken concurrently." The division of labor is written into the course catalog.
-
-**The second layer is in CS230's own public recordings.** In the Q&A of [autumn 2025 lecture 1](https://www.youtube.com/watch?v=_NLHFoVNlbg), a student asks outright whether the two can be taken together. Per the transcript, Ng says yes, and adds that "we designed the two curricula to be relatively low in overlap." In the same Q&A he ranks the three entry-level courses: CS129 is the most applied and the easiest to start with; CS229 is "much more mathematical and theoretical, very high-paced, very intense"; CS230 does one thing, deep learning, and does almost no mathematical proofs all quarter.
-
-So the complementarity is real, but **it works in the opposite direction from what many people assume**. It isn't the upstream-downstream arrangement where CS229 teaches theory and CS230 teaches practice. CS229 covers a far broader range of algorithms; CS230 picks one class and drills down. The overlap is small because the two courses cut along different axes. There's a companion piece on this site about [where prompt engineering stops working](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en), written from CS230.
-
-While we're here, one common misreading: CS229 is not a prerequisite for CS230. Nor the reverse.
-
-## Stanford's own placement test is not the one the map post uses
-
-The map post suggests self-assessing on whether you can get through chapter 1 of the notes. Stanford's own criterion is harsher — the Stanford Online CS229 page states it directly under the prerequisites:
-
-> Please review the first problem set before enrolling. If this material looks too challenging, you may find this course too difficult.
-
-That "first problem set" is a link to a [four-page PDF on see.stanford.edu](https://see.stanford.edu/materials/aimlcs229/problemset1.pdf). The PDF was created in **October 2008**. Which is to say: Stanford Online is still using an eighteen-year-old open-courseware assignment as the entrance self-test for a 2026 course.
-
-The interesting part is that it still works as a test. Problem 1 of that PS1 asks you to prove that Newton's method applied to least squares converges to the optimum in one iteration — which requires computing the Hessian of the cost function yourself. Problem 2 asks you to implement the Newton-Raphson iteration for locally weighted logistic regression. Between them they hit exactly the two hard points from chapter 1 of the notes: matrix derivatives and a probabilistically framed objective. **It hasn't been replaced in eighteen years because the bar itself never moved.**
-
-You can use both criteria together: read chapter 1 to find out whether you can **keep up**, and do the 2008 PS1 to find out whether you can **actually work**. The second one hurts more, and tells you more.
-
-## What a self-learner actually gets
-
-Item by item, the have and have-not columns are cleanly separated:
-
-| Material | Status | Frozen at |
-|---|---|---|
-| Main notes PDF | ✅ Public, 278 pages | 2026 (actively updated) |
-| Linear algebra / probability / convex optimization / Gaussians review notes | ✅ Public | Older versions, but the content doesn't expire |
-| 2018 Andrew Ng recordings | ✅ Complete | 2018 |
-| Spring 2026 recordings | ⚠️ Only 17 videos, later titles mislabeled | 2026 |
-| Problem sets 1–3 plus starter code and datasets | ✅ Public | 2020 |
-| Problem set 4 and the midterm | ❌ | — |
-| Official solutions | ❌ | — |
-| Autograder | ❌ Ran on private Gradescope test sets at the time | — |
-| Current syllabus, schedule, project handouts | ❌ Locked to a Stanford account | — |
-| Final project showcase | ❌ No public entry point for recent terms | — |
-
-The most painful item is **no solutions and no grader**. CS229's assignments are heavy on derivation, and derivations are exactly where you most need to hear "is this step right?" You can get the problems and the data, but nobody is going to read your proof. The coding problems fare a little better — the datasets ship with valid and test splits, and the starter code writes predictions to a file, so you can at least see whether your accuracy is in a sane range.
-
-The second most painful is that **the other half of the course is simply absent**. The final project carries real weight in every syllabus, and it is where CS229 turns knowledge into ability. What a self-learner gets is the notes plus the assignments — half of the course.
-
-## How to start
-
-If you have one hour tonight, do this: download the [four-page PS1 from 2008](https://see.stanford.edu/materials/aimlcs229/problemset1.pdf) and finish problem 1 — compute the Hessian of `J(θ)`, then prove that the first Newton iteration lands on `θ* = (XᵀX)⁻¹Xᵀy`. If you can do it, go straight into CS229. If you stall at the Hessian, shore up matrix calculus first; section 4 of the [linear algebra review](https://cs229.stanford.edu/section/cs229-linalg.pdf) was written for exactly this.
-
-Once you've decided to go, sequence it like this. Read parts I through IV of the notes alongside Ng's 2018 recordings — **the first half has barely changed in eight years, and Ng's spoken explanations are still the best available**. When you reach part V (generative models and foundation models), switch to the spring 2026 playlist, because the 2018 version contains none of that material. For assignments, use the three from 2020: after each part of the notes, go back and do the corresponding problems. Don't skip the MNIST one.
-
-The one-line version: **old recordings with new notes, assignments with the starter code, and a 2008 PDF as the placement test.**
-
-## Appendix: numbers and how they were verified
-
-- **Notes version**: `https://cs229.stanford.edu/main_notes.pdf` fetched 2026-08-21, `Last-Modified: Wed, 19 Aug 2026`, internal PDF `CreationDate` 2026-08-18 (PDT), 278 pages, produced by pdfTeX-1.40.21. The title page credits Tengyu Ma and Andrew Ng in that order; an older version cached by search engines credits Andrew Ng and Tengyu Ma and is dated June 11, 2023. The header string on the table of contents reads "CS229 Spring 2022".
-- **2022 comparison version**: `https://cs229.stanford.edu/notes2022fall/main_notes.pdf`, 216 pages, `CreationDate` 2022-05-18. Its chapter 14, "Self-supervised learning and foundation models," spans pp.167–174. The corresponding part V in the 2026 version, "Generative models and Foundation Models," spans pp.179–225 and contains chapter 14 on diffusion models, 15 on the foundation model overview (including LoRA), 16 on representation learning (including semantic retrieval and RAG), 17 on large language models, and 18 on reasoning in LLMs (chain-of-thought and RLVR).
-- **Chapter 1 page numbers**: in the 2026 version, chapter 1, Linear regression, runs pp.9–20, with four sections: LMS algorithm, The normal equations, Probabilistic interpretation, Locally weighted linear regression. The housing example uses 47 data points from Portland.
-- **Offering records**: ExploreCourses shows CS 229 offered in all four quarters of 2025-2026, 3–4 units, cross-listed as STATS 229. For 2026-2027 it currently lists winter (Emily Fox) and spring (Tengyu Ma, Chris Ré). The course site currently shows Summer 2026 (Jehangir Amjad, Anand Avati).
-- **Spring 2026 playlist**: `PLaqpC4kq8Gpw`, 17 videos, last updated 2026-07-31. Title numbering runs 1–14, 16, 18, 20. Three videos are titled "GMM (EM), PCA" and sit at positions 10, 16, and 17 in the list. The view-count spread comes from the playlist page on 2026-08-21: Lecture 14 (Transformers) around 99K, Lecture 9 (K-Means and GMM) around 1.5K.
-- **2018 syllabus**: `syllabus-autumn2018.html` as captured by the Wayback Machine on 2019-07-04. Twenty lectures, grouped as Introduction (1), Supervised learning (6), Learning theory (2), Deep Learning (2), Unsupervised learning (5), Reinforcement learning and control (4). Assignments were ps0 plus ps1–ps4, along with a take-home midterm and a final project with four deliverables (proposal, milestone, poster, final writeup).
-- **Assignment availability**: `summer2019/ps1–ps3.pdf`, `summer2020/ps1–ps3.pdf`, and the matching `.zip` files all return 200; `ps0`, `ps4`, and `ps5` return 404. PS1 is 14 pages / 5 problems / 135 points, PS2 is 13 pages / 6 problems / 120 points, PS3 is 14 pages / 6 problems / 125 points. `environment.yml` specifies python=3.6.6, numpy=1.15.0, matplotlib=2.2.2, scipy, pillow. The MNIST problem uses a 50,000 train / 10,000 dev split, plus 10,000 test.
-- **Review notes still downloadable**: `section/cs229-linalg.pdf`, `section/cs229-prob.pdf`, `section/cs229-cvxopt.pdf`, and `section/cs229-gaussians.pdf` all return 200; the older per-topic notes listed on the 2018 syllabus, such as `notes/cs229-notes1.pdf`, all return 404.
-- **Self-test problem set**: `https://see.stanford.edu/materials/aimlcs229/problemset1.pdf`, 4 pages, PDF `CreationDate` 2008-10-06. The header reads "CS 229, Public Course".
-- **Not confirmed**: (1) why lectures 15, 17, and 19 are missing from the spring 2026 recordings, and why the last three titles are misaligned — neither the Stanford Online page nor the playlist description says anything; (2) the grade breakdown (assignments / midterm / project) for any quarter of CS229 — the current syllabus is locked behind a Stanford account and this post obtained no official breakdown for any term, so it does not discuss grade weighting at all; (3) whether a public showcase of recent final projects exists anywhere — none found; (4) whether problem sets from years other than 2019 and 2020 remain on the server — only the summer2019 and summer2020 paths were tested.
-
-## Course video sources
-
-This article is a course-level guide, not a single lecture. The video below, Spring 2026 Lecture 1 (Introduction), is a related supplement from the public Stanford Online playlist. The official CS229 page currently shows Summer 2026 and sends recordings and materials to a Stanford sign-in Canvas site, so only the public YouTube playlists are used here.
+This series follows the Spring 2026 recordings that Stanford Online made public, one post per lecture, 17 lectures in all. Each post opens with that lecture's video, the body walks through the derivations in the order the lecture takes them, adds one example you can work by hand, and ends with the matching chapters of the lecture notes. This overview helps you decide three things: whether the course suits you right now, what each of the 17 lectures teaches, and where to start.
 
 ```youtube
 url: https://www.youtube.com/watch?v=DATnpGoGhM8
 title: Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction
+captions: en
 ```
 
-Original videos: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
+## Who this course is for
 
-Course and recording entries:
+The course site lists three prerequisites. All three are phrased as "equivalent to", so you don't need to have taken those course numbers:
 
-- [Stanford CS229 Machine Learning, Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
-- [Official course / lecture source](https://cs229.stanford.edu/)
+- You can write a non-trivial program in Python and NumPy (the level of CS106A or CS106B)
+- Probability theory (the level of CS109 or MATH151)
+- Multivariable calculus and linear algebra (the level of MATH51 or CS205L)
 
-Checked: 2026-10-10.
+In practice, what stops people most often is the notation for matrix derivatives and conditional probability. The lecturer of Lecture 2 frames that session as a "notation lecture" and says every later lecture will assume you know it. So the fastest way to judge whether you can take the course is to go straight to the normal equations section of [Lecture 2](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en): if you can follow every step from $J(\theta) = \frac{1}{2}(X\theta - y)^T(X\theta - y)$ to $X^TX\theta = X^Ty$, you can handle the mathematical density.
 
-Content check: verified against the video transcript (2026-10-10): what was checked is how the video topic relates to this article. This is Spring 2026 Lecture 1 (about 37 minutes) taught by Tengyu Ma; the transcript is the course introduction: prerequisites, the AI tools policy, definitions of machine learning (1959 and Tom Mitchell 1998), the supervised/unsupervised/reinforcement taxonomy and previews of LLMs and diffusion models. It fits the article as a course-level overview, and the article makes no finer claims about this video. The Lecture 14 opening, the attention-variants quote and the descriptions of Lectures 16/18/20 come from other videos, not this one, and were not re-read here.
+Stanford Online also gives an official self-test: before enrolling, look at [Problem Set 1 from the 2008 public course](https://see.stanford.edu/materials/aimlcs229/problemset1.pdf), and if it looks too hard, the course is too hard for you. The first problem in that set asks you to compute the Hessian of the least-squares cost function and then prove that Newton's method converges in one step; Newton's method and the Hessian are taught in [Lecture 3](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en). Reading a post tells you whether you can keep up. Doing that problem set tells you whether you can do the work yourself, and it is the more accurate test.
+
+If what you want is hands-on experience getting deep learning models to train and debugging them, CS230 is the better fit. The relationship between the two courses is covered near the end of this post.
+
+## What each of the 17 lectures teaches
+
+Spring 2026 is taught by Tengyu Ma and Chris Ré, who split the lectures between them. Lecture 1 is Ma's opening session. Ré teaches Lectures 2 through 6 and Lectures 9 and 10, and at the end of Lecture 10 he says it is his last class of the quarter. The remaining lectures are Ma's.
+
+The "Actual content" column in the table below is compiled from each lecture's transcript. It does not always match the video title on YouTube; the next section explains the gaps.
+
+| Lecture | Guide | Actual content | Lecture notes |
+|---|---|---|---|
+| 1 | [What machine learning learns](/posts/ai/2026-10-12-stanford-cs229-lecture-01-introduction-en) | Course introduction, definitions of machine learning, supervised / unsupervised / reinforcement learning | Tour of the whole book |
+| 2 | [The supervised learning setup and linear regression](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en) | Hypothesis function, least-squares cost, gradient descent, minibatch SGD, normal equations | Chapter 1 |
+| 3 | [Maximum likelihood and logistic regression](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en) | Probabilistic interpretation of linear regression, logistic regression, Newton's method | Chapters 1–2 |
+| 4 | [The exponential family, generalized linear models, and softmax](/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm-en) | Exponential family, GLMs, multiclass softmax, cross-entropy and label smoothing | Chapters 2–3 |
+| 5 | [Gaussian discriminant analysis and Naive Bayes](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en) | Generative vs. discriminative, multivariate Gaussian, GDA, Naive Bayes | Chapter 4 |
+| 6 | [Bias and variance, regularization, and model selection](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en) | Bias–variance decomposition, ridge regression, double descent, cross-validation | Chapters 8–9 |
+| 7 | [Neural network architecture](/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture-en) | Training framework for nonlinear models, fully connected networks, residual connections, normalization layers | Chapter 7 |
+| 8 | [Backpropagation](/posts/ai/2026-10-12-stanford-cs229-lecture-08-backpropagation-en) | Why computing the gradient is as fast as one forward pass, the backward of each module | Chapter 7 |
+| 9 | [k-means and Gaussian mixture models](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm-en) | k-means, GMM, latent variables, Jensen's inequality | Chapters 10–11 |
+| 10 | [The EM algorithm and PCA](/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca-en) | ELBO and the monotonicity of EM, applying it back to GMM, PCA | Chapters 11–12 |
+| 11 | [Diffusion models](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en) | Forward noising, reverse denoising, writing the training objective with the ELBO | Chapter 14 |
+| 12 | [The noise-prediction loss of diffusion models, foundation models, and LoRA](/posts/ai/2026-10-12-stanford-cs229-lecture-12-diffusion-loss-foundation-models-lora-en) | Simplifying the diffusion loss, pretraining plus adaptation, linear probe, finetune, LoRA | Chapters 14–15 |
+| 13 | [Contrastive learning and semantic search](/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search-en) | Representation learning, contrastive loss, semantic search, RAG | Chapter 16 |
+| 14 | [Large language models](/posts/ai/2026-10-12-stanford-cs229-lecture-14-llm-next-token-attention-en) | Tokenization, next-token loss, how attention is computed | Chapter 17 |
+| 16 | [Attention variants, MoE, and prompting](/posts/ai/2026-10-12-stanford-cs229-lecture-16-attention-variants-in-context-learning-en) | KV cache, grouped-query attention, MoE, in-context learning, SFT | Chapter 17 |
+| 18 | [Reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en) | MDPs, value functions, Bellman equations, deriving the policy gradient | Chapters 19, 21 |
+| 20 | [Baselines, PPO, and verifiable rewards](/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning-en) | Finishing policy gradient, PPO, training long chains of thought with reinforcement learning | Chapters 18, 21 |
+
+The course falls into three stretches.
+
+**Lectures 2 through 6 practice one recipe over and over.** Write down a probabilistic model of the data, take the log-likelihood, and maximize it. Linear regression, logistic regression, GLMs, and GDA are all this procedure with a different distribution swapped in. Lecture 6 turns around and asks why doing as well as possible on the training set doesn't guarantee doing well on new data.
+
+**Lectures 7 through 10 replace two assumptions.** Lectures 7 and 8 swap the linear model for a neural network; the price is that there is no closed-form solution, and the gradient has to come from backpropagation. Lectures 9 and 10 take the labels away and bring in latent variables and EM. The ELBO derived in Lecture 10 is the foundation for the diffusion models that come later.
+
+**From Lecture 11 on, the material entered the course only in the last few years.** Diffusion models, pretraining and adapting foundation models, contrastive learning, the training objective and architecture of LLMs, and finally two lectures of reinforcement learning that end on how to train a model that reasons for a long time. The lecture-note chapters for this stretch are recent additions. In the [frozen Fall 2022 notes](https://cs229.stanford.edu/notes2022fall/main_notes.pdf), all of "self-supervised learning and foundation models" was one chapter of eight pages; the same material is now five chapters and nearly fifty pages.
+
+## Video numbering and titles
+
+Studying from the playlist, you will run into two things that are easy to misread.
+
+### The numbering skips, but no regular lecture is missing
+
+The [playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw) has 17 videos. The numbers in the titles run from 1 to 14, then 16, 18, 20. Each of the three missing numbers has its own reason:
+
+- **Lectures 15 and 17 were guest lectures** and were not posted to YouTube. At the start of Lecture 14 the lecturer says the rest of the course, apart from two guest lectures, is LLMs and reinforcement learning, and announces that Simran will talk about systems ML the following Monday.
+- **The Lecture 19 slot fell on Memorial Day**, and there was no class. The course meets on Mondays and Wednesdays; the lecturer of Lecture 18 says reinforcement learning starts "from this week", and in Lecture 20 he refers to the previous lecture as "last week".
+
+So the content of the 17 videos is continuous, and the lecturer of Lecture 20 says outright that it is the last lecture of the quarter. This series uses the lecture numbers from the video titles.
+
+### The topics in the titles often don't match
+
+The numbers are right, but in several videos the topic in the title doesn't match the content. The table below lists the larger mismatches:
+
+| Topic in the video title | Actual content |
+|---|---|
+| Lecture 3: Weighted Least Squares | Probabilistic interpretation, logistic regression, Newton's method; weighted least squares is never covered in the lecture |
+| Lecture 6: Dataset Split, ML Advice | Mostly the bias–variance decomposition and ridge regression; dataset splitting gets only the last few minutes |
+| Lecture 12: Representation Learning | First half finishes the diffusion loss, second half is foundation models and LoRA |
+| Lecture 13: LLMs, Next-Word Prediction Loss | Representation learning, contrastive learning, semantic search |
+| Lecture 14: Transformers, In-Context Learning | Covers the Transformer's attention, but not in-context learning |
+| Lecture 16: Basic Concept in RL, Policy Gradient | Attention variants, MoE, in-context learning |
+| Lecture 18: GMM (EM), PCA | Reinforcement learning basics and policy gradient |
+| Lecture 20: GMM (EM), PCA | PPO and training long chains of thought with reinforcement learning |
+
+From Lecture 12 on, each title roughly describes the content of the next video; the last two simply reuse the title of Lecture 10. Stanford Online has not explained why. The practical conclusion: **don't plan your study schedule from the video titles**. Use the table in the previous section, or go straight to the opening of each lecture's guide.
+
+## In the lecture notes but not taught in Spring 2026
+
+The course's [main lecture notes](https://cs229.stanford.edu/main_notes.pdf) are a public PDF of 278 pages, credited to Tengyu Ma and Andrew Ng and divided into six parts. They cover more than one quarter of lectures does, and the following chapters do not appear in the Spring 2026 recordings:
+
+| Lecture notes | Topic | Where to pick it up |
+|---|---|---|
+| Chapter 1, Section 1.4 | Locally weighted linear regression | Lecture notes |
+| Chapter 5 | Kernel methods | Lecture notes; Lecture 7 of the 2018 Andrew Ng version |
+| Chapter 6 | Support vector machines | Lecture notes; Lectures 6 and 7 of the 2018 version |
+| Chapter 8, Section 8.3 | Uniform convergence and VC dimension | Lecture notes |
+| Chapter 13 | Independent component analysis (ICA) | Lecture notes; Lectures 15 and 16 of the 2018 version |
+| Chapter 19, later sections | Value iteration and policy iteration | Lecture notes; Lecture 17 of the 2018 version |
+| Chapter 20 | LQR, DDP, LQG | Lecture notes; Lectures 18 and 19 of the 2018 version |
+
+The lecturer of Lecture 18 explains in class why reinforcement learning is cut this way: the quarter's focus is on LLMs, so the algorithms in the notes that are not often used when training language models are left out, the lecture jumps straight to policy gradient, and anyone interested is asked to read the rest in the notes.
+
+[The Autumn 2018 version taught by Andrew Ng](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) is another complete public set of recordings, 21 videos in all. Its supervised learning portion differs little from today's, and kernels, SVMs, ICA, and LQR each get full lectures, which makes it a good way to fill the gaps in the table above. In the other direction, diffusion models, foundation models, and LLMs are entirely absent from the 2018 version. What neither version teaches is decision trees and ensemble methods: the 2018 syllabus still had one lecture on them, and the current syllabus and notes have none.
+
+## What a self-learner can get
+
+| Material | Status |
+|---|---|
+| Main lecture notes PDF | Public, 278 pages, still being updated |
+| Review notes on linear algebra, probability, convex optimization, and Gaussian distributions | Public, under `section/` on the course site |
+| Spring 2026 recordings | 17 videos public, regular lectures complete, two guest lectures missing |
+| 2018 Andrew Ng recordings | 21 videos public |
+| Problem sets 1–3, with starter code and datasets | Public, in the Summer 2019 and Summer 2020 versions |
+| Current-term assignments, syllabus, schedule, project handouts | Require a Stanford account |
+| Recent official solutions and autograders | Not public |
+
+The course site states that current-term documents are shared only with Stanford affiliates. The official route for non-degree students is SCPD, and [Stanford Online's course page](https://online.stanford.edu/courses/cs229-machine-learning) lists the application requirements.
+
+### Problem sets
+
+The server still holds the [three problem sets from Summer 2020](https://cs229.stanford.edu/summer2020/ps1.pdf), and both the PDFs and the starter-code archives can be downloaded:
+
+- **PS1**: derive and implement logistic regression and GDA, once each, plus Poisson regression and a proof of convexity for GLMs. Matches Lectures 3 through 5.
+- **PS2**: Naive Bayes spam SMS classification, the validity of kernels, and writing the forward and backward passes of a single-hidden-layer network from scratch to recognize MNIST. Matches Lectures 5, 7, and 8; the kernel problems rely on Chapter 5 of the notes.
+- **PS3**: reinforcement learning on the inverted pendulum, k-means image compression, semi-supervised EM, PCA, ICA. Matches Lectures 9 and 10 and the reinforcement learning part.
+
+Every set has you derive first and then implement. The assignments restrict the coding problems to the packages listed in the environment file, which contains NumPy, SciPy, matplotlib, and Pillow, with no scikit-learn and no PyTorch. That means the MNIST problem in PS2 makes you write the chain rule yourself, and it is a good way to check your understanding after reading Lecture 8.
+
+These problem sets are older than the Spring 2026 course, and there are no public assignments for the diffusion model and LLM material. Also, the derivation problems have no solutions to check against, which is the biggest gap in studying this course on your own.
+
+## How to start
+
+**If you have a grounding in linear algebra and probability**, start at Lecture 2 and read in order. Lecture 1 is the course introduction and has no derivations; come back to it when you want to know how the three kinds of learning are divided. Every lecture is read the same way: watch the video or read the body of the guide, work through the derivation on paper yourself, do the self-check at the end of the post, then read the matching chapters of the lecture notes to see what the lecture skipped.
+
+**If you only want the modern material in the second half**, the shortest path is Lecture 3 (maximum likelihood) → Lectures 7 and 8 (neural networks and backpropagation) → the first half of Lecture 10 (the ELBO) → Lecture 11 onward. The diffusion models in Lectures 11 and 12 need the ELBO; Lecture 20 needs the policy gradient from Lecture 18.
+
+**If the matrix derivatives in Lecture 2 stop you**, read the [linear algebra review notes](https://cs229.stanford.edu/section/cs229-linalg.pdf) on the course site first. Section 4 was written for exactly this.
+
+To pair the problem sets with the lectures, do PS1 after Lecture 5, PS2 after Lecture 8, and the unsupervised learning problems in PS3 after Lecture 10.
+
+## CS229 and CS230
+
+People often treat these two as an either-or choice, but the official line is that they overlap very little. On [ExploreCourses](https://explorecourses.stanford.edu/search?q=CS+229&view=catalog), the prerequisites field for CS230 says CS229 may be taken concurrently. In the Q&A of CS230's [Autumn 2025 first lecture](https://www.youtube.com/watch?v=_NLHFoVNlbg), Andrew Ng says the two curricula were deliberately designed to have low overlap, and describes CS229 as much heavier on math and theory and very fast-paced, while CS230 does one thing, deep learning, and does almost no mathematical proofs all quarter.
+
+So the two courses cut in different directions: CS229 covers a wide range of algorithms and makes you derive each one; CS230 picks deep learning alone and heads toward implementation and projects. Neither is a prerequisite for the other. This site also has a [guide to CS230](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en) for comparison, and for where this course sits on the whole prerequisite ladder, see the [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en).
+
+## Course video sources
+
+Original video: [Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction](https://www.youtube.com/watch?v=DATnpGoGhM8)
+
+- [Stanford CS229 Machine Learning | Spring 2026 playlist (Stanford Online, 17 videos)](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw)
+- [Stanford CS229: Machine Learning led by Andrew Ng | Autumn 2018 playlist (21 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU)
+- [CS229 course site](https://cs229.stanford.edu/)
+
+Checked: 2026-10-12.
+
+Content check: verified against the video transcript (2026-10-12): the English transcripts of all 17 Spring 2026 recordings were obtained and each lecture was written up as a guide. The per-lecture content, lecturers, reasons for the numbering gaps, and title mismatches in this post are compiled from those transcripts; the slides and board work on screen were not viewed. The lecturers do not state their names in every lecture, so who taught each lecture was determined from how they refer to each other and from the handover remarks in the transcripts.
 
 ## Update Log
 
-- 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-10-10: Rechecked video status. The public Spring 2026 playlist (17 videos) is live; embedded Lecture 1 as a related supplement for this course-level article.
-- 2026-10-10: Checked the video content against its transcript. The embedded Lecture 1 matches the topic; quotes from other lectures are not in this video and were not re-read.
+- 2026-10-12: Rewritten as a course overview. The series changed from "chapter by chapter through the 2026 main lecture notes" to "one post per lecture of the public Spring 2026 recordings", with the videos moved to the top of each post. Added the table of what the 17 lectures actually cover, the table of video title mismatches, and routes for picking up the chapters the lectures did not teach. The original post's details on verifying the materials are no longer in the body.
+- 2026-10-10: Marked the video status and checked the recording sources and how to access them. A recheck confirmed that the public Spring 2026 playlist (17 videos) exists, and the embedded Lecture 1 was checked against its transcript.
 
 ## References
 
-- [CS229: Machine Learning course site (Summer 2026)](https://cs229.stanford.edu/) — the prerequisites text, the statement that materials are for Stanford affiliates only, and the index of past offerings
-- [CS229 Spring 2026 course page](https://cs229.stanford.edu/index.html-spr26) — the Tengyu Ma and Chris Ré quarter, the one the 2026 recordings come from
-- [CS229 Fall 2022 course page](https://cs229.stanford.edu/syllabus-fall2022.html) — the older course description and the link to the frozen 2022 notes
-- [CS229 lecture notes, main_notes.pdf](https://cs229.stanford.edu/main_notes.pdf) — 278 pages; the six-part structure, chapter 1's content and difficulty, and the LLM chapters in part V
-- [CS229 frozen autumn 2022 notes](https://cs229.stanford.edu/notes2022fall/main_notes.pdf) — 216 pages, used to locate where the four years of additions landed
-- [Linear Algebra Review and Reference](https://cs229.stanford.edu/section/cs229-linalg.pdf) — the supplementary material chapter 1's matrix derivative lines point to
-- [ExploreCourses: CS 229](https://explorecourses.stanford.edu/search?q=CS+229&view=catalog) — four offerings a year, four different teaching teams, the STATS 229 cross-listing, and the "CS 229 may be taken concurrently" line in CS 230's prerequisites
-- [Stanford Online: CS229 course page](https://online.stanford.edu/courses/cs229-machine-learning) — the SCPD admission bar and the official "review the first problem set before enrolling" advice
-- [SEE open course Problem Set 1](https://see.stanford.edu/materials/aimlcs229/problemset1.pdf) — the self-test itself, 4 pages, created in 2008
-- [CS229 Summer 2020 Problem Set 1](https://cs229.stanford.edu/summer2020/ps1.pdf) — the problem structure and the source of the "no scikit-learn" rule
-- [CS229 Summer 2020 Problem Set 2](https://cs229.stanford.edu/summer2020/ps2.pdf) — the hand-written MNIST backprop problem
-- [CS229 Summer 2020 Problem Set 3](https://cs229.stanford.edu/summer2020/ps3.pdf) — inverted pendulum RL, semi-supervised EM, ICA and the cocktail party
-- [CS229 Autumn 2018 syllabus (Wayback capture)](https://web.archive.org/web/20190704115541/http://cs229.stanford.edu/syllabus-autumn2018.html) — the full twenty-lecture grouping and assignment schedule, the source for the 2018/2026 comparison
-- [Stanford CS229 Machine Learning, Spring 2026 playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw) — 17 videos, gaps in the numbering, three identical titles
-- [Spring 2026 "Lecture 20: GMM (EM), PCA"](https://www.youtube.com/watch?v=J7CossjMvEg) — actually the final lecture, on PPO and RLVR for long chains of thought
-- [Stanford CS229: Machine Learning led by Andrew Ng, Autumn 2018 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) — the version most self-learners watch
-- [Stanford CS230 Autumn 2025 Lecture 1](https://www.youtube.com/watch?v=_NLHFoVNlbg) — the Q&A where Andrew Ng positions CS129, CS229, and CS230, and answers that the two can be taken together
-- On this site: [Reading Stanford's CS courses: the map](/posts/learning/2026-08-20-stanford-cs-course-map-en)
-- On this site: [Reading Stanford CS329A](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
+- [CS229: Machine Learning course site](https://cs229.stanford.edu/): the prerequisites, and the statement that materials are shared only with Stanford affiliates
+- [CS229 main lecture notes, main_notes.pdf](https://cs229.stanford.edu/main_notes.pdf): 278 pages, the six-part structure and chapter numbering, the basis for each lecture's "Lecture notes" entry
+- [CS229 frozen Fall 2022 lecture notes](https://cs229.stanford.edu/notes2022fall/main_notes.pdf): for comparing how much the foundation-model chapters have grown in recent years
+- [Stanford CS229 Machine Learning | Spring 2026 playlist](https://www.youtube.com/playlist?list=PLaqpC4kq8Gpw): the numbering and titles of the 17 recordings; each lecture's content is compiled from its English transcript
+- [Stanford CS229: Machine Learning led by Andrew Ng | Autumn 2018 playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU): the lectures that fill in kernels, SVMs, ICA, and LQR
+- [CS229 Autumn 2018 syllabus (Wayback capture)](https://web.archive.org/web/20190704115541/http://cs229.stanford.edu/syllabus-autumn2018.html): how the 2018 lectures were grouped, including decision trees and ensemble methods
+- [Linear Algebra Review and Reference](https://cs229.stanford.edu/section/cs229-linalg.pdf): supplementary material for matrix derivatives
+- [SEE public course Problem Set 1](https://see.stanford.edu/materials/aimlcs229/problemset1.pdf): the pre-enrollment self-test Stanford Online recommends
+- [Stanford Online: CS229 course page](https://online.stanford.edu/courses/cs229-machine-learning): SCPD application requirements and the self-test advice
+- [CS229 Summer 2020 Problem Set 1](https://cs229.stanford.edu/summer2020/ps1.pdf), [Problem Set 2](https://cs229.stanford.edu/summer2020/ps2.pdf), [Problem Set 3](https://cs229.stanford.edu/summer2020/ps3.pdf): the problems and the rule on permitted packages
+- [ExploreCourses: CS 229](https://explorecourses.stanford.edu/search?q=CS+229&view=catalog): the STATS 229 cross-listing, and the original wording of the CS 230 prerequisites field
+- [Stanford CS230 Autumn 2025 Lecture 1](https://www.youtube.com/watch?v=_NLHFoVNlbg): how Andrew Ng positions CS229 and CS230
+- On this site: [Stanford CS course map](/posts/learning/2026-08-20-stanford-cs-course-map-en)
 - On this site: [CS230: when prompt engineering stops working](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)

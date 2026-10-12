@@ -223,7 +223,7 @@ For the other HW6 problems, see the table in the [previous post](/posts/ai/2026-
 
 ## Further reading
 
-- The site's [CS229 2026 notes, chapter 5: kernel methods](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods-en): another derivation of kernelization.
+- [CS229 lecture notes, chapter 5: kernel methods](https://cs229.stanford.edu/main_notes.pdf): another derivation of kernelization.
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): the English course on the same textbook.
 
 Series navigation: previous, [Kernel trick and soft-margin SVM](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-soft-margin-svm-en) | next, [Blending, bagging, and AdaBoost](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)

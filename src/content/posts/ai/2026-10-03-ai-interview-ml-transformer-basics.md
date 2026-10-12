@@ -85,7 +85,7 @@ flowchart TD
   D --> D1["加資料、資料增強、加強正則化、縮小模型、early stopping"]
 ```
 
-想看推導與樣本複雜度，可以讀站內的 [CS229 筆記第 8 章：泛化](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)。
+想看推導與樣本複雜度，可以讀站內的 [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)。
 
 U 型曲線不是全貌。[Belkin 等人](https://arxiv.org/abs/1812.11118)指出，現代實務中神經網路常被訓練到剛好擬合（interpolate）訓練資料，古典觀點會稱之為過擬合，卻常在測試資料上維持高準確率；他們用雙下降（double descent）曲線把古典 U 型包含進去：容量越過 interpolation 點之後，測試表現會再度改善。大模型為什麼沒有嚴重過擬合，常聽到「隱性正則化」這個解釋，但機制仍是研究中的議題。
 
@@ -100,7 +100,7 @@ U 型曲線不是全貌。[Belkin 等人](https://arxiv.org/abs/1812.11118)指�
 - **dropout**：[Hinton 等人](https://arxiv.org/abs/1207.0580)的原始描述是每個訓練樣本隨機省略一半的 feature detectors，避免神經元之間複雜的 co-adaptation。[PyTorch 的實作](https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html)在訓練時以機率 p 把元素設為 0，並把輸出乘上 `1/(1-p)`，所以評估時直接當恆等函數，這就是 inverted dropout。
 - **early stopping**：驗證損失不再進步就停。在二次近似的簡單情形下，它與 L2 正則化可視為等價（同見該章），代價是需要留出驗證集。
 
-Transformer 本身也用了其中兩種。[原論文](https://arxiv.org/abs/1706.03762)的 base 模型對每個子層輸出（加回殘差之前）以及 embedding 加位置編碼的總和做 dropout，機率是 0.1；另外用了 label smoothing，論文說它會讓 perplexity 變差、卻讓準確率與 BLEU 變好。正則化怎麼和模型選擇搭配，可讀 [CS229 筆記第 9 章](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)。
+Transformer 本身也用了其中兩種。[原論文](https://arxiv.org/abs/1706.03762)的 base 模型對每個子層輸出（加回殘差之前）以及 embedding 加位置編碼的總和做 dropout，機率是 0.1；另外用了 label smoothing，論文說它會讓 perplexity 變差、卻讓準確率與 BLEU 變好。正則化怎麼和模型選擇搭配，可讀 [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)。
 
 下一節會看到一個高頻陷阱：用 Adam 時，「L2 正則化」和「weight decay」不是同一件事。
 
@@ -772,8 +772,8 @@ amit、pal、aeg 的行號連結指向 2026-10-03 當天 main 分支的內容，
 **站內延伸閱讀**
 
 - [AI Engineer 面試總覽](/posts/ai/2026-08-20-ai-engineer-interview-overview)
-- [CS229 筆記第 8 章：泛化](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)
-- [CS229 筆記第 9 章：正規化與模型選擇](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection)
+- [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
+- [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
 - [CS224N 第 5 講：從 recurrence 到 Transformer](/posts/ai/2026-08-22-cs224n-transformers)
 - [CS224N 第 14 講：Tokenization 如何製造多語言成本差](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality)
 - [CS336 Lecture 3：Transformer 架構的穩定預設值](/posts/ai/2026-08-22-cs336-architectures-hyperparameters)

@@ -126,7 +126,7 @@ HW4 到這裡結束。下一份作業 HW5 進入沒有標籤的學習：分群�
 ## 延伸閱讀
 
 - [CS336 Lecture 4：Attention 不只一種，MoE 也不是免費擴大模型](/posts/ai/2026-08-22-cs336-attention-moe)：MoE routing、load balancing 與 expert parallelism 的系統面
-- [泛化：偏差變異、雙降與樣本複雜度（CS229 筆記第 8 章）](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization)：Hoeffding 不等式在學習理論裡的另一個用途
+- [Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)：Hoeffding 不等式在學習理論裡的另一個用途
 - [Breiman 2001, Random Forests](https://doi.org/10.1023/A:1010933404324)：隨機森林原始論文
 
 ## 上一篇／下一篇

@@ -249,7 +249,7 @@ L_DDPM(θ) = E_{t~Unif, z~p_data, ε~N(0,I_d)} ‖ε_t^θ(α_t z + β_t ε) − 
 ## 延伸閱讀
 
 - DDPM 視角：[CMU 11-785 L23：擴散模型](/posts/ai/2026-08-22-cmu-11785-23-diffusion)。**注意時間方向相反**：Slides 3 的「A guide to the diffusion literature」區分 flow time convention（資料在 t=1、雜訊在 t=0，本課採用）和 diffusion time convention（資料在 t=0、雜訊在 t→∞）。講義附錄 E 也提醒，流行的寫法是 t=0 對應 `p_data`。DDPM 屬於後者，對照公式前先把 t 翻過來。
-- 另一份講義的 diffusion 章節：[Stanford CS229 2026 講義第 14 章：Diffusion models](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models)
+- 另一份講義的 diffusion 章節：[Stanford CS229 第 11 堂：擴散模型](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)
 - 講義附錄 E（A Guide to the Diffusion Model Literature）：說明離散時間 vs 連續時間、forward process vs 機率路徑、反向時間慣例，以及 flow matching 與 stochastic interpolants 的關係，把文獻的寫法對回本課的語言
 
 系列導覽：上一篇 [L2：Flow matching](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)｜下一篇 [Lab 2：親手寫 flow matching 與 score matching](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)｜[回系列總覽](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)

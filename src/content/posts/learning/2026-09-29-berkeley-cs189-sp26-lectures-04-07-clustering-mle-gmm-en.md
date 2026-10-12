@@ -168,7 +168,7 @@ The MLE problem in Discussion 3 is the most important exercise in these four lec
 
 - [Stanford CS109 L19: maximum likelihood estimation](/posts/learning/2026-08-22-stanford-cs109-lecture-19-maximum-likelihood-estimation-en): another take on MLE
 - [Stanford CS109 L9: the normal distribution](/posts/learning/2026-08-22-stanford-cs109-lecture-09-normal-distribution-en): background on the univariate Gaussian
-- [Stanford CS229 notes Ch. 4: generative learning algorithms](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en): multivariate Gaussians used for classification
+- [Stanford CS229 Lecture 5: Gaussian discriminant analysis and Naive Bayes](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en): multivariate Gaussians used for classification
 
 ## Course video sources
 

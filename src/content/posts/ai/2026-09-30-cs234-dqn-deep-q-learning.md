@@ -53,7 +53,7 @@ glossary:
 
 $$\Delta w = \alpha \big(\text{target} - \hat{Q}(s, a; w)\big) \nabla_w \hat{Q}(s, a; w)$$
 
-如果你對「對參數做梯度下降」還不熟，先讀 [CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)的[深度學習章](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning)。這篇會把 $\hat{Q}$ 換成一個卷積網路，但更新式本身不變。
+如果你對「對參數做梯度下降」還不熟，先讀 [CS229 導讀](/posts/ai/2026-08-21-stanford-cs229-machine-learning)的[Stanford CS229 第 7 堂：神經網路的架構](/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture)。這篇會把 $\hat{Q}$ 換成一個卷積網路，但更新式本身不變。
 
 ## 問題：表格會收斂，函數近似可能發散
 
@@ -170,7 +170,7 @@ A2 的第一題是 8 分的書面題，題目附了一份跟投影片寫法略�
 
 - [CS224R 導讀：Q-learning](/posts/ai/2026-09-30-cs224r-q-learning)：另一門 Stanford RL 課對 Q-learning 與 replay 的講法
 - [Berkeley CS285：policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)：同一段內容在 Berkeley 的版本
-- [CS229 筆記第 19 章：強化學習](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning)：先修課對 MDP 與 value iteration 的整理
+- [Stanford CS229 第 18 堂：強化學習基礎與 Policy Gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)：先修課對 MDP 與 value iteration 的整理
 
 **系列導覽**：上一篇 [order 5：沒模型時怎麼控制](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)｜下一篇 [order 7：策略梯度——REINFORCE、baseline、actor-critic](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)｜[系列總覽](/posts/ai/2026-09-30-cs234-course-overview)
 

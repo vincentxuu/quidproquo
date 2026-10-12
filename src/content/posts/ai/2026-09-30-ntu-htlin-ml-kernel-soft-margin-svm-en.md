@@ -196,7 +196,7 @@ There are no official solutions. For Q10–Q12, cross-check #SV and the margin w
 
 ## Further reading
 
-- The site's [CS229 2026 notes, chapter 5: kernel methods](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods-en) and [chapter 6: support vector machines](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines-en): the same ideas as written in the Stanford notes.
+- [CS229 lecture notes, chapter 5: kernel methods](https://cs229.stanford.edu/main_notes.pdf) and [CS229 lecture notes, chapter 6: support vector machines](https://cs229.stanford.edu/main_notes.pdf): the same ideas as written in the Stanford notes.
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse): the English course on the same textbook.
 
 Series navigation: previous, [Linear SVM and dual SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en) | next, [Kernel logistic regression and support vector regression](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression-en) | [series overview](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)

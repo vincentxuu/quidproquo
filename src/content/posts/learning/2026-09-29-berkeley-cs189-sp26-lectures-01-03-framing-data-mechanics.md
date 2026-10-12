@@ -148,7 +148,7 @@ Lecture 3 最後幾頁在講作業：Part 1 是講課內容的應用（書面題
 ## 延伸閱讀
 
 - [Stanford CS109 L3：貝氏定理](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem)：Discussion 1 機率題的前置
-- [Stanford CS229 講義 Ch.1：線性回歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression)：另一門課怎麼從線性模型起步
+- [Stanford CS229 第 2 堂：監督式學習設定與線性迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)：另一門課怎麼從線性模型起步
 - [CMU 11-785 L1：導論](/posts/ai/2026-08-22-cmu-11785-01-introduction)：從深度學習角度看同一批基本概念
 
 ## 課程影片來源

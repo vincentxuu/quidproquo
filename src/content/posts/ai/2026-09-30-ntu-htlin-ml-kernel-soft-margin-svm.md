@@ -198,7 +198,7 @@ Gaussian soft-margin SVM 至少有 (C, γ) 兩個參數，投影片三張圖（C
 
 ## 延伸閱讀
 
-- 站內 [CS229 2026 講義第 5 章：kernel 方法](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods)與[第 6 章：支援向量機](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines)：同一組概念在 Stanford 講義裡的寫法。
+- [CS229 主講義第 5 章：kernel 方法](https://cs229.stanford.edu/main_notes.pdf)與[第 6 章：支援向量機](https://cs229.stanford.edu/main_notes.pdf)：同一組概念在 Stanford 講義裡的寫法。
 - [Caltech Learning from Data](https://work.caltech.edu/telecourse)：同一本教科書的英文課。
 
 系列導覽：上一篇 [線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)｜下一篇 [Kernel 邏輯迴歸與支援向量迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)｜[系列總覽](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)

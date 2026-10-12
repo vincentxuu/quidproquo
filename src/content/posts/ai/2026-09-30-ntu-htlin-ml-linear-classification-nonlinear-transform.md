@@ -163,7 +163,7 @@ Q1 屬於 L10 的 cross-entropy，Q5 是邏輯迴歸的 Newton 法（Hessian）�
 
 ## 延伸閱讀
 
-- 同一段內容的其他講法：[CS229 講義第 2 章：分類與邏輯斯迴歸](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression)、[Berkeley CS189 Lec 11–12：分類與 logistic regression](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
+- 同一段內容的其他講法：[Stanford CS229 第 3 堂：最大概似與邏輯斯迴歸](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)、[Berkeley CS189 Lec 11–12：分類與 logistic regression](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-11-12-classification-logistic)
 - 特徵轉換與正則化的取捨：[CMU 07-280 Lecture 10：Feature Engineering 與 Regularization](/posts/ai/2026-08-22-cmu-07280-lecture-10-feature-engineering-regularization)
 - 技法篇會把「維度大要付代價」這個問題交給 SVM 與 kernel：[線性 SVM 與對偶 SVM](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm)
 - 作業總覽：[基石作業導讀](/posts/ai/2026-09-30-ntu-htlin-ml-foundations-homework-guide)

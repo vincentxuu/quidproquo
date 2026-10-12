@@ -201,7 +201,7 @@ Vanilla PG throws away each batch after a single gradient step, and its step siz
 
 - [Reading CS224R: Policy Gradients](/posts/ai/2026-09-30-cs224r-policy-gradients-en) and [Actor-Critic](/posts/ai/2026-09-30-cs224r-actor-critic-en): how the same school's deep RL course covers it, with more robotics and implementation
 - [Berkeley CS285: policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en)
-- [CS229 notes, Chapter 21: policy gradient variants](/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants-en)
+- [Stanford CS229 Lecture 18: reinforcement learning basics and policy gradient](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en)
 
 **Series navigation**: previous [Part 6: DQN](/posts/ai/2026-09-30-cs234-dqn-deep-q-learning-en) | next [Part 8: advanced policy gradients — performance bounds, KL, PPO, GAE](/posts/ai/2026-09-30-cs234-ppo-gae-monotonic-improvement-en) | [series overview](/posts/ai/2026-09-30-cs234-course-overview-en)
 
