@@ -1,5 +1,5 @@
 ---
-title: "A Course on Self-Improvement That Says Out Loud What It Can't Improve | Stanford CS329A Topic Guide"
+title: "Self-Improving Agents: The Course and Reading Route | Stanford CS329A Course Overview"
 date: 2026-08-20
 category: ai
 type: deep-dive
@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 18
-tldr: "CS329A is built around the generation–verification gap: models can produce the right answer but can't tell which one it is. The conclusion the course draws about itself matters more — today's methods make models more consistent, not smarter. Nine lectures are public, out of twenty."
-description: "A full walkthrough of Stanford CS329A: Self-Improving AI Agents, written after watching all nine public lectures plus the three guest lectures from the first offering — the central argument, how the 34-paper reading list is grouped, the narrow band where self-improvement actually works, the syllabus diff between offerings, and what a self-learner really gets."
+tldr: "Generating a correct candidate and recognizing it are different capabilities. This series follows the Autumn 2025 syllabus through a course overview and eleven guides; video Parts 7–9 map to sessions 8, 17 and 20."
+description: "An Autumn 2025 course overview linking nine recorded sessions and three designated-reading sessions, with source gaps for five guest lectures and a clear distinction between video Parts and syllabus sessions."
 draft: false
 ---
 
@@ -24,7 +24,30 @@ draft: false
 
 It teaches a gap — and then, in its final lecture, says plainly how much of that gap current methods actually close.
 
-This piece was written after watching all nine public lectures, plus the three guest lectures from the first offering that sit on other channels. It covers what the course argues, how the 34 assigned papers are grouped, what changed between the two offerings, and how much someone outside Stanford can get. It does **not** do a paper-by-paper close reading.
+This is the course overview: the central argument, the reading groups, and a route into the individual guides below. The main series follows Autumn 2025. The Winter 2025 guest talks later in this article are historical supplements, not replacements for missing Autumn 2025 sessions.
+
+## Read the series by syllabus session
+
+The route starts with this overview and follows the Autumn 2025 syllabus. Read sessions 2–6 in order: sampling creates alternatives, verification selects them, executable feedback supports revision, planning handles longer tasks, and training changes the model. Session 7 then moves the search target from answers to agent designs. Sessions 8, 13 and 14 extend that loop into research, software and memory; sessions 17 and 20 ask how to evaluate it and where it stops working.
+
+| Syllabus session | Guide | Source basis |
+|---|---|---|
+| 1 | This course overview | Video Part 1 |
+| 2 | [Test-time compute and candidate selection](/posts/ai/2026-10-11-stanford-cs329a-lecture-02-test-time-compute-en) | Video Part 2 |
+| 3 | [Robust verification](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification-en) | Video Part 3 |
+| 4 | [Learning from tool and code feedback](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback-en) | Video Part 4 |
+| 5 | [Multi-step reasoning and planning](/posts/ai/2026-10-11-stanford-cs329a-lecture-05-reasoning-planning-en) | Video Part 5 |
+| 6 | [Train-time scaling and RL](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl-en) | Video Part 6 |
+| 7 | [Open-ended evolution: designated readings](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings-en) | Designated papers; lecture speech not reconstructed |
+| 8 | [Search and deep research](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research-en) | Video Part 7 |
+| 13 | [Software engineering: designated readings](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings-en) | Designated papers; lecture speech not reconstructed |
+| 14 | [Memory: designated readings](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings-en) | Designated papers; lecture speech not reconstructed |
+| 17 | [Long-horizon evaluation](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation-en) | Video Part 8 |
+| 20 | [Future research bottlenecks](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research-en) | Video Part 9 |
+
+**Remaining gaps:** guest sessions 9, 15, 16, 18 and 19 await attributable lecture materials. Meetings 10–12 are student midterm presentations. Reading guides are explanations of the assigned papers, not a substitute transcript for an unretrieved lecture.
+
+If probability is unfamiliar, start with the [CS109 overview](/posts/learning/2026-08-21-stanford-cs109-probability-en). If model training is unfamiliar, use [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) as background before session 6.
 
 ## The hard facts
 
@@ -66,13 +89,13 @@ The same constraint shows up in three guises across three lectures. It's the mos
 
 **In GRPO and DAPO (Lecture 6):** GRPO computes its advantage from the mean and standard deviation of rewards across a group of sampled answers. If every answer in a group is right, or every one is wrong, the standard deviation is zero and the normalization dies. Chowdhery states it flatly: **"If there is not a distribution of rewards, there is nothing for the model to learn."** DAPO's fix is to oversample and then throw away the all-correct and all-wrong groups entirely, keeping only the ones carrying signal.
 
-**In Absolute Zero (Lecture 9):** the model proposes its own tasks. The proposer's reward is zero when the solver's success rate is zero, and otherwise one minus the average success rate. The system is **explicitly rewarded for generating problems the solver sometimes solves and sometimes fails.**
+**In Absolute Zero (Session 20 / Part 9):** the model proposes its own tasks. The proposer's reward is zero when the solver's success rate is zero, and otherwise one minus the average success rate. The system is **explicitly rewarded for generating problems the solver sometimes solves and sometimes fails.**
 
 Three levels, one principle: self-improvement happens only at the edge of what the model can already do. Too easy and there's nothing to learn; too hard and there's no signal. It also explains why this works in math and code and struggles everywhere else.
 
 ## The real gate isn't verifiability — it's verification latency
 
-In Lecture 9's Q&A, Mirhoseini gives a criterion far sharper than "verifiable vs. non-verifiable domains":
+In Session 20 / Part 9's Q&A, Mirhoseini gives a criterion far sharper than "verifiable vs. non-verifiable domains":
 
 > "In RL fine-tuning, or in test-time scaling, we need these verifiers to be almost instant, or we can wait a little bit. Maybe we can wait minutes. Maybe we can allow one hour. But in this RL training route, we need like hundreds or thousands of steps of iteration — we can't wait like days, or someone human in the loop to collect the reward for us."
 
@@ -91,7 +114,7 @@ Ten lectures carry assigned readings — 34 papers, and the ordering is itself t
 | 4 | Learning from tool and code feedback | [ReAct](https://arxiv.org/abs/2210.03629), [RLEF](https://arxiv.org/abs/2410.02089), [Constitutional AI](https://arxiv.org/abs/2212.08073) |
 | 5 | Multi-step reasoning and planning | [SWiRL](https://arxiv.org/abs/2504.04736), [LATS](https://arxiv.org/abs/2310.04406), [SPRINT](https://arxiv.org/abs/2506.05745) |
 | 6 | Train-Time Scaling / Scaling RL | [STaR](https://arxiv.org/abs/2203.14465), [DeepSeekMath](https://arxiv.org/abs/2402.03300), [DAPO](https://arxiv.org/abs/2503.14476) |
-| 7 | Open-ended evolution of self-improving agents | [ADAS](https://arxiv.org/pdf/2505.22954), [The AI Scientist](https://arxiv.org/abs/2408.06292), AlphaEvolve |
+| 7 | Open-ended evolution of self-improving agents | [DGM](https://arxiv.org/abs/2505.22954) (the syllabus labels this link ADAS), [The AI Scientist](https://arxiv.org/abs/2408.06292), AlphaEvolve |
 | 8 | Search and deep research agents | [AlphaCode](https://arxiv.org/pdf/2203.07814), [Search-o1](https://arxiv.org/pdf/2501.05366) |
 | 13 | Agentic frameworks for software engineering | [CodeMonkeys](https://arxiv.org/abs/2501.14723), [KernelBench](https://arxiv.org/pdf/2502.10517) |
 | 14 | Giving agents memory | [Cartridges](https://arxiv.org/abs/2506.06266), [MemGPT](https://arxiv.org/abs/2310.08560), [CacheBlend](https://arxiv.org/abs/2405.16444) |
@@ -157,11 +180,11 @@ The thread continues outside the classroom. In late 2025 Mirhoseini co-founded [
 
 ## What self-learners can and cannot get
 
-Stanford Online published the recordings in August 2026, free and without enrollment. But there are **only nine**, against a twenty-session schedule. Each runs roughly 70 to 75 minutes — about 11 hours for the set.
+Nine Stanford Online recordings are identified for Autumn 2025. The [official schedule](https://cs329a.stanford.edu/) has twenty numbered meetings: three are midterm presentations and seventeen are content sessions. The video Part numbers skip unrecorded-in-this-inventory sessions, so they are not syllabus numbers.
 
 They're worth watching, and the reason isn't the slides — it's the Q&A. Students push back in the room, and the instructors concede. When one points out that a chart's training curve sits suspiciously below its inference curve, Chowdhery's answer is: "Something suspicious is going on, OK? I copied the plot. So the graphs are not always right, as you might know from their latest release." When another argues that self-improving a small model is worse practice than distilling from a large one, she grants the point. **None of that appears in a paper abstract, and none of it appears on an AI-generated course summary site.**
 
-Not available: the memory lecture, the open-ended evolution lecture, the software-engineering agents lecture, and **all five guest lectures** — Denny Zhou on LLM reasoning, Thang Luong on AlphaProof and Gemini's IMO gold, Misha Laskin on autonomous agent systems, Danny Driess on robotics. Not one of the second offering's guests made it out. Slides didn't either; they live in Canvas.
+We have not established attributable recordings for sessions 7 (open-ended evolution), 13 (software engineering) and 14 (memory), but their designated papers are public and have reading-based guides below. For the five guest sessions — 9 (Melvin Johnson), 15 (Denny Zhou), 16 (Thang Luong), 18 (Misha Laskin) and 19 (Danny Driess) — this inventory has not established sufficient lecture materials. That is a source gap, not proof that recordings do not exist.
 
 The first offering's guests *are* public, just hidden on other channels — that's the next section.
 
@@ -207,6 +230,8 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 
 ## Changelog
 
+- 2026-10-11: Added the per-session reading route and source gaps, corrected the Part 7–9 mapping, and replaced the whole-course no-recordings assumption. The designated-reading entries distinguish paper explanations from unretrieved lecture speech.
+
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-08-21: Corrected the offering status. An earlier version of this post said "the next offering is Winter 2026–2027, already listed in ExploreCourses." On rechecking the same day, that entry had no Terms field and showed only "Last offered: Autumn 2025" — matching the dormant-courses table in the [course map post](/posts/learning/2026-08-20-stanford-cs-course-map). I cannot tell whether the original claim was wrong or Stanford pulled the scheduled offering in the interim, so the text now states only what the page showed on the date it was checked.
@@ -214,6 +239,17 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 - 2026-10-10: Checked the video content against its transcript. Read the transcripts of both embedded videos; the Part 2 and Part 6 claims match, nothing needed correcting; claims from the non-embedded lectures 9 and 17 and the guest talks were not checked.
 
 ## Course video sources
+The 2026-10-11 source update verifies the nine-video-to-syllabus mapping and the role of Part 1 as the course introduction. The earlier 2026-10-10 content check below remains a dated record of its narrower scope; the historical Winter 2025 guest discussion was not comprehensively re-audited in this update.
+
+
+The overview also covers official session 1 (video Part 1). The learning route uses syllabus session numbers, not video Part numbers.
+
+```youtube
+url: https://www.youtube.com/watch?v=6YnLB0XbTnI
+title: Stanford CS329A Self-Improving AI Agents | Part 1 | Course Overview
+captions: en
+```
+
 
 The videos below come from the public CS329A Autumn 2025 recordings on Stanford Online; on 2026-10-10 the video pages for Parts 2, 6 and 9 were confirmed to exist with titles matching the lectures (Part 9 is a text link only).
 
@@ -227,7 +263,7 @@ url: https://www.youtube.com/watch?v=yVnmHSAy3ck
 title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
 ```
 
-Original videos: [Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y), [Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck), [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+Original videos: [Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y), [Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck), [Session 20 / Part 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 
 Course and recording entries:
 
@@ -237,7 +273,7 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
-Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (Part 2 and Part 6) were read. Part 2 covers Large Language Monkeys repeated sampling and the power law, the long tail of hard problems, the generation-verification gap where majority voting and reward models fall short of oracle coverage, the hardest problems being solved only a few times in thousands of samples, and Archon fusion beating oracle selection, all of which hold in this article; Part 6 covers STaR (rationalization giving no clear gain on GSM8K), DeepSeekMath (majority@K rising but pass@K not at 32 samples, "more consistent, not fundamentally smarter"), GRPO normalization failing when all rewards are equal, DAPO dynamic sampling and the Qwen-32B ladder from 30 to about 50, and the conclusion that none of the three improves fundamental capability, which also hold. The Chinese quotations in the article are paraphrases that match the English transcript in meaning with different wording; the transcripts never name the speakers, so the attribution rests on course information, not the transcripts. Claims about lecture 9, lecture 17, other lectures and the guest talks correspond to videos that are not embedded and were not checked this time.
+Content check: verified against the video transcript (2026-10-10): the transcripts of both embedded videos (Part 2 and Part 6) were read. Part 2 covers Large Language Monkeys repeated sampling and the power law, the long tail of hard problems, the generation-verification gap where majority voting and reward models fall short of oracle coverage, the hardest problems being solved only a few times in thousands of samples, and Archon fusion beating oracle selection, all of which hold in this article; Part 6 covers STaR (rationalization giving no clear gain on GSM8K), DeepSeekMath (majority@K rising but pass@K not at 32 samples, "more consistent, not fundamentally smarter"), GRPO normalization failing when all rewards are equal, DAPO dynamic sampling and the Qwen-32B ladder from 30 to about 50, and the conclusion that none of the three improves fundamental capability, which also hold. The Chinese quotations in the article are paraphrases that match the English transcript in meaning with different wording; the transcripts never name the speakers, so the attribution rests on course information, not the transcripts. Claims about session 20 (video Part 9), lecture 17, other lectures and the guest talks correspond to videos that are not embedded and were not checked this time.
 
 ## References
 
@@ -247,7 +283,7 @@ Content check: verified against the video transcript (2026-10-10): the transcrip
 - [CS329A lecture playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLangBM27OtEA)
 - [Lecture 2: Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)
 - [Lecture 6: Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)
-- [Lecture 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+- [Session 20 / Part 9: Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 - [CS329A Winter 2025 playlist (includes Jeff Clune and Michele Catasta guest lectures)](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
 - [Stanford Online: CS329A course page (SCPD non-degree entry)](https://online.stanford.edu/courses/cs329a-self-improving-ai-agents)
 - [Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers](https://arxiv.org/abs/2506.18203)

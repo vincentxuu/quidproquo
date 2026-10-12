@@ -1,5 +1,5 @@
 ---
-title: "這門課教自我改進，也親口說了它改進不了什麼｜Stanford CS329A 主題單元"
+title: "自我改進 Agent：課程主軸與閱讀路線｜Stanford CS329A 課程總覽"
 date: 2026-08-20
 category: ai
 type: deep-dive
@@ -11,8 +11,8 @@ series:
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 18
-tldr: "CS329A 的軸心是 generation–verification gap：模型答得出來，卻認不出哪個對。但課程自己下的結論更值得記——目前這些方法讓模型變得更穩定，不是更聰明。錄影公開 9 支，只涵蓋 20 堂中的 9 堂。"
-description: "Stanford CS329A: Self-Improving AI Agents 完整導讀，讀完公開的九支錄影與第一次開課的三場客座：課程主軸、34 篇閱讀清單的分組邏輯、自我改進只在哪條窄帶裡發生、兩次開課的課綱 diff，以及自學者實際拿得到什麼。"
+tldr: "產生正確候選與辨認正確候選是兩種能力。系列依 Autumn 2025 課表，以一篇總覽與十一篇導讀串起可取得材料的場次；影片 Part 7–9 對應原課第 8、17、20 堂。"
+description: "Stanford CS329A Autumn 2025 課程總覽：串起九個公開錄影場次、三個指定閱讀場次，明列五場客座的材料缺口，並區分影片 Part 與官方堂次。"
 draft: false
 ---
 
@@ -24,7 +24,30 @@ draft: false
 
 它教一個缺口，然後在最後一堂親口說這個缺口目前補到哪、補不到哪。
 
-這篇是把公開的九支錄影逐堂聽完、再加上第一次開課那三場散落在別處的客座之後寫的，涵蓋課程主張什麼、34 篇指定閱讀怎麼分組、兩次開課之間改了什麼，以及沒修課的人實際能拿到多少。**不包含**逐篇論文精讀——那是另一個量級的工作。
+這篇是課程總覽，整理課程主軸、指定閱讀的分組方式，以及下方各堂導讀的閱讀路線。主系列固定採 Autumn 2025；文末 Winter 2025 的三場客座是歷史補充，不用來填成 Autumn 2025 缺少的場次。
+
+## 按原課堂次讀這個系列
+
+從本篇總覽開始，再依 Autumn 2025 課表讀下去。第 2–6 堂依序把「多產生候選」接到「挑出正解」、「用可執行回饋修正」、「規劃多步任務」，最後才把回饋寫回權重。第 7 堂把搜尋對象從答案換成 Agent 設計；第 8、13、14 堂走向研究、軟體工程與記憶。第 17、20 堂再追問怎麼量測，以及這個迴圈在哪裡失效。
+
+| 原課堂次 | 本站導讀 | 底本 |
+|---|---|---|
+| 1 | 本篇課程總覽 | 影片 Part 1 |
+| 2 | [推論時計算：多試幾次怎麼選](/posts/ai/2026-10-11-stanford-cs329a-lecture-02-test-time-compute) | 影片 Part 2 |
+| 3 | [驗證：怎麼辨認正確候選](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification) | 影片 Part 3 |
+| 4 | [工具與程式碼回饋](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback) | 影片 Part 4 |
+| 5 | [多步推理與規劃](/posts/ai/2026-10-11-stanford-cs329a-lecture-05-reasoning-planning) | 影片 Part 5 |
+| 6 | [把回饋餵回權重](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl) | 影片 Part 6 |
+| 7 | [開放式演化的指定閱讀](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings) | 指定論文；未還原授課口述 |
+| 8 | [搜尋與深度研究](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research) | 影片 Part 7 |
+| 13 | [軟體工程 Agent 的指定閱讀](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings) | 指定論文；未還原授課口述 |
+| 14 | [記憶系統的指定閱讀](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings) | 指定論文；未還原授課口述 |
+| 17 | [長時程評估](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation) | 影片 Part 8 |
+| 20 | [未來研究的瓶頸](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research) | 影片 Part 9 |
+
+**仍待材料：**第 9、15、16、18、19 堂客座；第 10–12 堂是學生期中專案報告。指定閱讀篇教的是論文機制，不冒充未取得的授課逐字稿。
+
+對機率不熟，先用 [CS109 總覽](/posts/learning/2026-08-21-stanford-cs109-probability)補背景；對模型訓練不熟，讀第 6 堂前可先回到 [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)。
 
 ## 這門課的硬事實
 
@@ -66,13 +89,13 @@ draft: false
 
 **在 GRPO 與 DAPO（第六堂）**：GRPO 用一組答案的獎勵平均與標準差算優勢函數。所以如果一批答案全對或全錯，標準差是零，正規化直接失效。Chowdhery 講得很白：**「如果沒有獎勵的分布，模型就沒有東西可以學。」** DAPO 的解法就是超額取樣，然後把全對與全錯的整組丟掉，只留下有訊號的那些。
 
-**在 Absolute Zero（第九堂）**：讓模型自己出題。出題者的獎勵設計是——如果解題成功率是零，獎勵是零；否則獎勵是「1 減去平均成功率」。換句話說，**系統被明確地獎勵去產生那些「有時候解得出、有時候解不出」的題目。**
+**在 Absolute Zero（原課第 20 堂，公開影片 Part 9）**：讓模型自己出題。出題者的獎勵設計是——如果解題成功率是零，獎勵是零；否則獎勵是「1 減去平均成功率」。換句話說，**系統被明確地獎勵去產生那些「有時候解得出、有時候解不出」的題目。**
 
 三個層次、同一條原理：自我改進只在模型能力的邊緣發生。太簡單學不到東西，太難沒有訊號。這也解釋了為什麼這套方法在數學和程式碼上跑得動，在別的地方跑不動。
 
 ## 真正的門檻不是「可不可驗證」，是「驗證要多久」
 
-第九堂的問答裡，Mirhoseini 給了一個比「可驗證領域 vs 不可驗證領域」精確得多的判準：
+第 20 堂（公開影片 Part 9）的問答裡，Mirhoseini 給了一個比「可驗證領域 vs 不可驗證領域」精確得多的判準：
 
 > 「在 RL 微調或 test-time scaling 裡，我們需要 verifier 幾乎是即時的。也許可以等幾分鐘，也許可以容忍一小時。但 RL 訓練需要幾百、幾千步的迭代，我們沒辦法等好幾天，也沒辦法等一個人類進來給我們獎勵訊號。」
 
@@ -91,7 +114,7 @@ draft: false
 | 4 | 從工具與程式碼的回饋學習 | [ReAct](https://arxiv.org/abs/2210.03629)、[RLEF](https://arxiv.org/abs/2410.02089)、[Constitutional AI](https://arxiv.org/abs/2212.08073) |
 | 5 | 多步推理與規劃 | [SWiRL](https://arxiv.org/abs/2504.04736)、[LATS](https://arxiv.org/abs/2310.04406)、[SPRINT](https://arxiv.org/abs/2506.05745) |
 | 6 | Train-Time Scaling / Scaling RL | [STaR](https://arxiv.org/abs/2203.14465)、[DeepSeekMath](https://arxiv.org/abs/2402.03300)、[DAPO](https://arxiv.org/abs/2503.14476) |
-| 7 | 自我改進 agent 的開放式演化 | [ADAS](https://arxiv.org/pdf/2505.22954)、[The AI Scientist](https://arxiv.org/abs/2408.06292)、AlphaEvolve |
+| 7 | 自我改進 agent 的開放式演化 | [DGM](https://arxiv.org/abs/2505.22954)（課表將此連結標為 ADAS）、[The AI Scientist](https://arxiv.org/abs/2408.06292)、AlphaEvolve |
 | 8 | 搜尋與深度研究 agent | [AlphaCode](https://arxiv.org/pdf/2203.07814)、[Search-o1](https://arxiv.org/pdf/2501.05366) |
 | 13 | 軟體工程的 agent 框架 | [CodeMonkeys](https://arxiv.org/abs/2501.14723)、[KernelBench](https://arxiv.org/pdf/2502.10517) |
 | 14 | 給 agent 記憶 | [Cartridges](https://arxiv.org/abs/2506.06266)、[MemGPT](https://arxiv.org/abs/2310.08560)、[CacheBlend](https://arxiv.org/abs/2405.16444) |
@@ -157,11 +180,11 @@ GDPval 那邊把同一件事翻譯成經濟語言。把 GPT-5 的產出交給有
 
 ## 自學能拿到什麼、拿不到什麼
 
-Stanford Online 在 2026 年 8 月上架了錄影，免費、不用註冊。但**只有 9 支**，而課表有 20 堂。每支約 70 到 75 分鐘，全部看完大約 11 小時。
+目前盤點到 Stanford Online 的 Autumn 2025 公開錄影共九支。[官方課表](https://cs329a.stanford.edu/)有二十個編號，其中三堂是期中專案報告，內容場次共十七堂。公開影片的 Part 編號跳過了本次未確認錄影的場次，不能當成原課堂次。
 
 錄影值得看，而且理由不是投影片——是問答。學生會當場追問，而講者會承認不知道。有人指出某張圖表的訓練曲線比推論曲線低得可疑，Chowdhery 的回答是：「有可疑的地方，好。這張圖是我複製過來的。所以圖表不見得都是對的，你們從他們最近那次發表應該也知道。」另一位學生質疑用小模型自我改進不如直接從大模型蒸餾，她也直接認了這是合理的實務選擇。**這種東西不會出現在論文摘要裡，也不會出現在 AI 生成的課程摘要站。**
 
-拿不到：記憶那一堂、開放式演化那一堂、軟體工程 agent 那一堂，以及**全部五場客座**——Denny Zhou 講 LLM reasoning、Thang Luong 講 AlphaProof 與 Gemini 的 IMO 金牌、Misha Laskin 講自主 agent 系統、Danny Driess 講機器人。第二次開課的客座一場都沒公開，講義也沒有，全在 Canvas。
+第 7 堂開放式演化、第 13 堂軟體工程 Agent、第 14 堂記憶系統，本次未確認可對應的公開錄影，但有公開指定閱讀，下方已各自補上閱讀導讀。五場客座——第 9 堂 Melvin Johnson、第 15 堂 Denny Zhou、第 16 堂 Thang Luong、第 18 堂 Misha Laskin、第 19 堂 Danny Driess——仍未取得足以導讀該場授課的材料。這是目前的來源缺口，不能據此說錄影不存在。
 
 不過第一次開課的客座有公開，只是藏在別的頻道，下一節就講那個。
 
@@ -206,8 +229,19 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 - **Intelligence per Watt 的 5.3×**：指 2023 到 2025 年間每瓦智能的改善，課堂拆解為模型端 3.1 倍、硬體端 1.7 倍。另一個常被混用的 88.7% 是「查詢覆蓋率」，條件是「至少有一個 20B active 參數以下的本地模型能答對」，與 5.3× 是兩個獨立量測。
 
 ## 課程影片來源
+2026-10-11 本次更新核對九支影片與課表的對應，以及 Part 1 作為課程入口的位置。下方 2026-10-10 內容核對段落保留為當日較小範圍的紀錄；Winter 2025 歷史客座討論未在本次全面重查。
 
-下列影片取自 Stanford Online 公開的 CS329A Autumn 2025 錄影；2026-10-10 已即時確認第 2、6、9 堂的影片頁存在且標題與講次相符（第 9 堂只留文字連結）。
+
+本篇承接官方第 1 堂（影片 Part 1）的課程定位。下方閱讀路線使用原課堂次，不用影片編號推算。
+
+```youtube
+url: https://www.youtube.com/watch?v=6YnLB0XbTnI
+title: Stanford CS329A Self-Improving AI Agents | Part 1 | Course Overview
+captions: en
+```
+
+
+下列影片取自 Stanford Online 公開的 CS329A Autumn 2025 錄影；2026-10-10 已即時確認Parts 2、6、9（原課第 2、6、20 堂）的影片頁存在且標題與講次相符（Part 9（原課第 20 堂）只留文字連結）。
 
 ```youtube
 url: https://www.youtube.com/watch?v=-Ggc37xLj_Y
@@ -219,7 +253,7 @@ url: https://www.youtube.com/watch?v=yVnmHSAy3ck
 title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL
 ```
 
-原始影片：[Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+原始影片：[Stanford CS329A Self-Improving AI Agents | Part 2 | Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)、[Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)、[第 20 堂（公開影片 Part 9）：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 
 課程與錄影入口：
 
@@ -233,11 +267,13 @@ title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Sc
 
 ## 更新紀錄
 
+- 2026-10-11：新增逐堂閱讀路線與來源缺口，修正 Part 7–9 和官方堂次的對應，取消整門課「無錄影」的判定；指定閱讀篇與未取得的授課口述分開標示。
+
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-08-21：修正開課狀態。本文初稿寫「下一次是 2026–2027 Winter，已經掛在 ExploreCourses 上」，但同日重查時，該條目已無 Terms 欄位，只顯示「Last offered: Autumn 2025」——與[課程地圖那篇](/posts/learning/2026-08-20-stanford-cs-course-map)停開表的記載一致。無法判斷是初稿查錯，或是 Stanford 在這期間撤掉了排課，因此改為只陳述查證當日的頁面狀態並標註日期。
-- 2026-10-10：重查影片狀態。即時確認第 2、6、9 堂的影片頁與標題相符，狀態改為已附影片；原播放清單連結的 ID 不完整，改連第 1 堂影片。
-- 2026-10-10：依字幕核對影片內容。讀兩支嵌入影片字幕，Part 2 與 Part 6 的說法與字幕相符，沒有需要更正的地方；未嵌入的第 9、17 堂與客座講的說法未核對。
+- 2026-10-10：重查影片狀態。即時確認Parts 2、6、9（原課第 2、6、20 堂）的影片頁與標題相符，狀態改為已附影片；原播放清單連結的 ID 不完整，改連第 1 堂影片。
+- 2026-10-10：依字幕核對影片內容。讀兩支嵌入影片字幕，Part 2 與 Part 6 的說法與字幕相符，沒有需要更正的地方；未嵌入的第 20、17 堂與客座講的說法未核對。
 
 ## 參考資料
 
@@ -247,7 +283,7 @@ title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Sc
 - [CS329A 錄影播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLangBM27OtEA)
 - [第二堂：Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)
 - [第六堂：Train-Time Scaling / Scaling RL](https://www.youtube.com/watch?v=yVnmHSAy3ck)
-- [第九堂：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
+- [第 20 堂（公開影片 Part 9）：Future Research Areas](https://www.youtube.com/watch?v=AyO6wyu4DEg)
 - [CS329A Winter 2025 錄影播放清單（含 Jeff Clune、Michele Catasta 客座）](https://www.youtube.com/playlist?list=PL3058ht9NqT1NG6Y663elpHSDh-AW1TIr)
 - [Stanford Online：CS329A 課程頁（SCPD 非學位生入口）](https://online.stanford.edu/courses/cs329a-self-improving-ai-agents)
 - [Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers](https://arxiv.org/abs/2506.18203)

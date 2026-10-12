@@ -461,8 +461,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329A 導讀', en: 'Reading Stanford CS329A' },
     descriptions: {
-      'zh-TW': '逐講追蹤 Stanford CS329A 的自我改進式 AI 系統；每篇以可對應官方 session 的材料為準，缺料時明列等待。',
-      en: 'A lecture-by-lecture reading of Stanford CS329A on self-improving AI systems, grounded in materials attributable to each official session and paused where evidence is missing.',
+      'zh-TW': '依 Autumn 2025 課表讀 Stanford CS329A：9 個公開錄影場次與 3 個指定閱讀場次，另列 5 場客座的材料缺口。',
+      en: 'Reading Stanford CS329A Autumn 2025 through nine recorded sessions and three designated-reading sessions, with source gaps listed for five guest lectures.',
     },
   },
   {

@@ -60,10 +60,12 @@
 | CS224V | Fall 2025 historical | instructional unit | 14 | 14 組 linked slides | slides 明說省略重要細節；recordings Canvas；Autumn 2026 `Agentic AI` 尚無 manifest | L2 historical | 28 |
 | CS224W | Fall 2025 | lecture 1–19 | 19 | current slides、assignments | videos Canvas；2021 public videos 不對齊；Autumn 2026 頁尚未換料 | L2 | 38 |
 | CS329Z | Fall 2026 future | planned content meeting | 19 | tentative titles／readings | 尚未開課，materials promised later；目前 0 篇可寫 | L1 blocked | 38 deferred |
-| CS329A | Autumn 2025 | 17 content sessions（20 IDs 扣 3 midterms） | 17 | 其中 10 sessions 有 readings | 無 slides／recordings，不能忠實重建 lecture | L1 blocked | 34 deferred |
+| CS329A | Autumn 2025 | 17 content sessions（20 IDs 扣 3 midterms） | 17 | 9 支錄影對應 sessions 1–6、8、17、20；7、13、14 有指定閱讀 | 5 場客座仍缺可歸屬材料；指定閱讀不等於口述 | 分講判定，不再全課 blocked | 22 新檔＋既有總覽雙版；5 場等待 |
 | CS146S | Fall 2026 future | 10 weeks × 2 sessions | 20 | syllabus titles；既有站內 course map＋10 weekly summaries | 2026-09-22 才開課，尚無 lecture artifacts | L1 blocked | 40 deferred |
 
-### Scope totals
+### Scope totals（初次規劃快照）
+
+2026-10-11 修正 CS329A：9 個錄影場次已對齊，3 個其他場次有指定閱讀；原全 17 堂 blocked 的估算已過期。以下總量保留作初次規劃記錄，不能當成當前 blocked 清單。
 
 - 確定可由 L2／L3 offering 支持：234 posts／語言，約 **468 個新 Markdown 檔**。
 - 需先做 historical offering／provenance 決策：CS228 10＋CS229 20＝30 posts／語言，約 **60 個條件式新檔**。
@@ -91,7 +93,7 @@
 | CS224V | https://web.stanford.edu/class/cs224v/schedule.html | ✅ Fall 2025 schedule／slides | Autumn 2026 renamed course 尚未發布 manifest |
 | CS224W | https://web.stanford.edu/class/cs224w/ | ✅ Fall 2025 schedule／slides／assignments | public videos 是舊版 |
 | CS329Z | https://cs329z.stanford.edu/ | ✅ tentative future schedule | 尚未開課，materials 未釋出 |
-| CS329A | https://cs329a.stanford.edu/ | ✅ schedule／readings | 無 lecture artifacts／recordings |
+| CS329A | https://cs329a.stanford.edu/ | ✅ schedule／readings；2026-10-11 重新對齊 9 支影片及字幕文字 | 5 場客座的公開 lecture artifacts 未確認 |
 | CS146S | https://themodernsoftware.dev/ | ✅ Fall 2026 syllabus | 尚未開課，無 lecture artifacts |
 
 ## 事實交叉表
@@ -105,7 +107,7 @@
 | CS336 Spring 2026 有 19 meetings，但目前只可忠實寫 18 篇 | official schedule | official artifact repo／video set | ✅；L1–17＋Dan Fu guest 可寫，Daniel Selsam guest 列 gap |
 | CS224V Fall 2025 與 Autumn 2026 是不同命名／內容身份 | Fall 2025 official schedule | Autumn 2026 official catalog/site state | ✅；不能混成同一系列 |
 | CS146S 現有週文不是已完成 lecture series | Fall 2026 official 20-session syllabus | repo 10 weekly summaries | ✅；目前 L1 pending |
-| CS329A 不是「9 堂公開可直接寫」 | official schedule/readings | repo guide 對 9 支散落錄影的描述 | ❌ material identity conflict；無法把散落影片等同 17 content sessions |
+| CS329A 9 支影片與 17 content sessions 的對應 | official schedule＋Stanford Online 影片描述 | 2026-10-11 逐支對齊 Parts 1–9 | 已解：sessions 1–6、8、17、20 有影片；其餘不能由影片編號推定 |
 
 ## 我的推論（與事實分開）
 
@@ -119,7 +121,7 @@
 
 - CS109 official schedule 的 27／28 編號衝突逐項解決。
 - CS329Z、CS146S Fall 2026 材料何時公開，能否升到 L2。
-- CS329A 是否有可被 official schedule 對應的 lecture artifacts；目前沒有。
+- CS329A：2026-10-11 已確認 9 支對應錄影；剩餘 5 場客座待材料。sessions 7、13、14 僅做指定閱讀導讀。
 - CS228 living notes 的版本／provenance 是否能固定到 Winter 2017–18；在此之前保持 HOLD。
 - CS229 是否採 Fall 2020 historical series，或等待 future current materials。
 - 是否獲准擴充 `scripts/check-series-order.mjs` 檢查 `additionalSeries`。

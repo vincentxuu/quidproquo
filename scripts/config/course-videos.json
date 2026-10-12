@@ -78,6 +78,51 @@
       "video": null,
       "source": "https://www.youtube.com/playlist?list=PLSN0qpDfUvTM",
       "checkedAt": "2026-10-10"
+    },
+    "2026-08-20-stanford-cs329a-self-improving-agents": {
+      "video": "6YnLB0XbTnI",
+      "source": "https://www.youtube.com/watch?v=6YnLB0XbTnI",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-02-test-time-compute": {
+      "video": "-Ggc37xLj_Y",
+      "source": "https://www.youtube.com/watch?v=-Ggc37xLj_Y",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-03-robust-verification": {
+      "video": "p7TdPUcPoik",
+      "source": "https://www.youtube.com/watch?v=p7TdPUcPoik",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback": {
+      "video": "Lxh9RF5S-K0",
+      "source": "https://www.youtube.com/watch?v=Lxh9RF5S-K0",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-05-reasoning-planning": {
+      "video": "Ml_fp9XkB8Y",
+      "source": "https://www.youtube.com/watch?v=Ml_fp9XkB8Y",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-06-train-time-rl": {
+      "video": "yVnmHSAy3ck",
+      "source": "https://www.youtube.com/watch?v=yVnmHSAy3ck",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-08-search-deep-research": {
+      "video": "Uni9dqyuuDM",
+      "source": "https://www.youtube.com/watch?v=Uni9dqyuuDM",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation": {
+      "video": "8JAqLnTaZu4",
+      "source": "https://www.youtube.com/watch?v=8JAqLnTaZu4",
+      "checkedAt": "2026-10-11"
+    },
+    "2026-10-11-stanford-cs329a-lecture-20-future-research": {
+      "video": "AyO6wyu4DEg",
+      "source": "https://www.youtube.com/watch?v=AyO6wyu4DEg",
+      "checkedAt": "2026-10-11"
     }
   }
 }

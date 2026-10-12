@@ -77,6 +77,14 @@
 - 不同年份材料只有在 series 明確改名為該歷史版本時才可使用；例如當期 CS229 與 Stanford Engineering Everywhere 舊版不能混寫成同一輪。
 - 研究階段產出 18 門 manifest；CS230 是完成基準，另外 17 門待擴寫或等待材料。官方來源盤點得到：234 篇／語言可直接進 research／writing；CS228 historical provenance 與 CS229 historical fallback 若核准可再加 30；CS146S、CS329Z、CS329A 與 CS336 一場 guest 共 57 篇目前阻塞。最終上限約 321 篇／語言，即約 642 個新 Markdown 檔。
 
+### CS329A 材料判定修正（2026-10-11）
+
+先前把「9 支影片尚未對到課表」寫成「沒有 recordings」，使整門課被擋住。以[官方 Autumn 2025 課表](https://cs329a.stanford.edu/)和 Stanford Online 影片描述重新對齊後，公開影片的 Part 7／8／9 實際對應課表第 8／17／20 堂。第 1 堂由既有課程總覽承接，另外新增 8 篇錄影對應導讀，以及第 7／13／14 堂的 3 篇指定閱讀導讀，各有中英文。
+
+指定閱讀導讀不還原未取得的授課口述。5 場客座只列來源缺口，不用 Winter 2025 的不同場次補成 Autumn 2025。字幕文字取得與原音回聽、播放器跟讀驗收分開記錄。來源對應見 [CS329A Autumn 2025 manifest](../.research/2026-10-11-stanford-cs329a-autumn2025-manifest.md)；逐支原始證據存 `.work/cs329a/video-inventory.json`、`/tmp/cs329a-research/`。
+
+本文件的 234／57／642 等總量是初次規劃快照，保留作歷史估算；其中 CS329A 全 17 堂 blocked 的分類已被本節取代，不可再用該總量推論目前全部待材料。
+
 ### Existing evidence readiness snapshot
 
 這只是 plan sizing，不代替 Phase 1 的正式 manifest：
@@ -98,7 +106,7 @@
 | CS224W | 19 lectures | Fall 2025 slides／assignments 公開，videos gated；2021 public videos 不對齊。[既有導讀](../../src/content/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs.md:173) |
 | CS329Z | 19 planned content meetings | Fall 2026 尚未開課且 materials 未釋出，目前 L1、0 篇可發布。[既有導讀](../../src/content/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents.md:144) |
 | CS336 | 19 meetings | Spring 2026：L1–17 有 artifacts／videos，Dan Fu guest 有影片，Daniel Selsam guest 無材料；嚴格每堂為 18 可寫＋1 blocked。[既有導讀](../../src/content/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch.md:181) |
-| CS329A | 17 content sessions | Autumn 2025 只有 10 sessions 的 readings，沒有 slides／recordings；目前 L1，不能宣稱 9 講可直接寫。[既有導讀](../../src/content/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents.md:155) |
+| CS329A | 17 content sessions | 2026-10-11 已將 Stanford Online Parts 1–9 對到官方 sessions 1–6、8、17、20，並取得字幕文字；sessions 7、13、14 可做明示 paper-based 的指定閱讀導讀。5 場客座（9、15、16、18、19）仍待可歸屬材料，不能把整門課列為無錄影。[課程總覽](../../src/content/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents.md) |
 
 ## Course Inventory and Rollout Order
 
