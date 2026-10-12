@@ -79,7 +79,7 @@
 
 ### CS329A 材料判定修正（2026-10-11）
 
-先前把「9 支影片尚未對到課表」寫成「沒有 recordings」，使整門課被擋住。以[官方 Autumn 2025 課表](https://cs329a.stanford.edu/)和 Stanford Online 影片描述重新對齊後，公開影片的 Part 7／8／9 實際對應課表第 8／17／20 堂。第 1 堂由既有課程總覽承接，另外新增 8 篇錄影對應導讀，以及第 7／13／14 堂的 3 篇指定閱讀導讀，各有中英文。
+先前把「9 支影片尚未對到課表」寫成「沒有 recordings」，使整門課被擋住。以[官方 Autumn 2025 課表](https://cs329a.stanford.edu/)和 Stanford Online 影片描述重新對齊後，公開影片的 Part 7／8／9 實際對應課表第 8／17／20 堂。2026-10-12 將總覽（order 0）與第 1 堂（order 1）分開：9 篇錄影對應導讀，加上第 7／13／14 堂的 3 篇指定閱讀導讀，各有中英文；總覽另作閱讀入口。
 
 指定閱讀導讀不還原未取得的授課口述。5 場客座只列來源缺口，不用 Winter 2025 的不同場次補成 Autumn 2025。字幕文字取得與原音回聽、播放器跟讀驗收分開記錄。來源對應見 [CS329A Autumn 2025 manifest](../.research/2026-10-11-stanford-cs329a-autumn2025-manifest.md)；逐支原始證據存 `.work/cs329a/video-inventory.json`、`/tmp/cs329a-research/`。
 

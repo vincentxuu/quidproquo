@@ -7,11 +7,11 @@ tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: zh-TW
 series:
   name: "Stanford CS329A 導讀"
-  order: 1
+  order: 0
 additionalSeries:
   - name: "Stanford CS 主線課程導讀"
     order: 18
-tldr: "產生正確候選與辨認正確候選是兩種能力。系列依 Autumn 2025 課表，以一篇總覽與十一篇導讀串起可取得材料的場次；影片 Part 7–9 對應原課第 8、17、20 堂。"
+tldr: "產生正確候選與辨認正確候選是兩種能力。系列依 Autumn 2025 課表，以一篇總覽與十二篇逐堂導讀串起可取得材料的場次；影片 Part 7–9 對應原課第 8、17、20 堂。"
 description: "Stanford CS329A Autumn 2025 課程總覽：串起九個公開錄影場次、三個指定閱讀場次，明列五場客座的材料缺口，並區分影片 Part 與官方堂次。"
 draft: false
 ---
@@ -28,11 +28,12 @@ draft: false
 
 ## 按原課堂次讀這個系列
 
-從本篇總覽開始，再依 Autumn 2025 課表讀下去。第 2–6 堂依序把「多產生候選」接到「挑出正解」、「用可執行回饋修正」、「規劃多步任務」，最後才把回饋寫回權重。第 7 堂把搜尋對象從答案換成 Agent 設計；第 8、13、14 堂走向研究、軟體工程與記憶。第 17、20 堂再追問怎麼量測，以及這個迴圈在哪裡失效。
+從本篇總覽開始，再讀[第 1 堂](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap)建立生成、驗證與 Agent 回饋迴圈的基本區分，接著依 Autumn 2025 課表讀下去。第 2–6 堂依序把「多產生候選」接到「挑出正解」、「用可執行回饋修正」、「規劃多步任務」，最後才把回饋寫回權重。第 7 堂把搜尋對象從答案換成 Agent 設計；第 8、13、14 堂走向研究、軟體工程與記憶。第 17、20 堂再追問怎麼量測，以及這個迴圈在哪裡失效。
 
 | 原課堂次 | 本站導讀 | 底本 |
 |---|---|---|
-| 1 | 本篇課程總覽 | 影片 Part 1 |
+| — | 本篇課程總覽 | 課程地圖與閱讀路線 |
+| 1 | [產生候選與辨認正解](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap) | 影片 Part 1 |
 | 2 | [推論時計算：多試幾次怎麼選](/posts/ai/2026-10-11-stanford-cs329a-lecture-02-test-time-compute) | 影片 Part 2 |
 | 3 | [驗證：怎麼辨認正確候選](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification) | 影片 Part 3 |
 | 4 | [工具與程式碼回饋](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback) | 影片 Part 4 |
@@ -232,7 +233,7 @@ POET 這個演算法收錄新環境的條件是：**對現有 agent 來說不太
 2026-10-11 本次更新核對九支影片與課表的對應，以及 Part 1 作為課程入口的位置。下方 2026-10-10 內容核對段落保留為當日較小範圍的紀錄；Winter 2025 歷史客座討論未在本次全面重查。
 
 
-本篇承接官方第 1 堂（影片 Part 1）的課程定位。下方閱讀路線使用原課堂次，不用影片編號推算。
+本篇使用官方第 1 堂（影片 Part 1）說明課程定位；單堂概念教學另見上方連結的第 1 堂導讀。下方閱讀路線使用原課堂次，不用影片編號推算。
 
 ```youtube
 url: https://www.youtube.com/watch?v=6YnLB0XbTnI
@@ -266,6 +267,8 @@ title: Stanford CS329A Self-Improving AI Agents | Part 6 | Train Time Scaling/Sc
 內容核對：已依字幕核對（2026-10-10）：兩支嵌入影片（Part 2、Part 6）都讀了字幕。Part 2 字幕涵蓋 Large Language Monkeys 的重複取樣與冪次律、長尾難題、多數決與 reward model 都追不上理論 coverage 的 generation–verification gap、最難的題目在上千次取樣裡只被答對幾次，以及 Archon 的 fusion 勝過 oracle selection，文章這幾點都成立；Part 6 字幕涵蓋 STaR（GSM8K 上 rationalization 沒有明顯幫助）、DeepSeekMath（取樣 32 次時 majority@K 上升而 pass@K 沒有，「more consistent, not fundamentally smarter」）、GRPO 在全對或全錯時正規化失效、DAPO 的 dynamic sampling 與 Qwen-32B 從 30 提升到約 50 的階梯，以及三項技術不提升基礎能力的結論，也都成立。文中的中文引文是意譯，意思與英文字幕相符、措辭不同；字幕沒有出現講者姓名，講者歸屬依課程資訊而非字幕。本文對第 9 堂、第 17 堂、其他堂次與客座講的說法對應的是未嵌入的影片，這次沒有核對。
 
 ## 更新紀錄
+
+- 2026-10-12：課程總覽與第 1 堂導讀分開，閱讀順序改為總覽 → 第 1 堂 → 第 2 堂。
 
 - 2026-10-11：新增逐堂閱讀路線與來源缺口，修正 Part 7–9 和官方堂次的對應，取消整門課「無錄影」的判定；指定閱讀篇與未取得的授課口述分開標示。
 

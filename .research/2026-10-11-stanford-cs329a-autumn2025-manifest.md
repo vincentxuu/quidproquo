@@ -4,7 +4,7 @@
 
 | 原課 session | 主題 | 公開影片／底本 | 本站 order／文章角色 |
 |---|---|---|---|
-| 1 | Course Overview | [Part 1](https://www.youtube.com/watch?v=6YnLB0XbTnI) | 1，既有總覽承接課程定位 |
+| 1 | Course Overview | [Part 1](https://www.youtube.com/watch?v=6YnLB0XbTnI) | 1，獨立第 1 堂導讀；總覽另列 order 0 |
 | 2 | Test-time Compute Scaling | [Part 2](https://www.youtube.com/watch?v=-Ggc37xLj_Y)＋當堂指定閱讀 | 2，錄影對應概念導讀 |
 | 3 | Robust Verification | [Part 3](https://www.youtube.com/watch?v=p7TdPUcPoik)＋當堂指定閱讀 | 3，錄影對應概念導讀 |
 | 4 | Learning from feedback with tools/code | [Part 4](https://www.youtube.com/watch?v=Lxh9RF5S-K0)＋當堂指定閱讀 | 4，錄影對應概念導讀 |
@@ -33,7 +33,7 @@ Groundlane `web_fetch` 取得官網與影片頁。Firecrawl provider 回 `PROVID
 
 ## 修正的判定錯誤
 
-2026-08-21 的 inventory 把 material identity conflict 簡化為「無 recordings」，擴寫計畫遂把全部 17 場列為 blocked。此次以原課 session mapping 取代整課判定；一篇既有總覽加十一篇新導讀，共十二組中英文，覆蓋十二個有可用材料的內容場次。剩餘五場客座保留來源缺口。
+2026-08-21 的 inventory 把 material identity conflict 簡化為「無 recordings」，擴寫計畫遂把全部 17 場列為 blocked。此次以原課 session mapping 取代整課判定；2026-10-12 將總覽與第 1 堂分開後，一篇既有總覽加十二篇逐堂導讀，共十三組中英文，覆蓋十二個有可用材料的內容場次。剩餘五場客座保留來源缺口。
 
 第 7 堂另有原始來源衝突：官方列出的 *Automated design of agentic systems* 連結指向 [Darwin Gödel Machine](https://arxiv.org/abs/2505.22954)，真正的 [ADAS](https://arxiv.org/abs/2408.08435) 是不同論文。閱讀導讀說明實際讀取底本，不把兩篇視為同一篇。
 

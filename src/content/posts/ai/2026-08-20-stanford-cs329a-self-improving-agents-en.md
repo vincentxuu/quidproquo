@@ -7,11 +7,11 @@ tags: [cs329a, ai-agent, ai-course, evaluation, reasoning, llm]
 lang: en
 series:
   name: "Reading Stanford CS329A"
-  order: 1
+  order: 0
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 18
-tldr: "Generating a correct candidate and recognizing it are different capabilities. This series follows the Autumn 2025 syllabus through a course overview and eleven guides; video Parts 7–9 map to sessions 8, 17 and 20."
+tldr: "Generating a correct candidate and recognizing it are different capabilities. This series follows the Autumn 2025 syllabus through a course overview and twelve session guides; video Parts 7–9 map to sessions 8, 17 and 20."
 description: "An Autumn 2025 course overview linking nine recorded sessions and three designated-reading sessions, with source gaps for five guest lectures and a clear distinction between video Parts and syllabus sessions."
 draft: false
 ---
@@ -28,11 +28,12 @@ This is the course overview: the central argument, the reading groups, and a rou
 
 ## Read the series by syllabus session
 
-The route starts with this overview and follows the Autumn 2025 syllabus. Read sessions 2–6 in order: sampling creates alternatives, verification selects them, executable feedback supports revision, planning handles longer tasks, and training changes the model. Session 7 then moves the search target from answers to agent designs. Sessions 8, 13 and 14 extend that loop into research, software and memory; sessions 17 and 20 ask how to evaluate it and where it stops working.
+The route starts with this overview, then [session 1](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en), which introduces generation, verification and the agent feedback loop. Read sessions 2–6 in order: sampling creates alternatives, verification selects them, executable feedback supports revision, planning handles longer tasks, and training changes the model. Session 7 then moves the search target from answers to agent designs. Sessions 8, 13 and 14 extend that loop into research, software and memory; sessions 17 and 20 ask how to evaluate it and where it stops working.
 
 | Syllabus session | Guide | Source basis |
 |---|---|---|
-| 1 | This course overview | Video Part 1 |
+| — | This course overview | Course map and reading route |
+| 1 | [Generation and verification](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en) | Video Part 1 |
 | 2 | [Test-time compute and candidate selection](/posts/ai/2026-10-11-stanford-cs329a-lecture-02-test-time-compute-en) | Video Part 2 |
 | 3 | [Robust verification](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification-en) | Video Part 3 |
 | 4 | [Learning from tool and code feedback](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback-en) | Video Part 4 |
@@ -230,6 +231,8 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 
 ## Changelog
 
+- 2026-10-12: Separated the course overview from the new session 1 guide; the reading route now starts overview → session 1 → session 2.
+
 - 2026-10-11: Added the per-session reading route and source gaps, corrected the Part 7–9 mapping, and replaced the whole-course no-recordings assumption. The designated-reading entries distinguish paper explanations from unretrieved lecture speech.
 
 
@@ -242,7 +245,7 @@ If you only have an afternoon, watch Lecture 2 (Test-Time Compute Scaling) and L
 The 2026-10-11 source update verifies the nine-video-to-syllabus mapping and the role of Part 1 as the course introduction. The earlier 2026-10-10 content check below remains a dated record of its narrower scope; the historical Winter 2025 guest discussion was not comprehensively re-audited in this update.
 
 
-The overview also covers official session 1 (video Part 1). The learning route uses syllabus session numbers, not video Part numbers.
+Video Part 1 provides the course positioning used in this overview; its concepts are taught separately in the session 1 guide linked above. The learning route uses syllabus session numbers, not video Part numbers.
 
 ```youtube
 url: https://www.youtube.com/watch?v=6YnLB0XbTnI
