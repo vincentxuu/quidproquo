@@ -8,14 +8,14 @@ export const speakingScenarios = [
 ] as const;
 export type SpeakingScenario = typeof speakingScenarios[number]['id'];
 export const speakingCards = [
-  { id: 'map', scenario: 'travel', family: 'have', context: '你手上有地圖，想告訴朋友。', zh: '我這裡有一份地圖。', en: 'I have a map here.', swap: '把「地圖」換成「一支筆」：I have a pen here.' },
+  { id: 'map', scenario: 'travel', family: 'have', context: '你手上有地圖，想告訴朋友。', zh: '我這裡有一份地圖。', en: 'I’ve got a map.', swap: '把「地圖」換成「一支筆」：I’ve got a pen.' },
   { id: 'ticket-present', scenario: 'travel', family: 'present', context: '進站時，你向站務人員出示自己的票。', zh: '這是我的票。', en: 'Here’s my ticket.', swap: '換成護照：Here’s my passport.' },
-  { id: 'charger', scenario: 'travel', family: 'have', context: '朋友手機快沒電，你可以幫忙。', zh: '我這裡有充電器。', en: 'I have a charger here.', swap: '換成行動電源：I have a power bank here.' },
+  { id: 'charger', scenario: 'travel', family: 'have', context: '朋友手機快沒電，你可以幫忙。', zh: '我這裡有充電器。', en: 'I’ve got a charger.', swap: '換成行動電源：I’ve got a power bank.' },
   { id: 'cafe', scenario: 'travel', family: 'there', context: '朋友想喝咖啡，你知道附近有一家店。', zh: '這附近有一家咖啡店。', en: 'There’s a café near here.', swap: '換成藥局：There’s a pharmacy near here.' },
   { id: 'bus', scenario: 'travel', family: 'there', context: '你指著馬路對面的站牌。', zh: '那邊有一個公車站。', en: 'There’s a bus stop over there.', swap: '換成便利商店：There’s a convenience store over there.' },
   { id: 'toilet', scenario: 'travel', family: 'there', context: '你想確認附近有沒有廁所。', zh: '這附近有廁所嗎？', en: 'Is there a restroom near here?', swap: '換成 ATM：Is there an ATM near here?' },
   { id: 'station', scenario: 'travel', family: 'go', context: '你在飯店門口，想向路人問路。', zh: '從這裡怎麼到車站？', en: 'How do I get to the station from here?', swap: '換成機場：How do I get to the airport from here?' },
-  { id: 'museum', scenario: 'travel', family: 'go', context: '你告訴朋友接下來想去哪裡。', zh: '我想從這裡去博物館。', en: 'I want to get to the museum from here.', swap: '換成飯店：I want to get to the hotel from here.' },
+  { id: 'museum', scenario: 'travel', family: 'go', context: '你告訴朋友接下來想去哪裡。', zh: '我想去博物館。', en: 'I want to go to the museum.', swap: '換成飯店：I want to go to the hotel.' },
   { id: 'walk', scenario: 'travel', family: 'go', context: '你想知道走路去是否方便。', zh: '我可以從這裡走到那裡嗎？', en: 'Can I walk there from here?', swap: '換成車站：Can I walk to the station from here?' },
   { id: 'surf-waves', scenario: 'surf', family: 'surf', context: '你剛到海邊，想問今天的浪況。', zh: '今天的浪怎麼樣？', en: 'How are the waves today?', swap: '再問風向「今天是離岸風嗎？」：Is the wind offshore today?' },
   { id: 'surf-entry', scenario: 'surf', family: 'surf', context: '第一次來這個浪點，想問划出去的位置。', zh: '從哪裡划出去比較好？', en: 'Where’s the best place to paddle out?', swap: '再問注意事項「有什麼需要注意的嗎？」：Is there anything I should watch out for?' },
@@ -128,7 +128,7 @@ export const speakingCards = [
   { id: 'interview-excited', scenario: 'interview', family: 'interview', context: '面試一開場，面試官問候你之後。', zh: '很高興今天能和您談，謝謝給我這個機會。', en: 'I’m really excited to be speaking with you today. Thank you so much for the opportunity.', swap: '面試官有兩位：It’s very nice to meet you both.' },
   { id: 'interview-responsible-for', scenario: 'interview', family: 'interview', context: '你正式地說明自己負責什麼。', zh: '我負責提升我們 AI agent 產品的可靠性。', en: 'I’m responsible for improving the reliability of our AI agent product.', swap: '非正式場合：I mostly work on our AI agent product.' },
   { id: 'interview-new-challenge', scenario: 'interview', family: 'interview', context: '面試官問你為什麼想換工作。', zh: '我想把自己的能力用在新的挑戰上。', en: 'I’d like to apply my skills to a new challenge.', swap: '想承擔更多：I would love to take on some more responsibility.' },
-  { id: 'interview-most-proud', scenario: 'interview', family: 'interview', context: '面試官問你最自豪的專案。', zh: '我在工作上最自豪的，是幫我們的 agent 做的記憶功能。', en: 'The thing I’m most proud of professionally is the memory work for our agent.', swap: '換一種說法：I’m really proud of the memory work for our agent.' },
+  { id: 'interview-most-proud', scenario: 'interview', family: 'interview', context: '面試官問你最自豪的專案。', zh: '我在工作上最自豪的，是幫我們的 agent 做的記憶功能。', en: 'The thing I’m most proud of professionally is the memory feature I built for our agent.', swap: '換一種說法：I’m really proud of the memory feature I built for our agent.' },
   { id: 'interview-star-situation', scenario: 'interview', family: 'interview', context: '你用 STAR 回答，先交代背景。', zh: '在我現在的工作裡，團隊希望 agent 能跨對話記得使用者。', en: 'In my current job, the team wanted the agent to remember users across conversations.', swap: '換一個專案：In my current job, the team needed monitoring numbers it could trust.' },
   { id: 'interview-star-task', scenario: 'interview', family: 'interview', context: 'STAR 的第二步，說明你的任務。', zh: '我的任務是找出處理大型附件又不浪費成本的方法。', en: 'My job was to find a way of handling large attachments without wasting money.', swap: '換成別的任務：My job was to find a way of making the trace data reliable.' },
   { id: 'interview-star-result', scenario: 'interview', family: 'interview', context: 'STAR 的最後一步，說明結果。', zh: '因為這樣，團隊把上限定在 10 MB。', en: 'Because of this, the team set the limit at 10 MB.', swap: '換一個結果：Because of this, file parsing moved to background workers.' },
@@ -137,7 +137,7 @@ export const speakingCards = [
   { id: 'interview-ask-challenges', scenario: 'interview', family: 'interview', context: '你想了解團隊現在的工程難題。', zh: '團隊目前面臨哪些工程上的挑戰？', en: 'What are the engineering challenges that the team is facing?', swap: '問這個職位的挑戰：What do you think the challenges will be for this role?' },
   { id: 'interview-ask-typical-day', scenario: 'interview', family: 'interview', context: '你想知道這個職位平常在做什麼。', zh: '這個職位平常的一天是什麼樣子？', en: 'What does a typical day look like in this role?', swap: '問團隊：Can you tell me about the team I’ll be working with?' },
   { id: 'interview-ask-next-step', scenario: 'interview', family: 'interview', context: '面試快結束，你想知道接下來的流程。', zh: '這次面試之後，招募流程的下一步是什麼？', en: 'What’s the next step in the recruitment process after this interview?', swap: '換個說法：What are the next steps in the hiring process?' },
-  { id: 'interview-follow-up', scenario: 'interview', family: 'interview', context: '面試後一直沒消息，你寫信詢問結果。', zh: '想跟進一下，請問面試的結果如何？', en: 'Can I just ask, following up, what the outcome of the interview is?', swap: '請對方給回饋：Please can I have some feedback on the interview?' },
+  { id: 'interview-follow-up', scenario: 'interview', family: 'interview', context: '面試後一直沒消息，你寫信詢問結果。', zh: '想請問一下，面試的結果如何？', en: 'Can I just ask what the outcome of the interview is?', swap: '請對方給回饋：Please can I have some feedback on the interview?' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -209,14 +209,14 @@ const abcInterviews = { title: 'ABC Education（澳洲）：Business English Ep4
 const hbrRepost = { title: 'HBR〈38 Smart Questions to Ask in a Job Interview〉（讀的是轉載頁）', url: 'https://www.physicianleaders.org/articles/38-smart-questions-to-ask-in-a-job-interview' };
 const britishNote = 'BBC 主持人說明，這類委婉的說法是英國職場的習慣，各地不同；要做決定或交辦事情時，直接一點比較清楚。';
 export const speakingEvidence: Record<typeof speakingCards[number]['id'], SpeakingEvidence> = {
-  map: adapted([haveSource, hereSource], '來源支持 have 表示持有、here 表示說話者所在地；地圖與筆的例句依此改寫。'),
+  map: { ...adapted([haveSource, hereSource], 'Cambridge 用 have (got) 講持有，例句 Have you got a drill?／They haven’t got a car，並說 have got 比較不正式；地圖與筆是依這個句型改寫。', '中文的「我這裡有」是說東西在自己手上，英文用 I’ve got 就說完了；來源講持有的例句都沒有加 here。要把東西遞給對方時說 Here you are。'), alternatives: [{ en: 'I have a map.', when: '同一情境；Cambridge 標為比較正式' }] },
   'ticket-present': adapted([hereSource, haveSource], '來源示範 Here’s + 物品，以及找到物品時的 Here it is；票與護照是改寫例句。', '這裡是在出示票，可以說 Here’s my ticket / Here is my ticket。剛找到票時可說 Here it is!；交給對方時可說 Here you are。My ticket is here 強調位置，I have my ticket here 強調自己持有票。'),
-  charger: adapted([haveSource, hereSource], '來源支持 have 與 here 的用法；充電器與行動電源是改寫例句。'),
+  charger: { ...adapted([haveSource, hereSource], 'Cambridge 用 have (got) 講持有，例句 Have you got a drill?／They haven’t got a car；充電器與行動電源是依這個句型改寫。', '「我這裡有」不用翻成 here。要把充電器遞給對方時說 Here you are。'), alternatives: [{ en: 'I have a charger.', when: '同一情境；Cambridge 標為比較正式' }] },
   cafe: adapted([thereSource, hereSource], '來源支持介紹某處有某物，以及 near / around here；店家例句依此改寫。'),
   bus: adapted([thereSource, hereSource], '來源支持 there is 表示存在、over there 指另一處；站牌與店家例句依此改寫。'),
   toilet: adapted([thereSource, hereSource], '來源支持 there is / here 的用法；問附近設施的句子依此改寫。'),
   station: adapted([getSource, hereSource], '來源支持 get to 表示到達，以及 here 指目前位置；車站與機場問路句是組合改寫。'),
-  museum: adapted([getSource, hereSource], '來源支持 get to 的到達意思；博物館與飯店句是表達目的地的改寫。', '這句對朋友說自己的目的地。若想請人指路，改問 How do I get to the museum from here?'),
+  museum: adapted([cambridgeGrammar('want', 'want')], 'Cambridge 說 want 後面接 to 不定詞，例句 D’you want to try it?；博物館與飯店句是依這個句型改寫。', '這句對朋友說自己想去的地方。get to … from here 是問路時用的，想請人指路改問 How do I get to the museum from here?'),
   walk: adapted([hereSource, cambridgeWord('walk', 'walk')] , '來源支持 here / there 的地點用法；步行詢問是改寫例句。', 'there 已經表示「到那裡」，說 walk there；具名目的地則說 walk to the station。'),
   'surf-waves': adapted([surfSource], '來源說明浪況與 offshore 的衝浪用語；兩個完整問句是自行改寫。', '追問離岸風是在問風向，與問浪況是不同問題；風向本身不能判斷是否適合下水。'),
   'surf-entry': adapted([paddleSource], '來源直接建議向當地人詢問 paddle-out 位置；完整問句與注意事項追問是改寫。', 'paddle out 是趴在板上划出去，不只是在岸邊下水。「best」是請對方提供建議，不能保證安全。'),
@@ -329,7 +329,7 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-excited': { ...direct([abcInterviews, youreHired5], 'ABC 原句：I’m really excited to be speaking with you today. Thank you so much for the opportunity。British Council 的 You’re Hired 則是 Hello, it’s very nice to meet you both。'), alternatives: [{ en: 'It’s very nice to meet you both.', when: '面試官有兩位時；British Council 的說法' }] },
   'interview-responsible-for': { ...adapted([bbcDescribing, bbcJobs('240923', 'Interviews part 1')], 'BBC 原文：you’d probably say something like, ‘I’m responsible for’ and then say what you’re responsible for；另一個系列有 I’m responsible for ordering the office supplies。兩處都是 BBC。負責的內容是自行填入的。', '這句說的是提升既有產品，不是從無到有建立。BBC 說 I mostly work on 是對朋友的說法，正式場合用 I’m responsible for。'), alternatives: [{ en: 'I mostly work on our AI agent product.', when: '非正式場合；BBC 同一集的說法' }] },
   'interview-new-challenge': { ...direct([bbcDescribing, youreHired5], 'BBC 原句：I’d like to apply my skills to a new challenge。British Council 的 You’re Hired 裡，應徵者說 I’ve come as far as I can in my current position… and would love to take on some more responsibility。'), alternatives: [{ en: 'I would love to take on some more responsibility.', when: '想承擔更多責任；依 British Council 的台詞補上主詞' }] },
-  'interview-most-proud': adapted([youreHired5, bbcSelling], 'British Council 的台詞：the biggest contract I won – and the thing I’m most proud of professionally – was with a large university in India；BBC 有 I’m really proud of my record on...。兩份教材都用 proud of 講成就；內容是自行填入的。', '請換成你自己最想講的那個專案。'),
+  'interview-most-proud': adapted([youreHired5, bbcSelling], 'British Council 的台詞：the biggest contract I won – and the thing I’m most proud of professionally – was with a large university in India；BBC 有 I’m really proud of my record on...。兩份教材都用 proud of 講成就；the memory feature I built 是自行填入的內容。', '請換成你自己最想講的那個專案。'),
   'interview-star-situation': adapted([ncsStar, bcInterviewArticle, bbcSelling], '英國 National Careers Service 的示範回答：in my previous digital marketing job, the company wanted to get more people to sign up to a newsletter；British Council 有 In my last role I organised our office relocation；BBC 有 when I started in my current role...。三份來源都用 In my … job／role 開頭交代背景。'),
   'interview-star-task': adapted([ncsStar], '英國 National Careers Service 的示範回答：my job was to find a way of getting more people to sign up；任務內容是自行代換。只有這一份來源示範 Task 的句子。'),
   'interview-star-result': adapted([bcInterviewArticle, ncsStar, bbcSelling], 'British Council 原文：Because of this, the relocation was completed on time and on budget；結果的內容是自行代換。BBC 與 National Careers Service 的示範都帶具體數字：through my actions we saw a ten percent increase in productivity。', '教材的結果句都有具體成果或數字。'),
@@ -338,7 +338,7 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-ask-challenges': { ...direct([tihFinal, bcInterviewArticle, hbrRepost], 'Tech Interview Handbook 原句是 What are the engineering challenges that the company/team is facing?，這裡取 team。British Council 有 What do you think the challenges will be for this role?；HBR 轉載頁有 What are the biggest challenges that I might face in this position?。三份來源都建議問挑戰。'), alternatives: [{ en: 'What do you think the challenges will be for this role?', when: '問職位本身的挑戰；British Council 的說法' }] },
   'interview-ask-typical-day': { ...direct([tihFinal, hbrRepost], 'Tech Interview Handbook 原句：What does a typical day look like in this role?。英國 National Careers Service 列的是 what does a typical day involve?；HBR 轉載頁建議問 What would a typical day for me in this role look like?'), alternatives: [{ en: 'Can you tell me about the team I’ll be working with?', when: '想了解團隊；HBR 轉載頁的原句' }] },
   'interview-ask-next-step': { ...direct([bcInterviewArticle, hbrRepost], 'British Council 原句：What’s the next step in the recruitment process after this interview?。HBR 轉載頁有 What are the next steps in the hiring process?。一個用 recruitment、一個用 hiring，來源沒有說這是英美差異。'), alternatives: [{ en: 'What are the next steps in the hiring process?', when: '同一情境；HBR 轉載頁的說法' }] },
-  'interview-follow-up': direct([bbcJobs('241007', 'After the interview')], 'BBC 節目裡，受訪的招募人員轉述一封信的大意：Can I just ask, following up, what the outcome of the interview is。同一集另有 please can I have some feedback on the interview。', '來源的設定是寫信，而且是口頭轉述，不是信件範本。'),
+  'interview-follow-up': adapted([bbcJobs('241007', 'After the interview')], 'BBC 節目裡，受訪的招募人員轉述一封信的大意：Can I just ask, following up, what the outcome of the interview is。卡片拿掉說話時插進去的 following up，其餘照原句。同一集另有 please can I have some feedback on the interview。', '來源的設定是寫信，而且是口頭轉述，不是信件範本。'),
 };
 export type Rating = 0 | 1 | 2;
 export type CardProgress = { due: number; reviewed: number; rating: Rating; streak: number };
@@ -404,7 +404,7 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', cardId: 'travel-comes-with', zh: '回答準備好了，再問這道咖哩有附什麼。', en: 'Yes. What does the curry come with?' },
     { who: 'them', en: 'It comes with rice.' },
     { who: 'you', cardId: 'travel-dairy', zh: '這道菜裡面有奶製品嗎？', en: 'Does it have any dairy products in it?' },
-    { who: 'them', en: 'Yes, it has cream. And I’m sorry, we’re out of the chicken tonight.' },
+    { who: 'them', en: 'Yes, it has cream. The grilled chicken doesn’t, but I’m sorry, we’re out of chicken tonight.' },
     { who: 'you', cardId: 'travel-sold-out', zh: '雞肉賣完了，那就改點魚。', en: 'Okay, I’ll have the fish then.' },
   ] },
   { id: 'work-help', scenario: 'work', title: '求助與認錯', role: '你部署出了錯，去找同事幫忙。', note: '自己寫的練習示例，不是教材的對話。', turns: [
@@ -413,12 +413,12 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', cardId: 'work-own-mistake', zh: '承認自己部署錯分支、已經有修正計畫，並提議先退回上一版。', en: 'I’ve accidentally deployed the wrong branch, but I have a plan to fix the problem. I think we should roll it back first.' },
     { who: 'them', en: 'Hmm, I’m not sure about that. Why don’t we check the logs first?' },
     { who: 'you', cardId: 'work-see-what-you-mean', zh: '先表示懂對方的意思，再說使用者已經受到影響。', en: 'I see what you mean, but users are already affected.' },
-    { who: 'them', en: 'OK. Are we on the same page? You roll back, and I tell the team.' },
+    { who: 'them', en: 'OK. So you roll back, and I’ll tell the team. Are we on the same page?' },
     { who: 'you', cardId: 'work-incident-ack', zh: '答應，並說二十分鐘後回報進度。', en: 'Yes. I’ll get back with an update in 20 minutes.' },
   ] },
   { id: 'work-standup', scenario: 'work', title: '站立會議報進度', role: '你在站立會議上報告，對方是主持會議的人。', note: '自己寫的練習示例，不是真實對話。', turns: [
     { who: 'them', en: 'Any updates?' },
-    { who: 'you', cardId: 'work-fixed', zh: '報告昨天修好了登入流程，今天在做權限，但卡在權限設定。', en: 'I fixed the login flow yesterday. Today I’m working on the permissions, but I’m stuck on the permission settings.' },
+    { who: 'you', cardId: 'work-fixed', zh: '報告昨天修好了登入流程，今天在做存取控制，但卡在權限設定。', en: 'I fixed the login flow yesterday. Today I’m working on access control, but I’m stuck on the permission settings.' },
     { who: 'them', en: 'What’s blocking you?' },
     { who: 'you', cardId: 'work-repro', zh: '說在本機重現不出問題，請對方說明這段是怎麼運作的。', en: 'I can’t reproduce the issue locally. Could you walk me through how this part works?' },
     { who: 'them', en: 'Sure, after this meeting. How long will the rest take?' },
@@ -442,13 +442,13 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', cardId: 'climb-sun', zh: '問那面牆下午會不會曬到太陽。', en: 'Does that wall get the sun in the afternoon?' },
     { who: 'them', en: 'Yes, so go in the morning.' },
     { who: 'you', cardId: 'climb-titanium', zh: '道謝，再問那條路線的岩栓是不是鈦的。', en: 'Thanks. Are the bolts on that route titanium?' },
-    { who: 'them', en: 'They were replaced, but check them yourself before you climb.' },
+    { who: 'them', en: 'Yes, they were replaced with titanium ones, but check them yourself before you climb.' },
   ] },
   { id: 'daily-job-hunt', scenario: 'daily', title: '和朋友聊求職', role: '你和也在找工作的朋友聊近況。', note: '自己寫的練習示例，不是真實對話。', turns: [
     { who: 'them', en: 'Have you applied to any big companies?' },
     { who: 'you', cardId: 'job-interviewed', zh: '說投了幾家、到目前面試了三個職缺，再反問對方。', en: 'A few. I’ve interviewed for three jobs so far. How about you?' },
-    { who: 'them', en: 'I got one offer, but they might just be lowballing it.' },
-    { who: 'you', zh: '問其他公司是不是還在決定。', en: 'Are other companies still deciding?' },
+    { who: 'them', en: 'I got one offer, but they might just be lowballing me.' },
+    { who: 'you', zh: '問其他公司是不是還在決定。', en: 'Are the other companies still deciding?' },
     { who: 'them', en: 'Yeah, two are still in the approval process.' },
     { who: 'you', cardId: 'job-says', zh: '說有朋友在其中一家工作，轉述他說要看分到哪個團隊。', en: 'A friend of mine works at one of them. He says it depends on the team you get.' },
   ] },

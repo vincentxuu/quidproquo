@@ -146,7 +146,7 @@ British Council 交通那一課的角色扮演講到搭公車付現：*the drive
 >
 > B: Does it have any dairy products in it?
 >
-> A: Yes, it has cream. And I'm sorry, we're out of the chicken tonight.
+> A: Yes, it has cream. The grilled chicken doesn't, but I'm sorry, we're out of chicken tonight.
 >
 > B: Okay, I'll have the fish then.
 

@@ -71,7 +71,7 @@ For the Result sentence, the sample answers in the materials all carry a concret
 
 I did not make a card for the Action part, because its content differs for every story. The sources demonstrate it with *I organised a meeting with…*, *I sat down with them and we talked about…*, and *I spoke to … to ask him why…*. The MIT STAR page and [Indeed's STAR guide](https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique), which I read earlier, both say to use *I* rather than *we*, so the interviewer can see what you did yourself.
 
-For the project you are proudest of, the line in You're Hired is *the thing I'm most proud of professionally*, and the BBC has *I'm really proud of my record on…*. I made one card from this: *The thing I'm most proud of professionally is the memory work for our agent.*
+For the project you are proudest of, the line in You're Hired is *the thing I'm most proud of professionally*, and the BBC has *I'm really proud of my record on…*. I made one card from this: *The thing I'm most proud of professionally is the memory feature I built for our agent.*
 
 ### 3. When I did not catch the question
 
@@ -104,9 +104,9 @@ The reposted HBR page also has *Can you tell me about the team I'll be working w
 
 | What I want to say | What works in this situation | Relation to the source |
 | --- | --- | --- |
-| 想跟進一下，請問面試的結果如何？ | Can I just ask, following up, what the outcome of the interview is? | Quoted |
+| 想請問一下，面試的結果如何？ | Can I just ask what the outcome of the interview is? | Adapted |
 
-This comes from the BBC episode [After the interview](https://www.bbc.com/learningenglish/english/features/job-applications/241007). The recruiter being interviewed is describing aloud the gist of an email, not giving an email template, so if you write one you still need to add a greeting and a closing. The same episode also says you can ask for feedback: *please can I have some feedback on the interview*.
+This comes from the BBC episode [After the interview](https://www.bbc.com/learningenglish/english/features/job-applications/241007). The recruiter being interviewed is describing aloud the gist of an email, and her actual words were *Can I just ask, following up, what the outcome of the interview is*. The *following up* in the middle is the kind of thing people insert while thinking aloud, and it is awkward to repeat, so the card leaves it out. This is not an email template, so if you write one you still need to add a greeting and a closing. The same episode also says you can ask for feedback: *please can I have some feedback on the interview*.
 
 ## What interviewers ask
 
@@ -145,7 +145,7 @@ Read the Chinese, say it yourself, then check the reference. The content comes f
 3. 因為這樣，檔案解析改到背景執行。
    - *Because of this, file parsing moved to background workers.*
 4. 我最自豪的是我們 agent 的記憶功能。
-   - *I'm really proud of the memory work for our agent.*
+   - *I'm really proud of the memory feature I built for our agent.*
 5. 你覺得這個職位的挑戰會是什麼？
    - *What do you think the challenges will be for this role?*
 6. 可以請您給我一些面試的回饋嗎？
@@ -182,7 +182,7 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 開場 | I'm really excited to be speaking with you today. Thank you so much for the opportunity. |
 | 正式說明職責 | I'm responsible for improving the reliability of our AI agent product. |
 | 為什麼想換工作 | I'd like to apply my skills to a new challenge. |
-| 最自豪的專案 | The thing I'm most proud of professionally is the memory work for our agent. |
+| 最自豪的專案 | The thing I'm most proud of professionally is the memory feature I built for our agent. |
 | STAR 的背景 | In my current job, the team wanted the agent to remember users across conversations. |
 | STAR 的任務 | My job was to find a way of handling large attachments without wasting money. |
 | STAR 的結果 | Because of this, the team set the limit at 10 MB. |
@@ -191,7 +191,7 @@ Rate yourself on whether you got the meaning across, not on matching the words e
 | 反問：工程上的挑戰 | What are the engineering challenges that the team is facing? |
 | 反問：典型的一天 | What does a typical day look like in this role? |
 | 反問：下一步流程 | What's the next step in the recruitment process after this interview? |
-| 面試後跟進 | Can I just ask, following up, what the outcome of the interview is? |
+| 面試後跟進 | Can I just ask what the outcome of the interview is? |
 
 ## Still to verify
 

@@ -156,7 +156,7 @@ BBC 的 [Mistakes](https://www.bbc.com/learningenglish/english/features/office-e
 >
 > A: I see what you mean, but users are already affected.
 >
-> B: OK. Are we on the same page? You roll back, and I tell the team.
+> B: OK. So you roll back, and I'll tell the team. Are we on the same page?
 >
 > A: Yes. I'll get back with an update in 20 minutes.
 

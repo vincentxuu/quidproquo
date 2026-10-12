@@ -71,7 +71,7 @@ STAR 是 Situation、Task、Action、Result。英國 [National Careers Service](
 
 行動那一段我沒有做成卡片，因為內容每個故事都不同。來源的示範是 *I organised a meeting with…*、*I sat down with them and we talked about…*、*I spoke to … to ask him why…*。MIT 的 STAR 頁和我先前讀過的 [Indeed 的 STAR 說明](https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique)都提醒用 *I* 而不是 *we*，才看得出你自己做了什麼。
 
-講最自豪的專案，You're Hired 的台詞是 *the thing I'm most proud of professionally*，BBC 有 *I'm really proud of my record on…*。我做成一張卡：*The thing I'm most proud of professionally is the memory work for our agent.*
+講最自豪的專案，You're Hired 的台詞是 *the thing I'm most proud of professionally*，BBC 有 *I'm really proud of my record on…*。我做成一張卡：*The thing I'm most proud of professionally is the memory feature I built for our agent.*
 
 ### 三、沒聽清楚題目
 
@@ -104,9 +104,9 @@ HBR 那篇的轉載頁還有 *Can you tell me about the team I'll be working wit
 
 | 想說的意思 | 這個情境可用的說法 | 和來源的關係 |
 | --- | --- | --- |
-| 想跟進一下，請問面試的結果如何？ | Can I just ask, following up, what the outcome of the interview is? | 原句 |
+| 想請問一下，面試的結果如何？ | Can I just ask what the outcome of the interview is? | 改寫 |
 
-出自 BBC 的 [After the interview](https://www.bbc.com/learningenglish/english/features/job-applications/241007)。這是受訪的招募人員口頭轉述一封信的大意，不是信件範本，所以拿來寫信時還要補上稱呼和結尾。同一集也提到可以請對方給回饋：*please can I have some feedback on the interview*。
+出自 BBC 的 [After the interview](https://www.bbc.com/learningenglish/english/features/job-applications/241007)。受訪的招募人員是口頭轉述一封信的大意，原話是 *Can I just ask, following up, what the outcome of the interview is*；中間的 following up 是邊想邊講時插進去的，照著唸很拗口，卡片把它拿掉。這不是信件範本，所以拿來寫信時還要補上稱呼和結尾。同一集也提到可以請對方給回饋：*please can I have some feedback on the interview*。
 
 ## 面試官會問什麼
 
@@ -145,7 +145,7 @@ HBR 那篇的轉載頁還有 *Can you tell me about the team I'll be working wit
 3. 因為這樣，檔案解析改到背景執行。
    - *Because of this, file parsing moved to background workers.*
 4. 我最自豪的是我們 agent 的記憶功能。
-   - *I'm really proud of the memory work for our agent.*
+   - *I'm really proud of the memory feature I built for our agent.*
 5. 你覺得這個職位的挑戰會是什麼？
    - *What do you think the challenges will be for this role?*
 6. 可以請您給我一些面試的回饋嗎？
@@ -182,7 +182,7 @@ HBR 那篇的轉載頁還有 *Can you tell me about the team I'll be working wit
 | 開場 | I'm really excited to be speaking with you today. Thank you so much for the opportunity. |
 | 正式說明職責 | I'm responsible for improving the reliability of our AI agent product. |
 | 為什麼想換工作 | I'd like to apply my skills to a new challenge. |
-| 最自豪的專案 | The thing I'm most proud of professionally is the memory work for our agent. |
+| 最自豪的專案 | The thing I'm most proud of professionally is the memory feature I built for our agent. |
 | STAR 的背景 | In my current job, the team wanted the agent to remember users across conversations. |
 | STAR 的任務 | My job was to find a way of handling large attachments without wasting money. |
 | STAR 的結果 | Because of this, the team set the limit at 10 MB. |
@@ -191,7 +191,7 @@ HBR 那篇的轉載頁還有 *Can you tell me about the team I'll be working wit
 | 反問：工程上的挑戰 | What are the engineering challenges that the team is facing? |
 | 反問：典型的一天 | What does a typical day look like in this role? |
 | 反問：下一步流程 | What's the next step in the recruitment process after this interview? |
-| 面試後跟進 | Can I just ask, following up, what the outcome of the interview is? |
+| 面試後跟進 | Can I just ask what the outcome of the interview is? |
 
 ## 仍待核對
 

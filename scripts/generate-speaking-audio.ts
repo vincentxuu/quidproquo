@@ -6,8 +6,10 @@
 // clips whose sentence is gone are removed. A sentence without a clip is read by the browser's own voice.
 //
 // Credentials: CLOUDFLARE_API_TOKEN (needs Workers AI) and optionally CLOUDFLARE_ACCOUNT_ID.
-// Without the token, the OAuth token of a local `wrangler login` is used.
+// Without the token, the OAuth token of a local `wrangler login` is used. That token lasts an hour and only
+// wrangler renews it, so an expired one is renewed with `wrangler whoami` before it is read.
 
+import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { mkdir, readdir, readFile, unlink, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
@@ -30,8 +32,12 @@ async function wranglerToken() {
   ]
   for (const path of candidates) {
     if (!existsSync(path)) continue
-    const match = /^oauth_token\s*=\s*"([^"]+)"/m.exec(await readFile(path, 'utf8'))
-    if (match) return match[1]
+    const read = async () => { const config = await readFile(path, 'utf8'); return { token: /^oauth_token\s*=\s*"([^"]+)"/m.exec(config)?.[1] ?? '', expires: Date.parse(/^expiration_time\s*=\s*"([^"]+)"/m.exec(config)?.[1] ?? '') } }
+    let saved = await read()
+    if (saved.token && !(saved.expires > Date.now() + 60_000)) {
+      try { execFileSync('pnpm', ['exec', 'wrangler', 'whoami'], { stdio: 'ignore' }); saved = await read() } catch { /* Fall through with the saved token; the API call reports the failure. */ }
+    }
+    if (saved.token) return saved.token
   }
   return ''
 }

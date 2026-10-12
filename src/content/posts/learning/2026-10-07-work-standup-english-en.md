@@ -121,7 +121,7 @@ This is a practice example I wrote, not a real conversation.
 
 > A: Any updates?
 >
-> B: I fixed the login flow yesterday. Today I'm working on the permissions, but I'm stuck on the permission settings.
+> B: I fixed the login flow yesterday. Today I'm working on access control, but I'm stuck on the permission settings.
 >
 > A: What's blocking you?
 >

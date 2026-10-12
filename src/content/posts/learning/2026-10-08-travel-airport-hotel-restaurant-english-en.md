@@ -146,7 +146,7 @@ This is a practice example I wrote, not a dialogue from the materials.
 >
 > B: Does it have any dairy products in it?
 >
-> A: Yes, it has cream. And I'm sorry, we're out of the chicken tonight.
+> A: Yes, it has cream. The grilled chicken doesn't, but I'm sorry, we're out of chicken tonight.
 >
 > B: Okay, I'll have the fish then.
 

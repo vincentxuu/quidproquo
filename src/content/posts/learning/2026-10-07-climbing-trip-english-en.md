@@ -148,7 +148,7 @@ This is a practice example I wrote, not a real conversation.
 >
 > A: Thanks. Are the bolts on that route titanium?
 >
-> B: They were replaced, but check them yourself before you climb.
+> B: Yes, they were replaced with titanium ones, but check them yourself before you climb.
 
 ## Without looking at the English, how would you say it?
 

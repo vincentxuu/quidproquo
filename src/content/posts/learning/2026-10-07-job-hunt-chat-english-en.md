@@ -165,9 +165,9 @@ This is a practice example I wrote, not a real conversation.
 >
 > B: A few. I've interviewed for three jobs so far. How about you?
 >
-> A: I got one offer, but they might just be lowballing it.
+> A: I got one offer, but they might just be lowballing me.
 >
-> B: Are other companies still deciding?
+> B: Are the other companies still deciding?
 >
 > A: Yeah, two are still in the approval process.
 >

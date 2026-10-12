@@ -165,9 +165,9 @@ Cambridge：present simple 用原形動詞，第三人稱單數加 -s；have、g
 >
 > B: A few. I've interviewed for three jobs so far. How about you?
 >
-> A: I got one offer, but they might just be lowballing it.
+> A: I got one offer, but they might just be lowballing me.
 >
-> B: Are other companies still deciding?
+> B: Are the other companies still deciding?
 >
 > A: Yeah, two are still in the approval process.
 >

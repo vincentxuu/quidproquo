@@ -148,7 +148,7 @@ draft: false
 >
 > A: Thanks. Are the bolts on that route titanium?
 >
-> B: They were replaced, but check them yourself before you climb.
+> B: Yes, they were replaced with titanium ones, but check them yourself before you climb.
 
 ## 不看英文，你會怎麼說
 

@@ -232,8 +232,8 @@ describe('speaking practice', () => {
     const keys = sentences.map(clipKey);
     expect(new Set(keys).size).toBe(sentences.length);
     for (const key of keys) expect(key).toMatch(/^[0-9a-f]{14}$/);
-    expect(clipKey('I have a map here.')).toBe(clipKey('I have a map here.'));
-    expect(clipKey('I have a map here.')).not.toBe(clipKey('I have a map here'));
+    expect(clipKey('I’ve got a map.')).toBe(clipKey('I’ve got a map.'));
+    expect(clipKey('I’ve got a map.')).not.toBe(clipKey('I’ve got a map'));
   });
   it('plays a clip only when the tool is on and that voice has one for the sentence', () => {
     const text = speakingCards[0].en;

@@ -121,7 +121,7 @@ Atlassian 介紹站立會議時列的三個問題剛好對應前兩種：*What d
 
 > A: Any updates?
 >
-> B: I fixed the login flow yesterday. Today I'm working on the permissions, but I'm stuck on the permission settings.
+> B: I fixed the login flow yesterday. Today I'm working on access control, but I'm stuck on the permission settings.
 >
 > A: What's blocking you?
 >

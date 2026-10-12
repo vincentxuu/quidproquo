@@ -20,5 +20,13 @@
    - 文章、卡片、evidence 不出現人名、雇主、對方的訊息或對方的處境。
    - 逐句修正表存 `corrections.md` 且確認未被 git 追蹤；回報時說明哪些檔案含原句。
    - 未查到來源的改寫標「未查」或留在待查，不放進練習卡。
+5. 使用者說「我這裡有地圖，英文怎麼說？」
+   - 先找來源怎麼說「手上有某物」：Cambridge 的 have (got) 例句是 Have you got a drill?，沒有 here。答案是 I’ve got a map，不是 I have a map here。
+   - 不把 have 的字義頁和 here 的字義頁拼成一句再標成改寫；support 要寫得出同骨架的來源原句。
+   - 「我這裡有」「我想從這裡去」這類中文題目若是為了湊英文句型而寫的，連中文一起改。
+6. 使用者說「題庫有些用法怪怪的，幫我看一遍」。
+   - 逐句先查 evidence。2026-10-12 的審查憑語感列了十句，回查後 Take!、I’ll get back with an update、lowballing the offer、experience in、he reapplies the next year 都有來源原句或同骨架例句，不該列。
+   - 真正要改的是改寫卡裡拼湊出來的句子，以及自寫對話接不上的地方。
+   - 對話整段讀：問岩栓是不是鈦的，對方要回答是或不是。
 
 每次測試記錄觀察、產物路徑、來源可取得範圍與失敗項目；沒有真實執行不能報成 behavioral test passed。
