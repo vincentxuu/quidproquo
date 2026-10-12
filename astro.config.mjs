@@ -8,6 +8,8 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
+import { remarkMathOptIn } from './src/plugins/remarkMathOptIn.ts';
+import rehypeKatex from 'rehype-katex';
 
 // Rehype plugin: external links open in new tab
 function rehypeExternalLinks() {
@@ -59,6 +61,49 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // Stanford CS229 由講義逐章改為 Spring 2026 逐堂（2026-10-12）；kernel、SVM、ICA、LQR 四章無對應堂次，轉到課程總覽
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression': '/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-01-linear-regression-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression': '/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-02-classification-logistic-regression-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-03-generalized-linear-models': '/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-03-generalized-linear-models-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms': '/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-04-generative-learning-algorithms-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods': '/posts/ai/2026-08-21-stanford-cs229-machine-learning',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-05-kernel-methods-en': '/posts/ai/2026-08-21-stanford-cs229-machine-learning-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines': '/posts/ai/2026-08-21-stanford-cs229-machine-learning',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-06-support-vector-machines-en': '/posts/ai/2026-08-21-stanford-cs229-machine-learning-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning': '/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-07-deep-learning-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-07-neural-network-architecture-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization': '/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-08-generalization-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection': '/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-09-regularization-model-selection-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means': '/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-10-clustering-k-means-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-11-em-algorithms': '/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-11-em-algorithms-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-12-principal-components-analysis': '/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-12-principal-components-analysis-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis': '/posts/ai/2026-08-21-stanford-cs229-machine-learning',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-13-independent-components-analysis-en': '/posts/ai/2026-08-21-stanford-cs229-machine-learning-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models': '/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-14-diffusion-models-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-15-foundation-models-overview': '/posts/ai/2026-10-12-stanford-cs229-lecture-12-diffusion-loss-foundation-models-lora',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-15-foundation-models-overview-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-12-diffusion-loss-foundation-models-lora-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning': '/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-16-representation-learning-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-13-representation-learning-semantic-search-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-17-large-language-models': '/posts/ai/2026-10-12-stanford-cs229-lecture-14-llm-next-token-attention',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-17-large-language-models-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-14-llm-next-token-attention-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-18-reasoning-in-llms': '/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-18-reasoning-in-llms-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning': '/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-19-reinforcement-learning-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg': '/posts/ai/2026-08-21-stanford-cs229-machine-learning',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-20-lqr-ddp-lqg-en': '/posts/ai/2026-08-21-stanford-cs229-machine-learning-en',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants': '/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient',
+    '/posts/ai/2026-08-22-stanford-cs229-2026-notes-chapter-21-policy-gradient-variants-en': '/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en',
     // CMU 10-423 A/B 拆篇併回一堂一篇（2026-10-12）
     '/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf',
     '/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en',
@@ -153,8 +198,9 @@ export default defineConfig({
   markdown: {
     processor: unified({
       smartypants: false,
-      remarkPlugins: [remarkReadingTime, remarkYoutubeEmbed],
-      rehypePlugins: [rehypeExternalLinks, rehypeLazyImages],
+      // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。
+      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed],
+      rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages],
     }),
   },
   experimental: {

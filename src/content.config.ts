@@ -19,6 +19,9 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     search: z.boolean().default(true),
     pinned: z.boolean().default(false),
+    // Opt-in: parse $...$ / $$...$$ as math and render with KaTeX (see remarkMathOptIn).
+    // Off by default because many posts write prices with a literal dollar sign.
+    math: z.boolean().default(false),
     type: z.enum(['debug', 'deep-dive', 'digest', 'guide', 'project']).optional(),
     difficulty: z.enum(['入門', '進階', '深度']).optional(),
     readingTime: z.number().optional(),

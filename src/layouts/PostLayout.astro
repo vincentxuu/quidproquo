@@ -6,6 +6,7 @@ import { ChatSidebar } from '../components/Chat/ChatSidebar';
 import { ChatFloating } from '../components/Chat/ChatFloating';
 import '../styles/tokens.css';
 import '../styles/chat.css';
+import 'katex/dist/katex.min.css';
 
 interface Props {
   title: string;
@@ -523,6 +524,9 @@ const pageTitle =
   /* Links */
   .content a { color: var(--brand-500); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 2px; }
   .content a:hover { color: var(--brand-900); text-decoration-color: var(--brand-500); }
+
+  /* 比欄寬長的獨立公式在自己的區塊內橫向捲動，不撐破版面（手機上很常見）。 */
+  .content .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
 
   /* ── macOS-style Code Blocks (like DJ MYG) ── */
   .content pre {

@@ -15,6 +15,7 @@
 | `difficulty` | enum | ❌ | `入門` / `進階` / `深度`，只在文章確實需要標示閱讀難度時填 |
 | `draft` | boolean | ❌（預設 `false`） | `true` 時不會在列表頁/RSS 出現 |
 | `pinned` | boolean | ❌（預設 `false`） | `true` 時釘在分類首頁頂端 |
+| `math` | boolean | ❌（預設 `false`） | `true` 時才把 `$...$`、`$$...$$` 解析成數學式並用 KaTeX 渲染。**沒設就會把 LaTeX 原始碼直接顯示給讀者**，所以只要文章有公式就必須設。設了之後內文的金額要寫成 `\$5` 或改用文字，否則兩個 `$` 之間會被當成公式 |
 | `series` | object | ❌ | `{ name: string, order: number }`，多篇連載用 |
 | `glossary` | object[] | ❌ | 當篇特有術語解釋；通用詞應放全站 glossary seed，不要塞進每篇 |
 | `readingTime` | number | ❌ | 由 remark plugin 自動填，不要手寫 |
