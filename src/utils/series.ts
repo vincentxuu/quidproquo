@@ -183,6 +183,16 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    // order = 都道府縣 JIS 代碼 × 100 + 該縣第幾個岩場（東京 13 → 1301…），總覽為 0；缺號是還沒寫，不擋。
+    slug: 'japan-crags',
+    category: 'other',
+    names: { 'zh-TW': '日本岩場', en: 'Japan Climbing Crags' },
+    descriptions: {
+      'zh-TW': '一個岩場一篇：岩質與攀登風格、適合的季節與原因、搭電車與開車怎麼去、在地規範。母群取自 ROCKTOPO 與 CLIMBING-net（《日本100岩場》），依都道府縣排序，從本州中部開始逐步補滿全日本。',
+      en: 'One crag per guide: rock type and climbing style, the best seasons and why, how to get there by train or car, and local rules. Crags are drawn from ROCKTOPO and CLIMBING-net (the Japan 100 Crags guidebooks), ordered by prefecture, starting in central Honshu and expanding to cover all of Japan.',
+    },
+  },
+  {
     slug: 'aeo-geo',
     category: 'ai-agents',
     names: { 'zh-TW': 'AEO / GEO 與 AI 搜尋', en: 'AEO, GEO, and AI Search' },
