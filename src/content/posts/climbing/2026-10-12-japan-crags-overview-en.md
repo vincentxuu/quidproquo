@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Japan Climbing Crags"
   order: 0
-tldr: "One guide per crag, 14 so far, from Shimukappu in Hokkaido to Cape Hedo in Okinawa. In winter (December–March) go to the south-facing walls of Izu and Yugawara or to Okinawa; in summer head for Ogawayama and Mizugakiyama at around 1,600 m, or Hokkaido. Look up routes and rules on ROCKTOPO and CLIMBING-net; find partners through Meetup, Facebook groups, and Jimoty."
-description: "Overview of the Japan Climbing Crags series: a season, rock type, and style table for the 14 crags covered so far, the sources to check (ROCKTOPO, CLIMBING-net, JFA, local associations), and where to find climbing partners (Meetup, Facebook groups, Jimoty)."
+tldr: "One guide per crag, 22 so far, from Shimukappu in Hokkaido to Cape Hedo in Okinawa. In winter (December–March) go to the south-facing walls of Izu and Yugawara or to Okinawa; in summer head for Ogawayama and Mizugakiyama at around 1,600 m, or Hokkaido. Look up routes and rules on ROCKTOPO and CLIMBING-net; find partners through Meetup, Facebook groups, and Jimoty."
+description: "Overview of the Japan Climbing Crags series: a season, rock type, and style table for the 22 crags covered so far, the sources to check (ROCKTOPO, CLIMBING-net, JFA, local associations), and where to find climbing partners (Meetup, Facebook groups, Jimoty)."
 draft: false
 ---
 
@@ -17,36 +17,44 @@ draft: false
 
 Each guide in this series covers one Japanese crag: rock type and style, the best seasons and why, how to get there by train or by car, and the local rules to know before you go. It does not cover itineraries, flights, or how to fit a trip into a holiday, because that goes out of date fast. A crag's seasons and rules change much more slowly.
 
-Fourteen crags are covered so far, across Hokkaido, Kanto, Koshin, Izu, Tokai, Chugoku, Kyushu, and Okinawa. Japan has far more than that: the prefecture pages on the crag database [ROCKTOPO](https://www.rocktopo.net/) list well over two hundred areas between them, and the series will fill in prefecture by prefecture.
+Twenty-two crags are covered so far, across Hokkaido, Tohoku, Kanto, Koshin, Hokuriku, Izu, Tokai, Kinki, Chugoku, Shikoku, Kyushu, and Okinawa. Japan has far more than that: the prefecture pages on the crag database [ROCKTOPO](https://www.rocktopo.net/) list well over two hundred areas between them, and the series will fill in prefecture by prefecture.
 
 ## Picking a crag by season
 
 Japan spans a wide range of latitudes, so crag seasons vary a lot. Roughly three kinds:
 
-- **Winter crags**: south-facing, coastal, or far south. Warm on sunny winter days, too hot in summer. Jogasaki and Joyama in Izu, Yugawara Makuiwa in Kanagawa, and Cape Hedo in Okinawa.
-- **Summer crags**: high or far north, with snow or road closures in winter. Ogawayama in Nagano, Mizugakiyama in Yamanashi, Gozaisho in Mie, and Akaiwa Seigankyo in Hokkaido.
-- **Mostly spring and autumn, some year-round**: crags around Tokyo, Saitama, Aichi, Okayama, and Fukuoka are climbed most of the year, but the rainy season and midsummer often bring seepage or humidity.
+- **Winter crags**: south-facing, coastal, or far south. Warm on sunny winter days, too hot in summer. Jogasaki and Joyama in Izu, Yugawara Makuiwa in Kanagawa, the Odo Coast in Kochi, and Cape Hedo in Okinawa.
+- **Summer crags**: high or far north, with snow or road closures in winter. Ogawayama in Nagano, Mizugakiyama in Yamanashi, Gozaisho in Mie, Zakkokudani in Toyama, and Akaiwa Seigankyo in Hokkaido.
+- **Mostly spring and autumn, some year-round**: crags around Tokyo, Saitama, Tohoku, Kinki, Aichi, Okayama, and Fukuoka are climbed most of the year or in spring and autumn, but the rainy season and midsummer often bring seepage or humidity.
 
 The seasons below follow the sources quoted in each guide. Where sources disagree, the individual guide lists all of them; this table shows a representative one.
 
 | Crag | Location | Style | Rock | Season (per source) |
 |---|---|---|---|---|
 | [Akaiwa Seigankyo](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo-en) | Shimukappu, Hokkaido | Sport, many 5.12–5.13 | Chert | May–October |
+| [Samuraihama](/posts/climbing/2026-10-12-japan-crag-samuraihama-en) | Kuji, Iwate | Sea-cliff bouldering, sport | Granite | Late March–late November |
+| [Aoba](/posts/climbing/2026-10-12-japan-crag-aoba-en) | Iwaki, Fukushima | Sport | Sandstone | September–May |
 | [Futagoyama](/posts/climbing/2026-10-12-japan-crag-futagoyama-en) | Ogano, Saitama | Steep sport | Limestone | Year-round; seepage in rainy season and summer |
 | [Mitake Boulder](/posts/climbing/2026-10-12-japan-crag-mitake-boulder-en) | Ome, Tokyo | Bouldering | Chert | October–May |
 | [Tenno-iwa](/posts/climbing/2026-10-12-japan-crag-tennoiwa-en) | Akiruno, Tokyo | Sport, mostly 5.10–5.11 | Chert | Year-round; cold in winter |
 | [Yugawara Makuiwa](/posts/climbing/2026-10-12-japan-crag-yugawara-en) | Yugawara, Kanagawa | Short sport, bouldering | Tuff / andesite | December–March |
+| [Zakkokudani](/posts/climbing/2026-10-12-japan-crag-zakkokudani-en) | Tateyama, Toyama | Sport, cracks | Granite | Early April–late November (while the Shomyo road is open) |
 | [Mizugakiyama](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en) | Hokuto, Yamanashi | Cracks, multi-pitch, highballs | Granite | April–November |
 | [Ogawayama](/posts/climbing/2026-10-12-japan-crag-ogawayama-en) | Kawakami, Nagano | Cracks, sport, multi-pitch, bouldering | Granite | April–November |
 | [Jogasaki](/posts/climbing/2026-10-12-japan-crag-jogasaki-en) | Ito, Shizuoka | Sea-cliff cracks, sport, bouldering | Andesite | December–April |
 | [Joyama](/posts/climbing/2026-10-12-japan-crag-joyama-en) | Izunokuni, Shizuoka | Sport, multi-pitch | Tuff | November–March |
 | [Toyota](/posts/climbing/2026-10-12-japan-crag-toyota-en) | Toyota, Aichi | Mostly bouldering | Granite | Autumn to spring |
 | [Gozaisho](/posts/climbing/2026-10-12-japan-crag-gozaisho-en) | Komono, Mie | Mountain multi-pitch | Granite | April–November |
+| [Kasagi Boulder](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder-en) | Kasagi, Kyoto | Bouldering | Granite | Year-round; cold in midwinter |
+| [Konpirayama](/posts/climbing/2026-10-12-japan-crag-konpirasan-en) | Sakyo, Kyoto | Sport, multi-pitch | Chert | Year-round |
+| [Kitayama Park](/posts/climbing/2026-10-12-japan-crag-kitayama-park-en) | Nishinomiya, Hyogo | Bouldering | Granite | Year-round; poor in midsummer |
+| [Fudoiwa](/posts/climbing/2026-10-12-japan-crag-fudoiwa-en) | Kobe, Hyogo | Sport | Tuff | Year-round |
 | [Bitchu](/posts/climbing/2026-10-12-japan-crag-bitchu-en) | Around Takahashi, Okayama | Overhanging sport | Limestone | Year-round; pick the sector |
+| [Odo Coast](/posts/climbing/2026-10-12-japan-crag-odo-kaigan-en) | Otsuki, Kochi | Sea-cliff cracks, multi-pitch | Granite | November–March |
 | [Hyugami](/posts/climbing/2026-10-12-japan-crag-hyugami-en) | Yame, Fukuoka | Sport, mostly 5.10–5.11 | Andesite | Year-round; avoid the rainy season |
 | [Cape Hedo / Usa Beach](/posts/climbing/2026-10-12-japan-crag-hedo-usahama-en) | Kunigami, Okinawa | Sea-cliff sport | Limestone | November–March |
 
-By access: Mitake Boulder (JR Ome Line, Mitake Station), Jogasaki (three Izukyu stations), and Joyama (Izuhakone Railway, Ohito Station) are reachable by train and a walk. Tenno-iwa, Yugawara, Ogawayama, Toyota, Gozaisho, Bitchu, and Hyugami need a bus as well. Akaiwa Seigankyo, Futagoyama, Mizugakiyama, and Cape Hedo effectively need a car, or have very few buses; see each guide.
+By access: Mitake Boulder (JR Ome Line, Mitake Station), Jogasaki (three Izukyu stations), Joyama (Izuhakone Railway, Ohito Station), Kasagi Boulder (JR Kansai Line, Kasagi Station), Fudoiwa (JR Fukuchiyama Line, Dojo Station), and Kitayama Park (Hankyu Koyoen Station) are reachable by train and a walk. Tenno-iwa, Yugawara, Ogawayama, Toyota, Gozaisho, Bitchu, and Hyugami need a bus as well. Akaiwa Seigankyo, Samuraihama, Aoba, Zakkokudani, Futagoyama, Mizugakiyama, the Odo Coast, and Cape Hedo effectively need a car, or have very few buses; see each guide.
 
 ## Where to look things up
 
