@@ -138,6 +138,20 @@ export const speakingCards = [
   { id: 'interview-ask-typical-day', scenario: 'interview', family: 'interview', context: '你想知道這個職位平常在做什麼。', zh: '這個職位平常的一天是什麼樣子？', en: 'What does a typical day look like in this role?', swap: '問團隊：Can you tell me about the team I’ll be working with?' },
   { id: 'interview-ask-next-step', scenario: 'interview', family: 'interview', context: '面試快結束，你想知道接下來的流程。', zh: '這次面試之後，招募流程的下一步是什麼？', en: 'What’s the next step in the recruitment process after this interview?', swap: '換個說法：What are the next steps in the hiring process?' },
   { id: 'interview-follow-up', scenario: 'interview', family: 'interview', context: '面試後一直沒消息，你寫信詢問結果。', zh: '想請問一下，面試的結果如何？', en: 'Can I just ask what the outcome of the interview is?', swap: '請對方給回饋：Please can I have some feedback on the interview?' },
+  { id: 'interview-code-restate', scenario: 'interview', family: 'interview', context: '面試官剛講完題目，你用自己的話說一次，確認沒有聽錯。', zh: '所以你要找的是兩個加起來等於 8 的數字？', en: 'So you’re looking for a pair of numbers that add up to eight?', swap: '換成自己的題目：So you’re looking for the longest word in the list?' },
+  { id: 'interview-code-assume', scenario: 'interview', family: 'interview', context: '題目沒說資料怎麼給，你想先確認一個假設。', zh: '我可以假設這些數字放在一個陣列裡嗎？', en: 'Can I assume that they’re in an array?', swap: '換成已排序：Can I assume that they’re sorted?' },
+  { id: 'interview-code-negatives', scenario: 'interview', family: 'interview', context: '動手之前，你想問輸入值的範圍。', zh: '輸入會有負數嗎？', en: 'Does the input include negative numbers?', swap: '換成重複的值：Does the input include duplicates?' },
+  { id: 'interview-code-sorted', scenario: 'interview', family: 'interview', context: '你在考慮要不要用二分搜尋，先問輸入的順序。', zh: '輸入的陣列有排序過嗎？', en: 'Is the input array sorted?', swap: '換成字串清單：Is the list of words sorted?' },
+  { id: 'interview-code-optimize-for', scenario: 'interview', family: 'interview', context: '你想知道面試官在意的是時間還是空間。', zh: '要優先考慮速度還是記憶體？', en: 'Do I need to optimize for speed or memory?', swap: '問規模：Is this meant to scale to millions of users?' },
+  { id: 'interview-code-simplest', scenario: 'interview', family: 'interview', context: '你先講最直覺的解法，讓面試官知道你看得到它。', zh: '最簡單的解法就是把每一組可能的配對都比過一遍。', en: 'The simplest solution is just comparing every single possible pair.', swap: '換成子字串：The simplest solution is just checking every single possible substring.' },
+  { id: 'interview-code-quadratic', scenario: 'interview', family: 'interview', context: '你講完最簡單的解法，接著說它的時間複雜度。', zh: '我想那樣會是平方時間。', en: 'I think that would be quadratic.', swap: '換成線性：I think that would be linear.' },
+  { id: 'interview-code-tradeoff', scenario: 'interview', family: 'interview', context: '你想到兩種做法，先講出來再選。', zh: '我可以用雜湊表來快速查找，或是先排序再用二分搜尋。', en: 'I could do this with a hash table for fast lookups, or sort the data and use binary search.', swap: '接著說你選哪個：I think a hash table is simpler here.' },
+  { id: 'interview-code-approach', scenario: 'interview', family: 'interview', context: '開始寫之前，你先講打算分幾步做。', zh: '我會先把陣列排序，再用兩個指標。', en: 'I’d approach this by first sorting the array, then using two pointers.', swap: '換成自己的步驟：I’d approach this by first counting each letter, then comparing the counts.' },
+  { id: 'interview-code-language', scenario: 'interview', family: 'interview', context: '面試官問你想用什麼語言寫。', zh: '可以的話，我想用 Python。', en: 'I prefer Python, if that’s okay.', swap: '換成 TypeScript：I prefer TypeScript, if that’s okay.' },
+  { id: 'interview-code-linear', scenario: 'interview', family: 'interview', context: '你說明改進後的解法為什麼比較快。', zh: '我只需要掃過一次，所以是線性的解法。', en: 'I just need to scan it one time, so it’s a linear solution.', swap: '換成排序後的做法：I need to sort it first, so it’s an n log n solution.' },
+  { id: 'interview-code-syntax', scenario: 'interview', family: 'interview', context: '你記得某個函式的用途，但忘了確切寫法。', zh: '確切的語法我不記得，但我記得它是這樣運作的。', en: 'I don’t know the exact syntax, but I remember it works like this.', swap: '沒用過那個函式庫：I haven’t worked with that library before.' },
+  { id: 'interview-code-examples', scenario: 'interview', family: 'interview', context: '程式寫完了，你不急著說完成，先自己驗一次。', zh: '我跑幾個例子，確認這樣是對的。', en: 'Let me go through some examples to make sure this is correct.', swap: '只跑一個：Let me go through an example to make sure this is correct.' },
+  { id: 'interview-code-empty', scenario: 'interview', family: 'interview', context: '你邊檢查邊想邊界狀況，把問題說出口。', zh: '如果輸入是空的，會發生什麼事？', en: 'If the input is empty, what happens?', swap: '換成只有一個元素：If the input has only one element, what happens?' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -207,6 +221,12 @@ const bcInterviewArticle = { title: 'British Council：How to prepare for a job 
 const youreHired5 = { title: 'British Council：You’re Hired 第 5 集', url: 'https://learnenglish.britishcouncil.org/sites/podcasts/files/LearnEnglish-You-re-hired-Episode-05.pdf' };
 const abcInterviews = { title: 'ABC Education（澳洲）：Business English Ep4 Interviews', url: 'https://www.abc.net.au/education/learn-english/business-english-ep4-interviews/101876886' };
 const hbrRepost = { title: 'HBR〈38 Smart Questions to Ask in a Job Interview〉（讀的是轉載頁）', url: 'https://www.physicianleaders.org/articles/38-smart-questions-to-ask-in-a-job-interview' };
+const codingPost = '/posts/learning/2026-10-12-coding-interview-english';
+const googleExample = { title: 'Life at Google：Example Coding/Engineering Interview（影片，讀的是自動字幕）', url: 'https://www.youtube.com/watch?v=XKu_SEDAykw' };
+const neuTechnical = { title: 'Northeastern University 就業輔導：Interview Type: Technical', url: 'https://careers.northeastern.edu/resources/interview-type-technical/' };
+const tihCheatsheet = { title: 'Tech Interview Handbook：Coding interview cheatsheet', url: 'https://www.techinterviewhandbook.org/coding-interview-cheatsheet/' };
+const captionNote = '來源是影片的自動字幕，沒有標點，也保留了說話時的停頓與重複；卡片整理成完整的句子。';
+const coding = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: codingPost });
 const britishNote = 'BBC 主持人說明，這類委婉的說法是英國職場的習慣，各地不同；要做決定或交辦事情時，直接一點比較清楚。';
 export const speakingEvidence: Record<typeof speakingCards[number]['id'], SpeakingEvidence> = {
   map: { ...adapted([haveSource, hereSource], 'Cambridge 用 have (got) 講持有，例句 Have you got a drill?／They haven’t got a car，並說 have got 比較不正式；地圖與筆是依這個句型改寫。', '中文的「我這裡有」是說東西在自己手上，英文用 I’ve got 就說完了；來源講持有的例句都沒有加 here。要把東西遞給對方時說 Here you are。'), alternatives: [{ en: 'I have a map.', when: '同一情境；Cambridge 標為比較正式' }] },
@@ -338,6 +358,20 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-ask-challenges': { ...direct([tihFinal, bcInterviewArticle, hbrRepost], 'Tech Interview Handbook 原句是 What are the engineering challenges that the company/team is facing?，這裡取 team。British Council 有 What do you think the challenges will be for this role?；HBR 轉載頁有 What are the biggest challenges that I might face in this position?。三份來源都建議問挑戰。'), alternatives: [{ en: 'What do you think the challenges will be for this role?', when: '問職位本身的挑戰；British Council 的說法' }] },
   'interview-ask-typical-day': { ...direct([tihFinal, hbrRepost], 'Tech Interview Handbook 原句：What does a typical day look like in this role?。英國 National Careers Service 列的是 what does a typical day involve?；HBR 轉載頁建議問 What would a typical day for me in this role look like?'), alternatives: [{ en: 'Can you tell me about the team I’ll be working with?', when: '想了解團隊；HBR 轉載頁的原句' }] },
   'interview-ask-next-step': { ...direct([bcInterviewArticle, hbrRepost], 'British Council 原句：What’s the next step in the recruitment process after this interview?。HBR 轉載頁有 What are the next steps in the hiring process?。一個用 recruitment、一個用 hiring，來源沒有說這是英美差異。'), alternatives: [{ en: 'What are the next steps in the hiring process?', when: '同一情境；HBR 轉載頁的說法' }] },
+  'interview-code-restate': coding(adapted([googleExample, tihCheatsheet], 'Google 示範面試裡，應徵者聽完題目後說：I guess what I’m trying to figure out is, you’re looking for a pair of numbers that add up to eight；卡片把開頭換成 So。Tech Interview Handbook 也建議把題目用自己的話說回去。', captionNote)),
+  'interview-code-assume': coding(adapted([googleExample, cambridgeWord('assume', 'assume')], 'Google 示範面試裡應徵者的原話：can I assume that they’re like in memory, an array or something；面試官回答時也說 you can assume they’ll always be integers。卡片只留陣列這一項。Cambridge 的 assume 例句是 Let’s assume that they’re coming。', captionNote)),
+  'interview-code-negatives': coding(direct([neuTechnical, tihCheatsheet], 'Northeastern University 的面試指引原句：Does the input include negative numbers?。Tech Interview Handbook 列的確認項目也有 Negative? Floating points? Empty? Null? Duplicates?')),
+  'interview-code-sorted': coding(direct([tihCheatsheet, googleExample], 'Tech Interview Handbook 原句：Is the input array sorted?，用來決定要用二分搜尋還是線性搜尋。Google 示範面試裡，面試官主動說明輸入已經由小到大排好。')),
+  'interview-code-optimize-for': coding(direct([neuTechnical], 'Northeastern University 的面試指引原句：Do I need to optimize for speed or memory?；同一段還有 Is this meant to scale to millions of users?。只有這一份來源給出句子。')),
+  'interview-code-simplest': coding(adapted([googleExample], 'Google 示範面試裡應徵者的原話：the simplest solution of course is just comparing every single possible pair；卡片拿掉 of course。', captionNote)),
+  'interview-code-quadratic': coding(adapted([googleExample], 'Google 示範面試裡應徵者的原話：I think that that would be quadratic；卡片拿掉重複的 that。同一段用 linear、n log n 來講其他解法。', '示範面試裡的工程師講複雜度時多半直接說 quadratic、linear，沒有唸出 O 記號。')),
+  'interview-code-tradeoff': coding(direct([neuTechnical, tihCheatsheet], 'Northeastern University 的面試指引原句：I could do this with a hash table for fast lookups, or sort the data and use binary search. I think hash table is simpler here because…。Tech Interview Handbook 也建議先講幾種做法與取捨再選。')),
+  'interview-code-approach': coding(adapted([neuTechnical], 'Northeastern University 的面試指引給的句型：I’d approach this by first [step 1], then [step 2]. I’d do this because…；排序與兩個指標是自行填入的步驟。')),
+  'interview-code-language': coding(adapted([googleExample], 'Google 示範面試裡，面試官問 what coding language would you prefer to do this in，應徵者回答 I prefer C++ if that’s okay；卡片把語言換成 Python。', captionNote)),
+  'interview-code-linear': coding(adapted([googleExample], 'Google 示範面試裡應徵者的原話：in this case I just need to do that moving, scanning the one time, so it’s linear solution；卡片整理成 I just need to scan it one time, so it’s a linear solution。', captionNote)),
+  'interview-code-syntax': coding(direct([neuTechnical], 'Northeastern University 的面試指引原句：I don’t know the exact syntax, but I remember it works like this. Let me think through the logic…；同一段還有 I haven’t worked with that library before, but I’d approach it by…。')),
+  'interview-code-examples': coding(adapted([googleExample, tihCheatsheet], 'Google 示範面試裡應徵者寫完後說：I feel like I probably need to go through an example … to make sure that this is correct，接著說 let me go through some examples to make sure；卡片把兩句合成一句。Tech Interview Handbook 也要求寫完先自己找錯、補測試案例，不要直接宣布完成。', captionNote)),
+  'interview-code-empty': coding(direct([neuTechnical, googleExample], 'Northeastern University 的面試指引原句：If the input is empty, what happens?，原文的設定是邊寫邊在心裡測。Google 示範面試裡應徵者也自己檢查了空輸入：what happens with an empty…。')),
   'interview-follow-up': adapted([bbcJobs('241007', 'After the interview')], 'BBC 節目裡，受訪的招募人員轉述一封信的大意：Can I just ask, following up, what the outcome of the interview is。卡片拿掉說話時插進去的 following up，其餘照原句。同一集另有 please can I have some feedback on the interview。', '來源的設定是寫信，而且是口頭轉述，不是信件範本。'),
 };
 export type Rating = 0 | 1 | 2;
@@ -451,6 +485,18 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', zh: '問其他公司是不是還在決定。', en: 'Are the other companies still deciding?' },
     { who: 'them', en: 'Yeah, two are still in the approval process.' },
     { who: 'you', cardId: 'job-says', zh: '說有朋友在其中一家工作，轉述他說要看分到哪個團隊。', en: 'A friend of mine works at one of them. He says it depends on the team you get.' },
+  ] },
+  { id: 'interview-coding', scenario: 'interview', title: '寫程式面試：先問清楚再動手', role: '你是應徵者，對方是出題的工程師。', note: '自己寫的練習示例，不是真實面試，也不是來源影片裡的對話。', turns: [
+    { who: 'them', en: 'I’ll give you a list of numbers and a target. Tell me if any two of the numbers add up to the target.' },
+    { who: 'you', cardId: 'interview-code-restate', zh: '用自己的話確認：要找的是兩個加起來等於目標值的數字。', en: 'So you’re looking for a pair of numbers that add up to the target?' },
+    { who: 'them', en: 'That’s right.' },
+    { who: 'you', cardId: 'interview-code-sorted', zh: '問輸入的陣列有沒有排序過，還有會不會有負數。', en: 'Is the input array sorted? And does the input include negative numbers?' },
+    { who: 'them', en: 'It’s not sorted, and yes, there can be negative numbers.' },
+    { who: 'you', cardId: 'interview-code-simplest', zh: '先講最簡單的解法，再說那會是平方時間。', en: 'The simplest solution is just comparing every single possible pair. I think that would be quadratic.' },
+    { who: 'them', en: 'Can we do better?' },
+    { who: 'you', cardId: 'interview-code-tradeoff', zh: '我可以用雜湊表來快速查找，或是先排序再用二分搜尋。', en: 'I could do this with a hash table for fast lookups, or sort the data and use binary search.' },
+    { who: 'them', en: 'Let’s go with the hash table.' },
+    { who: 'you', cardId: 'interview-code-examples', zh: '我跑幾個例子，確認這樣是對的。', en: 'Let me go through some examples to make sure this is correct.' },
   ] },
 ];
 /** Role-plays offered for one scenario; none when the tool is switched off. */

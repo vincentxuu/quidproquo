@@ -15,7 +15,7 @@ const nationBook = 'https://www.wgtn.ac.nz/lals/resources/paul-nations-resources
 const echoArticle = 'https://homepage.ntu.edu.tw/%7Ekarchung/pubs/CET6970.pdf';
 const shadowReview = 'https://www.tandfonline.com/doi/full/10.1080/29984475.2025.2546827';
 const families = [
-  { id: 'have', title: '我手上有什麼', pattern: 'I have…', note: '當你想說自己擁有、帶著或手上有某樣東西，用 I have。here 補充「就在我這裡」。' },
+  { id: 'have', title: '我手上有什麼', pattern: 'I’ve got…', note: '當你想說自己擁有、帶著或手上有某樣東西，用 I’ve got，正式一點用 I have。中文的「我這裡有」不用翻成 here。' },
   { id: 'present', title: '出示手上的物品', pattern: 'Here’s…', note: '向對方出示某樣東西時，可以用 Here’s + 物品。剛找到東西、指出位置和表示持有，則是不同情境。' },
   { id: 'there', title: '這裡、那裡有什麼', pattern: 'There’s…', note: '介紹某個地方有什麼，用 There’s（There is）。near here 是「這附近」，over there 是「那邊」。要問有沒有，改成 Is there…?' },
   { id: 'go', title: '從這裡到哪裡', pattern: 'get to / from here', note: 'get to 說的是「到達某個地方」。問路可以用 How do I get to… from here? there 本身就表示目的地，所以說 walk there，不必加 to。' },

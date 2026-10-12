@@ -118,8 +118,14 @@
 | 雇主的官方說明 | [Amazon: Interviewing at Amazon](https://www.amazon.jobs/content/en/how-we-hire/interviewing-at-amazon)、Leadership Principles、Interview loop；Google 的 Interview prep | subagent 讀：正文藏在頁面內嵌的資料裡，Exa 只回標題，要用 curl 取回後抽出來。主 session 沒有自行核對 | 說明行為面試怎麼進行；兩家都寫可以請面試官釐清題目，但沒有給句子 |
 | 商業求職網站 | [Indeed: STAR Interview Response Technique](https://www.indeed.com/career-advice/interviewing/how-to-use-the-star-interview-response-technique) | 四個部分的說明；示範回答沒讀到 | STAR 各段該講多少；同樣建議用 *I* 不用 *we*。直連擋，Exa 可讀 |
 | 商業求職網站 | [The Muse: 51 Interview Questions You Should Be Asking](https://www.themuse.com/advice/51-interview-questions-you-should-be-asking) | 職位、成功衡量、團隊三組問題 | 反問面試官的問題原文。已用於卡片 |
+| 雇主的官方示範（寫程式面試） | Life at Google 的 [Example Coding/Engineering Interview](https://www.youtube.com/watch?v=XKu_SEDAykw) 影片 | 自動字幕前 14,000 字元，到第二個解法寫完、開始驗證為止；沒有對照聲音 | 兩位 Google 工程師演一場寫程式面試，是這份清單裡唯一的寫程式面試實際對話。應徵者的說法：*you're looking for a pair of numbers that add up to eight*、*can I assume that they're…*、*the simplest solution … is just comparing every single possible pair*、*I think that would be quadratic*、*I prefer C++ if that's okay*、*let me go through some examples to make sure*。講複雜度用 quadratic／linear／n log n，幾乎不唸 O 記號。字幕沒有標點與說話者，引用時要整理並標改寫。Exa 可直接抓 YouTube 字幕 |
+| 雇主的官方說明（寫程式面試） | [Meta Careers: Preparing for your software engineering interview at Meta](https://www.metacareers.com/blog/preparing-for-your-software-engineering-interview-at-meta/) | 技術初篩與寫程式面試整段；設計面試後半與行為面試沒讀 | 只有要求、沒有示範句：*Think out loud*、*Find and fix the bugs by yourself*、*If you are stuck, ask questions*。可引用來說明為什麼要邊寫邊講 |
+| 大學就業中心（寫程式面試） | [Northeastern University: Interview Type: Technical](https://careers.northeastern.edu/resources/interview-type-technical/) | 整頁 | 直接給可照著說的句子：*Does the input include negative numbers?*、*Do I need to optimize for speed or memory?*、*I'd approach this by first [step 1], then [step 2]*、*I could do this with a hash table for fast lookups, or sort the data and use binary search*、*If the input is empty, what happens?*、*I don't know the exact syntax, but I remember it works like this*。直連可讀 |
+| 軟體面試的社群資源（寫程式面試） | Tech Interview Handbook 的 [Coding interview cheatsheet](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)（整頁）與 [Coding interview techniques](https://www.techinterviewhandbook.org/coding-interview-techniques/)（前半） | 見左 | 面試各階段該做什麼的清單。可引用的問句：*Is the input array sorted?*、*Can you modify the original array…?*；面試官的 *Can we do better*。要求至少問 2–3 個確認問題、寫完不要直接宣布完成。應徵者的示範句很少 |
 
 這一節 2026-10-08 補讀過一輪（由 subagent 讀、主 session 逐句核對引文），原本列為「只有入口」的 BBC、British Council You're Hired、ABC、Amazon、HBR 都已讀到正文，見上表。
+
+寫程式面試（2026-10-12 補）：四個來源都不是語言教材，三個是美國的公司與大學；有實際對話的只有 Google 那支影片。卡住時怎麼要提示、O 記號怎麼唸，沒有來源示範。interviewing.io 的模擬面試逐字稿是真實對話，但只讀到搜尋摘錄，下次要用得先讀整頁。搜尋「coding interview what to say」會出現大量 2026 年的未署名文章（coderslingo、techscreen、beyz、interviewphantom 等），句子很多但不能當依據。
 
 偏誤與缺口：語言教材全是英國與澳洲機構，沒有美式口說教材；示範回答的情境是行銷、業務、行政，帶工程內容的只有 Tech Interview Handbook。**六個來源都列了「講一次失敗」的題目，沒有一個示範怎麼回答。** 為什麼想來、強項、弱點也是題目多、示範少。前兩批面試卡片只用了 The Muse 一個情境來源，屬於便利取樣。
 
@@ -332,6 +338,7 @@
 
 | 軟體工作 | 2026-10-08 | BBC Office English 21 集、British Council 口說四課、PagerDuty 六頁；code review 四個來源沿用先前的紀錄 | 教材教的是請人幫忙、婉拒、確認理解、委婉不同意、認錯、催進度；**站立會議報進度沒有任何來源教**，而當時 12 張工作卡有 5 張落在這裡。舊卡只有 work-walkthrough 和教材幾乎同句。跨 BBC 與 British Council 重複的說法：先承認再轉折（*I see what you mean, but…*）、用不確定代替不同意（*I'm not so sure*）、先問有沒有空（*Have you got a minute?*）。完整報告：`.work/english-speaking/work-teaching-materials/research.md` |
 | 面試 | 2026-10-08 | 十一個來源：BBC 兩個系列、British Council 文章與 You're Hired、ABC、National Careers Service、MIT、Tech Interview Handbook、Amazon、Google、HBR 轉載頁 | 整理出 53 題面試題。涵蓋來源最多的功能是反問面試官（8 個）與為什麼想來（7 個）。當時 24 張面試卡完全沒涵蓋：寒暄、離職原因、想來的原因、強項、弱點、STAR 的任務、請對方重複題目、問下一步、道謝、跟進。跨來源重複：反問挑戰、典型的一天、下一步流程；proud of；good fit；背景句用 In my … job／role 開頭。完整報告：`.work/english-speaking/interview-teaching-materials/research.md` |
+| 寫程式面試 | 2026-10-12 | Google 示範面試影片的字幕、Meta Careers、Northeastern University、Tech Interview Handbook 兩頁、Cambridge 三個條目 | 原本 37 張面試卡沒有一張是寫程式面試用的。補了 14 張（6 張原句、8 張改寫）與一段角色對話，分成確認題目、講解法與取捨、邊寫邊講、寫完自己測四段。沒做成卡片：要提示、O 記號的唸法、brute force 與 edge case（字典有收，但讀到的示範對話沒有出現）。系統設計、被追問、爭取思考時間還沒做。紀錄：`.work/english-speaking/coding-interview/evidence.md` |
 
 做完新的情境對照後，在這張表加一列，並把新讀的來源補進對應的表。
 
