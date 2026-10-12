@@ -6,7 +6,7 @@
 
 - [ROCKTOPO](https://www.rocktopo.net/) 47 個縣別頁（`/prefectures/1–47`），2026-10-12 下載原始 HTML，抽出全部岩場與路線數（B 抱石、F 先鋒面、C 裂隙、M 多段）；再下載 286 個岩場頁，抽「シーズン」「岩質」欄與頁首公告。
 - [CLIMBING-net](https://www.climbing-net.com/iwaba/) 依都道府縣搜尋（含北海道 4 區），共 148 個岩場；再下載 148 個岩場頁抽「シーズン」「岩質」「ルート數」「アクセス」。底本是《フリークライミング日本100岩場》。
-- 兩份依縣、正規化名稱合併：302 筆（兩邊都有 134、只在 ROCKTOPO 154、只在 CLIMBING-net 14）。名稱比對是程式做的，少數可能錯配（例：神戸の岩場／神戸かのとボルダー、湯河原／幕岩），寫該篇時人工確認。
+- 兩份依縣、正規化名稱合併：302 筆（兩邊都有 134、只在 ROCKTOPO 154、只在 CLIMBING-net 14）。名稱比對是程式做的，少數可能錯配（例：神戸の岩場／神戸かのとボルダー、湯河原／幕岩），寫該篇時人工確認。已更正：CLIMBING-net「赤岩」（小樽市、安山岩質集塊岩）與「赤岩青巌峡」（占冠村、チャート，＝ROCKTOPO 48）是兩個岩場。
 - 禁攀：依 [JFA 全国のアクセス問題エリア一覧](https://freeclimb.jp/activities/deal-with/issue-list/) 的整區「登攀禁止／登攀自粛／立入禁止」，加上日高市公告（日和田山）。局部禁區（豊田百間、古賀志山左奥以左、湯河原テントウムシロック周辺、笠間大黒岩、有珠善光寺區、十石峠バンビースパイヤー側等）不排除，寫該篇時一句帶過。JFA 自述清單外還有很多禁攀岩場，所以「未標」不等於「可以爬」，每篇動筆前再查在地協會與 ROCKTOPO 公告。
 - [theCrag](https://www.thecrag.com/en/climbing/japan)、[Mountain Project](https://www.mountainproject.com/area/106103884/japan) 尚未逐筆對照（例：Mountain Project 有金華山、沖繩多個岩場）。
 
@@ -23,7 +23,7 @@
 
 | 縣 | 岩場（ROCKTOPO） | CLIMBING-net | 路線數 | 類型 | 季節 | 岩質 | 資料 | 分級 | 備註 |
 |---|---|---|---|---|---|---|---|---|---|
-| 北海道 | [赤岩青巌峡](https://www.rocktopo.net/areas/48) | [赤岩](https://www.climbing-net.com/iwaba_detail/%E8%B5%A4%E5%B2%A9/) | 113 | B11 F101 C1 | 5月 6月 7月 8月 9月 10月 | チャート | 3/3 | A |  |
+| 北海道 | — | [赤岩](https://www.climbing-net.com/iwaba_detail/%E8%B5%A4%E5%B2%A9/) | — | — | — | 安山岩質集塊岩（小樽市） | 1/3 | A |  |
 | 北海道 | [旭川ボルダー](https://www.rocktopo.net/areas/50) | [旭川ボルダー](https://www.climbing-net.com/iwaba_detail/%E6%97%AD%E5%B7%9D%E3%83%9C%E3%83%AB%E3%83%80%E3%83%BC/) | 86 | B86 | 5月下旬~11月上旬。4月、5月が神居古潭のメインシーズン。 | さまざま | 3/3 | A |  |
 | 北海道 | [石垣山](https://www.rocktopo.net/areas/49) | [石垣山](https://www.climbing-net.com/iwaba_detail/%E7%9F%B3%E5%9E%A3%E5%B1%B1/) | 71 | F69 C2 | 5月下旬~10月上旬 | 安山岩 | 3/3 | A |  |
 | 北海道 | [神居岩](https://www.rocktopo.net/areas/54) | [神居岩](https://www.climbing-net.com/iwaba_detail/%E7%A5%9E%E5%B1%85%E5%B2%A9/) | 56 | F51 C5 | 4月~11月 | 石灰岩 | 3/3 | A |  |
