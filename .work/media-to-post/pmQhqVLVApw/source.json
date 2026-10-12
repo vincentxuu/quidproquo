@@ -1,0 +1,20 @@
+{
+  "episodeId": "pmQhqVLVApw",
+  "sourceUrl": "https://www.youtube.com/watch?v=pmQhqVLVApw",
+  "title": "If You Have Multiple Interests, Please Take Advantage of the Next 10 Years",
+  "publisher": "Dan Koe (YouTube channel @DanKoeTalks)",
+  "speakers": ["Dan Koe (single speaker, per channel and first-person narration; not otherwise verified)"],
+  "publishedAt": "2026-09-03",
+  "language": "en",
+  "durationSeconds": 2159,
+  "durationEvidence": "YouTube watch page schema.org itemprop duration = PT35M59S (retrieved 2026-10-12 via Groundlane web_fetch, render=never, format=html)",
+  "retrievedAt": "2026-10-12",
+  "retrievalTool": "Metadata: Groundlane web_fetch (html). Transcript text: Exa web_fetch_exa (fallback; Groundlane returned only page chrome, no caption text). Not a Groundlane-verified transcript.",
+  "transcriptUrl": null,
+  "transcriptType": "unknown (plain text, no timestamps, no speaker labels; likely YouTube auto-captions or ASR; tool did not disclose)",
+  "retrievedRanges": ["full text, single response, ends with 'I'll see you in the next one. Bye.'"],
+  "truncated": false,
+  "paginationComplete": true,
+  "rightsBasis": "unknown; not redistributed. Raw transcript kept outside the repo (scratchpad). Article uses short attributed excerpts and paraphrase only.",
+  "requestedDelivery": "article-guide"
+}
