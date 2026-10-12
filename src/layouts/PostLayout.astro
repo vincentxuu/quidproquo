@@ -156,6 +156,13 @@ const pageTitle =
     font-style: normal;
     font-display: swap;
   }
+  /* The CJK font draws curly quotes full-width, which leaves a gap in the middle of I’m.
+     These four characters come from a Latin system font instead; with none installed, text looks as before. */
+  @font-face {
+    font-family: 'Latin Quotes';
+    src: local('Helvetica Neue'), local('Arial'), local('Roboto'), local('Segoe UI'), local('Noto Sans');
+    unicode-range: U+2018-2019, U+201C-201D;
+  }
 
   /* ── 全站 token 見 src/styles/tokens.css（單一來源，不在此拷貝） ── */
 
@@ -190,7 +197,7 @@ const pageTitle =
   }
 
   body {
-    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
+    font-family: 'Latin Quotes', 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
     --page-gutter: 1.5rem;
     max-width: 800px;
     margin: 0 auto;

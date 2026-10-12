@@ -27,6 +27,3 @@
 /* The site's floating buttons sit over the bottom-right corner. This page is an exercise, not an article: the reading-progress button goes, and on phones the chat button steps aside during a drill and the page ends with room for it. */
 body:has(.es-clear-corner) .scroll-top{display:none}.es-voice-row .es-check{margin:0}.es-answer>.es-check{margin:16px 0 0}
 @media(max-width:600px){.es-clear-corner{padding-bottom:104px}body:has(.es-clear-corner .es-practice) .chat-float-button:not(.is-open){display:none!important}}
-/* The site's CJK font draws curly quotes full-width, which leaves a gap in the middle of I’m. Inside the practice area those four characters come from a Latin system font instead; with none installed, the text looks as before. */
-@font-face{font-family:'ES Latin Quotes';src:local('Helvetica Neue'),local('Arial'),local('Roboto'),local('Segoe UI'),local('Noto Sans');unicode-range:U+2018-2019,U+201C-201D}
-.es-app{font-family:'ES Latin Quotes','Noto Sans TC Local','PingFang TC','Microsoft JhengHei',system-ui,-apple-system,sans-serif}.es-app button{font-family:inherit}
