@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 27
+  order: 24
 description: "區分位置/記憶體/資訊取用並設計受控驗收"
 draft: false
 ---

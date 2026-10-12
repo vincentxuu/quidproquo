@@ -7,9 +7,9 @@ tags: [cmu-10423, ai-course, cmu, speech-to-text, video-generation, world-model,
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 50
-tldr: "Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to five separate lessons, including the separate alignment deck from Lecture 26."
-description: "Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to five separate lessons, including the separate alignment deck from Lecture 26."
+  order: 45
+tldr: "Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to one full guide each for Lectures 24–26; the Lecture 26 guide also covers the separate alignment deck."
+description: "Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to one full guide each for Lectures 24–26; the Lecture 26 guide also covers the separate alignment deck."
 draft: false
 glossary:
   - term: "mel-spectrogram"
@@ -32,15 +32,13 @@ glossary:
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 
-Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to five separate lessons, including the separate alignment deck from Lecture 26.
+Audio representation, temporal relationships in video, and action-conditioned world transitions are different learning tasks. The earlier combined guide checked only audio at the end. This URL now serves as a reading map to one full guide each for Lectures 24–26; the Lecture 26 guide also covers the separate alignment deck.
 
 ## Choose a lesson
 
-- [Audio representation and ASR](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en): work through its mechanism, example, and answer criteria.
-- [Audio generation](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en): work through its mechanism, example, and answer criteria.
+- [Audio representation, ASR, and generation](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en): work through its mechanism, example, and answer criteria.
 - [Video generation](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation-en): work through its mechanism, example, and answer criteria.
-- [Interactive world models](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en): work through its mechanism, example, and answer criteria.
-- [Alignment science](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en): work through its mechanism, example, and answer criteria.
+- [Interactive world models and alignment science](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en): work through its mechanism, example, and answer criteria.
 
 The [course map](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) lists the core path. This page is a topic guide, not an additional lecture. Choose the question you need to answer and follow its lesson.
 

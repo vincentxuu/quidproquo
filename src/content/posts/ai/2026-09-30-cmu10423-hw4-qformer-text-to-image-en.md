@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, homework, multimodal, text-to-image, diffusion
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 22
+  order: 20
 tldr: "Use an original numerical test to check gradients, data, and evaluation alongside the original assignment specification."
 description: "A rewritten assignment guide with a complete original example and answered variations, without solutions to assigned questions."
 draft: false
@@ -33,7 +33,7 @@ This guide follows [CMU 10-423](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## Three separate checks for the bridge
 
-Official HW4 implements text conditioning between frozen GPT-2 and DiT components. This guide uses an original toy test; original task details and references remain below, without solutions to assigned questions. Read [Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en) and [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en). Text features, query conditions, and noisy image latents are distinct tensors.
+Official HW4 implements text conditioning between frozen GPT-2 and DiT components. This guide uses an original toy test; original task details and references remain below, without solutions to assigned questions. Read [Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en) and [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en). Text features, query conditions, and noisy image latents are distinct tensors.
 
 Check dimensions, gradient flow, and actual text control separately. Valid shapes only establish that operations run. Falling loss establishes that some trainable path helps. Attractive images may still ignore captions.
 

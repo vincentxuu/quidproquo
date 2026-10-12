@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, generative-ai, course-guide, self-study]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 39
+  order: 34
 description: "Design controlled comparisons, retain paired outcomes, and distinguish replication from working code in a generative-model project."
 tldr: "Design controlled comparisons, retain paired outcomes, and distinguish replication from working code in a generative-model project."
 draft: false

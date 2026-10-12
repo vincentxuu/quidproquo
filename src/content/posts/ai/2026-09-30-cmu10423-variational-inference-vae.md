@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai, vae, variational-inference, elb
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 41
+  order: 36
 tldr: "擴散與VAE都能用機率模型的觀點理解，但「都有潛在變量」不代表它們是同一套生成流程。擴散把噪聲步驟串成鏈；VAE用encoder近似latent的後驗，decoder從latent重建資料。這篇是關係導覽，原第8–9堂的教學已拆成各自可檢核的內容。"
 description: "擴散與VAE都能用機率模型的觀點理解，但「都有潛在變量」不代表它們是同一套生成流程。擴散把噪聲步驟串成鏈；VAE用encoder近似latent的後驗，decoder從latent重建資料。這篇是關係導覽，原第8–9堂的教學已拆成各自可檢核的內容。"
 draft: false

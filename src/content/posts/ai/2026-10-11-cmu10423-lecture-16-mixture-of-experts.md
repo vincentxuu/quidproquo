@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 24
+  order: 21
 draft: false
 description: "以完整數值例子與變式答案理解Mixture of Experts：總容量與啟用計算如何分開。"
 ---
@@ -20,7 +20,7 @@ description: "以完整數值例子與變式答案理解Mixture of Experts：總
 
 ## 一個 token 不必使用所有專家
 
-Mixture of Experts（MoE）常把 dense Transformer 的部分 feed-forward 層換成多個 expert，router 為每個 token 選少數專家。它讓總參數容量增加，而每個 token 的啟用計算仍受限制。需要理解[Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)與[scaling](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws)。本篇要能算一次 top-2 routing，區分 total、active 與負載。
+Mixture of Experts（MoE）常把 dense Transformer 的部分 feed-forward 層換成多個 expert，router 為每個 token 選少數專家。它讓總參數容量增加，而每個 token 的啟用計算仍受限制。需要理解[Transformer](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)與[scaling](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)。本篇要能算一次 top-2 routing，區分 total、active 與負載。
 
 [Switch Transformer](https://arxiv.org/abs/2101.03961)是 top-1 路線的代表；其他設計可以 top-2 或更多。每個 expert 通常是可訓練網路，router 由輸入 hidden state 產生分數。專家不是事先各自貼上「數學」「英文」標籤；是否形成可解釋分工是觀察問題。
 

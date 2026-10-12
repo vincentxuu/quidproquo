@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, instruction-tuning, rlhf, dpo, post-training, 
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 43
+  order: 38
 tldr: "A prompt with one demonstrated answer is not the same data as a prompt with a preferred and rejected response. SFT learns demonstrated tokens. A typical RLHF pipeline learns reward and then updates a constrained policy. DPO forms a loss directly from preference pairs and reference-relative ratios."
 description: "A prompt with one demonstrated answer is not the same data as a prompt with a preferred and rejected response. SFT learns demonstrated tokens. A typical RLHF pipeline learns reward and then updates a constrained policy. DPO forms a loss directly from preference pairs and reference-relative ratios."
 draft: false
@@ -37,8 +37,8 @@ A prompt with one demonstrated answer is not the same data as a prompt with a pr
 
 ## Choose a lesson
 
-- [SFT and RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en): work through its mechanism, example, and answer criteria.
-- [DPO preference objective](/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en): work through its mechanism, example, and answer criteria.
+- [SFT and RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en): work through its mechanism, example, and answer criteria.
+- [DPO preference objective](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en): work through its mechanism, example, and answer criteria.
 
 The [course map](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) lists the core path. This page is a topic guide, not an additional lecture. Choose the question you need to answer and follow its lesson.
 

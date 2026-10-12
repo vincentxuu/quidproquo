@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 28
+  order: 25
 description: "Reasoning Models: Spending Compute on Verifiable Answers | CMU 10-423 Lecture 20"
 draft: false
 ---
@@ -18,7 +18,7 @@ draft: false
 
 Five lines can produce a wrong answer; fifty can too. The relevant change in reasoning models is how additional computation supports candidate generation, correction, tools, and verification. Lecture 20 also covers mechanistic interpretability: readable explanations and internal causal mechanisms are different evidence.
 
-Prerequisites are [sampling](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding-en) and [SFT/RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en).
+Prerequisites are [sampling](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding-en) and [SFT/RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en).
 
 ## Training and inference compute
 

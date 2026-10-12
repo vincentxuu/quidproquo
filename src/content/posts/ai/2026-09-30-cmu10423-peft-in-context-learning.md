@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, peft, lora, fine-tuning, in-context-learning, 
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 42
+  order: 37
 tldr: "你可以讓模型適應新任務而不重訓所有參數，但這句話包含兩種不同做法。LoRA等PEFT方法仍有訓練，少量參數會改變；ICL把示例放進上下文，推論時不因這些示例做參數更新。來源也不只兩堂：第9堂末段已有zero/few-shot，第10堂講PEFT，第11堂接ICL與後續調適。"
 description: "你可以讓模型適應新任務而不重訓所有參數，但這句話包含兩種不同做法。LoRA等PEFT方法仍有訓練，少量參數會改變；ICL把示例放進上下文，推論時不因這些示例做參數更新。來源也不只兩堂：第9堂末段已有zero/few-shot，第10堂講PEFT，第11堂接ICL與後續調適。"
 draft: false
@@ -37,8 +37,7 @@ glossary:
 ## 先讀哪一篇
 
 - [參數高效微調](/posts/ai/2026-10-11-cmu10423-peft)：依該篇的完整例子與答案自我檢查。
-- [ICL與提示](/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning)：依該篇的完整例子與答案自我檢查。
-- [SFT與RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf)：依該篇的完整例子與答案自我檢查。
+- [ICL、提示、SFT與RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf)：依該篇的完整例子與答案自我檢查。
 
 總覽的 [課程地圖](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)列出完整核心主線；本篇是主題導覽，不是額外課堂。先選你要回答的問題，再去對應的教學篇。
 

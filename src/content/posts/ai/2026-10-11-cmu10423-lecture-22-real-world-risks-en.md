@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 30
+  order: 27
 description: "Generative AI Risks: Turning Failures into Tests | CMU 10-423 Lecture 22"
 draft: false
 ---
@@ -18,7 +18,7 @@ draft: false
 
 A document assistant can answer 90% of questions correctly and still expose another user's records through one attack. Average task accuracy and deployment harm differ. Lecture 22 covers memorization, bias, attacks, hallucination, and environmental costs. We turn them into separate observable failures.
 
-Start with [preference training](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en). For each risk, identify affected people, triggering inputs or states, the harmful path, and a control point. Formal alignment is covered separately.
+Start with [preference training](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en). For each risk, identify affected people, triggering inputs or states, the harmful path, and a control point. Formal alignment is covered separately.
 
 ## Four paths in one assistant
 

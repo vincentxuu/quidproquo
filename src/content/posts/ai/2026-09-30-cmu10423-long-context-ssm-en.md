@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, long-context, attention, state-space-model, ma
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 48
+  order: 43
 tldr: "Long-context evaluation asks whether a model can process, retrieve, and use distant information. An SSM specifies sequence processing through state updates. SSM efficiency does not establish reliable document retrieval, and a large attention window does not guarantee relevant evidence is used."
 description: "Long-context evaluation asks whether a model can process, retrieve, and use distant information. An SSM specifies sequence processing through state updates. SSM efficiency does not establish reliable document retrieval, and a large attention window does not guarantee relevant evidence is used."
 draft: false

@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 34
+  order: 30
 description: "Video Generation: Modeling the Time Axis | CMU 10-423 Lecture 25"
 draft: false
 ---
@@ -53,8 +53,8 @@ A video VLM reads clips and answers questions; it is not the video generator its
 
 ## Continue reading
 
-- [Previous](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en)
-- [Next](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en)
+- [Previous](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en)
+- [Next](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en)
 
 ## Course video sources
 

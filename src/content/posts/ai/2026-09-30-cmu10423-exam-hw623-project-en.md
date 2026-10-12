@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, exam-prep, paper-reading, research-project, se
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 51
+  order: 46
 tldr: "An exam tests reasoning under a fixed question. A paper report tests your judgment of someone else’s evidence. A project tests your ability to produce reproducible evidence. These are distinct learning tasks, now taught separately while this URL remains an assessment map."
 description: "An exam tests reasoning under a fixed question. A paper report tests your judgment of someone else’s evidence. A project tests your ability to produce reproducible evidence. These are distinct learning tasks, now taught separately while this URL remains an assessment map."
 draft: false

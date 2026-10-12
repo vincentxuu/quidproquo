@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, homework, multimodal, text-to-image, diffusion
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 22
+  order: 20
 tldr: "以自擬數值例子驗收梯度、資料與評估，並保留原作業規格。"
 description: "CMU 10-423 作業教學重寫：先追完整例子，再以變式與答案檢查實作；不提供官方題目解答。"
 draft: false
@@ -33,7 +33,7 @@ glossary:
 
 ## 橋接器要同時通過三種檢查
 
-官方 HW4 讓學生在凍結 GPT-2 與 DiT 的設定中實作文字條件橋接。本篇使用自擬 toy 流程教驗收，原作業規格與引用保留在下方，沒有提供官方題目解答。先讀[Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer)與[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion)：文字表示、query 條件與 noisy image latent 是不同張量。
+官方 HW4 讓學生在凍結 GPT-2 與 DiT 的設定中實作文字條件橋接。本篇使用自擬 toy 流程教驗收，原作業規格與引用保留在下方，沒有提供官方題目解答。先讀[Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)與[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)：文字表示、query 條件與 noisy image latent 是不同張量。
 
 三個檢查是維度接通、梯度接通、文字控制生效。Shape 正確只代表運算能跑；loss 下降只代表某條可訓練路徑有用；生成看起來漂亮也可能忽略文字。要把三者獨立列成驗收表。
 

@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 26
+  order: 23
 draft: false
 description: "A complete worked example and answered variations for Efficient Inference: FlashAttention, KV Caches, and Speculative Decoding."
 ---

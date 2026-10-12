@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, multimodal, text-to-image, latent-diffusion, v
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 44
+  order: 39
 tldr: "「文字加圖片」不能描述清楚模型的工作。文生圖要產生影像，文字是條件；VLM可能接受影像，產生文字回答。資料流方向、輸出目標與驗收不同。原第12–13堂的內容在這裡保留關係地圖，兩條路各有完整例子與檢查。"
 description: "「文字加圖片」不能描述清楚模型的工作。文生圖要產生影像，文字是條件；VLM可能接受影像，產生文字回答。資料流方向、輸出目標與驗收不同。原第12–13堂的內容在這裡保留關係地圖，兩條路各有完整例子與檢查。"
 draft: false
@@ -28,7 +28,7 @@ glossary:
 
 ## 先讀哪一篇
 
-- [文字條件生成](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion)：依該篇的完整例子與答案自我檢查。
+- [文字條件生成](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)：依該篇的完整例子與答案自我檢查。
 - [視覺語言模型](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language)：依該篇的完整例子與答案自我檢查。
 - [條件注入機制](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit)：依該篇的完整例子與答案自我檢查。
 

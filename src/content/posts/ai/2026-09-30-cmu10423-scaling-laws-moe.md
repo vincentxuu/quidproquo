@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, scaling-laws, mixture-of-experts, moe, llm, tr
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 46
+  order: 41
 tldr: "Scaling laws問固定預算下模型與資料怎麼配置；MoE問如何有更多expert容量、卻只啟用少數expert。前者是配置與經驗模型，後者是架構與路由，不能合稱「把模型變大」就跳過其中一方的機制。"
 description: "Scaling laws問固定預算下模型與資料怎麼配置；MoE問如何有更多expert容量、卻只啟用少數expert。前者是配置與經驗模型，後者是架構與路由，不能合稱「把模型變大」就跳過其中一方的機制。"
 draft: false
@@ -30,7 +30,7 @@ Scaling laws問固定預算下模型與資料怎麼配置；MoE問如何有更�
 
 ## 先讀哪一篇
 
-- [模型與資料配置](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws)：依該篇的完整例子與答案自我檢查。
+- [模型與資料配置](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)：依該篇的完整例子與答案自我檢查。
 - [MoE路由](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts)：依該篇的完整例子與答案自我檢查。
 - [分散式訓練](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training)：依該篇的完整例子與答案自我檢查。
 

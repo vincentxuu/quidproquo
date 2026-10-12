@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 26
+  order: 23
 draft: false
 description: "以完整數值例子與變式答案理解高效推論：FlashAttention、KV cache 與推測解碼。"
 ---

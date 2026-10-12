@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 25
+  order: 22
 draft: false
 description: "以完整數值例子與變式答案理解分散式訓練：梯度、模型與狀態各如何切分。"
 ---

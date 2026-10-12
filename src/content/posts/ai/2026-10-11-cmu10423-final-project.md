@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, generative-ai, course-guide, self-study]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 39
+  order: 34
 description: "以固定比較條件、配對結果與重現紀錄，把生成模型專案寫成可檢查的研究證據。"
 tldr: "以固定比較條件、配對結果與重現紀錄，把生成模型專案寫成可檢查的研究證據。"
 draft: false

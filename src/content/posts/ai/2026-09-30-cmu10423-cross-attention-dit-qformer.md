@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, multimodal, attention, diffusion-transformer, 
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 45
+  order: 40
 tldr: "Cross-attention是讀取另一組表示的運算；DiT是擴散模型的骨幹選擇；Q-Former是用可學query抽取或橋接資訊的模組。它們可以組合，但不是三個互斥的產品。這篇只比較角色，Prompt-to-Prompt與classifier-free guidance的操作細節放回第14堂教學。"
 description: "Cross-attention是讀取另一組表示的運算；DiT是擴散模型的骨幹選擇；Q-Former是用可學query抽取或橋接資訊的模組。它們可以組合，但不是三個互斥的產品。這篇只比較角色，Prompt-to-Prompt與classifier-free guidance的操作細節放回第14堂教學。"
 draft: false
@@ -29,7 +29,7 @@ Cross-attention是讀取另一組表示的運算；DiT是擴散模型的骨幹�
 ## 先讀哪一篇
 
 - [Cross-attention與DiT](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit)：依該篇的完整例子與答案自我檢查。
-- [Q-Former橋接](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer)：依該篇的完整例子與答案自我檢查。
+- [Q-Former橋接](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)：依該篇的完整例子與答案自我檢查。
 - [作業4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)：依該篇的完整例子與答案自我檢查。
 
 總覽的 [課程地圖](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)列出完整核心主線；本篇是主題導覽，不是額外課堂。先選你要回答的問題，再去對應的教學篇。

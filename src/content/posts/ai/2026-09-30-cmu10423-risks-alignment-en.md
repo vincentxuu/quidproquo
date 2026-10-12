@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, ai-safety, alignment, hallucination, adversari
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 49
+  order: 44
 tldr: "Hallucination, leakage, and prompt injection are observable operational risks. Alignment theory asks which guarantees hold under specific formal assumptions. They require different evidence. Lectures 22 and 26 therefore have separate teaching guides, without turning one theorem into a universal impossibility claim."
 description: "Hallucination, leakage, and prompt injection are observable operational risks. Alignment theory asks which guarantees hold under specific formal assumptions. They require different evidence. Lectures 22 and 26 therefore have separate teaching guides, without turning one theorem into a universal impossibility claim."
 draft: false
@@ -37,8 +37,8 @@ Hallucination, leakage, and prompt injection are observable operational risks. A
 ## Choose a lesson
 
 - [Operational risks](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en): work through its mechanism, example, and answer criteria.
-- [Alignment science](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en): work through its mechanism, example, and answer criteria.
-- [Preference training](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en): work through its mechanism, example, and answer criteria.
+- [Alignment science](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en): work through its mechanism, example, and answer criteria.
+- [Preference training](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en): work through its mechanism, example, and answer criteria.
 
 The [course map](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) lists the core path. This page is a topic guide, not an additional lecture. Choose the question you need to answer and follow its lesson.
 

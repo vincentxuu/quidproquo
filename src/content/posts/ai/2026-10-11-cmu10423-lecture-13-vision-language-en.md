@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 19
+  order: 17
 draft: false
 description: "A complete worked example and answered variations for Vision-Language Models: Turning Images into Language-Model Inputs."
 ---
@@ -20,7 +20,7 @@ This guide follows [CMU 10-423](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## An image is not a text token
 
-A vision-language model (VLM) answers questions using images and text. A typical system extracts visual representations, bridges them into the language model's embedding space, and generates an answer. This differs from [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en), which generates images. Review [ViT patches](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit-en). We will track token count, embedding width, and where visual information can be lost.
+A vision-language model (VLM) answers questions using images and text. A typical system extracts visual representations, bridges them into the language model's embedding space, and generates an answer. This differs from [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en), which generates images. Review [ViT patches](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit-en). We will track token count, embedding width, and where visual information can be lost.
 
 [LLaVA](https://arxiv.org/abs/2304.08485) illustrates visual features connected to a language model and adapted with instruction data. The encoder extracts information, the projector aligns representations, and the LLM generates from visual and textual context. Correct dimensions alone do not establish semantic alignment; training supplies that signal.
 

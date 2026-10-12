@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, multimodal, attention, diffusion-transformer, 
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 45
+  order: 40
 tldr: "Cross-attention reads another representation, DiT is a diffusion-backbone choice, and Q-Former uses learned queries to extract or bridge information. They can coexist rather than being three competing products. The Lecture 14 lesson handles Prompt-to-Prompt and classifier-free guidance in detail."
 description: "Cross-attention reads another representation, DiT is a diffusion-backbone choice, and Q-Former uses learned queries to extract or bridge information. They can coexist rather than being three competing products. The Lecture 14 lesson handles Prompt-to-Prompt and classifier-free guidance in detail."
 draft: false
@@ -29,7 +29,7 @@ Cross-attention reads another representation, DiT is a diffusion-backbone choice
 ## Choose a lesson
 
 - [Cross-attention and DiT](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en): work through its mechanism, example, and answer criteria.
-- [Q-Former bridging](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en): work through its mechanism, example, and answer criteria.
+- [Q-Former bridging](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en): work through its mechanism, example, and answer criteria.
 - [Assignment 4](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en): work through its mechanism, example, and answer criteria.
 
 The [course map](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) lists the core path. This page is a topic guide, not an additional lecture. Choose the question you need to answer and follow its lesson.

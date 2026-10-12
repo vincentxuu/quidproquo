@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, distributed-training, parallelism, flashattent
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 47
+  order: 42
 tldr: "A model that does not fit on one GPU has a different problem from a model that fits but decodes slowly. Distributed strategies partition data, parameters, and states. FlashAttention improves attention memory traffic; KV caching avoids recomputing historical keys and values during decoding."
 description: "A model that does not fit on one GPU has a different problem from a model that fits but decodes slowly. Distributed strategies partition data, parameters, and states. FlashAttention improves attention memory traffic; KV caching avoids recomputing historical keys and values during decoding."
 draft: false

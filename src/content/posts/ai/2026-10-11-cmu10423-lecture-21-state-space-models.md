@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 29
+  order: 26
 description: "從recurrence展開固定卷積並識別selection邊界"
 draft: false
 ---

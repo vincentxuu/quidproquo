@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 31
+  order: 28
 description: "能執行測試修復迴圈並計算pass@k與區分交付成功"
 draft: false
 ---
@@ -54,7 +54,7 @@ SWE-bench把任務拉到真實repository issue，需要環境、跨檔理解與�
 ## 延伸閱讀
 
 - [上一篇](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks)
-- [下一篇](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr)
+- [下一篇](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation)
 
 ## 課程影片來源
 

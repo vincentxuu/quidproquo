@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 34
+  order: 30
 description: "能追時空attention shape並區分影片時間與去噪時間"
 draft: false
 ---
@@ -55,8 +55,8 @@ Video LDM 把空間內容壓到 latent 再建模，並加入時間模組，使�
 
 ## 延伸閱讀
 
-- [上一篇](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation)
-- [下一篇](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models)
+- [上一篇](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation)
+- [下一篇](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment)
 
 ## 課程影片來源
 

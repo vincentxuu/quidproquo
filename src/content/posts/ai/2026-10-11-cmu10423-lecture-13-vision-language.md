@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 19
+  order: 17
 draft: false
 description: "以完整數值例子與變式答案理解Vision-language model：圖片如何成為語言模型的輸入。"
 ---
@@ -20,7 +20,7 @@ description: "以完整數值例子與變式答案理解Vision-language model：
 
 ## 圖片不能直接當文字 token
 
-Vision-language model（VLM）讓模型依圖片與文字回答問題。典型做法先以影像 encoder 取得視覺表示，再由橋接模組轉成語言模型可接受的 embedding。它不等於[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion)：前者讀圖，後者生成圖。需要先理解[ViT 與 patch](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)。本篇要能追蹤 token 數、embedding 寬度與資料流，並定位看圖答錯可能發生在哪一段。
+Vision-language model（VLM）讓模型依圖片與文字回答問題。典型做法先以影像 encoder 取得視覺表示，再由橋接模組轉成語言模型可接受的 embedding。它不等於[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)：前者讀圖，後者生成圖。需要先理解[ViT 與 patch](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)。本篇要能追蹤 token 數、embedding 寬度與資料流，並定位看圖答錯可能發生在哪一段。
 
 [LLaVA](https://arxiv.org/abs/2304.08485)展示了以視覺特徵接到語言模型、再作指令調適的路線；課程也比較其他視覺語言方法。影像 encoder、projector、LLM 的責任不同：encoder 抽出可用資訊，projector 對接空間，LLM 根據視覺與文字上下文生成回答。Projector 尺寸正確並不保證語意對齊，仍需要訓練訊號。
 

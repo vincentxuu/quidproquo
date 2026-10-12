@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, generative-ai, course-guide, self-study]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 38
+  order: 33
 description: "Separate paper claims, empirical support, and your own interpretation through a role-based report and a controlled-comparison example."
 tldr: "Separate paper claims, empirical support, and your own interpretation through a role-based report and a controlled-comparison example."
 draft: false
@@ -31,7 +31,7 @@ A practitioner cannot infer that DPO suits every product merely because its trai
 
 For DPO, the problem is preference-based adaptation without the full reward-model-plus-RL training pipeline. The method uses preferred and rejected responses' log-probability ratios relative to a reference policy to define a directly optimized preference loss. Evidence concerns the tasks, datasets, and controlled comparisons the paper actually reports.
 
-The first two statements can be checked against equations and data flow. The third requires experimental tables. A derivation does not automatically establish product performance, and one benchmark does not prove satisfaction for all users. The [DPO teaching guide](/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en) handles the mechanism; your presentation should select only the details needed for its argument.
+The first two statements can be checked against equations and data flow. The third requires experimental tables. A derivation does not automatically establish product performance, and one benchmark does not prove satisfaction for all users. The [DPO teaching guide](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en) handles the mechanism; your presentation should select only the details needed for its argument.
 
 ## A complete evidence example
 

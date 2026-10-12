@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 20
+  order: 18
 draft: false
 description: "A complete worked example and answered variations for Cross-Attention and DiT: How Conditions Enter a Denoiser."
 ---
@@ -20,7 +20,7 @@ This guide follows [CMU 10-423](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## More than replacing a backbone
 
-Text-to-image generation must connect words to positions being denoised. Review [attention](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en) and [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en). We will identify Q/K/V sources, calculate a readout, and separate DiT, CFG, and Prompt-to-Prompt.
+Text-to-image generation must connect words to positions being denoised. Review [attention](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en) and [latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en). We will identify Q/K/V sources, calculate a readout, and separate DiT, CFG, and Prompt-to-Prompt.
 
 Self-attention obtains Q/K/V from one sequence. Cross-attention obtains Q from the representation being updated and K/V from the condition it reads. Image latents can supply Q and text supplies K/V. The number of output positions follows Q, not the number of text tokens.
 
@@ -44,7 +44,7 @@ Using ε_guided=ε_uncond+s(ε_cond−ε_uncond), let unconditional prediction b
 
 ## Check your understanding
 
-Values [0,8] with the original weights produce six. Three text tokens still yield one output position for one query. In the CFG example, s=0 returns the unconditional prediction two. If an edited prompt tokenizes to a different length, blindly copying attention columns by index is invalid; map words and tokens appropriately. Continue to [Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en), which uses a fixed set of queries to read a longer sequence.
+Values [0,8] with the original weights produce six. Three text tokens still yield one output position for one query. In the CFG example, s=0 returns the unconditional prediction two. If an edited prompt tokenizes to a different length, blindly copying attention columns by index is invalid; map words and tokens appropriately. Continue to [Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en), which uses a fixed set of queries to read a longer sequence.
 
 ## Course video sources
 

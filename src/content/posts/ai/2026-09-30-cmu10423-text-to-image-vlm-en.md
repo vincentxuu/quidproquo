@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, multimodal, text-to-image, latent-diffusion, v
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 44
+  order: 39
 tldr: "“Text plus images” does not specify the task. Text-to-image generation produces an image conditioned on text; a VLM may consume an image and produce an answer. Direction, output objective, and evaluation differ even when both use Transformers."
 description: "“Text plus images” does not specify the task. Text-to-image generation produces an image conditioned on text; a VLM may consume an image and produce an answer. Direction, output objective, and evaluation differ even when both use Transformers."
 draft: false
@@ -28,7 +28,7 @@ glossary:
 
 ## Choose a lesson
 
-- [Text-conditioned generation](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en): work through its mechanism, example, and answer criteria.
+- [Text-conditioned generation](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en): work through its mechanism, example, and answer criteria.
 - [Vision-language models](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language-en): work through its mechanism, example, and answer criteria.
 - [Condition injection](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en): work through its mechanism, example, and answer criteria.
 

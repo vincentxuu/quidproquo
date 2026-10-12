@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 25
+  order: 22
 draft: false
 description: "A complete worked example and answered variations for Distributed Training: Splitting Data, Models, and Optimizer State."
 ---

@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 20
+  order: 18
 draft: false
 description: "以完整數值例子與變式答案理解Cross-attention 與 DiT：條件如何進入去噪器。"
 ---
@@ -20,7 +20,7 @@ description: "以完整數值例子與變式答案理解Cross-attention 與 DiT�
 
 ## 問題不是只有換成 Transformer
 
-文字生圖要把「紅色小鳥」與正在去噪的影像位置接起來。本篇先備是[causal attention](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention)與[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion)。讀完要能說出 cross-attention 的 Q、K、V 來源，算出一次讀取，並分清 DiT、CFG 與 Prompt-to-Prompt 各改哪個部位。
+文字生圖要把「紅色小鳥」與正在去噪的影像位置接起來。本篇先備是[causal attention](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention)與[latent diffusion](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)。讀完要能說出 cross-attention 的 Q、K、V 來源，算出一次讀取，並分清 DiT、CFG 與 Prompt-to-Prompt 各改哪個部位。
 
 Self-attention 的 Q/K/V 來自同一組表示；cross-attention 的 Q 來自要更新的表示，K/V 來自被讀取的條件。文字條件去噪器中，影像 latent 可以提供 Q，文字提供 K/V。輸出位置數跟 Q 一樣，並不因文字 token 數較多就直接擴成更多影像位置。
 
@@ -44,7 +44,7 @@ Classifier-free guidance（CFG）結合有條件與無條件預測。用 ε_guid
 
 ## 變式練習與答案
 
-把 toy values 改成 [0,8]，原權重下輸出為 6；若文字有三個 token，單一 query 的輸出仍只有一個位置。CFG 的上例 s=0 時結果為 2，為無條件預測。P2P 若把整句改成長度不同的 token 序列，不能直接依欄位索引複製 attention，必須處理詞與 token 對應。下一篇[Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer)則用固定數量 query 讀取較長的條件序列。
+把 toy values 改成 [0,8]，原權重下輸出為 6；若文字有三個 token，單一 query 的輸出仍只有一個位置。CFG 的上例 s=0 時結果為 2，為無條件預測。P2P 若把整句改成長度不同的 token 序列，不能直接依欄位索引複製 attention，必須處理詞與 token 對應。下一篇[Q-Former](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)則用固定數量 query 讀取較長的條件序列。
 
 ## 課程影片來源
 

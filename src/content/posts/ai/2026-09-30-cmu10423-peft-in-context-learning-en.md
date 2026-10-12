@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, peft, lora, fine-tuning, in-context-learning, 
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 42
+  order: 37
 tldr: "Adapting without retraining every weight can mean two different things. LoRA-style PEFT still trains some parameters. ICL supplies examples in context without updating parameters during that inference. The source spans the end of Lecture 9, Lecture 10, and the ICL material in Lecture 11."
 description: "Adapting without retraining every weight can mean two different things. LoRA-style PEFT still trains some parameters. ICL supplies examples in context without updating parameters during that inference. The source spans the end of Lecture 9, Lecture 10, and the ICL material in Lecture 11."
 draft: false
@@ -37,8 +37,7 @@ Adapting without retraining every weight can mean two different things. LoRA-sty
 ## Choose a lesson
 
 - [Parameter-efficient adaptation](/posts/ai/2026-10-11-cmu10423-peft-en): work through its mechanism, example, and answer criteria.
-- [ICL and prompting](/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en): work through its mechanism, example, and answer criteria.
-- [SFT and RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en): work through its mechanism, example, and answer criteria.
+- [ICL, prompting, SFT, and RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en): work through its mechanism, example, and answer criteria.
 
 The [course map](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) lists the core path. This page is a topic guide, not an additional lecture. Choose the question you need to answer and follow its lesson.
 

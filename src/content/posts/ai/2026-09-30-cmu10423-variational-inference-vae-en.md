@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai, vae, variational-inference, elb
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 41
+  order: 36
 tldr: "Diffusion and VAEs share probabilistic ideas without sharing the same generation procedure. Diffusion chains noise steps; a VAE approximates a latent posterior with an encoder and reconstructs through a decoder. This guide connects those ideas while directing each mechanism to its own lesson."
 description: "Diffusion and VAEs share probabilistic ideas without sharing the same generation procedure. Diffusion chains noise steps; a VAE approximates a latent posterior with an encoder and reconstructs through a decoder. This guide connects those ideas while directing each mechanism to its own lesson."
 draft: false

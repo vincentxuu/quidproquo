@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, generative-ai, course-guide, self-study]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 37
+  order: 32
 description: "Use the public practice exam to diagnose assumptions, data flow, and evaluation errors through a worked probability example."
 tldr: "Use the public practice exam to diagnose assumptions, data flow, and evaluation errors through a worked probability example."
 draft: false

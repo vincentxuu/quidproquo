@@ -1,5 +1,5 @@
 ---
-title: "生成式 AI 學習路線：40 篇核心怎麼讀｜CMU 10-423 課程總覽"
+title: "生成式 AI 學習路線：35 篇核心怎麼讀｜CMU 10-423 課程總覽"
 date: 2026-09-30
 category: ai
 type: guide
@@ -9,7 +9,7 @@ series:
   name: "CMU 10-423 導讀"
   order: 0
 tldr: "這個系列依 CMU 10-423/623/723 Generative AI 的 Spring 2026 公開材料整理。"
-description: "Spring 2026 公開課程材料教學：生成式 AI 學習路線：40 篇核心怎麼讀｜CMU 10-423 課程總覽"
+description: "Spring 2026 公開課程材料教學：生成式 AI 學習路線：35 篇核心怎麼讀｜CMU 10-423 課程總覽"
 draft: false
 ---
 
@@ -17,9 +17,9 @@ draft: false
 
 **影片狀態：錄影需登入或課程授權。** 本文依公開投影片與作業整理，數值例子為本站補充，不是課堂逐字稿。
 
-這個系列依 CMU 10-423/623/723 Generative AI 的 Spring 2026 公開材料整理。你要學的不是記住一串模型名字，而是能追蹤：資料如何進入模型、訓練訊號如何更新參數、生成時如何產生下一步，以及如何判斷輸出與實驗可信。原課的 26 堂與本站的文章數是不同計數；同堂含不同教學任務時，這裡會拆篇，作業與評量也各有位置。
+這個系列依 CMU 10-423/623/723 Generative AI 的 Spring 2026 公開材料整理。你要學的不是記住一串模型名字，而是能追蹤：資料如何進入模型、訓練訊號如何更新參數、生成時如何產生下一步，以及如何判斷輸出與實驗可信。每堂課對應一篇導讀，同一堂有多個主題時在同一篇裡分節；作業、考卷、論文報告與專案另外各佔一篇。
 
-重建後是 **40 篇核心教學，加上 12 篇保留導覽**，不是 52 堂課。核心依學習先備排序；保留導覽承接既有網址、比較相關機制並指向完整單元，不拿導覽代替逐項教學。部分原堂分成 A/B，表示本站依內容拆分，不是官方新增了講次。
+系列共 **35 篇核心教學，加上 12 篇保留導覽**：1 篇總覽、26 堂課各 1 篇、作業 0–4 共 5 篇、練習考卷、論文報告與期末專案各 1 篇。核心依學習先備排序；保留導覽承接既有網址、比較相關機制並指向完整單元，不拿導覽代替逐項教學。
 
 ## 先判斷自己缺哪一段
 
@@ -33,17 +33,17 @@ draft: false
 
 **語言模型路線**：從 RNN 的序列機率、作業 0 的梯度走到 causal attention、訓練/解碼、RoPE/GQA，再做作業 1。然後讀 PEFT、ICL、SFT/RLHF 與 DPO。每一步分清「更新參數」「改上下文」「從分佈抽輸出」，避免把不同適應方法混用。
 
-**影像與多模態路線**：先確認 CNN/ViT 的表示，再讀 GAN、擴散 I/II、VAE 與作業 2。之後接 latent diffusion、VLM、cross-attention/DiT 與 Q-Former。音訊先拆表示/辨識與生成，影片另談時間關聯，世界模型再加入動作介入；一張漂亮圖或一段順暢影片不能替所有能力驗收。
+**影像與多模態路線**：先確認 CNN/ViT 的表示，再讀 GAN、擴散 I/II、VAE 與作業 2。之後接 latent diffusion、VLM、cross-attention/DiT 與 Q-Former。音訊一篇裡先講表示/辨識、再講生成，影片另談時間關聯，世界模型再加入動作介入；一張漂亮圖或一段順暢影片不能替所有能力驗收。
 
 **系統與研究路線**：已有模型基礎的人可從 scaling laws、MoE、分散式訓練與推論效能切入，再接長上下文、推理模型、SSM、風險、程式 agent 與對齊。最後用練習考卷找觀念缺口，用論文報告與專案把問題、baseline、消融與結果連成證據。效能路線仍需 attention 的 shape 與 autograd 先備，不是跳過基礎公式。
 
 ## 核心閱讀地圖
 
-下表使用本站閱讀 order，**不是原課堂次**。原課範圍寫在第二欄；相同堂次有多篇時，各自負責獨立學習目標。文章中的自擬例子附計算與答案，不假裝是講者口述或官方解答。
+下表使用本站閱讀 order，**不是原課堂次**。原課範圍寫在第二欄；第 11、12、15、24、26 堂各含兩個主題，文章內分成前後兩半。文章中的自擬例子附計算與答案，不假裝是講者口述或官方解答。
 
 | 閱讀順序 | 原課範圍 | 核心教學 |
 |---|---|---|
-| 0 | 總覽 | [生成式 AI 學習路線：40 篇核心怎麼讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview) |
+| 0 | 總覽 | [生成式 AI 學習路線：35 篇核心怎麼讀](/posts/ai/2026-09-30-cmu10423-generative-ai-overview) |
 | 1 | L1 | [RNN 語言模型：序列機率與梯度怎麼接起來](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff) |
 | 2 | HW0／助教課 | [自動微分實作：把手算梯度接上訓練迴圈](/posts/ai/2026-10-11-cmu10423-hw0-autodiff) |
 | 3 | L2 | [因果注意力：從 Q、K、V 算到下一個 token](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention) |
@@ -57,32 +57,27 @@ draft: false
 | 11 | L9 | [VAE：重建誤差、KL 與重參數化如何合作](/posts/ai/2026-10-11-cmu10423-lecture-09-vae) |
 | 12 | HW2 | [DDPM 實作驗收：時間係數怎麼對上 batch](/posts/ai/2026-09-30-cmu10423-hw2-ddpm) |
 | 13 | L10 | [LoRA 如何少改參數而改模型行為](/posts/ai/2026-10-11-cmu10423-peft) |
-| 14 | L11A／L9 ICL部分 | [ICL 的示例如何改變預測而不更新參數](/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning) |
-| 15 | L11B | [SFT與RLHF如何把偏好轉成訓練訊號](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf) |
-| 16 | L12A | [DPO 為什麼能由偏好對直接更新模型](/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo) |
-| 17 | HW3 | [LoRA 微調的資料、參數與評估如何驗收](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) |
-| 18 | L12B | [latent diffusion怎麼用文字控制去噪](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion) |
-| 19 | L13 | [VLM怎麼讓LLM讀到影像資訊](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language) |
-| 20 | L14 | [cross-attention與DiT如何注入條件](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit) |
-| 21 | L15A | [Q-Former 如何橋接凍結的兩個模型](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer) |
-| 22 | HW4 | [凍結GPT-2／DiT後，橋接模組怎麼驗收](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image) |
-| 23 | L15B | [固定算力如何分配模型與資料](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws) |
-| 24 | L16 | [MoE怎麼增加容量而限制單token運算](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts) |
-| 25 | L17 | [多GPU如何分割資料、模型與狀態](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training) |
-| 26 | L18 | [FlashAttention與KV cache省的是什麼](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference) |
-| 27 | L19 | [長上下文為什麼不只增加位置上限](/posts/ai/2026-10-11-cmu10423-lecture-19-long-context) |
-| 28 | L20 | [推理時多花算力何時可能改善答案](/posts/ai/2026-09-30-cmu10423-reasoning-models) |
-| 29 | L21 | [SSM怎麼用狀態更新處理序列](/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models) |
-| 30 | L22 | [風險如何從抽象名詞變成可測試失敗](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks) |
-| 31 | L23 | [程式生成評估如何延伸到agent迴圈](/posts/ai/2026-09-30-cmu10423-code-generation-agents) |
-| 32 | L24A | [聲音如何表示並被模型轉錄](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr) |
-| 33 | L24B | [codec token生成與音訊擴散差在哪](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation) |
-| 34 | L25 | [影片生成如何維持時間上的關聯](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation) |
-| 35 | L26A | [世界模型怎麼對動作預測下一狀態](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models) |
-| 36 | L26B | [對齊為什麼有不能靠調參抹掉的限制](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment) |
-| 37 | 官方練習考卷 | [怎麼用公開練習題診斷觀念缺口](/posts/ai/2026-10-11-cmu10423-practice-exam) |
-| 38 | HW623 | [論文報告怎麼建立可核對的論證](/posts/ai/2026-10-11-cmu10423-hw623-paper-report) |
-| 39 | 期末專案 | [研究問題怎麼變成可重現的實驗](/posts/ai/2026-10-11-cmu10423-final-project) |
+| 14 | L11／L9 ICL部分 | [ICL、SFT 與 RLHF：從改輸入到改參數](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf) |
+| 15 | L12 | [DPO 與 latent diffusion：偏好如何更新模型，文字如何控制去噪](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion) |
+| 16 | HW3 | [LoRA 微調的資料、參數與評估如何驗收](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2) |
+| 17 | L13 | [VLM怎麼讓LLM讀到影像資訊](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language) |
+| 18 | L14 | [cross-attention與DiT如何注入條件](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit) |
+| 19 | L15 | [Q-Former 與 scaling laws：橋接凍結模型，分配固定算力](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws) |
+| 20 | HW4 | [凍結GPT-2／DiT後，橋接模組怎麼驗收](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image) |
+| 21 | L16 | [MoE怎麼增加容量而限制單token運算](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts) |
+| 22 | L17 | [多GPU如何分割資料、模型與狀態](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training) |
+| 23 | L18 | [FlashAttention與KV cache省的是什麼](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference) |
+| 24 | L19 | [長上下文為什麼不只增加位置上限](/posts/ai/2026-10-11-cmu10423-lecture-19-long-context) |
+| 25 | L20 | [推理時多花算力何時可能改善答案](/posts/ai/2026-09-30-cmu10423-reasoning-models) |
+| 26 | L21 | [SSM怎麼用狀態更新處理序列](/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models) |
+| 27 | L22 | [風險如何從抽象名詞變成可測試失敗](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks) |
+| 28 | L23 | [程式生成評估如何延伸到agent迴圈](/posts/ai/2026-09-30-cmu10423-code-generation-agents) |
+| 29 | L24 | [聲音的理解與生成：sample 怎麼變成文字，token 怎麼變回聲音](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation) |
+| 30 | L25 | [影片生成如何維持時間上的關聯](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation) |
+| 31 | L26 | [世界模型與對齊理論：動作介入與可修正性需要哪些前提](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment) |
+| 32 | 官方練習考卷 | [怎麼用公開練習題診斷觀念缺口](/posts/ai/2026-10-11-cmu10423-practice-exam) |
+| 33 | HW623 | [論文報告怎麼建立可核對的論證](/posts/ai/2026-10-11-cmu10423-hw623-paper-report) |
+| 34 | 期末專案 | [研究問題怎麼變成可重現的實驗](/posts/ai/2026-10-11-cmu10423-final-project) |
 
 
 ## 作業如何用來學，而不是隻用來打勾
@@ -95,7 +90,7 @@ draft: false
 
 ## 保留導覽的用途
 
-下面 12 篇維持原網址，提供主題關係、比較與完整核心入口。讀核心遇到需要比較時再回來看；它們不排成第 40 堂以後的課程。
+下面 12 篇維持原網址，提供主題關係、比較與完整核心入口。讀核心遇到需要比較時再回來看；它們不是排在核心教學之後的額外課程。
 
 - [音訊、影片與世界模型](/posts/ai/2026-09-30-cmu10423-audio-video-world-models)
 - [Cross-attention、DiT 與 Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)
@@ -112,7 +107,7 @@ draft: false
 
 ## 來源能支援甚麼
 
-主要底本是官方課表、公開投影片、公開作業與評量材料。課表是索引，投影片實際範圍可能更廣：例如第 8 堂含 VAE 引介，第 9 堂末段含 zero/few-shot，第 26 堂有世界模型與對齊兩份 deck。因此分篇不是隻按檔名猜題目。
+主要底本是官方課表、公開投影片、公開作業與評量材料。課表是索引，投影片實際範圍可能更廣：例如第 8 堂含 VAE 引介，第 9 堂末段含 zero/few-shot，第 26 堂有世界模型與對齊兩份 deck。因此每篇的範圍依投影片實際內容，不是只按檔名猜題目。
 
 本系列提供本站的教學解說與雙語文章，不是課堂逐字稿。錄影入口位於 SCS Panopto；匿名資料夾無法載入並提示登入，這只能說明尚未取得公開播放內容，不能推論課程沒有錄影。各篇保留官方入口；未取得原音、字幕或白板口述的部分，不補成講者說過的話。
 

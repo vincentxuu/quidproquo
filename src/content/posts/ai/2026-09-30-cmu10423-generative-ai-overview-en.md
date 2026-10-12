@@ -1,5 +1,5 @@
 ---
-title: "A Generative AI Learning Path: Reading the 40 Core Guides | CMU 10-423 Course Overview"
+title: "A Generative AI Learning Path: Reading the 35 Core Guides | CMU 10-423 Course Overview"
 date: 2026-09-30
 category: ai
 type: guide
@@ -9,7 +9,7 @@ series:
   name: "Reading CMU 10-423"
   order: 0
 tldr: "This series uses the public Spring 2026 materials for CMU 10-423/623/723 Generative AI."
-description: "A teaching guide based on public Spring 2026 materials: A Generative AI Learning Path: Reading the 40 Core Guides | CMU 10-423 Course Overview"
+description: "A teaching guide based on public Spring 2026 materials: A Generative AI Learning Path: Reading the 35 Core Guides | CMU 10-423 Course Overview"
 draft: false
 ---
 
@@ -17,9 +17,9 @@ draft: false
 
 **Video status: recordings require sign-in or course authorization.** This guide uses public slides and assignments; numerical examples are site-authored, not a lecture transcript.
 
-This series uses the public Spring 2026 materials for CMU 10-423/623/723 Generative AI. Its goal is not a vocabulary of model names. You should be able to follow data into a model, trace learning signals into parameters, explain generation steps, and judge whether an output or experiment supports a claim. The course's 26 lectures and this site's article count measure different things.
+This series uses the public Spring 2026 materials for CMU 10-423/623/723 Generative AI. Its goal is not a vocabulary of model names. You should be able to follow data into a model, trace learning signals into parameters, explain generation steps, and judge whether an output or experiment supports a claim. Each lecture has one guide; when a lecture covers several topics, the guide splits them into sections. Assignments, the practice exam, the paper report, and the final project each have their own guide.
 
-The rebuilt series contains **40 core teaching guides and 12 retained navigation guides**, not 52 lectures. Core guides follow prerequisite dependencies. Retained pages preserve existing URLs and compare related mechanisms while linking to complete lessons. A/B labels indicate editorial splits of a lecture's content, not additional official lectures.
+The series contains **35 core teaching guides and 12 retained navigation guides**: one overview, one guide for each of the 26 lectures, five for Assignments 0–4, and one each for the practice exam, paper report, and final project. Core guides follow prerequisite dependencies. Retained pages preserve existing URLs and compare related mechanisms while linking to complete lessons.
 
 ## Diagnose your starting point
 
@@ -33,17 +33,17 @@ Diagnostic C: a 4×4 grayscale image becomes nonoverlapping 2×2 patches. There 
 
 **Language modeling:** start with sequence likelihood, the Assignment 0 gradient exercise, causal attention, training/decoding, RoPE/GQA, and Assignment 1. Then study PEFT, ICL, SFT/RLHF, and DPO. Separate parameter updates, context changes, and output selection at every step.
 
-**Images and multimodality:** establish CNN/ViT representations, then read GANs, Diffusion I/II, VAE, and Assignment 2. Continue with latent diffusion, VLMs, cross-attention/DiT, and Q-Former. Audio representation/recognition and audio generation receive separate guides; video introduces temporal relationships, and world models introduce actions. An attractive image or smooth video cannot validate every capability.
+**Images and multimodality:** establish CNN/ViT representations, then read GANs, Diffusion I/II, VAE, and Assignment 2. Continue with latent diffusion, VLMs, cross-attention/DiT, and Q-Former. The audio guide covers representation/recognition first, then generation; video introduces temporal relationships, and world models introduce actions. An attractive image or smooth video cannot validate every capability.
 
 **Systems and research:** readers with modeling foundations can begin with scaling laws, MoE, distributed training, and efficient inference, followed by long context, reasoning, SSMs, risks, code agents, and alignment. Finish with the practice exam, paper report, and project. These connect a question to baselines, ablations, and evidence. Systems topics still require attention shapes and autograd rather than bypassing them.
 
 ## Core reading map
 
-The first column is this site's reading order, **not an official lecture number**. The second records the original scope. Multiple guides from one lecture have distinct learning goals. Worked examples and answers are site-authored rather than attributed to the instructor or presented as official solutions.
+The first column is this site's reading order, **not an official lecture number**. The second records the original scope. Lectures 11, 12, 15, 24, and 26 each cover two topics, handled as two halves of one guide. Worked examples and answers are site-authored rather than attributed to the instructor or presented as official solutions.
 
 | Reading order | Original scope | Core guide |
 |---|---|---|
-| 0 | Overview | [A Generative AI Learning Path: Reading the 40 Core Guides](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) |
+| 0 | Overview | [A Generative AI Learning Path: Reading the 35 Core Guides](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en) |
 | 1 | L1 | [RNN Language Models: Sequence Probabilities and Gradient Paths](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff-en) |
 | 2 | HW0 / recitation | [Autodiff in Practice: From Hand Gradients to a Training Loop](/posts/ai/2026-10-11-cmu10423-hw0-autodiff-en) |
 | 3 | L2 | [Causal Attention: From Q, K, and V to the Next Token](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en) |
@@ -57,32 +57,27 @@ The first column is this site's reading order, **not an official lecture number*
 | 11 | L9 | [VAEs: Reconstruction, KL, and Reparameterization](/posts/ai/2026-10-11-cmu10423-lecture-09-vae-en) |
 | 12 | HW2 | [Testing DDPM: Matching Timestep Coefficients to a Batch](/posts/ai/2026-09-30-cmu10423-hw2-ddpm-en) |
 | 13 | L10 | [LoRA: What Changes When Most Weights Stay Frozen](/posts/ai/2026-10-11-cmu10423-peft-en) |
-| 14 | L11A / L9 ICL section | [In-Context Learning: How Examples Change Predictions](/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en) |
-| 15 | L11B | [SFT and RLHF: From Demonstrations to Preferences and Rewards](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en) |
-| 16 | L12A | [DPO: Updating a Language Model Directly from Preference Pairs](/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en) |
-| 17 | HW3 | [Testing LoRA Fine-Tuning: Gradients, Data, and Evaluation](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) |
-| 18 | L12B | [Latent Diffusion: What Compression and Text Conditioning Do](/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en) |
-| 19 | L13 | [Vision-Language Models: Turning Images into Language-Model Inputs](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language-en) |
-| 20 | L14 | [Cross-Attention and DiT: How Conditions Enter a Denoiser](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en) |
-| 21 | L15A | [Q-Former: Bridging Frozen Models with Learned Queries](/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en) |
-| 22 | HW4 | [Testing Q-Former Text-to-Image: Gradients through Frozen Backbones](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) |
-| 23 | L15B | [Scaling Laws: Allocating a Fixed Compute Budget](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en) |
-| 24 | L16 | [Mixture of Experts: Separating Capacity from Active Computation](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts-en) |
-| 25 | L17 | [Distributed Training: Splitting Data, Models, and Optimizer State](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en) |
-| 26 | L18 | [Efficient Inference: FlashAttention, KV Caches, and Speculative Decoding](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference-en) |
-| 27 | L19 | [Long Context: Fitting Input Is Not Reliable Retrieval](/posts/ai/2026-10-11-cmu10423-lecture-19-long-context-en) |
-| 28 | L20 | [Reasoning Models: Spending Compute on Verifiable Answers](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) |
-| 29 | L21 | [State Space Models: From Recurrence to Convolution](/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models-en) |
-| 30 | L22 | [Generative AI Risks: Turning Failures into Tests](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en) |
-| 31 | L23 | [Code Generation and Agents: A Reliable Test–Repair Loop](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) |
-| 32 | L24A | [Audio Representation and ASR: From Samples to Text](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en) |
-| 33 | L24B | [Audio Generation: Codec Tokens and Diffusion](/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en) |
-| 34 | L25 | [Video Generation: Modeling the Time Axis](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation-en) |
-| 35 | L26A | [World Models: How Actions Change Predicted Futures](/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en) |
-| 36 | L26B | [Alignment Limits: Agreement and Corrigibility Assumptions](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en) |
-| 37 | Official practice exam | [Practice Exam: Diagnose Conceptual Gaps](/posts/ai/2026-10-11-cmu10423-practice-exam-en) |
-| 38 | HW623 | [Paper Reports: Turn a Model Summary into a Testable Argument](/posts/ai/2026-10-11-cmu10423-hw623-paper-report-en) |
-| 39 | Final project | [Final Projects: Build a Reproducible Generative-Model Experiment](/posts/ai/2026-10-11-cmu10423-final-project-en) |
+| 14 | L11 / L9 ICL section | [ICL, SFT, and RLHF: From Changing Inputs to Changing Weights](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en) |
+| 15 | L12 | [DPO and Latent Diffusion: Updating on Preferences, Conditioning the Denoiser](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en) |
+| 16 | HW3 | [Testing LoRA Fine-Tuning: Gradients, Data, and Evaluation](/posts/ai/2026-09-30-cmu10423-hw3-lora-gpt2-en) |
+| 17 | L13 | [Vision-Language Models: Turning Images into Language-Model Inputs](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language-en) |
+| 18 | L14 | [Cross-Attention and DiT: How Conditions Enter a Denoiser](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en) |
+| 19 | L15 | [Q-Former and Scaling Laws: Bridging Frozen Models, Allocating a Fixed Budget](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en) |
+| 20 | HW4 | [Testing Q-Former Text-to-Image: Gradients through Frozen Backbones](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en) |
+| 21 | L16 | [Mixture of Experts: Separating Capacity from Active Computation](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts-en) |
+| 22 | L17 | [Distributed Training: Splitting Data, Models, and Optimizer State](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en) |
+| 23 | L18 | [Efficient Inference: FlashAttention, KV Caches, and Speculative Decoding](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference-en) |
+| 24 | L19 | [Long Context: Fitting Input Is Not Reliable Retrieval](/posts/ai/2026-10-11-cmu10423-lecture-19-long-context-en) |
+| 25 | L20 | [Reasoning Models: Spending Compute on Verifiable Answers](/posts/ai/2026-09-30-cmu10423-reasoning-models-en) |
+| 26 | L21 | [State Space Models: From Recurrence to Convolution](/posts/ai/2026-10-11-cmu10423-lecture-21-state-space-models-en) |
+| 27 | L22 | [Generative AI Risks: Turning Failures into Tests](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en) |
+| 28 | L23 | [Code Generation and Agents: A Reliable Test–Repair Loop](/posts/ai/2026-09-30-cmu10423-code-generation-agents-en) |
+| 29 | L24 | [Audio Understanding and Generation: Samples to Text, Tokens Back to Sound](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en) |
+| 30 | L25 | [Video Generation: Modeling the Time Axis](/posts/ai/2026-10-11-cmu10423-lecture-25-video-generation-en) |
+| 31 | L26 | [World Models and Alignment Theory: Action Interventions and Corrigibility Assumptions](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en) |
+| 32 | Official practice exam | [Practice Exam: Diagnose Conceptual Gaps](/posts/ai/2026-10-11-cmu10423-practice-exam-en) |
+| 33 | HW623 | [Paper Reports: Turn a Model Summary into a Testable Argument](/posts/ai/2026-10-11-cmu10423-hw623-paper-report-en) |
+| 34 | Final project | [Final Projects: Build a Reproducible Generative-Model Experiment](/posts/ai/2026-10-11-cmu10423-final-project-en) |
 
 
 ## Use assignments as learning checks
@@ -95,7 +90,7 @@ Small numerical exercises and unit checks can run on CPU; that does not make com
 
 ## What the retained guides do
 
-These twelve pages keep their original URLs and provide comparisons and links to the full core lessons. Return to them when you need a relationship explained. They are not additional lectures after number 40.
+These twelve pages keep their original URLs and provide comparisons and links to the full core lessons. Return to them when you need a relationship explained. They are not additional lectures after the core guides.
 
 - [Audio, video, and world models](/posts/ai/2026-09-30-cmu10423-audio-video-world-models-en)
 - [Cross-attention, DiT, and Q-Former](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer-en)
@@ -112,7 +107,7 @@ These twelve pages keep their original URLs and provide comparisons and links to
 
 ## What the sources establish
 
-The primary basis is the official schedule, public slides, assignments, and assessment materials. A schedule is an index, not an exhaustive description of a deck. Lecture 8 introduces VAE; Lecture 9 closes with zero/few-shot material; Lecture 26 has separate world-model and alignment decks. Editorial boundaries therefore follow content rather than filenames alone.
+The primary basis is the official schedule, public slides, assignments, and assessment materials. A schedule is an index, not an exhaustive description of a deck. Lecture 8 introduces VAE; Lecture 9 closes with zero/few-shot material; Lecture 26 has separate world-model and alignment decks. Each guide's scope therefore follows the slides' actual content rather than filenames alone.
 
 These are site-authored bilingual teaching guides, not lecture transcripts. The recording index is hosted on SCS Panopto. An anonymous folder view remains unloaded and requests sign-in; that establishes an access limitation, not an absence of recordings. Each guide retains official entry points. Unavailable speech, subtitles, or spoken whiteboard explanations are not invented.
 

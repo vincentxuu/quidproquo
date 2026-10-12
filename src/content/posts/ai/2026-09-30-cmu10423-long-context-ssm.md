@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, long-context, attention, state-space-model, ma
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 48
+  order: 43
 tldr: "長上下文問模型能否處理、找到並使用很久以前的資訊；SSM問如何用狀態更新處理序列。SSM的效率不能直接證明長文件檢索可靠，attention的長窗口也不能直接證明重要資訊一定被使用。第19與21堂因此各自有獨立教學。"
 description: "長上下文問模型能否處理、找到並使用很久以前的資訊；SSM問如何用狀態更新處理序列。SSM的效率不能直接證明長文件檢索可靠，attention的長窗口也不能直接證明重要資訊一定被使用。第19與21堂因此各自有獨立教學。"
 draft: false

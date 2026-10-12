@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 24
+  order: 21
 draft: false
 description: "A complete worked example and answered variations for Mixture of Experts: Separating Capacity from Active Computation."
 ---
@@ -20,7 +20,7 @@ This guide follows [CMU 10-423](https://www.cs.cmu.edu/~mgormley/courses/10423/)
 
 ## A token need not use every expert
 
-Mixture of Experts (MoE) replaces selected dense feed-forward layers with multiple experts and a router that selects a few per token. Total capacity grows while active computation remains limited. Review [Transformers](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en) and [scaling](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en). We will calculate top-2 routing and distinguish total parameters, active parameters, and load.
+Mixture of Experts (MoE) replaces selected dense feed-forward layers with multiple experts and a router that selects a few per token. Total capacity grows while active computation remains limited. Review [Transformers](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa-en) and [scaling](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en). We will calculate top-2 routing and distinguish total parameters, active parameters, and load.
 
 [Switch Transformer](https://arxiv.org/abs/2101.03961) exemplifies top-1 routing; other systems use top-2 or more. Experts are trainable networks, and the router scores them from the token state. They are not necessarily predefined “math” and “English” specialists.
 

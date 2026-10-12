@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, transformer, self-attention, language-model, t
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 40
+  order: 35
 tldr: "How the model reads a history, learns from targets, and chooses its next token are different questions. Attention mixes information; the training objective updates parameters; decoding selects output under a fixed model. Keeping them distinct prevents confusing a sampling change with a model update."
 description: "How the model reads a history, learns from targets, and chooses its next token are different questions. Attention mixes information; the training objective updates parameters; decoding selects output under a fixed model. Keeping them distinct prevents confusing a sampling change with a model update."
 draft: false

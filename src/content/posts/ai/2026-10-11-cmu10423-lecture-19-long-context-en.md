@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 27
+  order: 24
 description: "Long Context: Fitting Input Is Not Reliable Retrieval | CMU 10-423 Lecture 19"
 draft: false
 ---

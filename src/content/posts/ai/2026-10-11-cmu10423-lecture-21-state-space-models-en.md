@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 29
+  order: 26
 description: "State Space Models: From Recurrence to Convolution | CMU 10-423 Lecture 21"
 draft: false
 ---

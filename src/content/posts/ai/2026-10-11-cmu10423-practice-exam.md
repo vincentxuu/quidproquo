@@ -7,7 +7,7 @@ tags: [cmu-10423, cmu, ai-course, generative-ai, course-guide, self-study]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 37
+  order: 32
 description: "用公開練習卷區分機率、資料流與評估錯誤，走完序列機率例子，再以變式題驗收。"
 tldr: "用公開練習卷區分機率、資料流與評估錯誤，走完序列機率例子，再以變式題驗收。"
 draft: false

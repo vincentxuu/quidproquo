@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, distributed-training, parallelism, flashattent
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 47
+  order: 42
 tldr: "模型放不下一張GPU，和模型已放得下卻生成太慢，是不同故障。分散式策略重新分配資料、參數與狀態；FlashAttention主要改善attention的記憶體IO；KV cache避免decode時重算歷史K/V。先找成本的位置，再選方法。"
 description: "模型放不下一張GPU，和模型已放得下卻生成太慢，是不同故障。分散式策略重新分配資料、參數與狀態；FlashAttention主要改善attention的記憶體IO；KV cache避免decode時重算歷史K/V。先找成本的位置，再選方法。"
 draft: false

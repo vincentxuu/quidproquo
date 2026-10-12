@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, ai-safety, alignment, hallucination, adversari
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 49
+  order: 44
 tldr: "模型胡說、洩漏資料或被prompt injection誘導，是可觀察的產品風險；對齊理論問特定形式化假設下，哪些保證可以成立。兩者需要不同證據。這篇保留關係與界線，第22堂與第26堂的對齊教材分開教，不把一個定理擴成所有產品都不可能安全。"
 description: "模型胡說、洩漏資料或被prompt injection誘導，是可觀察的產品風險；對齊理論問特定形式化假設下，哪些保證可以成立。兩者需要不同證據。這篇保留關係與界線，第22堂與第26堂的對齊教材分開教，不把一個定理擴成所有產品都不可能安全。"
 draft: false
@@ -37,8 +37,8 @@ glossary:
 ## 先讀哪一篇
 
 - [實務風險](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks)：依該篇的完整例子與答案自我檢查。
-- [對齊科學](/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment)：依該篇的完整例子與答案自我檢查。
-- [偏好訓練](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf)：依該篇的完整例子與答案自我檢查。
+- [對齊科學](/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment)：依該篇的完整例子與答案自我檢查。
+- [偏好訓練](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf)：依該篇的完整例子與答案自我檢查。
 
 總覽的 [課程地圖](/posts/ai/2026-09-30-cmu10423-generative-ai-overview)列出完整核心主線；本篇是主題導覽，不是額外課堂。先選你要回答的問題，再去對應的教學篇。
 

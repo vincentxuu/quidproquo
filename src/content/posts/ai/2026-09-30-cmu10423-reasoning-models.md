@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: zh-TW
 series:
   name: "CMU 10-423 導讀"
-  order: 28
+  order: 25
 description: "能比較候選選擇與GRPO優勢且區分機制因果證據"
 draft: false
 ---
@@ -18,7 +18,7 @@ draft: false
 
 同一道算術題，模型寫五行答錯，寫五十行也可能答錯。推理模型的改變不能只看文字變長，而要看額外算力用在哪裡：提出候選、修正步驟、執行工具或驗證答案。第20堂也談機制可解釋性，提醒我們：可讀的解題敘述與模型內部因果機制，是兩種證據。
 
-先備是[解碼與抽樣](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding)、[SFT／RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf)。本篇先做候選與驗證，再展開GRPO的組內優勢，不用演算法名字清單代替計算。
+先備是[解碼與抽樣](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding)、[SFT／RLHF](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf)。本篇先做候選與驗證，再展開GRPO的組內優勢，不用演算法名字清單代替計算。
 
 ## 訓練算力與推論算力改不同東西
 

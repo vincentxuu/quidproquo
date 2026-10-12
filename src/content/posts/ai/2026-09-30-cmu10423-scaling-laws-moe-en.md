@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, scaling-laws, mixture-of-experts, moe, llm, tr
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 46
+  order: 41
 tldr: "Scaling laws study model and data allocation under a budget. MoE increases expert capacity while activating selected experts. The former concerns allocation and empirical models; the latter concerns architecture and routing. Both deserve separate checks."
 description: "Scaling laws study model and data allocation under a budget. MoE increases expert capacity while activating selected experts. The former concerns allocation and empirical models; the latter concerns architecture and routing. Both deserve separate checks."
 draft: false
@@ -30,7 +30,7 @@ Scaling laws study model and data allocation under a budget. MoE increases exper
 
 ## Choose a lesson
 
-- [Model/data allocation](/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en): work through its mechanism, example, and answer criteria.
+- [Model/data allocation](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en): work through its mechanism, example, and answer criteria.
 - [MoE routing](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts-en): work through its mechanism, example, and answer criteria.
 - [Distributed training](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training-en): work through its mechanism, example, and answer criteria.
 

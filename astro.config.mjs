@@ -59,6 +59,27 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // CMU 10-423 A/B 拆篇併回一堂一篇（2026-10-12）
+    '/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf',
+    '/posts/ai/2026-10-11-cmu10423-lecture-11a-in-context-learning-en': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf',
+    '/posts/ai/2026-10-11-cmu10423-lecture-11b-sft-rlhf-en': '/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo': '/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion',
+    '/posts/ai/2026-10-11-cmu10423-lecture-12a-dpo-en': '/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion': '/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion',
+    '/posts/ai/2026-10-11-cmu10423-lecture-12b-latent-diffusion-en': '/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer': '/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws',
+    '/posts/ai/2026-10-11-cmu10423-lecture-15a-qformer-en': '/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws': '/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws',
+    '/posts/ai/2026-10-11-cmu10423-lecture-15b-scaling-laws-en': '/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr': '/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation',
+    '/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en': '/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation': '/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation',
+    '/posts/ai/2026-10-11-cmu10423-lecture-24b-audio-generation-en': '/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models': '/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment',
+    '/posts/ai/2026-10-11-cmu10423-lecture-26a-world-models-en': '/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en',
+    '/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment': '/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment',
+    '/posts/ai/2026-10-11-cmu10423-lecture-26b-science-of-alignment-en': '/posts/ai/2026-10-11-cmu10423-lecture-26-world-models-alignment-en',
     '/posts/ai/2026-03-20-claude-certified-architect-foundations-guide':
       '/posts/ai/2026-08-18-claude-certified-architect-foundations-guide',
     '/posts/ai/2026-03-20-claude-certified-architect-foundations-guide-en':

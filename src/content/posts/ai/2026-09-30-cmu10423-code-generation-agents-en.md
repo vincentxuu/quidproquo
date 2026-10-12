@@ -7,7 +7,7 @@ tags: [cmu-10423, ai-course, cmu, generative-ai]
 lang: en
 series:
   name: "Reading CMU 10-423"
-  order: 31
+  order: 28
 description: "Code Generation and Agents: A Reliable Test–Repair Loop | CMU 10-423 Lecture 23"
 draft: false
 ---
@@ -54,7 +54,7 @@ Final variation: after repairing the lower bound, the agent adds automatic swapp
 ## Continue reading
 
 - [Previous](/posts/ai/2026-10-11-cmu10423-lecture-22-real-world-risks-en)
-- [Next](/posts/ai/2026-10-11-cmu10423-lecture-24a-audio-representation-asr-en)
+- [Next](/posts/ai/2026-10-11-cmu10423-lecture-24-audio-understanding-generation-en)
 
 ## Course video sources
 
