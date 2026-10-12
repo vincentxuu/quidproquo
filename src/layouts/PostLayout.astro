@@ -57,8 +57,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://quidproq
 const BRAND_SUFFIX = ' — quidproquo';
 const displayWidth = (s: string) =>
   [...s].reduce((n, ch) => n + (/[　-鿿＀-￯]/.test(ch) ? 2 : 1), 0);
+// 系列／標籤／分類頁傳進來的 title 已自帶品牌後綴，不要再加一次。
 const pageTitle =
-  displayWidth(title) + BRAND_SUFFIX.length > 60 ? title : `${title}${BRAND_SUFFIX}`;
+  title.endsWith(BRAND_SUFFIX) || displayWidth(title) + BRAND_SUFFIX.length > 60
+    ? title
+    : `${title}${BRAND_SUFFIX}`;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
