@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-11",
+  "date": "2026-10-13",
   "swebench_verified_top5": [
-    { "rank": 1, "model": "live-SWE-agent", "org": "UIUC", "score": 79.20 },
-    { "rank": 2, "model": "Sonar Foundation Agent", "org": "Sonar", "score": 79.20 },
-    { "rank": 3, "model": "TRAE", "org": "ByteDance", "score": 78.80 },
-    { "rank": 4, "model": "live-SWE-agent", "org": "UIUC", "score": 77.40 },
-    { "rank": 5, "model": "Atlassian Rovo Dev", "org": "Atlassian", "score": 76.80 }
+    { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
+    { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
+    { "rank": 3, "model": "TRAE + Doubao-Seed-Code", "org": "ByteDance", "score": 78.80 },
+    { "rank": 4, "model": "live-SWE-agent + Gemini 3 Pro Preview", "org": "UIUC", "score": 77.40 },
+    { "rank": 5, "model": "Atlassian Rovo Dev（三方並列 76.80）", "org": "Atlassian", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
     { "rank": 1, "model": "Claude Opus 5.5 (High)", "score": 14.33, "ci": "[12.15%, 16.51%]" },
@@ -20,12 +20,12 @@
     { "rank": 3, "model": "Grok 4.6 (high)", "org": "xAI", "score": 58.7 }
   ],
   "cursorbench_top5": [
-    { "rank": 1, "model": "Fable 5.1 Max", "org": "Anthropic", "score": 73.4, "costPerTask": 9.64, "tokensPerTask": 72060 },
-    { "rank": 2, "model": "Fable 5.1 Extra High", "org": "Anthropic", "score": 72.8, "costPerTask": 6.96, "tokensPerTask": 51349 },
-    { "rank": 3, "model": "Grok 4.6 Extra High", "org": "xAI", "score": 70.8, "costPerTask": 2.81, "tokensPerTask": 41136 },
-    { "rank": 4, "model": "Fable 5 Max", "org": "Anthropic", "score": 70.5, "costPerTask": 17.32, "tokensPerTask": 103525 },
-    { "rank": 5, "model": "Opus 5 Max", "org": "Anthropic", "score": 70.0, "costPerTask": 8.23, "tokensPerTask": 61838 }
+    { "rank": 1, "model": "Opus 5.5 Max", "org": "Anthropic", "score": 57.8, "costPerTask": 13.43, "tokensPerTask": 218363 },
+    { "rank": 2, "model": "Opus 5.5 Extra High", "org": "Anthropic", "score": 56.0, "costPerTask": 6.98, "tokensPerTask": 101083 },
+    { "rank": 3, "model": "Opus 5.5 High", "org": "Anthropic", "score": 56.0, "costPerTask": 3.97, "tokensPerTask": 53078 },
+    { "rank": 4, "model": "Sonnet 5.5 Max", "org": "Anthropic", "score": 55.5, "costPerTask": 7.05, "tokensPerTask": 271920 },
+    { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
   ],
   "morphllm_top3": null,
-  "notes": "2026-10-11：連續第 38 天 Q-023（swebench.com／morphllm.com／artificialanalysis.ai 三站結構性阻塞型態不變），四個來源重新複查皆無新增異動。`swebench.com` 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json` 成功下載（4MB，`raw.githubusercontent.com` 不受出站 proxy 阻擋），`python3 -I` 解析 180 筆 `Verified` 結果：前 4 名分數與名次（79.20／79.20／78.80／77.40）逐位元未變，第 5 名仍是 76.80 三方並列（名單本身與前次 notes 記錄的成員略有出入，但分數未變、非新異動，判斷是先前某次人工記錄的誤差，不影響結論）。Arena 側用 HF `datasets-server`（`lmarena-ai/leaderboard-dataset`，`agent` 子集 `latest` split）：`leaderboard_publish_date` 仍是 10-10 查到的 `2026-10-08`，前五名分數逐位元相同（14.33／13.09／12.66／11.95／11.72），官方尚未發下一批。`morphllm.com/leaderboard` 本次仍 429 Vercel Security Checkpoint；`artificialanalysis.ai/models/capabilities/agentic` 仍 404（`js_empty_document`），兩者皆沿用前值。`web_search` 補充查詢（timeRange: day，Q1/Q2）命中內容仍是同一模式的第三方聚合站（kilo.ai、llm-stats.com、benchlm.ai、labs.scale.com、morphllm.com/best-ai-model-for-coding）對 SWE-bench Verified／Pro 等名稱給出彼此量級不可比的分數（如 Vals AI 版 SWE-bench Verified 稱 Claude Opus 5 達 97.0%，與官方 swebench.com 的 79.2% 差距懸殊，確認仍是方法論不可比的第三方自測，非官方追蹤排行榜異動），未發現任何官方排行榜的新公告。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔與 Q-023。10-08 的三項 Tier 2 建議（a）(b)(c) 仍待人拍板，狀態未變。"
+  "notes": "2026-10-13（10-12 本 routine 未執行，接續 10-11 快照）：Q-023（swebench.com／morphllm.com／artificialanalysis.ai 三站結構性阻塞型態不變）持續，官方來源重新複查皆無新增異動。`swebench.com` 用 Bash `curl` 直連 `raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json` 成功下載，`python3 -I` 解析 180 筆 `Verified` 結果：前 4 名分數與名次（79.20／79.20／78.80／77.40）逐位元未變，第 5 名仍是 76.80 三方並列，非新異動。Arena 側用 HF `datasets-server`（`lmarena-ai/leaderboard-dataset`）：`agent` 子集 `latest` split 的 `leaderboard_publish_date` 仍是 `2026-10-08`，前五名分數逐位元相同，官方尚未發下一批；本次另交叉查了 `text`（一般 Chatbot Arena）子集，同樣仍是 `2026-10-08`、#1 為 gemini-4-argon-high（1533.86），用來戳破 `web_search` 命中的第三方聚合站（anotherwrapper.com）聲稱「Claude Fable 5 現為 Chatbot Arena #1（1506）」——與官方 HF 資料不符，判定是聚合站用舊／錯誤資料，非官方異動。`morphllm.com/leaderboard` 本次仍 429 Vercel Security Checkpoint；`artificialanalysis.ai/models/capabilities/agentic` 仍 404（`js_empty_document`），兩者皆沿用前值。⚠️ 資料修正：本檔 `cursorbench_top5` 之前凍結在 2026-09-02 當天發文時記錄的 CursorBench 3.x 數字（Fable 5.1 Max 73.4% 等），未隨 09-10 官方換成 CursorBench 4.0 題庫而更新（4.0 與舊版分數不可比，cursor.com 自己也標註）；本次直連 `cursor.com/cursorbench` 官方頁重新讀取並覆蓋為目前 4.0 即時數字（現任 #1 為 Opus 5.5 Max 57.8%）。但 CursorBench 官方 changelog 最後一筆是 10-07（僅調整 Sonnet 5.5 定價，非分數變動），09-10 之後無新題庫或排名事件，所以這是『修正歷史記錄的錯誤』而非『今天發生的異動』，不產出文章；CursorBench 本身也不在本 skill Step 3a 官方掃描清單內（僅作為額外追蹤欄位延續）。`web_search`（timeRange: day，Q1/Q2）命中內容仍是同一模式的第三方聚合站（kilo.ai、llm-stats.com、benchlm.ai、labs.scale.com、swen.live）對 SWE-bench／Chatbot Arena 等名稱給出彼此量級不可比的分數，未發現任何官方排行榜的新公告。依 skill Step 4 判斷『今日無 Benchmark 異動』，不產出文章，僅更新本檔。10-08 的三項 Tier 2 建議（a）(b)(c) 仍待人拍板，狀態未變。"
 }
