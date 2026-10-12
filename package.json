@@ -32,6 +32,7 @@
     "seo:observe": "node scripts/seo-observability.mjs",
     "sync": "tsx scripts/sync-to-d1.ts",
     "sync:prod": "tsx scripts/sync-to-d1.ts --prod",
+    "speaking:audio": "tsx scripts/generate-speaking-audio.ts",
     "sync:embeddings:prod": "node scripts/sync-embeddings-prod.mjs",
     "check:search-freshness": "node scripts/check-search-freshness.mjs",
     "prepare": "simple-git-hooks",

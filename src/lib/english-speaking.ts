@@ -366,6 +366,20 @@ export function parseProgress(raw: string | null): SpeakingProgress {
 export function selectSession(progress: SpeakingProgress, now: number, mode: 'due' | 'all', scenario?: SpeakingScenario) {
   return speakingCards.filter(card => (!scenario || card.scenario === scenario) && (mode === 'all' || !progress[card.id] || progress[card.id].due <= now)).map(card => card.id);
 }
+/** How many cards one sitting holds when the session cap is on. */
+export const SESSION_SIZE = 10;
+/** One sitting's cards. Capped, a review takes the longest-overdue cards first and then new ones; a free run takes the cards practised least recently, so running it again moves on to the next batch. */
+export function pickSession(capped: boolean, progress: SpeakingProgress, now: number, mode: 'due' | 'all', scenario?: SpeakingScenario) {
+  const ids = selectSession(progress, now, mode, scenario);
+  if (!capped) return ids;
+  const rank = (id: string) => { const entry = progress[id]; return entry ? (mode === 'due' ? entry.due : entry.reviewed) : mode === 'due' ? Number.MAX_SAFE_INTEGER : -1; };
+  return ids.map((id, position) => ({ id, position, rank: rank(id) })).sort((a, b) => a.rank - b.rank || a.position - b.position).slice(0, SESSION_SIZE).map(item => item.id);
+}
+/** A card rated "can't say it yet" comes back once, at the end of the same sitting. */
+export function requeue(enabled: boolean, session: readonly string[], index: number, rating: Rating) {
+  const id = session[index];
+  return enabled && rating === 0 && id !== undefined && session.indexOf(id) === index && session.lastIndexOf(id) === index ? [...session, id] : [...session];
+}
 export type SpeakingCard = typeof speakingCards[number];
 /** Groups one scenario's cards by `family` for the cheat sheet: known families follow `familyOrder`, the rest keep card order. */
 export function groupCheatSheet(scenario: SpeakingScenario, familyOrder: readonly string[] = []) {
@@ -579,7 +593,7 @@ export function recordingFileName(promptId: string, date: Date, mimeType = '') {
   const safeId = promptId.replace(/[^a-z0-9-]/gi, '') || 'recording';
   return `speaking-${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}-${safeId}.${extension}`;
 }
-/** Speech rates offered for shadowing and echo practice (SpeechSynthesisUtterance.rate). */
+/** Speech rates offered for shadowing and echo practice (a clip's playbackRate, or SpeechSynthesisUtterance.rate for the browser voice). */
 export const shadowRates = [0.7, 0.85, 1] as const;
 /** What a learner can choose to fix before saying a sentence once more. Nothing here is stored or scored. */
 export const fixOptions = [
@@ -589,3 +603,36 @@ export const fixOptions = [
   { id: 'pause', label: '中間停太久', tip: '找出卡住的位置，從它前面幾個字開始接著說，順了再說完整句。' },
   { id: 'meaning', label: '意思沒講完整', tip: '想一下少講了哪一部分，再說一次時把它補上。' },
 ] as const;
+/** Voices the pre-generated clips come in (Deepgram Aura-2 on Workers AI). The first one is the default. */
+export const speakingVoices = [
+  { id: 'thalia', label: '美式女聲' },
+  { id: 'arcas', label: '美式男聲' },
+  { id: 'pandora', label: '英式女聲' },
+  { id: 'draco', label: '英式男聲' },
+] as const;
+export type SpeakingVoice = typeof speakingVoices[number]['id'];
+export const SPEAKING_VOICE_KEY = 'quidproquo-speaking-voice';
+/** Reading the reference aloud on reveal is on until the learner turns it off; only 'off' is stored as a refusal. */
+export const SPEAKING_AUTOREAD_KEY = 'quidproquo-speaking-autoread';
+export function parseAutoRead(raw: string | null) { return raw !== 'off'; }
+export function parseVoice(raw: string | null): SpeakingVoice { return speakingVoices.find(voice => voice.id === raw)?.id ?? speakingVoices[0].id; }
+/** Every English line the practice area can read aloud, each one once: cards, dialogue turns, interview questions and free-talk prompts. */
+export function speakingSentences(): string[] {
+  return [...new Set([...speakingCards.map(card => card.en), ...speakingDialogues.flatMap(dialogue => dialogue.turns.map(turn => turn.en)), ...interviewQuestions.map(question => question.en), ...freeTalkPrompts.map(prompt => prompt.en)])];
+}
+/** File name of a sentence's clip: a 53-bit hash (cyrb53) of the text, so an edited sentence gets a new name and never plays the old clip. */
+export function clipKey(text: string) {
+  let high = 0xdeadbeef, low = 0x41c6ce57;
+  for (let index = 0; index < text.length; index++) { const code = text.charCodeAt(index); high = Math.imul(high ^ code, 2654435761); low = Math.imul(low ^ code, 1597334677); }
+  high = Math.imul(high ^ (high >>> 16), 2246822507) ^ Math.imul(low ^ (low >>> 13), 3266489909);
+  low = Math.imul(low ^ (low >>> 16), 2246822507) ^ Math.imul(high ^ (high >>> 13), 3266489909);
+  return (4294967296 * (2097151 & low) + (high >>> 0)).toString(16).padStart(14, '0');
+}
+/** Clip keys that exist on disk, per voice. Written by `pnpm speaking:audio`. */
+export type SpeakingClips = Readonly<Record<string, readonly string[]>>;
+/** URL of the pre-generated clip for this sentence in this voice, or '' when there is none and the browser's own voice has to read it. */
+export function clipUrl(enabled: boolean, clips: SpeakingClips, voice: SpeakingVoice, text: string) {
+  if (!enabled) return '';
+  const key = clipKey(text);
+  return clips[voice]?.includes(key) ? `/audio/speaking/${voice}/${key}.mp3` : '';
+}

@@ -55,6 +55,8 @@ tags 含 `english-speaking`，情境 tag 先查現有命名。內容包含：原
 
 先讀目前 `src/lib/english-speaking.ts` 與 `src/components/EnglishSpeaking/` 的實際契約。若整合已存在，可將查證完成的句子接進練習；若尚不支援文章／來源／替代說法連結，先把完整卡片存 `.work/english-speaking/<slug>/practice-cards.json`，明確報告「文章與卡片草稿完成、網站練習尚未接入」。不要默默丟棄來源欄位或宣稱寫入檔案等於上線。
 
+新增或修改任何會被朗讀的英文（卡片主答案、對話台詞、面試題目、自由說話題目）後，跑 `pnpm speaking:audio` 重新產生朗讀音檔，並把 `public/audio/speaking/` 與 `src/lib/english-speaking-clips.ts` 一起 commit。音檔檔名由句子文字算出，改一個字就是新檔；沒重跑的句子不會壞，只是退回瀏覽器語音。這一步呼叫 Workers AI（Deepgram Aura-2）並按字元計費，先用 `--dry-run` 看要產幾個、花多少；沒有 Cloudflare 憑證時不要硬做，在交付報告寫明「這幾句還沒有音檔」。
+
 修改題意或主答案時評估舊熟悉度是否仍適用；同語義改字不改 ID，新溝通目的用新 ID，避免沿用舊卡的熟練紀錄。
 
 ## 5. 分開驗證語言與工程

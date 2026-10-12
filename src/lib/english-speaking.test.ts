@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canRecord, canReplay, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, freeTalkPrompts, pickTopic, recordingFileName, secondsLeft, shadowRates, groupCheatSheet, interviewQuestionGroups, interviewQuestions, parseProgress, questionsFor, resolveDialogue, scheduleReview, selectSession, shuffleQuestions, speakingCards, speakingDialogues, speakingEvidence, speakingScenarios } from './english-speaking';
+import { pickSession, requeue, SESSION_SIZE, speakingCards as allCards, canRecord, canReplay, clipKey, clipUrl, parseVoice, speakingSentences, speakingVoices, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, freeTalkPrompts, pickTopic, recordingFileName, secondsLeft, shadowRates, groupCheatSheet, interviewQuestionGroups, interviewQuestions, parseProgress, questionsFor, resolveDialogue, scheduleReview, selectSession, shuffleQuestions, speakingCards, speakingDialogues, speakingEvidence, speakingScenarios } from './english-speaking';
 describe('speaking practice', () => {
   it('schedules retry, tomorrow, and growing fluent intervals', () => {
     const now = 1000;
@@ -224,5 +224,57 @@ describe('speaking practice', () => {
     expect(new Set(fixOptions.map(option => option.id)).size).toBe(fixOptions.length);
     expect(fixOptions.length).toBeGreaterThanOrEqual(3);
     for (const option of fixOptions) expect(option.label && option.tip).toBeTruthy();
+  });
+  it('lists every line that can be read aloud once and gives each a distinct clip key', () => {
+    const sentences = speakingSentences();
+    expect(new Set(sentences).size).toBe(sentences.length);
+    for (const text of [speakingCards[0].en, speakingDialogues[0].turns[0].en, interviewQuestions[0].en, freeTalkPrompts[0].en]) expect(sentences).toContain(text);
+    const keys = sentences.map(clipKey);
+    expect(new Set(keys).size).toBe(sentences.length);
+    for (const key of keys) expect(key).toMatch(/^[0-9a-f]{14}$/);
+    expect(clipKey('I have a map here.')).toBe(clipKey('I have a map here.'));
+    expect(clipKey('I have a map here.')).not.toBe(clipKey('I have a map here'));
+  });
+  it('plays a clip only when the tool is on and that voice has one for the sentence', () => {
+    const text = speakingCards[0].en;
+    const clips = { thalia: [clipKey(text)], arcas: [] };
+    expect(clipUrl(true, clips, 'thalia', text)).toBe(`/audio/speaking/thalia/${clipKey(text)}.mp3`);
+    expect(clipUrl(false, clips, 'thalia', text)).toBe('');
+    expect(clipUrl(true, clips, 'arcas', text)).toBe('');
+    expect(clipUrl(true, clips, 'draco', text)).toBe('');
+    expect(clipUrl(true, clips, 'thalia', `${text} Really.`)).toBe('');
+  });
+  it('falls back to the first voice for an unknown or missing choice', () => {
+    expect(parseVoice('pandora')).toBe('pandora');
+    expect(parseVoice('nobody')).toBe(speakingVoices[0].id);
+    expect(parseVoice(null)).toBe(speakingVoices[0].id);
+    expect(new Set(speakingVoices.map(voice => voice.id)).size).toBe(speakingVoices.length);
+  });
+  it('caps a sitting and moves on to the cards practised least recently', () => {
+    const ids = allCards.filter(card => card.scenario === 'interview').map(card => card.id);
+    expect(ids.length).toBeGreaterThan(SESSION_SIZE * 2);
+    expect(pickSession(false, {}, 1000, 'all', 'interview')).toEqual(ids);
+    const first = pickSession(true, {}, 1000, 'all', 'interview');
+    expect(first).toEqual(ids.slice(0, SESSION_SIZE));
+    const progress = Object.fromEntries(first.map((id, position) => [id, { due: 5000 + position, reviewed: 2000 + position, rating: 1 as const, streak: 0 }]));
+    expect(pickSession(true, progress, 3000, 'all', 'interview')).toEqual(ids.slice(SESSION_SIZE, SESSION_SIZE * 2));
+    // A review puts the longest-overdue card first, fills up with new cards, and leaves out what is not due yet.
+    const review = pickSession(true, { ...progress, [ids[3]]: { due: 10, reviewed: 5, rating: 0, streak: 0 } }, 3000, 'due', 'interview');
+    expect(review).toHaveLength(SESSION_SIZE);
+    expect(review[0]).toBe(ids[3]);
+    expect(review.slice(1)).toEqual(ids.slice(SESSION_SIZE, SESSION_SIZE * 2 - 1));
+    expect(pickSession(true, {}, 1000, 'all', 'surf').length).toBeLessThan(SESSION_SIZE);
+  });
+  it('brings a card rated "cannot say it yet" back once at the end of the sitting', () => {
+    const session = ['a', 'b', 'c'];
+    expect(requeue(true, session, 0, 0)).toEqual(['a', 'b', 'c', 'a']);
+    expect(requeue(true, session, 0, 1)).toEqual(session);
+    expect(requeue(true, session, 0, 2)).toEqual(session);
+    expect(requeue(false, session, 0, 0)).toEqual(session);
+    expect(requeue(true, session, 5, 0)).toEqual(session);
+    const again = ['a', 'b', 'c', 'a'];
+    expect(requeue(true, again, 0, 0)).toEqual(again);
+    expect(requeue(true, again, 3, 0)).toEqual(again);
+    expect(requeue(true, again, 1, 0)).toEqual(['a', 'b', 'c', 'a', 'b']);
   });
 });

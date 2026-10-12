@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { canRecord, canReplay, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, groupCheatSheet, interviewQuestionGroups, parseProgress, pickTopic, questionsFor, recordingFileName, resolveDialogue, scheduleReview, secondsLeft, selectSession, shadowRates, shuffleQuestions, speakingCards, speakingEvidence, speakingScenarios, SPEAKING_STORAGE_KEY, type Rating, type SpeakingProgress, type SpeakingScenario } from '../../lib/english-speaking';
+import { canRecord, canReplay, clipUrl, dialoguesFor, fixOptions, fluencyOriginalMinutes, fluencyRounds, fluencyTopicsFor, formatClock, formatDuration, freeTalkFor, groupCheatSheet, interviewQuestionGroups, parseAutoRead, parseProgress, parseVoice, pickSession, pickTopic, questionsFor, recordingFileName, requeue, resolveDialogue, scheduleReview, secondsLeft, selectSession, shadowRates, shuffleQuestions, speakingCards, speakingEvidence, speakingScenarios, speakingVoices, SESSION_SIZE, SPEAKING_AUTOREAD_KEY, SPEAKING_STORAGE_KEY, SPEAKING_VOICE_KEY, type Rating, type SpeakingProgress, type SpeakingScenario, type SpeakingVoice } from '../../lib/english-speaking';
+import { speakingClips } from '../../lib/english-speaking-clips';
 import './EnglishSpeaking.css';
 
 // Feature switches for the practice tools. Set one to false to remove that tool; everything else behaves as before.
-const tools: { recording: boolean; cheatSheet: boolean; replay: boolean; dialogue: boolean; questions: boolean; fluency: boolean; freeTalk: boolean; fixOne: boolean; shadow: boolean } = { recording: true, cheatSheet: true, replay: true, dialogue: true, questions: true, fluency: true, freeTalk: true, fixOne: true, shadow: true };
+const tools: { recording: boolean; cheatSheet: boolean; replay: boolean; dialogue: boolean; questions: boolean; fluency: boolean; freeTalk: boolean; fixOne: boolean; shadow: boolean; clips: boolean; compactCard: boolean; sessionCap: boolean; requeue: boolean; shortcuts: boolean; autoRead: boolean; compactHome: boolean; clearCorner: boolean } = { recording: true, cheatSheet: true, replay: true, dialogue: true, questions: true, fluency: true, freeTalk: true, fixOne: true, shadow: true, clips: true, compactCard: true, sessionCap: true, requeue: true, shortcuts: true, autoRead: true, compactHome: true, clearCorner: true };
 const recordLimit = 30_000;
 // A spoken answer to an interview question runs longer than one sentence.
 const answerRecordLimit = 120_000;
@@ -44,6 +45,8 @@ export function EnglishSpeaking() {
   const [speaking, setSpeaking] = useState(false);
   const [speakingText, setSpeakingText] = useState('');
   const [speechNote, setSpeechNote] = useState('');
+  const [voice, setVoice] = useState<SpeakingVoice>(speakingVoices[0].id);
+  const [autoRead, setAutoRead] = useState(true);
   const [replay, setReplay] = useState(false);
   const [recordSupported, setRecordSupported] = useState(false);
   const [recordState, setRecordState] = useState<'idle' | 'asking' | 'recording'>('idle');
@@ -94,8 +97,10 @@ export function EnglishSpeaking() {
   const answer = useRef<HTMLDivElement>(null);
   const sessionScenario = useRef<SpeakingScenario | null>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const clipRef = useRef<HTMLAudioElement | null>(null);
+  const keysRef = useRef<(event: KeyboardEvent) => void>(() => {});
   const synthesis = () => window.speechSynthesis;
-  function stopSpeech() { utteranceRef.current = null; if ('speechSynthesis' in window) synthesis().cancel(); setSpeaking(false); setSpeakingText(''); setSpeechNote(''); }
+  function stopSpeech() { utteranceRef.current = null; const clip = clipRef.current; clipRef.current = null; if (clip) { clip.onended = null; clip.onerror = null; clip.pause(); } if ('speechSynthesis' in window) synthesis().cancel(); setSpeaking(false); setSpeakingText(''); setSpeechNote(''); }
   function stopMine() { const mine = mineRef.current; mineRef.current = null; if (mine) { mine.onended = null; mine.onerror = null; mine.pause(); } setPlayingMine(false); setPlayingTake(''); }
   function releaseMic() { window.clearTimeout(recordTimer.current); streamRef.current?.getTracks().forEach(track => track.stop()); streamRef.current = null; }
   // The recording lives only in this tab's memory: every card change, navigation and unmount goes through here.
@@ -213,7 +218,7 @@ export function EnglishSpeaking() {
     });
   }
   function open(next: View) { toolRef.current = ''; dialogueRef.current = ''; quizRef.current = false; stopSpeech(); dropRecording(); window.location.hash = `${next}/${scenario}`; setView(next); }
-  function replayAgain() { stopSpeech(); dropRecording(); setReplay(true); setIndex(0); setRevealed(false); }
+  function replayAgain() { stopSpeech(); dropRecording(); setSession(value => [...new Set(value)]); setReplay(true); setIndex(0); setRevealed(false); }
   function nextCard() { stopSpeech(); dropRecording(); setRevealed(false); setIndex(value => value + 1); }
   // Role-play keeps its own position and never touches progress or storage. `round` restarts the same dialogue so its first line is read aloud again.
   function playDialogue(id: string, again: boolean) { stopSpeech(); dropRecording(); dialogueRef.current = id; setDialogueId(id); setTurn(0); setRevealed(false); setDialogueReplay(again); setRound(value => value + 1); window.location.hash = `dialogue/${scenario}/${id}`; setView('dialogue'); }
@@ -223,13 +228,15 @@ export function EnglishSpeaking() {
   function startQuestions() { stopSpeech(); dropRecording(); dialogueRef.current = ''; quizRef.current = true; newQuizRound(); window.location.hash = 'questions/interview'; setView('questions'); }
   function nextQuestion() { stopSpeech(); dropRecording(); setRevealed(false); if (quizIndex + 1 < quiz.length) setQuizIndex(quizIndex + 1); else setQuizDone(quiz.length); }
   function endQuestions() { stopSpeech(); dropRecording(); setQuizDone(quizIndex + (revealed ? 1 : 0)); setRevealed(false); }
-  function start(mode: 'due' | 'all') { sessionScenario.current = scenario; setReplay(false); setSession(selectSession(progress, Date.now(), mode, scenario)); setIndex(0); setRevealed(false); open('practice'); }
+  function start(mode: 'due' | 'all') { sessionScenario.current = scenario; setReplay(false); setSession(pickSession(tools.sessionCap, progress, Date.now(), mode, scenario)); setIndex(0); setRevealed(false); open('practice'); }
   useEffect(() => {
     let initial: SpeakingProgress = {};
     try { initial = parseProgress(window.localStorage.getItem(SPEAKING_STORAGE_KEY)); }
     catch { setStorageNote('瀏覽器無法儲存進度，這次練習仍可繼續。'); }
     setProgress(initial);
     setSpeechSupported('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window);
+    try { setVoice(parseVoice(window.localStorage.getItem(SPEAKING_VOICE_KEY))); } catch { /* Keep the default voice when storage is blocked. */ }
+    try { setAutoRead(parseAutoRead(window.localStorage.getItem(SPEAKING_AUTOREAD_KEY))); } catch { /* Keep auto-read on when storage is blocked. */ }
     setRecordSupported(canRecord(tools.recording, window));
     const syncHash = () => {
       const [route, scenarioId, linkedDialogue] = window.location.hash.slice(1).split('/');
@@ -254,7 +261,7 @@ export function EnglishSpeaking() {
       if (tool) resetTool(tool, selectedScenario);
       if (next === 'practice' && sessionScenario.current !== selectedScenario) {
         sessionScenario.current = selectedScenario;
-        setSession(selectSession(initial, Date.now(), 'all', selectedScenario));
+        setSession(pickSession(tools.sessionCap, initial, Date.now(), 'all', selectedScenario));
         setIndex(0); setRevealed(false); setReplay(false);
       }
     };
@@ -265,19 +272,49 @@ export function EnglishSpeaking() {
     window.addEventListener('focus', refresh);
     window.addEventListener('storage', syncStorage);
     window.addEventListener('hashchange', syncHash);
-    return () => { window.clearInterval(timer); window.removeEventListener('focus', refresh); window.removeEventListener('storage', syncStorage); window.removeEventListener('hashchange', syncHash); if ('speechSynthesis' in window) window.speechSynthesis.cancel(); dropRecording(); };
+    const keys = (event: KeyboardEvent) => keysRef.current(event);
+    window.addEventListener('keydown', keys);
+    return () => { window.removeEventListener('keydown', keys); window.clearInterval(timer); window.removeEventListener('focus', refresh); window.removeEventListener('storage', syncStorage); window.removeEventListener('hashchange', syncHash); if ('speechSynthesis' in window) window.speechSynthesis.cancel(); clipRef.current?.pause(); dropRecording(); };
   }, []);
   useEffect(() => { if (ready) heading.current?.focus(); }, [view, index, ready, turn, round, quizIndex, quizRound, quizDone, drill.topic, drill.round, drill.stage, talkIndex, talkDone, shadowIndex, shadowDone]);
   useEffect(() => { if (revealed) answer.current?.focus(); }, [revealed]);
-  function speak(text: string, auto = false, speed = 0.85, then?: () => void) {
-    if (!speechSupported) return;
+  // A pre-generated clip plays when this sentence has one in the chosen voice; otherwise the browser's own voice reads it.
+  // Clips are generated at natural speed, so they play at 1× unless a rate is asked for; the browser voice keeps its slower 0.85 default.
+  function speak(text: string, auto = false, speed?: number, then?: () => void) {
+    const url = clipUrl(tools.clips, speakingClips, voice, text);
+    if (!url && !speechSupported) return;
     stopSpeech(); stopMine();
+    setSpeaking(true); setSpeakingText(text);
+    if (!url) { synthesize(text, auto, speed, then); return; }
+    const clip = new Audio(url);
+    clipRef.current = clip;
+    clip.playbackRate = speed ?? 1;
+    clip.onended = () => { if (clipRef.current === clip) { clipRef.current = null; setSpeaking(false); setSpeakingText(''); then?.(); } };
+    // A blocked autoplay stays silent with a note, as the browser voice does; any other failure falls back to the browser voice.
+    const failed = () => {
+      if (clipRef.current !== clip) return;
+      clipRef.current = null;
+      if (!auto && speechSupported) synthesize(text, auto, speed, then);
+      else { setSpeaking(false); setSpeakingText(''); setSpeechNote(auto ? '朗讀沒有自動播放，可以按「播放英文」。' : '朗讀暫時無法播放，請再試一次。'); }
+    };
+    clip.onerror = failed;
+    clip.play().catch(failed);
+  }
+  function synthesize(text: string, auto: boolean, speed?: number, then?: () => void) {
     const utterance = new SpeechSynthesisUtterance(text);
     utteranceRef.current = utterance;
-    utterance.lang = 'en-US'; utterance.rate = speed;
+    utterance.lang = 'en-US'; utterance.rate = speed ?? 0.85;
     utterance.onend = () => { if (utteranceRef.current === utterance) { setSpeaking(false); setSpeakingText(''); utteranceRef.current = null; then?.(); } };
     utterance.onerror = () => { if (utteranceRef.current === utterance) { setSpeaking(false); setSpeakingText(''); utteranceRef.current = null; setSpeechNote(auto ? '朗讀沒有自動播放，可以按「播放英文」。' : '朗讀暫時無法播放，請再試一次。'); } };
-    setSpeaking(true); setSpeakingText(text); synthesis().speak(utterance);
+    synthesis().speak(utterance);
+  }
+  function chooseVoice(next: SpeakingVoice) {
+    stopSpeech(); window.clearTimeout(echoTimer.current); setShadowStep('idle'); setVoice(next);
+    try { window.localStorage.setItem(SPEAKING_VOICE_KEY, next); } catch { /* The choice still holds for this visit. */ }
+  }
+  function chooseAutoRead(next: boolean) {
+    setAutoRead(next); if (!next) stopSpeech();
+    try { window.localStorage.setItem(SPEAKING_AUTOREAD_KEY, next ? 'on' : 'off'); } catch { /* The choice still holds for this visit. */ }
   }
   function rate(rating: Rating) {
     const id = session[index]; if (!id || !revealed || replay) return;
@@ -288,14 +325,35 @@ export function EnglishSpeaking() {
     setProgress(next);
     try { window.localStorage.setItem(SPEAKING_STORAGE_KEY, JSON.stringify(next)); }
     catch { setStorageNote('這次進度無法儲存；關閉頁面後可能不會保留。'); }
+    setSession(value => requeue(tools.requeue, value, index, rating));
     nextCard();
   }
+  // Revealing is a click or a key press, so the reference can be read aloud right away; a learner who recorded hears their own take first.
+  function revealCard(text: string) { stopRecording(); setRevealed(true); if (tools.autoRead && autoRead && recordState === 'idle' && !recordingUrlRef.current) speak(text); }
   const currentScenario = speakingScenarios.find(item => item.id === scenario)!;
   const scenarioCards = speakingCards.filter(item => item.scenario === scenario);
   const due = selectSession(progress, now, 'due', scenario).length;
   const reviewed = Object.keys(progress).length;
   const fluent = Object.values(progress).filter(entry => entry.rating === 2).length;
   const card = speakingCards.find(item => item.id === session[index]);
+  const practised = new Set(session).size;
+  // After a capped sitting, the next batch is one press away.
+  const more = tools.sessionCap && !replay && session.length > 0 && due > 0;
+  const comesBack = requeue(tools.requeue, session, index, 0).length > session.length;
+  const batch = tools.sessionCap ? Math.min(SESSION_SIZE, scenarioCards.length) : scenarioCards.length;
+  const practiceLabel = batch < scenarioCards.length ? `練習 ${batch} 句（共 ${scenarioCards.length} 句）` : `練習這 ${scenarioCards.length} 句`;
+  // Keys work only on a practice card and never while typing; Space and Enter keep their usual job on a focused control.
+  keysRef.current = event => {
+    if (!tools.shortcuts || view !== 'practice' || !card || event.metaKey || event.ctrlKey || event.altKey || event.repeat) return;
+    const target = event.target instanceof Element ? event.target : null;
+    if (target?.closest('input, textarea, select, [contenteditable]')) return;
+    const key = event.key.toLowerCase(), advance = (key === ' ' || key === 'enter') && !target?.closest('button, a, summary');
+    if (!revealed) { if (advance) { event.preventDefault(); revealCard(card.en); } return; }
+    if (key === 'p') { if (speaking && speakingText === card.en) stopSpeech(); else speak(card.en); }
+    else if (replay) { if (advance) { event.preventDefault(); nextCard(); } }
+    else if (key === '1' || key === '2' || key === '3') rate((Number(key) - 1) as Rating);
+  };
+  const keysHint = tools.shortcuts && <p className="es-keys">{!revealed ? '鍵盤：空白鍵看參考說法' : replay ? '鍵盤：空白鍵下一句，P 播放英文' : '鍵盤：1、2、3 自評，P 播放英文'}</p>;
   const scenarioDialogues = dialoguesFor(tools.dialogue, scenario);
   const dialogue = view === 'dialogue' ? scenarioDialogues.find(item => item.id === dialogueId) : undefined;
   const line = dialogue?.turns[turn];
@@ -319,45 +377,51 @@ export function EnglishSpeaking() {
   // A read-aloud that was stopped or failed never reaches its end, so the step falls back to idle.
   const shadowNow = shadowStep === 'play' && !speaking ? 'idle' : shadowStep;
   const grouped = tools.fluency || tools.freeTalk || tools.shadow;
-  const audio = (text: string) => <button className="es-audio" disabled={!speechSupported} onClick={() => speaking && speakingText === text ? stopSpeech() : speak(text)} aria-label={`${speaking && speakingText === text ? '停止播放' : '播放英文'}：${text}`}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m11 5-6 4H2v6h3l6 4V5Z" /><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14" /></svg> {speaking && speakingText === text ? '停止播放' : '播放英文'}</button>;
+  const hasClips = tools.clips && speakingVoices.some(item => speakingClips[item.id]?.length);
+  const canSpeak = (text: string) => speechSupported || Boolean(clipUrl(tools.clips, speakingClips, voice, text));
+  const voicePicker = hasClips && <div className="es-segment" role="group" aria-label="朗讀聲音">{speakingVoices.map(item => <button key={item.id} aria-pressed={voice === item.id} onClick={() => chooseVoice(item.id)}>{item.label}</button>)}</div>;
+  const autoReadToggle = tools.autoRead && <label className="es-check"><input type="checkbox" checked={autoRead} onChange={event => chooseAutoRead(event.target.checked)} /> 看參考說法後自動朗讀</label>;
+  const audio = (text: string) => <button className="es-audio" disabled={!canSpeak(text)} onClick={() => speaking && speakingText === text ? stopSpeech() : speak(text)} aria-label={`${speaking && speakingText === text ? '停止播放' : '播放英文'}：${text}`}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m11 5-6 4H2v6h3l6 4V5Z" /><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14" /></svg> {speaking && speakingText === text ? '停止播放' : '播放英文'}</button>;
   const recordStatus = recordState === 'asking' ? '正在等麥克風權限…' : recordState === 'recording' ? `錄音中，說完按「停止錄音」。最長 ${recordLimit / 1000} 秒。` : recordNote || (!recordingUrl ? '' : revealed ? '錄好了。先聽自己的，再和參考朗讀比較。' : '錄好了。可以先聽一次，或直接看參考說法。');
   const answerStatus = recordState === 'asking' ? '正在等麥克風權限…' : recordState === 'recording' ? `錄音中，說完按「停止錄音」。最長 ${answerRecordLimit / 60_000} 分鐘。` : recordNote || (recordingUrl ? '錄好了。可以聽一次自己的回答，或再錄一次。' : '');
   // Once a recording can be downloaded, the note has to say both things: nothing is kept here, and a download is the learner's own copy.
   const privacy = (unit: string) => tools.freeTalk ? `錄音只留在這個分頁的記憶體，不會上傳，網站也不會儲存；換下一${unit}或離開練習就會丟掉。只有在「自由說話」按下載，才會存一份到你自己的裝置。` : `錄音只留在這台裝置的記憶體，不會上傳，也不會儲存；換下一${unit}或離開練習就會丟掉。`;
-  const recorder = (text: string, answer = false) => tools.recording && ready && (recordSupported ? <div className="es-recorder" role="group" aria-label={answer ? '錄下回答' : '錄音對照'}><div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording(answer ? answerRecordLimit : recordLimit)}>{recordingUrl ? '重新錄一次' : answer ? '錄下我的回答' : '錄下我說的這一句'}</button>}{recordingUrl && recordState === 'idle' && <button onClick={() => playingMine ? stopMine() : playMine()}>{playingMine ? '停止播放錄音' : '聽我的錄音'}</button>}{!answer && recordingUrl && recordState === 'idle' && revealed && speechSupported && <button onClick={() => playMine(() => speak(text))} aria-label={`接連播放我的錄音與參考朗讀：${text}`}>接連播放：我的錄音 → 參考朗讀</button>}</div><p className="es-recorder-status" role="status">{answer ? answerStatus : recordStatus}</p><p className="es-recorder-privacy">{privacy(answer ? '題' : '句')}</p></div> : <p className="es-recorder-privacy">{answer ? '這個瀏覽器或連線環境無法錄音。直接開口回答即可。' : '這個瀏覽器或連線環境無法錄音。照原本的方式練習即可：先說出口，再看參考說法。'}</p>);
+  const recorder = (text: string, answer = false) => tools.recording && ready && (recordSupported ? <div className="es-recorder" role="group" aria-label={answer ? '錄下回答' : '錄音對照'}><div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording(answer ? answerRecordLimit : recordLimit)}>{recordingUrl ? '重新錄一次' : answer ? '錄下我的回答' : '錄下我說的這一句'}</button>}{recordingUrl && recordState === 'idle' && <button onClick={() => playingMine ? stopMine() : playMine()}>{playingMine ? '停止播放錄音' : '聽我的錄音'}</button>}{!answer && recordingUrl && recordState === 'idle' && revealed && canSpeak(text) && <button onClick={() => playMine(() => speak(text))} aria-label={`接連播放我的錄音與參考朗讀：${text}`}>接連播放：我的錄音 → 參考朗讀</button>}</div><p className="es-recorder-status" role="status">{answer ? answerStatus : recordStatus}</p><p className="es-recorder-privacy">{privacy(answer ? '題' : '句')}</p></div> : <p className="es-recorder-privacy">{answer ? '這個瀏覽器或連線環境無法錄音。直接開口回答即可。' : '這個瀏覽器或連線環境無法錄音。照原本的方式練習即可：先說出口，再看參考說法。'}</p>);
   const fixTip = fixOptions.find(item => item.id === fix)?.tip;
   // Optional and never stored: it sits beside the self-rating and changes nothing about it.
-  const fixStep = tools.fixOne && <div className="es-fix" role="group" aria-label="挑一個地方再說一次"><p>這次要修哪一個地方？<span>可以跳過，直接往下自評。</span></p><div className="es-actions">{fixOptions.map(item => <button key={item.id} aria-pressed={fix === item.id} onClick={() => setFix(fix === item.id ? '' : item.id)}>{item.label}</button>)}</div><div role="status">{fixTip && <><p className="es-fix-tip">只注意這一點，再說一次。{fixTip}</p>{canKeepRounds && <div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording()}>只注意這一點，再錄一次</button>}</div>}</>}</div></div>;
+  const fixStep = tools.fixOne && <div className="es-fix" role="group" aria-label="挑一個地方再說一次"><p>這次要修哪一個地方？<span>{tools.compactCard ? '可以跳過。' : '可以跳過，直接往下自評。'}</span></p><div className="es-actions">{fixOptions.map(item => <button key={item.id} aria-pressed={fix === item.id} onClick={() => setFix(fix === item.id ? '' : item.id)}>{item.label}</button>)}</div><div role="status">{fixTip && <><p className="es-fix-tip">只注意這一點，再說一次。{fixTip}</p>{canKeepRounds && <div className="es-actions">{recordState === 'recording' ? <button className="es-recording" onClick={stopRecording}>停止錄音</button> : <button disabled={recordState === 'asking'} onClick={() => startRecording()}>只注意這一點，再錄一次</button>}</div>}</>}</div></div>;
   const stopOrPlay = (key: string, label: string) => <button onClick={() => playingTake === key ? stopMine() : playTake(key)}>{playingTake === key ? '停止播放錄音' : label}</button>;
-  return <div className="es-app">
+  const verdict = replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button onClick={() => rate(0)}>還說不出來<span>{comesBack ? '這一輪最後再練一次' : '10 分鐘後再練'}</span></button><button onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>;
+  return <div className={tools.clearCorner ? 'es-app es-clear-corner' : 'es-app'}>
     <div className="es-topline"><span>口說筆記 · POC</span><span>先試著說，再看答案</span></div>
     {view !== 'home' && <button className="es-back" onClick={() => open('home')}>← 回口說專區</button>}
     {storageNote && <p role="status" className="es-notice">{storageNote}</p>}
     {view === 'home' && <>
       <header className="es-intro"><p className="es-eyebrow">把想說的意思，練成說得出口的英文</p><h1 ref={heading} tabIndex={-1}>英文口說</h1><p>從你常卡住的情境開始。讀懂一句，說出一句，再回來練一次。</p></header>
-      <section className="es-review" aria-label="複習進度"><div><span className="es-eyebrow">{currentScenario.title} · 今天可以練</span><p><strong>{ready ? due : '—'}</strong> 句 <span>含還沒練過的句子</span></p></div><button className="es-primary" disabled={!ready || due === 0} onClick={() => start('due')}>開始今日複習 →</button></section>
+      <section className="es-review" aria-label="複習進度"><div><span className="es-eyebrow">{currentScenario.title} · 今天可以練</span><p><strong>{ready ? due : '—'}</strong> 句 <span>含還沒練過的句子{tools.sessionCap && due > SESSION_SIZE && `；一次練 ${SESSION_SIZE} 句`}</span></p></div><button className="es-primary" disabled={!ready || due === 0} onClick={() => start('due')}>開始今日複習 →</button></section>
       <div className="es-stats"><span>已練過 {reviewed} / {speakingCards.length} 句</span><span>最近一次說得順 {fluent} 句</span></div>
-      {ready && due === 0 && <p role="status">這個情境目前沒有到期的句子。想繼續練，可以選下方「練習這 {scenarioCards.length} 句」。</p>}
-      <div className="es-scenario-tabs" role="group" aria-label="選擇口說情境">{speakingScenarios.map(item => <button key={item.id} aria-pressed={scenario === item.id} onClick={() => { setScenario(item.id); window.location.hash = `home/${item.id}`; }}>{item.title}</button>)}</div><section className="es-topic-card"><span className="es-eyebrow">{currentScenario.title} · {currentScenario.subtitle}</span><h2>{scenario === 'travel' ? <>這裡有什麼、那裡有什麼，<br />怎麼從這裡到那裡？</> : currentScenario.subtitle}</h2><p>{scenario === 'travel' ? `「我這裡有」和「這裡有」，英文用不同的句型。從 ${families.length} 組情境說法，把腦中的意思接到英文。` : `從 ${scenarioCards.length} 個常見的情境開始，試著把你想說的意思說出口。`}</p><div className="es-patterns">{scenario === 'travel' ? families.map(family => <span key={family.id}>{family.pattern}</span>) : scenarioCards.map(item => <span key={item.id}>{item.zh}</span>)}</div>{grouped ? <>
-        <div className="es-dialogue-entry es-tool-group" role="group" aria-label="練句子"><p className="es-eyebrow">練句子 · 讀懂、聽熟，練到說得出口</p><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>練習這 {scenarioCards.length} 句</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}{tools.shadow && <button onClick={() => openTool('shadow')}>跟讀與回音</button>}</div></div>
+      {(voicePicker || autoReadToggle) && <div className="es-voice-row">{voicePicker && <span className="es-eyebrow">朗讀聲音 · AI 合成語音</span>}{voicePicker}{autoReadToggle}</div>}
+      {ready && due === 0 && <p role="status">這個情境目前沒有到期的句子。想繼續練，可以選下方「{practiceLabel}」。</p>}
+      <div className="es-scenario-tabs" role="group" aria-label="選擇口說情境">{speakingScenarios.map(item => <button key={item.id} aria-pressed={scenario === item.id} onClick={() => { setScenario(item.id); window.location.hash = `home/${item.id}`; }}>{item.title}</button>)}</div><section className="es-topic-card"><span className="es-eyebrow">{currentScenario.title} · {currentScenario.subtitle}</span><h2>{scenario === 'travel' ? <>這裡有什麼、那裡有什麼，<br />怎麼從這裡到那裡？</> : currentScenario.subtitle}</h2><p>{scenario === 'travel' ? `「我這裡有」和「這裡有」，英文用不同的句型。從 ${families.length} 組情境說法，把腦中的意思接到英文。` : `從 ${scenarioCards.length} 個常見的情境開始，試著把你想說的意思說出口。`}</p>{scenario === 'travel' ? <div className="es-patterns">{families.map(family => <span key={family.id}>{family.pattern}</span>)}</div> : tools.compactHome ? <details className="es-fold"><summary>看這 {scenarioCards.length} 句的中文</summary><div className="es-patterns">{scenarioCards.map(item => <span key={item.id}>{item.zh}</span>)}</div></details> : <div className="es-patterns">{scenarioCards.map(item => <span key={item.id}>{item.zh}</span>)}</div>}{grouped ? <>
+        <div className="es-dialogue-entry es-tool-group" role="group" aria-label="練句子"><p className="es-eyebrow">練句子 · 讀懂、聽熟，練到說得出口</p><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>{practiceLabel}</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}{tools.shadow && <button onClick={() => openTool('shadow')}>跟讀與回音</button>}</div></div>
         {(scenarioDialogues.length > 0 || scenarioQuestions.length > 0 || scenarioTalk.length > 0 || fluencyTopics.length > 0) && <div className="es-dialogue-entry es-tool-group" role="group" aria-label="開口練習"><p className="es-eyebrow">開口練習 · 把句子用出來，或自己組織內容講；都不計分，也不計入複習進度</p><div className="es-actions">{scenarioDialogues.map(item => <button key={item.id} onClick={() => playDialogue(item.id, false)}>對話扮演：{item.title}</button>)}{scenarioQuestions.length > 0 && <button onClick={startQuestions}>面試題目問答（{scenarioQuestions.length} 題）</button>}{scenarioTalk.length > 0 && <button onClick={() => openTool('freetalk')}>自由說話（{scenarioTalk.length} 題）</button>}{fluencyTopics.length > 0 && <button onClick={() => openTool('fluency')}>流暢度練習（同一題講三輪）</button>}</div></div>}
-      </> : <><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>練習這 {scenarioCards.length} 句</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}</div>{scenarioDialogues.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="對話扮演"><p className="es-eyebrow">對話扮演 · 把句子放進一段對話裡演一次，不計入複習進度</p><div className="es-actions">{scenarioDialogues.map(item => <button key={item.id} onClick={() => playDialogue(item.id, false)}>對話扮演：{item.title}</button>)}</div></div>}{scenarioQuestions.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="面試題目問答"><p className="es-eyebrow">面試題目問答 · 聽面試官的問題，自己開口回答，不計分，也不計入複習進度</p><div className="es-actions"><button onClick={startQuestions}>面試題目問答（{scenarioQuestions.length} 題）</button></div></div>}</>}</section>
+      </> : <><div className="es-actions"><button className="es-primary" onClick={() => open('topic')}>{scenario === 'travel' ? '閱讀情境文章' : '看情境筆記'}</button><button onClick={() => start('all')}>{practiceLabel}</button>{tools.cheatSheet && <button onClick={() => open('sheet')}>行前小抄</button>}</div>{scenarioDialogues.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="對話扮演"><p className="es-eyebrow">對話扮演 · 把句子放進一段對話裡演一次，不計入複習進度</p><div className="es-actions">{scenarioDialogues.map(item => <button key={item.id} onClick={() => playDialogue(item.id, false)}>對話扮演：{item.title}</button>)}</div></div>}{scenarioQuestions.length > 0 && <div className="es-dialogue-entry" role="group" aria-label="面試題目問答"><p className="es-eyebrow">面試題目問答 · 聽面試官的問題，自己開口回答，不計分，也不計入複習進度</p><div className="es-actions"><button onClick={startQuestions}>面試題目問答（{scenarioQuestions.length} 題）</button></div></div>}</>}</section>
       <p className="es-footnote">進度只存在這個瀏覽器。自評安排：還說不出來 10 分鐘後、有點卡隔天、說得順至少 3 天後。</p>
     </>}
-    {view === 'topic' && scenario !== 'travel' && <article className="es-article"><p className="es-eyebrow">{currentScenario.title} · 情境筆記示範</p><h1 ref={heading} tabIndex={-1}>{currentScenario.subtitle}</h1><p className="es-lead">先想像自己在這個情境裡，再讀英文。這裡提供的是參考說法，你可以換成自己的細節。</p>{scenarioCards.map(item => <section className="es-example" key={item.id}><p>{item.context}</p><h2>{item.zh}</h2><div className="es-english">{item.en} {audio(item.en)}</div><p>{item.swap}</p><Evidence id={item.id} /></section>)}<button className="es-primary" onClick={() => start('all')}>練習這 {scenarioCards.length} 句 →</button></article>}
+    {view === 'topic' && scenario !== 'travel' && <article className="es-article"><p className="es-eyebrow">{currentScenario.title} · 情境筆記示範</p><h1 ref={heading} tabIndex={-1}>{currentScenario.subtitle}</h1><p className="es-lead">先想像自己在這個情境裡，再讀英文。這裡提供的是參考說法，你可以換成自己的細節。</p>{scenarioCards.map(item => <section className="es-example" key={item.id}><p>{item.context}</p><h2>{item.zh}</h2><div className="es-english">{item.en} {audio(item.en)}</div><p>{item.swap}</p><Evidence id={item.id} /></section>)}<button className="es-primary" onClick={() => start('all')}>{practiceLabel} →</button></article>}
     {view === 'topic' && scenario === 'travel' && <article className="es-article"><p className="es-eyebrow">情境 01 · 口說筆記</p><h1 ref={heading} tabIndex={-1}>這裡有什麼，<br />怎麼去那裡？</h1><p className="es-lead">先分清楚你想說的是「我有」、「出示東西」、「某個地方有」，還是「怎麼到達」。再依情境選擇說法。</p>
       {families.map(family => <section key={family.id}><div className="es-family-heading"><span>{family.pattern}</span><h2>{family.title}</h2></div><p>{family.note}</p>{speakingCards.filter(item => item.family === family.id).map(item => <div className="es-example" key={item.id}><p>{item.context}</p><h3>{item.zh}</h3><div className="es-english">{item.en} {audio(item.en)}</div><p>{item.swap}</p><Evidence id={item.id} /></div>)}</section>)}
-      <section className="es-article-next"><h2>懂了之後，試著不看英文說一次。</h2><p>練習時只會先看到中文情境。想好、說出口，再揭示參考說法。</p><button className="es-primary" onClick={() => start('all')}>開始練習這 {scenarioCards.length} 句 →</button></section>
+      <section className="es-article-next"><h2>懂了之後，試著不看英文說一次。</h2><p>練習時只會先看到中文情境。想好、說出口，再揭示參考說法。</p><button className="es-primary" onClick={() => start('all')}>開始{practiceLabel} →</button></section>
     </article>}
-    {view === 'sheet' && <article className="es-article es-sheet"><p className="es-eyebrow">{currentScenario.title} · 行前小抄</p><h1 ref={heading} tabIndex={-1}>{currentScenario.subtitle}</h1><p className="es-lead">出門前快速看一遍：先看中文想一下怎麼說，再對照英文。共 {scenarioCards.length} 句。</p><div className="es-actions"><button className="es-primary" onClick={() => window.print()}>列印這份小抄</button><button onClick={() => start('all')}>練習這 {scenarioCards.length} 句</button></div>
+    {view === 'sheet' && <article className="es-article es-sheet"><p className="es-eyebrow">{currentScenario.title} · 行前小抄</p><h1 ref={heading} tabIndex={-1}>{currentScenario.subtitle}</h1><p className="es-lead">出門前快速看一遍：先看中文想一下怎麼說，再對照英文。共 {scenarioCards.length} 句。</p><div className="es-actions"><button className="es-primary" onClick={() => window.print()}>列印這份小抄</button><button onClick={() => start('all')}>{practiceLabel}</button></div>
       {groupCheatSheet(scenario, families.map(family => family.id)).map(group => { const family = families.find(item => item.id === group.family); return <section className="es-sheet-group" key={group.family}>{family && <h2>{family.title} <span lang="en">{family.pattern}</span></h2>}<ul aria-label={`${family?.title ?? currentScenario.title}：中文與英文對照`}>{group.cards.map(item => <li key={item.id}><span>{item.zh}</span><span lang="en">{item.en}</span></li>)}</ul></section>; })}
       <p className="es-footnote">小抄只列每張卡的主要說法。替換說法、用法說明與參考資料在情境文章與練習裡。</p>
     </article>}
     {view === 'practice' && <section className="es-practice">
       {card ? <><div className="es-practice-meta"><span>{replay ? '口說練習 · 立刻再練一次' : '口說練習'}</span><span>{index + 1} / {session.length}</span></div><progress value={index} max={session.length} aria-label="已完成句數" /><p className="es-context">{card.context}</p><h1 ref={heading} tabIndex={-1} className="es-prompt">{card.zh}</h1><p className="es-hint">先試著說出口。不必逐字翻譯，能表達意思就可以。</p>
-      {!revealed && recorder(card.en)}
-      {!revealed ? <button className="es-primary" onClick={() => { stopRecording(); setRevealed(true); }}>看參考說法</button> : <div className="es-answer" ref={answer} tabIndex={-1}><span className="es-eyebrow">這個情境可用的說法</span><p className="es-answer-english">{card.en}</p>{audio(card.en)}{recorder(card.en)}{fixStep}<p className="es-swap">{card.swap}</p><Evidence id={card.id} />{replay ? <><p>這一輪是立刻再練一次，重點在說得更順，不會改變複習安排。</p><button className="es-primary" onClick={nextCard}>{index + 1 < session.length ? '下一句 →' : '完成這一輪'}</button></> : <><p>這句你說得如何？</p><div className="es-ratings"><button onClick={() => rate(0)}>還說不出來<span>10 分鐘後再練</span></button><button onClick={() => rate(1)}>有點卡<span>明天再練</span></button><button className="es-primary" onClick={() => rate(2)}>說得順<span>至少 3 天後再練</span></button></div></>}</div>}
-      <button className="es-back es-exit" onClick={() => open('home')}>結束這次練習</button></> : <div className="es-complete"><span className="es-eyebrow">這次練習完成</span><h1 ref={heading} tabIndex={-1}>{replay ? `同一批 ${session.length} 句，你又練了一次。` : session.length ? `你練完了 ${session.length} 句。` : '今天的複習完成了。'}</h1><p>{replay ? '這一輪沒有改變複習安排；下次複習仍依照第一輪的自評。' : session.length ? '下次回來，會依照這次的自評安排複習。還會卡的句子，會更快再遇到。' : '目前沒有到期的句子，也可以重練這個情境。'}</p><div className="es-actions"><button className="es-primary" onClick={() => open('home')}>回口說專區</button>{canReplay(tools.replay, session) && <button onClick={replayAgain}>同一批句子立刻再練一次</button>}<button onClick={() => start('all')}>再練這個情境</button></div></div>}
+      {!revealed && !tools.compactCard && recorder(card.en)}
+      {!revealed ? <><button className="es-primary" onClick={() => revealCard(card.en)}>看參考說法</button>{keysHint}{tools.compactCard && recorder(card.en)}</> : <div className="es-answer" ref={answer} tabIndex={-1}><span className="es-eyebrow">這個情境可用的說法</span><p className="es-answer-english" lang="en">{card.en}</p>{audio(card.en)}{tools.compactCard && verdict}{keysHint}{autoReadToggle}{!tools.compactCard && recorder(card.en)}{!tools.compactCard && fixStep}<p className="es-swap">{card.swap}</p>{tools.compactCard && recorder(card.en)}{tools.compactCard && fixStep}<Evidence id={card.id} />{!tools.compactCard && verdict}</div>}
+      <button className="es-back es-exit" onClick={() => open('home')}>結束這次練習</button></> : <div className="es-complete"><span className="es-eyebrow">這次練習完成</span><h1 ref={heading} tabIndex={-1}>{replay ? `同一批 ${practised} 句，你又練了一次。` : session.length ? `你練完了 ${practised} 句。` : '今天的複習完成了。'}</h1><p>{replay ? '這一輪沒有改變複習安排；下次複習仍依照第一輪的自評。' : session.length ? '下次回來，會依照這次的自評安排複習。還會卡的句子，會更快再遇到。' : '目前沒有到期的句子，也可以重練這個情境。'}</p><div className="es-actions">{more && <button className="es-primary" onClick={() => start('due')}>繼續複習（還有 {due} 句）</button>}<button className={more ? undefined : 'es-primary'} onClick={() => open('home')}>回口說專區</button>{canReplay(tools.replay, session) && <button onClick={replayAgain}>同一批句子立刻再練一次</button>}<button onClick={() => start('all')}>再練這個情境</button></div></div>}
     </section>}
     {dialogue && <section className="es-practice es-dialogue">
       {line ? <><div className="es-practice-meta"><span>{dialogueReplay ? `對話扮演 · ${dialogue.title} · 立刻再演一次` : `對話扮演 · ${dialogue.title}`}</span><span>{turn + 1} / {dialogue.turns.length}</span></div><progress value={turn} max={dialogue.turns.length} aria-label="已完成句數" /><p className="es-context">{dialogue.role}這是流暢度練習，不計入複習進度。{dialogue.note}</p>
@@ -405,14 +469,14 @@ export function EnglishSpeaking() {
     </section>}
     {view === 'shadow' && tools.shadow && <section className="es-practice es-shadow">
       {shadowCard ? <><div className="es-practice-meta"><span>跟讀與回音 · {shadowMode === 'echo' ? '回音' : '跟讀'}</span><span>{shadowIndex + 1} / {scenarioCards.length}</span></div><progress value={shadowIndex} max={scenarioCards.length} aria-label="已完成句數" />
-      <div className="es-shadow-controls"><div className="es-segment" role="group" aria-label="練習方式"><button aria-pressed={shadowMode === 'echo'} onClick={() => setShadow(() => setShadowMode('echo'))}>回音</button><button aria-pressed={shadowMode === 'shadow'} onClick={() => setShadow(() => setShadowMode('shadow'))}>跟讀</button></div><div className="es-segment" role="group" aria-label="朗讀語速">{shadowRates.map(value => <button key={value} aria-pressed={shadowRate === value} aria-label={`語速 ${value} 倍`} onClick={() => setShadow(() => setShadowRate(value))}>{value} 倍</button>)}</div><label className="es-check"><input type="checkbox" checked={shadowHide} onChange={event => setShadowHide(event.target.checked)} /> 先不顯示文字</label></div>
+      <div className="es-shadow-controls"><div className="es-segment" role="group" aria-label="練習方式"><button aria-pressed={shadowMode === 'echo'} onClick={() => setShadow(() => setShadowMode('echo'))}>回音</button><button aria-pressed={shadowMode === 'shadow'} onClick={() => setShadow(() => setShadowMode('shadow'))}>跟讀</button></div><div className="es-segment" role="group" aria-label="朗讀語速">{shadowRates.map(value => <button key={value} aria-pressed={shadowRate === value} aria-label={`語速 ${value} 倍`} onClick={() => setShadow(() => setShadowRate(value))}>{value} 倍</button>)}</div><label className="es-check"><input type="checkbox" checked={shadowHide} onChange={event => setShadowHide(event.target.checked)} /> 先不顯示文字</label>{voicePicker}</div>
       <p className="es-context">{shadowMode === 'echo' ? <>回音：聽完一句先停一下，仔細聽腦中留下的聲音，再照那個聲音說出來，不要一聽完就急著跟著唸。這是史嘉琳教授「回音法」的核心步驟；她的原法用有文字稿的真人錄音、一次只播四到五個字、每天練十分鐘，這裡改成一次播一整句，是簡化的版本。出處：<a href={echoArticle} target="_blank" rel="noreferrer">史嘉琳〈提升聽力秘訣：每天請聽「回音」十分鐘〉</a>。</> : <>跟讀：聲音一播放就跟著說，盡量跟上，慢半拍沒關係。研究裡標準的跟讀是不看稿；想試的話，可以勾「先不顯示文字」。</>}</p>
       <h1 ref={heading} tabIndex={-1} className="es-prompt es-dialogue-line es-question-line" lang={shadowHide ? undefined : 'en'}>{shadowHide ? `第 ${shadowIndex + 1} 句（文字先藏起來）` : shadowCard.en}</h1>{!shadowHide && <p className="es-shadow-zh">{shadowCard.zh}</p>}
-      <p className="es-shadow-step" role="status">{shadowNow === 'play' ? (shadowMode === 'echo' ? '播放中。只聽，先不要出聲。' : '播放中。跟著聲音一起說。') : shadowNow === 'echo' ? '先在腦中聽一次回音，還不要開口。' : shadowNow === 'say' ? (shadowMode === 'echo' ? '現在開口，照著腦中的回音說一次。' : '這一句播完了。可以再跟一次，或換下一句。') : !speechSupported ? '這個瀏覽器不支援英文朗讀，沒辦法做跟讀與回音。' : shadowMode === 'echo' ? '按「播放這一句」，專心聽，先不要跟著唸。' : '按「播放，跟著說」，聲音一出來就跟著說。'}</p>
-      <div className="es-actions"><button className="es-primary" disabled={!speechSupported || shadowNow === 'play' || shadowNow === 'echo'} onClick={() => playShadow(shadowCard.en)}>{shadowNow === 'say' ? (shadowMode === 'echo' ? '再聽一次' : '再跟一次') : shadowMode === 'echo' ? '播放這一句' : '播放，跟著說'}</button><button onClick={() => setShadow(() => shadowIndex + 1 < scenarioCards.length ? setShadowIndex(shadowIndex + 1) : setShadowDone(scenarioCards.length))}>{shadowIndex + 1 < scenarioCards.length ? '下一句 →' : '完成這一輪'}</button></div>
-      <p className="es-tool-note">聲音是瀏覽器的合成語音，節奏和真人不同。研究顯示跟讀能改善發音的可理解度與流暢度，但多數研究測的是照稿唸這類受控的作業，能不能轉到實際對話，證據還不夠（<a href={shadowReview} target="_blank" rel="noreferrer">Whitworth & Rose 2025 的系統性回顧</a>）。這裡不計分，也不計入複習進度。</p>
-      <button className="es-back es-exit" onClick={() => setShadow(() => setShadowDone(shadowIndex))}>結束這一輪</button></> : <div className="es-complete"><span className="es-eyebrow">跟讀與回音 · 這一輪結束</span><h1 ref={heading} tabIndex={-1}>{shadowDone === scenarioCards.length ? `這個情境的 ${scenarioCards.length} 句都練過一遍了。` : shadowDone ? `這一輪你練到第 ${shadowDone} 句。` : '這一輪還沒有練到句子。'}</h1><p>跟讀與回音不計分，也沒有改變複習安排。想確認自己說不說得出來，可以回去做「練習這 {scenarioCards.length} 句」。</p><div className="es-actions"><button className="es-primary" onClick={() => openTool('shadow')}>再練一輪</button><button onClick={() => open('home')}>回{currentScenario.title}情境首頁</button></div></div>}
+      <p className="es-shadow-step" role="status">{shadowNow === 'play' ? (shadowMode === 'echo' ? '播放中。只聽，先不要出聲。' : '播放中。跟著聲音一起說。') : shadowNow === 'echo' ? '先在腦中聽一次回音，還不要開口。' : shadowNow === 'say' ? (shadowMode === 'echo' ? '現在開口，照著腦中的回音說一次。' : '這一句播完了。可以再跟一次，或換下一句。') : !canSpeak(shadowCard.en) ? '這個瀏覽器不支援英文朗讀，沒辦法做跟讀與回音。' : shadowMode === 'echo' ? '按「播放這一句」，專心聽，先不要跟著唸。' : '按「播放，跟著說」，聲音一出來就跟著說。'}</p>
+      <div className="es-actions"><button className="es-primary" disabled={!canSpeak(shadowCard.en) || shadowNow === 'play' || shadowNow === 'echo'} onClick={() => playShadow(shadowCard.en)}>{shadowNow === 'say' ? (shadowMode === 'echo' ? '再聽一次' : '再跟一次') : shadowMode === 'echo' ? '播放這一句' : '播放，跟著說'}</button><button onClick={() => setShadow(() => shadowIndex + 1 < scenarioCards.length ? setShadowIndex(shadowIndex + 1) : setShadowDone(scenarioCards.length))}>{shadowIndex + 1 < scenarioCards.length ? '下一句 →' : '完成這一輪'}</button></div>
+      <p className="es-tool-note">{clipUrl(tools.clips, speakingClips, voice, shadowCard.en) ? '聲音是 AI 合成語音（Deepgram Aura-2），不是真人錄音，節奏和真人仍有差異。' : '聲音是瀏覽器的合成語音，節奏和真人不同。'}研究顯示跟讀能改善發音的可理解度與流暢度，但多數研究測的是照稿唸這類受控的作業，能不能轉到實際對話，證據還不夠（<a href={shadowReview} target="_blank" rel="noreferrer">Whitworth & Rose 2025 的系統性回顧</a>）。這裡不計分，也不計入複習進度。</p>
+      <button className="es-back es-exit" onClick={() => setShadow(() => setShadowDone(shadowIndex))}>結束這一輪</button></> : <div className="es-complete"><span className="es-eyebrow">跟讀與回音 · 這一輪結束</span><h1 ref={heading} tabIndex={-1}>{shadowDone === scenarioCards.length ? `這個情境的 ${scenarioCards.length} 句都練過一遍了。` : shadowDone ? `這一輪你練到第 ${shadowDone} 句。` : '這一輪還沒有練到句子。'}</h1><p>跟讀與回音不計分，也沒有改變複習安排。想確認自己說不說得出來，可以回去做「{practiceLabel}」。</p><div className="es-actions"><button className="es-primary" onClick={() => openTool('shadow')}>再練一輪</button><button onClick={() => open('home')}>回{currentScenario.title}情境首頁</button></div></div>}
     </section>}
-    <div className="es-speech-status" aria-live="polite">{ready && !speechSupported && '這個瀏覽器不支援英文朗讀。'}{speechNote}{speaking && <button onClick={stopSpeech}>停止播放</button>}</div>
+    <div className="es-speech-status" aria-live="polite">{ready && !speechSupported && !hasClips && '這個瀏覽器不支援英文朗讀。'}{speechNote}{speaking && <button onClick={stopSpeech}>停止播放</button>}</div>
   </div>;
 }
