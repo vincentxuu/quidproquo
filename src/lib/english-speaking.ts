@@ -152,6 +152,15 @@ export const speakingCards = [
   { id: 'interview-code-syntax', scenario: 'interview', family: 'interview', context: '你記得某個函式的用途，但忘了確切寫法。', zh: '確切的語法我不記得，但我記得它是這樣運作的。', en: 'I don’t know the exact syntax, but I remember it works like this.', swap: '沒用過那個函式庫：I haven’t worked with that library before.' },
   { id: 'interview-code-examples', scenario: 'interview', family: 'interview', context: '程式寫完了，你不急著說完成，先自己驗一次。', zh: '我跑幾個例子，確認這樣是對的。', en: 'Let me go through some examples to make sure this is correct.', swap: '只跑一個：Let me go through an example to make sure this is correct.' },
   { id: 'interview-code-empty', scenario: 'interview', family: 'interview', context: '你邊檢查邊想邊界狀況，把問題說出口。', zh: '如果輸入是空的，會發生什麼事？', en: 'If the input is empty, what happens?', swap: '換成只有一個元素：If the input has only one element, what happens?' },
+  { id: 'interview-time-think', scenario: 'interview', family: 'interview', context: '面試官問了一個你沒準備過的問題，你需要一點時間。', zh: '讓我想一下。', en: 'Let me think about that for a minute.', swap: '短一點：Let me see.' },
+  { id: 'interview-time-interesting', scenario: 'interview', family: 'interview', context: '你想先回應一句，再開始回答。', zh: '這個問題很有意思。', en: 'That’s an interesting question.', swap: '對方提出你沒想到的角度：That’s a good point.' },
+  { id: 'interview-time-difficult', scenario: 'interview', family: 'interview', context: '問題很難，你想表示會試著回答。', zh: '這個問題不容易，不過我試著回答看看。', en: 'That’s a difficult question, but I’ll try and answer it.', swap: '接著開始回答：That’s a difficult question, but I’ll try and answer it. I think…' },
+  { id: 'interview-time-never-thought', scenario: 'interview', family: 'interview', context: '你沒想過這個問題，但有初步的看法。', zh: '我沒想過這個問題，不過我會說測試比較重要。', en: 'I have never thought about that, but I’d say testing matters more.', swap: '換成自己的看法：I have never thought about that, but I’d say it depends on the team.' },
+  { id: 'interview-time-collect', scenario: 'interview', family: 'interview', context: '題目很開放，你想先整理一下再回答。', zh: '我想花一點時間整理一下想法。', en: 'I’d like a few moments to collect my thoughts.', swap: '寫下來整理：I’d like a few moments to write it out.' },
+  { id: 'interview-probe-guess', scenario: 'interview', family: 'interview', context: '面試官追問原因，你沒有驗證過，只能說推測。', zh: '我的猜測是快取的問題。', en: 'My guess is that it’s a caching problem.', swap: '換成自己的推測：My guess is that the index is missing.' },
+  { id: 'interview-probe-not-worked', scenario: 'interview', family: 'interview', context: '面試官問到你沒用過的工具。', zh: '我沒用過那個函式庫，不過我會先讀它的文件。', en: 'I haven’t worked with that library before, but I’d approach it by reading its docs first.', swap: '換成框架：I haven’t worked with that framework before, but I’d approach it by building something small first.' },
+  { id: 'interview-probe-workable', scenario: 'interview', family: 'interview', context: '面試官追問你的設計，你承認它不漂亮，但做得出來。', zh: '這個做法不太漂亮，但行得通。', en: 'It’s not very elegant, but it’s workable.', swap: '換成效率：It’s not very efficient, but it’s workable.' },
+  { id: 'interview-probe-more-context', scenario: 'interview', family: 'interview', context: '你回答完一段，想確認對方要不要更多細節。', zh: '需要我再多講一點背景嗎？', en: 'Would you like more context?', swap: '換成細節：Would you like more detail?' },
 ] as const;
 export type SpeakingEvidence = {
   expression: 'direct' | 'adapted';
@@ -225,6 +234,12 @@ const codingPost = '/posts/learning/2026-10-12-coding-interview-english';
 const googleExample = { title: 'Life at Google：Example Coding/Engineering Interview（影片，讀的是自動字幕）', url: 'https://www.youtube.com/watch?v=XKu_SEDAykw' };
 const neuTechnical = { title: 'Northeastern University 就業輔導：Interview Type: Technical', url: 'https://careers.northeastern.edu/resources/interview-type-technical/' };
 const tihCheatsheet = { title: 'Tech Interview Handbook：Coding interview cheatsheet', url: 'https://www.techinterviewhandbook.org/coding-interview-cheatsheet/' };
+const probePost = '/posts/learning/2026-10-12-interview-thinking-time-english';
+const idpSpeaking = { title: 'IDP IELTS（澳洲）：IELTS Speaking test: 10 tips from Experts', url: 'https://ielts.com.au/australia/prepare/article-10-tips-ielts-speaking' };
+const googleTips = { title: 'Google Careers：Interview prep', url: 'https://www.google.com/about/careers/applications/interview-tips/' };
+const amazonLoopTips = { title: 'Amazon：Interview loop', url: 'https://amazon.jobs/content/en/how-we-hire/interview-loop' };
+const ieltsNote = '句子出自 IELTS 口說測驗的準備建議，不是求職面試的教材；用在面試是自行套用。Google 的面試準備頁寫明，告訴面試官你需要一點時間整理想法是可以的。';
+const probe = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: probePost });
 const captionNote = '來源是影片的自動字幕，沒有標點，也保留了說話時的停頓與重複；卡片整理成完整的句子。';
 const coding = (evidence: SpeakingEvidence): SpeakingEvidence => ({ ...evidence, article: codingPost });
 const britishNote = 'BBC 主持人說明，這類委婉的說法是英國職場的習慣，各地不同；要做決定或交辦事情時，直接一點比較清楚。';
@@ -372,6 +387,15 @@ export const speakingEvidence: Record<typeof speakingCards[number]['id'], Speaki
   'interview-code-syntax': coding(direct([neuTechnical], 'Northeastern University 的面試指引原句：I don’t know the exact syntax, but I remember it works like this. Let me think through the logic…；同一段還有 I haven’t worked with that library before, but I’d approach it by…。')),
   'interview-code-examples': coding(adapted([googleExample, tihCheatsheet], 'Google 示範面試裡應徵者寫完後說：I feel like I probably need to go through an example … to make sure that this is correct，接著說 let me go through some examples to make sure；卡片把兩句合成一句。Tech Interview Handbook 也要求寫完先自己找錯、補測試案例，不要直接宣布完成。', captionNote)),
   'interview-code-empty': coding(direct([neuTechnical, googleExample], 'Northeastern University 的面試指引原句：If the input is empty, what happens?，原文的設定是邊寫邊在心裡測。Google 示範面試裡應徵者也自己檢查了空輸入：what happens with an empty…。')),
+  'interview-time-think': probe(direct([idpSpeaking, googleTips], 'IDP 的 IELTS 口說建議列出爭取思考時間的說法，原句：Let me think about that for a minute；同一份清單還有 Let me see。', ieltsNote)),
+  'interview-time-interesting': probe(direct([idpSpeaking], 'IDP 的清單原句：That’s an interesting question；同一份清單還有 That’s a good point。', ieltsNote)),
+  'interview-time-difficult': probe(direct([idpSpeaking], 'IDP 的清單原句：That’s a difficult question, but I’ll try and answer it。', ieltsNote)),
+  'interview-time-never-thought': probe(adapted([idpSpeaking], 'IDP 的清單給的是開頭：I have never thought about that, but...；後半的看法是自行填入。', ieltsNote)),
+  'interview-time-collect': probe(adapted([googleTips], 'Google 的面試準備頁原文：Rephrasing questions or asking for clarity is okay, as is telling the interviewer you want a few moments to collect your thoughts。來源是說明這樣做沒問題，沒有給出要說的句子；卡片把 you want a few moments to collect your thoughts 改成第一人稱。')),
+  'interview-probe-guess': probe(adapted([oald('guess_2', 'guess（名詞）')], 'Oxford 的例句：My guess is that we won’t hear from him again；另一句 At a guess, I’d say there’s a problem with the fuel pump。快取是自行填入的內容。', '字典只支持句型，不是面試情境的來源。Amazon 的面試頁建議資訊不夠時，說明你會怎麼根據已知的部分著手。')),
+  'interview-probe-not-worked': probe(adapted([neuTechnical], 'Northeastern University 的面試指引原句：I haven’t worked with that library before, but I’d approach it by…，放在「不要硬撐」那一段；後半的做法是自行填入。')),
+  'interview-probe-workable': probe(adapted([googleExample], 'Google 示範面試裡，面試官追問如果要回傳配對該怎麼設計，應徵者說完做法後自己評價：I mean it’s not very elegant but it’s workable；卡片拿掉 I mean。', captionNote)),
+  'interview-probe-more-context': probe(adapted([amazonLoopTips], 'Amazon 的面試頁原文：A good tip: Pause after your answer and ask if your interviewer would like more context。來源是建議，沒有給出要說的句子；卡片把它改成直接問句。')),
   'interview-follow-up': adapted([bbcJobs('241007', 'After the interview')], 'BBC 節目裡，受訪的招募人員轉述一封信的大意：Can I just ask, following up, what the outcome of the interview is。卡片拿掉說話時插進去的 following up，其餘照原句。同一集另有 please can I have some feedback on the interview。', '來源的設定是寫信，而且是口頭轉述，不是信件範本。'),
 };
 export type Rating = 0 | 1 | 2;
@@ -497,6 +521,16 @@ export const speakingDialogues: readonly SpeakingDialogue[] = [
     { who: 'you', cardId: 'interview-code-tradeoff', zh: '我可以用雜湊表來快速查找，或是先排序再用二分搜尋。', en: 'I could do this with a hash table for fast lookups, or sort the data and use binary search.' },
     { who: 'them', en: 'Let’s go with the hash table.' },
     { who: 'you', cardId: 'interview-code-examples', zh: '我跑幾個例子，確認這樣是對的。', en: 'Let me go through some examples to make sure this is correct.' },
+  ] },
+  { id: 'interview-probing', scenario: 'interview', title: '被追問：先爭取時間，再老實回答', role: '你是應徵者，面試官順著你的回答一直往下問。', note: '自己寫的練習示例，不是真實面試，也不是教材的對話。', turns: [
+    { who: 'them', en: 'Why do you think the page got slower after that release?' },
+    { who: 'you', cardId: 'interview-time-think', zh: '讓我想一下。', en: 'Let me think about that for a minute.' },
+    { who: 'them', en: 'Sure, take your time.' },
+    { who: 'you', cardId: 'interview-probe-guess', zh: '我的猜測是快取的問題。', en: 'My guess is that it’s a caching problem.' },
+    { who: 'them', en: 'We use our own caching library here. How would you get started with it?' },
+    { who: 'you', cardId: 'interview-probe-not-worked', zh: '我沒用過那個函式庫，不過我會先讀它的文件。', en: 'I haven’t worked with that library before, but I’d approach it by reading its docs first.' },
+    { who: 'them', en: 'And the workaround you described earlier, what do you think of it now?' },
+    { who: 'you', cardId: 'interview-probe-workable', zh: '說它不太漂亮但行得通，再問對方要不要多聽一點背景。', en: 'It’s not very elegant, but it’s workable. Would you like more context?' },
   ] },
 ];
 /** Role-plays offered for one scenario; none when the tool is switched off. */

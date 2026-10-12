@@ -122,6 +122,8 @@
 | 雇主的官方說明（寫程式面試） | [Meta Careers: Preparing for your software engineering interview at Meta](https://www.metacareers.com/blog/preparing-for-your-software-engineering-interview-at-meta/) | 技術初篩與寫程式面試整段；設計面試後半與行為面試沒讀 | 只有要求、沒有示範句：*Think out loud*、*Find and fix the bugs by yourself*、*If you are stuck, ask questions*。可引用來說明為什麼要邊寫邊講 |
 | 大學就業中心（寫程式面試） | [Northeastern University: Interview Type: Technical](https://careers.northeastern.edu/resources/interview-type-technical/) | 整頁 | 直接給可照著說的句子：*Does the input include negative numbers?*、*Do I need to optimize for speed or memory?*、*I'd approach this by first [step 1], then [step 2]*、*I could do this with a hash table for fast lookups, or sort the data and use binary search*、*If the input is empty, what happens?*、*I don't know the exact syntax, but I remember it works like this*。直連可讀 |
 | 軟體面試的社群資源（寫程式面試） | Tech Interview Handbook 的 [Coding interview cheatsheet](https://www.techinterviewhandbook.org/coding-interview-cheatsheet/)（整頁）與 [Coding interview techniques](https://www.techinterviewhandbook.org/coding-interview-techniques/)（前半） | 見左 | 面試各階段該做什麼的清單。可引用的問句：*Is the input array sorted?*、*Can you modify the original array…?*；面試官的 *Can we do better*。要求至少問 2–3 個確認問題、寫完不要直接宣布完成。應徵者的示範句很少 |
+| 語言測驗主辦機構（爭取思考時間） | IDP IELTS 澳洲的 [IELTS Speaking test: 10 tips from Experts](https://ielts.com.au/australia/prepare/article-10-tips-ielts-speaking) | 整頁 | 第 5 點列出爭取思考時間的說法：*That's an interesting question*、*I have never thought about that, but...*、*Let me see*、*That's a good point*、*That's a difficult question, but I'll try and answer it*、*Let me think about that for a minute*。第 6 點要考生避開填充詞（含 *Well*）。情境是口說測驗，用在面試要標成自行套用。Exa 可讀 |
+| 雇主的官方說明（追問與要時間） | [Google Careers: Interview prep](https://www.google.com/about/careers/applications/interview-tips/)、[Amazon: Interview loop](https://amazon.jobs/content/en/how-we-hire/interview-loop) | 2026-10-12 主 session 用 curl 取回、擷取相關段落並核對引文 | 只有許可與建議，沒有台詞。Google：*Rephrasing questions or asking for clarity is okay, as is telling the interviewer you want a few moments to collect your thoughts*。Amazon：*it's totally okay to ask for more information*、*Pause after your answer and ask if your interviewer would like more context* |
 
 這一節 2026-10-08 補讀過一輪（由 subagent 讀、主 session 逐句核對引文），原本列為「只有入口」的 BBC、British Council You're Hired、ABC、Amazon、HBR 都已讀到正文，見上表。
 
@@ -318,6 +320,7 @@
 | Coursera 的兩門英語課 | 只有課程介紹頁，影片內容讀不到 |
 | The Agile Manifesto、Stack Overflow Developer Survey、Write the Docs、Microsoft Writing Style Guide、Atlassian Team Playbook | 與口說無關，或只讀到入口 |
 | Microsoft Engineering Playbook、Kubernetes PR Process、Firefox Reviewer Checklist、Rust Review Policy | 讀到的是流程與檢查清單，沒有溝通用語 |
+| Cambridge English《B2 First Handbook for teachers》（[PDF](https://www.cambridgeenglish.org/images/167791-b2-first-handbook.pdf)） | 2026-10-12 轉成文字全文搜尋。很多部落格說「That's a good question／Well, let me think」出自劍橋手冊，現行手冊裡沒有這段，原始出處沒找到。口說部分講的是測驗流程與評分，沒有可照著說的句子 |
 | 美國 OPM: Structured Interviews | 給面試官的制度說明 |
 | Harvard、UC Berkeley 就業中心 | 一般性的準備建議，沒有題目原文或示範回答 |
 | 美國勞工部 CareerOneStop | 一般性的準備建議 |
@@ -339,6 +342,7 @@
 | 軟體工作 | 2026-10-08 | BBC Office English 21 集、British Council 口說四課、PagerDuty 六頁；code review 四個來源沿用先前的紀錄 | 教材教的是請人幫忙、婉拒、確認理解、委婉不同意、認錯、催進度；**站立會議報進度沒有任何來源教**，而當時 12 張工作卡有 5 張落在這裡。舊卡只有 work-walkthrough 和教材幾乎同句。跨 BBC 與 British Council 重複的說法：先承認再轉折（*I see what you mean, but…*）、用不確定代替不同意（*I'm not so sure*）、先問有沒有空（*Have you got a minute?*）。完整報告：`.work/english-speaking/work-teaching-materials/research.md` |
 | 面試 | 2026-10-08 | 十一個來源：BBC 兩個系列、British Council 文章與 You're Hired、ABC、National Careers Service、MIT、Tech Interview Handbook、Amazon、Google、HBR 轉載頁 | 整理出 53 題面試題。涵蓋來源最多的功能是反問面試官（8 個）與為什麼想來（7 個）。當時 24 張面試卡完全沒涵蓋：寒暄、離職原因、想來的原因、強項、弱點、STAR 的任務、請對方重複題目、問下一步、道謝、跟進。跨來源重複：反問挑戰、典型的一天、下一步流程；proud of；good fit；背景句用 In my … job／role 開頭。完整報告：`.work/english-speaking/interview-teaching-materials/research.md` |
 | 寫程式面試 | 2026-10-12 | Google 示範面試影片的字幕、Meta Careers、Northeastern University、Tech Interview Handbook 兩頁、Cambridge 三個條目 | 原本 37 張面試卡沒有一張是寫程式面試用的。補了 14 張（6 張原句、8 張改寫）與一段角色對話，分成確認題目、講解法與取捨、邊寫邊講、寫完自己測四段。沒做成卡片：要提示、O 記號的唸法、brute force 與 edge case（字典有收，但讀到的示範對話沒有出現）。系統設計、被追問、爭取思考時間還沒做。紀錄：`.work/english-speaking/coding-interview/evidence.md` |
+| 面試被追問與爭取時間 | 2026-10-12 | IDP IELTS、Google Careers、Amazon、Northeastern University、Oxford 的 guess、Google 示範面試字幕、BBC Interviews part 2（沒用上） | 補了 9 張卡（3 張原句、6 張改寫）與一段角色對話。雇主的官方頁面只確認可以要時間、可以問、可以承認不知道，句子來自語言測驗建議與字典；面試現場有人說出口的只有 Google 示範面試的一句。沒做成卡片：「這部分我沒驗證過」、資訊不夠時怎麼問。紀錄：`.work/english-speaking/interview-thinking-time/evidence.md` |
 
 做完新的情境對照後，在這張表加一列，並把新讀的來源補進對應的表。
 
