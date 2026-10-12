@@ -17,7 +17,7 @@
 
 ### Tier 1 — 過閘門才能做
 
-- **任何 commit**：pre-commit 會跑 `pnpm verify`，紅了就修，不准繞過（`--no-verify` 視同違規）
+- **任何 commit**：pre-commit 會跑 `pnpm verify:staged`（只檢查暫存檔；暫存區含程式碼、設定、腳本，或刪除／改名文章時退回完整 `pnpm verify`），紅了就修，不准繞過（`--no-verify` 視同違規）。完整 `pnpm verify` 由 CI 在 deploy 前跑。
 - **發佈內容**：走對應 skill（post / post-update / post-translate），跑完 skill 要求的驗證
 - **修改 skill**：只改 `.agents/skills/`，改完跑 `pnpm skills:sync` 再 `pnpm verify`
 
@@ -54,7 +54,7 @@
 
 | 機制 | 位置 | 什麼時候用 |
 |---|---|---|
-| 統一驗證閘門 | `pnpm verify`（`scripts/verify.mjs`） | 每次 commit 前自動跑；手動隨時可跑 |
+| 統一驗證閘門 | `pnpm verify`（`scripts/verify.mjs`） | CI deploy 前必過；手動隨時可跑。pre-commit 跑 `--staged` 子集（2026-10-12 起，全站版約 40 秒、多 session 並行時更久） |
 | Skills 鏡像同步 | `pnpm check:skills-sync` / `pnpm skills:sync` | 改完 `.agents/skills/` 之後 |
 | Session 記憶 | `progress.txt`（協定見 §5） | 任務狀態實質改變時 |
 | 記憶歸檔 | `docs/progress-archive.md` | progress.txt 超過上限、條目完成或過期 |

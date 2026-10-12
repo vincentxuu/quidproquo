@@ -7,7 +7,7 @@
 | Tier | 內容 |
 |---|---|
 | 0 自主執行 | 讀檔、跑檢查、依 skill 寫/改/譯文章、更新 progress.txt |
-| 1 過閘門 | 任何 commit（pre-commit 跑 `pnpm verify`，紅了修真問題，不准 `--no-verify`）；改 skill 後 `pnpm skills:sync` |
+| 1 過閘門 | 任何 commit（pre-commit 跑 `pnpm verify:staged`：只檢查暫存的檔案，動到程式碼／設定／腳本或刪改文章就自動跑完整 verify；完整 `pnpm verify` 在 CI，deploy 前必過。紅了修真問題，不准 `--no-verify`）；改 skill 後 `pnpm skills:sync` |
 | 2 先問再做 | schema 變更、D1 migration、production flag flip、deploy、刪/改已發佈文章的 slug 或 date、改 CI/hooks/權限、新 dependency、>20 檔批次改動 |
 | 3 禁止 | 手改 `.claude/skills/`、為了變綠而弱化檢查、無來源寫事實、未確認就 revert 使用者改動 |
 
@@ -53,7 +53,8 @@ pnpm dev              # Start dev server (with Cloudflare platform proxy)
 pnpm build            # Full production build (cron stubs + astro build + OG images)
 pnpm deploy           # Build then wrangler deploy
 pnpm lint             # oxlint src/ (excludes *.astro)
-pnpm verify           # THE quality gate: lint + references + skills-sync + progress protocol
+pnpm verify           # THE quality gate: lint + references + skills-sync + progress protocol（全站，約 40 秒；CI deploy 前必過）
+pnpm verify:staged    # pre-commit 用：只檢查暫存檔；暫存區含程式碼／設定／腳本或刪改文章時退回完整 verify
 pnpm skills:sync      # Rebuild .claude/skills mirror from .agents/skills
 pnpm session:start    # Print pwd, latest commit, progress.txt, then run verify
 pnpm check:references # Verify internal post cross-references

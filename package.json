@@ -13,6 +13,7 @@
     "astro": "astro",
     "lint": "oxlint src/ --ignore-pattern '*.astro' --deny-warnings",
     "verify": "node scripts/verify.mjs",
+    "verify:staged": "node scripts/verify.mjs --staged",
     "check:skills-sync": "node scripts/check-skills-sync.mjs",
     "skills:sync": "node scripts/check-skills-sync.mjs --fix",
     "skills:push": "node scripts/skills-push.mjs",
@@ -130,7 +131,7 @@
     "wrangler": "4.131.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm verify"
+    "pre-commit": "pnpm verify:staged"
   },
   "pnpm": {
     "overrides": {

@@ -2,15 +2,16 @@
 // pnpm verify — the single canonical quality gate for this repo.
 //
 // Runs every fast, offline, deterministic check. If this is green, the
-// working tree is safe to commit. Used by: pre-commit hook, Stop hook,
-// preview CI. Full details: docs/governance/operating-charter.md.
+// working tree is safe to commit. Used by: Stop hook, preview CI, and the
+// deploy quality gate. The pre-commit hook runs `--staged` (only the staged
+// files; see stagedPlan). Full details: docs/governance/operating-charter.md.
 //
 // Deliberately NOT included (slow or network-dependent): pnpm test,
 // pnpm build, post-quality/glossary advisory checks.
 // Those belong to deploy-preflight, CI build, or per-skill flows.
 // astro check IS included — catches TS errors that block CI deploy.
 
-import { exec } from 'node:child_process';
+import { exec, execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
@@ -137,24 +138,81 @@ function checkCronEntryImports() {
   }
 }
 
-const commandResults = await Promise.all([
-  runStep('astro check (types)', 'npx astro check'),
-  runStep('lint (oxlint)', 'pnpm lint'),
-  runStep('check:references', 'pnpm check:references'),
-  runStep('check:post-quality', 'pnpm check:post-quality'),
-  runStep('check:tw (台灣用語 A 級)', 'pnpm check:tw'),
-  runStep('check:chat-style', 'pnpm check:chat-style'),
-  runStep('check:glossary', 'pnpm check:glossary'),
-  runStep('check:series-order', 'pnpm check:series-order'),
-  runStep('course title regression tests', 'node .agents/skills/post/scripts/check-course-titles.mjs --self-test'),
-  runStep('course title gate', 'node .agents/skills/post/scripts/check-course-titles.mjs'),
-  runStep('course layout regression tests', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs --self-test'),
-  runStep('course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'),
-  runStep('check:lang-parity', 'pnpm check:lang-parity'),
-  runStep('check:course-videos', 'pnpm check:course-videos'),
-  runStep('check:seo-smoke', 'pnpm check:seo-smoke'),
-  runStep('skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'),
-]);
+const FULL_STEPS = [
+  ['astro check (types)', 'npx astro check'],
+  ['lint (oxlint)', 'pnpm lint'],
+  ['check:references', 'pnpm check:references'],
+  ['check:post-quality', 'pnpm check:post-quality'],
+  ['check:tw (台灣用語 A 級)', 'pnpm check:tw'],
+  ['check:chat-style', 'pnpm check:chat-style'],
+  ['check:glossary', 'pnpm check:glossary'],
+  ['check:series-order', 'pnpm check:series-order'],
+  ['course title regression tests', 'node .agents/skills/post/scripts/check-course-titles.mjs --self-test'],
+  ['course title gate', 'node .agents/skills/post/scripts/check-course-titles.mjs'],
+  ['course layout regression tests', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs --self-test'],
+  ['course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'],
+  ['check:lang-parity', 'pnpm check:lang-parity'],
+  ['check:course-videos', 'pnpm check:course-videos'],
+  ['check:seo-smoke', 'pnpm check:seo-smoke'],
+  ['skills-sync (.agents ↔ .claude)', 'node scripts/check-skills-sync.mjs'],
+];
+
+// --staged（pre-commit 用）：只檢查這次暫存的檔案；完整 verify 由 CI 跑（quality.yml，deploy 前必過）。
+// 安全邊界：暫存區只有文章、skill／docs 的 Markdown、.work、progress.txt 時才縮小範圍；
+// 只要動到程式碼、設定、腳本，或刪除／改名文章（別篇可能連過來），一律退回完整 verify。
+function stagedPlan() {
+  const out = execSync('git diff --cached --name-status -M', { cwd: ROOT, encoding: 'utf8' });
+  const entries = out.split('\n').filter(Boolean).map((line) => {
+    const [status, ...paths] = line.split('\t');
+    return { status: status[0], path: paths.at(-1) };
+  });
+  const isPost = (p) => /^src\/content\/posts\/.+\.md$/.test(p);
+  const isSafe = (p) =>
+    isPost(p)
+    || /^(\.agents|\.claude)\/skills\/.+\.md$/.test(p)
+    || /^docs\/.+\.md$/.test(p)
+    || p.startsWith('.work/')
+    || p === 'progress.txt';
+  const fullReason =
+    entries.find((e) => !isSafe(e.path))?.path
+    ?? entries.find((e) => isPost(e.path) && (e.status === 'D' || e.status === 'R'))?.path;
+  if (fullReason) return { full: true, reason: fullReason };
+
+  const posts = entries.filter((e) => isPost(e.path)).map((e) => e.path);
+  const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));
+  const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
+  const pick = (...names) => FULL_STEPS.filter(([name]) => names.includes(name));
+  const steps = [];
+  if (posts.length > 0) {
+    steps.push(
+      ['check:references (staged)', `node scripts/check-post-references.mjs ${quote(posts)}`],
+      ['check:post-quality (staged)', `node scripts/check-post-quality.mjs ${quote(posts)}`],
+      ['check:glossary (staged)', `node scripts/check-glossary-coverage.mjs ${quote(posts)}`],
+    );
+    if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
+    // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
+    steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
+      'check:lang-parity', 'check:course-videos', 'check:seo-smoke'));
+  }
+  if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
+    steps.push(...pick('skills-sync (.agents ↔ .claude)'));
+  }
+  return { full: false, steps, count: entries.length };
+}
+
+let steps = FULL_STEPS;
+let header = '=== pnpm verify ===';
+if (process.argv.includes('--staged')) {
+  const plan = stagedPlan();
+  if (plan.full) {
+    header = `=== pnpm verify --staged → 完整 verify（暫存區含 ${plan.reason}）===`;
+  } else {
+    steps = plan.steps;
+    header = `=== pnpm verify --staged（${plan.count} 個暫存檔、${steps.length} 項檢查；完整 verify 在 CI）===`;
+  }
+}
+
+const commandResults = await Promise.all(steps.map(([name, command]) => runStep(name, command)));
 results.push(...commandResults);
 // check:links 故意不放這裡：它會打外網，pre-commit 不該依賴網路。手動或排程跑 `pnpm check:links`。
 checkDailySkillTimezones();
@@ -163,7 +221,7 @@ checkDurableObjectsExport();
 checkCronEntryImports();
 
 let failed = 0;
-process.stdout.write('\n=== pnpm verify ===\n');
+process.stdout.write(`\n${header}\n`);
 for (const r of results) {
   process.stdout.write(`${r.ok ? '✅' : '🔴'} ${r.name}\n`);
   if (!r.ok) {
