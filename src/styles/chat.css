@@ -516,3 +516,13 @@ body.has-chat-sidebar {
   .chat-sidebar-panel { animation: none; }
   body.has-chat-sidebar { transition: none; }
 }
+
+/* The scroll-to-top button (PostLayout) shares this corner: it sits above the quick actions instead of on them,
+   and steps beside the open sidebar instead of hiding under it. */
+@media (min-width: 1024px) {
+  body:has(.chat-sidebar-quick-actions) .scroll-top { bottom: 9.5rem; }
+  body.has-chat-sidebar .scroll-top { right: calc(380px + 1.5rem); bottom: 1.5rem; }
+}
+@media (max-width: 1023px) {
+  body.has-chat-sidebar .scroll-top { display: none; }
+}
