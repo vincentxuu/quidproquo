@@ -757,7 +757,7 @@ Q6 可以先拿本文的三筆資料試：線性迴歸的 $E_{\text{in}}$ 本來
 
 **動手做。** 拿手上任何一個線性模型，把 L2 的係數從 0 開始每次乘 100 往上掃，把訓練誤差與驗證誤差畫在同一張圖，看看講義第 11 頁那四張圖的變化會不會在你的資料上重現。
 
-**延伸閱讀。** 同一個主題的其他講法：[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)、[Ridge、Lasso、weight decay 為什麼能讓模型穩一點？](/posts/learning/2026-08-29-im-stat-regularization)。深度學習裡的正則化見 [MIT 6.7960：Regularization](/posts/tech/2026-08-30-mit-67960-regularization)。技法會兩度回到這堂：[技法第 2 堂：對偶 SVM](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)把拉格朗日乘數從給定的參數改成要解的未知數，[技法第 5 堂：Kernel 邏輯迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)從正則化的角度重新看 SVM。
+**延伸閱讀。** 同一個主題的其他講法：[Stanford CS229 第 6 堂：偏差與變異、正規化與模型選擇](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)、[Ridge、Lasso、weight decay 為什麼能讓模型穩一點？](/posts/learning/2026-08-29-im-stat-regularization)。技法會兩度回到這堂：[技法第 2 堂：對偶 SVM](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-02-dual-svm)把拉格朗日乘數從給定的參數改成要解的未知數，[技法第 5 堂：Kernel 邏輯迴歸](/posts/ai/2026-09-30-ntu-htlin-ml-kernel-logistic-support-vector-regression)從正則化的角度重新看 SVM。
 
 **下一堂。** [基石第 15 堂：驗證](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)回答這堂留下的問題：雜訊有多少不知道，$\lambda$ 要怎麼選。
 
