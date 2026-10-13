@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：HW1 中文抽取式問答——從四段文字裡找出答案 span｜台大陳縕儂 深度學習之應用 主題單元"
+title: "中文抽取式問答：從四段文字裡找出答案 span｜台大陳縕儂 深度學習之應用 作業 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,9 +7,9 @@ tags: [ntu, ai-course, course-guide, homework, bert, question-answering, hugging
 lang: zh-TW
 series:
   name: "台大陳縕儂 深度學習之應用 導讀"
-  order: 7
+  order: 6
 tldr: "ADL Fall 2025 的 HW1 給一個問題和四段中文文字，要模型先挑出相關的那一段（paragraph selection，當成四選一的 multiple choice），再在那段裡標出答案的起點和終點（span selection），用 Exact Match 評分。規格投影片直接指定改 HuggingFace 的 run_swag_no_trainer.py 與 run_qa_no_trainer.py，simple baseline 用 bert-base-chinese、長度 512、有效 batch size 2、learning rate 3e-5，在 8GB 的 RTX 3070 上兩段加起來不到三小時。Kaggle 排行榜 9/29 截止、程式與報告 10/1 交到 NTU COOL。校外讀者拿不到 Kaggle 資料與評分，但任務設計、baseline 設定和報告五題都能照著練。"
-description: "台大陳縕儂《深度學習之應用》Fall 2025 第 7 篇導讀，依 HW1 規格投影片（NTU ADL 2025 Fall HW1）與作業說明影片：任務定義、Exact Match、兩個 HuggingFace 範例的改法、simple baseline 設定、允許的套件、繳交格式與執行環境、評分與報告五題、change log，以及校外讀者能做到哪。"
+description: "台大陳縕儂《深度學習之應用》Fall 2025 導讀，依 HW1 規格投影片（NTU ADL 2025 Fall HW1）與作業說明影片：任務定義、Exact Match、兩個 HuggingFace 範例的改法、simple baseline 設定、允許的套件、繳交格式與執行環境、評分與報告五題、change log，以及校外讀者能做到哪。"
 draft: false
 glossary:
   - term: "Exact Match"
@@ -26,7 +26,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-**本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的 HW1。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 7 篇。上一篇 [BERT 與它的家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 怎麼預訓練、怎麼在最上層加分類器微調；這一篇把它用在一個具體任務上：**給一個問題和四段中文，怎麼找出答案在哪一段、從第幾個字到第幾個字？**
+**本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)的 HW1。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列的作業 1。上一篇 [第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 怎麼預訓練、怎麼在最上層加分類器微調；這一篇把它用在一個具體任務上：**給一個問題和四段中文，怎麼找出答案在哪一段、從第幾個字到第幾個字？**
 
 用到的官方材料：
 
@@ -56,7 +56,7 @@ glossary:
 
 投影片兩處都寫「highly recommended!!!」。
 
-**Paragraph selection**：把每個「段落＋問題」當成一個選項，讓模型選出正確選項。建議改 HuggingFace 的 multiple choice 範例 [run_swag_no_trainer.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/multiple-choice/run_swag_no_trainer.py)——只要把資料轉成範例程式預期的格式，就能直接拿來訓練。
+**Paragraph selection**：把每個「段落＋問題」當成一個選項，讓模型選出正確選項。建議改 HuggingFace 的 multiple choice 範例 [run_swag_no_trainer.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/multiple-choice/run_swag_no_trainer.py)：只要把資料轉成範例程式預期的格式，就能直接拿來訓練。
 
 **Span selection**：改 extractive QA 範例 [run_qa_no_trainer.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/question-answering/run_qa_no_trainer.py)，同樣先把資料格式對齊。
 
@@ -112,7 +112,7 @@ HW1 投影片寫「No late submission」，不接受遲交。這和 [Course Logi
 **NTU COOL**：上傳以小寫學號命名的資料夾壓縮檔，裡面要有 `README.md`、`run.sh`、`download.sh`、`report.pdf`，以及訓練、預測、畫圖用到的所有程式。不要上傳資料或模型。
 
 - `download.sh`：下載模型、tokenizer 與資料（可以放 Dropbox 用 wget，或 Google Drive 用 gdown）。最多 4GB、1 小時內完成；連結截止後不能改、至少保留 2 週；除了下載不要做別的事。
-- `run.sh`：吃三個參數——`context.json` 路徑、`test.json` 路徑、輸出的 `prediction.csv` 路徑，2 小時內跑完。助教會先跑 `bash ./download.sh`，再跑 `bash ./run.sh /path/to/context.json /path/to/test.json /path/to/pred/prediction.csv`。
+- `run.sh`：吃三個參數：`context.json` 路徑、`test.json` 路徑、輸出的 `prediction.csv` 路徑，2 小時內跑完。助教會先跑 `bash ./download.sh`，再跑 `bash ./run.sh /path/to/context.json /path/to/test.json /path/to/pred/prediction.csv`。
 - 執行環境：Ubuntu 20.04、32GB RAM、RTX 2080 Ti 11GB、20GB 可用磁碟、Python 3.10，跑完 `download.sh` 之後**沒有網路**。
 - `README.md`：一步步說明怎麼訓練；沒有或空白扣 2 分。
 
@@ -136,7 +136,7 @@ HW1 投影片寫「No late submission」，不接受遲交。這和 [Course Logi
 | Q4 有無預訓練 | 2% | 不載入預訓練權重，從頭訓練一個 Transformer 模型（兩個階段擇一），和 BERT 比較；太大訓練不動可以縮小層數、hidden 維度、head 數 |
 | Q5 加分 | 2% | 不用兩段式 pipeline，改訓練一個端到端模型；提示是找能吃長輸入（context window 較大）的模型 |
 
-Q1 直接連回[第 5 篇 Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)，Q2 連回[上一篇的 BERT 家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)，Q4 則是在實驗上驗證「預訓練到底幫了多少」。
+Q1 直接連回[第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)，Q2 連回[第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)，Q4 則是在實驗上驗證「預訓練到底幫了多少」。
 
 ## Change log：規格改了哪些
 
@@ -148,6 +148,17 @@ Q1 直接連回[第 5 篇 Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokeniz
 - 09/30：更新重現規則——只要上傳能透過 `download.sh` 與 `run.sh` 重現「和最終 Kaggle 提交通過相同 baseline」的模型即可。例如最終提交通過所有 simple baseline 與 public strong baseline，交一個也能通過這些 baseline 的模型就夠了。
 
 問題可以到 NTU COOL 討論區問（投影片鼓勵），或寄信給助教（標題開頭加「[ADL2025 HW1]」）；Office hour 每週五 15:00–16:00，資工系 524 實驗室。
+
+## 說明影片補充了什麼
+
+規格投影片之外，助教在說明影片裡口頭補充了幾點。這支影片沒有字幕，以下用音訊轉成的逐字稿整理，細節以投影片為準。
+
+- **四段裡只有一段是對的**。助教說作業保證：只要段落選對，答案一定出現在那一段裡。
+- **兩個範例程式要改的只有讀資料的部分**。把資料格式改成作業提供的格式，其他部分可以直接跑。Simple baseline 就是這樣訓練出來的。
+- **為什麼要交 `download.sh` 與 `run.sh`**。助教會下載你的模型、重跑一次推論，確認結果和你在 Kaggle 上的一致。
+- **重現不了的後果**。不必人工介入就能重現，多拿 1 分；人工介入之後還是重現不了，助教說是整份作業 0 分。
+- **Q4 的做法**。用同一份訓練程式，跳過載入預訓練權重的那一段，就變成從頭訓練。想把分數拉高，可以把模型縮小。
+- **不確定模型能不能用就先問**。判斷方式是讀模型的說明：只要它在 QA 或 NLI 的資料集上訓練過，就不能用。
 
 ## 校外讀者能做到哪
 
@@ -163,15 +174,13 @@ Q1 直接連回[第 5 篇 Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokeniz
 
 **怎麼做**：先別急著調參。拿 `run_qa_no_trainer.py`，找一筆答案文字在段落中出現兩次的例子，印出你算出來的 token start/end 對回原文的字元位置，確認對的是正確那一次。這就是投影片警告 `context.index` 的原因，也是 Q1 要你解釋的東西。
 
-## 本文能確認與不能確認的
+## 本文的限制
 
-能確認：規格投影片全部文字與超連結（從 Google Slides 匯出文字與 pptx 核對）、影片標題、長度、上傳日期與說明欄。
-
-不能確認：本文沒有逐字聽寫作業說明影片，助教口頭補充的內容沒有寫進來。Kaggle 比賽頁、資料格式細節（`context.json`／`test.json` 的欄位）、simple／strong baseline 的具體分數線都沒有在公開材料中看到。HW1 在總成績中的佔比，Course Logistics 只寫三份作業合計 60%，沒有逐份拆開。
+本文以規格投影片為主，助教在說明影片裡的口頭補充另列一節。Kaggle 比賽頁、資料格式細節（`context.json`／`test.json` 的欄位）、simple／strong baseline 的具體分數線，公開材料裡都沒有。HW1 在總成績中的佔比，Course Logistics 只寫三份作業合計 60%，沒有逐份拆開。
 
 延伸閱讀：NLP 專案的完整流程（資料、HF 文字分類 Colab）留給本系列最後一篇[助教課](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)。站上另一份課程作業導讀可以對照：[CS224U HW2 開放域問答](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)走的是 retrieval＋LLM 路線，和這裡的 BERT 抽取式路線正好形成對比。
 
-系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [BERT 與它的家族](/posts/ai/2026-09-30-ntu-adl2025-bert-family)｜下一篇 [預訓練三大類與 Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
+系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)｜下一篇 [預訓練三大類與 Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
 
 ## 課程影片來源
 
@@ -188,15 +197,17 @@ title: 影片：ADL 2025 Fall Homework 1
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-查核日期：2026-10-10。
+查核日期：2026-10-13。
 
-字幕嘗試（2026-10-10）：嵌入的 HW1 說明影片（24:50，2025-09-09 上傳，非公開連結，說明欄「BERT for Chinese Question Answering」）取不到字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，作業規格依規格投影片，與影片的標題、長度、上傳日與說明欄一致。
+HW1 說明影片（24:50，2025-09-09 上傳，非公開連結）沒有字幕。本文的作業規格依規格投影片，並用音訊轉成的逐字稿對過影片口述；逐字稿可能有聽錯的地方。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
 - 2026-10-10：嘗試依字幕核對 HW1 說明影片，但取不到字幕，內容未核對；文章未改動。
+- 2026-10-13：查證歷程移出正文；系列內互相引用由篇序改為堂次。
+- 2026-10-13：用說明影片的逐字稿對過全文，內容與投影片一致；新增「說明影片補充了什麼」一節。
 
 ## 參考資料
 

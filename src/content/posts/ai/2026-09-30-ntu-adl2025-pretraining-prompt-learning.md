@@ -1,5 +1,5 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：預訓練三大類與 Prompt Learning——從 BERT、GPT、T5 到「人不懂沒關係機器懂就好」｜台大陳縕儂 深度學習之應用 主題單元"
+title: "預訓練三大類與 Prompt Learning：從 BERT、GPT、T5 到 soft prompt｜台大陳縕儂 深度學習之應用 第 6 堂"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,9 +7,9 @@ tags: [ntu, ai-course, course-guide, pretraining, prompt-engineering, scaling-la
 lang: zh-TW
 series:
   name: "台大陳縕儂 深度學習之應用 導讀"
-  order: 8
-tldr: "ADL Fall 2025 第 6 講把預訓練模型分成三類：encoder（BERT 家族，雙向上下文）、decoder（GPT 系列，擅長生成）、encoder-decoder（BART、T5，用去噪目標預訓練）。接著點出預訓練模型時代的兩個實際難關：下游標註資料少，以及模型越來越大、每個任務各存一份放不下。講義的解法是 prompt learning：先用 GPT-3 的 in-context learning 說明「不更新參數也能做任務」，再從人寫的 hard prompt（prompt template＋verbalizer、LM-BFF）走到直接優化向量的 soft prompt（P-Tuning、Prefix-Tuning、Prompt Tuning），最後用 Liu 等人的 prompting 分類法收尾。"
-description: "台大陳縕儂《深度學習之應用》Fall 2025 第 8 篇導讀，依 250915_Pretraining.pdf（67 頁）與影片 6.1–6.6：預訓練的定義與資料、三種預訓練架構、GPT／GPT-2／GPT-3、BART 與 T5 的去噪目標、fine-tuning vs in-context learning、scaling laws（Kaplan、Hoffmann）、訓練成本、hard prompt 與 LM-BFF、P-Tuning、Prefix-Tuning、Prompt Tuning、prompting paradigm。"
+  order: 7
+tldr: "預訓練是在知道任務之前，先讓模型從大量無標註資料學通用能力。架構分三類：encoder 看兩邊、適合理解；decoder 只看左邊、能生成，是目前勝出的一類；encoder-decoder 用去噪預訓練。預訓練加微調有兩個難關：標註資料少、模型太大。GPT-3 的 in-context learning 不更新參數就能做任務，接著出現 hard prompt（template 加 verbalizer、LM-BFF）與直接訓練向量的 soft prompt（P-Tuning、Prefix-Tuning）。當時 soft prompt 效果較好，但最後留下來的是完全不訓練的 prompting。"
+description: "台大陳縕儂《深度學習之應用》Fall 2025 第 6 堂導讀，依 Pretraining 講義與影片 6.1–6.6 的課堂口述：預訓練的三個要點與資料著作權爭議、encoder／decoder／encoder-decoder、BERT 的 15% 遮罩、GPT 三代、BART 與 T5、in-context learning、scaling laws 與 Chinchilla、prompt template 與 verbalizer、LM-BFF、P-Tuning 與 Prefix-Tuning、prompting 的五種訓練策略，以及最後留下來的做法。附 verbalizer 與儲存量的例子和自我檢查。"
 draft: false
 glossary:
   - term: "Verbalizer"
@@ -18,7 +18,7 @@ glossary:
     context: "ADL 講義把 prompt-tuning 拆成 prompt template、PLM、verbalizer 三個元件。"
   - term: "Soft Prompt"
     aliases: ["continuous prompt", "連續提示"]
-    definition: "不是人看得懂的文字，而是一組直接用梯度優化的 embedding 向量，接在輸入前面引導凍結的預訓練模型。"
+    definition: "不是人看得懂的文字，而是一組直接用 back-propagation 訓練出來的 embedding 向量，接在輸入前面引導凍結的預訓練模型。"
     context: "影片 6.5 的副標「人不懂沒關係機器懂就好」說的就是它。"
 ---
 
@@ -26,7 +26,7 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-**本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)9/15 那一週的教材。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 8 篇。[第 6 篇](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 與它的家族，[上一篇 HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa) 把 BERT 用在中文抽取式問答。這一篇把視角拉高：**encoder-only、decoder-only、encoder-decoder 差在哪？模型變大之後，為什麼可以只給 prompt 就做任務？**
+**本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)9/15 那一週的教材。** 這是[台大陳縕儂 深度學習之應用 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列的第 6 堂。[第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)講了 BERT 與它的家族，[作業 1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa) 把 BERT 用在中文抽取式問答。這一篇把視角拉高：**encoder-only、decoder-only、encoder-decoder 差在哪？模型變大之後，為什麼可以只給 prompt 就做任務？**
 
 用到的官方材料：
 
@@ -34,138 +34,279 @@ glossary:
 - 影片：[6.1 Pretraining 預訓練](https://youtu.be/suX2F2TqKuE)（9:23）、[6.2 Encoder-Only, Decoder-Only, Encoder-Decoder Pretraining 常見三大類預訓練模型](https://youtu.be/cnd91AbBQ74)（33:38）、[6.3 Issues of PLMs 預訓練模型世代的難關](https://youtu.be/tdMuyQO6kLs)（21:39）、[6.4 (Hard) Prompt-Tuning, LM-BFF 用自然語言提示模型](https://youtu.be/fpNxjqJjtT4)（15:55）、[6.5 (Soft) Prompt-Tuning (P-Tuning, Prefix Tuning) 人不懂沒關係機器懂就好](https://youtu.be/Wrzz7mG1ZDU)（7:13）、[6.6 Prompting Paradigm 基於提示的研究大補帖](https://youtu.be/CCZfyLCNrQk)（15:43）
 - 補充：播放清單上的 [6.0 QA](https://youtu.be/-3mUrFm8lIo)（26:15）是課堂問答，沒有講義。
 
-存取等級沿用系列的 **A2**：本講的講義與影片都公開，本週沒有新作業（HW2 的題目在[第 10 篇](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)，只有說明影片）。
+存取等級沿用系列的 **A2**：本堂的講義與影片都公開，本週沒有新作業（HW2 在[第 7 堂](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)那一週公布，只有說明影片）。
+
+讀完這一堂要能做四件事：看到一個模型，說出它是 encoder、decoder 還是 encoder-decoder，以及它預訓練時在做什麼；分清楚 fine-tuning 和 in-context learning 各自動了什麼；用 template 和 verbalizer 把一個分類任務改寫成 prompt；說出 hard prompt 和 soft prompt 的差別，以及最後留下來的是哪一種做法。標成「本文自編」的例子與標成「補充」的引用框都不是課堂內容。
 
 ## 預訓練是什麼
 
-講義第 2 頁的比喻：先讀教科書學通識，再去考特定科目。預訓練就是在大量、多樣的資料上先訓練模型，之後再針對特定任務微調。三個關鍵步驟是大規模多樣資料、self-supervised learning、學到通用表示；換來的是可擴展、可泛化、可遷移。
+Pre-training 的字面意思是「在訓練之前」。在知道模型最後要做哪個任務之前，先讓它在大量、多元的資料上學一些基本能力。陳縕儂老師的比喻是把模型送去學校：還不知道以後考哪一科，先讓它什麼都學一點，期待這些知識之後派得上用場。
 
-資料從哪裡來？第 3 頁以 BookCorpus（smashwords.com 上的免費書）為例；第 4 頁提到網路規模資料的「合理使用 vs. 著作權」問題：各國法規還在演變，沒有統一標準。
+講義第 2 頁列了三個要點，老師逐一解釋了原因：
+
+- **資料要大、要多元。** 因為不知道最後的任務是什麼，學得越廣越保險。
+- **要能從沒有標記的資料學。** 這麼大量的資料不會有人逐筆標註。一本教科書就是一篇篇文章，沒有問題與答案的配對。
+- **學到的要通用，而且能轉移。** 如果預訓練學的東西和之後的任務完全無關，就不用期待它有幫助。
+
+### 資料可以這樣用嗎
+
+最有名的預訓練資料集是 BookCorpus（第 3 頁），來自 2015 年的一篇論文，作者寫爬蟲把一個網站上的免費書抓下來。老師指出這裡的問題：書免費給你看，不代表著作權也給了你。
+
+爭議分成兩邊（第 4 頁）。開發模型的公司主張這是合理使用：只是讓模型讀，就像人下載一本書來讀也是在訓練自己的腦，而且模型沒有照抄輸出。另一邊認為，買了書不等於買了著作權。
+
+老師舉了 Anthropic 的案子：
+
+- 它買了大量實體書，掃描、轉成文字後拿去訓練（老師說這是很費工的事）。這一部分法院認定是合理使用。
+- 它也用了從盜版網站下載的書。這一部分沒有過關，老師說總共賠了 15 億美元。
+
+> 補充（非課堂口述，本文另查）：講義第 4 頁貼的新聞標題寫的是「agrees to pay authors $1.5bn to settle piracy lawsuit」，也就是和解，不是判賠。這個案子是 Bartz v. Anthropic。法院的裁定是：用書訓練模型屬於合理使用，把買來的紙本書數位化也是；但下載盜版書建立資料庫不是。15 億美元是之後雙方和解的金額，不是判決金額；依 Reuters 2025-09-05 的報導，大約是 50 萬本書、每本 3,000 美元。
+
+她的結論是各國還沒有共識：美國相對開放，歐盟的監管比較嚴，台灣多半先觀望。這仍是一個沒有定論的問題。
 
 ## 三種預訓練架構
 
-第 5 頁的表是整講的地圖，後面反覆出現：
+三種架構的差別在 attention 能看哪裡（第 5 頁）：
 
-| 類型 | 特性 | 例子 |
+| 類型 | Attention | 代表模型 |
 |---|---|---|
-| Encoder | 雙向上下文 | BERT 與它的變體 |
-| Decoder | 語言模型，適合生成 | GPT、GPT-2、GPT-3 |
-| Encoder-Decoder | sequence-to-sequence | Transformer、BART、T5 |
+| Encoder-only | 每個 token 可以看前後所有 token | BERT 與它的變體 |
+| Decoder-only | 只能看左邊已經出現的 token | GPT 系列 |
+| Encoder-decoder | 編碼端看兩邊，解碼端只看左邊 | 原始的 Transformer、BART、T5 |
 
-### Encoder：BERT 家族
+老師形容那幾年是戰國時代，三派各說各的好。截至目前，勝出的是 decoder-only：OpenAI 從一開始就只做這一種，現在大部分模型的架構都接近它。
 
-第 7–8 頁快速回顧：BERT 用 masked LM 隨機遮 15% 的 token；RoBERTa 主要是用更多資料訓練更久，SpanBERT 遮連續的 span，讓預訓練任務更難也更有用。細節在[第 6 篇](/posts/ai/2026-09-30-ntu-adl2025-bert-family)。
+### Encoder：BERT 與它的家族
 
-### 為什麼還需要 decoder
+BERT 的預訓練是 masked language model：把句子裡一部分 token 遮掉，要模型用左右兩邊的上下文填回來。在被遮的位置，模型對整個詞彙表輸出一個機率分布；假設詞彙表有六萬個 token，輸出就是六萬維，訓練目標是把正確那一維的機率拉高。
 
-第 9 頁講清楚 encoder 的限制：BERT 這類預訓練 encoder **不會自然地一個字一個字生成**。例子是「Vivian goes to [MASK] tasty tea」：encoder 只能填空，decoder 則能從「Vivian goes to」一路接著寫出「make tasty tea」。
+為什麼遮 15%（第 7 頁）：
+
+- 遮太少，例如 5%，整個模型跑完一句只學到 5% 的位置，沒有效率。
+- 遮太多，剩下的上下文不夠，空格填不出來。
+
+**算一下（本文自編）。** 一個 512 個 token 的序列，遮 15% 大約是 77 個位置，剩下 435 個當上下文。只遮 5% 是 26 個位置，同樣跑一次，得到的訓練訊號只有三分之一。
+
+預訓練完成後，把這組參數當成起點，再針對目標任務微調。老師提醒用法沒有唯一正解：做分類時最常見的是取開頭 `[CLS]` 那個位置的向量接一層 linear，但也可以取最後一個 token，或把所有位置平均。她鼓勵大家自己試。
+
+BERT 之後的兩個變體（第 8 頁）：
+
+- **RoBERTa**：模型本身的新意不多，改的是資料更多、訓練設定更細。效果很好，老師說用 BERT 系列時應該考慮它。
+- **SpanBERT**：一個詞可能被切成好幾個 subword，只遮其中一個很奇怪。它改成一次遮連續幾個 token。
 
 ### Decoder：GPT 系列
 
-- **GPT**（[Radford 等人 2018](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)）：Transformer decoder，在 BooksCorpus（約 7000 本書、5GB）上預訓練；12 層、768 維 hidden、3072 維 feed-forward、BPE 做 40,000 次合併。下游用監督式微調，微調時保留 next-word prediction。
-- **GPT-2**（[Radford 等人 2019](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)）：更多資料（來自 Reddit 的 WebText，40GB），適合自然語言生成。
-- **GPT-3**（[Brown 等人 2020](https://arxiv.org/abs/2005.14165)）：更多資料，來源包括 Common Crawl、WebText2、Books1＆Books2、英文 Wikipedia。
+那幾年在理解類的任務上，encoder 完勝 decoder。decoder 的研究沒有斷，是因為 encoder 做不了生成（第 9 頁）：它要整句都在才能判斷，沒辦法一個 token 一個 token 往下寫。decoder 的訓練就是一般的語言模型：吃前文，預測下一個 token。以翻譯為例：encoder 沒辦法一個 token 一個 token 生出譯文；decoder 把原文當成輸入，接著往下生成譯文就可以了。
 
-第 15 頁把三代並排：GPT 117M 參數、GPT-2 1.5B、GPT-3 175B；GPT-4（2023）與 GPT-5（2025）兩列的參數與資料量都寫「?」——講義誠實標出這些數字沒有公開。
+- **GPT（2018）**：12 層的 Transformer decoder，在 BookCorpus 約 7000 本書上預訓練，輸入用 BPE 切成 token。它生成完整句子的能力還很差，所以用法和 BERT 幾乎一樣：預訓練當起點，再對每個任務微調。
+- **GPT-2（2019）**：團隊的想法是「是不是書讀得不夠多」，於是加進網路論壇的資料。生成能力確實跟著提升，能寫出通順、合文法的句子，但還遠不如人寫的。
+- **GPT-3（2020）**：把抓得到的資料盡量都放進去，包括書、論壇與 Common Crawl。模型也跟著變大，而且一次做了好幾種尺寸來比較，最大的是 175B。當時的結論是模型越大越好；後面的 Chinchilla 會替這句話加上條件。
 
-### Encoder-Decoder：BART 與 T5
+第 15 頁把三代的參數量並列：117M、1.5B、175B。
 
-第 17 頁說明這類架構的分工：encoder 享有雙向上下文，decoder 負責用語言模型的方式訓練整個模型。預訓練目標是 **span corruption（去噪）**，在前處理時就做好。
+為什麼第一代會接下一個字，卻寫不出句子？老師用手機輸入法解釋：鍵盤上建議的下一個字通常合理，但一直按建議字，很難按出一個完整的句子。造句需要的資訊比接詞多得多。
 
-兩個模型的差別在第 18 頁用同一個句子示範（Thank you for inviting me to your party last week）：
+### Encoder-decoder：BART 與 T5
 
-- **[BART](https://arxiv.org/abs/1910.13461)**：輸入被挖空的句子，**輸出整句**原文。
-- **[T5](https://arxiv.org/abs/1910.10683)**：輸入把挖空處換成 `<X>`、`<Y>` 這類標記，**只輸出缺掉的部分**：`<X> for inviting <Y> last <Z>`。
+既想看兩邊，又想能生成，就把兩種機制放在一起。這類模型的預訓練不那麼直覺，做法是去噪（第 17–18 頁）：把輸入弄壞一部分，要模型還原。
 
-微調做分類時也不同（第 19 頁）：BART 把輸入在 decoder 重複一次、用最後的輸出預測標籤；T5 則把分類也當成 seq2seq，直接生成標籤文字。第 22 頁點出 T5 的多任務預訓練「用 seq2seq 學多個任務」，講義註解這和現在的 post-training 流程很像——這是[下一篇後訓練](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)的伏筆。
+講義用同一句話示範兩個模型的差別（Thank you for inviting me to your party last week）：
 
-第 23 頁把兩者並排比較：BART 的訓練資料約是 T5 的 2 倍；位置編碼上 BART 用可學的絕對位置、T5 用相對位置；講義附的理解與摘要任務表中，BART 在多數欄位分數較高。
+- **[BART](https://arxiv.org/abs/1910.13461)**（Meta）：輸入被挖空的句子，**輸出完整的原句**。
+- **[T5](https://arxiv.org/abs/1910.10683)**（Google）：輸入把空格標成 `<X>`、`<Y>`，**只輸出缺掉的部分**：`<X> for inviting <Y> last <Z>`。
 
-## 預訓練模型時代的兩個難關
+做分類時也不同（第 19 頁）：BART 會把輸入重複一遍再預測標籤；T5 直接把標籤當成輸出的文字。
 
-影片 6.3 的副標叫「預訓練模型世代的難關」。第 24 頁先定義標準做法：用預訓練模型初始化，再針對下游任務調整參數。問題有兩個。
+BART 的論文試了好幾種弄壞輸入的方式，包括遮住、刪掉、把句子順序打亂，結論是挖掉一段再填回來（text infilling）最好。
+
+T5 還比較了一種 prefix language model：左半段雙向、右半段單向。它的效果不如 encoder-decoder，所以老師沒有把它列進三大類。
+
+T5 的另一個做法是多任務預訓練（第 22 頁）：把有標註的資料也放進來，並把任務名稱直接寫在輸入前面，例如 `translate English to German: …`。老師說這個想法就是現在的 post-training，[下一堂](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)會講。
+
+兩個模型哪個好？講義第 23 頁的表格裡，BART 在多數欄位分數較高。老師口頭的說法是兩者不相上下，而且兩邊的資料、尺寸與設計都不同，沒辦法公平地一對一比較。兩種說法本文都照錄。
+
+## 預訓練加微調遇到的兩個難關
 
 ### 難關一：標註資料少
 
-第 25 頁列出 GLUE 各任務的資料量，從 MNLI 的 391K 到 RTE 的 2.5K，差了兩個數量級。講義的結論是：**更實際的情況是 few-shot、one-shot 甚至 zero-shot。**
+講義第 25 頁列的 benchmark（從任務清單看是 GLUE）裡，資料最少的任務也有 2500 筆。老師說業界的情況常常更糟：對方希望你先做出系統，而手上根本沒有標註資料。真實的情境多半是 few-shot，甚至沒有例子。
 
-這時 GPT-3 的 **in-context learning** 登場（第 26–28 頁）。和 fine-tuning 對照：
+這時有另一種做法，**in-context learning**（第 26–28 頁）：
 
-- **Fine-tuning**：預訓練後，用任務的標註資料更新模型參數。
-- **In-context learning**：預訓練後**不再學習**，只在輸入裡給說明和少數範例。
+| | 模型參數 | 任務怎麼告訴模型 | 要存什麼 |
+|---|---|---|---|
+| Fine-tuning | 用任務的標註資料更新 | 透過訓練 | 每個任務一份模型 |
+| In-context learning | 完全不動 | 寫在輸入的 context 裡 | 只有一份模型 |
 
-講義用一個很在地的例子：英檢的「詞彙與結構」題型說明加一題例題（正確答案為 D），就是在給模型「少數範例」。zero-shot、one-shot、few-shot 的差別只在範例給幾個。
+老師的比喻是一個讀了很多書、但從沒考過試的學生。第一次考試要先看題型說明，例如「從 ABCD 選出最適合的」，最好再看一題例題和它的答案，然後才作答。題型說明和例題就是 context。不給例子是 zero-shot，給一個是 one-shot，給幾個是 few-shot。
+
+她也點出這件事奇怪的地方：GPT-3 預訓練時只學接下一個字，沒有學過怎麼處理特定任務，使用時也沒有再訓練，卻能光靠描述理解任務。這也是 prompt engineering 興起的原因：同一個任務，講法不同，模型理解的程度就不同。
+
+GPT-3 論文的幾個結果（第 29–32 頁，數字是老師口述）：
+
+- 模型越大，光靠任務描述的理解就越好。
+- 和微調過的 BERT-Large 比（大約 70 分）：GPT-3 zero-shot 將近 60%；few-shot 只給 32 個例子，就超過微調過的 BERT。但仍低於專門為該任務設計的模型。
+- 例子不用多。從 0 個到 1 個進步最大，1 個到 2 個不一定有差。老師的建議是至少給一個例子。
+- 讓人分辨一篇文章是 GPT-3 寫的還是人寫的：模型小的時候，人猜對的比例有七成多；模型越大，越接近五成的亂猜。
+- 教它一個捏造的新詞和意思，請它造句，它能造出通順合理的句子。新東西可以在 context 裡現學現用。
 
 ### 難關二：模型太大
 
-第 33 頁把模型尺寸排成一張表，從 ELMo 93M、BERT-Base 110M、BERT-Large 340M，到 GPT-3 的八種尺寸，最大的 175B 有 96 層。大模型表現更好（第 34–35 頁），但代價是：
+模型尺寸呈指數成長（第 33–38 頁），最直接的問題是成本。要投入這麼多資源，事前最好能估計會換到多少表現。
 
-- **訓練成本**：第 37–38 頁引用 [Sevilla 等人 2022](https://arxiv.org/abs/2202.05924) 的算力趨勢分析。
-- **Scaling laws**：第 39 頁的 [Kaplan 等人 2020](https://arxiv.org/abs/2001.08361)描述模型品質如何隨模型大小 N、資料量 D、算力 C 變化，可以用來預測表現、分配資源；第 40 頁的 [Hoffmann 等人 2022](https://arxiv.org/abs/2203.15556)則指出模型大小和訓練 token 數應該**等比例**擴大——Chinchilla 模型比其他更大的模型小，卻表現更好，講義註解這對微調和推論都有利。
-- **儲存空間**：第 41 頁，每個任務都要存一份完整模型。一個 11B 參數的模型，三個任務就是三份 11B。
+- **Scaling laws**（第 39 頁，[Kaplan 等人 2020](https://arxiv.org/abs/2001.08361)）：OpenAI 提出，模型的品質可以由三個因素預測，模型大小 N、資料量 D、運算量 C。有了這個關係，就能決定資源該放在哪裡。
+- **Chinchilla**（第 40 頁，[Hoffmann 等人 2022](https://arxiv.org/abs/2203.15556)）：DeepMind 發現模型大小和訓練的 token 數應該等比例增加。之前的模型多半訓練不足：模型很大，餵的 token 卻不夠，容量浪費掉了。他們訓練了一個 70B 的模型，比對照的模型小四倍、資料比較多，表現反而更好。模型小，之後微調與推論的成本都低。
+- **儲存空間**（第 41 頁）：每個任務微調一次，就要存一份完整的模型。
 
-第 42 頁把兩個難關收成一句：**解法是 prompt learning。**
+第 42 頁把兩個難關接到解法：能不能用比較少的成本、不存那麼多東西，也讓模型符合目標任務？這就是 prompt learning。
 
-## Hard prompt：用自然語言提示模型
+## Hard prompt：template 加 verbalizer
 
-第 45–46 頁用 NLI 例子對照兩種做法。原本要在 `[CLS] 前提 [SEP] 假設 [SEP]` 後面接分類器預測 neutral／contradiction／entailment；prompt 版本則把輸入改寫成「Vivian likes dancing. Is it true that Vivian loves singing?」，讓模型直接回答 maybe／no／yes。
+老師先交代定位：GPT-3 之後這一類方法非常多，這一堂會走過大家試過的路，最後再說哪一條留了下來。
 
-第 47–50 頁把 prompt-tuning 拆成三個元件：
+任務是 entailment（第 45–46 頁）：給兩個句子，判斷是 entailment、contradiction 還是 neutral。
 
-1. **Prompt template**：人為設計的自然語言輸入格式，例如 `前提? [MASK], 假設`。
-2. **PLM**：做語言模型預測（masked LM 或自回歸 LM 都可以）。
-3. **Verbalizer**：把詞彙映射回標籤，例如 yes → entailment、maybe → neutral、no → contradiction。
+最直接的 prompt 是把幾組標註好的例子貼給模型，再接上要判斷的句子。改寫一下 prompt，表現就可能變好：與其只把兩句並排，不如問「Is it true that 後面這句？」，讓模型回答 yes、no 或 maybe。
 
-第 51–52 頁：少量標註資料就能微調，zero-shot 時甚至完全不調參數。講義引用 [Le Scao 與 Rush 2021](https://arxiv.org/abs/2103.08493) 說明資料稀少時 prompt-tuning 表現較好，因為它更能利用、也能保留預訓練學到的知識。
+Prompt-tuning 把這件事拆成三個元件（第 47–50 頁）：
 
-**LM-BFF**（[Gao 等人 2021](https://arxiv.org/abs/2012.15723)，第 53–54 頁）再往前一步：prompt 加上示範例子（demonstration），並自動生成 template；講義附的是用 RoBERTa-Large 的結果。
+1. **Prompt template**：把輸入包成什麼樣的句子。這是可以調的。
+2. **預訓練模型**：template 要配合它。masked LM 要留一個 `[MASK]` 讓它填，不能期待它往下接。
+3. **Verbalizer**：把模型輸出的詞對回標籤，例如 yes → entailment、no → contradiction、maybe → neutral。
 
-## Soft prompt：人不懂沒關係，機器懂就好
+**走一遍（本文自編）。** 輸入是「I like strawberries.」與「I hate strawberries.」，template 是「I like strawberries. Is it true that I hate strawberries? ＿」。假設模型在空格的位置給出這些機率：
 
-Hard prompt 的問題在第 55 頁：
+| 詞 | 機率 |
+|---|---|
+| the | 0.30 |
+| no | 0.20 |
+| maybe | 0.10 |
+| yes | 0.05 |
+| 其他所有詞 | 0.35 |
 
-- 人覺得合理的 prompt，對模型不一定有效（講義引 Liu 等人 2021）。
-- 預訓練模型對 prompt 的選擇很敏感（[Zhao 等人 2021](https://arxiv.org/abs/2102.09690)）。
+機率最高的是 the，但 verbalizer 只看 yes、no、maybe 三個詞。三者之中 no 最高，對回標籤是 contradiction。老師的說法是：別的詞就算是整個分布裡最高的，我們也不管。
 
-所以乾脆不找文字，直接優化向量：
+有標註資料時，prompt-tuning 就是用這些資料找出哪一種包法最容易讓模型答對。老師的說明是：以前我們有輸入和輸出，訓練的是中間的模型；現在模型太大動不了，能動的只剩包住輸入的那段 prompt。沒有標註資料（zero-shot）就沒有東西可調，只能自己想一個 template 直接用。
 
-| 方法 | 做法 | 講義重點 |
+資料很少時這個做法也有效（第 52 頁，[講義標 Le and Rush 2021](https://arxiv.org/abs/2103.08493)）。老師的解釋是它建立在預訓練模型上，預訓練學到的知識還留著。
+
+這裡講義和口述的說法不完全一樣，會影響你怎麼理解 prompt-tuning，所以並列出來。影片裡老師強調模型不動、調的是 prompt。講義第 51 頁寫的是：few-shot 時仍然用少量標註資料微調預訓練模型，zero-shot 才完全不調參數；下面的 LM-BFF，全名也是 Better Few-shot Fine-tuning of Language Models。比較穩妥的理解是：這一類方法的共同點是把任務包成 prompt 的形式，至於模型參數動不動，要看是哪一篇。
+
+### LM-BFF
+
+[LM-BFF](https://arxiv.org/abs/2012.15723)（第 53–54 頁）處理兩個問題，例子是電影評論的情緒分類，template 是「It was ＿」，verbalizer 是 great → 正面、terrible → 負面。
+
+- **模型為什麼要剛好說 great 或 terrible？** 它也可以說 good 或 awesome。解法是在 prompt 裡放示範例子：好的時候寫 It was great，爛的時候寫 It was terrible。模型看過示範，輸出就會集中在這兩個詞上。
+- **「It was ＿」是最好的 template 嗎？** 不一定。這篇論文的主要新意是讓模型自己產生一批候選 template，逐一在有標註的資料上評估，留下最好的那個。實驗結果是自動產生的 template 和人寫的差不多，各任務互有高低（第 54 頁）。
+
+## Soft prompt：不必是人看得懂的句子
+
+Hard prompt 很不穩定。老師舉了一個判斷「某城市位於哪個國家」的例子（第 55 頁）：
+
+| Template 的寫法 | P@1（precision） |
+|---|---|
+| [X] is located in [Y] | 31.29 |
+| [X] is located in which country or state? [Y] | 19.78 |
+| [X] is located in which country? [Y] | 31.40 |
+| [X] is located in which country? In [Y] | 51.08 |
+
+第二列只比第三列多了「or state」，掉了十幾個百分點；第四列只在答案前多一個 In，高了將近二十個百分點。這些問法對人來說幾乎沒差。很難知道哪一種寫法才是最好的。
+
+於是有人問：prompt 為什麼一定要是自然語言？文字進了模型也是變成一串向量。那就跳過文字，直接訓練那串向量，梯度可以一路傳回來。
+
+- **[P-Tuning](https://arxiv.org/abs/2103.10385)**（第 56 頁）：直接學 prompt 的 embedding。這些向量對應什麼文字不重要，只要模型讀了知道該做哪個任務。
+- **[Prefix-Tuning](https://arxiv.org/abs/2101.00190)**（第 57 頁）：只在最前面放一小段可訓練的 prefix（講義註明每一層都有）。每個任務只要存自己的 prefix。
+- **[Prompt Tuning](https://arxiv.org/abs/2104.08691)**（第 58 頁）：每個任務只存一小段 prompt，而且只加在輸入那一層，所以同一個原始模型可以在同一批資料裡處理不同任務。老師說細節不重要，有興趣再看論文。
+
+當時的結論是 soft prompt 的表現比 hard prompt 好（第 59 頁）。老師認為很合理：它不必符合自然語言，可以探索的空間更大。第 59 頁的圖也顯示它仍不高於完整微調，那一頁的標題強調的是表現有競爭力、空間效率更好。
+
+**存多少東西（本文自編，模型大小沿用講義第 41 頁的 11B）。** 假設一個 11B 參數的模型要做三個任務。每個任務各微調一份，要存 33B 個參數。改用 soft prompt，假設每個任務學 100 個 prompt 向量、每個 4096 維，一個任務是 409,600 個參數，三個任務約 123 萬個，再加上一份共用的 11B 模型。三個任務多存的 123 萬個參數，只有一份模型的萬分之一左右，所以幾乎等於只存一份模型。講義第 58 頁的圖用的數字更小：每個任務約 20K 個參數。
+
+## Prompting 的全景：什麼東西可以動
+
+影片 6.6 依 [Liu 等人 2021 的 survey](https://arxiv.org/abs/2107.13586)，先講研究重心的四個階段（第 60 頁）：
+
+| 階段 | 研究者花力氣的地方 | 任務之間的關係 |
 |---|---|---|
-| [P-Tuning](https://arxiv.org/abs/2103.10385)（Liu 等人 2021） | 直接優化 prompt 的 embedding，而不是找 prompt 文字 | 例子：為「The capital of Britain is [MASK]」搜尋 prompt |
-| [Prefix-Tuning](https://arxiv.org/abs/2101.00190)（Li 與 Liang 2021） | 只優化**每一層**的 prefix embedding | 訓練時間與空間更有效率 |
-| [Prompt Tuning](https://arxiv.org/abs/2104.08691)（Lester 等人 2021） | 每個任務只存一小段 prompt（**只在一層**），推論時可以混合不同任務共用同一個原始模型 | 表現有競爭力，空間效率更好 |
+| 非神經網路的監督式學習 | 設計特徵 | 各自獨立 |
+| 神經網路的監督式學習 | 設計架構 | 各自獨立 |
+| Pre-train、fine-tune | 設計預訓練目標 | 語言模型被微調到各個任務 |
+| Pre-train、prompt、predict | 設計 prompt | 各個任務直接來用同一個語言模型 |
 
-第 59 頁把 fine-tuning、prefix-tuning、hard 與 soft prompt-tuning 並排比較表現與空間效率。這條線直接接到[第 10 篇 PEFT](/posts/ai/2026-09-30-ntu-adl2025-peft-lora-hw2)：Adapter 與 LoRA 也是在回答「不動整個大模型，只調一小部分」。
+接著是分類的幾個維度（第 61–66 頁）：預訓練模型的類型、prompt 的形狀（中間挖空或給前綴讓它接）與產生方式（人寫或自動、離散或連續）、答案的形狀、多個 prompt 的組合，以及訓練策略。
 
-## Prompting paradigm：一張分類地圖
+老師說最後一個維度最重要，問的是模型參數和 prompt 參數各動不動：
 
-第 60–66 頁依 [Liu 等人 2021 的綜述](https://arxiv.org/abs/2107.13586)，把 prompting 研究分成五個維度，影片 6.6 叫它「基於提示的研究大補帖」：
+| 策略 | 語言模型 | Prompt | 例子 |
+|---|---|---|---|
+| Promptless fine-tuning | 調 | 沒有 prompt | BERT：輸入就是題目本身，沒有告訴它任務是什麼 |
+| Tuning-free prompting | 不動 | 不訓練 | 現在使用 LLM 的方式 |
+| Fixed-LM prompt tuning | 不動 | 調 | Prefix-Tuning |
+| Fixed-prompt LM tuning | 調 | 固定 | T5：任務名稱寫在輸入前面 |
+| Prompt＋LM tuning | 調 | 調 | P-Tuning |
 
-- **預訓練模型**：left-to-right LM（GPT 系列）、masked LM（BERT、RoBERTa）、prefix LM（UniLM）、encoder-decoder（T5、BART）。
-- **Prompt engineering**：形狀（cloze 填空 vs. prefix 前綴）、人工設計 vs. 自動（離散如 LM-BFF，連續如 Prefix-Tuning）。
-- **Answer engineering**：答案的形狀（token、span、句子）與設計方式。
-- **Multi-prompt learning**：ensemble、augmentation、composition、decomposition、sharing。
-- **Training strategies**：哪些參數要調——promptless fine-tuning（BERT）、tuning-free prompting（GPT-3）、fixed-LM prompt tuning（Prefix-Tuning）、fixed-prompt LM tuning（T5）、prompt＋LM tuning（P-Tuning）。
+這張表依講義第 65 頁。影片裡老師先把 P-Tuning 和 Prefix-Tuning 一起放在 fixed-LM 那一列，後面又說 P-Tuning 兩者都調，以講義的歸類為準。
 
-最後這個維度最實用：拿到一篇新方法，先問它**調模型參數、調 prompt 參數，還是都不調**。
+## 最後留下來的是哪一條路
 
-## 讀完這篇能做什麼
+老師在結尾回答了開頭的問題。當時的實驗顯示 soft prompt 比 hard prompt 好，但到現在還在用的，是 **tuning-free prompting**：什麼都不訓練，直接問。
 
-- 看到一個模型名稱，說出它屬於 encoder、decoder 還是 encoder-decoder，以及預訓練目標是什麼。
-- 解釋 fine-tuning 和 in-context learning 的差別，以及 scaling laws 在資源分配上回答什麼問題。
-- 區分 hard prompt（template＋verbalizer、LM-BFF）和 soft prompt（P-Tuning、Prefix-Tuning、Prompt Tuning）在「調什麼、存什麼」上的不同。
+原因有兩個：預訓練的資料已經夠多元，後來又有 post-training，讓模型在上線前先學會做各式各樣的任務。使用者自己改寫 prompt、試哪一種比較好，其實就是手動版的 prompt tuning：模型固定，調的是 prompt。要進到模型裡動參數的做法比較麻煩，也不太可行，現在比較少人做。
 
-**怎麼做**：拿[上一篇 HW1](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa) 的 paragraph selection 當例子，試著把它改寫成 prompt 形式：設計一個 template（例如「問題：…段落：…這段能回答問題嗎？[MASK]」）和一個 verbalizer（能／不能），再對照講義第 61–66 頁，寫下這個做法在五個維度上各屬於哪一格。
+她說這一堂講這麼多已經少用的方法，是要讓大家看到一個趨勢：模型還小的時候，能動的地方很多；模型越來越大，裡面動不到了，大家才轉去想怎麼從外面改變它的行為。之後的 chain-of-thought 也是同一個方向。
 
-## 本文能確認與不能確認的
+## 常見的誤解
 
-能確認：講義 67 頁的每頁標題、列點與表格文字，影片標題與長度（播放清單核對），上面每篇 arXiv 論文的標題（arXiv 核對）。
+這幾條是我依課堂內容整理的。
 
-不能確認：本文沒有逐字聽寫影片，老師口頭補充的例子與評論沒有寫進來。講義中的圖表（GPT-3 各任務表現、訓練成本、scaling laws、LM-BFF 與 prompt tuning 的結果）只轉述標題與結論，數字請以原論文為準。GPT-3 資料量講義寫 45TB，這是講義的數字，本文沒有另外核對原論文的前處理前後定義。
+- **「In-context learning 也是一種訓練。」** 模型的參數完全沒有更新。例子只是輸入的一部分。
+- **「Encoder 的理解能力比較強，所以 encoder 模型勝出。」** 那幾年在理解任務上確實如此，但 encoder 不能生成。最後勝出的是 decoder-only。
+- **「Verbalizer 取機率最高的詞。」** 它只在指定的幾個詞之間比較。
+- **「Soft prompt 效果比較好，所以現在都用它。」** 當時的實驗結果是這樣，但留下來的是不訓練的 prompting。
+- **「模型越大就一定越好。」** Chinchilla 的結果是：資料沒有跟上的話，大模型的容量是浪費的。
 
-延伸閱讀：站上 [CS224N 第 7 講：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)講同樣的三種架構與 in-context learning；[CS336 的 scaling laws 基礎](/posts/ai/2026-08-22-cs336-scaling-laws-foundations)把 Kaplan 與 Chinchilla 講得更深；[CS224U 的 in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)從 prompt 設計與 DSPy 的角度延伸。
+## 自我檢查
 
-系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [HW1 中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)｜下一篇 [後訓練：Instruction Tuning、RLHF 與 InstructGPT](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
+題目是本文自擬的。
+
+**1. 一個模型預訓練時只能看到左邊的 token，預測下一個 token。它是哪一類？適合直接拿來做翻譯嗎？**
+
+Decoder-only。可以：把原文當成輸入，讓它接著生成譯文。
+
+**2. 同一句「Thank you for inviting me to your party last week」，挖掉 for inviting 和 last 之後，BART 和 T5 預訓練時各要輸出什麼？**
+
+BART 要輸出完整的原句。T5 只輸出缺掉的部分，並用標記對應位置，例如 `<X> for inviting <Y> last <Z>`。
+
+**3. 用 fine-tuning 做三個任務，和用 in-context learning 做三個任務，各要存幾份模型？**
+
+Fine-tuning 是三份，每個任務一份。In-context learning 只要一份，三個任務只差在輸入的 context。
+
+**4. Template 是「這則評論：＿＿。整體來說它很 [MASK]。」，verbalizer 是 好 → 正面、差 → 負面。模型在 [MASK] 的機率是：普通 0.4、差 0.25、好 0.15。預測的標籤是什麼？**
+
+負面。Verbalizer 只比較「好」和「差」，差的 0.25 高於好的 0.15。「普通」不在 verbalizer 裡，不列入比較。
+
+**5. Prefix-Tuning 屬於上面訓練策略表的哪一列？語言模型和 prompt 各動不動？**
+
+Fixed-LM prompt tuning。語言模型不動，只訓練 prefix 的向量。
+
+**6. 你手上沒有任何標註資料，想用語言模型做情緒分類。這一堂的方法裡哪些還能用？**
+
+只能用 zero-shot 的 prompting：自己寫一個 template 直接問。Prompt-tuning、LM-BFF 的 template 篩選與 soft prompt 都需要標註資料。老師的建議是至少想辦法給模型一個例子。
+
+**7. 替「判斷一封信是不是垃圾信」設計一組 template 與 verbalizer，模型是 masked LM。**
+
+答案不只一種。例如 template 是「信件內容：＿＿。這封信是 [MASK] 信。」，verbalizer 是 垃圾 → 垃圾信、正常 → 非垃圾信。檢查兩件事：template 裡有一個 [MASK] 讓模型填；verbalizer 的每個詞都能對回一個標籤。（本文補充，課堂沒有談：一個 [MASK] 只填一個 token，所以 verbalizer 的詞最好是模型詞彙表裡的單一 token。）
+
+**8. Hard prompt 和 soft prompt 差在哪裡？當時哪一個效果好，現在留下來的是什麼？**
+
+Hard prompt 是人看得懂的文字，soft prompt 是直接訓練出來的向量，不對應任何文字。當時的實驗是 soft prompt 效果比較好。現在留下來的是不做任何訓練的 prompting，加上使用者自己手動改寫 prompt。
+
+## 延伸閱讀
+
+- [CS224N 第 7 堂：預訓練](/posts/ai/2026-08-22-cs224n-pretraining)講同樣的三種架構與 in-context learning。
+- [CS336 的 scaling laws 基礎](/posts/ai/2026-08-22-cs336-scaling-laws-foundations)把 Kaplan 與 Chinchilla 講得更深。
+- [CS224U 的 in-context learning](/posts/ai/2026-09-29-cs224u-in-context-learning)從 prompt 設計與 DSPy 的角度延伸。
+
+系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [作業 1：中文抽取式問答](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa)｜下一堂 [第 7 堂：後訓練與高效調整](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
 
 ## 課程影片來源
 
@@ -187,15 +328,17 @@ title: 6.2
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-查核日期：2026-10-10。
+查核日期：2026-10-13。
 
-內容核對：已依字幕核對（2026-10-10）：6.1 與 6.2 兩支都讀了字幕。6.1：預訓練的定義與大規模資料、BookCorpus 與「合理使用 vs. 著作權」爭議、各國規範仍在演變，與文章「預訓練是什麼」相符（影片另外談了 Anthropic 買實體書掃描與盜版書賠償等判決，文章沒有寫）；6.2：encoder／decoder／encoder-decoder 三類架構、BERT 的 15% 遮罩與 RoBERTa、SpanBERT、GPT-1 約 7000 本書與 12 層、GPT-2、GPT-3 的資料與規模增長、BART 與 T5 的去噪輸出差異、分類微調差異、T5 多任務預訓練像今日 post-training，皆與文章對應段落相符。講義第 23 頁「BART 在多數欄位分數較高」是講義表格的說法，影片口述則是兩者表現不相上下，文章已標明出處為講義。6.3–6.6 與 6.0 未嵌入，未核對。
+內容核對：已依字幕核對（2026-10-13）：6.1–6.6 六支都依字幕整理；課堂問答 6.0 未對照。講義第 23 頁的表格寫 BART 在多數欄位分數較高，影片口述說兩者不相上下，文中並列。Anthropic 一案老師口頭說是判賠，講義第 4 頁貼的新聞標題寫的是 settle，另查後確認是和解，已在文中註明。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
 - 2026-10-10：依字幕核對影片內容。確認 6.1、6.2 與文章相符；補註 BART 對 T5 表現一項講義與口述略有差異，文章已標講義出處。
+- 2026-10-13：查證歷程移出正文；系列內互相引用由篇序改為堂次。
+- 2026-10-13：依六支影片的課堂口述重寫全文，補上 verbalizer 與儲存量的例子、常見誤解與附答案的自我檢查。
 
 ## 參考資料
 
@@ -218,3 +361,5 @@ title: 6.2
 - [Prefix-Tuning（arXiv 2101.00190）](https://arxiv.org/abs/2101.00190)
 - [The Power of Scale for Parameter-Efficient Prompt Tuning（arXiv 2104.08691）](https://arxiv.org/abs/2104.08691)
 - [Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in NLP（arXiv 2107.13586）](https://arxiv.org/abs/2107.13586)
+- [Bartz v. Anthropic PBC（美國著作權局合理使用判決摘要）](https://www.copyright.gov/fair-use/summaries/Bartz-v-Anthropic-PBC-787-F-Supp-3d-1007-ND-Cal-2025.pdf)
+- [Anthropic agrees to pay $1.5 billion to settle author class action（Reuters，2025-09-05）](https://www.reuters.com/sustainability/boards-policy-regulation/anthropic-agrees-pay-15-billion-settle-author-class-action-2025-09-05/)

@@ -1,0 +1,464 @@
+[00:00] 大家好,我是作業一的主角。今天要講的就是經驗的作業一。先講一下Submission的DateLine。這作業有幾個東西要繳,第一個就是你要trend model去採一些預測,然後就交到這個Caggle上面去。就是交到這個Caggle的Leaderboard。繳交的期間是三個禮拜後,就是9月29號的晚上11點59分。
+[00:29] 那在繳交完訓練好的Model 纏出來的 Prediction 之後
+[00:33] 我們會需要同學再繳交一些相關的 Code 跟 Reports
+[00:39] 這次繳交到 NTU CORE 上
+[00:41] Dayline 就是再兩天之後 也就是 10 月 1 號的晚上 11.59
+[00:46] 請注意我們是不接受任何形式及理由的遲交的
+[00:51] 所以請同學盡早開始寫作業 準時繳交 不要遲交
+[00:56] 之後如果有一些相關的update,我都會update在投影片的Trendelogs這一頁
+[01:02] 大家有空的話可以來找一下,或者是有些重大的update我會發公告通知大家
+[01:10] 這次作業邀請同學,實作的任務是這個叫Chinese Extractive Question Answering
+[01:16] 基本上就是做一個Quest answering的任務
+[01:19] 一個例子是這樣,比如說現在有個問題是問說在關係正式用什麼方言為主
+[01:25] 在這個任務裡面,我們會對每個問題,四個不同的paragraph
+[01:33] 這些paragraph可能有的跟這個問題有關,有的跟這個問題沒有關
+[01:37] 同學要做的事情就是,你的模型是要有辦法吃這些input
+[01:42] 然後output這個問題對應的答案
+[01:44] 這個答案其實就是從四個paragraph裡面其中一篇去找問題對應的答案是什麼
+[01:50] 然後把它output出來
+[01:52] 就是這個整個 task 的 overview 是這樣子
+[01:56] 實際上要怎麼去 model 這個東西可以分成兩個部分
+[02:00] 第一個部分叫做 Paragraphs to the action
+[02:03] 基本上就是說現在給一個問題我們會有四個 Paragraph 當 input
+[02:07] 你要做的事情就是你可以先 train 一個 model
+[02:10] 就是 given 這個問題跟這四個不同的 Paragraph
+[02:13] 你會 train 一個相對的 multiple choice model
+[02:15] 這個 multiple choice 的意思就是說
+[02:16] 你可以把這四個不同的 Paragraph 當作選項
+[02:19] 請 model 看著這些 input 去選擇最相關的文章出來
+[02:28] 第二個 part 就是你選了一個最相關的文章出來之後
+[02:32] 你可以再訓練另外一個 model 去做實際上一個 Extractive QA
+[02:36] Extractive QA 的意思就是說 現在給你這個問題跟這個 paragraph
+[02:39] 你的 model 要去從這個文章裡面找到一個 span
+[02:42] 這個 span 就是整個 answer 這樣子
+[02:44] 整個答案其實是在這整個 paragraph 裡面可以被找到的
+[02:49] 所以你的 model 要做的事情就是從這個 paragraph 去 extract
+[02:52] 對應的 answer span 出來,然後 predict 這個 final 的 answer
+[02:56] 基本上我們的作業是保證說
+[02:59] 只要你選的 paragraph 是正確的
+[03:01] 應該四篇裡面只有一篇是正確的
+[03:03] 那這個最後的 answer 就一定會出現在這個 paragraph 裡面
+[03:08] 這樣子
+[03:11] 實際上一個例子就是我們可以再看剛剛那個例子
+[03:13] 就是問題就是關係正式什麼方言為主
+[03:15] 然後有四個不同的paragraph input
+[03:18] 第一部分就是paragraph selection
+[03:20] 你的model看完這四個paragraph之後
+[03:23] 看一看就是選比如說最相關的應該就是第一個這個paragraph
+[03:26] 因為之後他在講語言之類的資訊
+[03:30] 再來就會進到你的stage 2 就是做span selection
+[03:33] 就是他從這個問題給定這個問題跟這個paragraph
+[03:36] 然後去找說答案在這整個文章裡面的哪裡
+[03:40] 以這個意思的話,這個反紅色的部分就是它的答案
+[03:44] 所以你的span extraction 的 model 要做的事情就是
+[03:48] extract span 的開始跟結束的位置出來
+[03:51] 然後我們就是用這個位置去 extract 對應的答案
+[03:55] 當作是最後 predict 的 answer
+[04:00] 這次作業用的 data 你可以從 Calico 上面 download
+[04:03] 然後在這個概念上面下載,連結在這邊
+[04:05] 然後我們Evaluation用個Metrics
+[04:07] 因為現在每個問題都會有一個Ground Truth的Answer
+[04:10] 我們會拿這個Ground Truth的Answer
+[04:12] 跟你模型Predict出來的那個Answer
+[04:14] 去做一個Exact Matching
+[04:16] 那這個Exact Matching的意思就是
+[04:17] 如果兩個你的Predict出來的Answer
+[04:19] 跟Ground Truth是完全一樣的
+[04:21] 我們才會算是正確,這樣去做Evaluation
+[04:26] 這邊我們可能給同學一些Guide
+[04:29] 首先第一個概念就是關於第一個 stage 就是做 paragraph selection 的部分
+[04:34] 基本上對每個 input 問題而已你都會拿到四個 paragraph
+[04:38] 你要怎麼去實作 paragraph selection 基本上可以把它想像成是一個多選題的任務
+[04:44] 只是你今天的選項是每一個 paragraph 跟 question 這樣的一個 pair 它就是一個選項
+[04:50] 所以你有四篇 paragraph 就會有四個這樣一個 pair
+[04:56] 那你就把這四個配合丟進去之後問Model說
+[05:00] 那你就是train一個 Multiple Choice的Model
+[05:03] 讓他去predact哪一個是正確的Choice
+[05:07] 那如果跟這個任務不是很熟悉的同學可以去看這個
+[05:11] 我們附了一個Hugging Face官方就是一個
+[05:15] 在做AI應該都知道的一個Open Source的平臺
+[05:18] 它有一個Multiple Choice的Example Code
+[05:21] 那基本上我們強烈建議同學去看這個Sample Code
+[05:23] 他們應該有對應一個 Tutorial 可以去看
+[05:26] 那基本上就是強烈建議同學去看這個 Sample Code
+[05:29] 然後讀懂之後就是基本上你要做的事情就是
+[05:33] 你只要把他這邊
+[05:35] 這個 Code 基本上就是在做訓練
+[05:37] 他就是會 Load Data Load Model
+[05:39] 然後實際上去訓練這個 Model
+[05:41] 那同學讀完這個 Code 之後
+[05:43] 你基本上要做的事情就是
+[05:44] 你就把 Load Data Set 的部分
+[05:47] 把那個 Data 的 Format 改成我們提供的 Format
+[05:51] 那其他部分應該都不用懂
+[05:53] 你就可以直接跑 Sample Code 去訓你的 Paragraph Selection 的 Model
+[05:58] 這是第一個部分的 Guide
+[06:01] 第二個部分的 Guide 就是在做 Spam Selection
+[06:04] 就是做 Extractive QA 的部分
+[06:06] Hugging Face 也有提供 Extractive QA 的 Code
+[06:09] 我們非常強烈建議同學去使用這個 Sample Code
+[06:13] 你要改的部分基本上應該也只是 Load Data 的部分
+[06:18] 就是把 XM code 裡面 data 的 format
+[06:21] 改成我們實際上給你的 data 的 format
+[06:24] 那應該就可以直接 train 你的 spam selection 的 model
+[06:28] 然後這邊有一些關於 answer spam 的一些注意事項
+[06:31] 因為這個 answer spam 創一個 spam 就是包含它的起始的位置跟結束的位置
+[06:36] 在文章裡面的對應的位置這樣子
+[06:39] 在 x-trained 你的 answer 的時候
+[06:41] 我們是建議同學用 start position 去 identify 你的 answer spam
+[06:46] 而不是用 Python 內建的點 index 這個 function
+[06:49] 因為點 index 的 function 你可能會
+[06:51] 比如說你今天的 ground truth 的 answer 是四線槍刻加語
+[06:55] 這個 answer 可能同一個 paragraph 裡面會出現非常多是四線槍刻加語
+[06:59] 所以你就不確定哪一個 span 還是真正的 ground truth 的 span
+[07:03] 所以我們建議你用 stop position 去 identify
+[07:06] 不是建議 你就是要用 stop position 去 identify 這個 answer span
+[07:10] 那就請空學大家注意一下
+[07:13] 我們這邊提供我們在 Trang
+[07:17] 就是 Calculous 是這樣的
+[07:19] 就是你要繳繳你最後的 model 出來的 predictions 上去
+[07:24] 然後我們就會自動幫你跑平分
+[07:26] 你就有幾個不同的 baseline
+[07:28] BaseLight 就是一個分數的標準
+[07:30] 我們這次的作為有兩個 baseline
+[07:32] 一個是 simple 一個是 strong baseline
+[07:34] 我們這邊就提供一些我們 Trang Simple Baselight 的 model
+[07:38] 用一個 Hyperparameter 基本上都在這邊
+[07:41] 整個訓練花了不到兩個小時
+[07:45] 一張 RTX 3070 它只有 8GB RAM 的 GPU 這樣
+[07:51] 用這個東西訓練的
+[07:53] 在 Spam Selection 我們也附上相關的 Hyperparameter 跟 Resource 用的
+[07:57] 空缺可以參考一下
+[08:00] 我們用的 code 應該就是 Simple Code 改用 Load Data 的部分
+[08:04] 這樣訓練 Simple Baseline
+[08:07] 這邊也給同學一些提升表演的提升
+[08:12] Kaggle是這樣的,它的Leader Board會分成Public跟Private
+[08:19] Public就是說你把Prediction交上去之後就可以馬上看到分數是多少
+[08:25] 但Private就是你交上去之後其實看不到分數是多少
+[08:29] 要等到Deadline之後才會公佈Private的分數
+[08:33] 你要怎麼去預估說你的 private performance 會長怎樣
+[08:39] 我們這邊給的 tips 就是
+[08:40] 如果你在Probably 的分數可以拿到比如說 0.78
+[08:44] 那你應該就有很高的機率可以透過這個 private 的 strong baseline 這樣子
+[08:48] 然後下面就有一些其他比如說你在跑 Semple空騰而遇到的問題
+[08:54] 或者一些 enhance 這個 performance 的 tricks
+[08:58] 或者是可以減少 memory usage 像是 gradient accumulation
+[09:03] 就請同學自行閱讀
+[09:06] 那這邊講一下一些相關的 rules
+[09:08] 你可以做的事情就是
+[09:10] 就是用我們給你的 training data 去 train model
+[09:14] 你不要去找任何其他的 data
+[09:17] 任何網路上相關的 data 去 train model
+[09:19] 就是請只使用我們提供給你的 training data train
+[09:23] 然後用的 model 請你使用的就是
+[09:26] 一些Public Available的Pretrain好的language model
+[09:29] 那這些基本上就是你在HuggingPay上找到的Model
+[09:32] 應該就是比較OK這樣子
+[09:34] 因為它基本上就是Public Available
+[09:36] 那我們有一些
+[09:38] 我們對於能使用的Package有做一些限制
+[09:40] 那我們就幫忙把能用的Package
+[09:42] 跟對應的版本都列在這邊
+[09:44] 對
+[09:46] 那你不能做的事情就是
+[09:47] 首先最重要就是你不能去抄襲或作弊這樣
+[09:50] 那這些抄襲有非常多種不同的行為
+[09:52] 就是我相信同學內心都有輸出
+[09:54] 比如說你不要去抄之前的 ADL 課程,其他人 release a code
+[09:59] 然後你也不要嘗試去找 testing set 的 label
+[10:05] 就是你... either 是你直接去找,或者是你用某種方式得到這些東西
+[10:11] 基本上就是你不要嘗試去 create testing data 的 label
+[10:17] 然後你也不要用我們不允許的 package 或 tools
+[10:21] 第四個蠻重要的就是你在找Model的時候
+[10:24] 要注意你不能找有Pretrend在QA或NLI相關Task的Model
+[10:30] 我們這邊就列了幾個例子
+[10:32] 你不能用這些Model
+[10:34] 基本上就是你去讀一下這些Model的Description
+[10:37] 只要它有Trend在QA或NLI的Dataset
+[10:40] 基本上你就是不能用這個Model
+[10:42] 如果你今天不確定這個Model能不能用
+[10:44] 請麻煩記性或者是到NTUQ的討論版先問我們
+[10:50] 就是這個 model 能不能用這樣子
+[10:52] 然後其他不能做的事情
+[10:54] 就比如說你不能去跟同學要同學穿好的 model
+[10:57] 或者是他同學 generate出來的 prediction
+[10:59] 然後你也不要去在 deadline 之前去 publish 你的 code
+[11:03] 然後也不要嘗試去寫密到之前的
+[11:06] 前幾年 ADL 的 Calical page 上
+[11:09] 然後你也不要嘗試去
+[11:12] 繳交超過每天繳交次數上限的那個次數
+[11:17] 你不要用任何方法去突破這個時速上限
+[11:20] 只要被我們發現你違反這些規則的話
+[11:23] 我們就有一些相關的 penalty 比如說給零
+[11:25] 可能你會拿到零分或是負分
+[11:27] 或是依效規數字,就是使問題的嚴重程度
+[11:33] 這次做一些絞交就分兩個部分
+[11:35] 第一個就是你要絞交 prediction file 到 Calico 的 leaderboard 上
+[11:39] 那 Calico Leaderboard 就是你可以點這個連結進去
+[11:43] 基本上你要繳交的時候注意一下
+[11:47] 你的Tinname要是你的學號
+[11:49] 這個學號是用訊息英文字母開頭
+[11:53] 除了Prediction File之外
+[11:55] 你還要交一些你的Code跟Report
+[11:57] 要交的檔案都列在這邊
+[12:00] 基本上你包成一個 .zip File
+[12:02] 這個zip File Unzip 開來應該就是這些東西
+[12:06] 然後這個zip File的檔名就一樣也是學號
+[12:09] 然後是訊息英文字母開頭
+[12:11] 你要教的東西等一下會再一一講一下這四個東西是什麼
+[12:16] 跟一些你Trending用高的Code
+[12:20] 或者是你Inference用高的Code
+[12:22] 或者是你在寫Report的時候可能需要做一些圖
+[12:25] 用高的Code都附在這個.zip檔裡面
+[12:28] 注意的是你不要把你的Trending validation或Testing data
+[12:34] 或甚至是你的Model包在這個.zip的File
+[12:37] 因為這些太大了
+[12:38] 上升到Code可能會有一點問題這樣
+[12:41] 所以基本上就是包含這些 file,命名要對
+[12:47] 剛剛有很多 zip file 裡麵包很多東西
+[12:50] 第一個是 download.sh
+[12:52] 基本上你要做的事情就是
+[12:54] 會需要交這些東西是因為我們需要
+[12:57] reproduce 在 Kaggle leaderboard 上的結果
+[13:00] 也就是說我們會下載你的 model,然後幫你跑一次 inference
+[13:03] 然後對一下說看一下我們跑出來的 inference 的結果
+[13:06] 跟你在 Kaggle 上的結果是不是一致的
+[13:10] 所以第一稿教的就是 download.sh
+[13:13] 那他做的事情基本上就是 download你 pre-train 好的
+[13:17] 你 trend 好的 model 跟你用的 tokenizer 跟相關的 data
+[13:23] 那你可以把...
+[13:24] 基本上你有兩種方式可以上傳這些東西
+[13:26] 就是你可以上傳到 Dropbox
+[13:28] 那你在 script 裡面可以用 wget 去 download 這些檔案
+[13:32] 或者是你上傳到 Google Drive
+[13:34] 那你就可以用 gdown 這個指令去 download 這些檔案這樣子
+[13:38] 繳交上來之後請確保說這些檔案是我們可以順利下載的
+[13:46] 也請注意不要在Dayline之後更改這些下載的連結
+[13:51] 這樣會被我們當作是取疑
+[13:55] 也請確保這些下載的連結是至少在Dayline後兩個禮拜內可以用
+[14:02] 兩個禮拜內可以用的
+[14:06] 這支download.sh script要做的事情基本上就只有download
+[14:11] 你不要再做任何其他的事情
+[14:13] 不然我們會直接Q掉你的script
+[14:16] 然後你的download檔案大小的limit基本上就是4GB
+[14:21] 我們基本上會要求這個檔案可以下載完所有的
+[14:26] 你腳腳檔案在一個小時之內
+[14:29] 然後我們在跑reproduce的最一開始我們就會跑download.sh
+[14:35] 再來就是第二個 script 是 run.sh
+[14:39] 他做的事情就是我們跑完 download.sh 之後會有你的 model
+[14:44] 跟一些 data
+[14:45] 我們要做的事情就是 run.sh 要做的事情就是
+[14:48] 實際上幫你再跑的是這個 inference 的過程
+[14:53] 這次 script 的話我們會要求你要可以持三個引數
+[14:58] 第一個引數應該就是
+[15:00] contact 就是 paragraph 的 JSON 檔
+[15:03] 第二個引數是這個 Testing Data 的路徑
+[15:08] 第三個引數是最後你 Prediction 的 file 要 output 到的路徑
+[15:15] 實際上在執行,在幫你 reproduce 之後我們會像這樣子 reproduce
+[15:20] 就是我們先跑 Download.sh 然後跑 Run.sh
+[15:24] 把這三個引數當作 Command Line 的 argument 傳進去
+[15:28] 所以請確保你的 Run.sh 可以正確地吃完這三個引數
+[15:34] 然後他要做的事情應該就是去 load 這些 file 然後 load 你的 model
+[15:38] 這個 model 就是 download.sh 下載下來的
+[15:40] 應該可以指定那個 download 的路徑 然後就要去 load 這個 model
+[15:43] 然後就是實際上去跑這個 inference
+[15:46] 然後把最後的 prediction  output 到我們指定的這個位置這邊
+[15:51] 那我們會限制 Run.sh 最多隻能跑兩個小時
+[15:56] Environment的Setting我們會在下頁講
+[15:59] 然後請同學在教之前
+[16:01] 可以麻煩請確保說你這兩個script都是Work的
+[16:05] 就是我們可以直接跑download.sh
+[16:08] 再跑run.sh
+[16:10] 就拿到最後的prediction
+[16:13] 麻煩同學就是交上來之前都要先測試一下這些codes work的
+[16:18] 再來是我們執行的環境
+[16:21] 我們執行的環境就是我們會用一個ubuntu的Server
+[16:24] 然後它的 hardware  spec 我們就列在這邊
+[16:27] 對 然後實際上在執行的時候
+[16:29] 我們用了 Python 是 3.10 的版本
+[16:31] 然後 package 就是像我們前面的
+[16:34] 前面某頁列的那一些
+[16:35] 就是我們只會有這些 package 可以用
+[16:38] 然後在跑完 download.sh 之後我們會斷網
+[16:42] 所以你的 run.sh 基本上應該是不能 access 到網路的這樣子
+[16:47] 所以你確保說你要 download 的時候
+[16:49] 你的 model 就是已經在 download.sh 就 download 好這樣子
+[16:52] 除了那兩個 script 以外,還要再交一個 remi.md
+[16:57] 這個 remi.md 就是要寫一個 step-by-step 的 instruction
+[17:02] 告訴我們你是怎麼 train 你的 model
+[17:04] 用你交上來的,你的 .zip 檔還要保你 training 用的 code 或 script 這樣子
+[17:10] 基本上你一定要有 remi.md,然後它不能是空的
+[17:13] 不然我們就會扣你兩份這樣子
+[17:16] 如果我們 reproduce 之後發現你跑出來的結果有點奇怪的話
+[17:20] 有點奇怪的話我們可能會要求你
+[17:22] 就是照著你的 Remedy.md 去重新傳出你的 model
+[17:26] 然後如果你照著你的 Remedy.md
+[17:28] 你也沒有辦法 reproduce 你的結果的話
+[17:30] 我們可能會斟酌扣分這樣子
+[17:33] 那最後就是算分的部分
+[17:35] 分數就分兩個
+[17:37] 第一個就是你的 model 的 performance
+[17:40] 那基本上就是靠 Kaggle  leaderboard 去決定
+[17:43] 那就是像前面說我們有兩個 base line
+[17:45] 一個是 simple 的 base line 跟 strong 的 base line
+[17:48] 每個背賽又分成它在 Public Testing Set 的 score 跟 Private Testing Set 的 score
+[17:53] 總共這邊加起來全部的背賽就是 10 分這樣子
+[17:56] 然後
+[17:58] 再來就是 Reproduce 的分數
+[18:00] 就是我們要可以跑 Download.sh 跟 Run.sh 就 Reproduce 出你的結果
+[18:05] 就是我們不需要手動去幫你改什麼東西
+[18:07] 我們就可以直接跑這兩個指釘就跑了
+[18:09] 就 Reproduce 出你的結果的話 你會再多拿到 1 分
+[18:12] 那如果我們沒辦法直接跑出 Reproduce 出你的結果的話
+[18:16] 這一分可能就拿不到
+[18:17] 如果我們在 Human Intervention 之後
+[18:22] 我們還是沒有辦法 reproduce 結果
+[18:25] 那基本上你可能就會拿到 0 分
+[18:28] 這個就請同學特別注意是整體 0 分
+[18:31] 另外一個 Part 就是你要教 Report
+[18:36] 等一下會再說明說 Report 是有哪些問題
+[18:39] 這個 Report 應該是一個 PDF 的檔案
+[18:41] 命名就是 Report.pdf
+[18:43] 請同學參照前面投影片的命名
+[18:47] Report總共有幾個問題
+[18:49] 應該是四個問題加一個Bonus
+[18:52] 第一個問題是關於 Data Processing
+[18:54] 有兩個小問題
+[18:56] 第一個是關於 Tokenizer
+[18:57] 就是你要講一下你的 Tokenizer 的 Algorithm 是什麼
+[19:00] 基本上你不能只是回答說
+[19:02] 你就 Call Hockingface 的 Tokenizer 電影 Call 之類的東西
+[19:06] 你要細節的去講說這個 Tokenizer 背後是怎麼運作的
+[19:10] 基本上就是
+[19:12] 只要你有解釋到這個 Tokenizer 是怎麼做的
+[19:15] 我們基本上應該就會給分這樣子
+[19:17] 然後另外一個就是你是怎麼去
+[19:20] convert這些
+[19:23] 關於 Answer Spam 的這些 Predictions
+[19:25] 就是你的 Answer Spam 應該就是
+[19:26] 這個 Prediction 應該長得很像是
+[19:28] 會有一個 Start 跟 End 的 Position
+[19:30] 對 然後應該是
+[19:32] 你是怎麼 Convert這個 Character Level 的
+[19:35] Position 到 Token Level 的 Position 的
+[19:38] 因為你 Tokenize 之後
+[19:40] 這個 Position 可能會需要做一些 Mapping
+[19:42] 所以請同學描述一下你是怎麼做這個 Mapping 的
+[19:44] 做一個 mapping
+[19:46] 另外一個問題就是
+[19:48] 在你的 model 預計完
+[19:50] 就是 answer span 的開始跟結尾的機率之後
+[19:53] 你是怎麼去把這個機率轉成
+[19:55] 實際上最後
+[19:57] 你 output 的 start 跟 end 的 position
+[20:00] 就請同學描述一下這兩個問題
+[20:03] 第二個就是
+[20:05] 我們就像同學去
+[20:07] 第一個是你去 describe 一下你最後
+[20:10] 選擇的 model 是什麼
+[20:12] 跟他最後在LeaderBrow上的 performance是什麼
+[20:15] 跟一些training相關的configuration
+[20:18] 比如說你的Loss Function,你的automization algorithm
+[20:20] 你的learning rate,你的batch size
+[20:23] 除了你最後用來當作是你繳交的那個Prediction File
+[20:28] 用的那個model以外
+[20:29] 我們希望同學再去train
+[20:31] 再去嘗試另外一個不同的model
+[20:33] 基本上就是要告訴我們
+[20:34] 你試了哪一個不同的model
+[20:36] 他的performance怎麼樣
+[20:37] 然後可能就告訴我們說
+[20:39] 然後你需要去解釋說
+[20:40] 這個model 跟上面這個model
+[20:44] 有哪些不同的地方
+[20:46] 這些不同的地方可能有很多種
+[20:48] 比如說 architecture 不一樣
+[20:49] 比如說 training and loss 不一樣
+[20:51] 比如說 training and data 不一樣
+[20:52] 就請同學在 report 裡面解釋一下
+[20:55] 這兩個model 的不同
+[20:58] 第三個就是需要請同學畫圖
+[21:01] 這個畫圖的意思就是
+[21:02] 在 training 的過程中
+[21:03] 比如說 loss 也可以對 loss 畫圖
+[21:06] 也可以去 monitor 你在不同 training step 的時候
+[21:09] 你的ExactMatch的這個Metrics是怎麼變化的
+[21:14] 那今天就是請同學在
+[21:16] 你可以調 Trending Set 或是 Validation Set 去畫圖
+[21:20] 或是你要兩個 Set 的話也都可以
+[21:23] 但今天就是請同學去 log 一下至少五個 Data Point
+[21:27] 去畫 Lost Curve 的圖跟 ExactMatch 的圖這樣子
+[21:34] 那第四個問題就是
+[21:36] 想請同學去實際的感受一下
+[21:39] 有 Pre-train 跟沒有 Pre-train 的 model 的差別
+[21:42] 基本上我們就希望說同學可以再挑
+[21:44] 你可以挑 either 是 Paragraph Selection 或 Spam Selection
+[21:47] 這兩個任務挑其中一個
+[21:49] 然後去 trend 一個沒有 Pre-train Weight 的 model
+[21:52] 就是你從沒有 Pre-train Weight 的 model
+[21:55] 去繼續做 Fine-tune 這樣子
+[21:57] 在 report 裡面你要 describe
+[22:00] 你 model 的 configuration
+[22:01] 就是它的可能是架構長怎樣之類的
+[22:04] 然後跟你怎麼 train 你的 model
+[22:06] 那就是講一下你的 hyper parameter 是什麼
+[22:09] 然後跟你從這個 non-pre-trained 的 model
+[22:12] train出來的 performance
+[22:12] 跟你用 BERT 出現出來的 performance 的比較這樣子
+[22:16] 那這個問題相關的 hint 其實就很簡單
+[22:18] 就是你基本上可以用你一樣的 training script
+[22:21] 但你就是跳掉就是
+[22:23] 你的 script 裡面應該會有一段是在 load pre-trained 的位置
+[22:26] 基本上你就是 skip 掉這個 part
+[22:27] 它應該就是
+[22:28] 你應該就會變成你在 train 一個 non-pre-trained 的 model
+[22:32] 如果你有興趣想要衝這個 non-prechaired model 的 performance
+[22:36] 我們有另外一個 hint 就是你可以去 reduce 一下 model 的 size
+[22:39] 那就是有興趣的同學再看就好
+[22:43] 那最後一個是 bonus 的 question
+[22:45] 這個 bonus 的 question 是這樣
+[22:47] 我們前面說你要實現 extractive QA 的方式
+[22:50] 就是你要先做 paragraph selection
+[22:52] 再從你 select 出來的 paragraph 去做 extractive QA
+[22:57] 這個 bonus 的問題就是
+[22:59] 我們希望不是這個 two-stage 的 pipeline
+[23:02] 而是說你能不能 train 一個 end-to-end 的 model
+[23:04] 這個 end-to-end 的意思就是說
+[23:06] 它 input 基本上就是吃這四個 paragraph 跟這個 question
+[23:09] 你的 model 要做的事情就是
+[23:11] 它就是處理這些 input 直接 output 一個 final 的 answer
+[23:16] 請同學可以想一下怎麼去實現這個 end-to-end 的 model
+[23:21] 在 report 裡面就是
+[23:23] 如果你要做這個 bonus 的話
+[23:25] 就是你去描述一下你的model的architecture是什麼
+[23:28] 然後你train上的performance是怎麼樣
+[23:30] 跟一些training相關的configuration
+[23:32] 是loss function、optimizer、learning rate或是batch size
+[23:36] 對
+[23:36] 那實現這種end-to-end model的方式應該有蠻多種
+[23:41] 那我們這邊給的一個 hint
+[23:42] 就是你可以試試看一些
+[23:44] 可以處理比較大的context window的model
+[23:48] 你可以從這個角度去想象
+[23:50] 你要怎麼實現這整個end-to-end的pipeline
+[23:54] 跟...
+[23:56] 可以找找看這種 model
+[24:00] 以上是座椅相關的說明
+[24:03] 如果有任何的問題
+[24:05] 我們優先鼓勵同學PO在這個
+[24:08] NTU CORE的 discussion上面
+[24:10] 因為你PO在這上面就是 TA 看得到
+[24:12] 同學看得到
+[24:13] 大家都可以幫忙回答這些問題
+[24:15] 你的問題可能是其他同學的問題
+[24:18] 或者是你也可以聯絡 TA
+[24:21] 有兩種方式
+[24:22] 第一個就是你寄信到 TA 的信箱
+[24:24] 然後在寄信的時候
+[24:26] 你的 title 請用 ADL-2025 homework 1 當作 title
+[24:30] 否則我們可能會 skip 掉你的信這樣子
+[24:33] 然後另外就是我們有 TA HOUR
+[24:35] 這個 TA HOUR 是定在每週五的下午 3 點到 4 點
+[24:39] 基本上就是在德天館的 5 二十
+[24:42] 那就是同學可以搭電梯到 5 樓 然後來敲個門
+[24:46] 那以上就是最異相關的說明

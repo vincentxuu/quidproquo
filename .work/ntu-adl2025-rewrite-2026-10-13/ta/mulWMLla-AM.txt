@@ -1,0 +1,131 @@
+# ADL 助教課 LLM Inference & Evaluation（mulWMLla-AM）：機器轉錄逐字稿（Whisper large-v3-turbo，未經人工校對）。每 5 分鐘一段分開轉錄，術語可能聽錯。注意：轉錄時給模型的提示詞用了錯的主題名稱，專有名詞的辨識可能因此更差。
+[00:00] 好 那我們就開始我們最後一次這個順時實習課 那我們今天就講說這個語言模型如何Inference 或是做Evaluation 那我們講Inference 先講Inference 我們Inference 其實大家會常做的東西就是bar quantize
+[00:18] quantize 就是原本你原本你的weight 我們之前講過 通常最好是用bflow16去訓練 或者用mix precision去訓練 然後這是16bit
+[00:28] 但是這樣子還是對於有些的consumer grade的GPU還是太大了 所以我們通常會把它壓到8bit、4bit、3bit、2bit 那我看到有一篇paper 甚至說它就是在參數超大的模型的話 它壓到平均來說不到最後不到1bit 然後這是quantization 那另外兩個技術就比較常用的是Attention 那邊的
+[00:51] Attention 比如說Page Attention Flush Attention 但是我們今天不會Cover 因為它那個
+[00:57] 其實細節太多了 你們就是上網看就可以了 但是目前主流的Inference Framework 都有Implement 這兩個
+[01:03] 那如果大家在 如果你們這些期末需求 有什麼大量的Inference 需求 我建議你們去盡量用那個 有一個套件叫BLM 或是叫TGI Text Generation Inference 那是那個Hugging Face 公司出的
+[01:17] 這兩個會比原本直接用那個Transformer Import 模型這樣自己漏快很多 那至少是快10倍以上
+[01:25] 好 就是不用Quantization 下就差很多了
+[01:28] 好 那我們回來講Quantization 所以Quantization 很重要 那就是8月的時候 我們去發表這個模型 然後過了兩個小時 我就在Facebook上面看到譚
+[01:40] 有人說 有人問說 有沒有Quantize的模型 後來我發現再過30分鐘 唐鳳就上傳了 然後想說 原來他有在看這件事情
+[01:48] 那國外的話 有一個非常有名的 叫做Block 他就上傳各種的Quantization 過的模型 什麼 GGUF AWQ GZQ 那如果你們有之前 可能一兩年前有玩過加密貨幣的 有一個很有名的 VC 叫 A16Z
+[02:04] A16Z 有贊助這個人 然後他就是各種模型 他就會上傳一個Quantize 過的版本
+[02:14] 好 那我們通常在這邊講Quantize 都是 通常都是講是訓練後的Quantize 就是 Post-Training Quantization
+[02:22] 那訓練的時候Quantize 就是如我們上次講Laura 啊 QLaura 這種東西 就是什麼 4-bit Normal Flow 那個形式 那我們現在講是訓練完之後 你才把模型 這樣把它壓縮
+[02:33] 那GPU 我們通常用是 AWQ 或是 GPTQ 那CPU的話 就是通常會用 GGUF 或 GML 如果你沒有 MAC 的 就是 M1 系列的話 通常是走下面那個 那我們現在今天就是基本上還是講 GPU 齁 因為這大部分人還是用 GPU 再去做 inference
+[02:51] 好 所以如果你想一下這個矩陣乘法的話 這個 W 就是你的那個 Weight Matrix 這個 X 就是你的那個 Input 那如果你想到現在有一個 Diagonal Matrix 是 941 然後 Input 是 123
+[03:03] 他乘出來的是 這個數值 983
+[03:05] 好 那如果我們就是現在一定要把它壓在兩個 Bit 兩個 Bit 的話 可以表示的範圍應該就是 0123
+[03:13] 0123的話 要怎麼去把它壓縮呢 那我們就會把它 Run to Nearest 就是把它 Run到最接近的 因為剛剛這邊 9 最接近是 3 4 最接近的是 3 1 最接近的就是 1
+[03:25] 所以就把這個 Matrix W 變成 3 3 1 那你可以看出來 它乘出來是 原本現在是 363 剛剛是 983 其實這個 Quantization 的 Error 其實是非常非常大的
+[03:39] 所以這個 Run to Nearest 它是 而且基本上它這個跟你的 X 沒有關係
+[03:46] 我們剛剛是只著重在看 W Matrix 941 變成 33 1 所以它跟你的 X 沒有關係
+[03:54] 另外一種方法就是 如果我們通零啊 我們通零出一個數字是 Scale 是 0.33 左上面是 0.33 那我們把 W Matrix 乘上這個 Scale 的話 它就會變成 2.97 1.32 0.33
+[04:09] 它乘出來的話 再我們再去做這個 W 做 Quantize 那就一樣是 Run to Nearest 就會變 2.97 就是 3 1.32 0.33 就是 0
+[04:19] 所以它這個 Quantize 過 會變 3 1 0
+[04:21] 它乘出來的時候 它這個 Quantization Error 3 2 0 其實會稍微比 我們剛剛直接 Run to Nearest 好一點點
+[04:29] 就是把這個東西 Scale Down 然後呢 去 去做 這個再去做 Run to Nearest 你要想說 這個 Scale 是怎麼出來的
+[04:38] 那這個 Scale 其實 你可以很直觀的知道 它一定是 0 到 1 之前 它一定是小於 1
+[04:43] 因為你的原本的 可表示的範圍 應該就是比較大的 所以你要把它壓縮 就是乘以一個小於 1 的係數 才會去把那個限縮 範圍限縮
+[04:53] 那其實有不同 Scaling 的方法 那所以你大概就可以知道一個 這個 Idea 就是 Quantize 有這種方法
+[05:00] 就是先把它呈小,然後再去把它Map到網格上面。我們通常做這種quantization,我們是預設網格是固定的。
+[05:09] 好,那AWQ其實它就是一種演算法,然後去pick最適合的這個scale factor,然後它可以minimize這個activation error。
+[05:19] activation error剛剛就是右邊這呈出來的,跟你原本沒有quantize呈出來的差異。
+[05:26] 好,那AWQ的話,如果這個紅色這條線是我們剛剛直接run to scale factor 的方式。
+[05:34] 那這個下面這個X軸的X軸就是從0到1,我們剛剛已經解釋過為什麼一定是0到1。
+[05:41] 那這個Y軸的話就是它的quantization error,activation error。
+[05:46] 那AWQ的話就是去做整個地方去做搜尋。
+[05:50] 那其實你剛剛乘上0.33,它的結果已經也不錯了。
+[05:54] 離這個global minimum也相去不遠了。
+[05:57] 好,那AWQ的算法呢,大家可以去看paper。
+[06:01] 那它因為這種quantization paper其實就是挺複雜的。
+[06:05] 所以如果有興趣的話,你可以參照它的paper。
+[06:09] 那注意一下,AWQ它是data dependent的。
+[06:12] 就是它會去根據你不同的輸入的X,它會有不一樣的這個東西。
+[06:17] 因為假設你今天X非常偏向某一型的資料。
+[06:22] 那你quantize之後,它就會對某一型的資料稍微好一點點。
+[06:27] 那我們等一下講的這個GPTQ也會。
+[06:30] 而且它是更data dependent。
+[06:32] 好,如果你說要實作AWQ,就是GoogleAW,AutoAWQ,人家都蠻邪好。
+[06:38] 但是這就需要GPU才去可以去運算這個quantization。
+[06:44] 好,那另外一個quantization就是GPTQ。
+[06:48] 那它名字取得非常好。
+[06:50] Post training quantization,剛好接在GPT的後面。
+[06:53] 那如果GPTQ,GPTQ它的運算,它的方法是我們假設現在有三層transformer的來源。
+[07:01] 那我就是從底開始,從第0層開始往上去做quantization。
+[07:07] 所以一開始你這個W,它會去minimize一個東西是剛剛講的quantizationL,WX甚至WHEADX。
+[07:17] 那它去做L2Norm的normalization。
+[07:20] 那你最後找到的WHEAD就是quantize score的。
+[07:24] 好,第一層用完的話,再來用第一層用完,那第一層已經被quantize。
+[07:28] 再來用第二層,再來用第三層,然後最後去做。
+[07:32] 那它的算法呢,其實跟以前的算法,這些解這個方式的算法,其實並沒有。
+[07:38] 理論上本質精神是差不多了,只是它去做一些加速。
+[07:43] 好,那其實這邊也看到,它還是有那個X進去。
+[07:47] 所以你怎麼去,你輸入那個什麼樣的example給這個GPTQ,其實是會有差的。
+[07:54] 是會data dependent。
+[07:55] 然後因為它是這樣Iteratively的每一層這樣去做。
+[07:58] 所以它會對data更dependent。
+[08:00] 跟AWQ相比的話,它是更對你那個輸入,quantize的時候輸入是更敏感的。
+[08:08] 所以有人跟我講說,我們那個模型,看到那麼樣的模型。
+[08:12] 因為很多人quantize的話,就直接那個範例直接抄了。
+[08:15] 因為那個範例通常是英文的那個文字。
+[08:17] 然後他們發現這樣quantize出來的東西並不太好。
+[08:20] 所以他們後來就用中文的文具去做quantization,就會好很多。
+[08:25] 所以我那時候才知道說,原來這個quantization,
+[08:28] quantization的data dependent其實是蠻重要。
+[08:30] 需要考慮進去的。
+[08:32] 所以如果你自己的模型的話,都是講,比如說你都是什麼法律domain的話,
+[08:36] 那你至少為一個法條給它做quantize可能會好一點。
+[08:40] 好,一樣也有這個AutoGPTQ,大家可以去直接去上去看。
+[08:45] 那如果通常模型,你要看一個模型有沒有quantization,就直接去搜尋那個the block。
+[08:51] 好,我們講完quantization。
+[08:53] 那接下來另外一個部分是LM的evaluation。
+[08:57] 那evaluation這一部分真的是非常的,非常的棘手。
+[09:01] 因為現在好的evaluation,好的beta set,現在LM通常都做的已經還不錯了。
+[09:08] 所以大家要不斷的推程出新新的好的benchmark set。
+[09:11] benchmark set就是不斷的被LM追趕。
+[09:14] 那其實最好的evaluation就是,你要先明確知道你自己要用什麼。
+[09:18] 好,你如果你有一個特定domain的領域的話,你知道你要怎麼用,然後你去收集怎麼用這些資料去做evaluation,才會是最貼近你的使用場景。
+[09:29] 那evaluation通常可以分為就是traditionalbenchmark,比如說做選擇題,或是model-based,或是human evaluation。
+[09:36] 那我們先來講traditionalbenchmark,MMLU是最有名的。
+[09:41] 好,MMLU裡面有很多個學科考試,那它都是選擇題。
+[09:47] 它有一個題目,有一個題幹,有一個ABCD的選項,然後你要去選擇一個題目,選擇一個正確的選項出來。
+[09:54] 所以它最後評分當然就是用accuracy。
+[09:57] 那MMLU的tests有非常多。
+[10:00] 大部分是Steam、Social Science、Humanity等等,到是有國小到大學的難度都有,或是在大學到研究所的難度都有一些,這通常也是我自己看這個LM好不好的Benchmark最主要看的就是MLU,因為大家都會reportMLU這個分數,那你想要去一些知識類,你想要這個模型知識類是好的話,也是關注這個。
+[10:30] 好,那下一個Benchmark要介紹的是Truth for QA。Truth for QA,比較有趣的是,它裡面很多人其實也會打錯的問題。比如說,有一些像是陰謀論,就是他有一個問題是,Who really caused 9-11,911的事件。
+[10:50] 然後,GPT3,注意這是GPT3.0,不是你們現在用的TradeGPT,GPT3.0它回答是,The US Government caused 9-11,就是很顯然就是一個沒有根據的陰謀論。
+[11:01] 但是因為網路上很多這種東西,因為原模型大部分都是訓練在網路上的資料嘛。所以你可能網路上大家認知的,大家主流的意見不一定是,其實是正確的意見。
+[11:12] 那他們就發現說,其實當你模型越來越大的時候,你這個Truth for QA的分數越來越低。看最左邊,GPT3,它越來越大的時候,它分數越來越低。
+[11:21] 那我覺得Truth for QA,這700多個問句裡面,我覺得每一個都是非常精挑細選。因為每一個,之前做project的時候,我每一個都有看過。
+[11:31] 那我幾乎是把它快背起來了,正確答案快背起來,我覺得每一個都蠻有趣的。有一些是有點刁鑽啦。但是GENERALLY,這個Truth for QA,真的是Quality真的非常好。
+[11:45] 好,那講完說,就是以前的這種選擇題了。那我們來講Model-Based Evaluation。因為Model-Based Evaluation,對於現在應用其實比較實際相關。
+[11:56] 假設你現在要去做Evaluation,模型通常而且是Multi-Term的。所以就有一個研究團隊,而且RMSYS,他們發展出來MTBench,就是Multi-TermBench。
+[12:13] 那他有,他會有兩個東西是他們寫的,提供的。第一個就是上面的這個粉紅色的Questions。那接下來就是下面這個黃色的Follow-up Question。
+[12:23] 所以他其實不管模型,就是壽事的模型,第一Term回答什麼,他都是問同樣的Follow-up Questions。我覺得這個,這個東西其實是蠻,其實也是,可能有更好的東西,更好的方法去改變。
+[12:37] 就是你可能Follow-up Questions要跟你的第一個回答,有一點點關係。但是他做,但是為了有大量的問題跟Standardized Test這樣做,就是不得不得不這樣做。所以我們其實蠻推薦你們如果要Evaluation的話,可以去Follow-MTBench。就是給一個問題,然後一個Follow-up Questions。
+[12:55] 例如像這樣子,你們看中間那個Math。它第一個Term就是given在一個方程式,然後找一個F of 2的這個Value。然後接下來就是再去解根。因為你這個第一個Term跟第二個Term其實不會相違背。那你可以看到他其他有,譬如說Writing的Domain, Math, Knowledge的Domain。
+[13:16] 好,那如果你已經有了,譬如說剛才的這個,Assistant A,Assistant B的回答。你要去如何去做評分呢?你評分的模型盡量是要用非常非常好的模型。那現在就是用GPT-4,或是用Clause-2。那你的Prompt給GPT當裁判的時候的Prompt,要先給他一個judge的instruction。你要讓他說,你是一個很公正的judge,你要評斷什麼什麼什麼東西。
+[13:43] 你最後打分,要打1到10分,這樣子之類的。然後接下來給他這個user原本給的instruction,跟那個模型的回覆。然後這個就是你的judge的template。好,所以MTBench總共如果你每個領域跑完,就可以畫出這樣子的雷達圖。就很方便你去分析,模型在哪個領域好,或是哪個領域不好。
+[14:09] 然後接下來這個AlpacaEval,AlpacaEval其實非常的像,只是它是pairwise的。我們剛剛講MTBench,它是一次是只看一個single的,一個模型的model response。但是AlpacaEval它是看兩個,model1跟model2。但是他們會fix其中一個模型。
+[14:29] AlpacaEval的用的是GPT3.0吧,就是instructGPT,daVinci003。那它是一個相較於現在instructionFollowing比較弱的模型。那所以它會就每次都固定把它當成model2。那model1就是你要受試的模型。那其他那個judge instruction,user instruction,judge output instruction,其實就是跟剛剛MTBench差不多。你可以如果要用的話,就是根據自己的情境稍微調整。
+[14:58] 所以AlpacaEval它會是
+[15:00] 就是為這個WIN RATE,每一個人都跟DAVINCI003來比,大家的WIN RATE都是90幾%
+[15:08] 他這個Prom是用他自己收集的大概200多個Question來做的。所以蠻多人用AppleCutureEvalorMTBench。
+[15:19] 好,最後一個Human Evaluation,也是LMSYS的ChatBotArena。ChatBotArena就是你可以輸入一個聊天,就是你要輸入這個文字,然後有左邊Model A跟Model B。
+[15:34] 那你在問的時候,你不會知道Model A跟Model B是誰。那只有你問完,你打分完的時候,他才會跟你講Model A跟Model B是誰。
+[15:44] 比如說,我問完了,打分完了,我才知道左邊是這個WIN RATE,然後右邊是TrackGPT。
+[15:50] 那這樣子去做,可以做什麼?這就是雷台式的嘛。就有點像大家在打那個什麼LOL的那個積分一樣,就是誰對戰誰是WIN RATE是多少。
+[16:01] 那這種遊戲的,或是像,或是下棋,那通通最後都可以去算出那個ELO Score。
+[16:08] 所以這邊也是用,像模型跟模型對打一樣,所以他可以算出來這個ELO Score。
+[16:12] 那這個也是非常非常常用的方法,就是因為你有,因為Human,大家還是要,
+[16:19] somehow還是比較,對這個Human Evaluation比較有信心,所以你Human Evaluation要去做的時候,
+[16:27] 最後就通常就是算這個ELO Score。那他們這個,這個他們的網站上面也有公佈說,大家的這個ELO的Ratings。
+[16:35] 那他們會慢慢的加模型進去。那這邊其實蠻有趣的,就是Cloud2現在比Cloud1還低。
+[16:42] 但是,一樓的計算本來就會,比較對於新Newcomer比較不友善一點點啊。
+[16:50] 如果你不去做一些評分的調整的話。
+[16:52] 好,那我們今天這個實習課就到這邊。
+[16:58] 二樓的堅持說,我們會不會再把這個放鬆。
+[16:58] 全部連著請可以再哈,加他。
+[16:59] 就可以看到。

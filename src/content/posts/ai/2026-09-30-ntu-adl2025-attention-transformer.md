@@ -9,7 +9,7 @@ series:
   name: "台大陳縕儂 深度學習之應用 導讀"
   order: 4
 tldr: "RNN 做翻譯時，要把整句壓進一個向量，句子一長就記不住。Attention 讓解碼器每產生一個字，都回頭對輸入的每個位置打分數、取加權和；把打分數的一方叫 query、被比對的叫 key、被加權的叫 value，就是 dot-product attention。Transformer 再往前一步：讓輸入自己對自己做 attention，完全拿掉 recurrence，換來平行化與固定的路徑長度，代價是要另外補上位置資訊。"
-description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 Attention Mechanism 與 Transformer 兩份講義導讀：seq2seq 翻譯中的 attention、query／key／value、dot-product attention 的矩陣形式、語音辨識與 image captioning 等應用、memory network 的多次 hop；self-attention 的 Q/K/V 計算、multi-head 的 who／did what／to whom 例子、scaled dot-product、encoder／decoder block、masked self-attention、positional encoding 的四個條件與 sinusoidal 解法、訓練技巧。"
+description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 Attention Mechanism 與 Transformer 兩份講義導讀：seq2seq 翻譯中的 attention、query／key／value、dot-product attention 的矩陣形式、語音辨識與 image captioning 等應用、memory network 的多次 hop；self-attention 的 Q/K/V 計算、multi-head 的 who／did what／to whom 例子、scaled dot-product、encoder／decoder block、masked self-attention、positional encoding 的四個條件與 sinusoidal 解法、訓練技巧。附 self-attention 的手算例子與自我檢查。"
 draft: false
 glossary:
   - term: "dot-product attention"
@@ -26,13 +26,15 @@ glossary:
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-> **版本說明**：本文依據台大陳縕儂《深度學習之應用》（ADL）**Fall 2025（114-1，2025/09/01–12/15）** 9/08 那週的兩份講義：[Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf)（28 頁）與 [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf)（58 頁），以及影片 [4.1](https://youtu.be/FLNSD3zykgE)（23:41）與 [4.2](https://youtu.be/c0O9s6MCFys)（25:01）。事實皆於 2026-09-30 打開官方材料核對。整門課的存取分級是 **A2**：講課端完整公開，缺口在作業端，見[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)。這一講本身沒有缺口。
+> **版本說明**：本文依據台大陳縕儂《深度學習之應用》（ADL）**Fall 2025（114-1，2025/09/01–12/15）** 9/08 那週的兩份講義：[Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf)（28 頁）與 [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf)（58 頁），以及影片 [4.1](https://youtu.be/FLNSD3zykgE)（23:41）與 [4.2](https://youtu.be/c0O9s6MCFys)（25:01）。整門課的存取分級是 **A2**：講課端完整公開，缺口在作業端，見[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)。這一堂本身沒有缺口。
 
-**系列位置**：上一篇 [詞向量、語言模型與 RNN](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)｜下一篇 [Tokenization 與 BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
+**系列位置**：上一篇 [詞向量、語言模型與 RNN](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)｜下一篇 [第 5 堂](/posts/ai/2026-09-30-ntu-adl2025-bert-family)｜[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
-[上一篇](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)結尾留了一個問題：RNN 理論上記得住很久以前的詞，實際上梯度傳不回去。這一講分兩步回答。第一步是 attention，它原本是加在 RNN 翻譯模型上的外掛；第二步是 Transformer，它把 RNN 整個拿掉，只留下 attention。
+[上一篇](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)結尾留了一個問題：RNN 理論上記得住很久以前的詞，實際上梯度傳不回去。這一堂分兩步回答。第一步是 attention，它原本是加在 RNN 翻譯模型上的外掛；第二步是 Transformer，它把 RNN 整個拿掉，只留下 attention。
 
-兩份講義在 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)上是分開的兩列，但 Transformer 講義的前 9 頁就是 Attention 講義的複習，所以本篇合起來讀。
+兩份講義在 [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)上是分開的兩列，但 Transformer 講義第 6–9 頁先複習 Attention 講義的翻譯 attention 與 dot-product attention，所以本篇合起來讀。
+
+讀完這一堂要能做四件事：說出 RNN 翻譯卡在哪裡、attention 怎麼解；對一組小向量手算一次 self-attention；說出 Transformer 裡三種 attention 的 query、key、value 各從哪裡來；解釋為什麼拿掉 RNN 之後要另外補位置資訊。標成「本文自編」的例子不是課堂內容。
 
 ## 第一步：翻譯時為什麼需要 attention
 
@@ -42,9 +44,9 @@ Attention 講義第 2–3 頁先講人。老師在 [4.1 影片](https://youtu.be
 
 ### RNN 翻譯的瓶頸
 
-第 4 頁是上一講的 encoder-decoder：編碼器讀完「深 度 學 習」，把整句壓成一個向量，解碼器依序產生「deep learning <END>」。
+第 4 頁是上一堂的 encoder-decoder：編碼器讀完「深 度 學 習」，把整句壓成一個向量，解碼器依序產生「deep learning <END>」。
 
-老師指出兩個問題。第一，句子一長，這個向量在解碼過程中會被一路稀釋；常見的補救是每個時間點都把它再餵一次。第二，更根本的是，期待一個向量裝下整段長輸入本身就不實際。翻 deep 的時候真正該看的是「深度」，翻 learning 時該看的是「學習」，不同時間點該注意的地方不一樣。
+老師指出兩個問題。第一，要輸出的句子一長，這個向量在解碼過程中會被一路稀釋；常見的補救是每個時間點都把它再餵一次。第二，更根本的是，期待一個向量裝下整段長輸入本身就不實際。翻 deep 的時候真正該看的是「深度」，翻 learning 時該看的是「學習」，不同時間點該注意的地方不一樣。
 
 ### Attention 怎麼算
 
@@ -69,11 +71,11 @@ Attention 講義第 2–3 頁先講人。老師在 [4.1 影片](https://youtu.be
 第 11–12 頁把上面的流程寫成公式。單一 query 時：
 
 ```
-A(q, K, V) = Σᵢ softmax(q · kᵢ) vᵢ
+A(q, K, V) = Σᵢ [exp(q·kᵢ) / Σⱼ exp(q·kⱼ)] vᵢ
 q、k 是 d_k 維；v 是 d_v 維
 ```
 
-每產生一個字就有一個新的 query，所以多個 query 可以疊成矩陣 Q，一次算完：先算 QKᵀ，每一列做 softmax，再乘上 V。
+每產生一個字就有一個新的 query，所以多個 query 可以疊成矩陣 Q，一次算完：先算 QKᵀ，每一列做 softmax，再乘上 V。Q 是 |Q|×d_k、Kᵀ 是 d_k×|K|、V 是 |K|×d_v，結果是 |Q|×d_v，每個 query 得到一個 d_v 維的輸出。
 
 ### 各種應用都用得到
 
@@ -96,13 +98,13 @@ Transformer 講義第 3–5 頁先比較兩種處理序列的架構：
 | RNN | 適合可變長度的序列 | 要等前一個時間點算完，很難平行化；長短距離依賴都沒有明確建模 |
 | CNN | 容易平行化，擅長局部依賴 | 距離遠的依賴要疊很多層才碰得到 |
 
-老師在 [4.2 影片](https://youtu.be/c0O9s6MCFys)裡拿上一講的例子說明 RNN 的問題：「他住在法國……他會說法語」，法國與法語高度相關，但 RNN 沒辦法讓這兩個字直接交換資訊，只能期待訊息一路傳過去。
+老師在 [4.2 影片](https://youtu.be/c0O9s6MCFys)裡拿上一堂的例子說明 RNN 的問題：「他住在法國……他會說法語」，法國與法語高度相關，但 RNN 沒辦法讓這兩個字直接交換資訊，只能期待訊息一路傳過去。
 
 第 11 頁的結論是：用 attention 取代 recurrence。
 
 ### Self-attention：輸入自己對自己做 attention
 
-前面的 attention 是「輸出對輸入」，只在輸出是序列時才有「每一步注意不同地方」的意義。Self-attention 讓輸入裡的每個詞都當一次 query，其他所有詞當 key，所以任兩個位置之間都能直接交換資訊。第 12 頁寫出兩個好處：任兩個位置之間的路徑長度固定，而且容易平行化。
+前面的 attention 是「輸出對輸入」，只在輸出是序列時才有「每一步注意不同地方」的意義。Self-attention 讓輸入裡的每個詞都當一次 query，所有詞（包括它自己）當 key，所以任兩個位置之間都能直接交換資訊。第 12 頁寫出兩個好處：任兩個位置之間的路徑長度固定，而且容易平行化。
 
 第 15–23 頁一步步算。以 a¹ 為例：
 
@@ -110,14 +112,34 @@ Transformer 講義第 3–5 頁先比較兩種處理序列的架構：
 2. q¹ 跟每個 kⁱ 做內積得到 α₁,ᵢ，softmax 後得到 α′₁,ᵢ。
 3. b¹ = Σᵢ α′₁,ᵢ vⁱ。
 
-每個位置的計算互不相依，所以 b¹ 到 b⁴ 可以同時算。第 23 頁把整件事收成四行矩陣運算，要學的參數只有 W^q、W^k、W^v：
+每個位置的計算互不相依，所以 b¹ 到 b⁴ 可以同時算。第 23 頁把整件事寫成矩陣運算，要學的參數只有 W^q、W^k、W^v（softmax 那一步在講義上是用箭頭標示）：
 
 ```
 Q = W^q I    K = W^k I    V = W^v I
 A = Kᵀ Q     A′ = softmax(A)    O = V A′
 ```
 
-（投影片把向量排成矩陣的「行」，所以寫成 KᵀQ；排成列時就是常見的 QKᵀ。）
+（投影片把向量排成矩陣的「行」，所以寫成 KᵀQ；排成列時就是常見的 QKᵀ。這種排法下 softmax 沿著每一行（每個 query）做，和第 12 頁 QKᵀ 的逐列 softmax 是同一件事。）
+
+### 手算一次 self-attention（本文自編）
+
+為了只看機制，這裡把 W^q、W^k、W^v 都設成單位矩陣，所以每個詞的 q、k、v 就是它自己的向量。三個詞：
+
+```
+a¹ = (1, 0)    a² = (0, 1)    a³ = (1, 1)
+```
+
+**算 b¹，也就是以 a¹ 當 query。**
+
+- 內積分數：a¹·a¹ = 1，a¹·a² = 0，a¹·a³ = 1
+- softmax(1, 0, 1)：e¹ ≈ 2.718，e⁰ = 1，總和 ≈ 6.437，權重 ≈ 0.4223、0.1554、0.4223
+- b¹ = 0.4223 × (1, 0) + 0.1554 × (0, 1) + 0.4223 × (1, 1) ≈ (0.845, 0.578)
+
+同樣的算法得到 b² ≈ (0.578, 0.845)，b³ ≈ (0.788, 0.788)。
+
+讀這個結果：a¹ 和 a² 的內積是 0，所以 a¹ 看 a² 看得最少，只分到 0.155；它和自己、和 a³ 的內積一樣大，所以各分到 0.422。輸出 b¹ 是三個向量的加權混合，已經帶有其他位置的資訊。
+
+**換個順序再算一次。** 把輸入排成 a¹、a³、a²。以 a¹ 當 query 的三個分數變成 1、1、0，權重是 0.4223、0.4223、0.1554，對到的向量也跟著換了位置，加總起來仍然是 (0.845, 0.578)。每個詞得到的輸出和它排在第幾個無關。這就是後面要補 positional encoding 的原因。
 
 ### Multi-head：同時看不同面向
 
@@ -127,11 +149,13 @@ Multi-head 讓不同 head 各自負責一種關係。投影片畫了三個 head�
 
 ### Scaled dot-product
 
-第 42 頁：d_k 變大時，qᵀk 的變異數也跟著變大。假設 q 和 k 的每一維平均 0、變異數 1，qᵀk 的變異數就是 d_k。所以把內積除以 √d_k，讓變異數回到 1。
+第 42 頁：d_k 變大時，qᵀk 的變異數也跟著變大。講義寫 q、k 是平均 0、變異數 1 的隨機變數；把它讀成每一維各自獨立（本文的解讀），qᵀk 的變異數就是 d_k。所以把內積除以 √d_k，讓變異數回到 1。
+
+為什麼變異數大是個問題，可以用數字看（本文自編）。三個分數是 (8, 0, 0) 時，softmax 的結果是 (0.9993, 0.0003, 0.0003)，幾乎是 one-hot，其他位置等於沒被看到。如果 d_k = 64，除以 √64 = 8 之後分數變成 (1, 0, 0)，softmax 是 (0.576, 0.212, 0.212)，三個位置都還有份。
 
 ### Encoder 與 decoder
 
-第 24 頁的架構圖引自 [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)（Attention Is All You Need）。原始 Transformer 是做機器翻譯的非遞迴 encoder-decoder。依講義第 44 頁，每個 encoder block 有兩個部分：
+架構圖引自 [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762)（Attention Is All You Need）：第 24 頁是示意圖，論文原圖在第 39–40 頁。原始 Transformer 是做機器翻譯的非遞迴 encoder-decoder。依講義第 44 頁，每個 encoder block 有兩個部分：
 
 - multi-head attention；
 - 兩層、用 ReLU 的前饋網路。
@@ -143,7 +167,7 @@ Decoder 端多了兩件事（第 26、40 頁與影片）：
 - **Masked self-attention**：產生第二個字時只能 attend 已經產生的字。老師的解釋是訓練時後面的字還沒生出來，模型不該學會去看它們。
 - **Encoder-decoder attention**：query 來自 decoder，key 與 value 來自 encoder 的輸出，就是第一步那種翻譯 attention。
 
-影片最後把三種 attention 整理成一句話：encoder self-attention 的 Q、K、V 都來自輸入；decoder self-attention 都來自輸出，但只能往前看；encoder-decoder attention 的 Q 來自輸出，K、V 來自輸入。
+影片接近結尾時把三種 attention 整理成一句話：encoder self-attention 的 Q、K、V 都來自輸入；decoder self-attention 都來自輸出，但只能往前看；encoder-decoder attention 的 Q 來自輸出，K、V 來自輸入。
 
 ### Positional encoding：把順序補回來
 
@@ -166,7 +190,19 @@ PE(pos, 2i)   = sin(pos / 10000^(2i/d))
 PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 ```
 
-投影片第 50 頁的分母印成 100000，原論文寫的是 10000。第 52 頁畫出不同位置編碼的內積，顯示相鄰位置之間的關係是對稱的，也隨距離遞減。老師補充：位置向量通常直接加到詞向量上，也有人用串接；現在的 LLM 大多已經不用這個版本了。
+投影片第 50 頁的分母印成 100000，原論文寫的是 10000。
+
+代入數字來看（本文自編），取 d = 4：
+
+| 位置 | (sin(pos/1), cos(pos/1), sin(pos/100), cos(pos/100)) |
+|---|---|
+| 0 | (0, 1, 0, 1) |
+| 1 | (0.841, 0.540, 0.010, 1.000) |
+| 2 | (0.909, −0.416, 0.020, 1.000) |
+
+前兩維變得快，相鄰位置一眼就分得出來；後兩維變得慢，要隔很遠才有差別。每個位置的向量都由公式算出，不必訓練，也不受句子長度限制。
+
+第 52 頁畫出不同位置編碼的內積，顯示相鄰位置之間的關係是對稱的，也隨距離遞減。老師補充：位置向量通常直接加到詞向量上，也有人用串接；現在的 LLM 用的好像也不是這個版本了。
 
 ### 訓練技巧與結果
 
@@ -174,19 +210,53 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 
 第 56–57 頁是原論文的翻譯與句法剖析實驗。老師在影片裡的解讀是：翻譯品質跟當時最好的系統差不多，訓練成本比較低，因為容易平行化。
 
-第 55 頁的第一項 BPE 正是[下一篇](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe)的主題。
+第 55 頁的第一項 BPE 正是[下一篇](/posts/ai/2026-09-30-ntu-adl2025-bert-family)的主題。
 
-## 自學怎麼做
+## 常見的誤解
 
-1. 先看 [4.1](https://youtu.be/FLNSD3zykgE)。把「深度學習 → deep learning」那四張投影片（第 5–9 頁）的 α 自己寫一遍，query、key、value 的角色就清楚了。
-2. 看 [4.2](https://youtu.be/c0O9s6MCFys) 時，對著第 23 頁的四行矩陣式，用 4 個詞、2 維向量手算一次 A 和 O。
-3. 讀完 decoder 那段，回頭確認你能說出三種 attention 的 Q、K、V 各自從哪裡來。
+這幾條是我依課堂內容整理的。
 
-今晚可以做的一件事：用 NumPy 寫一個 20 行以內的 self-attention，輸入是 4×8 的隨機矩陣。先不除 √d_k，把 d_k 從 8 調到 512，看 softmax 後的權重怎麼越來越接近 one-hot；再加上除法比較一次。你會直接看到第 42 頁在解決什麼問題。
+- **「Attention 是 Transformer 發明的。」** 它原本是加在 RNN 翻譯模型上的做法。Transformer 做的是讓輸入自己對自己做 attention，並拿掉 RNN。
+- **「key 和 value 一定是同一個向量。」** 在最早的翻譯例子裡剛好一樣。老師特別說明兩者可以不同，self-attention 裡就各有一個矩陣。
+- **「Self-attention 天生知道詞的順序。」** 上面的手算顯示，調換輸入順序，每個詞的輸出不變。順序要靠 positional encoding 補。
+- **「Multi-head 是把同一件事重複做幾次。」** 單一 attention 只學到「相關程度高或低」一個數字。每個 head 有自己的一組矩陣，目的是分開看不同種類的關係。老師也說，怎麼確保各個 head 真的學到不同的東西，這裡沒有多做著墨，只能期待模型自己學到。
+- **「Decoder 遮住後面的字，是因為後面的字不重要。」** 遮住是因為生成時後面的字還不存在，訓練時不該讓模型學會去看它們。
+
+## 自我檢查
+
+題目是本文自擬的。
+
+**1. 翻譯「深度學習」時，解碼器要產生 learning，attention 權重是 (0, 0, 0.5, 0.5)。這一步用來解碼的向量是什麼？**
+
+c = 0.5·h₃ + 0.5·h₄，也就是「學」「習」兩個位置的編碼器輸出各取一半。
+
+**2. 沿用上面手算的三個向量，以 a³ = (1, 1) 當 query，三個內積分數各是多少？哪一個位置的權重最大？**
+
+a³·a¹ = 1，a³·a² = 1，a³·a³ = 2。a³ 自己的權重最大，softmax(1, 1, 2) ≈ (0.212, 0.212, 0.576)。
+
+**3. Transformer 裡三種 attention 的 query、key、value 各來自哪裡？**
+
+Encoder 的 self-attention：三者都來自輸入。Decoder 的 self-attention：三者都來自輸出端已經產生的部分，而且只能看前面的位置。Encoder-decoder attention：query 來自 decoder，key 和 value 來自 encoder 的輸出。
+
+**4. 「狗 咬 人」和「人 咬 狗」用的是同樣三個詞。如果完全不加位置資訊，self-attention 對這兩句的「咬」會算出不同的輸出嗎？**
+
+不會。三個詞的向量一樣，「咬」當 query 時得到的三個分數也一樣，加權和就相同。模型分不出誰咬誰，所以要另外加上 positional encoding。
+
+**5. 一個模型只在長度 256 以內的句子上訓練。位置用「直接放編號 1、2、3…」表示，遇到長度 512 的輸入會怎樣？sinusoidal 的做法為什麼沒有這個問題？**
+
+257 之後的編號訓練時沒出現過，模型不知道怎麼處理。sinusoidal 的每一維是循環的波，任何位置代進公式都算得出一個範圍固定的向量。
+
+**6. d_k 從 16 變成 256，不做縮放的話，內積分數的標準差大約變成幾倍？**
+
+依講義第 42 頁的假設，變異數等於 d_k，標準差是 √d_k，從 4 變成 16，是 4 倍。分數變大，softmax 的結果更接近 one-hot，所以要除以 √d_k。
+
+**7. 動手題：用 NumPy 隨機產生兩個 4×d 的矩陣，一個當 Q、一個當 K（每個元素平均 0、變異數 1，兩個矩陣互相獨立），算 softmax(QKᵀ)。先不除 √d，把 d 從 8 調到 512。預期看到什麼？**
+
+d 越大，每一列最大的權重越接近 1。加上除以 √d 之後，權重的分布不再隨 d 明顯改變。注意 Q 和 K 要各自獨立產生，這才符合講義「q、k 是平均 0、變異數 1 的隨機變數」的假設，以及本文把它讀成各維獨立的解讀。如果像上面手算那樣讓 q = k，一個向量和自己的內積大約是 d，除以 √d 之後還有 √d，一樣會隨 d 變大。
 
 ## 延伸閱讀
 
-- 同一段內容在 Stanford 的講法：[CS224N Transformers](/posts/ai/2026-08-22-cs224n-transformers)、[CME295 第 1 講：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
+- 同一段內容在 Stanford 的講法：[CS224N 第 5 堂：從 recurrence 到 Transformer](/posts/ai/2026-08-22-cs224n-transformers)、[CME295 第 1 堂：從切字到 Transformer](/posts/ai/2026-09-29-cme295-transformer)
 - 講義引用的逐行實作：[The Annotated Transformer（Sasha Rush）](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
 
 ## 課程影片來源
@@ -211,13 +281,15 @@ title: ADL 4.2: Self-Attention & Transformer 自注意力機制之模型
 
 查核日期：2026-10-10。
 
-內容核對：已依字幕核對（2026-10-10）：4.1 與 4.2 兩支都讀了字幕。4.1 的記憶與注意力類比、RNN 單一向量瓶頸、query／key／value 定義、語音辨識與 image captioning（含長頸鹿誤判為白色大鳥）、Greg／Brian 三次 hop 的閱讀理解例子，以及 4.2 的 CNN 與 RNN 比較、法國／法語例子、self-attention、multi-head、masked、三種 attention 的 Q／K／V 來源、positional encoding 的四個條件與 sin／cos、訓練技巧與結果，文章對影片的說法皆能在字幕找到；沒有發現需要更正的地方。投影片頁碼、公式與 CoQA／QuAC 等細節來自講義，不是影片內容。
+內容核對：已依字幕核對（2026-10-10）：4.1 與 4.2 兩支都對過字幕，文中歸給影片的說法都找得到。投影片頁碼、公式與 CoQA／QuAC 等細節來自講義。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
 - 2026-10-10：依字幕核對影片內容。字幕與文章對影片的說法相符，無需更正。
+- 2026-10-13：查證歷程移出正文；系列內互相引用由篇序改為堂次。
+- 2026-10-13：補上學習目標、self-attention 的手算例子、縮放與位置編碼的數字例子、常見誤解與附答案的自我檢查。
 
 ## 參考資料
 

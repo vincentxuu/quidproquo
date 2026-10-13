@@ -1,204 +1,436 @@
 ---
-title: "Reading NTU ADL 2025 Fall: Beyond Supervised Learning and Multimodality — Auto-Encoders, VAE, Dual Learning, Contrastive Learning, and CLIP | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
+title: "Learning Without Labels and Multimodality: How to Learn Good Representations When There Are No Annotations | NTU Yun-Nung Chen Applied Deep Learning Lecture 14"
 date: 2026-09-30
 category: ai
 type: guide
-tags: [ntu, ai-course, course-guide, self-supervised-learning, representation-learning, vae, clip]
+tags: [ntu, ai-course, course-guide, representation-learning, self-supervised-learning, multimodal]
 lang: en
 series:
   name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
-  order: 17
-tldr: "Big data is not big annotated data. The last ADL lecture asks how to learn good representations without labels, and answers: find the latent factors that control the data. An auto-encoder squeezes the input into a short code and reconstructs it. The denoising version adds noise or masks 15% of tokens first, which is exactly the idea behind BERT's masked LM. A VAE forces the code to follow a distribution, so you can sample from it to generate. Dual learning lets paired tasks, such as translation and back-translation or understanding and generation, act as feedback for each other. Self-supervised learning has two camps: self-prediction (hide part, guess it back) and contrastive learning (pull similar pairs together, push dissimilar ones apart). CLIP runs contrastive learning on 400 million image-text pairs, making zero-shot image classification possible, and DALL·E 2 uses CLIP's representations to generate images. Fall 2025 has only videos for this lecture, so the Fall 2024 slides fill in."
-description: "Post 17 of the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on videos 14.1–14.7 and the Fall 2024 deck 241127_BeyondSL.pdf (82 pages): latent factors, auto-encoders and denoising/masked AEs, VAEs and posterior collapse, dual learning (unsupervised and supervised), self-prediction and contrastive learning, SimCSE, CLIP, and DALL·E 2. Video 14.7 Multimodality has no matching pages in the 2024 deck and is listed by name only."
+  order: 15
+tldr: "A lot of data does not mean a lot of annotation. This lecture asks: with no annotations, how do you learn useful representations from data? The shared idea is to find the latent factors behind the observations. An auto-encoder compresses the input into a short code and reconstructs it. A VAE additionally requires the code to follow a Gaussian distribution, so it can generate by sampling from the distribution. Dual learning lets two tasks that run in opposite directions serve as each other's feedback. Self-supervised learning divides into self-prediction (hide a part and guess it back) and contrastive learning (pull similar ones together, push dissimilar ones apart). CLIP does contrastive learning on image-text pairs, so image classification needs no separate training; DALL·E 2 then uses its representations to generate images. The lecture ends with multimodal models: projecting images into the language model's space, and streaming interaction that listens while deciding when to speak."
+description: "A guide to Lecture 14 of Yun-Nung Chen's NTU Applied Deep Learning, Fall 2025, based on the spoken content of videos 14.1–14.7 and the Fall 2024 Beyond Supervised Learning deck: latent factors, discriminative and generative, auto-encoders and denoising, deep auto-encoders and retrieval, the VAE objective and posterior collapse, three forms of dual learning, self-prediction, triplet loss, SimCSE, CLIP, DALL·E 2, LLaVA, any-to-any multimodal models, GPT-4o's streaming interaction, and three strategies for full-duplex. Includes two examples that can be worked by hand and a self-check."
 draft: false
 glossary:
-  - term: "Contrastive Learning"
-    definition: "Representation learning that builds an embedding space where similar sample pairs sit close together and dissimilar pairs sit far apart; positive pairs often come from data augmentation or from different modalities."
-    context: "Pages 60–70 of the ADL BeyondSL deck, split into inter-sample classification, feature clustering, and multiview coding."
-  - term: "Dual Learning"
-    definition: "Training with two tasks that invert each other, such as English-to-Chinese and Chinese-to-English translation or language understanding and generation, using how well one task's output is recovered by the other as the training signal."
-    context: "Pages 44–55 of the ADL BeyondSL deck, including dual supervised and joint dual learning for NLU/NLG from Yun-Nung Chen's lab."
+  - term: "latent factor"
+    aliases: ["latent variable"]
+    definition: "A factor that cannot be observed but is assumed to exist and to control the data we see. Examples are the strokes behind handwritten digits and the topic behind a document."
+    context: "Slides 2–11 of the ADL Beyond Supervised Learning deck; the shared starting point of the whole lecture."
+  - term: "VAE"
+    aliases: ["variational auto-encoder"]
+    definition: "A kind of auto-encoder that additionally requires the code in the middle to follow a specified distribution (usually Gaussian), so new codes can be sampled from the distribution to generate data."
+    context: "Slides 31–43 of the ADL Beyond Supervised Learning deck."
+  - term: "contrastive learning"
+    definition: "Given several samples, learn the relationships among them: similar samples are pulled together in the vector space and dissimilar ones are pushed apart."
+    context: "Slides 60–70 of the ADL Beyond Supervised Learning deck; CLIP applies it between images and text."
 ---
 
 > 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-**This post is based on the L14 videos in the playlist of [NTU Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), with the Fall 2024 slides filling in.** It is post 17 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series and the last of the lecture posts. The previous sixteen almost always assumed labeled data, or at least a "next word" to predict. This one turns the question around: **how do you learn good representations without labels, and how does the language-model recipe extend to images?**
+This is Lecture 14 in [Reading NTU Yun-Nung Chen Applied Deep Learning](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en), and the last lecture, based on the videos for the 12/01 week of ADL Fall 2025 (114-1, 2025/09/01–12/15). Most earlier lectures assumed annotated data, or at least a "next token" to use as the target. This one answers two questions: **with only data and no annotations, what can be learned, and how? And how does the language-model approach extend to images and audio?**
 
-Official materials used:
+Official materials:
 
-- **Videos**: 14.1–14.7 in the [2025 Fall playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o). Every description reads "2025/12/01 Applied Deep Learning," and 14.1–14.3 also note "Slides credited from Hung-Yi Lee." The course page's 12/01 row says "Reasoning," with no slides and no video links.
-- **Slides**: Fall 2025 did not publish slides for this lecture. This post uses the [Fall 2024 Beyond Supervised Learning deck (241127_BeyondSL.pdf, 82 pages)](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241127_BeyondSL.pdf). **Every page number below refers to this 2024 deck.**
+- Videos 14.1–14.7, in the table below. None of the seven has captions, so this guide works from transcripts made from their audio. The lectures are in Mandarin.
+- Fall 2025 did not publish slides for this lecture. This guide uses the [Fall 2024 Beyond Supervised Learning deck](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241127_BeyondSL.pdf) (82 slides) for reference, and **all slide numbers here refer to that 2024 deck**. The content of 14.7 is not in the 2024 deck, and for it this guide captured video frames to confirm the titles and citations on the slides.
 
-| # | Video (2025) | Chinese subtitle (translated) | Length | Matching 2024 pages |
-|---|---|---|---|---|
-| 14.1 | [Beyond Supervised Learning](https://youtu.be/j5XknQ4MGw0) | Practical tricks when there are no labels | 21:19 | 2–11 |
-| 14.2 | [Auto-Encoder](https://youtu.be/rQyhxK-fDyI) | Learning a good data representation | 14:40 | 12–30 |
-| 14.3 | [Variational Auto-Encoder (VAE)](https://youtu.be/I3by1PGKBMM) | Controlling the feature distribution for generation | 20:25 | 31–43 |
-| 14.4 | [Dual Learning](https://youtu.be/zDe-RNd38bQ) | Two symmetric tasks can help each other | 12:39 | 44–55 |
-| 14.5 | [Self-Supervised Learning](https://youtu.be/5CJW10uSj80) | Self-prediction + contrastive learning | 20:52 | 56–70 |
-| 14.6 | [CLIP & DALL·E 2](https://youtu.be/-UpU_dfq_IU) | From language to every modality | 13:24 | 71–80 |
-| 14.7 | [Multimodality](https://youtu.be/Q0-8988uEiU) | Seeing, hearing, and speaking like a human | 19:52 | none found |
+| Video | Topic | Length | 2024 deck slides |
+|---|---|---|---|
+| [14.1](https://youtu.be/j5XknQ4MGw0) | Beyond Supervised Learning | 21:19 | 2–11 |
+| [14.2](https://youtu.be/rQyhxK-fDyI) | Auto-Encoder | 14:40 | 12–30 |
+| [14.3](https://youtu.be/I3by1PGKBMM) | Variational Auto-Encoder | 20:25 | 31–43 |
+| [14.4](https://youtu.be/zDe-RNd38bQ) | Dual Learning | 12:39 | 44–55 |
+| [14.5](https://youtu.be/5CJW10uSj80) | Self-Supervised Learning | 20:52 | 56–70 |
+| [14.6](https://youtu.be/-UpU_dfq_IU) | CLIP & DALL·E 2 | 13:24 | 71–80 |
+| [14.7](https://youtu.be/Q0-8988uEiU) | Multimodality | 19:52 | None |
 
-The "matching pages" column is my own topic match. Public information cannot confirm that the videos actually show these pages.
+Examples marked "made up for this post" are not from the lecture.
 
-## Why unlabeled data helps (pages 2–11)
+After reading you should be able to do five things: explain in terms of latent factors why unannotated data is useful; say how an auto-encoder and a VAE differ and why a VAE can generate; explain what kind of tasks dual learning needs and where the feedback comes from; tell self-prediction from contrastive learning and compute a triplet loss; and explain how CLIP classifies images without separate training.
 
-Page 2 opens with the premise: **big data is not big annotated data.** With labels you use supervised learning; with an environment that gives rewards, reinforcement learning; with neither, unsupervised learning. The deck then asks why unlabeled, even unrelated, data can help. The answer: **find the latent factors that control the observations.**
+## Why data without annotations is still useful
 
-Pages 3–8 give three examples. Handwritten digits are made of strokes, and the strokes are latent factors. Documents have underlying topics. In a recommender system, users and items each carry invisible traits; the deck illustrates with anime character archetypes and drama genres.
+Professor Chen opens by saying that many of this lecture's methods have existed for a long time and some now look less practical, but the concepts are simple and often still work when applied to new techniques.
 
-Pages 9–11 add the vocabulary. A discriminative model computes P(Y|X); a generative model computes P(X) or P(X, Y). Variables are observed or latent, deterministic or random. A latent variable can be a continuous vector (auto-encoder, VAE), a discrete vector (topic model), or a structure (HMM, tree-structured model). This lecture follows the continuous-vector path.
+The first line on slide 2 is Big data ≠ Big annotated data. Machine learning divides into three kinds by what is at hand: with annotations, supervised learning; with an environment that can give a reward, reinforcement learning; with neither, unsupervised learning. The same slide asks: why can data that has no annotations, and is not even directly related to the task, help? The answer is: find the latent factors that control the observations.
 
-## Auto-encoder: compress, then reconstruct (pages 12–30)
+The data that can be seen is called the observation, and what lies behind it, unseen but assumed to exist, is called a latent factor. She gives four examples:
 
-A 28×28 handwritten digit has 784 dimensions, but not every 784-dimensional image is a digit (page 14), so a shorter code should do. An **auto-encoder** pairs an encoder, which compresses the input into a short code, with a decoder, which reconstructs the input from that code. Training makes the reconstruction as close to the input as possible (page 15, minimizing ‖x − y‖²). The output of the middle "bottleneck" layer is the learned representation.
+- **Handwritten digits** (slide 3). The same 4 is written differently by each person, and the rotation angle differs too. Rotate the image a little and every pixel value changes, yet you still recognize it as a 4. The unit people understand is not the pixel but the meaning behind it, such as "the digit 4, rotated about 10 degrees."
+- **Documents** (slide 4). A document has a topic behind it: finance, sports, entertainment. Topic models are a very early method that needs no annotations; feed in a large number of documents and it separates out topics and the words common to each topic.
+- **Recommender systems** (slides 5–6). The system can see which videos you watched, for how long, and whether you pressed like, and what it wants to learn is which kind you like. The deck uses anime characters as the example: some people like Goku and Luffy, and some like two other characters. Her own reading is that the first kind is the simple hot-blooded type and the second is the tsundere type. Knowing the attributes of a new video (mystery, Korean drama, reality show), the system can recommend it to the right people even if no one has watched it.
+- **Strokes** (slides 7–8). Handwritten characters are made of strokes. A 28×28 image has 784 pixels; if it is instead represented by "which strokes were used," for example strokes 1, 3, and 5, the vector is [1 0 1 0 1 0 ……], which is much shorter. She stresses that shorter does not mean weaker representational power, and that it may present the semantics better: different ways of writing a 7 would naturally come out as similar combinations of strokes.
 
-Several variations:
+### A few terms
 
-- **Denoising auto-encoder (page 16)**: add noise to the input, then ask for the clean original back. This makes the representation more robust.
-- **Deep auto-encoder (pages 17–19)**: stack many layers, for example 784 → 1000 → 500 → 250 → 30 and back out symmetrically. Page 18 sets its reconstructions next to PCA's at 30 dimensions.
-- **Applications (pages 20–24)**: retrieving similar images with 256-dimensional codes works better than comparing raw pixel distances. Text retrieval works the same way, compressing bag-of-words vectors into low-dimensional codes.
-- **Masking is a kind of noise (page 25)**: randomly mask 15% of tokens and reconstruct them. The deck labels this masked LM right on the slide. **That is the pre-training objective of BERT from [post 6](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en).** Seen from here, BERT is a denoising auto-encoder.
-- **Layer-wise pre-training (pages 26–29)**: the older practice of initializing weights one layer at a time with auto-encoders, then fine-tuning the whole network with backprop.
-- **MADE (page 30)**: the masked auto-encoder of [Germain et al., 2015](https://arxiv.org/abs/1502.03509), which reconstructs in a given ordering to estimate a distribution. Dual learning uses it again later.
+Slides 9–11 sort out the vocabulary used later:
 
-## VAE: make the code follow a distribution so you can generate (pages 31–43)
+- **Discriminative**: compute P(Y|X); given an input, judge which class it is. This requires annotations.
+- **Generative**: compute P(X) or P(X, Y), describing the distribution of the data itself. With only a pile of handwritten digit images and no knowledge of which digit each is, this is the kind that can be done.
+- **Deterministic and random**: the same input gives the same output every time, or gives different results according to a probability distribution.
+- A latent variable model is written p(x, z; θ): x is the observation, z is the latent factor, and θ is the model parameters.
 
-A plain auto-encoder's codes can land anywhere. Pick a random code, feed it to the decoder, and you may not get anything sensible (page 32). A **VAE (Variational Auto-Encoder)** constrains the code distribution: the latent variable is assumed to come from a Gaussian, and generation samples from that prior (pages 33–34). Page 34's one-line summary: the compact representation should follow a distribution.
+Classified by the form of z: continuous vectors (auto-encoder, VAE), discrete vectors (topic model), and structured (the HMM used in speech recognition, tree-structured models). This lecture covers the first kind.
 
-Pages 37–39 split the VAE into two tasks. The decoder learns to generate data from the code; the encoder learns the distribution of the latent factors. The loss has two matching terms: a reconstruction loss, plus a KL regularizer that pulls the encoder's output toward the prior. That is why the deck also calls it a "regularized auto-encoder."
+## Auto-encoder: compress, then reconstruct
 
-Pages 41–42 put AE and VAE side by side: image reconstructions, and the sentences produced when interpolating between two text embeddings. Page 43 is a practical warning about **posterior collapse**. The KL term is easier to learn, so the model may let the decoder do all the work and ignore the latent variable. Fixes include KL annealing (raising the KL weight gradually from small) and KL thresholding.
+### The basic idea
 
-<details>
-<summary>What the VAE loss computes (a condensed version of pages 35–40)</summary>
+Slides 13–15. The encoder compresses the input x into a shorter code (z), the decoder reconstructs the code into y, and the two are trained together with the goal of making y as close to x as possible:
 
-The goal is to maximize the marginal likelihood of one data point, p(x) = ∫ p(x|z) p(z) dz. That integral cannot be computed directly, so an encoder q(z|x) approximates the true posterior, and training maximizes a lower bound instead:
+z = σ(Wx + b), y = σ(W′z + b′), minimizing (x − y)²
 
-- First term: sample z from q(z|x) and measure how well the decoder p(x|z) reconstructs x. This is the reconstruction loss.
-- Second term: the KL divergence between q(z|x) and the prior p(z), a standard Gaussian. This is the regularizer.
+Why can it be compressed? Her explanation: not every 28×28 image is a reasonable digit, so not all 784 dimensions are needed. The layer in the middle is called the bottleneck layer; its dimension is smaller, and only what really carries information can squeeze through. She says this is the same concept as compression in information theory: finding a shorter representation while losing the least information.
 
-For the original derivation, see [Kingma & Welling, Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114).
+### Adding noise: denoising auto-encoder
 
-</details>
+Slide 16. With some noise added to the image, a person can still see that it is a 9. To have the model do the same, noise is first added artificially to the clean image, and after encoding and decoding the result is required to be close to the original image **without noise**. The representation learned this way is more robust.
 
-**Try this**: in PyTorch, train an AE and a VAE on MNIST, each with a 2-dimensional code. Plot the test-set codes as a scatter plot colored by digit. The VAE's points will cluster around the origin, while the AE's spread out more. Then sample a few codes from each and run them through the decoder. You will see the difference pages 32–33 describe.
+Slide 25 connects this idea to language models: BERT randomly masks 15% of the tokens and asks for them to be reconstructed, which is a kind of denoising auto-encoder. She says the concept here has been carried on into today's pre-trained models.
 
-## Dual learning: symmetric tasks help each other (pages 44–55)
+### Stacking deeper
 
-Page 44 credits these slides to an ACML 2018 tutorial. Page 45 lists many paired tasks: English-to-Chinese and Chinese-to-English translation, speech recognition and speech synthesis, image captioning and text-to-image generation, language understanding and language generation, question answering and question generation. One is the primal task; the other is the dual.
+Slides 17–19 (Hinton and Salakhutdinov 2006). Two ways of compressing 784 dimensions to 30 are compared: with only one layer (equivalent to PCA), the reconstructed digits are blurry; with a deep auto-encoder of 784-1000-500-250-30 that then unfolds symmetrically, the reconstruction is much clearer. With the code compressed to 2 dimensions and plotted, the deep model separates the different digits further apart. She adds that deeper is not always better, and that it also depends on the amount of data.
 
-- **Dual unsupervised learning (page 46)**: translate an English sentence into Chinese and back into English, then use how closely it comes back as a feedback signal for training, via RL or similar. No paired labels are needed.
-- **Dual supervised learning (pages 49–50)**: proposed by [Xia et al., 2017](https://arxiv.org/abs/1707.00415) for machine translation. The two directions should in theory satisfy P(x|y)P(y) = P(y|x)P(x), so a duality penalty is added to each model's supervised loss to force both to respect that probabilistic constraint.
-- **Applied to NLU/NLG (pages 51–54)**: Prof. Chen's lab used it for sentence ↔ semantic frame. For example, "McDonald's is a cheap restaurant nearby the station" parses into RESTAURANT, PRICE, and LOCATION fields, and the reverse writes the sentence back from the fields ([Su et al., ACL 2019](https://arxiv.org/abs/1905.06196)). The data is 50K restaurant-domain examples from E2E NLG; NLU is scored with F1 and NLG with BLEU and ROUGE.
-- **Joint dual learning (pages 47–48)**: the same team's follow-up ([Su et al., ACL 2020](https://arxiv.org/abs/2004.14710)) chains NLU and NLG into one closed loop that aims to reconstruct the input perfectly. Feedback comes in two kinds: explicit (reconstruction likelihood, BLEU/ROUGE/F1) and implicit (a language model to estimate the sentence distribution, and the MADE model from earlier to estimate the semantic-frame distribution).
+Layer-wise pre-training on slides 26–29 is an early technique for training deep networks: train one layer at a time, fix it once trained, then train the next layer, and finally fine-tune the whole thing together. She says that there is now enough data, random initialization usually trains fine, and this technique is not much needed anymore.
 
-Page 55 contrasts dual learning with related ideas. Semi-supervised learning involves only one task. Co-training relies on different feature sets. Multi-task learning shares one representation. Transfer learning uses auxiliary tasks to boost a target task. Dual learning boosts several tasks together and at once, and needs only a closed loop, not a shared representation.
+### Retrieval with the code
 
-This section ties straight back to the task-oriented dialogue of [the previous post](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en): NLU is the dialogue system's LU module, and NLG is its last module.
+Slides 20–22 (Krizhevsky et al. 2011). Take a photo of a face and look for similar images. Computing distance directly on pixels mostly retrieves things with a similar color distribution and unrelated content. Compressing the 32×32 image into a 256-dimensional code with an 8192-4096-2048-1024-512-256 auto-encoder and then searching, the results are at least all faces. She says that people cannot say clearly what each dimension of this space stands for either, but after projection onto it, distance is more meaningful.
 
-## Self-supervised learning: self-prediction and contrastive learning (pages 56–70)
+Slides 23–24 are the text version. The traditional approach represents both documents and queries as bag-of-words, looking only at whether words appear and not at semantics; text with the same meaning and different wording is not found. Using an auto-encoder to compress a 2000-dimensional bag-of-words into 2 dimensions, documents about the same thing end up close together.
 
-Page 56 credits these slides to a NeurIPS 2021 tutorial. Page 57's definition: **self-supervised learning builds supervised tasks out of unlabeled data.** The motivation is that labels are expensive and scarce, and a good representation transfers to many downstream tasks.
+MADE (Germain et al. 2015) on slide 30 is a variant of the auto-encoder: masks are added to the network's connections so that the outputs form a conditional order such as "first x₂, then x₃, then x₁," which is used to estimate a distribution. Dual learning uses it later.
 
-Page 58 splits it into two camps:
+## VAE: making the code follow a distribution
 
-- **Self-prediction**: take one data sample, hide part of it, and predict the hidden part from the rest. This is "intra-sample" prediction. Page 59 borrows Yann LeCun's illustration: predict the future from the past, the past from the present, the top from the bottom, the occluded from the visible. Next-word prediction and BERT's masked words both belong here.
-- **Contrastive learning**: take several samples and predict how they relate. This is "inter-sample" prediction.
+### Why an auto-encoder's decoder cannot be used to generate
 
-The core idea of contrastive learning (page 61): learn an embedding space where similar pairs stay close and dissimilar pairs are pushed apart. The deck lists three families:
+14.3 starts from a question. After an auto-encoder is trained, what we use is really only the encoder; the decoder is there only so that training has a reconstruction target. But the decoder's function is "given a code, produce an image or a document," which sounds useful. Can we pick any code and ask it to generate?
 
-1. **Inter-sample classification (pages 62–64)**: given an anchor plus positive and negative candidates, identify the similar one. A positive can be a distorted version of the input, or the same target seen from another view. The loss goes from the triplet loss ([Schroff et al., 2015](https://arxiv.org/abs/1503.03832)) to the N-pair loss, which compares against several negatives at once.
-2. **Feature clustering (page 65)**: cluster samples by their learned features and use the clusters as pseudo-labels.
-3. **Multiview coding (page 66)**: apply the InfoNCE objective to different "views" of the same input. Views can come from data augmentation or from different modalities. The deck marks this as the mainstream approach.
+No. An auto-encoder places no constraint on the distribution of the code, and decoding an arbitrarily chosen code usually does not give something reasonable (slide 32: How can we set a latent code for generation?).
 
-Examples from NLP (pages 67–70): the unsupervised version of [SimCSE (Gao et al., 2021)](https://arxiv.org/abs/2104.08821) relies only on dropout noise, encoding the same sentence twice to form a positive pair; the supervised version then adjusts with labels. SpokenCSE (Chang & Chen, INTERSPEECH 2022) treats clean text and its speech-recognition-corrupted version as a positive pair, making language understanding more robust to recognition errors.
+### The core idea
 
-## CLIP and DALL·E 2: from language to images (pages 71–80)
+The VAE's approach is to constrain the distribution of the code (slides 33–34): require z to follow a Gaussian distribution N(μ, σ). A new z can then be sampled from this distribution and handed to the decoder to produce data.
 
-Page 71 contrasts the two fields. Text has self-supervision (language modeling), large training data, and zero-shot transfer. Images rely mostly on supervised learning (ImageNet), with smaller datasets. The deck's idea: **connect vision tasks to language to get better transfer.**
+The actual network works like this (slide 37): the encoder does not output z directly; it outputs the mean μ and σ of this Gaussian distribution (the deck writes N(μ, σ) and the lecturer speaks of the mean and the variance; by the usual convention σ is the standard deviation and σ² the variance); z is obtained by sampling from this distribution; the decoder produces y from z.
 
-**CLIP ([Radford et al., 2021](https://arxiv.org/abs/2103.00020), pages 72–75)**:
+The objective has two terms (slide 39):
 
-- It builds a new dataset, WebImageText, with 400 million (image, text) pairs collected from the internet.
-- An image encoder and a text encoder train together. Within a batch, matched image-text pairs are pulled together and mismatched ones pushed apart. The deck marks the batch size as 32,768, so every pair has more than thirty thousand negatives. This is the multiview coding of the previous section, with the two "views" being two modalities.
-- **Zero-shot image classification (page 74)**: write each of N class names as a sentence, encode it, and assign the image to whichever sentence its vector is closest to. New classes need no retraining.
+E_{z∼q(z|x)}[ log p(x | z) ] − KL( q(z | x) ‖ p(z) )
 
-**DALL·E 2 ([Ramesh et al., 2022](https://arxiv.org/abs/2204.06125), pages 76–80)** runs CLIP in reverse to generate images. The deck splits it into two components:
+The first term is how close the reconstruction is, and the second requires the distribution q(z|x) given by the encoder to be close to the distribution p(z) we specify. That is why the deck says a VAE is a regularized auto-encoder.
 
-- **Prior**: given a caption, produce the matching CLIP image embedding. The deck lists an autoregressive prior and a diffusion prior.
-- **Decoder**: generate an image from that embedding. The deck notes it uses GLIDE.
+Slide 40 compares the two: an auto-encoder is not a generative model, because new data cannot be sampled from it and the likelihood of the data cannot be computed.
 
-At inference: text → prior → CLIP image embedding → decoder → image. The deck does not explain how diffusion models work, and neither does this post; see Further reading.
+She cautions that a VAE is unstable to train, because of the sampling step in the middle: each time the same data point goes in, the z that is drawn may be different.
 
-**Try this**: take an open-source CLIP model from Hugging Face and ten photos from your phone. Write five class descriptions ("a photo of a cat," "a photo of food") and run zero-shot classification. Then rewrite the descriptions to be more specific or vaguer and watch the accuracy change. It makes page 74's point, that a class is just a sentence, concrete.
+### The interpolation example
 
-## 14.7 Multimodality: name only
+Slide 42 compares the two with sentences. Take the codes of two sentences, interpolate between them, and decode:
 
-The subtitle of 14.7 is "seeing, hearing, and speaking like a human," and it runs 19:52. The 2024 deck has no matching pages and Fall 2025 published no slides, so this is as far as the post can go. For a full treatment of multimodal LLMs, see CS224N and CS231n under Further reading.
+- **Auto-encoder**: from "i went to the store to buy some groceries" to "horses are my favorite animal," "horses are to buy any groceries" appears in between. It looks like a sentence but has no meaning.
+- **VAE**: from "i want to talk to you" to "she didn't want to be with him," what lies in between is sentences such as "i don't want to be with you." Every one is a reasonable sentence.
 
-## What this post can and cannot confirm
+Slide 41 shows image reconstruction results, and she says the VAE may be a little better, though the difference is not very obvious; the more important use of a VAE is that the decoder can be used to generate.
 
-Confirmed: the seven videos' titles, Chinese subtitles, lengths, and descriptions (checked with YouTube oEmbed and yt-dlp); the titles and bullets of all 82 pages of the Fall 2024 BeyondSL deck; the arXiv titles of the papers cited above.
+### A training technique: posterior collapse
 
-Not confirmed: whether the Fall 2025 videos use this 2024 deck, or how much it changed. Videos 14.1–14.3 credit their slides to Prof. Hung-yi Lee, so those three may use at least some different slides. The content of 14.7. I did not transcribe the videos. Result charts in the deck are described only by what they compare; check the original papers for numbers. The AE/VAE scatter-plot behavior in "Try this" is general experience, not deck content.
+Slide 43. When the two terms of the objective are trained together, the loss does go down, but what goes down is mainly the KL term, because it is easier to learn: it only has to make the distribution match the target, with no need to reconstruct seriously. The result is that the model relies only on the decoder and ignores z, which is called posterior collapse.
+
+Two approaches:
+
+- **KL annealing**: the KL term is multiplied by a weight that starts very small, forcing the model to learn reconstruction first, and the weight is then raised gradually.
+- **KL thresholding**: once the KL falls below a certain threshold it is no longer pushed down; the deck's formula is Σ max[λ, KL(q(zᵢ|x) ‖ p(zᵢ))].
+
+## Dual learning: two opposite tasks helping each other
+
+### Dual tasks
+
+Slide 45. Two tasks, one x → y and the other y → x, have a dual relationship. The deck lists several pairs:
+
+| Field | f : x → y | g : y → x |
+|---|---|---|
+| Machine translation | English to Chinese | Chinese to English |
+| Speech | Speech recognition | Speech synthesis |
+| Image understanding | Image captioning | Image generation |
+| Language understanding | Language understanding | Language generation |
+| Question answering | Answering questions | Generating questions |
+
+### No paired data: dual unsupervised learning
+
+Slide 46. There are many English sentences and many Chinese sentences at hand, but they are not aligned. Let an English sentence x first be translated into Chinese, y = f(x), and then back into English, x′ = g(y); how similar x′ is to x is the feedback signal. She says this is a reinforcement learning concept: go over and come back, get a reward, and use it to make both functions better. Similar means close in meaning, not identical word for word.
+
+### Going around the loop in both directions: joint dual learning
+
+Slides 47–48 (Su et al. 2020). The example is language understanding and generation: the sentence "at the riverside there is a pub called the blue spice" corresponds to the semantic representation area[riverside], eatType[pub], name[blue spice]. Both cycles must hold: g(f(x)) ≡ x, and f(g(y)) ≡ y. When each side has data that simply is not paired, training can be done this way.
+
+### With paired data: dual supervised learning
+
+Slides 49–51 (Xia et al. 2017, originally proposed for machine translation; slide 51 applies it to language understanding and generation and cites Su et al. 2019). With paired data, x → y can already be trained directly. But the two directions should be consistent in probability:
+
+P(x) P(y | x; θ_{x→y}) = P(y) P(x | y; θ_{y→x})
+
+So on top of each side's original loss, a duality loss term is added, requiring the gap between the two sides to be as small as possible:
+
+l_duality = ( log P̂(x) + log P(y | x; θ_{x→y}) − log P̂(y) − log P(x | y; θ_{y→x}) )²
+
+This requires estimating P(x) and P(y). When x is natural language, P(x) is estimated with a language model; when y is semantic labels, it can be estimated with the MADE described earlier.
+
+Slides 52–54 are the results (E2E NLG data, 50,000 examples in the restaurant domain). Her reading: with duality added, the generation side improves and the understanding side stays about the same; once the distribution of one side is estimated better (with MADE), both sides improve.
+
+### How it differs from other approaches
+
+The comparison on slide 55:
+
+| Other approaches | Dual learning |
+|---|---|
+| Ordinary unsupervised / semi-supervised learning: only one task, with no feedback signal | Several tasks, with feedback generated automatically |
+| Co-training: one task, with different feature sets complementing each other | Several tasks, with no assumption about feature sets |
+| Multi-task learning: several tasks sharing a representation | No need to share a representation, only to form a closed loop |
+| Transfer learning: auxiliary tasks help a target task | No primary and secondary; all tasks help each other |
+
+## Self-supervised learning: self-prediction and contrastive learning
+
+The definition on slide 57: self-supervised learning **constructs** supervised tasks out of unannotated data. She contrasts it with the AE and VAE above: those have no explicit prediction target, while here a target is constructed and training then follows the supervised way. Today's pre-training belongs to this category.
+
+Slide 58 divides it into two kinds:
+
+- **Self-prediction**: within **one** sample, hide a part and predict it from the other parts (intra-sample). A language model predicting what follows from what came before and BERT predicting masked tokens both belong here. Slide 59 lists several ways to hide: predict the future from the past, predict the top half from the bottom half, predict the occluded from the visible.
+- **Contrastive learning**: given **several** samples, predict the relationships among them (inter-sample).
+
+She says everyone is already familiar with self-prediction, so this part mainly covers contrastive learning.
+
+### The goal of contrastive learning
+
+Slide 61: learn a vector space where similar samples are close and dissimilar ones are far apart. She says it is often used to adjust embeddings.
+
+Without annotations, who is similar to whom has to be constructed (slide 62):
+
+1. The original input and a distorted version of it (for example with noise added).
+2. Different views of the same object.
+
+**Triplet loss** (slide 63, Schroff et al. 2015) is the most classic approach. An anchor x, a positive x⁺, and a negative x⁻:
+
+L = max( 0, ‖f(x) − f(x⁺)‖² − ‖f(x) − f(x⁻)‖² + ε )
+
+**Example (made up for this post).** Setup: ε = 1. Currently the squared distance between the anchor and the positive is 1.0, and between the anchor and the negative is 1.5.
+
+- Reasoning: 1.0 − 1.5 + 1 = 0.5, which is greater than 0, so the loss is 0.5.
+- For comparison: if the negative has already been pushed to a squared distance of 2.5, then 1.0 − 2.5 + 1 = −0.5, and after taking the max the loss is 0.
+- Result and meaning: the loss does not require the negative to be infinitely far, only farther than the positive by more than ε. Once this margin is reached, this set of samples no longer produces a gradient.
+
+**N-pair loss** (slide 64, Sohn 2016) generalizes one negative to many. She says negatives are easy to obtain: know who is similar to me, and draw the rest at random from a large amount of data.
+
+Two other ways to construct positives and negatives:
+
+- **Feature clustering** (slide 65): cluster first, treat the same cluster as positives and different clusters as negatives, which amounts to first assigning a pseudo label.
+- **Multiview coding** (slide 66): use data augmentation to produce different versions of the same input, for example converting an image to grayscale, scaling it up or down, or rotating it. The deck says this is the mainstream approach to contrastive learning. Different views can also come from different modalities: an image of "running very fast," a sentence of text saying "running very fast," and a clip of audio saying "running very fast" should have vectors that are close.
+
+### SimCSE: constructing positives with dropout
+
+Slides 67–68 (Gao et al. 2021). The aim is to improve sentence vectors on top of BERT. The unsupervised version is very simple: pass the same sentence through the model twice, with dropout dropping different nodes each time, to get two slightly different vectors, and these two are the positives; the vectors of the other sentences in the same batch are the negatives. She stresses that it uses no new data at all, relies only on dropout, and clearly improves every sentence-similarity benchmark.
+
+With annotations, pulling together what should be close and pushing apart what should be far works even better. Her spoken example is "pull sentences of the same class together and push different classes apart"; the labels in the figure on slide 68 are entailment and contradiction between sentences.
+
+SpokenCSE (Chang and Chen 2022) on slides 69–70 applies the same idea to speech recognition output: pull sentences with recognition errors close to the original clean sentences. Then when recognition goes wrong, the vector is still close to the correct sentence, and the semantic judgment downstream is unaffected.
+
+She ends with a newer example (not in the 2024 deck): what is commonly used now is embeddings produced by language models, and doing contrastive learning on top of them still helps. The scenario is a customer service center that wants to discover newly appearing types of inquiries automatically. Adjusting the vectors with contrastive learning first and then clustering works better than handing all the content to a language model and asking it to find new topics. The resulting clusters can then be given to a language model to name.
+
+## CLIP and DALL·E 2
+
+### Why connect images to language
+
+Slide 71. Text can be learned in a self-supervised way, the amount of data is large, and it has zero-shot transfer ability. Images in the past mostly relied on supervised learning; ImageNet has collected many images, and the amount still does not compare with text. So the idea is to connect image tasks to language and borrow language's transfer ability.
+
+### How CLIP is trained
+
+Slides 72–73 (Radford et al. 2021). CLIP is Contrastive Language-Image Pretraining. The data is 400 million pairs of images and text collected from the web. She points out that although it is called pretraining, it does use labels to some extent: the pairing of image and text is the label, only not for any specific task. She explains why images on the web all come with text: an image without a description is hard to find, so authors write one.
+
+There is one text encoder and one image encoder. A batch of data is arranged as a matrix, and similarity is computed between the i-th image Iᵢ and the j-th text Tⱼ. On the diagonal are the matched image-text pairs, to be pulled together; all other cells are to be pushed apart. The batch size marked in the deck is 32,768.
+
+**Example (made up for this post).** Setup: a batch of 32,768 image-text pairs.
+
+- Reasoning: the matrix has 32,768 × 32,768 ≈ 1.07 billion cells. For each image there is only 1 positive and there are 32,767 negatives.
+- Result and meaning: she says a larger batch trains better, because there are more targets to push away at once. This number shows what scale "more" means: every image is picking out its own text among more than thirty thousand texts.
+
+### Classifying without separate training
+
+Slide 74. The training data has no "image classification" annotations at all, yet classification can be done like this: write each candidate class as a sentence, for example a photo of a dog and a photo of a cat, and compute the text vector of each; compute the image vector of the image to be classified; whichever sentence is most similar to the image is the answer.
+
+The table on slide 75 compares a ResNet101 trained with supervision on ImageNet and zero-shot CLIP:
+
+| Dataset | ResNet101 | CLIP (zero-shot) |
+|---|---|---|
+| ImageNet | 76.2 | 76.2 |
+| ImageNetV2 | 64.3 | 70.1 |
+| ImageNet-R | 37.7 | 88.9 |
+| ObjectNet | 32.6 | 72.3 |
+| ImageNet Sketch | 25.2 | 60.2 |
+| ImageNet-A | 2.7 | 77.1 |
+
+On ImageNet itself the two are tied. Pointing at the banana example, she says: switch to hand-drawn bananas (ImageNet Sketch) and the model trained with supervision is left with only 25%, because its training data has no hand-drawn versions; CLIP still has 60%. This shows that its transfer ability is better.
+
+### DALL·E 2: generating images in the other direction
+
+Slides 76–80 (Ramesh et al. 2022). The input is text y, and the goal is to produce a matching image x. It uses CLIP's vectors and has two steps:
+
+1. **Prior**: P(zᵢ | y). From the text vector, produce the corresponding CLIP image vector.
+2. **Decoder**: P(x | zᵢ, y). Produce the image from the image vector.
+
+Together this is P(x | y) = P(x | zᵢ, y) P(zᵢ | y). She does not go into the image generation part, saying only that the decoder can use a diffusion model. In the example on slide 80, the text is "a small kitchen with a low ceiling"; the generated images do not have the sloped roof of the original image, but the ceilings are all on the low side and the kitchens all have a sink.
+
+## Multimodal language models
+
+The content of 14.7 is not in the 2024 deck, and the paper names and years below come from the slides in the video frames.
+
+### LLaVA: projecting images into the language space
+
+LLaVA (Liu et al. 2023). One line on the slide says: use the text-only GPT-4 to generate instruction tuning data, and use it to train a vision-language model.
+
+The architecture: an already trained image encoder encodes the image, which passes through a projection matrix W into a vector space the language model can read, and is then handed to the language model together with the text instruction. In her words, language is treated as the hub, images are projected into the language space, and the language model then makes the judgment.
+
+This makes use of the common sense the language model already has. The slide's example is a photo of someone ironing clothes on the back of a taxi; asked what is unusual about the image, it can answer.
+
+### Any modality in, any modality out
+
+The slides that follow immediately (Wu et al. 2023) generalize the same idea: images, audio, and video each have an encoder, each followed by a projection into the language model; the output side also has a projection for each, connected to the corresponding generative model. In training, the input side learns the projections from data such as "images paired with image captions, audio paired with audio captions (which she glosses as the speech recognition output), video paired with video captions."
+
+### Streaming interaction
+
+The slide title is GPT-4o: Streaming Multimodal Interaction (2024). Two architectures are compared first:
+
+- **Pipelined**: audio goes through speech recognition first, the text goes into the language model, and the answer goes through speech synthesis. She says this already works quite well and is often no worse.
+- **End-to-end**: one model understands the different modalities directly. The benefits are that speech recognition errors are not passed downstream and there is less latency.
+
+The difficulty of streaming is that there is no Enter key. In ordinary use of a language model, you finish typing and press Enter, and only then does the model start processing. In streaming, the model has to judge at every point in time: should it listen or reply now? Her description: while you are still talking it has to listen quietly; when you stop, it has to judge that it is its turn to speak; while it is speaking its ears still have to be open, because you may interrupt it and say "wait, you misunderstood." She says this is not something that can be achieved by modifying the original model a little.
+
+### Three strategies for full-duplex
+
+The next two slides cite a paper by Wang et al. 2025 (which she describes as recently published by Google), listing three strategies:
+
+- **(a) Perpetual speaking**: the model produces output in every time chunk.
+- **(b) Model-as-a-server**: one model is dedicated to listening and judging whether it is time to speak; once it judges that it is, it hands over to another model responsible for generation. She says this is closer to the original language model: take an existing language model, train one more model that judges when to take over, and a certain degree of full-duplex can be achieved.
+- **(c) Standalone state prediction**: everything is trained into the same model, which judges for itself that it should not speak, that it is time to speak, and that it has finished speaking. She says this is ideally the most human-like, and also harder to train.
+
+She does not say which one is best. The same paper also sorts out the stages of training: large-scale pre-training first, then fine-tuning on dialogue; learn understanding first, then learn generation. In her words, if understanding is not learned well, generation is also hard to train well.
+
+### Her summary
+
+Many of today's multimodal models treat the language model as the hub and connect the other modalities to it. By now, most of the models released by the leading companies are already end-to-end versions. She thinks language still takes the largest share, because language data is the most plentiful and the language model's own ability is the best.
+
+## Common misreadings
+
+This list is my own summary, not something the lecture enumerated point by point.
+
+- **"Without annotations there is no way to train."** You can reconstruct the input itself, hide a part and guess it back, have tasks in opposite directions check each other, or construct positives and negatives. Every method in this lecture answers where the annotation comes from.
+- **"Once an auto-encoder is trained, its decoder can be used to generate."** It places no constraint on the distribution of the code, and an arbitrarily chosen code usually reconstructs into something unreasonable. The VAE is what adds this constraint.
+- **"If both VAE loss terms go down together, it has learned well."** The KL term is easier to bring down, and the model may attend only to it and not reconstruct seriously. That is why its weight is kept low at first.
+- **"Dual learning is just multi-task learning."** Multi-task relies on a shared representation; dual learning needs no sharing and relies on the two tasks running in opposite directions and being able to form a loop.
+- **"Contrastive learning needs someone to label who is similar to whom."** SimCSE constructs positives with dropout alone and uses the other sentences in the same batch as negatives.
+- **"CLIP uses no annotations at all."** She specifically points out that its annotation is the pairing between images and text, only not aimed at a particular task.
+- **"A multimodal model is speech recognition plus a language model plus speech synthesis."** That is the pipelined approach. An end-to-end model handles several modalities directly, and streaming interaction also has to decide at every point in time whether to listen or speak.
+
+## Self-check
+
+The questions were written for this post, and every answer can be found above.
+
+**1. How many dimensions does a 28×28 handwritten digit image take when represented by pixels? What is the benefit of representing it by strokes instead?**
+
+784 dimensions. The stroke representation is much shorter, and different ways of writing the same digit use similar combinations of strokes, which is closer to the semantics.
+
+**2. What are the input and the reconstruction target of a denoising auto-encoder? How is BERT related to it?**
+
+The input is data with noise added, and the target is to reconstruct the original data without noise. BERT masking 15% of the tokens and reconstructing them is the same idea.
+
+**3. Why is an auto-encoder not a generative model? What does a VAE change?**
+
+An auto-encoder does not constrain the distribution of the code, so reasonable new codes cannot be sampled. A VAE requires the code to follow a Gaussian distribution, the encoder outputs the mean μ and σ of the distribution, and afterwards a code can be sampled from the distribution and handed to the decoder.
+
+**4. Which two terms make up the VAE objective? What is posterior collapse, and how is it handled?**
+
+The reconstruction term and the KL term. The KL term is easier to learn, and the model may bring down only that term while ignoring z and not reconstructing seriously. It is handled with KL annealing (raising the weight gradually from small) or KL thresholding.
+
+**5. You have many English sentences and many Chinese sentences, but they are not aligned. Where does the training signal in dual learning come from?**
+
+Translate the English into Chinese and back into English; how close the back-translated sentence is to the original sentence is the feedback.
+
+**6. What does the extra term in dual supervised learning require?**
+
+The probabilities of the two directions must be consistent: P(x)P(y|x) should equal P(y)P(x|y). The squared gap between the two sides after taking logs is the duality loss.
+
+**7. In a triplet loss, ε = 0.5, the squared distance between the anchor and the positive is 0.8, and between the anchor and the negative is 1.0. What is the loss?**
+
+0.8 − 1.0 + 0.5 = 0.3, which is above 0, so after taking the max the loss is 0.3.
+
+**8. How does the unsupervised version of SimCSE get positives and negatives?**
+
+The same sentence is passed through the model twice with different dropout, and the two vectors are positives for each other. The other sentences in the same batch are negatives.
+
+**9. CLIP was not trained on image classification data. How does it classify images?**
+
+Write each class as a sentence "a photo of a ……," compute the text vector of each sentence, compare similarity with the image vector of the picture, and take the class with the highest similarity.
+
+**10. Of the three full-duplex strategies, which one can reuse an existing language model? What does it add?**
+
+Model-as-a-server. It adds a model responsible for listening and judging when to speak, which hands over to the generation model once it judges that it is time to speak.
 
 ## Further reading
 
-- [CS231n: Generative Models (VAE, GAN)](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en) and [CS231n: Generative Models (Diffusion)](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en): the VAE derivation and the diffusion models behind DALL·E 2.
-- [CS231n: Self-Supervised Learning](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en) and [CS231n: Vision and Language](/posts/ai/2026-09-30-cs231n-vision-language-en): contrastive learning and CLIP from the vision side.
-- [MIT 6.S184 guide: Flow Matching and Diffusion Models](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en).
-- [CS224N: Multimodality](/posts/ai/2026-08-22-cs224n-multimodality-en): fills the 14.7 gap.
+- [Lecture 5 in this series: Tokenization and BERT](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), for the details of masked LM
+- [Lecture 8 in this series: RAG](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en), for the contrastive loss of the dense retriever and the bi-encoder
+- [Lecture 7 in this series: Post-Training and Efficient Tuning](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en), for where instruction tuning data comes from
 
-The next post leaves the lectures for the side track: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en).
-
-Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Conversational AI and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en) | Next: [TA Recitations: From PyTorch to LLM Deployment](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
+Previous lecture: [Lecture 13, Dialogue Systems and Tool Use](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en) | Next: [TA recitations](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en)
 
 ## Course video sources
 
-These videos were checked on 2026-10-10 against the official course page and official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
+These videos were checked on 2026-10-10 against the official YouTube playlist (lecture numbers and titles match); no timestamp is supplied.
 
 ```youtube
 url: https://www.youtube.com/watch?v=j5XknQ4MGw0
-title: 14.1
+title: ADL 14.1: Beyond Supervised Learning
 ```
 
 ```youtube
-url: https://www.youtube.com/watch?v=rQyhxK-fDyI
-title: 14.2 Auto-Encoder
+url: https://www.youtube.com/watch?v=I3by1PGKBMM
+title: ADL 14.3: Variational Auto-Encoder (VAE)
 ```
 
-Original videos: [14.1](https://www.youtube.com/watch?v=j5XknQ4MGw0)、[14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI)、[14.3 VAE](https://www.youtube.com/watch?v=I3by1PGKBMM)、[14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ)、[14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80)、[14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU)、[14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
+```youtube
+url: https://www.youtube.com/watch?v=5CJW10uSj80
+title: ADL 14.5: Self-Supervised Learning
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=Q0-8988uEiU
+title: ADL 14.7: Multimodality
+```
+
+Original videos: [14.1 Beyond Supervised Learning](https://www.youtube.com/watch?v=j5XknQ4MGw0), [14.2 Auto-Encoder](https://www.youtube.com/watch?v=rQyhxK-fDyI), [14.3 Variational Auto-Encoder (VAE)](https://www.youtube.com/watch?v=I3by1PGKBMM), [14.4 Dual Learning](https://www.youtube.com/watch?v=zDe-RNd38bQ), [14.5 Self-Supervised Learning](https://www.youtube.com/watch?v=5CJW10uSj80), [14.6 CLIP & DALL·E 2](https://www.youtube.com/watch?v=-UpU_dfq_IU), [14.7 Multimodality](https://www.youtube.com/watch?v=Q0-8988uEiU)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-Checked: 2026-10-10.
+Checked: 2026-10-13.
 
-Transcript attempt (2026-10-10): the embedded 14.1 (21:19) and 14.2 (14:40) have no obtainable YouTube transcript, so their spoken content was not checked. The article already states that it did not transcribe the videos and only cites titles, subtitles, lengths and descriptions. Both videos were uploaded on 2025-12-02 with a description dated 2025/12/01, which matches the article.
+Content check: verified against the video transcript (2026-10-13): 14.1–14.7 have no captions, so this guide was written from speech-recognition transcripts of their audio, which may mishear some proper nouns and numbers. Formulas, numbers, and example sentences follow the pages of the Fall 2024 deck; paper names and citations for 14.7 were additionally checked against the slides visible in video frames.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
-- 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
-- 2026-10-10: Tried to check 14.1 and 14.2 against transcripts, but neither has one, so the content was not checked; the article was left unchanged.
+- 2026-10-13: Rewritten from the spoken content of the seven videos. Added the content of 14.7 (previously listed by name only), and added two examples, common misreadings, and a self-check with answers.
 
 ## References
 
-- [NTU Applied Deep Learning Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-- [2025 Fall NTU CSIE ADL playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o) (lectures in Mandarin)
-- Videos: [14.1](https://youtu.be/j5XknQ4MGw0), [14.2 Auto-Encoder](https://youtu.be/rQyhxK-fDyI), [14.3 VAE](https://youtu.be/I3by1PGKBMM), [14.4 Dual Learning](https://youtu.be/zDe-RNd38bQ), [14.5 Self-Supervised Learning](https://youtu.be/5CJW10uSj80), [14.6 CLIP & DALL·E 2](https://youtu.be/-UpU_dfq_IU), [14.7 Multimodality](https://youtu.be/Q0-8988uEiU)
-- [241127_BeyondSL.pdf (Beyond Supervised Learning, Fall 2024 deck)](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241127_BeyondSL.pdf)
-- [ADL Fall 2024 course page](https://www.csie.ntu.edu.tw/~miulab/f113-adl/)
-- [Auto-Encoding Variational Bayes (arXiv 1312.6114)](https://arxiv.org/abs/1312.6114)
-- [MADE: Masked Autoencoder for Distribution Estimation (arXiv 1502.03509)](https://arxiv.org/abs/1502.03509)
-- [Dual Supervised Learning (arXiv 1707.00415)](https://arxiv.org/abs/1707.00415)
-- [Dual Supervised Learning for Natural Language Understanding and Generation (arXiv 1905.06196)](https://arxiv.org/abs/1905.06196)
-- [Towards Unsupervised Language Understanding and Generation by Joint Dual Learning (arXiv 2004.14710)](https://arxiv.org/abs/2004.14710)
-- [FaceNet (triplet loss, arXiv 1503.03832)](https://arxiv.org/abs/1503.03832)
-- [SimCSE (arXiv 2104.08821)](https://arxiv.org/abs/2104.08821)
-- [Learning Transferable Visual Models From Natural Language Supervision (CLIP, arXiv 2103.00020)](https://arxiv.org/abs/2103.00020)
-- [Hierarchical Text-Conditional Image Generation with CLIP Latents (DALL·E 2, arXiv 2204.06125)](https://arxiv.org/abs/2204.06125)
+- [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+- [2025 Fall NTU CSIE ADL playlist](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
+- [Beyond Supervised Learning deck (Fall 2024, 241127_BeyondSL.pdf)](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241127_BeyondSL.pdf) — the source of the slide numbers here
+- [Gao et al., SimCSE: Simple Contrastive Learning of Sentence Embeddings](https://arxiv.org/abs/2104.08821)
+- [Radford et al., Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://arxiv.org/abs/2103.00020)
+- [Ramesh et al., Hierarchical Text-Conditional Image Generation with CLIP Latents (DALL·E 2)](https://arxiv.org/abs/2204.06125)
+- [Liu et al., Visual Instruction Tuning (LLaVA)](https://arxiv.org/abs/2304.08485)

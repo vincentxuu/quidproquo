@@ -9,7 +9,7 @@ series:
   name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 4
 tldr: "An RNN translator has to squeeze the whole source sentence into one vector, and long sentences don't fit. Attention lets the decoder look back at every input position each time it produces a word, score each one, and take a weighted sum. Call the scorer the query, the thing being scored the key, and the thing being averaged the value, and you have dot-product attention. The Transformer goes one step further: the input attends to itself, recurrence disappears, and in return you get parallelism and a constant path length. The price is that position information has to be added back by hand."
-description: "A guide to the Attention Mechanism and Transformer lectures of NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: attention in seq2seq translation, query/key/value, the matrix form of dot-product attention, applications from speech recognition to image captioning, multi-hop memory networks; the Q/K/V computation of self-attention, the who/did what/to whom multi-head example, scaled dot-product, encoder and decoder blocks, masked self-attention, the four criteria for positional encoding and the sinusoidal solution, and training tips."
+description: "A guide to the Attention Mechanism and Transformer lectures of NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025: attention in seq2seq translation, query/key/value, the matrix form of dot-product attention, applications from speech recognition to image captioning, multi-hop memory networks; the Q/K/V computation of self-attention, the who/did what/to whom multi-head example, scaled dot-product, encoder and decoder blocks, masked self-attention, the four criteria for positional encoding and the sinusoidal solution, and training tips. Includes a hand-computed self-attention example and a self-check."
 draft: false
 glossary:
   - term: "dot-product attention"
@@ -25,19 +25,21 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Version note**: This guide is based on two decks from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**: [Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf) (28 pages) and [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf) (58 pages), plus videos [4.1](https://youtu.be/FLNSD3zykgE) (23:41) and [4.2](https://youtu.be/c0O9s6MCFys) (25:01), both in Mandarin. All facts were checked against the official materials on 2026-09-30. The course is rated **A2**: the lectures are fully public, and the gaps are on the homework side. See the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). This lecture has no gaps of its own.
+> **Version note**: This guide is based on two decks from the 9/08 week of NTU Yun-Nung Chen's *Applied Deep Learning* (ADL), **Fall 2025 (semester 114-1, 2025/09/01–12/15)**: [Attention Mechanism](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Attention.pdf) (28 pages) and [Transformer](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250908_Transformer.pdf) (58 pages), plus videos [4.1](https://youtu.be/FLNSD3zykgE) (23:41) and [4.2](https://youtu.be/c0O9s6MCFys) (25:01), both in Mandarin. The course is rated **A2**: the lectures are fully public, and the gaps are on the homework side. See the [series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). This lecture has no gaps of its own.
 
-**Series**: Previous: [Word Representations, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) | Next: [Tokenization and BPE](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+**Series**: Previous: [Word Representations, Language Models, and RNNs](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) | Next: [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 
 The [previous post](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en) ended on a problem: in theory an RNN remembers words from long ago, in practice the gradient never gets back to them. This lecture answers in two steps. First comes attention, originally an add-on to RNN translation models. Then comes the Transformer, which removes the RNN entirely and keeps only attention.
 
-The two decks are separate rows on the [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), but the first nine pages of the Transformer deck review the Attention deck, so this post reads them together.
+The two decks are separate rows on the [ADL Fall 2025 course page](https://www.csie.ntu.edu.tw/~miulab/f114-adl/), but pages 6–9 of the Transformer deck review the translation attention and dot-product attention from the Attention deck, so this post reads them together.
+
+After this lecture you should be able to do four things: say where RNN translation gets stuck and how attention fixes it; compute self-attention by hand for a few small vectors; say where the query, key, and value come from in each of the Transformer's three kinds of attention; and explain why position information has to be added once the RNN is removed. Examples marked "made up for this post" are not from the lecture.
 
 ## Step one: why translation needs attention
 
 ### Starting from human attention
 
-Slides 2–3 of the Attention deck start with people. In the [4.1 video](https://youtu.be/FLNSD3zykgE) Chen says your memory holds this morning's breakfast, a summer trip ten years ago, and what you learned in this course. When someone asks "what is deep learning?", you pull out only the relevant part to build an answer. Your senses take in a lot, but only what you attend to reaches working memory. Slide 3 puts the problem and the fix in one line: when the input is a very long sequence or an image, attend to part of it at a time.
+Slides 2–3 of the Attention deck start with people. In the [4.1 video](https://youtu.be/FLNSD3zykgE) Professor Chen says your memory holds this morning's breakfast, a summer trip ten years ago, and what you learned in this course. When someone asks "what is deep learning?", you pull out only the relevant part to build an answer. Your senses take in a lot, but only what you attend to reaches working memory. Slide 3 puts the problem and the fix in one line: when the input is a very long sequence or an image, attend to part of it at a time.
 
 ### The bottleneck in RNN translation
 
@@ -68,11 +70,11 @@ Chen stresses that keys and values don't have to be the same. You could score wi
 Slides 11–12 turn this into a formula. For a single query:
 
 ```
-A(q, K, V) = Σᵢ softmax(q · kᵢ) vᵢ
+A(q, K, V) = Σᵢ [exp(q·kᵢ) / Σⱼ exp(q·kⱼ)] vᵢ
 q and k are d_k-dimensional; v is d_v-dimensional
 ```
 
-Each generated word brings a new query, so the queries stack into a matrix Q and are computed at once: take QKᵀ, softmax each row, multiply by V.
+Each generated word brings a new query, so the queries stack into a matrix Q and are computed at once: take QKᵀ, softmax each row, multiply by V. Q is |Q|×d_k, Kᵀ is d_k×|K|, V is |K|×d_v, and the result is |Q|×d_v: one d_v-dimensional output per query.
 
 ### Applications everywhere
 
@@ -101,7 +103,7 @@ Slide 11's conclusion: replace recurrence with attention.
 
 ### Self-attention: the input attends to itself
 
-The attention above is output-to-input, and "focus somewhere different at each step" only means something when the output is a sequence. Self-attention makes every input word a query once, with all words as keys, so any two positions can exchange information directly. Slide 12 names two benefits: a constant path length between any two positions, and easy parallelism.
+The attention above is output-to-input, and "focus somewhere different at each step" only means something when the output is a sequence. Self-attention makes every input word a query once, with all words, itself included, as keys, so any two positions can exchange information directly. Slide 12 names two benefits: a constant path length between any two positions, and easy parallelism.
 
 Slides 15–23 compute it step by step. Take a¹:
 
@@ -109,14 +111,34 @@ Slides 15–23 compute it step by step. Take a¹:
 2. q¹ is dotted with every kⁱ to get α₁,ᵢ, and softmax turns those into α′₁,ᵢ.
 3. b¹ = Σᵢ α′₁,ᵢ vⁱ.
 
-No position depends on another, so b¹ through b⁴ can be computed at the same time. Slide 23 collapses the whole thing into four lines of matrix algebra, and the only learned parameters are W^q, W^k, and W^v:
+No position depends on another, so b¹ through b⁴ can be computed at the same time. Slide 23 writes the whole thing as matrix algebra, and the only learned parameters are W^q, W^k, and W^v (the softmax step is marked with an arrow on the slide):
 
 ```
 Q = W^q I    K = W^k I    V = W^v I
 A = Kᵀ Q     A′ = softmax(A)    O = V A′
 ```
 
-(The slides stack vectors as matrix columns, hence KᵀQ; with rows it becomes the familiar QKᵀ.)
+(The slides stack vectors as matrix columns, hence KᵀQ; with rows it becomes the familiar QKᵀ. In this layout the softmax runs down each column (one per query), which is the same thing as the row-wise softmax of QKᵀ on slide 12.)
+
+### Self-attention by hand (made up for this post)
+
+To look only at the mechanism, set W^q, W^k, and W^v to the identity, so each word's q, k, and v are its own vector. Three words:
+
+```
+a¹ = (1, 0)    a² = (0, 1)    a³ = (1, 1)
+```
+
+**Compute b¹, with a¹ as the query.**
+
+- Dot-product scores: a¹·a¹ = 1, a¹·a² = 0, a¹·a³ = 1
+- softmax(1, 0, 1): e¹ ≈ 2.718, e⁰ = 1, sum ≈ 6.437, weights ≈ 0.4223, 0.1554, 0.4223
+- b¹ = 0.4223 × (1, 0) + 0.1554 × (0, 1) + 0.4223 × (1, 1) ≈ (0.845, 0.578)
+
+The same computation gives b² ≈ (0.578, 0.845) and b³ ≈ (0.788, 0.788).
+
+Reading the result: the dot product of a¹ and a² is 0, so a¹ looks at a² least and gives it 0.155. Its dot products with itself and with a³ are equal, so each gets 0.422. The output b¹ is a weighted mix of the three vectors and already carries information from other positions.
+
+**Change the order and compute again.** Arrange the input as a¹, a³, a². With a¹ as the query the three scores become 1, 1, 0 and the weights 0.4223, 0.4223, 0.1554. The vectors they multiply have swapped places too, and the sum is still (0.845, 0.578). Each word's output does not depend on where it sits. This is why positional encoding has to be added later.
 
 ### Multi-head: several aspects at once
 
@@ -126,11 +148,13 @@ Multi-head attention lets each head handle one kind of relation. The slides draw
 
 ### Scaled dot-product
 
-Slide 42: as d_k grows, the variance of qᵀk grows. If each dimension of q and k has mean 0 and variance 1, then qᵀk has variance d_k. Dividing by √d_k brings the variance back to 1.
+Slide 42: as d_k grows, the variance of qᵀk grows. The slide says q and k are random variables with mean 0 and variance 1; reading that as independent per dimension (this post's reading), qᵀk has variance d_k. Dividing by √d_k brings the variance back to 1.
+
+Numbers show why large variance is a problem (made up for this post). With scores (8, 0, 0), softmax gives (0.9993, 0.0003, 0.0003), nearly one-hot, and the other positions are effectively unseen. If d_k = 64, dividing by √64 = 8 turns the scores into (1, 0, 0), and softmax gives (0.576, 0.212, 0.212), so all three positions still have a share.
 
 ### Encoder and decoder
 
-The architecture on slide 24 comes from [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762) (Attention Is All You Need). The original Transformer is a non-recurrent encoder-decoder for machine translation. Per slide 44, each encoder block has two parts:
+The architecture comes from [Vaswani et al. 2017](https://arxiv.org/abs/1706.03762) (Attention Is All You Need): slide 24 is a schematic, and the paper's original figure is on slides 39–40. The original Transformer is a non-recurrent encoder-decoder for machine translation. Per slide 44, each encoder block has two parts:
 
 - multi-head attention;
 - a two-layer feed-forward network with ReLU.
@@ -142,7 +166,7 @@ The decoder adds two things (slides 26 and 40, plus the video):
 - **Masked self-attention**: when producing the second word, the model can attend only to words already produced. Chen's reason: during training the later words haven't been generated yet, so the model shouldn't learn to look at them.
 - **Encoder-decoder attention**: queries come from the decoder, keys and values from the encoder output. This is the translation attention from step one.
 
-The video wraps up the three kinds of attention in one sentence: in encoder self-attention, Q, K, and V all come from the input; in decoder self-attention they all come from the output, looking backward only; in encoder-decoder attention, Q comes from the output and K, V from the input.
+Near the end of the video, Chen sums up the three kinds of attention in one sentence: in encoder self-attention, Q, K, and V all come from the input; in decoder self-attention they all come from the output, looking backward only; in encoder-decoder attention, Q comes from the output and K, V from the input.
 
 ### Positional encoding: putting order back
 
@@ -165,7 +189,19 @@ PE(pos, 2i)   = sin(pos / 10000^(2i/d))
 PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
 ```
 
-The denominator on slide 50 is printed as 100000; the original paper uses 10000. Slide 52 plots the dot products between position encodings, showing that neighbor relations are symmetric and decay with distance. Chen adds that the position vector is usually added to the word vector, sometimes concatenated, and that most current LLMs no longer use this version.
+The denominator on slide 50 is printed as 100000; the original paper uses 10000.
+
+With numbers (made up for this post), take d = 4:
+
+| Position | (sin(pos/1), cos(pos/1), sin(pos/100), cos(pos/100)) |
+|---|---|
+| 0 | (0, 1, 0, 1) |
+| 1 | (0.841, 0.540, 0.010, 1.000) |
+| 2 | (0.909, −0.416, 0.020, 1.000) |
+
+The first two dimensions change quickly, so adjacent positions are easy to tell apart. The last two change slowly and differ only across long distances. Every position's vector comes from the formula, needs no training, and is not limited by sentence length.
+
+Slide 52 plots the dot products between position encodings, showing that neighbor relations are symmetric and decay with distance. Chen adds that the position vector is usually added to the word vector, sometimes concatenated, and that current LLMs no longer seem to use this version.
 
 ### Training tips and results
 
@@ -173,15 +209,49 @@ Slide 55 lists the original Transformer's training tips: BPE, checkpoint averagi
 
 Slides 56–57 show the paper's translation and parsing experiments. Chen's reading in the video: translation quality matched the best systems of the time at lower training cost, because the model parallelizes easily.
 
-BPE, the first item on slide 55, is the topic of the [next post](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en).
+BPE, the first item on slide 55, is the topic of the [next post](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en).
 
-## How to self-study it
+## Common misreadings
 
-1. Start with [4.1](https://youtu.be/FLNSD3zykgE). Write out the α values on the four "深度學習 → deep learning" slides (5–9) yourself, and the roles of query, key, and value will click.
-2. While watching [4.2](https://youtu.be/c0O9s6MCFys), keep slide 23's four matrix lines open and compute A and O by hand for four words with 2-dim vectors.
-3. After the decoder section, check that you can say where Q, K, and V come from in each of the three kinds of attention.
+This list is my own summary, not something the lecture enumerated point by point.
 
-One thing to try tonight: write a self-attention in under 20 lines of NumPy, with a random 4×8 input. Leave out the √d_k division, raise d_k from 8 to 512, and watch the softmax weights drift toward one-hot. Then add the division and compare. You will see exactly what slide 42 is fixing.
+- **"Attention was invented by the Transformer."** It began as an addition to RNN translation models. What the Transformer did was let the input attend to itself and remove the RNN.
+- **"The key and the value are always the same vector."** They happen to be the same in the earliest translation example. The instructor says explicitly that they can differ, and self-attention has a separate matrix for each.
+- **"Self-attention inherently knows word order."** The hand computation above shows that reordering the input leaves each word's output unchanged. Order comes from positional encoding.
+- **"Multi-head repeats the same thing several times."** A single attention learns only one number, how relevant something is. Each head has its own set of matrices so that different kinds of relations can be looked at separately. Chen also says that how to make sure the heads really learn different things is not elaborated on; the hope is that the model learns it by itself.
+- **"The decoder masks later words because they do not matter."** They are masked because at generation time they do not exist yet, and training should not teach the model to look at them.
+
+## Self-check
+
+The questions were written for this post.
+
+**1. Translating "深度學習", the decoder is about to produce "learning" and the attention weights are (0, 0, 0.5, 0.5). What vector is used for decoding at this step?**
+
+c = 0.5·h₃ + 0.5·h₄, half each of the encoder outputs at the positions of "學" and "習".
+
+**2. Using the three vectors from the hand computation, take a³ = (1, 1) as the query. What are the three dot-product scores, and which position gets the largest weight?**
+
+a³·a¹ = 1, a³·a² = 1, a³·a³ = 2. a³ itself gets the largest weight: softmax(1, 1, 2) ≈ (0.212, 0.212, 0.576).
+
+**3. Where do the query, key, and value come from in each of the Transformer's three kinds of attention?**
+
+Encoder self-attention: all three come from the input. Decoder self-attention: all three come from the part of the output already generated, and only earlier positions are visible. Encoder-decoder attention: the query comes from the decoder, and the key and value come from the encoder's output.
+
+**4. "Dog bites man" and "man bites dog" use the same three words. With no position information at all, does self-attention compute different outputs for "bites" in the two sentences?**
+
+No. The three word vectors are the same, the three scores with "bites" as the query are the same, and so is the weighted sum. The model cannot tell who bites whom, which is why positional encoding has to be added.
+
+**5. A model is trained only on sentences up to length 256. If position is represented by "just put the index 1, 2, 3…", what happens with an input of length 512? Why does the sinusoidal scheme not have this problem?**
+
+Indices past 256 never appeared in training, so the model does not know how to handle them. Each dimension of the sinusoidal encoding is a periodic wave, and any position plugged into the formula yields a vector within a fixed range.
+
+**6. d_k goes from 16 to 256. Without scaling, by roughly what factor does the standard deviation of the dot-product scores grow?**
+
+Under the assumption on slide 42 the variance equals d_k, so the standard deviation is √d_k, going from 4 to 16, a factor of 4. Larger scores push softmax closer to one-hot, which is why the scores are divided by √d_k.
+
+**7. Hands-on: in NumPy, generate two random 4×d matrices, one as Q and one as K (each element with mean 0 and variance 1, the two matrices independent), and compute softmax(QKᵀ). Leave out the division by √d at first and raise d from 8 to 512. What should you see?**
+
+As d grows, the largest weight in each row approaches 1. With the division by √d added, the weight distribution no longer changes noticeably with d. Q and K must be generated independently to match the deck's assumption that q and k are random variables with mean 0 and variance 1, together with this post's reading of it as independent per dimension. If q = k as in the hand computation above, a vector's dot product with itself is about d, which after dividing by √d is still √d and keeps growing with d.
 
 ## Further reading
 
@@ -202,7 +272,7 @@ url: https://www.youtube.com/watch?v=c0O9s6MCFys
 title: ADL 4.2: Self-Attention & Transformer
 ```
 
-Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=FLNSD3zykgE)、[ADL 4.2: Self-Attention & Transformer](https://www.youtube.com/watch?v=c0O9s6MCFys)
+Original videos: [ADL 4.1: Attention Mechanism](https://www.youtube.com/watch?v=FLNSD3zykgE), [ADL 4.2: Self-Attention & Transformer](https://www.youtube.com/watch?v=c0O9s6MCFys)
 
 Course and recording entries:
 
@@ -210,13 +280,15 @@ Course and recording entries:
 
 Checked: 2026-10-10.
 
-Content check: verified against the video transcript (2026-10-10): Both transcripts (4.1 and 4.2) were read. Everything the article attributes to the videos appears in them: the memory/attention analogy, the single-vector RNN bottleneck, the query/key/value definitions, speech recognition and image captioning (including the giraffes misread as a large white bird), the Greg/Brian three-hop reading-comprehension example, and in 4.2 the CNN vs RNN comparison, the France/French example, self-attention, multi-head, masking, where Q/K/V come from in the three attention types, the four positional-encoding criteria with sin/cos, and the training tips and results. Nothing needed correcting. Slide page numbers, formulas and details such as CoQA/QuAC come from the slides, not the videos.
+Content check: verified against the video transcript (2026-10-10): 4.1 and 4.2 were both checked, and everything this guide attributes to the videos appears in them. Slide page numbers, formulas, and details such as CoQA/QuAC come from the slides.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 - 2026-10-10: Checked the video content against its transcript. The transcripts match what the article says about the videos; no correction needed.
+- 2026-10-13: Moved the verification history out of the body and switched cross-references within the series from post order to lecture numbers.
+- 2026-10-13: Added learning goals, a hand-computed self-attention example, numeric examples for scaling and positional encoding, common misreadings, and a self-check with answers.
 
 ## References
 

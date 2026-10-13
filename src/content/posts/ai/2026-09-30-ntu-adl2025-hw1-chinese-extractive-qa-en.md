@@ -1,5 +1,5 @@
 ---
-title: "Reading NTU ADL 2025 Fall: HW1 Chinese Extractive QA — Finding the Answer Span Among Four Paragraphs | NTU Yun-Nung Chen Applied Deep Learning Topic Guide"
+title: "Chinese Extractive QA: Finding the Answer Span Among Four Paragraphs | NTU Yun-Nung Chen Applied Deep Learning Assignment 1"
 date: 2026-09-30
 category: ai
 type: guide
@@ -7,7 +7,7 @@ tags: [ntu, ai-course, course-guide, homework, bert, question-answering, hugging
 lang: en
 series:
   name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
-  order: 7
+  order: 6
 tldr: "HW1 in ADL Fall 2025 gives a question and four Chinese paragraphs. The model first picks the relevant paragraph (paragraph selection, framed as four-way multiple choice), then marks the answer's start and end inside it (span selection), scored by Exact Match. The spec slides point you straight at Hugging Face's run_swag_no_trainer.py and run_qa_no_trainer.py. The simple baseline uses bert-base-chinese, length 512, effective batch size 2, and learning rate 3e-5, and both stages together take under three hours on an 8GB RTX 3070. The Kaggle leaderboard closed 9/29, and code plus report were due 10/1 on NTU COOL. Outside readers cannot get the Kaggle data or grading, but the task design, baseline settings, and five report questions are all usable for practice."
 description: "Guide 7 in the NTU Yun-Nung Chen Applied Deep Learning Fall 2025 series, based on the HW1 spec slides (NTU ADL 2025 Fall HW1) and the assignment video: task definition, Exact Match, adapting two Hugging Face examples, simple-baseline settings, allowed packages, submission format and execution environment, grading and the five report questions, the change log, and what outside readers can do."
 draft: false
@@ -25,7 +25,7 @@ glossary:
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-**This guide covers HW1 of [NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/).** It is part 7 of the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous post, [BERT and Its Family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), covered how BERT is pre-trained and fine-tuned with a classifier on top. This one applies it to a concrete task: **given a question and four Chinese paragraphs, which paragraph holds the answer, and from which character to which?**
+**This guide covers HW1 of [NTU Yun-Nung Chen's Applied Deep Learning (ADL), Fall 2025 (114-1, 2025/09/01–12/15)](https://www.csie.ntu.edu.tw/~miulab/f114-adl/).** It is the Assignment 1 guide in the [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) series. The previous post, [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), covered how BERT is pre-trained and fine-tuned with a classifier on top. This one applies it to a concrete task: **given a question and four Chinese paragraphs, which paragraph holds the answer, and from which character to which?**
 
 Official materials used:
 
@@ -135,7 +135,7 @@ Note the mismatch: the reference training GPU is an 8GB 3070, the grading machin
 | Q4 Pre-trained vs. not | 2% | Train a Transformer from scratch without pre-trained weights (either stage) and compare with BERT; shrink layers, hidden size, or heads if full size is too hard to train |
 | Q5 Bonus | 2% | Replace the two-stage pipeline with one end-to-end model; the hint is to use models with larger context windows |
 
-Q1 ties back to [part 5, Tokenization](/posts/ai/2026-09-30-ntu-adl2025-tokenization-bpe-en), Q2 to [the BERT family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), and Q4 tests experimentally how much pre-training actually helps.
+Q1 ties back to [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), Q2 to [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en), and Q4 tests experimentally how much pre-training actually helps.
 
 ## Change log: what changed in the spec
 
@@ -147,6 +147,17 @@ The slides keep a full change log:
 - 09/30: reproduction rules updated. You only need to upload a model that, via `download.sh` and `run.sh`, reproduces the same baselines your final Kaggle submission passed. If your final submission passed all simple baselines and the public strong baseline, a model that passes those is enough.
 
 Questions go to the NTU COOL discussion board (encouraged in the slides) or the TA email with "[ADL2025 HW1]" at the start of the subject. Office hours: Fridays 15:00–16:00, CSIE Lab 524.
+
+## What the briefing video adds
+
+Beyond the spec slides, the TA adds a few points orally in the briefing video. The video has no captions, so the points below come from a transcript made from its audio, and the slides take precedence on details.
+
+- **Only one of the four paragraphs is correct.** The TA says the assignment guarantees that if the right paragraph is selected, the answer appears in it.
+- **Only the data-loading part of the two example scripts needs changing.** Convert the data to the format the assignment provides and the rest runs as is. The simple baseline was trained this way.
+- **Why `download.sh` and `run.sh` are required.** The TAs download your model and rerun inference to confirm the result matches yours on Kaggle.
+- **What happens if it cannot be reproduced.** Reproducing without human intervention earns 1 more point; if it still cannot be reproduced after human intervention, the TA says the whole assignment gets 0.
+- **How to do Q4.** Use the same training script and skip the part that loads pre-trained weights, which makes it training from scratch. To push the score up, shrink the model.
+- **Ask first when unsure whether a model is allowed.** The test is to read the model's description: if it was trained on a QA or NLI dataset, it cannot be used.
 
 ## What outside readers can do
 
@@ -162,15 +173,13 @@ Not possible or unknown:
 
 **Try this**: skip hyperparameter tuning at first. In `run_qa_no_trainer.py`, find an example where the answer text appears twice in the paragraph, print the character offsets your token start/end map back to, and confirm they point at the right occurrence. That is why the slides warn against `context.index`, and it is what Q1 asks you to explain.
 
-## What this guide can and cannot confirm
+## Limits of this guide
 
-Confirmed: all text and hyperlinks in the spec slides (checked via Google Slides text and pptx exports); the video's title, length, upload date, and description.
-
-Not confirmed: the assignment video was not transcribed, so the TAs' spoken additions are not included. The Kaggle page, data-format details (the fields in `context.json` and `test.json`), and the exact simple/strong baseline thresholds do not appear in public materials. HW1's share of the final grade is not stated; Course Logistics only gives 60% for the three assignments combined.
+This guide mainly follows the spec slides, and the TA's spoken additions in the briefing video are in their own section. The Kaggle page, data-format details (the fields in `context.json` and `test.json`), and the exact simple/strong baseline thresholds do not appear in public materials. HW1's share of the final grade is not stated; Course Logistics only gives 60% for the three assignments combined.
 
 Further reading: the full NLP project workflow (data, the Hugging Face text-classification Colab) is left to the series' final post on [TA recitations](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en). For contrast, the site's [CS224U HW2 open-domain QA guide](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en) takes the retrieval-plus-LLM route instead of BERT span extraction.
 
-Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [BERT and Its Family](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | Next: [Pre-training Families and Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
+Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en) | Previous: [Lecture 5](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en) | Next: [Pre-training Families and Prompt Learning](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
 
 ## Course video sources
 
@@ -187,15 +196,17 @@ Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-Checked: 2026-10-10.
+Checked: 2026-10-13.
 
-Transcript attempt (2026-10-10): the embedded HW1 briefing video (24:50, uploaded 2025-09-09, unlisted, description "BERT for Chinese Question Answering") has no obtainable transcript, so its content was not checked. The article already states that it did not transcribe the video and takes the assignment spec from the spec slides; the title, length, upload date and description match the article.
+The HW1 briefing video (24:50, uploaded 2025-09-09, unlisted) has no captions. The assignment spec here follows the spec slides and was checked against a transcript made from the video's audio, which may contain mishearings.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 - 2026-10-10: Tried to check the HW1 briefing video against a transcript, but none is available, so the content was not checked; the article was left unchanged.
+- 2026-10-13: Moved the verification history out of the body and switched cross-references within the series from post order to lecture numbers.
+- 2026-10-13: Checked the whole guide against a transcript of the briefing video, which agrees with the slides; added the section "What the briefing video adds."
 
 ## References
 

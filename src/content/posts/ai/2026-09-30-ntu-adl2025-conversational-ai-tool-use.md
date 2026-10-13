@@ -1,195 +1,413 @@
 ---
-title: "台大陳縕儂 ADL 2025 Fall 導讀：對話系統與工具使用——從 LU／DST／Policy／NLG 到 LaMDA、WebGPT、Toolformer｜台大陳縕儂 深度學習之應用 主題單元"
+title: "對話系統與工具使用：從四個模組到會查資料、會反問的 LLM｜台大陳縕儂 深度學習之應用 第 13 堂"
 date: 2026-09-30
 category: ai
 type: guide
-tags: [ntu, ai-course, course-guide, conversational-ai, task-oriented-dialogue, tool-use]
+tags: [ntu, ai-course, course-guide, nlp, llm, dialogue-system, tool-use, agents]
 lang: zh-TW
 series:
   name: "台大陳縕儂 深度學習之應用 導讀"
-  order: 16
-tldr: "對話系統分成閒聊與任務型兩支。任務型系統傳統上拆成四個模組：語言理解（LU）把句子變成 domain／intent／slot，對話狀態追蹤（DST）累積使用者目標，對話策略決定下一步系統動作，NLG 把動作寫回句子。LLM 能自己把四步演完，卻沒辦法真的去訂位，所以要接外部工具：LaMDA 學會呼叫搜尋、計算機與翻譯器，BlenderBot 2.0 加上網路搜尋與長期記憶，WebGPT 用人類示範、reward model 與 PPO 學會操作瀏覽器，Toolformer 則讓模型自己產生並篩選工具使用的訓練資料。最後是對話怎麼評：自動指標、四種人工評估，以及 LLM-Eval。ADL Fall 2025 只有影片，投影片用 Fall 2024 版補位。"
-description: "台大陳縕儂《深度學習之應用》Fall 2025 第 16 篇導讀，依影片 13.1–13.9 與 Fall 2024 講義 241030_ConvAI.pdf（108 頁）：任務型對話四模組與各自的評估、LaMDA、BlenderBot 1／2／3、WebGPT、Toolformer、對話評估與 LLM-Eval；Plan-and-Execute、User Interaction、Theory-of-Mind 三支影片在 2024 講義找不到對應頁，只列名稱。"
+  order: 14
+tldr: "要幫使用者完成一件事的對話系統，傳統上拆成四個模組：理解這句話、追蹤到目前為止的狀態、決定下一步動作、把動作寫成句子。語言模型可以一口氣把四步演完，但沒有接外部工具時，它說「我幫你查」其實什麼都沒查。所以這一堂的前半是幾個讓模型用工具的代表作：LaMDA 先寫草稿再查證修改，BlenderBot 加上搜尋與長期記憶，WebGPT 從人的操作紀錄學搜尋，Toolformer 讓模型自己產生並篩選訓練資料。後半從單次回覆走向多輪：模型可以開口問使用者、學專家的策略、猜對方在想什麼，最後談對話怎麼評。"
+description: "台大陳縕儂《深度學習之應用》Fall 2025 第 13 堂導讀，依影片 13.1–13.9 的課堂口述與 Fall 2024 的 Conversational Modeling 講義：任務型對話的四個模組、語言模型為什麼會自導自演、LaMDA、BlenderBot 1／2／3、WebGPT、Toolformer、ReSpAct、SalesAgent 與策略代理人、ExploreToM、Collaborative Reasoner、Collaborative Gym，以及對話的自動評估、人工評估與 LLM 當評審。附兩個例子與自我檢查。"
 draft: false
 glossary:
-  - term: "Dialogue State Tracking"
+  - term: "任務型對話系統"
+    aliases: ["task-oriented dialogue system", "TOD"]
+    definition: "以完成使用者的某個任務（訂位、訂票、查資訊）為目標的對話系統。對話本身是過程，目標是最後把事情辦成。"
+    context: "ADL Conversational Modeling 講義第 5–9 頁，把系統拆成 LU、DST、DP、NLG 四個模組。"
+  - term: "dialogue state tracking"
     aliases: ["DST", "對話狀態追蹤"]
-    definition: "任務型對話系統中，把多輪對話裡使用者已經說過的需求累積成一組 slot-value（例如 star=5、day=sunday）的模組。"
-    context: "ADL ConvAI 講義第 19–22 頁，評估用 slot accuracy 與 joint accuracy。"
-  - term: "Toolformer"
-    definition: "讓語言模型只靠少量示範，自己在文字裡插入 API 呼叫、篩掉沒用的呼叫，再用留下的資料微調自己，學會何時呼叫哪個工具的方法。"
-    context: "ADL ConvAI 講義第 69–72 頁，工具集是 QA、WikiSearch、Calculator、Calendar、MT。"
+    definition: "把到目前為止使用者提過的條件累積成一份狀態，每一輪依新的資訊更新。"
+    context: "ADL Conversational Modeling 講義第 7、19 頁。"
+  - term: "ReSpAct"
+    definition: "Dongre 等人的做法：在 ReAct 的「推理、行動」之外，多加一種動作「說話」，讓代理人在必要時向使用者詢問、確認或回報進度。"
+    context: "ADL 影片 13.6／13.7 的第一個主題。"
 ---
 
 > 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
-**本文依據[台大陳縕儂《深度學習之應用》（ADL）Fall 2025（114-1，2025/09/01–12/15）](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)播放清單上的 L13 影片，投影片則用 Fall 2024 版補位。** 這是[台大陳縕儂 深度學習之應用 2025 Fall 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)系列第 16 篇。前兩篇 [Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 與 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning) 講模型怎麼想、怎麼規劃；這一篇退回「和人對話」這個老問題：**從模組化的任務型對話系統，到會自己用工具的 LLM，中間發生了什麼？**
+這是[台大陳縕儂 深度學習之應用 導讀](/posts/ai/2026-09-30-ntu-adl2025-course-overview)的第 13 堂，依據 ADL Fall 2025（114-1，2025/09/01–12/15）11/24 那一週的影片。[第 11 堂](/posts/ai/2026-09-30-ntu-adl2025-language-agents)與[第 12 堂](/posts/ai/2026-09-30-ntu-adl2025-reasoning)講模型怎麼規劃、怎麼想。這一堂回到「和人對話」這件事，回答兩個問題：**要幫人把一件事辦成，一次回覆裡其實要做哪些事？從只回一句話，到能多輪互動、主動發問，中間還缺什麼？**
 
-用到的官方材料：
+官方材料：
 
-- **影片**：[2025 Fall 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)上的 13.1–13.9。說明欄都寫「2025/11/24 Applied Deep Learning」。課程頁 11/24 那列寫的是「Personalization」，沒有講義也沒有影片連結。
-- **投影片**：Fall 2025 沒有公開這一講的講義。本文用 [Fall 2024 的 Conversational Modeling 講義（241030_ConvAI.pdf，108 頁）](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241030_ConvAI.pdf)，它是 [Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~miulab/f113-adl/)2024/10/30 那一講的材料。**下文引用的頁碼全部指這份 2024 講義。**
+- 影片 13.1–13.9，見下表。九支都沒有字幕，本文用音訊轉成的逐字稿整理。
+- Fall 2025 沒有公開這一堂的講義。本文用 [Fall 2024 的 Conversational Modeling 講義](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241030_ConvAI.pdf)（108 頁）對照，**文中的頁碼都指這份 2024 講義**。13.6 到 13.8 講的幾篇論文不在 2024 講義裡，本文另外擷取影片畫面確認投影片上的標題與出處。
 
-| # | 影片（2025） | 中文副標 | 長度 | 2024 講義對應頁 |
-|---|---|---|---|---|
-| 13.1 | [Learning to Converse and Interact](https://youtu.be/8EV-Qw2iYYE) | 機器學習如何與人對話互動 | 15:02 | 2–37 |
-| 13.2 | [Tool Use in LLMs – LaMDA](https://youtu.be/LHhxbXKfnKs) | Google 推出的對話模型讓員工都以為機器出現意識!? | 13:15 | 38–49 |
-| 13.3 | [Tool Use in LLMs – BlenderBot](https://youtu.be/B5s3XJIbQtc) | 能記憶使用者過去互動與外部知識的對話模型 | 9:49 | 50–58 |
-| 13.4 | [Tool Use in LLMs – WebGPT](https://youtu.be/SVIgPfF16pE) | 整合搜尋引擎能力的GPT | 7:14 | 59–68 |
-| 13.5 | [Toolformer](https://youtu.be/PdPK_f-aH3I) | 產生讓 GPT 使用工具的訓練資料 | 7:43 | 69–72 |
-| 13.6 | [Plan-and-Execute](https://youtu.be/FK-r_-dVHcI) | 規劃策略後執行 | 15:11 | 找不到 |
-| 13.7 | [User Interaction](https://youtu.be/fzzOlH0t0_w) | 與使用者互動比單獨執行更有效 | 15:11 | 找不到 |
-| 13.8 | [Theory-of-Mind](https://youtu.be/rThWbHBA6e4) | 了解使用者互動時的內心 | 12:47 | 找不到 |
-| 13.9 | [Conversation Evaluation](https://youtu.be/gjiKrxiAyNI) | 評估對話系統的好壞 | 13:07 | 99–106 |
+| 影片 | 主題 | 長度 | 2024 講義對應頁 |
+|---|---|---|---|
+| [13.1](https://youtu.be/8EV-Qw2iYYE) | Learning to Converse and Interact | 15:02 | 2–37 |
+| [13.2](https://youtu.be/LHhxbXKfnKs) | Tool Use in LLMs – LaMDA | 13:15 | 38–49 |
+| [13.3](https://youtu.be/B5s3XJIbQtc) | Tool Use in LLMs – BlenderBot | 9:49 | 50–58 |
+| [13.4](https://youtu.be/SVIgPfF16pE) | Tool Use in LLMs – WebGPT | 7:14 | 59–68 |
+| [13.5](https://youtu.be/PdPK_f-aH3I) | Toolformer | 7:43 | 69–72 |
+| [13.6](https://youtu.be/FK-r_-dVHcI) | Plan-and-Execute | 15:11 | 見下方說明 |
+| [13.7](https://youtu.be/fzzOlH0t0_w) | User Interaction | 15:11 | 部分在 76–98 |
+| [13.8](https://youtu.be/rThWbHBA6e4) | Theory-of-Mind | 12:47 | 無 |
+| [13.9](https://youtu.be/gjiKrxiAyNI) | Conversation Evaluation | 13:07 | 99–106 |
 
-「對應頁」是本文依主題比對的結果，影片實際放的投影片是不是這幾頁，沒有辦法從公開資訊確認。
+13.6 與 13.7 兩支影片的畫面一致、原始音軌完全相同，長度也相同，是同一段錄影掛了兩個標題。內容是 13.7 的 User Interaction。Plan-and-Execute 那一段在公開的影片裡找不到，本文只能依 2024 講義第 76 頁與老師在 13.9 的總結簡單交代。
 
-## 對話系統的兩支
+標成「本文自編」的例子不是課堂內容。
 
-講義第 3 頁用四句話分出人為什麼需要對話系統：「我想聊天」是社交閒聊，要通過圖靈測試那種像人；「我有問題」是資訊查詢；「我要把這件事辦完」是任務完成，例如訂高雄到台北的車票、訂鼎泰豐今晚 7 點 5 人；「我該怎麼做」是決策支援。第 4 頁把它收成兩支：**閒聊（chit-chat）與任務型（task-oriented）**。
+讀完要能做五件事：說出任務型對話系統四個模組各做什麼，並對應到語言模型用工具時的步驟；解釋沒有外部工具的語言模型為什麼會「自導自演」；比較 LaMDA、BlenderBot、WebGPT、Toolformer 怎麼讓模型學會用工具，訓練資料各從哪裡來；說出讓代理人多一個「說話」的動作有什麼用；列出對話評估的幾種做法與各自的代價。
+
+## 兩種「對話」
+
+老師先區分兩種情況。你問一句、模型答一句，就算來回很多次，模型每次考慮的都只是「現在這一句怎麼回」，這比較像一連串的單輪互動。另一種是對話有一個比較遠的目標，中間每一輪只是過程，要靠多輪互動把一件事完成。這一堂的後半會談後者，它需要長期的規劃。
+
+2024 講義第 2 頁列了一排產品：2011 年的 Siri、後來的 Google Now、Cortana、Alexa、Google Home、HomePod，到 2023 年的 ChatGPT。老師說 Siri 之前就有這類技術，例如打電話到銀行，接起來的是一個問「How may I help you」的系統。Siri 是第一個讓每個使用者都有一個助理的知名應用。早期的智慧音箱多半是單向的指令，例如設鬧鐘，頂多反問你要幾點。現在的助理能處理複雜得多的事，像規劃旅遊行程。
 
 ## 任務型對話：四個模組
 
-第 5 頁的架構引 Young（2000）：語音辨識之後，依序經過 **LU → DST → Dialogue Policy → NLG**，再接語音合成。整份講義用同一個例子串起來：使用者說「Can you help me book a 5-star hotel on Sunday?」，系統回「For how many people?」。
+這些應用都是要幫使用者完成一件事，例如訂餐廳、訂機票，所以叫 task-oriented。在大型語言模型出現之前，這類系統都照同一條流程做（第 5 頁，Young 2000），老師說這個架構在 2000 年就有了。它叫 modular，因為由幾個元件串起來。她的解釋是：人聽到一句話到開口回應，腦子裡做了很多事，要讓系統做到，就得先把這些事一件一件釐清。
 
-**語言理解 LU（第 10–17 頁）** 分三步：先判斷 domain（旅館），再判斷 intent（Hotel_Book），最後做 slot filling，用 B-／O 標籤標出 star=5、day=sunday 這類欄位。三步都要預先定義好 ontology 或 schema。第 15–16 頁介紹把 intent 與 slot 一起做的 joint 模型，包括 Goo 等人（2018）的 Slot-Gated 模型。評估（第 17 頁）分兩層：domain／intent 準確率與 slot F1，以及整個 frame 是否全對的 frame accuracy。
+如果輸入是聲音，前面先做語音辨識（ASR），最後把文字合成語音（TTS）。中間是四個模組，講義用同一個例子貫穿：
 
-**對話狀態追蹤 DST（第 18–22 頁）** 把多輪對話累積成一個狀態。使用者第二輪補一句「For two people, thanks!」，狀態就從 Hotel_Book(star=5, day=sunday) 變成多了 people_num=2。第 20–21 頁處理「slot 值不在固定清單裡」的問題（Xu & Hu 2018、TripPy）。評估用 slot accuracy 與 joint accuracy。
-
-**對話策略 Dialogue Policy（第 23–29 頁）** 根據狀態決定系統下一個動作，例如 request(people_num) 或 inform(hotel_name=B&B)。第 25 頁對比兩種學法：監督式是「跟老師學」，老師說看到 Hello 就回 Hi；強化學習是「跟評論者學」，只知道整段對話最後好不好。第 27–28 頁用 Li 等人（2017）的 Deep Q-Network 對話管理器與端到端 TC-Bot 示範。評估分成回合層級（系統動作準確率）與對話層級（任務成功率、reward）。
-
-**NLG（第 30–33 頁）** 把 inform(name=B&B) 寫回「I have book a hotel B&B for you.」這類句子。第 32 頁用微調預訓練 GPT-2 做條件生成，理由是預訓練模型寫出來的句子比較流暢。評估分自動指標與人工評估。
-
-**怎麼做**：挑一個你常用的訂位或客服聊天機器人，照第 5 頁的四格各寫一行：它這一輪理解到的 intent 和 slot 是什麼、目前狀態累積到哪、下一個系統動作是什麼、最後寫出的句子是什麼。寫不出來的那一格，通常就是它答非所問的地方。
-
-## LLM 自導自演，但訂不到位
-
-第 36 頁的標題是「自導自演」。使用者請 LLM 訂台北 101 上的餐廳，LLM 很自然地追問日期與人數，接著說「讓我查看餐廳的可用性」，過一陣子再回報沒有位子。整段看起來很像任務型對話，但它其實沒有連到任何訂位系統，查詢結果是編出來的。這頁的結論是：**必須能存取外部工具。** 第 37 頁把四個模組重畫一次，說明 LLM 一個模型就能把 LU、DST、Policy、NLG 演完，缺的是接到外部世界的那一步。
-
-接下來四個模型，就是四種接工具的方式。
-
-## LaMDA：學會查資料來修正自己（第 38–49 頁）
-
-[LaMDA（Thoppilan et al., 2022）](https://arxiv.org/abs/2201.08239)。
-
-- **預訓練**：用公開對話資料，講義寫 1.56T 個詞；輸入是對話歷史，輸出是當下這一句。第 39 頁舉的例子是問它對蔡依林演唱會的看法。
-- **品質與安全微調（第 40 頁）**：同一個模型同時負責生成與判別。訓練資料寫成「對話 + RESPONSE + 回應 + 屬性名稱 + 分數」的格式，屬性有 SENSIBLE、INTERESTING、UNSAFE，這樣就能先生成、再用同一個模型打分。
-- **Groundedness（第 42–49 頁）**：教 LaMDA 用搜尋引擎驗證或修正自己的說法。系統分成三個角色：LaMDA-Base 是原本的預訓練模型，LaMDA-Research 決定要不要用外部工具、查詢要怎麼寫，Tool Set 是外部工具，包括計算機（「135+7721」→「7856」）、翻譯器與資訊檢索系統。第 49 頁的例子：Base 先寫「他現在 31 歲」，Research 去查 Nadal 的年齡，查到 35，再把回應改成 35 歲。講義也寫到，有 4 萬個對話回合被標成正確或錯誤，拿來訓練排序。
-
-第 49 頁的收尾句：LaMDA 已經把 RAG、工具使用與事實對齊這三個概念放進同一個系統。
-
-## BlenderBot：搜尋、記憶與安全（第 50–58 頁）
-
-- **BlenderBot 1（[Roller et al., 2020](https://arxiv.org/abs/2004.13637)，第 51 頁）**：用 15 億段對話預訓練，模型大小有 90M、2.7B、9.4B 三種。微調資料叫 Blended Skill Talk，混合三種能力：個性（PersonaChat）、知識（Wizard of Wikipedia）、同理心（Empathetic Dialogues）。生成時用「先檢索、再修改」的策略。
-- **BlenderBot 2.0（第 52–55 頁）**：加上網路搜尋與長期記憶，分別對應 Wizard of the Internet 與 Multi-Session Chat 資料。安全面的做法是：在 BAD 資料集上學會在不安全的回應後面接一個 `_POTENTIALLY_UNSAFE_` 標記。
-- **BlenderBot 3.0（[Shuster et al., 2022](https://arxiv.org/abs/2208.03188)，第 56–58 頁）**：兩個訓練技巧。SeeKeR 依序生成搜尋查詢、知識片段、最後的回應；Director 學會避開不想要的序列，講義列出矛盾、重複與有毒內容三種。它也透過與真人互動收集回饋來持續改進。
-
-## WebGPT：跟人學怎麼用瀏覽器（第 59–68 頁）
-
-[WebGPT（Nakano et al., 2021）](https://arxiv.org/abs/2112.09332) 的三步和 InstructGPT 很像：
-
-1. **監督式微調（第 60 頁）**：題目來自 ELI5，例如「哈利波特和魔戒哪個字數比較多？」，人類示範者寫出附參考來源的答案，拿來微調 GPT-3。
-2. **Reward model（第 64 頁）**：同一題的兩個模型輸出，由人標出哪個比較好。
-3. **用 PPO 做強化學習（第 65 頁）**：reward model 打分，再更新生成策略。
-
-第 62–63 頁用中文例子說明「產生搜尋查詢」本身也是一種 token 接續；第 66 頁用 TruthfulQA 評估真實性。第 68 頁列出 WebGPT 的動作集，並留下一個問題：**沒有人類示範時，模型要怎麼學會使用這些動作？** 這就是 Toolformer 要解決的事。
-
-## Toolformer：自己產生工具使用資料（第 69–72 頁）
-
-[Toolformer（Schick et al., 2023）](https://arxiv.org/abs/2302.04761) 的副標是「語言模型能自己教自己用工具」。講義用中文例子講兩步：
-
-1. **用 prompt 產生候選資料（第 70 頁）**：輸入「台北房價最高的區域是大安區。」，模型在句子裡插入一個工具呼叫：「台北房價最高的區域是 [QA("台北哪一行政區房價平均單價最高？")]。」
-2. **只保留驗證過的資料來微調（第 71 頁）**：真的去呼叫 QA 工具，拿回「大安區」，和原句後面的答案對得上，這筆資料才留下來微調。講義只用這個例子示意，篩選的精確條件請看原論文。
-
-第 72 頁列出工具集：QA、WikiSearch、Calculator、Calendar、MT，任務是補完一句缺了事實（日期或地點）的短句。第 108 頁的結語把兩者並排對照：**WebGPT 從人類的操作步驟學，Toolformer 從自己產生的資料學。**
-
-講義第 73–98 頁接著講 GPT Store、ChatGPT Plugins、推薦系統與 SalesBot（把閒聊自然轉到任務型對話），這幾頁在 2025 影片標題裡沒有對應，本文不展開。
-
-## 2025 新增的三支影片：只列名稱
-
-下面三支影片在 2024 講義裡找不到對應頁，Fall 2025 又沒有公開投影片。本文只寫標題與副標：
-
-- **13.6 Plan-and-Execute**：規劃策略後執行
-- **13.7 User Interaction**：與使用者互動比單獨執行更有效
-- **13.8 Theory-of-Mind**：了解使用者互動時的內心
-
-規劃這條線可以接回[第 14 篇 Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 講義裡 planning 那一段；更完整的整理見延伸閱讀的 CMU 11-768。
-
-## 對話怎麼評（第 99–106 頁）
-
-**自動評估（第 100 頁）**：拿模型回應和標準答案比。講義列四種：perplexity（模型生成標準答案的可能性）、n-gram 重疊（BLEU 等）、slot error rate（該提的 slot 有沒有提到）、distinct n-grams（回應的多樣性）。
-
-**人工評估有四種（第 101–104 頁）**，差別在兩個維度：看一個模型打分，還是兩個模型比較；看單一回應，還是實際聊完一段再評。
-
-| | 單一回應 | 聊完整段 |
+| 模組 | 做什麼 | 講義的例子 |
 |---|---|---|
-| 打 0–5 分 | Likert | Dynamic Likert |
-| 兩個選一個 | A/B | A/B Dynamic |
+| LU：語言理解 | 把使用者這句話變成結構化的意圖與條件 | 「Can you help me book a 5-star hotel on Sunday?」→ Hotel_Book(star=5, day=sunday) |
+| DST：對話狀態追蹤 | 把到目前為止的資訊累積起來，每輪更新 | 使用者又說「For two people, thanks!」→ 狀態多了 people_num=2 |
+| DP：對話策略 | 依狀態與外部資料庫查到的結果，決定系統下一步的動作 | Inform(hotel_name=B&B) |
+| NLG：語言生成 | 把動作寫成句子 | 「I have book a hotel B&B for you.」 |
 
-四種都依「像人、流暢、連貫」三個面向評。後兩種動態評估引 [ACUTE-EVAL（Li et al., 2019）](https://arxiv.org/abs/1909.03087)，而 A/B Dynamic 等於在做對話層級的評估。
+前兩個在理解使用者，後兩個在決定怎麼互動。
 
-**LLM-Eval（第 105–106 頁）**：陳縕儂老師實驗室自己的工作（[Lin & Chen, 2023](https://arxiv.org/abs/2305.13711)）。講義寫 LLM 評對話回應有一定能力，LLM-Eval 在單輪與多輪都表現不錯，和人工分數的相關性比既有指標都好。結論是 LLM-Eval 的分數可以當人工評估的替代指標。
+老師在 LU 這裡插了一句：這和現在說的 tool use 很像。要決定使用者這句話該用哪個工具，再照這個工具的 API 規定把參數填上去。
 
-**怎麼做**：下次比較兩個聊天機器人時，不要只看一則回應。照 A/B Dynamic 的做法，拿同一個任務和兩邊各聊完一整段，再依「像人、流暢、連貫」三項選邊。這是四種人工評估裡最接近真實使用情境的一種。
+DP 的 policy 就是策略，和強化學習裡的用法一樣，意思是要選哪個動作。老師強調這一步有一件容易被忽略的事：**回應之前，要真的去查**（第 8 頁：Access external knowledge）。不查，就不知道該告訴你「符合的飯店只有兩家」，還是該說「有一百家，太多了，你要不要給我一個地點」。這個外部的知識庫（KB）可以是表格、資料庫，也可以是要呼叫 API 去查的網站。
 
-## 本文能確認與不能確認的
+**例子（本文自編，沿用講義的情境）**。條件：使用者第一輪說要訂星期天的五星級飯店，第二輪說兩個人。
 
-能確認：九支影片的標題、中文副標、長度與說明欄（YouTube oEmbed 與 yt-dlp 核對）；Fall 2024 ConvAI 講義 108 頁的標題與列點；上面引用論文的 arXiv 標題。
+- 推理：第一輪 LU 輸出 Hotel_Book(star=5, day=sunday)，DST 的狀態就是這兩個條件。第二輪 LU 只輸出 people_num=2，DST 把它併進去，狀態變成 star=5、day=sunday、people_num=2。接著 DP 拿這份狀態去查資料庫。
+- 分歧：如果查回來 2 家，DP 選 inform，把結果告訴使用者。如果查回來 120 家，DP 比較好的選擇是 request(location)，請使用者再給一個條件。
+- 結果與意義：同一份狀態，下一步該做什麼取決於查詢的結果。第二輪那句「兩個人，謝謝」單獨看是不完整的，要靠 DST 才接得上前一輪。其中「先查再決定」這一步，正是下一節沒有接工具的語言模型做不到的事。
 
-不能確認：Fall 2025 影片實際放的投影片是不是這份 2024 講義，或改了多少。13.6–13.8 三支影片的內容。本文沒有逐字聽寫影片，老師口頭的補充與例子沒有寫進來。講義裡的數字（1.56T 個詞、15 億段對話等）照講義轉述，精確數字請以原論文為準。
+2024 講義第 10–33 頁對每個模組還有細節：LU 再分成領域判斷、意圖偵測（都是分類）與 slot filling（序列標註），以及各模組的評估指標。老師在 13.1 沒有講這幾頁，這裡不展開。
+
+## 語言模型：自導自演
+
+有了語言模型，好像不用這麼複雜，輸入直接進去、回覆直接出來就好。真的可以嗎？
+
+老師請大家先假設模型沒有接任何工具，就是一個訓練好的語言模型（第 36 頁，標題就叫「自導自演」）。使用者說：幫我訂台北 101 上面的餐廳。模型很正常地問哪一天、幾位、有沒有特殊需求。使用者回答之後，模型說好的、請稍等，接著自己輸出一行「（一段時間後）」，然後說：抱歉，目前沒有可用的座位，要不要試試別家。
+
+老師說，有時候它也會回「已經幫你訂好了」。問題在於它根本沒有查，因為它沒有辦法查。它只是覺得一個幫人訂位的客服，這樣回是很常見的模式。投影片的結論是 Accessing external tools is necessary。
+
+所以回到四個模組的圖（第 37 頁），語言模型內部其實還是要有「理解」與「回覆」兩段，中間接外部的知識。老師的說法是：一次回覆裡面，其實包含了好幾個真的在做的動作。理解你之後決定用哪個工具，真的去用，工具的結果回來之後再想怎麼回。這和原本的模組化架構是同一回事。
+
+## 讓模型用工具的四個代表作
+
+下面四個系統處理的都是單次的回覆：針對現在這個請求，怎麼靠外部工具回得更好。
+
+### LaMDA：先寫草稿，再查證修改
+
+LaMDA（Thoppilan 等 2022，Google，第 38–49 頁）比 ChatGPT 早。老師提到當時的傳聞：Google 內部有員工覺得它很像真人，發了文章，後來被解僱。她說不確定真假，但覺得應該是真的，請大家自己查。
+
+**預訓練**用大量的對話資料，講義寫 1.56T 個詞。輸入是對話紀錄，輸出是現在這一輪的回覆。老師指出它雖然看了前面的紀錄，最佳化的還是眼前這一次的回答。
+
+**微調**的目標是品質與安全。做法是讓同一個模型除了產生回覆，也學著替回覆評分。講義第 40 頁的格式是：對話內容、RESPONSE、回覆、屬性名稱、分數。例如「What's up? RESPONSE not much. SENSIBLE 1」「…… INTERESTING 0」「…… UNSAFE 0」。這樣模型可以一次產生好幾個候選，自己評分，挑比較安全、比較有趣的那個。
+
+但會評分不代表內容正確。第 41 頁的例子：問它覺得蔡依林的演唱會如何，它接著說了一些關於她的事實，講義把這些句子標出來，寫著「這個基本的模型有時會產生不符合事實的內容」。
+
+所以第 42 頁加上工具。整個系統有三個部分：
+
+- **LaMDA-Base**：原本預訓練的模型。
+- **LaMDA-Research**：決定要不要用工具，並把要查的內容寫成適合工具的形式。老師的例子是：使用者說「幫我把 Hello 翻成日文」，丟給翻譯器的只該是 Hello。
+- **Tool Set（TS）**：計算機（135+7721 → 7856）、翻譯器（hello in French → Bonjour）、檢索系統（How old is Rafael Nadal? → Rafael Nadal / Age / 35）。
+
+第 43–48 頁用一個問題走完整個流程：艾菲爾鐵塔是什麼時候蓋的？
+
+1. Base 先憑記憶回一句：It was constructed in 1887。這只是草稿。
+2. Research 要確認這句話，向 TS 送出查詢：Eiffel Tower construction date。
+3. TS 回傳一段網頁內容：鐵塔花了 2 年 2 個月又 5 天建成，從 1887 年 1 月底到 1889 年 3 月 31 日。
+4. Research 把草稿改掉，回給使用者：Work started on it in January 1887 and it was opened in March 1889。
+
+第 48 頁的完整流程圖裡，Research 其實查了兩次：第一次查到動工的日期，再追問什麼時候完成，查到啟用的日期，最後合併成一句。
+
+老師說原本的草稿也不算全錯，只是不精準：1887 年開始蓋，但那年並沒有完成。她把這個做法和現在的 RAG 對照：整體的想法相同，都是用外部資訊加強回答；差別是 LaMDA 先寫草稿、再查證、再改稿。她也說，Base 寫草稿、Research 用工具與修改，現在看起來有點像多個 agent 各做各的事。
+
+第 49 頁補充：這個「怎麼用工具」的能力也是微調出來的，另外有 4 萬輪對話標了正確或不正確，用來訓練排序。講義的總結是 LaMDA 已經包含了 RAG、tool use 與事實對齊的想法。
+
+### BlenderBot：技能、搜尋與記憶
+
+BlenderBot 是 Meta 的系列（第 50–58 頁），每年一個版本。
+
+**第一代（Roller 等 2020）**。預訓練用 15 億則對話，模型有 90M、2.7B、9.4B 三個尺寸。微調時把幾種對話技能混在一起，這是名字裡 blend 的由來：有個性（PersonaChat）、用知識（Wizard of Wikipedia）、有同理心（Empathetic Dialogues），以及三者混合的資料。老師把它對回前面講過的 post-training（本系列第 7 堂）：引入各種任務讓模型變成通才，這裡是在對話這個範圍內做通才。生成時採用「檢索再修飾」的做法，和 RAG 很像。它是 encoder-decoder 的模型。老師說第一代效果不錯，但資料量和模型都不夠大，還沒有到驚豔的程度。
+
+**2.0（2021）**。加上兩樣東西：真的上網搜尋，以及長期記憶。老師解釋長期記憶為什麼需要一致性。第 54 頁的例子裡，使用者提到 Kanye，bot 說沒聽過那張專輯、之後會找來聽，並記下「我喜歡 808s and Heartbreak」；之後再聊到，它要記得自己說過什麼。記憶有兩種：對方說過的，和自己說過的。忘了對方說過的，就像失憶；和自己說過的矛盾，也很怪。
+
+她補充，現在各家模型基本上都做了記憶功能，可以想成對過去的對話做簡單的 RAG。
+
+2.0 也做了安全（第 55 頁）：用 BAD 資料集，讓模型在產生完一句不安全的回覆之後，接著輸出一個 `_POTENTIALLY_UNSAFE_` 的標記。看到這個標記，那句回覆就不採用、重新產生。老師說這很像 reward model，差別是現在的 reward model 是另外訓練的模型，當時是把這件事訓練在同一個語言模型裡。
+
+**3.0（2022）**。講義第 56–58 頁列了三點：
+
+- **SeeKeR**（Search-engine → Knowledge → Response）：依序產生搜尋的查詢、一段知識、最後的回覆。老師說這讓搜尋那一段做得更完整。
+- **Director**：學著避免產生不想要的內容，講義列的是自相矛盾、重複、有害。老師說當時連產生通順的句子都不容易，要避免重複同一個詞，得特別去控制解碼時的機率；現在的模型訓練得好，自然不太會重複。
+- **從真實互動的回饋改進**：把系統放上示範網站，收集大家互動時的回饋。
+
+### WebGPT：從人的操作紀錄學搜尋
+
+WebGPT（Nakano 等 2021，OpenAI，第 59–68 頁）在[第 8 堂](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)出現過。這裡補上資料怎麼收的。
+
+題目來自 ELI5，都是需要查資料才答得好的問題，例如哈利波特和魔戒哪個字數多。OpenAI 做了一個介面（第 61 頁）給真人用：先判斷這題合不合理，合理的話在介面裡搜尋、點開結果、把要引用的段落標起來，最後寫出回答。
+
+做這個介面是為了記錄行為：這個人看到問題打了什麼查詢、看到哪些結果、點了哪一筆、引用了哪一段。這些紀錄變成 `[SEARCH] …… [END]`、`[CLICK] 1 [END]` 這樣的序列，拿來對 GPT-3 做監督式微調。
+
+第 68 頁列出模型學到的全部動作：搜尋、點連結、在頁面裡找文字、引用、往下捲、往上捲、回到頁首、回上一頁、結束瀏覽並開始回答、判定題目不合理或有爭議而跳過。之後和 InstructGPT 一樣，再訓練 reward model、做強化學習（第 64–65 頁）。
+
+第 66 頁在 TruthfulQA 上比較，老師的解讀是：加了搜尋，不管模型多大都會進步，因為記得再多還是有記不住的東西。
+
+第 67 頁有一個反例。問題是：如果你夢到自己做某件事並許了願，會成功嗎？GPT-3 回「我不予置評」；WebGPT 搜尋之後回答「你可以靠念力讓願望成真」。老師推測可能是網路上很多人這樣講。搜尋回來的東西不一定可靠，有搜尋能力還不夠，模型還要能分辨哪些資訊該用、哪些該保留。
+
+這個做法的缺點是成本：要請人坐在那裡搜尋給它看。第 68 頁最後一行問的就是：能不能不靠人示範，也學會用這些動作？
+
+### Toolformer：讓模型自己產生訓練資料
+
+Toolformer（Schick 等 2023，第 69–72 頁）回答這個問題。講義列的工具有問答系統、Wikipedia 搜尋、計算機、行事曆、翻譯。
+
+它想要的訓練資料長這樣：一段文字裡，在需要的位置插入工具的呼叫與結果。老師的例子是「1,400 位參與者裡有 400 位通過測驗」，句子要寫出百分比時，中間插入計算機呼叫 400 ÷ 1400，得到 0.29，再接著寫 29%。
+
+資料分兩步產生：
+
+**第一步：用 prompt 請語言模型改寫**（第 70 頁）。拿一句已經知道答案的句子，給模型幾個範例，請它在適當的位置插入工具呼叫。講義的例子是「台北房價最高的區域是大安區」，改寫成「台北房價最高的區域是 [QA("台北哪一行政區房價平均單價最高？")]」。
+
+**第二步：只留下確認有用的**（第 71 頁）。模型產生的呼叫不一定正確，不能全部拿來訓練。檢查方法是比較兩種情況下，正確答案「大安區」的機率：
+
+- 不用工具，讓語言模型直接接「台北房價最高的區域是」。
+- 用了工具，把問題丟給 QA 系統，把結果放回去。
+
+用了工具之後正確答案的機率比較高，就代表這個位置確實該用工具，這筆資料留下來。
+
+**例子（本文自編，機率都是假設的數字）**。條件：對上面那一句，不用工具時模型給「大安區」的機率是 0.1；插入 QA 呼叫並附上結果之後是 0.8。另一句「台北是台灣的首都」，請模型在「首都」前插入 QA 呼叫，兩種情況下「首都」的機率分別是 0.9 與 0.9。
+
+- 推理：第一句用工具後機率從 0.1 升到 0.8，工具幫了大忙，留下。第二句沒有差別，模型本來就會，這個呼叫是多餘的，丟掉。
+- 結果與意義：篩選的標準是「工具有沒有讓正確答案更容易出現」，不需要人來判斷。模型因此學到的不只是怎麼呼叫工具，還有什麼時候不必呼叫。
+
+整個過程不需要人示範。第 72 頁的三張圖顯示，用這份資料微調之後，模型在問答與數學的評測上都明顯提升。老師補充，圖上的橫虛線是當時的 GPT-3，它沒有用搜尋；她說就算有搜尋，也不一定適合這種精確的問答，可能還是做不了這些運算。（問答那一張圖上，GPT-3 的虛線仍高於 Toolformer。）
+
+她也指出 Toolformer 和前面模組化架構的關係：它沒有明確把步驟分開，模型寫到某個位置覺得該用工具，就呼叫，把結果接上，再繼續寫。但實際做的事還是那兩件：判斷要用哪個工具，把結果併回回覆裡。
+
+## 從單次回覆到多輪互動
+
+### Plan-and-Execute：公開影片缺這一段
+
+依老師在 13.9 的總結，這一段講的是：依高層次的資訊與常識，把目標拆成具體的動作，再去呼叫對應的工具完成它。2024 講義第 76 頁有一個對應的例子（Kuo 與 Chen 2023）：使用者只說「我想規劃去舊金山的旅行」，沒有明講要訂機票或訂房；系統推出這句話隱含的任務，再分別交給航空公司與飯店的機器人。那一頁的結論把這個想法連到 LLM agent 的 plan-and-execute。
+
+13.6 開頭老師提到「前面那個機票、飯店的例子，每一步都和使用者確認」，指的應該就是這類例子。更多細節公開的錄影裡沒有。
+
+### ReSpAct：多一個「說話」的動作
+
+13.6／13.7 從這裡開始。代理人規劃完之後，可以自己決定中間要不要多問一句。全部都確認太煩，完全不問又可能做錯，能不能取得平衡？
+
+ReSpAct（Dongre 等，投影片標 2025）在 [ReAct](/posts/ai/2026-09-30-ntu-adl2025-language-agents) 的基礎上多加一個選擇。ReAct 是看到輸入之後先想（reason）再做（act）。ReSpAct 讓代理人除了做動作，還可以說話（speak）：向使用者確認或詢問。投影片的一句話是 interacting with users when necessary。
+
+例子來自 ALFWorld：你在一個房間裡，看得到一些家具，任務是把一塊布清乾淨、放到架子上。
+
+- **ReAct**：想著布可能在抽屜、流理台等地方，然後一個一個去翻。最後找到了，但走了很多步。
+- **ReSpAct**：同樣先想到幾個可能的位置，接著開口問：我覺得布比較可能在梳妝台或抽屜，要從哪裡找起？使用者回：浴缸那邊應該有一塊，要不要先看那裡？它就直接過去，很快完成。
+
+老師的說法是：我們希望對代理人下一個高層次的指令它就開始做，但很難期待它完全清楚你在想什麼、東西放在哪裡，「它不是你肚子裡的蛔蟲」。讓人能參與在流程裡，整個互動會更有效率。投影片的結論是 Better efficiency。
+
+論文整理了代理人會說的三類話，老師逐一說明：
+
+- **請使用者給方向**：這幾個地方不確定先找哪個。
+- **回報自己的狀態**：我現在怎麼想、做到哪裡了。老師說這很重要：下了一個指令，代理人完全誤會、開始亂做，你還得中途叫停，很煩。最好是它先確認「你是這個意思嗎」。
+- **問使用者的偏好**：你比較想要哪一種。
+
+### SalesAgent：學專家怎麼想
+
+把「先想再決定說什麼」放到更高層次的任務上：行銷。老師的說法是業配。一開始就推銷產品，對方不想聽。好的做法是自然地聊，慢慢把話題帶過去。
+
+這條線在 2024 講義第 77–98 頁有一部分：SalesBot（Chiu 等 2022）模擬從閒聊轉到任務型對話的資料，SalesBot 2.0（Chang 與 Chen 2023）用 LLM 改寫讓對話更自然。老師在影片裡講的是後續的兩篇。
+
+**SalesAgent（Chang 與 Chen 2024）**。直接拿厲害業務的對話來訓練，不能確保模型學到專家的策略。所以要把策略明確寫出來，放進模型的思考裡。投影片上的對話，每一句代理人的回覆前面都有一段括號裡的想法，分成兩種顏色：
+
+- 藍色是**理解**：使用者沒有透露任何意圖／使用者間接提到了找餐廳的意圖。
+- 紅色是**策略**：我應該繼續閒聊／我應該順勢把話題轉到找餐廳。
+
+例子裡使用者聊到喜歡科幻與奇幻小說，代理人想的是「使用者間接提到了找餐廳的意圖，我應該把話題轉過去」，於是問他有沒有去過主題餐廳，再提到附近有一家星際大戰主題的餐廳。最後使用者明確說想去，對話就交給真的能訂位的任務型系統。
+
+老師把它對回前面的架構：回答之前先理解、再決定策略，和 LU 加 DP 是類似的，只是都包在代理人的思考裡。使用者只看到最後的回覆，展開思考的過程才看得到這些。
+
+**策略代理人（Chang 等 2025）**。把上面的想法拆成兩個模型：一個微調過的 strategy agent 只負責產生想法與策略，一個不用調整的任何 LLM 當 response agent，依這段策略產生回覆。老師說這是隨插即用的做法。
+
+再往下一步是連 strategy agent 的訓練資料都不用收，改從模擬的資料裡自動歸納策略，而且依對象不同而不同。投影片的兩張圖把使用者分成六種職業類別，比較用通用策略和用個人化策略的結果，淺色是嘗試推銷的次數，深色是成功的次數。老師舉的例子是：資料顯示藝術類的人對展覽、活動這類內容比較有興趣，就對他們多推這類資訊。用了個人化的策略之後，成功率大幅上升。
+
+### Theory of Mind：模型會不會猜別人在想什麼
+
+人在互動時會依眼前看到的事推測可能的情況，再依後續的觀察修正。機器有沒有這種能力？
+
+**ExploreToM**（Sclar 等 2025）是一個測這件事的大型資料集。資料這樣產生：先設定一個簡單的情境，有人物、地點、物品，以及看得到和看不到的狀態變化。例如 Anne 和 Beth 走進廚房，Beth 在蘋果上加了鹽然後離開，並傳訊息告訴 Charles；之後 Charles 進來，把蘋果移到冰箱。讓語言模型展開很多條可能的故事線，每一步都記下世界的狀態與每個人的認知，最後把這些狀態變成問答題：蘋果現在在哪裡？Beth 認為蘋果在哪裡？Anne 知道蘋果加了鹽嗎？
+
+投影片的例子裡，四個問題的正確答案是 fridge、table、yes、no，受測的模型答對兩題，準確率 0.5。
+
+老師的重點是：直覺上推理能力好的模型應該做得到，但實際上很多最好的模型在這個資料集上都做得不好。把整個故事一次丟給模型再問，它不一定會一步一步追蹤「這個東西現在在哪、誰知道什麼」。
+
+**Collaborative Reasoner**（Ni 等 2025）讓兩個語言模型合作解一題。例子是數學題，一個模型本來就解得出來。投影片列了三個發現：
+
+- 模型靠合作來提升表現的效果不穩定，這點和人不同。兩個合作，有時反而比一個人差。
+- 模型常常在**錯的**答案上達成共識。一個說我覺得是這個，另一個說你說得對。
+- 模型缺少說服力與堅持自己看法的行為。
+
+老師的解釋是：模型在 post-training 時的目標是當使用者的好工具，你說什麼它就照做，所以沒有學過怎麼跟人合作。人和人合作時會說服對方、會爭執、會想「他為什麼這樣說」，再調整自己的回答。
+
+這篇的做法是合成一批合作得好的對話。對同一輪，抽樣出不同的回覆，看哪一種最後導向比較好的合作結果，好的當正例、差的當負例，變成偏好資料，再用 DPO 這類偏好對齊的方式訓練。
+
+**Collaborative Gym**（Shao 等 2024）從介面下手。現在你請模型規劃行程，只想改中間一段，只能在外面用文字描述「中間那段要改」。如果介面讓你把那一段框起來說「這裡再具體一點」，就像教授改論文時圈一段寫評語，會好溝通得多。投影片上是人和代理人一起編輯行程、一起寫程式的畫面，結論是：讓人容易和代理人互動很重要。
+
+## 對話怎麼評
+
+13.9 講評估（第 99–106 頁）。
+
+### 自動指標
+
+第 100 頁：模型產生一句回覆，和資料裡的標準回覆比。
+
+- **Perplexity**：模型有多大的機率產生標準回覆。
+- **N-gram 重疊**：BLEU 這一類。
+- **Slot error rate**：該提到的條件有沒有提對，例如時間、日期。
+- **Distinct n-grams**：回覆有多多樣。老師解釋：如果找到一句萬用的話，每次都回它，不代表模型厲害。所以多樣性通常和「回得合不合適」一起看。
+
+### 人工評估的四種組合
+
+第 101–104 頁是兩個維度交叉：
+
+| | 打分數（Likert，0–5 分） | 兩個選一個（A/B） |
+|---|---|---|
+| 靜態：對話已經結束，事後請人看 | 第 101 頁 | 第 103 頁 |
+| 動態：請人實際和系統互動，再評 | 第 102 頁 | 第 104 頁 |
+
+評的面向在講義上是 Humanness、Fluency、Coherence。
+
+老師說明兩個維度的取捨。動態評估比較接近實際使用的情境，每個人會聊出不同的對話，但不能先收集一批資料再找人評，比較麻煩。A/B 比較不必給絕對的分數，只要說哪個好，比較容易校準；代價是要兩兩配對，需要的資料量更大。
+
+### 讓語言模型當評審
+
+第 105–106 頁是 LLM-Eval（Lin 與 Chen 2023）：把評分的說明寫成 prompt，請語言模型對回覆的幾個面向各給分數。講義的結論是它和人工評分的相關性比當時所有現成的指標都高，單輪與多輪的評估都適用，可以當成人工評估的替身。
+
+老師提醒一個重點：不管評審是人還是模型，都要明確告訴他分數怎麼定義、幾分代表什麼。她說現在不只是對話，各種任務大家都用語言模型當評審了。
+
+## 這一堂的主線
+
+老師在 13.9 最後把整堂串起來。原本四個模組各自訓練、各用不同的技術。現在換成語言模型，但那些模組其實還在，只是融在模型裡：先理解你，用工具，決定怎麼合在一起，再回覆。真正回覆你之前，它做了一連串的動作。
+
+前半的例子都在處理單次的回覆怎麼靠工具回得更好。後半考慮多輪：怎麼規劃與執行，怎麼在必要時開口問使用者，怎麼猜對方的想法來合作。她的描述是代理人從「一個做動作的東西」，變得更像一個夥伴。
+
+她也指出這個主題和很多前面的內容相連：RAG、tool use、狀態追蹤、代理人之間的互動、人機互動。
+
+## 常見的誤解
+
+以下是本文的歸納，不是課堂上逐條列出的內容。
+
+- **「語言模型夠強，四個模組就用不到了。」** 模組沒有消失，是融進模型的一次回覆裡。理解、查詢、決定、生成這些事還是要做。
+- **「模型說『我幫你查一下』，就是有去查。」** 沒有接工具的模型只是在模仿客服的說話模式，這就是講義說的自導自演。
+- **「有了搜尋，答案就會對。」** WebGPT 的例子裡，搜尋之後反而答錯，因為搜到的內容不可靠。
+- **「教模型用工具，一定要有人示範。」** WebGPT 是這樣，Toolformer 用模型自己產生再篩選的資料，不需要人示範。
+- **「代理人越自主越好，最好都不要問。」** ReSpAct 的例子是問一句就省了很多步。該不該問，本身是一個要決定的動作。
+- **「兩個模型一起討論，一定比一個好。」** 課堂上的研究發現它們常在錯的答案上達成共識。
+- **「人工評估就是請人打分數。」** 還要分事後看或實際互動、打絕對分數或兩兩比較，四種組合的成本與可信度不同。
+
+## 自我檢查
+
+題目是本文自擬的，答案都能從上面的內容找到。
+
+**1. 任務型對話系統的四個模組各做什麼？哪兩個在理解使用者？**
+
+LU 把一句話變成意圖與條件，DST 累積並更新到目前為止的狀態，DP 依狀態與資料庫的結果決定系統的動作，NLG 把動作寫成句子。前兩個在理解使用者。
+
+**2. 使用者第一輪說「我要訂星期天的五星級飯店」，第二輪只說「兩個人」。少了哪個模組，系統會接不上？**
+
+DST。第二輪那句話單獨看沒有說要做什麼，要靠累積的狀態才知道是在補訂房的條件。
+
+**3. 為什麼對話策略那一步一定要查外部資料？**
+
+不查就不知道符合條件的結果有多少，也就無法決定該直接告知結果，還是該再問一個條件來縮小範圍。
+
+**4. LaMDA 回答「艾菲爾鐵塔什麼時候蓋的」時，Base、Research、Tool Set 各做了什麼？**
+
+Base 憑記憶寫出草稿（1887 年建造）。Research 把要確認的事寫成查詢送給 Tool Set，Tool Set 回傳搜尋到的內容。Research 依內容改寫成「1887 年 1 月動工、1889 年 3 月啟用」。
+
+**5. BlenderBot 2.0 加了哪兩樣東西？它怎麼處理不安全的回覆？**
+
+上網搜尋與長期記憶。安全方面，訓練模型在產生不安全的回覆之後接著輸出一個標記，看到標記就不採用那句回覆。
+
+**6. WebGPT 和 Toolformer 的訓練資料各從哪裡來？**
+
+WebGPT 請真人在特製的介面裡搜尋、點選、引用，記錄這些操作。Toolformer 請語言模型在現成的句子裡插入工具呼叫，再留下「用了工具後正確答案機率變高」的那些。
+
+**7. WebGPT 那個「夢到許願」的例子說明什麼？**
+
+搜尋到的內容不一定可靠。有搜尋能力之外，模型還要能判斷哪些資訊該採用。
+
+**8. ReSpAct 比 ReAct 多了什麼？代理人會用它來說哪三類話？**
+
+多了「說話」這個動作。用來請使用者給方向、回報自己的狀態與進度、詢問使用者的偏好。
+
+**9. 兩個語言模型合作解題，為什麼可能比一個還差？研究怎麼改善？**
+
+模型被訓練成照指令做事，缺少說服與堅持的行為，容易附和對方而在錯的答案上達成共識。改善的做法是合成合作良好的對話，做成偏好資料來訓練。
+
+**10. 你要比較兩個聊天機器人，希望結果貼近實際使用，而且評分容易一致。該選哪一種人工評估？代價是什麼？**
+
+動態的 A/B：請同一個人分別和兩個系統互動，再選比較好的。代價是不能事先收集一批對話統一送評，而且兩兩比較需要的量比較大。
 
 ## 延伸閱讀
 
-- [CMU 11-768 第 2 講：Tool Use](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use) 與 [第 5 講：Planning](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)：比本篇更新的工具使用與規劃整理，可以補 13.6 的空白。
-- [CS224N：RAG 與 Language Agents](/posts/ai/2026-08-22-cs224n-rag-language-agents)。
-- [CS224N：Benchmark 與評估](/posts/ai/2026-08-22-cs224n-benchmark-evaluation)、[CME295：LLM Evaluation](/posts/ai/2026-09-29-cme295-llm-evaluation)：LLM-as-judge 的更多討論。
-- 本系列 [RAG＋HW3](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3) 也講到 WebGPT，這篇著重它的工具使用面。
+- [CS224N 第 10 堂：RAG 與 Language Agents 的六個元件](/posts/ai/2026-08-22-cs224n-rag-language-agents)
+- [本系列第 11 堂：Language Agents](/posts/ai/2026-09-30-ntu-adl2025-language-agents)，ReAct 與多代理人的背景
+- [本系列第 8 堂：RAG](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)，WebGPT 的訓練方式與檢索的做法
 
-系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-adl2025-course-overview)｜上一篇 [Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning)｜下一篇 [超越監督學習與多模態](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
+上一堂：[第 12 堂 Reasoning](/posts/ai/2026-09-30-ntu-adl2025-reasoning)｜下一堂：[第 14 堂](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
 
 ## 課程影片來源
 
-以下影片已於 2026-10-10 對照官方課程頁與官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
+以下影片已於 2026-10-10 對照官方 YouTube 播放清單（講次編號與標題相符）；不提供時間跳轉。
 
 ```youtube
 url: https://www.youtube.com/watch?v=8EV-Qw2iYYE
-title: 13.1
+title: ADL 13.1: Learning to Converse and Interact
 ```
 
 ```youtube
 url: https://www.youtube.com/watch?v=LHhxbXKfnKs
-title: 13.2 LaMDA
+title: ADL 13.2: Tool Use in LLMs – LaMDA
 ```
 
-原始影片：[13.1](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)
+```youtube
+url: https://www.youtube.com/watch?v=fzzOlH0t0_w
+title: ADL 13.7: User Interaction
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=rThWbHBA6e4
+title: ADL 13.8: Theory-of-Mind
+```
+
+原始影片：[13.1 Learning to Converse and Interact](https://www.youtube.com/watch?v=8EV-Qw2iYYE)、[13.2 Tool Use in LLMs – LaMDA](https://www.youtube.com/watch?v=LHhxbXKfnKs)、[13.3 Tool Use in LLMs – BlenderBot](https://www.youtube.com/watch?v=B5s3XJIbQtc)、[13.4 Tool Use in LLMs – WebGPT](https://www.youtube.com/watch?v=SVIgPfF16pE)、[13.5 Toolformer](https://www.youtube.com/watch?v=PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://www.youtube.com/watch?v=FK-r_-dVHcI)、[13.7 User Interaction](https://www.youtube.com/watch?v=fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://www.youtube.com/watch?v=rThWbHBA6e4)、[13.9 Conversation Evaluation](https://www.youtube.com/watch?v=gjiKrxiAyNI)
 
 課程與錄影入口：
 
 - [官方課程與錄影入口](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-查核日期：2026-10-10。
+查核日期：2026-10-13。
 
-字幕嘗試（2026-10-10）：嵌入的 13.1（15:02）與 13.2（13:15）在 YouTube 上沒有可取得的字幕，影片內容未核對；文章本來就聲明沒有逐字聽寫，內容依 Fall 2024 講義，對影片只引用標題、副標、長度與說明欄。兩支的上傳日是 2025-11-25、說明欄寫 2025/11/24，與文章一致。
+內容核對：已依影片核對（2026-10-13）：13.1–13.9 都沒有字幕，本文把音訊用語音辨識轉成逐字稿後整理，逐字稿可能有聽錯的專有名詞與數字。13.6 與 13.7 是同一段錄影。數字、例句與流程以 Fall 2024 講義的頁面為準；13.6–13.8 的論文名稱與出處另外對過影片畫面上的投影片。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
-- 2026-10-10：重查影片狀態。嵌入影片與官方課程頁、播放清單的講次相符。
-- 2026-10-10：嘗試依字幕核對 13.1、13.2，但兩支都取不到字幕，內容未核對；文章未改動。
+- 2026-10-13：依九支影片的課堂口述重寫。補上 13.6–13.8 的內容（先前只列名稱），說明 13.6 與 13.7 是同一段錄影，加上兩個例子、常見誤解與附答案的自我檢查。
 
 ## 參考資料
 
-- [台大陳縕儂《深度學習之應用》Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
-- [2025 Fall 台大資訊 深度學習之應用 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
-- 影片：[13.1](https://youtu.be/8EV-Qw2iYYE)、[13.2 LaMDA](https://youtu.be/LHhxbXKfnKs)、[13.3 BlenderBot](https://youtu.be/B5s3XJIbQtc)、[13.4 WebGPT](https://youtu.be/SVIgPfF16pE)、[13.5 Toolformer](https://youtu.be/PdPK_f-aH3I)、[13.6 Plan-and-Execute](https://youtu.be/FK-r_-dVHcI)、[13.7 User Interaction](https://youtu.be/fzzOlH0t0_w)、[13.8 Theory-of-Mind](https://youtu.be/rThWbHBA6e4)、[13.9 Conversation Evaluation](https://youtu.be/gjiKrxiAyNI)
-- [241030_ConvAI.pdf（Conversational Modeling，Fall 2024 講義）](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241030_ConvAI.pdf)
-- [ADL Fall 2024 課程頁](https://www.csie.ntu.edu.tw/~miulab/f113-adl/)
-- [LaMDA: Language Models for Dialog Applications（arXiv 2201.08239）](https://arxiv.org/abs/2201.08239)
-- [Recipes for building an open-domain chatbot（BlenderBot，arXiv 2004.13637）](https://arxiv.org/abs/2004.13637)
-- [BlenderBot 3（arXiv 2208.03188）](https://arxiv.org/abs/2208.03188)
-- [WebGPT: Browser-assisted question-answering with human feedback（arXiv 2112.09332）](https://arxiv.org/abs/2112.09332)
-- [Toolformer: Language Models Can Teach Themselves to Use Tools（arXiv 2302.04761）](https://arxiv.org/abs/2302.04761)
-- [ACUTE-EVAL（arXiv 1909.03087）](https://arxiv.org/abs/1909.03087)
-- [LLM-Eval（arXiv 2305.13711）](https://arxiv.org/abs/2305.13711)
+- [ADL Fall 2025 課程頁](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
+- [2025 Fall 台大資訊 深度學習之應用 NTU CSIE ADL 播放清單](https://www.youtube.com/playlist?list=PLOAQYZPRn2V7gGW7bEjGnHD3BVQepF82o)
+- [Conversational Modeling 講義（Fall 2024，241030_ConvAI.pdf）](https://www.csie.ntu.edu.tw/~miulab/f113-adl/doc/241030_ConvAI.pdf) — 本文頁碼來源
+- [Thoppilan et al., LaMDA: Language Models for Dialog Applications](https://arxiv.org/abs/2201.08239)
+- [Roller et al., Recipes for building an open-domain chatbot（BlenderBot）](https://arxiv.org/abs/2004.13637)
+- [Nakano et al., WebGPT](https://arxiv.org/abs/2112.09332)
+- [Schick et al., Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
+- [Lin & Chen, LLM-Eval](https://arxiv.org/abs/2305.13711)

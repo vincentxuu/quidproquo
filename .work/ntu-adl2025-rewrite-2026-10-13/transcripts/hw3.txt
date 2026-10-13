@@ -1,0 +1,372 @@
+[00:00] 我們是Edior2025 Homeward 3的助教陳剛傑跟彭紀倫。那這次作業的主題是Retrieval Augmented Generation。作業的接著日期是11月3號的晚上11點59分59秒。
+[00:16] 那在slide裡面有我們這次作業的連結。我們在NDUQ也有設立Homeward 3的討論區。那同學們可以在上面留言或是問問題,我們可以在上面回答。
+[00:27] 接下來介紹一下這次作業的內容
+[00:30] RG System主要包含Retriever跟Generation兩個部分
+[00:34] 在Retriever裡面
+[00:36] Retriever的工作就是把我們事先提供好的Corpus跟User Query
+[00:42] 從文字轉成Embedance去做一個初步的檢索
+[00:46] 再有Reranker把這些初步的結果做一個比較精確的排序
+[00:52] 在Generation裡面我們可以用一些prompting的技巧
+[00:58] 讓LM可以從前面retriever得出來的document中找出一些information
+[01:04] 去回答user query的問題
+[01:06] 那這次做宴會要請同學們去fine-tune retriever跟reranker
+[01:11] 以及設計一個prompt去提升LM在最後回答問題的表現
+[01:17] 那Bonus的部分會是RG with RL
+[01:20] 在之後會有一個比較詳細的介紹
+[01:22] 單複習一下Binecoder跟Cross Encoder
+[01:26] 那現在的retriever主要都是用Binecoder的架構
+[01:29] 也就是我們有兩個sentence
+[01:32] 然後會位給兩個相同權重的model
+[01:37] 去得出對應的embeddings
+[01:40] 那麼就可以用這些embeddings去做一些相似度的計算
+[01:44] 當作檢索的依據
+[01:47] 那在re-rank的部分
+[01:49] 我們通常會把兩個句子同時位進同一個model
+[01:52] 可能是用串接的方式
+[01:54] 然後得到這些embedding之後
+[01:56] 再經過一個MLP Classifier的方式
+[01:59] 得到最後的預測分數
+[02:01] 那一樣可以用這個預測分數去做一個排序
+[02:05] 這次作業中主要會用到三個model
+[02:08] 那retrieve的部分會是Multilingual E5 Small
+[02:12] re-rank的部分是MS Macro Mini LM L10 V2
+[02:17] LLM的部分是QM3 1.7B BF16版本
+[02:24] 那考量到同學有不同的運算資源
+[02:27] 所以我們限制Homew3只能
+[02:30] 對Retriever跟Reranker做FindTuning
+[02:33] LLM的部分不能做任何Training或是引數上的調整
+[02:39] 從我們提供的連結中
+[02:41] 會包含一下這些Files
+[02:44] 那今天還會介紹一下他們的功用以及如何使用
+[02:51] 在Data這個資料夾中
+[02:54] Corpus file主要會記載
+[02:59] 所有的passage information
+[03:01] 那每一行就是對應一個passages
+[03:04] Text這個column就是passage的content
+[03:07] id的部分就是passage ID
+[03:10] Qreels這個file裡面會記錄每一個query ID
+[03:15] 對應到的positive passage ID
+[03:18] 那在這次作業中
+[03:21] 每一個query都會有一個特定的positive passage
+[03:24] 再來是trendata跟testing data
+[03:27] 那每一行都會對應到一個query
+[03:31] 那其中就會包含它的QID
+[03:34] 然後rewriter column裡面就是query的content
+[03:38] 那evidences
+[03:41] 則是
+[03:43] 用BM25做negative sampling得出來的passages
+[03:48] 那它對應的retrieval labels
+[03:52] 就會顯示說
+[03:54] 這個evidences中的passages
+[03:57] 對於這個query
+[04:00] 是positive還是negative
+[04:03] 那1就是positive 0就是negative
+[04:05] 在answer column中是一個字典
+[04:08] 這個字典中的text column會記錄我們期望LM輸出的結果
+[04:16] 那這個結果可能是positive passage中的某一段文字
+[04:23] 或是cannot answer這個字串
+[04:26] 就算每一個user query都有一個對應的positive passage
+[04:33] 但是如果我們認為這個passage中的資訊不足以回答這個query
+[04:41] 我們會希望有任最後深處can I answer這個回答
+[04:45] 最後是一個小提醒
+[04:46] 在test data中的evidences這個list裡面可能不會包含positive的passage
+[04:55] 同學可以在前面提到的Qreels這個檔案中
+[05:00] 去找出對應的Positive Passage ID
+[05:03] 再去做Dataset的建立
+[05:05] 再來是Retribute Training Sample
+[05:07] 那Qreel的部分就會拿我們前面提到的Rewrite裡面的Content
+[05:13] 然後對應的Passage
+[05:16] 同學們可以使用Evidences這個List裡面的Passage
+[05:21] 或者是你可以用自己的negative sampling的方法去找出negative passages
+[05:28] 同時把這些資料喂給retriever之後會得到他們對應的embeddings
+[05:37] 同學們就要去選擇loss function
+[05:40] 讓queried embedding跟positive的embedding越近越好
+[05:46] 跟negative passages的embedding越遠越好
+[05:49] 那這邊的距離計算會主要會用coside similarity
+[05:53] 再來是re-encore的training sample
+[05:56] 那一樣是使用rewrite的column裡面的content當作我們的user query
+[06:02] 也可以使用evidentist的list或者是同學自己的negative sampling
+[06:08] 那中間會有一個packing的過程
+[06:12] 主要是把query對應到每一個passage以及它的label
+[06:18] 然後這邊會是一個tuple list
+[06:21] 然後位給rank之後
+[06:23] 我們會希望rank輸出的分數
+[06:26] 像這邊對應這個positive passage的分數要越高越好
+[06:32] 那其他negative passage的分數則是越低越好
+[06:37] 那這個分數的range是dependent on future model
+[06:41] 不一定是0到1
+[06:43] 有可能是無限大到負無限大
+[06:46] 大家再請同學自己去Check一下
+[06:49] 再來是SaveEmbedding.py
+[06:52] 那這個file的功能主要是要建立Diabase
+[06:55] 第一個就是建立
+[06:57] Pessages的
+[07:00] SQLiteDB
+[07:02] 然後第二個是建立
+[07:04] 從Retriever轉換過的Embedding的FIS VectorDB
+[07:12] 同學們只要輸入一下的指令就可以建立這兩個db
+[07:19] 我們已經幫同學寫好程式了
+[07:21] 那這邊提醒一下
+[07:24] Build db 這個flag
+[07:27] 主要是for建立sqlite db用
+[07:31] 所以如果同學們之後只是想更新你的vector db
+[07:35] 你可以把這個Build db的flag給關掉
+[07:38] 再來是prompt optimization的部分
+[07:41] 那會用到的file主要是
+[07:43] utils.py
+[07:45] 那需要請同學在下面這三個方便中去
+[07:49] 做一些設計
+[07:51] 包含
+[07:52] system-prong template
+[07:53] 跟user-prong template
+[07:55] 還有
+[07:56] 最後
+[07:57] 要從lm生成的答案中
+[08:00] parse
+[08:01] 正確答案的一個parse function
+[08:04] 最後是inference-page.py
+[08:07] 那這個file的功能就是
+[08:09] 讓同學們可以測試在
+[08:11] TestData上面
+[08:13] 然後會給出三個Matrix的分數
+[08:16] 那這File會引迫前面提到的
+[08:19] Utils.py中的
+[08:21] 同學們設計的Prompt跟Parse Function
+[08:24] 在run這個Script之前
+[08:26] 要記得讓那個
+[08:29] SaveEmbedings.py這個File去更新你的Diabase
+[08:34] 那EvaluationMatrix主要有三個
+[08:37] 三個
+[08:38] Record AK 跟 MR AK
+[08:40] 那K 是設定為10
+[08:43] 也就是說我們去看 Retriever 跟 Re-ranker
+[08:46] 找回來的 Top 10 的 Passages
+[08:49] 那如果這 Top 10 Passage 中有正確的 Passage
+[08:52] 這個 Record 就會加1
+[08:54] 那 MR 的部分則是看
+[08:57] 正確 Passage 在這四個中的排序是多少
+[09:02] 那越高越好
+[09:04] 現在的similarity from BuyEncoder則是用來去看最後LM生出的答案與正確答案之間的相似度有多少
+[09:12] 主要用到的model是
+[09:14] All-mini-lm-l6v2
+[09:19] 請不要去更改這個InvestBatch.py這個file
+[09:24] 因為我們最後測試的時候會是用跟我們提供連結裡面一樣的file
+[09:31] 那同學們只要執行下面這個指令
+[09:35] 就可以得出這三個Evaluation Metric的分數
+[09:40] 好的 接下來就交棒由我來說明一下這個作業的腳腳規定
+[09:48] 在Environment部分我們採用的版本是Python 3.12
+[09:52] 並且我們會使用以下的package跟它相對應的版本來做作業的批改
+[09:58] 所以同學要確定自己的code
+[10:00] 可以在這樣子的環境下被reproduce
+[10:02] 才是符合規定的繳交結果
+[10:04] 那另外當然同學如果要在local端做自己的分析跟畫圖
+[10:09] 是可以自由的安裝其他package是沒問題的
+[10:13] 好 那我們講一下這個作業的禁忌喔
+[10:15] 首先第一個就是不能採用額外的training data
+[10:18] 同學只能使用我們提供training data裡面的query
+[10:21] 跟corpus裡面的passage來做訓練
+[10:25] 另外也不能把test data fine tune 在模型上
+[10:29] 也請不要嘗試去找到我們 private 的 test data
+[10:33] 好 那如果我們在最後看完 code之後
+[10:36] 可能懷疑同學有一些互相抄襲的問題
+[10:40] 那我們可能會請同學來做說明
+[10:42] 那總之如果最後我們認定是有作弊的事實的話
+[10:46] 我們就會整個作業以零分計算
+[10:49] 所以請同學如果要跟其他人互相討論的話
+[10:52] 也把重點放在可以自己去實作出來這整個code
+[10:56] 才是一個符合規定的作業繳交成果
+[11:00] 那這是我們要上傳的file structure
+[11:03] 同學們要去上傳一個以自己學號為命名的zip檔
+[11:07] 那非常要注意的是這個zip檔裡面一定要在裝著一層資料夾
+[11:12] 也就是這個zip開啟裡面會有一層以自己學號為命名的資料夾
+[11:16] 裡面在裝著下列檔案
+[11:18] 所以同學如果在file structure上面有違反的話
+[11:21] 我們會在整個作業總分20%中扣掉同學2%的分數
+[11:25] 回到FileStructure的部分
+[11:27] 在這個以同學的學號為名稱的資料夾裡面
+[11:31] 同學必須要裝出下列5個檔案
+[11:33] 以及其他所有同學有用到的training code
+[11:36] 以至於有辦法reproduce同學的訓練成果
+[11:40] 接著從download.sh開始講
+[11:42] 我們在run完download.sh之後
+[11:45] 預期可以得到同學的retriever跟reranker的模型
+[11:49] 所以同學要跟前幾次作業一樣
+[11:51] 把自己的模型放在Google的雲端上面
+[11:54] 並且保持它的有效性在Dayline的三週內
+[11:59] 在Download.sh部分也只希望同學去做下載跟資料夾的建立
+[12:06] 你不要去做額外的事情
+[12:07] 像是去PIP install其他package
+[12:11] 那像這樣子的Download.sh就會被我們視為違規
+[12:15] 可能會扣除一些分數
+[12:16] 在我們改同學的code之前
+[12:18] 我們都會先去run download.sh
+[12:20] 去獲得同學所訓練的兩個模型
+[12:24] 所以呢在run完 download.sh之後
+[12:26] 我們的file structure會變成這樣
+[12:28] 就是同學會在利用download.sh
+[12:30] 去建立一個models的資料夾
+[12:32] 那裡麵包含著retriever跟relink的資料夾
+[12:35] 然後在這兩個資料夾裡面呢
+[12:37] 就分別裝著你們可以讓retriever跟relink
+[12:40] run起來的這些savetensor啊
+[12:42] 或是config等等
+[12:43] 接著是readme.nd
+[12:45] readme裡面要讓同學去詳細的說明
+[12:48] 如何去reproduce你的training的結果
+[12:51] 所以如果我們在必要的時候也會請同學去根據REME
+[12:55] 來重現你整個training的結果
+[12:58] 那如果沒有辦法的話也會扣除一些分數
+[13:01] 那如果沒有REME或者REME裡面的說明不夠完善的話
+[13:04] 也會被扣除一些相對應的分數
+[13:08] 好,那我們在測試的時候使用的硬體是如畫面上所示
+[13:13] 基本上我們都已經確認我們所提供的Inference Code
+[13:16] 跟Safe Embedding.py都是有辦法在這樣的環境跟硬體上做執行的
+[13:21] 所以同學可能不用太擔心
+[13:24] 在歸零的部分我們有兩種Baseline
+[13:26] 分別是Public跟Private
+[13:28] 那Public所使用的資料集就是我們提供的TestOpen.txt
+[13:32] 同學需要在這三個指標上面去高於這三個數值
+[13:36] 才有辦法獲得這總共6%的分數
+[13:38] 那在Private部分我們就會使用我們自己的資料集去驗證同學的model
+[13:44] 雖然這三個指標是隱藏起來的
+[13:47] 但是如果同學在public baseline可以高於這個baseline
+[13:51] 可能0.005到0.01的數值的話
+[13:55] 可能就會有很高的機率可以超過public baseline
+[13:58] 那另外在report的部分總共有10%的正式分數跟2%的bonus分數
+[14:04] 在format的部分剛剛有提到如果同學的file的structure
+[14:08] 是不符合我們的規定的話我們就會直接扣除2%
+[14:11] 在我們貼要改同學作業的時候呢
+[14:13] 我們除了會去跑download.sh
+[14:15] 我們也會先去跑saveembadings.py
+[14:18] 因為我們要先建立好以同學的retriever
+[14:21] 來建立的Vector Database
+[14:23] 在建立完Vector Database之後
+[14:25] 我們就會去run inferencebatch.py
+[14:28] 並且retriever跟relenker
+[14:30] 都是採用我們剛剛提到的路徑
+[14:33] 然後我們要分別跑在open跟private的dataset
+[14:37] 去做成績的驗證
+[14:40] 本次的作業是可以允許延遲絞交
+[14:42] 延遲腳交
+[14:43] 但是延遲腳交會有相對應的Penalty
+[14:45] 我們的Dayline是在11月3號的最後一刻
+[14:48] 那隻要超過這個最後一刻
+[14:49] 就會算在這個Late Submission大於0天到1天
+[14:53] 那同學的分數就會被
+[14:54] 乘上9折
+[14:56] 那如果你的持交在1天到3天的話就是7折
+[14:59] 3天之後也只能跟同學說很遺憾
+[15:01] 就是在這個作業上沒有辦法獲得分數
+[15:04] 那我們會採用的是你最後一次在NTU Core上面的腳交
+[15:07] 所以也請同學不要在Dayline過後再去NTU Core上面更改你的腳交
+[15:11] 可能會被視為遲交
+[15:14] 好 那接著我們就說明report部分
+[15:16] 我們總共有三加一題的report需要讓同學去回答
+[15:20] 首先第一個是retriever跟reranker的tuning流程
+[15:23] 那分別佔2.5%
+[15:25] 在針對這兩個模型呢
+[15:27] 你都要去說明說
+[15:29] 你的training theta是怎麼formulate的
+[15:31] 可能包含你怎麼定義你的正樣本跟副樣本的抽樣策略
+[15:35] 那另外你也要提供
+[15:37] 你所使用的last function
+[15:39] 跟你在training的時候所使用的hyperparameter
+[15:42] 最後你也要像前提師作業一樣去
+[15:45] 繪製你的loss curve
+[15:47] 去描述你的training流程
+[15:48] 針對retriever跟reranker
+[15:50] 如果同學都好好的說明以上內容的話
+[15:52] 就可以獲得這個report的分數
+[15:54] 好,Q2的部分是在針對prompt最佳化
+[15:59] 那有兩個小問題分別在1.5%
+[16:01] 第一個就是你要去詳細的解釋說
+[16:04] 你的prompt是怎麼被設計
+[16:05] 跟他應該要達到怎樣的效果
+[16:07] 另外第二題的部分可能要請同學設計三種不同的 prompt
+[16:11] 然後說明他們的差異並且呈現他們在實驗上的表現差異
+[16:17] 去證明你最後所選取的 prompt 的有效性
+[16:20] 那 Q3的話是比較自由的部分
+[16:22] 總共佔2%
+[16:23] 要請同學針對在 inference 流程中任何有趣的部分做額外的分析
+[16:28] 這邊可能有提一些 example
+[16:30] 可能同學可以去比較說在放進LM裡面的 passage
+[16:34] 如果有正確的答案跟沒有正確的答案的時候
+[16:37] 整個表現會有怎麼樣的差異
+[16:39] 或者是如果沒有使用Re-Anchor
+[16:41] 而是直接用Retriever RetrieveTry的數值做排序的話
+[16:47] 那整個表現上會跟Re-Anchor有怎麼樣的差異
+[16:50] 總之同學可以自由的去發揮去做分析
+[16:53] 我們會最終以同學分析的豐富度跟深度
+[16:57] 來給予最後的分數
+[17:00] 好 接著我們就說明一下我們的Bonus的部分
+[17:03] 我們想要讓同學嘗試把強化學期
+[17:06] 融入到這整個process裡面
+[17:07] 那強化學習呢
+[17:08] 它的概念就是會有一個環境
+[17:11] 然後讓模型可以不斷地去跟環境做互動
+[17:14] 最後獲得reward
+[17:15] 在reward之後可能也會再做下一步的行動
+[17:18] 總之模型的目標是要去最大化它的reward
+[17:21] 然後不斷地跟這個環境做互動
+[17:23] 以至於它學習到一個策略
+[17:25] 可以讓每次行動的reward都是最大化的
+[17:28] 所以在這個bonus題裡面
+[17:30] 就是要請同學去設計
+[17:32] 在這個task下面的環境應該長什麼樣
+[17:34] reward應該長什麼樣
+[17:36] 跟動作應該是什麼
+[17:37] 那麼要請同學實作的流程如下
+[17:40] 前面這張圖就是在第一頁裡面
+[17:42] 我們有提到的整個RAG的System
+[17:45] 那可以看到我們LM就會產生一個Response
+[17:48] 那我們要跟Answer去比對一個相似度
+[17:50] 我們這邊給同學的例子就是
+[17:52] 我們可以拿這個相似度去當做revert
+[17:54] 然後去train一個RL-based的multilayer perceptron
+[17:59] 那這個RL-based的模型呢
+[18:01] 就是要去Dynamic的決定
+[18:03] 放進LM的passage到底要有幾個
+[18:06] 它的概念是這樣
+[18:07] 如果我們放進ln裡面的passage
+[18:10] 全部都是對的的話
+[18:12] 那照理來說應該就是隻要放一個嘛
+[18:14] 就是減少其他的noise
+[18:16] 那如果reRank玩的passage
+[18:19] 正確答案又不在第一個的話
+[18:21] 那不就代表我們要放進更多一些的passage
+[18:24] 才有辦法讓ln去看到正確的passage
+[18:27] 那因為我們現在在inverseBatch.py裡面的topm呢
+[18:31] 也就是要放進ln裡面的passage數是
+[18:33] 取這個reRank玩的前三個
+[18:35] 所以我們要請同學利用RL的方式去訓練說讓模型可以看到前面的一些資訊
+[18:41] 導致他可以去選取到底要放幾個 passage進去模型
+[18:45] 去maximize他最後 response跟 answer之間的相似度的表現
+[18:51] 所以同學可以設計的就是這個reward的部分跟要怎麼train這個RL的模型
+[18:57] 好,那在report裡面同學也要去說明說你整個training的method跟在實驗後的結果
+[19:06] 到底RioBase的方法跟原本只放三個進去的方法的表現的差異這樣
+[19:12] 那你當然也是要含有你所有training跟你所測試出這兩個表現差異的Inference的script
+[19:20] 在你提交上來的檔案裡面
+[19:22] 那我們建議同學可以使用StableBaseline3跟Genasian這兩個package
+[19:27] 去做RL的Environment的建立跟Action的設計跟Reward的設計
+[19:32] 好,那這是我們這次作業所參考的Reference
+[19:36] 同學可以做更深度的參考
+[19:38] 那最後如果有任何問題的話
+[19:40] 歡迎同學到NTU Core的Discussion發問
+[19:42] 或者是寄信到我們的助教信箱
+[19:45] 那在寄信的時候也請主旨去加上這個prefix
+[19:49] 那如果想要跟助教實體討論的話
+[19:51] 我們也提供兩個TAH地點在德天館的R524
+[19:56] 那時段總共有禮拜四跟禮拜五的這兩個時間
+[19:59] 都是實體的
+[20:01] 同學可以根據自己方便的時間來TAH跟這兩位助教做詳細的詢問
+[20:06] 以上就是作業3的說明
+[20:08] 那這個作業3比較複雜
+[20:10] 我們想要讓同學去體驗
+[20:11] 整個REG系統的流程
+[20:13] 以及要怎麼設計Prompt去跟模型做互動
+[20:16] 因為我們所提供的這個1.7B的模型跟
+[20:21] 你們作業二所接觸到的4B模型可能
+[20:23] 他在行為上也會有一些差異
+[20:25] 所以可能同學要去根據現在所遇到的模型去
+[20:28] 最佳化你們的Prompt才有辦法獲得最好的表現
+[20:31] 那最後就祝同學寫作業順利

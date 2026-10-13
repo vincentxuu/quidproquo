@@ -1,0 +1,44 @@
+# ADL 助教課 LLM Basics：Architecture（三支之二）（TzhCZOILzlI）：機器轉錄逐字稿（Whisper large-v3-turbo，未經人工校對）。每 5 分鐘一段分開轉錄，術語可能聽錯。注意：轉錄時給模型的提示詞用了錯的主題名稱，專有名詞的辨識可能因此更差。
+[00:00] 好,那講到很多,剛剛講完很多就是基本觀念,或是一些現在大家新聞啊,這個圈子裡面大家喜歡討論的這些事情。那接下來就回到比較基礎的就是transformer的architecture。那大家transformer一定是非常的熟悉,如果你看,直接看了ADL的政客的話,你可以了解到非常多的這個眼鏡,他是從第一篇paper,Attention is all unique,做一個翻譯的人物,然後encoder、decoder的架構,接下來後來變成這個decoder-only,GPT,GPT-1。
+[00:30] GPT-2,然後3、4,到現在可能更新一代。那,到3以前的話,大家都知道它是一個dance的架構,他都知道一個是傳統的dance架構,就跟現在的這個LAMA,其實差異並不會差異很多,它其實都是非常,其實都是非常非常小的差異。你就算去原本,你其實可能原本,Scale原本的GPT,就是最OG的GPT的模型,你也可以得到很不錯的結果。那大家就,大家現在都是些微,
+[01:00] 微微的改進,微微的改進,微微的改進。那你就說,這些東西有什麼理論,這些就想說,它一定好嗎?沒有,這全部都是inclusion,然後我覺得,有一個,這邊,就是現在用的這些LAMA的architecture,都圍繞著有某一個作者,某一個作者,就是,Switch Google那個作者。
+[01:21] 對,有人講說,國高中數學70%都是有LAMA的發明的,這個你現在用這個LAMA也是,這個70%都是那個人是第一作者。
+[01:31] 好,那還有最後這個Mixerals Expert,就稍微帶一道一下,那第一個,這個這些很多,這邊很多頭影片都是,這個U-1,這個是,我從他的頭影片上面,揭取下來的。所以,如果你有興趣的話,你等到頭影片去點它,它講得非常非常好。那,原本Transformer跟LAMA在哪裡?那,原本,大家知道,Transformer,Ecoder,Decoder,我們現在只看一半,就是Decoder那邊。那其實它只插在了Tension Mask。那還有第一個,
+[02:00] 它是插在它的Normalization。看它這個Add and Wrong,它原本是用Layer Normalization,把它移到前面。這是第一個差異地。第二個差異,它是QKV的時候,它每一次都加一個Positional Encoding。Positional Encoding加在Query Key那邊。那,這個東西其實,跟以前差不多,但是它會有一個很好特質,它就可以被延展。好,那還有一個Self Attention,原本的叫我們都用什麼Multi-Head Attention。
+[02:29] 那,我們現在不用Multi-Head Attention,因為它會造成記憶體跟記憶體。記憶體的傳輸的BubbleNet。它會傳輸太多不必要的記憶體。所以,我們現在把它改成Multi-Query Attention。那,它會就可以Bound在我們剛剛講的那個VRG2的那個Tensor Core。那,還有一個KV-Cache。KV-Cache只是你加速的,你寫程式的,其實只要把它按成True或False,其實這樣就可以了。好,然後還有一個Feed Forward是SwitchG2。
+[02:58] 那,然後Feed Forward那邊,等一下還會延伸到The Mixer of X-Ray。
+[03:03] 那,我們第一個來講說,為什麼要改這個Normalization。好,那如果你訓練過,就是這個,其實不用是這種,這種Transformer類的。Computer Vision也很喜歡做Bash Normalization,或者說Layer Normalization。那,簡單來說,其實你看最左邊那個X,比如說你X是10乘以3的一個短針。10是你有多少比資料,你有10比資料,每一比資料有3個features。
+[03:28] 那,如果你做Row-wise的話,你就是每一個Row每一個Row去取平均的話,就是你取到每一個example的平均。然後你也可以算它們的標準差。
+[03:39] 如果你是Column-wise的算,你是不是就針對第一個feature,比如說第一個feature是地點。
+[03:45] 或是其他東西,你可以去做feature-wise的平均數跟標準差。
+[03:51] 那,我們想要把這些東西全部都是押回這個0到1的這個,怎麼還可以知道嗎?
+[03:57] Row-wise distribution,就是這個常態分布。那常態分布的話,它比較可以解決,就是訓練的時候,你層跟層之間,看的distribution差太多。
+[04:07] 那這些scientists把它講說是invariance covariance shift,但是反正基本上就是穩定gradient的一種做法。
+[04:17] 但是為什麼batch norm,layer norm,它打不到?那為什麼要用RMS norm?
+[04:23] 這個是room mean square room normalization。那第一個就是,你原本batch norm,layer norm,你要做什麼事?
+[04:32] 你要去,你看右上角最上面這個,你要去剪掉expression of x,就是mu,然後再剪掉variance,就是sigma。
+[04:38] 你要去訓練量,你要去copy兩個東西,一個是variance,一個是平均數,一個是標準差。
+[04:44] 所以這個作者,他就覺得說,他就覺得,其實要解決這個問題,不是要把大家都壓到0,不是要大家都center到0,是要把那個標準差壓到0,所以他就不做解決的問題。
+[05:00] 他只去做減掉covariance的動作,去把標準差的spread拉近一點點,turned out這個是非常有效的,你說為什麼?就沒有為什麼,就是少了一部分compute,而且它就是這樣,其實再多的這些理論,你要解釋這個我覺得是蠻難的,而且其實你要去耗費比如說100萬的compute去解釋說兩個normalization在venture model上面好不好?
+[05:28] 其實也不是太feasible,反正現在就是這個東西可能也許說被變一些technical depth,就是覺得大家覺得這不好但是也改不了之類的,不過現在就是這樣子。好,第一個RMSNOR我們就知道它是介紹compute,然後再增加反正它就work,然後第二個就是QKB,這個Tension其實就是QKB三個局長的懲罰,那這裡有一個就是說,先覺得這個,
+[05:58] 知識是它有absolute的percentual encoding跟relative的percentual encoding,就是我常常拿就是,這是它的example,那就是這兩個token,你直接去計算它的QKB,然後percentual encoding加在這個debanding size的時候,你就直接去算這兩個差距多位,比如說你插三個token,然後去删,但是如果relative的話,它會加一個AIJK,
+[06:23] 你就可以去steal它說,有時候我unput是長,我unput是短,它這個是相對值的概念,而不是絕對值的概念,那當你有相對值的概念,其實你就可以去做擴展,那這個rotary positional encoding,其實它的數學上你會覺得非常非常的困難,因為它要去做一個油拉轉換,但是事實上它其實有點像是,你看這個做conjugate的點,它就去做1的i次方,然後m-nc,
+[06:49] 所以它只要去調動這個sip的話,它就可以去做到不一樣的這些參數,但是因為它這個又是用這個油拉函數,它可以轉換成旋轉矩正的方式,你轉換成旋轉矩正的方式的話,你就會比較好計算,那我想像你這樣子,其實你可能聽不太懂,你應該聽得懂,你應該是這個absolute跟relative而已,不過它的概念就是這樣,它就是延伸這個relative的概念,就是引入旋轉的這個意向,
+[07:18] 反正這個就是現在b4,因爲它可以去做,因爲它這個是連續的,所以你原本訓練在1000個tokens的dange model,你可以擴展到2000,怎麼去做?你就去做內查,它這個就是input不同的sip,你就可以去做內查,因爲它是做旋轉,它是可以連續的,跟原本absolute encoding的話是不一樣的
+[07:39] 好,那它還有一個特質就是,你不管怎麼做attention,它一定會保證你越遠的attention的,這個注意力的程度一定越低,這個也是蠻make sense的
+[07:53] 好,那接下來做kvcatch,kvcatch,因爲時間我就講快一點,那原本kvcatch,qkv,我們就直接看取證成法,這其實是完完全全的限定代數,那你原本做取證成法,第一個tokens來,走最左邊,focus在最左邊,
+[08:07] 第一個tokens,然後第二個tokens,第三個tokens,第四個tokens,所以你是不是要重新做這個矩陣好幾遍,但你會發現,你其實矩陣有一些是用不到的,深紫色用不到,爲什麽?因爲你第一個row不能看到第二個column,第三個column,第四個column,爲什麽?因爲你不能第一個字往後看,這違反原本的這個規定,那還有前紫色的東西,其實我們在,其實我們一直都算過了,我們再回來一次,你去focus在qk那個矩陣,第一個矩陣,
+[08:36] 第二個矩陣,第三個矩陣,你是不是你看,它是疊加上去的,但是我們現在完全沒有應用在這個特質,所以呢,我們如果,我們其實每次要算只有最下面那個row而已,那我們要怎麽做?我們就去做catch吧,你現在看到最左邊,只會有一個token,第一個現在是token1,token2,token3,token4,所以你其實只要去做這件事情,然後去append你原本做的,
+[08:59] 這些kv的話,你就可以做的比較快,而且記憶體會用的比較少,好,這個講kvcat只是為了讓你去做hugging phase,它裡面有一個kvcat的時候,那個enable跟disable,你比較知道它到底在幹嘛,好,另外一個attention的話,最左邊是multi-catattention,
+[09:20] 你一個input,一個token信頼的時候,它會被project到q,project到k,project到b,那就是最左邊的multi-hat,那我們kv又不一樣的,那最極端的是用在右邊這個multi-curry attention,就是我只prefere一次,每一個token我都用同樣的key,同樣的value,那如果你要取之中介的話,因為這個multi-curry,它不用記憶體,它不用像是在做第一次,第一次第二次的時候,它翻動你的kv,
+[09:47] 但是它的取核帶子,它就是很明顯的performance drop,所以它會表現會更不好,所以取核帶子中間的這個狀況就是,那我就是四個query用同一個key,四個query用
+[10:00] 或者你自己去設定這個東西。這個是LAMA2。GQA我忘記是誰,但是Multi-Coreal的話也是Google的。
+[10:13] 好,最後這個是非常簡單。你看到,大家都知道RELU,藍色的。GLU,紅色的。
+[10:22] 然後現在就告訴你要一個綠色的,更平滑、更好,而且會Work,就沒了。
+[10:31] 那因為這個archivation只改善archivation,老實說你要說真的有什麼大的差異,真的是沒有啦。
+[10:38] 但是大家現在就是用這個,就是用吧。
+[10:41] 好,那接下來我們其實講了LAMA跟Transformer,其實它到底差在哪裡?
+[10:45] 那你說那beyondLAMA到底是在大家最說?LAMA是現在最好的architectural,open-source的話。
+[10:51] 好,那個這個李開副教授他的這個公司的話,他們出現出了一個LAMA3、4B的、6B的,也是完全followLAMA的architecture。
+[11:02] 然後歐洲那邊有一個叫Mystrel,也是完全followLAMA的,但是他有attention guide一點點。
+[11:08] 所以LAMA是現在open-source的,大家是最大工業的數,沒有人可以離開這個架構,因為你的軟體資源度有一個很差。

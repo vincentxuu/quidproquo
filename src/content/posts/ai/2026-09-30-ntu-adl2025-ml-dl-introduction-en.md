@@ -8,8 +8,8 @@ lang: en
 series:
   name: "Reading NTU Yun-Nung Chen Applied Deep Learning"
   order: 1
-tldr: "The first self-study deck of ADL Fall 2025 describes machine learning as finding a function from data, and deep learning as a production line of simple functions where the machine learns what every station does. It uses speech and vision to contrast deep and shallow models, credits big data and GPUs for the post-2010 breakthroughs, and uses the universality theorem to ask why networks should be deep rather than fat. The most practical part comes last: the output domain decides the learning task, and the architecture should fit the properties of the input domain."
-description: "A guide to the Introduction deck and videos 1.1–1.3 of NTU Yun-Nung Chen's ADL Fall 2025: learning as finding a function, the machine learning framework, deep learning as a production line, deep vs. shallow, big data and GPUs, the universality theorem, fat+shallow vs. thin+deep, and how to frame an NLP task as classification or sequence prediction."
+tldr: "The first ADL lecture has no math and sets up two ideas. First, machine learning gives a machine many input-output pairs and lets it find the function that turns one into the other; deep learning chains many simple functions into a production line, supplies data only at the two ends, and lets the machine learn what every station does. Second, to solve a problem with deep learning, write down the input X and the output Y: the form of the output decides whether the task is classification or sequence prediction, and the properties of the input decide which network fits. Along the way it answers two questions: why the breakthrough waited until after 2010 (data and GPUs), and why networks go deep instead of fat."
+description: "A guide to Lecture 1 of NTU Yun-Nung Chen's Applied Deep Learning, Fall 2025, built from the Introduction deck and the spoken content of videos 1.1–1.3: AI versus machine learning, why rules never cover every case, learning as finding a function, training and testing, the production line and end-to-end training, deep versus shallow, what a neuron computes, data and GPUs, why deep and not fat, and how to write a task as X to Y. Includes a worked neuron example and a self-check with answers."
 draft: false
 ---
 
@@ -17,91 +17,228 @@ draft: false
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
-This is post 1 of [Reading NTU Yun-Nung Chen Applied Deep Learning 2025 Fall](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (NTU term 114-1, 2025/09/01–12/15) lists this lecture under "self-study / prerequisite." [Course Logistics](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) p. 17 requires students to watch it before enrolling, as part of HW0.
+This is Lecture 1 in [Reading NTU Yun-Nung Chen Applied Deep Learning](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en). ADL Fall 2025 (114-1, 2025/09/01–12/15) lists this lecture under "self-study / prerequisite" on the schedule, and page 17 of [Course Logistics](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Course.pdf) requires students to finish it before enrolling, as part of HW0.
 
-**Sources**: the [Introduction deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf) (46 pages) and three videos: [1.1 What is ML?](https://youtu.be/Nls5bHxW6i0) (16:45), [1.2 What is DL?](https://youtu.be/asuLb0lLmJY) (41:26), and [1.3 How to Apply?](https://youtu.be/oT4UQj_PXYo) (10:11). The deck was checked on 2026-09-30. The videos are in Mandarin, and page numbers below refer to the PDF.
+**Sources**: the [Introduction deck](https://www.csie.ntu.edu.tw/~miulab/f114-adl/doc/250901_Introduction.pdf) (46 pages) and three videos: [1.1 What is ML?](https://youtu.be/Nls5bHxW6i0) (16:45), [1.2 What is DL?](https://youtu.be/asuLb0lLmJY) (41:26), and [1.3 How to Apply?](https://youtu.be/oT4UQj_PXYo) (10:11). The videos are in Mandarin, and page numbers refer to the PDF. Examples marked "made up for this post" are not from the lecture.
 
-There is no math in this lecture. It wants you to leave with two ideas: learning means finding a function, and you only know which model to pick after you write the task as "input domain → output domain."
+This lecture has no mathematical derivation. After reading you should be able to do three things: say why a rule-based program cannot solve certain tasks; compute the output of one neuron; and, given a task, write down its input X and output Y and tell whether it is classification or sequence prediction.
 
-## When you can't write the rules, let the machine find the function
+## AI, machine learning, and deep learning are not the same thing
 
-Page 5 opens with sentiment classification of product reviews. "I love this product!" is easy to handle with a rule: if the text contains "love" or "like," output positive. "It claims too much." works too: "too much" or "bad" means negative. But what about "It's a little expensive."? The Chinese examples, written in the style of Taiwanese forum comments, push the point further. "First wave of launches in Taiwan!" is an upvote, "The specs are pretty useless…" is a downvote, but what do you do with "I'll consider it once the guy downstairs buys one"?
+Professor Yun-Nung Chen first separates three words that are often used interchangeably.
 
-The slide's conclusion: some tasks are too complex for us to know how to write a program. Page 6 reframes the problem. Instead of writing `program.py`, assume there is a function f that takes a review and outputs up or down, and **give the machine lots of data so it learns what f should be**. Page 7 lists other tasks that fit the same frame: speech recognition, image recognition, weather forecasting, customer prediction, and playing video games. Each one is f(input) = output.
+- **AI**: using machines to imitate intelligent human behavior, such as recognizing a face, writing a poem, or generalizing from one case to others. The method is not specified.
+- **Machine learning**: having the machine learn those behaviors from data. It is one way to build AI.
+- **Deep learning**: one method within machine learning.
 
-Page 8's Machine Learning Framework breaks this into three terms:
+Her example is a customer-service bot on LINE. It uses a machine to imitate a service agent, so it is AI, but most such bots are not built with machine learning. If a chain of if-statements solves a task, writing the program is enough. That is still AI, only not machine-learning-based AI. Machine learning needs enough data to learn from, so the first question for any task is whether this method suits it.
 
-- **Model**: a set of candidate functions (the hypothesis function set).
-- **Training**: pick the best function f* from that set, given the observed training data.
-- **Testing**: use the learned f* to predict inputs it has not seen.
+## Why some tasks cannot be written as rules
 
-In the next lecture these three terms become three questions: what is the model, what makes a function good, and how do we pick the best one.
+The task on page 5 of the deck is deciding whether a product review is positive or negative.
+
+The intuitive approach is a keyword list: output positive when "love" or "like" appears, and negative when "bad" appears. She then shows how this path breaks down:
+
+1. "It's not bad" contains "bad" and is positive.
+2. A fix: count the negative words, and treat an even count as two negatives making a positive.
+3. "It's not good … so that is very bad" has two negative words and is still negative. The rule is wrong again.
+
+Every added rule brings a new exception. The Chinese examples on the slide make the same point: 「台灣第一波上市！」 ("first launch wave in Taiwan!") is an upvote, 「規格好雞肋…」 ("the specs are pointless…") is a downvote, and what should 「樓下買了我才考慮」 ("I'll consider it after the next commenter buys it") be?
+
+She names the cause. People find this task intuitive, yet we cannot say how our brains make the call. Asked why one sentence is negative, we can explain that sentence. Asked for the complete method of telling positive from negative, we have none. We picked it up gradually by reading many reviews.
+
+## Learning is finding a function
+
+Since the rules cannot be stated, take a different approach (page 6): treat the judgment as a function f that takes a review x and outputs positive or negative, f(x). We do not know how f computes. We only have many pairs of x and f(x).
+
+She uses a small guessing game to show how data helps:
+
+- Knowing only f(1) = 1, both f(x) = x and f(x) = x² fit.
+- Add f(2) = 4, and f(x) = x is ruled out while x² remains.
+- The more pairs given, the more candidates are eliminated, and the more likely the remaining formula is right.
+
+That is what machine learning does: give the machine a large number of inputs and outputs, and let it find the computation that turns one into the other.
+
+The same framing applies to many tasks (page 7 and video 1.1):
+
+| Task | Input x | Output f(x) | Her remark |
+|---|---|---|---|
+| Speech recognition | Audio | Text | People must transcribe audio by hand first; she quotes an old line that before artificial intelligence comes a lot of manual labor (a Mandarin pun: 人工智慧 / 工人智慧) |
+| Image recognition | Image | License plates, handwritten digits, and so on | Used early on in the US to read handwritten ZIP codes on envelopes and sort mail by area |
+| Weather forecasting | Past weather | Later weather | Monday as input and Tuesday as output, then Tuesday and Wednesday, and so on, gives many examples |
+| Advertising | User information and a product | Probability of buying | With a large budget, target everyone above 0.7; with a small one, only those above 0.9 |
+| Playing games | Game screen | Joystick action | In Breakout, when the ball is about to fall, the paddle should move toward it |
+
+Page 8 fixes the process in three terms:
+
+- **Model**: a set of candidate functions.
+- **Training**: use the training data to pick the best one, f*. In her words, "finding the function."
+- **Testing** (also called inference): feed an unseen x into f* and get a prediction. In her words, "using the function."
+
+The output is often called a label, meaning a person's annotation of that example.
 
 ## Deep learning: a production line where every station learns
 
-Page 9 defines deep learning as a subfield of machine learning. Page 10 uses a production-line metaphor. A deep learning model chains many simple functions f1, f2, f3 into one very complex function. The key idea is **end-to-end training**: the machine learns what each station should do, instead of a person specifying it.
+Deep learning is still finding a function. The difference is the form of the function: many simple functions chained into one complex function (page 10). Her example: each function is only quadratic, and stacking three of them can represent higher-degree behavior.
 
-Page 11 redraws the production line as a neural network: input layer, several hidden layers, output layer. What the middle layers produce are called features or representations. The slide gives two definitions: representation learning tries to learn good features, and deep learning tries to learn multiple levels of representation plus an output.
+Her analogy is a garment production line. Turning a piece of cloth into a garment is complex, but each station is simple: cut, fold, sew. The trouble is that training each station separately would require inputs and outputs for every station.
 
-### Deep vs. shallow: which stations a human builds
+Deep learning uses **end-to-end training**: supply data only at the two ends of the line, the initial input and the final output, and say nothing about what each station should output. When the whole line is trained, each station learns what to do.
 
-Pages 12–15 compare two fields:
+### Deep learning and neural networks are the same thing
 
-- **Speech recognition**: the shallow pipeline is waveform → DFT → spectrogram → filter bank → log → DCT → MFCC → GMM. Most boxes are hand-crafted, and only the last one is learned from data. The deep model learns every station from data. The slide quotes Deng Li at Interspeech 2014, "Bye bye, MFCC," and notes the trade-off: less engineering labor, but the machine has to learn more.
-- **Image recognition**: the shallow model is again hand-crafted features plus a classifier. In the deep model every layer is learned. Page 15 cites the visualizations from [Zeiler & Fergus (ECCV 2014)](https://arxiv.org/abs/1311.2901) to show what each layer learns.
+She tells this story every year. Neural networks used to be an unremarkable method in machine learning, and the name carried a stigma. Later, researchers managed to stack more layers and train them, and results improved. Worried that a paper saying "neural network" would be rejected on sight, they renamed it deep learning. People read it as something new and then saw how well it worked. The two terms refer to the same family of models.
 
-Pages 16–17 sum up the difference (credited to Dr. Socher). In machine learning, people use domain knowledge to describe the data as features, and the algorithm optimizes the weights. In deep learning, even the representations are learned. The slide adds that deep learning usually refers to neural-network-based models.
+### Hidden layers and representations
 
-Pages 19–20 introduce a single neuron: inputs times weights, plus a bias, passed through a sigmoid activation. Each neuron is a very simple function. Stack them into layers and you get a deep neural network f: R^N → R^M. The details are in [post 2](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en).
+Between a network's input and output are many layers, called hidden layers because only the two ends are visible. Each layer extracts what in the data helps the task; these are called features or representations. That is why deep learning is also called representation learning. She mentions that the conference ICLR is about exactly this (its full name is the International Conference on Learning Representations).
 
-## Why the boom came after 2010
+She gives an easy threshold to remember: **more than one hidden layer counts as deep**. A hundred layers is common now, but two already make a deep learning model. The threshold sits there for a reason: in the past, only one layer could be computed.
 
-Page 21 gives a timeline: the perceptron in the 1960s; its limits shown in 1969; multi-layer perceptrons in the 1980s; backpropagation in 1986; the 1989 objection that "one hidden layer is good enough, why deep?"; RBM initialization in 2006; GPUs in 2009; breakthroughs in speech recognition (2010) and ImageNet (2012); AlphaGo in 2016; and ChatGPT in 2022.
+### Deep versus shallow is about which stations people design
 
-Page 22 gives the speech numbers. On RT03S FSH, word error rate falls from 27.4% with traditional features to 18.5% with deep learning, a 33% relative reduction.
+Pages 12–15 contrast speech and vision:
 
-Page 23 asks why the breakthroughs cluster after 2010. Pages 24–28 answer with two things: **big data** and **GPUs**. Speed matters because more data means longer training, and training that takes too long is impractical. At inference time, users won't wait for a response. GPU compute is what lets these applications ship.
+- **Speech recognition.** The shallow pipeline turns the waveform into a spectrogram, applies filters, takes a log, and ends with the expert-defined feature MFCC, which goes into a machine learning model called a GMM. Every step before the GMM is designed by experts, and only the GMM learns from data. So a shallow model is still machine learning, with a lot of expert-designed preprocessing in front. The deep approach goes from the waveform straight to the output, and every station learns from data.
+- **Image recognition.** The shallow approach starts with hand-designed processing such as edge detection and ends with a learned classifier. The deep approach starts from pixels; early layers learn to detect edges, and later ones respond to shapes and patterns.
 
-## Why deep, not fat
+The benefit is much less hands-on design work for experts, and the machine may pick up information the experts never thought of. She states the cost as well: **you do not know what it actually learned**. You can only analyze afterward and say it appears to have learned edges or circles, without being sure.
 
-Page 29 starts with the intuition that deeper means more parameters. Page 30 immediately pushes back. The **universality theorem** says any continuous function f: R^N → R^M can be realized by a network with a single hidden layer (the slide links to [chapter 4 of Nielsen's book](http://neuralnetworksanddeeplearning.com/chap4.html)). If one layer is enough, why go deep instead of fat?
+## What one neuron computes
 
-Pages 31–33 compare two networks with the same parameter count, one fat and shallow, the other thin and deep. Page 32 uses handwritten digit classification to show that **the deeper model reaches the same performance with fewer parameters**. Page 33 adds a sketch of how a shallow network may need far more nodes than a deep one to represent the same function.
+Page 19 zooms in on a single circle in the network. It takes a weighted sum of the N numbers it receives, adds a constant called the bias, and passes the result through an activation function:
 
-Keep the two questions apart. The universality theorem answers "can it be represented at all," not "how many parameters does it take, and can we learn it." The slides' argument is about the second question.
+```text
+z = w1·x1 + w2·x2 + … + wN·xN + b
+y = σ(z) = 1 / (1 + e^(−z))        # sigmoid
+```
 
-## Framing a task as a learning problem
+The sigmoid squeezes any z into the range 0 to 1, and gives exactly 0.5 at z = 0. The mapping is curved, not a straight line, so it is non-linear. There are many activation functions, and the sigmoid is a common one. She explains why the output is squeezed: if some neurons output fractions and others output hundreds, the information passed along is badly unbalanced, the computation concentrates in a few neurons, and the rest contribute very little however they compute.
 
-This is the topic of video 1.3 (pp. 34–41), and it is what the "Applied" in the course name means.
+**Compute one by hand (made up for this post).** Suppose a neuron receives x = (1, 0, 1) with weights w = (2, −1, −3) and bias 0.5.
 
-Page 35 writes the learning algorithm as f: X → Y, mapping an input domain X to an output domain Y:
+- z = 2×1 + (−1)×0 + (−3)×1 + 0.5 = −0.5
+- y = 1 / (1 + e^0.5) = 1 / (1 + 1.6487) ≈ 0.378
 
-- **Input domain**: a word, a word sequence, an audio signal, click logs.
-- **Output domain**: a single label, sequence tags, a tree structure, a probability distribution.
+The output 0.378 is the number this neuron passes to the next layer. Change the bias to 3.5, and z becomes 2.5 and y ≈ 0.924. The same input with different parameters gives a different output, and training is the search for good parameters.
 
-Pages 36–37 use the output domain to separate two kinds of task:
+Arrange many neurons in a layer and connect every neuron in one layer to every neuron in the next, and you have a fully connected network, the most basic kind (page 20). The whole network is a function f with an N-dimensional input and an M-dimensional output. If the task is recognizing the faces of 10 people, M is 10.
 
-| Task type | Examples in the deck |
-|---|---|
-| **Classification** | Sentiment analysis ("these specs are sincere!" → +), speech phoneme recognition, handwriting recognition |
-| **Sequence prediction** | Part-of-speech tagging (a Chinese sentence tagged word by word as VV, PN, NR…), speech recognition, machine translation |
+## Why the breakthrough waited until after 2010
 
-Page 37 concludes in one line: **the learning task is decided by the output domain.**
+The single-layer perceptron existed in the 1960s, and the multi-layer perceptron, with one hidden layer added between input and output, appeared in the 1980s (page 21). She stresses that these models are very close to what is used today. So why the wait of several decades?
 
-Page 38 turns to the input side. Inputs have properties such as continuity, temporal order, and uneven importance, and the architecture should match them. CNNs handle images with local connections, shared weights, and pooling; RNNs handle temporal information; Transformers handle interactions among multiple inputs. Page 39 joins both ends: network design should use the properties of both the input and output domains.
+First the breakthrough itself. The speech recognition numbers on page 22: on the RT03S FSH dataset, traditional features had a word error rate (WER) of 27.4% and deep learning had 18.5%, a 33% relative reduction; on another dataset, Hub5 SWB, it fell from 23.6% to 16.1%, a 32% relative reduction. She says the error rate had stayed above 20% for a long time.
 
-Pages 40–41 define "applied deep learning" as framing a task into a learning problem and designing or choosing the matching model. The three core factors are data, hardware (GPU computing), and the talent to design algorithms that make networks work for a specific problem.
+The cause is two things becoming available in the same period:
 
-**Something to try tonight**: pick an NLP task you know and write down its f: X → Y. Is X a word, a sentence, or a conversation? Is Y one label, one label per word, or another string of text? Once you can write Y, you know whether it is classification or sequence prediction. Once you can describe X, you know what the RNNs and Transformers in the coming lectures are each built to handle.
+- **Data.** Deep learning needs many pairs of x and y to train well. Around the 2010s mobile devices spread, data volume grew quickly, and the cloud made it easy to pool.
+- **Compute.** She makes the point with a question: if ten thousand examples take a year to compute, you will not do it; at a week you will consider it; at a day you will try. A CPU can do the computation too, only more slowly. She relays an explanation she got from asking Bing: GPUs are good at computing many small units at once, which matches the structure of a neural network; using a GPU for other kinds of machine learning models does not make them better.
+
+Her analogy is cooking: data is the ingredients, hardware is the kitchen equipment, and a good dish needs both.
+
+Speed matters beyond training. As models grow, even using them (inference) takes time, and users will not wait. That is why one vendor offers both fast models and strong ones, chosen by use case.
+
+## Why deep and not fat
+
+More depth means more parameters and more complex functions. Yet page 30 has a theorem: any continuous function f: R^N → R^M can be represented by a network with a single hidden layer, provided that layer is wide enough. If one layer suffices, why make networks deep instead of fat?
+
+Her answer has two steps.
+
+**Experiment** (page 32). Compare a model with one hidden layer against one with three hidden layers on handwritten digit recognition. To reach the same performance, the model with one hidden layer needs more parameters.
+
+**Intuition** (page 33). The figure in the deck sets one layer of width 2d against two layers of width d. She speaks of 2d as the parameter count while the figure labels it as the layer's width, and the slide's heading says the two networks have the same number of parameters. Added by this post: counting the connections of fully connected layers, the two parameter counts are not strictly equal, so the slide is an order-of-magnitude intuition. With everything in one layer, the complexity that can be represented is about O(2d). With two layers, data passes through the first and then the second, and it is about O(d²). Plugging in a number (my own): at d = 100, the scale is 200 on one side and 10,000 on the other.
+
+My own summary: keep apart what the theorem and this argument each answer. The theorem answers "can it be represented," and the answer is yes. It does not answer "with how many parameters." The advantage of depth lies in the second question.
+
+## How to write a task as a learning problem
+
+This is the subject of video 1.3 and the meaning of "Applied" in the course name. Start by fixing X and Y (page 35; sensor data and natural language are her spoken additions):
+
+- **Input X**: a word, a word sequence, audio, click logs, sensor data. She says anything you think helps the task can be an input.
+- **Output Y**: a single label, a sequence of tags, a tree structure, a probability distribution, or a passage of natural language.
+
+**The output decides the type of task** (pages 36–37):
+
+| Type | Examples in the deck | What the output looks like |
+|---|---|---|
+| Classification | Sentiment analysis (「這規格有誠意！」, "these specs show real effort!" → positive), phoneme recognition, handwritten digits | One choice among a fixed set of classes. Handwritten digits are 1 of 10 |
+| Sequence prediction | POS tagging (tagging each word of 「推薦我台大後門的餐廳」 as VV, PN, NR…), speech recognition, translation | A series of items predicted one at a time |
+
+She says sequence prediction is closer to how today's language models generate.
+
+**The input decides the architecture** (page 38):
+
+- An image has no time axis; what matters is each pixel and its surroundings, so CNNs are used.
+- Word order matters in text, and swapping two words changes the meaning, so RNNs were used. Stock prediction is the same: rising then falling means something different from falling then rising.
+- A Transformer lets the model find what to attend to; it attends to order when order matters and to surroundings when surroundings matter.
+
+Here she gives a practical reminder: **do not reach for the most popular large language model on every task**. She says a large model on a simple classification task is sometimes a waste of resources: it costs more, and a small model may already do very well. Let the large model generate data, train a small model on it, and deploy the small one, which is fast and cheap at inference.
+
+Page 41 lists three factors for applied deep learning: data, hardware, and talent. She calls talent the most important. Many companies have data and hardware, and it takes people who know how to frame the problem and choose the model to avoid trying everything by brute force.
+
+**A walkthrough (made up for this post).** Suppose customer emails must be routed automatically to three departments: refunds, shipping, and accounts.
+
+- X is the text of an email, a sequence of words.
+- Y is one of three departments, so this is classification, 1 of 3.
+- The input is ordered text, so a model that handles sequences fits.
+- This is simple classification. Following her reminder, have a large model label a few thousand old emails, then train a small classifier to deploy.
+
+If the requirement changes to "write a reply to each email," Y becomes a passage of text, the task turns from classification into sequence prediction, and the choices above change with it.
+
+## Common misreadings
+
+This list is my own summary, not something the lecture enumerated point by point.
+
+- **"AI is machine learning."** A customer-service bot built from if-statements is AI and uses no machine learning.
+- **"It takes a hundred layers to be deep learning."** Her threshold is more than one hidden layer.
+- **"One layer can represent any function, so depth is unnecessary."** Being representable does not make it economical. For the same performance, the shallow model needs more parameters.
+- **"The post-2010 breakthrough came from a brand-new model."** The models are close to those of decades earlier. What changed was the amount of data and the available compute.
+
+## Self-check
+
+The questions were written for this post.
+
+**1. Apply the rule "output positive if 'good' appears, negative if 'bad' appears" to "not good" and "not bad." What are the results, and what does that show?**
+
+"not good" is judged positive and "not bad" is judged negative, both wrong. Keywords alone miss negation, and the ways of writing negation cannot all be listed, which is why the task is learned from data.
+
+**2. A neuron has input x = (2, 1), weights w = (1, −2), and bias 0. With a sigmoid, what is the output?**
+
+z = 1×2 + (−2)×1 + 0 = 0, and σ(0) = 0.5.
+
+**2b. For the same neuron, change the bias to 1. What is the output?**
+
+z = 1, and σ(1) = 1 / (1 + e^(−1)) = 1 / (1 + 0.3679) ≈ 0.731.
+
+**3. For "turn a meeting recording into a transcript," what are X and Y? Is it classification or sequence prediction?**
+
+X is the audio signal and Y is a sequence of text. It is sequence prediction.
+
+**3b. What about "decide whether an email is spam"?**
+
+X is the text of the email, and Y is one of two classes, "yes" or "no." It is classification.
+
+**4. Put 200 units in one layer, or split them into two layers of 100. By the estimate on page 33, what is the scale of the complexity of each?**
+
+One layer is 2d, that is 200, and two layers is d², that is 10,000. This is the deck's rough estimate for intuition, not a rigorous theorem.
+
+**5. You have ten thousand labeled reviews, need to classify sentiment, and face heavy traffic with real-time responses. Is calling the largest language model directly a good idea?**
+
+First identify the task: the output is positive or negative, so this is simple classification. Her reminder in 1.3 is that a large model on such a task is sometimes wasteful and costly, while a small model is fast and cheap at inference. Following that, I would first train a small model on the ten thousand reviews, and ask a large model to generate more data only if it runs short.
+
+**6. Why did the deep learning breakthrough come around the 2010s, and not when the models first appeared?**
+
+The models themselves are close to those of decades earlier. Two things were missing: enough data, and enough compute (GPUs) to finish in a reasonable time. Both became available only around the 2010s.
+
+Previous: [Course Overview](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
 
 ## Further reading
 
 - [CMU 11-785 Lecture 1: Introduction](/posts/ai/2026-08-22-cmu-11785-01-introduction-en) and [Lecture 2: Neural Nets as Universal Approximators](/posts/ai/2026-08-22-cmu-11785-02-universal-approximators-en) spend more time on universality and why depth matters.
 - The [Stanford CS224N guide](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en) covers the same NLP deep learning storyline in an English-taught course.
 - The two textbooks on p. 45 of the deck: [Deep Learning](http://www.deeplearningbook.org) by Goodfellow, Bengio, and Courville, and Michael Nielsen's [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com).
-
-Previous: [Reading NTU Yun-Nung Chen's Applied Deep Learning 2025 Fall: Course Map, A2 Rating, and How to Read It](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
-Next: [Neural Networks and Backpropagation](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop-en)
 
 ## Course video sources
 
@@ -117,21 +254,23 @@ url: https://www.youtube.com/watch?v=asuLb0lLmJY
 title: ADL 1.2: What is DL? (YouTube)
 ```
 
-Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?v=Nls5bHxW6i0)、[ADL 1.2: What is DL? (YouTube)](https://www.youtube.com/watch?v=asuLb0lLmJY)、[ADL 1.3: How to Apply? (YouTube)](https://www.youtube.com/watch?v=oT4UQj_PXYo)
+Original videos: [ADL 1.1: What is ML? (YouTube)](https://www.youtube.com/watch?v=Nls5bHxW6i0), [ADL 1.2: What is DL? (YouTube)](https://www.youtube.com/watch?v=asuLb0lLmJY), [ADL 1.3: How to Apply? (YouTube)](https://www.youtube.com/watch?v=oT4UQj_PXYo)
 
 Course and recording entries:
 
 - [Official course and recording entry](https://www.csie.ntu.edu.tw/~miulab/f114-adl/)
 
-Checked: 2026-10-10.
+Checked: 2026-10-13.
 
-Content check: verified against the video transcript (2026-10-10): Both transcripts (1.1 and 1.2) were read. 1.1: the sentiment-classification task that cannot be written as rules, learning as finding a function, training/testing, and the speech, image, advertising and game-playing applications. 1.2: the production-line analogy and end-to-end training, the shallow vs deep speech and image comparison, hidden layers and representations, the neuron and sigmoid, the roughly one-third error drop, big data and GPUs, and the fat vs thin parameter comparison. All match the corresponding sections. One thing the article did not say: both videos carry a YouTube upload date and description of 2024/09/04, so they are Fall 2024 recordings rather than a 2025 re-recording (the description also notes slides at adl.miulab.tw). The article makes no specific claims about the slide-21 timeline as spoken in the video, and 1.3 is not embedded and was not checked.
+Content check: verified against the video transcript (2026-10-13): all three videos (1.1, 1.2, 1.3) were worked from their captions. The caption file contains speech-recognition errors, so technical terms follow the deck. 1.1 and 1.2 carry an upload date and description of 2024/09/04, so they are Fall 2024 recordings, not a 2025 re-recording.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The embedded videos match the lectures on the official course page and playlist.
 - 2026-10-10: Checked the video content against its transcript. Confirmed that 1.1 and 1.2 match the article, and noted that both are Fall 2024 recordings dated 2024/09/04.
+- 2026-10-13: Moved the verification history out of the body and switched cross-references within the series from post order to lecture numbers.
+- 2026-10-13: Rewrote the whole guide from the spoken content of the three videos, adding a worked neuron example, a task-framing walkthrough, common misreadings, and a self-check with answers.
 
 ## References
 
