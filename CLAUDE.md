@@ -91,6 +91,9 @@ pnpm sync:prod        # Sync posts to D1 (production)
 - `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`.
 - Never revert file changes without explicit user confirmation.
 - 網頁研究遵循全域 Web Fetch fallback 鏈：(1) Groundlane MCP → (2) Groundlane 直接 HTTP（`WebFetch` POST `groundlane.vincent-xu-work.workers.dev/mcp`，繞過 connector） → (3) Keenable keyless API（`GET api.keenable.ai/v1/search/public`，10 萬次/月免費） → (4) You.com keyless（`GET api.you.com/mcp?profile=free`，100 次/天免費） → (5) 雲端 MCP：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl` → (6) 內建 `WebFetch`。降級時記錄 `toolDegradation`。舊 `stealth_fetch` 與舊 `web-fetch/fetch_page` 已退役，不再使用。
+  - 雲端 session（claude.ai/code）的 Groundlane 工具常是 deferred：名字在清單裡但要先用 ToolSearch 載入才能呼叫。沒載入過不算「不可用」。
+  - 要宣稱「讀不到某頁」，必須先把整條鏈試完，並列出每個工具的失敗原因；只試一兩個工具就下結論不算數。
+  - 雲端 session 的終端機連線（`curl`、`pnpm install`、`git clone`）回 403，先當成網域沒在環境白名單（Default 環境：Custom + 套件管理器預設清單 + `codeload.github.com` + YouTube 網域），不要直接判成 repo 權限不足；先用 `gh repo view <owner/repo> --json visibility` 查是否公開。回報時寫出被擋的完整網域，請使用者加進環境的 Allowed domains。
 
 ## Commit Convention
 
